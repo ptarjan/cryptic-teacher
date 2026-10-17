@@ -782,32 +782,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INALL",
+     "op": "middle",
      "indicators": [
       {
        "text": "naked",
-       "note": "something naked is stripped of its covering, so its outermost letters come off"
+       "at": 11,
+       "note": "naked means stripped of its covering, so the outer letters of the word are removed"
       }
      ],
      "parts": [
       {
        "words": "at last",
+       "at": 17,
        "gives": "FINALLY",
-       "note": "finally means at last"
+       "note": "at last means finally"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who has finally got completely undressed.",
-     "walkthrough": "'Altogether naked' calls up 'in the altogether', but altogether is the definition and naked strips FINALLY.",
-     "definitionFit": "Both phrases mean in total, counting everything, as in 'twenty people came in all'."
+     "surface": "Sounds like a coy remark about someone finally stripping off completely.",
+     "walkthrough": "'Altogether' tempts you towards 'in the altogether' for naked, but it is the definition; 'naked' strips the first and last letters off FINALLY.",
+     "definitionFit": "In all and altogether are both used to give a total, as in 'there were ten in all'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "naked"
     }
    }
@@ -975,62 +974,65 @@
        "indicators": [
         {
          "text": "in",
-         "note": "a thing placed in another goes inside it"
+         "at": 29,
+         "note": "in places one piece inside the city name Bath"
         }
        ],
        "parts": [
         {
          "words": "Bath",
-         "note": "taken as written; Bath is a city in Somerset"
+         "at": 32
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "half of",
-           "note": "half of a two-letter word is a single letter, its first"
+           "at": 18,
+           "note": "half of a two-letter word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "it",
-           "note": "the first half of the two-letter word: its first letter"
+           "at": 26,
+           "note": "the word it, taken as written before half is taken"
           }
          ]
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LON",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half a word keeps only its first part"
+         "at": 38,
+         "note": "half of a six-letter word keeps the first three letters, dropping the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "London",
-         "gives": "LON",
-         "select": "first",
-         "note": "the first half of the word: three of its six letters"
+         "at": 43
+        },
+        {
+         "gives": "DON",
+         "note": "the second half of London"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A two-venue sporting event held partly in Bath and partly in London.",
-     "walkthrough": "The surface suggests splitting an event between two cities; in fact the halves are of words. Half of IT goes inside BATH, then half of LONDON follows.",
-     "definitionFit": "A biathlon is a sport joining two disciplines, usually cross-country skiing and rifle shooting, so it is a two-part competition."
+     "surface": "Sounds like an event staged partly in Bath and partly in London.",
+     "walkthrough": "'half of' takes the first letter of 'it' and 'in' puts it into the city name; 'half' keeps the first three letters of the capital. Bath is a city in the west of England.",
+     "definitionFit": "A biathlon is a sporting event combining two disciplines, classically cross-country skiing and rifle shooting."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "Combined"
     }
    }
   },
@@ -1051,64 +1053,67 @@
     "definitions": [
      {
       "text": "More than one fern",
-      "at": 0,
-      "note": "a genus name standing for many species"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ADIANTUM",
      "indicators": [
       {
        "text": "hid in",
-       "note": "what hides in something is concealed within it"
+       "at": 26,
+       "note": "the hunter is concealed within the other letters, so it goes inside them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "note": "something short lacks its tail, so the final letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "hunter",
-           "gives": "DIAN",
-           "note": "Dian is a poetic form of Diana, goddess of the hunt"
-          },
-          {
-           "words": "clump",
-           "gives": "TUMP",
-           "note": "a tump is a clump of trees or a hillock"
-          }
-         ]
+         "words": "a",
+         "at": 33,
+         "gives": "A"
         },
         {
-         "gives": "P"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 35,
+           "note": "short means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "clump",
+           "at": 41,
+           "gives": "TUMP",
+           "note": "a tump is a dialect word for a clump or hillock"
+          },
+          {
+           "gives": "P",
+           "note": "the last letter of the clump word"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "hunter",
+       "at": 19,
+       "gives": "DIAN",
+       "note": "Dian is the poetic form of Diana, the Roman goddess of hunting"
       }
      ]
     },
     "explanation": {
-     "surface": "A hunter hides among some ferns in a low clump of vegetation.",
-     "walkthrough": "Hunter points to the goddess Diana in her poetic short form. 'More than one' is fair because a genus name covers many species.",
-     "definitionFit": "Adiantum is the botanical genus of maidenhair ferns, holding many species, so the name covers a number of plants."
+     "surface": "Pictures a hunter crouching hidden in a small clump of vegetation.",
+     "walkthrough": "'hid in' sets the huntress inside the rest. The definition is plural because the answer names a genus, a whole group of maidenhair ferns.",
+     "definitionFit": "Adiantum is the genus of maidenhair ferns, so the name covers many fern species rather than one."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "hunter"
     }
    }
@@ -1217,54 +1222,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTIMITY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "heartlessly",
-       "note": "without a heart, a word loses its middle letter"
+       "text": "messed with",
+       "at": 59,
+       "note": "messed with means the letters are disordered and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "I'm in it",
+       "at": 33
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "messed with",
-         "note": "letters messed with are muddled up into another order"
+         "text": "heartlessly",
+         "at": 47,
+         "note": "heartlessly removes the middle letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "I'm",
-         "note": "taken as written"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
-         "words": "it",
-         "note": "taken as written"
-        },
-        {
          "words": "yet",
-         "gives": "YT",
-         "note": "the word without its middle letter"
+         "at": 43
+        },
+        {
+         "gives": "E",
+         "note": "the middle letter of yet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pensioner grumbles that their close friendship has been disrupted while they are part of it.",
-     "walkthrough": "Old-timers' marks the word as archaic; it is the old form of intimacy.",
-     "definitionFit": "This obsolete noun means closeness or familiarity between people, the same sense as the modern word intimacy."
+     "surface": "Someone confesses to being caught up in something that has been tampered with.",
+     "walkthrough": "'heartlessly' cuts YET to YT, and 'messed with' rearranges IMINIT + YT. 'Old-timers'' marks the answer as an obsolete word.",
+     "definitionFit": "Intimity is an archaic form of intimacy, a close personal relationship."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Old-timers'"
     }
    }
@@ -1684,37 +1684,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COYLY",
-     "indicators": [
-      {
-       "text": "missing",
-       "note": "what is missing has been taken away, so letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "plagiarise",
-       "gives": "COPY",
-       "note": "to plagiarise is to copy"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 32,
+         "note": "missing means the named letter is left out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plagiarise",
+         "at": 6,
+         "gives": "COPY",
+         "note": "to copy is to plagiarise"
+        },
+        {
+         "words": "page",
+         "at": 40,
+         "gives": "P"
+        }
+       ]
       },
       {
-       "words": "work steadily",
-       "gives": "PLY",
-       "note": "to ply a trade is to work at it steadily"
-      },
-      {
-       "words": "page more than once",
-       "gives": "PP",
-       "note": "P is page, taken twice"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "more than once",
+         "at": 45,
+         "note": "more than once means the same page letter is dropped again from the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work steadily",
+         "at": 17,
+         "gives": "PLY",
+         "note": "to ply is to work steadily at something, as in plying a trade"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer quietly copies others' work, page after page.",
-     "walkthrough": "'More than once' means the P of page goes from both COPY and PLY.",
-     "definitionFit": "To act coyly is to behave with bashful or affected reserve, which is a near synonym of behaving timidly."
+     "surface": "Pictures a shy plagiarist working quietly while leaving out a page or two.",
+     "walkthrough": "'missing page' drops P from COPY to leave COY, and 'more than once' drops another P from PLY to leave LY.",
+     "definitionFit": "Coyly means in a bashful, demure manner, which is acting shyly."
     },
     "features": {
      "answerInScene": false,
