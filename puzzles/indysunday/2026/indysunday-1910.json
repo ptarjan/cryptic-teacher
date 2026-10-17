@@ -586,52 +586,54 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TARGETPRACTICE",
      "indicators": [
       {
        "text": "Silly",
-       "note": "something silly is muddled and senseless, so the letters are jumbled"
+       "at": 0,
+       "note": "silly means foolish and muddled, so the letters are jumbled into a new order"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "TARGETPRACTICE",
        "indicators": [
         {
          "text": "having used the other end for",
-         "note": "swapping one end of a word for the other means its first letter gives way to its last"
+         "at": 17,
+         "note": "having used the other end for says the far end of nailing replaces its start in the carpenter's letters"
         }
        ],
        "parts": [
         {
          "words": "carpenter",
-         "note": "the word as written"
+         "at": 6
         },
         {
          "words": "nailing",
-         "gives": "G",
-         "note": "the word begins with N and ends with G, so its far end replaces the N in carpenter"
+         "at": 47,
+         "gives": "N",
+         "note": "the first letter of nailing, the one swapped out"
         },
         {
-         "words": "attic",
-         "note": "the word as written"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "attic",
+       "at": 55
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy carpenter hammering the wrong end of a nail into the attic needs more aiming practice.",
-     "walkthrough": "The N in carpenter becomes G, the other end of nailing; those letters plus attic are then rearranged.",
-     "definitionFit": "Target practice is shooting at a target to improve accuracy, an exercise in aiming."
+     "surface": "A clumsy carpenter hammers a loft with the wrong end of the tool.",
+     "walkthrough": "'having used the other end for nailing' swaps the N of CARPENTER (the start of nailing) for G (its other end), making CARPEGTER; 'Silly' then rearranges that with ATTIC.",
+     "definitionFit": "Target practice is shooting at a mark to improve one's accuracy, a training exercise in aiming."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "nailing"
     }
    }
