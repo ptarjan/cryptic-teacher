@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -136,44 +137,53 @@
     "definitions": [
      {
       "text": "another",
-      "at": 38
+      "at": 38,
+      "note": "a second music genre, so the definition stands for the answer as a noun"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BLUEGRASS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in places the rearranged letters inside the name of the genre"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "one music genre",
+       "at": 17,
+       "gives": "BLUES",
+       "note": "the blues is a music genre rooted in African-American folk song"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Arranged",
-         "note": "to arrange things is to put them in an order of your own choosing, and the order chosen is not the one printed"
-        },
-        {
-         "text": "in",
-         "note": "whatever is set in something else ends up embedded inside it, so these letters land within the word named next"
+         "at": 0,
+         "note": "music is arranged, but here the letters of rags are arranged into a fresh order"
         }
        ],
        "parts": [
         {
-         "words": "one music genre",
-         "gives": "BLUES",
-         "note": "the blues is a music genre, and the word opens up after its fourth letter"
-        },
-        {
          "words": "rags",
-         "gives": "GRAS",
-         "note": "the four letters of rags, reordered, drop into that gap"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Rags earns its place on the surface because ragtime sits beside the blues as a genre, which is exactly why it does not look like fodder.",
-     "definitionFit": "another -> BLUEGRASS: the wordplay names the blues, and the definition asks for a second genre, the banjo-driven Appalachian string-band music."
+     "surface": "Scott Joplin's ragtime pieces rearranged as one style of music turn into a different style.",
+     "walkthrough": "Rags are ragtime pieces, so 'Arranged' sounds musical, but it is the anagram signal; 'another' is the definition, meaning a second music genre.",
+     "definitionFit": "Bluegrass is a style of American country music from Kentucky, so it is another genre besides the blues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Arranged"
     }
    }
   },
