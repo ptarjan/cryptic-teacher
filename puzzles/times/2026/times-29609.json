@@ -811,41 +811,62 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "REDLIGHT",
-     "indicators": [
-      {
-       "text": "to switch leaders",
-       "note": "the two words swap their opening letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to switch",
+         "at": 34,
+         "note": "to switch means to exchange, so each word gives up a letter and takes the other's in its place"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "induced",
-         "gives": "RED",
-         "soundsLike": "LED",
-         "note": "to lead is to induce; it takes the R from the next word"
+         "at": 12,
+         "gives": "LED",
+         "note": "to lead someone on is to induce them, so induced gives led"
         },
         {
-         "unchecked": true,
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "leaders",
+         "at": 44,
+         "note": "leaders says the letters exchanged are the first letters of the two words"
+        }
+       ],
+       "parts": [
+        {
          "words": "Conservatives",
-         "gives": "LIGHT",
-         "soundsLike": "RIGHT",
-         "note": "Conservatives are the political right; it takes the L from the word before"
+         "at": 20,
+         "gives": "RIGHT",
+         "note": "the Right is the conservative wing of politics"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warning sign pushed the Tories into changing their leader.",
-     "walkthrough": "\"Switch leaders\" is political in the surface; in the wordplay the leaders are the first letters of LED and RIGHT.",
-     "definitionFit": "A red light signals danger or tells traffic to stop."
+     "surface": "A political warning that prompted the Tories to change their party leaders.",
+     "walkthrough": "'to switch leaders' is not about party politics: swap the first letters of LED and RIGHT.",
+     "definitionFit": "A red light is a stop signal or warning, an emblem of danger in traffic and elsewhere."
     },
     "features": {
      "answerInScene": false,
@@ -931,46 +952,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "conclusion",
-       "note": "a word's conclusion is its last letter"
-      },
-      {
        "text": "cases",
-       "note": "the outer word holds the other like a case"
+       "at": 54,
+       "note": "cases is used as a verb, meaning encloses, so the shortened word wraps around the letter"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "INTEN",
+       "op": "deletion",
        "indicators": [
         {
          "text": "pretty much",
-         "note": "nearly all the word, so drop the last letter"
+         "at": 31,
+         "note": "pretty much means almost, so the word for determined loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "determined",
-         "gives": "INTEN",
-         "select": "last",
-         "note": "INTENT, determined, minus its last letter"
+         "at": 43,
+         "gives": "INTENT",
+         "note": "intent, as in intent on winning, means determined"
+        },
+        {
+         "gives": "T"
         }
        ]
       },
       {
-       "words": "barrister's",
-       "gives": "R",
-       "note": "last letter of barrister"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusion",
+         "at": 20,
+         "note": "a conclusion is an end, so only the final letter of the barrister is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barrister's",
+         "at": 8,
+         "gives": "BARRISTER",
+         "note": "the possessive 's links the barrister to the conclusion; the word itself is barrister"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trainee lawyer's closing speech largely decided the court cases.",
-     "walkthrough": "\"Cases\" looks like legal cases in this courtroom scene; it is a verb, meaning encloses.",
-     "definitionFit": "An intern is a trainee working to gain experience."
+     "surface": "A trainee lawyer whose closing speech mostly settled the cases.",
+     "walkthrough": "'pretty much' trims INTENT to INTEN, and 'cases' makes it hold the R that ends 'barrister' ('conclusion').",
+     "definitionFit": "An intern is a junior or student working for experience, essentially a trainee in a profession."
     },
     "features": {
      "answerInScene": true,
@@ -1108,41 +1140,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INUTERO",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 14,
+       "note": "after places the rearranged letters following the word for during"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "during",
+       "at": 20,
+       "gives": "IN",
+       "note": "in, as in 'in the night', means during"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "changed",
-         "note": "the letters of route are changed around"
-        },
-        {
-         "text": "after",
-         "note": "the new letters come after the other word"
+         "at": 6,
+         "note": "changed signals that the letters of route take a new order"
         }
        ],
        "parts": [
         {
-         "words": "during",
-         "gives": "IN",
-         "note": "in the war = during the war"
-        },
-        {
          "words": "Route",
-         "gives": "UTERO",
-         "note": "anagram of ROUTE"
+         "at": 0,
+         "note": "taken as written for rearranging"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A delivery route was altered, with times given as during and before the drop.",
-     "walkthrough": "\"Delivery\" suggests a parcel round alongside \"route\"; here it is childbirth.",
-     "definitionFit": "In utero is Latin for in the womb, so before birth."
+     "surface": "A delivery route altered at some point in the process.",
+     "walkthrough": "'delivery' suggests parcels on a route, but here it means childbirth, so the definition describes where a baby is before it is born.",
+     "definitionFit": "In utero is Latin for in the womb, describing a baby's state before birth."
     },
     "features": {
      "answerInScene": false,
