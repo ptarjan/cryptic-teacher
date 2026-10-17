@@ -1369,50 +1369,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ABSENTEE",
-     "indicators": [
-      {
-       "text": "protecting",
-       "note": "to protect is to shield all round, so one piece wraps another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "An",
+       "at": 0,
+       "gives": "A",
+       "note": "an is the indefinite article, the same as a"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "unusual",
-         "note": "unusual means out of the normal order, so the letters are rearranged"
+         "text": "protecting",
+         "at": 10,
+         "note": "protecting means the word for insect wraps around the rearranged letters, shielding them"
         }
        ],
        "parts": [
         {
-         "words": "An",
-         "gives": "A",
-         "note": "the article as a single letter"
-        },
-        {
          "words": "insect",
+         "at": 3,
          "gives": "BEE",
          "note": "a bee is an insect"
         },
         {
-         "words": "nest",
-         "note": "anagram fodder, four letters"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "unusual",
+           "at": 21,
+           "note": "unusual means the letters of nest are put into a different, odd order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nest",
+           "at": 29,
+           "note": "the clue word nest, whose letters are rearranged"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bee guards its odd nest, but one member of the colony is missing.",
-     "walkthrough": "The insect surface flows into the definition, making 'one not here' seem like a missing bee.",
-     "definitionFit": "An absentee is a person who is away or missing from where they should be."
+     "surface": "An insect guards its strange nest, but someone is missing.",
+     "walkthrough": "'unusual' rearranges nest into SENT, which the bee wraps after its B.",
+     "definitionFit": "An absentee is a person who is away or missing, someone not present."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "insect"
     }
