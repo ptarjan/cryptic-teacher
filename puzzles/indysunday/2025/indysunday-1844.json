@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -90,41 +91,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CODPIECE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in means the shuffled letters go inside the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "enigmatic language",
+       "at": 29,
+       "gives": "CODE",
+       "note": "a code is language made deliberately obscure"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "novel",
-         "note": "novel means new, and four letters made new are four letters no longer in the order they were printed"
-        },
-        {
-         "text": "in",
-         "note": "'in' drops what stands before it inside what stands after, so the shuffled letters land in the middle"
+         "at": 20,
+         "note": "novel means new, so the letters are put in a fresh order"
         }
        ],
        "parts": [
         {
-         "words": "enigmatic language",
-         "gives": "CODE",
-         "note": "a code is a language only the people who hold the key can read"
-        },
-        {
          "words": "epic",
-         "gives": "PIEC",
-         "note": "the four letters of EPIC, dealt out in a new order"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A racy dust jacket wrapped round a long novel written in some impenetrable tongue.",
-     "walkthrough": "'Novel' looks like the noun the epic would be and is the anagram instruction instead. A codpiece was the padded flap laced over the front of a Tudor man's hose, worn to be looked at.",
-     "definitionFit": "A codpiece is the pouch fastened across the crotch of Tudor breeches, a cover placed exactly where it is bound to look bawdy."
+     "surface": "The jacket of an epic novel written in some cryptic tongue.",
+     "walkthrough": "'Novel' looks like the book itself, but it means new and rearranges the letters of epic, which sit inside CODE.",
+     "definitionFit": "A codpiece was the conspicuous pouch covering the crotch on men's breeches, a famously ribald garment."
     },
     "features": {
      "answerInScene": false,
@@ -154,45 +157,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MUTED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomes",
+       "at": 6,
+       "note": "welcomes means the earth takes the alien inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Earth",
+       "at": 0,
+       "gives": "MUD",
+       "note": "mud is wet earth"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "welcomes",
-         "note": "to welcome a visitor is to take them inside, so the word doing the welcoming opens up to hold what follows"
-        },
-        {
          "text": "back",
-         "note": "the visitor is going back the way it came, which means its two letters are read in the other order"
+         "at": 21,
+         "note": "back means the alien's letters are read from the end"
         }
        ],
        "parts": [
         {
-         "words": "Earth",
-         "gives": "MUD",
-         "note": "earth turned by a spade is mud"
-        },
-        {
          "words": "alien",
-         "gives": "TE",
-         "note": "the crossword's standard alien is ET, here facing the other way"
+         "at": 15,
+         "gives": "ET",
+         "note": "ET is the alien of the Spielberg film"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The planet greeting a returning extraterrestrial with rather less ceremony than last time.",
-     "walkthrough": "'Welcomes ... back' is doing two jobs at once, taking the visitor inside and turning it round, which is how five letters come out of a three-letter word and a two-letter one. ET is the crossword's alien and the film's.",
-     "definitionFit": "A muted celebration is one held down, with the noise and the display turned low, which is what doing something with less fanfare amounts to."
+     "surface": "Planet Earth greets a returning alien without much celebration.",
+     "definitionFit": "Muted means subdued or toned down, as a reception is when it lacks fuss and trumpets."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "Earth"
     }
    }
@@ -298,46 +304,46 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COJONES",
+     "indicators": [
+      {
+       "text": "put where",
+       "at": 15,
+       "note": "put where means the Welshman's name is placed in a spot belonging to something else"
+      },
+      {
+       "text": "tail should go",
+       "at": 31,
+       "note": "tail is the last letter of the animal, and the name goes there instead"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "W",
-       "indicators": [
-        {
-         "text": "put where",
-         "note": "'put where' names a position to drop somebody into rather than a place to add them on, so whatever is standing there has to leave"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "cow's tail should go",
-         "gives": "W",
-         "select": "last",
-         "note": "the tail of COW is its last letter, and it is the one told to go"
-        }
-       ]
+       "words": "cow's",
+       "at": 25,
+       "gives": "COW",
+       "note": "the word cow itself, from cow's"
+      },
+      {
+       "gives": "W"
       },
       {
        "words": "Welshman",
+       "at": 6,
        "gives": "JONES",
-       "note": "Jones is the commonest Welsh surname and the crossword's stock Welshman"
+       "note": "Jones is a typically Welsh surname"
       }
      ]
     },
     "explanation": {
-     "surface": "A Welshman standing where the back end of a cow ought to be.",
-     "walkthrough": "Cojones is Spanish for testicles and English has borrowed it whole for nerve, so the definition is the same slang in the other language. The two letters left of the cow are what the Welshman lands behind.",
-     "definitionFit": "Cojones is Spanish for testicles, taken into English for guts or nerve, so 'balls' is that same slang word in plain English."
+     "surface": "A rude command to a Welshman about where to put a cow's tail.",
+     "walkthrough": "The tail of COW is its W; JONES takes its place. The answer is Spanish slang that has entered English.",
+     "definitionFit": "Cojones is Spanish slang for testicles, used in English to mean courage or nerve."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "tail"
+     "misdirectedWord": "Welshman"
     }
    }
   },
@@ -528,42 +534,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNETHICAL",
-     "indicators": [
-      {
-       "text": "lacking conclusions",
-       "note": "a conclusion is the end of a thing, so each word named here loses the letter it ends on"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "article in Le Monde",
+       "at": 4,
+       "gives": "UNE",
+       "note": "une is the French feminine indefinite article, as in Le Monde, a French newspaper"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 44,
+         "note": "lacking means going without, here without the ending of the word for stupid"
+        }
+       ],
        "parts": [
         {
-         "words": "article in Le Monde",
-         "gives": "UNE",
-         "note": "Le Monde is a French daily, and the French for 'a' before a feminine noun is UNE"
+         "words": "stupid",
+         "at": 25,
+         "gives": "THICK",
+         "note": "thick means stupid"
         },
         {
-         "words": "stupid",
-         "gives": "THIC",
-         "note": "stupid is THICK, with the letter it ends on gone"
-        },
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "conclusions",
+         "at": 52,
+         "note": "the plural conclusions means the word for totally loses its last letter as well"
+        }
+       ],
+       "parts": [
         {
          "words": "totally",
-         "gives": "AL",
-         "note": "totally is ALL, one L lighter"
+         "at": 36,
+         "gives": "ALL",
+         "note": "all means totally, as in all alone"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stupid piece in Le Monde that never manages to reach a conclusion.",
-     "walkthrough": "'Article' is the grammarian's word rather than the journalist's, and naming a French paper tells you which language to fetch it from. Of UN, UNE, LE and LA, only one leaves something spellable in front of the rest.",
-     "definitionFit": "Unethical conduct breaks the code a profession holds people to, which is 'bad' in the moral sense rather than the incompetent one."
+     "surface": "A newspaper critic complaining about a dim, inconclusive article in a French daily.",
+     "walkthrough": "'Conclusions' is plural, so both THICK and ALL lose their final letters.",
+     "definitionFit": "Unethical behaviour is morally wrong, bad in the sense of wicked."
     },
     "features": {
      "answerInScene": true,
@@ -741,45 +767,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INDEPENDENT",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "dining out is eating away from home, and letters sent out likewise leave the places they were sitting in"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 5,
+         "note": "out means the letters are put out of order"
+        }
+       ],
        "parts": [
         {
          "words": "Dine",
-         "gives": "INDE",
-         "note": "the four letters of DINE in a new order"
-        },
-        {
-         "words": "write down",
-         "gives": "PEN",
-         "note": "to pen a note is to write it down"
-        },
-        {
-         "words": "impression",
-         "gives": "DENT",
-         "note": "the impression left in a car door is a dent"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "write down",
+       "at": 13,
+       "gives": "PEN",
+       "note": "to pen something is to write it down"
+      },
+      {
+       "words": "impression",
+       "at": 24,
+       "gives": "DENT",
+       "note": "a dent is an impression left in a surface"
       }
      ]
     },
     "explanation": {
-     "surface": "Going out for dinner and then writing up your impressions of the place.",
-     "walkthrough": "The paper this puzzle appears in is hiding in plain sight, which is what lets 16 down point back at it. 'Impression' is the dent sense, a mark pressed into a surface, not the view a diner forms.",
-     "definitionFit": "An independent report is one that nobody's interest has coloured, which is exactly what being without bias means."
+     "surface": "Instructions for a restaurant reviewer: eat out and record your impressions fairly.",
+     "definitionFit": "Independent means not influenced by others, impartial and free from partisanship."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "impression"
     }
@@ -904,46 +929,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LETTERBOX",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Spooner was the Oxford don remembered for trading the opening sounds of two words, so a clue in his name asks you to trade them back"
+       "at": 42,
+       "note": "Spooner was the Oxford don known for swapping the starting sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "improved",
+       "at": 24,
+       "gives": "BETTER",
+       "note": "better means improved"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LOX",
        "parts": [
         {
-         "unchecked": true,
-         "words": "improved",
-         "gives": "LETTER",
-         "soundsLike": "BETTER",
-         "note": "improved means better, and it gives its opening sound away to the word beside it"
-        },
-        {
-         "unchecked": true,
          "words": "security",
-         "gives": "BOX",
-         "soundsLike": "LOCKS",
-         "note": "the security on a door is its locks, and taking in the B from the other word is what respells it"
+         "at": 33,
+         "gives": "LOCKS",
+         "note": "locks give security on a door"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The locks on the front door have been upgraded.",
-     "walkthrough": "The phrase to say aloud is 'better locks', and the sounds at the fronts of the two words simply change places. What the definition calls a frame is the brass or steel plate screwed through the door.",
-     "definitionFit": "A letterbox is the hinged slot cut through a front door for the post, and the definition describes the metal surround it is set in."
+     "surface": "An upgrade to a front door's metalwork for the sake of security.",
+     "walkthrough": "Swap the opening sounds of BETTER LOCKS and you hear the answer; the second word is only said, not spelt, as BOX.",
+     "definitionFit": "A letterbox is the slot with a hinged metal flap in a front door through which post is delivered."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "security"
+     "misdirectedWord": "Spooner"
     }
    }
   },
@@ -1499,51 +1522,52 @@
     "definitions": [
      {
       "text": "dumplings",
-      "at": 37,
-      "note": "Gyoza comes into English from Japanese unchanged, so the one word serves for a single dumpling and for the plateful the plural definition means."
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GYOZA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eats",
+       "at": 14,
+       "note": "eats means the scrambled letters take the next piece inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Eccentric",
-         "note": "eccentric means off-centre, out of true, and letters pushed out of true do not come back in the order they left"
-        },
-        {
-         "text": "eats",
-         "note": "whatever eats something takes it inside, so these letters close over the ones named next"
+         "at": 0,
+         "note": "eccentric means odd, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "gay",
-         "gives": "GYA",
-         "note": "the three letters of GAY in another order"
-        },
-        {
-         "words": "Dorothy's country",
-         "gives": "OZ",
-         "note": "the tornado drops Dorothy in Oz in The Wizard of Oz"
+         "at": 10
         }
        ]
+      },
+      {
+       "words": "Dorothy's country",
+       "at": 19,
+       "gives": "OZ",
+       "note": "Oz is the land Dorothy visits in The Wizard of Oz"
       }
      ]
     },
     "explanation": {
-     "surface": "An oddball tucking into dumplings from the country Dorothy landed in.",
-     "walkthrough": "Only three letters are shuffled, which is why the insertion is easier to spot than the anagram. Gyoza are the crescent dumplings fried flat on one side that come with a Japanese meal.",
-     "definitionFit": "Gyoza are the little folded Japanese dumplings, crisped on one side and served with a soy dip."
+     "surface": "An eccentric gay man tucking into dumplings from Dorothy's homeland.",
+     "definitionFit": "Gyoza are Japanese pan-fried dumplings, often stuffed with pork and cabbage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "country"
+     "joke": "absurd",
+     "misdirectedWord": "Eccentric"
     }
    }
   },
@@ -1621,46 +1645,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WROTH",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in means the change happens inside the word for value"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "WROTH",
+       "words": "value",
+       "at": 29,
+       "gives": "WORTH",
+       "note": "worth is value"
+      },
+      {
+       "gives": "OR"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "reverts",
-         "note": "to revert is to go back the way you came, so the two letters named before it are read the other way round"
-        },
-        {
-         "text": "in",
-         "note": "'in' fixes where that happens: inside the word named after it, in the place those letters already occupy"
+         "at": 18,
+         "note": "reverts here means turns back, so the letters run the other way"
         }
        ],
        "parts": [
         {
-         "words": "value",
-         "gives": "WORTH",
-         "note": "what a thing is worth is its value"
-        },
-        {
          "words": "gold",
+         "at": 13,
          "gives": "OR",
-         "note": "or is heraldry's gold, the yellow on a coat of arms"
+         "note": "or is gold in heraldry"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rage at the price of gold sliding back again.",
-     "walkthrough": "Nothing is added and nothing is taken away: two letters already sitting in the middle of the word simply turn to face the other way. Wroth is the old adjective behind 'wrath', kept alive by the King James Bible.",
-     "definitionFit": "Wroth means filled with wrath, so it is furious in the biblical register rather than the everyday one."
+     "surface": "Someone enraged when the gold price falls back.",
+     "walkthrough": "Gold here is the heraldic word, and 'reverts in' says its two letters turn round where they already sit inside the word for value.",
+     "definitionFit": "Wroth is an old literary word for angry, full of wrath."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "reverts"
     }
@@ -1734,60 +1763,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REYNARD",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "composite",
        "indicators": [
         {
          "text": "squished",
-         "note": "something squished has been squashed out of shape, and letters treated that way do not keep the order they were in"
+         "at": 11,
+         "note": "squished means crushed out of shape, so the letters are rearranged"
+        },
+        {
+         "text": "leaving",
+         "at": 20,
+         "note": "leaving means the letter for large is taken out of the jumble"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "leaving",
-           "note": "'leaving' marks what departs, so the letter named after it drops out before anything else is done"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nearly squished",
-           "gives": "REYNA",
-           "note": "NEARLY, once the large has gone, is five letters dealt out afresh"
-          },
-          {
-           "words": "road",
-           "gives": "RD",
-           "note": "rd is the abbreviation on a street sign"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L is the large on a clothing label, and it is the letter that leaves NEARLY"
-          }
-         ]
+         "words": "nearly",
+         "at": 4,
+         "note": "taken as written for the jumble"
         },
         {
-         "gives": "L"
+         "words": "large",
+         "at": 28,
+         "gives": "L",
+         "note": "L is the abbreviation for large, as on clothing labels"
         }
        ]
+      },
+      {
+       "words": "road",
+       "at": 34,
+       "gives": "RD"
       }
      ]
     },
     "explanation": {
-     "surface": "A fox nearly flattened as it comes off a big road.",
-     "walkthrough": "'Nearly' looks like the modifier of 'squished' and is the raw material instead. Reynard is the fox of the medieval beast fables, and the name became the ordinary French word for the animal.",
-     "definitionFit": "Reynard is the name the medieval fable cycle gave the fox, and English has used it for the animal ever since."
+     "surface": "A fox that was almost run over as it left a big road.",
+     "walkthrough": "'Nearly' looks like almost, but it is the anagram fodder: without its L the letters make REYNA.",
+     "definitionFit": "Reynard is the traditional name of the fox in medieval fables, used as a literary name for any fox."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "nearly"
     }
    }
