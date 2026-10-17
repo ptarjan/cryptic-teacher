@@ -1485,53 +1485,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXURB",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "could make",
-       "note": "letters that could make another word are an unordered set waiting to be rearranged"
+       "text": "could make you",
+       "at": 31,
+       "note": "the clue says the city name could be made from 'you sell' plus this answer, so taking the letters of sell away from the reversed name leaves the answer"
+      },
+      {
+       "text": "this",
+       "at": 51,
+       "note": "this points at the answer itself: the reversed city name is sell plus this, so what is left after sell goes is the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "this",
-         "note": "this points at the part of the name that spells the other word, which is the part to remove"
+         "text": "back",
+         "at": 76,
+         "note": "back means the city's name is read in reverse, from its last letter to its first"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "back means the remaining letters are taken in reverse order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "HQ of la Commission européenne",
-           "gives": "BRUXELLES",
-           "note": "the European Commission is based in Brussels, Bruxelles in French"
-          }
-         ]
-        },
-        {
-         "words": "sell",
-         "note": "taken as written"
+         "words": "HQ of la Commission européenne",
+         "at": 0,
+         "gives": "BRUXELLES",
+         "note": "the European Commission is headquartered in Brussels, given in French as Bruxelles to match the French phrase"
         }
        ]
+      },
+      {
+       "words": "sell",
+       "at": 46,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Brussels, home of the European Commission, might tempt you to sell up and move to an American suburb.",
-     "walkthrough": "BRUXELLES ends in LLES, which rearranges to sell; remove it to leave BRUXE, then read that backwards.",
-     "definitionFit": "An exurb is a prosperous district beyond the suburbs of an American city, where commuters live."
+     "surface": "A French phrase about the European Commission's headquarters suggests you might sell a suburban American home there.",
+     "walkthrough": "The French phrasing hints that the city must be given in French. Read 'back', Bruxelles becomes SELLEXURB: the word sell followed by 'this', the answer, so 'could make you' asks for sell to be stripped away.",
+     "definitionFit": "An exurb is a prosperous district lying beyond a city's suburbs, an American term for outer commuter settlements."
     },
     "features": {
      "answerInScene": false,
@@ -1789,41 +1785,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CADUAC",
      "indicators": [
       {
        "text": "displacing",
-       "note": "displacing pushes something out of its place, so one item takes over where another stood"
+       "at": 19,
+       "note": "displacing means one piece pushes another out and takes its place in the word"
       }
      ],
      "parts": [
       {
+       "words": "luxury car",
+       "at": 54,
+       "gives": "CADILLAC",
+       "note": "the Cadillac is an American luxury car make"
+      },
+      {
        "words": "misfortune",
+       "at": 30,
        "gives": "ILL",
-       "note": "an ill is a misfortune"
+       "note": "ill can mean misfortune or harm, as in 'for good or ill'"
       },
       {
        "words": "classy",
+       "at": 46,
        "gives": "U",
-       "note": "U means upper-class, as in U and non-U"
-      },
-      {
-       "words": "luxury car",
-       "gives": "CADILLAC",
-       "note": "the Cadillac is an American luxury car brand"
+       "note": "U is the crossword letter for upper-class, from the old U and non-U distinction"
       }
      ]
     },
     "explanation": {
-     "surface": "No more windfalls: bad luck is swapped for a classy luxury car.",
-     "walkthrough": "U replaces ILL in CADILLAC.",
-     "definitionFit": "Caduac is an obsolete Scots word for a casualty or windfall, something that falls to one by chance."
+     "surface": "A lucky windfall is gone, its misfortune replaced by a classy luxury car.",
+     "walkthrough": "'no longer' marks the word as obsolete. 'displacing' puts the U for classy where ILL stood inside the car's name.",
+     "definitionFit": "Caduac is an obsolete word for a casualty or windfall, something that falls to one by chance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Windfall"
+     "misdirectedWord": "misfortune"
     }
    }
   },
