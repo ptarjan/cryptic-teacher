@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -284,32 +285,41 @@
     "definitions": [
      {
       "text": "Still",
-      "at": 0
+      "at": 0,
+      "note": "still as in calm, smooth: an even surface"
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "EVEN",
+     "op": "deletion",
      "indicators": [
       {
        "text": "four at the back",
-       "note": "What is at the back comes at the end, and the number in front of it says how many closing letters to take."
+       "at": 6,
+       "note": "keeping only the rear four letters of the team's name, so its first two letters go"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "football team",
-       "gives": "EVEN",
-       "select": "last",
-       "note": "a football side is an eleven, and the closing four letters of that word are what the clue wants"
+       "at": 27,
+       "gives": "ELEVEN",
+       "note": "a football side has eleven players and is called an eleven"
+      },
+      {
+       "gives": "EL"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The back four is a real thing in football, the line of defenders, and that is the reading to let go of. What the clue counts is letters at the back of a number.",
-     "definitionFit": "Still → EVEN: the intensifying adverb of 'still better', where either word replaces the other without shifting the sense at all."
+     "surface": "A question about a football side that plays with a back four of defenders.",
+     "walkthrough": "'Four at the back' reads like a defensive formation, but it asks for the last four letters of ELEVEN, the football team.",
+     "definitionFit": "Still water is calm and level, so it is an even, flat surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "back"
     }
    }
   },
@@ -440,36 +450,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNION",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "A short measure is one served under its proper amount, so the word for it is written with its last letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "cut short, so the last letter of the measure is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "measure of alcohol",
-         "gives": "UNI",
-         "note": "a unit is the standard measure of alcohol on a health leaflet, here served short"
+         "at": 6,
+         "gives": "UNIT",
+         "note": "a unit is the standard measure of alcohol used in drinking guidelines"
         },
         {
-         "words": "immediately after",
-         "gives": "ON",
-         "note": "on carries that sense in 'on arrival', meaning at the very moment of"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "immediately after",
+       "at": 25,
+       "gives": "ON",
+       "note": "on can mean immediately after, as in 'on arrival'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Short' reads as part of the drink — a short is a spirit — and is really the instruction. The wedding at the end is the definition, not the occasion for the round.",
-     "definitionFit": "wedding → UNION: a marriage is the joining of two people, the sense in 'joined in holy union' rather than the trade or student one."
+     "surface": "Someone downs a small drink straight after a wedding ceremony.",
+     "walkthrough": "In Britain drinking guidelines count alcohol in units; 'Short' trims that word, and 'immediately after' is a phrase meaning on, as in 'on arrival'.",
+     "definitionFit": "A union is a marriage, the joining of two people at a wedding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wedding"
     }
    }
   },
@@ -897,46 +917,57 @@
    "annotation": {
     "definitions": [
      {
-      "text": "train abroad",
+      "text": "train abroad?",
       "at": 32
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERRAIL",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "An unfinished word stops before its last letter, so that final character never gets written down."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 12,
+         "note": "not finished, so the last letter of the ground word goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Home",
-         "gives": "IN",
-         "note": "somebody at home is in, the sense of 'is she in?'"
-        },
-        {
          "words": "ground",
-         "gives": "TERRAI",
-         "note": "terrain is ground, one letter short of itself here"
+         "at": 5,
+         "gives": "TERRAIN",
+         "note": "terrain is ground, a stretch of land"
         },
         {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the standard abbreviation for left"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 24,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a footballer leaving his home ground for a club overseas. An Interrail pass buys a traveller unlimited European rail journeys, and Britons use the name as a verb.",
-     "definitionFit": "train abroad → INTERRAIL: used as a verb it means to tour Europe by rail on a single pass, so the definition is the activity itself."
+     "surface": "A sports ground left half-built while players head off to train overseas.",
+     "walkthrough": "'unfinished' cuts TERRAIN to TERRAI. InterRail is the European rail pass young travellers use; the question mark marks the verbal use, to tour by train abroad.",
+     "definitionFit": "To interrail is to travel round Europe by train on a rail pass, a playful sense of train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "train"
     }
    }
   },
@@ -1146,47 +1177,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
-       "text": "out",
-       "note": "What is out has gone from where it was, so the letter named beside it leaves the fodder before anything is rearranged."
+       "text": "out at sea",
+       "at": 29,
+       "note": "out says the named letter is removed, at sea that what remains is jumbled up"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "at sea",
-         "note": "A ship at sea has nothing fixed around it, and letters adrift like that settle in any order at all."
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "mal de mer",
-           "note": "French for seasickness, and eight letters to work with"
-          },
-          {
-           "gives": "M"
-          }
-         ]
-        }
-       ]
+       "words": "mal de mer",
+       "at": 11,
+       "note": "French for seasickness, used here for its letters"
       },
       {
-       "unchecked": true,
        "words": "miles",
-       "note": "M is the abbreviation for miles, and that M is the letter that goes"
+       "at": 23,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Mal de mer is French for seasickness, italicised because it is not English, and 'at sea' does double duty — it keeps the surface afloat and gives the instruction.",
-     "definitionFit": "Green → EMERALD: the vivid green of the gemstone used as a colour word, which is why Ireland is called the Emerald Isle."
+     "surface": "Turning green from seasickness, miles from land.",
+     "walkthrough": "'out' removes one M from MALDEMER and 'at sea' rearranges the remaining seven letters, ALDEMER.",
+     "definitionFit": "Emerald is a vivid shade of green, named after the gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
     }
    }
   },
@@ -1459,36 +1479,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAMPARI",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Take mostly of a word and you take all of it but the last letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Party",
+       "at": 0,
+       "gives": "CAMP",
+       "note": "a camp is a party or faction"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 16,
+         "note": "most of the word, so its last letter is lost"
+        }
+       ],
        "parts": [
         {
-         "words": "Party",
-         "gives": "CAMP",
-         "note": "a camp is a faction or side, as in the Remain camp"
+         "words": "dry",
+         "at": 11,
+         "gives": "ARID",
+         "note": "arid means dry"
         },
         {
-         "words": "dry",
-         "gives": "ARI",
-         "note": "arid means dry, and most of that word is taken"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A camp is a faction, not a gathering with drinks, which is where the surface puts you. The comma after 'dry' is doing nothing except holding the sentence together.",
-     "definitionFit": "red booze → CAMPARI: definition by example, one scarlet Italian aperitif standing in for drink in general, with its colour doing the identifying."
+     "surface": "A party where dry wine and red drinks are mostly on offer.",
+     "definitionFit": "Campari is a bright red Italian bitter liqueur, a kind of alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
     }
    }
   },
