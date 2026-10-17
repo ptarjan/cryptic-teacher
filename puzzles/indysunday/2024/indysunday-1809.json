@@ -143,41 +143,41 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "finally",
-       "note": "takes the final letter of 'soap'"
+       "text": "running out",
+       "at": 22,
+       "note": "the letter runs out of the word, leaving it"
       }
      ],
      "parts": [
       {
        "words": "tar",
+       "at": 5,
        "gives": "PITCH",
-       "note": "pitch is tar"
+       "note": "pitch is a black tarry substance, used like tar"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
-         "text": "running out"
+         "text": "finally",
+         "at": 14,
+         "note": "finally picks out the last letter of the word before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "soap finally",
-         "gives": "P",
-         "select": "last",
-         "note": "last letter of soaP, removed from PITCH"
+         "words": "soap",
+         "at": 9,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bathroom shelf where the pine-tar soap is nearly used up.",
-     "walkthrough": "'Pine tar soap' reads as one product; 'Pine' is split off as a verb meaning long for.",
-     "definitionFit": "A plain synonym for longing: an itch to travel is a restless yearning, the sense 'pine' has as a verb."
+     "surface": "Pine tar soap, a real product, is nearly used up.",
+     "walkthrough": "'Pine' looks like part of the product name, but it is the definition. 'finally' takes the last letter of soap, P, and 'running out' drops it from PITCH.",
+     "definitionFit": "To itch for something is to long or yearn for it, as to pine for it."
     },
     "features": {
      "answerInScene": false,
@@ -270,41 +270,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WARREN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fighting",
+       "at": 0,
+       "gives": "WAR",
+       "note": "war is fighting between nations"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "take every other letter of 'in Metro'"
+         "text": "upset",
+         "at": 28,
+         "note": "in a down clue, upset means turned upside down, so the letters run the other way"
         }
        ],
        "parts": [
         {
-         "words": "Fighting",
-         "gives": "WAR",
-         "note": "fighting = war"
-        },
-        {
-         "op": "regular",
-         "unchecked": true,
-         "gives": "REN",
+         "op": "alternate",
          "indicators": [
           {
-           "text": "upset",
-           "note": "in a down answer, upset turns the letters upside down, i.e. reverses them"
+           "text": "regularly",
+           "at": 18,
+           "note": "regularly takes every other letter of the words that follow"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "in Metro",
-           "gives": "REN",
-           "select": "regular",
-           "note": "the even letters of iN mEtRo are NER, reversed to REN"
+           "at": 9,
+           "note": "taken as written"
           }
          ]
         }
@@ -313,15 +310,14 @@
      ]
     },
     "explanation": {
-     "surface": "A fight breaking out on the Metro, the underground train network.",
-     "walkthrough": "The surface points at a city's underground railway; the answer is the tunnels rabbits dig.",
-     "definitionFit": "A warren is a network of rabbit burrows below ground."
+     "surface": "Violence breaks out on the Metro, disrupting the underground rail network.",
+     "walkthrough": "'regularly' takes the second, fourth and sixth letters of 'in Metro', NER, and 'upset' turns them round to REN. 'underground network' suggests a metro system, but it is a network of burrows.",
+     "definitionFit": "A warren is a network of interconnecting rabbit burrows dug beneath the ground."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "underground"
+     "misdirectedWord": "Metro"
     }
    }
   },
@@ -467,37 +463,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANNE",
+     "op": "middle",
      "indicators": [
       {
        "text": "to go out of bounds",
-       "note": "the bounds, the first and last letters, go out"
+       "at": 19,
+       "note": "the bounds of a word are its outer letters, and both go out"
       }
      ],
      "parts": [
       {
        "words": "forbidden",
+       "at": 9,
        "gives": "BANNED",
-       "note": "forbidden = banned; its bounds are the first and last letters"
-      },
-      {
-       "words": "out of bounds",
-       "gives": "BD",
-       "note": "the outer letters B and D, which go"
+       "note": "banned means forbidden"
       }
      ]
     },
     "explanation": {
-     "surface": "A royal being told certain areas are off-limits.",
-     "walkthrough": "'Out of bounds' seems to go with 'forbidden' as a no-entry sign; it is the instruction to strip BANNED's outside letters.",
-     "definitionFit": "Anne is the Princess Royal, daughter of Queen Elizabeth II."
+     "surface": "A princess is forbidden to stray past the palace limits.",
+     "walkthrough": "'out of bounds' reads as a restricted area, but it strips the first and last letters from BANNED. Princess Anne is the Princess Royal, sister of King Charles III.",
+     "definitionFit": "Anne, the Princess Royal, is the only daughter of Queen Elizabeth II and a British princess."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bounds"
     }
    }
@@ -526,40 +516,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Cafe's penultimate",
-       "gives": "F",
-       "note": "last-but-one letter of CAFE"
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "penultimate",
+         "at": 7,
+         "note": "penultimate means second to last, the letter before the final one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cafe's",
+         "at": 0,
+         "note": "the word café, its 's read as is"
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "penultimate",
-         "note": "penultimate means last but one, so take the last-but-one letter of 'Cafe'"
-        },
-        {
-         "text": "left"
+         "text": "left",
+         "at": 38,
+         "note": "left as in departed, so the letter leaves the dish"
         }
        ],
        "parts": [
         {
          "words": "potato dish",
+         "at": 19,
          "gives": "ROSTI",
-         "note": "rösti is a Swiss fried potato cake"
+         "note": "rösti is a Swiss dish of fried grated potato"
         },
         {
-         "words": "one's left",
+         "words": "one's",
+         "at": 32,
          "gives": "I",
-         "note": "one = I, removed from ROSTI to leave ROST"
+         "note": "one is I, the Roman numeral, and the 's reads as is"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cafe menu where the last-but-one potato dish has one portion held back.",
-     "walkthrough": "'In reserve' looks like the stock of dishes; 'reserve' alone is the definition, meaning coolness of manner.",
-     "definitionFit": "Frost is a chilly reserve in someone's manner."
+     "surface": "A café's last-but-one potato dish is set aside in reserve.",
+     "walkthrough": "'Cafe's' reads 'Cafe is': its 'penultimate' letter is F. 'one's left' means I has gone from ROSTI, leaving ROST. 'reserve' looks like a store, but it is a manner.",
+     "definitionFit": "Frost can mean coldness of manner, an icy reserve or aloofness shown towards someone."
     },
     "features": {
      "answerInScene": false,
@@ -1331,43 +1334,23 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ASTRAL",
+     "op": "reverse",
+     "reading": "ASTRA + L",
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "cryptically",
-         "note": "read SINATRA as a cryptic instruction: S IN ATRA"
-        },
-        {
-         "text": "leading"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Sinatra",
-         "gives": "ASTRA",
-         "note": "S IN ATRA: put S inside ATRA to get A(S)TRA"
-        },
-        {
-         "words": "line",
-         "gives": "L",
-         "note": "l = line"
-        }
-       ]
+       "words": "Sinatra cryptically leading line",
+       "at": 0,
+       "note": "read cryptically, Sinatra splits as S IN ATRA, an instruction to put S inside ATRA; that result leads, coming before L for line"
       }
      ]
     },
     "explanation": {
-     "surface": "Frank Sinatra heading a line-up of stars.",
-     "walkthrough": "Split the name as S-IN-ATRA and obey it: S goes inside ATRA. 'Stars' suggests celebrities like Sinatra, but it means heavenly bodies.",
-     "definitionFit": "A plain synonym for the adjective: from Latin astrum, star, as in astral bodies and astral projection."
+     "surface": "Frank Sinatra, as a star, heads a line of celebrities.",
+     "walkthrough": "'cryptically' asks you to read the singer's name as a set of instructions: S in ATRA gives ASTRA, then L, the usual abbreviation for line, follows.",
+     "definitionFit": "Astral is the adjective of the stars, from the Latin astrum, as in astral bodies."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Sinatra"
@@ -1602,37 +1585,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EARBASHES",
+     "op": "charade",
      "indicators": [
       {
-       "text": "being ruined",
-       "note": "something ruined is wrecked out of shape, so ARE loses its order"
+       "text": "by",
+       "at": 25,
+       "note": "by means next to, so the parties follow the jumbled word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "being ruined",
+         "at": 12,
+         "note": "something being ruined is wrecked and broken up, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "are",
-         "gives": "EAR",
-         "note": "ARE rearranged"
-        },
-        {
-         "words": "parties",
-         "gives": "BASHES",
-         "note": "a bash is a party"
+         "at": 8,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "parties",
+       "at": 28,
+       "gives": "BASHES",
+       "note": "bashes are parties"
       }
      ]
     },
     "explanation": {
-     "surface": "Rugs spoilt by guests at parties.",
-     "walkthrough": "'Carpets' is the verb, to reprimand, not floor coverings.",
-     "definitionFit": "To carpet someone is to scold them, and to earbash is to harangue at length."
+     "surface": "Rugs are spoiled by guests at parties.",
+     "walkthrough": "'Carpets' looks like the rugs, but it is the verb: to carpet someone is British slang for to reprimand them. 'being ruined' shuffles ARE to EAR, and 'by' places BASHES after it.",
+     "definitionFit": "To earbash someone is informal for lecturing or scolding them at length, as carpeting a person does."
     },
     "features": {
      "answerInScene": false,
