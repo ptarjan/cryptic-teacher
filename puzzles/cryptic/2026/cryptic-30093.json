@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -337,36 +338,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRUSHES",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "Most of a word is all but a scrap of it, and the scrap left behind is the last letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 9,
+         "note": "most of a word is all of it but its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "most of THE, with its last letter dropped"
+         "at": 17
         },
         {
-         "words": "riverside plants",
-         "gives": "RUSHES",
-         "note": "rushes are the reeds that grow in the shallows at a river's edge"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "riverside plants",
+       "at": 21,
+       "gives": "RUSHES",
+       "note": "rushes are grass-like plants that grow on river banks"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Song thrush, mistle thrush and blackbird are garden and woodland birds, never water birds, so the riverbank the clue paints is pure misdirection.",
-     "definitionFit": "Birds → THRUSHES: one particular family of songbirds, so the answer sits inside the general plural as an example of it."
+     "surface": "Songbirds are perched among the reeds along a river.",
+     "walkthrough": "'Most of' the leaves TH, which goes before RUSHES.",
+     "definitionFit": "Thrushes, such as the song thrush and blackbird, are a family of songbirds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1035,28 +1043,49 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "ZEAL",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "the heart of",
-       "note": "The heart of a thing is dead centre, so the letters wanted are the middle ones and both ends are left off."
+       "text": "heart of",
+       "at": 18,
+       "note": "the heart of something is its centre, so the country's final letters are shed too, leaving the core"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Commonwealth country",
-       "gives": "ZEAL",
-       "select": "middle",
-       "note": "the country is New Zealand, and reading its two words as one continuous string, the wanted letters sit exactly in the middle, three trimmed from each end"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in the",
+         "at": 11,
+         "note": "read with 'heart of': what is in the heart lies inside, so the country's opening word is shed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Commonwealth country",
+         "at": 27,
+         "gives": "NEWZEALAND",
+         "note": "New Zealand is a member of the Commonwealth of Nations"
+        },
+        {
+         "gives": "NEW"
+        }
+       ]
+      },
+      {
+       "gives": "AND"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The country is never named, only described, so the work is finding a Commonwealth member with a whole word parked at its middle.",
-     "definitionFit": "Enthusiasm → ZEAL: zeal is enthusiasm with conviction behind it, the word English keeps for religious and political fervour."
+     "surface": "A sentence about the passion felt across a Commonwealth nation.",
+     "walkthrough": "Drop NEW from the front and AND from the end of NEW ZEALAND, leaving the four central letters.",
+     "definitionFit": "Zeal is eager, fervent devotion to a cause, much the same as enthusiasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
