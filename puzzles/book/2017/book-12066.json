@@ -53,44 +53,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DISTINGUISHED",
      "indicators": [
       {
        "text": "replacing",
-       "note": "one thing replacing another means a swap inside the word: some letters leave and others take their place"
+       "at": 9,
+       "note": "replacing means the named letters are swapped out for new ones put in their place"
       }
      ],
      "parts": [
       {
        "words": "Put out",
+       "at": 0,
        "gives": "EXTINGUISHED",
-       "note": "a fire that is put out has been doused"
+       "note": "to put out a fire or light is to extinguish it; here the past form"
       },
       {
        "words": "ex",
-       "note": "these two letters are taken literally, and are the ones thrown out"
+       "at": 19,
+       "gives": "EX",
+       "note": "the word ex, taken as its own two letters"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is the standard abbreviation for daughter"
-      },
-      {
-       "words": "lives",
-       "gives": "IS",
-       "note": "'lives' as in exists, which is IS"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "daughter",
+         "at": 23,
+         "gives": "D",
+         "note": "D is the standard abbreviation for daughter, as in family trees"
+        },
+        {
+         "words": "lives",
+         "at": 32,
+         "gives": "IS",
+         "note": "lives is the verb form, equivalent to 'is' (exists)"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former partner gets turfed out and the daughter moves in, living it up like a celebrity.",
-     "walkthrough": "'Ex' looks like a former partner, but it is just the two letters that go; the daughter and 'lives' take their place at the front.",
-     "definitionFit": "A VIP is someone eminent and respected, and an eminent, respected person is called distinguished."
+     "surface": "Someone is ousted when a daughter moves in to replace an ex-partner, as if she were a VIP.",
+     "walkthrough": "Start from EXTINGUISHED, the meaning of 'Put out'; 'replacing ex' tells you to drop its opening EX and put D plus IS where it was.",
+     "definitionFit": "A VIP is an eminent, celebrated person, and distinguished describes someone of that kind of high standing and dignity."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "ex"
     }
    }
@@ -976,47 +985,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SEAQUAKES",
+     "op": "container",
      "indicators": [
       {
-       "text": "that may or may not be raised",
-       "note": "in a down entry raised means read upwards, and 'may or may not' says one pair is turned and the other left alone"
+       "text": "about",
+       "at": 54,
+       "note": "about means the first word goes around the other pieces, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "SEAQUAKES",
+       "op": "palindrome",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going round, so these letters are placed on either side"
+         "text": "that may or may not be raised",
+         "at": 24,
+         "note": "in a down clue raised would mean read upwards, but this word reads the same either way, so reversing it makes no difference"
         }
        ],
        "parts": [
         {
          "words": "notes",
-         "gives": "ESES",
-         "note": "E and S are musical notes, taken twice"
-        },
+         "at": 18,
+         "gives": "SEES",
+         "note": "to note something is to see it; the verb form sees"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "A",
-         "note": "taken as written"
+         "at": 0,
+         "gives": "A"
         },
         {
          "words": "question",
-         "gives": "QU",
-         "note": "QU is the abbreviation for question"
+         "at": 2,
+         "gives": "QU"
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 11,
+         "gives": "A"
         },
         {
          "words": "king",
+         "at": 13,
          "gives": "K",
          "note": "K is the chess abbreviation for king"
         }
@@ -1025,14 +1041,15 @@
      ]
     },
     "explanation": {
-     "surface": "Someone asks a monarch about seizures, with notes that might or might not be brought up.",
-     "walkthrough": "Two pairs of notes go round the rest: one pair is turned upwards and the other is not, which is what 'may or may not' means. 'The main' is the open sea.",
-     "definitionFit": "A seaquake is an earthquake under the sea floor, a violent shaking of the ocean, the main in old poetic usage."
+     "surface": "A question about whether a king's notes ought to be raised or not.",
+     "walkthrough": "The playful phrase 'that may or may not be raised' admits that SEES is a palindrome: written upwards in a down clue, it is unchanged. It goes 'about' A, QU, A and K.",
+     "definitionFit": "The main is an old poetic word for the open ocean, so convulsions in it are earthquakes on the seabed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "main"
+     "joke": "pun",
+     "misdirectedWord": "notes"
     }
    }
   },
