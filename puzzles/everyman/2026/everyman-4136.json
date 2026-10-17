@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -98,38 +99,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away from",
+       "at": 5,
+       "note": "away from says the letter is taken out of the following word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "away from",
-         "note": "Taking something away from a word removes it, so the letter just named is lifted out of the longer word that follows."
-        }
-       ],
-       "parts": [
-        {
-         "words": "bugs",
-         "gives": "GERMS",
-         "note": "Bugs in the infection sense are germs — what you catch, not what crawls."
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "bugs",
+       "at": 15,
+       "gives": "GERMS",
+       "note": "germs are bugs, as in a stomach bug"
       },
       {
-       "unchecked": true,
        "words": "Runs",
-       "note": "R is what a cricket scorecard writes for runs, and that is the letter taken out."
+       "at": 0,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody bolting from the creepy-crawlies under the rocks.",
-     "walkthrough": "'Runs away' reads as fleeing the insects; the only thing running away is a single letter, and cricket is where that letter comes from.",
-     "definitionFit": "Gems are cut precious stones — the jeweller's word for the stones themselves rather than the rings they end up in."
+     "surface": "Someone flees from insects hiding among rocks.",
+     "walkthrough": "'Bugs' suggests insects, but it means germs; taking R 'away from' GERMS leaves the answer.",
+     "definitionFit": "Gems are precious stones, such as rubies or diamonds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bugs"
     }
    }
   },
@@ -155,33 +156,49 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "getting",
+       "at": 10,
+       "note": "getting says the first piece acquires the second, joined after it"
+      }
+     ],
      "parts": [
       {
        "words": "Hey you",
+       "at": 1,
        "gives": "OI",
-       "note": "'Oi!' is the British shout for hailing somebody rudely across a street."
+       "note": "oi is a British shout to get someone's attention"
       },
       {
        "op": "regular",
        "indicators": [
         {
          "text": "regularly",
-         "note": "Regularly means picked out at a fixed step, and unusually the step here is three rather than the every-other-letter it normally asks for."
+         "at": 25,
+         "note": "regularly here means every third letter, starting with the first"
         }
        ],
        "parts": [
         {
          "words": "nookie",
-         "note": "Count through the word in threes and only its first and its fourth letters are left standing."
+         "at": 18,
+         "note": "the first and fourth letters of nookie are N and K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crude proposition yelled across a room.",
-     "walkthrough": "Most solvers try alternate letters first, because that is what 'regularly' almost always asks for; the step here is three, so only two letters survive.",
-     "definitionFit": "It is the noise a pig makes: 'swinish' points at the animal, and 'outburst' says this is a sound let out rather than a word."
+     "surface": "Someone is rudely asked whether their love life is a regular thing.",
+     "walkthrough": "OI 'getting' nookie taken 'regularly', every third letter, which gives NK. Nookie is slang for sex.",
+     "definitionFit": "A pig's grunt is the sound a swine makes, so it is a piggy exclamation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "nookie"
     }
    }
   },
@@ -359,26 +376,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "SCAT",
      "indicators": [
       {
        "text": "with bit of sax moved to intro",
-       "note": "The bit of 'sax' is the S it starts with, and an intro is an opening, so that letter travels from the back of the word to the front."
+       "at": 10,
+       "note": "the bit of sax is its S, and moving it to the intro puts that letter at the start of the word"
       }
      ],
      "parts": [
       {
        "words": "Jazz fans",
+       "at": 0,
        "gives": "CATS",
-       "note": "Cats is jazz slang for the players and for the people who love them."
+       "note": "cats is jazz slang for fans and players"
       }
      ]
     },
     "explanation": {
-     "surface": "A band shifting a snatch of saxophone to the top of the number.",
-     "walkthrough": "Nothing is lost in the move: the letter pushed off the end rejoins at the front, which is what separates this from a deletion.",
-     "definitionFit": "To scat is to sing improvised nonsense syllables in place of a song's words, which is what a jazz singer does through a solo chorus."
+     "surface": "Jazz lovers want a sax phrase at the opening, then make up words.",
+     "walkthrough": "In CATS, 'with bit of sax moved to intro' takes the S at the end round to the front.",
+     "definitionFit": "Scat singing replaces words with improvised nonsense syllables in jazz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intro"
     }
    }
   },
@@ -884,40 +906,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TSHAPED",
+     "spelt": "TSHAPED",
      "indicators": [
       {
        "text": "Per Spooner",
-       "note": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the pair named here trade their fronts."
+       "at": 0,
+       "note": "per Spooner says the opening sounds of two words are swapped, as the Reverend Spooner was said to do"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SHE",
        "parts": [
         {
-         "unchecked": true,
          "words": "that woman",
-         "gives": "T",
-         "soundsLike": "SHE",
-         "note": "That woman is she; the word gives up its SH, takes a T in exchange, and the noise left is a letter's own name."
-        },
-        {
-         "unchecked": true,
-         "words": "recorded",
-         "gives": "SHAPED",
-         "soundsLike": "TAPED",
-         "note": "Something recorded has been taped; it hands over its T, takes the SH, and what comes back is spelt this way."
+         "at": 13,
+         "gives": "SHEE",
+         "note": "she is the pronoun for that woman, said aloud as 'shee', which is the sound that gets swapped"
         }
        ]
+      },
+      {
+       "words": "recorded",
+       "at": 24,
+       "gives": "TAPED",
+       "note": "taped means recorded"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman who taped a description of some road junction, as the Reverend might have put it.",
-     "walkthrough": "Say 'she taped' aloud and swap the noises at the front of each word; the vowel drifts from 'ay' to 'ee' on the way, which is normal in a spoonerism.",
-     "definitionFit": "A T-junction is a side road meeting another head-on, drawing the letter T on the map, so the answer describes its layout."
+     "surface": "As the Reverend Spooner put it, a woman taped an account of a crossroads.",
+     "walkthrough": "'Per Spooner', 'shee taped' with the opening sounds swapped becomes 'tee shaped', and the tee sound is written simply as the letter T.",
+     "definitionFit": "A T-shaped junction is one where a side road meets a main road at right angles, like the letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
     }
    }
   },
@@ -997,30 +1023,42 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "GABRIEL",
-     "indicators": [
-      {
-       "text": "Primarily",
-       "note": "Primarily asks for what comes first, so every word in the list gives up only the letter it opens with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "God's archangel bringing reports (I.eleven, Luke)",
-       "gives": "GABRIEL",
-       "select": "first",
-       "note": "Seven words in order, each handing over its opening letter, with the bracketed reference supplying the last three."
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Primarily",
+         "at": 0,
+         "note": "primarily means taking the first letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "God's archangel bringing reports",
+         "at": 11,
+         "note": "the first letters of these four words are G, A, B and R"
+        }
+       ]
+      },
+      {
+       "words": "I.eleven, Luke",
+       "at": 45,
+       "gives": "IEL",
+       "note": "the first letters of I, eleven and Luke are I, E and L"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A Bible citation for the angel who brings the messages.",
-     "walkthrough": "The bracket looks like nothing but a citation and is fodder as well: 'I', 'eleven' and 'Luke' each surrender a first letter, so the reference spells while it cites.",
-     "definitionFit": "The whole clue reads straight: Gabriel is the archangel who carries God's announcements, and Luke chapter 1, verse 11 is where he turns up."
+     "surface": "A Bible reference: chapter one, verse eleven of Luke, where God's messenger brings news.",
+     "walkthrough": "'Primarily' takes the first letters: GABR from the first four words, then IEL. The whole clue describes him: in Luke 1:11 an angel appears to Zacharias, later naming himself as this archangel.",
+     "definitionFit": "Gabriel is the archangel who brings God's messages in the Gospel of Luke, announcing two births."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
@@ -1175,38 +1213,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 39,
+       "note": "lost says the letter for France disappears from the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "lost",
-         "note": "Something lost has gone missing, so the letter named just before it is the one that drops out of the word."
-        }
-       ],
-       "parts": [
-        {
-         "words": "incapable",
-         "gives": "UNFIT",
-         "note": "Somebody incapable of a job is unfit for it."
-        },
-        {
-         "gives": "F"
-        }
-       ]
+       "words": "incapable",
+       "at": 21,
+       "gives": "UNFIT",
+       "note": "unfit means not capable"
       },
       {
-       "unchecked": true,
        "words": "France",
-       "note": "F is the international vehicle registration letter for France — the oval sticker on the back of the car — and it is what goes."
+       "at": 32,
+       "gives": "F",
+       "note": "F is the international vehicle code for France"
       }
      ]
     },
     "explanation": {
-     "surface": "A section of the army written off as useless after a defeat in France.",
-     "walkthrough": "'France lost' reads as a result on a scoreboard and works as an instruction to drop a letter, which is what keeps the military surface intact.",
-     "definitionFit": "A unit is the army's standard block of organisation — a platoon, a company, a regiment — so it is any subdivision of a larger force."
+     "surface": "An army division is useless after France was defeated.",
+     "walkthrough": "With F 'lost' from UNFIT, the answer remains.",
+     "definitionFit": "A unit is a subdivision of an army, such as a battalion or company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
     }
    }
   },
@@ -1240,26 +1278,51 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "Almost all of a word is that word with its last letter gone, so the little word it sits in front of arrives one letter short."
-      },
-      {
        "text": "dubiously",
-       "note": "Something done dubiously has not been done properly, so these letters have not been set down in their proper order."
+       "at": 44,
+       "note": "dubiously says the letters are arranged in a doubtful, unreliable order"
       }
      ],
      "parts": [
       {
-       "words": "A.I. — almost too simple",
-       "gives": "AITOSIMPLE",
-       "note": "Ten letters of fodder: the abbreviation for artificial intelligence, then 'too' docked to almost all of itself, then the last word whole."
+       "words": "A.I.",
+       "at": 18,
+       "note": "taken as written, the letters A and I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 25,
+         "note": "almost means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too",
+         "at": 32
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "simple",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody claiming, not very believably, that improving artificial intelligence is almost too easy.",
-     "walkthrough": "'Almost' is the piece solvers lose: it takes a letter off 'too' before anything is shuffled, so the fodder is ten letters and not eleven.",
-     "definitionFit": "To optimalise something is to make it as good as it can possibly be — the verb built straight off 'optimal', a longer form of optimise."
+     "surface": "Using artificial intelligence to perfect things is perhaps too easy, a sceptic says.",
+     "walkthrough": "'Almost' cuts TOO to TO; 'dubiously' then rearranges A, I, TO and SIMPLE.",
+     "definitionFit": "To optimise or optimalise something is to make it as good as possible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "simple"
     }
    }
   },
