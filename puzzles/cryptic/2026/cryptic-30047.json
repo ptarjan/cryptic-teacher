@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -343,54 +344,51 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
-       "text": "Doctor"
+       "text": "Doctor",
+       "at": 0,
+       "note": "to doctor something is to tamper with it, so the letters are rearranged"
+      },
+      {
+       "text": "having killed",
+       "at": 19,
+       "note": "having killed means one letter is wiped out of the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "having killed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "cure can",
-             "note": "anagram fodder — one letter too many"
-            },
-            {
-             "words": "end",
-             "note": "joins the fodder"
-            }
-           ]
-          },
-          {
-           "gives": "C"
-          }
-         ]
+         "words": "cure can",
+         "at": 8
+        },
+        {
+         "words": "end",
+         "at": 40
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "having killed cold",
-       "note": "kill a C (c = cold, as on taps) before mixing"
+       "words": "cold",
+       "at": 33,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Doctor' at the head of a clue is the oldest anagram signal there is, and the surface's grim prescription — suffer to the end — is exactly what the answer means.",
-     "definitionFit": "Endurance is the capacity to bear hardship without giving in, exactly what patient, prolonged suffering requires — a direct synonym."
+     "surface": "A physician recommends a cure that will kill a cold and end a patient's suffering.",
+     "walkthrough": "'patient suffering' reads as a sick person's pain, but 'patient' is an adjective here. CURE CAN END loses one C ('having killed cold') and 'Doctor' rearranges what is left.",
+     "definitionFit": "Endurance is the capacity to bear hardship or pain over a long time without giving way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "patient"
     }
    }
   },
@@ -418,39 +416,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on"
+       "text": "on",
+       "at": 18,
+       "note": "in a down clue, on places the first piece above the second"
       }
      ],
      "parts": [
       {
        "words": "Bury",
+       "at": 13,
        "gives": "INTER",
-       "note": "to bury = to inter; the capital B plays at the Lancashire town"
+       "note": "to inter is to bury a body"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
-         "text": "ultimately"
+         "text": "ultimately",
+         "at": 32,
+         "note": "ultimately takes the last letter of reception"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "reception, ultimately",
-         "gives": "N",
-         "select": "last",
-         "note": "the last letter of receptioN"
+         "words": "reception",
+         "at": 21,
+         "note": "the word whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'On' is positional and only works because this is a down entry: INTER sits on the N in the grid.",
-     "definitionFit": "An intern is a trainee gaining supervised work experience, a plain modern synonym with no hidden twist."
+     "surface": "A trainee from the town of Bury is working on the front desk.",
+     "walkthrough": "'Bury' looks like the Lancashire town, but it is the verb to inter.",
+     "definitionFit": "An intern is a junior trainee, often a student, getting work experience in a firm or hospital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
     }
    }
   },
@@ -478,39 +483,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "sitting on"
+       "text": "sitting on",
+       "at": 19,
+       "note": "in a down clue, sitting on places the first piece above the second"
       }
      ],
      "parts": [
       {
        "words": "drunk",
+       "at": 12,
        "gives": "LUSH",
-       "note": "a drunk = a lush"
+       "note": "a lush is a heavy drinker, a drunk"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "LY",
        "indicators": [
         {
-         "text": "exhausted"
+         "text": "exhausted",
+         "at": 40,
+         "note": "exhausted means emptied out, so only the outer letters of lavatory are left"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lavatory, exhausted",
-         "gives": "LY",
-         "select": "outer",
-         "note": "LAVATORY 'exhausted' — emptied down to its outer letters"
+         "words": "lavatory",
+         "at": 30,
+         "note": "the word whose inside is removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sitting on' is positional in a down entry — LUSH above LY — and 'exhausted' empties a word the way 'on vacation' does at 22 down.",
-     "definitionFit": "Lushly means luxuriantly, in rich abundance — a plain synonym for sumptuously, both adverbs describing lavish excess."
+     "surface": "A drunk slumps on the toilet, worn out, in rather plush surroundings.",
+     "walkthrough": "'exhausted' looks like tiredness, but it empties lavatory down to its first and last letters.",
+     "definitionFit": "Lush means rich and luxurious, so lushly describes doing something in a sumptuous, lavish way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "exhausted"
     }
    }
   },
@@ -731,55 +744,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RURAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Largely"
+       "text": "going by",
+       "at": 33,
+       "note": "going by means passing alongside, so the two pieces are set next to each other in this order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "going by"
+         "text": "Largely",
+         "at": 18,
+         "note": "largely means most but not all, so the last letter of the word for regret is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "without"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Largely regret",
-           "gives": "RU",
-           "note": "most of RUE (regret)"
-          },
-          {
-           "words": "rail",
-           "gives": "RAL",
-           "note": "after losing its I"
-          }
-         ]
+         "words": "regret",
+         "at": 26,
+         "gives": "RUE",
+         "note": "to rue is to regret"
         },
         {
-         "unchecked": true,
-         "words": "without one",
-         "note": "the instruction: I (one) comes out of RAIL"
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 49,
+         "note": "without means the letter for one is taken out of rail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rail",
+         "at": 42
+        },
+        {
+         "words": "one",
+         "at": 57,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two subtractions in five words: 'largely' keeps most of RUE, and 'one' is the I that leaves RAIL. The ellipses just sew this surface to its neighbours.",
-     "definitionFit": "Rural describes anything belonging to the countryside rather than a town, so 'of the country' is a direct, everyday synonym."
+     "surface": "Continuing the previous clue: someone is sorry they took the train, having no ticket.",
+     "walkthrough": "This runs on from the punchline clue before it, so 'of the country' is the definition in its own right; 'going by rail' looks like travel, but 'going by' only sets the two trimmed words side by side.",
+     "definitionFit": "Rural means relating to the countryside rather than towns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
     }
    }
   },
@@ -800,55 +827,56 @@
     "definitions": [
      {
       "text": "extortion",
-      "at": 52,
-      "note": "RACKETEERING ends in -ing but it is a plain noun here — the name of the crime, as in 'racketeering charges' — so the noun 'extortion' matches it exactly."
+      "at": 52
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
-       "text": "working"
+       "text": "working",
+       "at": 17,
+       "note": "working means the letters are worked over into a new order"
+      },
+      {
+       "text": "shed",
+       "at": 40,
+       "note": "shed means a letter is cast off from the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "track engineer",
+       "at": 2
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "close to"
+         "text": "close to",
+         "at": 25,
+         "note": "close to a word is its end, so the last letter of train"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "shed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "track engineer",
-           "note": "anagram fodder — thirteen letters, one too many"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "train",
+         "at": 34,
+         "note": "the word whose last letter is taken"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "close to train shed",
-       "note": "shed the N, the close (last letter) of traiN"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A railway surface built to hide railway-free wordplay: 'shed' is the verb, not the building, and 'close to train' names the N it throws away.",
-     "definitionFit": "Racketeering is the organised-crime term for running an extortion racket, so 'extortion' names the crime the word denotes exactly."
+     "surface": "A railway engineer at a train depot is accused of running a protection racket.",
+     "walkthrough": "'train shed' reads as a building, but 'shed' drops N, the last letter of train, from TRACK ENGINEER, and 'working' rearranges the rest.",
+     "definitionFit": "Racketeering is running a criminal business, especially obtaining money by threats, which is extortion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
     }
    }
   },
@@ -913,57 +941,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "using"
+       "text": "using",
+       "at": 25,
+       "note": "using signals that the warehouse word takes in a new piece in exchange for one of its letters"
+      },
+      {
+       "text": "to knock out",
+       "at": 38,
+       "note": "to knock out a letter is to remove it, with the new piece taking its place"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "warehouse facility",
+       "at": 6,
+       "gives": "STORAGE",
+       "note": "storage is the service a warehouse provides"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "to knock out"
+         "text": "at the back",
+         "at": 56,
+         "note": "at the back picks the final letter of door"
         }
        ],
        "parts": [
         {
-         "words": "warehouse facility",
-         "gives": "STORAGE",
-         "note": "about to lose a letter"
-        },
-        {
-         "words": "powers",
-         "gives": "PP",
-         "note": "p = power, twice"
+         "words": "door",
+         "at": 51,
+         "note": "the word whose last letter is taken"
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "R",
-       "indicators": [
-        {
-         "text": "at the back"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "door at the back",
-         "gives": "R",
-         "select": "last",
-         "note": "the R (back of dooR) that the PP knocks out of STORAGE"
-        }
-       ]
+       "words": "powers",
+       "at": 31,
+       "gives": "PP",
+       "note": "P is the abbreviation for power, so powers in the plural gives two of them"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A substitution: the PP evicts the R from STORAGE and squats in its place. 'Check' is the noun — a stoppage in play.",
-     "definitionFit": "A stoppage is a check on play or progress — a halt imposed from outside — matching the sporting and everyday senses of 'check'."
+     "surface": "A warehouse uses its powers to batter down a rear door.",
+     "walkthrough": "'door at the back' sounds like a back door but means R, the last letter of door; 'using' powers 'to knock out' that R swaps it for PP.",
+     "definitionFit": "A stoppage is a halt or blockage, so it is a check on progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "door"
     }
    }
   },
@@ -1102,38 +1133,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OSCARS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "about means the reversed word goes around the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "upset"
-        },
-        {
-         "text": "about"
+         "text": "upset",
+         "at": 5,
+         "note": "in a down clue, upset turns a word upside down, reading it backwards"
         }
        ],
        "parts": [
         {
          "words": "Very",
-         "gives": "OS",
-         "note": "SO (very), 'upset' in this down entry"
-        },
-        {
-         "words": "Mark",
-         "gives": "SCAR",
-         "note": "a mark = a scar; O…S closes 'about' it"
+         "at": 0,
+         "gives": "SO",
+         "note": "so means very, as in so tired"
         }
        ]
+      },
+      {
+       "words": "Mark",
+       "at": 17,
+       "gives": "SCAR",
+       "note": "a scar is a mark left on the skin"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Upset' can only mean read-upwards in a down clue, and the capital M on Mark is the disguise — no saint or gospel, just a blemish.",
-     "definitionFit": "The Oscars are one famous, specific set of awards — the film industry's own — so 'awards' is the general category the answer belongs to."
+     "surface": "Someone is deeply upset about a black mark that cost them the prizes.",
+     "walkthrough": "'upset' reads as distress, but in a down clue it turns the short word for very upside down, and 'about' wraps that round the mark.",
+     "definitionFit": "The Oscars are the Academy Awards given each year for achievement in film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -1159,41 +1202,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "leads to"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "MYO",
        "indicators": [
         {
-         "text": "being cancelled"
+         "text": "leads to",
+         "at": 19,
+         "note": "the leads of words are their first letters, taken from each of these three"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Musical Youth's opening",
-         "gives": "MYO",
-         "select": "first",
-         "note": "the leads (first letters) of those three words"
+         "at": 28,
+         "note": "the words whose first letters are taken; Musical Youth were a 1980s British reggae band"
         }
        ]
       },
       {
-       "words": "piano number being cancelled",
-       "gives": "PIA",
-       "note": "PIANO with its No. (number) cancelled"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being cancelled",
+         "at": 65,
+         "note": "being cancelled means the abbreviation for number is struck out of piano"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piano",
+         "at": 52
+        },
+        {
+         "words": "number",
+         "at": 58,
+         "gives": "NO"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Musical Youth were a real 1980s band, which is what sells the surface. The trick to file away: 'number' is the abbreviation No., and PIANO cancels those two letters.",
-     "definitionFit": "Myopia is short-sightedness, literally an eye complaint that afflicts a viewer's distance vision — a plain medical synonym."
+     "surface": "The opening of a Musical Youth gig is spoiled because its piano number is dropped.",
+     "walkthrough": "'opening' looks like the start of a show, but it is the third word whose first letter is taken. Musical Youth were the band behind Pass the Dutchie.",
+     "definitionFit": "Myopia is short-sightedness, a common condition affecting the eyes of someone who looks at things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opening"
     }
    }
   },
