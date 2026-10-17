@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -164,33 +165,31 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "offside",
-       "note": "The instruction is the front of the word: milk that has gone off has turned, and the four letters behind it turn out of the order given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "rugby player",
-         "gives": "LION",
-         "note": "a Lion is a player picked for the British and Irish Lions, the touring team drawn from four countries"
-        },
-        {
-         "words": "side",
-         "note": "four letters resorted to close the word"
-        }
-       ]
+       "words": "rugby player",
+       "at": 11,
+       "gives": "LION",
+       "note": "a Lion is a player for the British and Irish Lions, the touring rugby union team"
+      },
+      {
+       "words": "offside",
+       "at": 24,
+       "gives": "ISED",
+       "note": "offside splits as off plus side: off says the letters of side are knocked out of order, giving this ending"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Offside' is one word in the clue and two separate jobs in the parse; the rugby surface is there precisely to stop you splitting it.",
-     "definitionFit": "To lionise someone is to make a celebrity of them, so the past participle matches 'celebrated' in both sense and tense."
+     "surface": "A rugby player is praised after being penalised for offside.",
+     "walkthrough": "'offside' is one word in the surface, a rugby offence, but read as 'side off' it means SIDE knocked out of order, giving ISED. The Lions are a rugby team drawn from Britain and Ireland.",
+     "definitionFit": "To be lionised is to be treated as a celebrity, fêted and made much of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "offside"
     }
    }
   },
@@ -267,52 +266,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ANIMALCULES",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "travelled",
+       "at": 17,
+       "note": "travelled suggests the letters move about, so they are rearranged"
+      },
+      {
+       "text": "giving up",
+       "at": 43,
+       "note": "giving up means these letters are surrendered from the anagram fodder"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "ANIMALCULES",
+       "words": "nautical miles",
+       "at": 27
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in retrospect",
+         "at": 57,
+         "note": "in retrospect means looking back, so the word for sex is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ANIMALCULES",
-         "indicators": [
-          {
-           "text": "travelled",
-           "note": "Anything that has travelled has left the position it started in, and so has every letter here."
-          },
-          {
-           "text": "giving up",
-           "note": "To give something up is to surrender it, so whatever is named next is handed over before the shuffle."
-          },
-          {
-           "text": "in retrospect",
-           "note": "To see something in retrospect is to look back at it, and the two letters are taken back to front."
-          }
-         ],
-         "parts": [
-          {
-           "words": "nautical miles",
-           "note": "thirteen letters to start from, two of which will not survive"
-          },
-          {
-           "words": "sex",
-           "gives": "IT",
-           "note": "'it' is the old euphemism for sex — 'they were at it' — and turned round it is the pair that goes"
-          }
-         ]
+         "words": "sex",
+         "at": 53,
+         "gives": "IT",
+         "note": "it is a coy word for sex, or sex appeal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a sea voyage and none of it is a measurement: the only instruction in the clue is that a small word leaves before the letters are shaken. 'It' for sex is worth filing away.",
-     "definitionFit": "Animalcules is the old naturalists' word for microscopic creatures, amoebae among them, so the definition names them by an example plus 'and such'."
+     "surface": "Microbes are pictured voyaging great distances at sea, abandoning reproduction.",
+     "walkthrough": "Shuffle NAUTICAL MILES after 'giving up' TI, which 'in retrospect' turns IT (sex) into. 'travelled' signals the shuffle.",
+     "definitionFit": "Animalcules are microscopic organisms, the old name for tiny creatures such as amoebae seen under a lens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sex"
     }
    }
   },
@@ -437,40 +438,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONARTIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 17,
+       "note": "includes means the cost word holds the rearranged letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "damage",
+       "at": 10,
+       "gives": "COST",
+       "note": "'what's the damage?' asks the cost"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "includes",
-         "note": "What a thing includes is held inside it, so the letters named next go within the ones named first."
-        },
-        {
          "text": "wreck",
-         "note": "A wreck is what is left when something is smashed apart, and these letters arrive in pieces."
+         "at": 32,
+         "note": "wreck means ruin, so the letters of train are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "damage",
-         "gives": "COST",
-         "note": "'what's the damage?' asks what something cost"
-        },
-        {
          "words": "train",
-         "gives": "NARTI",
-         "note": "five letters smashed out of shape and dropped in after the first two"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Train wreck' is one phrase in the surface and two separate jobs in the parse; hustler is wanted in its swindling sense, not the sense of somebody who works fast.",
-     "definitionFit": "A con artist makes a living out of confidence tricks, which is what a hustler does — the swindler, not the energetic worker."
+     "surface": "A hustler is liable for the damage after a train crash.",
+     "walkthrough": "'damage' is slang for cost; 'wreck' rearranges TRAIN to NARTI, and COST 'includes' it. The 's of Hustler's stands for is.",
+     "definitionFit": "A con artist is a swindler who tricks people out of money, which is what a hustler does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damage"
     }
    }
   },
@@ -606,42 +615,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JULIANCALENDAR",
+     "op": "container",
      "indicators": [
       {
-       "text": "cryptic",
-       "note": "A cryptic message has been put into code, and the plainest code of all just scrambles the order of the letters."
+       "text": "Engaged in",
+       "at": 0,
+       "note": "engaged in means the rearranged letters are held within the word for drink"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "drink",
+       "at": 11,
+       "gives": "JAR",
+       "note": "a jar is British slang for a drink, especially of beer"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Engaged in",
-         "note": "To be engaged in something is to be taken up inside it, which is where this batch of letters ends up."
+         "text": "cryptic",
+         "at": 31,
+         "note": "cryptic means obscure, puzzling, so the letters are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "drink",
-         "gives": "JAR",
-         "note": "a jar is a pint of beer — 'fancy a jar?'"
-        },
-        {
          "words": "CIA annulled",
-         "gives": "ULIANCALEND",
-         "note": "eleven letters, the agency's initials among them, all resorted"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Annulled' wants to be an instruction to delete something; it is fodder. The drink is split into its first letter and its last two, and everything else goes in the gap.",
-     "definitionFit": "The Julian calendar is the year-length reform Julius Caesar imposed in 46 BC, so the phrase names Rome's own way of reckoning dates."
+     "surface": "A spy agency cancels a coded operation while out for a drink.",
+     "walkthrough": "'cryptic' rearranges CIA ANNULLED into ULIANCALEND, which is 'Engaged in' the drink word. A jar is British slang for a drink, usually a pint of beer.",
+     "definitionFit": "Julius Caesar's calendar reform set Rome's dating scheme of 365 days with a leap year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
     }
    }
   },
@@ -878,40 +893,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BEERPONG",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "falls into",
+       "at": 13,
+       "note": "falls into means the jumbled letters drop inside the word for the contraption"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "brewski-chugging contraption",
+       "at": 24,
+       "gives": "BONG",
+       "note": "a beer bong is a funnel and tube for downing beer fast; brewski is American slang for beer"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Drunken",
-         "note": "A drunk cannot walk a straight line, and these four letters cannot hold their line either."
-        },
-        {
-         "text": "falls into",
-         "note": "Whatever falls into something ends up inside it, so the shuffled letters land within the other word."
+         "at": 0,
+         "note": "drunken suggests the letters of peer are staggering about, so rearranged"
         }
        ],
        "parts": [
         {
-         "words": "brewski-chugging contraption",
-         "gives": "BONG",
-         "note": "a bong is the tube-and-funnel gadget a drink is poured down in one go, and brewski is US slang for a beer"
-        },
-        {
          "words": "peer",
-         "gives": "EERP",
-         "note": "the lord's four letters, tipped over and dropped in after the first"
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Drunken peer' reads as one phrase and is really an instruction plus the material it works on, and the contraption is split open to take the result.",
-     "definitionFit": "Beer pong is the party game of throwing a ping-pong ball into cups of beer, which makes it exactly a diversion for drinkers."
+     "surface": "A tipsy aristocrat topples into a funnel gadget used for downing beer at a party.",
+     "walkthrough": "'Drunken' rearranges PEER to EERP, which 'falls into' BONG, the funnel-and-tube device. The game tosses ping-pong balls into cups of beer.",
+     "definitionFit": "Beer pong is a party drinking game: players throw balls into cups and drink when hit, a diversion for drinkers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "peer"
     }
    }
   },
@@ -1016,44 +1040,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FIELDEVENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 11,
+       "note": "around means the rearranged letters go round the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "off",
-         "note": "Something off is not as it should be, and these six letters are not in the order they should be."
-        },
-        {
-         "text": "around",
-         "note": "What goes around something stands on both sides of it, so the shuffled letters open and close the answer."
-        },
-        {
-         "text": "say",
-         "note": "'Say' means 'for example', flagging that the number given is only one instance of the word wanted."
+         "at": 7,
+         "note": "off means out of order, so the letters of lifted are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Lifted",
-         "gives": "FIELDT",
-         "note": "six letters rearranged, and they end up split in two"
-        },
-        {
-         "words": "two",
-         "gives": "EVEN",
-         "note": "two is an even number, one instance among many"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "two, say",
+       "at": 18,
+       "gives": "EVEN",
+       "note": "two is an example of an even number"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Lifted off' reads as a take-off and is really fodder plus its shuffle; the shot is the athlete's iron ball, not a drink, an injection or anything on a golf course.",
-     "definitionFit": "A field event is the throwing and jumping half of an athletics meeting, and the shot put is one of them — hence the ball it may require."
+     "surface": "Something took off at about two o'clock, perhaps shot down.",
+     "walkthrough": "'Lifted off' reads as took off, but 'off' rearranges the first word into FIELDT, which goes 'around' a number type that two exemplifies. The shot is the shot put, a field event.",
+     "definitionFit": "Athletics field events include the shot put, so one of them needs a heavy metal ball called a shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -1078,40 +1107,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EPSILON",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "harboured by",
+       "at": 35,
+       "note": "harboured by means the Greek letter sits sheltered inside the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "harboured by",
-         "note": "To harbour someone is to shelter them inside your own house, so the piece before it goes within the piece after."
-        },
-        {
          "text": "lunatic",
-         "note": "A lunatic is out of his right mind, and the letters he governs come out in the wrong order."
+         "at": 53,
+         "note": "lunatic means crazy, so the letters of lone are rearranged"
         }
        ],
        "parts": [
         {
          "words": "lone",
-         "gives": "ELON",
-         "note": "four letters resorted, ending up on either side of the middle"
-        },
-        {
-         "words": "Greek character",
-         "gives": "PSI",
-         "note": "psi is the Greek letter shaped like a trident, and it goes inside"
+         "at": 48
         }
        ]
+      },
+      {
+       "words": "Greek character",
+       "at": 19,
+       "gives": "PSI",
+       "note": "psi is a letter of the Greek alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Greek character' wants to be the definition and is the wordplay — the letter it names is a different one, tucked inside. The euro sign really was drawn from a Greek letter with two bars added.",
-     "definitionFit": "The euro symbol was designed as this Greek letter with two parallel strokes through it, so 'based on this' points straight at it."
+     "surface": "A deranged loner shelters a Greek man whose currency sign is the euro.",
+     "walkthrough": "'lunatic' rearranges LONE to E...LON, and PSI is 'harboured by' it. The euro sign was designed on the Greek letter epsilon.",
+     "definitionFit": "The euro symbol was modelled on the Greek letter epsilon, a nod to Europe's classical origins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "character"
     }
    }
   },
@@ -1143,34 +1180,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SONATA",
+     "indicators": [
+      {
+       "text": "75% of",
+       "at": 0,
+       "note": "75% of an eight-letter word keeps six letters, dropping the last two"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "75% of",
-         "note": "Three quarters of an eight-letter word is six letters, and it is the opening pair that gets dropped here."
-        },
-        {
          "text": "turned",
-         "note": "Turned means those letters are read the other way round, from the last of them back to the first."
+         "at": 16,
+         "note": "turned means the Spanish word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "plátanos",
-         "gives": "ATANOS",
-         "note": "the Spanish for bananas, minus its opening pair"
+         "at": 7,
+         "gives": "PLATANOS",
+         "note": "plátanos is Spanish for plantains or bananas"
         }
        ]
+      },
+      {
+       "gives": "LP"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The italics tell you the word is foreign and the arithmetic tells you how much of it to keep; 'into' is only a link, not an instruction to insert anything.",
-     "definitionFit": "A sonata is an instrumental piece, and the Romantic composers wrote them by the hundred, so the definition points at it by example."
+     "surface": "Three-quarters of a plate of plantains became a romantic dish.",
+     "walkthrough": "'turned' reverses PLATANOS to SONATALP; '75% of' it keeps the first six of its eight letters. Plátanos is Spanish for plantains.",
+     "definitionFit": "A sonata is a musical composition, a form much loved by composers of the Romantic era such as Beethoven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "romantic"
     }
    }
   },
@@ -1205,37 +1254,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STGEORGESCROSS",
-     "indicators": [
-      {
-       "text": "irritated",
-       "note": "Somebody irritated is worked up and will not sit still, and nor will these nine letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "irritated",
+         "at": 11,
+         "note": "irritated means stirred up, so the letters of get ogress are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Get ogress",
-         "gives": "STGEORGES",
-         "note": "nine letters shaken up, and they come out as a saint's name with a possessive on the end"
-        },
-        {
-         "words": "annoyed",
-         "gives": "CROSS",
-         "note": "cross is the everyday British word for annoyed"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "annoyed",
+       "at": 25,
+       "gives": "CROSS",
+       "note": "cross means annoyed"
       }
      ]
     },
     "spelling": "ST GEORGE'S CROSS",
     "explanation": {
-     "walkthrough": "The surface has one angry monster and one angry person; the answer is a flag. 'Annoyed' is the word that has to be read as a noun rather than an adjective.",
-     "definitionFit": "The St George's Cross — a red cross on a white ground — is the national flag and emblem of England, so 'symbol' names it as one."
+     "surface": "Provoke a she-monster until she is furious, and she leaves her mark.",
+     "walkthrough": "'irritated' rearranges GET OGRESS, and CROSS (annoyed) follows. St George's Cross is the red cross on white of the English flag.",
+     "definitionFit": "St George's Cross, a red cross on white, is England's national emblem and flag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "symbol"
     }
    }
   },
@@ -1399,36 +1453,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SADTALES",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "The second word is to be found inside the magazine's own five letters, resorted — a loose signal that the question mark owns up to."
-      }
-     ],
+     "op": "reverse",
+     "reading": "SAD + TALES",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Sob",
-         "gives": "SAD",
-         "note": "a sob story is a sad one, so this word does double duty — definition and wordplay at once"
-        },
-        {
-         "words": "Slate",
-         "gives": "TALES",
-         "note": "the American magazine's five letters, resorted"
-        }
-       ]
+       "words": "in Slate?",
+       "at": 12,
+       "note": "the word slate is what tales becomes when made sad, sad read as an indicator to jumble them; what the answer produces is found in Slate"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue defines itself twice: the whole phrase means the answer, and its first word is also a chunk of the build. The italics mark Slate as a title, not a roof.",
-     "definitionFit": "A sob story is exactly a sad tale — the hard-luck account told to win sympathy — so the two plural phrases are straight synonyms."
+     "surface": "A news magazine full of tearjerkers.",
+     "walkthrough": "This is a reverse clue: the answer read as wordplay, with SAD as an anagram signal, rearranges TALES into SLATE, the word shown in the clue.",
+     "definitionFit": "Sad tales are tearjerking accounts meant to win sympathy, which is what sob stories are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Slate"
     }
    }
   },
