@@ -370,37 +370,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONFERENCE",
-     "indicators": [
-      {
-       "text": "head lacking",
-       "note": "the head of a word is its first letter, and it is missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "company",
+       "at": 8,
+       "gives": "CO"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "head lacking",
+         "at": 21,
+         "note": "with its head lacking, the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "company",
-         "gives": "CO",
-         "note": "standard abbreviation"
+         "words": "deduction",
+         "at": 37,
+         "gives": "INFERENCE",
+         "note": "an inference is a conclusion reached by reasoning, a deduction"
         },
         {
-         "words": "deduction",
-         "gives": "NFERENCE",
-         "note": "INFERENCE without its first letter"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company meeting where the boss is not up to reasoning things out.",
-     "walkthrough": "Head in a business surface suggests a chief; here it is the first letter of INFERENCE.",
-     "definitionFit": "Plain synonym: a conference is a formal meeting for discussion."
+     "surface": "A business meeting where the boss is short on reasoning.",
+     "walkthrough": "'head' looks like the company's leader, but 'head lacking' strips the first letter from the word for deduction.",
+     "definitionFit": "A conference is a formal meeting for discussion, often lasting several days."
     },
     "features": {
      "answerInScene": true,
@@ -895,47 +898,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INCOMPETENCY",
-     "indicators": [
-      {
-       "text": "Corrupt",
-       "note": "something corrupted is spoiled, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Corrupt",
+         "at": 0,
+         "note": "to corrupt is to spoil or alter, so these letters are scrambled"
+        }
+       ],
        "parts": [
         {
          "words": "eminent cop",
-         "gives": "INCOMPETEN",
-         "note": "EMINENTCOP rearranged"
-        },
+         "at": 8,
+         "note": "the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "only the extremes, the first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cocky",
-           "note": "outer letters"
-          }
-         ]
+         "text": "extremely",
+         "at": 21,
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cocky",
+         "at": 31,
+         "note": "the word whose outer letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A senior officer on the take, and arrogant with it, is hopeless.",
-     "walkthrough": "Only EMINENT COP is rearranged; CY is added at the end.",
-     "definitionFit": "Incompetency is the state of being useless at a job, so any instance of it is an example of uselessness."
+     "surface": "A distinguished but crooked policeman, very full of himself, shows how hopeless he is.",
+     "walkthrough": "'Corrupt' paints a bent officer but is the anagram signal over 'eminent cop'; 'extremely' takes the ends of 'cocky'.",
+     "definitionFit": "Incompetency is a lack of ability, and an instance of it counts as an example of uselessness."
     },
     "features": {
      "answerInScene": true,
