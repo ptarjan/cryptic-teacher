@@ -1866,6 +1866,17 @@ tools/test_push_puzzle_commit.sh               does tools/push_puzzle_commit.sh 
                                                (tools/prereset_backfill.sh) commits and pushes
                                                each puzzle while the rest of its wave is still
                                                writing into that tree
+tools/clobber_guard.py                         refuses a commit made from a stale tree: most of
+                                               its changed paths hold an older ancestor's
+                                               content, not its parent's (456d5a0397 reverted
+                                               61 files); run by the push tools
+tools/test_clobber_guard.py                    a stale-tree commit is refused and names the
+                                               older commit; an ordinary edit, a small
+                                               deletion, a Revert or Restore subject and
+                                               CLOBBER_OK=1 pass
+tools/push_checked.sh                          push local commits to origin/master after
+                                               tools/clobber_guard.py clears each; for code a
+                                               session commits itself
 tools/publish_fetched.sh                       run a fetch, then commit and publish every
                                                puzzle file it wrote at once, so none is left
                                                untracked to block the burn's rebase
@@ -2863,5 +2874,32 @@ tools/annotate_bag_prompt.md                   the task a bagged session (severa
                                                at once) is given
 tools/test_clue_bag.py                         which tail puzzles share one annotate session,
                                                and which never do
+tools/build_spellings.py                       writes tools/data/lexicons/spellings.json:
+                                               answer letters mapped to the spelling with an
+                                               apostrophe or accent, for the lesson checks
+tools/fill_spellings.py                        writes the `spelling` that
+                                               tools/lesson_checks.py flags as unsaid
+                                               (spelling.unsaid), where the answer letters give
+                                               only one
+tools/hidden_mechanical.py                     the hidden words a clue gives away mechanically
+tools/lesson_checks.py                         annotation findings that
+                                               tools/validate_annotations.py counts, each under
+                                               its own ratchet: a double definition hiding the
+                                               answer, a spelling left unsaid
+tools/prefill_hidden.py                        write the annotation of a near-certain hidden
+                                               word without a model run
+tools/test_lesson_checks.py                    proves the double-definition and unsaid-spelling
+                                               findings of tools/lesson_checks.py
+tools/test_fill_spellings.py                   proves tools/fill_spellings.py writes the
+                                               spelling only where unambiguous, with grace for
+                                               the lesson-check ratchets
+tools/test_hidden_mechanical.py                proves the near-certain hidden words of
+                                               tools/hidden_mechanical.py and the annotation
+                                               tools/prefill_hidden.py builds from one
+tools/data/lexicons/spellings.json             answer letters mapped to their spelling with
+                                               apostrophe or accent, built by
+                                               tools/build_spellings.py
+tools/test_reconstruct_budget.py               reconstruct_grid's node budget covers every
+                                               path, and its pruning is sound
 ```
 <!-- LAYOUT-END -->
