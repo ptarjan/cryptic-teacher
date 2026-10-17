@@ -1616,48 +1616,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TIARA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "in a down clue turned up means read from the bottom, so the small word runs backwards"
+       "text": "on",
+       "at": 22,
+       "note": "in a down clue on means the first piece is placed on top of what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 12,
+         "note": "in a down clue turned up means the word it is read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
          "words": "it",
-         "gives": "TI",
-         "note": "it reversed"
-        },
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      },
+      {
+       "words": "Queen",
+       "at": 25,
+       "gives": "R",
+       "note": "R stands for Regina, Latin for queen"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "Article",
-         "gives": "A",
-         "note": "the indefinite article"
-        },
+         "text": "head",
+         "at": 38,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
         {
-         "words": "Queen",
-         "gives": "R",
-         "note": "R for regina"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head",
-           "note": "a word's head is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Anne's",
-           "note": "first letter of Anne"
-          }
-         ]
+         "words": "Anne's",
+         "at": 31,
+         "note": "A is the first letter of Anne"
         }
        ]
       }
@@ -1665,13 +1674,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "An item that ended up on the head of Queen Anne.",
-     "walkthrough": "The whole clue doubles as the definition: a tiara is the very thing a queen wears on her head.",
-     "definitionFit": "A tiara is a jewelled crown or headband worn by royalty, so it might sit on a queen's head."
+     "surface": "A question about whether a royal headpiece appeared on Queen Anne.",
+     "walkthrough": "'it turned up' gives TI, sitting 'on' A (article), then R (Queen) and the 'head' of Anne's. The whole clue also describes the answer: a jewelled article on a queen's head.",
+     "definitionFit": "A tiara is a jewelled ornamental headband worn by royalty, such as a queen."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Article"
     }
    }
   },
