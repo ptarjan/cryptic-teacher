@@ -197,46 +197,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PYGMALION",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "the country sits inside the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one part sits inside the other"
-        },
-        {
          "text": "ground",
-         "note": "ground = crushed, broken up"
+         "at": 30,
+         "note": "ground means crushed or milled, so the letters of pongy are broken up and reordered"
         }
        ],
        "parts": [
         {
          "words": "pongy",
-         "gives": "PYGON",
-         "note": "PONGY rearranged, then split PYG...ON"
-        },
-        {
-         "words": "African country",
-         "gives": "MALI",
-         "note": "Mali is a West African country"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "African country",
+       "at": 5,
+       "gives": "MALI",
+       "note": "Mali is a country in West Africa"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told to play a game about an African country on a patch of smelly ground.",
-     "walkthrough": "Pongy is British slang for smelly, and 'ground' means crushed, not a patch of earth. Pygmalion is the George Bernard Shaw play behind My Fair Lady.",
-     "definitionFit": "Definition by example: Pygmalion is one well-known play, by Shaw."
+     "surface": "A smelly patch of land in an African country.",
+     "walkthrough": "'ground' rearranges PONGY to PYGON; MALI goes 'in' it. Pongy is British slang for smelly. Pygmalion is George Bernard Shaw's play.",
+     "definitionFit": "Pygmalion is the 1913 stage comedy by George Bernard Shaw, later adapted into My Fair Lady."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Play"
+     "misdirectedWord": "ground"
     }
    }
   },
@@ -423,51 +425,50 @@
      "indicators": [
       {
        "text": "stores",
-       "note": "the outer word keeps the others inside it"
+       "at": 48,
+       "note": "stores means keeps inside, so the other letters go within"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "department",
-         "gives": "DEPT",
-         "note": "the usual short form of department"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "c = cold, as on a tap"
-        }
-       ]
+       "words": "department",
+       "at": 37,
+       "gives": "DEPT"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "RY",
-       "indicators": [
-        {
-         "text": "recently-emptied",
-         "note": "the word loses its insides, keeping only the ends"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "recently-emptied",
-         "gives": "RY",
-         "select": "outer",
-         "note": "RECENTLY with the middle removed"
+         "words": "cold",
+         "at": 14,
+         "gives": "C",
+         "note": "C is the abbreviation for cold on taps"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "emptied",
+           "at": 29,
+           "note": "emptied means the inside is taken out, leaving only the first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "recently",
+           "at": 20,
+           "note": "outer letters give RY"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trying to understand the chilly shops that have lately been cleared out.",
-     "walkthrough": "'Department stores' reads as big shops; split the phrase and the department's short form stores the rest.",
-     "definitionFit": "Plain synonym: you make sense of a coded message by decrypting it."
+     "surface": "A department store has recently been cleared of cold goods.",
+     "walkthrough": "'recently-emptied' leaves RY; with C for cold, these are what the abbreviation DEPT 'stores'.",
+     "definitionFit": "To decrypt a coded message is to decode it, working out what it means."
     },
     "features": {
      "answerInScene": false,
@@ -649,39 +650,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "managed",
-       "note": "managed = handled, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "at home",
+       "at": 14,
+       "gives": "IN",
+       "note": "in means at home, as in 'staying in'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "managed",
+         "at": 22,
+         "note": "managed means handled or arranged, so the letters of care are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "at home",
-         "gives": "IN",
-         "note": "at home = in"
-        },
-        {
          "words": "care",
-         "note": "CARE rearranged"
-        },
-        {
-         "words": "alone",
-         "gives": "SINGLY",
-         "note": "singly = one by one, alone"
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "alone",
+       "at": 35,
+       "gives": "SINGLY",
+       "note": "singly means alone, one at a time"
       }
      ]
     },
     "explanation": {
-     "surface": "More and more often, care at home is managed single-handed.",
-     "walkthrough": "'Managed care' reads as a health-policy term; here managed is the signal to rearrange CARE.",
-     "definitionFit": "Plain synonym: something that grows by degrees, more and more, does so increasingly."
+     "surface": "Someone at home who managed care alone, more and more.",
+     "walkthrough": "'managed care' sounds like a health-care phrase, but 'managed' is the anagram signal on 'care' alone.",
+     "definitionFit": "Increasingly describes something growing steadily in degree, to an ever greater extent."
     },
     "features": {
      "answerInScene": false,
@@ -1393,35 +1397,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COMEBY",
      "indicators": [
       {
-       "text": "when swapping sides in bed"
+       "text": "when swapping sides in bed",
+       "at": 12,
+       "note": "the word bed has B and D on its two sides; swapping them turns the D into a B"
       }
      ],
      "parts": [
       {
        "words": "humour",
+       "at": 5,
        "gives": "COMEDY",
-       "note": "comedy = humour"
+       "note": "comedy is humour, the funny side of things"
       },
       {
-       "words": "sides in bed",
-       "gives": "B",
-       "note": "the D is replaced by B, the other side of BED"
+       "gives": "D"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A couple find something funny when they swap sides of the bed.",
-     "walkthrough": "COMEDY has a D; trading it for the B at the other end of BED gives COMEBY.",
-     "definitionFit": "Idiom: to get hold of something, as when you chance on a rare book, is to find it."
+     "surface": "Someone finds a funny side to switching sides of the bed.",
+     "walkthrough": "In COMEDY the D, one of the two letters on the 'sides' of 'bed', is swapped for the other, B.",
+     "definitionFit": "To come by something is to obtain or find it, often by chance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bed"
+     "joke": "pun",
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -1446,43 +1453,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "APRICOTS",
+     "op": "container",
      "indicators": [
       {
-       "text": "unexpectedly",
-       "note": "the letters come in a surprising order"
+       "text": "Crossing",
+       "at": 0,
+       "note": "the jumbled letters cross over the island letter, going round it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Crossing",
-         "note": "the letters go across the island, taking it inside"
+         "text": "unexpectedly",
+         "at": 26,
+         "note": "unexpectedly suggests things happening out of order, so the letters are reordered"
         }
        ],
        "parts": [
         {
          "words": "stop car",
-         "gives": "APRCOTS",
-         "note": "STOP CAR rearranged, split APR...COTS"
-        },
-        {
-         "words": "island",
-         "gives": "I",
-         "note": "i = island"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "island",
+       "at": 9,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver crossing an island stops suddenly to buy fruit.",
-     "walkthrough": "'Stop car' reads as an instruction to the driver; it is the letters to rearrange, and 'crossing' puts them either side of the island.",
-     "definitionFit": "Definition by example: small orange stone fruits from the rose family, like plums."
+     "surface": "While crossing an island, a car stops unexpectedly for fruit.",
+     "walkthrough": "'unexpectedly' rearranges STOP CAR into APRCOTS, and that goes round I ('Crossing island').",
+     "definitionFit": "Apricots are small orange stone fruits, related to the peach and plum."
     },
     "features": {
      "answerInScene": true,
