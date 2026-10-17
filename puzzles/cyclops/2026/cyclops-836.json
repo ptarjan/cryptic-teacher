@@ -24,7 +24,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping); the post's combined '2/28a' row gives only the first member's letters (OSWALD, 6) rather than the full linked answer -- the grid's own 6+6 group and 28ac's own dedicated row (MOSLEY) fix it as OSWALD MOSLEY (12 letters)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -204,60 +205,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "thrashed",
-       "note": "A thrashing leaves what it lands on in no fit state, and letters in that state will not stay in the order handed over."
+       "text": "after",
+       "at": 39,
+       "note": "after places the scrambled word behind the opening letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "after",
-         "note": "What comes after something is written behind it, so the shuffled four follow the pair taken from the election."
+         "text": "starts",
+         "at": 58,
+         "note": "starts means we take only the opening letter of each of these words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TE",
-         "indicators": [
-          {
-           "text": "starts",
-           "note": "A start is where a thing begins, so only the opening letter of each word in front of it is taken."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the election starts",
-           "gives": "TE",
-           "select": "first",
-           "note": "the opening letters of 'the' and 'election'"
-          }
-         ]
-        },
+         "words": "the election",
+         "at": 45,
+         "note": "the opening letters of these two words give the pair taken here"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "thrashed",
+         "at": 30,
+         "note": "thrashed, beaten about, signals the letters of this rude word are scrambled"
+        }
+       ],
+       "parts": [
         {
          "words": "arse",
-         "note": "four letters for the pile, wanted for their spelling"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody is getting a beating on the backside now the campaign has begun.",
-     "walkthrough": "'Winds up' is the British sense of needling a person until they snap, not the clockwork or the finishing sense. Two words share one instruction, which is why 'the election starts' reads as plain reportage.",
-     "definitionFit": "A teaser is the one who provokes others for sport, the person sense of the word rather than the puzzle or the trailer."
+     "surface": "A politician's opponent gets a good spanking once the vote is underway.",
+     "walkthrough": "'winds up' looks like a clockwork action but means teasing, British slang for provoking someone. 'getting' just links the definition; 'after' puts the scrambled rude word behind the two opening letters.",
+     "definitionFit": "A teaser is someone who mocks or provokes others playfully, which is what winding people up means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "starts"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "winds"
     }
    }
   },
@@ -316,50 +317,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Coalition",
-      "at": 0
+      "text": "Coalition parties'",
+      "at": 0,
+      "note": "the answer is a noun for a union of parties; the possessive reads as the alliance's own, the coalition of the parties"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaderless",
+       "at": 19,
+       "note": "leaderless means the word for flirtation loses its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leaderless",
-         "note": "A body with no leader has lost the one at its head, so the word it governs goes without its first letter."
-        }
-       ],
-       "parts": [
-        {
-         "words": "flirtation",
-         "gives": "DALLIANCE",
-         "note": "a dalliance is a flirtation, a light affair nobody means to last"
-        },
-        {
-         "words": "leaderless",
-         "gives": "D",
-         "note": "the letter standing at the head of that nine is the one dropped"
-        }
-       ]
+       "words": "flirtation",
+       "at": 30,
+       "gives": "DALLIANCE",
+       "note": "a dalliance is a casual flirtation or light romance"
       },
       {
-       "unchecked": true,
-       "words": "parties'",
-       "note": "the possessive belongs to the surface picture and puts in no letters"
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Political parties are flirting with each other while nobody is in charge.",
-     "walkthrough": "One letter off the front of one word does the whole job, which is why the clue looks too short to contain wordplay. 'Parties' is dressing: it makes the sentence a sentence and nothing more.",
-     "definitionFit": "An alliance is a formal joining of forces, and when parties do it in a parliament the newspapers call the result a coalition."
+     "surface": "A pact between political groups is mocked as a mere fling without anyone in charge.",
+     "walkthrough": "'leaderless' removes the opening D from DALLIANCE. The definition takes in 'parties'' so that the coalition is one formed by parties, a political alliance.",
+     "definitionFit": "An alliance is a union of groups or states joined for a common cause, the same idea as a coalition."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaderless"
+     "misdirectedWord": "flirtation"
     }
    }
   },
@@ -432,7 +424,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "thrown out of parliament",
+      "text": "thrown out of parliament?",
       "at": 41
      }
     ],
@@ -441,46 +433,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "To put one thing about another is to wrap it round, so the longer piece closes over the letter that follows."
+       "at": 20,
+       "note": "about means the first word wraps round the letter that follows"
       }
      ],
      "parts": [
       {
        "words": "Not fully satisfied",
+       "at": 0,
        "gives": "UNSATED",
-       "note": "an appetite left unmet is unsated"
+       "note": "unsated means not satisfied, with appetite left over"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
          "text": "finally",
-         "note": "Finally points at where a word ends, so its last letter is all that is taken."
+         "at": 33,
+         "note": "finally means only the last letter of the name is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Farage finally",
-         "gives": "E",
-         "select": "last",
-         "note": "the last letter of the surname"
+         "words": "Farage",
+         "at": 26,
+         "note": "Nigel Farage, the British politician; his surname's last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody still hungry is grumbling about Nigel Farage losing his Commons seat.",
-     "walkthrough": "'About' reads as 'concerning' and is really the instruction to wrap one piece round another. The trap is waiting for Farage to supply a chunk; he supplies one letter.",
-     "definitionFit": "An MP who loses their seat is unseated, the word Westminster uses for being turned out of the House."
+     "surface": "A disgruntled observer is still hungry for more after a populist politician is ejected from the Commons.",
+     "walkthrough": "'finally' takes E, the last letter of Farage, and 'about' puts UNSATED around it. Nigel Farage is a British right-wing politician.",
+     "definitionFit": "An MP who loses an election loses their seat in the Commons, and is said to be unseated."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "about"
+     "aptDefinition": true,
+     "misdirectedWord": "satisfied"
     }
    }
   },
@@ -505,41 +496,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GOBLET",
-     "indicators": [
-      {
-       "text": "Overturned",
-       "note": "An overturned thing has been tipped end over end, so the word it governs is read from its last letter back to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Overturned",
+         "at": 0,
+         "note": "overturned, turned upside down, means the word for toilet is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Overturned toilet",
-         "gives": "GOB",
-         "note": "the bog is British slang for the lavatory, here tipped upside down"
-        },
-        {
-         "words": "hindrance",
-         "gives": "LET",
-         "note": "a let is an obstruction in law and in tennis, as in 'without let or hindrance'"
+         "words": "toilet",
+         "at": 11,
+         "gives": "BOG",
+         "note": "bog is British slang for a toilet"
         }
        ]
+      },
+      {
+       "words": "hindrance",
+       "at": 20,
+       "gives": "LET",
+       "note": "a let is an obstacle, as in the legal phrase without let or hindrance"
       }
      ]
     },
     "explanation": {
-     "surface": "A lavatory has been knocked over, and a drinker wonders whether that helps.",
-     "walkthrough": "'Let or hindrance' is the legal phrase the clue quietly quotes, and it splits down the middle: one word is wordplay, the other is not. The drinker of the surface is drunk; the drinker of the definition just wants a cup.",
-     "definitionFit": "A goblet is a stemmed drinking cup, so it is literally the thing that helps a drinker get the drink down."
+     "surface": "A drunk has knocked over the lavatory and wonders whether it helps or hinders his drinking.",
+     "walkthrough": "'hindrance or aid' looks like a pair of opposites; it splits, the hindrance being wordplay and 'aid to the drinker' the definition. That sense of hindrance survives in tennis and the phrase 'without let or hindrance'.",
+     "definitionFit": "A goblet is a stemmed drinking cup, so a vessel that helps someone drink wine."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "hindrance"
     }
@@ -678,7 +670,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "conference venues",
+      "text": "conference venues?",
       "at": 55
      }
     ],
@@ -687,38 +679,36 @@
      "parts": [
       {
        "words": "One making financial checks",
+       "at": 0,
        "gives": "AUDITOR",
-       "note": "an auditor is the person who inspects a company's accounts"
+       "note": "an auditor inspects a company's accounts"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IA",
        "indicators": [
         {
          "text": "leaders'",
-         "note": "A leader stands at the front, so what is taken is the front letter of each word before it."
+         "at": 46,
+         "note": "leaders means the first letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "inept, asinine leaders'",
-         "gives": "IA",
-         "select": "first",
-         "note": "the opening letters of the two insults"
+         "words": "inept, asinine",
+         "at": 31,
+         "note": "the first letters of these two words give the pair used here"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An accountant goes through the books of hopeless heads of state at their summit.",
-     "walkthrough": "The apostrophe lets 'leaders' be a possessive in the surface and an instruction in the wordplay at the same time. Auditoria is the Latin plural that theatres and publishers still prefer to auditoriums.",
-     "definitionFit": "Auditoria are the halls where an audience sits, which is where a conference seats its delegates — a plural definition for a plural answer."
+     "surface": "An accountant is let loose on the clueless bosses who run large meeting halls.",
+     "walkthrough": "'leaders'' takes I and A from 'inept, asinine'. The question mark flags that these halls host more than conferences.",
+     "definitionFit": "Auditoria are large halls where audiences gather, such as those used for conventions and talks."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "leaders'"
     }
@@ -1082,42 +1072,40 @@
     "definitions": [
      {
       "text": "slated by Trump",
-      "at": 26,
-      "note": "This definition points rather than substitutes: instead of a synonym it names its answer by who is forever attacking it, which is how a solver is meant to recognise it."
+      "at": 26
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "THEMEDIA",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "To reject a thing is to throw it back, so the three letters in front are written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Subject",
+       "at": 0,
+       "gives": "THEME",
+       "note": "a theme is a subject or topic"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 14,
+         "note": "rejected, sent back, means the word aid is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Subject",
-         "gives": "THEME",
-         "note": "the subject of an essay is its theme"
-        },
-        {
-         "words": "Aid rejected",
-         "gives": "DIA",
-         "note": "help thrown back the way it came"
+         "words": "Aid",
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An email headed \"Aid rejected\" has drawn an attack from Trump.",
-     "walkthrough": "The colon and the quotation marks dress the clue as a memo, and neither piece of punctuation carries an instruction. 'Slate' is British for to criticise savagely, the sense a tabloid headline uses.",
-     "definitionFit": "Press and broadcasters together are the media, and they are the standing target of Trump's abuse."
+     "surface": "A headline about a refused relief package that the US president has denounced.",
+     "walkthrough": "'rejected' sends AID back as DIA. The definition is a description rather than a synonym: the press is a constant target of Trump's attacks.",
+     "definitionFit": "The press and broadcasters are a frequent target of the US president's insults, often called fake news."
     },
     "features": {
      "answerInScene": true,
