@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -560,50 +561,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LEGAL",
+     "indicators": [
+      {
+       "text": "to enter",
+       "at": 24,
+       "note": "to enter tells us the actor's letter goes inside the stage-and-left pair"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "stage",
+         "at": 33,
+         "gives": "LEG",
+         "note": "a stage of a journey is a leg"
+        },
+        {
+         "words": "left",
+         "at": 39,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the very start, so only the word's opening letter is wanted"
+         "at": 14,
+         "note": "initially points to the first letter of actor only"
         }
        ],
        "parts": [
         {
-         "words": "stage",
-         "gives": "LEG",
-         "note": "a leg is a stage of a journey, a race or a tournament"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "to enter",
-           "note": "entering is going inside, so the letter is placed within the other pieces rather than after them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "actor",
-           "note": "the first letter of the word, taken on its own"
-          }
-         ]
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the standard short form of left, as marked on a pair of gloves"
+         "words": "actor",
+         "at": 8,
+         "note": "its first letter is A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Stage left' is a single theatrical direction on the surface and two separate pieces underneath, which is why the clue can afford to stop there.",
-     "definitionFit": "Allowed -> LEGAL: the sense is 'permitted by law', so a legal move is one you are allowed to make, not merely one concerning lawyers."
+     "surface": "A theatre note: an actor was permitted to come on from stage left.",
+     "walkthrough": "'Stage left' reads as a theatre direction, but stage is LEG and left is L; 'initially' takes A from actor, and 'to enter' slips it between them.",
+     "definitionFit": "Something allowed by law is legal: a straightforward synonym meaning permitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
     }
    }
   },
@@ -776,57 +785,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMANCIPATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 22,
+       "note": "about means going round, so the European-chap-worried string wraps the reversed photo"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "EMANCIPATE",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "here it means round rather than concerning, so one piece closes on either side of the other"
-          },
-          {
-           "text": "withdrawn",
-           "note": "to withdraw is to draw back the way you came, so these letters are set down in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "words": "European",
-           "gives": "E",
-           "note": "E is the standard short form of European"
-          },
-          {
-           "words": "chap",
-           "gives": "MAN",
-           "note": "a chap is a man, in the slightly dated register the surface wants"
-          },
-          {
-           "words": "photo",
-           "gives": "CIP",
-           "note": "a photo is a pic, written down here from its back end forwards"
-          },
-          {
-           "words": "worried",
-           "gives": "ATE",
-           "note": "what is eating you is what is worrying you, so worried gives ate"
-          }
-         ]
+         "words": "European",
+         "at": 0,
+         "gives": "E"
+        },
+        {
+         "words": "chap",
+         "at": 9,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "words": "worried",
+         "at": 14,
+         "gives": "ATE",
+         "note": "worried as in 'what's eating you?' gives ATE, past tense of eat"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "withdrawn",
+         "at": 28,
+         "note": "withdrawn means pulled back, so the word for photo is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "photo",
+         "at": 38,
+         "gives": "PIC",
+         "note": "a pic is a photo"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a scandal about a picture being pulled, and every word of it is pulling its weight elsewhere: chap, worry and photo are three separate pieces.",
-     "definitionFit": "release -> EMANCIPATE: to emancipate is to set free from legal or social bondage, a formal, institutional kind of release rather than opening a door."
+     "surface": "A European man frets over a retracted photograph being published.",
+     "walkthrough": "'Withdrawn' reverses the photo word, and 'about' has European, chap and worried wrap round it; worried is ATE, as in 'what's eating you?'.",
+     "definitionFit": "To emancipate is to set free, so it is a verb meaning to release from bondage or restriction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
     }
    }
   },
@@ -1052,50 +1070,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ELLAGIC",
+     "indicators": [
+      {
+       "text": "put into",
+       "at": 40,
+       "note": "put into means the anagrammed gall goes inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "nuts",
-         "note": "nuts means out of one's mind, and letters that have lost their reason will not stay in the order printed"
-        },
-        {
          "text": "melting",
-         "note": "ice that melts loses its shape entirely, so its letters run into a new arrangement"
+         "at": 49,
+         "note": "melting suggests the ice loses its shape, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "put into",
-           "note": "says that one set of letters is placed inside the other rather than alongside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "gall",
-           "gives": "LLAG",
-           "note": "gall is bile, or brass-necked cheek, and its four letters are sent out of order"
-          },
-          {
-           "words": "ice",
-           "gives": "EIC",
-           "note": "the three letters of the word, run together in a new order and then split apart to make room"
-          }
-         ]
+         "words": "ice",
+         "at": 57
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 35,
+         "note": "nuts, meaning crazy, signals that the letters of gall are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gall",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a chemistry lesson and every word of it is true: the acid really is extracted from oak galls. Only the first three words are the definition.",
-     "definitionFit": "Relating to acid -> ELLAGIC: the adjective survives almost only in the phrase 'ellagic acid', so 'relating to acid' is as far as a plain definition goes."
+     "surface": "A chemistry instruction: an acid made from gall nuts is added to thawing ice.",
+     "walkthrough": "Ellagic acid really is made from gall nuts, which disguises 'nuts' as part of a botanical term when it is an anagram signal. 'Melting' scrambles the ice as well, and 'put into' sets the jumbled gall in the middle of it.",
+     "definitionFit": "Ellagic is the adjective used for ellagic acid, a compound found in oak galls and tannins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
     }
    }
   },
@@ -1121,50 +1146,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CONFIRM",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in places the single letter within the two company words"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "two companies",
+       "at": 27,
+       "gives": "COFIRM",
+       "note": "CO is the abbreviation for company and a firm is another company, giving CO and FIRM"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "bit of",
-         "note": "a bit is a fragment rather than the whole, and the smallest fragment of a word is its opening letter"
+         "at": 6,
+         "note": "a bit of negligence is just its first letter"
         }
        ],
        "parts": [
         {
-         "words": "two companies",
-         "gives": "CO",
-         "note": "CO is the abbreviation printed after a business name"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "not joinery here but a position: the letter goes between the two abbreviations rather than after them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "negligence",
-           "note": "the opening letter of the word, and no more of it"
-          }
-         ]
-        },
-        {
-         "words": "two companies",
-         "gives": "FIRM",
-         "note": "the second of the pair is a firm, the plain word for a business"
+         "words": "negligence",
+         "at": 13,
+         "note": "its first letter is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Two companies' asks for two different words meaning one company, not the same word twice, which is the small trick the plural is playing.",
-     "definitionFit": "Prove -> CONFIRM: the everyday sense of establishing that something is true, as a test confirms a diagnosis, rather than the mathematician's kind of proof."
+     "surface": "Showing a small amount of carelessness exists within two businesses.",
+     "walkthrough": "The two companies are CO (the abbreviation) and FIRM; 'bit of' takes N from negligence, and 'in' puts it between them.",
+     "definitionFit": "To confirm something is to establish its truth, a close synonym of prove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
