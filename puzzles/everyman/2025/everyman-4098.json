@@ -1041,43 +1041,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MANDELA",
-     "indicators": [
-      {
-       "text": "revolutionary",
-       "note": "A revolution turns a thing right round, so the piece beside it is read from its last letter back to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fellow",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 8,
+         "note": "something revolutionary turns round, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Fellow",
-         "gives": "MAN",
-         "note": "a fellow is a man"
-        },
-        {
          "words": "was in charge",
-         "gives": "DEL",
-         "note": "whoever was in charge led, and that word is turned round here"
-        },
+         "at": 22,
+         "gives": "LED",
+         "note": "led means was in charge"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader in",
-           "note": "The leader in a word is the letter at its head, and no more of it than that."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Africa",
-           "note": "the letter the continent's name starts with"
-          }
-         ]
+         "text": "leader in",
+         "at": 37,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Africa",
+         "at": 47,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
@@ -1085,9 +1088,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A man of revolutionary views who once ran the country, somewhere in Africa.",
-     "walkthrough": "No word is spare for a definition because the whole sentence is one: the man, the revolutionary, the head of state. Nelson Mandela led the armed wing of the ANC, spent 27 years in jail and came out to become South Africa's president.",
-     "definitionFit": "Read straight, the clue is Mandela's life: a revolutionary who ended up in charge and remains the African leader of the century."
+     "surface": "A portrait of a revolutionary man who went on to lead an African nation.",
+     "walkthrough": "The whole clue is both the wordplay and a description of the man: a revolutionary who later led South Africa.",
+     "definitionFit": "Nelson Mandela fought apartheid as a revolutionary and became South Africa's first black president."
     },
     "features": {
      "answerInScene": true,
@@ -1137,43 +1140,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRALALA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Performing",
+       "at": 0,
+       "note": "performing puts the letters through their paces, so they are rearranged"
+      },
+      {
+       "text": "neither",
+       "at": 24,
+       "note": "neither ... nor says both of the named letters are absent from the result"
+      },
+      {
+       "text": "nor",
+       "at": 38,
+       "note": "the second half of neither ... nor, naming the other letter left out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TRALALA",
-       "indicators": [
-        {
-         "text": "Performing",
-         "note": "A piece performed is played rather than read off the page as written, and letters played are letters that come out in another order."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "fall apart",
-         "note": "nine letters to work from, two more than are wanted"
+         "words": "fall",
+         "at": 12
         },
         {
-         "words": "neither piano nor forte",
-         "gives": "PF",
-         "note": "in a score p marks piano and f forte, and a passage that is neither loses both letters"
+         "words": "apart",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "piano",
+         "at": 32,
+         "gives": "P",
+         "note": "p is the musical marking for piano, softly"
+        },
+        {
+         "words": "forte",
+         "at": 42,
+         "gives": "F",
+         "note": "f is the musical marking for forte, loudly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A singer coming to pieces on stage, neither soft nor loud and fluffing the lyrics.",
-     "walkthrough": "Piano and forte are italicised because they are the score's own words, and a score prints them as single letters. 'Fall apart' is both the picture of the performance and the pile the two letters come out of.",
-     "definitionFit": "Tra-la-la is the nonsense a singer falls back on when the words have gone, filler that keeps the tune moving."
+     "surface": "A singer on stage falls to pieces, neither soft nor loud, having forgotten the lyrics.",
+     "walkthrough": "'neither piano nor forte' removes P and F from FALLAPART, leaving AALLART, which 'Performing' rearranges.",
+     "definitionFit": "Tra-la-la is the nonsense filler a singer hums when the lyrics escape them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Performing"
+     "misdirectedWord": "piano"
     }
    }
   },
@@ -1199,44 +1225,60 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TASTIER",
      "indicators": [
       {
        "text": "replacing",
-       "note": "What replaces a thing stands exactly where it stood, so the new letter goes into the gap the old one leaves."
-      },
-      {
-       "text": "pinch of",
-       "note": "A pinch is the smallest amount a cook takes, and the smallest amount of a word is the letter it starts with."
-      },
-      {
-       "text": "a little",
-       "note": "A little of a word is the start of it, one letter and no further in."
+       "at": 3,
+       "note": "the turmeric letter takes the place of the nutmeg letter"
       }
      ],
      "parts": [
       {
        "words": "what was increasingly unpleasant",
+       "at": 53,
        "gives": "NASTIER",
-       "note": "getting worse and worse is getting this, seven letters with one about to be traded"
+       "note": "nastier means more unpleasant"
       },
       {
-       "words": "pinch of nutmeg",
-       "gives": "N",
-       "note": "the first letter of that spice, and the one that goes"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "pinch of",
+         "at": 13,
+         "note": "a pinch is a tiny amount, so only the first letter of nutmeg is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nutmeg",
+         "at": 22,
+         "note": "the spice whose first letter is used"
+        }
+       ]
       },
       {
-       "words": "a little turmeric",
-       "gives": "T",
-       "note": "the first letter of the other spice, taking the vacated place"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a little",
+         "at": 34,
+         "note": "a little of a word here is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turmeric",
+         "at": 43,
+         "note": "the spice whose first letter is used"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook swapping one spice for another and improving the dish.",
-     "walkthrough": "The clue is a recipe instruction doubling as a spelling instruction, with both spices named only for the letters they begin with. 'What was increasingly unpleasant' is a comparative, which is the tip that the word wanted ends in -er.",
-     "definitionFit": "Something tastier has more flavour in it than whatever it is being set against, which is what more savoury says."
+     "surface": "A cooking tip: swap nutmeg for a dash of turmeric to rescue an unpleasant dish.",
+     "walkthrough": "'pinch of' nutmeg is N and 'a little' turmeric is T; 'replacing' puts T where N stood in NASTIER.",
+     "definitionFit": "Tastier means having more flavour, the same as more savoury in the sense of appetising."
     },
     "features": {
      "answerInScene": true,
