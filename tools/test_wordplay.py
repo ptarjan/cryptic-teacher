@@ -103,6 +103,8 @@ BAD = [
     ("letters short", "DEFAMATORY", "ana([folio]F + [made]) + [a] + [conservative]TOR", "9 letters against 10"),
     ("anagram short of a letter", "UNSOILED", "ana<crazy>([delusio])", "lacks N"),
     ("an anagram that changes nothing", "OVAL", "ana<broken>([oval])", "no anagram"),
+    ("an anagram over an insertion that can already spell it in order", "SEMIBREVE",
+     "ana<off>([house]SEMI + ins<around>([beer]BREE, [five]V))", "no anagram"),
     ("a composite anagram whose fodder lacks a letter", "DEATH", "comp<Sadly>([thirsted], [it's])", "lacks A"),
     ("a composite anagram with nothing taken out", "DERTH", "comp<Sadly>([dearth], [it's])", "to spare"),
     ("a reverse clue read as one piece", "OUTSTEP", 'reverse([What makes pets], "OUTSTEP")', "two or more"),
