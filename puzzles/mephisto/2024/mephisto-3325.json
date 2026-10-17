@@ -201,51 +201,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LAIK",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing tells us one letter is swapped out for another in the word for remained"
+       "at": 36,
+       "note": "one letter takes the place of another, the Knight stepping in for the Nasser letter"
       }
      ],
      "parts": [
       {
        "words": "remained",
+       "at": 19,
        "gives": "LAIN",
-       "note": "lain, as in lain still, means remained"
-      },
-      {
-       "words": "Knight",
-       "gives": "K",
-       "note": "K stands for knight, as in honours such as KG"
+       "note": "to have lain somewhere is to have stayed or remained there"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially points to the opening letter of the name beside it"
+         "at": 53,
+         "note": "initially points to the opening letter of the name that follows"
         }
        ],
        "parts": [
         {
          "words": "Nasser",
-         "note": "the first letter of the name"
+         "at": 46,
+         "note": "its first letter is the one swapped out"
         }
        ]
+      },
+      {
+       "words": "Knight",
+       "at": 29,
+       "gives": "K",
+       "note": "K is the chess notation for king, but Chambers also gives K for knight"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket report: at Headingley the knighted captain came in for Nasser Hussain.",
-     "walkthrough": "Headingley is the Leeds cricket ground, standing for Yorkshire, where LAIK is dialect for play. Nasser Hussain was an England captain.",
-     "definitionFit": "In Yorkshire and northern dialect, to laik means to play or amuse oneself, often idly."
+     "surface": "A cricket report from Headingley: play stood still while one England figure took over from Nasser Hussain.",
+     "walkthrough": "Headingley is the Leeds cricket ground, flagging a Yorkshire dialect word. 'Knight replacing Nasser initially' swaps the N of LAIN for K. Nasser Hussain was an England cricket captain.",
+     "definitionFit": "Laik is a northern English dialect verb meaning to play or idle about, used in Yorkshire, where the ground sits."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Play"
+     "misdirectedWord": "Knight"
     }
    }
   },
@@ -720,43 +723,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ALLEYOOP",
      "indicators": [
       {
        "text": "behind",
-       "note": "behind means coming after, so the trimmed word follows the back street"
+       "at": 49,
+       "note": "the next piece comes behind, that is after, the street"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALLEYOOP",
+       "words": "back street",
+       "at": 56,
+       "gives": "ALLEY",
+       "note": "an alley is a narrow back street"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "out of bounds",
-         "note": "out of bounds means losing the boundaries, so the outer letters are removed"
+         "at": 35,
+         "note": "the word's bounds are its first and last letters, which are discarded"
         }
        ],
        "parts": [
         {
-         "words": "back street",
-         "gives": "ALLEY",
-         "note": "an alley is a narrow back street"
-        },
-        {
          "words": "hoops",
-         "note": "the word taken as written before its ends go"
+         "at": 29,
+         "note": "its inner letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A basketball move where the ball goes out of play behind a back street court.",
-     "walkthrough": "Hoops is a natural basketball word, but here it just supplies OOP once H and S go.",
-     "definitionFit": "An alley-oop is a basketball play where one player lobs the ball to a teammate who dunks it in mid-air."
+     "surface": "A basketball move made with the hoops off-limits, played in a back street.",
+     "walkthrough": "'out of bounds' strips the outer letters H and S from hoops, leaving OOP, which goes 'behind' ALLEY. 'hoops' looks like part of the basketball scene, but it only supplies letters.",
+     "definitionFit": "In basketball an alley-oop is a lob pass caught in mid-air by a leaping teammate who scores before landing."
     },
     "features": {
      "answerInScene": true,
@@ -915,47 +918,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PHANSIGAR",
+     "op": "composite",
      "indicators": [
       {
        "text": "changes",
-       "note": "changes means the remaining letters are altered into a new arrangement"
+       "at": 23,
+       "note": "the letters of the word change position, giving a rearrangement"
+      },
+      {
+       "text": "get dropped",
+       "at": 39,
+       "note": "the named letters are lost from the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PHANSIGAR",
-       "indicators": [
-        {
-         "text": "get dropped",
-         "note": "get dropped means those two letters are left out of the longer word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "managership",
-         "note": "the word taken as written"
-        },
-        {
-         "words": "me",
-         "note": "the letters to be removed"
-        }
-       ]
+       "words": "managership",
+       "at": 11,
+       "note": "taken as written, as anagram material"
+      },
+      {
+       "words": "me",
+       "at": 36,
+       "note": "taken as written, the letters that are removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A football club turns hard when the manager's job changes hands and I'm sacked.",
-     "walkthrough": "Tough is a noun here, a thug, and once marks the word as historical.",
-     "definitionFit": "A phansigar was one of the Thugs of India, the strangler gangs whose name gave English the word thug."
+     "surface": "A football manager notes that a change of management means someone like him gets sacked.",
+     "walkthrough": "Remove M and E from MANAGERSHIP and rearrange the remaining nine letters. 'Tough' is the noun, a hard man, not the adjective.",
+     "definitionFit": "A phansigar was a member of the Thuggee strangler cult of India, so a ruffian or thug of former times."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Tough"
     }
    }
