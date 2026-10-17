@@ -166,41 +166,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARACHNOID",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secured with",
+       "at": 32,
+       "note": "secured with means held fast by, so the help word encloses the rearranged anchor"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "help",
+       "at": 45,
+       "gives": "AID",
+       "note": "aid means help"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "broken",
-         "note": "something broken is in pieces, and the pieces of ANCHOR are put back in another order"
-        },
-        {
-         "text": "secured with",
-         "note": "the scrambled anchor is held fast inside the word for help"
+         "at": 18,
+         "note": "broken means smashed out of shape, so the letters of anchor are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "help",
-         "gives": "AID",
-         "note": "help = AID, split to hold the scrambled anchor"
-        },
-        {
          "words": "anchor",
-         "gives": "RACHNO",
-         "note": "the letters of ANCHOR rearranged"
+         "at": 25,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nautical scene: a broken anchor lashed in place with outside help.",
-     "walkthrough": "\"Maybe\" is part of the definition: arachnoid means spider-like, and it may also name the membrane round the brain, so the setter hedges.",
-     "definitionFit": "Arachnoid means resembling a spider or its web."
+     "surface": "A damaged ship's anchor gets fastened with some assistance.",
+     "walkthrough": "'broken' scrambles the anchor and 'secured with' holds it inside the help word. 'Maybe' is there because arachnids include more than spiders, such as scorpions and mites.",
+     "definitionFit": "Arachnoid means resembling an arachnid, the class of creatures that includes spiders."
     },
     "features": {
      "answerInScene": false,
@@ -490,31 +493,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ARTFULDODGER",
      "indicators": [
       {
        "text": "about",
-       "note": "about can mean around, turned round, so the letters are turned into a new order"
+       "at": 15,
+       "note": "about here means all around, out of place, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "Old guard fret",
-       "gives": "ARTFULDODGER",
-       "note": "the twelve letters of OLD GUARD FRET rearranged"
+       "at": 0,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Veteran conservatives worry about a young delinquent.",
-     "walkthrough": "The Artful Dodger is the teenage pickpocket in Dickens's Oliver Twist; the name has become a byword for any young rogue.",
-     "definitionFit": "The Artful Dodger is literature's best-known juvenile miscreant."
+     "surface": "Veteran officers worry over a young offender.",
+     "walkthrough": "'about' rearranges the twelve letters of OLD GUARD FRET. The Artful Dodger is the young pickpocket in Dickens's Oliver Twist.",
+     "definitionFit": "The Artful Dodger, Dickens's teenage pickpocket, has become a byword for a young rogue or delinquent."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "fret"
+     "aptDefinition": true,
+     "misdirectedWord": "about"
     }
    }
   },
@@ -539,41 +541,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RENTALS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "about means surrounding, so the rearranged letters go round the northern letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "broadcast",
-         "note": "to broadcast is to scatter widely, so the letters of alerts are scattered"
-        },
-        {
-         "text": "about",
-         "note": "the scrambled letters go round the next one"
+         "at": 7,
+         "note": "broadcast means scattered widely, so the letters of alerts are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Alerts",
-         "gives": "RETALS",
-         "note": "the letters of ALERTS rearranged, opened to take a letter"
-        },
-        {
-         "words": "northern",
-         "gives": "N",
-         "note": "N is the standard abbreviation for northern"
+         "at": 0,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "northern",
+       "at": 23,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A news bulletin announces which homes in the north are up for rent.",
-     "walkthrough": "\"Broadcast\" looks like the news, but it is only the scrambling instruction for ALERTS.",
-     "definitionFit": "Definition by description: homes and flats offered for let are listed as rentals."
+     "surface": "Warnings go out on air about homes for let in the north.",
+     "walkthrough": "'broadcast' rearranges ALERTS to RETALS, and 'about' puts that around N.",
+     "definitionFit": "Rentals are houses or flats offered to let, properties available for hire."
     },
     "features": {
      "answerInScene": true,
@@ -650,28 +654,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FLYSHEETS",
+     "spelt": "FLYSHEETS",
      "indicators": [
       {
        "text": "The Reverend's",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of two words"
+       "at": 0,
+       "note": "the Reverend William Spooner gave his name to swapping the opening sounds of two words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "reserved vessels",
-       "gives": "FLYSHEETS",
-       "soundsLike": "SHY FLEETS",
-       "note": "reserved = SHY, vessels = FLEETS; swap their opening sounds SH and FL"
+       "op": "homophone",
+       "spelt": "FLY",
+       "parts": [
+        {
+         "words": "reserved",
+         "at": 15,
+         "gives": "SHY",
+         "note": "shy means reserved; it lends its opening sound to the second word and takes the other's"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "SHEETS",
+       "parts": [
+        {
+         "words": "vessels",
+         "at": 24,
+         "gives": "FLEETS",
+         "note": "fleets are groups of ships, vessels; its opening sound swaps with the first word's"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman keeps his own set of vessels, and more than one of them is round.",
-     "walkthrough": "\"The Reverend\" names Spooner without spelling him out. \"Circular\" looks like an adjective describing the vessels; it is the noun, a handout.",
-     "definitionFit": "Flysheets are handbills or leaflets, the same as circulars."
+     "surface": "A vicar's private ships, one of which goes round in circles.",
+     "walkthrough": "'The Reverend's' points to the Reverend Spooner: swap the opening sounds of SHY FLEETS. 'circular' is a noun here, a printed notice, not an adjective.",
+     "definitionFit": "Flysheets are single printed leaflets handed out, the same as circulars."
     },
     "features": {
      "answerInScene": false,
@@ -787,44 +808,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "nth",
+     "n": 3,
+     "indicators": [
+      {
+       "text": "essentially",
+       "at": 24,
+       "note": "the essence of each word is its centre, so the middle letter of each of the three words is taken"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ID",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "the essence of a word is its core, its middle letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "going under",
-         "gives": "ID",
-         "select": "middle",
-         "note": "one going under anaesthetic drops below awareness into the unconscious, the ID"
-        }
-       ]
-      },
-      {
-       "words": "keels",
-       "gives": "E",
-       "note": "the middle letter of KEELS"
+       "words": "going under keels",
+       "at": 5,
+       "note": "the central (third) letter of each of the five-letter words going, under and keels"
       }
      ]
     },
     "explanation": {
      "surface": "A fish swims beneath the hulls of boats.",
-     "walkthrough": "The link from \"going under\" to ID is loose: it points to the unconscious mind that takes over under anaesthesia. The E is the certain part.",
-     "definitionFit": "The ide is a European freshwater fish of the carp family."
+     "walkthrough": "'essentially' takes the central letter of each of the three five-letter words.",
+     "definitionFit": "The ide is a freshwater fish of the carp family, also called the orfe."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "keels"
+     "misdirectedWord": "essentially"
     }
    }
   },
@@ -902,39 +911,39 @@
    "annotation": {
     "definitions": [
      {
-      "text": "I'm spotted in dance outfit after change of heart",
-      "at": 0,
-      "note": "The whole clue is spoken by the answer: a leopard says \"I'm spotted\"."
+      "text": "I'm spotted",
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LEOPARD",
      "indicators": [
       {
-       "text": "change of heart",
-       "note": "the heart of a word is its middle letter, and here it is changed for another"
+       "text": "after change of heart",
+       "at": 28,
+       "note": "the heart of the outfit word is its middle letter, which is swapped for a different one"
       }
      ],
      "parts": [
       {
-       "words": "dance outfit",
+       "words": "in dance outfit",
+       "at": 12,
        "gives": "LEOTARD",
-       "note": "a leotard is a dancer's one-piece outfit"
+       "note": "a leotard is the close-fitting garment worn by dancers; in is the link to wearing it"
       },
       {
-       "words": "change of heart",
-       "gives": "LEOPARD",
-       "note": "LEOTARD's middle letter T is changed to P"
+       "gives": "T"
+      },
+      {
+       "gives": "P",
+       "note": "the new middle letter that turns the garment into the big cat"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "Someone confesses to being caught in a leotard after changing their mind.",
-     "walkthrough": "The clue does not say where the new P comes from; any single-letter swap at the centre that makes a word will do, and the spots confirm it. \"Spotted\" in the surface means seen.",
-     "definitionFit": "The leopard is the big cat famous for its spots."
+     "surface": "Someone in a dancer's leotard is noticed, having changed their mind.",
+     "walkthrough": "'after change of heart' swaps the middle letter of LEOTARD, its T, for P. 'I'm spotted' reads as being seen, but describes the animal's coat.",
+     "definitionFit": "A leopard is famous for its spotted coat, so it could describe itself as spotted."
     },
     "features": {
      "answerInScene": false,
@@ -1028,43 +1037,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASHPIT",
-     "indicators": [
-      {
-       "text": "exploded",
-       "note": "an explosion blows things apart, and the letters of has land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exploded",
+         "at": 25,
+         "note": "exploded means blown apart, so the letters of has are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "has",
-         "gives": "ASH",
-         "note": "the letters of HAS rearranged"
-        },
-        {
-         "words": "mine",
-         "gives": "PIT",
-         "note": "a coal mine is a pit"
+         "at": 21,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "mine",
+       "at": 34,
+       "gives": "PIT",
+       "note": "a pit is a coal mine"
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier under fire reports that a mine has gone off.",
-     "walkthrough": "\"Under fire\" reads as under attack; it is literal, the pit beneath a grate or furnace.",
-     "definitionFit": "An ash pit sits under a fire to catch the ashes."
+     "surface": "A mine has blown up beneath a blaze.",
+     "walkthrough": "'exploded' rearranges HAS to ASH, followed by PIT.",
+     "definitionFit": "An ash pit is the hollow beneath a grate or furnace that catches the ashes falling from the fire."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "fire"
+     "misdirectedWord": "exploded"
     }
    }
   },
@@ -1149,45 +1157,53 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DISTEMPER",
+     "indicators": [
+      {
+       "text": "What could make",
+       "at": 0,
+       "note": "what could make asks for the letters to be reworked into something else, so they are rearranged"
+      }
+     ],
      "parts": [
       {
+       "words": "pets",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
        "op": "last",
-       "unchecked": true,
-       "gives": "DISTEMPER",
        "indicators": [
         {
-         "text": "could make",
-         "note": "the letters could be made into the answer, rearranged"
-        },
-        {
          "text": "ultimately",
-         "note": "ultimately means at the end, so only the last letter of seem is used"
+         "at": 21,
+         "note": "ultimately means at the end, so only the final letter of seem is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "pets ultimately seem dire",
-         "gives": "DISTEMPER",
-         "select": "last",
-         "note": "PETS + M (last of SEEM) + DIRE, rearranged"
+         "words": "seem",
+         "at": 32,
+         "note": "only its last letter M is used"
         }
        ]
+      },
+      {
+       "words": "dire",
+       "at": 37,
+       "note": "taken as written"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about what could make pets' health look dire.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: distemper is a disease that makes pets gravely ill.",
-     "definitionFit": "Distemper is a viral disease of dogs and other animals that can make them seriously ill."
+     "surface": "A question about what illness could leave animals in a terrible state.",
+     "walkthrough": "'ultimately' gives M from seem; 'What could make' rearranges PETS, M and DIRE together. The whole clue is also the definition.",
+     "definitionFit": "Distemper is a viral disease of dogs and other animals that can make them gravely ill."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "ultimately"
+     "misdirectedWord": "make"
     }
    }
   },
