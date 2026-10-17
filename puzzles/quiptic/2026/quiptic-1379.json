@@ -795,37 +795,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PLANKTON",
-     "indicators": [
-      {
-       "text": "turning up",
-       "note": "A down entry is written from the top downwards, so letters told to turn up are climbing against the grain and are written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Board",
+       "at": 0,
+       "gives": "PLANK",
+       "note": "a plank is a long flat board"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 10,
+         "note": "in a down clue, turning up means the word not is read from the bottom upwards, i.e. backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Board",
-         "gives": "PLANK",
-         "note": "a board of sawn timber is a plank"
-        },
-        {
          "words": "not",
-         "gives": "TON",
-         "note": "the three letters of this word climbing back up the entry the other way"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The board fails to show up on the day the seafood is served.",
-     "walkthrough": "'Seafood' is doing the loosest sort of work here: this is food found in the sea rather than anything you would find on a menu, which is what makes the definition hard to trust.",
-     "definitionFit": "seafood → PLANKTON: plankton is the drifting mass of tiny organisms whales and fish live on, so it is food from the sea rather than food from a restaurant."
+     "surface": "Someone refuses to treat seafood as fit for the dinner table.",
+     "walkthrough": "'turning up' reverses NOT to TON in this down clue. 'Seafood' is cryptic: not food from the sea for people, but food in the sea for whales.",
+     "definitionFit": "Plankton are the tiny drifting organisms that whales and many fish eat, so they are literally the sea's food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seafood"
     }
    }
   },
@@ -1225,46 +1230,52 @@
     "definitions": [
      {
       "text": "identifying culprit?",
-      "at": 35,
-      "note": "This describes what the answer is about rather than offering a synonym for it, and the question mark is the setter admitting as much; the answer is a genre label, not a phrase that can replace those words."
+      "at": 35
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHODUNIT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means surrounding, so the intelligence word is placed around the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Intelligence",
+       "at": 0,
+       "gives": "WIT",
+       "note": "wit means mental sharpness or intelligence"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "A scarf worn about the neck goes round the outside, so this word closes the letters before it over the letters after it."
-        },
-        {
          "text": "destroyed",
-         "note": "Something destroyed has been smashed apart, and the fragments can be put back together in any order at all."
+         "at": 19,
+         "note": "destroyed means the letters of hound are wrecked and rebuilt in a new order"
         }
        ],
        "parts": [
         {
-         "words": "Intelligence",
-         "gives": "WIT",
-         "note": "wit is intelligence, quickness of mind; the word splits open after its first letter"
-        },
-        {
          "words": "hound",
-         "gives": "HODUN",
-         "note": "the five letters of this word shaken into a new order"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Word reaches the police about a savaged dog, and the question is who is to blame.",
-     "walkthrough": "The question mark earns its place: the answer is a deliberate misspelling of 'who done it', a name for a kind of story rather than a phrase, so a definition can only gesture at it.",
-     "definitionFit": "identifying culprit? → WHODUNIT: a whodunit is a detective story whose entire plot is the identification of the culprit, its name a jokey misspelling of 'who done it'."
+     "surface": "A clever detective is circling a ruined hunting dog while trying to name the guilty party.",
+     "walkthrough": "'destroyed' turns HOUND into HODUN, and 'about' puts WIT around it. The question mark flags that the definition describes what the answer does rather than giving a synonym.",
+     "definitionFit": "A whodunit is a detective story whose whole plot is about working out who committed the crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hound"
     }
    }
   },
