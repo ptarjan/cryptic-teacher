@@ -164,22 +164,22 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Pair of",
-         "note": "a pair is two, so only the first two letters of the word are kept"
+         "at": 0,
+         "note": "a pair of the word means just its first two letters, the rest dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "rebels",
-         "gives": "RE",
-         "select": "first",
-         "note": "the first two letters of rebels"
+         "at": 8,
+         "note": "taken as written before it is cut to two letters"
+        },
+        {
+         "gives": "BELS"
         }
        ]
       },
@@ -188,32 +188,34 @@
        "indicators": [
         {
          "text": "raised",
-         "note": "in a down answer, raising a word means reading it upwards, from bottom to top"
+         "at": 15,
+         "note": "raised means lifted up, and in a down answer that reads the word from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "cane",
-         "note": "taken as written, then turned upside down"
+         "at": 22,
+         "note": "taken as written before it is turned"
         }
        ]
       },
       {
        "words": "Tuesday",
-       "gives": "T",
-       "note": "T is a standard abbreviation for Tuesday, as in calendar listings"
+       "at": 30,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Two rebels brandish canes one Tuesday to join a Civil War battle restaging.",
-     "walkthrough": "'On' just places the T after the reversed piece.",
-     "definitionFit": "Reenactors restage historic battles as a hobby, a pastime that recreates the past."
+     "surface": "Two insurgents lift a stick one Tuesday, as if staging a revolt.",
+     "walkthrough": "'Pair of' keeps RE from rebels; 'raised' turns CANE upward into ENAC in this down clue; T for Tuesday ends it. The 'diversion' is a pastime, such as a battle re-enactment.",
+     "definitionFit": "To reenact is to act out a past event again, as history enthusiasts do with famous battles for entertainment."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "raised"
+     "misdirectedWord": "diversion"
     }
    }
   },
