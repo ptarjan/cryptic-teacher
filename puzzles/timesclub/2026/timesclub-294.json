@@ -166,43 +166,51 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "UNRIMED",
      "indicators": [
       {
        "text": "in composition",
-       "note": "composing means putting together afresh, so the remaining letters are rearranged"
+       "at": 40,
+       "note": "in composition means the remaining letters are put together afresh in a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "UNRIMED",
        "indicators": [
         {
          "text": "hasn't",
-         "note": "what something hasn't got is missing from it, so a letter is dropped"
+         "at": 23,
+         "note": "hasn't means the letter for succeeded is missing from the words before it"
         }
        ],
        "parts": [
         {
-         "words": "mind sure",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "mind",
+           "at": 13
+          },
+          {
+           "words": "sure",
+           "at": 18
+          }
+         ]
         },
         {
          "words": "succeeded",
+         "at": 30,
          "gives": "S",
-         "note": "s is the abbreviation for succeeded, as in genealogies"
+         "note": "S is the abbreviation for succeeded, as in family trees"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poet with writer's block finds his confident mind has failed him mid-composition.",
-     "walkthrough": "'Poet's' flags a literary spelling: UNRIMED is the old form of unrhymed, and blank verse is verse that does not rhyme.",
-     "definitionFit": "Blank verse lacks rhyme, so a poet would call such lines unrhymed, spelt in the archaic way."
+     "surface": "A poet's mind is blank: he hasn't made a success of what he is composing.",
+     "walkthrough": "MIND plus SURE, after 'hasn't' removes the S for succeeded, leaves MINDURE; 'in composition' rearranges those seven letters.",
+     "definitionFit": "Unrimed is an old poetic spelling of unrhymed, and blank verse is verse without rhyme, so it is a poet's blank."
     },
     "features": {
      "answerInScene": true,
@@ -1273,36 +1281,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BOA",
      "indicators": [
       {
        "text": "displacing",
-       "note": "to displace is to push something out and take its place"
+       "at": 34,
+       "note": "displacing means the zero pushes out and takes the place of the middle letter"
       }
      ],
      "parts": [
       {
-       "words": "duck",
-       "gives": "O",
-       "note": "a duck in cricket is a score of nothing, O"
-      },
-      {
        "words": "undergarment's",
+       "at": 45,
        "gives": "BRA",
-       "note": "a bra is an undergarment"
+       "note": "a bra is a woman's undergarment"
       },
       {
        "words": "contents",
+       "at": 60,
        "gives": "R",
-       "note": "the contents of a three-letter word are its middle letter"
+       "note": "the contents of the bra are its inside letter, the R between B and A"
+      },
+      {
+       "words": "duck",
+       "at": 29,
+       "gives": "O",
+       "note": "a duck in cricket is a score of nothing, so O"
       }
      ]
     },
     "explanation": {
-     "surface": "A feathery fashion item made from a duck that has replaced the lining of underwear.",
-     "walkthrough": "'Duck' and 'feathers' together make a bird picture, but the duck is cricket's zero score.",
-     "definitionFit": "A boa is a long fluffy scarf of feathers worn round the neck."
+     "surface": "A feathery accessory takes the place of what's inside a bra.",
+     "walkthrough": "A duck is a zero score in cricket, giving O; it replaces R, the inside of BRA.",
+     "definitionFit": "A boa is a long fluffy scarf of feathers or fur worn around the neck as a fashion item."
     },
     "features": {
      "answerInScene": true,
