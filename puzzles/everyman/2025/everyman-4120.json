@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,40 +45,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "flipping",
-       "note": "To flip a thing over is to turn it so the far end comes first, which is how the letters beside it are read."
-      }
-     ],
      "parts": [
       {
        "words": "Earl",
-       "gives": "E",
-       "note": "E is the peerage abbreviation for earl, the rank between marquess and viscount."
+       "at": 0,
+       "gives": "E"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "finally lost",
-         "note": "'Finally' picks out the last letter and 'lost' says it goes, so the emperor arrives one letter short."
+         "text": "flipping",
+         "at": 9,
+         "note": "flipping means turning over, so the shortened emperor is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "emperor",
-         "gives": "TSA",
-         "note": "The emperor of Russia was a TSAR, and the clue takes his closing letter away before turning what is left."
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "finally lost",
+           "at": 26,
+           "note": "finally lost means the last letter goes missing, so the emperor loses his final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "emperor",
+           "at": 18,
+           "gives": "TSAR",
+           "note": "a tsar was the emperor of Russia"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An earl and a deposed emperor who no longer know which way they are going.",
-     "walkthrough": "'lost direction' reads as one phrase about a wanderer going astray, and only 'lost' belongs to the wordplay. Emperors in crosswords are Russian nine times out of ten.",
-     "definitionFit": "East is one of the four compass points, so 'direction' names it the way it would name north or west."
+     "surface": "A nobleman and a furious ruler who, in the end, lost their way.",
+     "walkthrough": "'Flipping' looks like an expletive about the emperor; 'finally lost' cuts TSAR to TSA, and 'flipping' reverses that to AST after E.",
+     "definitionFit": "East is one of the four cardinal points of the compass, a direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -141,18 +159,23 @@
      {
       "text": "Most like a pumpkin",
       "at": 0,
-      "meaning": "A pumpkin belongs to the squash family, so of all vegetables it is the one that most resembles one."
+      "meaning": "first meaning: most like a squash, the vegetable family a pumpkin belongs to"
      },
      {
-      "text": "as soft as can be",
-      "at": 27,
-      "meaning": "Anything you can press a thumb straight into is soft in this way, and 'as ... as can be' asks for the superlative."
+      "text": "that's as soft as can be?",
+      "at": 20,
+      "meaning": "second meaning: most easily squashed, the softest"
      }
     ],
     "explanation": {
-     "surface": "A pumpkin gone so far over that it gives under the lightest touch.",
-     "walkthrough": "Both halves are superlatives, which is what makes the join invisible: one is about resembling a vegetable, the other about how yielding a thing feels.",
-     "definitionFit": "Most like a pumpkin works because a pumpkin is a squash; as soft as can be is the everyday sense of something that yields when pressed."
+     "walkthrough": "A pumpkin is a kind of squash, so the superlative of squash-like is also the superlative of squashy, meaning soft and yielding.",
+     "definitionFit": "The superlative of squashy means both most like a squash vegetable and softest or most squeezable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pumpkin"
     }
    }
   },
@@ -181,30 +204,39 @@
      "parts": [
       {
        "words": "Round of applause",
+       "at": 0,
        "gives": "HAND",
-       "note": "Giving someone a hand is applauding them, and a big hand is a round of it."
+       "note": "to give someone a hand is to applaud them"
       },
       {
        "words": "son",
+       "at": 19,
        "gives": "S",
-       "note": "S is the family-tree abbreviation for son."
+       "note": "S is the genealogical abbreviation for son"
       },
       {
        "words": "parking",
+       "at": 23,
        "gives": "P",
-       "note": "P is the letter on every parking sign, and the standard wordplay shorthand."
+       "note": "P is the road-sign abbreviation for parking"
       },
       {
        "words": "hoop",
+       "at": 36,
        "gives": "RING",
-       "note": "A hoop is a ring, whether a gymnast's or a circus performer's."
+       "note": "a ring is a circular hoop"
       }
      ]
     },
     "explanation": {
-     "surface": "A circus turn drawing applause: a boy parks a hoop and rolls it along like a wheel.",
-     "walkthrough": "'Cartwheel' is the gymnastic move, not the wooden thing on a cart, and the surface spends its whole length pushing you towards the cart.",
-     "definitionFit": "A handspring is an acrobatic flip powered off the hands, and cartwheel is the everyday word for that family of hands-down revolutions."
+     "surface": "Applause greets a boy who parks and uses a hoop as a wheel.",
+     "walkthrough": "A hand is British idiom for applause, as in 'give her a big hand'.",
+     "definitionFit": "A handspring is a gymnastic flip onto the hands and over, close kin to a cartwheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hoop"
     }
    }
   },
@@ -226,18 +258,22 @@
      {
       "text": "Spontaneity",
       "at": 0,
-      "meaning": "Dancing with this quality means dancing without restraint or self-consciousness."
+      "meaning": "first meaning: a noun, lack of restraint"
      },
      {
       "text": "desert",
       "at": 15,
-      "meaning": "To desert a post is to walk away from it and leave it to its fate."
+      "meaning": "second meaning: a verb, to leave someone behind for good"
      }
     ],
     "explanation": {
-     "surface": "A burst of impulsiveness turning up somewhere out in the sand.",
-     "walkthrough": "'in' looks like a container instruction and is only holding the sentence up. One sense is a noun for reckless freedom, the other a verb for walking out.",
-     "definitionFit": "Spontaneity is the noun sense, throwing yourself into something unrestrained; desert is the verb, leaving something or someone behind."
+     "walkthrough": "One word serves as a noun for wild freedom and as a verb for walking out on someone.",
+     "definitionFit": "Abandon as a noun is uninhibited freedom of manner, and as a verb it means to forsake or leave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
     }
    }
   },
@@ -266,36 +302,45 @@
      "parts": [
       {
        "words": "Executed",
+       "at": 0,
        "gives": "DID",
-       "note": "To execute a task is simply to do it, and the clue's past tense sets the form."
+       "note": "to execute a task is to do it, so executed gives DID"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "expressed",
-         "note": "To express a liquid is to squeeze it out, so the small word named beside it is pressed out of the name it sits in."
+         "at": 39,
+         "note": "expressed means pressed out, so the article is squeezed out of the author's name"
         }
        ],
        "parts": [
         {
          "words": "swashbuckling author",
+         "at": 9,
          "gives": "DUMAS",
-         "note": "Alexandre Dumas wrote The Three Musketeers, the swashbuckling novel above all others."
+         "note": "Alexandre Dumas wrote The Three Musketeers, a swashbuckling adventure"
         },
         {
          "words": "article",
+         "at": 31,
          "gives": "A",
-         "note": "A is the indefinite article, and it is the letter being squeezed out of the novelist."
+         "note": "a is the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper piece reacting with mock pity to the execution of an adventure novelist.",
-     "walkthrough": "'expressed' wants to be a marker for something said out loud; it is the older sense, squeezed out like juice from a lemon. DIDDUMS is what you coo at a grazed knee.",
-     "definitionFit": "'Oh dear!' fits DIDDUMS, the British baby-talk noise of exaggerated sympathy, offered to a crying child or sarcastically to a sulking adult."
+     "surface": "A sorrowful cry after the author of swashbuckling tales was put to death.",
+     "walkthrough": "'Executed' suggests a beheading, but it simply means did. 'Expressed' is used in its old sense of squeezed out, removing A from DUMAS to leave DUMS.",
+     "definitionFit": "Diddums is a mock-sympathetic exclamation, used to someone making a fuss over a small hurt, like a teasing oh dear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Executed"
     }
    }
   },
@@ -327,27 +372,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PEANUTBUTTER",
      "indicators": [
       {
        "text": "Regrettably",
-       "note": "Something done regrettably has gone wrong, and letters that have gone wrong are letters no longer standing in their proper order."
+       "at": 0,
+       "note": "regrettably suggests something gone wrong, so the letters of punter ate tub are thrown into disorder"
       }
      ],
      "parts": [
       {
-       "words": "punter ate tub",
-       "gives": "PEANUTBUTTER",
-       "note": "The twelve letters of PUNTER ATE TUB rearranged."
+       "words": "punter",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "words": "ate",
+       "at": 20,
+       "note": "taken as written"
+      },
+      {
+       "words": "tub",
+       "at": 24,
+       "note": "taken as written"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A gambler regretting the tub he got through in one sitting.",
-     "walkthrough": "The clue is its own definition: read straight it describes a man eating a tub of the stuff, and the very same words hold the letters. That double duty is what &lit means.",
-     "definitionFit": "The whole sentence reads straight: peanut butter is sold in tubs, and getting through one at a sitting is exactly the sort of thing you would regret."
+     "surface": "A customer is sorry for eating a whole tub of a spread.",
+     "walkthrough": "The whole clue is both the anagram and the scene: the tub the punter regrets eating is a tub of the answer.",
+     "definitionFit": "Peanut butter is a spread sold in tubs and jars, exactly the thing one might regret eating a whole tub of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Regrettably"
     }
    }
   },
@@ -376,19 +436,27 @@
      "parts": [
       {
        "words": "Everyman",
+       "at": 15,
        "gives": "I",
-       "note": "Everyman is the name this setter signs, so when he refers to himself the letter is I."
+       "note": "Everyman is the setter, so the setter refers to themself as I"
       },
       {
        "words": "a go",
-       "note": "The last two words are lifted from the clue exactly as they stand."
+       "at": 28,
+       "gives": "AGO",
+       "note": "taken as written: a go is an attempt"
       }
      ]
     },
     "explanation": {
-     "surface": "The setter having an attempt at something, alongside a doomed character.",
-     "walkthrough": "'Tragic figure' sends you hunting for the hero, and the man here is the villain — the tragedy belongs to Othello. A setter naming himself in his own clue means I.",
-     "definitionFit": "Iago is the schemer of Shakespeare's Othello, so he is a figure from a tragedy rather than a man who is himself tragic."
+     "surface": "The setter tries out playing a tragic role.",
+     "walkthrough": "A setter's pseudonym in the clue stands for the first person, I.",
+     "definitionFit": "Iago is the scheming villain of Shakespeare's tragedy Othello, a figure in that tragic drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Everyman"
     }
    }
   },
@@ -417,35 +485,44 @@
      "parts": [
       {
        "words": "Soldier",
+       "at": 0,
        "gives": "GI",
-       "note": "GI is the standard crossword soldier, from the US Army's 'government issue'."
+       "note": "GI is the usual term for an American private soldier"
       },
       {
        "words": "had",
+       "at": 8,
        "gives": "D",
-       "note": "'Had' contracts to 'd in speech — he had, he'd — so the word lends a single letter."
+       "note": "'d is the short form of had, as in I'd"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "intro to",
-         "note": "An intro is the opening of a piece, so the clue wants the letter that opens the word standing after it."
+         "at": 12,
+         "note": "an intro is the opening, so only the first letter of erotic is used"
         }
        ],
        "parts": [
         {
          "words": "erotic",
-         "note": "The opening letter of the word, taken as the intro asks."
+         "at": 21,
+         "note": "its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier being introduced to some racy French writing.",
-     "walkthrough": "André Gide won the Nobel Prize in 1947 and wrote openly about desire, which is why 'erotic' sits so comfortably next to his nationality in the surface.",
-     "definitionFit": "'French author' defines by example: André Gide, the novelist of The Immoralist, is one such author rather than the only one."
+     "surface": "A soldier's first brush with risqué literature came from a French writer.",
+     "walkthrough": "The 'd of I'd gives D for had, and 'intro to' gives the E of erotic.",
+     "definitionFit": "André Gide was a French novelist and Nobel laureate, author of The Immoralist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "had"
     }
    }
   },
@@ -466,7 +543,8 @@
     "definitions": [
      {
       "text": "They're grounded",
-      "at": 0
+      "at": 0,
+      "note": "a plural description: birds that cannot fly and so stay on the ground"
      }
     ],
     "wordplay": {
@@ -474,21 +552,28 @@
      "indicators": [
       {
        "text": "somewhat",
-       "note": "Somewhat means only partly, so only part of the word beside it is wanted, and the part wanted is a run of letters as they stand."
+       "at": 21,
+       "note": "somewhat means to some extent, so only part of bemused is taken"
       }
      ],
      "parts": [
       {
        "words": "bemused",
-       "gives": "EMUS",
-       "note": "Four consecutive letters sit inside this word, and picking them out is the whole move."
+       "at": 30,
+       "note": "the answer sits inside this word"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody confined to the house and mildly baffled about it.",
-     "walkthrough": "'Grounded' does double duty in the surface: a teenager kept in for the weekend, and a bird that cannot get off the floor. Only the second reading defines anything.",
-     "definitionFit": "Emus are flightless birds, permanently on the ground, so 'They're grounded' defines them by the one thing they cannot do."
+     "surface": "People who are confused but level-headed.",
+     "walkthrough": "'Grounded' suggests sensible people, but here it means unable to take off: flightless birds.",
+     "definitionFit": "Emus are large flightless Australian birds, so they are permanently grounded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grounded"
     }
    }
   },
@@ -509,45 +594,49 @@
     "definitions": [
      {
       "text": "under attack",
-      "at": 33
+      "at": 33,
+      "note": "a past participle: battered or assailed, as if with a sandbag"
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SANDBAGGED",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the two things named here trade their fronts."
+       "at": 0,
+       "note": "Spooner was famous for swapping the opening sounds of words, which these words ask us to do"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "group",
+       "at": 22,
+       "gives": "BAND",
+       "note": "a band is a group of musicians"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SAGGED",
        "parts": [
         {
-         "unchecked": true,
-         "words": "group",
-         "gives": "SAND",
-         "soundsLike": "BAND",
-         "note": "A group of musicians is a band; it gives its B away and takes an S in exchange."
-        },
-        {
-         "unchecked": true,
          "words": "fell",
-         "gives": "BAGGED",
-         "soundsLike": "SAGGED",
-         "note": "Something that fell in the middle sagged; it hands over its S, takes the B, and the noise that comes back is spelt this way."
+         "at": 28,
+         "gives": "SAGD",
+         "note": "sagged means drooped or fell; said aloud it is SAGD, and that sound after the swap is spelt BAGGED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group of musicians collapsing, as the Reverend might have reported it.",
-     "walkthrough": "Say 'band sagged' and move the noises at the front across. To sandbag someone is to ambush them with a cosh — a sock filled with sand — which is where the definition comes from.",
-     "definitionFit": "Somebody sandbagged has been ambushed, originally with a sand-filled sock, so they are very much under attack and taken by surprise."
+     "surface": "A tale told by Dr Spooner in which a musical group collapsed while being assaulted.",
+     "walkthrough": "'According to Spooner' swaps the opening sounds of BAND SAGGED, which gives SAND BAGGED.",
+     "definitionFit": "To sandbag someone is to attack or knock them down, originally with a sand-filled bag, so sandbagged means attacked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fell"
     }
    }
   },
@@ -573,20 +662,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "I'll take the biscuit",
-      "at": 0,
-      "meaning": "The surface reading is a boast: to take the biscuit is to be the most outrageous thing going."
-     },
-     {
-      "text": "regularly!",
-      "at": 24,
-      "meaning": "The setter's reading is literal and repeated — the same shape pressed out of the dough over and over, which is where the phrase for anything formulaic comes from."
+      "text": "I'll take the biscuit — regularly!",
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I'll take the biscuit — regularly!",
+       "at": 0,
+       "note": "the clue is spoken by a kitchen tool that cuts every biscuit to the same shape; regularly hints at the figurative sense of uniform and formulaic"
+      }
+     ]
+    },
     "explanation": {
-     "surface": "Someone boasting that they will outdo everyone else, and keep on doing it.",
-     "walkthrough": "A cookie cutter takes the biscuit in the plainest possible sense — it cuts one out of the dough — and it does so identically every time, which is why the phrase came to mean formulaic.",
-     "definitionFit": "The whole clue describes the tool: it takes biscuits out of dough, does it the same way each time, and lends its name to anything mass-produced."
+     "walkthrough": "'Take the biscuit' plays on the idiom for being outrageous, but literally the tool takes a shape out of the dough, time after time.",
+     "definitionFit": "A cookie cutter stamps out biscuits of identical shape; figuratively, cookie-cutter means mass-produced and uniform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "take"
     }
    }
   },
@@ -612,32 +710,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Archbishop",
-      "at": 0
+      "text": "Archbishop's",
+      "at": 0,
+      "note": "read as Archbishop is, so the 's joins the definition to the wordplay"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DESMONDTUTU",
      "indicators": [
       {
        "text": "rabid",
-       "note": "A rabid animal is out of its own control, and letters out of control will not stay in the order they were handed over in."
+       "at": 26,
+       "note": "rabid means wild and frenzied, so the letters of mutt sounded go wild and are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "mutt sounded",
-       "gives": "DESMONDTUTU",
-       "note": "The eleven letters of MUTT SOUNDED rearranged."
+       "words": "mutt",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "words": "sounded",
+       "at": 18,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An archbishop's stray dog howling as though it had rabies.",
-     "walkthrough": "'sounded' looks like a marker for a word said out loud, and it is fodder — its letters go into the mix. Desmond Tutu was Archbishop of Cape Town and chaired South Africa's Truth and Reconciliation Commission.",
-     "definitionFit": "'Archbishop' defines by example: Desmond Tutu held the office in Cape Town, so the title names him as one holder of it."
+     "surface": "A senior cleric's dog barked as if it had rabies.",
+     "walkthrough": "The 's looks possessive, but it stands for is: the archbishop is the anagram of MUTT SOUNDED.",
+     "definitionFit": "Desmond Tutu was the Anglican Archbishop of Cape Town and a Nobel Peace Prize winner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mutt"
     }
    }
   },
@@ -664,7 +773,8 @@
     "definitions": [
      {
       "text": "Sweet",
-      "at": 0
+      "at": 0,
+      "note": "a noun: a dessert, the British sense of sweet"
      }
     ],
     "wordplay": {
@@ -672,24 +782,31 @@
      "parts": [
       {
        "words": "tomatoes maybe",
+       "at": 6,
        "gives": "FRUITS",
-       "note": "A tomato is botanically a fruit, and 'maybe' flags that it is one example of the wider class."
+       "note": "botanically tomatoes are fruits, as the maybe signals"
       },
       {
        "words": "a",
-       "note": "The article is taken straight off the page as a single letter."
+       "at": 30
       },
       {
        "words": "bloke",
+       "at": 32,
        "gives": "LAD",
-       "note": "Bloke and lad are both British informal words for a male, so one stands in for the other."
+       "note": "a lad is a man or bloke"
       }
      ]
     },
     "explanation": {
-     "surface": "Sweet tomatoes being handed over to some chap.",
-     "walkthrough": "In British usage 'sweet' is the dessert course rather than a sugary morsel, and that is the sense the definition needs. Tomatoes count as fruit botanically, however they are eaten.",
-     "definitionFit": "'Sweet' is the British name for the pudding course, and a fruit salad is a standard one — the noun sense of sweet, not the adjective."
+     "surface": "A dessert of tomatoes handed to a man.",
+     "walkthrough": "A sweet is British for a pudding or dessert, and a bloke is an ordinary man.",
+     "definitionFit": "Fruit salad is a dessert of chopped mixed fruit, served as a sweet course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
     }
    }
   },
@@ -752,35 +869,44 @@
     "definitions": [
      {
       "text": "Plot may do this",
-      "at": 0
+      "at": 0,
+      "note": "a verb phrase: what a plot does when it gets more complicated"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THICKEN",
      "indicators": [
       {
-       "text": "character with lisp"
+       "text": "from character with lisp",
+       "at": 33,
+       "note": "a person with a lisp says a th sound in place of an s, so the s is swapped for that pair"
       }
      ],
      "parts": [
       {
        "words": "catch something",
+       "at": 17,
        "gives": "SICKEN",
-       "note": "To catch something is to sicken — the phrase people use for coming down with an illness."
+       "note": "to sicken is to fall ill, to catch something"
       },
       {
-       "words": "character with lisp",
-       "gives": "TH",
-       "note": "A lisp turns the S sound into TH, so the opening letter is the one that steps aside."
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
       }
      ]
     },
     "explanation": {
-     "surface": "Catching a bug off someone who cannot say their esses.",
-     "walkthrough": "'The plot thickens' is the stock phrase the definition leans on, and a lisp is the setter's licence to trade an S sound for a TH.",
-     "definitionFit": "A plot thickens when it grows more tangled, so 'Plot may do this' points straight at the verb that phrase made famous."
+     "surface": "A story may grow ill when told by someone with a speech impediment.",
+     "walkthrough": "A lisp turns the s sound into th, so SICKEN said with a lisp comes out as the answer.",
+     "definitionFit": "When a plot thickens it becomes more involved and mysterious, the stock phrase for a story getting complicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plot"
     }
    }
   },
@@ -815,30 +941,39 @@
      "parts": [
       {
        "words": "Small",
+       "at": 0,
        "gives": "S",
-       "note": "S is the size on the clothing label."
+       "note": "S is the clothing-size abbreviation for small"
       },
       {
        "words": "tense",
+       "at": 7,
        "gives": "T",
-       "note": "T is the grammarian's abbreviation for tense, as in past T or future T."
+       "note": "T is the grammatical abbreviation for tense"
       },
       {
        "words": "composer of musical",
+       "at": 13,
        "gives": "BART",
-       "note": "Lionel Bart wrote Oliver!, the London stage musical made from Oliver Twist."
+       "note": "Lionel Bart wrote the musical Oliver!"
       },
       {
        "words": "is",
+       "at": 33,
        "gives": "S",
-       "note": "'Is' contracts to 's, as in 'it's', so the word lends one letter."
+       "note": "'s is the short form of is, giving S"
       }
      ]
     },
     "explanation": {
-     "surface": "A small, nervous songwriter somewhere in the Caribbean.",
-     "walkthrough": "Lionel Bart is the composer setters reach for at four letters. The island is Saint Barthélemy, a French territory in the Leeward Islands, and the short name is what everyone actually says.",
-     "definitionFit": "St Barts is the everyday English name for Saint Barthélemy, a small French island in the Caribbean, so the definition places it rather than describes it."
+     "surface": "A slight, nervous songwriter of shows is somewhere in the West Indies.",
+     "walkthrough": "Lionel Bart was the British writer of Oliver!; the clue's is gives S as in he's.",
+     "definitionFit": "St Barts, short for Saint Barthélemy, is a French island in the Caribbean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
     }
    }
   },
@@ -863,43 +998,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OBSCENE",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "Something broken has come apart and gone back together differently, which is what happens to the letters it points at."
+       "text": "buried in",
+       "at": 17,
+       "note": "buried in means placed inside, so the church's letters go into the jumbled bones"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "buried in",
-         "note": "To bury a thing in something is to put it inside and close the rest over it, so one piece ends up within the other."
+         "text": "broken",
+         "at": 27,
+         "note": "broken means smashed apart, so the letters of bones are reassembled in a new order"
         }
        ],
        "parts": [
         {
-         "words": "broken bones",
-         "gives": "OBSNE",
-         "note": "Bones supplies five letters and 'broken' says they need not stay in the order given."
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE is the Church of England, the church setters mean nine times out of ten."
+         "words": "bones",
+         "at": 34,
+         "note": "the letters to be rearranged"
         }
        ]
+      },
+      {
+       "words": "church",
+       "at": 10,
+       "gives": "CE",
+       "note": "CE is the abbreviation for the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "A church sunk under a heap of shattered bones.",
-     "walkthrough": "'buried in' reads as a grave in the surface and as an insertion in the wordplay, and the two readings sit on top of each other for the whole length of the clue.",
-     "definitionFit": "Appalling and OBSCENE both mean shocking enough to offend, obscene carrying the extra charge of indecency the surface is playing with."
+     "surface": "A dreadful scene: a church interred among shattered bones.",
+     "walkthrough": "'Broken' rearranges BONES into OBSNE, and 'buried in' sets CE inside it.",
+     "definitionFit": "Obscene can mean shocking or offensive to moral standards, which is to say appalling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buried"
     }
    }
   },
@@ -927,7 +1068,7 @@
      {
       "text": "here",
       "at": 44,
-      "note": "The definition is the single word 'here': rather than describing the country, the setter points at it as a destination, and the exclamation mark flags that as a joke rather than a slip."
+      "note": "the place named by the answer, where the planes are not getting you"
      }
     ],
     "wordplay": {
@@ -935,21 +1076,28 @@
      "indicators": [
       {
        "text": "Not entirely",
-       "note": "'Not entirely' says you want part of what came before rather than all of it, and the part wanted is a run of letters standing side by side."
+       "at": 19,
+       "note": "not entirely means only partly, so the answer is a part of these words"
       }
      ],
      "parts": [
       {
        "words": "Planes to Niagara",
-       "gives": "ESTONIA",
-       "note": "Seven consecutive letters run out of the end of the first word, across the second and into the third."
+       "at": 0,
+       "note": "the answer runs across the end of planes, all of to and the start of Niagara"
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that flights to the falls do not take you all the way.",
-     "walkthrough": "'Planes to Niagara' looks like scenery for a travel joke and is the hiding place, and the italics on 'entirely' are the setter nudging you to read 'Not entirely' as an instruction.",
-     "definitionFit": "'Here' points at the answer as a place you might fly to, and Estonia is a Baltic country four thousand miles from the falls the surface offers."
+     "surface": "Flights to Niagara Falls will not quite bring you to this place.",
+     "walkthrough": "The joke is that flights to Niagara would never get you to a Baltic country; 'Not entirely' signals that only part of the words is taken.",
+     "definitionFit": "Estonia is a Baltic state, the place the clue calls here because the hidden letters 'get you' to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Niagara"
     }
    }
   },
@@ -978,30 +1126,50 @@
      "indicators": [
       {
        "text": "enthralling",
-       "note": "To enthral is to hold someone in thrall, and a thing holding another keeps it inside itself."
-      },
-      {
-       "text": "largely",
-       "note": "Largely means for the most part and not all of it, so the piece it points at arrives one letter short."
+       "at": 5,
+       "note": "enthralling means holding captive, so the dead person holds the venue inside"
       }
      ],
      "parts": [
       {
        "words": "Dead",
+       "at": 0,
        "gives": "LATE",
-       "note": "The late Mr Smith is the dead one, and that is the sense wanted here."
+       "note": "the late someone is someone who has died"
       },
       {
-       "words": "skating venue",
-       "gives": "RIN",
-       "note": "A skating venue is a rink, and 'largely' keeps all of it but the final letter."
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 18,
+         "note": "largely means mostly, so the last letter of the rink is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skating venue",
+         "at": 27,
+         "gives": "RINK",
+         "note": "a rink is an arena for skating"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A skating rink that is absolutely gripping.",
-     "walkthrough": "'Dead enthralling' is British for utterly gripping, and the two words are separate instructions rather than one phrase. A latrine is the trench toilet of a camp or barracks.",
-     "definitionFit": "'Where you go' is the polite euphemism for a lavatory, and a latrine is the rough communal version of one."
+     "surface": "A gripping ice rink is dead, more or less.",
+     "walkthrough": "'Enthralling' looks like an adjective for exciting, but it means holding: LATE holds RIN, the rink trimmed by 'largely'.",
+     "definitionFit": "A latrine is a toilet, especially a rough one in a camp, the place you go when you need to go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "enthralling"
     }
    }
   },
@@ -1027,29 +1195,30 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "among friends",
-       "note": "Among friends a man goes by his familiar name rather than his formal one, so the clue wants the nickname and not the christening."
-      }
-     ],
      "parts": [
       {
        "words": "King",
+       "at": 0,
        "gives": "LEAR",
-       "note": "Shakespeare's King Lear is the king setters reach for when four letters are wanted."
+       "note": "King Lear is Shakespeare's tragic monarch"
       },
       {
-       "words": "Edward",
+       "words": "Edward among friends",
+       "at": 5,
        "gives": "NED",
-       "note": "Ned is the old familiar shortening of Edward, sitting alongside Ted and Ed."
+       "note": "Ned is the familiar form of Edward, the name friends would use"
       }
      ]
     },
     "explanation": {
-     "surface": "King Edward showing off his reading when he is among friends.",
-     "walkthrough": "'King Edward' looks like one man — a monarch, or the potato named after him — and it is two separate names. Barristers address each other as 'my learned friend', which is where the surface gets its polish.",
-     "definitionFit": "Learned, said as two syllables, means deeply read and scholarly, which is precisely what erudite means."
+     "surface": "A monarch called Edward, surrounded by his companions, is well read.",
+     "walkthrough": "'Among friends' looks like a containment signal, but it says Edward is called by his pet name.",
+     "definitionFit": "Learned, said as two syllables, means having much knowledge acquired by study, which is erudite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "among"
     }
    }
   },
@@ -1120,21 +1289,27 @@
      "indicators": [
       {
        "text": "going back and forth",
-       "note": "A word that goes back and forth reads the same whichever end you start from, so there is nothing to turn round — only a symmetry to notice."
+       "at": 12,
+       "note": "going back and forth means reading the same either way, so the name is identical forwards and backwards"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Ms Karenina",
-       "note": "The definition end of the clue: Tolstoy's heroine, given by title and surname only."
+       "at": 0,
+       "gives": "ANNA",
+       "note": "the first name of Tolstoy's title heroine, which reads the same in either direction"
       }
      ]
     },
     "explanation": {
-     "surface": "Tolstoy's heroine pacing to and fro, unable to settle.",
-     "walkthrough": "ANNA reads the same from either end, and that symmetry is the whole of the wordplay — 'going back and forth' catches her restlessness as well as the shape of her name.",
-     "definitionFit": "Ms Karenina is Tolstoy's Anna: the clue hands over the title and the surname and leaves the first name as the thing to find."
+     "surface": "Tolstoy's heroine pacing up and down.",
+     "walkthrough": "'Going back and forth' says the name reads the same in both directions, a palindrome; that is all the wordplay there is.",
+     "definitionFit": "Anna Karenina is the title heroine of Tolstoy's novel, so her first name is the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1163,21 +1338,28 @@
      "indicators": [
       {
        "text": "raised",
-       "note": "This is a down entry, so something raised is read from the bottom of the grid upwards and its letters arrive in the other order."
+       "at": 10,
+       "note": "raised means lifted up, and in a down clue that reads the word from bottom to top"
       }
      ],
      "parts": [
       {
        "words": "legs",
+       "at": 5,
        "gives": "PINS",
-       "note": "Pins is British slang for legs, as in being steady on your pins."
+       "note": "pins is informal for legs"
       }
      ]
     },
     "explanation": {
-     "surface": "A shapely pair of legs lifted into the air.",
-     "walkthrough": "'Trim' reads as an adjective in the surface, describing neat legs, and it is the verb that defines the entry — to take a little off with the scissors.",
-     "definitionFit": "To snip is to cut with one quick closing of the scissors, which is what trimming a fringe or a hedge amounts to."
+     "surface": "Shaving one's legs while holding them up.",
+     "walkthrough": "In a down answer, 'raised' reverses PINS.",
+     "definitionFit": "To snip is to cut with small quick strokes, so to trim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "legs"
     }
    }
   },
@@ -1205,24 +1387,23 @@
      {
       "text": "Ice cream",
       "at": 0,
-      "meaning": "The British seaside cone, soft whipped ice cream with a chocolate Flake pushed into it, is known by a number."
+      "meaning": "first meaning: a British soft-serve cone with a chocolate flake stuck in it"
      },
      {
-      "text": "IC",
-      "at": 31,
-      "meaning": "Read as Roman numerals, I before C means one taken off a hundred.",
-      "indicators": [
-       {
-        "text": "non-standardly",
-        "note": "Roman numerals do not normally take a unit off a hundred, so the flag warns that the two letters are an irregular way of writing the number."
-       }
-      ]
+      "text": "non-standardly, IC",
+      "at": 15,
+      "meaning": "second meaning: IC read as a Roman numeral, a non-standard way of writing the number"
      }
     ],
     "explanation": {
-     "surface": "A menu shortening 'ice cream' to two letters, which nobody actually does.",
-     "walkthrough": "The surface offers IC as sloppy shorthand for the words in front of it; the wordplay wants Roman numerals, one before a hundred. XCIX is the form the purists accept.",
-     "definitionFit": "A 99 is the British cone with a Flake stuck in it, and IC is the irregular Roman numeral for the same number."
+     "walkthrough": "The correct Roman numeral is XCIX, so IC (one before a hundred) is a non-standard form. A 99 is a British ice cream cone with a chocolate flake.",
+     "definitionFit": "The number written in words names both the British flake-topped cone and the value of IC as a Roman numeral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "IC"
     }
    }
   },
@@ -1251,26 +1432,34 @@
      "indicators": [
       {
        "text": "around",
-       "note": "To go around something is to close on it from both sides, so the longer piece ends up wrapped about the single letter."
+       "at": 28,
+       "note": "around means surrounding, so the fan goes round the abbreviation for lake"
       }
      ],
      "parts": [
       {
        "words": "cool",
+       "at": 23,
        "gives": "FAN",
-       "note": "A fan is the thing you switch on to cool a room."
+       "note": "to fan is to cool something with moving air"
       },
       {
        "words": "lake",
+       "at": 35,
        "gives": "L",
-       "note": "L is the map abbreviation for lake."
+       "note": "L is the map abbreviation for lake"
       }
      ]
     },
     "explanation": {
-     "surface": "A quiche left to cool at the side of a lake.",
-     "walkthrough": "'Perhaps' is the setter admitting the definition is an example rather than a synonym: a quiche is one kind of flan and not the only one.",
-     "definitionFit": "A flan is an open pastry case with a filling, and a quiche is one of those — the egg-and-cream version — so 'perhaps' marks a definition by example."
+     "surface": "A quiche being chilled by the waterside.",
+     "walkthrough": "'Perhaps' says a quiche is just one kind of the answer.",
+     "definitionFit": "A quiche is a savoury flan, an open pastry case with a filling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
     }
    }
   },
@@ -1290,20 +1479,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Characters seen outside branches",
-      "at": 0,
-      "meaning": "The surface reading is people loitering on the pavement in front of the shops."
-     },
-     {
-      "text": "of H&M",
-      "at": 33,
-      "meaning": "The setter's reading is typographic: the retailer's name carries a symbol between its two letters, and it is up on the sign over every door."
+      "text": "Characters seen outside branches of H&M",
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Characters seen outside branches of H&M",
+       "at": 0,
+       "note": "the symbol between H and M in the shop's name appears on the signs over its shopfronts, so the characters are written symbols"
+      }
+     ]
+    },
     "explanation": {
-     "surface": "People hanging about on the pavement outside the clothes shops.",
-     "walkthrough": "'Characters' means printed symbols rather than people, and 'outside' is literal: the sign carrying the symbol is on the front of the building, not in the aisles.",
-     "definitionFit": "Characters are typographic symbols, and the ampersand is one — the & standing between the H and the M on every shopfront."
+     "walkthrough": "'Characters' suggests people loitering outside a clothes shop, but they are typographic signs: the & symbol on every H&M shop sign.",
+     "definitionFit": "The & symbol meaning 'and' has its own name, and the H&M logo above each shop door shows one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Characters"
     }
    }
   },
@@ -1332,14 +1530,16 @@
      "indicators": [
       {
        "text": "Topless",
-       "note": "The top of a word is its first letter and topless takes it off — a loose licence, since this entry runs across rather than down, but one setters use freely."
+       "at": 0,
+       "note": "topless means with the top removed, so the first letter of the undergarment goes"
       }
      ],
      "parts": [
       {
        "words": "undergarment",
+       "at": 8,
        "gives": "TEDDY",
-       "note": "A teddy is a one-piece item of women's underwear, and its first letter is the one that goes."
+       "note": "a teddy is a one-piece undergarment for women"
       },
       {
        "gives": "T"
@@ -1347,9 +1547,15 @@
      ]
     },
     "explanation": {
-     "surface": "A stripped-down piece of underwear that might leave your head whirling.",
-     "walkthrough": "The clue's own suggestiveness is the misdirection — 'topless' reads as a description of the garment before it reads as an instruction about letters. An eddy is a small whirl of water or air.",
-     "definitionFit": "An eddy is a circling current in water or air, so anything caught in one is literally sent spinning round."
+     "surface": "Lingerie with its top missing that might set your head spinning.",
+     "walkthrough": "'Topless' looks racy, but it just removes the first letter of TEDDY.",
+     "definitionFit": "An eddy is a circular current of water or air, which could spin you round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Topless"
     }
    }
   }
