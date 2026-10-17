@@ -2378,59 +2378,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "stripped of"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "when",
-         "gives": "AS",
-         "note": "as = when"
-        },
-        {
-         "words": "monarch",
-         "gives": "KING",
-         "note": "a king is a monarch"
-        },
-        {
-         "words": "his son",
-         "gives": "PRINCE",
-         "note": "a king's son is a prince"
-        }
-       ]
+       "words": "when",
+       "at": 5,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
       },
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "N",
-       "n": 3,
+       "words": "monarch",
+       "at": 10,
+       "gives": "KING",
+       "note": "a king is a monarch"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stripped of",
+         "at": 30,
+         "note": "stripped of means having something taken away, so a letter is removed"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "third of land",
-         "gives": "N",
-         "select": 3,
-         "note": "the third letter of LAND, removed from PRINCE"
+         "words": "his son",
+         "at": 22,
+         "gives": "PRINCE",
+         "note": "a king's son is a prince"
+        },
+        {
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "third of",
+           "at": 42,
+           "note": "third of picks out the third letter of the word that follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "land",
+           "at": 51,
+           "note": "the word whose third letter is wanted"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "What it costs when a king and his heir lose a third of their territory.",
-     "walkthrough": "'Third of land' looks like a fraction; it is the third letter.",
-     "definitionFit": "A plain synonym: what a seller wants for a thing is its cost to the buyer."
+     "surface": "What price a king and prince pay when a slice of their territory is taken.",
+     "walkthrough": "'his son' follows on from 'monarch', so it is a prince. 'third of land' is N, and 'stripped of' removes it from PRINCE to leave PRICE.",
+     "definitionFit": "The asking price is what a seller wants for something, so it is the cost being quoted."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "third"
+     "misdirectedWord": "stripped"
     }
    }
   },
@@ -2465,45 +2473,44 @@
      "indicators": [
       {
        "text": "including",
-       "note": "'including' means containing"
+       "at": 20,
+       "note": "including means taking in, so the letter goes inside the beer"
       }
      ],
      "parts": [
       {
        "words": "Very alcoholic beer",
+       "at": 0,
        "gives": "STRONGALE",
-       "note": "a strong ale is a potent beer"
+       "note": "strong ale is a beer of high alcoholic strength"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "G",
        "indicators": [
         {
          "text": "at last",
-         "note": "'at last' means at the end, so only the final letter of 'drug'"
+         "at": 36,
+         "note": "at last points to the final letter of the word before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drug, at last",
-         "gives": "G",
-         "select": "last",
-         "note": "the last letter of drug"
+         "words": "drug",
+         "at": 30,
+         "note": "the word whose final letter is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Strong beer with a drug in it, the cause of terrible wind.",
-     "walkthrough": "The surface is a toilet joke: strong beer causing wind. The answer is weather.",
-     "definitionFit": "A definition by description: force 9 on the Beaufort scale is a violent wind."
+     "surface": "A potent brew spiked with a drug produces dreadful flatulence.",
+     "walkthrough": "'at last' gives G, the final letter of 'drug', which 'including' puts inside STRONG ALE. 'violent wind' hints at the beer's after-effects, but it is the weather.",
+     "definitionFit": "A strong gale is force 9 on the Beaufort scale, a severe and damaging wind."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "wind"
     }
@@ -2531,49 +2538,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "leader"
-      }
-     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
-         "text": "ignoring",
-         "note": "'ignoring' means leaving out"
+         "text": "leader",
+         "at": 9,
+         "note": "leader means the first letter of the word before it"
         }
        ],
        "parts": [
         {
-         "words": "Labour's leader",
-         "gives": "LABOURLEADER",
-         "note": "the first letter of Labour"
+         "words": "Labour's",
+         "at": 0,
+         "note": "the word whose first letter is wanted"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "when ignoring",
+         "at": 28,
+         "note": "ignoring means leaving out, so a letter is dropped from the word"
+        }
+       ],
        "parts": [
         {
          "words": "infuriating",
+         "at": 16,
          "gives": "INCENSING",
-         "note": "incensing = making furious"
+         "note": "incensing means making furious, so infuriating"
         },
         {
-         "words": "first note",
-         "gives": "N",
-         "note": "n. = note, as in footnotes; the first N is dropped"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 42,
+           "note": "first picks out the opening letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "note",
+           "at": 48,
+           "note": "the word whose first letter is dropped"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Labour leader is maddening when he snubs the first memo seeking sign-off.",
-     "walkthrough": "'Note' is not a musical note here; N is the abbreviation used in footnotes, and 'first' matters because the infuriating word has two.",
-     "definitionFit": "A plain synonym: granting a permit is giving official approval."
+     "surface": "A Labour leader's rage over a document when it lacks an official stamp.",
+     "walkthrough": "'first note' is N, the first letter of 'note'; 'when ignoring' drops an N from INCENSING to give ICENSING, after L from 'Labour's leader'.",
+     "definitionFit": "Licensing is the granting of official permission, so it is approval given formally."
     },
     "features": {
      "answerInScene": false,
@@ -2997,71 +3020,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "during"
+       "text": "during",
+       "at": 11,
+       "note": "during means in the middle of, so the punch goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "after starter cancelled",
-         "note": "the starter of a word is its first letter"
+         "at": 24,
+         "note": "after the starter is cancelled the meal lacks its opening course, a pun meaning the first letter is removed"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "UNCH",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "after starter cancelled",
-           "gives": "UNCH",
-           "select": "first",
-           "note": "LUNCH without its first letter"
-          }
-         ]
-        },
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "punch",
-           "gives": "HIT",
-           "note": "a punch is a hit"
-          },
-          {
-           "gives": "H"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
          "words": "meal",
+         "at": 18,
          "gives": "LUNCH",
          "note": "lunch is a meal"
         },
         {
-         "gives": "LUNC"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "punch",
+       "at": 5,
+       "gives": "HIT",
+       "note": "to hit is to punch"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gets a free drink at dinner once the first course is scrapped.",
-     "walkthrough": "'Free punch' reads as a complimentary drink; 'free' is the definition, a verb, and 'punch' is a blow.",
-     "definitionFit": "A plain synonym: undoing a hitch, as with a horse from a cart, sets it free."
+     "surface": "A free drink of punch served with a meal once the first course is called off.",
+     "walkthrough": "'after starter cancelled' takes the first letter off LUNCH to give UNCH, and 'during' puts HIT inside that.",
+     "definitionFit": "To unhitch something is to unfasten or release it, so to free it from what holds it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "punch"
     }
    }
@@ -3090,41 +3092,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "'regularly' means at even intervals, so every other letter of 'peek'"
+       "text": "inside",
+       "at": 37,
+       "note": "inside means within, so the picked letters go into the phrase"
       }
      ],
      "parts": [
       {
        "words": "until something changes",
+       "at": 44,
        "gives": "FORNOW",
-       "note": "for now = for the time being"
+       "note": "for now means for the time being, until something changes"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "EK",
        "indicators": [
         {
-         "text": "inside"
+         "text": "regularly",
+         "at": 22,
+         "note": "regularly means at even intervals, so alternate letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "regularly peek",
-         "gives": "EK",
-         "select": "alternate",
-         "note": "the second and fourth letters of pEeK"
+         "words": "peek",
+         "at": 32,
+         "note": "the word peek, whose second and fourth letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ken is invited over early to sneak a look until plans change.",
-     "walkthrough": "'Ken' is not a man: to ken is to know, in Scottish use, so 'have ken in advance' is to know beforehand.",
-     "definitionFit": "A plain synonym: to know something before it happens is to have ken in advance."
+     "surface": "Instructions to Ken to take a quick look early, until things change.",
+     "walkthrough": "Ken is not a name but the Scots word for knowledge, so 'Have ken, in advance' is the definition. 'regularly' takes the even letters of 'peek', EK, and 'inside' puts them in FOR NOW.",
+     "definitionFit": "To foreknow is to know beforehand; ken is knowledge, so having ken in advance is knowing ahead."
     },
     "features": {
      "answerInScene": false,
