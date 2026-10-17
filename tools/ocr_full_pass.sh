@@ -76,6 +76,10 @@ CT_SALVAGE_PATHS="puzzles"
 # (puzzles/index.*, abbreviations.js), so none is rebuilt for it.
 # shellcheck disable=SC2034
 CT_GENERATED=none
+# The whole pass yields to the bridge.
+# A setsid'd job is its own autogroup, which the CPU is shared between by the
+# group's nice: renice alone only ranks it inside the group, so lower both.
+/app/tools/deprioritize.sh -q 19 $$ 2>/dev/null || renice -n 19 $$ >/dev/null
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 # shellcheck disable=SC2034  # read by the sourced durable.sh
