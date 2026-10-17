@@ -332,36 +332,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "THATSTORNIT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 13,
+       "note": "outside means the first piece wraps around the second, enclosing it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "put up",
-         "note": "In a down clue putting something up enters it from the bottom, so the word just clued goes in backwards."
-        },
-        {
-         "text": "outside",
-         "note": "What is outside goes round the outside, so those letters open up and the next lot sit in the middle."
-        },
-        {
-         "text": "missing base",
-         "note": "The base of a down entry is its bottom, so the word loses the letter at its end."
+         "at": 6,
+         "note": "in a down clue, put up means written upwards, so the word for shade is reversed"
         }
        ],
        "parts": [
         {
-         "words": "Shade put up",
-         "gives": "TNIT",
-         "note": "a shade of colour is a tint, written upwards"
+         "words": "Shade",
+         "at": 0,
+         "gives": "TINT",
+         "note": "a tint is a shade or variety of a colour"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 37,
+         "note": "missing means the named letter is left out of the shop's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "milliner's shop",
+         "at": 21,
+         "gives": "HATSTORE",
+         "note": "a milliner makes and sells hats, so the shop is a hat store"
         },
         {
-         "words": "milliner's shop missing base",
-         "gives": "HATSTOR",
-         "note": "a milliner sells hats, so the shop is a hat store, and it gives up its final E"
+         "words": "base",
+         "at": 45,
+         "gives": "E",
+         "note": "e is the base of natural logarithms in mathematics"
         }
        ]
       }
@@ -369,14 +387,14 @@
     },
     "spelling": "THAT'S TORN IT",
     "explanation": {
-     "surface": "A blind going up outside a hat shop that has lost its bottom step.",
-     "walkthrough": "'Base' does two jobs: the foot of the shop in the surface, the last letter of a down entry in the parse. A milliner makes and sells hats, which is the step the wordplay needs before anything can be shortened.",
-     "definitionFit": "'That's torn it' is the British groan for a plan just ruined, doing the same work as a rueful oops."
+     "surface": "An awning is raised round a hat shop that has lost its foundations, and somebody exclaims.",
+     "walkthrough": "'Base' is the mathematical sense, e being the base of natural logarithms, not the foot of the building; and 'outside' splits the reversed shade so that a single T stands before the shop and NIT after it.",
+     "definitionFit": "That's torn it is a British exclamation of dismay when something has gone wrong, the same as oops."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "base"
+     "aptDefinition": false,
+     "misdirectedWord": "Shade"
     }
    }
   },
@@ -1535,41 +1553,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SCORCH",
      "indicators": [
       {
        "text": "making",
-       "note": "Making one thing into another is a swap: the letter named next takes the place the other one gives up."
+       "at": 18,
+       "note": "making here means one letter is made into another, so it is swapped out for a replacement"
       }
      ],
      "parts": [
       {
        "words": "Speyside business",
+       "at": 0,
        "gives": "SCOTCH",
-       "note": "Speyside is the Highland region on the river Spey where most malt whisky is distilled"
+       "note": "Speyside, the valley of the River Spey, is the heart of Scotch whisky distilling"
       },
       {
-       "words": "side of that",
-       "gives": "T",
-       "note": "the letter at either side of 'that' is T, and it is the one displaced"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "side of",
+         "at": 25,
+         "note": "side of picks one edge letter of the word that, here its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that",
+         "at": 33,
+         "note": "the word that taken as written; its first letter is the one swapped"
+        }
+       ]
       },
       {
        "words": "river",
+       "at": 38,
        "gives": "R",
-       "note": "r is the map-maker's short form for river, and it fills the vacated slot"
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A Speyside distillery drinking the river beside it dry.",
-     "walkthrough": "The Spey, the distilleries and the water they take belong to one picture, so the river reads as scenery rather than as a single letter. 'Side of that' is a word's edge, and both edges of that word are the same letter.",
-     "definitionFit": "To scorch is to burn something dry — grass scorched brown by the sun — so drying it up is the effect the word names."
+     "surface": "A Scottish distillery business that is causing a river to run dry.",
+     "walkthrough": "'Making side of that river' turns the T of SCOTCH (an outer letter of 'that') into R. Speyside is a Scottish whisky region.",
+     "definitionFit": "To scorch is to parch or burn with heat, so something scorched has been dried up."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "business"
+     "misdirectedWord": "river"
     }
    }
   },
