@@ -376,43 +376,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MISER",
-     "indicators": [
-      {
-       "text": "half of each",
-       "note": "only half of each of the two words is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 28,
+         "note": "'half' says only half of the word missed is kept, its front three letters"
+        }
+       ],
        "parts": [
         {
          "words": "missed",
-         "gives": "MIS",
-         "note": "the first half of MISSED"
+         "at": 15,
+         "note": "taken as written, before half of it goes"
         },
         {
+         "gives": "SED"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "of each",
+         "at": 33,
+         "note": "'of each' repeats the halving for the second word, beer, this time keeping its back half"
+        }
+       ],
+       "parts": [
+        {
          "words": "beer",
-         "gives": "ER",
-         "note": "the second half of BEER"
+         "at": 22,
+         "note": "taken as written, before half of it goes"
+        },
+        {
+         "gives": "BE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man who seldom bought a round rarely went without his beer.",
-     "walkthrough": "The definition is a playful description: a miser is someone who spends only rarely.",
-     "definitionFit": "A miser is a person who spends as little and as rarely as possible."
+     "surface": "A drinker who seldom splashes out was never without a beer, splitting the cost evenly.",
+     "walkthrough": "'half of each' keeps MIS, the first half of MISSED, and ER, the second half of BEER. The definition is cryptic: someone who rarely spends.",
+     "definitionFit": "A miser hoards money and hates spending it, so they are a person who spends only rarely."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Spender"
+     "misdirectedWord": "half"
     }
    }
   },
@@ -571,55 +587,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LACROSSE",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 28,
+       "note": "covers means wraps round, so the bridge word goes inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "take the last letter of Gazette"
-        }
-       ],
        "parts": [
         {
          "words": "Los Angeles",
-         "gives": "LA",
-         "note": "LA = Los Angeles"
-        },
-        {
-         "words": "bridge",
-         "gives": "CROSS",
-         "note": "to bridge a gap is to cross it"
+         "at": 0,
+         "gives": "LA"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "E",
          "indicators": [
           {
-           "text": "covers"
+           "text": "finally",
+           "at": 20,
+           "note": "finally points to the last letter of Gazette"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Gazette finally",
-           "gives": "E",
-           "select": "last",
+           "words": "Gazette",
+           "at": 12,
            "note": "last letter of Gazette"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "bridge",
+       "at": 35,
+       "gives": "CROSS",
+       "note": "to bridge a gap is to cross it"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper in Los Angeles runs a column on the card game bridge.",
-     "walkthrough": "'Bridge game' pretends to be the card game; bridge is the verb CROSS, and the definition is just 'game'.",
-     "definitionFit": "Lacrosse is a team game played with netted sticks."
+     "surface": "A Los Angeles newspaper runs a story on a card game of bridge.",
+     "walkthrough": "'bridge' looks like the card game, but it is the verb, to cross. LA and E (the end of 'Gazette') together 'cover' CROSS.",
+     "definitionFit": "Lacrosse is a team sport played with netted sticks, a ball game of North American origin."
     },
     "features": {
      "answerInScene": false,
@@ -655,27 +669,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "Edges away",
-       "note": "the outside letters of the word are removed"
+       "at": 0,
+       "note": "with its edges away, a word loses its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "keeling over",
-       "gives": "ALLIN",
-       "note": "keeling over = FALLING, whose edges are F and G"
+       "at": 12,
+       "gives": "FALLING",
+       "note": "to keel over is to fall down, so keeling over means falling"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collapses and sidles away.",
-     "walkthrough": "'Edges away' reads as moving off sideways; it is an instruction to strip the outer letters.",
-     "definitionFit": "An informal British idiom: after a hard day you are all in, with nothing left to give."
+     "surface": "Someone creeps off sideways, collapsing from fatigue.",
+     "walkthrough": "'Edges away' looks like someone sidling off, but it strips the outer letters from FALLING ('keeling over').",
+     "definitionFit": "All in is an informal British phrase for worn out, completely tired."
     },
     "features": {
      "answerInScene": true,
@@ -705,42 +719,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AMIDSHIPS",
-     "indicators": [
-      {
-       "text": "Displaced",
-       "note": "the A is moved to a new place in MAID'S"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Displaced area in",
+         "at": 0,
+         "note": "the letter for area is displaced within the word for girl's, moved to a new spot"
+        }
+       ],
        "parts": [
         {
-         "words": "area in girl's",
-         "gives": "AMIDS",
-         "note": "girl's = MAID'S; its A (area) is displaced to the front, making AMIDS"
-        },
-        {
-         "words": "haunches",
-         "gives": "HIPS",
-         "note": "haunches are hips"
+         "words": "girl's",
+         "at": 18,
+         "gives": "MAIDS",
+         "note": "a maid is a girl, so girl's gives maid's"
         }
        ]
+      },
+      {
+       "words": "haunches",
+       "at": 25,
+       "gives": "HIPS",
+       "note": "the haunches are the hips and buttocks"
       }
      ]
     },
     "explanation": {
-     "surface": "Something about a girl's hips and waistline.",
-     "walkthrough": "The 'waist' is a ship's: the middle section of the deck. Only the A moves; the rest of MAID'S stays put.",
-     "definitionFit": "Amidships means in the middle of a ship, the part sailors call the waist."
+     "surface": "A girl's hips have shifted, and the change shows at her waistline.",
+     "walkthrough": "In MAIDS ('girl's'), the A (area) is 'displaced' to the front, making AMIDS. 'in the waist' is a ship's waist, its middle part.",
+     "definitionFit": "Amidships means in the middle of a ship, and the waist is a ship's middle section."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "waist"
     }
    }
@@ -819,35 +833,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRAMMAR",
-     "indicators": [
-      {
-       "text": "missing",
-       "note": "the award is missing the year, so its Y is left out"
-      },
-      {
-       "text": "last",
-       "note": "take the last letter of choir"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 19,
+         "note": "'missing year' says the letter for year is dropped from the award"
+        }
+       ],
        "parts": [
         {
-         "words": "music award missing year",
-         "gives": "GRAMM",
-         "note": "GRAMMY, the US music award, without Y (year)"
+         "words": "music award",
+         "at": 7,
+         "gives": "GRAMMY",
+         "note": "a Grammy is an American award for recorded music"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
+         "words": "year",
+         "at": 27,
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 33
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "choir's last",
-         "gives": "R",
+         "text": "s last",
+         "at": 41,
+         "note": "'choir's last' points to the last letter of the word choir"
+        }
+       ],
+       "parts": [
+        {
+         "words": "choir",
+         "at": 35,
          "note": "last letter of choir"
         }
        ]
@@ -855,14 +882,14 @@
      ]
     },
     "explanation": {
-     "surface": "A school choir misses out on a music prize this year.",
-     "walkthrough": "A grammar school is a selective secondary school in Britain, so 'School' alone can mean GRAMMAR.",
-     "definitionFit": "Grammar is short for grammar school, a kind of British school."
+     "surface": "A school choir lost out on a music award for a year, coming last.",
+     "walkthrough": "A Grammy, the American music prize, is 'missing year' (Y) to give GRAMM; then A, then R, the last of 'choir'. A grammar school is a selective British secondary school.",
+     "definitionFit": "A grammar school is a type of British secondary school that selects pupils by ability."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "award"
+     "misdirectedWord": "School"
     }
    }
   },
@@ -1009,26 +1036,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BLOC",
      "indicators": [
       {
        "text": "No end of",
-       "note": "the last letter is removed"
+       "at": 0,
+       "note": "'No end of' says the word loses its final letter"
       }
      ],
      "parts": [
       {
        "words": "obstruction",
-       "gives": "BLOC",
-       "note": "an obstruction is a BLOCK, which loses its end letter K"
+       "at": 10,
+       "gives": "BLOCK",
+       "note": "a block is an obstruction"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Endless blocking tactics in a coalition.",
-     "walkthrough": "'No end of' usually means 'a great deal of'; here it means lose the last letter.",
-     "definitionFit": "A bloc is a group of parties or nations acting together."
+     "surface": "Parties working together cause no end of hold-ups.",
+     "walkthrough": "'No end of' looks like the idiom for a lot of, but it cuts the last letter off BLOCK.",
+     "definitionFit": "A bloc is a group of countries or parties allied for a common purpose."
     },
     "features": {
      "answerInScene": true,
@@ -1111,36 +1141,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CONSOMME",
      "indicators": [
       {
-       "text": "covering"
+       "text": "covering",
+       "at": 20,
+       "note": "the order covers up the uniform letter, sitting where it was"
       }
      ],
      "parts": [
       {
        "words": "eat",
+       "at": 38,
        "gives": "CONSUME",
        "note": "to consume is to eat"
       },
       {
-       "words": "order of merit",
-       "gives": "OM",
-       "note": "OM = Order of Merit, a British honour"
+       "words": "uniform",
+       "at": 29,
+       "gives": "U",
+       "note": "U is uniform in the NATO phonetic alphabet"
       },
       {
-       "words": "uniform",
-       "gives": "U",
-       "note": "U is uniform in the NATO alphabet; OM takes its place"
+       "words": "order of merit",
+       "at": 5,
+       "gives": "OM",
+       "note": "OM is the Order of Merit, a British honour"
       }
      ]
     },
     "spelling": "CONSOMMÉ",
     "explanation": {
-     "surface": "A decorated officer in uniform eats soup.",
-     "walkthrough": "'With' is part of the instruction: take CONSUME and put OM where the U was.",
-     "definitionFit": "Definition by kind: consommé is one particular soup, a clear meat broth."
+     "surface": "A decorated officer in uniform is told to have his soup.",
+     "walkthrough": "In CONSUME ('eat'), OM (the Order of Merit, a British honour) is 'covering' U (uniform, from the NATO alphabet), replacing it.",
+     "definitionFit": "Consommé is a clear soup made from concentrated meat or fish stock."
     },
     "features": {
      "answerInScene": true,
@@ -1525,41 +1558,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 14,
+       "note": "'cage in' says the cage word is put inside the other letters"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "UD",
        "indicators": [
         {
          "text": "middle of",
-         "note": "take the middle letters of studio"
+         "at": 17,
+         "note": "the middle of a word is its central letters, here the two at its centre"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of studio",
-         "gives": "UD",
-         "select": "middle",
-         "note": "the middle letters of stUDio"
+         "words": "studio",
+         "at": 27,
+         "note": "middle letters of studio"
         }
        ]
       },
       {
        "words": "cage",
+       "at": 9,
        "gives": "PEN",
-       "note": "a pen is an enclosure"
+       "note": "a pen is an enclosure for animals, a cage"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone knocks over a cage in a studio.",
-     "walkthrough": "STUDIO has six letters, so its middle is the pair UD.",
-     "definitionFit": "To upend is to turn upside down, overturn."
+     "surface": "A studio's centrepiece cage gets knocked over.",
+     "walkthrough": "For a word with an even number of letters, its 'middle' is the central pair. 'cage' is a verb in the surface but a noun in the wordplay.",
+     "definitionFit": "To upend something is to turn it upside down, to overturn it."
     },
     "features": {
      "answerInScene": false,
