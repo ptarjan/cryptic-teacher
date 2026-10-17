@@ -165,7 +165,7 @@ def clue_rows(part, scan=False):
     last across clue the grid's OCR junk: text with no enumeration in it,
     dropped (a real clue lost in it leaves a light the grid rebuild refuses)."""
     if scan:
-        part = clue_text.mend_scan_text(" " + part)
+        part = clue_text.tidy_ocr_clues(" " + part, scope="run")
         # Grid junk with no digit straight after the last clue's enumeration
         # ("... Dead mad-looking (4-4) eS ; i aes Ane", No 328) hid that clue.
         last = None

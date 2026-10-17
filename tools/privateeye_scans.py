@@ -261,14 +261,13 @@ def column_cols(boxes):
             lines += fa.merge_rows(col)
         side, out = None, [[], []]
         for ln in lines:
-            text = clue_text.mend_count(clue_text.mend_opening(ln[4]))
+            text = clue_text.tidy_ocr_clues(ln[4], scope="line")
             while SLASH.match(text):
                 text = SLASH.sub(r"\1, ", text, count=1)
             if side is not None:
                 text = same_side_tail(text, side)
             text = DIRECTED.sub(r"\1", text)
-            head = clue_text.heading_of(text.strip()) or (
-                side is None and clue_text.tolerant_heading(text)) or None
+            head = clue_text.heading_in(text.strip(), running_head=side is None)
             if head:
                 side = 0 if head == "ACROSS" else 1
                 continue
@@ -300,7 +299,7 @@ SEE_CLUE = re.compile(r"^\W{0,2}\d{1,2}(?:\W{0,2}[,/]\s*\d{1,2}\W*)*\s+\(?\s*see
 def relinked(lines):
     """`lines` with a linked head's misread tail put right
     (clue_text.mend_link_tails: "11/14" for "11/4", No 80)."""
-    mended = clue_text.mend_link_tails([ln[4] for ln in lines])
+    mended = clue_text.tidy_ocr_clues([ln[4] for ln in lines], scope="lines")
     return [ln[:4] + (t,) for ln, t in zip(lines, mended)]
 
 
@@ -525,7 +524,7 @@ def vlm_filled(img, boxes, words, cols, laid, blank, vlm=None):
     try:
         if not vlm.wanted():
             return laid, blank, (" (deferred: the VLM is down)" if vlm.URL else "")
-        texts = {k: listener.tidy(fa.tidy(listener.text_of(cols(w)))) for k, w in words.items()}
+        texts = {k: fa.tidy(listener.text_of(cols(w))) for k, w in words.items()}
         crop = vlm.crop(img, (min(b[0] for b in boxes), min(b[1] for b in boxes),
                               max(b[2] for b in boxes), max(b[3] for b in boxes)))
         laid, left = ocr_clues.vlm_pick(texts, laid, blank, listener.parse,
@@ -603,7 +602,7 @@ def see_filled(laid, verdict, words, cols):
     for reading in words.values():
         for side, lines in zip(("across", "down"), cols(reading)):
             for ln in lines:
-                m = SEE.match(clue_text.see_one(ln[4]))
+                m = SEE.match(clue_text.tidy_ocr_clues(ln[4], scope="piece"))
                 if m:
                     seen.setdefault(f"{int(m.group(1))}-{side}", []).append(m.group(2))
     laid = dict(laid)

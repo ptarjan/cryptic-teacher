@@ -216,5 +216,16 @@ assert ct.tidy_ocr_clues("a clue (1 1)", scope="clue", torn_counts=None) == "a c
 assert ct.tidy_ocr_clues("II.", scope="piece") == "11."
 assert ct.tidy_ocr_clues("25Recipient", scope="piece") == "25 Recipient"
 assert ct.tidy_ocr_clues("O.", scope="piece") == "O."
+# line / lines / run scopes: a scan reader's own shapes, one line, one list, one run
+assert ct.tidy_ocr_clues("IA clue {5)", scope="line") == "1A clue (5)" or ct.tidy_ocr_clues("IA clue {5)", scope="line").endswith("(5)")
+assert ct.tidy_ocr_clues("hair (8", scope="line") == "hair (8)"
+assert ct.heading_in("ACROSS") == "ACROSS" and ct.heading_in("hair (8)") is None
+assert ct.tidy_ocr_clues(["1 A (3)"], scope="lines") == ct.mend_link_tails(["1 A (3)"])
+assert ct.tidy_ocr_clues("1 A clue (3) 2 Another (4)", scope="run") == ct.mend_scan_text("1 A clue (3) 2 Another (4)")
+# cells: figures after the last word that are its count misread go, unless no words would be left
+assert ct.tidy_ocr_clues("Song of joy 141", scope="clue", cells=4) == "Song of joy"
+assert ct.tidy_ocr_clues("See 15", scope="clue", cells=15, lights=[15]) == "See 15"
+# a lone full stop after a count is a speck like any other
+assert ct.count_closed("More than two (5-8).") == "More than two (5-8)"
 print("tidy_ocr_clues ok")
 print("clue_text ok")

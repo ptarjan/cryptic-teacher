@@ -332,8 +332,8 @@ def count_left(text, cells, lights):
     return text[:m.start()].rstrip(" ,;:")
 
 
-#: A closed count with specks after it ("(8)'", "(5).·", "(5). _"); a lone full stop is the print's own.
-_COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?!\.$)(?:[^\w(]|_){1,3}$")
+#: A closed count with specks after it ("(8)'", "(5).·", "(5). _").
+_COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$")
 #: A count whose ")" was read as j or J, or whose "(" was lost, after a word
 #: (not "see": "(See 4)" is a reference, not a count).
 _COUNT_CLOSE_MISREAD = re.compile(r"(?<=[a-z])(?<![Ss]ee)\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$")
@@ -695,6 +695,12 @@ def _heading_in(line, running_head, extra_headings):
     return tolerant_heading(line) if running_head else None
 
 
+def heading_in(line, running_head=False, extra_headings=None):
+    """"ACROSS" / "DOWN" for a line that is a list heading by any of the
+    pipeline's readings (see tidy_ocr_clues), else None."""
+    return _heading_in(line, running_head, extra_headings)
+
+
 def _inline_slips(line):
     """Slips that hold anywhere in a clue's text, whichever its line: a count
     set wide, a speck read as a middle dot, a backtick, a
@@ -725,7 +731,7 @@ def _line_slips(line):
 
 
 def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=None, line_hook=None,
-                   torn_counts="mend"):
+                   torn_counts="mend", cells=None, lights=()):
     """The one tidy-up every OCR reader sends its clue text through, so a fix
     found on one source reaches all of them. Stages run in this fixed order,
     each on what the one before left; every stage is safe on any source's
@@ -751,9 +757,21 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
           then the count: `torn_counts` "mend" reads a torn count whole
           (mend_count), "trim" cuts it with the specks round it
           (trim_torn_count) for a reader that knows the count elsewhere.
+      "line": one printed line of a column whose place in a list a reader
+          keeps (it lays the line by its box): brackets, the opening, the
+          line's slips, then the line's torn count (mend_count). Never
+          drops, joins or adds a line.
+      "lines": one list's printed lines, as a list: mend_link_tails only.
+      "run": a scan's whole column run together on one line (no line
+          breaks): mend_scan_text.
       "piece": one OCR word or fragment of unknown place on its line: only
           what holds for a word alone (old_figures, mend_opening,
           see_numeral, see_one, ones_read).
+
+    `cells` (clue) is the length of the light the clue is for: figures
+    standing after its last word that are its count misread, filling the
+    cells, go (count_left; `lights` are the puzzle's clue numbers, so
+    "See 15" keeps its figure), unless that would leave no words.
 
     `running_head` (column) reads "Cryptic Across" or "| ACROSS" as a heading
     (tolerant_heading). It is OFF by default: it also matches a clue's
@@ -762,11 +780,19 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
     publisher's own heading word, upper-case letters only, to "ACROSS" or
     "DOWN". `line_hook(line)` is a source's own last say on a clue line (a
     lexicon check the pipeline cannot make)."""
+    if scope == "run":
+        return mend_scan_text(text)
+    if scope == "lines":
+        return mend_link_tails(text)
+    if scope == "line":
+        return mend_count(_line_slips(mend_opening(text.translate(BRACKETS))))
     if scope == "piece":
         text = old_figures(text)
         text = mend_opening(text)
         return ones_read(see_one(see_numeral(text)))
     if scope == "clue":
+        bare = count_left(text, cells, set(lights)) if cells else None
+        text = bare if bare and re.search(r"[A-Za-z]", bare) else text
         text = _inline_slips(text)
         if torn_counts == "trim":
             return trim_torn_count(text)
