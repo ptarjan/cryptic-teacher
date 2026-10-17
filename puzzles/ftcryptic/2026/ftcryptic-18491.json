@@ -684,34 +684,25 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "TO + MB",
      "parts": [
       {
-       "words": "in",
-       "gives": "TO",
-       "note": "with 'opinion' after it, 'in the opinion of' can be put as 'to', as in 'it seems fine to me'"
-      },
-      {
-       "words": "doctor's",
-       "gives": "MB",
-       "note": "Bachelor of Medicine, a doctor's qualification"
-      },
-      {
-       "unchecked": true,
-       "words": "opinion",
-       "note": "completes the phrase begun by 'in'; it adds no letters of its own"
+       "words": "in doctor's opinion",
+       "at": 24,
+       "note": "read the answer as two words: MB (Bachelor of Medicine) is a doctor, and 'to a doctor' means in a doctor's opinion, as in 'it seems to me'"
       }
      ]
     },
     "explanation": {
-     "surface": "A patient told by a doctor where they will finish up.",
-     "walkthrough": "MB is Bachelor of Medicine, a doctor's qualification. 'To' carries the sense of 'in the view of', as in 'it seems fine to me'.",
-     "definitionFit": "A burial vault is where a body finally rests, so it is where everyone eventually finishes."
+     "surface": "A grim joke about where a doctor thinks you will finish up.",
+     "walkthrough": "The wordplay runs backwards: split the answer into TO and MB and read it as a phrase. 'In X's opinion' and 'to X' mean the same, and MB is a doctor's degree.",
+     "definitionFit": "A tomb is a grave or burial chamber, the place everyone finally ends up after death."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "opinion"
     }
    }
@@ -1038,42 +1029,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SENATOR",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Nurse",
+       "at": 0,
+       "gives": "SEN",
+       "note": "SEN, State Enrolled Nurse, is a former British nursing grade"
+      },
+      {
+       "words": "American",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 26,
+         "note": "briefly means the word is cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Nurse",
-         "gives": "SEN",
-         "note": "State Enrolled Nurse, a former British nursing grade"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "standard abbreviation"
-        },
-        {
          "words": "politician",
-         "gives": "TOR",
-         "note": "Tory, a British Conservative, cut to three letters"
+         "at": 15,
+         "gives": "TORY",
+         "note": "a Tory is a British Conservative politician"
+        },
+        {
+         "gives": "Y",
+         "note": "the last letter of the politician word, removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nurse tends a US politician who sits in the upper chamber.",
-     "walkthrough": "SEN is the old British grade State Enrolled Nurse; a Tory is a member of the UK Conservative Party.",
-     "definitionFit": "A member of a senate sits in the upper chamber of a legislature, such as the US Congress."
+     "surface": "A nurse briefly looks after an American politician who sits in the upper chamber.",
+     "walkthrough": "'Nurse' looks like a verb, but it is the noun SEN (State Enrolled Nurse); TORY loses its last letter as 'briefly' says.",
+     "definitionFit": "A senator is a member of a senate, which in many countries is the upper legislative house."
     },
     "features": {
      "answerInScene": true,
@@ -1235,37 +1231,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECKON",
-     "indicators": [
-      {
-       "text": "for the most part",
-       "note": "most but not all of a word is kept, so the final letter drops off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for the most part",
+         "at": 18,
+         "note": "for the most part means most of the word is kept, all but its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "embarrassed",
-         "gives": "RE",
-         "note": "RED, as a blushing face, minus its last letter"
+         "at": 6,
+         "gives": "RED",
+         "note": "an embarrassed person goes red"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "returning",
-           "note": "coming back the way it went, so the letters run from the other end"
-          }
-         ],
+         "gives": "D",
+         "note": "the last letter of the colour word, dropped"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 50,
+         "note": "returning means going back, so the pair is written in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "no barrister",
-           "gives": "NOKC",
-           "note": "NO plus KC, King's Counsel, a senior barrister"
+           "words": "no",
+           "at": 37,
+           "gives": "NO",
+           "note": "taken as written"
+          },
+          {
+           "words": "barrister",
+           "at": 40,
+           "gives": "KC",
+           "note": "KC, King's Counsel, is a senior barrister in Britain"
           }
          ]
         }
@@ -1274,9 +1287,9 @@
      ]
     },
     "explanation": {
-     "surface": "A judge is red-faced that no barrister has come back to court.",
-     "walkthrough": "'Judge' looks like the person on the bench, but it is a verb: to estimate. KC is King's Counsel, a senior British barrister.",
-     "definitionFit": "To estimate or form an opinion is to consider or calculate, a synonym for the verb."
+     "surface": "A judge is mostly embarrassed when no barrister comes back to court.",
+     "walkthrough": "'Judge' looks like the person on the bench, but it is a verb. NO followed by KC (a King's Counsel, a senior British barrister) reads backwards as CKON.",
+     "definitionFit": "To reckon is to judge or estimate, as in 'I reckon it will rain'."
     },
     "features": {
      "answerInScene": false,
@@ -1398,35 +1411,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shifting pounds",
+       "at": 21,
+       "note": "pounds is L (Latin librae), and shifting it means moving that one letter to a new place in the word for trouble, which rearranges it"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "shifting",
-         "note": "to shift is to move to a new place, so one letter changes position in the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "trouble",
-         "gives": "AIL",
-         "note": "to ail is to trouble, as in 'what ails you'"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "pounds",
-       "note": "L, from Latin libra, is the pound; it names the letter that moves, adding nothing new"
+       "words": "trouble",
+       "at": 13,
+       "gives": "AIL",
+       "note": "to ail is to trouble or afflict, and ail is also a noun for an ailment"
       }
      ]
     },
     "explanation": {
-     "surface": "A fighter struggling to lose weight before the weigh-in.",
-     "walkthrough": "Muhammad Ali was the heavyweight champion. Move the L (pounds) in AIL one place along.",
-     "definitionFit": "Muhammad Ali, the famous American heavyweight champion, is an example of a prizefighter."
+     "surface": "A boxer has trouble shedding weight before a fight.",
+     "walkthrough": "'pounds' looks like weight a boxer must lose, but it is L; 'shifting pounds' moves the L of AIL one place earlier.",
+     "definitionFit": "Muhammad Ali was a world heavyweight champion boxer."
     },
     "features": {
      "answerInScene": true,
