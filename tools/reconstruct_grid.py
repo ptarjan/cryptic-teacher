@@ -283,11 +283,31 @@ class _Solver:
         return self.cells[y * self.cols + x]
 
     def put(self, x, y, value, trail):
-        if not self.place(x, y, value, trail):
+        """Set (x, y) and, under symmetry, its twin: place() twice, inlined
+        because this is the hottest call of the search."""
+        cols, rows, cells = self.cols, self.rows, self.cells
+        if 0 <= x < cols and 0 <= y < rows:
+            i = y * cols + x
+            was = cells[i]
+            if was is None:
+                cells[i] = value
+                trail.append(i)
+            elif was != value:
+                return False
+        elif value != BLACK:
             return False
         if not self.symmetry:
             return True
-        return self.place(self.cols - 1 - x, self.rows - 1 - y, value, trail)
+        x, y = cols - 1 - x, rows - 1 - y
+        if 0 <= x < cols and 0 <= y < rows:
+            i = y * cols + x
+            was = cells[i]
+            if was is None:
+                cells[i] = value
+                trail.append(i)
+                return True
+            return was == value
+        return value == BLACK
 
     def place(self, x, y, value, trail):
         if not (0 <= x < self.cols and 0 <= y < self.rows):
