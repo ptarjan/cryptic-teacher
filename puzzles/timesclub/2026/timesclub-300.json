@@ -939,39 +939,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MOLOCHISE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "lifting its bottom edge",
-       "note": "in a down entry lifting the lowest letter moves it upward, so it is taken out and placed higher inside the earlier piece"
+       "at": 32,
+       "note": "in a down entry the bottom edge is the final letter at the foot, and lifting it raises that letter higher up the column"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MOLOCHISE",
+       "op": "charade",
        "parts": [
         {
          "words": "low",
+         "at": 10,
          "gives": "MOO",
-         "note": "a cow lows, that is, moos"
+         "note": "to low is to moo, as cattle do"
         },
         {
          "words": "flat-bladed tool",
+         "at": 14,
          "gives": "CHISEL",
-         "note": "a chisel has a flat cutting blade"
+         "note": "a chisel is a flat-bladed cutting tool"
         }
        ]
+      },
+      {
+       "gives": "OOCHISEL"
+      },
+      {
+       "gives": "OLOCHISE"
       }
      ]
     },
     "explanation": {
-     "surface": "Giving up a short shovel-like tool, raising its lower edge.",
-     "walkthrough": "In a down entry the bottom letter of the tool is the last one; 'lifting' moves it up the column into the cow's sound above.",
-     "definitionFit": "Moloch was the god to whom children were offered, so to molochise is to make a sacrifice to him."
+     "surface": "Instructions for an offering: give up a low flat-bladed tool, raising its bottom edge.",
+     "walkthrough": "'Lifting its bottom edge' takes the L off the foot of MOOCHISEL (leaving MOOCHISE) and raises it up the column to sit between the Os.",
+     "definitionFit": "To molochise is to offer up as a victim to Moloch, the god of child sacrifice."
     },
     "features": {
      "answerInScene": false,
@@ -1414,31 +1419,34 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SHMEK",
      "indicators": [
       {
        "text": "heart yields to",
-       "note": "the heart is the central letter, and yielding means giving way, so the middle is swapped for a replacement"
+       "at": 18,
+       "note": "the heart, the middle letter, gives way to the letter that follows"
       }
      ],
      "parts": [
       {
-       "words": "Green character",
+       "words": "Green character's",
+       "at": 0,
        "gives": "SHREK",
        "note": "Shrek is the green ogre of the animated films"
       },
       {
+       "gives": "R"
+      },
+      {
        "words": "male",
-       "gives": "M",
-       "note": "M is the abbreviation for male"
+       "at": 34,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "The green ogre's heart gives way to a stallion out in the American West.",
-     "walkthrough": "'Male horse' looks like a stallion, but it splits: M from male, and 'horse' is slang for heroin. Wyoming signals an American usage.",
-     "definitionFit": "Shmek is US slang for heroin, and horse is another slang term for the same drug."
+     "surface": "A green character's courage gives way to a stallion out in Wyoming.",
+     "walkthrough": "'Heart yields to' swaps the R at the centre of SHREK for M; 'horse' is slang for heroin, and 'in Wyoming' signals American usage.",
+     "definitionFit": "Shmek is American slang for heroin, as is horse, so both are drug-culture names for the same narcotic."
     },
     "features": {
      "answerInScene": false,
@@ -1534,13 +1542,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YARDARM",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "unfinished means short of its end, so the final letter goes"
+       "text": "in",
+       "at": 27,
+       "note": "in places the letter inside the rearranged letters"
       }
      ],
      "parts": [
@@ -1549,32 +1556,47 @@
        "indicators": [
         {
          "text": "novel",
-         "note": "novel means new, so the letters take a fresh order"
+         "at": 49,
+         "note": "novel means new, so the letters are made into a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "diameter",
-         "gives": "D",
-         "note": "D is the abbreviation for diameter"
-        },
-        {
-         "words": "Marryat",
-         "gives": "MARRYA",
-         "note": "Captain Marryat was a writer of naval novels"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfinished",
+           "at": 30,
+           "note": "unfinished means the name loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Marryat",
+           "at": 41
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "diameter",
+       "at": 18,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A nautical detail in an incomplete sea story by Captain Marryat.",
-     "walkthrough": "'Novel' looks like a book by the naval writer Marryat, but it is the rearrangement signal; D joins MARRYA before the mix.",
-     "definitionFit": "A yard is the spar from which a square sail hangs, and the yardarm is the outer tip of that spar."
+     "surface": "A detail from a naval yarn: the end of a sail spar in an incomplete Marryat sea novel.",
+     "walkthrough": "'Unfinished' trims Marryat to MARRYA, and 'novel' looks like a book but signals an anagram, YARRAM; 'in' puts D inside it.",
+     "definitionFit": "A yardarm is the outer tip of a yard, the spar from which a square sail hangs."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "novel"
     }
    }
