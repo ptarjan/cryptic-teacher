@@ -728,43 +728,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRAVERSAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is cut down, so the word loses its final letter"
+       "text": "about",
+       "at": 25,
+       "note": "the shortened story goes about, around, the dancers"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one piece surrounds another"
+         "text": "short",
+         "at": 13,
+         "note": "short means cut off before the end, so the last letter goes"
         }
        ],
        "parts": [
         {
          "words": "story",
-         "gives": "TAL",
-         "note": "a tale is a story, cut by a letter"
+         "at": 19,
+         "gives": "TALE",
+         "note": "a tale is a story"
         },
         {
-         "words": "dancers",
-         "gives": "RAVERS",
-         "note": "ravers dance at raves"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "dancers",
+       "at": 31,
+       "gives": "RAVERS",
+       "note": "ravers are people dancing at a rave"
       }
      ]
     },
     "explanation": {
-     "surface": "A passage is quoted from a short story about dancers.",
-     "walkthrough": "'Passage' looks like an extract from a text, and 'from' supports that, but it means a crossing and 'from' only links.",
-     "definitionFit": "A traversal is the act of crossing or travelling across something, so it is a synonym of passage in that sense."
+     "surface": "An extract taken from a brief tale about a troupe of dancers.",
+     "walkthrough": "'short' cuts TALE to TAL, which goes 'about' RAVERS (dancers). 'Passage' looks like a piece of text, but it means a crossing.",
+     "definitionFit": "A traversal is the act of crossing or travelling through something, a passage across it."
     },
     "features": {
      "answerInScene": false,
@@ -1211,36 +1216,20 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "DANDY",
-     "indicators": [
-      {
-       "text": "bordering on",
-       "note": "the border of a word is its edge, so its outermost letters are the ones meant"
-      }
-     ],
+     "op": "reverse",
+     "reading": "D AND Y",
      "parts": [
       {
-       "op": "outer",
-       "parts": [
-        {
-         "words": "dishonesty",
-         "note": "the two letters at the edges of the word"
-        }
-       ]
-      },
-      {
-       "words": "characters",
-       "gives": "AND",
-       "note": "the two characters are read as a pair, one letter 'and' the other, so the joining word is spelt out between them"
+       "words": "characters bordering on dishonesty",
+       "at": 9,
+       "note": "the characters at the two borders of the word dishonesty are its first letter and its last, which spelt out as a phrase reads as the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Fine-seeming people who are close to being crooks.",
-     "walkthrough": "'characters' suggests people, but it means letters: the two at the edges of 'dishonesty' are 'D and Y'. Dandy is also dated slang for excellent.",
-     "definitionFit": "Dandy is an old-fashioned informal adjective for first-rate or excellent, as in 'fine and dandy'."
+     "surface": "A question whether some people are verging on the dishonest.",
+     "walkthrough": "The letters at the borders of 'dishonesty' are D and Y, and spelling out 'D and Y' gives the answer; the question mark flags the playful reading.",
+     "definitionFit": "Dandy is informal for excellent or fine, as in fine and dandy, a synonym of splendid."
     },
     "features": {
      "answerInScene": false,
@@ -1430,53 +1419,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMMENTHAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the last letter is dropped"
+       "text": "to cover",
+       "at": 17,
+       "note": "the reworked letters cover the shortened ham, wrapping round it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to cover",
-         "note": "to cover something is to go around it, so one piece wraps another"
+         "text": "processed",
+         "at": 36,
+         "note": "processed, as with processed cheese, means worked over, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "processed",
-           "note": "processed food is broken down and reformed, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "men melt",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "men melt",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 5,
+         "note": "endless means without its end, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "ham",
-         "gives": "HA",
-         "note": "the word without its last letter"
+         "at": 13,
+         "gives": "HAM",
+         "note": "taken as written before its last letter goes"
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Men melt processed cheese over a ham, as in a toasted sandwich.",
-     "walkthrough": "'processed cheese' reads as one product, but 'processed' shuffles the men and melt letters, which wrap the trimmed ham.",
-     "definitionFit": "Emmenthal is a Swiss hard variety with large holes, one example of a dairy product made from curdled milk."
+     "surface": "A recipe: melt some cheese over the men's ham, cut short.",
+     "walkthrough": "'processed' turns MEN MELT into EMMENTL, and 'to cover' puts it round HA, from 'endless' ham.",
+     "definitionFit": "Emmenthal is a hard Swiss cheese with large holes, named after the Emme valley."
     },
     "features": {
      "answerInScene": true,
