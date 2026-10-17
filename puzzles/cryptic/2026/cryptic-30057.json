@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -716,38 +717,35 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finally",
-       "note": "What happens finally happens at the end, so only the closing letter of the word is wanted."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "Something in a thing is buried within it, so this letter goes inside the word that follows rather than in front of it."
+         "at": 31,
+         "note": "in means that letter goes inside the word your"
         }
        ],
        "parts": [
         {
          "words": "your",
-         "note": "the word taken as written, and it opens after two letters"
+         "at": 34
         },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "starter for",
-           "note": "A starter is the first course of a meal, so the letter taken is the one the word begins with."
+           "text": "finally",
+           "at": 14,
+           "note": "finally means only the last letter of baffling is used"
           }
          ],
          "parts": [
           {
-           "words": "finally baffling",
-           "note": "the last letter of baffling"
+           "words": "baffling",
+           "at": 22,
+           "note": "G is the last letter of baffling"
           }
          ]
         }
@@ -755,18 +753,32 @@
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "starter for",
+         "at": 39,
+         "note": "the starter for a word is its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "ten",
-         "note": "the first letter of ten"
+         "at": 51,
+         "note": "T is the first letter of ten"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Your starter for ten' is the University Challenge catchphrase, and the clue snaps it in half: 'your' is a whole word to build into, while 'ten' lends nothing but its initial.",
-     "definitionFit": "Dairy product → YOGURT: milk deliberately soured with live cultures, one of the standard things a dairy turns its milk into."
+     "surface": "A quiz host's opening question about a dairy product leaves the contestant baffled.",
+     "walkthrough": "'Your starter for ten' is the catchphrase of University Challenge, the British TV quiz, but here 'starter for' just takes the first letter of 'ten'.",
+     "definitionFit": "Yogurt is a food made by fermenting milk with bacteria, so it is a dairy product."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
     }
    }
   },
@@ -947,49 +959,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "What is in a thing sits inside it, so this run of letters is wrapped up rather than set alongside."
+       "at": 20,
+       "note": "in means these letters go inside the two outer letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "extremely",
-         "note": "The extremes of a word are its two far ends, so the letters taken are the outermost ones and nothing between them."
+         "at": 23,
+         "note": "extremely means taking the extreme letters, the first and last"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "RE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "extremely rude",
-           "gives": "RE",
-           "select": "outer",
-           "note": "the outer letters of rude, and they part company to let the rest sit between them"
-          }
-         ]
-        },
-        {
-         "words": "I",
-         "note": "the pronoun taken as the letter it is"
+         "words": "rude",
+         "at": 33,
+         "note": "R and E are the first and last letters of rude"
         }
        ]
       },
       {
-       "words": "contribute online",
-       "gives": "POST",
-       "note": "to post is to put something up on a site for everyone to read"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0
+        },
+        {
+         "words": "contribute online",
+         "at": 2,
+         "gives": "POST",
+         "note": "to post is to put a message or comment online"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'I contribute online' is a whole sentence on the surface and two separate pieces underneath. The word began in fencing, as the return thrust made straight after a parry.",
-     "definitionFit": "retort → RIPOSTE: the quick counter-reply, borrowed from fencing's return thrust, so it matches retort in the answering-back sense."
+     "surface": "Someone posts a very rude comeback on social media.",
+     "walkthrough": "'extremely rude' sounds like 'very rude' but strips the word to its ends.",
+     "definitionFit": "A riposte is a quick, sharp reply, which is what a retort is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
     }
    }
   },
