@@ -249,52 +249,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTRO",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "off means removed, so the named letter comes away from the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 20,
+         "note": "off means taken away from, so the coin's letter comes out of the drink"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "penny",
-         "note": "P, the abbreviation for a penny, is the letter to drop"
-        },
-        {
          "words": "pint",
-         "gives": "INT",
-         "note": "the word with its P taken away"
+         "at": 24
         },
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "unlimited",
-           "note": "without limits means without its boundaries, so the end letters go and the middle stays"
-          }
-         ],
-         "parts": [
-          {
-           "words": "grog",
-           "note": "the word without its first and last letters"
-          }
-         ]
+         "words": "penny",
+         "at": 14,
+         "gives": "P",
+         "note": "P is the abbreviation for a penny in British money"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 30,
+         "note": "unlimited means without its limits, so the outer letters of the word are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grog",
+         "at": 40,
+         "note": "the word grog with its first and last letters removed leaves its middle two"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub's opening bars offer a penny off a pint and unlimited grog.",
-     "walkthrough": "'Opening bars' suggests pubs opening their doors, but it means the first bars of a piece of music. Grog is rum and water, or loosely any drink.",
-     "definitionFit": "An intro is the short opening passage of a song or tune, played before the main melody begins."
+     "surface": "A pub scene: bars, a penny knocked off a pint, and endless grog.",
+     "walkthrough": "'off' removes P from PINT to leave INT; 'unlimited' strips GROG to RO. 'bars' looks like pubs, but it is musical bars.",
+     "definitionFit": "An intro is the short introductory passage of a song, the first few bars of music before the main part."
     },
     "features": {
      "answerInScene": false,
@@ -373,41 +374,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADMIRAL",
-     "indicators": [
-      {
-       "text": "Endlessly",
-       "note": "without an end, the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "at": 0,
+         "note": "endlessly means without its end, so the final letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "esteem",
-         "gives": "ADMIR",
-         "note": "to esteem is to admire, here cut short"
+         "at": 10,
+         "gives": "ADMIRE",
+         "note": "to esteem someone is to admire them"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "student",
-         "gives": "L",
-         "note": "L for learner, as on British learner-driver plates"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 17
+      },
+      {
+       "words": "student",
+       "at": 19,
+       "gives": "L",
+       "note": "L is a learner, the plate on a student driver's car"
       }
      ]
     },
     "explanation": {
-     "surface": "A student naval officer is held in endless high regard.",
-     "walkthrough": "Student giving L is a crossword convention from the L-plates British learner drivers display.",
-     "definitionFit": "An admiral is the most senior rank of commissioned officer in a naval fleet."
+     "surface": "A naval cadet is held in unending high regard.",
+     "walkthrough": "'Endlessly' cuts the E from ADMIRE to leave ADMIR.",
+     "definitionFit": "An admiral is the highest rank of commander in a fleet, a senior naval officer."
     },
     "features": {
      "answerInScene": true,
@@ -1149,44 +1154,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LETTERBOX",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so initial sounds are exchanged"
+       "at": 26,
+       "note": "Spooner was the Oxford don famous for swapping the opening sounds of words, which is done to this pair"
       }
      ],
      "parts": [
       {
        "words": "Improved",
+       "at": 0,
        "gives": "BETTER",
        "note": "improved means better"
       },
       {
-       "words": "security devices",
-       "gives": "LOCKS",
-       "note": "locks keep doors secure"
-      },
-      {
-       "unchecked": true,
-       "words": "Improved security devices",
-       "gives": "LETTERBOX",
-       "soundsLike": "BETTER LOCKS",
-       "note": "swap the opening B and L sounds"
+       "op": "homophone",
+       "spelt": "LOX",
+       "parts": [
+        {
+         "words": "security devices",
+         "at": 9,
+         "gives": "LOCKS",
+         "note": "locks are devices for security; said aloud the word ends with the same sound as a container's name"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stronger locks invented by Spooner, for the place where boundaries get tested.",
-     "walkthrough": "'Pushing the envelope' is an idiom for testing limits, but here an envelope is literally pushed through the door slot.",
-     "definitionFit": "Mail is delivered by pushing envelopes through the slot in a front door, which is the letterbox."
+     "surface": "Better locks for the door, plus a question about the slot mail goes through.",
+     "walkthrough": "Swapping the first sounds of BETTER LOCKS gives LETTER BOCKS, which sounds like LETTER BOX.",
+     "definitionFit": "A letterbox is the slot in a front door through which the postman pushes mail."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "envelope"
+     "misdirectedWord": "pushed"
     }
    }
   },
@@ -1403,39 +1408,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPERIL",
      "indicators": [
       {
-       "text": "evacuating",
-       "note": "to evacuate is to empty out or leave, so the named letter departs"
+       "text": "when evacuating",
+       "at": 19,
+       "note": "evacuating means emptying out, so the letter for area leaves the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "sovereign",
-         "gives": "IMPERIL",
-         "note": "imperial, as in sovereign or ruling, minus one A"
-        },
-        {
-         "unchecked": true,
-         "words": "area",
-         "note": "A is the abbreviation for area, the letter removed"
-        }
-       ]
+       "words": "sovereign",
+       "at": 9,
+       "gives": "IMPERIAL",
+       "note": "imperial means sovereign, of an emperor or supreme ruler"
+      },
+      {
+       "words": "area",
+       "at": 35,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch is put at risk while an area is being cleared.",
-     "walkthrough": "Sovereign is read as an adjective here, meaning imperial, rather than as a king or coin.",
-     "definitionFit": "To imperil someone is to put them in peril, exposing them to danger or harm."
+     "surface": "A monarch puts the realm at risk while clearing people out of a district.",
+     "walkthrough": "'when evacuating' takes A out of IMPERIAL.",
+     "definitionFit": "To imperil something is to put it in peril, exposing it to danger or risk of harm."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "sovereign"
     }
@@ -1524,38 +1524,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after deleting",
+       "at": 17,
+       "note": "deleting means removing, so the named article comes out of the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "after deleting",
-         "note": "deleting means striking out, so a letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "yearbook",
-         "gives": "ANNUAL",
-         "note": "an annual is a book published once a year"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "words": "yearbook",
+       "at": 8,
+       "gives": "ANNUAL",
+       "note": "an annual is a book published once a year"
       },
       {
-       "unchecked": true,
        "words": "its second article",
-       "note": "the second A, an indefinite article, is the one removed"
+       "at": 32,
+       "gives": "A",
+       "note": "the indefinite article a; the yearbook's word has two of them and the second is taken"
       }
      ]
     },
     "explanation": {
-     "surface": "An editor scraps the yearbook after cutting its second feature.",
-     "walkthrough": "'Article' looks like a magazine piece, but it is the word A; ANNUAL has two, and the later one goes.",
-     "definitionFit": "To annul a law or marriage is to declare it void, effectively abolishing it."
+     "surface": "A call to scrap the school yearbook once a second piece has been cut from it.",
+     "walkthrough": "'after deleting' removes the second A from ANNUAL.",
+     "definitionFit": "To annul a law or contract is to cancel it formally, declaring it void so that it no longer stands."
     },
     "features": {
      "answerInScene": false,
@@ -1585,57 +1580,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALPHABET",
-     "indicators": [
-      {
-       "text": "leading with",
-       "note": "leading means going in front, so a letter leaves its place to stand first"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Debut for",
+         "at": 0,
+         "note": "a debut is a first appearance, so the first letter of the brand is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Debut for",
-           "note": "a debut is a first appearance, so the first letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Apple",
-           "note": "the word's opening letter"
-          }
-         ]
-        },
+         "words": "Apple",
+         "at": 10,
+         "note": "the first letter of Apple, the brand name"
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "at": 37,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
-        },
+         "text": "leading with",
+         "at": 24,
+         "note": "leading with means the letter for large is pulled out of the device's name to stand at its head instead"
+        }
+       ],
+       "parts": [
         {
          "words": "phablet",
-         "gives": "PHABET",
-         "note": "the word with its L lifted out to go in front"
+         "at": 16
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Apple launches a phablet, a big-screen phone, aimed at a large market.",
-     "walkthrough": "A phablet is a phone with a tablet-sized screen; its L is moved to the front.",
-     "definitionFit": "The alphabet is the full set of letters used to write a language, from A through Z."
+     "surface": "A tech launch: Apple's first phablet arrives with a big lineup of features.",
+     "walkthrough": "'phablet leading with large' describes the device's own name with its L pulled forward to the head, so it is a move of one letter rather than an anagram.",
+     "definitionFit": "The alphabet is the full set of letters used to write a language, running in order from A onwards."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Debut"
+     "misdirectedWord": "Apple"
     }
    }
   },
