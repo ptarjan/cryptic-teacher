@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -138,54 +139,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Head of",
-       "note": "The head of anything is its front end, so League surrenders nothing but its opening letter."
+       "text": "engaged in",
+       "at": 15,
+       "note": "engaged in means taking part inside, so the letter sits within the reordered letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "engaged in",
-         "note": "To be engaged in something is to be taking part inside it, so that letter joins the mixture instead of standing beside it."
+         "text": "revision of",
+         "at": 26,
+         "note": "a revision reworks something, so these letters are reordered"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "L",
-         "indicators": [
-          {
-           "text": "revision of",
-           "note": "A revision reworks the material it is handed, and material reworked comes back in a different order."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Head of league",
-           "gives": "L",
-           "select": "first",
-           "note": "the opening letter of League and nothing else"
-          }
-         ]
-        },
-        {
          "words": "sport law",
-         "note": "eight letters of fodder, nine once the L is engaged in them"
+         "at": 38,
+         "note": "taken as written, the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 0,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "league",
+         "at": 8,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a rule change in sport, which is exactly why 'revision of' reads as legislation rather than as an instruction. Counting nine letters against the (5,4) is the confirmation.",
-     "definitionFit": "quick survey → STRAW POLL: an unofficial show of hands taken to test opinion in a hurry, named for straws tossed up to find the wind."
+     "surface": "A sports league reviews its rules while running a quick poll.",
+     "walkthrough": "'revision of' reworks SPORT LAW, and 'engaged in' puts L, the head of league, inside the result.",
+     "definitionFit": "A straw poll is an informal, unofficial vote taken to gauge opinion quickly, so a quick survey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revision"
     }
    }
   },
@@ -1351,33 +1358,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "'Initially' asks for the opening letter alone, so League contributes one character and no more."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "brought in",
-         "note": "To be brought in is to be taken inside, so that letter lodges within the word beside it."
+         "at": 17,
+         "note": "brought in means the letter is put inside the graph word"
         }
        ],
        "parts": [
         {
          "words": "graph",
+         "at": 28,
          "gives": "CHART",
          "note": "a chart is a graph"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 7,
+           "note": "initially points to the opening letter of League"
+          }
+         ],
          "parts": [
           {
-           "words": "League initially",
-           "note": "the first letter of League"
+           "words": "League",
+           "at": 0,
+           "note": "only its first letter is used"
           }
          ]
         }
@@ -1385,14 +1396,21 @@
       },
       {
        "words": "about",
+       "at": 34,
        "gives": "ON",
-       "note": "'a paper on cricket' and 'a paper about cricket' say the same thing"
+       "note": "on means about, as in a talk on a subject"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole clue reads as sports journalism, definition included, so there is no obvious seam to pull at. Reaching the surname means trusting 'initially' over the story the words are telling.",
-     "definitionFit": "footballing legend → CHARLTON: definition by example — Bobby Charlton, Manchester United and England's 1966 World Cup winner, named by surname alone."
+     "surface": "A football league adds a graph to its report about a famous player.",
+     "walkthrough": "Bobby Charlton was a celebrated English footballer, a 1966 World Cup winner. 'brought in' puts L, from 'League initially', inside CHART.",
+     "definitionFit": "Sir Bobby Charlton was a Manchester United and England great, so a legend of the game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "graph"
     }
    }
   },
@@ -1417,36 +1435,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GENOME",
-     "indicators": [
-      {
-       "text": "at first ignored",
-       "note": "What comes at first is the opening letter, and passing over it leaves the remainder of the word behind."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "information",
+       "at": 21,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "at first ignored",
+         "at": 38,
+         "note": "at first ignored means the opening letter of some is left out"
+        }
+       ],
        "parts": [
         {
-         "words": "information",
-         "gives": "GEN",
-         "note": "gen is British informal for information — 'give me the gen'"
+         "words": "some",
+         "at": 33,
+         "gives": "SOME"
         },
         {
-         "words": "some",
-         "gives": "OME",
-         "note": "SOME with its opening S taken away"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dash is the only signpost, and after it every word is doing letter work. 'Some' looks like a quantity word and is really four letters waiting to be trimmed.",
-     "definitionFit": "Set of chromosomes → GENOME: an organism's complete genetic complement, which is precisely what a full complement of chromosomes carries."
+     "surface": "A geneticist notes that some data was initially overlooked about a set of chromosomes.",
+     "walkthrough": "Gen is British informal for facts or information ('get the gen'). 'at first ignored' drops the S of some, leaving OME.",
+     "definitionFit": "A genome is the complete genetic material of an organism, carried on its full set of chromosomes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
     }
    }
   }
