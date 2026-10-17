@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -95,41 +96,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WARDSOFF",
-     "indicators": [
-      {
-       "text": "reversed",
-       "note": "A word reversed is written from its final letter back to its first, so the pull named beside this runs the other way."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversed",
+         "at": 10,
+         "note": "reversed tells us the word for magnetism is read from its last letter back to its first"
+        }
+       ],
        "parts": [
         {
-         "words": "Magnetism reversed",
-         "gives": "WARD",
-         "note": "magnetism is a DRAW, the pull one thing exerts on another, and it is turned round here"
-        },
-        {
-         "words": "like that",
-         "gives": "SO",
-         "note": "'so' means 'like that' in a sentence: he did it so, meaning in that manner"
-        },
-        {
-         "words": "very strongly",
-         "gives": "FF",
-         "note": "FF is fortissimo, the score's instruction to play very loudly"
+         "words": "Magnetism",
+         "at": 0,
+         "gives": "DRAW",
+         "note": "magnetism is pull or attraction, a draw"
         }
        ]
+      },
+      {
+       "words": "like that",
+       "at": 19,
+       "gives": "SO",
+       "note": "so, as in 'do it so', means in that way"
+      },
+      {
+       "words": "very strongly",
+       "at": 29,
+       "gives": "FF",
+       "note": "ff, fortissimo, is the musical marking for very loud"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Magnetism attracts, which is the trap the first word sets; the clue only wants that attraction so it can turn it round into its opposite.",
-     "definitionFit": "repels -> WARDS OFF: to ward something off is to keep it at a distance, the everyday phrase for driving away whatever is coming at you."
+     "surface": "A physics note: turn magnetism round and it pushes away hard.",
+     "walkthrough": "'reversed' turns DRAW (magnetism, an attraction) into WARD; SO means 'like that' and FF is the musical mark fortissimo.",
+     "definitionFit": "To ward off something is to fend it away or keep it at bay, which is what repelling does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Magnetism"
     }
    }
   },
@@ -457,33 +466,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "Something turning is being moved round into a new position, and letters moved round come out in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "jam makers",
+       "at": 12,
+       "gives": "WI",
+       "note": "the WI, the Women's Institute, is a British organisation famous for its members' home-made jam"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 23,
+         "note": "turning means changing shape, so the letters of 'more to chutney' are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "jam makers",
-         "gives": "WI",
-         "note": "the Women's Institute, the British village organisation famous for making and selling jam"
-        },
-        {
          "words": "more to chutney",
-         "note": "thirteen letters of fodder, which with the two above make the fifteen the enumeration wants"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Once the preserves stall stops being the subject, the definition turns out to be the single word at the front, easy to read as part of the sentence.",
-     "definitionFit": "Informally -> WITHOUT CEREMONY: stripped of the formalities that would normally attend it, with a hint of brusqueness the plainer word lacks."
+     "surface": "Jam-making ladies relaxedly switch over to chutney production.",
+     "walkthrough": "The WI (Women's Institute) is a British women's organisation famous for jam. 'turning' rearranges MORE TO CHUTNEY into THOUTCEREMONY after WI.",
+     "definitionFit": "Acting without ceremony means doing things casually, with no formality, which is what informally means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jam"
     }
    }
   },
@@ -551,41 +568,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "DIGEST",
+     "spelt": "DIGEST",
      "indicators": [
       {
        "text": "you hear",
-       "note": "What you hear is what is spoken, so the words before this are to be said aloud and then written down some other way."
+       "at": 13,
+       "note": "you hear tells us the answer is something that sounds like those words spoken aloud"
       }
      ],
      "parts": [
       {
-       "words": "Pass on",
-       "gives": "DIE",
-       "note": "to pass on is to die, the gentle way of saying it"
-      },
-      {
-       "words": "joke",
-       "gives": "JEST",
-       "note": "a jest is a joke, the older word for one"
-      },
-      {
-       "op": "homophone",
-       "spelt": "DIGEST",
-       "parts": [
-        {
-         "words": "Pass on joke",
-         "gives": "DIEJEST",
-         "note": "said at any speed the two short words run together into one, and the spelling shifts as they join"
-        }
-       ]
+       "words": "Pass on joke",
+       "at": 0,
+       "gives": "DIEJEST",
+       "note": "pass on means die, and a joke is a jest: die jest"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing is shuffled or buried here: the clue asks you to say two words one after another and write down the single word you hear.",
-     "definitionFit": "summarised version -> DIGEST: a digest is a condensed account of something longer — Reader's Digest is the famous one — boiled down to its substance."
+     "surface": "Someone passes a joke along and it gets repeated in shortened form.",
+     "walkthrough": "'Pass on' is not passing something along but dying: DIE plus JEST (joke), and 'you hear' says those words spoken aloud give the answer.",
+     "definitionFit": "A digest is a condensed compilation or summary of longer material, such as a digest of the news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pass"
     }
    }
   },
@@ -749,36 +758,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOODIES",
-     "indicators": [
-      {
-       "text": "with head hidden",
-       "note": "A word's head is its first letter; keep that out of sight and only what follows it is written down."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "house",
+       "at": 6,
+       "gives": "HO"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with head hidden",
+         "at": 19,
+         "note": "with head hidden means the first letter of the word for torsos is taken away"
+        }
+       ],
        "parts": [
         {
-         "words": "house",
-         "gives": "HO",
-         "note": "HO is the standard abbreviation for house, the one estate agents use"
+         "words": "torsos",
+         "at": 12,
+         "gives": "BODIES",
+         "note": "torsos are bodies, the trunk without the limbs"
         },
         {
-         "words": "torsos",
-         "gives": "ODIES",
-         "note": "torsos are BODIES, and this set arrives with its opening B left off"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read straight through, the sentence is also a fair description of the garment — it houses the torso and keeps the head out of sight — which is what makes 'These' enough of a definition.",
-     "definitionFit": "These -> HOODIES: the bare pronoun leans on the rest of the sentence, which describes a hooded top; the word also names the youth wearing one."
+     "surface": "A description of hooded tops covering the upper body, hood up.",
+     "walkthrough": "The whole clue also describes the garments, which house torsos and hide the head under a hood. 'with head hidden' drops B from BODIES to leave ODIES, after HO.",
+     "definitionFit": "'These' points to the items the rest of the clue describes: hooded tops that cover the torso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
     }
    }
   },
@@ -930,36 +948,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MACARONI",
-     "indicators": [
-      {
-       "text": "arranged",
-       "note": "Air conditioning gets arranged by an installer; letters arranged are simply set down in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Graduate",
+       "at": 0,
+       "gives": "MA",
+       "note": "an MA, Master of Arts, is a graduate"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 9,
+         "note": "arranged means put in a new order, so the letters of air-con are shuffled"
+        }
+       ],
        "parts": [
         {
-         "words": "Graduate",
-         "gives": "MA",
-         "note": "an MA is a Master of Arts, the crossword's usual graduate"
-        },
-        {
          "words": "air-con",
-         "gives": "CARONI",
-         "note": "the six letters of the shortened air conditioning, rewritten in another order"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The bird is named after the 18th-century macaronis, dandies with absurdly elaborate hair — the ones Yankee Doodle mocks — which its yellow crest resembles.",
-     "definitionFit": "penguin -> MACARONI: a crested Antarctic species, so the plain word defines the bird by example rather than by synonym."
+     "surface": "A graduate sets up air conditioning to keep a penguin cool.",
+     "walkthrough": "MA, a Master of Arts, then 'arranged' reshuffles AIRCON into CARONI after it.",
+     "definitionFit": "The macaroni penguin is a crested species of the Southern Ocean, named for its yellow head plumes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "penguin"
     }
    }
   },
@@ -1042,42 +1066,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OBSTACLERACE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "going round",
-         "note": "Something going round another thing encircles it, so the word before this closes over what the clue names next."
+         "at": 11,
+         "note": "going round means the word for couple sits on either side of the remaining letters"
         }
        ],
        "parts": [
         {
-         "words": "Old",
-         "gives": "O",
-         "note": "O is the standard abbreviation for old"
+         "words": "couple",
+         "at": 4,
+         "gives": "BRACE",
+         "note": "a brace is a pair, a couple"
         },
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
            "text": "ruined",
-           "note": "A ruined castle has fallen into a heap, and letters in a heap have lost the order they were handed to you in."
+           "at": 23,
+           "note": "ruined means wrecked, so the letters of castle are put in a jumbled order"
           }
          ],
          "parts": [
           {
-           "words": "couple",
-           "gives": "BRACE",
-           "note": "a brace is a couple — two of a thing, as in a brace of pheasants"
-          },
-          {
            "words": "castle",
-           "gives": "STACLE",
-           "note": "the castle's six letters, rebuilt in another order and dropped inside"
+           "at": 30
           }
          ]
         }
@@ -1086,8 +1110,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Hampered' is not saying the event was spoiled: it is the definition's own word for a course deliberately filled with things to climb through.",
-     "definitionFit": "hampered event -> OBSTACLE RACE: a race hampered on purpose by nets, tyres and hurdles, so the hindrance is the point rather than a mishap."
+     "surface": "An elderly pair circle a castle in ruins.",
+     "walkthrough": "'going round' puts BRACE (couple) around STACLE, the letters of CASTLE that 'ruined' rearranges, making BSTACLERACE, with O for Old in front.",
+     "definitionFit": "An obstacle race is one in which runners are hindered by barriers they must clamber over or under."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hampered"
     }
    }
   },
@@ -1203,41 +1233,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "Letters taken regularly come at a fixed interval, here every second one as you count along the word."
+       "text": "boring",
+       "at": 23,
+       "note": "boring means drilling into, so the picked letters go inside the princess's name"
       }
      ],
      "parts": [
       {
        "words": "princess",
+       "at": 30,
        "gives": "ANNE",
-       "note": "Princess Anne, the Princess Royal and the King's sister, is the crossword's usual princess"
+       "note": "Anne is the Princess Royal, the King's sister"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ODY",
        "indicators": [
         {
-         "text": "boring",
-         "note": "To bore into something is to drive a hole through the middle of it, so the letters just picked out go inside the word that follows."
+         "text": "regularly",
+         "at": 13,
+         "note": "regularly means taking every other letter of Mondays, here the second, fourth and sixth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Mondays regularly",
-         "gives": "ODY",
-         "select": "alternate",
-         "note": "the second, fourth and sixth letters of Mondays, counted off in step"
+         "words": "Mondays",
+         "at": 5,
+         "note": "the second, fourth and sixth letters of Mondays are O, D and Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Boring' reads as a second word for dull and is really the instruction, so the pun is the point — only one of its two senses hands over anything.",
-     "definitionFit": "Dull -> ANODYNE: an anodyne remark is so inoffensive it is dull, from the medical sense of a drug that soothes pain away."
+     "surface": "A princess finds Mondays tedious, week in week out.",
+     "walkthrough": "'regularly' picks ODY from mOnDaYs, and 'boring' drills them into ANNE, Britain's Princess Royal.",
+     "definitionFit": "Anodyne describes something bland and inoffensive, so lacking in interest that it is tedious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
     }
    }
   },
@@ -1500,8 +1536,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "inside",
-       "note": "The inside of a three-letter word is its middle character, the one with a letter either side of it."
+       "text": "covered by",
+       "at": 19,
+       "note": "covered by means the central letter is enclosed in the other letters"
       }
      ],
      "parts": [
@@ -1509,42 +1546,50 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "covered by",
-         "note": "Something covered by another lies underneath it and out of sight, so the letter before this goes within the letters after."
+         "text": "plastic",
+         "at": 30,
+         "note": "plastic means pliable, able to be moulded, so the letters of dummy and one are reshaped"
         }
        ],
        "parts": [
         {
-         "words": "dummy one",
-         "note": "eight letters of fodder, which with the letter above make the nine the enumeration asks for"
+         "words": "dummy",
+         "at": 38
+        },
+        {
+         "words": "one",
+         "at": 44
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
-         "text": "plastic",
-         "note": "Plastic means able to be moulded into any shape, and letters that can be moulded will not keep the order they came in."
+         "text": "'s inside",
+         "at": 9,
+         "note": "'s inside, read as 'zip's inside', means the central letter of zip, its heart"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "zip's inside",
-         "gives": "I",
-         "select": "middle",
-         "note": "the middle letter of ZIP, and nothing else of the word is wanted"
+         "words": "zip",
+         "at": 6,
+         "note": "zip has three letters, and its middle one is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Zip' is the crossword's usual word for nothing, which makes it a fine decoy: the clue wants a letter out of the middle of it, not its meaning.",
-     "definitionFit": "Metal -> NEODYMIUM: element 60, a soft silvery rare-earth metal used to make the strongest permanent magnets there are."
+     "surface": "A baby's plastic dummy has a zip inside it.",
+     "walkthrough": "'plastic' is the anagram signal for DUMMY ONE, giving NEODYMUM; ''s inside' takes I, the middle of zip, and 'covered by' wraps those reshuffled letters around it.",
+     "definitionFit": "Neodymium is a rare-earth metallic element, used in powerful permanent magnets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
     }
    }
   }
