@@ -315,40 +315,37 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "AS",
        "indicators": [
         {
          "text": "Starts to",
-         "note": "take the starting letters of the words that follow"
+         "at": 0,
+         "note": "starts to picks the opening letter of each of the next two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Starts to arrange social",
-         "gives": "AS",
-         "select": "first",
-         "note": "first letters of Arrange and Social"
+         "words": "arrange social",
+         "at": 10,
+         "note": "the words whose first letters A and S are taken"
         }
        ]
       },
       {
        "words": "function",
+       "at": 25,
        "gives": "COT",
-       "note": "cot is short for cotangent, a trigonometric function"
+       "note": "cot is the abbreviation for cotangent, a trigonometric function"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone begins organising a party in an English town.",
-     "walkthrough": "Ascot, a town in Berkshire, west of London, is home to a famous racecourse. 'Social function' reads as a party, but the two words belong to different pieces: social starts AS, function is the maths sense.",
-     "definitionFit": "A definition by location: the racecourse town lies in the English county of Berkshire, west of London."
+     "surface": "An instruction to begin organising a social event in a Berkshire town.",
+     "walkthrough": "'arrange' and 'social function' look like event planning, but 'Starts to' takes only the first letters, and the 'function' is a maths one: cot, short for cotangent. Berkshire is a county west of London.",
+     "definitionFit": "Ascot is a town in Berkshire, famous for its racecourse and the Royal Ascot race meeting."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "function"
     }
    }
