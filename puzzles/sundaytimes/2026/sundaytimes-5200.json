@@ -967,48 +967,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STEPONIT",
+     "indicators": [
+      {
+       "text": "fixed around",
+       "at": 20,
+       "note": "fixed in the sense of rigged or put right, with around suggesting the parts are moved about, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "piston",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "fixed",
-         "note": "a thing fixed is put right, rearranged"
-        },
-        {
-         "text": "around"
-        },
-        {
          "text": "not",
-         "note": "'not' tells you the N, standing for noon, is to be left out of TEN"
+         "at": 38,
+         "note": "not means the following piece is left out"
         }
        ],
        "parts": [
         {
-         "words": "piston",
-         "gives": "SPONIT",
-         "note": "PISTON rearranged"
+         "words": "ten",
+         "at": 33,
+         "note": "the word from which noon's letter is removed"
         },
         {
-         "words": "ten, not noon",
-         "gives": "TE",
-         "note": "TEN without N, the noon abbreviation"
+         "words": "noon",
+         "at": 42,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mechanic fixes a piston at about ten, well before noon: get going!",
-     "walkthrough": "'Get cracking' looks like breaking something mechanical; it is the idiom for hurry. N is the usual short form of noon.",
-     "definitionFit": "An idiom: pressing the accelerator pedal down means going faster, so hurrying."
+     "surface": "A mechanic repairs an engine part, aiming to finish by ten rather than midday.",
+     "walkthrough": "The times are a red herring: 'not noon' means drop the N that stands for noon, leaving TE from ten for the anagram with piston.",
+     "definitionFit": "Step on it is an idiom telling someone to hurry, just as get cracking urges them to start quickly."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cracking"
+     "misdirectedWord": "fixed"
     }
    }
   },
@@ -1134,61 +1138,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAOS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to win",
+       "at": 21,
+       "note": "to win here is to take in or capture, so the cut-short girl holds the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "shortly",
-         "note": "cut short, losing a last letter"
-        },
-        {
-         "text": "heart",
-         "note": "the heart of a word is its middle letter"
+         "at": 13,
+         "note": "shortly means cut short, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "girl shortly",
-         "gives": "LAS",
-         "note": "LASS, a girl, cut short"
+         "words": "girl",
+         "at": 8,
+         "gives": "LASS",
+         "note": "a lass is a girl"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "O",
-         "indicators": [
-          {
-           "text": "to win",
-           "note": "the girl wins, takes in, the letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "boy's heart",
-           "gives": "O",
-           "select": "middle",
-           "note": "middle letter of boy"
-          }
-         ]
+         "gives": "S",
+         "note": "the final letter of lass, which is dropped"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "heart",
+         "at": 34,
+         "note": "the heart of a short word is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy's",
+         "at": 28,
+         "note": "the word whose middle letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country girl hopes to win a boy's heart.",
-     "walkthrough": "'Country girl' reads as one phrase, but country is the definition. O goes between LA and S.",
-     "definitionFit": "Definition by category: a landlocked nation in South-East Asia."
+     "surface": "A young woman sets out to capture a young man's affections.",
+     "walkthrough": "'girl shortly' gives LAS, and 'to win' puts the O at the 'heart' of 'boy' inside it.",
+     "definitionFit": "Laos is a landlocked nation in South-East Asia, so it is an example of a country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Country"
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -1723,46 +1732,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "YELLOW",
      "indicators": [
       {
        "text": "making first",
-       "note": "the new letter is put first, in place of the old one"
+       "at": 4,
+       "note": "making the first letter something else, so the opening letter of the guy is replaced"
       }
      ],
      "parts": [
       {
        "words": "Guy",
+       "at": 0,
        "gives": "FELLOW",
        "note": "a guy is a fellow"
       },
       {
+       "gives": "F",
+       "note": "the first letter of fellow, which is swapped out"
+      },
+      {
        "op": "first",
-       "unchecked": true,
-       "gives": "Y",
        "indicators": [
         {
          "text": "starter from",
-         "note": "a starter is the first letter"
+         "at": 17,
+         "note": "a starter is the first course, so the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starter from yams",
-         "gives": "Y",
-         "select": "first",
-         "note": "first letter of yams; it replaces the F"
+         "words": "yams",
+         "at": 30,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man serves a starter of yams and then chicken.",
-     "walkthrough": "The menu surface makes chicken a main course; it is the adjective for cowardly.",
-     "definitionFit": "Plain synonym: both are informal adjectives for cowardly."
+     "surface": "A man cooks a dish of yams with chicken, serving the root vegetable first.",
+     "walkthrough": "'making first starter from yams' puts Y in place of the F at the front of FELLOW. 'chicken' is the definition, not the dish: it means cowardly.",
+     "definitionFit": "Both chicken and yellow are informal adjectives meaning cowardly or lacking nerve."
     },
     "features": {
      "answerInScene": false,
