@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -579,39 +580,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABUDHABI",
-     "indicators": [
-      {
-       "text": "briefly"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "friend",
+       "at": 2,
+       "gives": "BUD",
+       "note": "bud is American slang for a friend, short for buddy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 25,
+         "note": "briefly means cut short, so the word for addiction loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "the clue's own A"
-        },
-        {
-         "words": "friend",
-         "gives": "BUD",
-         "note": "friend = bud, informal American"
-        },
-        {
          "words": "addiction",
-         "gives": "HABI",
-         "note": "HABIT (addiction) cut short by 'briefly'"
+         "at": 14,
+         "gives": "HABIT",
+         "note": "a habit is an addiction, as in a drug habit"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The pieces respell themselves across the answer's two words: A BUD HABI(T) becomes ABU DHABI, capital of the UAE.",
-     "definitionFit": "Abu Dhabi is one of the seven emirates making up the United Arab Emirates, so 'emirate' defines it by class."
+     "surface": "A pal with a short-lived drug problem turns up in the Gulf.",
+     "walkthrough": "The surface reads 'with addiction' as describing the friend, but it is a separate piece, cut short by 'briefly'.",
+     "definitionFit": "Abu Dhabi is the largest of the seven United Arab Emirates and holds the federal capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
     }
    }
   },
