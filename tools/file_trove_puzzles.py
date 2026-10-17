@@ -983,16 +983,14 @@ def build(aid, meta, ocr, grid, how, laid, day):
                 continue
             if group:
                 groups[lid] = group
-    import file_archive_org_puzzles as fa  # it imports this module
     numbers = {e["number"] for e in entries}
     for e in entries:
         lid = entry_id(e)
         text = source_clue(series_meta.puzzle_id(SERIES, int(day.strftime("%y%m%d"))), lid,
                            laid.get(lid, ("", None, None))[0])
         # Its count read after its last word, the brackets lost ("looks? 5",
-        # "legislation? 16.4"), goes when it fills the light (count_left).
-        bare = fa.count_left(text, e["length"], numbers)
-        text = bare if bare and ocr_clues.tokens(bare) else text
+        # "legislation? 16.4"), goes when it fills the light (the pipeline's cells).
+        text = clue_text.tidy_ocr_clues(text, scope="clue", cells=e["length"], lights=numbers)
         enum = laid.get(lid, ("", None, None))[1]
         line = f"{text} ({enum})" if enum else text
         e["clue"] = enumeration.clue(line, separators=seps.get(lid),
