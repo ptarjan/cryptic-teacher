@@ -742,38 +742,54 @@
      "parts": [
       {
        "words": "old boy",
+       "at": 10,
        "gives": "OB",
-       "note": "OB is the abbreviation for old boy, a former pupil"
+       "note": "OB is the usual abbreviation for old boy, a former pupil"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ESE",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "at the centre",
-         "note": "only the core letters, from the very middle of the long word, are kept"
+         "text": "centre",
+         "at": 37,
+         "note": "centre, completing at the centre, cuts away the matching outer letters at the back so only the core remains"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "represented",
-         "gives": "ESE",
-         "select": "middle",
-         "note": "the three central letters of this eleven-letter word"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "at the",
+           "at": 30,
+           "note": "at the, read with centre, asks for the outer letters at the front of represented to be cut away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "represented",
+           "at": 18,
+           "note": "of the eleven letters of represented, the central three are E, S and E"
+          },
+          {
+           "gives": "REPR"
+          }
+         ]
+        },
+        {
+         "gives": "NTED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stout former pupil is shown at the heart of some gathering.",
-     "walkthrough": "OB, an old boy, is a former pupil of a British school.",
-     "definitionFit": "Corpulent and obese are synonyms, both describing a person who is very fat."
+     "surface": "A portly former pupil was represented at the heart of things.",
+     "walkthrough": "'represented' looks like a verb about the old boy, but 'at the centre' keeps only its three central letters, ESE, dropping four from each end.",
+     "definitionFit": "Obese means very overweight, a stronger word for fat or stout."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "represented"
     }
