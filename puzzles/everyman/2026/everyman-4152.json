@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -234,40 +235,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSULAR",
-     "indicators": [
-      {
-       "text": "Curtly",
-       "note": "To say something curtly is to cut it short, so the word standing next to it arrives one letter shy of its full length."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Curtly",
+         "at": 0,
+         "note": "curtly means cut short, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "malign",
-         "gives": "INSUL",
-         "note": "to malign someone is to insult them, and curt delivery clips the last letter off that word"
+         "at": 7,
+         "gives": "INSULT",
+         "note": "insult means malign, speak ill of"
         },
         {
-         "words": "a",
-         "note": "the article is taken at face value as a single letter"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "R is the standard abbreviation for Republican, as printed beside an American politician's name"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 14
+      },
+      {
+       "words": "Republican",
+       "at": 16,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "American party letters are staple filler in British cryptics — R for Republican, D for Democrat — and they turn up wherever a clue needs one more consonant.",
-     "definitionFit": "xenophobic → INSULAR: an island's cut-off position gave English the word for a mind closed to anything from outside, which is what fear of foreigners amounts to."
+     "surface": "A politician briefly attacks a Republican for being hostile to foreigners.",
+     "walkthrough": "'Curtly' docks the final T of INSULT before A and R follow.",
+     "definitionFit": "Insular describes an inward-looking outlook suspicious of outsiders, as an island cut off from the wider world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Curtly"
     }
    }
   },
@@ -684,44 +694,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATKINSDIET",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 42,
+       "note": "includes means takes in, so the families piece goes inside the rest"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "indicators": [
         {
          "text": "after",
-         "note": "Whatever comes next follows the piece named here, so those two opening letters take the front and everything else is built behind them."
-        },
-        {
-         "text": "includes",
-         "note": "To include is to have something inside rather than beside, so the word for relatives drops into the middle of what has been assembled."
+         "at": 17,
+         "note": "after places the Parliament piece behind the a-and-time pair"
         }
        ],
        "parts": [
         {
-         "words": "a time",
-         "gives": "AT",
-         "note": "the article stands as itself and T is the abbreviation for time"
+         "words": "a",
+         "at": 23
         },
         {
-         "words": "families",
-         "gives": "KINS",
-         "note": "your kin are your relatives, and the plural names more than one such group"
+         "words": "time",
+         "at": 25,
+         "gives": "T"
         },
         {
          "words": "Parliament",
+         "at": 31,
          "gives": "DIET",
-         "note": "the Japanese parliament is called the Diet, as the German and Hungarian assemblies once were"
+         "note": "a diet is a legislative assembly, as in Japan's Diet"
         }
        ]
+      },
+      {
+       "words": "families",
+       "at": 51,
+       "gives": "KINS",
+       "note": "kins, plural of kin, means families or relations"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface promises a political dynasty and delivers an eating plan. The cross-reference runs both ways: 8 down is the food group this entry bans.",
-     "definitionFit": "Regime → ATKINS DIET: a regime is a prescribed course of living, and a named low-carbohydrate eating plan is one of the commonest kinds people put themselves on."
+     "surface": "A political observation that Parliament, over time, is full of family dynasties.",
+     "walkthrough": "'Regime' looks political, as does 'Parliament', but the answer is a weight-loss regime; KINS slots in between AT and DIET.",
+     "definitionFit": "The Atkins diet is a low-carbohydrate eating plan, and a diet is a regime of food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Regime"
     }
    }
   },
