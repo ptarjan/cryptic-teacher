@@ -168,55 +168,69 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "skinned",
-       "note": "skinning removes the outside, so THIGHS loses its first and last letters"
-      },
-      {
-       "text": "leaving",
-       "note": "the river leaves the vessel, so R departs from PITCHER"
+       "text": "on",
+       "at": 21,
+       "note": "in a down answer, a piece on another sits above it, so it comes first"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "HIGH",
+       "op": "middle",
        "indicators": [
         {
-         "text": "on"
+         "text": "skinned",
+         "at": 6,
+         "note": "a thing skinned has its outer layer removed, so the word thighs loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "skinned thighs",
-         "gives": "HIGH",
-         "select": "outer",
-         "note": "THIGHS without its first and last letters"
+         "words": "thighs",
+         "at": 14,
+         "note": "the word whose inner letters are kept"
         }
        ]
       },
       {
-       "words": "vessel leaving river",
-       "gives": "PITCHE",
-       "note": "a pitcher is a jug; R for river comes out"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 31,
+         "note": "something leaving goes away, so the river's letter is taken out of the vessel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "at": 24,
+         "gives": "PITCHER",
+         "note": "a pitcher is a jug, a vessel for pouring"
+        },
+        {
+         "words": "river",
+         "at": 39,
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "delta",
+       "at": 45,
        "gives": "D",
-       "note": "Delta is D in the NATO alphabet"
+       "note": "D is delta in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A grisly kitchen scene: thighs stripped of skin sit on a jug at a river mouth.",
-     "walkthrough": "'Steep' first suggests soaking, which suits the kitchen picture; it is the slope sense, as of a roof.",
-     "definitionFit": "A plain synonym in the roofing sense: a roof with a sharp angle of slope is both."
+     "surface": "A grim cookery or butchery scene: skinned thighs set on a pot, near a river delta.",
+     "walkthrough": "'skinned' strips thighs to HIGH, which sits on PITCHE: 'leaving' takes R out of PITCHER. D for delta completes PITCHED.",
+     "definitionFit": "A high-pitched roof is one with a steep slope, so the compound adjective means steep."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Steep"
+     "aptDefinition": false,
+     "misdirectedWord": "thighs"
     }
    }
   },
@@ -365,36 +379,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LEARN",
      "indicators": [
       {
        "text": "covering",
-       "note": "to cover for someone is to stand in for them"
+       "at": 19,
+       "note": "the student letter covers, i.e. takes the place of, the yard letter within the word for pine"
+      },
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in places the swap within the pine word, where the yard letter sits"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "student",
-         "gives": "L",
-         "note": "L = learner, from the L-plate on a learner driver's car"
-        },
-        {
-         "words": "yard in pine",
-         "gives": "EARN",
-         "note": "to pine is to YEARN; the Y for yard is the letter swapped out"
-        }
-       ]
+       "words": "pine",
+       "at": 36,
+       "gives": "YEARN",
+       "note": "to pine is to yearn, to long for"
+      },
+      {
+       "words": "yard",
+       "at": 28,
+       "gives": "Y"
+      },
+      {
+       "words": "student",
+       "at": 11,
+       "gives": "L",
+       "note": "L is a learner, as on a learner driver's L-plate"
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher and pupil set among the pine trees of a garden.",
-     "walkthrough": "'Master and student' reads as a pair of people; 'Master' is a verb, and the student covers for the yard in YEARN.",
-     "definitionFit": "A plain synonym as verbs: to acquire a skill thoroughly."
+     "surface": "A teacher and a pupil sitting in a pine wood, with a yard between them.",
+     "walkthrough": "'covering' has the student's L cover, replace, the yard's Y in YEARN.",
+     "definitionFit": "To master a skill is to learn it thoroughly; the verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -495,40 +515,38 @@
      "parts": [
       {
        "words": "on",
+       "at": 8,
        "gives": "RE",
-       "note": "re = on, concerning"
+       "note": "RE means on, concerning, as in a letter heading"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "CTI",
        "indicators": [
         {
          "text": "tops of",
-         "note": "in a down clue the top of each word is its first letter"
+         "at": 11,
+         "note": "tops of a set of words in a down clue are their first letters, taken from each of the three words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "tops of calves twisted internally",
-         "gives": "CTI",
-         "select": "first",
-         "note": "first letters of Calves Twisted Internally"
+         "words": "calves twisted internally",
+         "at": 19,
+         "note": "the three words whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calf muscles that have been wrenched inside.",
-     "walkthrough": "'Twisted internally' reads as an injury, and both words are only letter sources; 'on' is RE in its 'concerning' sense.",
-     "definitionFit": "A definition by example: the plural of rectus, the name of several straight muscles such as those of the abdomen."
+     "surface": "A sports injury: muscles in the calves twisted inside.",
+     "walkthrough": "RE for 'on' is followed by CTI, the 'tops of' calves, twisted and internally.",
+     "definitionFit": "Recti is the plural of rectus, the name for several straight muscles of the body such as the abdominal ones."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "twisted"
+     "misdirectedWord": "calves"
     }
    }
   },
@@ -553,41 +571,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POLENTA",
-     "indicators": [
-      {
-       "text": "dropped",
-       "note": "in a down clue, dropping a letter moves it lower, so the A of LEANT slides to the bottom"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "Flower",
+       "at": 0,
+       "gives": "PO",
+       "note": "the Po is a river, something that flows, the crossword's classic flower"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "Flower",
-         "gives": "PO",
-         "note": "a flower is something that flows, a river; the Po is Italy's longest"
+         "text": "once",
+         "at": 24,
+         "note": "once means as soon as, setting the condition under which the letter moves"
         },
         {
-         "words": "bent to one side once adult's dropped",
-         "gives": "LENTA",
-         "note": "bent to one side = LEANT (tilted); its A for adult then moves down to the end"
+         "text": "dropped",
+         "at": 37,
+         "note": "the adult letter is dropped down, moved from its place to the bottom of the down entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bent to one side",
+         "at": 7,
+         "gives": "LEANT",
+         "note": "leant means tilted or bent to one side"
+        },
+        {
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "adult's",
+       "at": 29,
+       "gives": "A",
+       "note": "A is the film-classification abbreviation for adult; the 's reads as is"
       }
      ]
     },
     "explanation": {
-     "surface": "A wilting flower, and a grown-up who lets a plate fall.",
-     "walkthrough": "'Dropped' usually means deleted, but here the A is not lost, only moved lower in the down entry.",
-     "definitionFit": "A definition by example: an Italian dish of boiled cornmeal."
+     "surface": "A wilting flower that once drooped, as if age had brought it down.",
+     "walkthrough": "'dropped' takes the A of LEANT down to the bottom of the word: LENT, then A, after PO.",
+     "definitionFit": "Polenta is an Italian dish of cooked maize meal, served soft or set and fried."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Flower"
     }
    }
@@ -780,60 +814,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELEVATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken by",
+       "at": 20,
+       "note": "the inner letters are taken in by the team word, which holds them within it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "inside of",
-         "note": "the inside of a word is its middle letters"
-        },
-        {
          "text": "most of",
-         "note": "most, not all, so ELEVEN loses its last letter"
+         "at": 29,
+         "note": "most of a word drops its final letter"
         }
        ],
        "parts": [
         {
-         "words": "most of team",
-         "gives": "ELEVE",
-         "note": "a football or cricket team is an eleven; the last letter goes"
+         "words": "team",
+         "at": 37,
+         "gives": "ELEVEN",
+         "note": "a football or cricket side is an eleven"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "AT",
-         "indicators": [
-          {
-           "text": "taken by"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "inside of Tate",
-           "gives": "AT",
-           "select": "middle",
-           "note": "the middle letters of tATe"
-          }
-         ]
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "inside of",
+         "at": 5,
+         "note": "the inside of a word is its letters without the first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tate",
+         "at": 15,
+         "note": "the London gallery's name, whose middle letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery lift taken by most of the sports team.",
-     "walkthrough": "'Lift inside of Tate' reads as the elevator in the London gallery; 'Lift' is a verb and the definition.",
-     "definitionFit": "A plain synonym as verbs: to raise."
+     "surface": "An art-gallery lift taken over by nearly the whole team on an outing.",
+     "walkthrough": "'most of' cuts ELEVEN to ELEVE, and AT, the 'inside of' Tate, is 'taken by' it.",
+     "definitionFit": "To elevate something is to lift or raise it; the verbs are synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Lift"
     }
    }
@@ -1294,46 +1331,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "before"
+       "text": "before",
+       "at": 20,
+       "note": "these drinks come before the next letter in the answer"
       }
      ],
      "parts": [
       {
        "words": "Drink",
+       "at": 0,
        "gives": "NOG",
-       "note": "nog is a strong ale, or eggnog"
+       "note": "nog is a drink, as in eggnog, or a strong ale"
       },
       {
        "words": "another drink",
+       "at": 6,
        "gives": "GIN",
-       "note": "gin is a spirit"
+       "note": "gin is another drink"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "beginning to",
+         "at": 27,
          "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "beginning to skin",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of Skin"
+         "words": "skin",
+         "at": 40,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinks-and-cooking scene: a quick tipple before peeling onions.",
-     "walkthrough": "'Onions' is British slang for heads, as in 'off his onion', and NOGGINS is slang for heads too.",
-     "definitionFit": "Slang for slang: both words mean heads."
+     "surface": "A kitchen instruction: have a drink, then another, before you start peeling onions.",
+     "walkthrough": "NOG and GIN come 'before' S, the 'beginning to' skin. Onions is slang for heads, and so are noggins; the surface makes onions look like vegetables.",
+     "definitionFit": "Both noggins and onions are informal words for people's heads."
     },
     "features": {
      "answerInScene": false,
@@ -1667,46 +1705,52 @@
      "op": "charade",
      "parts": [
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "empty",
-         "note": "emptied of its middle, CONCERTS leaves C and S"
-        }
-       ],
-       "parts": [
-        {
-         "words": "in",
-         "note": "used as itself"
-        }
-       ]
+       "words": "wearing",
+       "at": 15,
+       "gives": "IN",
+       "note": "to be in a garment is to be wearing it"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "wearing"
+         "text": "in",
+         "at": 31,
+         "note": "the uniform letter is put in the emptied concerts"
         }
        ],
        "parts": [
         {
-         "words": "empty concerts",
-         "gives": "CS",
-         "note": "the outer letters of ConcertS"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "at": 34,
+           "note": "an emptied word keeps only its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "concerts",
+           "at": 40,
+           "note": "the word reduced to its first and last letters"
+          }
+         ]
         },
         {
          "words": "uniform",
+         "at": 23,
          "gives": "U",
-         "note": "Uniform is U in the NATO alphabet"
+         "note": "U is uniform in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thin conductor in uniform at poorly attended concerts.",
-     "walkthrough": "'Bony conductor' paints a gaunt maestro; the conductor carries sound, a small bone of the middle ear.",
-     "definitionFit": "A cryptic description: the anvil-shaped bone passes sound from the eardrum inwards."
+     "surface": "An orchestral conductor in uniform at half-empty concerts.",
+     "walkthrough": "IN for wearing comes before CUS: 'empty' concerts is CS, with U for uniform 'in' it.",
+     "definitionFit": "The incus or anvil is a small bone of the middle ear that passes sound vibrations along."
     },
     "features": {
      "answerInScene": false,
@@ -1857,46 +1901,45 @@
      "indicators": [
       {
        "text": "nursing",
-       "note": "to nurse is to hold close"
+       "at": 11,
+       "note": "to nurse is to hold close, so the model word holds the letters inside"
       }
      ],
      "parts": [
       {
        "words": "Nude maybe",
+       "at": 0,
        "gives": "SITTER",
-       "note": "a nude model sits for an artist"
+       "note": "a sitter poses for an artist, and a nude is one example of such a pose"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PL",
        "indicators": [
         {
          "text": "extremely",
+         "at": 19,
          "note": "the extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely painful",
-         "gives": "PL",
-         "select": "outer",
-         "note": "the outer letters of PainfuL"
+         "words": "painful",
+         "at": 29,
+         "note": "the word whose outer letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A life model nursing a terrible headache.",
-     "walkthrough": "'Extremely painful' reads as describing the headache; it only gives the outer letters.",
-     "definitionFit": "Informal British usage: a splitting headache, one that feels as though it will split the head."
+     "surface": "An artist's nude model suffering an extremely painful headache.",
+     "walkthrough": "'extremely' gives PL from painful, and SITTER is 'nursing' it. A splitter is informal for a splitting headache.",
+     "definitionFit": "A splitter is informal British slang for a severe, splitting headache."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "extremely"
+     "misdirectedWord": "Nude"
     }
    }
   },
