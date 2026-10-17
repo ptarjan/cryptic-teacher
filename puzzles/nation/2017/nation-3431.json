@@ -324,39 +324,28 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LACQUERED",
+     "op": "homophone",
+     "spelt": "LACQUERED",
      "indicators": [
       {
-       "text": "leaving out first",
-       "note": "leaving out first means dropping the opening letter of the word for a billboard"
+       "text": "broadcast",
+       "at": 38,
+       "note": "something broadcast is heard on air, so the shortened word is taken by its sound"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "LACQUERED",
-       "indicators": [
-        {
-         "text": "broadcast",
-         "note": "broadcast means put out on the air, so it is the spoken form that counts"
-        }
-       ],
-       "parts": [
-        {
-         "words": "billboard",
-         "gives": "LACKARD",
-         "note": "a placard is a poster or sign; without its first letter it is said like the answer"
-        }
-       ]
+       "words": "billboard leaving out first",
+       "at": 10,
+       "gives": "LACARD",
+       "note": "a placard is a billboard; leaving out its first letter, P, gives the word said aloud"
       }
      ]
     },
     "explanation": {
-     "surface": "A polished advertising hoarding is left out of the first broadcast.",
-     "walkthrough": "PLACARD minus P leaves LACARD, which said aloud matches LACQUERED.",
-     "definitionFit": "Lacquer is a hard glossy coating, so a lacquered surface has been coated like varnish."
+     "surface": "A shiny billboard ad is dropped from the start of a broadcast.",
+     "walkthrough": "PLACARD without its first letter is LACARD, and 'broadcast' says it aloud: lack-ard sounds like the answer.",
+     "definitionFit": "Lacquered means coated with lacquer, a glossy protective finish like varnish."
     },
     "features": {
      "answerInScene": false,
@@ -601,59 +590,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "headless",
-       "note": "without a head, the word for a beast loses its first letter"
+       "text": "with",
+       "at": 20,
+       "note": "with means alongside, so the two pieces are joined"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A couple of",
+         "at": 0,
+         "note": "a couple of the word's letters means just its first two are kept"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "MI",
-         "indicators": [
-          {
-           "text": "A couple of",
-           "note": "a couple means two, so only the opening pair of letters of the next word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "minutes",
-           "gives": "MI",
-           "select": "first",
-           "note": "the first two letters of minutes"
-          }
-         ]
+         "words": "minutes",
+         "at": 12
         },
         {
-         "words": "beast",
-         "gives": "ANIMAL",
-         "note": "a beast is an animal"
+         "gives": "NUTES"
         }
        ]
       },
       {
-       "gives": "A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 25,
+         "note": "headless means losing its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beast",
+         "at": 34,
+         "gives": "ANIMAL",
+         "note": "an animal is a beast"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short spell with a decapitated creature, and someone remarks that it barely does the job.",
-     "walkthrough": "MI plus ANIMAL without its A gives MINIMAL.",
-     "definitionFit": "Something minimal is the smallest amount possible, only just enough."
+     "surface": "Spending a couple of minutes with a decapitated creature, which hardly counts.",
+     "walkthrough": "'A couple of minutes' keeps MI, the first two letters, and 'headless' trims ANIMAL to NIMAL.",
+     "definitionFit": "Minimal means the smallest possible amount, only just enough to count."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "headless"
+     "misdirectedWord": "beast"
     }
    }
   },
