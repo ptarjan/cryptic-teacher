@@ -1548,7 +1548,8 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "something inside is enclosed by the surrounding letters"
+       "at": 49,
+       "note": "inside tells us the half-word goes within the rearranged letters"
       }
      ],
      "parts": [
@@ -1557,47 +1558,38 @@
        "indicators": [
         {
          "text": "awfully",
-         "note": "awfully suggests badly done, so the letters are jumbled"
+         "at": 17,
+         "note": "awfully suggests something badly done, so the letters of the two words are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "large one",
-         "note": "taken as written, then rearranged"
+         "words": "large",
+         "at": 25
+        },
+        {
+         "words": "one",
+         "at": 31
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "half of pear",
+       "at": 36,
        "gives": "PE",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "half of a four-letter word is just two of its letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "pear",
-         "gives": "PE",
-         "select": "first",
-         "note": "the first half of the word, its opening two letters"
-        }
-       ]
+       "note": "the first half of the four-letter word pear is its first two letters"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes the skin of a huge fruit with part of a pear stuck in it.",
-     "walkthrough": "'Fruit's outside' is the definition, not a container instruction; the possessive belongs to the fruit whose rind is meant.",
-     "definitionFit": "Peel is the rind or skin of citrus fruit, so the outer layer of one such fruit is its peel."
+     "surface": "Someone describes the skin of a big piece of fruit, apparently with a pear somehow stuck in it.",
+     "walkthrough": "'awfully' rearranges LARGE ONE into ORANGEEL, and 'inside' puts PE (half of pear) within it. 'Fruit's outside' reads as the skin of a fruit, with the 's as a possessive.",
+     "definitionFit": "The rind of a citrus fruit is its peel, the outer covering of the fruit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "awfully"
+     "misdirectedWord": "pear"
     }
    }
   }
