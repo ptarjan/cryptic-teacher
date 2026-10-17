@@ -380,41 +380,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALSO",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite the whole word, so its last letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "everything",
-         "gives": "AL",
-         "note": "ALL, which means everything, missing its last letter"
+         "at": 7,
+         "gives": "ALL",
+         "note": "all means everything"
         },
         {
-         "words": "like that",
-         "gives": "SO",
-         "note": "so means in that way, like that"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "like that",
+       "at": 18,
+       "gives": "SO",
+       "note": "so means in that way, like that"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly everything is like that as well.",
-     "walkthrough": "The clue reads as a vague remark; the only definition is the last word.",
-     "definitionFit": "Both words are adverbs meaning in addition or as well, interchangeable in most sentences."
+     "surface": "A shrug of agreement: nearly everything is that way as well.",
+     "walkthrough": "The definition is the last word; 'Almost' works on the word for everything, not on the whole phrase.",
+     "definitionFit": "Also and too are synonyms, both meaning in addition or as well."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Almost"
     }
    }
   },
@@ -539,26 +544,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AWNING",
      "indicators": [
       {
-       "text": "though not at first",
-       "note": "not at first means the opening letter is missing"
+       "text": "not at first",
+       "at": 26,
+       "note": "not at first means without its first letter, so the word loses its opening D"
       }
      ],
      "parts": [
       {
        "words": "appearing",
-       "gives": "AWNING",
-       "note": "DAWNING, beginning to appear, with its first letter removed"
+       "at": 8,
+       "gives": "DAWNING",
+       "note": "dawning means appearing or beginning to emerge, as an idea dawns on someone"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A refuge comes into view, though it was not there at the start.",
-     "walkthrough": "Dawning means coming into view, as an idea or day appears; behead it.",
-     "definitionFit": "An awning is a canvas sheet stretched over a shopfront or window that protects from sun and rain."
+     "surface": "A shelter seems to show up, but only after a delay.",
+     "walkthrough": "'Appearing' gives DAWNING, and 'not at first' drops its opening D.",
+     "definitionFit": "An awning is a canvas sheet stretched over a shop front or window to give shelter from sun or rain."
     },
     "features": {
      "answerInScene": false,
@@ -1112,32 +1120,34 @@
     "definitions": [
      {
       "text": "Many",
-      "at": 0,
-      "note": "adjective for a noun meaning lots"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OODLES",
      "indicators": [
       {
        "text": "initially erased",
-       "note": "the initial is the first letter, and erasing it leaves the rest"
+       "at": 14,
+       "note": "the initial letter of the word is erased, so its opening D goes"
       }
      ],
      "parts": [
       {
        "words": "sketches",
-       "gives": "OODLES",
-       "note": "DOODLES, idle sketches, with the first letter removed"
+       "at": 5,
+       "gives": "DOODLES",
+       "note": "doodles are idle sketches"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist rubs out a lot of drawings at the start.",
-     "walkthrough": "'Many' is not quite a swap for the noun, but 'oodles of' does the same job.",
-     "definitionFit": "Oodles is informal for a great quantity, so it expresses a large number of things."
+     "surface": "Lots of drawings got rubbed out at the start.",
+     "walkthrough": "'Sketches' gives DOODLES, and 'initially erased' takes away its first letter, the D.",
+     "definitionFit": "Oodles is informal for a great quantity, so it stands for many or lots."
     },
     "features": {
      "answerInScene": false,
