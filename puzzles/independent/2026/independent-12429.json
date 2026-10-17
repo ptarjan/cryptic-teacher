@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -86,47 +87,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "undressed",
-       "note": "a word with its clothes off has lost the letters at each end, the ones that were covering the rest"
-      }
-     ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ARC",
        "indicators": [
         {
-         "text": "finally",
-         "note": "what happens finally happens at the end, so only the closing letter of the name is wanted"
+         "text": "undressed",
+         "at": 20,
+         "note": "undressed means stripped of its outer layer, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Austen hero",
-         "gives": "ARC",
-         "select": "middle",
-         "note": "the Austen hero is Darcy, and undressed he keeps only his middle"
+         "at": 8,
+         "gives": "DARCY",
+         "note": "Mr Darcy is the hero of Jane Austen's Pride and Prejudice"
         }
        ]
       },
       {
        "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 40,
+         "note": "finally points to the closing letter of Elizabeth"
+        }
+       ],
        "parts": [
         {
          "words": "Elizabeth",
-         "note": "Darcy's match ends in H, and that is all she contributes"
+         "at": 30,
+         "note": "taken as written, its last letter used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Pride and Prejudice supplies both halves, so the clue reads as gossip about the novel rather than as two instructions.",
-     "definitionFit": "Roguish -> ARCH: an arch smile is a knowing, mischievous one, the sense that survives in 'arch look' rather than the doorway or the chief-villain prefix."
+     "surface": "A roguish Mr Darcy finally gets Elizabeth Bennet undressed, a racy take on Pride and Prejudice.",
+     "walkthrough": "Elizabeth Bennet is Darcy's love in the novel, which makes the surface hang together; here she only supplies her final letter.",
+     "definitionFit": "Arch describes a knowing, mischievous manner, so it is a synonym for roguish or playfully sly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "undressed"
     }
    }
   },
@@ -324,35 +332,39 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Blue River",
-       "gives": "ANUB",
-       "note": "the Blue River is the Danube of the waltz, and uncovered it loses its D and its E"
-      },
-      {
        "op": "middle",
-       "unchecked": true,
-       "gives": "IS",
        "indicators": [
         {
          "text": "Uncover",
-         "note": "taking the cover off a word means stripping the letters at each end, the ones wrapped round the rest"
+         "at": 0,
+         "note": "uncover means removing the covering, so the river loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "island",
-         "gives": "IS",
-         "select": "middle",
-         "note": "Is. is the map-maker's abbreviation for island"
+         "words": "Blue River",
+         "at": 8,
+         "gives": "DANUBE",
+         "note": "the Danube, from Strauss's waltz The Blue Danube"
         }
        ]
+      },
+      {
+       "words": "island",
+       "at": 19,
+       "gives": "IS"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Blue and River belong to one name rather than two hints, and spotting Strauss's waltz behind them is the step that opens the clue.",
-     "definitionFit": "figure revered along the Nile -> ANUBIS: the jackal-headed god of embalming, worshipped the length of ancient Egypt, so 'figure' means deity."
+     "surface": "Someone uncovers a statue on an island in a blue river, a figure worshipped beside the Nile.",
+     "walkthrough": "'Blue River' is not a colour plus a river but one name: Strauss's Blue Danube.",
+     "definitionFit": "Anubis is the jackal-headed Egyptian god of the dead, worshipped in ancient Egypt along the Nile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Blue"
     }
    }
   },
@@ -785,46 +797,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACCRINGTON",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "something endless has had its end removed, so the final letter of the name goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Bill",
+       "at": 22,
+       "gives": "AC",
+       "note": "AC is short for account, and a bill is an account"
+      },
+      {
+       "words": "Charlie",
+       "at": 31,
+       "gives": "C",
+       "note": "C is Charlie in the NATO phonetic alphabet"
+      },
+      {
+       "words": "call",
+       "at": 39,
+       "gives": "RING",
+       "note": "to ring someone is to call them on the phone"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 49,
+         "note": "endlessly means the name loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Bill",
-         "gives": "AC",
-         "note": "a bill is an account, written a/c"
-        },
-        {
-         "words": "Charlie",
-         "gives": "C",
-         "note": "Charlie is C in the radio alphabet"
-        },
-        {
-         "words": "call",
-         "gives": "RING",
-         "note": "to call someone is to ring them"
-        },
-        {
          "words": "Tony",
-         "gives": "TON",
-         "note": "Tony without his last letter stops at TON"
+         "at": 44,
+         "note": "taken as written, its last letter dropped"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Bill, Charlie and Tony read as three blokes in a pub and are really three separate conventions, which is the whole disguise.",
-     "definitionFit": "Where to see Stanley -> ACCRINGTON: Accrington Stanley are the Lancashire league club, so the town is where that Stanley plays."
+     "surface": "To see Stanley, Bill and Charlie keep phoning Tony.",
+     "walkthrough": "Stanley is not a person but Accrington Stanley, the Lancashire football club, so the definition is the town where it plays.",
+     "definitionFit": "Accrington is a town in Lancashire, home of the football club Accrington Stanley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stanley"
     }
    }
   },
@@ -949,37 +973,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bulldozing",
+       "at": 23,
+       "note": "bulldozing clears something away, so the large area is knocked out of the shanty town"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "bulldozing",
-         "note": "a bulldozer flattens what stands there and clears it off the site, so the letters it names are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "shanty town",
-         "gives": "FAVELA",
-         "note": "a favela is a Brazilian shanty town"
-        },
-        {
-         "gives": "LA"
-        }
-       ]
+       "words": "shanty town",
+       "at": 11,
+       "gives": "FAVELA",
+       "note": "a favela is a Brazilian shanty town"
       },
       {
-       "unchecked": true,
-       "words": "large area",
-       "note": "L for large and A for area, the two letters flattened out of the favela"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 34,
+         "gives": "L"
+        },
+        {
+         "words": "area",
+         "at": 40,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Fave is the teenage clipping of favourite, and the slum clearance in the surface is the setter's joke about which letters go.",
-     "definitionFit": "Best-loved -> FAVE: the informal short form of favourite, and your favourite is by definition the one you love best."
+     "surface": "Someone's favourite shanty town is bulldozed to clear a large area.",
+     "walkthrough": "The removed letters are the very last two of the Brazilian word, so the town is cleared from its end.",
+     "definitionFit": "Fave is informal for favourite, the one liked most of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bulldozing"
     }
    }
   },
@@ -1004,48 +1038,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAMIZDAT",
-     "indicators": [
-      {
-       "text": "abridged",
-       "note": "an abridged book has had its ending cut, and so has this word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SAMIZ",
+       "indicators": [
+        {
+         "text": "We're told",
+         "at": 0,
+         "note": "we're told signals hearing, so the words are entered as they sound"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "SAMIZ",
-         "indicators": [
-          {
-           "text": "We're told",
-           "note": "being told a thing means meeting it by ear, so what matters is the sound and not the spelling"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Samuel's",
-           "gives": "SAMS",
-           "note": "Samuel shortens to Sam, and Sam's spoken aloud ends on a Z sound, written out as you hear it"
-          }
-         ]
-        },
+         "words": "Samuel's",
+         "at": 11,
+         "gives": "SAMIS",
+         "note": "Samuel's read as Sam is, short for Samuel is"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abridged",
+         "at": 31,
+         "note": "abridged means shortened, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "girlfriend",
-         "gives": "DAT",
-         "note": "a girlfriend is a date, and abridged she is DAT"
+         "at": 20,
+         "gives": "DATE",
+         "note": "a date can be the person someone is going out with"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Samizdat was writing the Soviet censor never saw: typed at home, copied by carbon paper and passed from hand to hand.",
-     "definitionFit": "dissident literature -> SAMIZDAT: the Russian word for self-published banned writing circulated in secret, so it names that literature exactly."
+     "surface": "Someone hears that Samuel's girlfriend has had her story cut down to dissident writing.",
+     "walkthrough": "Spoken quickly, Sam is runs together as SAMIZ; DATE without its last letter supplies the end.",
+     "definitionFit": "Samizdat was the clandestine copying and circulation of banned writing in the Soviet bloc."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girlfriend"
     }
    }
   },
