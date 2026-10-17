@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1155,35 +1156,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AORTA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "first couple",
-       "note": "The couple at the front are the opening two letters, and they are the only ones touched."
-      },
-      {
-       "text": "returning",
-       "note": "Letters that return come back the way they went, so that pair is written in the opposite order."
+       "text": "on",
+       "at": 36,
+       "note": "in an across clue, the schedule sits on, so after, the abbreviation"
       }
      ],
      "parts": [
       {
        "words": "American",
-       "gives": "A",
-       "note": "a is the standard abbreviation for American"
+       "at": 39,
+       "gives": "A"
       },
       {
-       "words": "Schedule",
-       "gives": "ROTA",
-       "note": "a rota is the schedule saying who is on duty and when"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "has first couple returning",
+         "at": 9,
+         "note": "the schedule's first two letters turn round and come back in the opposite order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Schedule",
+         "at": 0,
+         "gives": "ROTA",
+         "note": "a rota is a schedule of duties"
+        },
+        {
+         "gives": "RO",
+         "note": "the first couple of letters of the schedule"
+        },
+        {
+         "gives": "OR",
+         "note": "the same two letters turned round"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'American vessel' promises a ship and the surface sails on. The vessel is anatomical, and 'American' has quietly been detached to give a single letter.",
-     "definitionFit": "vessel -> AORTA: the aorta is the great blood vessel leaving the heart, so this is the anatomical sense of the word, not the seagoing one."
+     "surface": "A duty roster in which the opening pair swap places, posted on an American ship.",
+     "walkthrough": "'vessel' suggests a ship, but it is the body's largest blood vessel; ROTA becomes ORTA when its first couple of letters return.",
+     "definitionFit": "The aorta is the main artery leaving the heart, and arteries are blood vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vessel"
     }
    }
   },
@@ -1766,25 +1789,51 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ODES",
      "indicators": [
       {
-       "text": "not every 3rd",
-       "note": "Counting along the letters, each third one is passed over and the survivors are written down in the order they stood."
+       "text": "not",
+       "at": 25,
+       "note": "not means those letters are left out, here the third one"
       }
      ],
      "parts": [
       {
-       "words": "most peculiar",
-       "gives": "ODDEST",
-       "note": "the superlative of odd, six letters to count through"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "every 3rd",
+         "at": 29,
+         "note": "every third letter of the word is singled out for removal, here the sixth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "most peculiar",
+         "at": 6,
+         "gives": "ODDEST",
+         "note": "the oddest thing is the most peculiar"
+        },
+        {
+         "gives": "T",
+         "note": "the sixth letter, the second of the two third-place letters"
+        }
+       ]
+      },
+      {
+       "gives": "D",
+       "note": "the third letter, also left out"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The trap is reading 'most peculiar' as an anagram signal. It is the fodder, and the only instruction in the clue comes after the comma.",
-     "definitionFit": "Poems -> ODES: an ode is a lyric poem addressed to its subject, a nightingale or a Grecian urn, and the plural matches the plural."
+     "surface": "A critic finds some verse strange, though not all of it.",
+     "walkthrough": "Take ODDEST and strike out its 3rd and 6th letters, D and T, leaving the answer.",
+     "definitionFit": "An ode is a lyric poem, often addressed to a person or thing, so odes are poems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "every"
     }
    }
   },
