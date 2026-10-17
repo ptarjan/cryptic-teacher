@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -156,36 +157,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOWERED",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "Milk that has gone off has turned, and letters told to turn do not stay in the sequence the clue printed them in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Time",
+       "at": 0,
+       "gives": "T"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 13,
+         "note": "off means gone wrong or out of order, so the letters of we and rode are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Time",
-         "gives": "T",
-         "note": "T is the standard abbreviation for time, as on a stopwatch"
+         "words": "we",
+         "at": 5,
+         "note": "taken as written"
         },
         {
-         "words": "we rode",
-         "gives": "OWERED",
-         "note": "the six letters of these two words, resettled in a new order"
+         "words": "rode",
+         "at": 8,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Rose' looks like the woman being addressed as the riders leave, and the capital letter is the setter helping that along. It is the past tense of rise.",
-     "definitionFit": "To tower over something is to stand high above it, so in the past tense the two words describe the same upward reach."
+     "surface": "Someone notes it was time for the two of them to ride off, perhaps with a woman named Rose.",
+     "walkthrough": "'Rose' looks like a name or a flower, but it is the past tense of rise; 'off' is the signal to rearrange.",
+     "definitionFit": "Towered is a verb in the past tense, meaning rose high above, the same sense as rose up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rose"
     }
    }
   },
@@ -319,39 +330,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "describing",
-       "note": "In geometry you describe a circle around a shape by drawing it round the outside, which is what these letters do to the one that follows."
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "the article is taken at face value"
+       "at": 0,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "second",
-         "note": "It picks a letter out by position rather than by meaning: the one standing second in the word, counted from the front."
+         "text": "describing",
+         "at": 12,
+         "note": "describing in its sense of drawing a line round, so the doctorate goes around the letter"
         }
        ],
        "parts": [
         {
          "words": "doctorate",
+         "at": 2,
          "gives": "PHD",
-         "note": "a PhD is the doctorate, and here it is split open to make room"
+         "note": "PhD, a Doctor of Philosophy, is a doctorate"
         },
         {
          "op": "nth",
          "n": 2,
+         "indicators": [
+          {
+           "text": "second",
+           "at": 33,
+           "note": "second picks the second letter of the word that comes before it"
+          }
+         ],
          "parts": [
           {
-           "words": "Citizen's second",
-           "gives": "CITIZENSECOND",
-           "note": "the italics point at Citizen Kane, and it is the second letter of that first word that is wanted"
+           "words": "Citizen's",
+           "at": 23,
+           "note": "the word whose second letter is used"
           }
          ]
         }
@@ -360,8 +375,15 @@
      ]
     },
     "explanation": {
-     "walkthrough": "Rosebud is the sled in the film, so the surface is all cinema. The garden reading is the one that counts: a rosebud lost off its bush.",
-     "definitionFit": "Aphids are the greenfly that colonise a rose bush and suck the sap, so one of them is what costs a gardener the bud."
+     "surface": "A film-studies thesis on Citizen Kane explains how Rosebud was lost.",
+     "walkthrough": "Rosebud is the famous sled in Citizen Kane, but here a rosebud is literally a bud on a rose, which greenfly attack.",
+     "definitionFit": "Aphids are sap-sucking insects, such as greenfly, that damage rosebuds and young shoots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rosebud's"
     }
    }
   },
@@ -386,36 +408,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMBARGO",
-     "indicators": [
-      {
-       "text": "flickering",
-       "note": "A flickering light will not hold steady, and neither will the letters it is pointing at."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flickering",
+         "at": 15,
+         "note": "something flickering is unsteady, so the letters of amber are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "amber",
-         "gives": "EMBAR",
-         "note": "the five letters of the traffic light's middle colour, rearranged"
-        },
-        {
-         "words": "green light",
-         "gives": "GO",
-         "note": "green is the signal to go, and giving something the green light is telling it to proceed"
+         "at": 26,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "green light",
+       "at": 38,
+       "gives": "GO",
+       "note": "a green light means go"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a set of traffic lights, which is the joke: what gets built out of them is the opposite of permission to proceed.",
-     "definitionFit": "An embargo is an official ban on trading with a country, so it is literally a barrier laid across trade."
+     "surface": "Traffic lights flash amber and then turn green, holding up the trade traffic.",
+     "walkthrough": "'flickering' rearranges AMBER into EMBAR, then GO, the signal a green light gives.",
+     "definitionFit": "An embargo is an official ban on trade with a country, a barrier to commerce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "amber"
     }
    }
   },
@@ -707,29 +735,43 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "PERIDOT",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "What comes primarily comes before all else, so each word gives up only the character it opens with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Precious-ish, emeraldesque rock in demand; olivine trinket",
-       "gives": "PERIDOT",
-       "select": "first",
-       "note": "the opening letter of each of these seven words, read in the order they stand"
+       "words": "Precious-ish",
+       "at": 0,
+       "gives": "P",
+       "note": "first letter of Precious-ish, which counts as one word here"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 60,
+         "note": "primarily means in the first place, so the first letter of each word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "emeraldesque rock in demand; olivine trinket",
+         "at": 14,
+         "note": "the six words whose first letters are used"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "An all-in-one: the sentence describes the gem and spells it at the same time, and the exclamation mark is the setter enjoying that. 'Emeraldesque' was invented for the job.",
-     "definitionFit": "The whole clue reads straight: peridot is the green gem variety of olivine, near-precious rather than precious, and cut for costume jewellery."
+     "surface": "A jeweller's description of a green semi-precious stone that is popular as a small ornament.",
+     "walkthrough": "The whole clue both describes the gem and, read by first letters, spells it.",
+     "definitionFit": "Peridot is the gem-quality form of the mineral olivine, a green semi-precious stone used in jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "olivine"
     }
    }
   },
