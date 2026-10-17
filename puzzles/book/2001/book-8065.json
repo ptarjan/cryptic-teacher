@@ -256,12 +256,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TENTACLE",
      "indicators": [
       {
        "text": "caught in",
-       "note": "something caught in a thing is held within it, so one group sits inside the other"
+       "at": 28,
+       "note": "the torn net is caught inside the broken cleat"
       }
      ],
      "parts": [
@@ -269,33 +268,42 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "torn",
-         "note": "a torn net has its strands pulled apart, so its letters are rearranged"
-        },
-        {
          "text": "broken",
-         "note": "a broken object is in pieces, so the letters of the next word are jumbled"
+         "at": 38,
+         "note": "a broken cleat is in pieces, so its letters are reassembled in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cleat",
+         "at": 45,
+         "note": "taken as written, its letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "torn",
+         "at": 19,
+         "note": "a torn net is pulled out of shape, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "net",
-         "gives": "ENT",
-         "note": "the three letters of net in a new order"
-        },
-        {
-         "words": "cleat",
-         "gives": "TACLE",
-         "note": "the five letters of cleat in a new order, opened after its first letter to take the other piece"
+         "at": 24,
+         "note": "taken as written, its letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fishing scene: a ripped net snagged on a damaged cleat on deck.",
-     "walkthrough": "The jumbled net goes inside the jumbled cleat after its first T, giving TENTACLE. A cleat is a fitting for tying a rope to.",
-     "definitionFit": "An octopus or squid uses its long flexible arms to seize prey, so each one is built for gripping things."
+     "surface": "A fishing net snags and rips on a damaged cleat on a boat's deck.",
+     "walkthrough": "'torn' turns NET into ENT and 'broken' turns CLEAT into TACLE; ENT is 'caught in' TACLE after its T.",
+     "definitionFit": "A tentacle is a flexible limb that an octopus or squid uses for grasping and feeling."
     },
     "features": {
      "answerInScene": false,
@@ -630,35 +638,26 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "for hiding his",
+       "at": 22,
+       "note": "the words are said to be hiding the garment, which sits inside them across two words"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Servant",
-       "note": "surface padding: it sets the scene and gives no letters"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "hiding",
-         "note": "the earlier words conceal the letters inside them, keeping them out of sight"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Caesar killed",
-         "gives": "SARK",
-         "note": "the end of the first word and the start of the second"
-        }
-       ]
+       "words": "Servant Caesar killed",
+       "at": 0,
+       "note": "taken as written: the run of words that conceals the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "A servant murdered Caesar to conceal the emperor's garment.",
-     "walkthrough": "A sark is an old Scots word for a shirt or long tunic.",
-     "definitionFit": "In Scots dialect this word names a shirt or loose smock, which is a simple tunic-style garment."
+     "surface": "A servant murdered Caesar in order to hide the emperor's garment.",
+     "walkthrough": "The letters run across the end of 'Caesar' and the start of 'killed'. Sark is a Scots word for a shirt or tunic.",
+     "definitionFit": "A sark is an old Scots and northern word for a shirt or long tunic-like undergarment."
     },
     "features": {
      "answerInScene": true,
