@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -451,31 +452,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "FLEE",
      "indicators": [
       {
        "text": "Not entirely",
-       "note": "'Not entirely' means short of the whole, so the word is written out with its last letter missing."
+       "at": 23,
+       "note": "not entirely means the word is left incomplete, losing its last letter"
       }
      ],
      "parts": [
       {
-       "words": "group of ships? Not entirely",
-       "gives": "FLEE",
-       "note": "FLEET, a group of ships, taken not entirely: the final T is dropped"
+       "words": "group of ships",
+       "at": 7,
+       "gives": "FLEET",
+       "note": "a fleet is a group of ships"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A getaway from a flotilla that only half comes off.",
-     "walkthrough": "The question mark flags 'group of ships' as a loose gesture rather than a definition, which is the setter admitting the phrase is there for its letters. Both halves of the clue mean leaving in a hurry.",
-     "definitionFit": "To flee is to run away from danger, the plainest word there is for making an escape."
+     "surface": "Someone asks whether a convoy can get away, then hedges the question.",
+     "walkthrough": "'Not entirely' cuts the final T from FLEET.",
+     "definitionFit": "To flee is to run away, and escape works as the same verb."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "entirely"
+     "misdirectedWord": "Escape"
     }
    }
   },
@@ -547,40 +551,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISAGREE",
-     "indicators": [
-      {
-       "text": "changing",
-       "note": "'Changing' means turning into something else, and letters that change places spell something else."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Democrat",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "words": "is",
+       "at": 9
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "for changing",
+         "at": 18,
+         "note": "the word eager is up for changing, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Democrat",
-         "gives": "D",
-         "note": "D is the standard abbreviation for a Democrat"
-        },
-        {
-         "words": "is eager",
-         "gives": "ISAGREE",
-         "note": "IS EAGER shuffled, 7 letters"
+         "words": "eager",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Democrat itching for a war whose shape keeps shifting.",
-     "walkthrough": "The fodder runs to only seven letters; the eighth comes from 'Democrat', wanted as a party initial rather than as a person. 'Conflict' is the verb here — the sense in which two accounts conflict.",
-     "definitionFit": "To disagree is to be at odds with somebody, which is what two people or two reports do when they conflict."
+     "surface": "A US Democrat is keen to switch sides in a dispute.",
+     "walkthrough": "'eager for changing' reads as keenness to switch, but 'for changing' is the anagram signal on 'eager'.",
+     "definitionFit": "To conflict is to clash or differ, which is what people who disagree do; both are verbs here."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Democrat"
     }
@@ -655,29 +661,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DIRE",
      "indicators": [
       {
        "text": "to abandon",
-       "note": "'To abandon' is to walk away and leave something behind, so the letters named drop out."
+       "at": 13,
+       "note": "the word for order must abandon, or give up, the court letters"
       }
      ],
      "parts": [
       {
-       "words": "order to abandon court",
-       "gives": "DIRE",
-       "note": "DIRECT, meaning to order, abandons CT for court"
+       "words": "order",
+       "at": 7,
+       "gives": "DIRECT",
+       "note": "to direct someone is to order them"
+      },
+      {
+       "words": "court",
+       "at": 24,
+       "gives": "CT"
       }
      ]
     },
     "explanation": {
-     "surface": "A judge telling somebody to get out of the courtroom.",
-     "walkthrough": "Court abbreviates to CT the way it does on a street sign, and those two letters happen to sit at the end of the word meaning 'order'. The surface makes both words courtroom words, so the eviction reads as sense.",
-     "definitionFit": "Something dire is desperate and pressing: a dire need is one that will not wait, which is urgency."
+     "surface": "A pressing instruction tells someone to leave a courtroom.",
+     "walkthrough": "'to abandon' takes CT (court) out of DIRECT. 'Urgent order' reads as one phrase, but 'Urgent' alone is the definition.",
+     "definitionFit": "Dire can mean extremely serious and calling for prompt action, as in dire need, so urgent."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "order"
     }
@@ -797,52 +808,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RESOLUTE",
-     "indicators": [
-      {
-       "text": "coming back",
-       "note": "'Coming back' is movement towards where you started, so the letters are read in the opposite direction."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming back",
+         "at": 17,
+         "note": "coming back means the word loser is read in the opposite direction"
+        }
+       ],
        "parts": [
         {
-         "words": "loser coming back",
-         "gives": "RESOL",
-         "note": "LOSER written backwards"
-        },
+         "words": "loser",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "UTE",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "'Initially' means at the outset, so only the opening letter of each word it governs is taken."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "urging tremendous effort",
-           "gives": "UTE",
-           "select": "first",
-           "note": "the initials of Urging Tremendous Effort"
-          }
-         ]
+         "text": "initially",
+         "at": 55,
+         "note": "initially takes the first letter of each of the three words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "urging tremendous effort",
+         "at": 30,
+         "note": "the three words whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beaten player walking back into the fight, spurred on to try enormously hard.",
-     "walkthrough": "In an across clue 'coming back' means right to left; the same words in a down clue would mean bottom to top. 'Initially' trails the three words it governs instead of leading them.",
-     "definitionFit": "Somebody resolute has fixed on a course and will not be shifted from it, which is what being determined amounts to."
+     "surface": "A beaten competitor returns, spurred on to try very hard.",
+     "walkthrough": "'coming back' turns LOSER into RESOL, and 'initially' adds UTE, the first letters of 'urging tremendous effort'.",
+     "definitionFit": "Resolute means firmly set on a purpose, as is someone determined."
     },
     "features": {
      "answerInScene": true,
