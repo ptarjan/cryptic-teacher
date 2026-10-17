@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -192,45 +193,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "seen in",
-       "note": "If a thing is seen in another it is inside it, so this piece is buried within the one that follows."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "Weird",
-         "note": "Weird means off its normal shape, and three letters knocked out of their normal shape are three letters to reorder."
+         "text": "seen in",
+         "at": 10,
+         "note": "seen in means the jumbled letters appear within the word for indifferent"
         }
        ],
        "parts": [
         {
          "words": "indifferent",
+         "at": 18,
          "gives": "SOSO",
-         "note": "the shrug that means neither good nor bad, and it splits down the middle to take something in"
+         "note": "so-so means middling, neither good nor bad"
         },
         {
-         "words": "Weird DNA",
-         "gives": "AND",
-         "note": "the three letters of DNA in a different order"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Weird",
+           "at": 0,
+           "note": "weird suggests something strange and out of order, so these letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "DNA",
+           "at": 6,
+           "note": "taken as written, the letters to be rearranged"
+          }
+         ]
         }
        ]
       },
       {
        "words": "society",
-       "gives": "S",
-       "note": "the standard abbreviation, tacked on at the end"
+       "at": 30,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The euphemism is the joke: you call someone a so-and-so when you are being polite about it, so 'scoundrels' is a stronger word than the answer will admit to.",
-     "definitionFit": "scoundrels -> SO-AND-SOS: a so-and-so is the polite stand-in for a name you would rather not print, and the plural gathers a few of them."
+     "surface": "Strange genetic findings turn up among a careless society of crooks.",
+     "walkthrough": "'Weird DNA' reads like a science story, but 'Weird' only rearranges three letters; so-so is an informal word for mediocre, and 'seen in' puts the jumble inside it.",
+     "definitionFit": "So-and-so is a mild term of abuse for an unpleasant person, so the plural fits rogues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Weird"
     }
    }
   },
@@ -794,45 +809,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "APRESMOILEDELUGE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "comes after",
+       "at": 21,
+       "note": "comes after places the French words for the cataclysm behind the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "betrayed",
-         "note": "A promise betrayed is a promise broken, and letters from a broken word no longer keep their order."
-        },
-        {
-         "text": "comes after",
-         "note": "What comes after a thing is placed behind it, so this pair lands at the tail end."
+         "at": 43,
+         "note": "a betrayed promise is broken, so its letters are reassembled in a new order"
         }
        ],
        "parts": [
         {
          "words": "a promise",
-         "gives": "APRESMOI",
-         "note": "eight letters resettled into two short French words"
-        },
-        {
-         "words": "The French",
-         "gives": "LE",
-         "note": "the French definite article, masculine singular"
-        },
-        {
-         "words": "cataclysm",
-         "gives": "DELUGE",
-         "note": "a flood on the biblical scale, the word English took straight from French"
+         "at": 33,
+         "note": "taken as written, the letters to be rearranged"
         }
        ]
+      },
+      {
+       "words": "The French",
+       "at": 0,
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "cataclysm",
+       "at": 11,
+       "gives": "DELUGE",
+       "note": "a deluge is a great flood, a cataclysm"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The line is attributed to the king at 8, and it has become the standard tag for anyone indifferent to what happens once they are gone.",
-     "definitionFit": "8’s not bothered? -> APRES MOI LE DELUGE: 'after me, the flood', a shrug at whatever chaos arrives once the speaker has gone."
+     "surface": "A French disaster follows a broken promise, and the man at 8 shrugs it off.",
+     "walkthrough": "8 is LOUIS XV, the French king said to have remarked 'After me, the flood', showing he did not care what followed his reign. 'betrayed' turns A PROMISE into APRES MOI.",
+     "definitionFit": "The phrase is a French king's shrug at the ruin to come after his death, an expression of utter indifference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "betrayed"
     }
    }
   },
@@ -999,44 +1024,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Served",
-      "at": 0
+      "text": "plastered",
+      "at": 44
      }
     ],
     "wordplay": {
      "op": "anagram",
      "indicators": [
       {
-       "text": "abstaining",
-       "note": "To abstain is to sit the round out, so the two letters named take no part in what follows."
+       "text": "Served",
+       "at": 0,
+       "note": "served as a dish is served up, the letters are dished out in a fresh arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "red",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "words": "red",
+       "at": 12,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "plastered",
-         "note": "Plastered is drunk, and a drunk is in no state to keep anything in its proper order."
+         "text": "abstaining",
+         "at": 25,
+         "note": "abstaining means the Women's Institute stays away, so those letters leave the word"
         }
        ],
        "parts": [
         {
-         "words": "red, red",
-         "note": "the colour twice over, six of the eight letters"
+         "words": "wine",
+         "at": 16,
+         "note": "the word wine, with WI then removed"
         },
         {
-         "words": "wine (WI abstaining)",
-         "gives": "NE",
-         "note": "WINE without its W and I leaves two more"
+         "gives": "WI",
+         "note": "WI is the Women's Institute, a British women's organisation"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Red, red wine' is the song, and the WI in brackets is the Women's Institute declining a glass. 'Served' is the definition and does none of the shuffling.",
-     "definitionFit": "Served -> RENDERED: render in its giving sense, rendering assistance or rendering an account, rather than the plaster the surface has in mind."
+     "surface": "Someone is served red after red until they are drunk, while the Women's Institute stays teetotal.",
+     "walkthrough": "'abstaining' takes WI out of wine, leaving NE; 'Served' then shuffles RED, RED and NE. 'plastered' looks like drunk, but it is the builder's sense of coated in render.",
+     "definitionFit": "To render a wall is to coat it with a layer of plaster or cement, so rendered walls are plastered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plastered"
     }
    }
   },
