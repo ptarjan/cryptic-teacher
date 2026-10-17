@@ -2007,6 +2007,9 @@ tools/test_drop_derived_keys.py                a clue written with wp and a deri
                                                dropped, not refused
 tools/test_annotate_partial.py                 a puzzle that has hints and lacks some is
                                                annotated only where it lacks them
+tools/test_resolve_task_puzzle.py              a worker run's bare number resolves to its own
+                                               puzzle when papers share the number, and is
+                                               still an error otherwise
 tools/test_annotate_filed_rows.py              an _ann entry's printedClue, setterError and
                                                answerTypo are filed as their source-table rows
                                                by annotate_check (answerTypo's letters into the
