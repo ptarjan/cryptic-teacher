@@ -954,41 +954,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TANGIBLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in puts the reversed pair inside the jumble word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "jumble",
+       "at": 28,
+       "gives": "TANGLE",
+       "note": "a tangle is a jumbled, confused mass"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "turned up",
-         "note": "in a down entry, turned up means read upwards"
-        },
-        {
-         "text": "in",
-         "note": "the reversed pair goes inside the jumble word"
+         "at": 15,
+         "note": "in a down clue, turned up means the book-and-one pair is read from the bottom upwards"
         }
        ],
        "parts": [
         {
-         "words": "jumble",
-         "gives": "TANGLE",
-         "note": "a knotted mess"
-        },
-        {
-         "words": "book, one",
-         "gives": "IB",
-         "note": "B for book and I for one, turned upward"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "book",
+           "at": 5,
+           "gives": "B"
+          },
+          {
+           "words": "one",
+           "at": 11,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A real book that has turned up among a jumble sale's stock.",
-     "walkthrough": "Jumble looks like an anagram indicator, or a jumble sale where books turn up; it is a plain synonym and the container.",
-     "definitionFit": "A plain synonym: what can be touched is real and concrete."
+     "surface": "A genuine book, one that surfaced in a jumble sale.",
+     "walkthrough": "'turned up' reverses B and I to IB, which goes 'in' TANGLE. In the surface a book turning up in a jumble sounds like a find at a sale.",
+     "definitionFit": "Tangible means able to be touched, hence concrete and actually existing rather than imagined."
     },
     "features": {
      "answerInScene": false,
