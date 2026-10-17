@@ -771,52 +771,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "brilliant arrangement?",
+      "text": "brilliant arrangement",
       "at": 33
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STARSYSTEM",
+     "op": "composite",
      "indicators": [
       {
        "text": "Order",
-       "note": "to order things is to arrange them, so the letters are placed in a new sequence"
+       "at": 0,
+       "note": "to order letters is to put them into a fresh sequence"
+      },
+      {
+       "text": "though not",
+       "at": 20,
+       "note": "though not says a letter is left out of the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STARSYSTEM",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not having something means it is left out, so that letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "smartest",
-         "note": "taken as written"
-        },
-        {
-         "words": "say",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "the letter to be taken out"
-        }
-       ]
+       "words": "smartest say",
+       "at": 6,
+       "note": "taken as written, the letters to be rearranged"
+      },
+      {
+       "words": "a",
+       "at": 31
       }
      ]
     },
     "explanation": {
-     "surface": "Ranking pupils by cleverness, though that may not be a bright idea.",
-     "walkthrough": "Remove one A from SMARTEST SAY and rearrange. 'Brilliant' is the pun: a group of shining stars bound together, not a clever plan.",
-     "definitionFit": "A star system is a group of stars held together by gravity, a literally brilliant celestial arrangement."
+     "surface": "A command to rank the cleverest, phrased with a modest disclaimer that it is no brilliant scheme.",
+     "walkthrough": "'though not' takes A out of SMARTEST SAY and 'Order' rearranges the remaining ten letters. 'brilliant' hints at shining stars.",
+     "definitionFit": "A star system is a group of stars bound together, literally a brilliant arrangement of lights in the sky."
     },
     "features": {
      "answerInScene": false,
@@ -1451,46 +1439,47 @@
      "indicators": [
       {
        "text": "follows",
-       "note": "whatever follows comes afterwards, so it is placed later in the answer"
+       "at": 13,
+       "note": "follows means this piece comes after the one before it"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "DE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "first and second of",
-         "note": "the first and second of a word are its opening pair of letters, so those two are kept"
+         "at": 21,
+         "note": "only the first and second letters of the word are kept, the rest dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "December",
-         "gives": "DE",
-         "select": "first",
-         "note": "the opening two letters of the month"
+         "at": 41,
+         "note": "taken as written, cut down to its opening pair"
+        },
+        {
+         "gives": "CEMBER"
         }
        ]
       },
       {
        "words": "second",
+       "at": 6,
        "gives": "MO",
-       "note": "a mo is a moment, a short time like a second"
+       "note": "a mo is a moment, a second, as in wait a mo"
       }
      ]
     },
     "explanation": {
-     "surface": "A calendar puzzle: the second of March falling after early December.",
-     "walkthrough": "'March' looks like the month beside December, but it is a protest walk. 'Second' meaning a brief moment gives MO, as in 'half a mo'.",
-     "definitionFit": "A demo is a public protest procession, short for demonstration, so a march by campaigners."
+     "surface": "A calendar puzzle: the month of March comes after the start of December.",
+     "walkthrough": "'March' looks like the month but is a protest march, and 'second' is not a position but a short moment, as in 'just a mo'.",
+     "definitionFit": "A demo is a public demonstration in which protesters march through the streets."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "March"
     }
    }
