@@ -97,42 +97,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUMPTION",
-     "indicators": [
-      {
-       "text": "shaped",
-       "note": "the letters of POINT are formed into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Stick",
+       "at": 0,
+       "gives": "GUM",
+       "note": "to gum is to stick something down with glue"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shaped",
+         "at": 12,
+         "note": "shaped means formed into a new configuration, so the letters take a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Stick",
-         "gives": "GUM",
-         "note": "to gum is to stick"
-        },
-        {
          "words": "point",
-         "gives": "PTION",
-         "note": "POINT rearranged"
+         "at": 6,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on whittling a stick to a sharp point.",
-     "walkthrough": "The surface reads 'sharpness' as a pointed stick; here it means sharpness of mind.",
-     "definitionFit": "Gumption is practical good sense, the quick-wittedness called sharpness."
+     "surface": "A sharpening instruction: whittle a stick to a point.",
+     "walkthrough": "The surface sharpens a stick to a point, but 'Stick' is the verb glue and 'shaped' rearranges 'point'. Sharpness here is mental shrewdness, the sense the answer carries.",
+     "definitionFit": "Gumption is shrewd practical common sense, so sharpness in the sense of quick wits."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sharpness"
+     "misdirectedWord": "Stick"
     }
    }
   },
@@ -161,35 +161,33 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "PL",
        "indicators": [
         {
          "text": "Tails of",
-         "note": "the tail of a word is its last letter"
+         "at": 0,
+         "note": "the tails of words are their final letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Tails of sheep, all",
-         "gives": "PL",
-         "select": "last",
-         "note": "last letters of sheeP and alL"
+         "words": "sheep, all",
+         "at": 9,
+         "note": "the two words whose last letters are taken"
         }
        ]
       },
       {
        "words": "vets",
+       "at": 20,
        "gives": "AUDITS",
-       "note": "to vet is to check over, to audit"
+       "note": "to vet accounts or claims is to audit them, to check them carefully"
       }
      ]
     },
     "explanation": {
-     "surface": "A vet at a farm, admired by all for handling the sheep's tails.",
-     "walkthrough": "'vets' looks like animal doctors among the sheep, but it is the verb: checks carefully.",
-     "definitionFit": "A plain synonym: plaudits are applause and acclaim, so praise in the plural sense of many voices."
+     "surface": "Veterinary surgeons commend the tails of every sheep.",
+     "walkthrough": "'vets' looks like animal doctors, fitting the sheep, but it is the verb meaning checks, and the tails are the last letters of 'sheep' and 'all'.",
+     "definitionFit": "Plaudits are expressions of approval or applause, so they are a form of praise."
     },
     "features": {
      "answerInScene": false,
@@ -223,43 +221,26 @@
      "indicators": [
       {
        "text": "the leader's left",
-       "note": "the leader (first letter) has left, so it goes"
+       "at": 21,
+       "note": "the leader, the first letter, has left, so it is removed from the front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "close to",
-         "gives": "NEARLY",
-         "note": "close to = nearly"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "EARLY",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the leader's left",
-           "gives": "EARLY",
-           "select": "first",
-           "note": "NEARLY loses its first letter N"
-          }
-         ]
-        }
-       ]
+       "words": "close to",
+       "at": 12,
+       "gives": "NEARLY",
+       "note": "nearly means close to, almost"
       },
       {
-       "gives": "NEARLY"
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A runner almost level with the front-runner, drawing ahead on the left.",
-     "walkthrough": "'left' is not the direction but 'has gone': the leader of NEARLY departs.",
-     "definitionFit": "To arrive early is to arrive in advance of the time."
+     "surface": "Someone stands near the leader's left side ahead of time.",
+     "walkthrough": "'left' reads as a direction but means departed: the word for close to loses its first letter.",
+     "definitionFit": "Early means before the expected or usual time, which is ahead of time or in advance."
     },
     "features": {
      "answerInScene": false,
@@ -835,33 +816,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "circling",
-       "note": "to circle something is to go round it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "finally",
-         "note": "take the last letter of evoke"
+         "text": "circling",
+         "at": 28,
+         "note": "the horses go around the letter, surrounding it"
         }
        ],
        "parts": [
         {
          "words": "horses",
+         "at": 21,
          "gives": "ARABS",
          "note": "Arabs are a breed of horse"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 37,
+           "note": "finally means the last letter of the word"
+          }
+         ],
          "parts": [
           {
-           "words": "finally evoke",
-           "note": "last letter of evokE"
+           "words": "evoke",
+           "at": 45,
+           "note": "the word whose last letter is used"
           }
          ]
         }
@@ -869,15 +854,16 @@
       },
       {
        "words": "what for Degas",
+       "at": 51,
        "gives": "QUE",
-       "note": "que is French for what, and Degas was French"
+       "note": "que is French for what, and Degas was a French painter"
       }
      ]
     },
     "explanation": {
-     "surface": "Degas painted ballet dancers and racehorses; which does the painter want to capture?",
-     "walkthrough": "Degas is only there to signal French. ARAB(E)S + QUE.",
-     "definitionFit": "An arabesque is a ballet position on one leg with the other extended behind."
+     "surface": "A ballet pose or circling horses suggest what Degas painted.",
+     "walkthrough": "Degas, famed for painting ballet dancers, seems part of the dance picture; he is there to signal a French word, que for what.",
+     "definitionFit": "An arabesque is a ballet position on one leg with the other extended behind, a movement dancers perform."
     },
     "features": {
      "answerInScene": true,
@@ -1468,40 +1454,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OMELETTE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must slice",
+       "at": 17,
+       "note": "to slice into something is to cut into its middle, so the article goes inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "must slice"
-        },
-        {
          "text": "out",
-         "note": "the letters of TO METE are put out of order"
+         "at": 36,
+         "note": "out means put out of order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "to mete",
-         "gives": "OMETTE",
-         "note": "TO METE rearranged"
-        },
-        {
-         "words": "the Spanish",
-         "gives": "EL",
-         "note": "el is Spanish for the"
+         "at": 28,
+         "note": "the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "the Spanish",
+       "at": 5,
+       "gives": "EL",
+       "note": "el is Spanish for the"
       }
      ]
     },
     "explanation": {
-     "surface": "A Spanish cook who must cut a dish up to share it out.",
-     "walkthrough": "OM(EL)ETTE: EL slices into the rearranged letters of TO METE. Fittingly, a Spanish omelette is a tortilla.",
-     "definitionFit": "Named by example: beaten eggs cooked in a pan make one kind of dish."
+     "surface": "A cook in Spain must cut a dish into portions to serve.",
+     "walkthrough": "'mete out' reads as a phrasal verb meaning hand out, but 'out' alone is the signal to rearrange 'to mete'.",
+     "definitionFit": "An omelette is a dish of beaten eggs fried in a pan, often folded around a filling."
     },
     "features": {
      "answerInScene": true,
