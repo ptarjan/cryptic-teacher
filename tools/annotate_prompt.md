@@ -199,7 +199,7 @@ It translates and applies the file, validates it, audits it, and prints everythi
 in one report, each line saying what to do; a `wp` that does not give the answer names the
 part that breaks. Its messages name the stored fields your `wp` becomes (a `block` is a
 leaf). Fix everything it lists in one edit, run it again, and stop the moment it says
-`clean`: end with one short line, with no summary of your work and no further pass. What
+`clean` or `done` (warns alone, with no ERROR, are advisory: never re-run to chase them): end with one short line, with no summary of your work and no further pass. What
 it prints under "worth knowing now" is advice, not a failure.
 
 Four first runs in ten fail, most often on these rules. Get them right first time:
