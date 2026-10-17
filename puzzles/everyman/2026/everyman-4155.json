@@ -1339,40 +1339,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GRETEL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "landing on",
+       "at": 32,
+       "note": "the hail word arrives on top of the lecturer letter, so it comes first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "temperature receding",
-         "note": "Temperature is T in the usual abbreviations, and receding means it backs up a place, changing round with the letter in front of it."
-        },
-        {
-         "text": "landing on",
-         "note": "Something that lands on another thing comes to rest against it, so the two pieces sit side by side in the order given."
+         "text": "With temperature receding",
+         "at": 0,
+         "note": "T is the abbreviation for temperature, and receding means it steps back one place in the word"
         }
        ],
        "parts": [
         {
          "words": "hail",
-         "gives": "GRETE",
-         "note": "to hail someone is to greet them, and the T at the end of that welcome backs up one place"
+         "at": 27,
+         "gives": "GREET",
+         "note": "to hail someone is to greet them"
         },
         {
-         "words": "lecturer",
-         "gives": "L",
-         "note": "L is the standard abbreviation for a lecturer"
+         "gives": "ET"
+        },
+        {
+         "gives": "TE"
         }
        ]
+      },
+      {
+       "words": "lecturer",
+       "at": 43,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is weather landing on an academic. The definition is the fairy tale: one of two children who leave a trail of crumbs and then cannot find it.",
-     "definitionFit": "Gretel and her brother Hansel are the pair abandoned in the forest in the Grimm story, so she is one lost in the woods."
+     "surface": "As the weather warms up, hailstones fall on a teacher who is wandering lost among trees.",
+     "walkthrough": "'With temperature receding' moves T (temperature) back a place in GREET, giving GRETE; L follows. The definition refers to the fairy tale of Hansel and Gretel, abandoned in a forest.",
+     "definitionFit": "In the Grimm fairy tale, Gretel and her brother Hansel are left to wander lost in a forest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hail"
     }
    }
   },
