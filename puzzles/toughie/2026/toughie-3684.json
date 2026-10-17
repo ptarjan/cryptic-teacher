@@ -720,27 +720,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNDER",
+     "op": "middle",
      "indicators": [
       {
        "text": "saving skin",
-       "note": "saving here means except, so everything is kept except the outer covering of the word"
+       "at": 28,
+       "note": "saving here means except, so the word is kept except for its skin, its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "financial backers",
+       "at": 9,
        "gives": "FUNDERS",
-       "note": "people who provide money for a venture"
+       "note": "funders are people who back a venture with money"
       }
      ]
     },
     "explanation": {
-     "surface": "A project lacking investors while trying to save its own skin.",
-     "walkthrough": "'Saving skin' looks like self-preservation, but saving means except: FUNDERS without its outer letters.",
-     "definitionFit": "Under can mean less than or below a target, as in 'under budget', the same as falling short of a figure."
+     "surface": "A start-up is a little short of investors, and someone is saving their own skin.",
+     "walkthrough": "'Saving' is read as 'except': FUNDERS without its outer letters F and S.",
+     "definitionFit": "Under a figure means below it, so a sum under the target falls short of it."
     },
     "features": {
      "answerInScene": false,
@@ -959,53 +959,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERRAIN",
+     "op": "container",
      "indicators": [
       {
-       "text": "reduced",
-       "note": "something reduced is made smaller, here by cutting off its last letter"
+       "text": "put in",
+       "at": 23,
+       "note": "put in tells us one letter is placed inside the shortened dish"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "put in",
-         "note": "putting one thing in another places it inside"
+         "text": "reduced",
+         "at": 30,
+         "note": "reduced means cut short, so the dish loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "casserole",
-         "gives": "TERRIN",
-         "note": "a terrine is an earthenware cooking dish, cut short by one letter"
+         "at": 38,
+         "gives": "TERRINE",
+         "note": "a terrine is an earthenware casserole dish, or the food cooked in it"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the end, so only the last letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "paprika",
-           "note": "its final letter"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 15,
+         "note": "finally points to the last letter of paprika"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paprika",
+         "at": 7,
+         "note": "its last letter is A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook adding ground paprika to a casserole that has been reduced.",
-     "walkthrough": "'Ground paprika' reads as one spice; 'Ground' is the definition. A goes inside TERRIN(E).",
-     "definitionFit": "Terrain is a stretch of land considered for its physical features, so it is a synonym for land or the earth underfoot."
+     "surface": "A cooking instruction: finish a slow-cooked, reduced casserole with a sprinkle of paprika.",
+     "walkthrough": "'Ground paprika' reads as one ingredient, but 'Ground' is the definition. TERRINE shortened gives TERRIN, with A dropped in.",
+     "definitionFit": "Terrain is a stretch of land considered for its physical features, which is what ground means here."
     },
     "features": {
      "answerInScene": false,
@@ -1154,12 +1160,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENVELOP",
      "indicators": [
       {
        "text": "in",
-       "note": "one piece placed in another sits inside it"
+       "at": 17,
+       "note": "in tells us the bike sits inside the reworked enclosure"
       }
      ],
      "parts": [
@@ -1168,33 +1173,31 @@
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling sends the front letter round to the back, rotating the word"
+         "at": 20,
+         "note": "cycling means the letters of the enclosure word are rotated, the first moved to the end"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "enclosure",
-           "gives": "PEN",
-           "note": "a pen is an animal enclosure"
-          },
-          {
-           "words": "French bike",
-           "gives": "VELO",
-           "note": "vélo is French for bicycle"
-          }
-         ]
+         "words": "enclosure",
+         "at": 28,
+         "gives": "PEN",
+         "note": "a pen is an enclosure for animals"
         }
        ]
+      },
+      {
+       "words": "French bike",
+       "at": 5,
+       "gives": "VELO",
+       "note": "vélo is the French word for a bicycle"
       }
      ]
     },
     "explanation": {
-     "surface": "Stashing a French bicycle inside a cycle-racing compound.",
-     "walkthrough": "'Cycling' fits the bike story but tells you to move the enclosure's first letter to its end.",
-     "definitionFit": "To envelop is to wrap up or surround completely, so that what is inside is covered and concealed."
+     "surface": "Someone hides a French bicycle inside a circular enclosure, perhaps a cycling track.",
+     "walkthrough": "'Cycling' looks like part of the bike picture but moves the P of PEN to the end, giving ENP, which wraps round VELO.",
+     "definitionFit": "To envelop something is to wrap it up completely so that it is concealed, a synonym of hide."
     },
     "features": {
      "answerInScene": false,
@@ -1627,42 +1630,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ZERO",
-     "indicators": [
-      {
-       "text": "blowing top",
-       "note": "to blow one's top is to lose one's head, so the first letter of the word is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Unknown",
+       "at": 0,
+       "gives": "Z",
+       "note": "in algebra an unknown quantity is written x, y or z; here Z"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "blowing top",
+         "at": 14,
+         "note": "blowing means losing, so the word loses its top, its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Unknown",
-         "gives": "Z",
-         "note": "in algebra an unknown is x, y or z"
+         "words": "champ",
+         "at": 8,
+         "gives": "HERO",
+         "note": "a champion is a hero"
         },
         {
-         "words": "champ",
-         "gives": "ERO",
-         "note": "a hero, losing its first letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An obscure champion losing their temper over nothing.",
-     "walkthrough": "'Blowing top' sounds like a tantrum; it cuts the first letter from HERO.",
-     "definitionFit": "Zero is the number representing none at all, so a nil quantity or absence of any amount."
+     "surface": "An unknown champion loses their temper over nothing at all.",
+     "walkthrough": "'Blowing top' suggests losing one's temper, but here HERO loses its first letter H.",
+     "definitionFit": "Zero is the numeral for nothing, a quantity of none."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "blowing"
     }
    }
