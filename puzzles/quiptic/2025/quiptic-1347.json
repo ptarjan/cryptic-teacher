@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -185,41 +186,40 @@
      "indicators": [
       {
        "text": "stopped by",
-       "note": "a word stopped by a caller is interrupted part of the way through, which is where the other letters go"
+       "at": 18,
+       "note": "a gap stopped by a plug has the plug inside it, so the second piece sits within the first"
       }
      ],
      "parts": [
       {
        "words": "cunning",
+       "at": 10,
        "gives": "SLY",
-       "note": "sly = cunning, crafty"
+       "note": "cunning means sly"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "IL",
        "indicators": [
         {
          "text": "off and on",
-         "note": "something happening off and on happens every other time, so every other letter is taken"
+         "at": 34,
+         "note": "switching off and on in turn means taking every other letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "girl off and on",
-         "gives": "IL",
-         "select": "alternate",
-         "note": "the second and fourth letters of gIrL"
+         "words": "girl",
+         "at": 29,
+         "note": "the second and fourth letters of girl"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crafty scheme keeps being halted by a girl who drops in now and then.",
-     "walkthrough": "'Off and on' takes the second and fourth letters rather than the first and third, and only the length tells you which pair is wanted. 'Stopped by' is the visiting kind of calling in the surface and an insertion underneath.",
-     "definitionFit": "Frivolous and silly both describe behaviour nobody is meant to take seriously, and both are adjectives."
+     "surface": "A sly scheme is foiled by a girl who keeps coming and going.",
+     "walkthrough": "'girl off and on' is not a fickle girlfriend: like a light switched off, on, off, on, it keeps only the second and fourth letters.",
+     "definitionFit": "Silly and frivolous both describe behaviour lacking seriousness or good sense."
     },
     "features": {
      "answerInScene": false,
@@ -355,35 +355,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Upset",
-       "note": "in a down clue an upset word has been tipped over, so it reads back up the grid"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Upset",
+         "at": 0,
+         "note": "in a down clue, upset means turned upside down, so the word reads from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "skips",
-         "gives": "SECNAD",
-         "note": "to skip is to dance about lightly"
-        },
-        {
-         "words": "Upset friend",
+         "words": "friend",
+         "at": 6,
          "gives": "PAL",
-         "note": "PAL, a friend, set down backwards"
+         "note": "a pal is a friend"
         }
        ]
+      },
+      {
+       "words": "skips",
+       "at": 13,
+       "gives": "DANCES",
+       "note": "skips as a verb means dances lightly"
       }
      ]
     },
     "explanation": {
-     "surface": "A distressed friend gives the strip club a miss.",
-     "walkthrough": "'Skips' reads as the friend missing something and is a synonym for dancing. 'Upset' is positional rather than emotional, which only a down clue allows.",
-     "definitionFit": "A lap dance is performed for one seated customer in a strip club, which is an erotic performance by any measure."
+     "surface": "An upset friend storms out, skipping the erotic shows.",
+     "walkthrough": "'Upset' turns PAL upside down in this down clue, giving LAP; 'skips' is a verb here, not someone missing something.",
+     "definitionFit": "Lap dances are strip-club routines performed close to, or on the lap of, a seated customer."
     },
     "features": {
      "answerInScene": true,
@@ -465,48 +468,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FRESHASADAISY",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "letters sent about are sent every which way, and need not come back in the order they left"
+       "text": "going around",
+       "at": 25,
+       "note": "one thing going around another encloses it, so the second piece sits inside the first"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "cook",
+       "at": 20,
+       "gives": "FRY",
+       "note": "to fry is to cook"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "going around",
-         "note": "a thing going around another encircles it, so it splits to let the rest sit inside"
+         "text": "about",
+         "at": 50,
+         "note": "about here means all over the place, so the letters are scattered into a new order"
         }
        ],
        "parts": [
         {
-         "words": "cook",
-         "gives": "FRY",
-         "note": "to fry is to cook, and the word opens up to take the rest inside"
-        },
-        {
-         "words": "Asia dashes about",
-         "gives": "ESHASADAIS",
-         "note": "the ten letters of ASIA DASHES redealt"
+         "words": "Asia dashes",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook tours Asia at speed, dashing from one place to the next.",
-     "walkthrough": "'Going around' and 'about' are two separate instructions, one to wrap and one to jumble, though the surface reads both as the same restless travelling. A three-letter wrapper can break two letters in front and one behind.",
-     "definitionFit": "Someone fresh as a daisy is rested, wide awake and full of go, which is what bright and vigorous describes."
+     "surface": "A chef rushes around Asia, dashing hither and thither.",
+     "walkthrough": "'dashes' looks like part of the frantic chef's travels, but it is just letters for the anagram, alongside ASIA; 'about' scrambles the pair.",
+     "definitionFit": "The idiom describes someone looking fresh, lively and full of energy, like a newly opened flower."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "cook"
     }
    }
   },
@@ -725,7 +728,8 @@
      "indicators": [
       {
        "text": "welcomes",
-       "note": "a host who welcomes guests takes them inside, so what follows goes within"
+       "at": 16,
+       "note": "a host who welcomes guests takes them in, so the second piece goes inside the first"
       }
      ],
      "parts": [
@@ -734,38 +738,44 @@
        "indicators": [
         {
          "text": "animatedly",
-         "note": "anything done animatedly is done with lively movement, and letters moved about lively do not land where they started"
+         "at": 5,
+         "note": "animatedly means in a lively, jumbled way, so the letters move around"
         }
        ],
        "parts": [
         {
-         "words": "Earl animatedly",
-         "gives": "LAER",
-         "note": "the four letters of EARL redealt, then opened up to take the rest"
-        },
-        {
-         "words": "northern",
-         "gives": "N",
-         "note": "n = northern, the standard abbreviation"
+         "words": "Earl",
+         "at": 0
         }
        ]
       },
       {
-       "words": "actors",
-       "gives": "CAST",
-       "note": "the cast is the company of actors in a production"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "at": 25,
+         "gives": "N"
+        },
+        {
+         "words": "actors",
+         "at": 34,
+         "gives": "CAST",
+         "note": "the cast is the set of actors in a play"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A peer enthusiastically greets a troupe of actors up from the north.",
-     "walkthrough": "A royal house is a dynasty, not a building, and the one wanted here fought the Wars of the Roses under the red rose. 'Animatedly' is a quiet anagram word: lively movement, applied to letters.",
-     "definitionFit": "Lancaster was the royal line of Henry IV, V and VI, one of the two houses whose quarrel became the Wars of the Roses."
+     "surface": "A lively aristocrat greets a troupe of northern players at a royal palace.",
+     "walkthrough": "The Earl looks like a title for the royal house, but it is only the anagram fodder; the scrambled letters split around the welcomed group.",
+     "definitionFit": "The House of Lancaster was an English royal dynasty that held the throne during the Wars of the Roses."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "animatedly"
+     "misdirectedWord": "Earl"
     }
    }
   },
@@ -794,39 +804,33 @@
      "indicators": [
       {
        "text": "removed",
-       "note": "a thing removed is taken out and not put back, so the word loses that letter for good"
+       "at": 32,
+       "note": "removed means taken away, so this piece is dropped from the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "book",
-         "gives": "ANNUAL",
-         "note": "an annual is the book that comes out once a year"
-        },
-        {
-         "words": "second article removed",
-         "gives": "ANNUL",
-         "note": "ANNUAL carries the indefinite article A twice, and the second of them goes"
-        }
-       ]
+       "words": "book",
+       "at": 6,
+       "gives": "ANNUAL",
+       "note": "an annual is a book published yearly"
       },
       {
-       "gives": "ANNUAL"
+       "words": "second article",
+       "at": 17,
+       "gives": "A",
+       "note": "A is the indefinite article; it is the second of the word's two that goes"
       }
      ]
     },
     "explanation": {
-     "surface": "A scrapbook with one of its cuttings taken out.",
-     "walkthrough": "'Scrap book' reads as one word on the surface and splits into definition and wordplay. 'Article' is the grammarian's word, which is how a single letter hides behind it.",
-     "definitionFit": "To annul a marriage or a contract is to scrap it, declaring that it never held in the first place."
+     "surface": "Throw out a book after a second article is taken out.",
+     "walkthrough": "'removed' drops an A from ANNUAL. An annual here is a yearly book, such as a children's comic collection; take away its second A.",
+     "definitionFit": "To annul something is to cancel it formally, as you might scrap a plan or a marriage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "article"
     }
    }
@@ -1287,51 +1291,54 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue whatever sits on something else rests above it, so that piece is written first"
+       "at": 17,
+       "note": "in a down clue, one piece on another sits above it, so the letter for left comes first"
+      },
+      {
+       "text": "and",
+       "at": 36,
+       "note": "and simply joins the two words whose edges are taken, one after the other"
       }
      ],
      "parts": [
       {
        "words": "left",
-       "gives": "L",
-       "note": "l = left, the standard abbreviation"
+       "at": 12,
+       "gives": "L"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "IS",
        "indicators": [
         {
          "text": "edges of",
-         "note": "the edges of a word are its first and last letters, everything between them falling away"
+         "at": 20,
+         "note": "the edges of a word are its first and last letters, taken here from both words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "edges of inlays",
-         "gives": "IS",
-         "select": "outer",
-         "note": "the first and last of Inlay S"
+         "words": "inlays",
+         "at": 29,
+         "note": "first and last letters of inlays"
         }
        ]
       },
       {
-       "words": "and lace",
+       "words": "lace",
+       "at": 40,
        "gives": "LE",
-       "note": "the same edges taken again, from Lac E"
+       "note": "first and last letters of lace"
       }
      ]
     },
     "explanation": {
-     "surface": "Cotton lies along the trimmed borders of some inlaid work and lace.",
-     "walkthrough": "'Edges of' reaches across the 'and' to serve both words, a shortcut that saves the setter repeating an instruction. 'Left' is the single letter, not a past tense of leaving.",
-     "definitionFit": "Lisle is a fine smooth cotton thread used for stockings and gloves, named after Lisle, the old English spelling of Lille."
+     "surface": "Delicate cotton laid along the borders of inlays and lacework.",
+     "walkthrough": "'edges of' applies to both inlays and lace, giving IS and LE; 'on' puts L above them in this down clue.",
+     "definitionFit": "Lisle is a smooth, strong cotton thread, once common in stockings and gloves."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "left"
+     "aptDefinition": false
     }
    }
   },
@@ -1510,40 +1517,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SP",
        "indicators": [
         {
          "text": "tips of",
-         "note": "a word's tip is the letter it starts with, and each word named here gives one up"
+         "at": 9,
+         "note": "the tip of each word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "tips of spark plugs",
-         "gives": "SP",
-         "select": "first",
-         "note": "the leading letters of Spark Plugs"
+         "words": "spark plugs",
+         "at": 17,
+         "note": "the first letters of spark and plugs"
         }
        ]
       },
       {
        "words": "illuminated",
+       "at": 29,
        "gives": "LITUP",
-       "note": "lit up = illuminated"
+       "note": "illuminated means lit up"
       }
      ]
     },
     "explanation": {
-     "surface": "Spark plugs glowing at their points.",
-     "walkthrough": "The surface is one uninterrupted piece of engine talk, with both halves of the wordplay tucked inside it. 'Illuminated' hands over two words rather than one, which the enumeration quietly warns you about.",
-     "definitionFit": "To split up is to separate, whether a couple parting or a group dividing into smaller ones."
+     "surface": "An engine's spark plugs flash and light up separately.",
+     "walkthrough": "'tips of' gives SP from spark plugs; 'Separate' is a verb here, as couples do.",
+     "definitionFit": "To split up is to separate, especially of a couple ending their relationship."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tips"
+     "misdirectedWord": "Separate"
     }
    }
   },
