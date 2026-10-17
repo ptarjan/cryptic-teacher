@@ -1810,47 +1810,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HATCHET",
-     "indicators": [
-      {
-       "text": "unveiled",
-       "note": "a thing unveiled has its covering removed, so its outer letters come off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unveiled",
+         "at": 10,
+         "note": "unveiled means stripped of its covering, the outer letters at each end"
+        }
+       ],
        "parts": [
         {
          "words": "Iron Lady",
-         "gives": "HATCHE",
-         "note": "the Iron Lady was the nickname of Margaret Thatcher, UK prime minister; drop her surname's outer letters"
-        },
+         "at": 0,
+         "gives": "THATCHER",
+         "note": "the Iron Lady was the nickname of Margaret Thatcher, the British prime minister"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "latest",
-           "note": "the latest item is the one that comes at the end, so only the closing letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "get",
-           "note": "the final letter of the verb"
-          }
-         ]
+         "text": "latest",
+         "at": 19,
+         "note": "the latest letter of get is its last one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 29,
+         "note": "only its final letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper reveals that the Iron Lady's newest project is to be cut.",
-     "walkthrough": "The Iron Lady is Margaret Thatcher, British prime minister in the 1980s. THATCHER stripped of its first and final letters leaves HATCHE, and the last of 'get' completes it.",
-     "definitionFit": "A hatchet is a small, short-handled axe used for chopping with one hand."
+     "surface": "A former prime minister is stripped bare and the latest news is she gets the chop.",
+     "walkthrough": "'unveiled' strips the outer letters from THATCHER to leave HATCHE; 'latest' then gives T, the last letter of get.",
+     "definitionFit": "A hatchet is a small axe with a short handle, a synonym for the cutting tool."
     },
     "features": {
      "answerInScene": false,
