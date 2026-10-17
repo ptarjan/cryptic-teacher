@@ -1348,47 +1348,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INCENTIVES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to cover",
+       "at": 18,
+       "note": "to cover means to wrap around, so the rearranged letters enclose the case letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "reforms"
-        },
-        {
-         "text": "case for"
+         "text": "reforms",
+         "at": 10,
+         "note": "reforms in the sense of re-forms, shapes again, so the letters of invest in are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Invest in",
-         "gives": "INNTIVES",
-         "note": "eight letters of INVEST IN, rearranged by 'reforms'"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "to cover"
-          }
-         ],
-         "parts": [
-          {
-           "words": "change",
-           "note": "the case of the word change is its outer letters, C and E"
-          }
-         ]
+         "text": "case for",
+         "at": 27,
+         "note": "the case of a word is its outer shell, so the case for change is its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "change",
+         "at": 36,
+         "note": "the word change, of which only the two outside letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Case' asks for the outside letters of the word beside it, the way a case encloses whatever it holds. The surface is a perfectly plausible line about company finance.",
-     "definitionFit": "An incentive is a reward dangled to make somebody act — a bonus, a discount, a tax break — so the definition describes them by the job they do."
+     "surface": "A government urges putting money into reform programmes that will pay for change.",
+     "walkthrough": "'reforms' and 'change' look like the policy talk of the surface, but one is the anagram signal and the other only gives its outside letters.",
+     "definitionFit": "Incentives are rewards or inducements that motivate people to act, so they spur them on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
     }
    }
   },
