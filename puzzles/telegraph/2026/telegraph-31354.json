@@ -1019,52 +1019,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSOMNIA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 42,
+       "note": "the first piece is placed before the second"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "in front of",
-         "note": "'in front of' is positional: the I from institute stands in front of the rearranged mansion"
-        },
-        {
-         "text": "dilapidated",
-         "note": "the mansion is falling apart, so its letters are rearranged"
+         "text": "head of",
+         "at": 24,
+         "note": "the head of a word is its first letter, so only the start of institute is used"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head of",
-           "note": "the head of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "head of institute",
-           "gives": "INSTITUTE",
-           "note": "first letter of institute"
-          }
-         ]
-        },
+         "words": "institute",
+         "at": 32,
+         "note": "its first letter supplies I"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dilapidated",
+         "at": 54,
+         "note": "a dilapidated building is falling apart, so the letters of mansion are reassembled in a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "mansion",
-         "gives": "NSOMNIA",
-         "note": "anagram of MANSION"
+         "at": 66
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A college head struggles as the old mansion that houses the institute falls apart.",
-     "walkthrough": "'Dropping off' first suggests falling or losing something; it means nodding off to sleep.",
-     "definitionFit": "A descriptive definition: dropping off is the idiom for falling asleep, and this condition is struggling to do so."
+     "surface": "The director of an institute stands before a crumbling stately home.",
+     "walkthrough": "'Dropping off' means falling asleep, not something falling away, so the definition is trouble sleeping.",
+     "definitionFit": "The medical term names a chronic inability to fall or stay asleep, which is exactly trouble nodding off."
     },
     "features": {
      "answerInScene": false,
