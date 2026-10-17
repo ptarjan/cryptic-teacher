@@ -510,35 +510,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "CA",
        "indicators": [
         {
          "text": "Starts to",
-         "note": "take the first letters of the words that follow"
+         "at": 0,
+         "note": "the starts of the next two words are their opening letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Starts to cap abnormally",
-         "gives": "CA",
-         "select": "first",
-         "note": "first letters of Cap and Abnormally"
+         "words": "cap abnormally",
+         "at": 10,
+         "note": "only the first letter of each word is used"
         }
        ]
       },
       {
        "words": "square",
+       "at": 25,
        "gives": "NINE",
        "note": "nine is a square number, three times three"
       }
      ]
     },
     "explanation": {
-     "surface": "A dentist starting to cap an oddly square tooth.",
-     "walkthrough": "'Square tooth' reads as a shape, but 'square' is a square number: NINE.",
-     "definitionFit": "A canine is the pointed tooth between the incisors and the premolars."
+     "surface": "A dentist fits an odd crown on a squared-off tooth.",
+     "walkthrough": "'Square' is a noun here, a square number, rather than a description of the tooth.",
+     "definitionFit": "A canine is one of the pointed teeth between the incisors and the premolars."
     },
     "features": {
      "answerInScene": true,
@@ -850,58 +848,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FISCALDRAG",
+     "op": "container",
      "indicators": [
       {
-       "text": "Liberal",
-       "note": "liberal means free, so the letters are freely rearranged"
+       "text": "probing",
+       "at": 17,
+       "note": "the rearranged letters probe, i.e. push inside, the outer pair"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "probing",
-         "note": "the rearranged letters probe into, go inside, the other piece"
+         "text": "extremely",
+         "at": 25,
+         "note": "the extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "take the extreme letters, the first and last"
-          }
-         ],
-         "parts": [
-          {
-           "words": "extremely frustrating",
-           "gives": "FRUSTRATING",
-           "note": "first and last letters of FrustratinG"
-          }
-         ]
-        },
+         "words": "frustrating",
+         "at": 35,
+         "note": "only its first and last letters are used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Liberal",
+         "at": 0,
+         "note": "liberal suggests something free and loose, so the letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "radicals",
-         "gives": "ISCALDRA",
-         "note": "anagram of RADICALS"
+         "at": 8,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Political commentary: radical Liberals looking into a frustrating hidden tax.",
-     "walkthrough": "'Liberal radicals' looks like a party faction; 'Liberal' is the anagram indicator.",
-     "definitionFit": "Fiscal drag is the extra tax raised when thresholds are not raised with inflation, a tax rise nobody announces."
+     "surface": "Left-wing activists investigate a maddening hidden levy.",
+     "walkthrough": "'Liberal' looks like a party label set against the radicals, but it is the anagram signal; a stealth tax is one that rises without being announced.",
+     "definitionFit": "Fiscal drag raises the tax take without any change in rates, as inflation pushes incomes into higher bands, so it is a covert levy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Liberal"
     }
    }
@@ -1370,61 +1369,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MUESLI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 28,
+       "note": "the reversed word holds the single letter within it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "Ascending",
-         "note": "in a down clue, going up means read bottom to top"
-        },
-        {
-         "text": "last of",
-         "note": "the last of a word is literally its final letter, the one that comes last"
+         "at": 0,
+         "note": "in a down clue, ascending means read from bottom to top, so the word runs backwards"
         }
        ],
        "parts": [
         {
          "words": "part of intestine",
-         "gives": "MUELI",
-         "note": "the ILEUM, part of the small intestine, reversed"
-        },
+         "at": 10,
+         "gives": "ILEUM",
+         "note": "the ileum is the last section of the small intestine"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "containing",
-           "note": "the reversed word holds the extra letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "last of enormous",
-           "gives": "S",
-           "select": "last",
-           "note": "last letter of enormouS"
-          }
-         ]
+         "text": "last of",
+         "at": 39,
+         "note": "the last of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enormous",
+         "at": 47,
+         "note": "only its final letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A huge breakfast working its way through the gut.",
-     "walkthrough": "The ileum is the last stretch of the small intestine.",
-     "definitionFit": "A definition by example: the oat-and-fruit cereal is a typical breakfast."
+     "surface": "A large morning meal works its way up through the gut.",
+     "walkthrough": "'Ascending' reverses ILEUM to MUELI, which holds S, the last letter of 'enormous'.",
+     "definitionFit": "Muesli is a mix of oats, nuts and dried fruit eaten as a morning cereal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Ascending"
     }
    }
@@ -1652,63 +1650,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SATYR",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half-cut",
-         "note": "half of the word is cut off"
+         "at": 0,
+         "note": "half of the word is cut away, leaving its first two letters"
         }
        ],
        "parts": [
         {
-         "words": "Half-cut saps",
-         "gives": "SA",
-         "note": "the first half of SAps"
+         "words": "saps",
+         "at": 9,
+         "note": "only its first half is used"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally means at the end, so the letter that comes at the end of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "finally get",
-           "gives": "T",
-           "select": "last",
-           "note": "last letter of geT"
-          }
-         ]
-        },
-        {
-         "words": "your",
-         "gives": "YR",
-         "note": "yr is the abbreviation for your"
+         "gives": "PS"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 14,
+         "note": "finally picks the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 22,
+         "note": "only its final letter is used"
+        }
+       ]
+      },
+      {
+       "words": "your",
+       "at": 26,
+       "gives": "YR"
       }
      ]
     },
     "explanation": {
-     "surface": "Drunken fools finally annoying you: half-cut is British slang for drunk.",
-     "walkthrough": "'Get your goat' is the idiom for annoy, but 'goat' alone is the definition; 'half-cut' means drunk as well as halved.",
-     "definitionFit": "A satyr is a mythical half-man, half-goat."
+     "surface": "Drunken fools end up irritating you.",
+     "walkthrough": "'Half-cut' is British slang for drunk, but here it cuts SAPS in half. 'Get your goat' means annoy, yet 'goat' alone is the definition.",
+     "definitionFit": "A satyr is a woodland creature of Greek myth, part man and part goat."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "goat"
+     "misdirectedWord": "Half-cut"
     }
    }
   },
@@ -1854,49 +1851,49 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "GALLON",
+     "op": "container",
      "indicators": [
       {
-       "text": "Cycling",
-       "note": "letters go round: the last letter moves to the front"
+       "text": "after drinking",
+       "at": 14,
+       "note": "the cycled word, after drinking, has the numeral taken inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "drinking",
-         "note": "the cycled word takes the other letter inside it"
+         "text": "Cycling",
+         "at": 0,
+         "note": "cycling moves a letter round from one end of the word to the other"
         }
        ],
        "parts": [
         {
-         "words": "Cycling along",
-         "gives": "GALON",
-         "note": "ALONG with its G cycled to the front"
-        },
-        {
-         "words": "fifty",
-         "gives": "L",
-         "note": "L is the Roman numeral for fifty"
+         "words": "along",
+         "at": 8,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "fifty",
+       "at": 29,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist stopping along the way to drink eight pints.",
-     "walkthrough": "'Eight pints' is a quantity, not a drinking session: a gallon is eight pints.",
-     "definitionFit": "A definition by description: the imperial and US gallon each hold eight of their own pints."
+     "surface": "A cyclist rides on after downing a huge quantity of beer.",
+     "walkthrough": "'Cycling' moves the final G of ALONG to the front, giving GALON, which then drinks L.",
+     "definitionFit": "A gallon is a unit of liquid volume; the imperial gallon holds exactly eight pints."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "drinking"
+     "misdirectedWord": "Cycling"
     }
    }
   }
