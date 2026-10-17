@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1139,61 +1140,63 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EQUATION",
+     "indicators": [
+      {
+       "text": "Tricky",
+       "at": 0,
+       "note": "tricky suggests something intricate or twisted, so these letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EQUATION",
        "indicators": [
         {
-         "text": "Tricky",
-         "note": "Something tricky will not behave as it was handed to you, and letters that will not behave come out in another order."
-        },
-        {
          "text": "omitted",
-         "note": "What is omitted is left out altogether, so that letter never reaches the mix."
+         "at": 38,
+         "note": "omitted means left out, so this letter is removed from the mix"
         }
        ],
        "parts": [
         {
          "words": "question",
-         "note": "the eight letters the wordplay starts from"
+         "at": 7,
+         "note": "taken as written"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "Initially points at the letter a word starts with, before any of the rest of it."
+           "at": 28,
+           "note": "initially points to the first letter of the next word"
           }
          ],
          "parts": [
           {
-           "words": "a",
-           "note": "used literally, added to the mix"
+           "words": "student",
+           "at": 20,
+           "note": "its first letter is S"
           }
          ]
-        },
-        {
-         "words": "student",
-         "gives": "S",
-         "note": "the letter student opens with, and the one that is dropped"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 18
       }
      ]
     },
     "explanation": {
-     "surface": "A hard exam question with a line left out by one candidate.",
-     "walkthrough": "'Initially' does not mean the student got there first: it picks out the letter that then leaves, and 'omitted' is the word that removes it. The A joins the mix on its own.",
-     "definitionFit": "An equation states that the two sides of it are equal, so it is a formula held in balance — the balance is what makes it one."
+     "surface": "A exam setter admits a tricky question was skipped by a student.",
+     "walkthrough": "Rearrange QUESTION with A, then leave out S, the first letter of 'student', as 'omitted' says; the remaining eight letters spell the answer.",
+     "definitionFit": "An equation is a mathematical statement in which both sides are equal, so it is a formula in balance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "initially"
+     "misdirectedWord": "Tricky"
     }
    }
   },
@@ -1684,39 +1687,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "moving towards the front",
+       "at": 30,
+       "note": "the letter for succeeded shifts forward from the end of the plural word, so it lands inside the vessel"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "moving towards the front",
-         "note": "It tells one named letter to shift forward through the word it is in, the letters it passes closing up behind it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "vessels",
-         "gives": "BOATS",
-         "note": "boats are vessels, and these five letters are all that is in play"
-        }
-       ]
+       "words": "vessels",
+       "at": 12,
+       "gives": "BOAT",
+       "note": "boats are vessels; the word gives BOAT, whose plural S is the next piece"
       },
       {
-       "unchecked": true,
        "words": "succeeded",
-       "note": "s is the standard abbreviation for succeeded, naming which letter of the previous word is the one to move"
+       "at": 20,
+       "gives": "S",
+       "note": "S is the genealogical abbreviation for succeeded"
       }
      ]
     },
     "explanation": {
-     "surface": "Bragging, as ships that have worked their way to the front are entitled to.",
-     "walkthrough": "Only one letter moves, and the clue names it by its abbreviation — the s of family trees and lists of monarchs. Everything else stays exactly where it was.",
-     "definitionFit": "To talk big is to brag about yourself, which is the whole of the verb's meaning, and both are in the infinitive."
+     "surface": "Someone bragging about the ships that came first in a race.",
+     "walkthrough": "Start from BOATS: the final S, standing for 'succeeded', is 'moving towards the front' by one place, so it sits inside BOAT.",
+     "definitionFit": "To boast is to brag, which in everyday speech is to talk big about oneself."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "succeeded"
     }
    }
