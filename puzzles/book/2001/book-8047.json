@@ -202,40 +202,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 42,
+       "note": "inside says the answer sits within the run of words before it, spanning the end of one and the start of the next"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Doctor",
-       "note": "surface padding: it sets the medical scene and gives no letters"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "inside",
-         "note": "inside tells us the answer is lying within the run of words written in front of it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "examining larynx",
-         "gives": "GLARY",
-         "note": "found across the end of the first word and the start of the second"
-        }
-       ]
+       "words": "Doctor examining larynx",
+       "at": 0,
+       "note": "the text the letters are taken from, across the last two words"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor peers at a patient's throat, which is lit up too harshly inside.",
-     "walkthrough": "'Doctor' only sets the scene: the letters run from examininG into LARYnx.",
-     "definitionFit": "Glary describes light that is dazzling or excessive, like a harsh lamp shone into a throat."
+     "surface": "A doctor peers down a patient's throat under a lamp that is far too bright.",
+     "walkthrough": "The answer is tucked inside the phrase, from the last letter of 'examining' through the first four of 'larynx'. 'Doctor' only sets the scene.",
+     "definitionFit": "Glary means dazzling with harsh light, the way an overlit room glares at you."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Doctor"
+     "misdirectedWord": "inside"
     }
    }
   },
@@ -447,40 +438,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHYLY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "disheartened",
-       "note": "losing its heart means the middle letters of the word are taken out"
+       "text": "over",
+       "at": 6,
+       "note": "in a down clue, one piece over another puts it first in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Throw",
+       "at": 0,
+       "gives": "SHY",
+       "note": "to shy is to throw, as at a coconut shy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 11,
+         "note": "losing its heart means the middle letters of lady are taken out"
+        }
+       ],
        "parts": [
         {
-         "words": "Throw",
-         "gives": "SHY",
-         "note": "to shy is to toss, as at a coconut shy"
+         "words": "lady",
+         "at": 24,
+         "note": "the word whose centre is removed, leaving its outer letters"
         },
         {
-         "words": "lady",
-         "gives": "LY",
-         "note": "the word with its central letters removed"
+         "gives": "AD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tosses something over a downcast woman, timidly.",
-     "walkthrough": "In a down answer, 'over' puts the first piece above the second.",
-     "definitionFit": "Doing something with diffidence means doing it timidly and without self-confidence, the adverb for bashful."
+     "surface": "Someone tosses aside a dejected woman, but timidly.",
+     "walkthrough": "'disheartened' removes AD, the heart of LADY, leaving LY; 'over' puts SHY above it in this down entry.",
+     "definitionFit": "Doing something shyly means doing it timidly, with modest diffidence."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "disheartened"
     }
@@ -1024,48 +1025,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIVENER",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word means all but its final letter is used"
+       "text": "absorbs",
+       "at": 15,
+       "note": "one thing absorbing another takes it in, so the shortened word goes inside the organ"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Internal organ",
+       "at": 0,
+       "gives": "LIVER",
+       "note": "the liver is an internal organ"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "absorbs",
-         "note": "to absorb something is to take it in, so one piece goes inside the other"
+         "text": "most of",
+         "at": 23,
+         "note": "most of a word means its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Internal organ",
-         "gives": "LIVER",
-         "note": "the large organ that filters the blood"
+         "words": "fresh",
+         "at": 31,
+         "gives": "NEW",
+         "note": "fresh means new"
         },
         {
-         "words": "fresh",
-         "gives": "NE",
-         "note": "fresh means new, cut short by one letter"
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An organ of the body soaks up nearly all of a refreshing pick-me-up.",
-     "walkthrough": "A livener is an informal word for a drink that perks you up, often an early one.",
-     "definitionFit": "A tonic is anything that invigorates, and a livener is a pick-me-up drink that does just that."
+     "surface": "A bodily organ soaks up a refreshing tonic drink.",
+     "walkthrough": "'Internal organ' suggests a medical clue, but 'tonic' is the definition, in the sense of a pick-me-up rather than a medicine.",
+     "definitionFit": "A livener is a pick-me-up, especially an early drink taken to revive oneself."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fresh"
+     "misdirectedWord": "absorbs"
     }
    }
   },
@@ -1349,42 +1355,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GIGHA",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word means everything except its last letter is used"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Light boat",
+       "at": 0,
+       "gives": "GIG",
+       "note": "a gig is a light rowing boat"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 16,
+         "note": "most of a word means its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Light boat",
-         "gives": "GIG",
-         "note": "a gig is a light, narrow rowing boat"
+         "words": "fodder",
+         "at": 24,
+         "gives": "HAY",
+         "note": "hay is dried grass used as fodder for animals"
         },
         {
-         "words": "fodder",
-         "gives": "HA",
-         "note": "hay, cut short by one letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small boat carries a load of animal feed out to a Scottish island.",
-     "walkthrough": "Gigha is a small island off the west coast of Kintyre in Scotland, usually counted with the Inner Hebrides.",
-     "definitionFit": "Gigha lies in the Inner Hebrides island group off western Scotland, so it fits as an isle there."
+     "surface": "A small boat carrying a load of animal feed heads for an island.",
+     "walkthrough": "Gigha is a small island off the Kintyre peninsula on Scotland's west coast; a gig here is a boat, not a concert or a carriage.",
+     "definitionFit": "Gigha is one of the Inner Hebrides, the island chain off Scotland's west coast."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Light"
+     "misdirectedWord": "fodder"
     }
    }
   },
