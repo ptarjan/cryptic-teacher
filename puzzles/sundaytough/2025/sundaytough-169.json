@@ -313,7 +313,13 @@
      "indicators": [
       {
        "text": "Insert",
-       "note": "to insert is to put something inside, so one piece goes between the letters of another"
+       "at": 26,
+       "note": "insert tells us to put the next two pieces inside what comes before"
+      },
+      {
+       "text": "here",
+       "at": 46,
+       "note": "here points back to the street and city centre letters as the place for the insertion"
       }
      ],
      "parts": [
@@ -322,26 +328,23 @@
        "parts": [
         {
          "words": "Street",
-         "gives": "ST",
-         "note": "ST is the standard abbreviation for street"
+         "at": 0,
+         "gives": "ST"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "ND",
          "indicators": [
           {
            "text": "centre of",
-           "note": "the centre of a word is its middle, so only the innermost letters are kept"
+           "at": 8,
+           "note": "centre of takes the middle letters of London"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "London",
-           "gives": "ND",
-           "select": "middle",
-           "note": "the two middle letters of the six-letter city name"
+           "at": 18,
+           "note": "its two middle letters are used"
           }
          ]
         }
@@ -352,13 +355,13 @@
        "parts": [
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "at": 33,
+         "gives": "R"
         },
         {
          "words": "answer",
-         "gives": "A",
-         "note": "A is the abbreviation for answer"
+         "at": 39,
+         "gives": "A"
         }
        ]
       }
@@ -366,9 +369,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A quiz-setter's prompt: here is a central London street, so write the right answer in this space.",
-     "walkthrough": "The instruction 'insert right answer here' reads like a quiz form, but it literally places the abbreviations inside. Read whole, the clue also describes the answer, so it is an all-in-one.",
-     "definitionFit": "The Strand is a major thoroughfare in the heart of London, running from Trafalgar Square towards Fleet Street."
+     "surface": "A puzzle setter's note: a street in central London, with a prompt to fill in the solution.",
+     "walkthrough": "ST plus ND, the centre of LONDON, gives STND; 'Insert' R (right) and A (answer) 'here'. The Strand is a famous street in central London, so the whole clue describes it.",
+     "definitionFit": "The Strand is a major thoroughfare in the City of Westminster, running from Trafalgar Square towards Fleet Street."
     },
     "features": {
      "answerInScene": true,
