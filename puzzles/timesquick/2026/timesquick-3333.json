@@ -396,35 +396,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CIGARETTE",
+     "op": "reversal",
      "indicators": [
       {
        "text": "elevated",
-       "note": "in a down answer, raised up means written bottom to top"
-      },
-      {
-       "text": "after dropping introductions",
-       "note": "each word first loses its opening letter"
+       "at": 6,
+       "note": "in a down clue, elevated means lifted up, so the letters read from bottom to top"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "after dropping",
+           "at": 28,
+           "note": "after dropping says the words are used once letters have been let fall from them"
+          }
+         ],
          "parts": [
           {
            "words": "better",
-           "gives": "ETTER",
-           "note": "BETTER without its first letter"
+           "at": 15,
+           "note": "taken as written before losing its first letter"
           },
           {
+           "gives": "B"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "introductions",
+           "at": 43,
+           "note": "the introductions are the opening letters of both words, and those are the letters dropped"
+          }
+         ],
+         "parts": [
+          {
            "words": "magic",
-           "gives": "AGIC",
-           "note": "MAGIC without its first letter; with ETTER, the whole string then reads upward"
+           "at": 22,
+           "note": "taken as written before losing its first letter"
+          },
+          {
+           "gives": "M"
           }
          ]
         }
@@ -433,9 +453,9 @@
      ]
     },
     "explanation": {
-     "surface": "A smoke that lifts a magic act, once the preliminaries are done.",
-     "walkthrough": "'Elevated' sits beside 'Smoke' as if smoke were rising; it is the reversal instruction for this down answer.",
-     "definitionFit": "A plain synonym, as in 'nip out for a smoke'."
+     "surface": "A cigarette that gives a lift, its effect better than magic.",
+     "walkthrough": "'after dropping introductions' strips the first letters of 'better magic' to give ETTERAGIC, and 'elevated' turns that upside down in the column, reading it in reverse.",
+     "definitionFit": "A smoke is the informal word for a cigarette, as in nipping out for a smoke."
     },
     "features": {
      "answerInScene": true,
@@ -898,12 +918,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CEILIDH",
      "indicators": [
       {
        "text": "in",
-       "note": "the first piece goes inside the second"
+       "at": 26,
+       "note": "in places the contraction for I would inside the rearranged letters"
       }
      ],
      "parts": [
@@ -912,28 +931,30 @@
        "indicators": [
         {
          "text": "alternatively",
-         "note": "the letters are arranged another way"
+         "at": 36,
+         "note": "alternatively suggests another arrangement of the letters of Chile"
         }
        ],
        "parts": [
         {
-         "words": "I would",
-         "gives": "ID",
-         "note": "I'd is short for 'I would'"
-        },
-        {
          "words": "Chile",
-         "gives": "CEILH",
-         "note": "anagram fodder, rearranged to wrap round ID"
+         "at": 29,
+         "note": "taken as written for rearranging"
         }
        ]
+      },
+      {
+       "words": "I would",
+       "at": 18,
+       "gives": "ID",
+       "note": "I'd is the contraction of I would"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone would pick a Chilean dance over an Irish one.",
-     "walkthrough": "A ceilidh is a Gaelic social evening of folk dancing, in Scotland or Ireland; the question mark admits Ireland is only one home of it.",
-     "definitionFit": "A ceilidh is a Scottish or Irish gathering with traditional dancing."
+     "surface": "Someone who would rather go to a dance in Chile than in Ireland.",
+     "walkthrough": "'alternatively' rearranges CHILE to CEILH, and 'in' sets ID among those letters. The question mark marks Ireland as an example: ceilidhs are held in Scotland too.",
+     "definitionFit": "A ceilidh is a Gaelic social gathering with traditional folk music and dancing, in Ireland or Scotland."
     },
     "features": {
      "answerInScene": true,
@@ -1158,46 +1179,45 @@
      "indicators": [
       {
        "text": "breaking",
-       "note": "the person splits the other letters apart"
+       "at": 14,
+       "note": "breaking means splitting apart, so the word for person goes between the two letters"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "OI",
        "indicators": [
         {
          "text": "in the centre",
-         "note": "take the middle letters of the word before"
+         "at": 28,
+         "note": "only the letters in the centre of soil are used, dropping its first and last"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "soil in the centre",
-         "gives": "OI",
-         "select": "middle",
-         "note": "the middle two letters of sOIl"
+         "words": "soil",
+         "at": 23,
+         "note": "the word whose middle letters are taken"
         }
        ]
       },
       {
        "words": "person",
+       "at": 7,
        "gives": "MAN",
        "note": "a man is a person"
       }
      ]
     },
     "explanation": {
-     "surface": "An Arab person digs up the middle of a field.",
-     "walkthrough": "'Arabic person' reads as one phrase, but the definition is 'Arabic' alone; 'person' begins the wordplay.",
-     "definitionFit": "By example: Oman is an Arab country, so Omani is one Arabic nationality."
+     "surface": "A man from Arabia digging the earth in the middle of a field.",
+     "walkthrough": "'Arabic person' reads as one phrase for the definition, but 'person' belongs to the wordplay, which leaves 'Arabic' as an adjective of the Arab world.",
+     "definitionFit": "Omani describes something from Oman, a country of the Arabian Peninsula, so it is an Arabic nationality."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "person"
+     "misdirectedWord": "breaking"
     }
    }
   },
