@@ -511,37 +511,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEALSONWHEELS",
-     "indicators": [
-      {
-       "text": "at work",
-       "note": "the letters are busy, working themselves into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "First person",
+       "at": 0,
+       "gives": "ME",
+       "note": "me is the first person pronoun"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at work",
+         "at": 26,
+         "note": "at work means busy and moving about, so the letters of slows and Helena are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "First person",
-         "gives": "ME",
-         "note": "the first person pronoun"
+         "words": "slows",
+         "at": 13,
+         "note": "taken as written, part of the letters to rearrange"
         },
         {
-         "words": "slows Helena",
-         "gives": "ALSONWHEELS",
-         "note": "anagram fodder, 11 letters"
+         "words": "Helena",
+         "at": 19,
+         "note": "taken as written, the rest of the letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Helena is slowing down at her job in the caring services.",
-     "walkthrough": "Meals on Wheels is the British service delivering hot meals to elderly or housebound people at home.",
-     "definitionFit": "Meals on Wheels is a social service run by councils and charities."
+     "surface": "Someone notes that a colleague called Helena is slowing them down in a care job.",
+     "walkthrough": "'First person' could suggest I, but the pronoun needed here has two letters; 'at work' is the anagram signal for the two words that follow. 'Providing' is only a link to the definition.",
+     "definitionFit": "Meals on wheels is a social service delivering hot food to elderly or housebound people at home."
     },
     "features": {
      "answerInScene": true,
@@ -1047,46 +1052,52 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TARNISH",
-     "indicators": [
-      {
-       "text": "is housed in",
-       "note": "IS lives inside the other letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "person on board",
+       "at": 4,
+       "gives": "TAR",
+       "note": "a tar is a sailor, someone aboard ship"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "housed in",
+         "at": 23,
+         "note": "housed in means lodged inside, so the word is goes between the next two letters"
+        }
+       ],
        "parts": [
         {
-         "words": "person on board",
-         "gives": "TAR",
-         "note": "a tar is a sailor, on board ship"
-        },
-        {
-         "words": "northern",
-         "gives": "N",
-         "note": "N = northern"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "northern",
+           "at": 33,
+           "gives": "N"
+          },
+          {
+           "words": "hotel",
+           "at": 42,
+           "gives": "H",
+           "note": "Hotel is H in the NATO phonetic alphabet"
+          }
+         ]
         },
         {
          "words": "is",
-         "note": "kept as is"
-        },
-        {
-         "words": "hotel",
-         "gives": "H",
-         "note": "Hotel is H in the NATO alphabet"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slow-witted sailor is lodging in a hotel up north.",
-     "walkthrough": "'Dim' looks like it describes the person but is the verb: to dim or tarnish a shine. 'On board' means aboard ship, not a board game.",
-     "definitionFit": "Plain verb synonym: to dull the shine of metal, or figuratively of a reputation."
+     "surface": "A not-too-bright sailor is staying at a hotel in the north.",
+     "walkthrough": "'Dim' looks like an adjective for the sailor, but it is a verb meaning to dull, the definition.",
+     "definitionFit": "To tarnish is to make dull or less bright, as silver goes when it oxidises."
     },
     "features": {
      "answerInScene": false,
@@ -1472,41 +1483,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INFUN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept by",
+       "at": 8,
+       "note": "kept by means held inside, so the letter goes within the reworked name"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "kept by",
-         "note": "the uniform is held inside"
-        },
-        {
          "text": "funny",
-         "note": "the letters of Finn are made to behave oddly"
+         "at": 16,
+         "note": "funny means odd, so the letters of Finn are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Finn",
-         "gives": "INFN",
-         "note": "FINN rearranged"
-        },
-        {
-         "words": "Uniform",
-         "gives": "U",
-         "note": "Uniform is U in the NATO alphabet"
+         "at": 22,
+         "note": "the name taken as written, to be rearranged"
         }
        ]
+      },
+      {
+       "words": "Uniform",
+       "at": 0,
+       "gives": "U",
+       "note": "Uniform is U in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A comic Finnish man dons a uniform just for a laugh.",
-     "walkthrough": "The rearranged Finn opens as INF...N to hold U.",
-     "definitionFit": "Something said in fun is said as a joke."
+     "surface": "A comic Finnish man keeps a uniform for a prank.",
+     "walkthrough": "'funny' turns FINN into INFN, and U goes in before the last letter. 'Funny' looks like part of the joke but is the instruction.",
+     "definitionFit": "Saying something in fun means it was meant playfully, not seriously."
     },
     "features": {
      "answerInScene": true,
@@ -1688,49 +1702,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GYMNAST",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "Stan is knocked over, his letters rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "GYM",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 7,
+         "note": "reportedly means as heard, so the short name is swapped for a word sounding the same"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "GYM",
-         "indicators": [
-          {
-           "text": "reportedly",
-           "note": "we are told how it sounds, not how it is spelt"
-          }
-         ],
-         "parts": [
-          {
-           "words": "James, reportedly",
-           "gives": "JIM",
-           "note": "Jim is short for James"
-          }
-         ]
-        },
+         "words": "James",
+         "at": 0,
+         "gives": "JIM",
+         "note": "Jim is a short form of James"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 19,
+         "note": "upset means knocked over, so the letters of Stan are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "Stan",
-         "gives": "NAST",
-         "note": "STAN rearranged"
+         "at": 25,
+         "note": "the name taken as written, to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two men, James and an upset Stan, who both know the local pubs well.",
-     "walkthrough": "'Bars' suggests pubs and drinkers, but these are the parallel and asymmetric bars of gymnastics.",
-     "definitionFit": "A gymnast works on the parallel and uneven bars."
+     "surface": "Someone named James is said to have offended Stan, a regular at the pub.",
+     "walkthrough": "'familiar with bars' suggests a drinker, but the bars are parallel and asymmetric bars in a gym.",
+     "definitionFit": "A gymnast works on apparatus such as the parallel bars and the asymmetric bars."
     },
     "features": {
      "answerInScene": false,
