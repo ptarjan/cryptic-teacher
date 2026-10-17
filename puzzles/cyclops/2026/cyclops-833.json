@@ -177,47 +177,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SLAPANDTICKLE",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "In a down entry something turned up is stood on its head, so its letters are read from the bottom."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 18,
+         "note": "in a down clue, turned up means the word is read from the bottom upwards, back to front"
+        }
+       ],
        "parts": [
         {
-         "words": "Mates turned up",
-         "gives": "SLAP",
-         "note": "mates are pals, and this entry runs downwards so pals is read upwards"
-        },
-        {
-         "words": "with",
-         "gives": "AND",
-         "note": "with and and both set one thing alongside another"
-        },
-        {
-         "words": "delight",
-         "gives": "TICKLE",
-         "note": "to delight someone is to please them, as in being '___ pink'"
+         "words": "Mates",
+         "at": 12,
+         "gives": "PALS",
+         "note": "mates are friends, pals"
         }
        ]
+      },
+      {
+       "words": "with",
+       "at": 28,
+       "gives": "AND",
+       "note": "and joins things, as with does"
+      },
+      {
+       "words": "delight",
+       "at": 33,
+       "gives": "TICKLE",
+       "note": "to tickle someone is to please or delight them, as in tickled pink"
       }
      ]
     },
     "explanation": {
-     "surface": "Friends who have arrived thrilled at the prospect of some dated courting.",
-     "walkthrough": "'Delight' is the verb tickle, not the noun, which is why it looks like a state of mind. The phrase belongs to the era of seaside postcards and has been quaint for decades.",
-     "definitionFit": "Slap and tickle is the old British phrase for amorous fumbling, dated enough now that the clue can call it old-fashioned."
+     "surface": "Old friends arrive full of glee, ready for some quaint romantic fumbling.",
+     "walkthrough": "'turned up' flips PALS into SLAP, then 'with' gives AND and 'delight' gives TICKLE across the three linked lights.",
+     "definitionFit": "Slap and tickle is a dated, jokey British phrase for playful amorous horseplay or light petting."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "delight"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mates"
     }
    }
   },
@@ -823,47 +826,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SYLLABUS",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "organised",
+       "at": 18,
+       "note": "letters that are organised are put into a new order, so the fodder is rearranged"
+      },
+      {
+       "text": "out",
+       "at": 48,
+       "note": "the letters of 'hit' are taken out of the jumbled pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SYLLABUS",
-       "indicators": [
-        {
-         "text": "organised",
-         "note": "Organising a heap means setting its contents in a fresh arrangement, which is what these letters get."
-        },
-        {
-         "text": "out",
-         "note": "Out means gone from the mix, so the letters just named are dropped before anything else happens."
-        }
-       ],
-       "parts": [
-        {
-         "words": "bullshit, say",
-         "note": "the eleven letters the wordplay starts from"
-        },
-        {
-         "words": "hit",
-         "note": "these three letters are lifted out of that heap before it is shuffled"
-        }
-       ]
+       "words": "bullshit, say",
+       "at": 28
+      },
+      {
+       "words": "hit",
+       "at": 44
       }
      ]
     },
     "explanation": {
-     "surface": "A course programme built from tidied-up nonsense, and someone lashing out.",
-     "walkthrough": "The deletion happens before the shuffle, so 'hit' has to be found in the fodder rather than in the answer. 'Say' is part of the letters here, not the usual for-example marker.",
-     "definitionFit": "A syllabus is the document setting out what a course will cover, which is its programme of study."
+     "surface": "A cynical student calls the course outline a well-arranged load of nonsense and lashes out.",
+     "walkthrough": "'hit out' removes H, I and T from BULLSHIT SAY, leaving BULLSSAY, and 'organised' rearranges those eight letters.",
+     "definitionFit": "A syllabus is the outline of topics covered in a course of study, its plan of teaching."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "say"
+     "misdirectedWord": "hit"
     }
    }
   },
