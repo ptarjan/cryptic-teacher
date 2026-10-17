@@ -453,38 +453,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "POISONER",
      "indicators": [
       {
-       "text": "in the first instance"
-      },
-      {
-       "text": "to give way to"
+       "text": "to give way to",
+       "at": 40,
+       "note": "to give way to means one letter yields its place to another"
       }
      ],
      "parts": [
       {
-       "words": "Convict",
+       "words": "Convict's",
+       "at": 0,
        "gives": "PRISONER",
-       "note": "a convict is a prisoner"
+       "note": "a convict is a prisoner; the apostrophe s reads as is"
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R = right; the first R is removed"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "in the first instance",
+         "at": 17,
+         "note": "in the first instance means taking just the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 10,
+         "note": "first letter taken"
+        }
+       ]
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "O = old; it takes the R's place"
+       "at": 55,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner's legal right must yield to that of an old man who could be dangerous.",
-     "walkthrough": "PRISONER has two Rs; 'in the first instance' says only the first changes.",
-     "definitionFit": "A description with a hedge: someone who administers poison may or may not succeed, so 'potential killer' is fair."
+     "surface": "A convict insists he is entitled, in the first place, to step aside for an old man who might kill.",
+     "walkthrough": "'right, in the first instance' is R; that R in PRISONER is made 'to give way to' O for old.",
+     "definitionFit": "A poisoner kills or tries to kill with poison, so any poisoner is someone capable of murder."
     },
     "features": {
      "answerInScene": true,
@@ -514,51 +524,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ACAPULCO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Active",
+       "at": 0,
+       "gives": "A",
+       "note": "A is the grammar abbreviation for active"
+      },
+      {
+       "words": "California",
+       "at": 7,
+       "gives": "CA",
+       "note": "CA is the postal abbreviation for California"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "endlessly",
-         "note": "the last letter of 'couple' is dropped"
-        },
-        {
          "text": "dancing",
-         "note": "the remaining letters move about into a new order"
+         "at": 35,
+         "note": "dancing means moving about, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Active",
-         "gives": "A",
-         "note": "A = active, as in grammar"
-        },
-        {
-         "words": "California",
-         "gives": "CA",
-         "note": "the state's postal abbreviation"
-        },
-        {
-         "words": "couple",
-         "gives": "PULCO",
-         "note": "the word without its end, rearranged"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 25,
+           "note": "endlessly means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "couple",
+           "at": 18,
+           "note": "taken as written, as the letters to work on"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lively Californian pair dancing nonstop somewhere in town.",
-     "walkthrough": "The surface places the couple in a city; that last word is the definition.",
-     "definitionFit": "A definition by category: the answer is a resort city on Mexico's Pacific coast."
+     "surface": "An energetic Californian couple dance the night away in a resort city.",
+     "walkthrough": "'endlessly' cuts COUPLE to COUPL, and 'dancing' rearranges it to PULCO after A and CA. Acapulco is the Mexican resort city on the Pacific.",
+     "definitionFit": "Acapulco is a large Mexican port and beach resort, so it is a city."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Active"
+     "misdirectedWord": "dancing"
     }
    }
   },
@@ -580,44 +602,31 @@
      {
       "text": "Help",
       "at": 0
-     },
-     {
-      "text": "insight",
-      "at": 35
      }
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ABET",
+     "spelt": "ABET",
      "indicators": [
       {
        "text": "for one paying attention",
-       "note": "a listener hears the word rather than reading it"
+       "at": 9,
+       "note": "one paying attention is listening, so the word is taken as it is heard"
       }
      ],
      "parts": [
       {
-       "words": "Help",
-       "gives": "ABET",
-       "note": "a plain synonym, usually of helping in wrongdoing"
-      },
-      {
-       "op": "homophone",
-       "spelt": "INCITE",
-       "parts": [
-        {
-         "words": "insight",
-         "gives": "INSIGHT",
-         "note": "heard rather than read, this is a word meaning to urge on"
-        }
-       ]
+       "words": "insight",
+       "at": 35,
+       "gives": "INCITE",
+       "note": "insight, heard, is the word incite"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The second definition only works by ear: 'insight' sounds like 'incite', which does mean to egg on, as the answer does.",
-     "definitionFit": "Both senses are encouragement: to help someone, especially in crime, and to incite, the word that 'insight' sounds like."
+     "surface": "Someone asks for assistance, or at least some understanding if you are listening.",
+     "walkthrough": "'insight' looks like a second meaning on its own, but only by ear does it work: heard by 'one paying attention' it is 'incite', which means the same as the answer.",
+     "definitionFit": "To abet is to help or encourage someone, usually in wrongdoing, as in aiding and abetting."
     },
     "features": {
      "answerInScene": false,
@@ -1358,38 +1367,65 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PISCES",
      "indicators": [
       {
-       "text": "covering"
+       "text": "covering",
+       "at": 31,
+       "note": "covering means one letter is laid over another and hides it, taking its place"
       },
       {
-       "text": "central"
+       "text": "central",
+       "at": 40,
+       "note": "central points to the letter in the middle of the word as the one replaced"
       }
      ],
      "parts": [
       {
        "words": "bits",
+       "at": 9,
        "gives": "PIECES",
-       "note": "bits = pieces"
+       "note": "pieces are bits"
       },
       {
-       "words": "trail of debris",
-       "gives": "S",
-       "note": "the last letter of debris"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 48,
+         "note": "the source of a word is where it starts, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "explosion",
+         "at": 58,
+         "note": "first letter taken"
+        }
+       ]
       },
       {
-       "words": "source of explosion",
-       "gives": "E",
-       "note": "the first letter of explosion; the middle E of PIECES is the one replaced"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "trail of",
+         "at": 15,
+         "note": "the trail of something is what comes at its end, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "debris",
+         "at": 24,
+         "note": "last letter taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A home blown to pieces, rubble strewn across the heart of the blast.",
-     "walkthrough": "'House' is astrological: each sign of the zodiac is a house.",
-     "definitionFit": "An astrological sense: the twelve zodiac signs are called houses, and the Fish is the last of them."
+     "surface": "A house lies in pieces after an explosion, with debris strewn over its centre.",
+     "walkthrough": "In PIECES, the E at the centre is the 'source of explosion', and the S from the 'trail of debris' is 'covering' it. House means a sign of the zodiac in astrology.",
+     "definitionFit": "In astrology the zodiac is divided into twelve houses, and Pisces, the fish, is one of those signs."
     },
     "features": {
      "answerInScene": false,
@@ -1618,43 +1654,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ARCADIAN",
      "indicators": [
       {
        "text": "gets",
-       "note": "the islander takes on something new"
+       "at": 22,
+       "note": "gets goes with for: the islander gets one letter in exchange for another"
       },
       {
-       "text": "for"
+       "text": "for",
+       "at": 32,
+       "note": "for means in place of, so one letter is swapped for the other"
       }
      ],
      "parts": [
       {
        "words": "Scots islander",
+       "at": 7,
        "gives": "ORCADIAN",
-       "note": "an Orcadian is from Orkney"
-      },
-      {
-       "words": "acre",
-       "gives": "A",
-       "note": "A = acre"
+       "note": "an Orcadian is a native of Orkney, the Scottish islands"
       },
       {
        "words": "nothing",
+       "at": 36,
        "gives": "O",
-       "note": "O looks like zero; it is replaced"
+       "note": "O is the round figure zero, nothing"
+      },
+      {
+       "words": "acre",
+       "at": 27,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer from the Scottish islands acquires land for free.",
-     "walkthrough": "Orkney is an island group off northern Scotland; its people are Orcadians.",
-     "definitionFit": "A literary sense: Arcadia, a Greek region, became the poets' ideal of simple country life, so the adjective means idyllically rustic."
+     "surface": "A countryman from the Scottish islands is given an acre of land free.",
+     "walkthrough": "'for nothing' looks like 'free of charge' but means in place of O. Arcadia was the idealised pastoral region of Greek poetry.",
+     "definitionFit": "Arcadian describes the simple, idyllic country life of Arcadia, so it means rural or pastoral."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "nothing"
     }
    }
