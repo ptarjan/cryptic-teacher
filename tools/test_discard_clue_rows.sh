@@ -44,7 +44,10 @@ eval "$(sed -n '/^puzzle_spec() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^clues_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^puzzle_specs() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^restore_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n "/^under_index_lock() {/,/^}/p" "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^worker_salvage() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+SALVAGE_ROOT="$tree/.git/salvage"
 ALERTS="$tree/alerts"
 alert() { echo "$*" >>"$ALERTS"; }
 
