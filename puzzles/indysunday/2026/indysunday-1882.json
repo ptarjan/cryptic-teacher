@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -520,41 +521,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "beginning to",
-       "note": "'beginning to' points at where a word starts rather than at what it means, and a word starts with exactly one letter."
+       "text": "through",
+       "at": 36,
+       "note": "through here means passing inside the French word for wee"
       }
      ],
      "parts": [
       {
        "words": "wee in Paris",
+       "at": 44,
        "gives": "PETIT",
-       "note": "'petit' is French for small, and Paris is the instruction to say it in French"
+       "note": "petit is French for small, i.e. wee"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "through",
-         "note": "'through' is passage right into the middle, so the letter is planted inside the other piece instead of tacked on an end."
+         "text": "beginning to",
+         "at": 16,
+         "note": "only the first letter of splash is wanted"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "beginning to splash",
-         "gives": "S",
-         "select": "first",
-         "note": "the first letter of the word that follows"
+         "words": "splash",
+         "at": 29,
+         "note": "its first letter S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Wee' is the hinge of the joke: the surface wants the toilet sense, with the dog and the splash to help, while the wordplay wants the Scots sense, small.",
-     "definitionFit": "Watch dog, say → PET-SIT: to pet-sit is to mind someone's animal while they are away, and the 'say' offers a dog as one example of such an animal."
+     "surface": "A dog's toilet stop described with some French thrown in.",
+     "walkthrough": "'Wee' looks like the toilet sense, but it means small, and 'in Paris' asks for the French word.",
+     "definitionFit": "To pet-sit is to look after someone's animal while they are away, and a dog is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wee"
     }
    }
   },
@@ -631,32 +638,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ANNEOFCLEVES",
+     "spelt": "ANNEOFCLEVES",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of two words, and his name in a clue is the instruction to do it."
+       "at": 0,
+       "note": "Dr Spooner swapped the opening sounds of words, so the sounds of the phrase get exchanged"
       }
      ],
      "parts": [
       {
-       "words": "family all named after original matriarch",
-       "gives": "CLANOFEVES",
-       "note": "a family is a clan, and everyone sharing the name of the first woman in Genesis is one of the Eves"
+       "words": "family",
+       "at": 10,
+       "gives": "CLAN",
+       "note": "a clan is a family group"
       },
       {
-       "unchecked": true,
-       "words": "Spooner's",
-       "gives": "ANNEOFCLEVES",
-       "soundsLike": "CLAN OF EVES",
-       "note": "say that phrase, then move the CL from the front of the first word to the front of the last"
+       "op": "homophone",
+       "spelt": "EVES",
+       "parts": [
+        {
+         "words": "all named after original matriarch",
+         "at": 17,
+         "gives": "EEVZ",
+         "note": "of Eves: everyone named after Eve, the first mother; EEVZ is how Eves is said"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Spoonerisms are worked backwards: build the innocent phrase the clue describes first, then shuffle its opening sounds and see what famous name falls out.",
-     "definitionFit": "Definition by example: she was Henry VIII's fourth wife, and so queen consort of England for the six months that the marriage lasted."
+     "surface": "A family history in which every woman is named after the first ancestor.",
+     "walkthrough": "The phrase is 'clan of Eves'; 'Spooner's' swaps its opening sounds, the CL of clan moving to Eves, so 'an of Cleves' is heard: 'Anne of Cleves'.",
+     "definitionFit": "Anne of Cleves was the fourth wife of Henry VIII and so briefly Queen of England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "matriarch"
     }
    }
   },
@@ -742,36 +762,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAFARI",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "'mostly' means all but a little, and the little you leave out is the final letter — here it does that job to two separate words."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means not quite all, so each word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "free of risk",
-         "gives": "SAF",
-         "note": "a four-letter word for out of danger, docked of its last letter"
+         "at": 20,
+         "gives": "SAFE",
+         "note": "safe means free of risk"
         },
         {
-         "words": "very dry",
-         "gives": "ARI",
-         "note": "a four-letter word for parched land, docked the same way"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "very dry",
+       "at": 37,
+       "gives": "ARI",
+       "note": "arid means very dry, and the same 'mostly' trims it to its first three letters"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "One indicator doing two jobs is the thing to spot here: 'mostly' is placed early and reaches over the 'and' to trim both halves alike.",
-     "definitionFit": "Hunting trip → SAFARI: Swahili for a journey, the word entered English specifically for the big-game expedition, so the hunting sense is its original one."
+     "surface": "A description of a hunting trip that is mostly safe in a dry climate.",
+     "walkthrough": "'Mostly' does double duty: it trims SAFE to SAF and ARID to ARI.",
+     "definitionFit": "A safari is an expedition in Africa, traditionally to hunt or observe wild animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -949,40 +978,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROUTINE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 11,
+       "note": "the money goes inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "into",
-         "note": "'into' names a destination rather than a sum of money, so the piece before it is planted inside the piece after it."
-        },
-        {
          "text": "abroad",
-         "note": "'abroad' means scattered far and wide, so the four letters it governs are spread out into a different order."
+         "at": 21,
+         "note": "abroad suggests being scattered widely, so the letters of Euro are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Euro",
-         "gives": "ROUE",
-         "note": "the currency's four letters, spread into a new order"
-        },
-        {
-         "words": "money",
-         "gives": "TIN",
-         "note": "tin is old British slang for cash"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "money",
+       "at": 5,
+       "gives": "TIN",
+       "note": "tin is slang for money"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Turn' wants to be an instruction to reverse something. It is the definition instead, in the music-hall sense: a single act on a variety bill.",
-     "definitionFit": "Turn → ROUTINE: a performer's turn is their routine, the set piece they go on and do — a theatrical sense of the noun, not rotation."
+     "surface": "Advice to exchange your cash into euros when travelling abroad.",
+     "walkthrough": "'Turn' reads as a verb in the surface but is the noun, a stage act; tin is old slang for cash.",
+     "definitionFit": "A routine is a set act or performance, as a comedian's turn on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Turn"
     }
    }
   },
@@ -1049,39 +1086,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GODDAMN",
      "indicators": [
       {
        "text": "turning to",
-       "note": "'turning to' is a change of allegiance: whatever it names first walks out, and whatever it names next takes over that place."
+       "at": 20,
+       "note": "the one changes into the new letters, so I is swapped out"
       }
      ],
      "parts": [
       {
        "words": "gin",
-       "note": "the spirit, spelled out — these are the letters the swap happens inside"
+       "at": 8,
+       "gives": "GIN",
+       "note": "taken as written"
       },
       {
        "words": "one",
+       "at": 16,
        "gives": "I",
-       "note": "the Roman numeral, and the letter that is about to leave"
+       "note": "I is the Roman numeral for one"
       },
       {
-       "words": "rum",
-       "gives": "ODD",
-       "note": "rum is an old British adjective meaning strange or peculiar"
-      },
-      {
-       "words": "in the morning",
-       "gives": "AM",
-       "note": "the half of the clock before noon"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rum",
+         "at": 31,
+         "gives": "ODD",
+         "note": "rum means odd, strange"
+        },
+        {
+         "words": "in the morning",
+         "at": 35,
+         "gives": "AM",
+         "note": "AM, ante meridiem, before noon"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two spirits in a row make the surface look like a drinks order, and only the first is a drink in the wordplay — the second is an adjective, the third a numeral.",
-     "definitionFit": "Hateful → GODDAMN: used as an adjective it is what you spit at something you detest, so it carries exactly that loathing rather than mere emphasis."
+     "surface": "A drinker's grumble about gin giving way to rum at breakfast time.",
+     "walkthrough": "'Rum' looks like the drink beside gin, but it means odd.",
+     "definitionFit": "Goddamn is an intensifying curse word, so something goddamn is cursed or hateful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rum"
     }
    }
   },
