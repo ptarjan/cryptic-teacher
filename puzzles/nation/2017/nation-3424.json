@@ -1118,54 +1118,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "VOID",
+     "op": "composite",
      "indicators": [
       {
        "text": "Defective",
-       "note": "a defective object is broken, so its letters are reassembled in another order"
+       "at": 0,
+       "note": "something defective is faulty or broken, so these letters are scrambled"
+      },
+      {
+       "text": "missing",
+       "at": 17,
+       "note": "missing tells you a letter is absent from the fodder before the rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "VOID",
+       "words": "video",
+       "at": 10,
+       "note": "anagram fodder"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "missing",
-         "note": "something missing is absent, so those letters are taken away"
+         "text": "last fragment of",
+         "at": 25,
+         "note": "the last fragment of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "words": "video",
-         "note": "taken as written"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last fragment of",
-           "note": "the last fragment of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tape",
-           "note": "the final letter of the word"
-          }
-         ]
+         "words": "tape",
+         "at": 42,
+         "note": "source of the final letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A faulty videocassette has lost the end of its tape and plays nothing but blank screen.",
-     "walkthrough": "VIDEO loses its E, the final letter of tape, and the remaining VIDO is rearranged.",
-     "definitionFit": "Void means containing nothing, a straight synonym of empty."
+     "surface": "A faulty videotape is blank because its end is missing.",
+     "walkthrough": "'Last fragment of' tape is E; with E 'missing' from VIDEO, VIDO is left, and 'Defective' rearranges it.",
+     "definitionFit": "Void as an adjective means containing nothing, a synonym for vacant or blank."
     },
     "features": {
      "answerInScene": true,
