@@ -49,44 +49,31 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PETSOUNDS",
+     "op": "homophone",
+     "spelt": "PETSOUNDS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so his version of a phrase trades its initial consonants"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "assigned",
-         "gives": "PET",
-         "soundsLike": "SET",
-         "note": "assigned means set; it takes the P sound from the next word in the swap"
-        },
-        {
-         "unchecked": true,
-         "words": "money",
-         "gives": "SOUNDS",
-         "soundsLike": "POUNDS",
-         "note": "British money is counted in pounds; it takes the S sound from the previous word"
-        }
-       ]
+       "words": "assigned money",
+       "at": 10,
+       "gives": "SETPOUNDS",
+       "note": "to set is to assign, and pounds are British money: set pounds, an allotted sum"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone muses about the budget set aside to buy a classic rock record.",
-     "walkthrough": "SET POUNDS, said with the first sounds exchanged, becomes PET SOUNDS.",
-     "definitionFit": "Pet Sounds is the celebrated 1966 studio record by the Beach Boys, an example of a pop-rock LP."
+     "surface": "A Spoonerism of 'set pounds' gives the title of a famous rock album.",
+     "walkthrough": "'Spooner's' swaps the opening S of SET and P of POUNDS. Pet Sounds is the 1966 album by the Beach Boys.",
+     "definitionFit": "Pet Sounds is the celebrated 1966 LP by the Beach Boys, a landmark record of the rock era."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "assigned"
     }
@@ -327,50 +314,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEDUCTION",
+     "op": "composite",
      "indicators": [
       {
        "text": "Barking",
-       "note": "barking means mad in British slang, so the letters go crazy and end up rearranged"
+       "at": 0,
+       "note": "barking means mad, so the letters of the quoted phrase are thrown into disorder"
       },
       {
        "text": "funny",
-       "note": "funny means odd or peculiar, so the letters to be removed appear scrambled rather than in order"
+       "at": 41,
+       "note": "funny in the sense of peculiar, so the letters of the second word may be taken in any order"
+      },
+      {
+       "text": "ignoring",
+       "at": 32,
+       "note": "ignoring means leaving out, so those letters are removed from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SEDUCTION",
-       "indicators": [
-        {
-         "text": "ignoring",
-         "note": "to ignore something is to leave it out of account, so those letters are dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I couldn't care less",
-         "note": "the quoted phrase taken letter by letter"
-        },
-        {
-         "words": "caller's",
-         "note": "these letters, in any order, are removed from the phrase"
-        }
-       ]
+       "words": "I couldn't care less",
+       "at": 9,
+       "note": "taken as written, the whole quoted phrase is the letter pool"
+      },
+      {
+       "words": "caller's",
+       "at": 47,
+       "note": "taken as written, its letters are taken out of the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "A nutty caller trying to woo someone shouts that they couldn't care less.",
-     "walkthrough": "Strike the letters of CALLERS from I COULDN'T CARE LESS, leaving IOUDNTCES, then rearrange. 'Funny' tells you the removed letters are not in a block.",
-     "definitionFit": "Seduction is the art of enticing or winning someone over, which is a sense of charm used as a noun."
+     "surface": "Someone yells that they couldn't care less, brushing off the charm of an amusing visitor.",
+     "walkthrough": "Strike the letters of CALLERS ('funny', so in any order) from I COULDN'T CARE LESS ('ignoring'), and 'Barking' mixes the nine left into the answer.",
+     "definitionFit": "Seduction is the act of enticing or winning someone over, so it can stand for charm or allure."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Barking"
     }
@@ -526,36 +507,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RESOLVE",
      "indicators": [
       {
        "text": "taking over from first",
-       "note": "taking over from someone means replacing them, and first says the earliest occurrence is the one swapped out"
+       "at": 23,
+       "note": "taking over from means replacing, and first points at the earlier of the two matching letters"
       }
      ],
      "parts": [
       {
        "words": "turn",
+       "at": 7,
        "gives": "REVOLVE",
-       "note": "to turn round"
-      },
-      {
-       "words": "South",
-       "gives": "S",
-       "note": "compass abbreviation"
+       "note": "to revolve is to turn round"
       },
       {
        "words": "victor",
+       "at": 46,
        "gives": "V",
-       "note": "V is Victor in the radio alphabet"
+       "note": "V is Victor in the NATO phonetic alphabet"
+      },
+      {
+       "words": "South",
+       "at": 17,
+       "gives": "S",
+       "note": "S is the compass abbreviation for South"
       }
      ]
     },
     "explanation": {
-     "surface": "A team decides its next move after the South side takes over from the earlier winner.",
-     "walkthrough": "In REVOLVE the first V is replaced by S.",
-     "definitionFit": "To resolve is to make up your mind firmly, a close synonym of determining a course."
+     "surface": "A competitor decides to turn south and overtake the leader.",
+     "walkthrough": "REVOLVE has two Vs; 'taking over from first' means only the first V gives way to S.",
+     "definitionFit": "To resolve is to make up one's mind firmly, the same as deciding."
     },
     "features": {
      "answerInScene": false,
@@ -585,45 +568,33 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DETESTED",
+     "op": "container",
      "indicators": [
       {
-       "text": "opposing views",
-       "note": "people with opposing views face opposite directions, so one of the pair is turned round"
+       "text": "about",
+       "at": 40,
+       "note": "about means around, so the two outer pieces surround the trial"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "DETESTED",
-       "indicators": [
-        {
-         "text": "taking",
-         "note": "to take something is to hold it, so the outer pieces hold another between them"
-        }
-       ],
-       "parts": [
-        {
-         "words": "journos",
-         "gives": "EDED",
-         "note": "two editors, ED each"
-        },
-        {
-         "words": "trial",
-         "gives": "TEST",
-         "note": "a trial or test run"
-        }
-       ]
+       "words": "journos taking opposing views",
+       "at": 10,
+       "gives": "DEED",
+       "note": "journos are eds, editors; two of them facing opposite ways give DE and ED"
+      },
+      {
+       "words": "trial",
+       "at": 46,
+       "gives": "TEST",
+       "note": "a test is a trial"
       }
      ]
     },
     "explanation": {
-     "surface": "Unpleasant reporters argue both sides of a court case.",
-     "walkthrough": "The two EDs face opposite ways, one turned round, with the test between them.",
-     "definitionFit": "Something obnoxious is loathed or hated, so detested here is an adjective describing the hated thing."
+     "surface": "Journalists with opposed views quarrel over a trial, which makes them hateful.",
+     "walkthrough": "Opposing views means the two eds face each other, one read backwards, and 'about' wraps them round the trial.",
+     "definitionFit": "Something detested is loathed and found offensive, which is what obnoxious describes."
     },
     "features": {
      "answerInScene": false,
@@ -1010,37 +981,31 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ACCOLADE",
+     "op": "composite",
      "indicators": [
       {
        "text": "can be organised",
-       "note": "organising things puts them into a new arrangement, so the combined letters are rearranged"
+       "at": 8,
+       "note": "organised in the sense of put in order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ACCOLADE",
-       "parts": [
-        {
-         "words": "social distance",
-         "note": "the phrase taken letter by letter"
-        },
-        {
-         "words": "Sit-ins",
-         "note": "these letters are part of the mix that makes the phrase"
-        }
-       ]
+       "words": "social distance",
+       "at": 51,
+       "note": "taken as written, this is what the rearranged letters must make"
+      },
+      {
+       "words": "Sit-ins",
+       "at": 0,
+       "note": "taken as written, the letters added to the answer to form the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "Protest sit-ins can be run in a way that wins praise for keeping people apart.",
-     "walkthrough": "A compound anagram: SIT-INS plus the answer can be rearranged into SOCIAL DISTANCE, so take SIT-INS out of SOCIAL DISTANCE and rearrange what is left.",
-     "definitionFit": "An accolade is an award or honour granted as praise, originally the ceremonial touch conferring knighthood."
+     "surface": "Protest organisers claim sit-ins can be run in a way that respects social distancing.",
+     "walkthrough": "This is a composite anagram read backwards: SIT-INS together with the answer ('such') rearrange to SOCIAL DISTANCE, so take SITINS out of that phrase and the rest make the answer.",
+     "definitionFit": "An accolade is an award or expression of praise, a form of public recognition."
     },
     "features": {
      "answerInScene": false,
@@ -1595,32 +1560,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EGRET",
+     "op": "middle",
      "indicators": [
       {
        "text": "having clipped wings",
-       "note": "a word's wings are its outer edges, and clipping trims them, so the first and last letters are cut"
+       "at": 10,
+       "note": "the wings of a word are its two ends, so the first and last letters are removed"
       }
      ],
      "parts": [
       {
        "words": "rues",
+       "at": 5,
        "gives": "REGRETS",
-       "note": "regrets is a verb meaning rues"
+       "note": "to rue something is to regret it, so rues means regrets"
       }
      ]
     },
     "explanation": {
-     "surface": "A bird is sorry that its wings have been trimmed.",
-     "walkthrough": "Wings are the outer edges of a word, so both ends of REGRETS go.",
-     "definitionFit": "An egret is a white wading heron with long legs, a specific kind of feathered creature."
+     "surface": "A bird with clipped wings is sorry it can no longer fly.",
+     "walkthrough": "'clipped wings' looks like part of the bird's story, but it trims the outer letters of the word meaning rues.",
+     "definitionFit": "An egret is a white heron, a wading bird of marshes and shores."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "wings"
     }
    }
