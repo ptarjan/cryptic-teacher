@@ -235,28 +235,31 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "RECAST",
      "indicators": [
       {
        "text": "amidships",
-       "note": "amidships is the middle part of a vessel, so only the central letters of the word are kept"
+       "at": 32,
+       "note": "amidships points to the middle of the vessel, so only the central stretch of the word is kept"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "ship's crew quarters",
-       "gives": "RECAST",
-       "select": "middle",
-       "note": "the forecastle is the forward part of a ship where the crew lived; drop two letters from each end"
+       "op": "middle",
+       "parts": [
+        {
+         "words": "ship's crew quarters",
+         "at": 11,
+         "gives": "FORECASTLE",
+         "note": "the forecastle, or fo'c'sle, is the forward part of a ship where the crew live"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A refit of the sailors' sleeping area in the middle of the vessel.",
-     "walkthrough": "FORECASTLE (often 'fo'c'sle') is the crew's quarters; its middle six letters give the answer.",
-     "definitionFit": "To recast something is to give it a new form or shape, so recast means reshaped or reworked."
+     "surface": "A ship's crew quarters have been remodelled in the middle of the vessel.",
+     "walkthrough": "FORECASTLE loses two letters from each end, FO and LE, to leave its middle.",
+     "definitionFit": "Recast means formed again in a new shape, which is remodelled."
     },
     "features": {
      "answerInScene": false,
@@ -286,36 +289,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INACTIVATION",
-     "indicators": [
-      {
-       "text": "failing to begin",
-       "note": "failing to begin means the opening letter is lost from the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "where play begins",
+       "at": 14,
+       "gives": "INACTI",
+       "note": "a play begins in Act I, the opening act"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to begin",
+         "at": 46,
+         "note": "failing to begin means the word for applause loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "where play begins",
-         "gives": "INACTI",
-         "note": "a play starts in Act One, written IN ACT I"
+         "words": "applause",
+         "at": 37,
+         "gives": "OVATION",
+         "note": "an ovation is a burst of applause"
         },
         {
-         "words": "applause",
-         "gives": "VATION",
-         "note": "an ovation without its first letter"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The moment a theatre show starts, marked by clapping that never quite gets going.",
-     "definitionFit": "Inactivation is the act of rendering something inactive, as when a process or device is stopped or turned off."
+     "surface": "The curtain rises on a play but the applause does not get going.",
+     "walkthrough": "'where play begins' reads as a stage direction but is the phrase IN ACT I; OVATION without its first letter gives VATION.",
+     "definitionFit": "Inactivation is the act of making something inactive, which is turning it off."
     },
     "features": {
      "answerInScene": false,
@@ -345,52 +353,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAPROBE",
+     "op": "container",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "shortly asks for a word cut down, here to a common abbreviated form"
+       "text": "in",
+       "at": 37,
+       "note": "the A and shortened worry go in, inside, the compass letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in tells us these pieces are placed inside the compass letters that follow"
-        }
-       ],
+       "words": "southeast",
+       "at": 40,
+       "gives": "SE",
+       "note": "SE is the compass abbreviation for southeast"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "southeast",
-           "gives": "SE",
-           "note": "compass abbreviation, the outer letters"
-          },
-          {
-           "words": "A",
-           "note": "taken as written"
-          }
-         ]
+         "words": "A",
+         "at": 21
         },
         {
-         "words": "worry",
-         "gives": "PROB",
-         "note": "a problem, shortened to its informal abbreviation"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortly",
+           "at": 29,
+           "note": "shortly says the word for worry is cut down to its short form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "worry",
+           "at": 23,
+           "gives": "PROBLEM",
+           "note": "a problem is a worry; PROB is its everyday abbreviation"
+          },
+          {
+           "gives": "LEM"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An environmental question: is the spread of contamination in the southeast becoming a concern?",
-     "walkthrough": "The question mark flags that 'growth' is a living organism, not an increase.",
-     "definitionFit": "A saprobe is an organism living on decaying matter, typically thriving in foul or polluted water."
+     "surface": "Someone asks whether growing pollution is an issue in the southeast of England.",
+     "walkthrough": "PROB is the common short form of problem; A and PROB go inside SE.",
+     "definitionFit": "A saprobe is an organism that lives on decaying matter, typically in polluted water, so it thrives amid pollution; the question mark flags this."
     },
     "features": {
      "answerInScene": true,
@@ -420,42 +433,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARCHILOCHIAN",
-     "indicators": [
-      {
-       "text": "turned out",
-       "note": "turned out suggests the word is turned inside out, its letters rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "dye",
+       "at": 7,
+       "gives": "ARCHIL",
+       "note": "archil, or orchil, is a violet dye got from lichens"
+      },
+      {
+       "words": "old",
+       "at": 11,
+       "gives": "O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turned out",
+         "at": 21,
+         "note": "turned out as in turned inside out, so the letters of China are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "dye",
-         "gives": "ARCHIL",
-         "note": "archil is a violet dye made from lichens"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "common abbreviation"
-        },
-        {
          "words": "China",
-         "gives": "CHIAN",
-         "note": "the word rearranged"
+         "at": 15,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sour-tasting colouring that antique porcelain once produced.",
-     "walkthrough": "Archilochus was a Greek poet famed for savage satire, hence bitter verse is called Archilochian.",
-     "definitionFit": "Archilochian describes the savage, biting satire of the poet Archilochus, so it can mean caustic or venomous."
+     "surface": "A dye from old China turned out to be bitter, as if a cloth faded badly.",
+     "walkthrough": "Archil is a lichen dye; the anagram of CHINA gives CHIAN.",
+     "definitionFit": "Archilochian describes the savage, biting satire of the Greek poet Archilochus, so it means bitter or venomous."
     },
     "features": {
      "answerInScene": false,
@@ -591,37 +604,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REZA",
-     "indicators": [
-      {
-       "text": "promoting",
-       "note": "promoting moves something up, so a letter is taken from its place to be set higher"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "king",
+       "at": 37,
+       "gives": "R",
+       "note": "R is the abbreviation for king, from Latin rex"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "promoting",
+         "at": 27,
+         "note": "promoting the king moves its letter up from the end of the book name to the front"
+        }
+       ],
        "parts": [
         {
-         "words": "king",
-         "gives": "R",
-         "note": "Rex"
+         "words": "book",
+         "at": 22,
+         "gives": "EZRA",
+         "note": "Ezra is a book of the Old Testament"
         },
         {
-         "words": "book",
-         "gives": "EZA",
-         "note": "the Old Testament book Ezra, losing its king letter"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A volume about Persian royalty that celebrates its monarch.",
-     "walkthrough": "In a down entry, promoting the R of EZRA moves it to the top.",
-     "definitionFit": "Reza was the given name of Reza Shah and his son, members of Iran's Pahlavi royal dynasty."
+     "surface": "A royal Iranian's name appears in a book that promotes the king.",
+     "walkthrough": "In a down clue promotion is a move upwards: the R of EZRA rises to the top, leaving EZA below it.",
+     "definitionFit": "Reza is a Persian given name, borne by Reza Shah Pahlavi and his grandson the crown prince."
     },
     "features": {
      "answerInScene": true,
@@ -709,43 +726,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AYRE",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "beheaded means the first letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "sadly",
-         "note": "sadly signals the letters are in a sorry, disordered state"
+         "at": 15,
+         "note": "sadly suggests things have gone wrong, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Mary",
-         "gives": "ARY",
-         "note": "without its first letter"
-        },
-        {
-         "words": "note",
-         "gives": "E",
-         "note": "a musical note"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "beheaded",
+           "at": 5,
+           "note": "beheaded means Mary loses her first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Mary",
+           "at": 0,
+           "note": "without its M it gives ARY"
+          },
+          {
+           "gives": "M"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "note",
+       "at": 21,
+       "gives": "E",
+       "note": "E is a musical note"
       }
      ]
     },
     "explanation": {
-     "surface": "Mary Queen of Scots lost her head, a sorrowful tune for her cousin Elizabeth.",
-     "walkthrough": "Elizabeth I ordered the execution of Mary Queen of Scots, so the surface is historically apt; ayre is the Elizabethan spelling.",
-     "definitionFit": "Ayre is an old spelling of air, a melody or song, as in the lute songs of Tudor composers."
+     "surface": "Mary, Queen of Scots, was beheaded, and a sad tune is played for Elizabeth I.",
+     "walkthrough": "Elizabeth I had Mary, Queen of Scots, executed, which gives the surface; here ARY is rearranged to AYR before E is added.",
+     "definitionFit": "Ayre is the Elizabethan spelling of air, a song or tune, as in the lute ayres of Dowland."
     },
     "features": {
      "answerInScene": true,
@@ -775,40 +801,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEG",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "after beheading",
-       "note": "beheading removes the first letter of the word"
+       "text": "returning",
+       "at": 10,
+       "note": "returning means coming back, so the letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "returning",
-         "note": "returning means the word goes back, read from right to left"
+         "text": "after beheading",
+         "at": 26,
+         "note": "after beheading means once the word for years has lost its first letter"
         }
        ],
        "parts": [
         {
          "words": "years",
-         "gives": "GES",
-         "note": "ages, minus its first letter"
+         "at": 20,
+         "gives": "AGES",
+         "note": "ages means years, a long time"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ancient shrub regrowing after being cut back for years.",
-     "definitionFit": "Seg is an old dialect word for sedge, a grass-like plant of marshy ground."
+     "surface": "An old plant comes back after its flower heads are cut off, years later.",
+     "walkthrough": "AGES without its head is GES, which then reads backwards.",
+     "definitionFit": "Seg is an obsolete or dialect word for sedge, a grass-like marsh plant."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "beheading"
     }
@@ -1174,43 +1205,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STAMMEL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "shortly means the word is cut short by its final letter"
+       "text": "after",
+       "at": 32,
+       "note": "the reversed bracts come after the sun letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "sun",
+       "at": 38,
+       "gives": "S"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "after",
-         "note": "after places these words below the letter for sun in the down answer"
+         "text": "springing up",
+         "at": 11,
+         "note": "in a down clue, springing up means the letters read upwards, that is backwards"
         }
        ],
        "parts": [
         {
-         "words": "sun",
-         "gives": "S",
-         "note": "common abbreviation"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "springing up",
-           "note": "in a down entry, springing up means the word reads upwards, bottom to top"
+           "text": "shortly",
+           "at": 24,
+           "note": "shortly means the word is cut short by its last letter"
           }
          ],
          "parts": [
           {
            "words": "bracts",
-           "gives": "LEMMAT",
-           "note": "lemmata, the plural of lemma, a bract in a grass flower, cut short"
+           "at": 4,
+           "gives": "LEMMATA",
+           "note": "lemmata, plural of lemma, are the lower bracts of a grass flower"
+          },
+          {
+           "gives": "A"
           }
          ]
         }
@@ -1219,12 +1255,12 @@
      ]
     },
     "explanation": {
-     "surface": "Crimson leaf structures shooting upward soon after sunshine arrives.",
-     "walkthrough": "Lemmata are the bracts enclosing grass florets; botany and red flowers make the surface plausible.",
-     "definitionFit": "Stammel is an old coarse woollen cloth usually dyed red, and the name passed to that bright red colour."
+     "surface": "Red bracts shoot up on a plant soon after sunshine.",
+     "walkthrough": "A lemma is a bract in a grass flower; LEMMATA cut short is LEMMAT, which reads upwards as TAMMEL after S.",
+     "definitionFit": "Stammel is a coarse woollen cloth usually dyed red, and the name was used for its bright red colour."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Red"
     }
@@ -1556,46 +1592,58 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TRALATICIOUS",
-     "indicators": [
-      {
-       "text": "when tenor replaces verse",
-       "note": "replaces tells us one letter is swapped out for another inside the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "refrain",
+       "at": 12,
        "gives": "TRALA",
-       "note": "tra-la, a nonsense chorus in a song"
+       "note": "tra-la is a sung refrain of nonsense syllables"
       },
       {
-       "words": "impaired",
-       "gives": "VICIOUS",
-       "note": "vicious in its old sense of faulty or defective"
-      },
-      {
-       "words": "tenor",
-       "gives": "T",
-       "note": "abbreviation"
-      },
-      {
-       "words": "verse",
-       "gives": "V",
-       "note": "abbreviation"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "when",
+         "at": 29,
+         "note": "when sets the condition: the word for impaired is taken with one letter swapped"
+        },
+        {
+         "text": "replaces",
+         "at": 40,
+         "note": "the tenor letter takes the place of the verse letter in the word for impaired"
+        }
+       ],
+       "parts": [
+        {
+         "words": "impaired",
+         "at": 20,
+         "gives": "VICIOUS",
+         "note": "vicious in its old sense means faulty or defective, impaired"
+        },
+        {
+         "words": "verse",
+         "at": 49,
+         "gives": "V"
+        },
+        {
+         "words": "tenor",
+         "at": 34,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old chorus spoiled when a tenor sings instead of the usual lines.",
-     "definitionFit": "Tralatitious means handed down from one generation to another, so customary and inherited, like a tradition."
+     "surface": "A traditional song's chorus has been spoiled because a tenor sang in place of the verse.",
+     "walkthrough": "Vicious once meant defective or corrupted, as in a vicious circle; swapping its V for T gives TICIOUS.",
+     "definitionFit": "Tralaticious means handed down from generation to generation, which is what traditional means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "refrain"
+     "misdirectedWord": "tenor"
     }
    }
   },
@@ -1620,37 +1668,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LATHI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "showing final abandonment",
-       "note": "abandoning the final letter means the word loses its end"
+       "text": "on",
+       "at": 11,
+       "note": "in a down clue, one piece on another is placed above it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "note",
+       "at": 6,
+       "gives": "LA",
+       "note": "la is the sixth note of the sol-fa scale"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "showing final abandonment",
+         "at": 19,
+         "note": "the last letter of this is abandoned, dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "note",
-         "gives": "LA",
-         "note": "the sixth note of the sol-fa scale"
+         "words": "this",
+         "at": 14,
+         "note": "without its S it gives THI"
         },
         {
-         "words": "this",
-         "gives": "THI",
-         "note": "without its last letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pinning a memo to this page to record giving up at the end.",
-     "walkthrough": "A lathi is a heavy bamboo staff used by Indian police.",
-     "definitionFit": "A lathi is a long, heavy stick or club, often iron-bound, used in India and South Asia."
+     "surface": "Someone sticks a note on this, showing they have finally given up.",
+     "walkthrough": "'Stick' looks like a verb about pinning a note, but it is the noun, the definition.",
+     "definitionFit": "A lathi is a long heavy stick, often iron-bound, used as a weapon by police in South Asia."
     },
     "features": {
      "answerInScene": false,
