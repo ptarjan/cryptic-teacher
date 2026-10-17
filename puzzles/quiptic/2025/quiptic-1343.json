@@ -596,40 +596,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FRUITSALAD",
-     "indicators": [
-      {
-       "text": "excited about",
-       "note": "To be excited about a thing is to be stirred up around it, and stirred letters come out in some other order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "French",
+       "at": 0,
+       "gives": "FR"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 24,
+         "note": "about means around, so the jumbled letters surround the single letter a"
+        }
+       ],
        "parts": [
         {
-         "words": "French",
-         "gives": "FR",
-         "note": "fr is the dictionary's short form of French"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "excited",
+           "at": 16,
+           "note": "excited means stirred up, so the letters of adult is are thrown into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "adult is",
+           "at": 7,
+           "note": "taken as written"
+          }
+         ]
         },
         {
-         "words": "adult is excited about a",
-         "gives": "UITSALAD",
-         "note": "the seven letters of ADULT IS and the A they are excited about, eight in all, set down afresh"
+         "words": "a",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grown-up from France getting worked up about something chilly.",
-     "walkthrough": "'Adult' is usually a single letter off a film certificate, and here the whole word is fodder instead. 'Cold' belongs to the definition, not to the shuffle beside it.",
-     "definitionFit": "A fruit salad is chopped fruit served in its own juice, eaten cold at the end of a meal."
+     "surface": "A grown-up Frenchman gets thrilled about a chilled pudding.",
+     "walkthrough": "'excited' rearranges ADULT IS to UITSALD, and 'about' wraps it round A, which goes between L and D; FR comes first.",
+     "definitionFit": "Fruit salad is a mixture of chopped fresh fruit, usually served chilled as a pudding."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "excited"
     }
