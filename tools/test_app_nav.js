@@ -188,14 +188,12 @@ assert(run({ last: null }).tab("puzzle").href === ORIGIN + "/", "with no ct:last
   assert(man.display === "standalone" && man.start_url === "./" && man.scope === "./", "manifest is standalone, start_url and scope the site root");
   const css = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
   assert(/\.tabbar a \{[^}]*touch-action: manipulation/.test(css), "tab links drop the tap delay");
-  assert(/\.tabbar a\.pressed/.test(css), "tab links have a pressed state");
+  assert(!/\.tabbar a\.pressed/.test(css) && /\.tabbar a:active[^}]*background: none/.test(css), "tab links have no pressed pill");
   assert(/@view-transition \{ navigation: auto; \}/.test(css), "cross-document view transition is on");
-  const r = run({ page: "/learn/" });
+  const r = run({ page: "/", app: true });
   const a = r.tab("puzzle");
-  a.handlers.pointerdown();
-  assert(a.classList.contains("pressed"), "pointerdown lights the tab at once");
-  a.handlers.pointerup();
-  assert(!a.classList.contains("pressed"), "pointerup clears the pressed state");
+  a.handlers.pointerdown({ button: 0, preventDefault() {} });
+  a.handlers.click({ preventDefault() {} });
   const app = run({ page: "/learn/" }).head.children.map((c) => c.href).join(" ");
   assert(app.includes(ORIGIN + "/"), "a static page prefetches the app");
   const fromApp = run({ page: "/", app: true }).head.children.map((c) => c.href).join(" ");
