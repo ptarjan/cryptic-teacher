@@ -47,60 +47,70 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HORIZONTAL",
      "indicators": [
       {
        "text": "on either side of",
-       "note": "two things standing on either side of something enclose it, so one letter goes at each end"
+       "at": 23,
+       "note": "the two opening letters go one at each end, flanking what follows"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "in a random way",
-         "note": "doing something randomly means the letters of the words before it lose their order and get rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "openings",
-           "note": "an opening is where a word starts, so only the first letter of each of the two words is kept"
+           "at": 14,
+           "note": "a word's opening is its first letter; the plural covers both High and low"
           }
          ],
          "parts": [
           {
            "words": "High",
-           "note": "the opening letter of high"
+           "at": 1,
+           "note": "the word whose first letter is taken"
           }
          ]
         },
         {
-         "words": "zoo!\" I rant",
-         "note": "the letters rearranged, exclamation mark and quote marks ignored"
+         "words": "low",
+         "at": 10,
+         "gives": "L",
+         "note": "the opening, or first letter, of low, under the same 'openings'"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a random way",
+         "at": 54,
+         "note": "letters set out in a random way are scrambled, so zoo and I rant are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "zoo",
+         "at": 41,
+         "note": "taken as written, part of the scrambled letters"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "low",
-           "note": "the opening letter of low"
-          }
-         ]
+         "words": "I rant",
+         "at": 47,
+         "note": "taken as written, the rest of the scrambled letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone at a zoo shouts about the openings of the cages and rants wildly.",
-     "walkthrough": "The surface puts the zoo inside a quotation; the punctuation is decoration. The answer, HORIZONTAL, describes the very entry it fills, the first across.",
-     "definitionFit": "An across entry runs left to right in the grid, which is to say level, parallel to the horizon."
+     "surface": "Someone shouts about high and low gateways at a zoo, and admits to ranting at random.",
+     "walkthrough": "'Openings' sounds like zoo gates, but it picks the first letters of 'High' and 'low', which go 'on either side of' ORIZONTA, the letters of zoo and I rant scrambled 'in a random way'. 'Like this entry' points at the grid.",
+     "definitionFit": "The entry runs across the top row of the grid, so it is level, lying flat like the horizon."
     },
     "features": {
      "answerInScene": false,
