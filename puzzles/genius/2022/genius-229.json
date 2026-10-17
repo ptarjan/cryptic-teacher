@@ -591,48 +591,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SAWBONES",
-     "indicators": [
-      {
-       "text": "replaced by",
-       "note": "one thing replaced by another means a letter is swapped out for a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Noted",
+       "at": 0,
        "gives": "SAW",
-       "note": "to note something is to see it, past tense saw"
+       "note": "to have noted something is to have seen it"
       },
       {
-       "words": "drills",
-       "gives": "BORES",
-       "note": "to drill is to bore"
-      },
-      {
-       "words": "radius",
-       "gives": "R",
-       "note": "r is the symbol for radius"
-      },
-      {
-       "words": "noon",
-       "gives": "N",
-       "note": "N is an abbreviation for noon"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replaced by",
+         "at": 33,
+         "note": "says that one letter is swapped out and another put in its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drills",
+         "at": 14,
+         "gives": "BORES",
+         "note": "drills holes, that is, bores"
+        },
+        {
+         "words": "radius",
+         "at": 26,
+         "gives": "R",
+         "note": "R is the standard abbreviation for radius in geometry"
+        },
+        {
+         "words": "noon",
+         "at": 45,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A famous surgeon practises drilling, with a bone of the forearm involved.",
-     "walkthrough": "'Noted surgeon' reads as a famous doctor and 'radius' as the arm bone, but radius only supplies R, which N replaces in BORES.",
-     "definitionFit": "Sawbones is old slang for a surgeon, from the days when amputation was a large part of the work."
+     "surface": "A celebrated surgeon's drills, with one measurement swapped for midday.",
+     "walkthrough": "'Noted' reads as 'famous' describing the surgeon, but it is the past tense of note, meaning saw. In BORES the R gives way to N, leaving BONES.",
+     "definitionFit": "Sawbones is old slang for a doctor who cuts, from the days when amputation was the surgeon's main work."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "radius"
+     "misdirectedWord": "Noted"
     }
    }
   },
@@ -972,60 +978,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "stored",
-       "note": "something stored is put away inside a container"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "gold",
-         "gives": "OR",
-         "note": "the first part of OR, the heraldic word for gold, opens around the stored letters"
-        },
-        {
-         "words": "vessel",
-         "gives": "SHIP",
-         "note": "a ship is a vessel"
-        }
-       ]
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "WNE",
+       "op": "container",
        "indicators": [
         {
-         "text": "oddly",
-         "note": "oddly keeps the letters in odd-numbered positions"
+         "text": "stored",
+         "at": 13,
+         "note": "something stored is kept within a container, so these letters go inside"
+        },
+        {
+         "text": "in",
+         "at": 31,
+         "note": "with 'stored', says where the letters are put: within the word for gold"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Winner",
-         "gives": "WNE",
-         "select": "alternate",
-         "note": "first, third and fifth letters"
+         "words": "gold",
+         "at": 34,
+         "gives": "OR",
+         "note": "OR is gold in heraldry"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly",
+           "at": 7,
+           "note": "take the odd-numbered letters only: first, third, fifth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Winner",
+           "at": 0,
+           "note": "the word whose odd letters are taken"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "vessel",
+       "at": 39,
+       "gives": "SHIP",
+       "note": "a ship is a sea vessel"
       }
      ]
     },
     "explanation": {
-     "surface": "A champion kept their trophy inside a golden boat.",
-     "walkthrough": "OR is gold in heraldry; the odd letters of 'Winner' are stored inside it, then SHIP follows.",
-     "definitionFit": "Ownership is the state of possessing something, so possession is a direct synonym."
+     "surface": "A winner's prize kept as a possession inside a golden vessel, like a trophy.",
+     "walkthrough": "'oddly' takes W, N and E from Winner, which go inside OR, the heraldic word for gold, to make OWNER.",
+     "definitionFit": "Ownership is the state of having something as one's own property, the same idea as possession."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Winner"
+     "misdirectedWord": "oddly"
     }
    }
   },
@@ -1511,56 +1522,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BELUGA",
-     "indicators": [
-      {
-       "text": "to keep",
-       "note": "to keep something is to hold it inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "at": 4,
+         "note": "one word keeping another holds it inside, so these letters go within"
+        }
+       ],
        "parts": [
         {
          "words": "Ask",
-         "gives": "BE",
-         "note": "start of BEG, to ask, which holds the middle letters"
+         "at": 0,
+         "gives": "BEG",
+         "note": "to ask humbly is to beg"
         },
         {
          "op": "middle",
          "indicators": [
           {
            "text": "guts of",
-           "note": "guts are innards, so only the middle letters are kept"
+           "at": 12,
+           "note": "the guts are the inside, so take the middle letters, dropping the ends"
           }
          ],
          "parts": [
           {
            "words": "blue",
-           "note": "the inner two letters"
+           "at": 20,
+           "note": "the word whose middle letters are taken"
           }
          ]
-        },
-        {
-         "words": "Ask",
-         "gives": "G",
-         "note": "end of BEG"
-        },
-        {
-         "words": "accepted",
-         "gives": "A",
-         "note": "A is an abbreviation for accepted"
         }
        ]
+      },
+      {
+       "words": "accepted",
+       "at": 32,
+       "gives": "A",
+       "note": "A is an abbreviation for accepted, as on a bill of exchange"
       }
      ]
     },
     "explanation": {
-     "surface": "A request to keep a blue whale's innards is granted.",
-     "definitionFit": "The beluga is a small white Arctic whale, also called the white whale."
+     "surface": "A plea to save the innards of a blue whale, and the plea is granted.",
+     "walkthrough": "'guts of' blue drops its outer letters, and 'to keep' puts those inside the word for ask, making BELUG. A for accepted is a commercial abbreviation, as on a bill of exchange.",
+     "definitionFit": "The beluga is a small white Arctic cetacean, also called the white whale."
     },
     "features": {
      "answerInScene": true,
@@ -1591,31 +1601,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MADHOUSE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner famously swapped the opening sounds of words, so the sounds are exchanged"
+       "at": 0,
+       "note": "Spooner, the don famous for swapping the starts of words, signals that the opening sounds trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "fooled Mickey",
-       "gives": "MADHOUSE",
-       "soundsLike": "HAD MOUSE",
-       "note": "fooled is had, and Mickey is the cartoon mouse; swap their opening sounds"
+       "words": "fooled",
+       "at": 24,
+       "gives": "HAD",
+       "note": "to have someone fooled is to have had them"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MOUSE",
+       "parts": [
+        {
+         "words": "Mickey",
+         "at": 31,
+         "gives": "MOWSE",
+         "note": "Mickey Mouse, the Disney cartoon character; the Spoonerism works on the spoken sound of the word, written here as it is said"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chaotic place where someone has fooled Mickey Mouse.",
-     "walkthrough": "The definition again sits inside the wordplay, between the indicator and the words to be swapped.",
-     "definitionFit": "A madhouse is a scene of uproar and confusion, from the old word for an asylum."
+     "surface": "Asking whether some chaotic place had tricked the famous cartoon mouse.",
+     "walkthrough": "'Spooner's' says to swap the opening sounds: HAD MOUSE becomes MAD HOUSE.",
+     "definitionFit": "A madhouse is literally an old word for an asylum and figuratively any scene of uproar and confusion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "Mickey"
