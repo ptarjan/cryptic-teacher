@@ -594,50 +594,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CALICO",
-     "indicators": [
-      {
-       "text": "turn",
-       "note": "to turn the word round is to read it from the other end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CALICO",
        "indicators": [
         {
          "text": "briefly",
-         "note": "briefly means cut short, so the word loses its final letter"
-        },
-        {
-         "text": "after scratching flanks",
-         "note": "scratching the flanks strikes out the letters on both sides of the word"
+         "at": 19,
+         "note": "briefly means cut short, so the word can loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "can",
-         "note": "taken as written"
+         "at": 15
         },
         {
-         "words": "docile",
-         "note": "taken as written"
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 27,
+         "note": "to turn something here is to send it the other way, so the trimmed letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "after scratching flanks",
+           "at": 39,
+           "note": "scratching the flanks rubs out the outer letters on each side, leaving the inside of docile"
+          }
+         ],
+         "parts": [
+          {
+           "words": "docile",
+           "at": 32,
+           "note": "the middle of docile, without its first and last letters"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wild beast with spots may calm down once you stop it clawing at its sides.",
-     "definitionFit": "A calico is a cat with a blotched coat of white, black and orange, so a spotted or patched animal."
+     "surface": "A spotted creature can quickly become tame once its sides have been scratched.",
+     "walkthrough": "'briefly' trims CAN to CA; 'scratching flanks' strips DOCILE to OCIL, which 'turn' reverses to follow CA.",
+     "definitionFit": "A calico is a cat with a mottled coat of white, black and orange patches, so it is spotted."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "scratching"
     }
    }
