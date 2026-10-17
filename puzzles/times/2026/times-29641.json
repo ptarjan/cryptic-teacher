@@ -46,72 +46,84 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, X on Y puts X after Y"
+       "at": 11,
+       "note": "in an across answer, one piece sitting on another follows it, so the rupture piece comes after"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "forces jumper",
+       "at": 50,
+       "gives": "PARA",
+       "note": "a para is a paratrooper, a soldier of the forces who jumps from aircraft"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "trapping",
-         "note": "the rupture holds the next letters inside it"
+         "text": "closer to",
+         "at": 64,
+         "note": "the closer of a word is its final letter, so take the end of drop"
         }
        ],
        "parts": [
         {
-         "words": "forces jumper",
-         "gives": "PARA",
-         "note": "a para is a paratrooper, the forces' jumper"
-        },
-        {
-         "words": "closer to drop",
+         "words": "drop",
+         "at": 74,
          "gives": "P",
-         "note": "last letter of drop"
-        },
-        {
-         "words": "rupture",
-         "gives": "HERNIA",
-         "note": "a hernia is a rupture"
+         "note": "its last letter is P"
         }
        ]
       },
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "closer",
-         "note": "the closer of a word is its final letter"
+         "text": "trapping",
+         "at": 22,
+         "note": "the rupture word traps the two abbreviations inside it"
         }
        ],
        "parts": [
         {
-         "words": "acceleration",
-         "gives": "A",
-         "note": "a = acceleration in physics"
+         "words": "rupture",
+         "at": 14,
+         "gives": "HERNIA",
+         "note": "a hernia is a rupture of the body wall"
         },
         {
-         "words": "line",
-         "gives": "L",
-         "note": "l = line"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "acceleration",
+           "at": 31,
+           "gives": "A",
+           "note": "A is the physics symbol for acceleration"
+          },
+          {
+           "words": "line",
+           "at": 44,
+           "gives": "L"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A skydiving kit list: the gear, the risk of injury and the moment the jumper leaves the plane.",
-     "walkthrough": "The skydiving picture makes 'forces jumper' read as a description of someone at the plane door, when it is the source of letters. A para is a paratrooper, so a forces jumper.",
-     "definitionFit": "Paraphernalia is the equipment or gear needed for an activity."
+     "surface": "A parachutist with a hernia struggles with kit, a picture of military mishap before a jump.",
+     "walkthrough": "'Closer to drop' is the last letter of drop, P. HERNIA 'trapping' AL makes HERNALIA, which goes 'on' (after) PARA and P.",
+     "definitionFit": "Paraphernalia is the miscellaneous gear and articles needed for an activity, which is what equipment means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "jumper"
+     "misdirectedWord": "closer"
     }
    }
   },
@@ -132,54 +144,59 @@
     "definitions": [
      {
       "text": "It's assumed",
-      "at": 0,
-      "note": "a clause standing for the noun: a presupposition is something that is assumed"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "redirected",
-       "note": "the letters are sent off in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "something done regularly happens at even intervals, so the letters are taken at even steps through the word"
+         "text": "redirected",
+         "at": 28,
+         "note": "mail that is redirected is sent on a different path, so these letters are sent into a new order"
         }
        ],
        "parts": [
         {
-         "words": "posties rip up",
-         "note": "anagram fodder, 12 letters"
+         "words": "posties",
+         "at": 13
         },
         {
-         "op": "regular",
-         "unchecked": true,
-         "gives": "ON",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "letters regularly in town",
-           "gives": "ON",
-           "select": "regular",
-           "note": "the second and fourth letters of tOwN"
-          }
-         ]
+         "words": "rip",
+         "at": 21
+        },
+        {
+         "words": "up",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "regular",
+       "indicators": [
+        {
+         "text": "letters regularly in",
+         "at": 39,
+         "note": "taking letters at regular intervals from the following word means every second one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "town",
+         "at": 60,
+         "note": "its second and fourth letters are O and N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Townsfolk take for granted that postmen tear up and misroute their mail.",
-     "walkthrough": "'Rip up' looks like the anagram indicator, but it is fodder; 'redirected' does the mixing, fitting the postal picture. A posty is a British colloquial word for a postman.",
-     "definitionFit": "A presupposition is a thing tacitly assumed beforehand."
+     "surface": "Postmen tear up misdirected mail in town, a postal scandal.",
+     "walkthrough": "'Redirected' rearranges POSTIES RIP UP into PRESUPPOSITI; 'letters regularly in' town takes its even letters, ON.",
+     "definitionFit": "A presupposition is something taken for granted beforehand, the thing that is assumed."
     },
     "features": {
      "answerInScene": false,
@@ -701,66 +718,69 @@
     "definitions": [
      {
       "text": "policies",
-      "at": 50,
-      "note": "plural for singular: a manifesto is a published set of policies"
+      "at": 50
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MANIFESTO",
+     "indicators": [
+      {
+       "text": "plugging",
+       "at": 25,
+       "note": "the three short pieces plug a gap in the country, sitting inside it"
+      }
+     ],
      "parts": [
       {
        "op": "cycling",
        "indicators": [
         {
-         "text": "plugging",
-         "note": "the first pieces fill a gap in the country"
-        },
-        {
          "text": "cycling",
-         "note": "the first letter moves round to the end"
+         "at": 42,
+         "note": "cycling moves a letter round from the front of the country's name to its end"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "country",
-           "gives": "OMAN",
-           "note": "Oman, the Gulf state"
-          },
-          {
-           "words": "One",
-           "gives": "I",
-           "note": "I = one"
-          },
-          {
-           "words": "fellow",
-           "gives": "F",
-           "note": "f = fellow"
-          },
-          {
-           "words": "is in France",
-           "gives": "EST",
-           "note": "est is French for 'is'"
-          }
-         ]
+         "words": "country",
+         "at": 34,
+         "gives": "OMAN",
+         "note": "Oman is a country on the Arabian Peninsula"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "fellow",
+         "at": 4,
+         "gives": "F"
+        },
+        {
+         "words": "is in France",
+         "at": 11,
+         "gives": "EST",
+         "note": "est is the French for is"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man in France plugging a nation's green transport plans.",
-     "walkthrough": "'Cycling policies' pretends to be about bikes; 'cycling' belongs to the country, moving its first letter to the back. The inserted pieces go in before the final letter.",
-     "definitionFit": "A loose collective sense: an election manifesto is the document in which a party lists its policies."
+     "surface": "A lone man in France campaigns over a country's cycling policy.",
+     "walkthrough": "'Cycling' OMAN moves its O to the end, giving MANO; IFEST is 'plugging' it, sitting inside.",
+     "definitionFit": "A manifesto is a published statement of a party's aims and intended policies."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -958,45 +978,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "backside",
-       "note": "the back end of the word, its last letter"
+       "text": "beneath",
+       "at": 30,
+       "note": "the bishop's letter goes beneath, that is in front of, the robed word in the across reading"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
-         "text": "without introduction",
-         "note": "the first letter is dropped"
+         "text": "backside",
+         "at": 21,
+         "note": "the backside of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "bishop's backside",
+         "words": "bishop's",
+         "at": 12,
          "gives": "P",
-         "select": "last",
-         "note": "last letter of bishop"
+         "note": "its last letter, ignoring the apostrophe, is P"
         }
        ]
       },
       {
-       "words": "beneath robes, without introduction",
-       "gives": "RESSED",
-       "note": "beneath robes = DRESSED, minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without introduction",
+         "at": 45,
+         "note": "the introduction of a word is its first letter, which is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "robes",
+         "at": 38,
+         "gives": "DRESSED",
+         "note": "to be in robes is to be dressed; the blogger reads this as robed, meaning dressed"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scandalous pinch of a bishop's bottom under his vestments.",
-     "walkthrough": "Anyone beneath robes is dressed; dropping its D leaves RESSED after the P.",
-     "definitionFit": "Pressed is the past tense of press, to squeeze."
+     "surface": "A cheeky line about squeezing a bishop's bottom under his vestments.",
+     "walkthrough": "The bishop's 'backside' is P. The wordplay needs DRESSED, robed (the blog reads 'robed'); 'without introduction' drops its D, leaving RESSED, and P sits 'beneath' it, in front in this across answer.",
+     "definitionFit": "To press something is to squeeze it, and the past tense matches the past-tense verb did."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "backside"
@@ -1063,69 +1098,68 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "gathering",
-       "note": "the pieces take the next letter inside them"
+       "at": 30,
+       "note": "the word on gathers up the information letter, taking it in alongside itself"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Street",
+       "at": 0,
+       "gives": "ST"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "lead from",
-         "note": "the lead is what goes in front, so the opening letter of information"
+         "text": "evacuated",
+         "at": 17,
+         "note": "an evacuated word has had its inside emptied, leaving only its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "evacuated",
-           "note": "emptied, leaving only the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Street",
-           "note": "st = street"
-          }
-         ]
-        },
-        {
-         "words": "apartment evacuated",
+         "words": "apartment",
+         "at": 7,
          "gives": "AT",
-         "note": "outer letters of apartment"
-        },
-        {
-         "words": "on",
-         "note": "used as itself"
+         "note": "its outer letters are A and T"
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "I",
+       "indicators": [
+        {
+         "text": "lead from",
+         "at": 40,
+         "note": "the lead of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lead from information",
+         "words": "information",
+         "at": 50,
          "gives": "I",
-         "select": "first",
-         "note": "first letter of information"
+         "note": "its first letter is I"
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 27,
+       "gives": "ON",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Residents cleared from a flat, gathered round for news from a broadcaster.",
-     "walkthrough": "'On' is not a link here: it is the letters themselves, and it joins the emptied apartment before the pair gathers the lead letter.",
-     "definitionFit": "A broadcasting sense: a radio or TV station is the channel you tune to."
+     "surface": "A street's flats are cleared while someone gathers news from an information channel.",
+     "walkthrough": "ST, then apartment 'evacuated' leaves AT; the 'lead from' information is I, which on gathers to make ION.",
+     "definitionFit": "A station is a broadcasting channel, as in a TV or radio station."
     },
     "features": {
      "answerInScene": true,
@@ -1415,67 +1449,72 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STAMPALBUM",
-     "indicators": [
-      {
-       "text": "outside",
-       "note": "the first pieces go round the city"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 37,
+         "note": "the small and pound letters sit outside, around, the city"
+        }
+       ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "s = small"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "small",
+           "at": 25,
+           "gives": "S",
+           "note": "S is the clothing-size abbreviation for small"
+          },
+          {
+           "words": "pound",
+           "at": 31,
+           "gives": "LB",
+           "note": "LB is the abbreviation for a pound in weight"
+          }
+         ]
         },
         {
          "words": "US city",
+         "at": 45,
          "gives": "TAMPA",
-         "note": "Tampa, Florida"
-        },
+         "note": "Tampa is a city in Florida"
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 53,
+       "gives": "U"
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "pound",
-         "gives": "LB",
-         "note": "lb = pound weight"
-        },
+         "text": "centre of",
+         "at": 64,
+         "note": "the centre of a word is its middle letter"
+        }
+       ],
+       "parts": [
         {
-         "words": "university",
-         "gives": "U",
-         "note": "u = university"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
+         "words": "mathematics",
+         "at": 74,
          "gives": "M",
-         "indicators": [
-          {
-           "text": "centre of",
-           "note": "the centre of a word is the letter at its exact middle"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "centre of mathematics",
-           "gives": "M",
-           "select": "middle",
-           "note": "sixth, middle letter of the eleven in mathematics"
-          }
-         ]
+         "note": "its sixth of eleven letters, the middle one, is M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Where an American city's university keeps a small pound and a maths centre.",
-     "walkthrough": "S and LB wrap round TAMPA; 'pound' looks like a verb or money but is the weight abbreviation.",
-     "definitionFit": "A descriptive definition: a philatelist's stamps are mounted in the book, so it is where the collection lives."
+     "surface": "Where a collection is kept, in a mock address: small pound by a US city's university maths centre.",
+     "walkthrough": "S and LB go 'outside' TAMPA to make STAMPALB; U and M, the 'centre of' mathematics, follow.",
+     "definitionFit": "A stamp album is the book in which a philatelist keeps and displays a collection of stamps."
     },
     "features": {
      "answerInScene": false,
@@ -1652,40 +1691,37 @@
      "parts": [
       {
        "words": "As far as",
+       "at": 0,
        "gives": "TO",
-       "note": "to = up as far as"
+       "note": "to means as far as, as in 'up to the door'"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "NGA",
        "indicators": [
         {
          "text": "tips of",
-         "note": "the tip of each word is its first letter"
+         "at": 10,
+         "note": "the tips of words are their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "tips of northern Greenland's Arctic",
-         "gives": "NGA",
-         "select": "first",
-         "note": "first letters of northern, Greenland's, Arctic"
+         "words": "northern Greenland's Arctic",
+         "at": 18,
+         "note": "the first letters of these three words are N, G and A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Arctic island group at the far northern tip of Greenland.",
-     "walkthrough": "The surface is all polar, but the answer is in the South Pacific.",
-     "definitionFit": "Tonga is a Polynesian kingdom made up of a group of islands."
+     "surface": "A geographical note about reaching the far tips of Arctic Greenland.",
+     "definitionFit": "Tonga is a Polynesian kingdom made up of over 170 islands in the South Pacific, an archipelago."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Arctic"
+     "misdirectedWord": "Greenland's"
     }
    }
   },
