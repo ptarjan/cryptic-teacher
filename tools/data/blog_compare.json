@@ -1,30 +1,30 @@
 {
  "_why": "Our annotations against the blogs' marked facts (tools/blog_compare.py). Rates are disagreements per clue where both sides mark that fact; `due` is each puzzle's clues still disagreeing, unfiled in blog_disagree.json, which tools/prereset_backfill.sh re-checks. A disagreement is a prompt to check, not an overwrite.",
  "coverage": {
-  "blog_hinted_clues": 535661,
+  "blog_hinted_clues": 535752,
   "blog_hinted_partial_puzzles": 3,
-  "blog_hinted_puzzles": 19640,
-  "blog_marked_clues": 528653,
-  "clues": 1690985,
-  "puzzles": 56637,
-  "unhinted_clues": 1135240,
-  "unhinted_puzzles": 38243
+  "blog_hinted_puzzles": 19644,
+  "blog_marked_clues": 528744,
+  "clues": 1695826,
+  "puzzles": 56797,
+  "unhinted_clues": 1139557,
+  "unhinted_puzzles": 38385
  },
  "summary": {
   "azed": {
    "blocks_compared": 9320,
-   "blocks_disagree": 31,
-   "blocks_kept": 2,
+   "blocks_disagree": 22,
+   "blocks_kept": 12,
    "clues": 16649,
    "definition_compared": 15038,
-   "definition_disagree": 26,
-   "definition_kept": 4,
+   "definition_disagree": 23,
+   "definition_kept": 8,
    "type_compared": 9785,
-   "type_disagree": 63,
-   "type_kept": 7,
-   "definition_rate": 0.17,
-   "blocks_rate": 0.33,
-   "type_rate": 0.64
+   "type_disagree": 60,
+   "type_kept": 9,
+   "definition_rate": 0.15,
+   "blocks_rate": 0.24,
+   "type_rate": 0.61
   },
   "cryptic": {
    "blocks_compared": 23803,
@@ -80,19 +80,19 @@
    "type_rate": 0.96
   },
   "genius": {
-   "blocks_compared": 2052,
+   "blocks_compared": 2071,
    "blocks_disagree": 8,
    "blocks_kept": 2,
-   "clues": 3085,
-   "definition_compared": 2470,
+   "clues": 3109,
+   "definition_compared": 2487,
    "definition_disagree": 1,
    "definition_kept": 4,
-   "type_compared": 1425,
+   "type_compared": 1443,
    "type_disagree": 28,
    "type_kept": 6,
    "definition_rate": 0.04,
    "blocks_rate": 0.39,
-   "type_rate": 1.96
+   "type_rate": 1.94
   },
   "independent": {
    "blocks_compared": 23609,
@@ -183,13 +183,13 @@
    "type_rate": 1.7
   },
   "telegraph": {
-   "blocks_compared": 6660,
+   "blocks_compared": 6662,
    "blocks_disagree": 1,
-   "clues": 21317,
+   "clues": 21339,
    "definition_compared": 17892,
    "definition_disagree": 11,
    "definition_kept": 2,
-   "type_compared": 5286,
+   "type_compared": 5289,
    "type_disagree": 46,
    "type_kept": 5,
    "definition_rate": 0.06,
@@ -228,21 +228,21 @@
    "clues": 31798,
    "definition_compared": 31352,
    "definition_disagree": 26,
-   "type_compared": 20131,
+   "type_compared": 20132,
    "type_disagree": 148,
    "definition_rate": 0.08,
    "blocks_rate": 0.01,
    "type_rate": 0.74
   },
   "timesquick": {
-   "blocks_compared": 20130,
+   "blocks_compared": 20151,
    "blocks_disagree": 8,
    "blocks_kept": 2,
-   "clues": 29209,
-   "definition_compared": 28967,
+   "clues": 29235,
+   "definition_compared": 28993,
    "definition_disagree": 8,
    "definition_kept": 1,
-   "type_compared": 20035,
+   "type_compared": 20050,
    "type_disagree": 102,
    "type_kept": 9,
    "definition_rate": 0.03,
@@ -263,12 +263,12 @@
    "type_rate": 0.69
   },
   "toughie": {
-   "blocks_compared": 3541,
-   "clues": 20827,
-   "definition_compared": 20159,
+   "blocks_compared": 3546,
+   "clues": 20852,
+   "definition_compared": 20184,
    "definition_disagree": 7,
    "definition_kept": 2,
-   "type_compared": 2908,
+   "type_compared": 2910,
    "type_disagree": 59,
    "type_kept": 1,
    "definition_rate": 0.03,
@@ -276,16 +276,16 @@
    "type_rate": 2.03
   },
   "ALL": {
-   "blocks_compared": 228236,
-   "blocks_disagree": 97,
-   "blocks_kept": 12,
-   "clues": 401390,
-   "definition_compared": 374818,
-   "definition_disagree": 275,
-   "definition_kept": 42,
-   "type_compared": 220134,
-   "type_disagree": 1764,
-   "type_kept": 95,
+   "blocks_compared": 228283,
+   "blocks_disagree": 88,
+   "blocks_kept": 22,
+   "clues": 401487,
+   "definition_compared": 374886,
+   "definition_disagree": 272,
+   "definition_kept": 46,
+   "type_compared": 220173,
+   "type_disagree": 1761,
+   "type_kept": 97,
    "definition_rate": 0.07,
    "blocks_rate": 0.04,
    "type_rate": 0.8
@@ -322,60 +322,60 @@
     "warning": "typed 'substitution', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2015/03/08/azed-2230/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2320",
-    "entry": "28-down",
-    "clue": "Debauches after turning up in bordello",
-    "answer": "STEW",
-    "warning": "typed 'reversal', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2016/11/27/azed-2320/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2329",
+    "entry": "5-down",
+    "clue": "Dialect roughened, spoken with Provençal intruding",
+    "answer": "SPRAID",
+    "warning": "typed 'container', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2017/02/05/azed-2329/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2353",
-    "entry": "29-across",
-    "clue": "Some extra software a learned cleric installed?",
-    "answer": "ADDIN",
-    "warning": "typed 'charade', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2017/07/23/azed-2353/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2354",
+    "entry": "11-across",
+    "clue": "Orcadian dwarf in boat rowing … one such",
+    "answer": "TROW",
+    "warning": "typed 'hidden word', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2017/07/30/azed-2354/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2370",
-    "entry": "25-down",
-    "clue": "Lizard that a Cockney's found in his old sock?",
-    "answer": "ANOLE",
-    "warning": "typed 'homophone', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2017/11/19/azed-2370/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2380",
+    "entry": "13-across",
+    "clue": "Myself and friend mum's enveloped in fantastic jumper",
+    "answer": "IMPALA",
+    "warning": "typed 'anagram', but Fifteensquared parses it as 'charade + container' (https://fifteensquared.net/2018/01/28/azed-2380/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2412",
-    "entry": "4-down",
-    "clue": "Speak in service once? Was hesitant doing so",
-    "answer": "STUTTERED",
-    "warning": "typed 'double definition', but Fifteensquared parses it as 'container' (https://fifteensquared.net/2018/09/09/azed-2412/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "azed-2462",
-    "entry": "21-down",
-    "clue": "Sheep and a variety of hens",
-    "answer": "ANCONA",
-    "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2019/08/25/azed-2462/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2431",
+    "entry": "6-down",
+    "clue": "The old served special cuppas with qualified teacher?",
+    "answer": "STEADED",
+    "warning": "typed 'anagram', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2019/01/20/azed-2431-plain/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "azed-2469",
-    "entry": "4-down",
-    "clue": "Face deviation when climbing? Bet considered carefully",
-    "answer": "WAYLAID",
-    "warning": "typed 'charade + reversal', but Fifteensquared parses it as 'spoonerism' (https://fifteensquared.net/2019/10/13/azed-2469/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "entry": "1-across",
+    "clue": "Lake with sails initially hoisted in part? Argument risk past",
+    "answer": "PLOUGHWRIGHT",
+    "warning": "typed 'charade + container + letter selection', but Fifteensquared parses it as 'spoonerism' (https://fifteensquared.net/2019/10/13/azed-2469/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "azed-2469",
-    "entry": "23-across",
-    "clue": "River dropped, part of parchedness in Asian capital",
-    "answer": "DELPHI",
-    "warning": "typed 'letter selection + container', but Fifteensquared parses it as 'spoonerism' (https://fifteensquared.net/2019/10/13/azed-2469/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "entry": "13-down",
+    "clue": "Driller's pipe? Pair is briefly left inside alembic",
+    "answer": "SPELLICAN",
+    "warning": "typed 'container + charade', but Fifteensquared parses it as 'spoonerism' (https://fifteensquared.net/2019/10/13/azed-2469/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2511",
+    "puzzle": "azed-2475",
+    "entry": "1-across",
+    "clue": "Millions fail to get air in bed, it's strongly emphasized",
+    "answer": "COMMISSARIAT",
+    "warning": "typed 'charade + container', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2019/11/24/azed-2475/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2569",
     "entry": "26-down",
-    "clue": "Empty bull, I do protest!",
-    "answer": "BLAH",
-    "warning": "typed 'double definition', but Fifteensquared parses it as 'letter selection' (https://fifteensquared.net/2020/08/02/azed-no-2511-plain/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+    "clue": "Ritual drink: state portions to be exchanged",
+    "answer": "HAOMA",
+    "warning": "typed 'cycling', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2021/09/12/azed-no-2569-plain-competition-puzzle/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    }
   ],
   "definition": [
@@ -394,74 +394,74 @@
     "warning": "definition \"Plough's components\" shares no word with the definition Fifteensquared underlined ('I brought into the market-place with spades', https://fifteensquared.net/2014/11/02/azed-2212/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2243",
-    "entry": "11-across",
-    "clue": "First love, over-demure to begin with",
-    "answer": "PRIMO",
-    "warning": "definition 'First' shares no word with the definition Fifteensquared underlined ('to begin with', https://fifteensquared.net/2015/06/07/azed-2243/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2264",
+    "entry": "22-across",
+    "clue": "Foreign racing driver, fantastically 'vite'? Here's panegyric",
+    "answer": "LAUDATIVE",
+    "warning": "definition 'panegyric' shares no word with the definition Fifteensquared underlined ('Foreign racing driver', https://fifteensquared.net/2015/11/01/azed-2264/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2300",
-    "entry": "18-across",
-    "clue": "Toxic substance that's ruined dinner",
-    "answer": "ENDRIN",
-    "warning": "definition 'Toxic substance' shares no word with the definition Fifteensquared underlined ('dinner', https://fifteensquared.net/2016/07/10/azed-2300mishmash/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2374",
+    "entry": "7-down",
+    "clue": "Part of the furniture in hall at Chequers?",
+    "answer": "LATCH",
+    "warning": "definition 'Part of the furniture' shares no word with the definition Fifteensquared underlined ('Chequers', https://fifteensquared.net/2017/12/17/azed-2374/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2469",
-    "entry": "6-down",
-    "clue": "Mocking ordinary fellow right inside creek",
-    "answer": "GIRO",
-    "warning": "definition 'Mocking ordinary fellow' shares no word with the definition Fifteensquared underlined ('right inside creek', https://fifteensquared.net/2019/10/13/azed-2469/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "azed-2573",
-    "entry": "6-down",
-    "clue": "Channel for water to flow in runnel",
-    "answer": "RIGOLL",
-    "warning": "definition 'Channel for water' shares no word with the definition Fifteensquared underlined ('runnel', https://fifteensquared.net/2021/10/10/azed-2573/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "azed-2702",
-    "entry": "17-across",
-    "clue": "I'll do a turn welcomed by king twice, or character representing him",
-    "answer": "ROGER",
-    "warning": "definition 'character representing him' shares no word with the definition Fifteensquared underlined (\"I'll do a turn\", https://fifteensquared.net/2024/04/07/azed-no-2702-plain/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "cryptic-29035",
-    "entry": "26-across",
-    "clue": "Parlay has a king thus functioning",
-    "answer": "INPLAY",
-    "warning": "definition 'Parlay has a king / thus' shares no word with the definition Fifteensquared underlined ('functioning', https://fifteensquared.net/2023/04/04/guardian-cryptic-29035-by-pasquale/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "cryptic-29375",
+    "puzzle": "azed-2553",
     "entry": "1-across",
-    "clue": "Quality of ladies very ordinary",
-    "answer": "BOGSTANDARD",
-    "warning": "definition 'very ordinary' shares no word with the definition Fifteensquared underlined ('Quality', https://fifteensquared.net/2024/05/06/guardian-29375-vulcan/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+    "clue": "Who's involved in it? Cited Ken Hom (not English)",
+    "answer": "KITCHENDOM",
+    "warning": "definition \"Who's involved in it? Cited Ken Hom (not English)\" shares no word with the definition Fifteensquared underlined ('it', https://fifteensquared.net/2021/05/23/azed-no-2553-plain/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-29416",
-    "entry": "21-down",
-    "clue": "Put your foot down (ostentatiously high-heeled?) to take part in this contest",
-    "answer": "DRAGRACE",
-    "warning": "definition 'Put your foot down / (ostentatiously high-heeled?)' shares no word with the definition Fifteensquared underlined ('this contest', https://fifteensquared.net/2024/06/29/guardian-prize-29416-by-brummie/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2667",
+    "entry": "21-across",
+    "clue": "Peter's friend powdered in talc containing fragrant oil",
+    "answer": "COTTONTAIL",
+    "warning": "definition \"Peter's friend\" shares no word with the definition Fifteensquared underlined ('fragrant oil', https://fifteensquared.net/2023/08/06/azed-no-2667-plain/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-29686",
-    "entry": "10-across",
-    "clue": "Going for this number is cheap",
-    "answer": "SONG",
-    "warning": "definition 'number' shares no word with the definition Fifteensquared underlined ('cheap', https://fifteensquared.net/2025/05/05/cryptic-crossword-no-29686-by-vulcan/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "cryptic-29032",
+    "entry": "13-down",
+    "clue": "Self-absorbed — extra time in first half would make very little difference",
+    "answer": "EGOISTICAL",
+    "warning": "definition 'extra time in first half / would make very little difference' shares no word with the definition Fifteensquared underlined ('Self-absorbed', https://fifteensquared.net/2023/03/31/guardian-29032-brendan/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-29928",
-    "entry": "16-across",
-    "clue": "Sad men could do this to atone",
-    "answer": "MAKEAMENDS",
-    "warning": "definition 'Sad men / could do this' shares no word with the definition Fifteensquared underlined ('atone', https://fifteensquared.net/2026/02/12/guardian-cryptic-crossword-no-29928-by-pasquale/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "cryptic-29269",
+    "entry": "27-down",
+    "clue": "Relative: 'M' for it in audible accent?",
+    "answer": "SIS",
+    "warning": "definition 'Relative' shares no word with the definition Fifteensquared underlined ('accent', https://fifteensquared.net/2024/01/03/guardian-29269-paul/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cryptic-29415",
+    "entry": "15-down",
+    "clue": "A walk in the park means a healthy 1 down without much exertion",
+    "answer": "EASYMONEY",
+    "warning": "definition 'a healthy 1 down without much exertion' shares no word with the definition Fifteensquared underlined ('walk in the park', https://fifteensquared.net/2024/06/21/guardian-cryptic-29415-by-fed/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cryptic-29657",
+    "entry": "25-across",
+    "clue": "House style announced",
+    "answer": "MANNER",
+    "warning": "definition 'style' shares no word with the definition Fifteensquared underlined ('House', https://fifteensquared.net/2025/04/01/guardian-cryptic-29657-by-ludvig/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cryptic-29908",
+    "entry": "11-across",
+    "clue": "Probability in relating to one sense organ — or another",
+    "answer": "OPTIC",
+    "warning": "definition 'relating to one sense organ' shares no word with the definition Fifteensquared underlined ('or another', https://fifteensquared.net/2026/01/20/guardian-29908-brendan/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cryptic-29982",
+    "entry": "6-down",
+    "clue": "Imposition of socialism would mean this immediately?",
+    "answer": "RIGHTAWAY",
+    "warning": "definition 'Imposition of socialism / would mean this' shares no word with the definition Fifteensquared underlined ('immediately', https://fifteensquared.net/2026/04/16/guardian-29982-pangakupu/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    }
   ],
   "blocks": [
@@ -481,38 +481,24 @@
    },
    {
     "puzzle": "azed-2318",
-    "entry": "19-across",
-    "clue": "Bright red hat tricked out with eels",
-    "answer": "SLEAHET",
-    "warning": "Fifteensquared reads 'Bright red' as SCARLET, and no block of ours spells it or takes those words (https://fifteensquared.net/2016/11/13/azed-2318-transgender/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+    "entry": "23-down",
+    "clue": "I cooked nut with hare, jugged perhaps?",
+    "answer": "INURTHEA",
+    "warning": "Fifteensquared reads 'jugged perhaps' as INURNED, and no block of ours spells it or takes those words (https://fifteensquared.net/2016/11/13/azed-2318-transgender/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2318",
-    "entry": "40-across",
-    "clue": "Has let stays burst? Very funny",
-    "answer": "HYSTTESSAAL",
-    "warning": "Fifteensquared reads 'Very funny' as HYSTERICAL, and no block of ours spells it or takes those words (https://fifteensquared.net/2016/11/13/azed-2318-transgender/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2362",
+    "entry": "23-down",
+    "clue": "Body waste gets dispersed in running water",
+    "answer": "EGESTA",
+    "warning": "Fifteensquared reads 'dispersed' as ANAGRAM, and no block of ours spells it or takes those words (https://fifteensquared.net/2017/09/24/azed-2362/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "azed-2500",
-    "entry": "27-across",
-    "clue": "Oil for cooking kingfisher's cousin, to set alongside peeled neep",
-    "answer": "TOEE",
-    "warning": "Fifteensquared reads 'to set' as DO, and no block of ours spells it or takes those words (https://fifteensquared.net/2020/05/17/azed-no-2500-half-and-half-competition-puzzle/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "azed-2636",
-    "entry": "16-down",
-    "clue": "Tree cone scattered round heart of Savernake, diagonally",
-    "answer": "TECORNERE",
-    "warning": "Fifteensquared reads 'diagonally' as CATERCORNERED, and no block of ours spells it or takes those words (https://fifteensquared.net/2023/01/01/azed-2636/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "azed-2688",
-    "entry": "21-down",
-    "clue": "Enthusiastic about north-east, acknowledge money",
-    "answer": "INTONE",
-    "warning": "Fifteensquared reads 'acknowledge' as OWN, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/01/08/azed-no-2688-a-cool-yomp-christmas-competition-puzzle/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "azed-2526",
+    "entry": "33-across",
+    "clue": "With troops in lines traditionally, representing command a Tory ignored",
+    "answer": "MAND",
+    "warning": "Fifteensquared reads 'With troops' as MANNED, and no block of ours spells it or takes those words (https://fifteensquared.net/2020/11/15/azed-no-2526-plain/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "azed-2755",
@@ -522,32 +508,46 @@
     "warning": "Fifteensquared reads 'straight' as TRUE, and no block of ours spells it or takes those words (https://fifteensquared.net/2025/04/13/azed-2755/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-29377",
-    "entry": "14-across",
-    "clue": "I, perhaps, mourn real man failing",
-    "answer": "ROMANNUMERAL",
-    "warning": "Fifteensquared reads 'failing' as ANANAGRAM, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/05/08/guardian-29377-carpathian/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+    "puzzle": "cryptic-29384",
+    "entry": "15-across",
+    "clue": "Red banana, exotic food item from Indian cuisine?",
+    "answer": "NAANBREAD",
+    "warning": "Fifteensquared reads 'exotic' as AANAGRAM, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/05/16/guardian-29384-pangakupu/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-29931",
+    "puzzle": "cryptic-29985",
+    "entry": "2-down",
+    "clue": "Disease can be horrific if ignored by family member",
+    "answer": "CIRRHOSIS",
+    "warning": "Fifteensquared reads 'if ignored' as IF, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/04/20/guardian-cryptic-crossword-no-29985-by-philistine/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cyclops-640",
     "entry": "7-down",
-    "clue": "Mark address wrong too, perhaps",
-    "answer": "APOSTROPHE",
-    "warning": "Fifteensquared reads 'too, perhaps' as TOOPERHAPS, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/02/16/guardian-cryptic-crossword-no-29931-by-vulcan/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "cyclops-451",
-    "entry": "27-across",
-    "clue": "End of garter tucked into Kate's kinky, topless knickers",
-    "answer": "TAKERS",
-    "warning": "Fifteensquared reads 'knickers' as NICKERS, and no block of ours spells it or takes those words (https://fifteensquared.net/2011/09/12/private-eyecyclops-451-prison-ambience/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+    "clue": "The first person presented Brenda-style feels no different",
+    "answer": "ONESELF",
+    "warning": "Fifteensquared reads 'feels no' as FEELSNO, and no block of ours spells it or takes those words (https://fifteensquared.net/2018/12/24/private-eye-cyclops-640-gimme-mistletoe/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "everyman-4155",
-    "entry": "10-down",
-    "clue": "Perhaps makes Brown edgy and tense regularly",
-    "answer": "DYES",
-    "warning": "Fifteensquared reads 'Brown' as BY, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/06/14/everyman-4155/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+    "entry": "22-across",
+    "clue": "Church musician's headed for loo for want of alternative: things will go downhill fast for her",
+    "answer": "TOBOGGANIST",
+    "warning": "Fifteensquared reads 'for want of alternative' as OR, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/06/14/everyman-4155/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "genius-146",
+    "entry": "9-down",
+    "clue": "Lots and lots of money? I will get a number of notes",
+    "answer": "SEXTILLIONS",
+    "warning": "Fifteensquared reads 'money' as CENT, and no block of ours spells it or takes those words (https://fifteensquared.net/2015/09/06/guardian-genius-146-qaos/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "genius-264",
+    "entry": "11-across",
+    "clue": "Rotters circling right player in orchestra, one playing dodgily",
+    "answer": "RDSHARPE",
+    "warning": "Fifteensquared reads 'player in orchestra' as HARP, and no block of ours spells it or takes those words (https://fifteensquared.net/2025/07/06/genius-no-264-by-pangakupu/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    }
   ]
  },
@@ -678,16 +678,6 @@
     "type"
    ]
   ],
-  "azed-2231": [
-   [
-    "8-down",
-    "type"
-   ],
-   [
-    "9-down",
-    "definition"
-   ]
-  ],
   "azed-2234": [
    [
     "4-down",
@@ -712,12 +702,6 @@
     "definition"
    ]
   ],
-  "azed-2248": [
-   [
-    "15-down",
-    "definition"
-   ]
-  ],
   "azed-2264": [
    [
     "22-across",
@@ -728,12 +712,6 @@
    [
     "7-down",
     "type"
-   ]
-  ],
-  "azed-2283": [
-   [
-    "30-across",
-    "blocks"
    ]
   ],
   "azed-2296": [
@@ -880,12 +858,6 @@
     "type"
    ]
   ],
-  "azed-2421": [
-   [
-    "3-down",
-    "type"
-   ]
-  ],
   "azed-2431": [
    [
     "6-down",
@@ -1024,12 +996,6 @@
     "type"
    ]
   ],
-  "azed-2573": [
-   [
-    "6-down",
-    "definition"
-   ]
-  ],
   "azed-2574": [
    [
     "19-down",
@@ -1039,12 +1005,6 @@
   "azed-2576": [
    [
     "4-down",
-    "type"
-   ]
-  ],
-  "azed-2577": [
-   [
-    "24-across",
     "type"
    ]
   ],
@@ -1134,36 +1094,6 @@
     "type"
    ]
   ],
-  "azed-2688": [
-   [
-    "8-down",
-    "blocks"
-   ],
-   [
-    "12-across",
-    "blocks"
-   ],
-   [
-    "13-down",
-    "blocks"
-   ],
-   [
-    "21-down",
-    "blocks"
-   ],
-   [
-    "25-down",
-    "blocks"
-   ],
-   [
-    "26-across",
-    "blocks"
-   ],
-   [
-    "32-across",
-    "blocks"
-   ]
-  ],
   "azed-2689": [
    [
     "22-across",
@@ -1199,12 +1129,6 @@
    ],
    [
     "28-down",
-    "blocks"
-   ]
-  ],
-  "azed-2767": [
-   [
-    "32-across",
     "blocks"
    ]
   ],
