@@ -249,47 +249,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTREME",
-     "indicators": [
-      {
-       "text": "unopened",
-       "note": "something unopened has not had its front broken into, so the first letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 5,
+         "note": "unopened means the first letter, the opening, is not there"
+        }
+       ],
        "parts": [
         {
          "words": "message",
-         "gives": "EXT",
-         "note": "a text message with its opening letter taken away"
+         "at": 14,
+         "gives": "TEXT",
+         "note": "a message sent by phone is a text"
         },
         {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about or concerning"
-        },
-        {
-         "words": "your setter",
-         "gives": "ME",
-         "note": "the setter refers to themself as me"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "about",
+       "at": 22,
+       "gives": "RE",
+       "note": "re means about or concerning, as in a letter heading"
+      },
+      {
+       "words": "your setter",
+       "at": 28,
+       "gives": "ME",
+       "note": "the setter refers to themselves as me"
       }
      ]
     },
     "explanation": {
-     "surface": "A final message left unread, concerning the person who wrote this puzzle.",
-     "walkthrough": "'Last' looks like an adjective for the message, but it is the definition; setters often call themselves 'me' via phrases like 'your setter'.",
-     "definitionFit": "Extreme can mean furthest or final, as in the extreme end of a row, matching last."
+     "surface": "The setter receives a final, unread message about themselves.",
+     "walkthrough": "'unopened' takes the first letter off TEXT to leave EXT. 'your setter' is the compiler speaking, so ME.",
+     "definitionFit": "Extreme can mean furthest or outermost, as in the extreme end of something, which is the last part."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Last"
+     "misdirectedWord": "unopened"
     }
    }
   },
@@ -1519,42 +1524,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PORTRAIT",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "without an end means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "wine",
+       "at": 8,
+       "gives": "PORT",
+       "note": "port is a fortified wine from Portugal"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 17,
+         "note": "endless means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "wine",
-         "gives": "PORT",
-         "note": "port is a fortified wine"
+         "words": "dish served with 3 Down",
+         "at": 25,
+         "gives": "RAITA",
+         "note": "raita, a yoghurt dish, is a common side with curry, the answer to 3 Down"
         },
         {
-         "words": "dish served with 3 Down",
-         "gives": "RAIT",
-         "note": "raita, a yogurt side dish eaten with curry, loses its last letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Imagine wine and a side dish with no end served alongside a curry.",
-     "walkthrough": "Raita is a cooling dish of yogurt and cucumber served with curries; drop its final A.",
-     "definitionFit": "A portrait is a painting or photograph of a person, a kind of picture."
+     "surface": "A picture of wine alongside a side dish at an Indian meal.",
+     "walkthrough": "3 Down is CURRY; raita is a cooling yoghurt and cucumber side, and 'endless' trims it to RAIT.",
+     "definitionFit": "A portrait is a painting or photograph of a person, so it is a kind of picture."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Picture"
+     "aptDefinition": false
     }
    }
   },
