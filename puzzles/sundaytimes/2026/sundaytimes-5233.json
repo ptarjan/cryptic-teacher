@@ -47,43 +47,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 11,
+       "note": "lost means the letter standing for you goes missing from the weight"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "lost",
-         "note": "the weight has lost the letter standing for 'you', so it drops out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Weight",
-         "gives": "OUNCE",
-         "note": "an ounce is a unit of weight"
-        },
-        {
-         "gives": "U"
-        }
-       ]
+       "words": "Weight",
+       "at": 0,
+       "gives": "OUNCE",
+       "note": "an ounce is a small unit of weight"
       },
       {
-       "unchecked": true,
-       "words": "you lost",
-       "note": "U, text-speak for 'you', is taken out of OUNCE"
+       "words": "you",
+       "at": 7,
+       "gives": "U",
+       "note": "U is text-speak for you"
       }
      ]
     },
     "explanation": {
-     "surface": "A dieter looking back wistfully on the pounds they shed years ago.",
-     "walkthrough": "U standing for 'you' is text-message shorthand. 'Back in the day' reads like part of the dieting story but is the definition.",
-     "definitionFit": "Once means at some time in the past, which is what 'back in the day' says."
+     "surface": "Someone recalls shedding pounds in years gone by.",
+     "definitionFit": "Once means at some time in the past, as does the idiom back in the day."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Weight"
+     "misdirectedWord": "lost"
     }
    }
   },
@@ -733,31 +727,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AQUARIUS",
      "indicators": [
       {
        "text": "with rear turned to",
-       "note": "the last letter is changed into another"
+       "at": 5,
+       "note": "the rear letter of the tank word is changed into the letter for small"
       }
      ],
      "parts": [
       {
        "words": "Tank",
+       "at": 0,
        "gives": "AQUARIUM",
        "note": "an aquarium is a fish tank"
       },
       {
+       "gives": "M"
+      },
+      {
        "words": "small",
+       "at": 25,
        "gives": "S",
-       "note": "S is the clothing-size abbreviation for small; it replaces the final M"
+       "note": "S is the clothing-size abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "surface": "Converting a water tank at the back of a property into a little cottage.",
-     "walkthrough": "'House' here is astrological: the zodiac is divided into twelve houses, and Aquarius is one of them.",
-     "definitionFit": "Aquarius is one of the twelve signs, or houses, of the zodiac."
+     "surface": "A fish tank is moved round so its back faces a little house.",
+     "walkthrough": "The last letter M of AQUARIUM becomes S.",
+     "definitionFit": "Aquarius is one of the twelve astrological signs, each called a house of the zodiac."
     },
     "features": {
      "answerInScene": false,
@@ -1455,38 +1453,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "polished off",
+       "at": 9,
+       "note": "polished off means finished, so the letter I is done away with"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "polished off",
-         "note": "to polish something off is to finish it or dispose of it, so the I is done away with"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Spirit",
-         "gives": "WRAITH",
-         "note": "a wraith is a ghost, a spirit"
-        },
-        {
-         "gives": "I"
-        }
-       ]
+       "words": "Spirit",
+       "at": 0,
+       "gives": "WRAITH",
+       "note": "a wraith is a ghost or spirit"
       },
       {
-       "unchecked": true,
-       "words": "I polished off",
-       "note": "the I is removed"
+       "words": "I",
+       "at": 7
       }
      ]
     },
     "explanation": {
-     "surface": "Someone angrily knocking back a glass of spirits.",
-     "walkthrough": "'Spirit' and 'polished off' suggest a drink downed in a temper; the spirit is a ghost.",
-     "definitionFit": "A plain synonym, though wrath is the grander, biblical word for fierce anger."
+     "surface": "Someone downed a whole drink in a fit of temper.",
+     "walkthrough": "'Spirit' looks like a drink polished off, but it is a ghost.",
+     "definitionFit": "Wrath is a synonym for fierce anger or rage."
     },
     "features": {
      "answerInScene": false,
@@ -1520,36 +1511,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "first, so the first letter"
+       "text": "found in",
+       "at": 16
       }
      ],
      "parts": [
       {
        "words": "say, cold",
+       "at": 26,
        "gives": "TAP",
-       "note": "a cold tap is one example of a tap, hence 'say'"
+       "note": "a cold tap is an example of a tap, hence 'say'"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "found in"
+         "text": "primarily",
+         "at": 6,
+         "note": "primarily means first, so only the opening letter of rocks is used"
         }
        ],
        "parts": [
         {
-         "words": "Rocks primarily",
-         "note": "first letter of Rocks; it goes inside TAP"
+         "words": "Rocks",
+         "at": 0,
+         "note": "taken for its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ordering gin on the rocks, with ice.",
-     "walkthrough": "'On the rocks' and 'gin' set up a bar order, but a gin is also a snare for animals. 'Say' shows that cold is an example of a tap.",
-     "definitionFit": "A gin, as in gin trap, is a snare for catching animals."
+     "surface": "A drinker asks whether gin with ice, served cold, is found among the rocks.",
+     "walkthrough": "'On the rocks' tempts a drinks reading; here gin is a snare, and the question mark marks the rarer sense.",
+     "definitionFit": "A gin is an old word for a snare used to catch animals, the same thing as a trap."
     },
     "features": {
      "answerInScene": false,
