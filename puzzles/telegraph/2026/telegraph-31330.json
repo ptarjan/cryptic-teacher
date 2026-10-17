@@ -46,40 +46,38 @@
      "parts": [
       {
        "words": "Party",
+       "at": 0,
        "gives": "DO",
-       "note": "a do is a party"
+       "note": "a do is an informal party"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "PE",
        "indicators": [
         {
-         "text": "leaders",
-         "note": "the leader of a word is the letter at its front, so the leaders of 'pub' and 'exchange' are their first letters"
+         "text": "leaders in",
+         "at": 6,
+         "note": "leaders are the front-runners, so the first letter of each following word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leaders in pub exchange",
-         "gives": "PE",
-         "select": "first",
-         "note": "first letters of Pub and Exchange"
+         "words": "pub exchange",
+         "at": 17,
+         "note": "first letters of pub and exchange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Party bosses swapping gossip over a pint.",
-     "walkthrough": "'Exchange information' reads as one phrase, but the split falls between them: 'exchange' gives its first letter and 'information' stands alone as the definition.",
-     "definitionFit": "A slang synonym: to have the dope on someone is to have the inside story."
+     "surface": "Political party chiefs trade gossip over drinks in a pub.",
+     "walkthrough": "'Party leaders' wants to be a phrase, but the party is DO and 'leaders' belongs to 'in pub exchange'. Dope is slang for inside information.",
+     "definitionFit": "The dope on something is slang for the facts or inside knowledge about it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "exchange"
+     "misdirectedWord": "leaders"
     }
    }
   },
@@ -368,35 +366,59 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "the shelter stands outside, wrapped round the city's remains"
-      },
-      {
-       "text": "banning",
-       "note": "a ban keeps something out, so A and the student are kept out of MONTREAL"
+       "at": 14,
+       "note": "outside means the shelter's letters go around the shortened city name"
       }
      ],
      "parts": [
       {
        "words": "shelter",
+       "at": 6,
        "gives": "LEE",
-       "note": "the lee is the sheltered side, away from the wind"
+       "note": "the lee is the side sheltered from the wind"
       },
       {
-       "words": "Montreal banning a student",
-       "gives": "MONTRE",
-       "note": "MONTREAL without A and L (learner, student)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "banning",
+         "at": 31,
+         "note": "banning means excluding, so those letters are removed from the city's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Montreal",
+         "at": 22
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 39
+          },
+          {
+           "words": "student",
+           "at": 41,
+           "gives": "L",
+           "note": "L is the learner driver's plate, a student"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shelter near Montreal that has barred a student.",
-     "walkthrough": "Two letters leave Montreal, and they are not next to each other. L for student comes from the learner plate on a British car.",
-     "definitionFit": "A definition by category: the lemon tree is one example of a plant."
+     "surface": "A plant grows in a shelter outside Montreal, but a student is barred.",
+     "walkthrough": "The student is L, from the learner plate on British cars; a lee is the sheltered side of something, away from the wind.",
+     "definitionFit": "A lemon tree is a citrus plant grown for its yellow fruit."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Plant"
+     "misdirectedWord": "student"
     }
    }
   },
@@ -559,48 +581,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Soft, silky fabric?",
+      "text": "Soft, silky fabric",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "VELVETEEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "torn",
-       "note": "something torn is ripped apart, so the letters of ELEVEN are pulled about"
+       "text": "coats",
+       "at": 38,
+       "note": "coats means covers, so the rearranged letters surround the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "coats",
-         "note": "to coat something is to cover it"
+         "text": "torn",
+         "at": 33,
+         "note": "torn means ripped apart, so the letters of eleven are reassembled"
         }
        ],
        "parts": [
         {
-         "words": "eleven torn",
-         "gives": "VELEEN",
-         "note": "ELEVEN rearranged"
-        },
-        {
-         "words": "Check",
-         "gives": "VET",
-         "note": "to vet is to check"
+         "words": "eleven",
+         "at": 26
         }
        ]
+      },
+      {
+       "words": "Check",
+       "at": 20,
+       "gives": "VET",
+       "note": "to vet is to check thoroughly"
       }
      ]
     },
     "explanation": {
-     "surface": "Inspecting eleven ripped coats of a delicate fabric.",
-     "walkthrough": "'Coats' looks like the garments that are torn, but it is a verb: the jumbled ELEVEN coats VET.",
-     "definitionFit": "A near-synonym: velveteen is a cotton cloth with a short soft pile imitating velvet, hence the question mark on 'silky'."
+     "surface": "A dressmaker urges checking the fabric of eleven ripped coats.",
+     "walkthrough": "'Coats' looks like garments, but it is the verb: the anagram of ELEVEN covers VET. The question mark admits velveteen only imitates silk.",
+     "definitionFit": "Velveteen is a cotton cloth with a short dense pile that imitates velvet, soft and lustrous."
     },
     "features": {
      "answerInScene": true,
@@ -636,41 +658,34 @@
     "definitions": [
      {
       "text": "3 Across",
-      "at": 26
+      "at": 26,
+      "note": "points to the answer at 3 Across, a horn blower, here a jazz trumpeter"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "MILESDAVIS",
      "indicators": [
       {
-       "text": "Resort",
-       "note": "read as re-sort: the letters are sorted again into a new order"
+       "text": "Resort in",
+       "at": 0,
+       "note": "to re-sort is to sort again, and the words in it are the ones put into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "in Maldives is",
-         "gives": "MILES",
-         "note": "five of the letters of MALDIVES IS, rearranged, supply the jazz trumpeter's first name"
-        },
-        {
-         "words": "Resort",
-         "gives": "DAVIS",
-         "note": "the leftover A, D, I, V, S sorted again"
-        }
-       ]
+       "words": "Maldives",
+       "at": 10
+      },
+      {
+       "words": "is",
+       "at": 19
       }
      ]
     },
     "explanation": {
-     "surface": "A resort in the Maldives suits a trumpeter.",
-     "walkthrough": "The Maldives are a holiday destination, so 'Resort' reads as a noun; it is re-sort. 3 Across is HORNBLOWER, here taken literally: someone who blows a horn.",
-     "definitionFit": "A literal reading: a jazz trumpeter blows a horn, so he is a horn blower."
+     "surface": "A holiday resort in the Maldives is ideal for a horn player.",
+     "walkthrough": "'Resort' looks like a holiday destination but is read as re-sort. Miles Davis was the great American jazz trumpeter, so he is a horn blower.",
+     "definitionFit": "Miles Davis played the trumpet, a horn, so he is a hornblower in the jazz sense."
     },
     "features": {
      "answerInScene": false,
@@ -957,43 +972,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIESELOIL",
+     "op": "container",
      "indicators": [
       {
-       "text": "abroad",
-       "note": "abroad once meant widely scattered, so the letters of DOLLIES are scattered"
+       "text": "stored in",
+       "at": 13,
+       "note": "stored in means kept inside, so the Latin abbreviation goes within the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "stored in",
-         "note": "something stored in a box is put inside it"
+         "text": "abroad",
+         "at": 31,
+         "note": "abroad means all over the place, so the letters of dollies are scattered into a new order"
         }
        ],
        "parts": [
         {
-         "words": "dollies abroad",
-         "gives": "DSELOIL",
-         "note": "DOLLIES rearranged"
-        },
-        {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e. = id est, that is"
+         "words": "dollies",
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "that is",
+       "at": 5,
+       "gives": "IE",
+       "note": "IE is the abbreviation of id est, Latin for that is"
       }
      ]
     },
     "explanation": {
-     "surface": "Fuel kept in dolls overseas.",
-     "walkthrough": "'Abroad' looks like it sends the dolls overseas; its older sense, scattered widely, is the one at work.",
-     "definitionFit": "A definition by category: diesel oil is one of the fuels, burnt in diesel engines."
+     "surface": "A note that fuel is stored in trolleys overseas.",
+     "walkthrough": "'Abroad' looks like a place, but it signals that DOLLIES is jumbled, and 'stored in' puts IE into the result.",
+     "definitionFit": "Diesel oil is the heavy petroleum fuel burned in diesel engines."
     },
     "features": {
      "answerInScene": false,
@@ -1077,8 +1092,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "illusion",
-      "at": 32
+      "text": "an illusion",
+      "at": 29
      }
     ],
     "wordplay": {
@@ -1086,29 +1101,44 @@
      "indicators": [
       {
        "text": "Harry",
-       "note": "to harry is to harass, so the letters are pushed about"
-      },
-      {
-       "text": "leaving",
-       "note": "U leaves, walking out of the name"
+       "at": 0,
+       "note": "to harry is to harass, so the letters are disturbed into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Maguire leaving United",
-       "gives": "MAGIRE",
-       "note": "MAGUIRE without U (United)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 14,
+         "note": "leaving means departing, so the letter is taken out of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maguire",
+         "at": 6
+        },
+        {
+         "words": "United",
+         "at": 22,
+         "gives": "U",
+         "note": "U is the common abbreviation for United in team names"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Harry Maguire leaving Manchester United, a move that proved an illusion.",
-     "walkthrough": "Harry Maguire is an England footballer who played for Manchester United, so 'Harry' looks like his first name; it is the anagram indicator. U for United is standard in football scores.",
-     "definitionFit": "A near-synonym: a mirage is a particular illusion, the shimmer of water seen in desert heat."
+     "surface": "Footballer Harry Maguire's departure from Manchester United is only an illusion.",
+     "walkthrough": "'Harry' looks like Maguire's first name, but it is a verb meaning harass, the anagram signal. Harry Maguire is an England defender who played for Manchester United; 'leaving United' removes U from MAGUIRE.",
+     "definitionFit": "A mirage is an optical illusion, such as the shimmering water seen on a hot desert road."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Harry"
     }
    }
@@ -1294,61 +1324,66 @@
     "definitions": [
      {
       "text": "3 Across",
-      "at": 0
+      "at": 0,
+      "note": "points to the answer at 3 Across, a horn blower, here a jazz trumpeter"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOUISARMSTRONG",
-     "indicators": [
-      {
-       "text": "confused",
-       "note": "something confused is mixed up, so the letters of OUR ORGANIST are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "left",
+       "at": 9,
+       "gives": "L"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 36,
+         "note": "about means around, so the rearranged letters surround the abbreviation"
+        }
+       ],
        "parts": [
         {
-         "words": "left",
-         "gives": "L",
-         "note": "L = left"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "about"
+           "text": "confused",
+           "at": 27,
+           "note": "confused means mixed up, so the letters of our organist are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "our organist confused",
-           "gives": "OUISARTRONG",
-           "note": "OUR ORGANIST rearranged"
+           "words": "our",
+           "at": 14
           },
           {
-           "words": "manuscript",
-           "gives": "MS",
-           "note": "standard abbreviation"
+           "words": "organist",
+           "at": 18
           }
          ]
+        },
+        {
+         "words": "manuscript",
+         "at": 42,
+         "gives": "MS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trumpeter leaving our muddled organist fumbling with his score.",
-     "walkthrough": "3 Across is HORNBLOWER, taken literally as someone who blows a horn. 'Left' looks like a verb, as in departed; it is just L.",
-     "definitionFit": "A literal reading: the jazz trumpeter blew a horn, so he was a horn blower."
+     "surface": "A trumpeter has walked out, leaving the church organist baffled by a manuscript.",
+     "walkthrough": "'Our organist' reads as the church musician, but it is just letters to rearrange. Louis Armstrong was the American jazz trumpeter known as Satchmo.",
+     "definitionFit": "Louis Armstrong played the trumpet, a horn, making him a famous hornblower."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "left"
+     "misdirectedWord": "organist"
     }
    }
   },
@@ -1488,49 +1523,65 @@
     "definitions": [
      {
       "text": "Spanner",
-      "at": 0
+      "at": 0,
+      "note": "something that spans, rather than the tool"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FORTHBRIDGE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "in says the scrambled letters are placed inside the appliance"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "appliance",
+       "at": 37,
+       "gives": "FRIDGE",
+       "note": "a fridge is a kitchen appliance"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "accessing",
-         "note": "to access a place is to get into it, so R gets into BOTH"
-        },
-        {
          "text": "nuts",
-         "note": "nuts means crazy, so the letters are rearranged wildly"
-        },
-        {
-         "text": "in",
-         "note": "the jumbled letters go in the appliance, inside its name"
+         "at": 29,
+         "note": "nuts means crazy, so the combined letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "appliance",
-         "gives": "FRIDGE",
-         "note": "a fridge is a kitchen appliance"
-        },
-        {
-         "words": "right accessing both nuts",
-         "gives": "ORTHB",
-         "note": "R (right) plus BOTH, rearranged"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "accessing",
+           "at": 14,
+           "note": "accessing means getting into, so the letter enters the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "both",
+           "at": 24
+          },
+          {
+           "words": "right",
+           "at": 8,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spanner needed for both nuts on a household appliance.",
-     "walkthrough": "The spanner is not the tool but something that spans: the rail bridge across the Firth of Forth near Edinburgh.",
-     "definitionFit": "A cryptic sense: anything that spans a gap is a spanner, and this famous rail bridge spans an estuary."
+     "surface": "A spanner is used on both nuts of a kitchen appliance.",
+     "walkthrough": "'Spanner' looks like the tool, but it is something that spans: the Forth Bridge crosses the Firth of Forth in Scotland. 'Accessing' puts R in BOTH, 'nuts' scrambles those to ORTHB, and 'in' places it in FRIDGE.",
+     "definitionFit": "The Forth Bridge is a famous Scottish railway bridge, and a bridge is literally a structure that spans a river."
     },
     "features": {
      "answerInScene": false,
@@ -1556,55 +1607,62 @@
    "annotation": {
     "definitions": [
      {
-      "text": "eggs here?",
-      "at": 37
+      "text": "eggs here",
+      "at": 37,
+      "note": "a place where eggs form, standing in for a noun"
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "loudly"
+       "text": "tucking in",
+       "at": 11,
+       "note": "tucking in means pushed inside, so the letter sits within the jumbled word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "tucking in"
+         "text": "scrambled",
+         "at": 27,
+         "note": "scrambled means jumbled, so the letters of love are mixed up"
         }
        ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "U",
-         "indicators": [
-          {
-           "text": "scrambled",
-           "note": "scrambled like eggs, so the letters are stirred into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "You loudly",
-           "gives": "YOU",
-           "note": "the letter that is pronounced like the word"
-          }
-         ]
-        },
-        {
          "words": "love",
-         "note": "used literally"
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "loudly",
+         "at": 4,
+         "note": "loudly means said out loud, so the word is replaced by its sound-alike letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "You",
+         "at": 0,
+         "gives": "YOU",
+         "note": "the word you, said aloud, is the letter U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tucking into scrambled eggs with the one you love.",
-     "walkthrough": "'Scrambled eggs' is a breakfast in the surface, but 'scrambled' works on the letters and 'eggs here?' is the definition.",
-     "definitionFit": "A botanical sense: an ovule is the structure in a plant's ovary that contains the egg cell."
+     "surface": "An invitation to tuck into some scrambled eggs, made with love.",
+     "walkthrough": "'Scrambled eggs' reads as a breakfast, but 'scrambled' rearranges LOVE and 'eggs here' is the definition. The question mark flags the cryptic definition.",
+     "definitionFit": "An ovule is the part of a plant ovary that contains the female egg cell and becomes a seed."
     },
     "features": {
      "answerInScene": false,
