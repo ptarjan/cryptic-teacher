@@ -1045,42 +1045,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SECONDNATURE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "to be exhumed from",
+       "at": 10,
+       "note": "exhumed means dug out, so these letters are to be removed from the following word's letters"
+      },
+      {
+       "text": "ground",
+       "at": 43,
+       "note": "ground means crushed and reworked, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SECONDNATURE",
-       "indicators": [
-        {
-         "text": "to be exhumed from",
-         "note": "to exhume is to dig out of the earth"
-        },
-        {
-         "text": "ground",
-         "note": "ground means crushed, so the remaining letters are broken up and rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "unconsecrated",
-         "note": "the word as written, 13 letters"
-        },
-        {
-         "words": "One about",
-         "gives": "C",
-         "note": "c = circa, about; there are two Cs and only one goes"
-        }
-       ]
+       "words": "unconsecrated",
+       "at": 29,
+       "note": "taken as written, the anagram fodder"
+      },
+      {
+       "words": "One about",
+       "at": 0,
+       "gives": "C",
+       "note": "one 'about' is a single C, the abbreviation of circa, meaning about"
       }
      ]
     },
     "explanation": {
-     "surface": "A body due to be dug up from ground that was never blessed.",
-     "walkthrough": "The graveyard picture hides the mechanics: 'about' is circa, 'one' says only one of the two Cs, and 'ground' is the verb.",
-     "definitionFit": "An idiom: a habit so ingrained it feels instinctive, as if part of your nature."
+     "surface": "Someone digging up a body from unhallowed ground out of habit.",
+     "walkthrough": "C (circa, 'One about') is 'to be exhumed from' UNCONSECRATED, leaving UNONSECRATED, which is 'ground' (rearranged) into the answer.",
+     "definitionFit": "Something done from habit is second nature: a behaviour so ingrained it feels instinctive."
     },
     "features": {
      "answerInScene": false,
@@ -3519,44 +3514,46 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EUMENIDES",
      "indicators": [
       {
        "text": "sheds",
-       "note": "to shed something is to cast it off, as a tree sheds leaves"
+       "at": 16,
+       "note": "sheds means casts off, so a piece is dropped from the dramatist's name"
       },
       {
        "text": "for",
-       "note": "for in the sense 'in exchange for'"
+       "at": 27,
+       "note": "for here means in exchange for, so the new letters take the dropped piece's place"
       }
      ],
      "parts": [
       {
        "words": "Greek dramatist",
+       "at": 0,
        "gives": "EURIPIDES",
        "note": "Euripides, the Athenian tragedian"
       },
       {
        "words": "tear",
+       "at": 22,
        "gives": "RIP",
-       "note": "a tear is a rip; removed"
+       "note": "a tear (rhymes with care) is a rip"
       },
       {
        "words": "men",
-       "note": "as written, replacing RIP"
+       "at": 31,
+       "gives": "MEN"
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek playwright weeps for men and angry women.",
-     "walkthrough": "'Sheds tear' looks like crying, but a tear here rhymes with 'bear': a rip.",
-     "definitionFit": "A cryptic sense: the Furies, avenging goddesses of Greek myth, are literally furious women."
+     "surface": "A tragedian weeps over men and enraged women, as in a Greek play.",
+     "walkthrough": "'tear' is a rip, not a teardrop. EURIPIDES 'sheds' RIP and takes MEN in its place ('for').",
+     "definitionFit": "The Eumenides, or Furies, are the avenging goddesses of Greek myth, and the title of Aeschylus's play."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "tear"
     }
    }
