@@ -222,41 +222,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BANTER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "the jumbled letters go in the word for a pub"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "pub",
+       "at": 31,
+       "gives": "BAR",
+       "note": "a bar is a pub, or the counter in one"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "getting pissed",
-         "note": "Pissed is British for drunk, and a drunk loses hold of the proper order of things, letters included."
-        },
-        {
-         "text": "in",
-         "note": "In names the place, so the letters just named go inside the word that follows."
+         "at": 13,
+         "note": "getting pissed is getting drunk, and drunken letters stagger out of order"
         }
        ],
        "parts": [
         {
-         "words": "pub",
-         "gives": "BAR",
-         "note": "a bar is a pub, and it splits to take the other letters in"
-        },
-        {
          "words": "ten",
-         "gives": "NTE",
-         "note": "the three letters of ten in another order"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mocking ten drinkers as they get steadily drunk in the pub.",
-     "walkthrough": "'Pissed' is British for drunk rather than angry, and drunkenness is the standard reason letters come out in the wrong order. Ten stays a number all through, which is why it reads as people.",
-     "definitionFit": "Banter is teasing talk at somebody's expense, ridicule in its lighter and more sociable form."
+     "surface": "Ten drinkers get drunk in a pub and mock each other.",
+     "walkthrough": "'getting pissed' is British slang for getting drunk, and drunk letters stagger out of order; the pub supplies the outer word.",
+     "definitionFit": "Banter is teasing, joking talk, a light form of mockery traded between friends."
     },
     "features": {
      "answerInScene": true,
@@ -1116,37 +1118,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASSENTS",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "Perhaps says the word is not quite what it claims to be, so its letters are taken in some other arrangement."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Trump's behind",
+       "at": 22,
+       "gives": "ASS",
+       "note": "ass is the American word for the backside, so an American president's behind is his ass"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 44,
+         "note": "perhaps says tens is only a possible form of the letters, so they may be rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Trump's behind",
-         "gives": "ASS",
-         "note": "ass is the American word for the part he sits on"
-        },
-        {
          "words": "tens",
-         "gives": "ENTS",
-         "note": "the four letters of tens in another order"
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thumbs stuck up Trump's backside, ten of them perhaps.",
-     "walkthrough": "The surface asks to be read as one crude image, which hides the join between definition and wordplay. 'Behind' is the noun for a backside, not a word about position.",
-     "definitionFit": "An assent is an act of agreement, and a raised thumb is how agreement gets given without speaking."
+     "surface": "Supporters give Trump a thumbs-up from behind him, perhaps ten of them.",
+     "walkthrough": "'Trump's behind' looks like support for him, but it is his backside in American English. 'perhaps' rearranges TENS into ENTS.",
+     "definitionFit": "Assents are agreements or approvals, each one the equivalent of a thumbs-up."
     },
     "features": {
      "answerInScene": true,
@@ -1570,45 +1571,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMISSARY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 15,
+       "note": "the word is goes into the reworked letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "into",
-         "note": "Into names a destination, so the letters before it are set inside the ones that follow."
-        },
-        {
          "text": "working",
-         "note": "Working a material is kneading it about, and letters worked like that do not keep the order they started in."
+         "at": 20,
+         "note": "working means being worked over or kneaded, so the letters of my arse are reworked"
         }
        ],
        "parts": [
         {
          "words": "My arse",
-         "gives": "EMSARY",
-         "note": "the six letters of my arse in another order"
-        },
-        {
-         "words": "is",
-         "note": "the two letters of is, taken as they stand"
+         "at": 29
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 12
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody scoffing at the notion that a government agent is keen on hard work.",
-     "walkthrough": "'My arse!' is the British expression of flat disbelief, and Cyclops wants its letters as well as its tone. 'Into' is the instruction to insert rather than the surface's enthusiasm.",
-     "definitionFit": "An emissary is somebody sent out by a government to carry its business abroad, which is what state agent names."
+     "surface": "Someone scoffs at the idea that a government agent is actually doing any work.",
+     "walkthrough": "'My arse!' reads as a rude British exclamation of disbelief, but its letters are the fodder that 'working' rearranges into EMSARY, with IS going 'into' it.",
+     "definitionFit": "An emissary is a person sent on a mission as the agent of a state or government."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "into"
+     "joke": "pun",
+     "misdirectedWord": "arse"
     }
    }
   },
