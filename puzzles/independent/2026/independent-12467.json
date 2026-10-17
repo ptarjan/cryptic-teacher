@@ -1180,58 +1180,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LUNCHEON",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Worked",
+       "at": 0,
+       "note": "worked means kneaded or reshaped, so the letters are rearranged"
+      },
+      {
+       "text": "without",
+       "at": 25,
+       "note": "without here means lacking, so the letter a is taken out of the pool"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "Worked",
-         "note": "the letters are worked into a new shape"
-        }
-       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "without",
-           "note": "'without' means lacking, so the word must go on lacking the letter A"
-          }
-         ],
-         "parts": [
-          {
-           "words": "unclean",
-           "gives": "UNCLEN",
-           "note": "UNCLEAN without its A"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O = old"
-          },
-          {
-           "words": "hotel",
-           "gives": "H",
-           "note": "H is Hotel in the phonetic alphabet"
-          }
-         ]
+         "words": "unclean",
+         "at": 7,
+         "note": "taken as written, as anagram fodder"
         },
         {
-         "unchecked": true,
-         "words": "a",
-         "note": "the letter taken out of UNCLEAN"
+         "words": "old",
+         "at": 15,
+         "gives": "O"
+        },
+        {
+         "words": "hotel",
+         "at": 19,
+         "gives": "H",
+         "note": "Hotel is H in the NATO phonetic alphabet"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 33,
+       "note": "taken as written: the letter removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A grubby old hotel that serves no food.",
-     "walkthrough": "The complaint about a dirty hotel with no meal hides the meal itself; 'without a' removes one letter A.",
-     "definitionFit": "A plain synonym: this is the formal word for lunch, the midday meal."
+     "surface": "A grubby old hotel, after some work, still doesn't serve a meal.",
+     "walkthrough": "Pool UNCLEAN with O and H, take away the A, and rework what is left; 'Worked' looks like a past tense describing the hotel.",
+     "definitionFit": "Luncheon is a formal word for lunch, the midday meal."
     },
     "features": {
      "answerInScene": true,
@@ -1829,49 +1823,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RUNTIME",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "things that are up are in disorder, so the letters are stirred"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "at": 10,
+         "note": "second here means the second letter of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "take the second letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Program's second",
-           "gives": "PROGRAMS",
-           "note": "the second letter of PROGRAM"
-          }
-         ]
-        },
+         "words": "Program's",
+         "at": 0,
+         "note": "its second letter is R"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 24,
+         "note": "up in the sense of in disorder, as when a road is up, so the letters are mixed"
+        }
+       ],
+       "parts": [
         {
          "words": "minute",
-         "gives": "UNTIME",
-         "note": "MINUTE rearranged"
+         "at": 17,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A computer program's timer ticking into its second minute before the minute is up.",
-     "walkthrough": "The definition 'period of execution' sounds like a hanging, but in computing a program executes during its run time.",
-     "definitionFit": "Run time is the period during which a program is executing."
+     "surface": "A computing note: a program's second minute is over, and its execution period is up.",
+     "walkthrough": "'execution' sounds like a hanging, but in computing a program is executed when it runs; 'second' and 'minute' look like units of time and are neither.",
+     "definitionFit": "Run time is the span during which a computer program is executing, or the length of a film."
     },
     "features": {
      "answerInScene": true,
