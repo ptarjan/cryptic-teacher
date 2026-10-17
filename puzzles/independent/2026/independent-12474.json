@@ -571,39 +571,38 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EDDO",
      "indicators": [
       {
        "text": "right to left",
-       "note": "reading right to left is the wrong way round for English, so the word runs backwards"
+       "at": 24,
+       "note": "right to left means read the word backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EDDO",
+       "op": "middle",
        "indicators": [
         {
          "text": "peeled",
-         "note": "peeling removes the skin, so the outer letters come off"
+         "at": 43,
+         "note": "peeled means the outer skin is gone, so the first and last letters are dropped"
         }
        ],
        "parts": [
         {
          "words": "Moved head up and down",
+         "at": 0,
          "gives": "NODDED",
-         "note": "moving your head up and down is nodding"
+         "note": "to nod is to move the head up and down, so this is nodded"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nods along while peeling vegetables.",
-     "walkthrough": "NODDED written backwards is DEDDON; peel off its first and last letters to leave EDDO.",
-     "definitionFit": "An eddo is the edible tuber of the taro plant, a starchy root crop grown in tropical regions."
+     "surface": "Someone nods along and then peels a vegetable.",
+     "walkthrough": "'peeled' strips the outer letters of NODDED to leave ODDE, and 'right to left' reads that backwards. Either order of the two steps gives the same result.",
+     "definitionFit": "Eddo is another name for taro, a starchy tropical root vegetable."
     },
     "features": {
      "answerInScene": true,
@@ -946,34 +945,39 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TELEVISED",
-     "indicators": [
-      {
-       "text": "revolutionary",
-       "note": "a revolution turns things round, so the word is flipped end to end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "TELEVISED",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling moves round in a loop, so a letter is carried from front to back"
+         "text": "revolutionary",
+         "at": 7,
+         "note": "revolutionary means turned around, so the word is reversed"
         }
        ],
        "parts": [
         {
          "words": "Permit",
+         "at": 0,
          "gives": "LET",
-         "note": "let = permit"
-        },
+         "note": "to let is to permit"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 37,
+         "note": "cycling means letters go round, the first letter moving to the end"
+        }
+       ],
+       "parts": [
         {
          "words": "to come up with",
+         "at": 21,
          "gives": "DEVISE",
          "note": "to devise is to come up with an idea"
         }
@@ -982,9 +986,9 @@
      ]
     },
     "explanation": {
-     "surface": "A radical is allowed to join a cycle race that is being shown on TV.",
-     "walkthrough": "The trap is reading 'to come up with' as mere linking words; it is the second piece, whose first letter cycles round to the end.",
-     "definitionFit": "Broadcast as a past participle means transmitted on radio or TV, and televised is a direct synonym for the latter."
+     "surface": "A permit is issued for a revolutionary to take part in a cycling event.",
+     "walkthrough": "'revolutionary' reverses LET to TEL; 'cycling' sends the D of DEVISE to the back, giving EVISED.",
+     "definitionFit": "Something televised is transmitted on television, so broadcast in the past-participle sense."
     },
     "features": {
      "answerInScene": false,
