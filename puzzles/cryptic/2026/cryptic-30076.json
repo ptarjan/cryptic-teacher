@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -448,36 +449,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BANAL",
-     "indicators": [
-      {
-       "text": "1/3 off",
-       "note": "A third of a three-letter word is one letter, and the fraction says to take it away from the end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "bar",
+       "at": 6,
+       "gives": "BAN",
+       "note": "to bar something is to ban it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "1/3 off",
+         "at": 23,
+         "note": "one third of a three-letter word removed, here its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "bar",
-         "gives": "BAN",
-         "note": "to bar something is to ban it"
+         "words": "drink",
+         "at": 15,
+         "gives": "ALE",
+         "note": "ale is a drink, a kind of beer"
         },
         {
-         "words": "drink",
-         "gives": "AL",
-         "note": "the drink is ALE, and a third of it — the final E — comes away"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A bar and a drink make one picture and neither word means what it looks like: the bar is a prohibition and the drink is only two-thirds present.",
-     "definitionFit": "A stock phrase or a stock response is one used so routinely it has gone stale, which is the sense BANAL carries."
+     "surface": "A pub owner stocking the bar with a drink sold at a third off.",
+     "walkthrough": "'Stock' looks like a verb about supplying the bar, but it is the adjective meaning trite. '1/3 off' drops one of the three letters of ALE, leaving AL.",
+     "definitionFit": "A stock phrase is one used so often it has become hackneyed and unoriginal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stock"
     }
    }
   },
@@ -553,42 +564,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BURNTOFFERINGS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 8,
+       "note": "round means the first word goes around the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "round",
-         "note": "To go round a thing is to enclose it, so this word splits open and takes the rest inside."
-        }
-       ],
+       "words": "Fetches",
+       "at": 0,
+       "gives": "BRINGS",
+       "note": "to fetch something is to bring it"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Fetches",
-         "gives": "BRINGS",
-         "note": "to fetch is to bring; BRINGS splits after its B to take the rest inside"
+         "words": "container",
+         "at": 14,
+         "gives": "URN",
+         "note": "an urn is a container, for tea or ashes"
         },
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "not drugs",
-           "note": "The 'not' is a removal, and the drug being removed is a single E — ecstasy."
+           "text": "not",
+           "at": 37,
+           "note": "not removes the drugs from the sweets"
           }
          ],
          "parts": [
           {
-           "words": "container",
-           "gives": "URN",
-           "note": "an urn is a container"
+           "words": "sweets",
+           "at": 29,
+           "gives": "TOFFEES",
+           "note": "toffees are sweets"
           },
           {
-           "words": "sweets",
-           "gives": "TOFFE",
-           "note": "the sweet is a TOFFEE, with an E taken out of it"
+           "words": "drugs",
+           "at": 41,
+           "gives": "ES",
+           "note": "E is slang for the drug ecstasy, so drugs is its plural, ES"
           }
          ]
         }
@@ -597,8 +617,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The answer runs on into 10 across. In the kitchen sense the phrase means a ruined dinner, which is the picture the surface is quietly offering you.",
-     "definitionFit": "A burnt offering is an animal or crop consumed by fire on an altar — the Old Testament's own term for a sacrifice."
+     "surface": "Someone bringing an urn and a box of drug-free sweets as gifts to the gods.",
+     "walkthrough": "'not' takes ES out of TOFFEES to leave TOFFE; 'round' puts BRINGS around URN and TOFFE.",
+     "definitionFit": "Burnt offerings are animals or goods burned on an altar as sacrifices to a deity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweets"
     }
    }
   },
@@ -1076,36 +1102,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SATYR",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "The heart of a word is its middle, so a word without one loses the letters at its centre."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Was an MP",
+       "at": 0,
+       "gives": "SAT",
+       "note": "an MP sits in Parliament, so one who was an MP sat"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 15,
+         "note": "heartless removes the middle letters of the word, its heart"
+        }
+       ],
        "parts": [
         {
-         "words": "Was an MP",
-         "gives": "SAT",
-         "note": "an MP sits in the House, so one who was an MP sat"
+         "words": "your",
+         "at": 10
         },
         {
-         "words": "your",
-         "gives": "YR",
-         "note": "YOUR with its middle OU taken out — and YR is the standard abbreviation anyway"
+         "gives": "OU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sitting' for holding a seat in Parliament is a convention that turns up constantly, and here the question mark lets the whole thing pose as gossip.",
-     "definitionFit": "A satyr is the goat-legged woodland spirit of Greek myth, proverbially lustful, and the word passed into English for a lecherous man."
+     "surface": "An accusing question to a politician's wife about her cold, lecherous husband.",
+     "walkthrough": "'heartless' takes the middle OU out of YOUR, leaving YR.",
+     "definitionFit": "A satyr is a lustful woodland god in Greek myth, so the word means a lecherous man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
     }
    }
   },
