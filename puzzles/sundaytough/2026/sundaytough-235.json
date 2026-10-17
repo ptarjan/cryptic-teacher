@@ -102,46 +102,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "NIKE",
+     "spelt": "NIKE",
      "indicators": [
       {
        "text": "reportedly",
-       "note": "what is reported is passed on by word of mouth, so the sound counts, not the spelling"
+       "at": 49,
+       "note": "reportedly tells us the words are only heard, so we want what they sound like"
       }
      ],
      "parts": [
       {
-       "words": "near",
-       "gives": "NIGH",
-       "note": "nigh is an old word for near"
-      },
-      {
-       "words": "landing-place",
-       "gives": "QUAY",
-       "note": "a quay is a wharf where boats land, and it is pronounced 'key'"
-      },
-      {
-       "op": "homophone",
-       "spelt": "NIKE",
-       "parts": [
-        {
-         "words": "near landing-place reportedly",
-         "gives": "NIGHKEY",
-         "note": "the two words run together as one two-syllable name"
-        }
-       ]
+       "words": "near landing-place",
+       "at": 30,
+       "gives": "NIGHKEY",
+       "note": "near is NIGH and a landing-place is a quay, said like KEY"
       }
      ]
     },
     "explanation": {
-     "surface": "Ancient worshippers visit a shrine down by the harbour.",
-     "walkthrough": "NIGH plus QUAY, spoken, gives NIKE; the harbour setting hides that the landing-place is only there for its sound.",
-     "definitionFit": "A descriptive definition: Nike was the Greek goddess of victory, worshipped across ancient Greece."
+     "surface": "A goddess honoured by the Greeks is said to be close to a harbour.",
+     "walkthrough": "'Reportedly' tells you to say 'nigh quay' aloud; a quay is a landing-place for boats, and the two words together sound like the goddess's name.",
+     "definitionFit": "Nike was the Greek goddess of victory, honoured with temples such as the one on the Athenian Acropolis."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "landing-place"
     }
    }
   },
@@ -390,27 +377,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LASS",
+     "op": "middle",
      "indicators": [
       {
        "text": "Taking coat from",
-       "note": "a coat is the outer layer, so taking it off strips the first and last letters"
+       "at": 0,
+       "note": "taking the coat off a word strips away its outer letters, one at each end"
       }
      ],
      "parts": [
       {
        "words": "stylish",
+       "at": 17,
        "gives": "CLASSY",
-       "note": "classy means stylish; lose the outer C and Y"
+       "note": "stylish means classy"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone helps a fashionable young woman off with her coat.",
-     "walkthrough": "The surface makes the coat a garment; here it is the word's outer letters.",
-     "definitionFit": "A regional synonym: lass is the Scottish and northern English word for a girl or young woman."
+     "surface": "Someone removes the coat of a fashionable girl.",
+     "walkthrough": "'Taking coat from' means peeling off the outer layer: the first and last letters of the word for stylish go.",
+     "definitionFit": "Lass is a mainly Scottish and northern English word for a girl or young woman."
     },
     "features": {
      "answerInScene": true,
@@ -534,42 +521,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "at regular intervals, so every second letter is taken"
+       "text": "is cutting",
+       "at": 29,
+       "note": "is cutting means the letters slice into the word for the chess piece"
       }
      ],
      "parts": [
       {
        "words": "man",
+       "at": 8,
        "gives": "KING",
-       "note": "a king is one of the men on a chessboard"
+       "note": "a king is a piece, or man, in chess"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "turned about, the chosen letters face the other way"
+         "at": 40,
+         "note": "about means the letters so picked are turned to run backwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "ILP",
          "indicators": [
           {
-           "text": "is cutting",
-           "note": "the letters cut into the man, splitting him in two"
+           "text": "regularly",
+           "at": 19,
+           "note": "regularly means take every other letter of the word, here the second, fourth and sixth"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Hislop regularly",
-           "gives": "ILP",
-           "select": "alternate",
-           "note": "h(I)s(L)o(P), the even letters"
+           "words": "Hislop",
+           "at": 12,
+           "note": "the name of the satirist Ian Hislop"
           }
          ]
         }
@@ -578,9 +565,9 @@
      ]
     },
     "explanation": {
-     "surface": "The satirist Ian Hislop takes his pen to a rival writer.",
-     "walkthrough": "'Man' as a chess piece is a common crossword device. Ian Hislop edits the British satirical magazine Private Eye.",
-     "definitionFit": "A definition by example: Rudyard Kipling, author of The Jungle Book, is one writer."
+     "surface": "An author, Ian Hislop, makes cuts here and there.",
+     "walkthrough": "'Regularly' takes every other letter of Hislop, 'about' turns them round, and 'is cutting' slices them into the word for man. A king is a chessman, so 'man' is fair; Ian Hislop edits Private Eye.",
+     "definitionFit": "Rudyard Kipling was the English author of The Jungle Book and Kim, so he is a writer."
     },
     "features": {
      "answerInScene": true,
@@ -868,57 +855,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEWCOMER",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "not",
-         "note": "the bracketed 'not British' tells us the B is left out"
+         "at": 27,
+         "note": "not means the British letter is to be left out of the champion's name"
         }
        ],
        "parts": [
         {
-         "words": "Former Wimbledon champion (not British)",
-         "gives": "NEWCOME",
-         "note": "John Newcombe, the Australian who won Wimbledon three times, minus B for British"
+         "words": "Former Wimbledon champion",
+         "at": 0,
+         "gives": "NEWCOMBE",
+         "note": "John Newcombe, the Australian who won Wimbledon three times"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "essentially",
-           "note": "the essence of a word is its core, the middle letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "essentially encouraging",
-           "gives": "R",
-           "select": "middle",
-           "note": "the sixth of eleven letters, the middle of encouRaging"
-          }
-         ]
+         "words": "British",
+         "at": 31,
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 40,
+         "note": "essentially points to the essence or very centre of the word, its single middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "encouraging",
+         "at": 52,
+         "note": "the word encouraging, whose single central letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retired Wimbledon champion from abroad encourages a beginner.",
-     "walkthrough": "The brackets read as an aside about his nationality, which is true of Newcombe, but they are the instruction to delete.",
-     "definitionFit": "A plain synonym: a newcomer is someone new to an activity, a novice."
+     "surface": "An old tennis great, not from Britain, is cheering on a beginner.",
+     "walkthrough": "John Newcombe won Wimbledon three times; 'not' British drops his B to leave NEWCOME, and 'essentially' adds R, the central letter of 'encouraging'.",
+     "definitionFit": "A newcomer is someone new to an activity, which is what a novice is: a beginner."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "British"
+     "misdirectedWord": "encouraging"
     }
    }
   },
@@ -943,48 +932,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FRAGMENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "condemned",
-       "note": "a condemned building is fit only to be pulled down, so the word's letters are rebuilt"
+       "text": "probing",
+       "at": 17,
+       "note": "probing means the reworked letters go inside the newspaper's letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "newspaper",
+       "at": 25,
+       "gives": "FT",
+       "note": "FT is the Financial Times, a British newspaper"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "probing",
-         "note": "a probe goes in, so the letters go into the newspaper"
+         "text": "condemned",
+         "at": 7,
+         "note": "condemned suggests something wrecked, so the letters of German are knocked into a new order"
         }
        ],
        "parts": [
         {
-         "words": "newspaper",
-         "gives": "FT",
-         "note": "FT is the Financial Times"
-        },
-        {
-         "words": "German condemned",
-         "gives": "RAGMEN",
-         "note": "GERMAN rearranged"
+         "words": "German",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A German journalist is condemned for a probing newspaper piece.",
-     "walkthrough": "'Newspaper piece' looks like one phrase, an article, but 'piece' stands alone as the definition.",
-     "definitionFit": "A plain synonym: a fragment is a small piece broken off something."
+     "surface": "A condemned German is investigating a newspaper article.",
+     "walkthrough": "'German' looks like a person under investigation, but 'condemned' rearranges its letters and 'probing' puts them between the F and T of the Financial Times.",
+     "definitionFit": "A fragment is a small broken-off part of something, a piece or scrap."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "misdirectedWord": "condemned"
     }
    }
   },
@@ -1012,8 +1001,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "oddly means in the odd positions: first, third, fifth letters"
+       "text": "rounding",
+       "at": 34,
+       "note": "rounding means turning round, so the whole combination is read backwards"
       }
      ],
      "parts": [
@@ -1022,46 +1012,45 @@
        "indicators": [
         {
          "text": "defends",
-         "note": "defenders surround what they protect"
+         "at": 25,
+         "note": "defends means those letters surround and guard the word for obtain"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "SRENI",
          "indicators": [
           {
-           "text": "rounding",
-           "note": "to round is to turn back, so everything is read backwards"
+           "text": "oddly",
+           "at": 19,
+           "note": "oddly means keep the odd-numbered letters of the two words, first, third, fifth and so on"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "survey Neil oddly",
-           "gives": "SRENI",
-           "select": "alternate",
-           "note": "(S)u(R)v(E)y (N)e(I)l, the odd letters across both words"
+           "words": "survey Neil",
+           "at": 7,
+           "note": "the two words read as one string, from which the odd-numbered letters are kept"
           }
          ]
         },
         {
          "words": "Obtain",
+         "at": 0,
          "gives": "GET",
-         "note": "to get is to obtain"
+         "note": "obtain means get"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wants a survey that Neil defends by rounding off its figures.",
-     "walkthrough": "SRE and NI go round GET, and the whole reads backwards. 'Rounding numbers' reads as arithmetic, but 'numbers' alone is the definition.",
-     "definitionFit": "A definition by category: integers are whole numbers, one class of number."
+     "surface": "Someone obtains a survey that Neil oddly defends.",
+     "walkthrough": "'Oddly' keeps the odd letters of 'survey Neil', 'defends' wraps them round the word for obtain, and 'rounding' reverses the lot; the surface sense of rounding numbers is a red herring.",
+     "definitionFit": "Integers are whole numbers, positive, negative or zero, with no fractional part."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rounding"
     }
