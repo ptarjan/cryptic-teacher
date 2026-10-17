@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -195,51 +196,60 @@
      "indicators": [
       {
        "text": "about",
-       "note": "To be about something is to be all round it, so this word wraps itself over the pieces named after it."
+       "at": 4,
+       "note": "about places the coy word around the rest, enclosing it"
       }
      ],
      "parts": [
       {
        "words": "Coy",
+       "at": 0,
        "gives": "SHY",
-       "note": "coy and shy both describe someone hanging back from attention"
+       "note": "coy means bashful, shy"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "question",
-         "gives": "QU",
-         "note": "qu. is the standard short form of question, on a form or in a textbook"
+         "at": 10,
+         "gives": "QU"
+        },
+        {
+         "words": "a",
+         "at": 22,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "head",
-           "note": "The head of anything is its front end, so only the leading letter of the word it belongs to is used."
+           "at": 33,
+           "note": "head picks the first letter of school's"
           }
          ],
          "parts": [
           {
-           "words": "a",
-           "note": "the article is lifted straight out of the clue as a single letter"
+           "words": "school's",
+           "at": 24,
+           "note": "first letter of school's"
           }
          ]
-        },
-        {
-         "words": "school's head",
-         "gives": "S",
-         "note": "the front letter of School"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy pupil ducking a question put to them by the head of a school.",
-     "walkthrough": "The 'school's head' sounds like a person and asks for one letter, and 'question' contracts to the two-letter qu. rather than the single Q you would expect.",
-     "definitionFit": "Something squashy gives way the moment you press it — an overripe peach, a beanbag — which is soft in the yielding sense."
+     "surface": "A bashful pupil handing in a question to the headteacher and turning a bit wobbly.",
+     "walkthrough": "'Coy' is not the definition here but the outer word; 'about' wraps it around question, a and the school's 'head', and 'being soft' is the definition.",
+     "definitionFit": "Something squashy yields easily to pressure, the way soft fruit does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
     }
    }
   },
@@ -1243,44 +1253,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "unusually",
-       "note": "What is done unusually is not done the usual way, so these letters abandon the order the clue lists them in."
+       "text": "around",
+       "at": 32,
+       "note": "around says the rearranged letters surround the other piece"
       }
      ],
      "parts": [
       {
-       "words": "energetic",
-       "note": "anagram fodder, nine letters"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "A",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "Going around something means closing over it, so the letter named next is gathered in with the rest rather than left outside."
+         "text": "unusually",
+         "at": 12,
+         "note": "unusually says the letters of energetic are set out in an unusual order"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of day",
-         "gives": "A",
-         "select": "middle",
-         "note": "the central letter of dAy"
+         "words": "energetic",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 39,
+         "note": "middle of picks the central letter of day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day",
+         "at": 49,
+         "note": "middle letter of day"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lively family member charging about the house at lunchtime.",
-     "walkthrough": "'Middle of day' reads as noon and asks instead for the letter standing between the D and the Y.",
-     "definitionFit": "Your great-niece is the daughter of your niece or nephew, one further generation down the family tree, so she is a relative by blood."
+     "surface": "A relative who is unexpectedly lively at midday.",
+     "walkthrough": "'unusually' turns energetic into GRETNIECE, and 'around' sets it about the A that is the 'middle of day'.",
+     "definitionFit": "A great-niece is the granddaughter of one's brother or sister, a family member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energetic"
     }
    }
   },
@@ -1425,41 +1450,45 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "To involve someone is to draw them into the thing, so the letter named next ends up inside the word before it."
+       "at": 20,
+       "note": "involving means containing, so the investigation word holds the other letter"
       }
      ],
      "parts": [
       {
        "words": "investigation",
+       "at": 6,
        "gives": "STUDY",
-       "note": "a study of a problem is an investigation into it"
+       "note": "a study is a detailed investigation of a subject"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "leader of",
-         "note": "A leader stands at the head of the line, so only the opening letter of the word that follows is taken."
+         "at": 30,
+         "note": "leader of picks the first letter of research"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leader of research",
-         "gives": "R",
-         "select": "first",
-         "note": "the first letter of Research"
+         "words": "research",
+         "at": 40,
+         "note": "first letter of research"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A solid inquiry that brings the head of the research team on board.",
-     "walkthrough": "'Leader of research' reads as a person running a project, and it asks for a single letter.",
-     "definitionFit": "Something sturdy takes weight and knocks without giving, which is solid in the well-built sense rather than the not-hollow one."
+     "surface": "A robust inquiry steered by its head of research.",
+     "walkthrough": "'involving' puts the R that is the 'leader of research' inside STUDY.",
+     "definitionFit": "Sturdy means strongly built and robust, a close synonym of solid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Solid"
     }
    }
   }
