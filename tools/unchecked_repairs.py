@@ -16,6 +16,13 @@ make the tree give the answer is dropped, so none can invent a parse.
                   the sound-alike inside it.
   unpacked_spoon  spoon() filed as one charade of the two results: the pieces before
                   the swap are the letters with their onsets exchanged.
+  selections_over_results
+                  first/last/middle/alt/nth over a leaf whose letters are the selection's
+                  result: the leaf reads its words and the op picks the letters.
+  pushed_reversals
+                  a rev() whose child already reads forward in the answer: the reversal
+                  goes onto the one leaf under it that makes the tree give the answer.
+  composites      ana(del(whole, taken)) is comp(whole, taken): del() wants one run.
 
     python3 tools/test_unchecked_repairs.py
 """
@@ -28,7 +35,9 @@ import wordplay
 #: op -> (index, index) of the two parts that are filed in either order
 SWAPS = {"substitution": (1, 2), "deletion": (0, 1), "container": (0, 1)}
 MAX_SWAPPED = 2
-MAX_READINGS = 12  # readings of a part tried when inferring the missing letters
+MAX_SELECTIONS = 4  # selections over a leaf, whose subsets are tried
+MAX_PUSHED = 6  # leaves a reversal may be pushed down onto
+MAX_READINGS = 12 # readings of a part tried when inferring the missing letters
 
 
 def walk(node, parent=None):
@@ -246,6 +255,89 @@ def reversed_runs(tree):
     return out
 
 
+def _plain_leaf(n):
+    return isinstance(n, dict) and "op" not in n and "gives" in n and n.get("words")
+
+
+def selections_over_results(tree):
+    """Variants of the tree with `gives` dropped from the leaf under a selection
+    (first, last, middle, nth, alt ...) that holds the selection's result, not its
+    own letters: first([Leaders of Accord left incensed by inane]ALIBI) is the
+    first letters of the words, so the leaf reads its words. Every non-empty set of
+    such selections, the whole set first."""
+    nodes = [i for i, (n, _) in enumerate(walk(tree))
+             if n.get("op") in wordplay.SELECT and len(n.get("parts") or []) == 1 and _plain_leaf(n["parts"][0])]
+    nodes = nodes[:MAX_SELECTIONS]
+    for k in range(len(nodes), 0, -1):
+        for picks in itertools.combinations(nodes, k):
+            t = copy.deepcopy(tree)
+            flat = [n for n, _ in walk(t)]
+            for i in picks:
+                flat[i]["parts"][0].pop("gives")
+            yield t
+
+
+def pushed_reversals(tree, answer):
+    """Variants of each rev() whose child already reads forward in the answer: the
+    reversal belongs on one leaf under it, which then gives its letters before the
+    reversal. rev(ins([passage]TNEV, [press]URGE)) is ins(rev([passage]VENT), [press]URGE);
+    rev([Look]KEEP) is rev([Look]PEEK). The rev's own indicators go with the leaf."""
+    out = []
+    for at, (node, _) in enumerate(walk(tree)):
+        parts = node.get("parts") or []
+        if node.get("op") != "reversal" or len(parts) != 1:
+            continue
+        child = parts[0]
+        leaves = [(i, n) for i, (n, _) in enumerate(walk(child)) if _plain_leaf(n)]
+        # A leaf whose clue words include an indicator of the reversal ("bloke picked up")
+        # is the one the old block meant; with one, no other leaf is a candidate.
+        named = [(i, n) for i, n in leaves if wordplay.letters(n.get("words")) and any(
+            wordplay.letters(ind.get("text")) and wordplay.letters(ind.get("text")) in wordplay.letters(n.get("words"))
+            for ind in node.get("indicators") or [])]
+        cands = []
+        for j, _ in (named or leaves)[:MAX_PUSHED]:
+            def make(node, j=j):
+                child = copy.deepcopy(node["parts"][0])
+                flat = [n for n, _ in walk(child)]
+                target = flat[j]
+                if target is child:  # the leaf itself: rev() stays, the leaf reads before it
+                    return {**node, "parts": [_backwards(child)]}
+                inner = {"op": "reversal", "parts": [_backwards(target)]}
+                if node.get("indicators"):
+                    inner["indicators"] = node["indicators"]
+                target.clear()
+                target.update(inner)
+                return child
+            cands.append(_rebuild(copy.deepcopy(tree), [0], at, make))
+        # the letters cannot say which synonym was reversed: only an unambiguous leaf is taken
+        works = [c for c in cands if _gives(c, answer)]
+        if len(works) == 1:
+            out.append(works[0])
+    return out
+
+
+def composites(tree):
+    """Variants of each ana() over a del(): the answer is an anagram of the whole with
+    the letters taken out, which is comp(whole, taken) -- del() wants one run. Both
+    orders of the parts (an indicator may read "taken out of")."""
+    out = []
+    for at, (node, _) in enumerate(walk(tree)):
+        parts = node.get("parts") or []
+        if node.get("op") != "anagram" or len(parts) != 1 or parts[0].get("op") != "deletion":
+            continue
+        dele = parts[0]
+        if len(dele.get("parts") or []) != 2:
+            continue
+        for order in ((0, 1), (1, 0)):
+            def make(node, order=order):
+                d = node["parts"][0]
+                inds = (node.get("indicators") or []) + (d.get("indicators") or [])
+                return {"op": "composite", "parts": [d["parts"][order[0]], d["parts"][order[1]]],
+                        **({"indicators": inds} if inds else {})}
+            out.append(_rebuild(copy.deepcopy(tree), [0], at, make))
+    return out
+
+
 def _rebuild(node, count, target, make):
     """The tree with the node at preorder position `target` replaced by make(node)."""
     here = count[0]
@@ -303,6 +395,9 @@ def variants(tree, answer):
     yield from inferred_root(tree, answer)
     yield from split_ins(tree)
     yield from reversed_runs(tree)
+    yield from selections_over_results(tree)
+    yield from pushed_reversals(tree, answer)
+    yield from composites(tree)
 
 
 def repaired(tree, answer):
