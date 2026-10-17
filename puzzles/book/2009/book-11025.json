@@ -1705,36 +1705,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNDERTHEWEATHER",
      "indicators": [
       {
-       "text": "found separately in",
-       "note": "separately in means the pieces are slipped into the word at more than one point"
+       "text": "found separately",
+       "at": 15,
+       "note": "says the second article is found at a different place in the underwear rather than beside the first"
       }
      ],
      "parts": [
       {
-       "words": "linen",
-       "gives": "UNDERWEAR",
-       "note": "body linen is an old term for underclothes"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 32,
+         "note": "the articles are found in the linen, so one goes inside the underwear"
+        }
+       ],
+       "parts": [
+        {
+         "words": "linen",
+         "at": 35,
+         "gives": "UNDERWEAR",
+         "note": "linen in the old sense of underclothes, so underwear"
+        },
+        {
+         "words": "articles",
+         "at": 6,
+         "gives": "THE",
+         "note": "the is the definite article; the plural asks for two of them"
+        }
+       ]
       },
       {
        "words": "articles",
-       "gives": "THETHE",
-       "note": "two definite articles, one for each insertion point"
+       "at": 6,
+       "gives": "THE",
+       "note": "the definite article again, the second of the two articles"
       }
      ]
     },
     "explanation": {
-     "surface": "Grubby items turn up here and there among the bed sheets.",
-     "walkthrough": "Seedy looks like shabby, but in British English it also means slightly unwell.",
-     "definitionFit": "Feeling seedy means feeling a bit ill, and under the weather is the idiom for being mildly unwell."
+     "surface": "Someone finds various items tucked away, one by one, among the household linen.",
+     "walkthrough": "'found in' puts one THE inside UNDERWEAR to give UNDERWEATHER, and 'separately' sends the other THE in elsewhere, after UNDER. Linen once meant underclothing generally.",
+     "definitionFit": "Seedy in its informal sense of slightly unwell matches the idiom for feeling poorly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Seedy"
+     "misdirectedWord": "linen"
     }
    }
   }
