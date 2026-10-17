@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -514,35 +515,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PURR",
-     "indicators": [
-      {
-       "text": "turning"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 18,
+         "note": "turning means turning round, so the short word is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "up",
-         "gives": "PU",
-         "note": "UP 'turning' (reversed)"
-        },
-        {
-         "words": "classy car",
-         "gives": "RR",
-         "note": "RR = Rolls-Royce"
+         "at": 26,
+         "gives": "UP"
         }
        ]
+      },
+      {
+       "words": "classy car",
+       "at": 34,
+       "gives": "RR",
+       "note": "RR stands for Rolls-Royce, the byword for a luxury car"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The sly bit is that 'up' is not an instruction but the word to be turned. And a purr belongs equally to a contented cat and a Rolls-Royce engine.",
-     "definitionFit": "Purring is the soft sound of contentment made by a happy cat or a smoothly running engine, the sensory sign of pleasure."
+     "surface": "Someone shows delight when a posh car pulls up.",
+     "walkthrough": "'turning' reverses UP to PU, then RR (Rolls-Royce) follows. 'turning up' reads like a car arriving, but 'up' is the word turned.",
+     "definitionFit": "A cat purrs to show contentment, so to purr is to make a sound of pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -748,35 +756,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REHOUSED",
-     "indicators": [
-      {
-       "text": "Wounded"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wounded",
+         "at": 0,
+         "note": "wounded means hurt, damaged, so the letters of the word are knocked out of shape"
+        }
+       ],
        "parts": [
         {
-         "words": "Wounded hero",
-         "gives": "REHO",
-         "note": "'wounded' scrambles HERO"
-        },
-        {
-         "words": "accustomed",
-         "gives": "USED",
-         "note": "accustomed (to) = used (to)"
+         "words": "hero",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "accustomed",
+       "at": 13,
+       "gives": "USED",
+       "note": "used, as in used to, means accustomed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Only 'hero' is fodder — the rest is a straight charade piece. Anagrams that eat just part of a clue are the ones solvers walk past.",
-     "definitionFit": "To be rehoused is to be moved to a new home elsewhere, typically after being displaced."
+     "surface": "An injured soldier who has grown used to being transferred from place to place.",
+     "walkthrough": "'Wounded' rearranges HERO to REHO, before USED. 'accustomed to' looks like a phrase, but 'to being' only links the definition.",
+     "definitionFit": "People who are rehoused are given new homes, relocated to accommodation somewhere else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wounded"
     }
    }
   },
