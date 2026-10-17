@@ -224,45 +224,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NAPALM",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to protect",
+       "at": 13,
+       "note": "to protect means to surround, so the friend goes inside the turned word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "about means turned round, so MAN reads backwards"
-        },
-        {
-         "text": "to protect",
-         "note": "the reversed fellow protects the chum by surrounding it"
+         "at": 7,
+         "note": "about signals turning the word for fellow round, read backwards"
         }
        ],
        "parts": [
         {
          "words": "Fellow",
-         "gives": "NAM",
-         "note": "a fellow is a MAN, turned about"
-        },
-        {
-         "words": "chum",
-         "gives": "PAL",
-         "note": "chum = pal"
+         "at": 0,
+         "gives": "MAN",
+         "note": "a fellow is a man"
         }
        ]
+      },
+      {
+       "words": "chum",
+       "at": 24,
+       "gives": "PAL",
+       "note": "a chum is a pal"
       }
      ]
     },
     "explanation": {
-     "surface": "A man shields his friend from some burning liquid.",
-     "walkthrough": "'Inflammatory' usually means provocative, as in a speech; here it is literal, something that sets fire.",
-     "definitionFit": "It is jellied petrol used in firebombs, so an inflammatory liquid in the most literal sense."
+     "surface": "A man rescues his friend from a burning liquid.",
+     "walkthrough": "'Fellow' is the man turned round by 'about'; 'to protect' means the outer piece wraps around the chum, not that anyone is being shielded.",
+     "definitionFit": "Napalm is a jellied petrol used in incendiary weapons, so a liquid that sets things alight."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "protect"
     }
    }
@@ -289,32 +293,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AIRLESS",
      "indicators": [
       {
        "text": "Eastender's",
-       "note": "a Cockney from London's East End traditionally drops the H at the start of words"
+       "at": 0,
+       "note": "an East End Londoner, a Cockney, traditionally drops the initial aitch of a word"
       }
      ],
      "parts": [
       {
-       "words": "Eastender's bald",
-       "gives": "AIRLESS",
-       "note": "bald = HAIRLESS, said by a Cockney without its H"
+       "words": "bald",
+       "at": 12,
+       "gives": "HAIRLESS",
+       "note": "bald means hairless"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner is described as having no hair and being a bit pompous.",
-     "walkthrough": "'Stuffy' reads as a character trait, stiff and pompous, but it means lacking fresh air. An Eastender is a Londoner from the East End, whose accent drops H.",
-     "definitionFit": "A stuffy room is one short of fresh air, a plain synonym."
+     "surface": "A Londoner who has lost his hair and feels stifled.",
+     "walkthrough": "A Cockney from London's East End says 'airless for HAIRLESS, dropping the H.",
+     "definitionFit": "A stuffy room lacks fresh air, which is what airless describes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "stuffy"
+     "misdirectedWord": "bald"
     }
    }
   },
@@ -447,46 +454,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEMAND",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to conceal",
+       "at": 19,
+       "note": "to conceal means to hide something inside, so the theologian's letters go round the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "theologian",
+       "at": 8,
+       "gives": "DD",
+       "note": "DD is Doctor of Divinity, a theologian's degree"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to conceal",
-         "note": "the theologian hides the name by wrapping round it"
-        },
-        {
          "text": "flipping",
-         "note": "to flip something is to turn it over, so the word for identity is read backwards"
+         "at": 30,
+         "note": "flipping signals that the word for identity is turned over, read backwards"
         }
        ],
        "parts": [
         {
-         "words": "theologian",
-         "gives": "DD",
-         "note": "Doctor of Divinity, a theologian's degree"
-        },
-        {
          "words": "identity",
-         "gives": "EMAN",
-         "note": "identity = NAME, flipped"
+         "at": 39,
+         "gives": "NAME",
+         "note": "your name is your identity"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theologian is ordered to keep his identity secret.",
-     "walkthrough": "'Flipping' looks like an exclamation of annoyance, which the '!' encourages; it is the instruction to turn the name over.",
-     "definitionFit": "A plain synonym: to insist on something as necessary."
+     "surface": "An exasperated demand that a theologian hide who he really is.",
+     "walkthrough": "DD, Doctor of Divinity, is the standard abbreviation for a theologian's degree; 'to conceal' puts the reversed word for identity inside it.",
+     "definitionFit": "To demand something is to require it, insisting it be given or done."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "flipping"
     }
    }
@@ -847,43 +857,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HALLOWS",
+     "op": "container",
      "indicators": [
       {
-       "text": "new",
-       "note": "new makes a new version of SHOW"
+       "text": "in",
+       "at": 17,
+       "note": "in places the word for everyone inside the reworked letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "everyone goes in the rearranged show"
+         "text": "new",
+         "at": 20,
+         "note": "new signals that the letters of show are made into a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "new show",
-         "gives": "HOWS",
-         "note": "SHOW rearranged"
-        },
-        {
-         "words": "everyone",
-         "gives": "ALL",
-         "note": "everyone = all"
+         "words": "show",
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "everyone",
+       "at": 8,
+       "gives": "ALL",
+       "note": "everyone means all"
       }
      ]
     },
     "explanation": {
-     "surface": "A priest blesses the whole audience at a fresh production.",
-     "walkthrough": "'Show' looks like the theatre, but only its four letters are used.",
-     "definitionFit": "A plain synonym: to make holy, as in 'hallowed be thy name'."
+     "surface": "Everybody appears in a fresh television programme.",
+     "walkthrough": "'new show' reads as a TV programme, but 'new' rearranges the letters of show, and 'in' puts the word for everyone inside them.",
+     "definitionFit": "To hallow is to make holy or consecrate, a synonym of bless."
     },
     "features": {
      "answerInScene": false,
@@ -1037,48 +1047,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LENIENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "roughly",
-       "note": "roughly means not exactly, so NINE's letters come out in a rough order"
+       "text": "occupying",
+       "at": 13,
+       "note": "occupying means living inside, so the rearranged letters go inside the word for accommodation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "accommodation",
+       "at": 23,
+       "gives": "LET",
+       "note": "a let is a property rented out, an accommodation"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "occupying",
-         "note": "the rearranged nine lives inside the accommodation"
+         "text": "roughly",
+         "at": 5,
+         "note": "roughly signals the letters of nine are loosely rearranged"
         }
        ],
        "parts": [
         {
-         "words": "accommodation",
-         "gives": "LET",
-         "note": "a rented property"
-        },
-        {
-         "words": "Nine roughly",
-         "gives": "NIEN",
-         "note": "NINE rearranged"
+         "words": "Nine",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "About nine people squat in a flat where the rules are lax.",
-     "walkthrough": "'Nine roughly' reads as approximately nine; 'roughly' is the anagram signal. A let is British for a rented home.",
-     "definitionFit": "A plain synonym: tolerant and gentle, the opposite of strict."
+     "surface": "Around nine people living in a rented place, with a relaxed landlord.",
+     "walkthrough": "A let is a British term for a rented home; 'occupying' puts the jumbled nine inside it, splitting it after its second letter.",
+     "definitionFit": "A lenient person is tolerant and easy-going, the opposite of harsh or severe."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "roughly"
+     "misdirectedWord": "accommodation"
     }
    }
   },
