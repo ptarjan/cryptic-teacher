@@ -21,7 +21,8 @@
   "previousOrigin": "model"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -463,30 +464,31 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "TRAP",
      "indicators": [
       {
        "text": "has turned up",
-       "note": "This entry runs down the grid, so a piece that has turned up is read from the bottom towards the top and arrives backwards."
+       "at": 17,
+       "note": "in a down clue, turned up means the word is read from bottom to top, so backwards"
       }
      ],
      "parts": [
       {
        "words": "What actor seeks",
-       "gives": "TRAP",
-       "note": "an actor is after a part, and those four letters climb the grid, so they arrive the other way round"
+       "at": 0,
+       "gives": "PART",
+       "note": "an actor goes after a part, a role in a play"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor's hoped-for part has finally come along.",
-     "walkthrough": "'Turned up' does both jobs at once: arrived, which is the surface, and reversed, which is the instruction.",
-     "definitionFit": "A trap is the trapdoor built into a stage floor for a demon king to rise through, so the definition points at theatre carpentry."
+     "surface": "An actor auditioning finally lands the role he was after, then appears on stage.",
+     "walkthrough": "'has turned up' looks like the actor arriving, but it reverses PART. The definition is a trapdoor in a stage floor, through which performers can appear or vanish.",
+     "definitionFit": "A trap is a hinged opening set into a theatre's floor, used for sudden entrances and exits."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "turned"
     }
    }
@@ -693,38 +695,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "active",
-       "note": "An active thing will not sit still, and letters that will not sit still come back in some other order."
+       "text": "around",
+       "at": 13,
+       "note": "the rearranged letters sit around the next piece"
       }
      ],
      "parts": [
       {
-       "words": "Rakes active",
-       "gives": "SKRAE",
-       "note": "the five letters of the clue's first word, resettled before anything goes inside them"
-      },
-      {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "What goes around a thing encloses it, so these letters open up and take the next ones inside."
+         "text": "active",
+         "at": 6,
+         "note": "being active means busy and moving about, so the letters of rakes are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "Rakes",
+         "at": 0,
+         "note": "taken as written, as the letters to rearrange"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "turned over",
-           "note": "Something turned over ends up facing the other way, so those letters are read from the back."
+           "at": 28,
+           "note": "turned over means flipped, so the word for block is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "a block turned over",
-           "gives": "ARAB",
-           "note": "a block of wood or stone is a bar, and it is the bar alone that turns, with the 'a' left standing in front"
+           "words": "block",
+           "at": 22,
+           "gives": "BAR",
+           "note": "to bar is to block"
           }
          ]
         }
@@ -733,9 +749,9 @@
      ]
     },
     "explanation": {
-     "surface": "Rakish idlers busying themselves around an overturned stone at an ancient settlement.",
-     "walkthrough": "Skara Brae is the Neolithic village on Orkney that a storm stripped bare in 1850, and 'Rakes' is the old word for dissolute men — nothing here is a garden tool.",
-     "definitionFit": "Skara Brae is a 5,000-year-old stone village on Orkney, so 'prehistoric site' is the plain archaeological label for it."
+     "surface": "Someone vigorously raking the ground turns up a stone block at an ancient dig.",
+     "walkthrough": "'active' rearranges RAKES into SKRAE; 'turned over' makes BAR into RAB, so A plus RAB gives ARAB, and 'around' puts SKRAE around it. Skara Brae is a Neolithic village in Orkney, off northern Scotland.",
+     "definitionFit": "Skara Brae is a Stone Age settlement of stone houses, preserved in sand on the Orkney mainland."
     },
     "features": {
      "answerInScene": true,
@@ -813,56 +829,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "END",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "less",
+       "at": 40,
+       "note": "less means minus, so the letter that stands for nothing is taken away"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "toppling over",
-         "note": "Something that topples over lands the other way up, so those letters are read backwards."
+         "at": 17,
+         "note": "something toppling over ends up the other way round, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "less",
-           "note": "'Less' is doing arithmetic, not comparison: what it names is subtracted from what has been built."
-          }
-         ],
-         "parts": [
-          {
-           "words": "exhausted",
-           "gives": "ENOD",
-           "note": "someone exhausted is done in, and those four letters are tipped over to read the other way"
-          },
-          {
-           "gives": "O"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "nothing",
-         "note": "nothing is O, the letter shaped like a zero, and it is the one taken away"
+         "words": "exhausted",
+         "at": 6,
+         "gives": "DONE",
+         "note": "done in the sense of worn out, as in 'I'm done'"
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 32,
+       "gives": "O",
+       "note": "O, the round figure zero, stands for nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted walker halting, keeling over, with nothing left to spare.",
-     "walkthrough": "'Nothing less' reads as 'nothing short of' and is an instruction to subtract: nothing is the round letter, and out it comes.",
-     "definitionFit": "To end is to stop — a play ends, a road ends — the intransitive verb rather than the noun the surface's exhausted walker suggests."
+     "surface": "An exhausted person, about to collapse, is told to stop before they fall over with nothing left.",
+     "walkthrough": "'toppling over' reverses DONE into ENOD, and 'less' removes the O (nothing) from it.",
+     "definitionFit": "To end something is to bring it to a stop, so the two verbs are synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "less"
+     "misdirectedWord": "toppling"
     }
    }
   },
@@ -945,51 +955,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "unthinkingly",
+      "text": "unthinkingly?",
       "at": 31
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABSTRACTEDLY",
+     "op": "container",
      "indicators": [
       {
-       "text": "running",
-       "note": "Ink runs, dye runs: anything running spreads where it likes, and letters given that freedom settle somewhere new."
+       "text": "around",
+       "at": 17,
+       "note": "the rearranged letters wrap around the region"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "What is placed around a thing wraps right round it, so the shuffled letters open to take the next word inside."
+         "text": "running",
+         "at": 9,
+         "note": "running loose means out of order, so the letters of the two words are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "Leads by running",
-         "gives": "ABSEDLY",
-         "note": "the seven letters of the clue's first two words, set down in a different order"
-        },
-        {
-         "words": "region",
-         "gives": "TRACT",
-         "note": "a tract is a stretch of country — a tract of moorland — so it is a region"
+         "words": "Leads by",
+         "at": 0,
+         "note": "taken as written, as the letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "region",
+       "at": 24,
+       "gives": "TRACT",
+       "note": "a tract is a region or stretch of land"
       }
      ]
     },
     "explanation": {
-     "surface": "A front-runner building a lead by jogging round the district without thinking about it.",
-     "walkthrough": "'Leads' looks like the standing instruction to take first letters; here it is ordinary fodder, and 'running' is what unsettles it.",
-     "definitionFit": "To do a thing abstractedly is to do it with your mind elsewhere, which is 'unthinkingly' in the absent sense rather than the stupid one."
+     "surface": "A race leader wins by a margin while running around a district.",
+     "walkthrough": "'running' rearranges LEADS BY into ABSEDLY, and 'around' puts that around TRACT. The question mark flags that absent-mindedness is only one way of acting without thought.",
+     "definitionFit": "Acting abstractedly means with one's mind elsewhere, preoccupied and not paying attention, hence without thinking."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Leads"
     }
@@ -1127,60 +1138,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "port",
-      "at": 49
+      "text": "It's the port",
+      "at": 40
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "This entry runs down the grid, so a piece that is upset is tipped over and read from the bottom upwards."
-      }
-     ],
      "parts": [
       {
        "words": "Medic",
+       "at": 0,
        "gives": "DR",
-       "note": "DR is the doctor's title, the medic's two letters"
+       "note": "Dr is the abbreviation for doctor, a medic"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "woozy",
-         "note": "Someone woozy can keep nothing straight, and letters that cannot be kept straight come out in another order."
+         "text": "upset",
+         "at": 16,
+         "note": "in a down clue, upset means turned upside down, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "to leave",
-           "gives": "OG",
-           "note": "to leave is to go, and those two letters are stood on their head"
-          },
-          {
-           "words": "woozy head",
-           "gives": "HEDA",
-           "note": "the four letters of 'head', handed back in a new arrangement"
-          }
-         ]
+         "words": "to leave",
+         "at": 6,
+         "gives": "GO",
+         "note": "to go is to leave"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "woozy",
+         "at": 28,
+         "note": "feeling woozy is feeling dizzy and muddled, so the letters of head are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "head",
+         "at": 34,
+         "note": "taken as written, as the letters to rearrange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor walking out in a huff with a thick head, and the port wine gets the blame.",
-     "walkthrough": "'It's the port' is the surface's punchline, blaming the wine for the state of the doctor, while the definition wants an Irish harbour town.",
-     "definitionFit": "Drogheda is a port on the Boyne in County Louth, so the definition is the plain geographical label and not the fortified wine."
+     "surface": "A doctor feeling unsteady and dizzy wants to go home, perhaps after too much port.",
+     "walkthrough": "'upset' reverses GO into OG and 'woozy' rearranges HEAD into HEDA. The port is not the drink but Drogheda, a harbour town on Ireland's east coast.",
+     "definitionFit": "Drogheda is a seaport town on the River Boyne estuary in County Louth, Ireland."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "port"
     }
@@ -1221,7 +1236,8 @@
      "indicators": [
       {
        "text": "possibly",
-       "note": "'Possibly' concedes the letters could come out any way round, which is the licence a shuffle needs."
+       "at": 48,
+       "note": "possibly signals the letters may be arranged some other way"
       }
      ],
      "parts": [
@@ -1229,32 +1245,40 @@
        "op": "first",
        "indicators": [
         {
-         "text": "source",
-         "note": "A source is where a thing starts, so this asks for the letter the next word starts with."
+         "text": "source for",
+         "at": 14,
+         "note": "the source of a word is where it begins, so its first letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "source for support",
-         "note": "the letter support begins with"
+         "words": "support",
+         "at": 25,
+         "note": "its first letter is S"
         }
        ]
       },
       {
-       "words": "for idle tars",
-       "note": "eleven letters waiting to be dealt out again"
+       "words": "for",
+       "at": 33,
+       "note": "taken as written, as letters to rearrange"
+      },
+      {
+       "words": "idle tars",
+       "at": 37,
+       "note": "taken as written, as the letters to rearrange"
       }
      ]
     },
     "explanation": {
-     "surface": "A fund set up to keep unemployed sailors going.",
-     "walkthrough": "A tar is a sailor, so the surface's men out of work and the definition's admiral are the same trade seen from opposite ends of the ship.",
-     "definitionFit": "The First Sea Lord is the admiral who runs the Royal Navy, so 'Naval leader' is his job description almost word for word."
+     "surface": "An admiral provides the backing for lazy sailors, perhaps.",
+     "walkthrough": "'source for' takes S from support; add FOR IDLE TARS and 'possibly' rearranges the lot. The First Sea Lord is the professional head of Britain's Royal Navy.",
+     "definitionFit": "The First Sea Lord is the senior serving officer who commands the Royal Navy, its top admiral."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "source"
+     "misdirectedWord": "tars"
     }
    }
   },
@@ -1385,38 +1409,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 26,
+       "note": "missing means without, so the letter for new is dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "missing",
-         "note": "Something missing is not there at all, so the letter named beside it never reaches the answer."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Taking considerable time",
-         "gives": "LONG",
-         "note": "a job that takes considerable time is a long one, and this is the word before the cut"
-        },
-        {
-         "gives": "N"
-        }
-       ]
+       "words": "Taking considerable time",
+       "at": 0,
+       "gives": "LONG",
+       "note": "something long takes a lot of time"
       },
       {
-       "unchecked": true,
        "words": "new",
-       "note": "new is N in crosswords, and that is the letter that goes missing"
+       "at": 34,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A runner too slow to break the new record.",
-     "walkthrough": "The surface is an athlete falling short, and the definition is the other kind of record entirely: the written account kept day by day.",
-     "definitionFit": "A log is the running written record a ship or a pilot keeps, so 'record' is the noun in its filing sense, not a disc or a best time."
+     "surface": "A slow process that takes ages still fails to set a new record.",
+     "walkthrough": "'missing' takes the N (new) out of LONG. 'record' looks like a world record, but here it is a written record, such as a ship's log.",
+     "definitionFit": "A log is a written record of events, such as a ship's daily journal of its voyage."
     },
     "features": {
      "answerInScene": false,
@@ -1550,41 +1568,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoning",
+       "at": 12,
+       "note": "abandoning means leaving behind, so the letter for son is dropped from the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "abandoning",
-         "note": "To abandon a thing is to walk out on it, so the letter named leaves the word it was sitting in."
-        }
-       ],
-       "parts": [
-        {
-         "words": "expedition",
-         "gives": "HASTE",
-         "note": "expedition in its old sense is speed — doing a thing with expedition is doing it with haste"
-        },
-        {
-         "gives": "S"
-        }
-       ]
+       "words": "expedition",
+       "at": 23,
+       "gives": "HASTE",
+       "note": "expedition in its old sense of promptness or speed, which is haste"
       },
       {
-       "unchecked": true,
        "words": "son",
-       "note": "S is the standard short form for son, and that is the letter abandoned"
+       "at": 8,
+       "gives": "S",
+       "note": "S is the abbreviation for son, as in genealogies"
       }
      ]
     },
     "explanation": {
-     "surface": "A son walking out on the family trip.",
-     "walkthrough": "'Expedition' is not a journey here but the old noun for speed, the sense still alive in 'expedite'.",
-     "definitionFit": "To hate is to dislike at full strength, so the definition is the same verb with the temperature turned down."
+     "surface": "A father resents his son for deserting the family on a trip abroad.",
+     "walkthrough": "'abandoning' takes S (son) out of HASTE. 'expedition' suggests a journey, but here it means speed, as in 'with all expedition'.",
+     "definitionFit": "To hate something is to feel intense dislike for it, so the two verbs are near synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "expedition"
     }
@@ -1675,21 +1688,20 @@
    "annotation": {
     "definitions": [
      {
-      "text": "party island",
+      "text": "party island?",
       "at": 32
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IBIZA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' is literal here: the letter before it drops bodily inside the letters that follow."
+         "text": "recalled",
+         "at": 15,
+         "note": "recalled means called back, so the letters are read backwards"
         }
        ],
        "parts": [
@@ -1697,41 +1709,54 @@
          "op": "container",
          "indicators": [
           {
-           "text": "recalled",
-           "note": "Something recalled is called back the way it came, so those letters are read in reverse."
+           "text": "in",
+           "at": 5,
+           "note": "the bass letter goes inside the next pieces"
           }
          ],
          "parts": [
           {
-           "words": "zone 2",
-           "gives": "IIZ",
-           "note": "zone gives its Z and 2 is II in Roman numerals, and the three are called back the other way round"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "zone",
+             "at": 8,
+             "gives": "Z"
+            },
+            {
+             "words": "2",
+             "at": 13,
+             "gives": "II",
+             "note": "II is 2 in Roman numerals"
+            }
+           ]
           },
           {
            "words": "Bass",
+           "at": 0,
            "gives": "B",
-           "note": "B is the short form for bass on a part sheet"
+           "note": "B is the abbreviation for bass, as in a choir's SATB"
           }
          ]
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the standard short form for area"
         }
        ]
+      },
+      {
+       "words": "area",
+       "at": 24,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "The bass thumping in zone 2 brought back memories of a district on a party island.",
-     "walkthrough": "'Zone 2' reads like a transport map and is two scraps of shorthand, a letter and a Roman numeral, before anything is turned round.",
-     "definitionFit": "Ibiza is the Balearic island whose superclubs made it Europe's summer party destination, so the definition names it by what it is famous for."
+     "surface": "Sound system in a club, zone two, gets recalled from a rave area.",
+     "walkthrough": "'in' puts B inside Z plus II to give ZIBI; 'recalled' reverses it to IBIZ, then A follows. Ibiza is a Spanish Balearic island famed for clubbing.",
+     "definitionFit": "Ibiza, in the Balearics, is famous for its nightclubs and all-night dance parties, so is a party island."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "recalled"
+     "misdirectedWord": "Bass"
     }
    }
   },
