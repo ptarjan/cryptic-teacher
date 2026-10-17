@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -255,7 +256,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "booze-filled rooms",
+      "text": "booze-filled rooms?",
       "at": 41
      }
     ],
@@ -263,41 +264,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "Letters taken regularly are taken at a steady interval, here every other one counting from the first."
+       "text": "seen around",
+       "at": 16,
+       "note": "seen around means the kept letters are placed on either side of the singer's name"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "CRS",
        "indicators": [
         {
-         "text": "seen around",
-         "note": "To be seen around a person is to be on both sides of them, so these letters part company and let a name sit between."
+         "text": "regularly",
+         "at": 6,
+         "note": "regularly means every other letter of the word corks is kept, the first, third and fifth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Corks regularly",
-         "gives": "CRS",
-         "select": "alternate",
-         "note": "the first, third and fifth letters of the word, read in order"
+         "words": "Corks",
+         "at": 0,
+         "note": "the word corks supplies the letters that are kept"
         }
        ]
       },
       {
        "words": "Fitzgerald's",
+       "at": 28,
        "gives": "ELLA",
-       "note": "Ella Fitzgerald the jazz singer supplies her first name, which drops in after the opening letter"
+       "note": "Ella Fitzgerald, the American jazz singer"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fitzgerald's' looks like a possessive and the apostrophe is surface work only: what the wordplay wants is the singer's first name, not anything she owns.",
-     "definitionFit": "booze-filled rooms → CELLARS: a cellar is the underground room a house keeps its wine in, so filling one with drink is what the word already implies."
+     "surface": "Wine stoppers turn up near a famous singer, presumably in rooms full of drink.",
+     "walkthrough": "'regularly' keeps the odd letters of Corks, CRS; 'seen around' splits them so they sit either side of Ella Fitzgerald, the jazz singer.",
+     "definitionFit": "Cellars are underground storerooms where wine and beer are stocked, hence playfully rooms full of booze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Corks"
     }
    }
   },
@@ -323,55 +329,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CAKES",
+     "indicators": [
+      {
+       "text": "wrapped in",
+       "at": 21,
+       "note": "wrapped in means the unit for are sits inside the surrounding letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "wrapped in",
-         "note": "Wrapping goes round the outside of a thing, so the letter named before this phrase is tucked inside the letters named after it."
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "C",
          "indicators": [
           {
            "text": "piece of",
-           "note": "A piece of a word is a fragment of it, and the fragment taken here is the one it opens with."
+           "at": 32,
+           "note": "piece of means just one letter, the first, is taken from the word cling"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "piece of cling",
-           "gives": "C",
-           "select": "first",
-           "note": "the opening letter is the piece taken off"
+           "words": "cling",
+           "at": 41,
+           "note": "the first letter of cling"
           }
          ]
         },
         {
-         "words": "are",
-         "gives": "A",
-         "note": "an are is the metric unit of area, a hundred square metres, and its symbol is a"
-        },
-        {
          "words": "film",
+         "at": 47,
          "gives": "KES",
-         "note": "Kes is Ken Loach's 1969 film about a boy and a kestrel, a fixture of British screens"
+         "note": "Kes is Ken Loach's 1969 film about a boy and his kestrel"
         }
        ]
+      },
+      {
+       "words": "are",
+       "at": 17,
+       "gives": "A",
+       "note": "an are is a metric unit of area, abbreviated A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cling film' reads as one thing, the kitchen wrap, and the setter splits it down the middle: cling gives up a letter and film becomes a title on its own.",
-     "definitionFit": "Patisserie items → CAKES: a patisserie is a pastry shop, and cake by the counterful is what it sells, so the plural names its stock."
+     "surface": "Pastries are being wrapped up in a sheet of cling film.",
+     "walkthrough": "'are' is not a verb but the metric unit of area, A; 'wrapped in' puts it inside C, the 'piece of' cling, plus KES, a classic British film.",
+     "definitionFit": "Cakes are among the sweet baked goods sold in a patisserie, a pastry shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "are"
     }
    }
   },
@@ -396,36 +406,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LOCKSTEP",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "Something turned over is read from its other end, and the four letters in front of the word come back the way they went."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Rugby player",
+       "at": 0,
+       "gives": "LOCK",
+       "note": "a lock is a second-row forward in rugby"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 19,
+         "note": "over means the word for huffs is turned back to front, as this is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Rugby player",
-         "gives": "LOCK",
-         "note": "a lock is the forward who packs down in the second row of a rugby scrum"
-        },
-        {
-         "words": "huffs over",
-         "gives": "STEP",
-         "note": "a pet is a fit of sulks — to be in a pet is to be in a huff — and the plural is turned round"
+         "words": "huffs",
+         "at": 13,
+         "gives": "PETS",
+         "note": "a pet is a fit of sulking, so huffs are pets"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Huffs' is the sulking kind, not the breathing kind: a pet is a sulk, the sense that survives in the phrase 'in a pet'.",
-     "definitionFit": "tight formation → LOCKSTEP: marching in lockstep means each rank so close to the next that the whole body moves as one, which is a formation at its tightest."
+     "surface": "A rugby forward sulks about a tight scrum formation.",
+     "walkthrough": "A lock is a second-row forward in rugby; 'over' turns PETS, sulks, back to front as STEP.",
+     "definitionFit": "Lockstep is a way of marching in close file, each person moving exactly with the one in front, so a tight formation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "huffs"
     }
    }
   },
@@ -704,8 +721,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "BBC radio show",
-      "at": 53
+      "text": "special BBC radio show",
+      "at": 45
      }
     ],
     "wordplay": {
@@ -713,44 +730,48 @@
      "parts": [
       {
        "words": "John",
+       "at": 0,
        "gives": "LOO",
-       "note": "John is the American word for the lavatory, and the British word for the same room is three letters"
+       "note": "john is slang for a toilet, a loo"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "SE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "latest two characters",
-         "note": "The latest characters of a name are the letters it finishes on, and two of them are wanted here rather than a person from a sketch."
+         "at": 14,
+         "note": "latest two characters means only the final pair of letters of the surname survive, everything before them dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Cleese's latest two characters",
-         "gives": "SE",
-         "select": "last",
-         "note": "the final two letters of the surname, kept in order"
+         "words": "Cleese's",
+         "at": 5,
+         "gives": "CLEESE",
+         "note": "the comedian's surname, Cleese, whose letters are cut down to its closing pair"
+        },
+        {
+         "gives": "CLEE"
         }
        ]
       },
       {
        "words": "complete",
-       "gives": "END",
-       "note": "to complete a task is to end it, verb for verb"
-      },
-      {
-       "words": "special",
-       "gives": "S",
-       "note": "S is the usual single letter for special"
+       "at": 36,
+       "gives": "ENDS",
+       "note": "to complete something is to end it, so completes, here ends"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Loose Ends is Radio 4's Saturday-evening arts and conversation programme. Cleese supplies letters rather than comedy, which is what makes the surface look like a tribute.",
-     "definitionFit": "BBC radio show → LOOSE ENDS: it is the title of a long-running Radio 4 programme, so the definition names a broadcast rather than describing the phrase."
+     "surface": "John Cleese's two most recent roles round off a special BBC radio programme.",
+     "walkthrough": "'John' is not Cleese's first name here but slang for a toilet; 'latest two characters' keeps just SE, the final pair of letters of Cleese.",
+     "definitionFit": "Loose Ends is a long-running BBC Radio 4 chat and arts programme hosted on Saturday evenings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
     }
    }
   },
@@ -775,47 +796,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPIKE",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "Turning a thing around leaves it facing the other way, so the four letters beside the word are read from their far end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 7,
+         "note": "around means the word for sleeps is turned round and read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Sleeps around",
-         "gives": "SPIK",
-         "note": "a kip is British slang for a sleep, and the plural is turned back to front"
-        },
+         "words": "Sleeps",
+         "at": 0,
+         "gives": "KIPS",
+         "note": "to kip is to sleep, so sleeps are kips"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "Initially points at the very start of the word that follows and takes that letter only."
-          }
-         ],
-         "parts": [
-          {
-           "words": "initially eschewing",
-           "gives": "ESCHEWING",
-           "note": "the first letter of the word that follows"
-          }
-         ]
+         "text": "initially",
+         "at": 15,
+         "note": "initially means only the opening letter of eschewing is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eschewing",
+         "at": 25,
+         "note": "the first letter of eschewing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sleeps around' reads as one racy phrase, and the wordplay wants it as two jobs: a slang plural, then the instruction to turn it.",
-     "definitionFit": "drug → SPIKE: to spike a drink is to slip something into it without telling the drinker, which is the same verb as drugging one."
+     "surface": "Someone who sleeps around starts off by avoiding drugs.",
+     "walkthrough": "'Sleeps around' suggests promiscuity, but 'around' reverses the word for sleeps, giving SPIK; 'initially' then adds the first letter of eschewing.",
+     "definitionFit": "To spike a drink is to secretly add a drug or alcohol to it, so spike is a verb meaning to dope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
     }
    }
   },
@@ -995,67 +1023,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MANNERISM",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when interrupted by",
+       "at": 32,
+       "note": "when interrupted by means the reversed alarm breaks into the middle of the letters before it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "MANNERISM",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "guy",
+         "at": 9,
+         "gives": "MAN",
+         "note": "a guy is a man"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
            "text": "beginning to",
-           "note": "The beginning of the word after it is the letter it starts with, and that letter is all this asks for."
-          },
-          {
-           "text": "flipping",
-           "note": "To flip a thing is to turn it right over, so the five letters beside the word are read from the back."
+           "at": 14,
+           "note": "beginning to means only the first letter of moan is used"
           }
          ],
          "parts": [
           {
-           "words": "guy",
-           "gives": "MAN",
-           "note": "a guy is a man, plain synonym"
-          },
-          {
-           "words": "flipping alarm",
-           "gives": "NERIS",
-           "note": "a siren is the alarm, and its five letters are turned round"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "M",
-           "indicators": [
-            {
-             "text": "when interrupted by",
-             "note": "An interruption arrives in the middle of things, so what follows is dropped into the letters already assembled."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "beginning to moan",
-             "gives": "M",
-             "select": "first",
-             "note": "the first letter of the verb, and it ends up right at the back"
-            }
-           ]
+           "words": "moan",
+           "at": 27,
+           "note": "the first letter of moan"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 52,
+         "note": "flipping means the word for alarm is turned over and read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alarm",
+         "at": 61,
+         "gives": "SIREN",
+         "note": "a siren is an alarm"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Habit of guy' reads as a single phrase — a man's way of carrying on — and that is the trap: the definition stops at the first word, and the guy belongs to the wordplay.",
-     "definitionFit": "Habit → MANNERISM: a mannerism is a gesture or turn of phrase somebody repeats without noticing, which is what a habit is in the behavioural sense."
+     "surface": "A man's habit is to start moaning whenever an alarm goes off.",
+     "walkthrough": "'beginning to' takes M from moan to follow MAN; 'flipping' reverses SIREN to NERIS, and 'when interrupted by' puts that inside, giving MAN-NERIS-M.",
+     "definitionFit": "A mannerism is a habitual gesture or way of speaking peculiar to a person, a personal habit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -1490,36 +1523,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MOPUP",
-     "indicators": [
-      {
-       "text": "mess made by",
-       "note": "The entry is not described by the words after this phrase, it makes them: read as an instruction, the answer produces the slang term beside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mess made by",
+         "at": 5,
+         "note": "mess made by means the letters of the Australian word for an Englishman are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "Englishman in Australia",
-         "gives": "MOP",
-         "note": "an Englishman down under is a POM in Australian slang, and these three letters are that word written the other way round"
-        },
-        {
-         "words": "as it were",
-         "gives": "UP",
-         "note": "the entry carries its own instruction: this is a down clue, and reading letters up the grid is what turns them round"
+         "at": 18,
+         "gives": "POM",
+         "note": "Pom is Australian slang for an English person"
         }
        ]
+      },
+      {
+       "words": "as it were",
+       "at": 43,
+       "gives": "UP",
+       "note": "as it were points to the remaining word of the phrase, the adverb up, which completes the expression"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "This clue runs backwards. Instead of the wordplay building the answer, the answer read as wordplay builds the Australian nickname, and 'as it were' is the nudge that says so.",
-     "definitionFit": "Tidy → MOP UP: to mop up is to clear away what a spill or a mess has left behind, which is tidying at its most literal."
+     "surface": "Tidy up the mess some Englishman made in Australia.",
+     "walkthrough": "'mess made by' jumbles POM, the Australian slang for an English person, to MOP; UP finishes the phrase, the setter's 'as it were' owning to the looseness.",
+     "definitionFit": "To mop up is to clean up spilt liquid or remaining bits, so to tidy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mess"
     }
    }
   },
@@ -1735,41 +1775,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PUDDING",
-     "indicators": [
-      {
-       "text": "brought about",
-       "note": "Bringing a thing about turns it to face the other way, so the party's three letters are read back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought about",
+         "at": 6,
+         "note": "brought about means the party's letters are turned around and read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Party brought about",
-         "gives": "PUD",
-         "note": "the DUP is Northern Ireland's Democratic Unionist Party, and its three letters are turned round"
-        },
-        {
-         "words": "noise",
-         "gives": "DIN",
-         "note": "a din is a continuous loud noise"
-        },
-        {
-         "words": "golf",
-         "gives": "G",
-         "note": "golf is G in the NATO spelling alphabet"
+         "words": "Party",
+         "at": 0,
+         "gives": "DUP",
+         "note": "the DUP is the Democratic Unionist Party of Northern Ireland"
         }
        ]
+      },
+      {
+       "words": "noise",
+       "at": 20,
+       "gives": "DIN",
+       "note": "din is noise"
+      },
+      {
+       "words": "golf",
+       "at": 34,
+       "gives": "G",
+       "note": "G is golf in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Golf course' is a single thing in the surface and two separate pieces underneath. In Britain the sweet course of a meal is called the pudding whatever is served.",
-     "definitionFit": "course → PUDDING: in British usage pudding is the name of the sweet course at the end of a meal, not just one dish within it."
+     "surface": "A political party arranged noise near a golf course.",
+     "walkthrough": "'brought about' sounds like 'caused' but reverses DUP to PUD; 'course' is not the golf course but a course of a meal.",
+     "definitionFit": "Pudding is the dessert course of a British meal, served after the main dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
     }
    }
   },
@@ -1794,40 +1843,64 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CAECUM",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Neither finishing",
-       "note": "One instruction covering two words at once: neither of them keeps the letter it would have ended on."
-      },
-      {
        "text": "twisted",
-       "note": "Twisted means turned right round, so each piece is read from its far end."
+       "at": 36,
+       "note": "twisted means the letters remaining from the two shortened words are wound into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Neither",
+         "at": 0,
+         "note": "neither, read with finishing, means the first word, much, loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "much",
+         "at": 18
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finishing",
+         "at": 8,
+         "note": "finishing, read with neither, means the second word, each, likewise loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "each",
-         "gives": "CAE",
-         "note": "the word loses its final letter, and the three that remain are read from the far end"
+         "at": 24
         },
         {
-         "words": "much",
-         "gives": "CUM",
-         "note": "this one is docked in the same way and turned round too"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Neither finishing' governs both words at once, which is the piece most solvers miss: it is not one deletion but two, and each word pays the same toll.",
-     "definitionFit": "part of gut → CAECUM: the caecum is the pouch where the small intestine opens into the large, so it is a named section of the gut."
+     "surface": "Neither of two things gets finished, each one having a twisted gut.",
+     "walkthrough": "'Neither finishing' cuts the last letter from both much and each, leaving MUC and EAC; 'twisted' rearranges those six letters.",
+     "definitionFit": "The caecum is the pouch at the start of the large intestine, a section of the bowel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twisted"
     }
    }
   }
