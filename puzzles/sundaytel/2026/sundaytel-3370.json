@@ -398,43 +398,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OCEAN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filled with",
+       "at": 13,
+       "note": "filled with means the next piece goes inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Oblique",
-         "note": "an oblique cone is slanted out of true, so its letters are knocked out of order"
-        },
-        {
-         "text": "filled with",
-         "note": "something filled with A has the A inside it"
+         "at": 0,
+         "note": "oblique means slanting or indirect, hinting that the letters of cone are knocked askew into a new order"
         }
        ],
        "parts": [
         {
          "words": "cone",
-         "gives": "OCEN",
-         "note": "CONE rearranged"
-        },
-        {
-         "words": "a",
-         "note": "as printed"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A geometry-class slanted cone brimming with water.",
-     "walkthrough": "Oblique is a real geometry term for a cone, which is what hides it as an anagram signal.",
-     "definitionFit": "A descriptive definition: an ocean is the largest kind of body of water there is."
+     "surface": "A geometry problem about a slanted cone full of water.",
+     "walkthrough": "'Oblique' rearranges CONE to OCEN, which is 'filled with' A.",
+     "definitionFit": "An ocean is the largest kind of body of sea water on Earth."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Oblique"
     }
@@ -577,37 +578,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RUMPSTEAK",
-     "indicators": [
-      {
-       "text": "pickled",
-       "note": "pickled is slang for drunk, and drunk letters stagger into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "drink",
+       "at": 9,
+       "gives": "RUM",
+       "note": "rum is a spirit, a drink"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pickled",
+         "at": 24,
+         "note": "pickled means drunk, or preserved in brine; either way the letters of kept as are thrown about"
+        }
+       ],
        "parts": [
         {
-         "words": "drink",
-         "gives": "RUM",
-         "note": "rum is a drink"
+         "words": "kept",
+         "at": 15
         },
         {
-         "words": "kept, as",
-         "gives": "PSTEAK",
-         "note": "KEPT AS rearranged"
+         "words": "as",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A menu note about meat and drink preserved in brine.",
-     "walkthrough": "Pickled suits preserved meat in the surface, but here it means drunk, jumbling KEPT AS.",
-     "definitionFit": "A definition by class: rump steak is a cut of beef, so it is meat."
+     "surface": "Meat and alcohol kept in a pickling jar.",
+     "walkthrough": "'pickled' rearranges KEPT AS to PSTEAK, which follows RUM.",
+     "definitionFit": "Rump steak is a cut of beef from the hindquarters, a kind of meat."
     },
     "features": {
      "answerInScene": true,
@@ -790,51 +794,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TIMBERYARD",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 46,
+       "note": "initially says the rearranged letters come first, ahead of the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "wrong",
-         "note": "letters that are wrong are not in their right order, so they must be rearranged"
-        },
-        {
-         "text": "initially",
-         "note": "initially means at the start, so this piece goes first in the answer"
+         "at": 40,
+         "note": "wrong signals that the letters of bet I'm are put in the wrong order"
         }
        ],
        "parts": [
         {
          "words": "bet I'm",
-         "gives": "TIMBE",
-         "note": "BET IM rearranged"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R = right"
-        },
-        {
-         "words": "length",
-         "gives": "YARD",
-         "note": "a yard is a length of three feet"
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 18,
+       "gives": "R"
+      },
+      {
+       "words": "length",
+       "at": 24,
+       "gives": "YARD",
+       "note": "a yard is a length, three feet"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone admitting a wrong bet about where timber gets sawn.",
-     "walkthrough": "'Initially' does not ask for first letters; it moves the rearranged BET I'M to the front, ahead of the pieces listed before it.",
-     "definitionFit": "A descriptive definition: a timber yard stores and saws wood, so it is where planks are cut."
+     "surface": "A gambler admits losing a bet about planks being cut to the right length.",
+     "walkthrough": "'wrong' turns BET I'M into TIMBE, which 'initially' places before R and YARD.",
+     "definitionFit": "A timber yard is a business that stores and saws wood, where planks are cut to size."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "initially"
+     "misdirectedWord": "bet"
     }
    }
   },
@@ -998,45 +1004,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INEBRIATE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 31,
+       "note": "after puts the rearranged letters after the one"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "at": 37,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "drunk",
-         "note": "drunk letters reel about and land in a new order"
-        },
-        {
-         "text": "after",
-         "note": "this piece comes after the other, so the one leads"
+         "at": 25,
+         "note": "drunk means the letters of beer and ain't are reeling about, rearranged"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
+         "words": "beer",
+         "at": 14
         },
         {
-         "words": "beer ain't",
-         "gives": "NEBRIATE",
-         "note": "BEER AINT rearranged"
+         "words": "ain't",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub drinker in a place where no beer is drunk.",
-     "walkthrough": "In the surface 'drunk' denies anyone drank the beer; in the wordplay it scrambles the letters.",
-     "definitionFit": "A plain synonym for the noun: an inebriate is a habitual drunk, a boozer."
+     "surface": "A drinker sits where the beer has gone undrunk, after one round.",
+     "walkthrough": "'drunk' rearranges BEER AIN'T to NEBRIATE, which comes 'after' I.",
+     "definitionFit": "An inebriate is a habitual drunkard, a boozer in British slang."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "drunk"
     }
    }
@@ -1213,39 +1226,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEAWEED",
-     "indicators": [
-      {
-       "text": "funny",
-       "note": "funny means odd, and odd letters are out of their usual order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "funny",
+         "at": 9,
+         "note": "funny means odd, so the letters of we see a come out strangely ordered"
+        }
+       ],
        "parts": [
         {
-         "words": "We see a",
-         "gives": "SEAWEE",
-         "note": "WE SEE A rearranged"
+         "words": "We",
+         "at": 0
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "little bit of",
-           "note": "a little bit of a word is its first letter alone"
-          }
-         ],
-         "parts": [
-          {
-           "words": "little bit of dulse",
-           "gives": "DULSE",
-           "note": "first letter of dulse"
-          }
-         ]
+         "words": "see",
+         "at": 3
+        },
+        {
+         "words": "a",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "little bit of",
+         "at": 15,
+         "note": "a little bit of dulse is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dulse",
+         "at": 29,
+         "note": "dulse supplies its first letter, the little bit taken"
         }
        ]
       }
@@ -1253,9 +1273,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Spotting an odd scrap of dulse on the shore.",
-     "walkthrough": "Dulse is an edible red seaweed, so the whole clue both builds and describes the answer.",
-     "definitionFit": "The clue reads straight: dulse is itself a seaweed, so a bit of it is here in the answer."
+     "surface": "A beachcomber notices an odd scrap of dulse lying about.",
+     "walkthrough": "'funny' rearranges WE SEE A to SEAWEE, and 'little bit of' takes D from dulse. Read whole, the clue also defines: dulse is found in the thing named.",
+     "definitionFit": "Dulse is a red edible seaweed, so a bit of it belongs among marine algae of that kind."
     },
     "features": {
      "answerInScene": true,
