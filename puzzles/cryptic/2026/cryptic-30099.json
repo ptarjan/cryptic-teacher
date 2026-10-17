@@ -50,36 +50,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GROWNUP",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "Turn a thing about and it faces the other way, so the little word beside it arrives back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cultivate",
+       "at": 0,
+       "gives": "GROW",
+       "note": "to grow plants is to cultivate them"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 20,
+         "note": "about means turned around, so the word for witticism is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Cultivate",
-         "gives": "GROW",
-         "note": "to cultivate a crop is to grow it, taken straight as four letters"
-        },
-        {
          "words": "witticism",
-         "gives": "NUP",
-         "note": "a witticism is a pun, written the other way round here"
+         "at": 10,
+         "gives": "PUN",
+         "note": "a pun is a witticism, a play on words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cultivate witticism' reads as one instruction — be funny — which is what hides the join between the two pieces, and the turn happens on the second of them.",
-     "definitionFit": "adult → GROWN-UP: someone who has finished growing is no longer a child, and the phrase works as noun and adjective, exactly as 'adult' does."
+     "surface": "Developing a sense of humour is a sign of being mature.",
+     "walkthrough": "'about' looks like 'concerning', but it reverses PUN to give NUP.",
+     "definitionFit": "A grown-up is a fully developed person, the everyday word for an adult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },
@@ -843,31 +850,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHRIVAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "losing",
-       "note": "Losing a thing leaves you without it, so the clue is describing the answer as it looks once one letter has been taken out."
+       "text": "if losing",
+       "at": 18,
+       "note": "the clue says the answer, if it lost this letter, would be the other word, so the answer is that word with the letter put in"
+      },
+      {
+       "text": "would be",
+       "at": 33,
+       "note": "would be completes the conditional: with the letter lost, the answer would become the record word, so that word gains the letter"
       }
      ],
      "parts": [
       {
-       "words": "would be matter of record",
+       "words": "matter of record",
+       "at": 42,
        "gives": "ARCHIVAL",
-       "note": "material of record is archival, the kind of thing kept in an archive"
+       "note": "archival means of or kept in archives, the stuff of records"
       },
       {
        "words": "run",
+       "at": 28,
        "gives": "R",
-       "note": "r is the cricket scorer's abbreviation for a run"
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Anto works backwards here: rather than building the answer, the clue tells you what would be left of it after a subtraction, and you have to put the letter back.",
-     "definitionFit": "Chief competitor → ARCH RIVAL: the prefix arch- means the leading one of its kind, so this is the opponent who matters more than all the others."
+     "surface": "A leading rival on a losing run, which would go down in the record books.",
+     "walkthrough": "The clue works backwards: 'if losing' R the answer 'would be' a word for to do with records, so the answer is that word with R added.",
+     "definitionFit": "An arch-rival is one's principal opponent, so the main competitor one faces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
     }
    }
   },
