@@ -644,7 +644,7 @@ pool_reap() {
     unset "POOL_SOLVING[$pid]"
     # Cut off, most likely by a lockout, before its fill went in: requeued to
     # resume that conversation, its fill as it left it.
-    if [ "$rc" -ne 0 ] && [ -z "$(git status --porcelain -- "$(puzzle_spec "$id")")" ]; then
+    if [ "$rc" -ne 0 ] && [ -z "$(git --no-optional-locks status --porcelain -- "$(puzzle_spec "$id")")" ]; then
       handle_failed_run "$id" "$WAVE_WHAT" && WAVE_FAILED_IDS+=("$id")
       return
     fi
@@ -1041,7 +1041,8 @@ publish_commits() {
 # Prints git's refusal and returns non-zero.
 sync_tree() {
   shelve_code_edits || return 1
-  git reset -q --keep origin/master
+  # Rewrites the index for seconds: in turn with the runs' stage and commit.
+  under_index_lock git reset -q --keep origin/master
 }
 
 # A run authors its puzzle, the clues-only file its solve removes, and data
@@ -1067,7 +1068,7 @@ shelve_code_edits() {
     echo "sync: could not save the code edits ${code[*]} to $patch, so they stay and the move waits" >&2
     return 1
   }
-  git checkout -q HEAD -- "${code[@]}"
+  under_index_lock git checkout -q HEAD -- "${code[@]}"
   alert "pre-reset backfill: a run edited code it cannot publish (${code[*]}), which origin/master also changed, so the tree could not move. Saved to $patch and put back as HEAD has it; land it with tests if it is right — commits that need it stay parked until then."
 }
 
@@ -1086,7 +1087,7 @@ publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
   # shellcheck disable=SC2046  # one path per line, none with a space
   set -- tools/data/ $(python3 tools/own_rows.py paths | sed 's/^/:(exclude)/')
-  [ -n "$(git status --porcelain -- "$@")" ] || return 0
+  [ -n "$(git --no-optional-locks status --porcelain -- "$@")" ] || return 0
   index_lock
   if ! git add -A -- "$@"; then
     git reset -q -- "$@"
@@ -1111,7 +1112,9 @@ sync_wave() {
   # adds a generated path. What is excluded is what a run authors, in flight or
   # kept after a cut-off: its puzzle, the clues-only file its solve removes, and
   # shared data under tools/, which publish_shared_data has just committed.
-  git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)clues_only/' ':(exclude)tools/'
+  # A tree-wide checkout holds index.lock for seconds, so a run staging then
+  # failed on every retry (genius-177, 10-17): taken in turn with them.
+  under_index_lock git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)clues_only/' ':(exclude)tools/'
   # checkout only restores files git is tracking HERE. A generated page for a
   # puzzle this worktree's HEAD predates is untracked, and the moment origin
   # commits that same path, sync_tree refuses to write over it.
@@ -1450,8 +1453,8 @@ fi
 # back to. Keeping it was worth a retry; publishing it is not — the republish
 # below stages the whole tree, and it would go out as a puzzle whose teaching
 # ladder stops halfway down. The next run's queue picks it up whole.
-if [ -n "$(git status --porcelain -- puzzles/)" ]; then
-  echo "dropping unfinished puzzles: $(git status --porcelain -- puzzles/ | awk '{print $2}' | tr '\n' ' ')"
+if [ -n "$(git --no-optional-locks status --porcelain -- puzzles/)" ]; then
+  echo "dropping unfinished puzzles: $(git --no-optional-locks status --porcelain -- puzzles/ | awk '{print $2}' | tr '\n' ' ')"
   git checkout -- puzzles/
   git clean -qf -- 'puzzles/*/*/*.json'
 fi
@@ -1502,7 +1505,7 @@ fi
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
 rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json "$REPO/tools/_scan_"*.png
 
-if [ -n "$(git status --porcelain)" ]; then
+if [ -n "$(git --no-optional-locks status --porcelain)" ]; then
   # Everything, for the reason daily_update.sh gives at its own `add -A`: this
   # is a worktree of the job's own, and a named list is both incomplete and
   # fatal — git add aborts on a path that matches nothing, staging none of it.
@@ -1513,7 +1516,7 @@ if [ -n "$(git status --porcelain)" ]; then
     alert "the pre-reset backfill could not commit its puzzles one by one; they ride in the republish commit"
   git diff --cached --quiet ||
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
-  left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
+  left=$(git --no-optional-locks status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
   push_race_retry sync_attempt ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."

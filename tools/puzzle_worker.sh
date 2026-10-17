@@ -408,9 +408,9 @@ puzzle_specs() {   # id array-name
 # Put one puzzle's file, and a clues-only file promoted from it, back as HEAD
 # has them, including a copy written to a new folder.
 restore_puzzle() {
-  git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
+  under_index_lock git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
   git clean -qf -- "$(puzzle_spec "$1")"
-  [ -n "$(git ls-files -- "$(clues_spec "$1")")" ] && git checkout -- "$(clues_spec "$1")"
+  [ -n "$(git ls-files -- "$(clues_spec "$1")")" ] && under_index_lock git checkout -- "$(clues_spec "$1")"
   return 0
 }
 # The burn's runs share one index. Unlocked, one run's `git add` dies on
@@ -420,6 +420,18 @@ restore_puzzle() {
 # lease (tools/nightly_worktree.sh), held for the whole run.
 index_lock() { exec 8>"$(git rev-parse --git-path ct-index.lock)"; flock 8; }
 index_unlock() { flock -u 8; exec 8>&-; }
+# One git command that rewrites the index (a checkout, a reset --keep, which on
+# this tree's index run for seconds) taken in turn with the runs' stage and
+# commit. Unlocked, the sync's tree-wide checkout held index.lock long enough to
+# fail genius-177's stage on all five tries (10-17 12:26, with the retries then
+# sleeping 8s in all). For callers NOT holding ct-index.lock: it waits on a
+# fresh fd, 7, and goes ahead after five minutes rather than deadlock.
+under_index_lock() {
+  local lock
+  lock=$(git rev-parse --git-path ct-index.lock 2>/dev/null) || lock=""
+  [ -n "$lock" ] || { "$@"; return; }   # no lock path (a stubbed git): just run it
+  ( exec 7>"$lock" && flock -w 300 7; exec "$@" )
+}
 # Copy what a run wrote for puzzle $1 to $SALVAGE_ROOT/<id>/<UTC time>/ before
 # a discard throws it away: tools/_ann_<id>.json, tools/_puzzle_<id>.json, the
 # puzzle file as the run left it (puzzle.json), its cold-solve fill (fill.json)
@@ -713,7 +725,7 @@ _worker_failed_one() {   # id what notefile sidfile [how] [moved]
   # puzzle itself, which names the blog.
   seen=$(python3 tools/puzzle_paths.py "$id")
   [ "$what" = Annotate ] && seen="tools/_puzzle_$id.json"
-  if [ -z "${6:-}" ] && [ -n "$(git status --porcelain -- "$(puzzle_spec "$id")")" ] &&
+  if [ -z "${6:-}" ] && [ -n "$(git --no-optional-locks status --porcelain -- "$(puzzle_spec "$id")")" ] &&
      python3 -c 'import glob,json,sys; [json.load(open(f)) for f in glob.glob(sys.argv[1])]' "$(puzzle_spec "$id")" >/dev/null 2>&1; then
     echo "  [$id] run stopped — keeping what it finished, the file still parses"
     printf '%s\n' "You $how. Your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$3"
@@ -943,7 +955,7 @@ _worker_finish() {
   # A printedClue this run filed on an OCR'd puzzle asks its scan to be read
   # again, so the OCR learns what the annotator mended.
   python3 tools/annotate_check.py --reread "$id" || true
-  if [ -z "$(git status --porcelain -- "$(puzzle_spec "$id")")" ]; then
+  if [ -z "$(git --no-optional-locks status --porcelain -- "$(puzzle_spec "$id")")" ]; then
     echo "$what $id produced no change"
     # A clean exit is not evidence of hints: a run can finish its turns having
     # written nothing, and the validator is happy with a file with nothing in
