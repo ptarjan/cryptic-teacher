@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -159,35 +160,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "In a down entry, letters that are raised are lifted up the grid, so they read from the bottom upwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 4,
+         "note": "in a down clue, raised means the word for the dog is written upwards, so read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "knowing right from wrong",
-         "gives": "LAROM",
-         "note": "a moral sense is what tells right from wrong"
-        },
-        {
-         "words": "Dog raised",
+         "words": "Dog",
+         "at": 0,
          "gives": "LAB",
-         "note": "a Lab is the retriever, here climbing the grid"
+         "note": "a lab is short for a Labrador, a breed of dog"
         }
        ]
+      },
+      {
+       "words": "knowing right from wrong",
+       "at": 11,
+       "gives": "MORAL",
+       "note": "someone moral can tell right from wrong"
       }
      ]
     },
     "explanation": {
-     "surface": "A dog brought up to know right from wrong at a royal residence.",
-     "walkthrough": "'Raised' reads as brought up, which is how you would describe a well-trained dog, and it is the order to turn letters upward. Lab is the crossword's usual dog, short for Labrador.",
-     "definitionFit": "Balmoral is the monarch's castle in Aberdeenshire, the royal family's Highland home every summer since Victoria bought the estate in 1852."
+     "surface": "A dog with a conscience is apparently living at a royal residence.",
+     "walkthrough": "'raised' turns LAB upwards in this down answer to give BAL. Balmoral is the British royal family's castle in Aberdeenshire, Scotland.",
+     "definitionFit": "Balmoral Castle in Scotland is a residence of the British monarch, so it is an example of a royal palace."
     },
     "features": {
      "answerInScene": true,
@@ -688,37 +692,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DONERKEBAB",
-     "indicators": [
-      {
-       "text": "inventive",
-       "note": "An inventive cook makes something new out of whatever is to hand, so the letters named are put together in another order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "made",
+       "at": 13,
+       "gives": "DONE",
+       "note": "something made is done, as in a job done"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "inventive",
+         "at": 21,
+         "note": "an inventive baker rearranges things, so the letters of baker together with the bravo letter are shuffled into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "made",
-         "gives": "DONE",
-         "note": "a thing already made is done"
+         "words": "baker",
+         "at": 31
         },
         {
-         "words": "baker — bravo",
-         "gives": "RKEBAB",
-         "note": "the six letters of BAKER plus the B that bravo stands for in the radio alphabet, rearranged"
+         "words": "bravo",
+         "at": 39,
+         "gives": "B",
+         "note": "B is bravo in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hot snack dreamed up by a creative baker, and a cheer for him.",
-     "walkthrough": "The dash lets 'bravo' pass for applause while it hands over a radio-alphabet letter. The rearranged letters straddle the gap between the answer's two words, so the break falls where no clue word suggests it.",
-     "definitionFit": "A doner kebab is meat carved off the spit into a pitta and sold hot from a takeaway, which is a sandwich in all but name."
+     "surface": "A baker comes up with a hot sandwich and is applauded.",
+     "walkthrough": "The surface reads 'made by' as authorship, but 'made' is the first piece; 'inventive' then rearranges the baker's letters with the bravo letter. Bravo is a cheer in the surface but a NATO alphabet letter here.",
+     "definitionFit": "A doner kebab is grilled meat served hot inside pitta bread, a kind of sandwich."
     },
     "features": {
      "answerInScene": true,
@@ -1083,33 +1092,25 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "GEEGEE",
-     "indicators": [
-      {
-       "text": "in the middle of",
-       "note": "The middle of a word is its dead centre, so the letters taken are the ones with equal numbers either side."
-      }
-     ],
+     "op": "rebus",
+     "reading": "G-G",
      "parts": [
       {
-       "unchecked": true,
-       "words": "hunting-grounds",
-       "gives": "GEEGEE",
-       "select": "middle",
-       "note": "the fourteen letters have G and G at their exact centre, one on each side of the hyphen, and those two letters are written out by name"
+       "words": "found in the middle of hunting-grounds",
+       "at": 6,
+       "note": "the two letters at the centre of hunting-grounds are g, hyphen, g, which read aloud as letter names give the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "A horse wandering loose in the middle of the hunting grounds.",
-     "walkthrough": "Count the letters of the hyphenated word and the dead centre falls on the hyphen itself, with the same letter on either side of it. The question mark covers the last step, spelling those letters out as they are said.",
-     "definitionFit": "A gee-gee is a horse in British nursery talk and racecourse slang — a flutter on the gee-gees — from the 'gee up' called to start one moving."
+     "surface": "A horse is something you would naturally find out where the hunt rides.",
+     "walkthrough": "The surface suggests a horse in hunting country, but the middle of the word hunting-grounds is G-G, and the letter G is spelt GEE.",
+     "definitionFit": "Gee-gee is a childish or informal word for a horse, from the call used to urge one on."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "hunting-grounds"
     }
    }
