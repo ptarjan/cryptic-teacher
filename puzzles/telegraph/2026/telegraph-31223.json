@@ -1299,37 +1299,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTRAY",
-     "indicators": [
-      {
-       "text": "not first",
-       "note": "not first means the opening letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not first",
+         "at": 6,
+         "note": "not first tells us to drop the opening letter of the word before it"
+        }
+       ],
        "parts": [
         {
          "words": "Last",
-         "gives": "AST",
-         "note": "the word loses its first letter"
+         "at": 0
         },
         {
-         "words": "swimmer",
-         "gives": "RAY",
-         "note": "a ray is a flat fish, a swimmer"
+         "gives": "L",
+         "note": "the first letter of Last, removed"
         }
        ]
+      },
+      {
+       "words": "swimmer",
+       "at": 17,
+       "gives": "RAY",
+       "note": "a ray is a flat fish, a swimmer"
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer finishing last in a race drifts out of their lane.",
-     "walkthrough": "'Swimmer' in crosswords is often a fish; here the ray.",
-     "definitionFit": "Astray means away from the right path or direction, wandering where it should not be."
+     "surface": "The last swimmer in a race, beaten and drifting off course.",
+     "walkthrough": "'not first' takes the L off Last, leaving AST, and a fish completes it.",
+     "definitionFit": "Going astray means wandering away from the intended route or path."
     },
     "features": {
      "answerInScene": true,
