@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -171,37 +172,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PORTOFCALL",
+     "spelt": "PORTOFCALL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the instruction to trade them back."
+       "at": 0,
+       "note": "Spooner's marks a phrase whose opening sounds are to be swapped, after the Reverend Spooner's famous slips"
       }
      ],
      "parts": [
       {
-       "words": "train",
-       "gives": "COURT",
-       "note": "A grandee's train is the retinue trailing after them — their court."
+       "op": "homophone",
+       "spelt": "CORT",
+       "parts": [
+        {
+         "words": "train",
+         "at": 20,
+         "gives": "COURT",
+         "note": "a train is a retinue of followers, a court"
+        }
+       ]
       },
       {
        "words": "apostle's",
-       "gives": "PAUL",
-       "note": "The apostle who wrote most of the letters in the New Testament."
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's",
-       "gives": "PORTOFCALL",
-       "soundsLike": "COURT OF PAUL",
-       "note": "Say the apostle's retinue aloud, swap the opening C and P, and the possessive turns into an 'of' along the way."
+       "at": 10,
+       "gives": "OFPAUL",
+       "note": "the apostle is Paul, so apostle's is read as of Paul"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Train' is the retinue that follows a great man, not the thing at a platform — and the surface keeps a railway in view right up to the last word.",
-     "definitionFit": "A ship's port of call is a harbour written into its itinerary, a place the voyage is timetabled to break at."
+     "surface": "A saint's railway journey that calls at the timetabled station.",
+     "walkthrough": "'train' gives COURT and 'apostle's' gives OF PAUL, so COURT OF PAUL; 'Spooner's' swaps the C and P sounds to make PORT OF CALL. A train here is a retinue, not a railway one.",
+     "definitionFit": "A port of call is a place where a ship or traveller stops briefly on a planned route."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "train"
     }
    }
   },
@@ -492,34 +501,39 @@
      "parts": [
       {
        "words": "French fry",
+       "at": 8,
        "gives": "CHIP",
-       "note": "What Americans call a French fry is a chip in Britain."
+       "note": "a French fry is a chip"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "OLATA",
        "indicators": [
         {
          "text": "occasionally",
-         "note": "What happens occasionally happens every so often, and here that means picking up every second letter as you read along."
+         "at": 42,
+         "note": "occasionally means only now and then, so every other letter of the ingredient list is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "oil, salt and bay",
-         "gives": "OLATA",
-         "select": "alternate",
-         "note": "Read the three seasonings as one run and take every second letter, starting with the very first."
+         "at": 24,
+         "gives": "OILSALTBAY",
+         "note": "the three ingredients oil, salt, bay run together, with and only joining the list"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole clue reads as a recipe, and that is the disguise: the seasonings are there to be spelled out, not cooked.",
-     "definitionFit": "A chipolata is a small thin sausage, the kind wrapped in bacon at Christmas, so the definition names the class it belongs to."
+     "surface": "A recipe: fry a sausage French-style, with oil, salt and a bay leaf now and then.",
+     "walkthrough": "'occasionally' takes the first, third, fifth letters and so on of OILSALTBAY, giving OLATA; the 'and' only joins the list of ingredients.",
+     "definitionFit": "A chipolata is a small thin pork sausage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fry"
     }
    }
   },
@@ -1126,40 +1140,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NORMANDY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 13,
+       "note": "entering puts the jumbled letters inside the city's letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "city",
+       "at": 22,
+       "gives": "NY",
+       "note": "NY is short for New York, the city"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "drunk",
-         "note": "A drunk cannot walk a straight line, and these letters lose their line too."
-        },
-        {
-         "text": "entering",
-         "note": "To enter a place is to go inside it, so the staggered letters are planted between the two the city gives."
+         "at": 7,
+         "note": "drunk means the letters of random reel about into a new order"
         }
        ],
        "parts": [
         {
-         "words": "city",
-         "gives": "NY",
-         "note": "New York, shortened the way it is on a baseball cap."
-        },
-        {
          "words": "Random",
-         "gives": "ORMAND",
-         "note": "The six letters of the word, staggered into a new order."
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Random drunk' is one person on the surface, and that is where the join hides: the first word is the letters, the second is the instruction.",
-     "definitionFit": "This stretch of French coast is where the Allied armies came ashore on D-Day in 1944, the largest seaborne landing ever mounted."
+     "surface": "A random drunk wanders into town, at the spot where crowds came ashore.",
+     "walkthrough": "'drunk' scrambles random and 'entering' puts it inside the New York abbreviation. The definition points to the D-Day landings of June 1944.",
+     "definitionFit": "Normandy in northern France is where Allied troops landed from ships on D-Day in 1944."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -1608,46 +1630,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUNPOWDER",
+     "op": "container",
      "indicators": [
       {
-       "text": "extremely",
-       "note": "Extremes are the far ends of a thing, so the letters taken are the ones at each edge of the word."
+       "text": "to secure",
+       "at": 19,
+       "note": "to secure means to hold fast, so the rearranged letters hold the other piece inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "desperate",
-         "note": "A desperate person is past keeping order, and the letters lose theirs too."
-        },
-        {
-         "text": "to secure",
-         "note": "To secure something is to have it held safely inside your grip, so the pair ends up enclosed."
+         "at": 9,
+         "note": "desperate suggests wild disorder, so the letters of grown-up are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Grown-up",
-         "gives": "GUNPOWR",
-         "note": "The seven letters of the hyphenated word, thrown into a different order."
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "words": "extremely destructive",
-         "gives": "DE",
-         "note": "First and last letters of the second word."
+         "text": "extremely",
+         "at": 29,
+         "note": "extremely picks the two outermost letters of destructive"
+        }
+       ],
+       "parts": [
+        {
+         "words": "destructive",
+         "at": 39,
+         "note": "first and last letters of destructive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The hyphen makes 'Grown-up' look like scene-setting rather than fodder, and 'desperate' like the mood of the sentence rather than an instruction.",
-     "definitionFit": "Gunpowder is the black mixture of saltpetre, charcoal and sulphur that fired cannon and muskets for six centuries."
+     "surface": "A frantic adult clutching something very destructive and explosive.",
+     "walkthrough": "'desperate' rearranges grown-up into GUNPOWR, and 'to secure' has it hold DE, the 'extremely' letters of destructive.",
+     "definitionFit": "Gunpowder is the original explosive, a mix of saltpetre, sulphur and charcoal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desperate"
     }
    }
   }
