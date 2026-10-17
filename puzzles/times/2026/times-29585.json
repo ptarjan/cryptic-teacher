@@ -614,41 +614,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "firstly",
-       "note": "take the first letter of each of the next two words"
+       "text": "frames",
+       "at": 47,
+       "note": "the outer pair frames the display, holding it inside"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
-         "text": "frames"
+         "text": "firstly",
+         "at": 27,
+         "note": "firstly takes the opening letter of each of the two words after it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "firstly selects the",
-         "gives": "ST",
-         "select": "first",
-         "note": "first letters of selects and the"
+         "words": "selects the",
+         "at": 35,
+         "note": "the two words whose first letters are taken"
         }
        ]
       },
       {
        "words": "display",
+       "at": 19,
        "gives": "EXPO",
-       "note": "an expo is an exhibition or display"
+       "note": "an expo is an exhibition, a display"
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery curator choosing picture frames for an exhibition.",
-     "walkthrough": "'Fetching' pulls towards carrying things; it means attractive.",
-     "definitionFit": "A definition by description, using fetching in its sense of alluring."
+     "surface": "A person choosing pictures for an exhibition picks the frames first.",
+     "walkthrough": "'firstly' gives S and T, and 'frames' puts them around EXPO. 'fetching' means attractive, not going to get something.",
+     "definitionFit": "A sexpot is a person regarded as very sexually attractive, so someone fetching."
     },
     "features": {
      "answerInScene": false,
@@ -1353,49 +1353,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EARTH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuts",
+       "at": 38,
+       "note": "the remaining letters cut into the middle of the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "what",
+       "at": 43,
+       "gives": "EH",
+       "note": "eh? is what someone says for 'what?'"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "discharging",
-         "note": "to discharge is to let go, so BART releases a letter"
-        },
-        {
-         "text": "finally",
-         "note": "finally points at the last letter, the B of bomb"
-        },
-        {
-         "text": "cuts"
+         "at": 13,
+         "note": "discharging means letting go, so a letter is taken out"
         }
        ],
        "parts": [
         {
-         "words": "what",
-         "gives": "EH",
-         "note": "eh? = what?"
+         "words": "Animated boy",
+         "at": 0,
+         "gives": "BART",
+         "note": "Bart Simpson is the cartoon boy of The Simpsons"
         },
         {
-         "words": "Animated boy discharging bomb finally",
-         "gives": "ART",
-         "note": "Bart Simpson without B, the last letter of bomb"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 30,
+           "note": "finally picks the last letter of bomb"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bomb",
+           "at": 25,
+           "note": "the word bomb, whose last letter is B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cartoon boy defusing a bomb and asking which wire to cut.",
-     "walkthrough": "The bomb-disposal surface makes 'what wire?' one question, but 'what' is EH. In a British plug the safety wire is called the earth; Americans say ground.",
-     "definitionFit": "A definition by example, flagged by the question mark: one of the three wires in a plug."
+     "surface": "A cartoon boy defusing a bomb asks which wire to cut at the last moment.",
+     "walkthrough": "'discharging' the last letter of bomb takes B from BART to leave ART, which 'cuts' into EH. The question mark marks the definition as an example: the earth is one wire of a plug.",
+     "definitionFit": "In British wiring the earth is the safety wire in a plug or circuit, so an earth is one kind of wire."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "cuts"
     }
    }
