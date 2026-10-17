@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -107,43 +108,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FOCUS",
-     "indicators": [
-      {
-       "text": "by half",
-       "note": "Cut by half, a word keeps half the letters it had: two of four, three of six."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "shrink",
-         "note": "To shrink a thing is to leave it smaller than you found it, and a word left smaller here keeps only its opening letters."
+         "text": "to shrink",
+         "at": 7,
+         "note": "to shrink something is to make it smaller, here by cutting the back half off Fort"
         }
        ],
        "parts": [
         {
          "words": "Fort",
-         "gives": "FO",
-         "note": "half of a four-letter word is two letters, taken from the front"
+         "at": 17,
+         "note": "taken as written, then cut"
         },
         {
+         "gives": "RT"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "by half",
+         "at": 29,
+         "note": "by half says each word loses half its letters, keeping the front half of Custer"
+        }
+       ],
+       "parts": [
+        {
          "words": "Custer",
-         "gives": "CUS",
-         "note": "half of the general's six-letter name, again from the front"
+         "at": 22,
+         "note": "taken as written, then cut"
+        },
+        {
+         "gives": "TER"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cost-cutting plan to halve the size of an army fort.",
-     "walkthrough": "Custer is the US cavalry general of Little Bighorn, so 'Fort Custer' reads as one real garrison rather than as two words each waiting to be cut in two.",
-     "definitionFit": "Aim → FOCUS: both name the point you direct effort at — 'our aim this year' and 'our focus this year' swap freely."
+     "surface": "A military plan to reduce an army outpost named after General Custer to half its size.",
+     "walkthrough": "Fort Custer looks like a single place name, but the two words are halved separately, giving FO and CUS.",
+     "definitionFit": "Focus as a noun means the centre of attention or the target one concentrates on, much like an aim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fort"
     }
    }
   },
@@ -1530,37 +1547,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TROJANWAR",
-     "indicators": [
-      {
-       "text": "almost completely",
-       "note": "Almost completely is not quite all of it, so the word arrives one letter short of its full length."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "grafter",
+       "at": 22,
+       "gives": "TROJAN",
+       "note": "a grafter is a hard worker, one who works like a Trojan"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost completely",
+         "at": 30,
+         "note": "almost completely means all but the last letter of the word for apprehensive is kept"
+        }
+       ],
        "parts": [
         {
-         "words": "grafter",
-         "gives": "TROJAN",
-         "note": "graft is British for hard work, and someone who works like a trojan never stops"
+         "words": "apprehensive",
+         "at": 48,
+         "gives": "WARY",
+         "note": "wary means cautious or apprehensive"
         },
         {
-         "words": "apprehensive",
-         "gives": "WAR",
-         "note": "wary is apprehensive, and the y at its end is the letter that never arrives"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A long feud has left a hard worker almost entirely on edge.",
-     "walkthrough": "The definition is the ten-year siege of Troy, and neither half of the answer comes from anything Greek — one is hard work and the other is nerves.",
-     "definitionFit": "Extended conflict → TROJAN WAR: definition by example — the siege of Troy lasted ten years and is the archetype of a war that drags on."
+     "surface": "A long-running dispute leaves a hard worker feeling nearly totally nervous.",
+     "walkthrough": "To 'work like a Trojan' is a British idiom for working very hard, so a grafter is a TROJAN; WARY loses its last letter.",
+     "definitionFit": "The Trojan War, the legendary Greek siege of Troy, lasted ten years, so it was a prolonged conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grafter"
     }
    }
   }
