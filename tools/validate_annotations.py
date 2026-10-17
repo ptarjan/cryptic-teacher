@@ -3422,6 +3422,7 @@ ARITY_INS = "container with other than two parts"
 ARITY_OTHER = "deletion, substitution, homophone or one-armed op with the wrong part count"
 DEL_SINGLE = "deletion with one part, so what it removes is not stated"
 IND_IN_LEAF = "indicator word also inside a leaf"
+SCRAMBLED_LEAF = "leaf gives its clue words' letters out of order"
 #: Ops that are signalled by an indicator word. A charade, a cryptic definition,
 #: a rebus, a reverse clue and a palindrome of the whole answer are not.
 NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "rebus", "reverse", "palindrome"}
@@ -3439,7 +3440,7 @@ SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "w
                       "wordplay.cdefRepeat", "wordplay.arity", "wordplay.spanOverlap",
                       "wordplay.inDefinition", "wordplay.leafFold", "wordplay.repeatedSelection",
                       "wordplay.singleLeaf", "wordplay.bareInCharade", "wordplay.anagramOfContainer",
-                      "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf",
+                      "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf", "wordplay.scrambledLeaf",
                       "wordplay.ddMissesWordplay", "spelling.unsaid")
 
 
@@ -3662,6 +3663,32 @@ def ind_in_leaf(tree):
     return n
 
 
+def scrambled_leaves(tree, min_len=4):
+    """Leaves (checked or not) whose `gives` is a permutation of their own clue
+    letters, not equal to them.
+
+    A fodder leaf gives its own letters in order; only an anagram op scrambles, so
+    a leaf that arrives scrambled hides a bad tree (CULTIVATE =
+    ana(ins([clever]CUTE, [vital]LTIVA)), [gaunt]GUTAN). Not flagged: a leaf
+    directly under an anagram, reversal or cycling op (the corpus writes the
+    op's input or result there), 3 or fewer letters, and any `gives` with other
+    letters (a synonym or abbreviation). A same-first-letter sub-multiset out of
+    order was measured too and is mostly a coincident synonym (summer clothes >
+    SHORTS), so it is not a rule."""
+    n = 0
+    stack = [(tree, None)] if isinstance(tree, dict) else []
+    while stack:
+        node, parent = stack.pop()
+        stack += [(p, node) for p in node.get("parts") or [] if isinstance(p, dict)]
+        if "op" in node or not node.get("words") or not node.get("gives"):
+            continue
+        if parent and parent.get("op") in ("anagram", "reversal", "cycling"):
+            continue
+        w, g = wordplay.letters(node["words"]), wordplay.letters(node["gives"])
+        n += len(g) >= min_len and g != w and collections.Counter(g) == collections.Counter(w)
+    return n
+
+
 def lesson_warnings(tag, ann, held):
     """The findings tools/lesson_checks.py reads off a clue and its answer."""
     clue = ((held.get("clue") or {}).get("text")) or ""
@@ -3716,6 +3743,9 @@ def shape_warnings(tag, ann):
         out.append(f"{tag}: {k} {DEL_SINGLE}: del(whole, removed)")
     if k := ind_in_leaf(tree):
         out.append(f"{tag}: {k} {IND_IN_LEAF}: the leaf holds only the words that give its letters")
+    if k := scrambled_leaves(tree):
+        out.append(f"{tag}: {k} {SCRAMBLED_LEAF}: a leaf gives its own letters in order; "
+                   f"only an anagram op scrambles")
     return out
 
 
@@ -4240,6 +4270,7 @@ BACKLOG_MARKERS = {
     "wordplay.arityOther": (ARITY_OTHER,),
     "wordplay.delSingle": (DEL_SINGLE,),
     "wordplay.indInLeaf": (IND_IN_LEAF,),
+    "wordplay.scrambledLeaf": (SCRAMBLED_LEAF,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

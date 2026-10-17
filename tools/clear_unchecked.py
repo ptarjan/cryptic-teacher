@@ -72,6 +72,8 @@ def bucket(wp, answer):
         return "failing", "eval: " + " ".join(msg.split()[:4]), msg[:150]
     except Exception as e:
         return "crashed", "crashed: " + type(e).__name__, str(e)[:150]
+    if V.scrambled_leaves(stripped(wp), min_len=3):  # evaluates only because a leaf's letters are pre-scrambled
+        return "failing", "scrambled leaf", "a leaf gives its clue words' letters out of order"
     return "cleared", "cleared", ""
 
 

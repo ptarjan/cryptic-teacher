@@ -57,6 +57,7 @@ FIELDS = {
     "wordplay.arityOther": lambda ann: V.arity_other(ann.get("wordplay")),
     "wordplay.delSingle": lambda ann: V.del_single(ann.get("wordplay")),
     "wordplay.indInLeaf": lambda ann: V.ind_in_leaf(ann.get("wordplay")),
+    "wordplay.scrambledLeaf": lambda ann: V.scrambled_leaves(ann.get("wordplay")),
 }
 
 
