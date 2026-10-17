@@ -184,46 +184,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "quality of Forrest Gump",
+      "text": "quality of Forrest Gump?",
       "at": 33
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NAIVETE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "jerks",
+       "at": 9,
+       "note": "jerks here is a verb: the letters are jolted about into a new order"
+      },
+      {
+       "text": "disregarding",
+       "at": 15,
+       "note": "disregarding tells us one letter of the fodder is left out of the mix"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NAIVETE",
-       "indicators": [
-        {
-         "text": "jerks",
-         "note": "A jerk is a sudden yank, and letters yanked about land somewhere other than where they started."
-        },
-        {
-         "text": "disregarding",
-         "note": "To disregard something is to leave it out, so the letter named next never joins the shuffle."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Negative",
-         "note": "the first word is itself the raw material, and it arrives one letter too long for the light"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is the crossword's letter for good, as on an old school report"
-        }
-       ]
+       "words": "Negative",
+       "at": 0,
+       "note": "the letters to be jumbled once the named letter is set aside"
+      },
+      {
+       "words": "good",
+       "at": 28,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Negative jerks' reads as an insult aimed at people, and that is the misdirection: the first word is not describing the jerks, it is the letters themselves.",
-     "definitionFit": "quality of Forrest Gump → NAIVETE: the film's hero trusts everyone and suspects nothing, so the word is defined by an example of it."
+     "surface": "A pessimistic fool, ignoring virtue, sums up the hero of a famous film.",
+     "walkthrough": "'Disregarding good' drops G from NEGATIVE, leaving NEATIVE, which 'jerks' rearranges. Forrest Gump is the film hero famed for his simple, trusting innocence.",
+     "definitionFit": "Naivety, spelt here in the French way, is childlike innocence and lack of guile, the trait that defines Forrest Gump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jerks"
     }
    }
   },
@@ -680,40 +681,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GLOSSARY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 42,
+       "note": "in places the turned word inside the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "triumph",
+       "at": 45,
+       "gives": "GLORY",
+       "note": "glory is triumph, great honour won"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "brought over",
-         "note": "Something brought over is turned face about, so the letters beside it are written from the back end forwards."
-        },
-        {
-         "text": "in",
-         "note": "A piece that goes in something sits inside it, buried in the middle rather than added to either end."
+         "at": 29,
+         "note": "brought over means turned over, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "triumph",
-         "gives": "GLORY",
-         "note": "a triumph is a glory, the noun rather than the verb the surface offers"
-        },
-        {
          "words": "idiot",
-         "gives": "SSA",
-         "note": "an idiot is an ass, and those three letters arrive back to front"
+         "at": 23,
+         "gives": "ASS",
+         "note": "an ass is an idiot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a bad-tempered scholar. The wordplay is kinder: 'triumph' is a thing you have, not a thing you do, and the insult is only there to be turned round.",
-     "definitionFit": "Specialised dictionary → GLOSSARY: a glossary lists just the terms of one subject with their meanings, which is a dictionary narrowed to a single field."
+     "surface": "A fool is carried home in a victory parade, clutching a technical dictionary.",
+     "walkthrough": "'Brought over' turns ASS into SSA, which goes 'in' GLORY after its first three letters.",
+     "definitionFit": "A glossary is a list of specialist terms with their meanings, usually covering one subject or one book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "triumph"
     }
    }
   },
