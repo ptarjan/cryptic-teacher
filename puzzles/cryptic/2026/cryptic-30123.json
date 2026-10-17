@@ -1463,44 +1463,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DOSIDO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 25,
+       "note": "the switched word goes between the two parties, inside the pair"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "two parties",
+       "at": 33,
+       "gives": "DODO",
+       "note": "a do is a party, so two of them give DO twice"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "switched",
-         "note": "switched round, its two letters change places"
-        },
-        {
-         "text": "between",
-         "note": "the piece goes between the other two"
+         "at": 16,
+         "note": "the two letters of 'is' are switched round, swapping places so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "two parties",
-         "gives": "DODO",
-         "note": "a do is a party, and there are two"
-        },
-        {
          "words": "is",
-         "gives": "SI",
-         "note": "IS turned round"
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At a party, a dancer changes partners between two groups.",
-     "walkthrough": "DO(SI)DO. The do-si-do is a square-dance move where partners circle back to back.",
-     "definitionFit": "A do-si-do is a figure in square and country dancing."
+     "surface": "A square-dance move is passed back and forth between two sides, as if in a negotiation.",
+     "walkthrough": "'switched' turns IS into SI, and 'between' sets it in the middle of DO DO. 'Parties' reads as political groups, but here it means social gatherings.",
+     "definitionFit": "In square and folk dancing, partners circle back to back in a set move called by this name."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "parties"
     }
