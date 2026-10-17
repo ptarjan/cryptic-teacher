@@ -347,58 +347,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ODONATA",
+     "op": "container",
      "indicators": [
       {
-       "text": "Tailless",
-       "note": "without a tail means the final letter of the next word is cut off"
+       "text": "swallowed by",
+       "at": 33,
+       "note": "the shortened word goes down inside the jumbled letters, as prey inside a toad"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "swallowed by",
-         "note": "what is swallowed ends up inside the swallower, so one group sits within the other"
+         "text": "jumping",
+         "at": 54,
+         "note": "the letters of a toad leap about into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "jumping",
-           "note": "letters that are jumping are leaping about out of their places, so they are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a toad",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
+         "words": "a",
+         "at": 46
         },
         {
+         "words": "toad",
+         "at": 48,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Tailless",
+         "at": 20,
+         "note": "without its tail, the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "one",
-         "gives": "ON",
-         "note": "the word with its last letter dropped"
+         "at": 29,
+         "note": "the word that loses its tail"
+        },
+        {
+         "gives": "E",
+         "note": "the last letter of one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jumping toad gulps down an insect, which is fitting since toads prey on insects.",
-     "walkthrough": "The question mark marks a definition by example: Odonata are hunting insects.",
-     "definitionFit": "Odonata is the insect order of dragonflies and damselflies, fierce predators of other insects."
+     "surface": "A predatory insect loses its tail and is gulped down by a leaping toad.",
+     "walkthrough": "The toad in the surface is the hunter, but in the parse its letters are the container. The question mark flags that the definition names a whole order of insects, not one predator.",
+     "definitionFit": "Odonata is the insect order of dragonflies and damselflies, which hunt other insects in flight."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "jumping"
+     "aptDefinition": true,
+     "misdirectedWord": "toad"
     }
    }
   },
