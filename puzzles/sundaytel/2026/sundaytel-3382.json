@@ -640,56 +640,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DOABLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 16,
+       "note": "the single letter goes into the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "into",
-         "note": "that letter goes inside the rearranged word"
-        },
-        {
          "text": "mysterious",
-         "note": "abode's letters are made strange, i.e. rearranged"
+         "at": 21,
+         "note": "something mysterious is puzzling and jumbled, so the letters of 'abode' are mixed up"
         }
        ],
        "parts": [
         {
          "words": "abode",
-         "gives": "DOABE",
-         "note": "anagram of ABODE, opened after DOAB"
-        },
+         "at": 32,
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "Finally",
-           "note": "take the last letter of portal"
-          }
-         ],
-         "parts": [
-          {
-           "words": "portal",
-           "note": "the final letter of portal"
-          }
-         ]
+         "text": "Finally",
+         "at": 0,
+         "note": "finally points to the last letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "portal",
+         "at": 9,
+         "note": "its final letter is the one used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mysterious dwelling whose door is finally within reach.",
-     "walkthrough": "'Finally' sits at the front of the clue but applies only to the next word, portal.",
-     "definitionFit": "A figurative sense: a goal within reach is one you can achieve, so doable."
+     "surface": "A doorway finally leads into a strange house that turns out to be close by.",
+     "walkthrough": "'mysterious' turns ABODE into DOABE, and 'into' slips L, the end of 'portal', inside it before the last E.",
+     "definitionFit": "Something doable is achievable, so a task within reach is one that can be done."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "portal"
+     "aptDefinition": true,
+     "misdirectedWord": "mysterious"
     }
    }
   },
@@ -860,52 +864,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEATHERY",
-     "indicators": [
-      {
-       "text": "awfully",
-       "note": "the letters are badly arranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First of",
+         "at": 0,
+         "note": "the opening letter of the next word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "First of",
-           "note": "take the first letter of leaders"
-          }
-         ],
-         "parts": [
-          {
-           "words": "leaders",
-           "note": "first letter of leaders"
-          }
-         ]
-        },
+         "words": "leaders",
+         "at": 9,
+         "note": "its first letter is the one used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 27,
+         "note": "done awfully means done badly, so the letters of 'they are' are thrown into disorder"
+        }
+       ],
+       "parts": [
         {
          "words": "they are",
-         "gives": "EATHERY",
-         "note": "THEYARE rearranged"
+         "at": 18,
+         "note": "anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that leaders, above all, are terribly hard people.",
-     "walkthrough": "'Awfully' reads as an intensifier for tough; it is the instruction to rearrange 'they are'.",
-     "definitionFit": "A comparison: leathery meat or skin is tough, like leather."
+     "surface": "Leaders first, who are dreadfully hard-bitten.",
+     "walkthrough": "'First of leaders' gives L; 'awfully' scrambles THEY ARE into EATHERY, which follows it.",
+     "definitionFit": "Leathery meat is hard to chew like leather, so the adjective describes something tough in texture."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leaders"
+     "misdirectedWord": "awfully"
     }
    }
   },
