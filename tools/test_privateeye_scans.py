@@ -176,6 +176,10 @@ nc = ps.column_cols([(0, 0, 1000, 1000)])
 got = nc([(10, 10, 60, 40, "DOWN"), (10, 60, 60, 90, "4,"), (70, 60, 200, 90, "16ac./22dn."),
           (210, 60, 300, 90, "Her"), (310, 60, 400, 90, "(4,2,3,4)")])
 print("NAMED", got[1][0][4], nc.named)
+# No 302's "4/16dac.": the head's own letter run on the tail's "ac".
+dc = ps.column_cols([(0, 0, 1000, 1000)])
+dg = dc([(10, 10, 60, 40, "DOWN"), (10, 60, 90, 90, "4/16dac."), (100, 60, 200, 90, "Taken"), (210, 60, 300, 90, "(5)")])
+print("NAMEDDAC", dg[1][0][4], dc.named)
 nl = ps.named_links({"4-down": ("Her", "4,2,3,4", None), "16-across": ("See 4dn", None, None),
                      "22-down": ("", None, None), "16-down": ("Ringo", "7", None)}, nc.named)
 print("NAMEDLINKS", nl["4-down"][2], nl["16-across"][0], nl["22-down"][0], nl["16-down"][0],
@@ -268,6 +272,8 @@ check("the other list's See 1 Across makes the link back, as the Eye's 1/1",
       "['1-across', '1-across'] See 1 ('See 7', None, None) EYE CROSSWORD 281 ACROSS 1/1 Fellow (8,4) 7 Clue (4)", got("LINKS"))
 check("a head naming its tails' directions keeps only its number for the vote",
       "4 Her (4,2,3,4) {('down', 4): {((16, 'across'), (22, 'down')): 1}}", got("NAMED"))
+check("a tail's direction word may run on the head's letter, 4/16dac.",
+      "4 Taken (5) {('down', 4): {((16, 'across'),): 1}}", got("NAMEDDAC"))
 check('named_links groups the head as printed, each tail See 4, another light left alone',
       "['4-down', '16-across', '22-down'] See 4 See 4 Ringo 4/16ac/22 Her", got("NAMEDLINKS"))
 check('a named tail with words of its own leaves the head alone',

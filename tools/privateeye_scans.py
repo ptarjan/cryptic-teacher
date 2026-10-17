@@ -313,7 +313,7 @@ def column_cols(boxes):
                 m = NAMED.match(text)
                 if m:
                     mine = ("across", "down")[side]
-                    tails = tuple((int(n), {"a": "across", "d": "down"}[d[0].lower()] if d else mine)
+                    tails = tuple((int(n), tail_side(d, mine))
                                   for n, d in NAMED_TAIL.findall(m.group(2)))
                     lead = int(re.search(r"\d+", m.group(1)).group(0))
                     got = named.setdefault((mine, lead), {})
@@ -371,10 +371,21 @@ def closed_clues(lines):
 #: "23, 4dn." (No 112): the shared parser reads no direction, and the vote
 #: lost the clue's words to it. column_cols leaves the head's own number
 #: for the vote and keeps the tails, in printed order, for named_links.
-NAMED = re.compile(r"^(\W{0,2}\d{1,2})((?:\s*[,/]\s*\d{1,2}\s*(?:(?:across|down|ac|dn)\b\.?)?)*?"
-                   r"\s*[,/]\s*\d{1,2}\s*(?:across|down|ac|dn)\b\.?"
-                   r"(?:\s*[,/]\s*\d{1,2}\s*(?:(?:across|down|ac|dn)\b\.?)?)*)(?=\s)", re.IGNORECASE)
-NAMED_TAIL = re.compile(r"(\d{1,2})\s*(across|down|ac|dn)?\b", re.IGNORECASE)
+#: A tail's direction word: "ac", "dn", and the same with the head's own
+#: letter run on ("4/16dac.", No 302: 4 down, 16 across).
+DIR_WORD = r"(?:across|down|[ad]?ac|[ad]?dn)"
+NAMED = re.compile(r"^(\W{0,2}\d{1,2})((?:\s*[,/]\s*\d{1,2}\s*(?:" + DIR_WORD + r"\b\.?)?)*?"
+                   r"\s*[,/]\s*\d{1,2}\s*" + DIR_WORD + r"\b\.?"
+                   r"(?:\s*[,/]\s*\d{1,2}\s*(?:" + DIR_WORD + r"\b\.?)?)*)(?=\s)", re.IGNORECASE)
+NAMED_TAIL = re.compile(r"(\d{1,2})\s*(" + DIR_WORD + r")?\b", re.IGNORECASE)
+
+
+def tail_side(word, mine):
+    """"across" or "down" for a tail's direction word (its last letter
+    decides: "ac", "dac", "across" across; "dn", "down" down), `mine` if none."""
+    if not word:
+        return mine
+    return "across" if word.lower()[-1] in "cs" else "down"
 
 
 def named_links(laid, named):
