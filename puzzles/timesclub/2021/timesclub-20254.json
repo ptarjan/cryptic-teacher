@@ -47,48 +47,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OCHOTONA",
      "indicators": [
       {
        "text": "hosts",
-       "note": "a host takes guests in, so the trimmed word holds the next phrase inside it"
+       "at": 23,
+       "note": "the trimmed word hosts the other piece, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OCHOTONA",
+       "op": "middle",
        "indicators": [
         {
          "text": "outside has left",
-         "note": "the letters on the outside of the word have gone away, so both ends are stripped off"
+         "at": 6,
+         "note": "the outside of the word has gone, leaving only its inner letters"
         }
        ],
        "parts": [
         {
          "words": "Local",
-         "note": "taken as written, before its outer letters are dropped"
-        },
-        {
-         "words": "well-informed about",
-         "gives": "HOTON",
-         "note": "to be hot on a subject is to know it thoroughly"
+         "at": 0,
+         "note": "the word local, whose outer letters are removed"
         }
        ]
+      },
+      {
+       "words": "well-informed about",
+       "at": 29,
+       "gives": "HOTON",
+       "note": "to be hot on a subject is to be well-informed about it"
       }
      ]
     },
     "explanation": {
-     "surface": "A local expert steps outside and leaves visitors well briefed on animals that live underground.",
-     "walkthrough": "LOCAL loses its two outer Ls to leave OCA, which then wraps HOT ON to give OCHOTONA.",
-     "definitionFit": "Ochotona is the zoological genus of the pikas, small rabbit-like creatures that dig and live in burrows."
+     "surface": "A pub regular who walked out entertains experts on burrowing animals.",
+     "walkthrough": "'Local' tempts as a pub or a regular, but it is just the word: losing its outside L's leaves OCA, which hosts HOT ON.",
+     "definitionFit": "Ochotona is the zoological genus of the pikas, small burrowing relatives of rabbits."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hosts"
+     "misdirectedWord": "Local"
     }
    }
   },
@@ -935,64 +935,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "KEYHOLESAW",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "with one thing, not another, means the first letter takes the place of the second"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "vital",
+       "at": 17,
+       "gives": "KEY",
+       "note": "key means crucial, vital"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "KEYHOLESAW",
        "indicators": [
         {
-         "text": "out",
-         "note": "getting something out means removing it, so that letter is dropped"
+         "text": "getting left out",
+         "at": 49,
+         "note": "the letter for left, L, is left out of the salad, the one before its last letters"
         }
        ],
        "parts": [
         {
-         "words": "vital",
-         "gives": "KEY",
-         "note": "key means crucial or vital"
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "with hot, not cold",
+           "at": 23,
+           "note": "the letter for hot, H, takes the place of the letter for cold, C, as on taps"
+          }
+         ],
+         "parts": [
+          {
+           "words": "salad",
+           "at": 43,
+           "gives": "COLESLAW",
+           "note": "coleslaw is a salad of shredded cabbage"
+          },
+          {
+           "gives": "C"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         },
         {
-         "words": "salad",
-         "gives": "COLESLAW",
-         "note": "a cabbage salad"
-        },
-        {
-         "words": "hot",
-         "gives": "H",
-         "note": "the tap abbreviation for hot"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "the tap abbreviation for cold"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "the standard abbreviation for left"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe note: hot salad, not a cold one, with something vital left out.",
-     "walkthrough": "Hot and cold are the H and C on taps; the salad changes one letter and drops another before following the vital word.",
-     "definitionFit": "A keyhole saw is a narrow-bladed handsaw for cutting curves and small openings in wood or board."
+     "surface": "Instructions for a cutting tool mixed up with a recipe for a warm salad.",
+     "walkthrough": "COLESLAW with H for C becomes HOLESLAW; dropping the second L gives HOLESAW, after KEY.",
+     "definitionFit": "A keyhole saw is a narrow-bladed saw for cutting small holes and curves."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "salad"
     }
    }
