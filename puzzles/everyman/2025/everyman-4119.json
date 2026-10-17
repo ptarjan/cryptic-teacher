@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -525,30 +526,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EPIC",
+     "op": "middle",
      "indicators": [
       {
        "text": "without limits",
-       "note": "The limits of a word are the letters at either end of it, and without them means both of those go."
+       "at": 9,
+       "note": "a word's limits are its first and last letters, so both ends are dropped"
       }
      ],
      "parts": [
       {
        "words": "Portray",
+       "at": 0,
        "gives": "DEPICT",
-       "note": "To portray a scene is to depict it, and the D and T at its ends are the limits taken off."
+       "note": "to depict is to portray"
       }
      ]
     },
     "explanation": {
-     "surface": "Painting a subject with no restraint whatever.",
-     "walkthrough": "'Without limits' reads as the freedom the painter is being allowed and means the outer letters go. An instruction of that kind always takes exactly one letter from each end.",
-     "definitionFit": "An epic is a long heroic narrative — the Odyssey rather than an anecdote — so 'vast tale' gives its size and its nature at once."
+     "surface": "An instruction to illustrate a boundless, sweeping story.",
+     "walkthrough": "'without limits' looks like it describes the vast tale, but it trims the ends off the word for portray.",
+     "definitionFit": "An epic is a long narrative poem or story of heroic deeds on a grand scale."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "limits"
     }
@@ -682,38 +683,22 @@
     "definitions": [
      {
       "text": "Turbine component",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the rotating bladed part of a turbine"
+     },
+     {
+      "text": "you may see going round again",
+      "at": 18,
+      "meaning": "second meaning: something you see spinning round and round, and also a word that comes round again unchanged when read from the far end"
      }
     ],
-    "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "going round again",
-       "note": "A word that goes round again comes back as itself from the far end, so there is nothing to turn over — only a symmetry to check."
-      }
-     ],
-     "parts": [
-      {
-       "unchecked": true,
-       "words": "Turbine component",
-       "note": "The definition end of the clue: the spinning part inside the machine."
-      },
-      {
-       "unchecked": true,
-       "words": "you may see going round again",
-       "note": "The wordplay end: five letters reading the same from either direction, which is all the help the clue gives."
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A piece of a turbine that you can watch come round once more.",
-     "walkthrough": "The indicator describes the thing as well as its spelling, since a rotor goes round for a living — a second meaning the setter gets free. There are no letters to assemble, only a shape to recognise.",
-     "definitionFit": "The rotor is the bladed wheel a turbine spins, the part that actually turns while the casing stays put."
+     "walkthrough": "The second half describes the part's spinning motion, and slyly hints that the five letters read the same in both directions.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as the bladed shaft that spins in a turbine."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun"
     }
    }
