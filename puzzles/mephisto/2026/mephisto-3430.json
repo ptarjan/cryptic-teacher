@@ -119,26 +119,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BLOCKAGES",
      "indicators": [
       {
        "text": "changing hands",
-       "note": "the hands are right and left, so one letter standing for one hand is exchanged for the other"
+       "at": 23,
+       "note": "the right hand is swapped for the left, so the letter for right becomes the letter for left"
       }
      ],
      "parts": [
       {
        "words": "mis-struck coins",
+       "at": 6,
        "gives": "BROCKAGES",
-       "note": "brockages are coins struck badly at the mint"
+       "note": "brockages are coins struck faultily at the mint, a Chambers word"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Faulty coins being passed from person to person get stuck somewhere.",
-     "walkthrough": "'Changing hands' sounds like money passing between people; here R (right) is swapped for L (left), turning BROCKAGES into BLOCKAGES.",
-     "definitionFit": "Blockages are obstructions that halt flow, and 'stops' as a plural noun means exactly such obstructions."
+     "surface": "A mint halts production because faulty coins keep passing between people.",
+     "walkthrough": "'changing hands' swaps R (right) for L (left) in BROCKAGES.",
+     "definitionFit": "Blockages are obstructions, things that stop a flow."
     },
     "features": {
      "answerInScene": false,
@@ -1809,12 +1815,14 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means inside, so one part goes within the other"
+       "at": 38,
+       "note": "the reflected pair goes in the Latin word"
       }
      ],
      "parts": [
       {
        "words": "this",
+       "at": 41,
        "gives": "HIC",
        "note": "hic is Latin for this"
       },
@@ -1823,27 +1831,36 @@
        "indicators": [
         {
          "text": "On reflection",
-         "note": "a reflection is a mirror image, so the order is flipped"
+         "at": 0,
+         "note": "reflected as in a mirror, so the two starts are read backwards"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "LY",
-         "indicators": [
-          {
-           "text": "starts to",
-           "note": "the starts of words are their opening letters"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "like Y-fronts",
-           "gives": "LY",
-           "select": "first",
-           "note": "the opening letters of the two words"
+           "op": "first",
+           "indicators": [
+            {
+             "text": "starts to",
+             "at": 14,
+             "note": "the starts are the first letters of the following words"
+            }
+           ],
+           "parts": [
+            {
+             "words": "like",
+             "at": 24,
+             "note": "its first letter is taken"
+            }
+           ]
+          },
+          {
+           "words": "Y-fronts",
+           "at": 29,
+           "gives": "Y",
+           "note": "its start is the letter Y"
           }
          ]
         }
@@ -1852,13 +1869,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone thinking it over decides they quite like underpants made from this fabric.",
-     "walkthrough": "'Material' suggests cloth for the underwear, but it is an adjective meaning physical. Y-fronts are men's briefs.",
-     "definitionFit": "Hylic, from Greek hyle meaning matter, describes what is material or physical rather than spiritual."
+     "surface": "Musing on what Y-fronts underpants are made of.",
+     "walkthrough": "'starts to' gives L and Y, 'On reflection' makes YL, and that goes 'in' HIC, Latin for this. Y-fronts are a style of men's underpants.",
+     "definitionFit": "Hylic means relating to matter, corporeal, a term from Gnostic philosophy for the material as against the spiritual."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "material"
     }
