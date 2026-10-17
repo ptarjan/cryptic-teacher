@@ -441,53 +441,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "For the most part",
-       "note": "most but not all of the word is kept, so its final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "For the most part",
+         "at": 0,
+         "note": "most but not all of the name is kept, so its final letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "Weinstein",
+         "at": 19,
          "gives": "HARVEY",
          "note": "Harvey Weinstein, the disgraced film producer"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ST",
-         "indicators": [
-          {
-           "text": "a couple of",
-           "note": "a couple means two, so only the opening pair of letters is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "stars",
-           "gives": "ST",
-           "select": "first",
-           "note": "the first two letters of stars"
-          }
-         ]
+         "gives": "Y",
+         "note": "the last letter of Harvey, removed"
         }
        ]
       },
       {
-       "gives": "Y"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a couple of",
+         "at": 33,
+         "note": "a couple means two, so only the opening pair of letters of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stars",
+         "at": 45,
+         "note": "only its first two letters are kept"
+        },
+        {
+         "gives": "ARS",
+         "note": "the rest of stars after its first two letters, dropped"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A comment that the disgraced producer and his famous accusers are getting what they deserve.",
      "walkthrough": "The surface hints at karma for Weinstein, but the last four words are a plain definition of gathering crops.",
-     "definitionFit": "To harvest is to gather in a crop that was planted earlier."
+     "definitionFit": "To harvest is to gather in a crop that was planted earlier, literally collecting what was sown."
     },
     "features": {
      "answerInScene": false,
@@ -611,58 +615,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BATHROOM",
+     "op": "container",
      "indicators": [
       {
-       "text": "all but the first piece of",
-       "note": "everything except the opening letter is kept, so that letter is dropped"
+       "text": "during",
+       "at": 64,
+       "note": "something happening during a period sits inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "economic upswing",
+       "at": 71,
+       "gives": "BOOM",
+       "note": "a boom is a period of rapid economic growth"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "during",
-         "note": "something happening during a period sits inside it"
+         "text": "upholds",
+         "at": 24,
+         "note": "in a down light, what holds something up sits beneath it, so this piece comes after"
         }
        ],
        "parts": [
         {
-         "words": "economic upswing",
-         "gives": "BOOM",
-         "note": "a boom is a period of rapid economic growth"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "upholds",
-           "note": "in a down light, what holds something up sits beneath it, so this piece comes after"
+           "text": "all but the first piece of",
+           "at": 32,
+           "note": "everything except the opening letter is kept, so that letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "oath",
-           "gives": "ATH",
-           "note": "oath without its first letter"
+           "at": 59,
+           "note": "taken as written, before its first letter goes"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "originally",
-             "note": "the original part of a word is where it begins, its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Roberts",
-             "note": "the first letter of Roberts"
-            }
-           ]
+           "gives": "O",
+           "note": "the first letter of oath, removed"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 13,
+           "note": "the original part of a word is where it begins, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Roberts",
+           "at": 5,
+           "note": "its first letter is used"
           }
          ]
         }
@@ -1450,38 +1462,26 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ELASTIC",
      "indicators": [
       {
-       "text": "Flexible",
-       "note": "doubling as the definition, flexible says those letters bend into a new order"
+       "text": "source of characters in",
+       "at": 9,
+       "note": "the source of characters is the stock of different letters a word draws on, a pool to be drawn from in any order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELASTIC",
-       "indicators": [
-        {
-         "text": "source of characters in",
-         "note": "the source of characters is the stock of different letters a word draws on, each counted once, so repeats are dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Ecclesiastes",
-         "note": "the book of the Old Testament, taken as written"
-        }
-       ]
+       "words": "Ecclesiastes",
+       "at": 33,
+       "gives": "ECLSIAT",
+       "note": "the book of the Old Testament: the seven different letters it is spelt with, each taken once, in the order they first appear"
       }
      ]
     },
     "explanation": {
      "surface": "A pliable origin for the figures in a book of the Bible.",
-     "walkthrough": "Ecclesiastes uses only seven different letters, E, C, L, S, I, A and T, and those seven, rearranged, give the answer.",
-     "definitionFit": "Elastic means able to stretch and spring back, so flexible."
+     "walkthrough": "'source of characters in' asks for the set of letters the name is built from. Ecclesiastes is spelt with only seven different letters, E, C, L, S, I, A and T, and those seven, rearranged, give the answer.",
+     "definitionFit": "Elastic means able to stretch and spring back, so pliant and bendy."
     },
     "features": {
      "answerInScene": false,
