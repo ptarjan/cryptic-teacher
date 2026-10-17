@@ -75,6 +75,18 @@ print("NUMBER", ps.number_of(lines, 858), ps.number_of(lines[1:], 858), ps.numbe
 W = lambda *ts: [(0, 0, 1, 1, t) for t in ts]
 ruled = [W("EYE", "CROSSWORD", "|", "|", "|_", "280"), W("Crossword", "279", "winner:", "PETER")]
 print("RULED", ps.number_of(ruled, 1125), ps.number_of(ruled[1:], 1125))
+# The heading's number lost to outline digits (issue 1062): the winner line's
+# number + 1. Issue 853's "Crossword", Private Eye, 6 Carlisle Street is no number.
+lost = [W("CROSSWORD", "by", "Cyclops"), W("Crossword", "216", "winner:", "MARTIN")]
+addr = [W("Re", "\u201cCrossword\u201d,", "Private", "Eye,", "6", "Carlisle", "Street"), W("Solution", "to", "Crossword", "No.", "8")]
+import gzip, json
+_art = "crossword " * 7 + "Cross words Sir"
+_puz = "CROSSWORD by Cyclops ACROSS 1 Clue (5) 2 Another (4,3) 3 More (6) 4 Last (3-3) 5 X (7) DOWN"
+_txt = _art + _puz
+_get = lambda url: gzip.compress(json.dumps([[0, len(_art)], [len(_art), len(_txt)]]).encode()) if "pageindex" in url \
+    else gzip.compress(_txt.encode())
+print("LEAF", ps.find_leaf(1062, _get) == 1)
+print("LOST", ps.number_of(lost, 1062), ps.number_of(addr, 854), ps.number_of(lost, 900))
 words = [w for ws in lines for w in ws]
 across, down = ps.column_cols(cols)(words)
 print("SIDES", len(across), len(down), down[2][4])
@@ -195,7 +207,11 @@ check('two clue columns found, left then right, a clue saying crossword in them'
 check("the heading's number, else the solution's + 1, never the address's 6",
       '13 13 None', got("NUMBER"))
 check('rules between the heading and its number skipped; Crossword N winner is not it',
-      '280 None', got("RULED"))
+      '280 280', got("RULED"))
+check("a lost heading number is the winner's + 1 (or the solution's + 1), never the address's 6",
+      '217 9 None', got("LOST"))
+check("the crossword's leaf is the one with clue counts, not an article saying crossword",
+      'True', got("LEAF"))
 check("the columns read ACROSS then DOWN, a linked head's slash a comma",
       '4 4 20, 12 Linked clue (6,6)', got("SIDES"))
 check('a linked head prints 20/12 and a continuation See 20',
