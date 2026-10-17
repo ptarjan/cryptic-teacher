@@ -61,40 +61,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MOONSHEE",
      "indicators": [
       {
        "text": "translating into",
-       "note": "translating one thing into another swaps it for something new, so a short word gives way to a letter"
+       "at": 33,
+       "note": "translating one thing into another turns it into something else, so the word in is changed into the new letter"
       }
      ],
      "parts": [
       {
        "words": "nonsense",
+       "at": 21,
        "gives": "MOONSHINE",
-       "note": "moonshine is foolish talk or fanciful nonsense"
+       "note": "moonshine is foolish talk, nonsense"
       },
       {
        "words": "in",
-       "note": "taken as written; these two letters are the ones swapped out"
+       "at": 30
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E is the standard abbreviation for English"
+       "at": 50,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A translator in India is accused of talking rubbish when turning a text into English.",
-     "walkthrough": "In MOONSHINE the letters IN become E, giving MOONSHEE.",
-     "definitionFit": "A moonshee was a secretary or language teacher employed by Europeans in colonial India, hence an interpreter."
+     "surface": "An Indian interpreter's version is gibberish once rendered into English.",
+     "walkthrough": "'in' looks like a link word but is the very letters that get translated into English. A moonshee was a native secretary or language teacher in British India.",
+     "definitionFit": "Moonshee is the Anglo-Indian word for a secretary or interpreter employed by Europeans in colonial India."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "translating"
     }
    }
   },
@@ -1133,48 +1133,41 @@
     "definitions": [
      {
       "text": "The Globe's bankrupt",
-      "at": 0
+      "at": 0,
+      "note": "the Globe was Shakespeare's theatre, so this is the word for bankrupt in his plays"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRADEFALNE",
+     "op": "composite",
      "indicators": [
       {
        "text": "failing",
-       "note": "something failing is collapsing, so the letters fall into a new arrangement"
+       "at": 22,
+       "note": "failing means breaking down, so the letters collapse into a new order"
+      },
+      {
+       "text": "spending",
+       "at": 47,
+       "note": "spending means using up, so the named letters are taken out of the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TRADEFALNE",
-       "indicators": [
-        {
-         "text": "spending",
-         "note": "to spend something is to use it up, so those letters are taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "to defer a loan",
-         "note": "taken as written"
-        },
-        {
-         "words": "over and over again",
-         "gives": "OO",
-         "note": "O is the cricket abbreviation for an over, and it is needed twice"
-        }
-       ]
+       "words": "to defer a loan",
+       "at": 30
+      },
+      {
+       "words": "over and over again",
+       "at": 56,
+       "gives": "OO",
+       "note": "O is the cricket abbreviation for an over; an over and another one give two of them"
       }
      ]
     },
     "explanation": {
-     "surface": "Shakespeare's Globe theatre is bust after failing to put off a loan and overspending repeatedly.",
-     "walkthrough": "The Globe is Shakespeare's theatre: the word comes from his Henry IV, Part 1, which is why the definition credits it.",
-     "definitionFit": "Trade-fallen is Shakespeare's word for someone who has failed in trade, i.e. a bankrupt."
+     "surface": "Shakespeare's theatre goes broke after failing to postpone a loan and overspending again and again.",
+     "walkthrough": "'spending' removes two Os, one for each over, from TO DEFER A LOAN, and 'failing' rearranges the ten letters left.",
+     "definitionFit": "Trade-fallen is Shakespeare's term in Henry IV for a tradesman ruined in business, that is, bankrupt."
     },
     "features": {
      "answerInScene": true,
@@ -1980,25 +1973,37 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CARNEY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "off on",
-       "note": "one thing off and another on means a letter is swapped for a new one"
+       "text": "on",
+       "at": 36,
+       "note": "on means placed after, so the next letter follows"
       }
      ],
      "parts": [
       {
-       "words": "customs permit",
-       "gives": "CARNET",
-       "note": "a carnet is a customs document allowing goods across borders temporarily"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time; this letter is replaced"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 32,
+         "note": "off means taken away, so the letter for time is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "customs permit",
+         "at": 12,
+         "gives": "CARNET",
+         "note": "a carnet is a customs document allowing goods to cross borders duty-free"
+        },
+        {
+         "words": "time",
+         "at": 27,
+         "gives": "T"
+        }
+       ]
       },
       {
        "op": "nth",
@@ -2006,12 +2011,14 @@
        "indicators": [
         {
          "text": "4th of",
-         "note": "the fourth of a word is its fourth letter, so just that one is taken"
+         "at": 39,
+         "note": "the fourth letter of the word, a nod to the Fourth of July"
         }
        ],
        "parts": [
         {
          "words": "July",
+         "at": 46,
          "note": "the fourth letter of July"
         }
        ]
@@ -2019,15 +2026,14 @@
      ]
     },
     "explanation": {
-     "surface": "American celebrations with customs permits and time off on the Fourth of July.",
-     "walkthrough": "The Fourth of July conjures American Independence Day, but it means the fourth letter of the word July.",
-     "definitionFit": "Carney is American slang for a carnival, a travelling fair, and also for one who works there."
+     "surface": "Customs papers for an American Independence Day celebration allow some time off.",
+     "walkthrough": "'off' drops the T from CARNET, leaving CARNE, and '4th of' takes Y from July to go 'on' the end. A carney, or carny, is a US travelling carnival.",
+     "definitionFit": "In American usage a carney is a travelling fair or carnival, or someone who works in one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "4th"
+     "misdirectedWord": "July"
     }
    }
   },
