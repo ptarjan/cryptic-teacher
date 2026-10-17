@@ -227,34 +227,32 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AR",
        "indicators": [
         {
          "text": "in middle of",
-         "note": "takes the central letters of Park"
+         "at": 7,
+         "note": "in the middle of asks for the central letters of the word that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of Park",
-         "gives": "AR",
-         "select": "middle",
-         "note": "the middle two letters of PARK"
+         "words": "Park",
+         "at": 20,
+         "note": "its two middle letters are A and R"
         }
        ]
       },
       {
        "words": "Row",
-       "note": "given as is"
+       "at": 25,
+       "gives": "ROW"
       }
      ]
     },
     "explanation": {
-     "surface": "A rain shower falls on a street called Park Row.",
-     "walkthrough": "Read 'Shower' as one who shows, not rain: an arrow is a sign that shows the way.",
-     "definitionFit": "An arrow on a sign shows you where to go, so it is a shower."
+     "surface": "A rain shower falls in the centre of a London street called Park Row.",
+     "walkthrough": "'Shower' looks like rainfall, but it is one who shows: an arrow points the way. 'in middle of' takes AR from the centre of Park.",
+     "definitionFit": "An arrow sign indicates direction, so it is something that shows the way, a pointer."
     },
     "features": {
      "answerInScene": false,
@@ -474,43 +472,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "including",
-       "note": "the benefit holds the next letter inside it"
-      }
-     ],
      "parts": [
       {
        "words": "Kind of music",
+       "at": 0,
        "gives": "ROCK",
-       "note": "rock music"
+       "note": "rock is a kind of popular music"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "core from",
-         "note": "takes the central letter of Monty"
+         "text": "including",
+         "at": 22,
+         "note": "including means holding something within, so one piece goes inside the other"
         }
        ],
        "parts": [
         {
          "words": "benefit",
+         "at": 14,
          "gives": "SAKE",
-         "note": "for the sake of = for the benefit of"
+         "note": "for the sake of means for the benefit of"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "N",
+         "indicators": [
+          {
+           "text": "core from",
+           "at": 32,
+           "note": "the core of a word is its central letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "core from Monty",
-           "gives": "N",
-           "select": "middle",
-           "note": "the middle letter of MONTY, placed inside S…AKE"
+           "words": "Monty",
+           "at": 42,
+           "note": "its middle letter is N"
           }
          ]
         }
@@ -519,14 +517,13 @@
      ]
     },
     "explanation": {
-     "surface": "A rock gig raises money with a set from the comedy troupe Monty Python.",
-     "walkthrough": "'Monty Python' reads as one name, but the clue splits it: Monty supplies a letter and Python alone is the definition.",
-     "definitionFit": "The rock python is a large snake, and a rock snake is another name for it."
+     "surface": "A music benefit concert featuring the comedy troupe Monty Python.",
+     "walkthrough": "'Monty Python' reads as one name, but the definition is just 'Python', the snake, and 'core from' takes N from the heart of MONTY to go inside SAKE.",
+     "definitionFit": "A rock snake is a large python of Asia and Africa, so a python is a kind of it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Python"
     }
    }
@@ -964,46 +961,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DUMAURIER",
+     "indicators": [
+      {
+       "text": "becomes",
+       "at": 29,
+       "note": "one thing becoming another means it is replaced, so one letter is swapped out for new ones"
+      }
+     ],
      "parts": [
       {
+       "words": "less wise",
+       "at": 9,
+       "gives": "DUMBER",
+       "note": "dumber means less intelligent, less wise"
+      },
+      {
+       "words": "book",
+       "at": 24,
+       "gives": "B"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DUMAURIER",
        "indicators": [
         {
-         "text": "becomes"
-        },
-        {
          "text": "mostly",
-         "note": "drops the last letter of the golden word"
+         "at": 37,
+         "note": "mostly means most but not all, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "less wise",
-         "gives": "DUMBER",
-         "note": "dumber = more stupid, less wise"
+         "words": "golden",
+         "at": 44,
+         "gives": "AURIC",
+         "note": "auric means of gold, golden"
         },
         {
-         "words": "book",
-         "gives": "B",
-         "note": "B = book, the letter removed from DUMBER"
-        },
-        {
-         "words": "mostly golden",
-         "gives": "AURI",
-         "note": "auric = golden, minus its last letter; it replaces the B"
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer's work loses its wisdom once a book turns into gold.",
-     "walkthrough": "Daphne du Maurier wrote Rebecca. 'Author's' is 'Author is': the definition then the wordplay.",
-     "definitionFit": "Daphne du Maurier, and her grandfather George, were authors."
+     "surface": "A writer is judged less wise once a book turns largely golden.",
+     "walkthrough": "In DUMBER, the B for book 'becomes' AURI, which is AURIC (golden) with 'mostly' dropping its end.",
+     "definitionFit": "Daphne du Maurier wrote Rebecca, so she is an example of a novelist."
     },
     "features": {
      "answerInScene": true,
@@ -1353,49 +1356,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "COMMIE",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "to turn about is to face the other way, so the setter's letters read backwards"
+       "text": "guards",
+       "at": 35,
+       "note": "guards means surrounds and protects, so one piece goes around the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "to move towards",
+       "at": 19,
+       "gives": "COME",
+       "note": "to come is to move towards the speaker"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "guards",
-         "note": "the first word surrounds the second, protecting it"
+         "text": "about",
+         "at": 13,
+         "note": "about signals a turnaround, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "to move towards",
-         "gives": "COME",
-         "note": "to come = to move towards"
-        },
-        {
-         "words": "setter's about",
-         "gives": "MI",
-         "note": "the setter is I, so setter's = I'M, turned about to MI; it sits inside COM…E"
+         "words": "setter's",
+         "at": 4,
+         "gives": "IM",
+         "note": "setter's here is short for setter is, which from the setter is I'm"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Irish setter dog is about to head for the guards.",
-     "walkthrough": "'Red setter' reads as a dog breed; 'Red' is the definition, a communist.",
-     "definitionFit": "An informal synonym: Red, from the red flag, and the slangy clipped form both name a communist."
+     "surface": "An Irish setter, a red dog, is about to approach some guards.",
+     "walkthrough": "'Red setter' suggests the dog, but 'Red' is the definition and setter's means I'M; 'about' turns that into MI.",
+     "definitionFit": "Red is a common label for a communist, and commie is an informal term for the same."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Red"
+     "misdirectedWord": "setter's"
     }
    }
   },
