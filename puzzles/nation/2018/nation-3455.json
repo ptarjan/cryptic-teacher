@@ -345,42 +345,67 @@
    "annotation": {
     "definitions": [
      {
-      "text": "crappy performing ensemble",
-      "at": 27
+      "text": "performing ensemble",
+      "at": 34
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JUGBAND",
-     "indicators": [
-      {
-       "text": "gives",
-       "note": "to give something away is to part with it, so a letter leaves the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Psychologist",
-       "gives": "JUNG",
-       "note": "Carl Jung, the Swiss founder of analytical psychology"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "gives",
+         "at": 13,
+         "note": "gives says the psychologist hands over his name letter, so it leaves his surname"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Psychologist",
+         "at": 0,
+         "gives": "JUNG",
+         "note": "Carl Jung was the Swiss founder of analytical psychology"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
-       "words": "name",
-       "gives": "N",
-       "note": "N is the abbreviation for name; this is the letter given up"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to",
+         "at": 24,
+         "note": "to says the letter handed over goes to the next word, landing inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crappy",
+         "at": 27,
+         "gives": "BAD",
+         "note": "crappy is slang for bad, of poor quality"
+        },
+        {
+         "words": "name",
+         "at": 19,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A psychologist lends his name to some terrible group of musicians.",
-     "walkthrough": "JUNG loses its N to leave JUG, and the BAND is read straight from the definition's 'performing ensemble', so the clue is partly self-defining. A jug band plays on homemade instruments such as jugs and washboards.",
-     "definitionFit": "A jug band is a rough folk group using makeshift instruments, so jokily it is a low-quality musical outfit."
+     "surface": "A psychologist lends his name to a dreadful band of performers.",
+     "walkthrough": "One letter travels: 'gives' says the psychologist hands over his N for name, and 'to' says the word for 'crappy' receives it, so the two halves of the answer swap a letter.",
+     "definitionFit": "A jug band is a folk group playing home-made instruments such as jugs and washboards, so a performing ensemble."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "gives"
     }
    }
