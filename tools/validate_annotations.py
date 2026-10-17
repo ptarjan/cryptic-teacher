@@ -72,6 +72,7 @@ import clue_types
 import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # a clue's printed counts; tools/enumeration.py
 import groups  # linked answers; tools/groups.py
+import lesson_checks  # findings read off a second annotation run; tools/lesson_checks.py
 import provenance  # where each puzzle came from; tools/provenance.py
 import puzzle_schema  # tools/data/puzzle.schema.json
 import wordplay  # tools/wordplay.py
@@ -3631,6 +3632,21 @@ def ind_in_leaf(tree):
     return n
 
 
+def lesson_warnings(tag, ann, held):
+    """The findings tools/lesson_checks.py reads off a clue and its answer."""
+    clue = ((held.get("clue") or {}).get("text")) or ""
+    answer = held.get("solution") or ""
+    out = []
+    if len(held.get("group") or []) > 1:
+        return out
+    if how := lesson_checks.dd_misses_wordplay(ann, clue, answer):
+        out.append(f"{tag}: {lesson_checks.DD_MISSES_WORDPLAY} ({how}): parse it, or keep one "
+                   f"definition and the wordplay")
+    if said := lesson_checks.spelling_unsaid(ann, answer, (held.get("clue") or {}).get("enumeration")):
+        out.append(f"{tag}: {lesson_checks.SPELLING_UNSAID}: set `spelling` to {said!r}")
+    return out
+
+
 def shape_warnings(tag, ann):
     """The findings for one annotation's tree shape, each a ratchet marker."""
     tree = ann.get("wordplay")
@@ -3884,6 +3900,7 @@ def tree_view(puzzle):
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
                             f"anagram indicator goes on ana<...>")
         warnings += shape_warnings(_tag_of(puzzle, where), ann)
+        warnings += lesson_warnings(_tag_of(puzzle, where), ann, held)
         warnings += follow_warnings(_tag_of(puzzle, where), ann, held, puzzle)
     return viewed, errors, warnings
 
@@ -4193,6 +4210,8 @@ BACKLOG_MARKERS = {
     "wordplay.arityOther": (ARITY_OTHER,),
     "wordplay.delSingle": (DEL_SINGLE,),
     "wordplay.indInLeaf": (IND_IN_LEAF,),
+    "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
+    "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }
 
 
