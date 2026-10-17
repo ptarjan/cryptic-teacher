@@ -23,7 +23,8 @@
   "check": "32 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -90,7 +91,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "potty",
+      "text": "potty!",
       "at": 45
      }
     ],
@@ -99,57 +100,56 @@
      "indicators": [
       {
        "text": "In",
-       "note": "In names the place, so the word just after it is the one everything else is put inside."
+       "at": 0,
+       "note": "In places the drunk and the starting letters inside the word for the sack"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "the sack",
-         "gives": "BED",
-         "note": "the sack is slang for bed, as in hitting the sack"
-        },
-        {
-         "words": "drunk",
-         "gives": "SOT",
-         "note": "a sot is a habitual drunk"
-        }
-       ]
+       "words": "the sack",
+       "at": 3,
+       "gives": "BED",
+       "note": "the sack is slang for bed"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TE",
-       "indicators": [
-        {
-         "text": "starts",
-         "note": "The start of a word is its opening letter, so only the first letter of each word named is taken."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts to take exercise",
-         "gives": "TE",
-         "select": "first",
-         "note": "the opening letters of take and exercise, in that order"
+         "words": "drunk",
+         "at": 13,
+         "gives": "SOT",
+         "note": "a sot is a habitual drunk"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starts to",
+           "at": 19,
+           "note": "starts to points to the first letters of take and exercise"
+          }
+         ],
+         "parts": [
+          {
+           "words": "take exercise",
+           "at": 29,
+           "note": "the first letters of take and exercise are T and E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk in bed beginning his workout, which is plainly mad.",
-     "walkthrough": "'Potty' is British for mad, and the sense wanted is the narrow one — potty about a person rather than potty in general. SOT for a drunk is old and faintly literary.",
-     "definitionFit": "Besotted means so taken with someone that judgement has gone, which is what calling a lover potty about them says."
+     "surface": "A drunk in bed is told to take some exercise, which seems crazy.",
+     "walkthrough": "'drunk' looks like an adjective but is the noun; 'starts to' takes only initials, and 'In the sack' wraps the bed round the rest. The exclamation 'potty!' is the definition, not a comment.",
+     "definitionFit": "To be potty about someone is to be crazy about them, which is what besotted means: infatuated."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "starts"
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -479,43 +479,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COURTESAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "rot",
-       "note": "Rotting matter falls apart and its pieces settle in a new arrangement, which is what happens to these letters."
+       "text": "in",
+       "at": 21,
+       "note": "in places the rearranged letters inside the slang word for jail"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "jail",
+       "at": 24,
+       "gives": "CAN",
+       "note": "can is slang for prison, especially in the US"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' names where a thing goes, so the letters before it are set inside the word that follows."
+         "text": "rot",
+         "at": 17,
+         "note": "to rot is to decay and fall apart, so the letters of sure to fall into a new order"
         }
        ],
        "parts": [
         {
-         "words": "jail",
-         "gives": "CAN",
-         "note": "the can is slang for prison"
-        },
-        {
-         "words": "sure to rot",
-         "gives": "OURTES",
-         "note": "the six letters of sure to in another order"
+         "words": "sure to",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mistress is certain to rot away in prison.",
-     "walkthrough": "'Rot' is the shuffling instruction and the surface's prison fate at once, which is why the sentence runs so smoothly. The can for prison is American slang long since naturalised in Britain.",
-     "definitionFit": "A courtesan is a kept mistress, historically one attached to a court or a wealthy household."
+     "surface": "A kept woman is certain to end up rotting in prison.",
+     "walkthrough": "'rot' reads as the fate of the mistress, but it is the instruction to rearrange 'sure to', and 'in jail' sets the result inside an American slang word for prison.",
+     "definitionFit": "A courtesan is a woman kept by wealthy lovers, historically a high-class mistress."
     },
     "features": {
      "answerInScene": true,
@@ -699,42 +699,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Fan, say",
+      "text": "Fan, say,",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXTRACTOR",
-     "indicators": [
-      {
-       "text": "screwed",
-       "note": "Something screwed has been twisted out of true, and letters twisted out of true come back in another order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "screwed",
+         "at": 19,
+         "note": "screwed means twisted, so the letters of the band name are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "T.Rex screwed",
-         "gives": "EXTR",
-         "note": "the four letters of T REX in another order"
-        },
-        {
-         "words": "player",
-         "gives": "ACTOR",
-         "note": "a player is an actor, the old theatre word for one"
+         "words": "T.Rex",
+         "at": 13,
+         "gives": "TREX",
+         "note": "the band name T.Rex supplies the four letters T, R, E and X"
         }
        ]
+      },
+      {
+       "words": "player",
+       "at": 30,
+       "gives": "ACTOR",
+       "note": "an actor is a player on stage"
       }
      ]
     },
     "explanation": {
-     "surface": "A fan of T.Rex gets cheated by one of the band.",
-     "walkthrough": "T.Rex was Marc Bolan's glam-rock band, so 'player' reads as a musician and means an actor. 'Fan, say' is a definition by example: the kind that shifts air, not the kind that buys records.",
-     "definitionFit": "An extractor is the fan that pulls stale air out of a kitchen or a bathroom, so it is one sort of fan — which 'say' concedes."
+     "surface": "A fan of the glam-rock band T.Rex is seduced by an actor.",
+     "walkthrough": "'Fan' looks like an admirer of T.Rex, the 1970s glam-rock band, but it is the kind of fan in a kitchen or bathroom; 'screwed' rearranges the band's name into EXTR.",
+     "definitionFit": "An extractor fan draws stale air or steam out of a room, so a fan is one example of an extractor."
     },
     "features": {
      "answerInScene": false,
@@ -976,40 +977,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WORKEDUP",
-     "indicators": [
-      {
-       "text": "agitated",
-       "note": "Agitating something shakes its contents about, so these letters are shaken into a new order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Labour",
+       "at": 0,
+       "gives": "WORK",
+       "note": "labour means work"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "agitated",
+         "at": 12,
+         "note": "agitated means shaken up, so the letters of dupe are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Labour",
-         "gives": "WORK",
-         "note": "labour and work are the same toil"
-        },
-        {
-         "words": "dupe agitated",
-         "gives": "EDUP",
-         "note": "the four letters of dupe in another order"
+         "words": "dupe",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gullible Labour voter is stirred up and left distressed.",
-     "walkthrough": "'Labour' is capitalised for the party and wanted for plain toil. The four shuffled letters straddle the gap between the answer's two words, so the enumeration is no help in placing them.",
-     "definitionFit": "Someone worked up is agitated and smarting, which is what upset says of a person's state."
+     "surface": "The Labour Party, duped and stirred up, is upset.",
+     "walkthrough": "'Labour' looks like the British political party, but it is plain toil; 'agitated' turns dupe into EDUP.",
+     "definitionFit": "Worked up describes someone agitated or distressed, an idiom for being upset."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Labour"
     }
@@ -1629,58 +1629,72 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "Letters said to be about are out of their places rather than in them, so they have to be set down in a fresh order."
-      },
-      {
-       "text": "backing",
-       "note": "Backing a thing turns it to face the other way, so its two letters are written in reverse."
+       "text": "without",
+       "at": 34,
+       "note": "without means outside, so the rearranged letters go round the reversed abbreviation"
       }
      ],
      "parts": [
       {
-       "words": "about Murphy losing head",
-       "gives": "HRYUP",
-       "note": "Murphy gives up its head letter and the five that remain are re-ordered"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "about suggests turning things round in any direction, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing head",
+           "at": 22,
+           "note": "losing head means the first letter of Murphy is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Murphy",
+           "at": 15,
+           "note": "taken as written, the surname Murphy"
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "losing head",
-         "note": "A head is the letter at the front, and losing it drops that letter from the name."
+         "text": "backing",
+         "at": 54,
+         "note": "backing means going backwards, so the abbreviation is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "without",
-           "note": "Without is used in its older sense of outside, so the letters already assembled close around the pair that follows."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Rugby Union backing",
-           "gives": "UR",
-           "note": "rugby union is RU, turned round to face the other way"
-          }
-         ]
+         "words": "Rugby Union",
+         "at": 42,
+         "gives": "RU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The papers keep going on about Murphy losing his head now that Rugby Union will not back him.",
-     "walkthrough": "'Without' is doing the old job of outside rather than the modern one of lacking, which is what puts the turned pair inside the shuffle. 'Press on' is the definition, though the surface offers newspapers.",
-     "definitionFit": "To hurry up is to get a move on, and press on is the same instruction — keep going, and faster."
+     "surface": "Someone presses on about a headless Murphy, with no backing from Rugby Union.",
+     "walkthrough": "'about' looks like 'concerning' but rearranges what is left of Murphy after 'losing head'; 'backing' turns the Rugby Union abbreviation round, and 'without', in its old sense of outside, wraps the jumble round it.",
+     "definitionFit": "Hurry up and press on both mean carry on more quickly, an idiomatic match."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Press"
+     "misdirectedWord": "without"
     }
    }
   },
