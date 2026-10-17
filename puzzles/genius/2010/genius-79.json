@@ -322,44 +322,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNHANG",
+     "op": "composite",
      "indicators": [
       {
        "text": "hurriedly",
-       "note": "doing something hurriedly leaves it jumbled, so the leftover letters are put in a new order"
+       "at": 43,
+       "note": "done hurriedly, in a rush, the remaining letters are thrown into a new order"
+      },
+      {
+       "text": "With no need for",
+       "at": 0,
+       "note": "with no need for tells the solver the letters of arbiters are taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNHANG",
-       "indicators": [
-        {
-         "text": "With no need for",
-         "note": "what is not needed is dropped, so the letters of the second phrase leave the first"
-        }
-       ],
-       "parts": [
-        {
-         "words": "bargain hunters",
-         "gives": "ARBITERSGANHUN",
-         "note": "these fourteen letters contain every letter of the other word, scattered through them; they are listed with those letters first"
-        },
-        {
-         "words": "arbiters",
-         "note": "taken as written, its letters struck out of the longer phrase"
-        }
-       ]
+       "words": "bargain hunters",
+       "at": 27
+      },
+      {
+       "words": "arbiters",
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "eBay bidders snatch items in the last seconds of an auction, with nobody to settle disputes.",
-     "walkthrough": "A subtractive anagram: the letters of 'arbiters' come out of 'bargain hunters' wherever they sit, and the six left are rearranged. 'online items' means things on a washing line.",
-     "definitionFit": "To unhang is to remove something from where it hangs, as with taking dry laundry off the clothesline."
+     "surface": "Shoppers at an online auction, with no referee required, rush to remove the goods they listed.",
+     "walkthrough": "Take the letters of ARBITERS out of BARGAIN HUNTERS (\"With no need for\"); the six left over, G A N H U N, are rearranged (\"hurriedly\"). The definition's 'online items' are items on a washing line, not on the internet.",
+     "definitionFit": "To unhang something is to take it down from where it hangs, as with washing pegged on a clothes line."
     },
     "features": {
      "answerInScene": false,
@@ -1580,32 +1570,33 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "RESECT",
+     "op": "container",
      "indicators": [
       {
        "text": "inside",
-       "note": "the short piece goes into the word for remainder, taking over the letter it shares with it"
+       "at": 36,
+       "note": "the first half is placed inside the leftover half"
       }
      ],
      "parts": [
       {
        "words": "remainder",
-       "gives": "REST",
-       "note": "the rest is what remains"
+       "at": 43,
+       "gives": "RET",
+       "note": "the remainder of the concealed word, its other half"
       },
       {
        "words": "half concealed",
+       "at": 21,
        "gives": "SEC",
-       "note": "secret means concealed, and its first half is these three letters"
+       "note": "concealed is secret, and its first half is these three letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A surgeon removes a bone that is partly buried in what is left of a limb.",
-     "walkthrough": "The fit is loose: the half-word overlaps the S of the remainder, which is why the clue says 'half concealed'. Resection is surgical removal of part of an organ or bone.",
-     "definitionFit": "In surgery, to resect is to remove part of an organ or tissue, and a bone is a typical example of what is excised."
+     "surface": "A surgeon's note about a partly hidden bone, buried inside what is left.",
+     "walkthrough": "'remainder' looks like a synonym to find, but it means what is left of the concealed word once half is taken: one half of secret goes \"inside\" the other.",
+     "definitionFit": "In surgery, to resect is to remove part of an organ, tissue or bone by cutting it out."
     },
     "features": {
      "answerInScene": true,
