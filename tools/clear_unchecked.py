@@ -29,6 +29,7 @@ import sys
 from pathlib import Path
 
 import puzzle_schema
+import unchecked_repairs as R
 import validate_annotations as V
 import wordplay
 
@@ -57,10 +58,18 @@ def stripped(node):
     return node
 
 
+def cleaned(wp, answer):
+    """The tree to file: the flags stripped after the mechanical repairs of
+    tools/unchecked_repairs.py, in the form that gives `answer` when one does."""
+    base = stripped(R.unscramble(R.drop_wordless(wp)))
+    return R.repaired(base, answer) or base
+
+
 def bucket(wp, answer):
     """(outcome, reason bucket, detail): why a clue clears or does not."""
+    tree = cleaned(wp, answer)
     try:
-        wordplay.evaluate(stripped(wp), answer)
+        wordplay.evaluate(tree, answer)
     except wordplay.WordplayError as e:
         msg = str(e)
         if msg.startswith("the wordplay does not give"):
@@ -72,7 +81,7 @@ def bucket(wp, answer):
         return "failing", "eval: " + " ".join(msg.split()[:4]), msg[:150]
     except Exception as e:
         return "crashed", "crashed: " + type(e).__name__, str(e)[:150]
-    if V.scrambled_leaves(stripped(wp), min_len=3):  # evaluates only because a leaf's letters are pre-scrambled
+    if V.scrambled_leaves(tree, min_len=3):  # evaluates only because a leaf's letters are pre-scrambled
         return "failing", "scrambled leaf", "a leaf gives its clue words' letters out of order"
     return "cleared", "cleared", ""
 
@@ -112,6 +121,7 @@ def clear_puzzle(puzzle):
     {outcome: clues}, clues flagged before, clues flagged after)."""
     counts = collections.Counter()
     todo = []  # (position in annotations() order, clue label, answer)
+    trees = {}  # position -> the tree to file
     for i, (_, held, ann) in enumerate(puzzle_schema.annotations(puzzle)):
         wp = ann.get("wordplay")
         if not isinstance(wp, dict) or not flagged(wp):
@@ -122,7 +132,9 @@ def clear_puzzle(puzzle):
             counts[WHY + why] += 1
             counts[f"{EX}{why}|{_label(held)} {held.get('solution')}: {detail}"] = 1
         if out == "cleared":
-            todo.append((i, _label(held), held.get("solution"), wordplay.render(stripped(wp))))
+            fixed = cleaned(wp, held.get("solution") or "")
+            trees[i] = fixed
+            todo.append((i, _label(held), held.get("solution"), wordplay.render(fixed)))
     n_flagged = sum(counts[o] for o in OUTCOMES)
     if not todo:  # no validator run for a puzzle with nothing to clear: it is the slow part
         return puzzle, [], counts, n_flagged, n_flagged
@@ -133,8 +145,8 @@ def clear_puzzle(puzzle):
         want = {t[0] for t in chosen}
         for i, (_, _, ann) in enumerate(puzzle_schema.annotations(trial)):
             if i in want:
-                ann["wordplay"] = stripped(ann["wordplay"])
-        return trial
+                ann["wordplay"] = trees[i]
+        return puzzle_schema.order(trial)  # the validator sees the key order that is written
 
     chosen = todo
     trial = apply(chosen)

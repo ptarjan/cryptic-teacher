@@ -866,7 +866,7 @@ def _count(s):
 #: exact. The rest take their shape from elsewhere (a charade has any number, a
 #: homophone may carry its spelling in `spelt`, ana() takes a charade's parts).
 COUNTED = ("reversal", "container", "deletion", "hidden", "substitution", "cycling",
-           *SELECT)
+           "spoonerism", *SELECT)
 
 
 def _check_arity(node):
