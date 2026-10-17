@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -85,36 +86,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHER",
-     "indicators": [
-      {
-       "text": "after removing wrappings",
-       "note": "the wrapping of a parcel is what encloses it, so the letters at each end come off and the middle is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after removing",
+         "at": 11,
+         "note": "after removing means the outer letters are taken away before the rest is used"
+        }
+       ],
        "parts": [
         {
-         "words": "a parcel",
-         "gives": "ARC",
-         "note": "PARCEL unwrapped: the P at the front and the EL at the back come away"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "wrappings",
+           "at": 26,
+           "note": "wrappings, plural, are the two outer layers at each end of the words a parcel"
+          }
+         ],
+         "parts": [
+          {
+           "words": "a parcel",
+           "at": 0,
+           "note": "read as one run of letters, with two letters taken off each end"
+          },
+          {
+           "gives": "AP"
+          }
+         ]
         },
         {
-         "words": "the girl",
-         "gives": "HER",
-         "note": "the pronoun that stands in for a girl already named"
+         "gives": "EL"
         }
        ]
+      },
+      {
+       "words": "the girl",
+       "at": 37,
+       "gives": "HER",
+       "note": "her stands for a girl already mentioned"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The exclamation mark is the storyteller's voice rather than a signal, and the sign wanted is Sagittarius — the zodiac, not the weather.",
-     "definitionFit": "A sign in the sky -> ARCHER: Sagittarius, the zodiac sign drawn as a bowman, goes by that plain English name."
+     "surface": "Unwrapping a parcel to find a girl inside, then seeing a sign overhead.",
+     "walkthrough": "'a parcel' is read as one run of letters; 'after removing wrappings' peels AP off the front (leaving ARCEL) and EL off the back, leaving ARC. The Archer is Sagittarius, a zodiac constellation.",
+     "definitionFit": "Sagittarius, the Archer, is a constellation and zodiac sign, so it is a sign seen in the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wrappings"
     }
    }
   },
@@ -139,36 +164,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BIGOT",
-     "indicators": [
-      {
-       "text": "uplifting",
-       "note": "a piece lifted up in a down entry climbs the grid, so its letters arrive bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "stupendous",
+       "at": 0,
+       "gives": "BIG",
+       "note": "big in the sense of huge or stupendous"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uplifting",
+         "at": 15,
+         "note": "in a down clue, uplifting means the word is lifted to read bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "stupendous",
-         "gives": "BIG",
-         "note": "something stupendous is big on a scale that impresses"
-        },
-        {
          "words": "to",
-         "gives": "OT",
-         "note": "the two letters of the little word, climbing the column and so read the other way"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Stupendous and uplifting' reads as praise, which is the last tone the answer deserves; that mismatch between surface and sense is the setter's joke.",
-     "definitionFit": "one of strong beliefs -> BIGOT: the kindest possible wording for someone whose opinions are held so rigidly that no argument can shift them."
+     "surface": "Something tremendous and inspiring to a person of firm conviction.",
+     "walkthrough": "'uplifting' turns TO upside down in the down light, giving OT.",
+     "definitionFit": "A bigot holds strong, intolerant beliefs, so is one of strong beliefs in a pejorative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "uplifting"
     }
    }
   },
@@ -522,58 +552,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPIDERY",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "something upset has been tipped over, so the two letters come back the other way round"
+       "text": "inside",
+       "at": 77,
+       "note": "inside means these pieces go within the word for see"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "see",
+       "at": 19,
+       "gives": "SPY",
+       "note": "to spy is to see or observe"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "supported by",
-         "note": "in a down entry whatever supports a piece sits underneath it, which puts this chunk second"
+         "at": 50,
+         "note": "in a down clue, supported by means the next piece sits below"
         }
        ],
        "parts": [
         {
-         "words": "see",
-         "gives": "SPY",
-         "note": "to spy something is to see it, and these three letters open up after the second"
-        },
-        {
-         "op": "charade",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "inside",
-           "note": "the assembled chunk is dropped into the middle of another word rather than joined on at either end"
+           "text": "upset",
+           "at": 43,
+           "note": "upset in a down clue means turned upside down, so read bottom to top"
           }
          ],
          "parts": [
           {
-           "words": "the tragic princess upset",
-           "gives": "ID",
-           "note": "Diana, who died in the 1997 Paris crash, is DI to crosswords — here turned over"
-          },
-          {
-           "words": "the old queen",
-           "gives": "ER",
-           "note": "ER is Elizabeth Regina, the late Queen's cypher on British postboxes"
+           "words": "the tragic princess",
+           "at": 23,
+           "gives": "DI",
+           "note": "Diana, Princess of Wales, is often called Di"
           }
          ]
+        },
+        {
+         "words": "the old queen",
+         "at": 63,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the late Queen Elizabeth II"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'See' is the word most likely to be read as a link between two halves of the clue, and it is the outer shell of the whole build.",
-     "definitionFit": "Thin and straggly -> SPIDERY: said of handwriting or of legs, thin and sprawling in the way a spider's limbs are."
+     "surface": "An exclamation urging someone to look at a distressed princess propped up by a former queen.",
+     "walkthrough": "In a down light 'upset' flips the princess's short name, and 'supported by' puts the old queen beneath; both then sit inside the word for see.",
+     "definitionFit": "Spidery handwriting is thin and sprawling, like a spider's legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -745,35 +785,68 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "the letter a word starts with is the one picked out here, and it is the letter that has to go"
-      },
-      {
-       "text": "leaving",
-       "note": "whatever leaves a word is subtracted from it, so the named letter comes out of the front"
+       "text": "having",
+       "at": 7,
+       "note": "having means coming with, so the next piece follows on directly"
       }
      ],
      "parts": [
       {
        "words": "Couple",
+       "at": 0,
        "gives": "TIE",
-       "note": "to couple two things is to tie them together — a verb, not the pair in the surface"
+       "note": "to tie is to couple or join"
       },
       {
-       "words": "having split",
+       "words": "split",
+       "at": 14,
        "gives": "BREAK",
-       "note": "a split between two people is a break"
+       "note": "to break is to split"
       },
       {
-       "words": "he, initially leaving her",
-       "gives": "ER",
-       "note": "HER loses the H that 'he' begins with"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 35,
+         "note": "leaving means that letter departs from the word her"
+        }
+       ],
+       "parts": [
+        {
+         "words": "her",
+         "at": 43
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 25,
+           "note": "initially picks the first letter of the word he"
+          }
+         ],
+         "parts": [
+          {
+           "words": "he",
+           "at": 21,
+           "note": "its first letter is H"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a marriage coming apart and the answer is out of the sports pages; the switch of 'Couple' from noun to verb is the step that unlocks it.",
-     "definitionFit": "a decisive struggle -> TIE-BREAKER: the extra contest played to settle a draw, in tennis or anywhere else a result has to be produced."
+     "surface": "A pair breaking up, with him walking out on her.",
+     "walkthrough": "The surface sounds like a relationship ending; HER without its H gives ER.",
+     "definitionFit": "A tie-breaker is an extra contest that settles a draw, so it is a deciding struggle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
     }
    }
   },
@@ -920,36 +993,50 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "a word without its end has lost its final letter, and only what survives goes into the mix"
+       "text": "unravelling",
+       "at": 21,
+       "note": "unravelling means coming apart, so the letters are reworked"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "he",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "unravelling",
-         "note": "something unravelling comes apart thread by thread, and the threads are laid down again in a new order"
+         "text": "endlessly",
+         "at": 10,
+         "note": "endlessly means the final letter of cursed is dropped"
         }
        ],
        "parts": [
         {
-         "words": "he cursed endlessly",
-         "gives": "HECURSE",
-         "note": "HE CURSED with its last letter gone: seven letters of fodder"
+         "words": "cursed",
+         "at": 3
         },
         {
-         "words": "no less",
-         "note": "the two little words used as themselves, six more letters"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "no less",
+       "at": 38
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'With no less' reads as an emphatic aside — depravity, no less — and it is nearly half the fodder. A phrase that sounds like commentary is the best hiding place there is.",
-     "definitionFit": "depravity -> LECHEROUSNESS: the noun for habitual lustfulness, one particular form of moral depravity rather than the whole of it."
+     "surface": "A man swearing on and on as he falls apart, matched by equal moral decay.",
+     "walkthrough": "CURSED without its end gives CURSE; HE, CURSE and NO LESS are then rearranged.",
+     "definitionFit": "Lecherousness is lewd, lustful behaviour, one form of moral depravity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unravelling"
     }
    }
   },
@@ -974,56 +1061,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIDELESS",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cracked",
+       "at": 32,
+       "note": "cracked means broken, so the letters are jumbled"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "She",
+       "at": 0
+      },
+      {
+       "words": "left",
+       "at": 5,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "with no",
-         "note": "saying a thing goes without something is the plainest way of removing it, so that letter never joins the mix"
+         "at": 16,
+         "note": "with no means the letter is removed from aside"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "cracked",
-           "note": "something cracked has broken into pieces, and the pieces go back together in a different arrangement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "She",
-           "note": "the pronoun used as itself, three letters of fodder"
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "L is the standard abbreviation for left"
-          },
-          {
-           "words": "aside",
-           "gives": "SIDE",
-           "note": "ASIDE once the A has gone: four more letters for the mix"
-          }
-         ]
+         "words": "aside",
+         "at": 10
         },
         {
-         "unchecked": true,
          "words": "answer",
-         "note": "A is the abbreviation for answer, and it is the letter taken out"
+         "at": 24,
+         "gives": "A",
+         "note": "A is the abbreviation for answer, as in Q and A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Left aside' reads as one idiom and is two separate scraps of fodder, which is why counting the letters before splitting the phrase gets you nowhere.",
-     "definitionFit": "wanting the protector of her body -> HIDELESS: a hide is an animal's skin, the body's own armour, and the -less suffix takes it away."
+     "surface": "A woman abandoned without a reply breaks down, lacking anyone to protect her.",
+     "walkthrough": "ASIDE without A gives SIDE; SHE, L and SIDE are rearranged. The definition is playful: skin, or hide, protects a body.",
+     "definitionFit": "Hideless means having no hide, and a hide is the skin that protects an animal's body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "protector"
     }
    }
   },
@@ -1178,52 +1267,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PREHEAT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "turning",
-         "note": "a piece turned about ends up facing the other way, so its letters are read from the back"
+         "text": "into",
+         "at": 12,
+         "note": "into means placed inside the vegetable"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "a fairy-tale vegetable",
+         "at": 17,
+         "gives": "PEA",
+         "note": "the pea of The Princess and the Pea, Hans Christian Andersen's tale"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "into",
-           "note": "one word going into another lands inside it, splitting the host rather than sitting beside it"
+           "text": "turning",
+           "at": 0,
+           "note": "turning means the word her is turned round, read backwards"
           }
          ],
          "parts": [
           {
-           "words": "a fairy-tale vegetable",
-           "gives": "PEA",
-           "note": "the princess in the tale felt one through twenty mattresses; the word opens after its first letter"
-          },
-          {
            "words": "her",
-           "gives": "REH",
-           "note": "the pronoun turned about, three letters read the other way"
+           "at": 8
           }
          ]
-        },
-        {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the standard abbreviation for temperature, on a dial or in a formula"
         }
        ]
+      },
+      {
+       "words": "temperature",
+       "at": 46,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ready' is a verb here — to ready something — and reading it as an adjective leaves the definition with nothing to do.",
-     "definitionFit": "ready for baking -> PREHEAT: to preheat an oven is to bring it up to temperature before the food goes in, readying it."
+     "surface": "Transforming a woman into a fairy-tale pea, then warming an oven.",
+     "walkthrough": "HER 'turning' gives REH, which goes 'into' PEA.",
+     "definitionFit": "To preheat an oven is to warm it beforehand so it is ready for the baking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1496,37 +1592,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 11,
+       "note": "out of means the letter is taken away"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "out of",
-         "note": "taking one thing out of another removes it, and what is named here is a single letter of the longer word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Critically",
-         "gives": "ADVERSELY",
-         "note": "an adverse review is a critical one, so this is the nine-letter word before the loss"
-        },
-        {
-         "gives": "D"
-        }
-       ]
+       "words": "Critically",
+       "at": 0,
+       "gives": "ADVERSELY",
+       "note": "adversely means unfavourably or critically"
       },
       {
-       "unchecked": true,
        "words": "depth",
-       "note": "d is the abbreviation for depth, and that is the letter coming out"
+       "at": 18,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Out of depth' is a whole idiom in the surface — a critic beyond their expertise — and in the wordplay it is one letter leaving one word.",
-     "definitionFit": "reluctantly -> AVERSELY: with aversion, doing a thing while disinclined to do it, the -ly answering the -ly."
+     "surface": "Someone out of their depth, judged harshly and acting unwillingly.",
+     "walkthrough": "'out of depth' reads as a stock phrase, but it tells you to drop D from ADVERSELY.",
+     "definitionFit": "Being averse is being unwilling, so acting aversely means doing something with reluctance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depth"
     }
    }
   },
