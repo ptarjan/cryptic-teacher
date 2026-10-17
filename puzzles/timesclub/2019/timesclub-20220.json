@@ -46,51 +46,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONAXONIDA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter of the word that follows is cut off"
+       "text": "after",
+       "at": 29,
+       "note": "after says the pieces before it in the clue come after the day and the feller in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "day",
+       "at": 35,
+       "gives": "MON",
+       "note": "Mon is the calendar abbreviation for Monday, a day"
+      },
+      {
+       "words": "American feller",
+       "at": 40,
+       "gives": "AX",
+       "note": "ax is the American spelling of axe, a tool that fells trees"
+      },
+      {
+       "words": "on",
+       "at": 8,
+       "gives": "ON",
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "at": 11,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 15,
+         "note": "endlessly means without its end, so the last letter of the word goes"
+        }
+       ],
        "parts": [
         {
          "words": "day",
-         "gives": "MON",
-         "note": "Mon is the short form of Monday, a day"
+         "at": 25,
+         "gives": "DAY",
+         "note": "the word day itself, before its last letter is cut"
         },
         {
-         "words": "American feller",
-         "gives": "AX",
-         "note": "an axe fells trees, and AX is the American spelling"
-        },
-        {
-         "words": "on",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "day",
-         "gives": "DA",
-         "note": "the word day with its last letter removed"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd exclamation about a woodcutter from America, out felling day after day.",
-     "walkthrough": "'Day after day' sounds like repetition; in fact one day is clipped and placed after the other day plus the feller.",
-     "definitionFit": "Monaxonida is a zoological order of sponges whose spicules grow along a single axis."
+     "surface": "A lumberjack's exclamation as sponges pile up day after day.",
+     "walkthrough": "'day after day' looks like a set phrase; the first day loses its end to give DA, and 'after' puts ON, I and DA behind MON (the second day) and AX.",
+     "definitionFit": "Monaxonida is a zoological order of sponges whose spicules have a single axis."
     },
     "features": {
      "answerInScene": false,
@@ -1065,64 +1080,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEROPODA",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not all of it, so the final letter goes"
+       "text": "in",
+       "at": 10,
+       "note": "in puts the leap holding the queen inside the shortened modern times"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the following group inside the shortened word"
+         "text": "mostly",
+         "at": 26,
+         "note": "mostly means most of the word, so its last letter goes"
         }
        ],
        "parts": [
         {
          "words": "modern times",
-         "gives": "TODA",
-         "note": "today, the present era, without its last letter"
+         "at": 13,
+         "gives": "TODAY",
+         "note": "today means the present day, modern times"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "to embrace",
-           "note": "embracing means holding within, so one piece wraps around another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bound",
-           "gives": "HOP",
-           "note": "to bound is to leap or hop"
-          },
-          {
-           "words": "queen",
-           "gives": "ER",
-           "note": "ER is Elizabeth Regina, the Queen"
-          }
-         ]
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to embrace",
+         "at": 39,
+         "note": "to embrace is to hold in the arms, so the queen sits inside the leap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bound",
+         "at": 33,
+         "gives": "HOP",
+         "note": "to hop is to bound, a small leap"
+        },
+        {
+         "words": "queen",
+         "at": 50,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the royal cipher of the queen"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dinosaurs show up these days and must surely surround the monarch.",
-     "walkthrough": "There are two nested containers: the queen sits inside the bound, which sits inside the clipped modern times.",
-     "definitionFit": "Theropoda is the suborder of two-legged, mostly flesh-eating dinosaurs that includes Tyrannosaurus."
+     "surface": "Dinosaurs, seen in modern times, seem bound to grab the queen.",
+     "walkthrough": "'mostly' cuts TODAY to TODA, and 'bound to embrace queen' gives HOP around ER, HEROP, which goes in after the T.",
+     "definitionFit": "Theropoda is the suborder of bipedal, mostly meat-eating dinosaurs that includes Tyrannosaurus."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "bound"
     }
    }
@@ -1205,42 +1226,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STEALTH",
-     "indicators": [
-      {
-       "text": "tip cut",
-       "note": "cutting the tip trims off the end letter of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Half-inch",
+       "at": 0,
+       "gives": "STEAL",
+       "note": "in Cockney rhyming slang half-inch means pinch, that is steal"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tip cut from",
+         "at": 10,
+         "note": "the tip of a word is its end, which is cut off here"
+        }
+       ],
        "parts": [
         {
-         "words": "Half-inch",
-         "gives": "STEAL",
-         "note": "half-inch is rhyming slang for pinch, which means steal"
+         "words": "article",
+         "at": 23,
+         "gives": "THE",
+         "note": "the is the definite article"
         },
         {
-         "words": "article",
-         "gives": "TH",
-         "note": "the definite article the, with its tip removed"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A carpenter quietly trims half an inch off the end of a piece.",
-     "walkthrough": "'Half-inch' looks like a measurement; in Cockney rhyming slang it rhymes with pinch, to steal.",
-     "definitionFit": "Stealth is acting secretly or furtively, so as to escape notice."
+     "surface": "A tiny sliver trimmed from an item under cover of secrecy.",
+     "walkthrough": "'Half-inch' looks like a measurement; it is rhyming slang (half-inch, pinch) for steal. THE with its tip cut is TH.",
+     "definitionFit": "Stealth is quiet, furtive action meant to go unnoticed, a kind of secrecy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Half-inch"
     }
    }
