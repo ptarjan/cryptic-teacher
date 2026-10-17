@@ -1265,55 +1265,58 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TODGER",
+     "indicators": [
+      {
+       "text": "stupidly",
+       "at": 7,
+       "note": "doing something stupidly mangles it, so the letters are scrambled"
+      }
+     ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "TODGER",
        "indicators": [
         {
-         "text": "stupidly",
-         "note": "done stupidly, so the letters are jumbled"
-        },
-        {
          "text": "taking",
-         "note": "the word takes on a new letter"
+         "at": 16,
+         "note": "taking one thing for another swaps them, so a letter is replaced"
         },
         {
          "text": "for",
-         "note": "one letter stands in for another"
+         "at": 31,
+         "note": "the letter for Germany stands in for the letter for France"
         }
        ],
        "parts": [
         {
          "words": "Forget",
-         "gives": "DORGET",
-         "note": "FORGET with its F swapped for D"
-        },
-        {
-         "words": "Germany",
-         "gives": "D",
-         "note": "D for Deutschland, Germany's car registration letter"
+         "at": 0
         },
         {
          "words": "France",
+         "at": 35,
          "gives": "F",
-         "note": "F is France's car registration letter; it goes out"
+         "note": "F is the international vehicle code for France"
+        },
+        {
+         "words": "Germany",
+         "at": 23,
+         "gives": "D",
+         "note": "D is the international vehicle code for Germany (Deutschland)"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled traveller confuses Germany with France.",
-     "walkthrough": "Dick looks like a man's name; it is slang for the answer. Todger is British slang for penis.",
-     "definitionFit": "Dick and todger are both slang for penis."
+     "surface": "A careless pundit muddles Germany with France, and is called a dick for it.",
+     "walkthrough": "'taking Germany for France' swaps the F of FORGET for D, giving DORGET; 'stupidly' then rearranges those letters. D is Germany's code from Deutschland.",
+     "definitionFit": "Todger and dick are both British slang words for the penis."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Dick"
     }
    }
@@ -1449,46 +1452,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEAKAGE",
-     "indicators": [
-      {
-       "text": "drunk",
-       "note": "a drunk staggers, so the letters are thrown about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 4,
+         "note": "something drunk is all over the place, so these letters are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "Ale",
-         "gives": "LEA",
-         "note": "the letters ALE rearranged"
-        },
-        {
-         "words": "king",
-         "gives": "K",
-         "note": "K is the chess abbreviation for king"
-        },
-        {
-         "words": "to mature",
-         "gives": "AGE",
-         "note": "to age wine or cheese is to mature it"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "king",
+       "at": 13,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "words": "to mature",
+       "at": 24,
+       "gives": "AGE",
+       "note": "to age is to mature, grow older"
       }
      ]
     },
     "explanation": {
-     "surface": "A king's beer needs time to mature, and someone dismisses him as a wimp.",
-     "walkthrough": "Drip reads as an insult for a feeble person; it is the thing, a leak.",
-     "definitionFit": "A plain synonym: a drip is a slow escape of liquid from a pipe or roof, which is exactly what leakage names."
+     "surface": "A king drinks ale and must wait to grow up, mocked as a drip.",
+     "walkthrough": "'drunk' rearranges ALE into LEA, followed by K for king and AGE for mature.",
+     "definitionFit": "A leakage is liquid escaping drop by drop, which is what a drip is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Drip"
     }
    }
