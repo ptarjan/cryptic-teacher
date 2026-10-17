@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -142,65 +143,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "cleared out",
-       "note": "A room cleared out has had everything between its walls removed, so the word keeps only the letters at its two ends."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "to welcome",
-         "note": "To welcome people is to take them in through your door, so they end up inside rather than alongside."
+         "at": 22,
+         "note": "to welcome is to take in, so the emptied venue holds everyone inside it"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "VE",
          "indicators": [
           {
-           "text": "back",
-           "note": "The back of a word is the end of it, and that final letter is all this asks for."
+           "text": "cleared out",
+           "at": 10,
+           "note": "a venue cleared out has had everything inside removed, leaving only its outer letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "venue cleared out",
-           "gives": "VE",
-           "select": "outer",
-           "note": "VENUE emptied of everything between its first and last letters"
+           "words": "venue",
+           "at": 4,
+           "note": "its outer letters are V and E"
           }
          ]
         },
         {
          "words": "everyone",
+         "at": 33,
          "gives": "ALL",
-         "note": "everyone there is all of them"
+         "note": "all means everyone"
         }
        ]
       },
       {
-       "words": "back from Hay",
-       "gives": "Y",
-       "note": "the back letter of Hay, the book-festival town on the Welsh border"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back from",
+         "at": 42,
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hay",
+         "at": 52,
+         "note": "its last letter is Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stripped-out venue at Hay making room to welcome the whole crowd back again.",
-     "walkthrough": "'Everyone back' looks like an instruction to turn a word round, and it is nothing of the sort: the back belongs to Hay, three words further on. Cwm is Welsh, and the puzzle is full of Wales.",
-     "definitionFit": "Cwm is the Welsh word, long since naturalised in English, for the steep-sided hollow between hills that a stream runs down."
+     "surface": "A Welsh venue is emptied to welcome everybody returning from the Hay literary festival.",
+     "walkthrough": "'Cleared out' empties venue to VE, which opens 'to welcome' ALL; 'back from Hay' adds Y. Cwm is a Welsh word for a valley, and Hay-on-Wye, home of a famous book festival, is a Welsh border town, so the whole picture is Welsh.",
+     "definitionFit": "A cwm is a steep-sided hollow or valley, particularly in Wales, where the word comes from."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "back"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hay"
     }
    }
   },
@@ -1603,43 +1609,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LEEK",
-     "indicators": [
-      {
-       "text": "Disheartened",
-       "note": "Disheartened is heartless, so the letter sitting at the very centre of the word has gone."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in France, the",
+       "at": 16,
+       "gives": "LE",
+       "note": "le is French for 'the'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Disheartened",
+         "at": 32,
+         "note": "disheartened means losing its heart, the middle letter of the deer"
+        }
+       ],
        "parts": [
         {
-         "words": "in France, the",
-         "gives": "LE",
-         "note": "le is the French for 'the'"
+         "words": "Deer",
+         "at": 45,
+         "gives": "ELK",
+         "note": "an elk is a large deer"
         },
         {
-         "words": "Deer",
-         "gives": "EK",
-         "note": "an elk is a deer, and ELK loses the letter at its heart"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A national emblem in France, known as the 'Disheartened Deer'.",
-     "walkthrough": "France sends you hunting for the cockerel, and all it supplies is the French word for 'the'. The vegetable meant is worn on St David's Day and stitched on the shirt of the Welsh rugby side.",
-     "definitionFit": "The leek is the badge of Wales, as the rose is England's and the thistle Scotland's."
+     "surface": "A French title reading 'The Disheartened Deer' is offered as a national emblem.",
+     "walkthrough": "ELK has three letters, so its heart is the L; 'Disheartened' leaves EK.",
+     "definitionFit": "The leek is the traditional emblem of Wales, worn on St David's Day."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "France"
+     "misdirectedWord": "Disheartened"
     }
    }
   },
@@ -1664,37 +1674,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BEACONS",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost stops just short of the whole, so the word is written out with its last letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 24,
+         "note": "almost means not quite all, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "defeated",
-         "gives": "BEA",
-         "note": "defeated is beaten, stopped a letter short of the end"
+         "at": 31,
+         "gives": "BEAT",
+         "note": "beat means defeated"
         },
         {
-         "words": "Tories",
-         "gives": "CONS",
-         "note": "Cons is the newspapers' short form for Conservatives on any election night"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Tories",
+       "at": 40,
+       "gives": "CONS",
+       "note": "Cons is short for Conservatives, the Tories in British politics"
       }
      ]
     },
     "explanation": {
-     "surface": "Danger signals coming from Tory members who were very nearly beaten at the polls.",
-     "walkthrough": "Beacons were the hilltop fires lit in a chain to tell the country an invasion was coming, which is what makes them warnings and not merely lights. The Brecon ones keep this puzzle's Welsh company.",
-     "definitionFit": "A beacon is a fire or light set high up to signal that trouble is on its way, so a row of them is a set of warnings."
+     "surface": "Warning signs come from Conservatives who were very nearly beaten at the polls.",
+     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party, abbreviated Con.",
+     "definitionFit": "Beacons are signal fires or lights lit on hills to warn of approaching danger."
     },
     "features": {
      "answerInScene": false,
