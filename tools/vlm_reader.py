@@ -343,8 +343,14 @@ def png_as(img, theirs):
 #: A 429 from the server (its queue is full) is asked again after a wait, this
 #: many tries in all: 19 of 328 asks drew one at 14 concurrent reads, and each
 #: used to end its read deferred and log "VLM down" with the VLM serving.
-QUEUE_FULL_TRIES = 8
+#: Still 8 tries was too few: with ~30 reads asking a one-slot llama-server
+#: (337 of 466 asks drew a 429 in one morning) the last try often drew one
+#: too, and ~120 reads a pass ended deferred with the VLM serving. 20 tries
+#: wait ~17 min at most, under ocr_remote.EDITION_TIMEOUT. A 502/503/504
+#: (llama-swap's upstream hiccup: three 502s after 30-42s) is asked again too.
+QUEUE_FULL_TRIES = 20
 QUEUE_FULL_WAIT = 10
+RETRY_CODES = (429, 502, 503, 504)
 
 
 def ask(img, prompt, max_tokens=1500):
@@ -378,9 +384,9 @@ def ask_png(data, prompt, max_tokens=1500):
             except urllib.error.HTTPError as e:
                 # 429: llama-swap's queue is full (many reads ask at once). The
                 # server is up and busy, not down: wait for room and ask again.
-                if e.code != 429 or tried == QUEUE_FULL_TRIES - 1:
+                if e.code not in RETRY_CODES or tried == QUEUE_FULL_TRIES - 1:
                     raise
-                time.sleep(min(QUEUE_FULL_WAIT * (tried + 1), 120) * (0.5 + random.random()))
+                time.sleep(min(QUEUE_FULL_WAIT * (tried + 1), 60) * (0.5 + random.random()))
     except OSError as e:
         # Down mid-run (the desktop rebooted): the rest of the run reads without it.
         _UP[MODEL] = False
