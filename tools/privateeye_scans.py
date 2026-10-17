@@ -161,7 +161,10 @@ def number_of(lines, issue):
     # puzzle before's.
     for ws in lines:
         m = SOLVED.search(" ".join(w[4] for w in ws))
-        if m and abs(int(m.group(1) or m.group(2)) + 1 - want) <= 2:
+        # A winner line is looser than a solution: issue 1067 printed 220's
+        # winner again over No 222, so it must give the issue's own number.
+        slack = 2 if m and m.group(1) else 0
+        if m and abs(int(m.group(1) or m.group(2)) + 1 - want) <= slack:
             return int(m.group(1) or m.group(2)) + 1
     return None
 

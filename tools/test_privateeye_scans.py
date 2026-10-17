@@ -86,7 +86,7 @@ _txt = _art + _puz
 _get = lambda url: gzip.compress(json.dumps([[0, len(_art)], [len(_art), len(_txt)]]).encode()) if "pageindex" in url \
     else gzip.compress(_txt.encode())
 print("LEAF", ps.find_leaf(1062, _get) == 1)
-print("LOST", ps.number_of(lost, 1062), ps.number_of(addr, 854), ps.number_of(lost, 900))
+print("LOST", ps.number_of(lost, 1062), ps.number_of(addr, 854), ps.number_of(lost, 900), ps.number_of(lost, 1067))
 words = [w for ws in lines for w in ws]
 across, down = ps.column_cols(cols)(words)
 print("SIDES", len(across), len(down), down[2][4])
@@ -209,7 +209,7 @@ check("the heading's number, else the solution's + 1, never the address's 6",
 check('rules between the heading and its number skipped; Crossword N winner is not it',
       '280 280', got("RULED"))
 check("a lost heading number is the winner's + 1 (or the solution's + 1), never the address's 6",
-      '217 9 None', got("LOST"))
+      '217 9 None None', got("LOST"))
 check("the crossword's leaf is the one with clue counts, not an article saying crossword",
       'True', got("LEAF"))
 check("the columns read ACROSS then DOWN, a linked head's slash a comma",
