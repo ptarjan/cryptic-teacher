@@ -26,6 +26,10 @@ WORD = re.compile(r"[^\W\d_]+(?:['’-][^\W\d_]+)*")
 #: between the indicator and the fodder ("in", "of").
 LINKS = frozenset("a an and as at by for from give gives giving in is of on showing the to with within yields".split())
 
+#: Words that end a front definition without being part of it ("Slope with",
+#: "Distinctive character makes"): the link to the indicator.
+DEF_LINKS = LINKS | frozenset("makes has have provides produces supplies offers shows holds".split())
+
 MIN_ANSWER = 4
 
 _keys = None
@@ -111,6 +115,17 @@ def _regions(seq, direction, at_end):
     return out
 
 
+def _edge_indicator(tokens, at_end):
+    """Whether the last (or first) words of a definition are themselves a hidden
+    indicator, so the definition has run into the indicator's own words."""
+    keys = indicator_keys()["hidden_word"]
+    for size in range(1, min(len(tokens), 3) + 1):
+        part = tokens[len(tokens) - size:] if at_end else tokens[:size]
+        if " ".join(part) in keys:
+            return True
+    return False
+
+
 def find(clue, answer):
     """The one near-certain hidden-word parse of `clue` for `answer`, or None.
 
@@ -144,6 +159,19 @@ def find(clue, answer):
             layouts += [(b + 1, len(right), 0, t, r) for t, r in _regions(left, direction, False) if t == len(left)]
         for first, n_def, ind_first, n_ind, (hid, rev) in layouts:
             region = words[ind_first:ind_first + n_ind]
+            # The definition ends where the indicator begins: a link word there
+            # ("Slope WITH", "Distinctive character MAKES") joins them, and a
+            # hidden indicator there ("Hole SOME") is no definition at all.
+            before = first < ind_first
+            while before and n_def > 1 and words[first + n_def - 1].lower() in DEF_LINKS:
+                n_def -= 1
+            edge = toks[first:first + n_def]
+            if _edge_indicator(edge, before):
+                continue
+            # A comma inside the definition ("One's tasteful and, though") means
+            # two phrases: words are left over that nothing accounts for.
+            if "," in clue[matches[first].start():matches[first + n_def - 1].end()]:
+                continue
             def phrase(span):
                 return " ".join(region[span[0]:span[1]]) if span else None
             parses.append({

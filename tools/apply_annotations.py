@@ -365,7 +365,10 @@ def apply_also(puzzle, annotations, errors=None):
                 item["annotation"] = new
 
 
-def apply(path, annotations, by=None):
+def apply(path, annotations, by=None, only=None):
+    """Write `annotations` into the puzzle at `path`. `only` (entry ids) is the
+    annotateOnly list a caller passes directly, in place of the run's view file
+    (tools/prefill_hidden.py --write): the other entries keep their hints."""
     puzzle = read_puzzle_file(path)
     # The phrase a hidden-letter device spells is the puzzle's, not a clue's:
     # the _ann file carries it under "messages" beside the entry ids.
@@ -383,7 +386,7 @@ def apply(path, annotations, by=None):
     also = [cid for cid, _, _, _ in groups.also_clues(puzzle["entries"])]
     also += [cid for cid, _ in groups.off_grid(puzzle)]   # and each clue off the grid
     ids += also
-    only = annotate_only(path)
+    only = annotate_only(path) if only is None else list(only)
     if only is not None:
         current = {entry_id(e): e.get("annotation") for e in puzzle["entries"]}
         current.update({cid: item.get("annotation") for cid, _, _, item in groups.also_clues(puzzle["entries"])})
