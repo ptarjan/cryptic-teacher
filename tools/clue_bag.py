@@ -3,8 +3,8 @@
 
     ids | python3 tools/clue_bag.py RUNS_DIR LEADER [RESUME_DIR]
 
-A run pays ~27-30k tokens before its first clue, and a puzzle missing five clues
-or fewer (a tail) has ~3.2k of work in it: measured per clue, 28.5k alone and
+A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
+or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
 3.5-4k at 21-32 clues in a session, with the same quality. So the burn
 (tools/prereset_backfill.sh pool_launch) asks here, with the queue after LEADER
 on stdin, for the puzzles to annotate in LEADER's session. Prints the bag's ids,
@@ -12,7 +12,10 @@ LEADER first, one per line; LEADER alone when it is not bagged.
 
 A bag is LEADER plus the next tails in queue order until the clues they have
 due add up to BAG_TARGET (the last one added may pass it; there is no hard
-cap). Whole puzzles only, so a linked group ("see 5") is never split: a puzzle's
+cap: with MAX_DUE 10 a bag runs 30 to 39 clues). MAX_DUE is 10 because, over the
+shape redo queue (34,292 clues in 11,680 puzzles), cutoff 5 costs ~172M tokens
+with 1,498 puzzles solo, 10 costs ~147M with 191 solo, 15 only ~145M, and at 10
+every bag still mixes at least three puzzles. Whole puzzles only, so a linked group ("see 5") is never split: a puzzle's
 due clues are what annotate_check.to_write lists, groups whole.
 
 A puzzle is bagged only when it is partly hinted (or hinted with a few clues on the shape redo list) with at most MAX_DUE clues due,
@@ -27,7 +30,7 @@ import sys
 from pathlib import Path
 
 BAG_TARGET = 30
-MAX_DUE = 5
+MAX_DUE = 10
 SCAN = 3000  # queue entries looked at past the leader; tails sit at its head
 
 
