@@ -425,38 +425,36 @@
      "parts": [
       {
        "words": "Round",
+       "at": 0,
        "gives": "O",
-       "note": "O is round in shape"
+       "note": "a round shape is the letter O"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "AR",
        "indicators": [
         {
-         "text": "edges",
-         "note": "take just the first and last letters of aircraft-carrier"
+         "text": "edges on",
+         "at": 6,
+         "note": "edges on asks for only the outside letters of the hyphenated word, its first and last"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "edges on aircraft-carrier",
-         "gives": "AR",
-         "select": "outer",
-         "note": "the outer letters of aircraft-carrier"
+         "words": "aircraft-carrier",
+         "at": 15,
+         "note": "its first and last letters are A and R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The rounded edges of the flight deck on an aircraft carrier.",
-     "walkthrough": "A carrier's propeller suggests a ship's screw, but the answer is a much humbler way of pushing a boat along.",
-     "definitionFit": "An oar propels a rowing boat, so it is a propeller."
+     "surface": "A ship's propeller seems to be rounding the edges of an aircraft carrier.",
+     "walkthrough": "The possessive 's simply joins the pieces to the definition; only the two ends of AIRCRAFT-CARRIER are used.",
+     "definitionFit": "An oar drives a rowing boat through the water, so it is a hand-powered propeller."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "propeller"
     }
@@ -540,46 +538,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FEATUREWRITING",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 26,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "WREATURE",
        "parts": [
         {
-         "unchecked": true,
          "words": "Child's hero",
-         "gives": "FEATURE",
-         "soundsLike": "REACHER",
-         "note": "Jack Reacher is Lee Child's hero; he takes the F sound from the next word"
-        },
+         "at": 0,
+         "gives": "REACHER",
+         "note": "Jack Reacher is the hero of Lee Child's thriller novels"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "FITING",
+       "parts": [
         {
-         "unchecked": true,
          "words": "battling",
-         "gives": "WRITING",
-         "soundsLike": "FIGHTING",
-         "note": "battling = fighting; it takes the R sound from Reacher"
+         "at": 13,
+         "gives": "FIGHTING",
+         "note": "battling means fighting"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A children's comic hero in a fight, reported by the press.",
-     "walkthrough": "'Child' looks like a youngster, making the hero a comic-book figure; it is the thriller writer Lee Child, whose hero is Jack Reacher.",
-     "definitionFit": "Feature writing is journalism of longer articles rather than news reports."
+     "surface": "A child's hero battling sounds like the material of a comic book.",
+     "walkthrough": "'Child' is not a youngster but the novelist Lee Child, whose hero is Jack Reacher. Swap the opening sounds of REACHER FIGHTING and you hear the answer.",
+     "definitionFit": "Feature writing is the kind of journalism that produces longer articles rather than news reports."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Child"
+     "misdirectedWord": "Child's"
     }
    }
   },
@@ -1673,46 +1675,76 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SWA",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "All quitting halfway through",
-         "note": "each of the next three words stops halfway, keeping its first half"
+         "text": "All",
+         "at": 0,
+         "note": "all says the instruction that follows applies to every one of the three words, starting with this one"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "swampy",
-         "gives": "SWA",
-         "select": "first",
-         "note": "first half of swampy"
+         "at": 29,
+         "note": "its first half is SWA"
+        },
+        {
+         "gives": "MPY"
         }
        ]
       },
       {
-       "words": "hike",
-       "gives": "HI",
-       "note": "first half of hike"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "quitting",
+         "at": 4,
+         "note": "quitting means leaving, so each word leaves off part of itself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hike",
+         "at": 36,
+         "note": "its first half is HI"
+        },
+        {
+         "gives": "KE"
+        }
+       ]
       },
       {
-       "words": "like",
-       "gives": "LI",
-       "note": "first half of like"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halfway through",
+         "at": 13,
+         "note": "halfway through says where each word stops, so only its first half survives"
+        }
+       ],
+       "parts": [
+        {
+         "words": "like",
+         "at": 42,
+         "note": "its first half is LI"
+        },
+        {
+         "gives": "KE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Giving up halfway through a swampy trek, as a Zanzibari might.",
-     "walkthrough": "'Like' seems a link to the definition but is the third word to be halved. The question mark marks Zanzibarian as an example: Swahili is spoken in Zanzibar.",
-     "definitionFit": "Swahili is the language and culture of the East African coast, including Zanzibar."
+     "surface": "Walkers give up halfway along a boggy trek on an East African island.",
+     "walkthrough": "'All' covers the three words swampy, hike and like; each loses its second half. The question mark marks the definition by example.",
+     "definitionFit": "Swahili is the language spoken on Zanzibar, so it is something a Zanzibarian might be described by."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "like"
+     "misdirectedWord": "quitting"
     }
    }
   },
