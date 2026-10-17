@@ -310,44 +310,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MALEFIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "the jumbled letters are placed inside the computer"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "computer",
+       "at": 26,
+       "gives": "MAC",
+       "note": "a Mac is an Apple computer"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "corrupted",
-         "note": "a corrupted file has its letters scrambled"
-        },
-        {
-         "text": "in",
-         "note": "the scrambled letters go inside the computer word"
+         "at": 13,
+         "note": "a corrupted file has its contents garbled, so its letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "computer",
-         "gives": "MAC",
-         "note": "a Mac is an Apple computer"
-        },
-        {
          "words": "file",
-         "gives": "LEFI",
-         "note": "FILE rearranged"
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A damaged file on a computer turns out to be malicious.",
-     "walkthrough": "The surface is pure computing, and \"corrupted\" is the anagram signal that fits it so well you hardly notice it.",
-     "definitionFit": "A literary synonym for evil or hurtful, from the Latin for doing wrong."
+     "surface": "A damaging document has been mangled on someone's machine, like a virus at work.",
+     "walkthrough": "'corrupted' rearranges FILE to LEFI, which goes 'in' MAC, the Apple computer.",
+     "definitionFit": "Malefic is a literary word for causing harm or evil, a synonym of harmful."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "corrupted"
     }
@@ -1350,51 +1352,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Showing",
+      "text": "Showing off",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNMASKING",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "s",
+       "at": 20,
+       "note": "the 's stands for has, and the jumbled gunman has the skiing word held within it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "off",
-         "note": "the gunman's letters go off, out of order"
-        },
-        {
-         "text": "'s about",
-         "note": "the rearranged gunman is around the next piece"
+         "text": "about",
+         "at": 22,
+         "note": "about here means round and about, so the letters of gunman are moved around"
         }
        ],
        "parts": [
         {
          "words": "gunman",
-         "gives": "UNMANG",
-         "note": "GUNMAN rearranged"
-        },
-        {
-         "words": "to go downhill",
-         "gives": "SKI",
-         "note": "to ski is to go downhill"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "to go downhill",
+       "at": 28,
+       "gives": "SKI",
+       "note": "to ski is to go downhill on skis"
       }
      ]
     },
     "explanation": {
-     "surface": "A gunman is about to set off down a slope, showing off.",
-     "walkthrough": "\"Showing off\" looks like one phrase, but the definition stops at \"Showing\" and \"off\" goes with the gunman.",
-     "definitionFit": "A plain synonym: revealing what was hidden, as in taking a disguise away."
+     "surface": "An armed man's expected to take to the slopes, putting on a display as he goes.",
+     "walkthrough": "'about' rearranges GUNMAN into UNMANG; the 's (has) puts SKI into it, giving UNMA-SKI-NG. 'Showing off' means revealing, not boasting.",
+     "definitionFit": "Unmasking someone exposes or reveals them, so it is showing them off in the sense of displaying."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "off"
+     "misdirectedWord": "Showing"
     }
    }
   },
