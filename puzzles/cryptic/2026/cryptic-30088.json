@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -285,34 +286,39 @@
      "parts": [
       {
        "words": "Bobby",
+       "at": 9,
        "gives": "DARIN",
-       "note": "Bobby Darin, who sang Mack the Knife"
+       "note": "Bobby Darin was an American singer of the 1950s and 60s"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "G",
        "indicators": [
         {
          "text": "that'll open",
-         "note": "What opens a word is the letter it starts with, so only the initial of the name that follows is wanted."
+         "at": 15,
+         "note": "the letter that'll open a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "the Guardian",
-         "gives": "G",
-         "select": "first",
-         "note": "the opening letter of the paper's name"
+         "at": 28,
+         "gives": "GUARDIAN",
+         "note": "the newspaper's name, whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The italics are the tell: a newspaper title is being named, and a title is exactly the sort of thing a setter wants one letter of.",
-     "definitionFit": "Fearless -> DARING: both are adjectives for someone who will take a risk, DARING putting its weight on going ahead and doing it."
+     "surface": "A brave policeman (a bobby) who is about to open the newspaper.",
+     "walkthrough": "'Bobby' looks like British slang for a police officer, but it is the singer Bobby Darin; 'that'll open' picks the G that opens Guardian.",
+     "definitionFit": "Daring describes someone bold and unafraid of risk, a close synonym of fearless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bobby"
     }
    }
   },
@@ -395,51 +401,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SUGGEST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 29,
+       "note": "around means the rearranged letters wrap round the middle of night"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "get changed",
-         "note": "Guests who get changed come back in different clothes, and letters that change come back in a different order."
+         "at": 17,
+         "note": "get changed means the letters of guests are put into a different order"
         }
        ],
        "parts": [
         {
          "words": "guests",
-         "gives": "SUGEST",
-         "note": "the six letters of GUESTS, rearranged and parted to let the other letter in"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "G",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "Something placed around another wraps it, so the single letter ends up in the middle of the rest."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "midnight",
-           "gives": "G",
-           "select": "middle",
-           "note": "mid-night: the middle letter of NIGHT"
-          }
-         ]
+         "at": 10
         }
        ]
+      },
+      {
+       "words": "midnight",
+       "at": 36,
+       "gives": "G",
+       "note": "the middle letter of the word night"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Midnight' explains itself once you split it, and the party surface never lets on that it is an instruction rather than an hour.",
-     "definitionFit": "Recommend -> SUGGEST: to suggest a course of action is to put it forward for consideration, which is recommending without insisting."
+     "surface": "A host advises party guests to get changed close to midnight.",
+     "walkthrough": "'Get changed' turns GUESTS into SUGEST, and 'around' wraps it round G, the letter at the very middle of 'night'.",
+     "definitionFit": "To suggest a course of action is to put it forward as advisable, a synonym of recommend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "midnight"
     }
    }
   },
@@ -478,40 +481,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "XMARKSTHESPOT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 22,
+       "note": "about means the rearranged letters go round the test result"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Frantically",
-         "note": "Anything done frantically is done with no care for order, so the letters land wherever they land."
-        },
-        {
-         "text": "about",
-         "note": "To wrap a coat about you is to put it round the outside, so the shuffled letters close over the other piece."
+         "at": 0,
+         "note": "frantically suggests the letters of text Posh being thrown about in a frenzy"
         }
        ],
        "parts": [
         {
          "words": "text Posh",
-         "gives": "XTHESPOT",
-         "note": "the eight letters of TEXT POSH, shaken up and parted to admit the other piece"
-        },
-        {
-         "words": "test result",
-         "gives": "MARKS",
-         "note": "a test result comes back as marks"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "test result",
+       "at": 28,
+       "gives": "MARKS",
+       "note": "marks are what a test gives you"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Posh Spice and a frantic text make a tabloid surface out of a treasure map. Thirteen letters is a long anagram, so the enumeration is half the help.",
-     "definitionFit": "where's it at -> X MARKS THE SPOT: the phrase a treasure map uses to name the exact place, so the idiom stands in for the question of location."
+     "surface": "Someone frantically texting Posh Spice about how they did in an exam.",
+     "walkthrough": "'Frantically' turns TEXT POSH into X THE SPOT, and 'about' puts it round MARKS. Posh is Victoria Beckham's Spice Girls nickname.",
+     "definitionFit": "On a treasure map, the phrase marks the exact location, so it answers the slangy question of where something is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Posh"
     }
    }
   },
@@ -1313,28 +1324,49 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "ZEAL",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "at heart of",
-       "note": "The heart of a thing is its middle, so only the letters at the centre of what follows are taken."
+       "text": "at heart",
+       "at": 11,
+       "note": "at heart, read with 'of', keeps only the central letters of the country, so its closing letters go"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Maoris' home",
-       "gives": "ZEAL",
-       "select": "middle",
-       "note": "the Maoris' home is NEW ZEALAND, and these four letters are its exact centre"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "of",
+         "at": 20,
+         "note": "of completes 'at heart of': the country's opening letters are trimmed away too, leaving its core"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maoris' home",
+         "at": 23,
+         "gives": "NEWZEALAND",
+         "note": "the Maori are the indigenous people of New Zealand"
+        },
+        {
+         "gives": "NEW"
+        }
+       ]
+      },
+      {
+       "gives": "AND"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The country is never named, so you have to supply New Zealand yourself before there is anything to take the heart of.",
-     "definitionFit": "Enthusiasm -> ZEAL: zeal is enthusiasm with conviction under it, the word English reaches for when the eagerness is moral or religious."
+     "surface": "Passion lies at the core of the Maori homeland.",
+     "walkthrough": "'At heart of' keeps the middle four letters of NEW ZEALAND, trimming NEW from the front and AND from the back.",
+     "definitionFit": "Zeal is eager fervour for a cause, a synonym of enthusiasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
