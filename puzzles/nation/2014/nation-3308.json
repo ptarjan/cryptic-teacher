@@ -46,42 +46,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SECULAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word it qualifies loses its final letter"
+       "text": "Cryptic",
+       "at": 0,
+       "note": "cryptic, meaning puzzling or obscure, tells us the letters are muddled into another order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "clues",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Cryptic",
-         "note": "something cryptic is obscured, so the letters that follow are scrambled out of their plain order"
+         "text": "mostly",
+         "at": 18,
+         "note": "mostly means all but the last letter of are is used"
         }
        ],
        "parts": [
         {
-         "words": "clues",
-         "note": "taken as written"
+         "words": "are",
+         "at": 14,
+         "note": "all but its last letter"
         },
         {
-         "words": "are",
-         "gives": "AR",
-         "note": "the word are without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that crossword clues are full of bad language.",
-     "walkthrough": "'Cryptic clues' reads as a single phrase about crosswords, but 'Cryptic' is the signal to rearrange.",
-     "definitionFit": "Profane in its older sense means worldly, not religious, which is exactly what secular means."
+     "surface": "A crossword-lover's complaint that cryptic clues are mostly rude.",
+     "walkthrough": "'mostly' trims are to AR; CLUES plus AR is then rearranged, with 'Cryptic' doing double duty as a description of the clues and the anagram signal.",
+     "definitionFit": "Profane in its older sense means not sacred or religious, which is exactly what secular means."
     },
     "features": {
      "answerInScene": false,
@@ -275,27 +279,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RITE",
+     "op": "middle",
      "indicators": [
       {
        "text": "in the nude",
-       "note": "a nude figure is stripped of its outer layer, so the word loses its outermost letters"
+       "at": 36,
+       "note": "in the nude means stripped of clothing, so the outer letters of the word are removed"
       }
      ],
      "parts": [
       {
        "words": "less original",
+       "at": 22,
        "gives": "TRITER",
-       "note": "trite means unoriginal, so less original is more trite"
+       "note": "triter means more hackneyed, so less original"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that a naked worship ritual is unoriginal.",
-     "walkthrough": "'Less original' is a comparative adjective standing for one comparative word, and stripping removes its first and last letters.",
-     "definitionFit": "A rite is a formal act of worship or ritual, such as a baptism or a marriage service."
+     "surface": "A religious ceremony performed naked would be less original than it sounds.",
+     "walkthrough": "A synonym for 'less original' is stripped of its first and last letters, as if undressed.",
+     "definitionFit": "A rite is a formal ritual or ceremony, especially one of a religious kind such as baptism."
     },
     "features": {
      "answerInScene": true,
@@ -715,47 +719,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEBCAM",
-     "indicators": [
-      {
-       "text": "all but the final two parts",
-       "note": "the play's title is used except for its closing pair of letters, which are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Beginning of",
+         "at": 0,
+         "note": "Beginning of means the first letter of William is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Beginning of",
-           "note": "the beginning of a word is its opening letter, so only that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "William",
-           "note": "the opening letter of William"
-          }
-         ]
-        },
+         "words": "William",
+         "at": 13,
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
+         "text": "rewound",
+         "at": 68,
+         "note": "rewound, like a tape, means the shortened play title is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "rewound",
-           "note": "rewinding a tape runs it backwards, so the shortened title is read from end to start"
+           "text": "all but the final two parts",
+           "at": 39,
+           "note": "all but the final two parts means the play's last two letters are dropped"
           }
          ],
          "parts": [
           {
            "words": "Shakespeare play",
-           "gives": "MACBE",
-           "note": "Macbeth, Shakespeare's Scottish tragedy, cut short by two letters"
+           "at": 21,
+           "gives": "MACBETH",
+           "note": "Macbeth is a Shakespeare tragedy"
+          },
+          {
+           "gives": "TH"
           }
          ]
         }
@@ -764,14 +774,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone watches the opening of a Shakespeare production on a VCR, rewinding it.",
-     "walkthrough": "'William Shakespeare' looks like one name, but only William's first letter is used; the play is a separate piece.",
-     "definitionFit": "A webcam is a small camera that streams video to a computer, so it counts as a piece of video equipment."
+     "surface": "A video of a Shakespeare play, cut short and rewound to its beginning.",
+     "walkthrough": "Macbeth loses its last two letters to give MACBE, which 'rewound' becomes EBCAM, after the W from the 'Beginning of' William.",
+     "definitionFit": "A webcam is a small camera that streams video over the internet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "William"
+     "misdirectedWord": "rewound"
     }
    }
   },
@@ -1150,37 +1160,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MINNESOTAFATS",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word for workers loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "State",
+       "at": 0,
+       "gives": "MINNESOTA",
+       "note": "Minnesota is a US state"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 23,
+         "note": "returning means the shortened word is read back the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "State",
-         "gives": "MINNESOTA",
-         "note": "Minnesota is a US state"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "returning",
-           "note": "returning means going back the way it came, so the shortened word is read from end to start"
+           "text": "mostly",
+           "at": 16,
+           "note": "mostly means the last letter of the workers word is dropped"
           }
          ],
          "parts": [
           {
            "words": "Workers",
-           "gives": "STAF",
-           "note": "staff, the workers of a business, with its last letter dropped"
+           "at": 8,
+           "gives": "STAFF",
+           "note": "staff are the workers of an organisation"
+          },
+          {
+           "gives": "F"
           }
          ]
         }
@@ -1189,12 +1204,12 @@
      ]
     },
     "explanation": {
-     "surface": "A quoted statement about staff heading back to the pool hall.",
-     "walkthrough": "As in the cigarette clue, 'State:' is a noun naming the first piece, not an instruction to speak.",
-     "definitionFit": "Minnesota Fats is the legendary billiards con man of the film The Hustler, a name later taken by a real player."
+     "surface": "A state declares its workers are mostly going back for a pool hustler.",
+     "walkthrough": "STAFF 'mostly' is STAF, and 'returning' gives FATS. Minnesota Fats is the fictional pool hustler of the novel and film The Hustler.",
+     "definitionFit": "Minnesota Fats is the famous fictional billiards shark played by Jackie Gleason in The Hustler."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "State"
     }
