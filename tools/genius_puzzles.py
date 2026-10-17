@@ -682,10 +682,9 @@ def ocr_page(number, image):
         for x0, y0, x1, y1 in OCR_BOXES[number]:
             crop = image.crop((int(image.width * x0), int(image.height * y0),
                                int(image.width * x1), int(image.height * y1)))
-            parts.append(ocr_clues.lines_of(ocr_clues.read_words(crop, which)).replace("\n", " "))
-        # A clue number read onto its first word ("7Lives") stands apart.
-        text = re.sub(r"(?<![\w,])(\d{1,2})(?=[A-Z][a-z])", r"\1 ", " ".join(parts))
-        readings.append(parse_text(flat(text, kerned=False)))
+            parts.append(clue_text.tidy_ocr_clues(
+                ocr_clues.lines_of(ocr_clues.read_words(crop, which))).replace("\n", " "))
+        readings.append(parse_text(flat(" ".join(parts), kerned=False)))
     first, other = readings[0], {tuple(c["lights"]): c for c in readings[1]["clues"]}
     if not first["clues"] or sorted(tuple(c["lights"]) for c in first["clues"]) != sorted(other):
         return None, "the readers lay different clue lists"

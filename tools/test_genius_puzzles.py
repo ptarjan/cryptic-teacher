@@ -315,8 +315,8 @@ real = ocr_clues.read_words, ocr_clues.lines_of
 ocr_clues.read_words, ocr_clues.lines_of = (lambda crop, which: which), (lambda which: said[which])
 G.OCR_BOXES[9997] = [(0, 0.5, 1, 1)]
 page = Image.new("L", (100, 200), 255)
-said.update(en5="Across 7Lives in abandon (6) 8 Spooner's fighting’usky? (8) Down 1 Pip — hung (6)",
-            times="Across 7 Lives in abandon (6) 8 Spooner's fighting 'usky? (8) Down 1 Pip hung (6)")
+said.update(en5="Across\n7Lives in abandon (6)\n8 Spooner's fighting’usky? (8)\nDown\n1 Pip — hung (6)",
+            times="Across\n7 Lives in abandon (6)\n8 Spooner's fighting 'usky? (8)\nDown\n1 Pip hung (6)")
 got, why = G.ocr_page(9997, page)
 emit("ocr-agree", why, [c["clue"] for c in got["clues"]])
 said["times"] = said["times"].replace("abandon", "abanden")
