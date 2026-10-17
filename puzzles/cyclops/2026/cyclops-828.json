@@ -318,43 +318,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STAMP",
-     "indicators": [
-      {
-       "text": "Casually",
-       "note": "Doing a thing casually is doing it with no care for the proper order, so those letters are set down in any order they like."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Casually",
+         "at": 0,
+         "note": "casually suggests an offhand, rearranged placing of the three letters that follow"
+        }
+       ],
        "parts": [
         {
-         "words": "Casually sat",
-         "gives": "STA",
-         "note": "the three letters of sat, put down in another order"
-        },
-        {
-         "words": "member",
-         "gives": "MP",
-         "note": "MP is a Member of Parliament, the member of most British clues"
+         "words": "sat",
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "member",
+       "at": 16,
+       "gives": "MP",
+       "note": "MP, a Member of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lounging on a politician.",
-     "walkthrough": "Member is the Commons abbreviation and, this being Private Eye, the anatomical joke as well. The impression is the mark pressed into wax or ink, not the one made at a party.",
-     "definitionFit": "To stamp something is to press a mark into it, which is making an impression in the literal, inky sense."
+     "surface": "A political member is sat on in an offhand way, as if trying to leave a mark.",
+     "walkthrough": "'Casually' rearranges SAT into STA, then MP for member follows.",
+     "definitionFit": "To stamp is to press a mark or imprint into something, leaving an impression."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "member"
+     "misdirectedWord": "Casually"
     }
    }
   },
@@ -634,26 +632,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SLUR",
      "indicators": [
       {
        "text": "to get a new leader",
-       "note": "A word's leader is the letter out in front, so getting a new one swaps that first letter for another."
+       "at": 9,
+       "note": "a new leader means the first letter of the band's name is replaced by another"
       }
      ],
      "parts": [
       {
        "words": "Pop band",
+       "at": 0,
        "gives": "BLUR",
-       "note": "Blur are the Britpop band of Parklife and Country House"
+       "note": "Blur is a British pop band of the Britpop era"
+      },
+      {
+       "gives": "B"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A chart act casting about for a new frontman.",
-     "walkthrough": "The clue never says which letter arrives; the definition does, since only one substitute leaves a word that means an insult. Blur's actual leader is Damon Albarn, which is where the surface is looking.",
-     "definitionFit": "A slur is a remark that blackens someone's name, an insult with a bit of stick left in it."
+     "surface": "A pop group is invited to change its frontman, and someone shouts an insult.",
+     "walkthrough": "Blur is the 1990s Britpop group. 'to get a new leader' swaps its first letter B for S; the clue does not name the new letter, so the definition and crossings fix it.",
+     "definitionFit": "A slur is a derogatory remark, so it is a kind of insult."
     },
     "features": {
      "answerInScene": false,
@@ -1251,40 +1255,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATTLEE",
-     "indicators": [
-      {
-       "text": "not started",
-       "note": "A word not started is missing the letter it begins on, so it arrives with its opening gone."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not started",
+         "at": 15,
+         "note": "not started means the word loses its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "fight",
-         "gives": "ATTLE",
-         "note": "a battle is a fight, entered here without the letter it opens on"
+         "at": 9,
+         "gives": "BATTLE",
+         "note": "a battle is a fight"
         },
         {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the physicist's letter for energy, as in Einstein's equation"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "energy",
+       "at": 35,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "A prime minister whose fight has not begun for want of energy.",
-     "walkthrough": "Clement Attlee led Labour's 1945 landslide and founded the NHS, which is the standing the definite article in The PM leans on. Not started takes off one letter, not the whole first syllable.",
-     "definitionFit": "Clement Attlee was Labour's prime minister from 1945 to 1951, so the surname alone answers to The PM."
+     "surface": "A prime minister's struggle cannot get going and needs more energy.",
+     "walkthrough": "'not started' takes the B off BATTLE to leave ATTLE, and E for energy follows. Clement Attlee was the post-war Labour prime minister.",
+     "definitionFit": "Clement Attlee was British Prime Minister from 1945 to 1951, so he is one particular holder of that office."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "fight"
     }
