@@ -744,50 +744,58 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "NAMIBIA",
+     "indicators": [
+      {
+       "text": "set free",
+       "at": 32,
+       "note": "set free suggests the remaining letters are released from their order and rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "NAMIBIA",
        "indicators": [
         {
          "text": "missing",
-         "note": "the letters are taken away"
-        },
-        {
-         "text": "skin of",
-         "note": "the outer letters, P and H"
-        },
-        {
-         "text": "set free",
-         "note": "the remaining letters are let loose into a new order"
+         "at": 10,
+         "note": "missing means those two letters are taken out of amphibian"
         }
        ],
        "parts": [
         {
          "words": "Amphibian",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "pouch",
-         "gives": "PH",
-         "note": "its outer letters, removed to leave AMIBIAN"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "skin of",
+           "at": 18,
+           "note": "skin of takes just the outer letters of pouch, its first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pouch",
+           "at": 26,
+           "note": "P and H, the outside letters of pouch"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A frog escapes from a bag and is released into the wild.",
-     "walkthrough": "The surface pictures a frog let out of a bag; 'set free' is the instruction to rearrange AMIBIAN.",
-     "definitionFit": "Namibia is a country in south-west Africa."
+     "surface": "A frog without the lining of its pouch is released into the wild somewhere.",
+     "walkthrough": "'Skin of' pouch gives PH, and amphibian is 'missing' them, leaving AMIBIAN; 'set free' rearranges those seven letters into the African nation.",
+     "definitionFit": "Namibia is a nation in south-west Africa, so it is a country."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pouch"
+     "misdirectedWord": "skin"
     }
    }
   },
