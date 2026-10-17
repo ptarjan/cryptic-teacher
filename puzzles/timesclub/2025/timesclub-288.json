@@ -713,22 +713,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AWETO",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "in",
-       "note": "a thing placed in another sits inside it"
+       "text": "dispatching",
+       "at": 19,
+       "note": "dispatching means sending away, so a letter is removed"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "dispatching The Last of",
-         "note": "dispatching means getting rid of, and the last of a word is its final letter, so that letter is sent away"
+         "text": "in",
+         "at": 6,
+         "note": "in places the compass point inside the a-and-circle pair"
         }
        ],
        "parts": [
@@ -737,39 +737,52 @@
          "parts": [
           {
            "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "Point",
-           "gives": "WEST",
-           "note": "west is a point of the compass"
+           "at": 9
           },
           {
            "words": "circle",
+           "at": 11,
            "gives": "O",
-           "note": "the letter O is round like a circle"
+           "note": "O is shaped like a circle"
           }
          ]
         },
         {
+         "words": "Point",
+         "at": 0,
+         "gives": "WEST",
+         "note": "west is a compass point"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "The Last of",
+         "at": 31,
+         "note": "the last of a word is its final letter, here the end of Us's"
+        }
+       ],
+       "parts": [
+        {
          "words": "Us's",
-         "gives": "S",
-         "note": "the word whose final letter is dropped"
+         "at": 43,
+         "note": "the word whose final letter is sent away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gamers recall a moment in The Last of Us when a fungus-infected victim is killed.",
-     "walkthrough": "WEST goes inside A and O, then loses the last letter of 'Us', an S. The Last of Us is a video game whose zombies are created by a cordyceps fungus.",
-     "definitionFit": "The aweto is a New Zealand caterpillar that is killed and mummified by a parasitic cordyceps fungus growing out of its head."
+     "surface": "A nod to the video game The Last of Us, whose zombie fungus is cordyceps, with a compass point inside a circle.",
+     "walkthrough": "WEST goes inside A and O to make AWESTO; 'dispatching' then removes S, the last letter of 'Us's'.",
+     "definitionFit": "The aweto is a New Zealand caterpillar killed and mummified by a Cordyceps fungus, once used as a source of tattoo pigment."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Last"
+     "misdirectedWord": "Us's"
     }
    }
   },
@@ -1240,7 +1253,8 @@
      "indicators": [
       {
        "text": "between",
-       "note": "a thing between two others sits inside the pair"
+       "at": 43,
+       "note": "between puts the alternate letters inside the tense and not-tense pieces"
       }
      ],
      "parts": [
@@ -1249,47 +1263,45 @@
        "parts": [
         {
          "words": "tense",
+         "at": 51,
          "gives": "T",
          "note": "T is the grammatical abbreviation for tense"
         },
         {
          "words": "not tense",
+         "at": 61,
          "gives": "LAX",
-         "note": "lax means slack, not taut"
+         "note": "lax means slack, the opposite of tense"
         }
        ]
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "OADF",
        "indicators": [
         {
          "text": "on and off",
+         "at": 19,
          "note": "on and off means intermittently, so every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "on and off",
-         "gives": "OADF",
-         "select": "alternate",
-         "note": "the first, third, fifth and seventh letters"
+         "at": 31,
+         "note": "the words whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener describes a plant that blooms intermittently, somewhere between stressed and relaxed.",
-     "walkthrough": "The repeated phrase does double duty: the first 'on and off' says take alternate letters, and the second is the source.",
-     "definitionFit": "Toadflax is a wildflower of the snapdragon family, with yellow spurred blooms."
+     "surface": "A botanical riddle about a plant flowering intermittently, somewhere between taut and slack.",
+     "walkthrough": "The second 'on and off' is the fodder: its first, third, fifth and seventh letters give OADF, which sits between T and LAX.",
+     "definitionFit": "Toadflax is a flowering plant of the snapdragon family, with yellow spurred blooms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "flowers"
     }
    }
