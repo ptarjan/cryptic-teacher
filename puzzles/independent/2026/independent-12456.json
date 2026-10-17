@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -333,47 +334,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GEORGEVI",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "in a state",
+       "at": 15,
+       "note": "to be in a state is to be agitated or disordered, so the letters are jumbled"
+      },
+      {
+       "text": "having received no",
+       "at": 27,
+       "note": "the pool is to keep none of the 'news', so the two Ns are taken out of it"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GEORGEVI",
-       "indicators": [
-        {
-         "text": "in a state",
-         "note": "Something in a state is in disorder, and letters in disorder do not come out in the order they went in."
-        },
-        {
-         "text": "having received no",
-         "note": "Having received none of a thing means it is simply not there, so whatever is named next is missing from the letters."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Earl",
+         "at": 0,
          "gives": "E",
-         "note": "e = earl, the abbreviation used in lists of peers"
+         "note": "E is the abbreviation for earl in titles of peerage"
         },
         {
          "words": "governing",
-         "note": "nine letters, two of which are about to go"
-        },
-        {
-         "words": "news",
-         "gives": "NN",
-         "note": "news is the plural of the letter N, and this word holds exactly two of them"
+         "at": 5,
+         "note": "taken as written, as part of the letter pool"
         }
        ]
+      },
+      {
+       "words": "news",
+       "at": 46,
+       "gives": "NN",
+       "note": "N stands for new, so 'news' is jokily its plural, two Ns"
       }
      ]
     },
     "explanation": {
-     "surface": "An earl running a country, kept in the dark about his monarch.",
-     "walkthrough": "'News' is the plural of a letter, not information — the same trick as clueing a pair of esses with 'excess'. George VI came to the throne in 1936 when his brother abdicated, and reigned until 1952.",
-     "definitionFit": "George VI was King of the United Kingdom through the Second World War, so the definition names the answer by his job."
+     "surface": "A nobleman running a territory, cut off from all news about the monarch.",
+     "walkthrough": "Taking both Ns out of GOVERNING leaves GOVERIG; add E for Earl, and 'in a state' rearranges EGOVERIG into the king's name and number.",
+     "definitionFit": "George VI was the British monarch from 1936 to 1952, father of Elizabeth II."
     },
     "features": {
      "answerInScene": true,
@@ -1640,29 +1642,27 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "ULURU",
+     "op": "nth",
+     "n": 2,
      "indicators": [
       {
        "text": "in the open",
-       "note": "Each word is opened up and its covering letters stripped away, leaving what was inside standing in the open."
+       "at": 32,
+       "note": "the insides of the words are laid open, so the middle letter of each of the five words is taken"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "put all our art out",
-       "gives": "ULURU",
-       "select": "middle",
-       "note": "five three-letter words in a row, each giving up the letter at its middle"
+       "at": 12,
+       "note": "five three-letter words whose centre letters are picked out"
       }
      ]
     },
     "explanation": {
-     "surface": "Putting a whole collection of artwork on public display.",
-     "walkthrough": "Uluru is the sandstone monolith in central Australia once called Ayers Rock, sacred to the Anangu people who own it. Five three-letter words in a row is the signal — no ordinary sentence lines them up like that by accident.",
-     "definitionFit": "Uluru is a single vast mass of sandstone and a sacred site to the Anangu, so both words of the definition are literal."
+     "surface": "A suggestion that a sacred gathering should show its art outdoors.",
+     "walkthrough": "Each of 'put all our art out' is a three-letter word, and their centre letters give U, L, U, R, U. The question mark nods to the huge rock standing in the open outback.",
+     "definitionFit": "Uluru, formerly Ayers Rock, is a vast sandstone monolith in central Australia, sacred to its Aboriginal custodians."
     },
     "features": {
      "answerInScene": false,
