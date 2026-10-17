@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -322,39 +323,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FOGBOW",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of two words, so the pair trade their first letters"
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words that follow, as Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "marshland",
+       "at": 10,
+       "gives": "BOG",
+       "note": "marshland is a bog"
+      },
+      {
+       "op": "homophone",
+       "spelt": "FOW",
        "parts": [
         {
-         "unchecked": true,
-         "words": "marshland",
-         "gives": "FOG",
-         "soundsLike": "BOG",
-         "note": "waterlogged marshy ground is a bog; it hands its B to the word beside it and takes an F in exchange"
-        },
-        {
-         "unchecked": true,
          "words": "enemy",
-         "gives": "BOW",
-         "soundsLike": "FOE",
-         "note": "an enemy is a foe, and with the B swapped in it is the one that rhymes with go — the arc a rainbow makes"
+         "at": 20,
+         "gives": "FOE",
+         "note": "an enemy is a foe, here spelt to rhyme with the bow of a bow and arrow"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The thing itself is the pale, almost colourless cousin of a rainbow, seen when the sun catches fog: droplets too small to split the light properly.",
-     "definitionFit": "that shines faintly in mist -> FOGBOW: a fogbow is a rainbow formed in fog, its colours washed out to a ghostly white arc."
+     "surface": "A puzzling description of a swampy foe, followed by something glowing dimly in a misty landscape.",
+     "walkthrough": "Swapping the first sounds of BOG FOE gives FOG BOE, which is said the same as the answer: a bow, as in a rainbow.",
+     "definitionFit": "A fogbow is a pale, almost colourless arc like a rainbow, seen when sunlight strikes fog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "enemy"
     }
    }
   },
@@ -572,40 +578,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INPASSING",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 20,
+       "note": "first puts the rearranged country before the carol"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "touring",
-         "note": "a tour wanders from place to place, and letters sent touring do not come home in the order they left"
-        },
-        {
-         "text": "first",
-         "note": "the piece just made goes at the front, ahead of everything else in the answer"
+         "at": 6,
+         "note": "touring means travelling round, so the letters of Spain go round into a new order"
         }
        ],
        "parts": [
         {
          "words": "Spain",
-         "gives": "INPAS",
-         "note": "the country's five letters, shaken into a new order"
-        },
-        {
-         "words": "Carol",
-         "gives": "SING",
-         "note": "to carol is to sing, especially outside somebody's front door in December"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "Carol",
+       "at": 0,
+       "gives": "SING",
+       "note": "to carol is to sing"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Carol reads as a woman's name in the surface and is a verb in the parse; 'first' is not part of the definition but the instruction that puts the shuffled country in front.",
-     "definitionFit": "incidentally -> IN PASSING: to mention something in passing is to drop it in as an aside, not as the point you are making."
+     "surface": "Carol singers go on tour around Spain before anywhere else, mentioned as a casual aside.",
+     "walkthrough": "'touring' rearranges SPAIN as INPAS, and 'first' puts that ahead of SING. Carol looks like a woman's name but is the verb.",
+     "definitionFit": "Saying something in passing means mentioning it as a side remark, which is what incidentally signals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol"
     }
    }
   },
@@ -736,36 +750,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERLACES",
-     "indicators": [
-      {
-       "text": "openings go begging",
-       "note": "an opening that goes begging is one nobody takes up, so the letter each word starts with is left behind"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "openings",
+         "at": 26,
+         "note": "openings are the first letters of the two words, the ones to be removed here"
+        }
+       ],
        "parts": [
         {
          "words": "seasonal",
-         "gives": "INTER",
-         "note": "winter is the season meant, and it turns up here without its W"
+         "at": 9,
+         "gives": "WINTER",
+         "note": "a seasonal thing here is winter, one of the seasons"
         },
         {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "go begging",
+         "at": 35,
+         "note": "to go begging is to be left unused, so those opening letters are dropped"
+        }
+       ],
+       "parts": [
+        {
          "words": "posts",
-         "gives": "LACES",
-         "note": "posts in the sense of places, that word starting a letter late"
+         "at": 18,
+         "gives": "PLACES",
+         "note": "posts are places or positions, as in jobs"
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Mixes up' sits at the front looking exactly like an anagram instruction and is really the definition: nothing in this clue gets shuffled.",
-     "definitionFit": "Mixes up -> INTERLACES: to interlace strands is to weave them in and out of one another, mixing them into a single fabric."
+     "surface": "A shuffle of jobs for the season, with vacancies left unfilled.",
+     "walkthrough": "Together, 'openings go begging' drops the W of WINTER and the P of PLACES, leaving INTER and LACES.",
+     "definitionFit": "To interlace is to weave strands together, so things that are interlaced are intertwined and mixed up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "openings"
     }
    }
   },
@@ -1559,36 +1598,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEASHOP",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "a word called short is docked of its final letter, arriving one shy of its full length"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 11,
+         "note": "short means cut off before the end, so the final letter of the word for guy is lost"
+        }
+       ],
        "parts": [
         {
          "words": "guy",
-         "gives": "TEAS",
-         "note": "to guy someone is to tease them, and that word turns up a letter short"
+         "at": 17,
+         "gives": "TEASE",
+         "note": "to guy someone is to mock or tease them"
         },
         {
-         "words": "Dance",
-         "gives": "HOP",
-         "note": "a hop is an informal dance in a village hall"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Dance",
+       "at": 0,
+       "gives": "HOP",
+       "note": "a hop is an informal dance"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Guy' is a verb here rather than a bloke: to guy someone is to make fun of them, and that is the one step the surface works hardest to hide.",
-     "definitionFit": "genteel establishment -> TEASHOP: the polite British cafe of teapots and cake stands, a byword for respectability."
+     "surface": "A dance with a small man at a refined venue.",
+     "walkthrough": "Guy here is the verb, to make fun of, so TEASE; 'short' drops its last letter to give TEAS.",
+     "definitionFit": "A tea shop serving cakes and cups of tea is the picture of a refined, polite place of business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "guy"
     }
    }
   }
