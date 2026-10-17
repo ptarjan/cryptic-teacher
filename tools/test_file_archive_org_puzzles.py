@@ -27,6 +27,7 @@ _stdout, sys.stdout = sys.stdout, _buf
 import json, os
 from pathlib import Path
 import file_archive_org_puzzles as f
+f.HELD_SERIES_CACHE = None  # no on-disk snapshot leaking in from ~/.cache; the snapshot case sets its own
 import ocr_clues
 
 fails = 0
@@ -1370,13 +1371,16 @@ check("an in-place rewrite stands HELD_FRESH, then is read",
 f.held_files("zz")
 time.sleep(0.01)
 (hp / "puzzles" / "zz" / "2000" / "zz-6.json").write_text('{"date": "2000-01-06"}')
-stats = []
-Path.stat = lambda self, *a, **k: stats.append(self) or real_stat(self, *a, **k)
+listed, real_scandir = [], os.scandir  # files are stat'ed through scandir entries, so watch the folders listed
+def watch_scandir(path, *a, **k):
+    listed.append(Path(path).name)
+    return real_scandir(path, *a, **k)
+os.scandir = watch_scandir
 moved = dict(f.held_files("zz"))
-Path.stat = real_stat
+os.scandir = real_scandir
 check("a moved folder is listed again alone, the others' entries kept",
-      (base + [4, 5, 6], datetime.date(2000, 1, 6), ["zz-5.json", "zz-6.json"]),
-      (sorted(moved), moved[6][0], sorted(p.name for p in stats if p.suffix == ".json")))
+      (base + [4, 5, 6], datetime.date(2000, 1, 6), ["2000"]),
+      (sorted(moved), moved[6][0], [n for n in listed if n != "zz"]))  # "zz" is the series folder's own listing
 f.ROOT = real_root
 # plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
 # a moved ledger row each make an edition due again; a fresh dir is not kept.

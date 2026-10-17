@@ -26,7 +26,7 @@ files = [f for f in subprocess.run(["git", "ls-files", "tools/*.py", "tools/*.sh
          if not re.match(r"tools/(gale_|test_|downloads\.py$)", f)]
 # What ~/.cache may hold: what a tool rebuilds from the downloads, or a job's
 # own state. Anything fetched from the web is a download.
-DERIVED = ["archive_coverage", "cryptic-progress-rows\\.json", "clues_only_grids", "cryptic-abbreviations-table\\.json", "vlm_health", "fetch_nation", "archive_org_crops", "archive_org_tess", "corpus_queue", "coverage_ledger",
+DERIVED = ["archive_coverage", "cryptic-progress-rows\\.json", "clues_only_grids", "cryptic-abbreviations-table\\.json", "vlm_health", "fetch_nation", "held_dates","archive_org_crops", "archive_org_tess", "corpus_queue", "coverage_ledger",
            "cryptic-blog-facts(?:\\.(?:lock|deferred)|-index\\.sqlite)", "cryptic-teacher", "gale_inbox", "ocr_remote", "rapidocr", "scan_reread_requests\\.jsonl",
            "vlm_reader"]
 ALLOWED = r"(\.cache|\.config|\.local|\.claude|\.ssh|\.cryptic-teacher)\b"
