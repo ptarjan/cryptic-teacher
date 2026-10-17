@@ -469,31 +469,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MASTERPLAN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner was famous for swapping the opening sounds of words, so this signals such a swap"
+       "at": 12,
+       "note": "Spooner's says the opening sounds of the two words for the building worker are swapped, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "building worker",
-       "gives": "MASTERPLAN",
-       "soundsLike": "PLASTER MAN",
-       "note": "a building worker who plasters walls; swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "PLASTER",
+       "parts": [
+        {
+         "words": "building",
+         "at": 22,
+         "gives": "PLAHSTER",
+         "note": "plaster is a building material, said 'plahster' in British speech; a plaster man is a plasterer"
+        }
+       ]
+      },
+      {
+       "words": "worker",
+       "at": 31,
+       "gives": "MAN",
+       "note": "a man is a worker, as in a firm's men or staff"
       }
      ]
     },
     "explanation": {
-     "surface": "Asks what grand scheme a certain builder is following.",
-     "walkthrough": "The building worker is a plasterer, clued as PLASTER MAN; swapping the PL and M sounds gives the answer.",
-     "definitionFit": "A master plan is an overall scheme covering every stage of a project, a comprehensive strategy."
+     "surface": "A question about how a builder might go about a job.",
+     "walkthrough": "The building worker is a PLASTER MAN, a plasterer. 'Spooner's' swaps the opening PL and M sounds of the two words, giving MASTER PLAN.",
+     "definitionFit": "A master plan is an overall scheme for achieving a goal, which is a strategy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "building"
