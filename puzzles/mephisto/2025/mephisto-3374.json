@@ -349,48 +349,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GRUTTEN",
+     "op": "composite",
      "indicators": [
       {
        "text": "distracted",
-       "note": "someone distracted has their thoughts in disarray, so these letters are jumbled"
+       "at": 13,
+       "note": "distracted means thrown into confusion, so these letters are rearranged"
+      },
+      {
+       "text": "with never an",
+       "at": 37,
+       "note": "with never an means not a single one is left in, so every such letter is dropped from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GRUTTEN",
-       "indicators": [
-        {
-         "text": "with never",
-         "note": "with never means not having any at all, so every instance is struck out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "great-aunt",
-         "note": "taken as written, without the hyphen"
-        },
-        {
-         "words": "answer",
-         "gives": "A",
-         "note": "A is the abbreviation for answer"
-        }
-       ]
+       "words": "great-aunt",
+       "at": 24,
+       "note": "taken as written"
+      },
+      {
+       "words": "answer",
+       "at": 51,
+       "gives": "AA",
+       "note": "A is the abbreviation for answer; never an answer removes both of them"
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly relative was greeted by someone too preoccupied to give any reply.",
-     "walkthrough": "Greet is Scots for weep, so greeted here means wept, not welcomed; both letters A go before the shuffle.",
-     "definitionFit": "Grutten is an old Scots past participle of greet, to cry or weep, hence the once."
+     "surface": "A distraught great-aunt who greeted someone and got no reply.",
+     "walkthrough": "Greet here is the Scots verb meaning to weep, not to say hello. GREATAUNT has two As; 'with never an answer' takes out both, and 'distracted' rearranges GRETUNT.",
+     "definitionFit": "Grutten is the old Scots past participle of greet, to weep, so it means wept."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "greeted"
     }
