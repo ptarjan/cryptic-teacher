@@ -45,12 +45,20 @@ def due_clues(puzzle):
     return len(due)
 
 
+def row_is_tail(row):
+    """Whether an index row is a tail by the index alone: a few clues missing,
+    answers present, no preamble awaited. The planner puts these at the head of
+    the Annotate queue so they are bagged first; the file check in due_clues
+    still decides at launch."""
+    if not 1 <= (row or {}).get("unannotated", 0) <= MAX_DUE:
+        return False
+    return not (row.get("clues") or row.get("awaitsPreamble")) and bool(row.get("hasSolutions"))
+
+
 def tail_due(pid, row, runs, resume_dir):
     """due_clues for queued id pid, or None when it is not bagged: not a tail
     on the index, a run already holds it, or its file will not read."""
-    if not 1 <= (row or {}).get("unannotated", 0) <= MAX_DUE:
-        return None
-    if row.get("clues") or row.get("awaitsPreamble") or not row.get("hasSolutions"):
+    if not row_is_tail(row):
         return None
     if (runs / f"{pid}.sid").exists() or (resume_dir / f"ct-prereset-{pid}.resume").exists():
         return None
