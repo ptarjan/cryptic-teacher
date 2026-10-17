@@ -517,8 +517,12 @@ import file_trove_puzzles as F, io, json, pathlib, shutil, tempfile, time
 d = pathlib.Path(tempfile.mkdtemp())
 shutil.copytree('$FIX', d / 'cache')
 read = []
+# A fake clock only a read moves on, so host load (a slow import before the
+# first read) cannot spend the budget: the deadline is read off it, not the wall.
+now = [1000.0]
+time.monotonic = lambda: now[0]
 def slow(a, taken):
-    read.append(a.name); time.sleep(0.2); return {'skip': 'test'}, None, None
+    read.append(a.name); now[0] += 0.2; return {'skip': 'test'}, None, None
 F.consider = slow
 t = F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 'out', seconds=0.1)
 rows = [json.loads(l)['article'] for l in (d / 'filed.jsonl').read_text().splitlines()]
