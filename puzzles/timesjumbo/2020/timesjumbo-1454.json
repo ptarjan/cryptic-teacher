@@ -2842,29 +2842,31 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "WITNESS",
-     "indicators": [
-      {
-       "text": "plugging",
-       "note": "a plug fills a hole from inside, so the letter goes within the drink"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down entry, a part on another sits above it"
+         "text": "plugging",
+         "note": "a plug fills a hole from inside, so the letter goes within the drink"
         }
        ],
        "parts": [
         {
-         "words": "alcoholic drink",
-         "gives": "WI",
-         "note": "start of WINE"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "alcoholic drink",
+           "gives": "WI",
+           "note": "start of WINE"
+          },
+          {
+           "words": "alcoholic drink",
+           "gives": "NE",
+           "note": "end of WINE"
+          }
+         ]
         },
         {
          "op": "last",
@@ -2880,18 +2882,13 @@
            "note": "last letter of advert"
           }
          ]
-        },
-        {
-         "words": "alcoholic drink",
-         "gives": "NE",
-         "note": "end of WINE"
-        },
-        {
-         "words": "ship",
-         "gives": "SS",
-         "note": "SS is the abbreviation for steamship"
         }
        ]
+      },
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
       }
      ]
     },
