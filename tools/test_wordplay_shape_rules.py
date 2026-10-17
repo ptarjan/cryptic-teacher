@@ -45,6 +45,14 @@ check("a one-part charade has the wrong arity", 1, v.bad_arity({"op": "charade",
 two = {"op": "charade", "parts": [{"words": "ab", "at": 0}, {"words": "b c", "at": 1}]}
 check("two leaves sharing clue words are counted", 1, v.span_overlaps(two))
 check("and ones under a cryptic definition are not", 0, v.span_overlaps({"op": "cryptic", "parts": two["parts"]}))
+same = {"op": "charade", "parts": [{"words": "Pieces", "at": 0, "gives": "BIT"}, {"words": "Pieces", "at": 0, "gives": "PART"}]}
+check("one word on two leaves (a word doing two jobs) is not claimed twice", 0, v.span_overlaps(same))
+check("but a leaf inside another leaf's span still is", 1, v.span_overlaps(
+    {"op": "charade", "parts": [{"words": "daycare", "at": 0}, {"words": "care", "at": 3}]}))
+check("and an indicator over a leaf still is", 1, v.span_overlaps(
+    {"op": "container", "indicators": [{"text": "are covered in", "at": 0}], "parts": [{"words": "are", "at": 0}, {"words": "x", "at": 20}]}))
+import shape_suspects as ss
+check("the shape detector agrees", None, ss.d_span_overlap({"wp": same}))
 ann = {"definitions": [{"text": "ab", "at": 0}], "wordplay": {"words": "ab", "at": 0, "gives": "X"}}
 check("wordplay inside the definition is counted", 1, v.in_definition(ann))
 check("unless the clue is &lit", 0, v.in_definition({**ann, "andLit": True}))

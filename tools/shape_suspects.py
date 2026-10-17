@@ -94,6 +94,8 @@ def d_span_overlap(r):
     for x in range(len(sp)):
         for y in range(x + 1, len(sp)):
             a, b = sp[x], sp[y]
+            if a[3] == b[3] == "leaf" and a[:2] == b[:2]:
+                continue  # one clue word doing two jobs (validate_annotations.span_overlaps)
             if "leaf" in (a[3], b[3]) and min(a[1], b[1]) - max(a[0], b[0]) >= 3:
                 return f"{a[3]} '{a[2]}' overlaps {b[3]} '{b[2]}'"
 

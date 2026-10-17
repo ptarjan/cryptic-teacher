@@ -3523,9 +3523,19 @@ def _claimed(tree):
 
 
 def span_overlaps(tree):
-    """Pairs of indicator/leaf spans that share clue words."""
+    """Pairs of indicator/leaf spans that share clue words.
+
+    Not a pair: two leaves on the very same span. One clue word doing two jobs
+    ("seen twice" -> first(seen) + first(seen); "Pieces" -> BIT + PART; "record"
+    -> first half + second half; "Ocean's" picked three times by nth) can only
+    be written as the same words in two leaves, so a model asked to fix it had
+    nothing honest to change (read off 8 of the 27 span_overlap rows of
+    tools/data/shape_reannotate.json, 10-17). A leaf that merely overlaps
+    another, or an indicator over a leaf, is still counted."""
     sp = _claimed(tree)
-    return sum(1 for i, a in enumerate(sp) for b in sp[i + 1:] if a[1] < b[2] and b[1] < a[2])
+    return sum(1 for i, a in enumerate(sp) for b in sp[i + 1:]
+               if a[1] < b[2] and b[1] < a[2]
+               and not (a[0] == b[0] == "leaf" and a[1] == b[1] and a[2] == b[2]))
 
 
 def in_definition(ann):
