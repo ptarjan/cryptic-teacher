@@ -153,46 +153,44 @@
      "indicators": [
       {
        "text": "round",
-       "note": "one word goes round another, encircling it, so the prompt wraps the single letter"
+       "at": 9,
+       "note": "the reminder goes round the middle letter, holding it inside"
       }
      ],
      "parts": [
       {
        "words": "cue",
+       "at": 5,
        "gives": "REMINDER",
-       "note": "a cue prompts memory, as a prompt does"
+       "note": "a cue is a prompt or reminder"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "centre of",
-         "note": "the centre of a five-letter word is its third letter, the one in the middle"
+         "at": 15,
+         "note": "the centre of a five-letter word is its third letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of black",
-         "gives": "A",
-         "select": "middle",
-         "note": "the middle letter of blAck"
+         "words": "black",
+         "at": 25,
+         "note": "only its middle letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snooker player rests the cue while going for the black ball.",
-     "walkthrough": "The snooker picture of rest, cue and black is all misdirection: 'Rest' is the definition, not the cue support, and 'cue' means a prompt.",
-     "definitionFit": "A plain synonym: what is left over after a part is taken away."
+     "surface": "A snooker scene: resting the cue around the black ball's spot.",
+     "walkthrough": "'cue' and 'black' summon snooker, but cue gives REMINDER, and 'round' wraps it around A, the 'centre of' black.",
+     "definitionFit": "The remainder is what is left over, the rest of something."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "cue"
     }
    }
@@ -1086,47 +1084,34 @@
      "op": "container",
      "indicators": [
       {
-       "text": "heart",
-       "note": "the heart of a word is its middle"
+       "text": "embracing",
+       "at": 16,
+       "note": "the blokes hold the heart letter in their middle"
       }
      ],
      "parts": [
       {
        "words": "blokes",
+       "at": 9,
        "gives": "LADS",
-       "note": "lads = blokes, British for men"
+       "note": "lads is informal for blokes, men"
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "sweetheart",
+       "at": 26,
        "gives": "E",
-       "indicators": [
-        {
-         "text": "embracing",
-         "note": "an embrace wraps arms around someone, so the blokes wrap around the letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "sweetheart",
-         "gives": "E",
-         "select": "middle",
-         "note": "the middle letter of swEet"
-        }
-       ]
+       "note": "the heart of sweet is its middle letter"
       }
      ]
     },
     "explanation": {
-     "surface": "The men hugging a girlfriend rile others, the story running on into 22 across.",
-     "walkthrough": "'Sweetheart' looks like a lover but is split: the heart of SWEET.",
-     "definitionFit": "A loose sense: to lead someone to act is to prompt or provoke them."
+     "surface": "Some men hugging a girlfriend stir things up.",
+     "walkthrough": "'sweetheart' is read as the heart of 'sweet', its centre letter E, which LADS are 'embracing'. The ellipsis joins this to the next clue.",
+     "definitionFit": "To lead someone on is to induce or prompt them, so leads here means provokes or prompts into action."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "sweetheart"
     }
    }
@@ -1313,7 +1298,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Canoe",
+      "text": "Canoe going up and down?",
       "at": 0
      }
     ],
@@ -1322,27 +1307,30 @@
      "indicators": [
       {
        "text": "going up and down",
-       "note": "in a down clue the word reads the same going upwards as going downwards"
+       "at": 6,
+       "note": "in a down entry the word reads the same whether you go up or down it, because it is spelt identically both ways"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "going up and down",
-       "note": "the answer is the same read either way up the grid"
+       "words": "Canoe",
+       "at": 0,
+       "gives": "KAYAK",
+       "note": "a kind of canoe, and here the same word must also read both ways"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A canoe bobbing on the waves.",
-     "walkthrough": "'Up and down' looks like bobbing on water, but it says the answer reads the same both ways in the grid.",
-     "definitionFit": "A definition by type: a covered canoe first built by Inuit hunters."
+     "surface": "A canoe bobbing up and down on the water.",
+     "walkthrough": "The answer is a palindrome, so in a down light it reads the same going up as going down; the surface suggests a boat rocking on waves.",
+     "definitionFit": "A kayak is a light, enclosed canoe paddled with a double-bladed paddle, originally Inuit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "up"
+     "misdirectedWord": "going"
     }
    }
   },
