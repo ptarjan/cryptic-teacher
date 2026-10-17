@@ -58,8 +58,8 @@ check("a puzzle with a conversation already under way",
 check("a puzzle with a resume note", clue_bag.tail_due("t2", rows["t2"], runs, resume) is None)
 check("a puzzle with no hints at all (no count on its row)",
       clue_bag.tail_due("x", {"id": "x", "hasSolutions": True}, runs, resume) is None)
-check("a puzzle more than five clues short",
-      clue_bag.tail_due("x", dict(row, unannotated=6), runs, resume) is None)
+check("a puzzle more than ten clues short",
+      clue_bag.tail_due("x", dict(row, unannotated=11), runs, resume) is None)
 check("a puzzle with an unreadable clue", clue_bag.tail_due("x", dict(row, clues={"present": 1, "total": 2}), runs, resume) is None)
 check("a puzzle without all its answers", clue_bag.tail_due("x", dict(row, hasSolutions=False), runs, resume) is None)
 check("a puzzle awaiting its preamble", clue_bag.tail_due("x", dict(row, awaitsPreamble=True), runs, resume) is None)
@@ -69,7 +69,7 @@ for src in F.puzzle_files():
     puzzle = F.read_puzzle_file(src)
     cont = groups.leader_of(puzzle["entries"])
     clues = [e for e in puzzle["entries"] if groups.entry_id(e) not in cont]
-    if (len(clues) >= 8 and all(e.get("annotation") for e in clues) and not puzzle.get("preamble")
+    if (len(clues) >= 12 and all(e.get("annotation") for e in clues) and not puzzle.get("preamble")
             and not puzzle.get("themeClue") and not puzzle.get("cluesUnplaced")
             and all(e.get("solution") for e in puzzle["entries"])):
         break
@@ -88,7 +88,7 @@ def stripped(n):
 
 check("two clues missing: two due", clue_bag.due_clues(stripped(2)) == 2)
 check("none missing: nothing to bag", clue_bag.due_clues(stripped(0)) is None)
-check("six missing: more than a tail", clue_bag.due_clues(stripped(6)) is None)
+check("eleven missing: more than a tail", clue_bag.due_clues(stripped(11)) is None)
 p = stripped(2)
 p["preamble"] = "Eight clues have a misprint in the definition; the misprints spell a message."
 check("a preamble keeps the puzzle whole", clue_bag.due_clues(p) is None)
@@ -106,7 +106,7 @@ sl.write_text(json.dumps([
     {"id": "r1#1a", "reason": "del_single: x"}, {"id": "r1#2d", "reason": "arity_ins: y"},
     {"id": "r2#1a", "reason": "spelling.unsaid: z"}, {"id": "r3#1a", "reason": "hidden: h"},
     {"id": "r4#1a", "reason": "del_single: x", "tried": True}]
-    + [{"id": "r5#%da" % i, "reason": "del_single: x"} for i in range(1, 8)]))
+    + [{"id": "r5#%da" % i, "reason": "del_single: x"} for i in range(1, 12)]))
 shape_queue.PATH = sl
 base = {"hasSolutions": True, "unannotated": 0}
 check("two redo clues: a tail", clue_bag.row_is_tail({**base, "id": "r1"}))
@@ -114,9 +114,9 @@ check("redo=False counts only missing clues (the planner uses the default, redo 
 check("spelling.unsaid is code's: not due", not clue_bag.row_is_tail({**base, "id": "r2"}))
 check("a hidden-word parse is code's: not due", not clue_bag.row_is_tail({**base, "id": "r3"}))
 check("a tried row is not due", not clue_bag.row_is_tail({**base, "id": "r4"}))
-check("seven redo clues: more than a tail", not clue_bag.row_is_tail({**base, "id": "r5"}))
-check("missing plus redo add up", clue_bag.row_is_tail({**base, "id": "r1", "unannotated": 3})
-      and not clue_bag.row_is_tail({**base, "id": "r1", "unannotated": 4}))
+check("eleven redo clues: more than a tail", not clue_bag.row_is_tail({**base, "id": "r5"}))
+check("missing plus redo add up", clue_bag.row_is_tail({**base, "id": "r1", "unannotated": 8})
+      and not clue_bag.row_is_tail({**base, "id": "r1", "unannotated": 9}))
 check("a preamble-awaiting redo row stays whole", not clue_bag.row_is_tail({**base, "id": "r1", "awaitsPreamble": True}))
 
 print("the bag is committed per puzzle: the worker's side is in tools/test_puzzle_worker.sh")

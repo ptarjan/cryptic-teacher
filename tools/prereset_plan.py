@@ -1035,9 +1035,9 @@ def small_self_test():
               file=sys.stderr)
         bad += 1
     # tails (a bag leader and its members) lead the partly hinted: a 1-missing
-    # puzzle awaiting a preamble and a 9-missing one are not tails, so they
+    # puzzle awaiting a preamble and an 11-missing one (past clue_bag.MAX_DUE) are not tails, so they
     # follow the 5-, 4- and 3-missing tails (in queue order); a pin stays ahead of all
-    miss = {"cryptic-1": 9, "cryptic-2": 1, "tls-5": 5, "tls-6": 4, "book-7": 3}
+    miss = {"cryptic-1": 11, "cryptic-2": 1, "tls-5": 5, "tls-6": 4, "book-7": 3}
     trows = [dict(r, unannotated=miss[r["id"]], awaitsPreamble=r["id"] == "cryptic-2")
              for r in rows]
     _, pinned, stages = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"],
