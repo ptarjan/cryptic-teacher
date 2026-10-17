@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -199,12 +200,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FEATHER",
      "indicators": [
       {
-       "text": "leader",
-       "note": "The leader is whatever comes at the front, so it hands over the letter each word in the phrase starts with."
+       "text": "bored by",
+       "at": 12,
+       "note": "bored by means pierced, so the second group of letters goes inside the first"
       }
      ],
      "parts": [
@@ -213,41 +213,57 @@
        "parts": [
         {
          "words": "Iron",
+         "at": 0,
          "gives": "FE",
-         "note": "iron's symbol on the periodic table, from Latin ferrum"
+         "note": "Fe is the chemical symbol for iron"
+        },
+        {
+         "words": "Lady's",
+         "at": 5,
+         "gives": "HER",
+         "note": "her stands for a lady, the female pronoun"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "acting",
+         "at": 21,
+         "gives": "A",
+         "note": "A is a dictionary abbreviation for acting, as in an acting rank"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "AT",
          "indicators": [
           {
-           "text": "bored by",
-           "note": "To bore is to drill a hole through something, so whatever does the boring ends up inside what it went through."
+           "text": "leader's",
+           "at": 33,
+           "note": "the leader of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "acting Tory",
-           "gives": "AT",
-           "select": "first",
-           "note": "the letters at the head of each of these two words"
+           "words": "Tory",
+           "at": 28,
+           "note": "its first letter"
           }
          ]
-        },
-        {
-         "words": "Lady's",
-         "gives": "HER",
-         "note": "what belongs to a lady is hers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Iron Lady is Margaret Thatcher on the surface, and the wordplay splits her in half: iron is the chemical symbol, a lady's is simply the possessive pronoun.",
-     "definitionFit": "A feather is the byword for weightlessness, so the quoted 'soft touch' is the barely-there brush of one rather than the idiom for a pushover."
+     "surface": "Margaret Thatcher, the Iron Lady, is bored by a stand-in Conservative leader's gentle approach.",
+     "walkthrough": "'Iron Lady' points to Thatcher but splits into the symbol for iron and the pronoun for a lady.",
+     "definitionFit": "A feather is the proverbial light touch, so its brush is a soft touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Iron"
     }
    }
   },
@@ -713,22 +729,22 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "EM",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "Half of a four-letter word is two letters, and it is the back pair that is kept here."
+         "at": 0,
+         "note": "half of a four-letter word is two letters, here the back half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Half of them",
-         "gives": "EM",
-         "select": "last",
-         "note": "the back two letters of thEM"
+         "words": "them",
+         "at": 8,
+         "note": "the second half of them"
+        },
+        {
+         "gives": "TH"
         }
        ]
       },
@@ -737,27 +753,36 @@
        "indicators": [
         {
          "text": "to protect",
-         "note": "To protect something is to shield it, and a shield goes around whatever it is keeping safe."
+         "at": 18,
+         "note": "to protect is to surround, so the garden plot surrounds the cricket match"
         }
        ],
        "parts": [
         {
          "words": "plot",
+         "at": 13,
          "gives": "BED",
-         "note": "a plot of ground is a bed, as in a flower bed — and it opens after its first letter"
+         "note": "a bed is a garden plot"
         },
         {
          "words": "cricket match",
+         "at": 29,
          "gives": "ODI",
-         "note": "an ODI is a One Day International, the fifty-over form of the game"
+         "note": "ODI is a one-day international, a cricket match"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "ODI is worth banking for future grids. 'Plot' reads as conspiracy in a clue full of scheming and turns out to be gardening, which is the whole misdirection.",
-     "definitionFit": "To embody an idea is to give it bodily form, as a statue embodies liberty, and giving something form is one way of representing it."
+     "surface": "Half of a group plot to shield a cricket match from interference.",
+     "walkthrough": "'Plot' suggests a conspiracy, but it is a garden bed; ODI is the usual short form of a one-day international.",
+     "definitionFit": "To embody an idea is to give it concrete form, so something embodied is represented in physical shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
     }
    }
   },
@@ -951,40 +976,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SILENTLY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to steal",
+       "at": 8,
+       "note": "to steal is to take in, so the foolish word holds the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Foolish",
+       "at": 0,
+       "gives": "SILLY",
+       "note": "silly means foolish"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to steal",
-         "note": "A thief takes things in, so the word doing the stealing closes round whatever it has taken."
-        },
-        {
          "text": "pounds",
-         "note": "To pound something is to hammer it out of shape, and letters hammered out of shape come back in a different order."
+         "at": 21,
+         "note": "pounds means batters or beats, so the letters of ten are knocked about"
         }
        ],
        "parts": [
         {
-         "words": "Foolish",
-         "gives": "SILLY",
-         "note": "foolish behaviour is silly, and this word is about to be opened up after its third letter"
-        },
-        {
          "words": "ten",
-         "gives": "ENT",
-         "note": "the three letters of TEN, hammered into a new order"
+         "at": 17,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ten pounds' looks like money and is really two instructions in a row: fodder, then the hammer. The definition is the only part of the clue not about crime.",
-     "definitionFit": "Doing a thing silently is doing it without a sound, and the adverb matches the clue's adverbial phrase exactly."
+     "surface": "It would be foolish to steal ten pounds while making no noise.",
+     "walkthrough": "'Pounds' looks like the money being stolen, but it is the verb: ten is beaten into ENT, which SILLY takes in.",
+     "definitionFit": "Silently means making no noise at all, so it is acting without a sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pounds"
     }
    }
   },
@@ -1215,29 +1249,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Stop",
+      "text": "Stop going both ways?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "going both ways",
-       "note": "A word that goes both ways reads identically from either end, so there is nothing to turn round — you only have to check the symmetry."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Stop",
-       "note": "the definition end of the clue: what a driver does at the kerb"
+       "words": "Stop going both ways?",
+       "at": 0,
+       "note": "a word for stop that reads the same forwards and backwards"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "PULL-UP reads the same in either direction, and that symmetry is the entire wordplay — the question mark is the setter admitting there is nothing else to find.",
-     "definitionFit": "A car pulls up when it comes to a halt at the kerb, so 'Stop' is the verb sense, and the same word is the exercise done on a bar."
+     "walkthrough": "The hyphenated phrase for halting a vehicle is a palindrome: read up or down this entry, it spells the same thing, which is what the question mark flags.",
+     "definitionFit": "To pull up is to stop a vehicle or a horse, as in pulling up at the lights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ways"
     }
    }
   },
@@ -1268,36 +1302,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TENNISBALL",
-     "indicators": [
-      {
-       "text": "criminal",
-       "note": "Criminals are bent and crooked, and crooked letters are letters that refuse to stay in the order they were given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 21,
+         "note": "criminal means bent or crooked, so the letters are twisted"
+        }
+       ],
        "parts": [
         {
          "words": "sent in",
-         "gives": "TENNIS",
-         "note": "the six letters of SENT IN, rearranged"
-        },
-        {
-         "words": "shot",
-         "gives": "BALL",
-         "note": "shot is what a gun fires — lead balls, from cannon shot down to birdshot"
+         "at": 13,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "shot",
+       "at": 37,
+       "gives": "BALL",
+       "note": "a ball is a shot, as in a cannonball"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a police story, and every word of it is doing another job: 'sent in' is fodder rather than a verb, and 'shot' comes from gunnery rather than sport.",
-     "definitionFit": "The one thing in play on a tennis court is the ball, so the definition points at the object by naming where it lives."
+     "surface": "A defendant in court is sent in after a criminal is shot.",
+     "walkthrough": "'Court' suggests a law court, which the criminal fits; it is a tennis court.",
+     "definitionFit": "A tennis ball is the object that is hit back and forth on a tennis court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
     }
    }
   },
