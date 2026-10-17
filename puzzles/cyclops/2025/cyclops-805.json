@@ -60,42 +60,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POSTPONED",
-     "indicators": [
-      {
-       "text": "balls-up",
-       "note": "a balls-up is a mess, so the letters are thrown into disorder"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "President",
+       "at": 0,
+       "gives": "P"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "balls-up",
+         "at": 23,
+         "note": "a balls-up is British slang for a mess or botched job, so these letters are made a mess of"
+        }
+       ],
        "parts": [
         {
-         "words": "President",
-         "gives": "P",
-         "note": "standard abbreviation"
+         "words": "despot",
+         "at": 11
         },
         {
-         "words": "despot — no",
-         "gives": "OSTPONED",
-         "note": "DESPOT plus NO, rearranged"
+         "words": "no",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A despotic president's plans come to nothing through a cock-up.",
-     "walkthrough": "The dash hides that 'no' belongs with 'despot' as fodder rather than negating 'balls-up'.",
-     "definitionFit": "A plain synonym: postponing a meeting and putting it off are the same delay."
+     "surface": "A president and a despot agree there must be no blunder, so they delay.",
+     "walkthrough": "'balls-up' scrambles DESPOT and NO into OSTPONED, after P. A balls-up is a British slang term for a blunder.",
+     "definitionFit": "To postpone something is to defer it to a later time, which is what put off means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "no"
+     "misdirectedWord": "balls-up"
     }
    }
   },
@@ -183,56 +185,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "welcoming",
-       "note": "the outer phrase takes in a guest"
+       "at": 11,
+       "note": "welcoming means taking in a guest, so the phrase for naturally takes a letter inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Naturally",
+       "at": 0,
+       "gives": "OFCOURSE",
+       "note": "of course means naturally, as in 'naturally, I agree'"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "chief",
-         "note": "the head, or first letter, of Fed"
+         "at": 25,
+         "note": "chief means head or first, so only the first letter of Fed is used"
         }
        ],
        "parts": [
         {
-         "words": "Naturally",
-         "gives": "OF",
-         "note": "first half of OF COURSE"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Fed chief",
-           "note": "first letter of FED"
-          }
-         ]
+         "words": "Fed",
+         "at": 21,
+         "note": "the word Fed, whose first letter is taken"
         }
        ]
-      },
-      {
-       "words": "Naturally",
-       "gives": "COURSE",
-       "note": "the rest of OF COURSE, which takes in the F"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark on the Federal Reserve chairman and Trump's discomfort at having to meet him.",
-     "walkthrough": "'Naturally' looks like a throwaway adverb, but it is OF COURSE. Trump is a keen golfer, so being off the course is not where he likes to be.",
-     "definitionFit": "Trump loves the golf course, so being off course is probably not his favoured spot."
+     "surface": "Of course, letting in the Federal Reserve chair is hardly what Trump wants.",
+     "walkthrough": "'chief' takes F from Fed, and 'welcoming' puts it inside OF COURSE after the OF. The definition jokes about Trump's love of golf: a ball off course is where a golfer does not want to be.",
+     "definitionFit": "Being off course means straying from the fairway or route, a golfer's nightmare."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Naturally"
+     "misdirectedWord": "Fed"
     }
    }
   },
@@ -257,66 +253,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FALSE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "strong",
+       "at": 32,
+       "gives": "F",
+       "note": "F is forte, the musical direction for loud or strong"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "ending",
-         "note": "takes the final letter of news"
+         "text": "contained in",
+         "at": 19,
+         "note": "contained in means held within, so the letter goes inside the word for beer"
         }
        ],
        "parts": [
         {
-         "words": "strong",
-         "gives": "F",
-         "note": "f (forte) is the musical mark for loud or strong"
-        },
-        {
          "words": "beer",
-         "gives": "AL",
-         "note": "first part of ALE"
+         "at": 39,
+         "gives": "ALE",
+         "note": "ale is a kind of beer"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "S",
          "indicators": [
           {
-           "text": "contained in"
+           "text": "ending",
+           "at": 10,
+           "note": "ending means the last letter, so only the final letter of news is used"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "news ending",
-           "gives": "S",
-           "select": "last",
-           "note": "last letter of NEWS"
+           "words": "news",
+           "at": 5,
+           "note": "the word news, whose last letter is taken"
           }
          ]
-        },
-        {
-         "words": "beer",
-         "gives": "E",
-         "note": "end of ALE, around the S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fake news story ending with a quote about a pub.",
-     "walkthrough": "'Fake news' reads as one phrase, but the definition is 'Fake' alone and 'news' supplies its last letter.",
-     "definitionFit": "A plain synonym: a fake passport is a false one, not what it claims to be."
+     "surface": "A jibe about fake news, as if its last line were found in a pint of strong beer.",
+     "walkthrough": "'ending' takes S from news and 'contained in' puts it inside ALE, making ALSE, after F for forte.",
+     "definitionFit": "False and fake both mean untrue or not genuine, as in false teeth or fake news."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "news"
+     "misdirectedWord": "strong"
     }
    }
   },
@@ -596,32 +586,37 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ACTION",
      "indicators": [
       {
        "text": "off",
-       "note": "'F-off' reads as an insult, but taking the F off a word literally removes that letter"
+       "at": 30,
+       "note": "off means removed, so the letter F is taken away from the group word"
       }
      ],
      "parts": [
       {
-       "words": "e.g. Momentum F-off",
-       "gives": "ACTION",
-       "note": "FACTION, as Momentum is a Labour faction, less F"
+       "words": "e.g. Momentum",
+       "at": 14,
+       "gives": "FACTION",
+       "note": "Momentum is a left-wing faction within the UK Labour Party"
+      },
+      {
+       "words": "F",
+       "at": 28,
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A legal challenge to the Labour group Momentum, told where to go.",
-     "walkthrough": "Momentum is a left-wing group within the Labour Party, an example of a faction. 'F-off' reads as an insult but instructs you to drop the F.",
-     "definitionFit": "A legal term: bringing a lawsuit is formally bringing an action in court."
+     "surface": "A legal case shows the Momentum group being told to get lost.",
+     "walkthrough": "Momentum is a British left-wing campaign group within the Labour Party, an example of a FACTION; 'off' removes its F. 'F-off' doubles as rude slang for go away.",
+     "definitionFit": "An action is a legal proceeding brought in court, the same thing as a lawsuit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "F-off"
+     "misdirectedWord": "Momentum"
     }
    }
   },
@@ -646,37 +641,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PIECEMEAL",
-     "indicators": [
-      {
-       "text": "transitional",
-       "note": "the letters are in transition to a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "article",
+       "at": 7,
+       "gives": "PIECE",
+       "note": "a piece is an article, as in a newspaper piece"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transitional",
+         "at": 24,
+         "note": "transitional means changing from one state to another, so the letters of male change their order"
+        }
+       ],
        "parts": [
         {
-         "words": "article",
-         "gives": "PIECE",
-         "note": "a piece is an article, as in a newspaper"
-        },
-        {
          "words": "male",
-         "gives": "MEAL",
-         "note": "MALE rearranged"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critique of a scrappy newspaper article about a trans man.",
-     "walkthrough": "The quotation marks around 'transitional' make it look like a quoted word; it is the anagram indicator acting on 'male'.",
-     "definitionFit": "Piecemeal, done bit by bit, is patchy."
+     "surface": "A patchy newspaper article about a man who is transitioning.",
+     "walkthrough": "'transitional', in quotes, signals the letters of MALE changing into MEAL, after PIECE.",
+     "definitionFit": "Piecemeal means done bit by bit, unevenly, so the result is patchy and incomplete."
     },
     "features": {
      "answerInScene": false,
@@ -766,51 +760,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANUBIS",
+     "indicators": [
+      {
+       "text": "hijacked by",
+       "at": 11,
+       "note": "hijacked by means seized and held by, so the letter for book is held inside the jumbled letters"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ANUBIS",
+       "indicators": [
+        {
+         "text": "turmoil",
+         "at": 30,
+         "note": "turmoil is confusion and disorder, so the letters of USA and in are mixed up"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "hijacked by"
-          },
-          {
-           "text": "in turmoil",
-           "note": "the letters are thrown about"
-          }
-         ],
-         "parts": [
-          {
-           "words": "USA in",
-           "gives": "ANU",
-           "note": "first part of USA IN rearranged"
-          },
-          {
-           "words": "book",
-           "gives": "B",
-           "note": "standard abbreviation"
-          },
-          {
-           "words": "USA in",
-           "gives": "IS",
-           "note": "rest of the rearranged letters"
-          }
-         ]
+         "words": "USA",
+         "at": 23
+        },
+        {
+         "words": "in",
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "book",
+       "at": 6,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "The Bible being taken over by a chaotic America.",
-     "walkthrough": "'in' looks like a link inside the phrase, but it is anagram fodder alongside USA.",
-     "definitionFit": "Anubis is the jackal-headed Egyptian god of the dead."
+     "surface": "A sacred book is commandeered by an America in chaos.",
+     "walkthrough": "'in turmoil' scrambles USA and IN into ANUIS, and 'hijacked by' puts B inside it, after ANU.",
+     "definitionFit": "Anubis is the jackal-headed ancient Egyptian deity of the dead and embalming."
     },
     "features": {
      "answerInScene": false,
@@ -944,40 +932,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BUM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 19,
+       "note": "after means coming later, so the reversed Greek letter is placed following the bishop's letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "bishop",
+       "at": 25,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "Stuck up",
-         "note": "in a down clue, raised up means written bottom to top"
-        },
-        {
-         "text": "after"
+         "at": 0,
+         "note": "stuck up means raised, and in a down clue the letters read upwards, i.e. backwards"
         }
        ],
        "parts": [
         {
-         "words": "bishop",
-         "gives": "B",
-         "note": "chess abbreviation"
-        },
-        {
          "words": "character",
-         "gives": "UM",
-         "note": "MU, a Greek letter"
+         "at": 9,
+         "gives": "MU",
+         "note": "mu is a character, a letter of the Greek alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snooty type angling for a bishop's seat in the Lords.",
-     "walkthrough": "'Stuck up character' reads as a snob, but the character is a Greek letter and it is stuck upside down.",
-     "definitionFit": "Your bum is what you sit on, your seat."
+     "surface": "A snooty type takes the bishop's throne.",
+     "walkthrough": "'Stuck up' looks like snobbery but reverses MU into UM, which goes 'after' B. Bum is British slang for the buttocks.",
+     "definitionFit": "Seat is a polite word for the buttocks, which bum names informally."
     },
     "features": {
      "answerInScene": false,
@@ -1008,37 +1001,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TUGENDHAT",
-     "indicators": [
-      {
-       "text": "flustered",
-       "note": "the letters are thrown into confusion"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Yank",
+       "at": 0,
+       "gives": "TUG",
+       "note": "to yank is to tug, pull sharply"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flustered",
+         "at": 13,
+         "note": "flustered means agitated and confused, so the letters of and plus the are mixed up"
+        }
+       ],
        "parts": [
         {
-         "words": "Yank",
-         "gives": "TUG",
-         "note": "to yank is to tug"
+         "words": "and",
+         "at": 5
         },
         {
-         "words": "and the",
-         "gives": "ENDHAT",
-         "note": "AND THE rearranged"
+         "words": "the",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American and a rattled Conservative hopeful.",
-     "walkthrough": "'Yank' looks like an American; it is the verb. Tom Tugendhat stood for the Conservative leadership in 2022 and 2024.",
-     "definitionFit": "Tom Tugendhat, a Conservative MP, ran for the party leadership."
+     "surface": "An American and a nervous Conservative hopeful.",
+     "walkthrough": "'Yank' looks like an American but is the verb, giving TUG; 'flustered' scrambles AND THE into ENDHAT. Tom Tugendhat stood for the British Conservative leadership in 2022 and 2024.",
+     "definitionFit": "Tom Tugendhat is a British Conservative MP who ran for leader of the Tory party."
     },
     "features": {
      "answerInScene": true,
@@ -1614,53 +1610,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MONARCHY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dumped in",
+       "at": 31,
+       "note": "dumped in means dropped inside, so the scrambled letters go within the exclamation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "MONARCHY",
+       "words": "well",
+       "at": 41,
+       "gives": "MY",
+       "note": "my! is an exclamation of surprise, like 'well!'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "casually",
+         "at": 22,
+         "note": "casually means carelessly, so the letters of anchor are jumbled"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "casually",
-           "note": "the letters are arranged at random"
-          },
-          {
-           "text": "dumped in",
-           "note": "put inside the other word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "well",
-           "gives": "M",
-           "note": "first letter of MY, an exclamation like 'well!'"
-          },
-          {
-           "words": "anchor",
-           "gives": "ONARCH",
-           "note": "ANCHOR rearranged"
-          },
-          {
-           "words": "well",
-           "gives": "Y",
-           "note": "end of MY, around the rearranged letters"
-          }
-         ]
+         "words": "anchor",
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Britain's steadying anchor has been carelessly thrown down a well.",
-     "walkthrough": "'Well' reads as a water shaft, but it is the exclamation 'My!'. The UK is a monarchy.",
-     "definitionFit": "Britain, 'our nation' to a British setter, is a monarchy."
+     "surface": "The nation's anchor has been carelessly thrown into a well.",
+     "walkthrough": "'casually' scrambles ANCHOR into ONARCH, and 'dumped in' drops it inside MY. The 's of 'nation's' is read as 'is', a link.",
+     "definitionFit": "The United Kingdom is a constitutional monarchy, a state headed by a king or queen."
     },
     "features": {
      "answerInScene": true,
