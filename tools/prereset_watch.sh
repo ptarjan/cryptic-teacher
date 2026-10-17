@@ -29,6 +29,7 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 LEASE="${WATCH_LEASE:-$(dirname "$(git -C "$HERE" rev-parse --path-format=absolute --git-common-dir)")/.prereset_backfill.tree.lock}"
 LOCK="${WATCH_LOCK:-${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/prereset_backfill/.prereset.lock}"
 STUCK_MIN="${WATCH_STUCK_MIN:-15}"
+REINDEX_MIN="${WATCH_REINDEX_MIN:-45}"
 RC_DIR="${WATCH_RC_DIR:-/tmp}"
 LOG_DIR="${WATCH_LOG_DIR:-${TMPDIR:-/tmp}}"
 KILL_WAIT="${WATCH_KILL_WAIT:-10}"
@@ -56,11 +57,20 @@ live_burn() {
 
 # Alive: is it stuck?
 check_stuck() {
-  local pid="$1" n oldest
+  local pid="$1" n oldest secs
   # The burn's own log (its tee, /tmp/cryptic-prereset.*), not .prereset.log:
   # the fires append to that one themselves.
   find "$LOG_DIR" -maxdepth 1 -name 'cryptic-prereset.*' -mmin "-$STUCK_MIN" 2>/dev/null | grep . >/dev/null && return 0
   find "$RC_DIR" -maxdepth 1 -name 'ct-prereset-*.rc' -mmin "+$STUCK_MIN" 2>/dev/null | grep . >/dev/null || return 0
+  # A quiet log inside the burn's own reindex (its start, or its republish) is
+  # slow, not a stuck reap loop: say so, and alert only past REINDEX_MIN.
+  secs=$(ps -o etimes=,args= --ppid "$pid" 2>/dev/null | awk '/fetch_puzzle\.py --reindex/ { print $1; exit }')
+  if [ -n "$secs" ]; then
+    echo "watchdog: the burn (pid $pid) is in its reindex (fetch_puzzle.py --reindex, running $((secs / 60)) min), not a stuck reap loop; finished runs wait until it ends"
+    [ "$((secs / 60))" -ge "$REINDEX_MIN" ] || return 0
+    alert "the pre-reset burn (pid $pid) has spent over ${REINDEX_MIN} minutes in fetch_puzzle.py --reindex, which annotates nothing and reaps nothing while it runs. Left running; a loaded host (nice 19) makes it slow."
+    return 0
+  fi
   n=$(find "$RC_DIR" -maxdepth 1 -name 'ct-prereset-*.rc' -mmin "+$STUCK_MIN" 2>/dev/null | grep -c .)
   oldest=$(ls -tr "$RC_DIR"/ct-prereset-*.rc 2>/dev/null | head -1)
   echo "watchdog: the burn (pid $pid) is alive but stuck: no log line for ${STUCK_MIN}+ min, $n finished run(s) unreaped, oldest $(basename "$oldest" .rc | sed 's/^ct-prereset-//') from $(date -r "$oldest" '+%H:%M')"

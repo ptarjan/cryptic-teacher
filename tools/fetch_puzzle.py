@@ -15,6 +15,7 @@ Usage:
                                                  # puzzles OLDER than the oldest we hold.
                                                  # Where more annotation work comes from.
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
+  python3 tools/fetch_puzzle.py --reindex-changed  # same, re-reading only files newer than the index
                                                  # from the puzzle files already on disk
   python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
                                                  # solutions (Saturday prize puzzles
@@ -3195,6 +3196,12 @@ def reindex():
              "clueTypes": clue_types.DATA, "tags": puzzle_tags.TAGS,
              "snitchRanges": snitch, "puzzles": puzzles, "reprints": reprints,
              "unlisted": unlisted}
+    write_index(index)
+    return index
+
+
+def write_index(index):
+    """index.json and index.js from the index dict."""
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)
     (puzzle_paths.PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")
     (puzzle_paths.PUZZLE_DIR / "index.js").write_text(
@@ -3206,6 +3213,59 @@ def reindex():
     # every tree that reindexed, the main checkout included, and a dirty main
     # checkout is one the job starts cannot fast-forward.
     return index
+
+
+def reindex_changed():
+    """reindex() for a start that only needs the index current: with no
+    index.json, the full reindex; with one, only the puzzle files modified
+    since it was written are re-read and their rows swapped in. Every other
+    row, and the corpus-wide parts (difficulty, big-grid, reprints), are kept
+    as written, so a new puzzle has no difficulty or big-grid tag until the
+    next full reindex. Returns the number of rows rebuilt, or None when it
+    fell back to the full pass."""
+    path = puzzle_paths.PUZZLE_DIR / "index.json"
+    try:
+        stamp = path.stat().st_mtime_ns
+        index = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, ValueError):
+        reindex()
+        return None
+    changed = [f for f in puzzle_files() if f.stat().st_mtime_ns > stamp]
+    if not changed:
+        return 0
+    import row_cache
+    rows = row_cache.cached_map("fetch_puzzle", index_row, changed,
+                                roots={"index_row_deps"}, deps=index_row_deps)
+    old = {r["id"]: r for key in ("puzzles", "unlisted") for r in index[key]}
+    fresh = {}
+    for row in rows:
+        row.pop("area", None)
+        row.pop("reprintedIn", None)   # reprint_rows() turns it into `reprints`, kept as written
+        before = old.get(row["id"])
+        if before:
+            row["difficulty"] = before.get("difficulty")
+            if "big-grid" in before.get("tags", []):
+                row["tags"] = [k for k in puzzle_tags.TAGS if k in row.get("tags", []) or k == "big-grid"]
+        else:
+            row["difficulty"] = None
+        fresh[row["id"]] = row
+    listed = [fresh.get(r["id"], r) for r in index["puzzles"]]
+    unlisted = [dict(fresh.get(r["id"], r), unlisted=True) if r["id"] in fresh else r
+                for r in index["unlisted"]]
+    for row in fresh.values():
+        if row["id"] not in old:
+            (unlisted if series_meta.unlisted(row["series"]) else listed).append(
+                dict(row, unlisted=True) if series_meta.unlisted(row["series"]) else row)
+    listed.sort(key=lambda p: (series_meta.puzzle_day(p) or date.min,
+                               p["series"] == "cryptic", p["number"]),
+                reverse=True)
+    index["puzzles"], index["unlisted"] = listed, unlisted
+    index["latest"] = listed[0]["id"] if listed else None
+    index["papers"] = {s: series_meta.publisher(s)
+                       for s in sorted({p["series"] for p in listed + index["reprints"]})}
+    index["groups"] = {s: series_meta.group(s) for s in index["papers"]}
+    write_index(index)
+    return len(fresh)
 
 
 # The instructions two 2008 prizes printed only on the PDF their page's note
@@ -3596,6 +3656,10 @@ def main(argv):
     if argv[0] == "--reindex":
         index = reindex()
         print(f"indexed {len(index['puzzles'])} puzzle(s); latest = {index['latest']}")
+        return 0
+    if argv[0] == "--reindex-changed":
+        rebuilt = reindex_changed()
+        print("no index: full reindex" if rebuilt is None else f"re-read {rebuilt} changed puzzle file(s)")
         return 0
     if argv[0] == "--warm-rows":
         i, n = map(int, argv[1].split("/"))

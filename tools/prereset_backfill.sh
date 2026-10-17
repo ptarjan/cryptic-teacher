@@ -1296,7 +1296,9 @@ fi
 # The start's alone: a re-exec has runs in flight reading the index, and its
 # queue already.
 if [ -z "$REEXEC_STATE" ]; then
-python3 tools/fetch_puzzle.py --reindex >/dev/null
+# Incremental: only the files changed since the index was written (a full
+# reindex when it is missing). The final reindex below is the full one.
+python3 tools/fetch_puzzle.py --reindex-changed >/dev/null
 
 # Top the queue up from the archives before reading it. A window spent with
 # nothing left to annotate wastes exactly as much as a window that stops early,

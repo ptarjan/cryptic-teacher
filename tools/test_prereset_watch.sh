@@ -56,6 +56,24 @@ rm -f "$tree/rc/ct-prereset-puz-2.rc"
 out=$(watch)
 check "a quiet log with no finished run (long runs in flight) is not stuck" "" "$out"
 
+# A burn whose child is the startup reindex: a quiet log and a finished run are
+# the reindex being slow, so it is said once in the log and alerted only past
+# WATCH_REINDEX_MIN.
+printf '%s\n' 'bash -c '"'"'exec -a "python3 tools/fetch_puzzle.py --reindex" sleep 300'"'"' &' 'wait' >"$tree/burn2.sh"
+bash -c 'exec -a prereset_backfill.sh bash "$0"' "$tree/burn2.sh" &
+burn2=$!; pids="$pids $burn2"
+echo "$burn2" >"$tree/lock/pid"
+sleep 0.5
+: >"$tree/rc/ct-prereset-puz-3.rc"; old "$tree/rc/ct-prereset-puz-3.rc"
+out=$(watch)
+check "a quiet log inside the startup reindex is named as the reindex, not stuck" "1 0 0" \
+  "$(printf '%s\n' "$out" | grep -c 'in its reindex.*not a stuck reap loop') $(printf '%s\n' "$out" | grep -c 'alive but stuck') $(printf '%s\n' "$out" | grep -c '^ALERT')"
+out=$(WATCH_REINDEX_MIN=0 watch)
+check "a reindex past the limit alerts, naming the reindex" "1 0" \
+  "$(printf '%s\n' "$out" | grep -c '^ALERT: .*in fetch_puzzle.py --reindex') $(printf '%s\n' "$out" | grep -c 'alive but stuck')"
+kill "$burn2"; rm -f "$tree/rc/ct-prereset-puz-3.rc"
+echo "$burn" >"$tree/lock/pid"
+
 # The burn dies; an orphan of it (its run, parent gone) keeps the lease.
 kill "$burn"; wait "$burn" 2>/dev/null
 cat >"$tree/orphan.sh" <<'EOF'
