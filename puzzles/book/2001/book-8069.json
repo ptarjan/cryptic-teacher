@@ -905,53 +905,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENSILES",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
-       "note": "could be suggests one word might become another when its letters are moved"
+       "at": 21,
+       "note": "could be says the letters of sensible might become another word once reordered"
+      },
+      {
+       "text": "not involving",
+       "at": 40,
+       "note": "not involving tells us one letter of sensible is left out of the rearrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENSILES",
+       "words": "sensible",
+       "at": 30
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "not involving opening of barn",
-         "note": "not involving means leaving out, and opening means the first letter of that word"
+         "text": "opening of",
+         "at": 54,
+         "note": "the opening of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "sensible",
-         "note": "the starting word"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "barn",
-           "note": "the letter taken out"
-          }
-         ]
+         "words": "barn",
+         "at": 65,
+         "note": "its first letter, B, is the one excluded"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer storing fodder sensibly, without using the barn.",
-     "walkthrough": "Remove B from SENSIBLE and rearrange what is left.",
-     "definitionFit": "To ensile is to preserve green crops as silage in a silo, which is putting animal feed into storage."
+     "surface": "A farmer's remark that stocking up on feed is wise, though the barn itself plays no part.",
+     "walkthrough": "'not involving opening of barn' removes B from SENSIBLE, leaving SENSILE; 'could be' rearranges those letters into ENSILES.",
+     "definitionFit": "To ensile is to store green crops in a silo as silage, which is how farmers keep winter fodder."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "opening"
+     "misdirectedWord": "sensible"
     }
    }
   },
