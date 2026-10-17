@@ -40,6 +40,9 @@ commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
 parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
 
+# A commit made from a stale tree is refused (exit 4), not replayed: see tools/clobber_guard.py.
+python3 "$(dirname "$0")/clobber_guard.py" "$commit" || exit $?
+
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
   if ! out=$(git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
