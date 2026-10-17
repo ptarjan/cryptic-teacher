@@ -1064,52 +1064,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAYLIST",
+     "op": "container",
      "indicators": [
       {
-       "text": "Short version of",
-       "note": "a short version is clipped, so the song title loses its last letter"
+       "text": "included in",
+       "at": 26,
+       "note": "included in means placed inside the letters that follow"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "is included in",
-         "note": "included in places the pieces inside the metal's symbol"
-        }
-       ],
+       "words": "platinum",
+       "at": 38,
+       "gives": "PT",
+       "note": "PT is the chemical symbol for platinum"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "platinum",
-         "gives": "PT",
-         "note": "Pt is the chemical symbol for platinum"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Short version of",
+           "at": 0,
+           "note": "a short version is cut down, so the name loses its final letter"
+          }
+         ],
          "parts": [
           {
            "words": "Layla",
-           "gives": "LAYL",
-           "note": "the song title with its last letter cut"
+           "at": 17
           },
           {
-           "words": "is",
-           "note": "taken as written"
+           "gives": "A"
           }
          ]
+        },
+        {
+         "words": "is",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A radio edit of Eric Clapton's Layla appears on a platinum-selling compilation.",
-     "walkthrough": "The surface invites thinking of platinum discs, but platinum is just the chemical symbol here.",
-     "definitionFit": "A playlist is a chosen list of songs or tracks to be played, so a selection of recordings."
+     "surface": "A shortened cut of the Clapton song Layla makes it onto a platinum-selling album's track list.",
+     "walkthrough": "'Platinum' is not about sales here but the chemical symbol; 'included in' sets the clipped Layla plus 'is' inside it.",
+     "definitionFit": "A playlist is a chosen list of recordings to be played, a selection of tracks."
     },
     "features": {
      "answerInScene": true,
@@ -1428,34 +1431,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WEDLOCK",
+     "spelt": "WEDLOCK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the starts of the pair are exchanged"
+       "at": 14,
+       "note": "Spooner's tells us to swap the opening sounds of the two words, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Metal pan",
-       "gives": "WEDLOCK",
-       "soundsLike": "LEAD WOK",
-       "note": "lead is a metal and a wok a Chinese pan; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "LED",
+       "parts": [
+        {
+         "words": "Metal",
+         "at": 0,
+         "gives": "LEAD",
+         "note": "lead is a metal, pronounced 'led'"
+        }
+       ]
+      },
+      {
+       "words": "pan",
+       "at": 6,
+       "gives": "WOK",
+       "note": "a wok is a Chinese cooking pan"
       }
      ]
     },
     "explanation": {
-     "surface": "A metal cooking pan offered as a wedding gift.",
-     "walkthrough": "Swapping the opening sounds of LEAD WOK gives WED LOCK.",
+     "surface": "A kitchen-shop request: a metal pan, supposedly in exchange for Spooner's marriage.",
+     "walkthrough": "Spooner's says to swap first sounds: LEAD, said LED, with WOK gives 'wed lock'.",
      "definitionFit": "Wedlock is the state of being married, an old-fashioned word for matrimony."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Metal"
+     "joke": "pun",
+     "misdirectedWord": "pan"
     }
    }
   },
