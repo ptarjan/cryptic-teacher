@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -192,44 +193,48 @@
      "indicators": [
       {
        "text": "Ground",
-       "note": "Ground is what a mill does to grain, and anything reduced to loose grains can be poured out in any order at all."
+       "at": 0,
+       "note": "ground as the past participle of grind: crushed, so the letters are broken up and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "back",
-         "note": "The back of a word is its final letter, so only the last character of the word in front of this is taken."
+         "at": 15,
+         "note": "the back of a word is its last letter, so elder gives up only its final one"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "elder's back",
-           "gives": "R",
-           "select": "last",
-           "note": "the closing letter of ELDER joins the letters waiting to be jumbled"
-          }
-         ]
-        },
-        {
-         "words": "what, more",
-         "note": "eight letters of fodder, which with the one above makes the nine wanted"
+         "words": "elder's",
+         "at": 7,
+         "gives": "ELDER",
+         "note": "the word elder, with 's as the possessive"
         }
        ]
+      },
+      {
+       "words": "what",
+       "at": 22
+      },
+      {
+       "words": "more",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Ground elder is a real garden weed, and that is the picture the setter is selling. The two words are doing entirely separate jobs here.",
-     "definitionFit": "soil improver -> EARTHWORM: worms aerate and fertilise every bed they burrow through, so gardeners count them as living soil improvers."
+     "surface": "A gardener grinds up ground elder, a stubborn weed, and wonders what else will enrich the soil.",
+     "walkthrough": "'Ground elder' reads as the weed, but 'Ground' is the anagram signal. R, the back of 'elder', joins WHAT and MORE to be rearranged.",
+     "definitionFit": "Earthworms aerate and fertilise the ground by burrowing and casting, so gardeners prize them for enriching soil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ground"
     }
    }
   },
@@ -717,33 +722,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "What is taken primarily is taken first, so only the opening letter of the word before this counts."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "A thing put in another sits within it, so the letter just named goes inside the gallery's name rather than beside it."
+         "at": 21,
+         "note": "'in' puts that letter inside the gallery's name"
         }
        ],
        "parts": [
         {
          "words": "gallery",
+         "at": 24,
          "gives": "TATE",
-         "note": "the Tate is Britain's national collection of modern and British art, four letters that open after two"
+         "note": "the Tate is the London art gallery"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 11,
+           "note": "primarily means first of all, so only the first letter of stuff is used"
+          }
+         ],
          "parts": [
           {
-           "words": "stuff primarily",
-           "note": "stuff gives up its opening letter and nothing else"
+           "words": "stuff",
+           "at": 5,
+           "note": "its first letter is S"
           }
          ]
         }
@@ -751,14 +760,21 @@
       },
       {
        "words": "Not so",
+       "at": 33,
        "gives": "LESS",
-       "note": "less is what you have when there is not so much of something"
+       "note": "less means not so much, to a smaller degree"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark is doing real work: 'Not so' has to be read as a comparison, meaning not so much, rather than as a flat contradiction.",
-     "definitionFit": "Naff -> TASTELESS: naff is British slang for shoddy and vulgar, which is exactly the want of taste the answer names."
+     "surface": "Someone sneers at the junk on show in a gallery, then reconsiders.",
+     "walkthrough": "The Tate is the London art gallery; S, the first of 'stuff', goes inside it.",
+     "definitionFit": "Naff is British slang for cheap, unfashionable and lacking in style, which is what tasteless means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Not"
     }
    }
   },
@@ -1135,40 +1151,46 @@
     "definitions": [
      {
       "text": "12's",
-      "at": 0
+      "at": 0,
+      "note": "12-down is TASTELESS; the 's is 'is'"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VAPID",
      "indicators": [
       {
        "text": "making the top",
-       "note": "The top of a down entry is its first square, so the letter named next moves into that opening place and evicts what was there."
+       "at": 11,
+       "note": "making the top means becoming the first letter, so the five takes the place of the word's opening letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "five",
-         "gives": "V",
-         "note": "V is five in Roman numerals, a single letter that fills one square"
-        },
-        {
-         "words": "fast",
-         "gives": "APID",
-         "note": "rapid means fast, and it surrenders its first letter to the newcomer"
-        }
-       ]
+       "words": "fast",
+       "at": 5,
+       "gives": "RAPID",
+       "note": "rapid means fast"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "words": "five",
+       "at": 26,
+       "gives": "V",
+       "note": "V is five in Roman numerals"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A number on its own points at another clue for the definition, so solve 12 down first; the wordplay here is one letter swapped at the head.",
-     "definitionFit": "12's -> VAPID: 12 down means lacking flavour or savour, and vapid is that same emptiness said of talk, films or wine."
+     "surface": "Something is fast enough to finish in the top five.",
+     "walkthrough": "'12' sends you to 12-down, TASTELESS, as the definition; V replaces the R at the top of RAPID.",
+     "definitionFit": "Vapid means flat and insipid, lacking any flavour or spirit, so it is a synonym of tasteless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
     }
    }
   },
