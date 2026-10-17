@@ -411,48 +411,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "rocking",
-       "note": "a rocking chair moves, so CHAIR is rearranged"
+       "text": "under",
+       "at": 15,
+       "note": "in a down clue the letter for caught sits under, after, the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 21
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "under"
+         "text": "rocking",
+         "at": 23,
+         "note": "a rocking thing sways back and forth, so the letters of chair are shaken up"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "used as it stands"
-        },
-        {
          "words": "chair",
-         "note": "CHAIR rearranged"
-        },
-        {
-         "words": "caught",
-         "gives": "C",
-         "note": "c = caught in cricket scores"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "caught",
+       "at": 8,
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
       }
      ]
     },
     "explanation": {
-     "surface": "An old hat snagged beneath a rocking chair.",
-     "walkthrough": "'Old hat' looks like a thing under the chair; it is an idiom for out of date. 'Rocking chair' is a real object but here rocking tells you to jumble CHAIR.",
-     "definitionFit": "Something old hat is old-fashioned, and archaic means belonging to an older time."
+     "surface": "An old hat is caught under a rocking chair, perhaps by a grandparent rocking away.",
+     "walkthrough": "'Old hat' looks like a piece of headgear but is the idiom for outdated. After A, 'rocking' shakes CHAIR into RCHAI, and 'under' puts C below it in this down entry.",
+     "definitionFit": "Old hat is the idiom for out of date or old-fashioned, which is what archaic means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "rocking"
+     "joke": "pun",
+     "misdirectedWord": "hat"
     }
    }
   },
@@ -611,46 +616,46 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "finally",
-       "note": "take the last letter of 'vessel'"
+       "text": "leaves",
+       "at": 28,
+       "note": "a letter that leaves goes away, so it is dropped from the word"
       }
      ],
      "parts": [
       {
        "words": "Fully loaded",
+       "at": 0,
        "gives": "LADEN",
-       "note": "laden means loaded"
+       "note": "laden means heavily loaded with cargo"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
-         "text": "leaves"
+         "text": "finally",
+         "at": 20,
+         "note": "points to the final letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "vessel finally",
-         "gives": "L",
-         "select": "last",
-         "note": "last letter of vessel, removed"
+         "words": "vessel",
+         "at": 13,
+         "note": "vessel ends in L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fully loaded ship finally sets sail from port.",
-     "walkthrough": "'Finally' seems to describe the ship at last departing; it picks the last letter of 'vessel'. ADEN is a port in Yemen.",
-     "definitionFit": "Aden is a major seaport in Yemen."
+     "surface": "A cargo ship, fully laden, finally sets sail out of harbour.",
+     "walkthrough": "'vessel finally' gives L, and 'leaves' takes it from the start of LADEN. Aden is the seaport of Yemen.",
+     "definitionFit": "Aden is a major harbour city on the Gulf of Aden in Yemen, a well-known seaport."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "finally"
+     "misdirectedWord": "vessel"
     }
    }
   },
@@ -950,46 +955,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNFETTERS",
-     "indicators": [
-      {
-       "text": "cryptic",
-       "note": "FUN written in a puzzling way, so rearranged"
-      },
-      {
-       "text": "funny",
-       "note": "SETTER made odd, so rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "at": 4,
+         "note": "cryptic in the sense of puzzling or obscured, so the letters of fun are disguised by mixing"
+        }
+       ],
        "parts": [
         {
-         "words": "Fun cryptic",
-         "gives": "UNF",
-         "note": "FUN rearranged"
-        },
+         "words": "Fun",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "funny setter",
-         "gives": "ETTERS",
-         "note": "SETTER rearranged"
+         "text": "funny",
+         "at": 12,
+         "note": "funny in the sense of odd or peculiar, so the letters of setter are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "setter",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A witty crossword setter lets loose a fun cryptic.",
-     "walkthrough": "The surface is about a crossword setter publishing a fun cryptic. Each word is jumbled separately, then the two are joined.",
-     "definitionFit": "To unfetter is to free from chains, to release."
+     "surface": "A crossword setter announces the release of an amusing cryptic puzzle.",
+     "walkthrough": "Each word gets its own anagram: 'cryptic' jumbles FUN to UNF and 'funny' jumbles SETTER to ETTERS.",
+     "definitionFit": "To unfetter someone is to free them from chains or restraints, which is to release them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cryptic"
+     "misdirectedWord": "setter"
     }
    }
   },
@@ -1014,34 +1024,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "dressed",
-       "note": "IN SILK is dressed, arranged, into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "man",
+       "at": 5,
+       "gives": "HE",
+       "note": "he is the pronoun for a man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dressed",
+         "at": 9,
+         "note": "dressed in the sense of prepared or arranged, so the letters of in silk are put in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "man",
-         "gives": "HE",
-         "note": "a man is he"
-        },
-        {
          "words": "in silk",
-         "note": "IN SILK rearranged"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A city gent wearing silk.",
-     "walkthrough": "'City man dressed in silk' reads as a banker in fine clothes; 'dressed' means arranged, as a shop window is dressed.",
-     "definitionFit": "A definition by example: the Finnish capital is one instance of a city."
+     "surface": "A man in town is wearing silk clothes.",
+     "walkthrough": "'dressed in silk' looks like describing the man's clothes, but 'dressed' shuffles IN SILK into LSINKI after HE.",
+     "definitionFit": "Helsinki is the capital city of Finland, on the Baltic coast."
     },
     "features": {
      "answerInScene": false,
@@ -1219,45 +1231,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PLAYWRIGHT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting into",
+       "at": 18,
+       "note": "the jumbled letters get inside the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "difficulty",
+       "at": 31,
+       "gives": "PLIGHT",
+       "note": "a plight is a difficult or dangerous situation"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "about",
-         "note": "WARY is turned about, rearranged"
-        },
-        {
-         "text": "getting into"
+         "at": 12,
+         "note": "about in the sense of round about, so the letters of wary are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "difficulty",
-         "gives": "PLIGHT",
-         "note": "a plight is a difficulty, split around the rest"
-        },
-        {
          "words": "wary",
-         "gives": "AYWR",
-         "note": "WARY rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer cautious about getting into trouble.",
-     "walkthrough": "The surface is a nervous author; 'about' is not 'concerning' but a sign to rearrange WARY.",
-     "definitionFit": "A definition by example: a dramatist is one kind of author, the kind who writes for the stage."
+     "surface": "A writer is cautious about landing in trouble.",
+     "walkthrough": "'about' mixes WARY into AYWR, and 'getting into' puts that inside PLIGHT after PL. The answer is a dramatist, a kind of author.",
+     "definitionFit": "A playwright writes plays for the stage, so is the author of a dramatic work."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "wary"
     }
    }
   },
@@ -1615,58 +1630,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STANCE",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 22,
+       "note": "the outer letters hold the inner word, enclosing it"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "regularly",
-         "note": "take every other letter of 'screw': C and E"
-        }
-       ],
        "parts": [
         {
          "words": "Small",
+         "at": 0,
          "gives": "S",
-         "note": "s = small"
-        },
-        {
-         "words": "leather",
-         "gives": "TAN",
-         "note": "to tan hide is to make leather"
+         "note": "S is the clothing abbreviation for small"
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "CE",
          "indicators": [
           {
-           "text": "holds"
+           "text": "regularly",
+           "at": 12,
+           "note": "taking letters at regular intervals means every other one"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "screw regularly",
-           "gives": "CE",
-           "select": "alternate",
-           "note": "sCrEw, alternate letters"
+           "words": "screw",
+           "at": 6,
+           "note": "the second and fourth letters of screw are C and E"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "leather",
+       "at": 28,
+       "gives": "TAN",
+       "note": "tan is leather, from tanning hides"
       }
      ]
     },
     "explanation": {
-     "surface": "A little screw keeps a piece of leather in place.",
-     "walkthrough": "'In position' looks like the end of the screw's job; 'in' is a link and 'position' is the definition.",
-     "definitionFit": "A plain synonym covering both the way you stand and the view you take on an issue."
+     "surface": "A tiny screw is used to keep a piece of leather in place.",
+     "walkthrough": "'regularly' takes CE, the even letters of SCREW; with S in front, the pair 'holds' TAN between them.",
+     "definitionFit": "A stance is a way of standing, so a physical position or attitude."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "screw"
     }
