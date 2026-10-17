@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -96,52 +97,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORNATE",
-     "indicators": [
-      {
-       "text": "set",
-       "note": "Something set has been laid out the way somebody wanted it, and letters laid out afresh do not keep the order they arrived in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "gold",
+       "at": 6,
+       "gives": "OR",
+       "note": "OR is the heraldic word for gold"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finish on",
+         "at": 18,
+         "note": "the finish on a word is its final letter, so only the end of design is used"
+        }
+       ],
        "parts": [
         {
-         "words": "gold",
-         "gives": "OR",
-         "note": "or is gold in heraldry, the tincture of the metal"
-        },
+         "words": "design",
+         "at": 11,
+         "note": "its last letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finish",
-           "note": "The finish of a word is the letter it stops at, so only that final letter of the word before it is taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "design",
-           "note": "the letter this word finishes on"
-          }
-         ]
-        },
+         "text": "set",
+         "at": 32,
+         "note": "set as in set like jelly, reshaped, so the letters of tea are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "tea",
-         "gives": "ATE",
-         "note": "the three letters of the drink, laid out in a new order"
+         "at": 28,
+         "note": "the three letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gilded pattern painted round the rim of a tea service.",
-     "walkthrough": "'Fancy' is the adjective, not the verb, which is what lets it open the clue without looking like a definition. A tea set is a real object in the surface and three loose letters in the wordplay.",
-     "definitionFit": "Ornate means heavily decorated — carved, gilded, curlicued — which is the showy sense of 'fancy' applied to an object."
+     "surface": "A description of an elaborate tea service decorated with a golden pattern.",
+     "walkthrough": "'finish on' takes the last letter of design, N; 'set' rearranges TEA into ATE; join OR + N + ATE.",
+     "definitionFit": "Fancy as an adjective means elaborately decorated, which is what ornate describes."
     },
     "features": {
      "answerInScene": true,
@@ -430,46 +433,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DEBT",
+     "indicators": [
+      {
+       "text": "suspect",
+       "at": 20,
+       "note": "suspect here is an adjective meaning dodgy or unreliable, telling us the letters left are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DEBT",
        "indicators": [
         {
-         "text": "suspect",
-         "note": "What is suspect cannot be trusted to be what it appears, so these letters are not to be trusted in the order they are handed over."
-        },
-        {
          "text": "leaves",
-         "note": "To leave is to walk out, so the letters named after it go, and only what stays behind is used."
+         "at": 28,
+         "note": "leaves means goes away from, so these letters are removed from the word"
         }
        ],
        "parts": [
         {
          "words": "busted",
-         "note": "six letters to start from"
+         "at": 13,
+         "note": "the word taken as written, before letters are removed"
         },
         {
          "words": "America",
-         "gives": "US",
-         "note": "US is the States, and it is the pair that walks out, leaving four letters"
+         "at": 35,
+         "gives": "US"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caught suspect skipping the country while still owing money.",
-     "walkthrough": "The suspect does not leave America; America leaves 'busted'. Four letters survive the departure, and they will not stay in the order they were left in.",
-     "definitionFit": "A debt is money owed to somebody else and not yet paid back."
+     "surface": "A debtor gets arrested and a suspect flees the United States.",
+     "walkthrough": "'busted' looks like part of the story but is the fodder: take US out of BUSTED (America 'leaves') to get BTED, then 'suspect' rearranges BTED.",
+     "definitionFit": "A debt is a sum of money that one person owes to another."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "busted"
     }
    }
   },
