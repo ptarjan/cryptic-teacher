@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -448,31 +449,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SALSA",
-     "indicators": [
-      {
-       "text": "half twisted",
-       "note": "'half' limits what 'twisted' may touch: only the back two letters of the word are turned round, and the front stays where it is"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Son",
+       "at": 0,
        "gives": "S",
-       "note": "s = son, the family-tree abbreviation"
+       "note": "S is the standard abbreviation for son, as in family trees"
       },
       {
-       "words": "sadly",
-       "gives": "ALAS",
-       "note": "sadly = alas; its first two letters stay put and its last two are the ones that turn"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "half twisted",
+         "at": 18,
+         "note": "only half of the sad word is turned round, so its second half is read backwards while the first stays put"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sadly",
+         "at": 4,
+         "gives": "ALAS",
+         "note": "alas is an exclamation meaning sadly or unfortunately"
+        },
+        {
+         "gives": "AS",
+         "note": "the second half of the sad word, before turning"
+        },
+        {
+         "gives": "SA",
+         "note": "the same two letters turned round"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Asking for half an operation is unusual and easy to miss: on its own 'twisted' would turn the whole word round, and here it reaches only as far as 'half' allows.",
-     "definitionFit": "Salsa is the Cuban-rooted partner dance, and the music written for it, so the definition names the category the answer belongs to."
+     "surface": "A boy is unhappy at getting tangled up partway through a dance.",
+     "walkthrough": "'half twisted' is unusual: only the back half of the sad word turns round, while its front half stays where it is.",
+     "definitionFit": "Salsa is a lively Latin American dance, as well as the music it is danced to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
     }
    }
   },
@@ -949,45 +970,52 @@
     "definitions": [
      {
       "text": "It's due to the cold",
-      "at": 36,
-      "note": "The definition is a whole clause rather than a noun: the setter describes the answer by what causes it instead of offering a word you could swap in."
+      "at": 36
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHILBLAIN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in places the jumbled letters inside the sequence word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "sequence",
+       "at": 26,
+       "gives": "CHAIN",
+       "note": "a chain is a connected sequence, as in a chain of events"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "getting misplaced",
-         "note": "a thing misplaced has been put somewhere it does not belong, and letters put in the wrong places are letters to rearrange"
-        },
-        {
-         "text": "in",
-         "note": "the preposition does the inserting: the shuffled letters land inside the sequence rather than after it"
+         "at": 5,
+         "note": "getting misplaced means ending up in the wrong places, so the letters of Bill are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "sequence",
-         "gives": "CHAIN",
-         "note": "a sequence of linked things is a chain; it splits open after two letters"
-        },
-        {
          "words": "Bill",
-         "gives": "ILBL",
-         "note": "the four letters of the name, shuffled"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The capital B makes Bill look like a man standing in a queue when he is only four letters to stir. Phi's question mark flags a definition that describes rather than translates.",
-     "definitionFit": "A chilblain is the itchy red swelling that cold, damp weather raises on fingers and toes, so the definition names the cause and lets you supply the effect."
+     "surface": "An invoice has been filed out of order in a series, and the chill is blamed.",
+     "walkthrough": "'getting misplaced' turns BILL into ILBL, which goes 'in' CHAIN.",
+     "definitionFit": "A chilblain is a painful itchy swelling on the skin caused by exposure to cold and damp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bill"
     }
    }
   },
@@ -1123,36 +1151,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEEKY",
-     "indicators": [
-      {
-       "text": "not initially",
-       "note": "'initially' points at a word's opening letter and 'not' takes it away, so the smell arrives without its R"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Central heating",
+       "at": 0,
+       "gives": "CH",
+       "note": "CH is the estate-agent abbreviation for central heating"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not initially",
+         "at": 24,
+         "note": "not initially means without its first letter, so the smelly word loses its opening"
+        }
+       ],
        "parts": [
         {
-         "words": "Central heating",
-         "gives": "CH",
-         "note": "ch is the estate agent's abbreviation for central heating"
+         "words": "smelly",
+         "at": 16,
+         "gives": "REEKY",
+         "note": "reeky means smelling strongly and unpleasantly"
         },
         {
-         "words": "smelly",
-         "gives": "EEKY",
-         "note": "smelly = reeky, robbed of its first letter"
+         "gives": "R",
+         "note": "the first letter of the smelly word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface sells a flat with the heating on and a window that needs opening. 'Fresh' is the definition and it is the impudent sense, not the airy one.",
-     "definitionFit": "Cheeky means impudent in a likeable way, and 'fresh' carries the same charge of taking a liberty — the sense in 'don't get fresh with me', not newness."
+     "surface": "A room's heating system gives off a pong that is anything but fresh air.",
+     "walkthrough": "'fresh' looks like the surface's clean air, but it means impudent, as in getting fresh with someone.",
+     "definitionFit": "Fresh can mean impertinent or overfamiliar, which is the same as being cheeky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fresh"
     }
    }
   },
@@ -1500,48 +1539,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Bit of",
-       "note": "asking for a bit of a word takes only its opening letter, not the whole of it"
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cultivated",
-         "note": "the gardening sense is the one at work: cultivated ground has been dug over and turned, and so have the letters beside it"
+         "at": 20,
+         "note": "cultivated means grown and tended, and here the letters are worked into a new order"
         }
        ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "AGLORY",
+         "indicators": [
+          {
+           "text": "Bit of",
+           "at": 0,
+           "note": "a bit of a word here is just its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Bit of apple glory",
-           "gives": "AGLORY",
-           "select": "first",
-           "note": "the first bit of 'apple' plus GLORY — six letters to rearrange"
+           "words": "apple",
+           "at": 7,
+           "note": "the word apple, whose first letter is taken"
           }
          ]
+        },
+        {
+         "words": "glory",
+         "at": 13,
+         "note": "taken as written, letters to rearrange"
         }
        ]
       },
       {
        "words": "in the style of",
+       "at": 31,
        "gives": "ALA",
-       "note": "à la is French for in the style of, as in à la carte"
+       "note": "a la, from French, means in the style of"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "An apple clue about apples: 'Bit of apple' is fodder rather than definition, and the shuffled letters run straight past the gap between the answer's two words.",
-     "definitionFit": "Royal Gala is the redder strain of the Gala apple bred in New Zealand, so the definition names the cultivar by where it comes from."
+     "surface": "A piece of fruit's splendour, grown in the manner of a New Zealand cultivar.",
+     "walkthrough": "'apple' tempts as the definition, but the variety comes at the end. Royal Gala is an apple variety developed in New Zealand.",
+     "definitionFit": "Royal Gala is a sweet apple cultivar that originated in New Zealand, one of its best-known varieties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glory"
     }
    }
   },
