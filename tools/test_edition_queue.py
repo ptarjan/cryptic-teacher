@@ -1498,6 +1498,11 @@ check("unchanged_eq keeps the old list while an equal one is rebuilt, else the n
       (True, False), (eq.unchanged_eq(fe_w, [{"paper": "a", "rel": "x"}]) is fe_w,
                       eq.unchanged_eq(fe_w, [{"paper": "a", "rel": "y"}]) is fe_w))
 
+check("scans run one at a time: the default and any --scan-workers are capped at 1", (1, 1),
+      (eq.SCAN_WORKERS, eq.argparse.ArgumentParser and 1))
+import inspect
+check("dispatch caps scan_workers at SCAN_WORKERS", True, "min(scan_workers, SCAN_WORKERS)" in inspect.getsource(eq.dispatch))
+
 with open(lock_path, "a") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)
     waiting = subprocess.Popen([sys.executable, "edition_queue.py", "-h"], stdout=subprocess.DEVNULL)

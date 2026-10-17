@@ -209,12 +209,25 @@ def unit_module(paper):
     return importlib.import_module(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
 
 
+def pin_scan():
+    """The standing OCR rule in the scan's own process: one core (SCAN_CPU,
+    the last by default), nice 19, one thread (OMP_NUM_THREADS, OCR_THREADS)."""
+    os.environ["OMP_NUM_THREADS"] = os.environ["OCR_THREADS"] = "1"
+    try:
+        cpus = sorted(os.sched_getaffinity(0))
+        os.sched_setaffinity(0, {cpus[int(os.environ.get("OCR_SCAN_CPU", "-1"))]})
+        os.nice(19)
+    except (AttributeError, IndexError, OSError):
+        pass  # no affinity here (macOS): nice and one thread still hold
+
+
 def run_unit(unit, cache, puzzles, reread):
     """In the unit's process: its outcome (EXITS). A scan's desktop
     sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
     the scans its solution needs, so a starved scan holds up reads too."""
     if unit["kind"] == "scan":
         os.environ["OCR_REMOTE_PRIORITY"] = "scan"
+        pin_scan()
     m = unit_module(unit["paper"])
     if unit["paper"] == "trove":
         return m.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
@@ -334,9 +347,13 @@ WORKERS = 25
 TROVE_WORKERS = 6
 LISTENER_WORKERS = 1
 LISTENER_SECONDS = 1800
-#: Scans at once: each is one call the desktop runs whole (~100s, a few of
-#: its 28 threads), so ten use its CPU while the reads wait on its GPU.
-SCAN_WORKERS = 10
+#: Scans at once: exactly one. A scan is CPU-bound OCR (on this host when the
+#: desktop is off, and Gale pages always), and OCR runs as ONE process pinned
+#: to one core at nice 19 (env OCR_SCAN_CPU, pin_scan); ten at once held this host's
+#: load at 30+ on 6 cores. dispatch() caps any --scan-workers at this.
+SCAN_WORKERS = 1
+#: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
+SCAN_CPU = "OCR_SCAN_CPU"
 #: A unit still running this long is killed and left for the next run.
 SCAN_SECONDS = 1200
 READ_SECONDS = 1200
@@ -1020,6 +1037,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             log(f"started from the last plan: {len(scans)} scans, {len(reads)} reads, {len(fetches)} fetches")
     queue = []  # the units of the last pass, started or not
     idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
+    scan_workers = min(scan_workers, SCAN_WORKERS)
     pool_width = scan_workers + workers
 
     def replan_after():

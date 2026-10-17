@@ -1353,14 +1353,44 @@ def page_files(inbox):
 
 
 _HASHES = {}
+#: The hashes kept across processes (the queue re-execs every slice, and each
+#: image read every saved page in full on its first plan): "name|size|mtime_ns" -> sha256.
+HASH_CACHE = Path(os.environ.get("GALE_HASH_CACHE") or Path.home() / ".cache" / "gale_page_hashes.json")
+_LOADED = []
+
+
+def _hash_key(k):
+    name, size, mtime = k.rsplit("|", 2)
+    return (name, int(size), int(mtime))
+
+
+def _load_hashes():
+    if not _LOADED:
+        _LOADED.append(True)
+        try:
+            _HASHES.update({_hash_key(k): v for k, v in json.loads(HASH_CACHE.read_text()).items()})
+        except (OSError, ValueError):
+            pass
+
+
+def _save_hashes():
+    try:
+        HASH_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = HASH_CACHE.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps({"|".join(map(str, k)): v for k, v in _HASHES.items()}))
+        os.replace(tmp, HASH_CACHE)
+    except OSError:
+        pass
 
 
 def hash_of(p):
     """file_hash(p), worked out again only when its size or mtime moved."""
+    _load_hashes()
     st = p.stat()
     key = (p.name, st.st_size, st.st_mtime_ns)
     if key not in _HASHES:
         _HASHES[key] = file_hash(p)
+        _save_hashes()
     return _HASHES[key]
 
 
