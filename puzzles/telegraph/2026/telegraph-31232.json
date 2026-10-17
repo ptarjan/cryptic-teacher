@@ -1116,52 +1116,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASSAULTS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "no",
+       "at": 17,
+       "note": "no good says the letter for good is left out of the pool of letters"
+      },
+      {
        "text": "at sea",
-       "note": "at sea means confused and lost, so the letters are thrown into disorder"
+       "at": 30,
+       "note": "at sea means confused and all over the place, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASSAULTS",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "no means without, so a letter is taken away"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "gusts",
-         "note": "taken as written"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is the abbreviation for good; this letter is removed"
+         "at": 11
         },
         {
          "words": "alas",
-         "note": "taken as written"
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 20,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor laments bad weather: storms and gusts out on the ocean.",
-     "walkthrough": "'Storms' looks like weather, but it is the verb or noun for attacking a position, as troops storm a castle.",
-     "definitionFit": "To storm a fortress is to attack it violently, so storms and assaults are synonyms for military attacks."
+     "surface": "A sailor laments the storms and gusts that are no good while at sea.",
+     "walkthrough": "'Storms' is a verb here, as in storms a castle. Take GUSTS and ALAS, drop the G ('no good'), and 'at sea' rearranges what is left.",
+     "definitionFit": "To storm a place is to attack it suddenly in force, so storms and assaults are synonyms as verbs."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Storms"
     }
    }
