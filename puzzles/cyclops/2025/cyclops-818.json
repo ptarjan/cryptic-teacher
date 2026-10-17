@@ -23,7 +23,8 @@
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -372,43 +373,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "YARN",
+     "op": "container",
      "indicators": [
       {
-       "text": "sort",
-       "note": "to sort is to put items into a fresh arrangement, and the items here are three letters"
+       "text": "penetrates",
+       "at": 4,
+       "note": "to penetrate is to get inside, so the king's letter goes within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "penetrates",
-         "note": "what penetrates a thing goes into it, so this letter forces its way inside the other piece"
+         "text": "sort",
+         "at": 19,
+         "note": "to sort is to rearrange, so the letters of any are reordered"
         }
        ],
        "parts": [
         {
-         "words": "any sort",
-         "gives": "YAN",
-         "note": "the three letters of 'any' resorted, then split open"
-        },
-        {
-         "words": "Rex",
-         "gives": "R",
-         "note": "r for rex is the Latin king, as on coins and in court listings"
+         "words": "any",
+         "at": 15,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "Rex",
+       "at": 0,
+       "gives": "R",
+       "note": "Rex is Latin for king, abbreviated R as in royal signatures"
       }
      ]
     },
     "explanation": {
-     "surface": "A king shoulders his way into a London street.",
-     "walkthrough": "Capital-S Strand is the street off Trafalgar Square that the surface wants; the definition is the lower-case strand, a single thread. 'Any' looks like a vague adjective and is three letters of fodder.",
-     "definitionFit": "A strand is one thread of a rope or a fibre, and spun thread is exactly what the answer names."
+     "surface": "A seedy scene: a king entering some low dive on London's Strand.",
+     "walkthrough": "'sort' rearranges ANY to YAN, and R, for Rex, 'penetrates' it. The Strand is a famous London street, but here 'Strand' is a thread.",
+     "definitionFit": "A yarn is a spun thread, so a single strand of fibre fits it."
     },
     "features": {
      "answerInScene": false,
@@ -1227,59 +1229,79 @@
    "annotation": {
     "definitions": [
      {
-      "text": "what fun",
-      "at": 40,
-      "note": "A frolic is a bout of high-spirited larking about; the setter's exclamation stands in for the noun naming it."
+      "text": "what fun!",
+      "at": 40
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "opening",
-       "note": "the opening of a word is the letter it starts with, taken here from each of the two words in front"
-      },
-      {
        "text": "in",
-       "note": "letters put in a word go inside it, the word parting to hold them"
+       "at": 23,
+       "note": "in places the large letter and the initial inside the shortened dress"
       }
      ],
      "parts": [
       {
-       "words": "short dress",
-       "gives": "FROC",
-       "note": "a dress is a frock, then docked of its final letter"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "short",
-         "note": "a word made short has been docked, losing the letter off its end"
+         "at": 26,
+         "note": "short means cut off at the end, so the frock loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Large immodest",
-         "gives": "LI",
-         "select": "first",
-         "note": "the first letter of each of these two words, taken in the order written"
+         "words": "dress",
+         "at": 32,
+         "gives": "FROCK",
+         "note": "a frock is a dress"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Large",
+         "at": 0,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening",
+           "at": 15,
+           "note": "the opening of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "immodest",
+           "at": 6,
+           "note": "only its first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short dress with a big, immodest gap in it, and everybody is delighted.",
-     "walkthrough": "'Opening' does the work of two instructions, taking the initials of both words in front of it. 'Short' shortens the word the solver has to supply for 'dress', not the word 'dress' itself.",
-     "definitionFit": "A frolic is a burst of playful larking about, which is fun of the boisterous, running-around kind."
+     "surface": "A risqué outfit: a revealing split on a mini-dress, greeted with delight.",
+     "walkthrough": "'short' cuts FROCK to FROC; L for Large and I, the 'opening' of immodest, go 'in' it.",
+     "definitionFit": "A frolic is a bit of lively fun or a playful romp, so it answers the exclamation."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "opening"
     }
    }
@@ -1422,42 +1444,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNTANGLE",
-     "indicators": [
-      {
-       "text": "misshapen",
-       "note": "something misshapen has been knocked out of its proper form, and so have the letters beside this word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misshapen",
+         "at": 15,
+         "note": "something misshapen is bent out of its form, so the letters of nut are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "misshapen nut",
-         "gives": "UNT",
-         "note": "the three letters of 'nut' reset"
-        },
-        {
-         "words": "view",
-         "gives": "ANGLE",
-         "note": "an angle on a story is a point of view"
+         "words": "nut",
+         "at": 25,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "view",
+       "at": 39,
+       "gives": "ANGLE",
+       "note": "an angle is a point of view or perspective"
       }
      ]
     },
     "explanation": {
-     "surface": "A warped nut has been put on display and somebody sets about straightening it.",
-     "walkthrough": "'Straighten out' and 'misshapen' pull in opposite directions while describing the same operation, which makes the shuffle easy to spot and the join hard. 'On view' is one phrase in the surface and only its last word is wanted.",
-     "definitionFit": "To untangle a knot or a cable is to straighten it out, freeing what had got snarled up."
+     "surface": "Fixing a deformed nut that is on display.",
+     "walkthrough": "'on view' suggests display, but 'view' is the second piece, a standpoint, with 'that's on' only joining the parts.",
+     "definitionFit": "To untangle something is to free it of knots, so to straighten it out."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "view"
+     "misdirectedWord": "nut"
     }
    }
   },
