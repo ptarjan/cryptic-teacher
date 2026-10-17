@@ -364,31 +364,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SUMUP",
      "indicators": [
       {
        "text": "has had a change of heart",
-       "note": "the middle letter of the word is swapped for another"
+       "at": 14,
+       "note": "the heart of the phrase, its middle letter, is changed for another"
       }
      ],
      "parts": [
       {
        "words": "Dawn",
+       "at": 9,
        "gives": "SUNUP",
-       "note": "sunup is dawn; its central N is changed to M"
+       "note": "sunup is the moment of dawn, when the sun rises"
+      },
+      {
+       "gives": "N"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman named Dawn has changed her mind.",
-     "walkthrough": "Dawn reads as a woman's name, but it is sunrise. The new middle letter M is not clued, so the definition must supply it.",
-     "definitionFit": "To sum up is to conclude, giving a final summary."
+     "surface": "A woman named Dawn has changed her mind, and a decision is reached.",
+     "walkthrough": "'Dawn' looks like a woman's name but means sunrise. 'has had a change of heart' swaps the central letter N for M.",
+     "definitionFit": "To sum up is to give a brief final summary, which is how a speaker concludes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Dawn"
     }
    }
@@ -954,51 +959,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CABRIOLET",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the dash goes inside 'a hired'"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 10,
+         "note": "in says the dash piece goes inside the next two pieces"
+        }
+       ],
        "parts": [
         {
-         "words": "Cold",
-         "gives": "C",
-         "note": "c = cold, as on a tap"
-        },
-        {
-         "words": "a",
-         "note": "the word itself"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 13,
+           "gives": "A"
+          },
+          {
+           "words": "hired",
+           "at": 15,
+           "gives": "LET",
+           "note": "let means hired out, as a property is let"
+          }
+         ]
         },
         {
          "words": "dash",
+         "at": 5,
          "gives": "BRIO",
-         "note": "brio is dash, verve"
-        },
-        {
-         "words": "hired",
-         "gives": "LET",
-         "note": "a property that is let is hired out"
+         "note": "brio is dash, verve or vigour"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chilly dash in a rented car with a loose roof.",
-     "walkthrough": "'A hired car' reads as one phrase, but it splits: 'a hired' holds the dash, and 'car' starts the definition.",
-     "definitionFit": "A descriptive definition: the folding hood of this convertible body style is the roof that is not fixed."
+     "surface": "A dash through the cold in a rented car whose roof will not stay fixed.",
+     "walkthrough": "'dash' is not a quick run but panache; it goes 'in' the pair from 'a hired', giving ABRIOLET after the letter for cold.",
+     "definitionFit": "A cabriolet is a car with a folding roof, a convertible, so its roof is not fixed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "hired"
+     "misdirectedWord": "dash"
     }
    }
   },
