@@ -623,52 +623,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FERRARI",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in means the reshaped letters sit inside the other two"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "FERRARI",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "model",
-           "note": "To model something is to shape it, so the letters get reshaped."
-          },
-          {
-           "text": "in",
-           "note": "'In' places one thing inside another, so the reshaped letters go between the others."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Formula",
-           "gives": "F",
-           "note": "The first letter of Formula, as on the F1 badge."
-          },
-          {
-           "words": "rarer",
-           "gives": "ERRAR",
-           "note": "RARER, rearranged."
-          },
-          {
-           "words": "One",
-           "gives": "I",
-           "note": "One is I in Roman numerals, the other half of F1."
-          }
-         ]
+         "words": "Formula",
+         "at": 32,
+         "gives": "F",
+         "note": "F is short for formula, as in F1"
+        },
+        {
+         "words": "One",
+         "at": 40,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "model",
+         "at": 23,
+         "note": "to model is to shape, so the letters of rarer are given a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rarer",
+         "at": 17,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A luxury car described as a very rare model in motor racing.",
-     "walkthrough": "'Model' passes for a car model in the surface; it is the rearranging instruction. Formula One shortens to F1, and the 1 becomes I.",
-     "definitionFit": "Ferrari is the Italian maker of expensive sports cars, the byword for a prestige car."
+     "surface": "A rare model of luxury car competing in Formula One racing.",
+     "walkthrough": "'Model' looks like a car model, but it is the instruction to reshape RARER, which then goes between F and I.",
+     "definitionFit": "Ferrari is the Italian maker of expensive sports cars, famous in motor racing."
     },
     "features": {
      "answerInScene": true,
