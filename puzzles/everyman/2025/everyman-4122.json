@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -175,25 +176,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TORCHBEARER",
      "indicators": [
       {
        "text": "pathetically",
-       "note": "To do a thing pathetically is to do it badly, and a word handled badly comes out with its letters in the wrong places."
+       "at": 13,
+       "note": "pathetically means in a feeble, sorry fashion, so the letters are put in disarray and reshuffled"
       }
      ],
      "parts": [
       {
        "words": "Race brother",
-       "gives": "TORCHBEARER",
-       "note": "eleven letters from a sprint and a sibling, to be dealt out again"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Race' looks like a definition and 'in the lead' like a finishing position, so the athletics stays in your head throughout. Both belong to the surface only.",
-     "definitionFit": "he's seen in the lead → TORCHBEARER: the runner carrying the Olympic flame heads the procession, so being out in front is the whole of the job."
+     "surface": "A brother runs a race feebly, while the winner is spotted out in front.",
+     "walkthrough": "'pathetically' rearranges all eleven letters of RACE BROTHER. The definition points to the runner carrying the Olympic flame at the head of a procession.",
+     "definitionFit": "A torchbearer carries the torch at the front of a relay or procession, and figuratively is a leader of a cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Race"
     }
    }
   },
@@ -876,50 +881,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEERKAT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "At sea",
+       "at": 0,
+       "note": "at sea means all over the place, confused, so the letters are scrambled"
+      },
+      {
+       "text": "flying",
+       "at": 29,
+       "note": "flying means flying off, so the letter for small departs from the mix"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "At sea",
-         "note": "To be at sea is to be adrift with no bearings, so the letters beside it are in no settled order."
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "flying",
-           "note": "Something flying has taken off and gone, so the letter named just before it leaves the mix before anything is rearranged."
-          }
-         ],
-         "parts": [
-          {
-           "words": "small",
-           "gives": "S",
-           "note": "S is the size printed on a clothing label for small"
-          },
-          {
-           "words": "ark teems",
-           "gives": "MEERKAT",
-           "note": "eight letters, less the one named just before, leaving seven to deal out again"
-          }
-         ]
-        },
-        {
-         "gives": "S"
-        }
-       ]
+       "words": "ark teems",
+       "at": 8
+      },
+      {
+       "words": "small",
+       "at": 23,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'With small flying' reads as insects over the water, which is the picture the surface wants. It is an instruction: one letter goes before any shuffling happens.",
-     "definitionFit": "kind of a mammal → MEERKAT: definition by example — the small southern African mongoose that stands upright on its hind legs to watch for danger."
+     "surface": "Out on the ocean, Noah's ark is crowded with a small kind of flying creature.",
+     "walkthrough": "The letters of ARK TEEMS, 'At sea', contain the answer plus S (small), which is 'flying' off.",
+     "definitionFit": "The meerkat is a small burrowing mongoose of southern Africa, so it is one species of mammal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
     }
    }
   },
