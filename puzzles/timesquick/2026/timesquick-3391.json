@@ -292,51 +292,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REINFORCE",
-     "indicators": [
-      {
-       "text": "that is unsteady",
-       "note": "something unsteady wobbles out of place, so these letters fall into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "sides of",
+         "at": 21,
+         "note": "the sides of a word are its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "sides of",
-           "note": "the sides of a word are its outermost letters, first and last"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rare",
-           "note": "the two end letters of the word"
-          }
-         ]
-        },
+         "words": "rare",
+         "at": 30,
+         "note": "its outer letters are the ones used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "that is unsteady",
+         "at": 43,
+         "note": "a tree that is unsteady wobbles out of place, so the letters of 'conifer' are shuffled"
+        }
+       ],
+       "parts": [
         {
          "words": "conifer",
-         "gives": "INFORCE",
-         "note": "the seven letters rearranged"
+         "at": 35,
+         "note": "anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener props up an uncommon pine tree that is wobbling.",
-     "definitionFit": "To reinforce is to strengthen or brace something with extra backing, a verb phrase match."
+     "surface": "Someone props up an uncommon pine tree that is wobbling.",
+     "walkthrough": "'sides of rare' gives RE, the word's two ends; 'that is unsteady' rearranges CONIFER into INFORCE.",
+     "definitionFit": "To reinforce is to strengthen by adding extra support, as with a wall or an argument."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rare"
+     "misdirectedWord": "unsteady"
     }
    }
   },
