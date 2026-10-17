@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -392,40 +393,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "fixed",
-       "note": "Something fixed has been taken apart and put back together differently, and that is what happens to the letters beside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Mother",
+       "at": 0,
        "gives": "MA",
-       "note": "MA is the nursery word for mother"
+       "note": "MA is an everyday word for mother"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "A piece put about another closes round it, so the re-set letters wrap the single one."
+         "at": 22,
+         "note": "the rearranged idea goes about, that is around, the river abbreviation"
         }
        ],
        "parts": [
         {
-         "words": "idea about River",
-         "gives": "DEIRA",
-         "note": "the four letters of the notion are re-set around R, the map-maker's river"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "fixed",
+           "at": 11,
+           "note": "fixed in the sense of doctored or rigged, so the letters of idea are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "idea",
+           "at": 17,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "River",
+         "at": 28,
+         "gives": "R",
+         "note": "R is the standard map abbreviation for river"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface's River Island is a high-street shop, so the capital letters mislead twice: the clue wants only R for river, and 'Island' is doing the defining.",
-     "definitionFit": "'Island' is the plain sense — the Atlantic island Portugal settled, which then lent its name to both a wine and a cake."
+     "surface": "A mother has a fixed notion concerning River Island, the high-street clothing chain.",
+     "walkthrough": "River Island looks like a single shop name, but it splits: River gives R and Island is the definition. 'fixed' rearranges IDEA to DEIA, which goes 'about' R.",
+     "definitionFit": "Madeira is a Portuguese island in the Atlantic, famous for its fortified wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "River"
     }
    }
   },
@@ -595,44 +616,44 @@
      "indicators": [
       {
        "text": "playing",
-       "note": "Letters at play are letters not staying put, so the name in front of it is free to be reordered."
+       "at": 18,
+       "note": "playing as in playing about with, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Peter",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "at last",
-         "note": "It points at the very end of the word before it, so only that final letter joins in."
+         "at": 10,
+         "note": "only the final letter of Kay is used"
         }
        ],
        "parts": [
         {
-         "words": "Peter",
-         "note": "the five letters of the first name are the bulk of the fodder"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Kay at last",
-           "gives": "Y",
-           "select": "last",
-           "note": "the last letter of the surname makes up the six"
-          }
-         ]
+         "words": "Kay",
+         "at": 6,
+         "note": "its last letter is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Peter Kay is a comedian and 'playing' is what comedians do, so the whole first half reads as showbusiness rather than as raw letters.",
-     "definitionFit": "'Key' is a verb here — to key characters is to type them — so keying them again is precisely the instruction the answer carries."
+     "surface": "The comedian Peter Kay is finally on stage, performing.",
+     "walkthrough": "Peter Kay is the Bolton comedian; his name is just fodder. 'at last' takes Y from Kay, and 'playing' rearranges PETER plus Y.",
+     "definitionFit": "To retype is to key in the letters of a text once more on a keyboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "playing"
     }
    }
   },
@@ -710,52 +731,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SULTANATE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "making a comeback",
-         "note": "Something that comes back retraces its steps, so these two letters are written in the opposite order."
+         "at": 9,
+         "note": "coming back means the abbreviation for American is read backwards"
         }
        ],
        "parts": [
         {
          "words": "American",
-         "gives": "SU",
-         "note": "the US, turned round"
+         "at": 0,
+         "gives": "US"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 39,
+         "note": "bronze goes in, inside, the word for former"
+        }
+       ],
+       "parts": [
+        {
+         "words": "former",
+         "at": 42,
+         "gives": "LATE",
+         "note": "late means former, as in the late president"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "It marks the insertion: the piece named before it goes inside the word named after it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "former",
-           "gives": "LATE",
-           "note": "'late' is the word for former — the late chairman — and it opens after one letter"
-          },
-          {
-           "words": "bronze",
-           "gives": "TAN",
-           "note": "a tan is the bronze a fortnight in the sun leaves you with"
-          }
-         ]
+         "words": "bronze",
+         "at": 32,
+         "gives": "TAN",
+         "note": "a bronze is a tan on the skin"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three separate liberties with plain words — a country as two letters, a colour as a verb's worth of skin, and 'former' as an adjective for the dead — all inside one smooth sentence.",
-     "definitionFit": "A territory named by whoever rules it: this is the state a sultan governs, as a kingdom is a king's."
+     "surface": "An American returns with a suntan to a land that used to be theirs.",
+     "walkthrough": "'former territory' reads as one phrase, but 'former' gives LATE and only 'territory' is the definition. TAN goes in LATE after its L.",
+     "definitionFit": "A sultanate is the land ruled by a sultan, a kind of realm or dominion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
     }
    }
   },
@@ -786,41 +815,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEAKETTLE",
-     "indicators": [
-      {
-       "text": "removed",
-       "note": "What is removed leaves the letters altogether, so the piece named just before it is taken out of what came earlier."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Wooden",
+       "at": 0,
+       "gives": "TEAK",
+       "note": "teak is a wood, so it stands for wooden here"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removed",
+         "at": 26,
+         "note": "removed says the abbreviation for section is taken out of the bench word"
+        }
+       ],
        "parts": [
         {
-         "words": "Wooden",
-         "gives": "TEAK",
-         "note": "'wooden' points at a particular timber rather than at a quality"
-        },
-        {
          "words": "bench",
-         "gives": "ETTLE",
-         "note": "a settle is a long high-backed bench, here short of the letter named next"
+         "at": 7,
+         "gives": "SETTLE",
+         "note": "a settle is a high-backed wooden bench"
         },
         {
-         "unchecked": true,
          "words": "section",
-         "note": "section abbreviates to S, and that is the letter that goes"
+         "at": 18,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The enumeration is the real disguise: (3,6) cuts through the middle of the timber, so neither half of the answer lines up with either half of the wordplay.",
-     "definitionFit": "A brewing accessory is anything the tea-making needs, and this is the vessel that boils the water for it."
+     "surface": "A wooden bench with a part taken out of it serves as kit for making tea.",
+     "walkthrough": "A settle is an old wooden bench with a high back; losing the S of section leaves ETTLE.",
+     "definitionFit": "A tea kettle is the pot used to boil water for making tea, so it is equipment for brewing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "section"
     }
    }
   },
@@ -935,55 +971,66 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COWPATS",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 63,
+       "note": "the business, secretary and threats letters go about, around, the abbreviation for women"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "empty",
-         "note": "A word emptied out keeps only its shell, the first and last letters, and loses everything between them."
-        }
-       ],
        "parts": [
         {
          "words": "Business",
+         "at": 28,
          "gives": "CO",
-         "note": "a business is a company, CO"
-        },
-        {
-         "words": "women",
-         "gives": "W",
-         "note": "W is the standing abbreviation for women"
+         "note": "CO is the abbreviation for company, a business"
         },
         {
          "words": "Secretary's",
+         "at": 37,
          "gives": "PA",
-         "note": "a secretary is a PA, a personal assistant"
+         "note": "PA, a personal assistant, is a secretary"
         },
         {
          "op": "outer",
          "indicators": [
           {
-           "text": "about",
-           "note": "Letters placed about something go round it, so the pieces already found open up to admit what follows."
+           "text": "empty",
+           "at": 49,
+           "note": "empty means the inside of threats is removed, leaving its first and last letters"
           }
          ],
          "parts": [
           {
            "words": "threats",
-           "note": "the shell of the word, once the middle has been emptied out"
+           "at": 55,
+           "gives": "TS",
+           "note": "its outer letters are T and S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "women",
+       "at": 69,
+       "gives": "W"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Every piece here is a political abbreviation except the last, which is the same word made hollow — and the childish definition is the only plain English in the clue.",
-     "definitionFit": "'Whoopsie' is nursery language for droppings, and these are the cow's: the flat pancakes left across a field."
+     "surface": "A government Business Secretary makes hollow threats concerning women.",
+     "walkthrough": "'Business Secretary' looks like a cabinet title, but it splits into CO and PA. W goes in after CO.",
+     "definitionFit": "A whoopsie is a coy word for a mess an animal leaves, and cowpats are piles of cattle dung."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Business"
     }
    }
   },
@@ -1008,52 +1055,53 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ENERGETIC",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "unfortunately",
+       "at": 12,
+       "note": "unfortunately suggests things have gone awry, so the letters are rearranged"
+      },
+      {
+       "text": "lacking",
+       "at": 26,
+       "note": "lacking says a letter must be taken out of the rearranged pool"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Great-niece",
+       "at": 0,
+       "note": "the letters of great-niece are the pool"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "Things that go unfortunately do not come out in the order they were meant to, which is the licence to reorder the letters."
-        },
-        {
          "text": "the focus of",
-         "note": "The focus of a word is its centre, so the middle letter of the name is the one meant."
+         "at": 34,
+         "note": "the focus is the centre, so the middle letter of Blake is meant"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "lacking",
-           "note": "What is lacking is missing from the letters, so the piece named after it never joins the mix."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Great-niece",
-           "gives": "GRETNIECE",
-           "note": "the fodder, once the letter named next has gone"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
          "words": "Blake",
-         "select": "middle",
-         "note": "the centre of the five-letter name is A, and that is the letter left out"
+         "at": 47,
+         "note": "its middle letter is A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Blake Lively is one name doing two jobs: the surname defines the answer while the first name gives up its middle letter to the shuffle.",
-     "definitionFit": "'Lively' is the surface's actress, but as a plain adjective it means full of energy, which is what the answer means too."
+     "surface": "A great-niece sadly lacks the concentration of the actress Blake Lively.",
+     "walkthrough": "Blake Lively looks like one name, but Lively is the definition. GREATNIECE minus the A at the centre of Blake rearranges to the answer.",
+     "definitionFit": "Someone energetic is full of vigour and vitality, which is what lively means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lively"
     }
    }
   },
@@ -1081,8 +1129,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "At the very end — so only the final letter of the name in front of it is wanted."
+       "text": "captured by",
+       "at": 36,
+       "note": "the letters from Hugh Bonneville are held inside the rearranged free"
       }
      ],
      "parts": [
@@ -1090,58 +1139,69 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "captured by",
-         "note": "Whatever captures something closes round it, so the letters found so far go inside the piece named next."
+         "text": "fancy",
+         "at": 48,
+         "note": "fancy as a verb hints at elaborating, so the letters of free are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "fancy",
-           "note": "To fancy something up is to dress it differently, and letters dressed differently come out in a new order."
-          }
-         ],
-         "parts": [
-          {
-           "words": "free",
-           "gives": "REFE",
-           "note": "the four letters are re-set, and then they open up to take the rest"
-          },
-          {
-           "op": "middle",
-           "indicators": [
-            {
-             "text": "Heart of",
-             "note": "The heart of a word is its middle, so the letters at the centre are the ones taken."
-            }
-           ],
-           "parts": [
-            {
-             "words": "Hugh",
-             "note": "the middle pair of a four-letter name"
-            }
-           ]
-          }
-         ]
+         "words": "free",
+         "at": 54,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "op": "last",
+       "op": "charade",
        "parts": [
         {
-         "words": "Bonneville",
-         "note": "the very last letter of the surname"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Heart of",
+           "at": 0,
+           "note": "the heart is the middle, so the central letters of Hugh are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Hugh",
+           "at": 9,
+           "note": "its middle letters are UG"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 25,
+           "note": "ultimately takes only the final letter of Bonneville"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bonneville",
+           "at": 14,
+           "note": "its last letter is E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two actors' names and neither matters: only Hugh's middle and Bonneville's tail are used, and the bear from Darkest Peru does the defining.",
-     "definitionFit": "A definition by example: Paddington arrives from Peru with a label asking someone to please look after him, which is a refugee's story."
+     "surface": "Hugh Bonneville, who plays Mr Brown in the Paddington films, is taken by the carefree bear.",
+     "walkthrough": "'fancy-free' reads as carefree, but splits into an anagram signal and its fodder: FREE becomes REFEE, which captures UGE.",
+     "definitionFit": "Paddington arrives in London from Peru as a stowaway seeking a home, so he is an example of a displaced person; the question mark flags this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
     }
    }
   },
@@ -1302,50 +1362,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "beginning",
-       "note": "The beginning of a word is its first letter, and that is all this takes from the surname."
+       "text": "to get into",
+       "at": 21,
+       "note": "the first letter of Hull goes into the rearranged fries"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to get into",
-         "note": "It puts the letter just found in among the others, so the single letter joins the material being reordered."
+         "text": "battered",
+         "at": 33,
+         "note": "battered means beaten about, so the letters of fries are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "battered",
-           "note": "Something battered has lost its shape, which is exactly what happens to the order of these letters."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hull's beginning",
-           "gives": "HULLBEGINNING",
-           "note": "the first letter of the surname"
-          }
-         ]
-        },
-        {
          "words": "fries",
-         "note": "the five letters of the chips, which reorder around the letter joining them"
+         "at": 42,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 11,
+         "note": "beginning takes only the first letter of Hull"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hull's",
+         "at": 4,
+         "note": "its first letter is H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Rod Hull and his emu carry the surface, and only the H of Hull is needed. 'Battered fries' is a chip-shop picture doing an anagram's job.",
-     "definitionFit": "In angling a 'rod' is the person holding one — a fishery sells so many rods a day — so the word names the angler by the tackle."
+     "surface": "The entertainer Rod Hull starts to tuck into a plate of battered chips.",
+     "walkthrough": "Rod Hull was a British entertainer famous for his puppet Emu; here Rod is the definition and Hull gives only H.",
+     "definitionFit": "A rod can mean an angler, the person holding the fishing rod, which is what a fisher is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rod"
     }
    }
   },
