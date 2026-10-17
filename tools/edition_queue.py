@@ -1571,7 +1571,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             vlm_pending[0] = vlm_deferred
         if vlm_deferred and (vlm_logged[0] is None or time.monotonic() - vlm_logged[0] >= 600):
             vlm_logged[:] = [time.monotonic(), vlm_deferred]
-            log(f"VLM down: {vlm_deferred} scans deferred; their reads start once it answers, "
+            log(f"VLM down ({vlm_reader.cause() or 'unreachable'}): {vlm_deferred} scans deferred; their reads start once it answers, "
                 f"scans, fetches and reads that do not ask it go on ({len(running) + len(adopted)} running)")
         if cpu_held and not cpu_bound:
             cpu_bound = True
