@@ -70,7 +70,10 @@ def _sysctl(key):
 #: but fetches) at once. Env, read at each call: CT_PSI_MAX, CT_UNIT_CEILING;
 #: CT_MEMINFO and CT_PSI_PATH move the files read (tests, other hosts).
 PSI_MAX = 10.0
-UNIT_CEILING = 6
+#: Ten: a read unit holds 45-100 MB here now that its OCR, grid search and
+#: solution-grid reading run on the desktop (ocr_remote.CALLS); the PSI and
+#: MemAvailable gates stay the safety.
+UNIT_CEILING = 10
 
 
 def psi_max():
