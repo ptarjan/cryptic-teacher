@@ -61,8 +61,8 @@ credits the rung of app.js's ladder that shows it, and every order of the
 rungs is scored by the mean rungs a solver takes to reach one that would have
 unstuck them.
 
-Hint check. Each rung of the ladder as app.js renders it (compare_mc.ladder_steps,
-the Python port) against the same explanation window, one class per difference:
+Hint check. Each rung of the ladder as app.js renders it (tools/hint_rungs.js
+boots the app and reads the hint panel; no Python copy of the wording) against the same explanation window, one class per difference:
 def_span (the definition the solver names is not ours), indicator_span (the
 indicator they name is not ours), device_named_differently (a device they name
 that our type lacks), unlock_absent (a hard solve's unlock has no rung that
@@ -1444,10 +1444,22 @@ def hint_differences(e, steps, explain, unlock, hard, vocab):
     return out
 
 
+def app_rungs(pids, batch=25):
+    """{puzzle: {entry id: [(rung key, text), ...]}} as the app shows them: one
+    node call per `batch` puzzle ids, each booting the real app.js over fake_dom."""
+    import subprocess
+    out = {}
+    pids = sorted(set(pids))
+    for i in range(0, len(pids), batch):
+        r = subprocess.run(["node", str(ROOT / "tools" / "hint_rungs.js"), *pids[i:i + batch]],
+                           capture_output=True, text=True, cwd=ROOT, check=True)
+        for pid, ents in json.loads(r.stdout).items():
+            out[pid] = {eid: [tuple(s) for s in steps] for eid, steps in ents.items()}
+    return out
+
+
 def hintcheck(subs_dir):
     """Each rung we show against the solver's explanation of the same clue -> HINTCHECK."""
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from compare_mc import ladder_steps
     data = json.loads(SOLVES.read_text())
     by_video = collections.defaultdict(list)
     for c in data["clues"]:
@@ -1470,11 +1482,14 @@ def hintcheck(subs_dir):
             hard = bool(r["stuck"] or (r["read_to_solve"] or 0) >= LONG_WAIT_S)
             seen[(r["puzzle"], r["entry"])].append((explain, unlock, hard, vid, r["read_to_solve"]))
     rows = []
+    shown = app_rungs(pid for pid, _ in seen)
     for (pid, eid), obs in seen.items():
         e = entries_of(pid).get(eid)
         if not e or not e.get("annotation"):
             continue
-        steps = ladder_steps(e["annotation"], e["clue"].get("text", ""))
+        steps = shown.get(pid, {}).get(eid)
+        if steps is None:       # the app offers no ladder on this clue
+            continue
         explain = " ".join(re.sub(r"\s+", " ", o[0]).strip() for o in obs)
         hard = any(o[2] for o in obs)
         diffs = hint_differences(e, steps, explain, obs[0][1], hard, vocab)

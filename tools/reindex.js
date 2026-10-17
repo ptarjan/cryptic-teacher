@@ -116,4 +116,16 @@ function reindex() {
     { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"] });
 }
 
-module.exports = { reindex };
+// The index for just these puzzle ids, for a tool that boots the app on a few:
+// fetch_puzzle.py --reindex with CT_REINDEX_IDS, which writes their shims and an
+// index listing only them. Always rebuilt (cheap), and it counts as this
+// process's reindex, so a later boot() does not start the full rebuild. The
+// next full reindex() sees the count mismatch and replaces it.
+function scoped(ids) {
+  built = true;
+  execFileSync("python3", [path.join(ROOT, "tools", "fetch_puzzle.py"), "--reindex"],
+    { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"],
+      env: Object.assign({}, process.env, { CT_REINDEX_IDS: ids.join(",") }) });
+}
+
+module.exports = { reindex, scoped };
