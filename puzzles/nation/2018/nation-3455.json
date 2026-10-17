@@ -106,30 +106,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BELLHOP",
+     "spelt": "BELLHOP",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts of two words trade places"
+       "at": 31,
+       "note": "Dr Spooner famously swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "infernal dance",
-       "gives": "BELLHOP",
-       "soundsLike": "HELL BOP",
-       "note": "infernal suggests hell and a bop is a dance; swap their first sounds"
+       "op": "homophone",
+       "spelt": "HELL",
+       "parts": [
+        {
+         "words": "infernal",
+         "at": 15,
+         "gives": "HEL",
+         "note": "infernal means of hell, so the word heard is hell"
+        }
+       ]
+      },
+      {
+       "words": "dance",
+       "at": 24,
+       "gives": "BOP",
+       "note": "to bop is to dance, especially to pop music"
       }
      ]
     },
     "explanation": {
-     "surface": "A hotel employee who does some devilish jig.",
-     "definitionFit": "A bellhop is a hotel porter who carries guests' luggage and runs errands."
+     "surface": "A hotel porter's routine pictured as a dance of the damned.",
+     "walkthrough": "'according to Spooner' swaps the opening H and B sounds of 'hell bop' to give 'bell hop'. The 's after worker is 'has' or 'is', a link to the wordplay.",
+     "definitionFit": "A bellhop is a hotel employee who carries luggage and runs errands for guests, chiefly American usage."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "infernal"
@@ -1639,53 +1651,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REWRITING",
-     "indicators": [
-      {
-       "text": "leaderless",
-       "note": "with no leader the front is missing, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaderless",
+         "at": 21,
+         "note": "without its leader, the word loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "gang",
-         "gives": "REW",
-         "note": "a gang is a crew, here without its first letter"
+         "at": 32,
+         "gives": "CREW",
+         "note": "a crew is a gang or team of people"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "to circle round",
-           "note": "circling round something encloses it, so one piece wraps another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "circle",
-           "gives": "RING",
-           "note": "a ring is a circle"
-          },
-          {
-           "words": "that thing",
-           "gives": "IT",
-           "note": "it stands for that thing"
-          }
-         ]
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 47,
+         "note": "the circle goes round the pronoun, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to circle",
+         "at": 37,
+         "gives": "RING",
+         "note": "to ring something is to circle it"
+        },
+        {
+         "words": "that thing",
+         "at": 53,
+         "gives": "IT",
+         "note": "it is the pronoun for that thing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boss conscripting a headless gang to surround something, once again.",
-     "walkthrough": "'drafting' tempts toward military conscription, but here it means writing a draft; 'circle' does double duty, supplying a word and telling it to enclose another.",
-     "definitionFit": "Rewriting is producing a new draft of a text, drafting it another time."
+     "surface": "A gang without its boss is set to surround something, and the plan is being revised.",
+     "walkthrough": "'Once again' looks like a link phrase, but it belongs to the definition: drafting once again is the answer's sense.",
+     "definitionFit": "Rewriting is the act of drafting a text again, producing a revised version of it."
     },
     "features": {
      "answerInScene": false,
