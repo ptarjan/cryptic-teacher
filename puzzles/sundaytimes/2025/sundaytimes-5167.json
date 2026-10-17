@@ -1349,44 +1349,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OPERATIONAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaks",
+       "at": 24,
+       "note": "the reversed word breaks into the other, splitting it apart from within"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "voluntary",
+       "at": 31,
+       "gives": "OPTIONAL",
+       "note": "something voluntary is optional, not compulsory"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "retired",
-         "note": "to retire is to withdraw, go back, so ARE runs backwards"
-        },
-        {
-         "text": "breaks",
-         "note": "a thing that breaks into another splits it open and sits in the gap"
+         "at": 11,
+         "note": "retired means withdrawn or gone back, so the word are is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "voluntary",
-         "gives": "OPTIONAL",
-         "note": "voluntary = optional"
-        },
-        {
          "words": "are",
-         "gives": "ERA",
-         "note": "the word itself, turned back and set inside 'voluntary' after its second letter"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker asks whether breaks are optional, whether in work or retirement.",
-     "walkthrough": "\"Working or retired\" looks like a pair of choices; in fact 'Working' is the definition, 'or' just links, and 'retired' goes with 'are'.",
-     "definitionFit": "A plain synonym: a machine that is up and running, ready for use, is working."
+     "surface": "Someone asks whether a pensioner's breaks, or those of a worker, are optional.",
+     "walkthrough": "'retired' turns ARE into ERA, which 'breaks' puts inside OPTIONAL after OP. The 'or' is only a link between definition and wordplay.",
+     "definitionFit": "A machine or system that is operational is in service and functioning, the sense of working."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "retired"
     }
