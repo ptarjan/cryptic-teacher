@@ -617,61 +617,61 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "AQUEDUCT",
+     "indicators": [
+      {
+       "text": "excitedly",
+       "at": 25,
+       "note": "anything done excitedly is done in a jumble, so the letters are thrown into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "AQUEDUCT",
        "indicators": [
         {
          "text": "ducks",
+         "at": 11,
          "note": "to duck is to dodge out of the way, so the thousand drops out of the word"
-        },
-        {
-         "text": "excitedly",
-         "note": "anything done excitedly is done in a jumble, so the letters are thrown into a new order"
-        },
-        {
-         "text": "having",
-         "note": "having something means holding it, so the extra letter is taken in among the others"
         }
        ],
        "parts": [
         {
          "words": "quacked",
-         "note": "the word taken as it stands, ready to be mixed"
+         "at": 17,
+         "note": "taken as written, before the thousand leaves it"
         },
         {
          "words": "A thousand",
+         "at": 0,
          "gives": "K",
-         "note": "K stands for a thousand, and this K is taken out of QUACKED"
-        },
-        {
-         "words": "united",
-         "gives": "U",
-         "note": "U is the abbreviation for united, as in football club names"
-        },
-        {
-         "words": "north of the",
-         "gives": "T",
-         "note": "in the dialect of northern England 'the' is clipped to t'"
+         "note": "K stands for a thousand, as in 10K"
         }
        ]
+      },
+      {
+       "words": "having united",
+       "at": 36,
+       "gives": "U",
+       "note": "having means holding something extra, and U is the abbreviation for united, as in Man U"
+      },
+      {
+       "words": "north of the",
+       "at": 50,
+       "gives": "T",
+       "note": "in the dialect of northern England the word 'the' is clipped to t'"
       }
      ]
     },
     "explanation": {
-     "surface": "A flock of ducks flapping about as they cross from France to Britain.",
-     "walkthrough": "Remove the K from QUACKED, add U, and mix the letters. 'North of the Channel' sounds like a place, but it is only the northern t' for 'the'.",
+     "surface": "A huge flock of ducks quacking wildly as they gather together on the English side of the Channel.",
+     "walkthrough": "'A thousand ducks' takes K out of QUACKED, leaving QUACED. Add U and T, and mix the lot 'excitedly'. 'north of the Channel' looks like a place, but northern English says t' for 'the'.",
      "definitionFit": "An aqueduct is an artificial channel for carrying water, often raised on arches across a valley."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "Channel"
+     "misdirectedWord": "ducks"
     }
    }
   },
@@ -1165,33 +1165,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "EASYCHAIR",
      "indicators": [
       {
        "text": "As Spooner sings",
+       "at": 0,
        "note": "the Reverend Spooner was famous for swapping the opening sounds of two words, so the pair that follows must be swapped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "hackneyed song",
-       "gives": "EASYCHAIR",
-       "soundsLike": "CHEESY AIR",
-       "note": "a hackneyed song is a cheesy air; swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "CHEASY",
+       "parts": [
+        {
+         "words": "hackneyed",
+         "at": 17,
+         "gives": "CHEESY",
+         "note": "hackneyed means corny and overdone, which is cheesy"
+        }
+       ]
+      },
+      {
+       "words": "song",
+       "at": 27,
+       "gives": "AIR",
+       "note": "an air is a song or tune"
       }
      ]
     },
     "explanation": {
      "surface": "Spooner crooning a tired old ballad.",
-     "walkthrough": "An 'air' is a song, and 'cheesy' means tired and corny. Say the pair aloud and move the 'ch' sound to the second word.",
-     "definitionFit": "An easy chair is a large, comfortable armchair, the obvious place to sit and relax."
+     "walkthrough": "'Cheesy air' with the 'ch' sound moved from the first word to the second is said 'easy chair'.",
+     "definitionFit": "An easy chair is a large, comfortable armchair, the obvious place to sit and unwind."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "sings"
     }
    }
   },
@@ -1738,51 +1749,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IKEBANA",
-     "indicators": [
-      {
-       "text": "Cut",
-       "note": "a cut word has lost a piece off the end, so its last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "sandwiches",
+         "at": 13,
+         "note": "a sandwich holds its filling between two outer pieces, so the first word goes around the cut word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "in",
+         "at": 10,
+         "note": "taken as written, the bread around the filling"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "sandwiches",
-           "note": "a sandwich holds its filling between two outer pieces, so these letters go around the cut word"
+           "text": "Cut",
+           "at": 0,
+           "note": "a cut word has lost a piece off the end, so its last letter is dropped"
           }
          ],
          "parts": [
           {
-           "words": "in",
-           "note": "the word taken as it stands, opened up to take a filling"
+           "words": "kebab",
+           "at": 4,
+           "note": "taken as written, before its tail is cut"
           },
           {
-           "words": "kebab",
-           "gives": "KEBA",
-           "note": "KEBAB with its last letter cut"
+           "gives": "B",
+           "note": "the last letter of kebab, removed"
           }
          ]
-        },
-        {
-         "words": "a",
-         "note": "the article taken as it stands"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 26
       }
      ]
     },
     "explanation": {
      "surface": "A sliced kebab served in a sandwich, sold as a Japanese delicacy.",
      "walkthrough": "The food picture hides that 'in' is the bread and the kebab is the filling. The answer is an art, not a dish.",
-     "definitionFit": "Ikebana is the Japanese art of flower arranging, a specialty of Japanese culture."
+     "definitionFit": "Ikebana is the Japanese art of flower arranging, a traditional speciality of Japanese culture."
     },
     "features": {
      "answerInScene": false,
