@@ -342,31 +342,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NUBUCK",
      "indicators": [
       {
-       "text": "masks front of",
-       "note": "masking the front covers up the opening letter, so the lump sits where that letter was"
+       "text": "masks",
+       "at": 13,
+       "note": "the lump masks, covering over and hiding, the named letter, taking its place"
       }
      ],
      "parts": [
       {
-       "words": "lump",
-       "gives": "NUB",
-       "note": "a nub is a small lump"
+       "words": "cotton fabric",
+       "at": 34,
+       "gives": "HUCK",
+       "note": "huck, short for huckaback, is a coarse cotton or linen towelling fabric"
       },
       {
-       "words": "heavy cotton fabric",
-       "gives": "DUCK",
-       "note": "duck is a heavy plain-woven cotton cloth"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front of",
+         "at": 19,
+         "note": "only the opening letter of heavy is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heavy",
+         "at": 28,
+         "note": "the first letter of heavy"
+        }
+       ]
+      },
+      {
+       "words": "lump",
+       "at": 8,
+       "gives": "NUB",
+       "note": "a nub is a small lump or knob"
       }
      ]
     },
     "explanation": {
-     "surface": "A lump hides the front of a piece of heavy cotton cloth.",
-     "walkthrough": "NUB covers the D at the front of DUCK.",
-     "definitionFit": "Nubuck is cowhide leather buffed on the grain side to give a soft, velvety surface."
+     "surface": "A leather item has a bump hiding the start of some thick cotton cloth.",
+     "walkthrough": "'masks' says NUB covers the H at the front of HUCK, replacing it. Huckaback, or huck, is a rough towelling cloth.",
+     "definitionFit": "Nubuck is cowhide leather buffed on the grain side to give a soft, suede-like nap."
     },
     "features": {
      "answerInScene": true,
@@ -468,46 +486,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "USUCAPION",
-     "indicators": [
-      {
-       "text": "supplanting",
-       "note": "to supplant is to take another's place, so one item ousts a letter of the next word"
-      },
-      {
-       "text": "first",
-       "note": "the confederacy word holds two copies of the name letter, and first says the earlier one is replaced"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "American",
-       "gives": "US",
-       "note": "US is the abbreviation for American"
+       "at": 0,
+       "gives": "US"
       },
       {
-       "words": "Confederacy",
-       "gives": "UNION",
-       "note": "a union is a confederacy or alliance"
-      },
-      {
-       "words": "name",
-       "gives": "N",
-       "note": "N is the abbreviation for name"
-      },
-      {
-       "words": "capital",
-       "gives": "CAP",
-       "note": "CAP is short for capital letter"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "supplanting",
+         "at": 17,
+         "note": "to supplant is to take another's place, so the capital word ousts a letter of the confederacy word"
+        },
+        {
+         "text": "first",
+         "at": 29,
+         "note": "the confederacy word holds two copies of the name letter, and first says the earlier one is replaced"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Confederacy",
+         "at": 43,
+         "gives": "UNION",
+         "note": "a union is a confederacy or alliance of states"
+        },
+        {
+         "words": "name",
+         "at": 35,
+         "gives": "N"
+        },
+        {
+         "words": "capital",
+         "at": 9,
+         "gives": "CAP",
+         "note": "cap is short for a capital letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political puzzle about an American capital replacing a name in the Confederacy, with a nod to squatters.",
-     "walkthrough": "The surface evokes the American Civil War, where the Confederacy fought the Union; here the two words simply mean the same thing.",
-     "definitionFit": "Usucapion is acquiring ownership of property through long uninterrupted possession, the legal principle behind adverse possession; hence the question mark."
+     "surface": "A US state capital displaces the leading figure of the Southern Confederacy over a squatting claim.",
+     "walkthrough": "The surface evokes the American Civil War, where the Confederacy fought the Union; here the two words mean the same thing. CAP replaces the first N of UNION to give UCAPION.",
+     "definitionFit": "Usucapion is acquiring ownership of property by long uninterrupted possession, the principle behind the rights squatters may claim; hence the question mark."
     },
     "features": {
      "answerInScene": false,
