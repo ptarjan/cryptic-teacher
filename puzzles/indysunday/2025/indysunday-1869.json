@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -145,56 +146,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CANTONESE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "toilet",
+       "at": 8,
+       "gives": "CAN",
+       "note": "can is American slang for a toilet"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": " in ",
-         "note": "Something described as being in a word sits between its letters, so the piece named before this goes inside the pair that follows."
+         "text": "in",
+         "at": 22,
+         "note": "in puts the word for you're between the two starting letters"
         }
        ],
        "parts": [
-        {
-         "words": "toilet",
-         "gives": "CAN",
-         "note": "the can is American slang for the lavatory"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "starts to",
-           "note": "A word that is only starting to do something has got no further than its opening letter, and here two words in a row are docked to their firsts."
+           "at": 25,
+           "note": "starts to picks the opening letter of each of the next two words"
           }
          ],
          "parts": [
           {
-           "words": "test",
-           "note": "its first letter alone"
+           "words": "test everything",
+           "at": 35,
+           "note": "the first letters of test and everything"
           }
          ]
         },
         {
          "words": "you're",
+         "at": 15,
          "gives": "ONES",
-         "note": "one's does duty for your in formal speech: one does one's best"
-        },
-        {
-         "words": "everything",
-         "gives": "E",
-         "note": "the first letter again, closing the sandwich"
+         "note": "one's, short for one is, is the formal way of saying you're"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Chinese toilet' is there to make you picture plumbing. The pivot is 'you're': read it as the formal one's and it becomes the filling that two initials close around.",
-     "definitionFit": "Chinese -> CANTONESE: definition by example, since Cantonese is one of the Chinese languages, the one spoken around Canton in the south."
+     "surface": "A Chinese public toilet you're in, where starts are made to test everything.",
+     "walkthrough": "'You're' gives ONES, as in one's (one is), the impersonal you; it sits 'in' T and E, the 'starts to' test and everything.",
+     "definitionFit": "Cantonese is the Chinese language spoken in Guangdong and Hong Kong, or a person from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "you're"
     }
    }
   },
@@ -615,36 +620,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STRIKING",
-     "indicators": [
-      {
-       "text": "Half",
-       "note": "Half of a word is what you keep and the rest is thrown away; here the front four characters of an eight-letter word survive."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half",
+         "at": 0,
+         "note": "half asks for only the first four of the word's eight letters"
+        }
+       ],
        "parts": [
         {
          "words": "undressed",
-         "gives": "STRI",
-         "note": "undressed is stripped, and only the front half of that eight-letter word is taken"
+         "at": 5,
+         "gives": "STRIPPED",
+         "note": "stripped means undressed"
         },
         {
-         "words": "man checked",
-         "gives": "KING",
-         "note": "the man who gets checked is the chess piece the whole game turns on"
+         "gives": "PPED"
         }
        ]
+      },
+      {
+       "words": "man checked",
+       "at": 15,
+       "gives": "KING",
+       "note": "in chess the man that is put in check is the king"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the single word at the very end, which is what lets the rest run on as an ordinary sentence. Workers who are out have downed tools.",
-     "definitionFit": "out -> STRIKING: 'out' in the union sense — a workforce out on strike is striking, and either word fits a sentence about a stoppage."
+     "surface": "A half-naked man was looked over and then sent away.",
+     "walkthrough": "'Out' is the definition: workers who are out are on strike. The chessman that can be 'checked' is the king.",
+     "definitionFit": "Workers who are out are on strike, which is the striking sense of the word, downing tools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "checked"
     }
    }
   },
@@ -1185,36 +1201,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONSUMMATE",
-     "indicators": [
-      {
-       "text": "arranged",
-       "note": "A mum who has arranged something has put it into an order of her own choosing, and the six letters beside the word are re-ordered too."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Prisoners",
+       "at": 0,
+       "gives": "CONS",
+       "note": "cons are convicts, prisoners"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 19,
+         "note": "arranged means set in a new order, so the letters of tea and mum are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Prisoners'",
-         "gives": "CONS",
-         "note": "a con is a convict, so prisoners are cons"
+         "words": "tea",
+         "at": 11
         },
         {
-         "words": "tea mum",
-         "gives": "UMMATE",
-         "note": "six letters across the two words, reassembled"
+         "words": "mum",
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the whole tail of the clue, and it is the marriage sense of the verb: a marriage is consummated when the couple first sleep together.",
-     "definitionFit": "complete with relations -> CONSUMMATE: to consummate a marriage is to complete it by having sex, the one sense where completion and relations meet."
+     "surface": "Prison inmates whose mum arranged tea, complete with their relatives.",
+     "walkthrough": "'relations' looks like family visiting prison, but the definition takes in sexual relations, the sense in which a marriage is consummated.",
+     "definitionFit": "To consummate a marriage is to complete it by having sexual intercourse for the first time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relations"
     }
    }
   },
@@ -1287,25 +1313,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTRA",
      "indicators": [
       {
        "text": "Half of",
-       "note": "Half of a word is the part you keep; the setter drops the rest, and here the first five characters of a ten-letter word are what stay."
+       "at": 0,
+       "note": "half of here takes roughly the first half, five letters of the nine"
       }
      ],
      "parts": [
       {
        "words": "fans in restaurant",
-       "gives": "EXTRA",
-       "note": "the fans that clear the air over a restaurant cooker are its extractors, and only the front half of that ten-letter word is kept"
+       "at": 8,
+       "gives": "EXTRACTOR",
+       "note": "extractor fans clear the steam and smells from a restaurant kitchen"
+      },
+      {
+       "gives": "CTOR"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fans' wants to be a crowd of supporters. The question mark is the setter flagging that the fans he means are the extractor fans in a restaurant kitchen.",
-     "definitionFit": "More -> EXTRA: something described as extra is added beyond what was counted on, so this is more in the sense of an additional amount."
+     "surface": "Half the supporters in a restaurant want more.",
+     "walkthrough": "'fans' look like supporters, but they are the extractor fans of a kitchen; 'Half of' keeps only the front part.",
+     "definitionFit": "Extra means additional, so more of something than usual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fans"
     }
    }
   },
