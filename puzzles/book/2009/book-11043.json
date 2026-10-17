@@ -1080,13 +1080,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CANETOAD",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is missing its end, so the final letter is dropped"
+       "text": "about",
+       "at": 22,
+       "note": "the rearranged letters go about, or around, the A"
       }
      ],
      "parts": [
@@ -1095,27 +1094,44 @@
        "indicators": [
         {
          "text": "Edited",
-         "note": "an edited text has been reworked, so these letters are rearranged"
+         "at": 0,
+         "note": "an edited text has been reworked, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "anecdote",
-         "gives": "ANECDOT",
-         "note": "the word with its final letter removed"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 7,
+           "note": "short means cut off before the end, so the last letter of anecdote goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "anecdote",
+           "at": 13,
+           "gives": "ANECDOTE"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A short story about a person who gets rid of vermin has been cut down by an editor.",
-     "walkthrough": "'About' looks like the subject of the anecdote, but it just links the A to the other letters.",
-     "definitionFit": "Cane toads were brought to Australia to eat beetles that attacked sugar cane, so they were meant to control pests."
+     "surface": "Someone trims a funny story about an exterminator.",
+     "walkthrough": "'short' trims ANECDOTE to ANECDOT, and 'Edited' rearranges that round the A. The definition is apt: the cane toad was brought to Australia to eat beetles in sugar-cane fields.",
+     "definitionFit": "The cane toad was introduced to Australia in 1935 as biological control for cane beetles, so it was meant as a controller of pests."
     },
     "features": {
      "answerInScene": false,
@@ -1145,43 +1161,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CABARET",
+     "op": "container",
      "indicators": [
       {
-       "text": "brief",
-       "note": "brief means cut short, so the show's title loses its last letter"
+       "text": "appears in",
+       "at": 5,
+       "note": "the nude word appears in the middle of the shortened musical"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "appears in",
-         "note": "to appear in something is to be inside it, so one part sits within the other"
+         "text": "brief",
+         "at": 16,
+         "note": "brief means cut short, so the last letter of the show's name goes"
         }
        ],
        "parts": [
         {
          "words": "musical",
-         "gives": "CAT",
-         "note": "the Lloyd Webber musical Cats, shortened"
+         "at": 22,
+         "gives": "CATS",
+         "note": "Cats is the Andrew Lloyd Webber musical"
         },
         {
-         "words": "Nude",
-         "gives": "BARE",
-         "note": "nude means bare"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "Nude",
+       "at": 0,
+       "gives": "BARE",
+       "note": "bare means nude"
       }
      ]
     },
     "explanation": {
-     "surface": "A naked performer turns up in a short song-and-dance show.",
-     "walkthrough": "'Brief musical entertainment' looks like the definition. 'Musical' is the show Cats, and only 'entertainment' defines.",
-     "definitionFit": "A cabaret is a show of songs, dancing or comedy staged in a nightclub or restaurant."
+     "surface": "A nude performer turns up in a short song-and-dance show.",
+     "walkthrough": "'brief musical' looks like the definition, but it gives CAT, the musical Cats cut short; 'appears in' puts BARE inside it.",
+     "definitionFit": "Cabaret is entertainment with song and dance at a nightclub or restaurant."
     },
     "features": {
      "answerInScene": true,
@@ -1576,36 +1597,36 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RU",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half portion of",
-         "note": "half a portion means only the front half of the following word is used"
+         "at": 37,
+         "note": "half a portion of the word is its first two of four letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "rusk",
-         "gives": "RU",
-         "select": "first",
-         "note": "the first two of its four letters"
+         "at": 53
+        },
+        {
+         "gives": "SK"
         }
        ]
       },
       {
        "words": "can",
+       "at": 5,
        "gives": "TIN",
-       "note": "a can is a tin"
+       "note": "a tin is a can"
       }
      ]
     },
     "explanation": {
-     "surface": "Half a baby's rusk out of a tin is offered as a health supplement.",
-     "walkthrough": "'Can' looks like a verb, but it is the container, a tin.",
-     "definitionFit": "Rutin is a plant flavonoid sold in capsules as a nutritional supplement."
+     "surface": "A health tip suggests half a hard biscuit or a tin as a source of nutrients.",
+     "walkthrough": "'Half portion of' keeps RU from RUSK. Rutin is a plant flavonoid sold in capsules, which is why it counts as a supplement.",
+     "definitionFit": "Rutin is a flavonoid found in buckwheat and citrus and is sold as a nutritional supplement."
     },
     "features": {
      "answerInScene": true,
