@@ -114,46 +114,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RISINGDAMP",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "flanking",
+       "at": 25,
+       "note": "flanking means standing on either side, so the slope's letters go round the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "slope",
+       "at": 19,
+       "gives": "RAMP",
+       "note": "a ramp is a slope"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "flanking",
-         "note": "the slope sits on both sides of the other letters"
-        },
-        {
          "text": "unstable",
-         "note": "the letters of siding are not fixed in order"
+         "at": 41,
+         "note": "unstable suggests the letters of siding are not fixed and get rearranged"
         }
        ],
        "parts": [
         {
-         "words": "slope",
-         "gives": "RAMP",
-         "note": "a ramp is a slope"
-        },
-        {
          "words": "siding",
-         "gives": "ISINGD",
-         "note": "SIDING rearranged, placed inside R…AMP"
+         "at": 34
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A builder reports a problem: a bank of earth beside a railway siding has become unstable.",
-     "walkthrough": "Rising damp is moisture drawn up from the ground into the walls of a building, a familiar complaint in older British houses.",
-     "definitionFit": "Rising damp is a defect in a building's fabric, so a building problem."
+     "surface": "A surveyor notes that a sloping bit of ground beside a railway siding is unstable.",
+     "walkthrough": "'unstable' rearranges SIDING into ISINGD, which RAMP flanks: R + ISINGD + AMP.",
+     "definitionFit": "Rising damp is moisture creeping up a wall from the ground, a common defect in old buildings."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "siding"
+     "misdirectedWord": "Building"
     }
    }
   },
@@ -284,63 +286,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PLEBEIAN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involves",
+       "at": 14,
+       "note": "involves means takes in, so the scheme's letters wrap around the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "involves",
-         "note": "the scheme takes the other letters inside it"
-        }
-       ],
+       "words": "scheme",
+       "at": 7,
+       "gives": "PLAN",
+       "note": "a plan is a scheme"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "English",
+         "at": 23,
+         "gives": "E"
+        },
+        {
+         "words": "bishop",
+         "at": 31,
+         "gives": "B",
+         "note": "B is the chess notation abbreviation for bishop"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "retiring",
-           "note": "going backwards, as one retires by withdrawing"
+           "at": 46,
+           "note": "retiring means drawing back, so the letters for 'that is' run backwards"
           }
          ],
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "scheme",
-             "gives": "PLAN",
-             "note": "a plan is a scheme"
-            },
-            {
-             "words": "English",
-             "gives": "E",
-             "note": "E = English"
-            }
-           ]
-          },
-          {
-           "words": "bishop",
-           "gives": "B",
-           "note": "B = bishop in chess notation"
+           "words": "that is",
+           "at": 38,
+           "gives": "IE",
+           "note": "i.e. is the Latin abbreviation for 'that is'"
           }
          ]
-        },
-        {
-         "words": "that is",
-         "gives": "EI",
-         "note": "IE (id est, that is) turned round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crude plot is uncovered in which an English bishop is quietly stepping down.",
-     "walkthrough": "IE is the abbreviation of id est, 'that is'; 'retiring' reverses it, since to retire is to draw back.",
-     "definitionFit": "Plebeian means coarse or common, of the lower orders, which is what vulgar means."
+     "surface": "Some coarse plot ends up implicating an English bishop who is about to retire.",
+     "walkthrough": "'that is' is i.e., the Latin abbreviation; the scheme 'involves' everything else.",
+     "definitionFit": "Plebeian means belonging to the common people, hence coarse or lacking refinement."
     },
     "features": {
      "answerInScene": false,
@@ -370,51 +370,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "middle",
      "indicators": [
       {
        "text": "Uncovered",
-       "note": "with its outer covering stripped off, first and last letters go"
+       "at": 0,
+       "note": "uncovered means with the outer covering stripped, so the first and last letters go"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "definitive",
-         "gives": "CLASSIC",
-         "note": "a classic, definitive version"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "LASSI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Uncovered",
-           "gives": "LASSI",
-           "select": "outer",
-           "note": "CLASSIC without its outer C and C"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "gives": "CLASSIC"
+       "words": "definitive",
+       "at": 10,
+       "gives": "CLASSIC",
+       "note": "a classic is the definitive example of its kind"
       }
      ]
     },
     "explanation": {
-     "surface": "A menu promises the ultimate drink, available sweet or savoury.",
-     "walkthrough": "A lassi is a South Asian yoghurt drink, served sweet (often with mango) or salted.",
-     "definitionFit": "A lassi comes in both sweet and savoury versions, so the description fits exactly."
+     "surface": "A recipe touts the ultimate drink, which can be had sweet or savoury.",
+     "walkthrough": "'Uncovered' strips the outer letters C and C from CLASSIC.",
+     "definitionFit": "Lassi is an Indian yoghurt-based drink served either sweetened or salted with spices."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Uncovered"
     }
    }
@@ -716,56 +696,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LATHE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about means surrounding, so the reversed letters go round the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "reflecting",
-         "note": "turned back as in a mirror"
-        },
-        {
-         "text": "going",
-         "note": "what gets something going is its start, the first letter"
+         "at": 18,
+         "note": "reflecting means mirrored, so the letters for 'and others' read backwards"
         }
        ],
        "parts": [
         {
-         "words": "others",
-         "gives": "LATE",
-         "note": "ET AL (and others) turned round, split around H"
+         "words": "and others",
+         "at": 7,
+         "gives": "ETAL",
+         "note": "et al is the Latin abbreviation for 'and others'"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "what gets",
+         "at": 35,
+         "note": "what gets a word going is its opening letter, so only the start of him is used"
         },
         {
-         "op": "first",
-         "unchecked": true,
+         "text": "going",
+         "at": 49,
+         "note": "going completes the phrase meaning the word's start, so just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "him",
+         "at": 45,
          "gives": "H",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "placed around the next part"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "what gets him going",
-           "gives": "H",
-           "select": "first",
-           "note": "the first letter of him"
-          }
-         ]
+         "note": "the first letter of him is H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The painter Turner and his circle look back on what inspired him.",
-     "walkthrough": "Turner looks like the painter J M W Turner; it is a machine that turns wood or metal.",
-     "definitionFit": "A lathe turns the workpiece while it is shaped, so it is a turner."
+     "surface": "The painter Turner and his fellow artists look back on what motivates him.",
+     "walkthrough": "'reflecting' turns ETAL into LATE, and 'about' puts it round H, 'what gets' him 'going'. The painter J.M.W. Turner is a decoy: a turner is a machine.",
+     "definitionFit": "A lathe is a machine that turns wood or metal against a cutting tool, so it is literally a turner."
     },
     "features": {
      "answerInScene": false,
@@ -1146,49 +1132,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "stop one letter short of the end"
-      }
-     ],
      "parts": [
       {
-       "words": "repaired",
-       "gives": "MENDE",
-       "note": "MENDED without its final D"
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "LEEV",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "exposed",
-         "note": "stripped of its outer covering"
+         "text": "almost",
+         "at": 17,
+         "note": "almost means not quite complete, so the final letter is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "repaired",
+         "at": 24,
+         "gives": "MENDED",
+         "note": "mended means repaired"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 33,
+         "note": "exposed means with its outer layer removed, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
          "words": "tube",
-         "gives": "LEEV",
-         "select": "outer",
-         "note": "a sleeve is a tube; SLEEVE without its first and last letters"
+         "at": 41,
+         "gives": "SLEEVE",
+         "note": "a sleeve is a tube of fabric, or a tubular casing in engineering"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A furniture maker's nearly finished repair to a table leaves a pipe showing.",
-     "walkthrough": "The table is not furniture but the periodic table, which Dmitri Mendeleev drew up in 1869.",
-     "definitionFit": "Mendeleev devised the periodic table of the elements."
+     "surface": "A furniture maker's work has nearly been repaired, leaving a pipe on show.",
+     "walkthrough": "'almost' trims MENDED to MENDE; 'exposed' strips SLEEVE to LEEV. The table is the periodic one.",
+     "definitionFit": "Dmitri Mendeleev drew up the periodic table of the elements, so he is its designer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Table"
     }
    }
@@ -1215,52 +1208,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EUGENIA",
      "indicators": [
       {
        "text": "flourishing",
-       "note": "the letters are waved about into a new order"
+       "at": 27,
+       "note": "flourishing suggests vigorous movement, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre in",
+         "at": 6,
+         "note": "the centre in a three-letter word is its middle letter"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "centre in",
-           "note": "take the letter at the centre of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "centre in New",
-           "gives": "NEW",
-           "note": "the middle letter of nEw"
-          }
-         ]
-        },
-        {
-         "words": "Guinea",
-         "gives": "UGENIA",
-         "note": "GUINEA rearranged"
+         "words": "New",
+         "at": 16,
+         "gives": "E",
+         "note": "the middle letter of New is E"
         }
        ]
+      },
+      {
+       "words": "Guinea",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A plant nursery in New Guinea is doing well.",
-     "walkthrough": "'New Guinea' reads as one place name; it splits, with only the centre of 'New' kept.",
-     "definitionFit": "Eugenia is a genus of tropical shrubs and trees in the myrtle family."
+     "surface": "A plant grows at the heart of a thriving New Guinea forest.",
+     "walkthrough": "'centre in' takes E from NEW; 'flourishing' mixes E with GUINEA.",
+     "definitionFit": "Eugenia is a genus of flowering shrubs and trees in the myrtle family, including some fruiting species."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "centre"
+     "misdirectedWord": "flourishing"
     }
    }
   },
