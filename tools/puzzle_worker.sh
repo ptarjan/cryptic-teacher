@@ -698,7 +698,7 @@ worker_sweep_scratch() {   # [minutes]
   return 0
 }
 _worker_finish() {
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0 partial="" verdict=""
   # A run that took its work back ships none of it, however it validates.
   if why=$(worker_withdrawn "$id" "$log"); then
     worker_withdraw "$id" "$why"
@@ -772,7 +772,33 @@ _worker_finish() {
       pending=$(grep -E '^  ERROR' "$vlog" | head -1 | cut -c1-200)
       echo "  [$id] only blank clues failed — shipping the hints that validated, the blanks left pending"
     fi
-    local verdict=alert ddir
+    # Clues that still fail after the fix run cost only their own hints
+    # (tools/drop_failed_clues.py): the rest ship. The first time, the dropped
+    # clues are simply due again (annotate_check.to_write), so the planner sends
+    # them later as a scoped tail; the puzzle's second such failure parks it on
+    # its inputs like any other (discard_alert's count, shared with a discard).
+    # An error that names no clue is the puzzle's, and discards it as before.
+    local ddir dropped="" pfile; verdict=alert
+    if [ -z "$pending" ] && [ -z "$reopen" ]; then
+      pfile=$(python3 tools/puzzle_paths.py "$id")
+      cp "$vlog" "$vlog.first"
+      cp "$pfile" "$vlog.file"
+      if dropped=$(python3 tools/drop_failed_clues.py "$id" 2>/dev/null) && [ -n "$dropped" ] &&
+         { python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1 || true; worker_only_blanks "$id" "$vlog"; }; then
+        ddir="$(worker_runs_root)/discards"
+        verdict=$(python3 tools/discard_alert.py judge "$id" "$vlog.first" --dir "$ddir" 2>/dev/null) || verdict=alert
+        partial=1
+        pending=$(grep -E '^  ERROR' "$vlog.first" | head -1 | cut -c1-200)
+        echo "  [$id] clues still failing ($dropped) dropped — shipping the hints that validated, those clues left due"
+        [ "$verdict" != alert ] || alert "$what $id shipped without $dropped, which failed twice, so that puzzle is parked on them: $pending"
+      else
+        # Put the run's file back as it was, for the discard below to salvage.
+        cp "$vlog.file" "$pfile"
+        cp "$vlog.first" "$vlog"
+        dropped=""
+      fi
+      rm -f "$vlog.first" "$vlog.file"
+    fi
     if [ -z "$pending" ]; then
       # Whether anyone can act on this (tools/discard_alert.py): a puzzle that
       # awaits a preamble is parked silently; a first discard is retried by the
@@ -808,7 +834,7 @@ _worker_finish() {
   rm -f "$vlog"
   # Solved-but-short is not a failure: the nulled clues ship as "answers only".
   # Say so, once, per puzzle.
-  loss=$(python3 tools/check_annotation_loss.py "$id" 2>&1) ||
+  loss=$(python3 tools/check_annotation_loss.py "$id" 2>&1) || [ -n "$partial" ] ||
     alert "$WORKER_JOB left clues blank — $loss. They ship with no teaching ladder."
   echo "$loss"
   # A printedClue this run filed on an OCR'd puzzle asks its scan to be read
@@ -840,7 +866,9 @@ _worker_finish() {
   fi
   # shellcheck disable=SC2046  # one path per line, none with a space
   worker_commit "$what $id" "${spec[@]}" $(python3 tools/own_rows.py paths) || return 1
-  if [ -n "$pending" ]; then
+  if [ -n "$partial" ] && [ "$verdict" = retry ]; then
+    : # Left unparked: the dropped clues are due, and the next pick is their tail.
+  elif [ -n "$pending" ]; then
     python3 tools/failed_inputs.py record annotate "$id" --judged --reason "$pending" || true
   else
     python3 tools/failed_inputs.py clear annotate "$id" >/dev/null

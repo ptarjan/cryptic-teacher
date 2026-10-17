@@ -27,7 +27,7 @@ trap 'rm -rf "$scratch"' EXIT
 cd "$REPO" || exit 1
 . tools/puzzle_worker.sh
 ALERTS="$scratch/alerts"; RECORDS="$scratch/records"; FIXES="$scratch/fixes"
-VERDICT=alert; WHICH=""; REOPEN_OK=1; VALID=1; CHANGED=1; WANTS=""; AWAIT_OK=1
+DROP=0; ANNOTATED=""; VERDICT=alert; WHICH=""; REOPEN_OK=1; VALID=1; CHANGED=1; WANTS=""; AWAIT_OK=1
 export WORKER_JOB="the test"  # read by the sourced puzzle_worker.sh
 alert() { echo "$*" >>"$ALERTS"; }
 discard_puzzle() { :; }
@@ -38,7 +38,13 @@ index_lock() { :; }; index_unlock() { :; }; stage_puzzle() { :; }
 git() { [ "$1" = status ] && [ "$CHANGED" = 1 ] && echo " M x"; return 0; }
 python3() {
   case "$1" in
-    tools/validate_annotations.py) [ "$VALID" = 1 ] && return 0; echo "  ERROR: 5D: no annotation."; return 1 ;;
+    tools/validate_annotations.py)
+      [ "$2" = --deploy ] && return 0
+      [ "$VALID" = 1 ] && return 0
+      [ -n "$ANNOTATED" ] && echo "times-19116: 3/4 annotated — FAIL"
+      if [ -n "$ANNOTATED" ] && [ ! -e "$scratch/dropped" ]; then echo "  ERROR: 5D: block gives II"; else echo "  ERROR: 5D: no annotation."; fi
+      return 1 ;;
+    tools/drop_failed_clues.py) echo "$*" >>"$RECORDS"; [ "$DROP" = 1 ] && { touch "$scratch/dropped"; echo "5-down"; } ;;
     tools/reopen_answers.py) [ -n "$WHICH" ] && echo "$WHICH"; return 0 ;;
     tools/await_preamble.py)
       [ "${3:-}" = --which ] && { [ -n "$WANTS" ] && echo "$WANTS"; return 0; }
@@ -53,7 +59,7 @@ python3() {
 }
 run() {  # run <which> <reopen ok> [valid] [changed] [wants] [await ok]
   WHICH="$1"; REOPEN_OK="$2"; VALID="${3:-0}"; CHANGED="${4:-1}"; WANTS="${5:-}"; AWAIT_OK="${6:-1}"
-  rm -f "$ALERTS" "$RECORDS" "$FIXES"
+  rm -f "$ALERTS" "$RECORDS" "$FIXES" "$scratch/dropped"
   worker_finish times-19116 Annotate "$scratch/sid" "$scratch/log" >/dev/null 2>&1
 }
 count() { [ -f "$1" ] || { echo 0; return; }; grep -c "$2" "$1"; }
@@ -106,5 +112,25 @@ VERDICT=silent; run "" 1
 check "unmendable preamble case: no alert" "0" "$(count "$ALERTS" .)"
 check "unmendable preamble case: parked" "1" "$(count "$RECORDS" 'record annotate times-19116')"
 VERDICT=alert
+
+# Clues that still fail after the fix run cost only their own hints.
+DROP=1; ANNOTATED=1; VERDICT=retry; run "" 1
+check "failed clue, first time: worker_finish ships (0)" "0" "$?"
+check "failed clue, first time: dropped by tools/drop_failed_clues.py" "1" "$(count "$RECORDS" 'drop_failed_clues.py times-19116')"
+check "failed clue, first time: the rest committed" "1" "$(count "$RECORDS" 'commit Annotate times-19116')"
+check "failed clue, first time: left unparked so its tail is picked up" "0" "$(count "$RECORDS" 'record annotate')"
+check "failed clue, first time: no alert" "0" "$(count "$ALERTS" .)"
+check "failed clue, first time: the failure count is kept" "0" "$(count "$RECORDS" 'clear annotate')"
+VERDICT=alert; run "" 1
+check "failed clue, second time: the rest still ship" "1" "$(count "$RECORDS" 'commit Annotate times-19116')"
+check "failed clue, second time: parked on its inputs" "1" "$(count "$RECORDS" 'record annotate times-19116 --judged')"
+check "failed clue, second time: one alert naming the clue" "1" "$(count "$ALERTS" 'shipped without 5-down')"
+VERDICT=ledger; run "" 1
+check "failed clue, repeated class: parked, no alert" "1 0" "$(count "$RECORDS" 'record annotate times-19116') $(count "$ALERTS" .)"
+VERDICT=alert; DROP=0; run "" 1
+check "a failure naming no clue: still discarded (1)" "1" "$?"
+check "a failure naming no clue: not committed" "0" "$(count "$RECORDS" 'commit ')"
+check "a failure naming no clue: parked and alerted as before" "1 1" "$(count "$RECORDS" 'record annotate times-19116') $(count "$ALERTS" 'was discarded')"
+DROP=0; ANNOTATED=""
 
 if [ "$fails" = 0 ]; then echo "all passed"; else echo "$fails failed"; exit 1; fi

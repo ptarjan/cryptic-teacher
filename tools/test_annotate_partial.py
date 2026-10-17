@@ -190,6 +190,38 @@ try:
     out = rewrite(clean, fresh)
     check("an annotation written for the new clue is kept",
           seven_down(out).get("annotation", {}).get("wordplay") == fresh["wordplay"])
+
+    # The burn ships the clues that validate and drops only the ones that do
+    # not (tools/drop_failed_clues.py; puzzle_worker.sh _worker_finish).
+    import copy, drop_failed_clues as D, validate_annotations as V
+    whole = F.read_puzzle_file(src)
+    bad = copy.deepcopy(whole)
+    by_id = {groups.entry_id(e): e for e in bad["entries"]}
+    x, y = (groups.entry_id(e) for e in bad["entries"][2:5:2])
+    for cid in (x, y):
+        by_id[cid]["annotation"]["definitions"][0]["text"] = "zzz not in the clue"
+    check("two clues with bad hints fail validation", len(V.run_errors(src, bad)) == 2)
+    got = D.dropped_clues(src, bad)
+    check("both are named and dropped", got is not None and got[1] == {x, y})
+    kept = {groups.entry_id(e): e.get("annotation") for e in got[0]["entries"]}
+    check("their hints are gone and every other is as it was",
+          kept[x] is None and kept[y] is None
+          and all(kept[c] == full.get(c) for c in kept if c not in (x, y) and c in full))
+    check("what is left fails only as blank clues",
+          all(D.BLANK.match(e) for e in V.run_errors(src, got[0])))
+    check("the dropped clues are due again, as a scoped tail",
+          set(AC.to_write(got[0], None)) == {x, y})
+    check("and the puzzle is not 'nothing due'", not AC.nothing_due(got[0]))
+    unnamed = copy.deepcopy(whole)
+    unnamed["entries"][2]["clue"]["text"] += " X"
+    check("a failure that names no clue drops nothing", D.dropped_clues(src, unnamed) is None)
+    empty = copy.deepcopy(whole)
+    for e in empty["entries"]:
+        e.pop("annotation", None)
+    first = next(e for e in empty["entries"])
+    first["annotation"] = copy.deepcopy(by_id[groups.entry_id(first)]["annotation"])
+    first["annotation"]["definitions"][0]["text"] = "zzz not in the clue"
+    check("nothing is left to ship: refused", D.dropped_clues(src, empty) is None)
 finally:
     shutil.rmtree(tmp)
 print("annotate_partial: all checks passed" if not fails else "annotate_partial: FAILED")

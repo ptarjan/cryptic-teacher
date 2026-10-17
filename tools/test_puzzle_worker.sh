@@ -360,7 +360,9 @@ check "no hint at all: nothing to ship" "$(got rc)" "1"
 out=$(blanks $'x: 28/30 annotated — FAIL\n  ERROR: 22D: no annotation. Every clue' 1)
 check "the deploy's rules refuse it: parked" "$(got rc)" "1"
 check "worker_finish ships it, and records it so the hole is not bought again" \
-  "$(grep -c 'worker_only_blanks "\$id" "\$vlog"' tools/puzzle_worker.sh) $(grep -c 'record annotate "\$id" --judged --reason "\$pending"' tools/puzzle_worker.sh)" "1 1"
+  "$(grep -c 'worker_only_blanks "\$id" "\$vlog"' tools/puzzle_worker.sh) $(grep -c 'record annotate "\$id" --judged --reason "\$pending"' tools/puzzle_worker.sh)" "2 1"
+check "worker_finish drops only the failing clues (drop_failed_clues.py), then validates what is left as blanks" \
+  "$(grep -c 'python3 tools/drop_failed_clues.py "\$id"' tools/puzzle_worker.sh)" "1"
 
 echo "a refused fill is reported by its first problem, not its last (genius-41, 10-13)"
 verdict_line() ( . tools/puzzle_worker.sh; printf '%s\n' "$1" >"$stub/verdict"; worker_verdict_line "$stub/verdict"; )
