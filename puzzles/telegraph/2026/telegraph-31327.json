@@ -101,43 +101,26 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SLAPUP",
-     "indicators": [
-      {
-       "text": "This could make",
-       "note": "'make' signals that the answer, taken as an instruction, produces pals: the first half read upward in a down entry spells it"
-      }
-     ],
+     "op": "reverse",
+     "reading": "SLAP UP",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "pals",
-         "gives": "SLAP",
-         "note": "the clue word written backwards"
-        },
-        {
-         "words": "This could make",
-         "gives": "UP",
-         "note": "the direction word that, in a down entry, turns SLAP back into pals"
-        }
-       ]
+       "words": "This could make pals",
+       "at": 0,
+       "note": "read the answer as an instruction: a four-letter word for a smack, written upwards in a down entry, spells pals"
       }
      ]
     },
     "explanation": {
-     "surface": "A lavish gesture wins friends.",
-     "walkthrough": "The wordplay runs backwards: the answer, taken as an instruction, produces the clue word. SLAP-UP is British for lavish, usually of a meal.",
-     "definitionFit": "British idiom: a slap-up meal or do is laid on with open-handed lavishness."
+     "surface": "A cryptic boast that a lavish gesture wins friends.",
+     "walkthrough": "This is a reverse clue: the answer, split in two and read as an instruction, produces the word pals. Slap-up is British informal for a large, lavish meal.",
+     "definitionFit": "A slap-up meal is lavish and plentiful, so slap-up describes generous, extravagant provision."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "make"
+     "misdirectedWord": "pals"
     }
    }
   },
@@ -496,54 +479,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ultimately",
-       "note": "'ultimately' means in the end, so the final letter is taken"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "sugar goes in a drink, so the letter is placed inside the drink's letters"
+         "at": 23,
+         "note": "in puts the final letter of sugar inside the hot drink"
         }
        ],
        "parts": [
         {
          "words": "hot drink",
+         "at": 26,
          "gives": "TEA",
-         "note": "tea, the classic hot drink"
+         "note": "tea is a hot drink"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "R",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 12,
+           "note": "ultimately points to the final letter of the word sugar"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "sugar ultimately",
+           "words": "sugar",
+           "at": 6,
            "gives": "R",
-           "select": "last",
-           "note": "last letter of sugar"
+           "note": "its last letter is R"
           }
          ]
         }
        ]
       },
       {
-       "words": "Certainly!",
+       "words": "Certainly",
+       "at": 37,
        "gives": "SURE",
-       "note": "sure = certainly"
+       "note": "sure is an informal way of saying certainly"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asked whether they like sugar in their tea answers enthusiastically.",
-     "walkthrough": "The question mark and exclamation make it read like a conversation over a cuppa, with 'Adore' sounding like the reply rather than the definition.",
-     "definitionFit": "Plain synonym: to hold someone very dear, cherishing them like a valuable possession."
+     "surface": "Someone asks if you love sugar in your cuppa and gets an emphatic yes.",
+     "walkthrough": "'Sugar in hot drink' paints sweetened tea; 'ultimately' cuts sugar down to its last letter, R, which goes 'in' TEA.",
+     "definitionFit": "To treasure someone or something is to cherish or hold them dear, so to adore them."
     },
     "features": {
      "answerInScene": false,
@@ -1715,43 +1699,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "at": 20,
+       "note": "no means the letter for American is to be left out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "'no American' means without one, so the American's letter is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Place in Washington",
-         "gives": "SEATTLE",
-         "note": "Seattle, the city in Washington State"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "words": "Place in Washington",
+       "at": 0,
+       "gives": "SEATTLE",
+       "note": "Seattle is the largest city in Washington State"
       },
       {
-       "unchecked": true,
-       "words": "no American",
-       "note": "A for American is removed"
+       "words": "American",
+       "at": 23,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that one place in Washington is free of Americans and peaceful.",
-     "walkthrough": "Washington is the state, not the capital. 'Calm' is a verb here: to settle the nerves.",
-     "definitionFit": "Verb sense: to soothe, as settling a baby or settling one's nerves."
+     "surface": "Somewhere in Washington without any Americans is peaceful.",
+     "walkthrough": "'Place' looks like the definition, but it belongs to the wordplay: a place in Washington is SEATTLE, which loses an A.",
+     "definitionFit": "To settle frayed nerves or an upset stomach is to calm or soothe them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Washington"
+     "misdirectedWord": "Place"
     }
    }
   },
