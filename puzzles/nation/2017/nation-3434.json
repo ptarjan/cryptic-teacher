@@ -912,45 +912,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "'s past",
-       "note": "the hen is past, that is beyond, the next item, so it is placed after it"
+       "text": "past",
+       "at": 29,
+       "note": "past means coming after, so the hen's word follows the single letter"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
-         "text": "beginning",
-         "note": "the beginning of a word is its opening letter, so only that letter is kept"
+         "text": "beginning to",
+         "at": 35,
+         "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "to prosper",
-         "gives": "P",
-         "select": "first",
-         "note": "the first letter of prosper"
+         "words": "prosper",
+         "at": 48,
+         "note": "only its first letter is used"
         }
        ]
       },
       {
-       "words": "hen",
+       "words": "hen's",
+       "at": 23,
        "gives": "LAYER",
-       "note": "a hen that lays eggs is a layer"
+       "note": "read as 'hen is': a hen is a layer, a bird kept for its eggs"
       }
      ]
     },
     "explanation": {
-     "surface": "A participant in a game whose hen once laid, starting to thrive.",
-     "walkthrough": "'hen's past' looks like history, but it means the hen word is past, that is after, the next piece. 'game hen' is a misleading pairing.",
-     "definitionFit": "A player is a participant in a game or sport."
+     "surface": "A hen whose laying days are over, just as things start looking up.",
+     "walkthrough": "'Hen's past' suggests a former laying hen; split it so that 'hen's' (hen is) gives LAYER, which goes past P.",
+     "definitionFit": "A player is a participant in a sport or game, someone taking part in the play."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "past"
     }
@@ -1323,40 +1322,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REPHRASE",
-     "indicators": [
-      {
-       "text": "poorly",
-       "note": "hearing poorly garbles what is heard, so the word hears is jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Agent",
+       "at": 0,
+       "gives": "REP",
+       "note": "a rep, short for representative, is a sales agent"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poorly",
+         "at": 12,
+         "note": "poorly suggests something done badly, so the letters come out jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Agent",
-         "gives": "REP",
-         "note": "a rep is a representative, a sales agent"
-        },
-        {
          "words": "hears",
-         "gives": "HRASE",
-         "note": "the five letters of hears, rearranged"
+         "at": 6,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An agent who is hard of hearing asks for something to be said differently.",
-     "definitionFit": "To rephrase is to express the same thing in different words."
+     "surface": "A hard-of-hearing salesman asks a customer to say it differently.",
+     "walkthrough": "The colon makes 'Put it another way' sound like the agent's request; it is the definition.",
+     "definitionFit": "To rephrase is to express the same idea again in different words."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "poorly"
     }
    }
   },
