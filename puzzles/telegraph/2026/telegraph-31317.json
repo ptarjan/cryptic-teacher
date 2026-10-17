@@ -43,26 +43,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLIANCE",
      "indicators": [
       {
        "text": "Topless",
-       "note": "in a down entry the top of a word is its first letter, so being topless means losing it"
+       "at": 0,
+       "note": "in a down answer the top is the first letter, so the word loses its opening letter"
       }
      ],
      "parts": [
       {
-       "words": "Topless flirtation",
-       "gives": "ALLIANCE",
-       "note": "DALLIANCE (flirtation) loses its first letter D"
+       "words": "flirtation",
+       "at": 8,
+       "gives": "DALLIANCE",
+       "note": "dalliance is casual flirting or a brief romance"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A racy fling on the beach that somehow ends at the altar.",
-     "walkthrough": "'Topless' suggests sunbathing, but it is an instruction to behead the word for flirtation.",
-     "definitionFit": "A union of two families by marriage is the old sense, still used of royal houses joined by a wedding."
+     "surface": "A racy fling that ends up at the altar.",
+     "walkthrough": "'Topless' fits the risqué surface but simply removes the D from DALLIANCE.",
+     "definitionFit": "An alliance can be a union by marriage, as between two families or royal houses."
     },
     "features": {
      "answerInScene": true,
@@ -144,42 +147,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "occasionally",
-       "note": "something done occasionally happens only now and then, so only every other letter is taken"
+       "text": "in",
+       "at": 27,
+       "note": "in says those letters go inside the word for therapy"
       }
      ],
      "parts": [
       {
        "words": "therapy",
+       "at": 30,
        "gives": "CURE",
-       "note": "a cure is a course of treatment"
+       "note": "a cure is a course of treatment, a therapy"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "DL",
        "indicators": [
         {
-         "text": "in",
-         "note": "the selected letters are placed in the next word, which surrounds them"
+         "text": "occasionally",
+         "at": 14,
+         "note": "occasionally means now and then, so only every other letter of dolt is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "dolt occasionally",
-         "gives": "DL",
-         "select": "alternate",
-         "note": "D and L, the odd letters of DoLt"
+         "words": "dolt",
+         "at": 9,
+         "note": "its first and third letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two insults, clot and dolt, as if both people were in counselling.",
-     "walkthrough": "'Clot' looks like one of a pair of insults alongside 'dolt'; it is a verb and the definition.",
-     "definitionFit": "Plain synonym as a verb: milk that turns sour thickens into lumps, clotting."
+     "surface": "Two insults for a fool, with the suggestion that he might need counselling.",
+     "walkthrough": "'Clot' looks like a noun for a fool alongside 'dolt', but it is a verb: to clot is to curdle. 'occasionally' gives D and L.",
+     "definitionFit": "To curdle is to thicken into lumps, which is what milk or blood does when it clots."
     },
     "features": {
      "answerInScene": false,
@@ -1208,46 +1210,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 22,
+       "note": "about says the word for more honest goes round that letter"
       }
      ],
      "parts": [
       {
        "words": "more honest",
+       "at": 10,
        "gives": "PURER",
-       "note": "purer = more virtuous, more honest"
+       "note": "purer means more honest, morally cleaner"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally means at the end, so the last letter"
+         "at": 38,
+         "note": "finally says take just the closing letter of expenses"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "expenses, finally",
-         "gives": "S",
-         "select": "last",
-         "note": "the last letter of expenseS"
+         "words": "expenses",
+         "at": 28,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A treasurer who is at last more honest about expense claims.",
-     "walkthrough": "'Finally' reads as 'at last' for the whole sentence; it only takes the last letter.",
-     "definitionFit": "Specialised sense: the officer who keeps a ship's accounts and money."
+     "surface": "A bookkeeper of greater integrity than others, at least where expenses are concerned.",
+     "walkthrough": "'about' reads as concerning, but it is the containment signal: the last letter S sits inside PURER.",
+     "definitionFit": "A purser is the officer who handles the money and accounts on a ship."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "finally"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -1273,31 +1275,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PINING",
      "indicators": [
       {
        "text": "Heartlessly",
-       "note": "without a heart means without a centre, so the middle letter goes"
+       "at": 0,
+       "note": "heartlessly says the central letter of the word is removed"
       }
      ],
      "parts": [
       {
-       "words": "Heartlessly restraining",
-       "gives": "PINING",
-       "note": "PINNING (restraining) loses its middle letter N"
+       "words": "restraining",
+       "at": 12,
+       "gives": "PINNING",
+       "note": "pinning means holding down, restraining"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Cruelly holding back someone's yearning.",
-     "walkthrough": "'Heartlessly' seems to describe cruelty; it removes the centre of the seven-letter word.",
-     "definitionFit": "Near synonym: wasting away with desire for something absent or lost."
+     "surface": "Someone cruelly holding back a person who yearns for something.",
+     "walkthrough": "'Heartlessly' sounds cruel, but it removes the fourth letter of PINNING, its central N.",
+     "definitionFit": "Pining means yearning or longing for something absent."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Heartlessly"
     }
    }
