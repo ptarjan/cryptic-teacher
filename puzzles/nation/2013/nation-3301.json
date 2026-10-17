@@ -972,35 +972,51 @@
      "parts": [
       {
        "words": "stock",
+       "at": 17,
        "gives": "BROTH",
-       "note": "stock is a cooking broth made from bones or vegetables"
+       "note": "stock is a broth, a soup base"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ERS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "at the center of",
-         "note": "the center of a word is its middle, so only its central letters are kept"
+         "text": "center of",
+         "at": 30,
+         "note": "center of finishes the phrase at the center of: only the core of the word survives, so its back three letters go too"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "cybershop",
-         "gives": "ERS",
-         "select": "middle",
-         "note": "the three central letters of the nine-letter cybershop"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "at the",
+           "at": 23,
+           "note": "at the opens the phrase at the center of, which keeps only the core of the next word, so its front three letters go"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cybershop",
+           "at": 40,
+           "note": "only its central three of nine letters survive"
+          },
+          {
+           "gives": "CYB"
+          }
+         ]
+        },
+        {
+         "gives": "HOP"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A website sells marijuana joints and keeps a stock of them.",
-     "walkthrough": "Doobies are joints in slang, but the Doobie Brothers are an American rock band, so a Doobie is one of the band's members.",
-     "definitionFit": "The members of the rock band The Doobie Brothers are examples of the plural noun, hence 'perhaps'."
+     "surface": "Some joints, perhaps, are stocked in the middle of an online store.",
+     "walkthrough": "'at the center of' strips three letters from each end of cybershop to leave ERS. The Doobie Brothers were a 1970s American rock band, and a doobie is slang for a joint.",
+     "definitionFit": "The Doobie Brothers are an example of a band, so its members are brothers by name."
     },
     "features": {
      "answerInScene": false,
