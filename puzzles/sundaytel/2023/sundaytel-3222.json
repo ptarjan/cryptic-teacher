@@ -564,43 +564,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CATNIP",
+     "op": "composite",
      "indicators": [
       {
        "text": "struggling",
-       "note": "someone struggling is thrashing about, so these letters are thrown into a new order"
+       "at": 8,
+       "note": "someone struggling is all over the place, so the letters are thrown into a new order"
+      },
+      {
+       "text": "without",
+       "at": 19,
+       "note": "without means lacking, so the letters of the little word a are left out of the jumble"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CATNIP",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "without means lacking, so the named letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Captain",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "the letter to remove"
-        }
-       ]
+       "words": "Captain",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "A ship's commander is suffering because he has no herbal remedy.",
-     "walkthrough": "Take one A out of the seven letters, then rearrange the remaining six.",
-     "definitionFit": "Catnip, or catmint, is a herb traditionally used in folk remedies as well as being loved by cats."
+     "surface": "A ship's captain is in difficulty, lacking a herbal remedy.",
+     "walkthrough": "'without' takes one A out of CAPTAIN, leaving CAPTIN, and 'struggling' rearranges those six letters.",
+     "definitionFit": "Catnip, or catmint, is a herb of the mint family long used in folk medicine as well as to excite cats."
     },
     "features": {
      "answerInScene": false,
@@ -897,48 +888,52 @@
     "definitions": [
      {
       "text": "certainly not alone",
-      "at": 25,
-      "note": "phrase describing the answer; plural means more than one"
+      "at": 25
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLURAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "having no end means the final letter is dropped"
+       "text": "in",
+       "at": 14,
+       "note": "in places the shortened word inside the word for friend"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "friend",
+       "at": 17,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing in another sits inside it"
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "friend",
-         "gives": "PAL",
-         "note": "a pal is a friend"
+         "words": "charm",
+         "at": 8,
+         "gives": "LURE",
+         "note": "to lure is to charm or entice"
         },
         {
-         "words": "charm",
-         "gives": "LUR",
-         "note": "a lure is an attraction or charm, minus its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend with unlimited charm will never be lonely.",
-     "walkthrough": "Clip the attraction word, then place it within the friend.",
-     "definitionFit": "A plural form denotes more than one, so it is by definition never single or solitary."
+     "surface": "A friend's charm never runs out, so they are never by themselves.",
+     "walkthrough": "'Endless' cuts LURE to LUR, and 'in' puts that inside PAL, between P and AL.",
+     "definitionFit": "Plural in grammar means more than one, the opposite of singular, so a plural thing is never by itself."
     },
     "features": {
      "answerInScene": false,
