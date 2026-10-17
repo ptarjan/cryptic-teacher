@@ -148,55 +148,74 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BOARDS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupted by",
+       "at": 14,
+       "note": "the shortened word for chief is broken into by the other pieces, which sit inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "briefly",
-         "note": "Said briefly, a word is cut short, and here that means losing the last of its four letters."
-        },
-        {
-         "text": "turning",
-         "note": "Something turning ends up facing the other way, so the abbreviation is written from its last letter to its first."
+         "at": 6,
+         "note": "said briefly, the word for chief loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Chief",
+         "at": 0,
+         "gives": "BOSS",
+         "note": "a chief is the boss"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 29,
+         "gives": "A"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "interrupted by",
-           "note": "An interruption arrives in the middle of what is being said, so the new letters land inside the word rather than after it."
+           "text": "turning",
+           "at": 38,
+           "note": "the abbreviation for doctor is turned round to read the other way"
           }
          ],
          "parts": [
           {
-           "words": "Chief",
-           "gives": "BOS",
-           "note": "the chief of a firm is the boss, docked here to three letters"
-          },
-          {
-           "words": "a",
-           "note": "the article is taken at face value, as a single letter"
+           "words": "doctor",
+           "at": 31,
+           "gives": "DR"
           }
          ]
-        },
-        {
-         "words": "doctor",
-         "gives": "RD",
-         "note": "a doctor is DR in the standard abbreviation, and it arrives the other way round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Turning tables' reads as one phrase and does two separate jobs: the doctor is what turns, and the tables are the definition sitting quietly at the end.",
-     "definitionFit": "A board is a plank and so the table made from one — 'board and lodging' still means the meals taken at somebody's table."
+     "surface": "A boss's conversation is cut short when a doctor walks in and overturns the furniture.",
+     "walkthrough": "'briefly' trims BOSS to BOS; 'turning' makes DR read RD, so A + RD gives ARD, and 'interrupted by' puts ARD inside BOS.",
+     "definitionFit": "Boards and tables are both flat surfaces raised on legs or trestles, as in a festive board laid for a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1048,41 +1067,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INTELLIGENCE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Another order for",
+       "at": 0,
+       "note": "putting the letters into another order means rearranging them"
+      },
+      {
+       "text": "excluding",
+       "at": 34,
+       "note": "a letter is left out of the shuffled pool before it gives the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INTELLIGENCE",
-       "indicators": [
-        {
-         "text": "Another order",
-         "note": "Order here means arrangement rather than command, and another arrangement of the same letters is what the clue wants."
-        },
-        {
-         "text": "excluding",
-         "note": "What is excluded is kept out, so the letter named next never joins the letters being shuffled."
-        }
-       ],
-       "parts": [
-        {
-         "words": "gilt Nile scene",
-         "note": "the three words are here for their thirteen letters, not their picture"
-        },
-        {
-         "words": "special",
-         "gives": "S",
-         "note": "S is the standard abbreviation for special, and it is the letter left out"
-        }
-       ]
+       "words": "gilt Nile scene",
+       "at": 18
+      },
+      {
+       "words": "special",
+       "at": 44,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The deletion happens before the shuffle, so count the fodder first: thirteen letters offered, one taken away, twelve to be rearranged into the enumeration.",
-     "definitionFit": "Information gathered about an enemy or a rival is intelligence — the spy's sense of the word, which is why the surface talks about scenes and exclusions."
+     "surface": "A designer proposes rearranging a gilded Egyptian riverside tableau, without the special effects.",
+     "walkthrough": "'Another order for' rearranges GILT NILE SCENE, and 'excluding' says the letter S (special) is dropped from that pool first.",
+     "definitionFit": "Intelligence in the military or espionage sense is gathered information about an enemy or rival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
     }
    }
   },
