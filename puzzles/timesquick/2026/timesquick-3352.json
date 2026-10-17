@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -411,36 +412,40 @@
      "op": "charade",
      "parts": [
       {
+       "words": "I would",
+       "at": 0,
+       "gives": "ID",
+       "note": "I'd is the contraction of I would"
+      },
+      {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "'Ultimately' asks how a word finishes up, which is the single letter it ends on."
+         "at": 8,
+         "note": "ultimately means in the end, so only the final letter of rate is used"
         }
        ],
        "parts": [
         {
-         "words": "I would",
-         "note": "I would contracts to I'd, and no apostrophe goes into the grid"
+         "words": "rate",
+         "at": 19,
+         "note": "its last letter"
         }
        ]
       },
       {
-       "words": "ultimately rate",
-       "gives": "E",
-       "note": "the last letter of ratE"
-      },
-      {
        "words": "top-tier celebs",
+       "at": 24,
        "gives": "ALIST",
-       "note": "the A-list is the top rank of celebrity"
+       "note": "the A-list is the top tier of celebrities"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finally getting round to ranking the biggest names in show business.",
-     "walkthrough": "The A-list is the top rung of fame, with a B-list below it for the nearly famous. 'Rate' looks like the sentence's verb and is only there to give up its final letter.",
-     "definitionFit": "An idealist holds out for how things ought to be rather than how they are, which is what calling someone a visionary says of them."
+     "surface": "Someone saying that, in the end, they would rank the most famous stars as people of vision.",
+     "walkthrough": "'Ultimately' takes the last letter of rate, which sits between I'D and A-LIST.",
+     "definitionFit": "An idealist pursues high principles and a vision of how things should be, so is a visionary."
     },
     "features": {
      "answerInScene": false,
@@ -1006,61 +1011,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLEANSE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 40,
+       "note": "before places the jumbled letters ahead of the letter from examination"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "various",
-         "note": "Things called various come in more than one arrangement, so the letters are free to take a different order."
-        },
-        {
-         "text": "start of",
-         "note": "The start of a word is the letter it opens with, and none of the rest of it is wanted."
+         "at": 25,
+         "note": "various means of different kinds, so the letters of lances are put into a different order"
         }
        ],
        "parts": [
         {
-         "words": "various lances",
-         "gives": "CLEANS",
-         "note": "the six letters of LANCES in a new order"
-        },
+         "words": "lances",
+         "at": 33,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "before",
-           "note": "What comes before a thing is written in front of it, so the shuffled letters go ahead of the one that follows."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of examination",
-           "gives": "E",
-           "select": "first",
-           "note": "the opening letter of Examination"
-          }
-         ]
+         "text": "start of",
+         "at": 47,
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "examination",
+         "at": 56,
+         "note": "its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Assorted spears being wiped down before the inspection begins.",
-     "walkthrough": "Lances and an examination read as a parade-ground kit inspection, which keeps 'various' looking like a description of the weapons rather than an order to muddle them. Cleanse is the stronger old form of clean, kept for wounds and for sin.",
-     "definitionFit": "To cleanse a thing is to wash it thoroughly free of dirt or impurity, which is removing the contaminants from it."
+     "surface": "Sterilising a set of surgical lances before a medical examination begins.",
+     "walkthrough": "'Various' rearranges LANCES into CLEANS, and 'start of' adds the E of examination.",
+     "definitionFit": "To cleanse is to make thoroughly clean, which is to rid something of contaminants."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "various"
+     "misdirectedWord": "lances"
     }
    }
   },
