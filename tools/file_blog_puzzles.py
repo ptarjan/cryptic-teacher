@@ -419,7 +419,7 @@ def build(rec, row, series, date, setter, typed=None, pairs=False, loose_counts=
             recounted.append(f"{e['number']} {e['direction']}")
         elif count == e["length"]:
             group = [entry_id(e)]
-        elif loose_counts and len(group) == 1 and not e.get("solution"):
+        elif loose_counts and not e.get("solution"):
             continue
         elif group[0] != entry_id(e):
             return None, CAUSES["enumeration-disagrees"]
