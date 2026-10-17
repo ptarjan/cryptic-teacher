@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -262,37 +263,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTREATED",
-     "indicators": [
-      {
-       "text": "with no heart",
-       "note": "The heart of a word is the letter at its centre, and having none means that letter is taken out before the rest is used."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "hospital department",
+       "at": 10,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department of a hospital"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no heart",
+         "at": 40,
+         "note": "losing its heart means the middle letter of the word for responded goes"
+        }
+       ],
        "parts": [
         {
-         "words": "hospital department",
-         "gives": "ENT",
-         "note": "ENT is a hospital's ear, nose and throat department."
+         "words": "responded",
+         "at": 30,
+         "gives": "REACTED",
+         "note": "reacted means responded"
         },
         {
-         "words": "responded",
-         "gives": "REATED",
-         "note": "To respond is to have REACTED, and the C sitting at its centre is the heart that goes."
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Begging at the hospital and getting a heartless answer back.",
-     "walkthrough": "ENT is worth learning once and owning forever — three letters that turn up whenever a clue mentions a hospital department. The dash is doing the work of an equals sign.",
-     "definitionFit": "To entreat is to plead: both mean asking urgently, and both are given here in the past tense."
+     "surface": "A patient begged, and the hospital department answered half-heartedly.",
+     "walkthrough": "'with no heart' removes C, the middle letter of REACTED, leaving REATED.",
+     "definitionFit": "To entreat is to beg or plead earnestly, so entreated is the past tense matching pleaded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -594,40 +604,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NODOUBT",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so those two openings trade places."
+       "at": 15,
+       "note": "Spooner, the Oxford don famed for swapping the starts of words, signals that the opening sounds trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "DO",
        "parts": [
         {
-         "unchecked": true,
          "words": "Money",
-         "gives": "NO",
-         "soundsLike": "DOUGH",
-         "note": "Dough is slang for money, and it is said \"doh\". Hand that D over to the other word, take the N coming back, and \"doh\" becomes \"noh\"."
-        },
+         "at": 0,
+         "gives": "DOUGH",
+         "note": "dough is slang for money"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NOUBT",
+       "parts": [
         {
-         "unchecked": true,
          "words": "Nothing",
-         "gives": "DOUBT",
-         "soundsLike": "NOUGHT",
-         "note": "A nought is a zero, and it is said \"nawt\". It gives up its N, collects the D the other word let go of, and \"dawt\" is spelt with a silent B."
+         "at": 7,
+         "gives": "NOUGHT",
+         "note": "nought means nothing, zero"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody asked about money and answering that there is none of it.",
-     "walkthrough": "Spooner trades sounds, not letters, which is why the spellings change out of all recognition: \"doh\" and \"nawt\" swap their opening consonants and come back as two words that share almost no letters with them. Setters allow the vowels to drift a little on the way.",
-     "definitionFit": "'No doubt' and 'surely' are both ways of saying a thing is certain, and both work as an adverb dropped into a sentence."
+     "surface": "Someone asked about cash replies that there is none, as Spooner would put it.",
+     "walkthrough": "DOUGH NOUGHT with first sounds swapped is said as NO DOUGHT, which sounds like the phrase meaning certainly.",
+     "definitionFit": "No doubt is an adverbial phrase meaning certainly, used just as surely is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Money"
     }
    }
   },
@@ -1612,47 +1632,58 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SQUEEZE",
+     "indicators": [
+      {
+       "text": "ousting",
+       "at": 22,
+       "note": "ousting means pushing one letter out of the word and taking its place"
+      }
+     ],
      "parts": [
       {
+       "words": "mass",
+       "at": 46,
+       "gives": "SIZE",
+       "note": "size means bulk or mass"
+      },
+      {
+       "words": "individual",
+       "at": 30,
+       "gives": "I",
+       "note": "I is a single one, an individual"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SQUEEZE",
        "indicators": [
         {
          "text": "almost",
-         "note": "Almost a word means all of it but the finish, so the last letter is left off."
-        },
-        {
-         "text": "ousting",
-         "note": "To oust someone is to turn them out and take their place, so one chunk moves into the spot the other was holding."
+         "at": 15,
+         "note": "almost means the word is cut short by its last letter"
         }
        ],
        "parts": [
         {
-         "words": "mass",
-         "gives": "SIZE",
-         "note": "The mass of a thing is its size."
+         "words": "Camilla",
+         "at": 6,
+         "gives": "QUEEN",
+         "note": "Camilla is Queen, consort to King Charles III"
         },
         {
-         "words": "individual",
-         "gives": "I",
-         "note": "I is the crossword's individual, the single self, and it is the letter that gets turned out."
-        },
-        {
-         "words": "Camilla, almost",
-         "gives": "QUEE",
-         "note": "Camilla is the Queen, wife of King Charles III, and almost all of that title is four letters."
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Elbowing one person out of a crowd to get hold of the Queen.",
-     "walkthrough": "'Ousting X from Y' is a swap rather than a plain deletion: the letter leaves and something else moves straight into the space it kept warm.",
-     "definitionFit": "To squeeze something is to grasp it hard — the grip sense of the verb, not the sense of forcing through a gap."
+     "surface": "Someone hugs Queen Camilla, nudging another person out of a crowd.",
+     "walkthrough": "'almost' cuts QUEEN to QUEE; that replaces I in SIZE, giving S-QUEE-ZE.",
+     "definitionFit": "To squeeze something is to grip it tightly, a synonym of grasp as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
     }
    }
   },
@@ -1736,52 +1767,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DEEPEST",
+     "indicators": [
+      {
+       "text": "stabbed with",
+       "at": 13,
+       "note": "being stabbed puts something into you, so the sword goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "DEEPEST",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "stabbed with",
-           "note": "Being stabbed with something leaves it inside you, so those letters finish up within the others."
-          },
-          {
-           "text": "twisted",
-           "note": "A twisted thing has been wrenched out of shape, and letters wrenched about do not stay in the order they were given."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Dutch",
-           "gives": "D",
-           "note": "D is the abbreviation for Dutch."
-          },
-          {
-           "words": "sword",
-           "gives": "EEPE",
-           "note": "An epee is a fencing sword, and its four letters are wrenched about."
-          },
-          {
-           "words": "saint",
-           "gives": "ST",
-           "note": "ST is the standing abbreviation for saint."
-          }
-         ]
+         "words": "Dutch",
+         "at": 0,
+         "gives": "D"
+        },
+        {
+         "words": "saint",
+         "at": 6,
+         "gives": "ST"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "twisted",
+         "at": 26,
+         "note": "twisted here means turned round, so the sword is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sword",
+         "at": 34,
+         "gives": "EPEE",
+         "note": "an epee is a fencing sword"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Dutch saint run through with a bent blade.",
-     "walkthrough": "'Dutch saint' is not a person but two abbreviations standing side by side, and the definition is the four-word phrase at the end that reads like the rest of the story.",
-     "definitionFit": "Whatever is deepest lies furthest in from the surface, so 'as far in as possible' is that superlative spelled out longhand."
+     "surface": "A Dutch saint martyred with a twisted blade driven in deep.",
+     "walkthrough": "'twisted' turns EPEE round to EEPE, which goes between D and ST.",
+     "definitionFit": "Deepest is the superlative of deep, meaning reaching furthest inward or down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stabbed"
     }
    }
   },
