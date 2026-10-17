@@ -125,6 +125,11 @@ filed, and the expression cannot write one. The tree, in brief:
   with one part: what it removes is not stated) and `wordplay.indInLeaf` (an
   indicator word also inside a longer leaf). `tools/tidy_wordplay_shapes.py` joined the
   charades in charades whose `view()` is unchanged and recorded the rest.
+  Two more ratchets (`tools/lesson_checks.py`) have no rewrite: `wordplay.ddMissesWordplay`
+  (two definitions and no wordplay, in a clue that hides the answer across words or holds
+  its letters in a run of whole words: parse it) and `spelling.unsaid` (an answer with an
+  apostrophe or accent and no `spelling`; the known ones are in
+  `tools/data/lexicons/spellings.json`, which `tools/build_spellings.py` extends).
   A run's own `annotate_check` reports every one as an error. Until
   `SHAPE_GRACE_UNTIL` in `validate_annotations.py` the push hook and CI let through
   findings that have no allowance yet (a pusher still on code from before the
