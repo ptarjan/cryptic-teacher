@@ -403,59 +403,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "something upset is turned over, and in a down entry that means read upwards"
-      }
-     ],
      "parts": [
       {
        "words": "back",
+       "at": 7,
        "gives": "AGO",
-       "note": "ten years back = ten years ago"
+       "note": "back, as in 'years back', means ago"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "on vacation",
-         "note": "a vacated place is emptied, so the word keeps only its outside letters"
+         "text": "upset",
+         "at": 17,
+         "note": "in a down clue, upset turns the word for home upside down, so it reads backwards"
         }
        ],
        "parts": [
         {
          "words": "home",
+         "at": 12,
          "gives": "IN",
-         "note": "at home = in; 'upset' turns it up in a down clue"
+         "note": "at home means in"
         }
        ]
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "SE",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 27,
+         "note": "a vacated word is emptied of its middle, leaving only its outer letters"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Sue on vacation",
-         "gives": "SE",
-         "select": "outer",
-         "note": "SUE emptied of its middle leaves S…E"
+         "words": "Sue",
+         "at": 23,
+         "note": "the name supplies its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman's trip away unsettles the household left behind.",
-     "walkthrough": "'On vacation' means emptied: a vacated word keeps only its outside letters. 'Back' is not a reversal here; it means ago.",
-     "definitionFit": "Stress as a verb, to worry anxiously, is a plain synonym of agonise."
+     "surface": "Someone stressed because their home was turned upside down while Sue was away.",
+     "walkthrough": "'back' is not a reversal signal here but the word AGO; 'upset' turns IN into NI, and 'on vacation' empties Sue to SE.",
+     "definitionFit": "To stress, in the sense of fretting anxiously, is to agonise over something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "vacation"
+     "misdirectedWord": "back"
     }
    }
   },
@@ -582,37 +582,37 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "DELINEATE",
-     "indicators": [
-      {
-       "text": "when cycling",
-       "note": "cycling letters travel round, the last one coming back to the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "source of unusual food",
+       "at": 6,
+       "gives": "DELI",
+       "note": "a deli (delicatessen) is a shop where unusual foods are bought"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "when cycling",
+         "at": 35,
+         "note": "cycling sends a letter round from one end of the word to the other"
+        }
+       ],
        "parts": [
         {
-         "words": "source of unusual food",
-         "gives": "DELI",
-         "note": "a deli sells unusual imported food"
-        },
-        {
          "words": "eaten",
-         "gives": "NEATE",
-         "note": "EATEN with its last letter moved round to the front"
+         "at": 29,
+         "note": "taken as written, its last letter moved to the front"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tracking down where some odd dish came from after eating it on a bike ride.",
-     "walkthrough": "'When cycling' means the letters rotate: the N at the end of EATEN comes round to the start.",
-     "definitionFit": "To trace an outline and to delineate both mean to draw or describe precisely."
+     "surface": "Following the origin of an exotic meal consumed on a bike ride.",
+     "walkthrough": "'cycling' moves the final N of EATEN round to the front, giving NEATE.",
+     "definitionFit": "To trace an outline or a history is to delineate it, drawing or describing it exactly."
     },
     "features": {
      "answerInScene": false,
@@ -690,43 +690,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "what is eaten ends up inside, so one chunk goes into another"
-      }
-     ],
      "parts": [
       {
        "words": "arguments against",
+       "at": 8,
        "gives": "CONS",
-       "note": "pros and cons"
+       "note": "the pros and cons: cons are arguments against"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "at regular intervals, so every other letter"
+         "text": "eating",
+         "at": 31,
+         "note": "one word eats, so encloses, the other"
         }
        ],
        "parts": [
         {
          "words": "peer",
+         "at": 26,
          "gives": "EQUAL",
          "note": "a peer is an equal"
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "ENTI",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 49,
+           "note": "taking every other letter of the phrase beans this"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beans this regularly",
-           "gives": "ENTI",
-           "select": "alternate",
-           "note": "every other letter: bEaNs ThIs"
+           "words": "beans this",
+           "at": 38,
+           "note": "its 2nd, 4th, 6th and 8th letters are used"
           }
          ]
         }
@@ -735,14 +735,13 @@
      ]
     },
     "explanation": {
-     "surface": "A long case against a lord who eats beans every day.",
-     "walkthrough": "'Peer' suggests the House of Lords, but here it means an equal, as in tried by one's peers.",
-     "definitionFit": "Weighty in the figurative sense, having important results, is what consequential means."
+     "surface": "Debating points raised against a lord who is tucking into beans.",
+     "walkthrough": "'regularly' picks the even letters of 'beans this', ENTI, which go inside EQUAL after EQU.",
+     "definitionFit": "Something consequential has important results, so it is weighty or significant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "peer"
     }
    }
@@ -1694,56 +1693,57 @@
      "indicators": [
       {
        "text": "on",
-       "note": "placed on means placed before in an across entry"
+       "at": 22,
+       "note": "in an across clue, the pieces sit on, so after, the front of car"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
          "text": "front of",
+         "at": 25,
          "note": "the front of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "front of car",
-         "gives": "C",
-         "select": "first",
-         "note": "first letter of car"
+         "words": "car",
+         "at": 34,
+         "note": "supplies its first letter"
         }
        ]
       },
       {
        "words": "Unusual",
+       "at": 0,
        "gives": "RUM",
-       "note": "rum = odd, unusual"
+       "note": "rum is an old word for odd or unusual"
       },
       {
        "words": "parking",
+       "at": 8,
        "gives": "P",
-       "note": "P = parking"
+       "note": "P is the standard map and road-sign abbreviation for parking"
       },
       {
        "words": "light",
+       "at": 16,
        "gives": "LED",
-       "note": "a light-emitting diode"
+       "note": "an LED is a light-emitting diode, a small light"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd parking light on a car's bumper after a shunt.",
-     "walkthrough": "'Front of car' supplies C, and 'on' puts it at the start. The folded-up car in the surface is exactly what crumpled describes.",
-     "definitionFit": "Folded up describes something crushed into creases, the literal sense of crumpled."
+     "surface": "A strange light is parked on the bonnet of a car that has been crushed.",
+     "walkthrough": "The first letter of car, C, comes first, with RUM, P and LED placed on it.",
+     "definitionFit": "Something crumpled has been creased and crushed, folded up out of shape."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Unusual"
+     "misdirectedWord": "light"
     }
    }
   }
