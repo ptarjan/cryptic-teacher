@@ -472,45 +472,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SULCI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Lacking finish",
-       "note": "without its finish, the final letter of the word goes"
+       "text": "Ploughed",
+       "at": 24,
+       "note": "turned over like soil, so the letters are churned into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Ploughed",
-         "note": "ploughed ground is turned over, so these letters are churned into a new order"
+         "text": "Lacking finish",
+         "at": 0,
+         "note": "without its finishing letter, so the last letter of the word goes"
         }
        ],
        "parts": [
         {
          "words": "clue",
-         "gives": "CLU",
-         "note": "the word without its last letter"
+         "at": 15
         },
         {
-         "words": "is",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter admits an unfinished hint is just a description of a ploughed field.",
-     "walkthrough": "'Ploughed furrows' looks like one phrase, but 'Ploughed' is the anagram signal and 'furrows' alone defines.",
-     "definitionFit": "Sulci is the Latin plural of sulcus, an anatomical term for a groove, especially on the brain's surface."
+     "surface": "A crossword clue that lacks a proper ending, offered as 'Ploughed furrows'.",
+     "walkthrough": "'Lacking finish' cuts CLUE to CLU; 'Ploughed' then turns over CLU and IS together. The quoted phrase looks like the definition, but only 'furrows' is.",
+     "definitionFit": "Sulci (singular sulcus) are grooves or furrows, especially those on the surface of the brain."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Ploughed"
     }
@@ -1918,44 +1920,56 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ATTAR",
      "indicators": [
       {
-       "text": "when Latin is",
-       "note": "saying one thing is where another was means it stands in that place, a swap"
+       "text": "when",
+       "at": 25,
+       "note": "introduces the condition under which the table word is altered"
+      },
+      {
+       "text": "is",
+       "at": 36,
+       "note": "says the letter for Latin becomes the one named after it"
       }
      ],
      "parts": [
       {
        "words": "communion table",
+       "at": 9,
        "gives": "ALTAR",
-       "note": "the altar is the communion table in church"
+       "note": "the altar is the table at which communion is celebrated"
+      },
+      {
+       "words": "Latin",
+       "at": 30,
+       "gives": "L"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "what closes",
-         "note": "what closes a word is its final letter, which is the one taken"
+         "at": 39,
+         "note": "the last letter, the one that closes the word"
         }
        ],
        "parts": [
         {
          "words": "Eucharist",
-         "note": "its final letter, replacing the L for Latin"
+         "at": 51,
+         "note": "the word itself, whose closing letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Holy oil taken from the altar during a Latin Mass at the end of the Eucharist.",
-     "walkthrough": "L is the abbreviation for Latin; swap it in the church table for the last letter of the sacrament.",
+     "surface": "Oil taken from the altar during a Latin mass, at the close of the Eucharist.",
+     "walkthrough": "The L of ALTAR is replaced by T, the letter that closes 'Eucharist'.",
      "definitionFit": "Attar is a fragrant essential oil distilled from flowers, especially rose petals."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Latin"
     }
