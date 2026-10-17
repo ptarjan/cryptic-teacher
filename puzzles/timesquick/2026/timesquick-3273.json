@@ -625,26 +625,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "YES",
      "indicators": [
       {
        "text": "must finally reverse direction",
-       "note": "the last letter is a compass point that turns to face the opposite way, so one letter is swapped"
+       "at": 23,
+       "note": "the final letter of the currency is a compass point, and it turns round to point the opposite way"
       }
      ],
      "parts": [
       {
        "words": "Japanese currency",
+       "at": 5,
        "gives": "YEN",
-       "note": "the yen is the money of Japan"
+       "note": "the yen is the currency of Japan"
+      },
+      {
+       "gives": "N"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A confident instruction that the yen must now turn around and head the other way.",
-     "walkthrough": "N for north is the final letter; reversing that direction gives S for south.",
-     "definitionFit": "Sure, used as an exclamation of agreement, is an informal way of saying yes."
+     "surface": "A confident forecast that the Japanese currency will at last change its course.",
+     "walkthrough": "The last letter of YEN is N, north; reversing that direction makes it S, south.",
+     "definitionFit": "Saying 'sure' is a way of agreeing, an informal assent just like the answer."
     },
     "features": {
      "answerInScene": false,
@@ -913,40 +919,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRUGAL",
-     "indicators": [
-      {
-       "text": "Half of those",
-       "note": "keeping half of each word means the back halves are cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half",
+         "at": 15,
+         "note": "half means keeping only the first half, so the back three letters of fruits go"
+        }
+       ],
        "parts": [
         {
          "words": "Fruits",
-         "gives": "FRU",
-         "note": "the front three of six letters"
+         "at": 0,
+         "note": "the word fruits, six letters, of which the front half is kept"
         },
         {
+         "gives": "ITS"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "of those",
+         "at": 20,
+         "note": "of those carries the halving over to both of those words, so galore also loses its back three letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "galore",
-         "gives": "GAL",
-         "note": "the front three of six letters"
+         "at": 7,
+         "note": "the word galore, six letters, of which the front half is kept"
+        },
+        {
+         "gives": "ORE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fruit in abundance, though only half of it, would suggest someone stingy.",
-     "walkthrough": "'Those' points back to the two opening words; take the front half of each.",
-     "definitionFit": "Frugal describes someone sparing and economical with money, and penny-pinching is a disapproving word for that."
+     "surface": "Someone notes that buying only half of an abundant fruit supply would be stingy.",
+     "walkthrough": "'Half of those' applies to both words, Fruits and galore: each is cut in half.",
+     "definitionFit": "Frugal means sparing and economical with money, which is what penny-pinching describes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "galore"
     }
