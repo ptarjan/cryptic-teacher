@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -915,38 +916,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "originally",
-       "note": "what a word is originally is how it starts, so only its opening letter is wanted"
-      }
-     ],
      "parts": [
       {
        "words": "Time",
+       "at": 0,
        "gives": "AGE",
-       "note": "an age is a long stretch of time"
+       "note": "an age is a long period of time"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "enters",
-         "note": "to enter a building is to go inside it, so the letter goes in among the ones already there"
+         "at": 25,
+         "note": "one thing entering another goes inside it"
         }
        ],
        "parts": [
         {
          "words": "City",
+         "at": 32,
          "gives": "NY",
-         "note": "NY is New York City"
+         "note": "NY is the abbreviation for New York City"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 14,
+           "note": "originally points to the start of the word, its first letter"
+          }
+         ],
          "parts": [
           {
-           "words": "chairman originally",
-           "note": "the first letter of chairman, which is what goes into NY"
+           "words": "chairman",
+           "at": 5,
+           "note": "supplies its first letter"
           }
          ]
         }
@@ -955,8 +961,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The city wanted is New York; the boardroom surface leans on that capital C to keep you looking at the Square Mile instead.",
-     "definitionFit": "An agency is the office a business trades from — a travel agency, an ad agency — so the two words name the same premises."
+     "surface": "A company chairman arrives at the City office on time.",
+     "walkthrough": "'City' looks like the City of London, the financial district, but it is New York, NY. The C from 'chairman originally' 'enters' it, giving NCY.",
+     "definitionFit": "An agency is a business or bureau providing a service, such as a travel agency's office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
     }
    }
   },
