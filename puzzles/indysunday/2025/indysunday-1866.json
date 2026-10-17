@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -132,63 +133,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "Guys who are in a book are inside it, so the letters of the book go between the letters of the guys rather than beside them."
-      }
-     ],
      "parts": [
-      {
-       "words": "Every",
-       "gives": "ALL",
-       "note": "every one of a group is all of them"
-      },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "back",
-         "note": "The back of a word is its far end, so only the letter the following word finishes with is wanted."
+         "text": "in",
+         "at": 10,
+         "note": "the books abbreviation sits in among the words for every guy, splitting them"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "OT",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "first set of books",
-             "gives": "OT",
-             "select": "last",
-             "note": "the Old Testament is the first half of the Bible and shortens to two letters"
-            }
-           ]
-          },
-          {
-           "words": "guy",
-           "gives": "MEN",
-           "note": "every guy taken together makes a plural, and the testament drops in between the two words"
-          }
-         ]
+         "words": "Every guy",
+         "at": 0,
+         "gives": "ALLMEN",
+         "note": "every guy is all men"
         },
         {
+         "words": "first set of books",
+         "at": 13,
+         "gives": "OT",
+         "note": "OT, the Old Testament, is the first set of books of the Bible"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back for",
+         "at": 32,
+         "note": "the back of a word is its last letter, here of novelist"
+        }
+       ],
+       "parts": [
+        {
          "words": "novelist's",
+         "at": 41,
          "gives": "T",
-         "note": "the letter novelist finishes on"
+         "note": "the final letter of novelist"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Put next to a novelist, 'plot' sounds like the plot of a book. An allotment is a rented patch of council land, and the novelist contributes one letter.",
-     "definitionFit": "growing plot -> ALLOTMENT: a small parcel of land let out to a household for vegetables, so the plot is soil rather than storyline."
+     "surface": "Every man in some early books leaves the plot to grow for a writer.",
+     "walkthrough": "OT goes in between ALL and MEN, then 'back for' adds the last letter of novelist. An allotment is a rented patch of land in Britain where people grow vegetables.",
+     "definitionFit": "An allotment is a small rented patch of ground for cultivating vegetables and flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guy"
     }
    }
   },
@@ -677,40 +675,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TAKEFRIGHT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "at": 16,
+       "note": "the rearranged letters are caught, held inside, the word for mean"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "mean",
+       "at": 26,
+       "gives": "TIGHT",
+       "note": "tight means stingy, mean with money"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Eccentric",
-         "note": "An eccentric does not behave in the expected order, and letters told to behave that way come out in an order nobody expects."
-        },
-        {
-         "text": "caught by",
-         "note": "Being caught by something means being held inside it, so the shuffled letters end up trapped between the letters of the word beside them."
+         "at": 0,
+         "note": "eccentric means odd, so the letters of freak are put out of their usual order"
         }
        ],
        "parts": [
         {
-         "words": "mean",
-         "gives": "TIGHT",
-         "note": "a mean person is tight with money, and the word splits after its first letter to make room"
-        },
-        {
          "words": "freak",
-         "gives": "AKEFR",
-         "note": "the five letters of freak, shaken into a new order before they go in"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Eccentric freak' reads as one phrase describing an oddball, and only one of those two words is fodder. The other is the instruction telling you what to do with it.",
-     "definitionFit": "spook -> TAKE FRIGHT: a horse that spooks takes fright, bolting at a sudden noise, so both work as verbs for a creature startled into flight."
+     "surface": "A weirdo is grabbed by a nasty ghost.",
+     "walkthrough": "The anagram of FREAK, made by 'Eccentric', goes inside TIGHT, as 'caught by' shows. Spook here is the verb, as a horse spooks.",
+     "definitionFit": "To spook, said of a horse or person, is to become suddenly frightened and startled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spook"
     }
    }
   },
@@ -1309,40 +1315,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIASPORA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupt",
+       "at": 30,
+       "note": "the snake breaks into the middle of the rearranged letters, interrupting them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "interrupt",
-         "note": "To interrupt is to cut in while something is already under way, so these three letters land in the middle of the word rather than beside it."
-        },
-        {
          "text": "broadcast",
-         "note": "Broadcasting was sowing seed by hand across a field long before it meant radio, so a word broadcast has its letters thrown about."
+         "at": 46,
+         "note": "broadcast in its old sense of scattered widely, so the letters of radio are scattered"
         }
        ],
        "parts": [
         {
          "words": "radio",
-         "gives": "DIORA",
-         "note": "the five letters of radio, sown into a new order"
-        },
-        {
-         "words": "snake",
-         "gives": "ASP",
-         "note": "the asp is the small Egyptian viper that killed Cleopatra"
+         "at": 40
         }
        ]
+      },
+      {
+       "words": "snake",
+       "at": 24,
+       "gives": "ASP",
+       "note": "an asp is a venomous snake"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Radio broadcast' reads as one thing and is two: a word to shuffle, and the instruction to shuffle it. The old farming sense of broadcast is what makes the pun work.",
-     "definitionFit": "People scattered -> DIASPORA: Greek for a sowing abroad, used of a population dispersed from its homeland and settled among others."
+     "surface": "Listeners hear of a snake disrupting a radio programme.",
+     "walkthrough": "'Broadcast' suggests the radio itself, but it signals an anagram of RADIO, and ASP goes inside it.",
+     "definitionFit": "A diaspora is a population dispersed far from its homeland, like the Jewish diaspora."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
     }
    }
   },
