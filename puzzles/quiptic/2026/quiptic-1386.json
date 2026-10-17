@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -108,28 +109,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESTONIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "shuffling"
-      },
-      {
-       "text": "holding"
+       "text": "holding",
+       "at": 36,
+       "note": "holding means the shuffled letters grip the symbol for nothing, keeping it inside them"
       }
      ],
      "parts": [
       {
-       "words": "in seat holding nothing",
-       "gives": "ESTONIA",
-       "note": "the letters of IN SEAT shuffled, with the O of 'nothing' held among them"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shuffling",
+         "at": 18,
+         "note": "shuffling cards mixes their order, so the letters of the fodder are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in seat",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "at": 44,
+       "gives": "O",
+       "note": "nothing is zero, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing is the letter O — the single most useful equivalence in the game. The surface sells you a restless passenger so that 'shuffling' reads as fidgeting.",
-     "definitionFit": "Estonia shares a long land border with Russia, so the clue defines it by example: one of several countries that would answer to the phrase."
+     "surface": "Someone shifting about in their chair while discussing a country that borders Russia.",
+     "walkthrough": "'shuffling' rearranges IN SEAT to ESTNIA, and 'holding' then places O (nothing) inside it.",
+     "definitionFit": "Estonia is a Baltic state sharing a land border with Russia, so it is literally a neighbouring country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seat"
     }
    }
   },
