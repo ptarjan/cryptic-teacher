@@ -323,6 +323,29 @@ stale_lock() (   # age of the lock in minutes; prints whether it is still there 
 check "a ten-minute-old empty lock is removed" "$(stale_lock 10)" "cleared"
 check "a lock a git may still hold is left alone" "$(stale_lock 0)" "kept"
 
+echo "index-rewriting git commands outside the runs' stage and commit take their turn"
+# genius-177 (stage) and sundaytimes-5154 (commit) were refused index.lock by the
+# sync's tree-wide checkout and a sibling's discard, neither under ct-index.lock.
+# shellcheck disable=SC2329  # called through the sourced worker
+lock_turn() (   # prints "ran after release" when the command waited for the holder
+  repo=$(mktemp -d)
+  trap 'rm -rf "$repo"' EXIT
+  CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . "$PWD/tools/puzzle_worker.sh"
+  cd "$repo" || exit 1
+  git init -q .
+  ( exec 8>"$(git rev-parse --git-path ct-index.lock)"; flock 8; sleep 2; touch released ) &
+  sleep 0.5
+  under_index_lock sh -c '[ -e released ] && echo "ran after release" || echo "ran while held"'
+  wait
+)
+check "under_index_lock waits for a holder of ct-index.lock" "$(lock_turn)" "ran after release"
+check "the sync's tree-wide checkout and reset are taken in turn" \
+  "$(grep -c '^ *under_index_lock git \(checkout -q -- \. \|reset -q --keep \)' tools/prereset_backfill.sh)" "2"
+check "no git status in the worker or burn takes an optional index lock" \
+  "$(grep -c '^[^#]*git status --porcelain' tools/puzzle_worker.sh tools/prereset_backfill.sh | tr '\n' ' ')" \
+  "tools/puzzle_worker.sh:0 tools/prereset_backfill.sh:0 "
+
 echo "a discard salvages what the run wrote, and tools/salvaged.sh restores it"
 salvage_flow() (
   repo=$(mktemp -d)
