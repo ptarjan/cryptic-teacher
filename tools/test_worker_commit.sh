@@ -10,6 +10,8 @@
 # 2. A held index.lock that clears within the retries: the commit lands.
 # 3. A commit with nothing staged (-q makes git say nothing): the alert must
 #    carry a reason, not end at its colon.
+# 4. git killed by SIGBUS (exit 135) is tried again and the commit lands.
+# 5. Three kills in a row: the alert comes only after the third try.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT="$REPO/tools/puzzle_worker.sh"
@@ -65,6 +67,41 @@ case "$ALERTS" in
   *) bad "alert has no reason: '$ALERTS'" ;;
 esac
 [ -n "$(printf '%s' "$ALERTS" | sed 's/.*fix\(ed\)*: //' | tr -d '[:space:]')" ] && ok "text after the colon is not empty" || bad "text after the colon is empty"
+
+# 4. a git killed by SIGBUS (135) is tried again; each retry logs the signal
+# git runs in a $(...) subshell, so the kill count lives in a file.
+SIGNAL_RETRY_WAIT=0
+kills="$tree/kills"
+git() {
+  if [ "$1" = commit ] && [ "$(cat "$kills")" -gt 0 ]; then
+    echo $(($(cat "$kills") - 1)) >"$kills"
+    return 135
+  fi
+  command git "$@"
+}
+echo c4 >p4.json
+command git add p4.json
+echo 2 >"$kills"
+ALERTS=""
+err="$(worker_commit "Annotate p4" p4.json 2>&1 >/dev/null)"
+[ "$(command git log -1 --format=%s)" = "Annotate p4" ] && ok "two SIGBUS kills, then the commit lands" ||
+  bad "after two kills HEAD is: $(command git log -1 --format=%s); alerts: $ALERTS"
+[ "$(printf '%s\n' "$err" | grep -c 'killed by SIGBUS')" = 2 ] && ok "each retry logs one line naming SIGBUS" ||
+  bad "stderr was: $err"
+
+# 5. three kills in a row: failure is reported only after the last try
+echo c5 >p5.json
+command git add p5.json
+echo 3 >"$kills"
+ALERTS=""
+worker_commit "Annotate p5" p5.json 2>/dev/null
+[ "$(command git log -1 --format=%s)" = "Annotate p4" ] && ok "three kills: nothing committed" || bad "HEAD moved after three kills"
+case "$ALERTS" in
+  *"could not commit Annotate p5"*"exited 135"*) ok "the alert comes only after the third try" ;;
+  *) bad "alert: '$ALERTS'" ;;
+esac
+[ "$(cat "$kills")" = 0 ] && ok "exactly three tries were made" || bad "kills left: $(cat "$kills")"
+unset -f git
 
 cd / || exit 1
 rm -rf "$tree"
