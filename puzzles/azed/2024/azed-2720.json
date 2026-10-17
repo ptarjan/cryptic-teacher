@@ -1019,49 +1019,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHIRES",
+     "op": "composite",
      "indicators": [
       {
        "text": "trained",
-       "note": "a trained horse has been put through its paces, so its letters are made to change places"
+       "at": 50,
+       "note": "a horse that is trained is schooled into new ways, so the letters are reworked into a new order"
+      },
+      {
+       "text": "less",
+       "at": 27,
+       "note": "less means minus, so the named letter is taken out of the fodder before the rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SHIRES",
-       "indicators": [
-        {
-         "text": "less",
-         "note": "less means minus, so the letter that follows is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ordinary",
-         "gives": "O",
-         "note": "o is the abbreviation for ordinary"
-        },
-        {
-         "words": "horse is",
-         "note": "taken as written"
-        }
-       ]
+       "words": "horse is",
+       "at": 41
+      },
+      {
+       "words": "ordinary",
+       "at": 32,
+       "gives": "O",
+       "note": "O is a standard abbreviation for ordinary, as in O level"
       }
      ]
     },
     "explanation": {
-     "surface": "In hunting country, a horse that is not ordinary is properly trained.",
-     "walkthrough": "Take O from HORSE IS and rearrange the rest. The Shires are the English Midland counties, such as Leicestershire, famous for fox-hunting.",
-     "definitionFit": "The Shires are known for fox-hunting, so they are a place where riding to hounds is widespread."
+     "surface": "A horse is schooled, less ordinary than before, in fox-hunting country.",
+     "walkthrough": "'less' takes the O for ordinary out of HORSE IS, leaving HRSEIS, and 'trained' rearranges those six letters.",
+     "definitionFit": "The shires are the rural English counties of the Midlands, traditionally the heartland of fox-hunting."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "horse"
+     "misdirectedWord": "trained"
     }
    }
   },
@@ -1195,36 +1187,37 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CLAUSE",
+     "op": "anagram",
      "indicators": [
       {
        "text": "seen distributed in",
-       "note": "the two letters are spread out and set at different points within the other word"
+       "at": 11,
+       "note": "the two letters are seen spread out through the other word rather than kept together, so the pool is rearranged"
       }
      ],
      "parts": [
       {
-       "words": "what you are reading",
-       "gives": "CLUE",
-       "note": "you are reading a crossword clue"
+       "words": "as",
+       "at": 8
       },
       {
-       "words": "as",
-       "note": "taken as written"
+       "words": "what you are reading",
+       "at": 31,
+       "gives": "CLUE",
+       "note": "the solver is reading a clue"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper item is passed around among the readers.",
-     "walkthrough": "'What you are reading' is the clue itself; the two letters of 'as' are not inserted together but spread out, one in each of two gaps.",
-     "definitionFit": "An article of a treaty or contract is a separate clause, each setting out one provision."
+     "surface": "A newspaper article appears scattered across the page you are reading.",
+     "walkthrough": "'seen distributed in' means the A and S of 'as' do not go in as a pair: they land separately in CLUE, the A after CL and the S after U.",
+     "definitionFit": "A clause is a separate article or provision in a contract, treaty or law."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "reading"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Article"
     }
    }
   },
