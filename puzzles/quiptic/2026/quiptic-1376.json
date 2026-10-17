@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -353,63 +354,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "down at floor level",
-      "at": 41
+      "text": "at floor level?",
+      "at": 46
      }
     ],
     "wordplay": {
      "op": "anagram",
      "indicators": [
       {
-       "text": "crashing",
-       "note": "A crash leaves everything in a heap, so nothing it lands on keeps the order it arrived in."
+       "text": "crashing down",
+       "at": 32,
+       "note": "things crashing down land in a jumbled heap, so these letters fall into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Falls",
+       "at": 0,
+       "note": "taken as written as anagram fodder"
+      },
+      {
+       "words": "over",
+       "at": 6,
+       "gives": "O",
+       "note": "O is the cricket scorebook abbreviation for over"
+      },
+      {
+       "words": "our",
+       "at": 11,
+       "note": "taken as written as anagram fodder"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "tail",
-         "note": "An animal's tail is at its rear end, so this takes the final letter of the word beside it."
+         "at": 26,
+         "note": "a tail is the end, so only the last letter is used"
         }
        ],
        "parts": [
         {
-         "words": "Falls",
-         "note": "straight fodder, five letters as written"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the scorer's abbreviation for an over, the set of six deliveries a cricket bowler sends down"
-        },
-        {
-         "words": "our",
-         "note": "more fodder, three letters as written"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Doberman's tail",
-           "gives": "N",
-           "select": "last",
-           "note": "the last letter of the dog's name"
-          }
-         ]
+         "words": "Doberman's",
+         "at": 15,
+         "gives": "DOBERMAN",
+         "note": "last letter of Doberman"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tripping over the dog's tail and going down in a heap.",
-     "walkthrough": "'Falls over' reads as one phrase — a tumble — and it is two separate pieces, with 'over' supplying the cricketing O that the count needs.",
-     "definitionFit": "Someone ON ALL FOURS is down at floor level, hands and knees on the ground, about as low as a person gets."
+     "surface": "Someone trips over the family dog's tail and comes crashing to the ground.",
+     "walkthrough": "'crashing down' scrambles FALLS, O (over, from cricket), OUR and N, the tail of 'Doberman's'.",
+     "definitionFit": "Being on all fours means crawling on hands and knees, so you are down at floor level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tail"
     }
    }
   },
@@ -753,26 +756,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LATTE",
      "indicators": [
       {
        "text": "Not finishing",
-       "note": "Not finishing a word means stopping before its last letter, so the final one never gets written."
+       "at": 0,
+       "note": "not finishing means the word stops short of its final letter"
       }
      ],
      "parts": [
       {
        "words": "most recent",
-       "gives": "LATTE",
-       "note": "of two things the more recent is the second one, and the six-letter adjective for that is stopped a letter early"
+       "at": 14,
+       "gives": "LATTER",
+       "note": "the latter is the more recent of two, the second one mentioned"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Abandoning your latest coffee half-drunk.",
-     "walkthrough": "'Most recent' is LATTER only where there are two things to choose between, which is the sense the setter needs and the last one a solver reaches for.",
-     "definitionFit": "A LATTE is a coffee — espresso lengthened with steamed milk — so 'coffee' defines it by example."
+     "surface": "Someone leaves their latest coffee unfinished.",
+     "walkthrough": "'Not finishing' looks like a comment on the drink, but it cuts the last letter from LATTER.",
+     "definitionFit": "A latte is an espresso coffee made with plenty of steamed milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finishing"
     }
    }
   },
@@ -979,46 +990,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "mobile exhibition",
+      "text": "mobile exhibition?",
       "at": 34
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROADSHOW",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so his name asks you to trade them here."
+       "at": 0,
+       "note": "Spooner swaps the opening sounds of two words, as the Reverend Spooner was said to do"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SHOAD",
        "parts": [
         {
-         "unchecked": true,
          "words": "displayed",
-         "gives": "ROAD",
-         "soundsLike": "SHOWED",
-         "note": "displayed means showed; hand its opening sh- over to the other word and take back an r- in exchange"
-        },
+         "at": 10,
+         "gives": "SHOWED",
+         "note": "showed means displayed; its sound is written here as it is said"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "ROW",
+       "parts": [
         {
-         "unchecked": true,
          "words": "fish eggs",
-         "gives": "SHOW",
-         "soundsLike": "ROE",
-         "note": "fish eggs are roe; give up its r- for the sh- that has just been swapped across"
+         "at": 20,
+         "gives": "ROE",
+         "note": "roe is the mass of eggs of a fish; it sounds the same as row"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A display of fish eggs billed as a touring exhibition.",
-     "walkthrough": "Say 'showed roe' and trade the sounds at the front of the two words. The vowels drift a little as you write down what you hear, which is normal for a spoonerism and why the spelling looks nothing like the source.",
-     "definitionFit": "A ROADSHOW is a mobile exhibition — a display that travels from town to town instead of staying in one hall."
+     "surface": "Spooner proudly put some fish roe on show.",
+     "walkthrough": "'showed roe' has its first sounds swapped by 'Spooner's' to give 'rode show', which sounds like the answer. The question mark flags that a touring show is mobile.",
+     "definitionFit": "A roadshow is a touring exhibition or entertainment that moves from town to town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "displayed"
     }
    }
   },
@@ -1044,12 +1065,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "HELP",
      "indicators": [
       {
        "text": "skipping intro",
-       "note": "An intro is the opening, and skipping it means starting the word one letter in."
+       "at": 30,
+       "note": "skipping the intro means the opening letter is left out"
       }
      ],
      "parts": [
@@ -1058,22 +1078,32 @@
        "parts": [
         {
          "words": "the",
-         "gives": "HE",
-         "note": "the definite article with its opening letter skipped"
+         "at": 17,
+         "note": "taken as written, then loses its first letter"
         },
         {
-         "words": "record",
+         "words": "record's",
+         "at": 21,
          "gives": "LP",
-         "note": "an LP is a long-playing record"
+         "note": "LP, a long-playing record; the 's is just a link word for is"
         }
        ]
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A plea for assistance while the record jumps its opening bars.",
-     "walkthrough": "The surface is a scratched vinyl skipping its intro, and the answer is another of the Beatles titles scattered across this grid.",
-     "definitionFit": "'Give me a hand' is what HELP means when it is shouted: both are the same request for someone to come and assist."
+     "surface": "A plea for assistance because the record keeps jumping past the start.",
+     "walkthrough": "'skipping' looks like a record jumping, but here it drops the T at the start of THE LP.",
+     "definitionFit": "Help is the shout of someone needing assistance, as in asking someone to give you a hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skipping"
     }
    }
   },
