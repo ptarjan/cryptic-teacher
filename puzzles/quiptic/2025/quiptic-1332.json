@@ -277,50 +277,43 @@
      "indicators": [
       {
        "text": "analysed",
-       "note": "to analyse is to break down, so the letters are broken up and rearranged"
+       "at": 7,
+       "note": "broken down into parts and examined, so the letters are taken apart and reassembled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Lister",
+       "at": 0
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally means at the end, so only the word's closing letter is used"
+         "at": 25,
+         "note": "the final letter of the word disease"
         }
        ],
        "parts": [
         {
-         "words": "Lister",
-         "note": "used as printed"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "disease, finally",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of diseasE"
-          }
-         ]
+         "words": "disease",
+         "at": 16,
+         "note": "its final letter, E, is the one taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Joseph Lister, studying disease, discovers antiseptic surgery.",
-     "walkthrough": "The surface is history: Joseph Lister pioneered antiseptic surgery. The answer really does belong in his story.",
-     "definitionFit": "Something antiseptic is free of germs, that is sterile."
+     "surface": "Joseph Lister, pioneer of antiseptic surgery, studies a disease and finds a germ-free method.",
+     "walkthrough": "'finally' gives E, the end of 'disease'; it joins LISTER and 'analysed' rearranges all seven letters.",
+     "definitionFit": "Sterile means free from germs, just as antiseptic conditions are."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Lister"
+     "misdirectedWord": "analysed"
     }
    }
   },
@@ -1701,49 +1694,59 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TYCOONS",
      "indicators": [
       {
        "text": "switch",
-       "note": "one chunk is switched for another"
+       "at": 10,
+       "note": "switch one thing for another: the rhetoric is exchanged out of the autocrats"
       },
       {
-       "text": "to"
+       "text": "to",
+       "at": 26,
+       "note": "to names what the rhetoric is switched to, the replacement pieces"
       }
      ],
      "parts": [
       {
        "words": "Autocrats",
+       "at": 0,
        "gives": "TYRANTS",
        "note": "tyrants are autocrats"
       },
       {
        "words": "rhetoric",
+       "at": 17,
        "gives": "RANT",
-       "note": "a rant is a burst of rhetoric; it is taken out"
+       "note": "a rant is bombastic rhetoric"
       },
       {
-       "words": "business",
-       "gives": "CO",
-       "note": "Co. = company, a business"
-      },
-      {
-       "words": "working",
-       "gives": "ON",
-       "note": "a machine that is on is working"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "business",
+         "at": 29,
+         "gives": "CO",
+         "note": "CO is short for company, a business"
+        },
+        {
+         "words": "working",
+         "at": 39,
+         "gives": "ON",
+         "note": "on means working, as a machine is on"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Strongmen drop speeches for deals and throw in their lot with billionaires.",
-     "walkthrough": "The surface is topical politics: despots cosying up to billionaires. In TYRANTS, CO and ON replace RANT.",
-     "definitionFit": "Tycoons are wealthy business magnates."
+     "surface": "Dictators drop their speeches and turn to commerce, joining forces with the wealthy.",
+     "walkthrough": "'switch ... to' replaces RANT in TYRANTS with CO and ON; the indicator's two words sit either side of the rhetoric.",
+     "definitionFit": "Tycoons are wealthy and powerful businesspeople, magnates of industry."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "working"
+     "misdirectedWord": "Autocrats"
     }
    }
   },
