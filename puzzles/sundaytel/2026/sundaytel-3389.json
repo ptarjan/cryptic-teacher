@@ -545,22 +545,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NOHOPER",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "in places one part inside the others"
+       "text": "turning up",
+       "at": 33,
+       "note": "in a down answer, turning up means the letters are read from the bottom, so the whole is backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "turning up",
-         "note": "in a down entry, turning up means reading from the bottom to the top"
+         "text": "in",
+         "at": 21,
+         "note": "in tells you the exclamation is placed inside the other pieces"
         }
        ],
        "parts": [
@@ -569,27 +569,32 @@
          "parts": [
           {
            "words": "agent",
+           "at": 24,
            "gives": "REP",
-           "note": "a sales representative"
-          },
-          {
-           "words": "I see",
-           "gives": "OH",
-           "note": "an exclamation of understanding"
+           "note": "a rep, short for representative, is a sales agent"
           },
           {
            "words": "on",
+           "at": 30,
+           "gives": "ON",
            "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "I see",
+         "at": 15,
+         "gives": "OH",
+         "note": "oh is what you say when you suddenly understand: I see"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Disappointment at an agent who fails to show.",
-     "definitionFit": "A no-hoper is a person who is bound to fail, a letdown."
+     "surface": "A letdown: an estate agent who arrives and the speaker realises what's going on.",
+     "walkthrough": "OH goes 'in' REP ON to make REPOHON, and 'turning up' reverses it in this down entry.",
+     "definitionFit": "A no-hoper is a person with no chance of success, someone who is bound to disappoint."
     },
     "features": {
      "answerInScene": false,
@@ -812,49 +817,25 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "STOP",
      "indicators": [
       {
        "text": "Some",
-       "note": "some means only part of the following letters is taken, a run lying inside the words"
+       "at": 0,
+       "note": "some of the words means only a run of their letters is wanted"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "STO",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "trains to",
-           "gives": "STO",
-           "select": "last",
-           "note": "the tail of the first word and all of the second"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Paddington",
-           "note": "the opening letter"
-          }
-         ]
-        }
-       ]
+       "words": "trains to Paddington",
+       "at": 5,
+       "note": "the answer runs across the end of trains, all of to and the start of Paddington"
       }
      ]
     },
     "explanation": {
-     "surface": "Trains running to the London terminus at Paddington.",
-     "walkthrough": "Paddington looks like the station, but the definition is just the last word.",
-     "definitionFit": "A stop is a place where a train or bus halts for passengers, a station on the route."
+     "surface": "A note on rail services that run into Paddington, the London terminus.",
+     "walkthrough": "The answer hides across trainS TO Paddington. Paddington is a major London railway terminus, which makes 'station' look like part of the surface.",
+     "definitionFit": "A stop is a place where a train or bus halts to pick up passengers, a station."
     },
     "features": {
      "answerInScene": true,
