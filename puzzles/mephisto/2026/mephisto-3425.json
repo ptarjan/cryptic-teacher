@@ -2078,50 +2078,89 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SALAMANDRIAN",
      "indicators": [
       {
        "text": "to replace",
-       "note": "to replace something is to take its place, so one letter is swapped in for another"
-      },
-      {
-       "text": "everywhere",
-       "note": "everywhere means in every position, so the swap is made at each occurrence, not only once"
+       "at": 42,
+       "note": "to replace says one letter takes the place of another"
       }
      ],
      "parts": [
       {
-       "words": "alone",
-       "gives": "SOLO",
-       "note": "solo means alone"
-      },
-      {
-       "words": "artist",
-       "gives": "MONDRIAN",
-       "note": "Piet Mondrian, the Dutch abstract painter"
-      },
-      {
-       "words": "academy",
-       "gives": "A",
-       "note": "A is the abbreviation for academy"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "everywhere",
+         "at": 60,
+         "note": "everywhere says the swap is made at every occurrence, not just once"
+        }
+       ],
+       "parts": [
+        {
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "gets",
+           "at": 29,
+           "note": "gets means receives, so the pair takes in the academy letter in exchange"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "alone",
+             "at": 15,
+             "gives": "SOLO",
+             "note": "solo means alone, unaccompanied"
+            },
+            {
+             "words": "artist",
+             "at": 22,
+             "gives": "MONDRIAN",
+             "note": "Piet Mondrian was the Dutch abstract painter"
+            }
+           ]
+          },
+          {
+           "gives": "O"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        },
+        {
+         "gives": "O"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "oxygen",
+       "at": 53,
        "gives": "O",
-       "note": "O is the chemical symbol for oxygen; every one is replaced"
+       "note": "O is the chemical symbol for oxygen"
+      },
+      {
+       "words": "academy",
+       "at": 34,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist who survived a fire alone is welcomed into an academy.",
-     "walkthrough": "SOLO MONDRIAN with every O changed to A. 'everywhere' means all three Os are swapped, not just one.",
-     "definitionFit": "The salamander was fabled to live unharmed in flames, so salamandrian describes anything that endures fire."
+     "surface": "A lone painter, given a place at an academy, survives a blaze while oxygen is swapped out all round.",
+     "walkthrough": "The pair 'gets' an A 'to replace' each O, and 'everywhere' means all three: SOLO MONDRIAN becomes SALOMONDRIAN, then SALAMONDRIAN, then the answer.",
+     "definitionFit": "Salamandrian means like a salamander, the creature fabled to live unharmed in flames."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "oxygen"
+     "misdirectedWord": "fire"
     }
    }
   }
