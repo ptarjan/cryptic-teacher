@@ -946,6 +946,19 @@ def _walk(node):
     return out
 
 
+def _spells_in_order(parts, want):
+    """Whether `parts` read as a plain charade can give `want`: match() may
+    have placed an insertion so the anagram above it looks like it moves
+    letters, when another placement spells the answer with none moved."""
+    ops = {n.get("op") for p in parts for n in _walk(p) if n.get("parts")}
+    if "container" not in ops or not ops <= {"container", "charade"}:
+        return False  # a deletion or the like picks its letters to fit any target
+    try:
+        return match({"op": "charade", "parts": parts}, want) is not None
+    except (_NeedTarget, IndexError, KeyError, TypeError):
+        return False
+
+
 def _check_ops(node, got):
     """Steps that leave their letters as they were say nothing."""
     if node.get("unchecked"):
@@ -956,6 +969,8 @@ def _check_ops(node, got):
     if op == "anagram":
         parts = parts_of(node)
         read = "".join(got[id(p)] for p in parts) if all(id(p) in got for p in parts) else None
+        if read != got.get(id(node)) and got.get(id(node)) and _spells_in_order(parts, got[id(node)]):
+            read = got[id(node)]  # the match scrambled a container the fodder can give in order
         if read is not None and read == got.get(id(node)):
             raise WordplayError(f"{render(node)}: the fodder already reads "
                                 f"{got[id(node)]}, so there is no anagram")
