@@ -207,37 +207,30 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LEK",
+     "op": "anagram",
      "indicators": [
       {
        "text": "buries head",
-       "note": "the leading letter is pushed down and buried among the letters that follow it"
+       "at": 37,
+       "note": "the word's first letter, its head, is pushed down and buried among the letters that follow it, so the order changes"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LEK",
-       "parts": [
-        {
-         "words": "moose",
-         "gives": "ELK",
-         "note": "the elk is the European name for the moose"
-        }
-       ]
+       "words": "moose",
+       "at": 31,
+       "gives": "ELK",
+       "note": "the elk is the European name for the moose"
       }
      ]
     },
     "explanation": {
      "surface": "A moose hides its head, unlike showy grouse.",
-     "walkthrough": "The E at the front of ELK drops one place, between L and K.",
+     "walkthrough": "'buries head' moves ELK's leading E one place down, between L and K; no other letter moves.",
      "definitionFit": "A lek is the ground where male grouse gather to strut and display to females."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "buries"
     }
@@ -537,45 +530,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TCHICKED",
      "indicators": [
       {
-       "text": "taking chestnut for",
+       "text": "taking",
+       "at": 40,
        "note": "taking one thing for another swaps it in where the other stood"
+      },
+      {
+       "text": "for",
+       "at": 56,
+       "note": "read with taking: the chestnut letters are taken in place of the canter's last letter"
       }
      ],
      "parts": [
       {
        "words": "done",
+       "at": 34,
        "gives": "TRICKED",
-       "note": "to be done is to be cheated or tricked"
-      },
-      {
-       "words": "chestnut",
-       "gives": "CH",
-       "note": "CH is the standard abbreviation for chestnut, a horse colour"
+       "note": "to be done is to be cheated, tricked"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally picks the closing letter of the word before it"
+         "at": 68,
+         "note": "finally picks the closing letter of canter"
         }
        ],
        "parts": [
         {
          "words": "canter",
+         "at": 60,
          "note": "the closing letter of canter"
         }
        ]
+      },
+      {
+       "words": "chestnut",
+       "at": 47,
+       "gives": "CH",
+       "note": "CH is the standard abbreviation for chestnut, a horse's colour"
       }
      ]
     },
     "explanation": {
      "surface": "A rider urged the horse on, a chestnut breaking into a canter at last.",
-     "walkthrough": "The R of TRICKED is replaced with CH.",
+     "walkthrough": "'has done' reads as tricked; 'taking chestnut for canter, finally' puts CH where the R (last of canter) stood in TRICKED.",
      "definitionFit": "To tchick is to make a clicking sound with the tongue, as riders do to urge a horse on."
     },
     "features": {
@@ -1845,39 +1846,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRATRY",
+     "op": "composite",
      "indicators": [
       {
        "text": "out of",
-       "note": "the named letters go out of the phrase, being removed from it"
+       "at": 18,
+       "note": "the named letters go out of the assembled words, being removed from them"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "supporting",
+         "at": 25,
+         "gives": "FOR",
+         "note": "to be for something is to support it"
+        },
+        {
+         "words": "a",
+         "at": 36
+        },
+        {
+         "words": "Conservative",
+         "at": 38,
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
+        }
+       ]
+      },
+      {
        "words": "ducks",
+       "at": 12,
        "gives": "OO",
-       "note": "a duck is a score of nothing in cricket, shaped like O"
-      },
-      {
-       "words": "supporting",
-       "gives": "FOR",
-       "note": "to be for something is to support it"
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "words": "Conservative",
-       "gives": "TORY",
-       "note": "a Tory is a member of the UK Conservative Party"
+       "note": "a duck is a score of nothing in cricket, written as O, so ducks are two O's"
       }
      ]
     },
     "explanation": {
      "surface": "A brotherhood refuses to back a Conservative candidate.",
+     "walkthrough": "FOR + A + TORY makes FORATORY; the two ducks come 'out of' it, one O from each of FOR and TORY, and the other letters keep their order.",
      "definitionFit": "A fratry is a fraternity or convent of friars, a religious brotherhood."
     },
     "features": {
