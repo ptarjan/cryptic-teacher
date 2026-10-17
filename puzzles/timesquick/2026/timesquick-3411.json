@@ -1074,29 +1074,31 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "REALM",
+     "op": "deletion",
      "indicators": [
       {
        "text": "half of",
-       "note": "half of a name means just its first five of ten letters are kept"
+       "at": 6,
+       "note": "half of tells us to keep only the first five of the ten letters of the team's name and drop the rest"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Spanish side",
-       "gives": "REALM",
-       "select": "first",
-       "note": "Real Madrid is the Spanish football club; its first half is kept"
+       "at": 14,
+       "gives": "REALMADRID",
+       "note": "Real Madrid is the famous Spanish football team, a side being a team"
+      },
+      {
+       "gives": "ADRID",
+       "note": "the second half of the team's name, the five letters discarded"
       }
      ]
     },
     "explanation": {
-     "surface": "A pitch belonging to half of a Spanish football team.",
-     "walkthrough": "Real Madrid is a ten-letter name, so its first five letters are kept, cutting through the second word.",
-     "definitionFit": "A realm is a field or domain of activity or knowledge, as in 'the realm of science'."
+     "surface": "A football pundit describes one half of the pitch belonging to a Spanish team.",
+     "walkthrough": "REAL MADRID is a Spanish football club; its name has ten letters, and the first half of them gives REALM.",
+     "definitionFit": "A realm is a sphere or domain of activity, so it means a field as in 'field of study'."
     },
     "features": {
      "answerInScene": false,
