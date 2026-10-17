@@ -1175,51 +1175,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ODDBALL",
-     "indicators": [
-      {
-       "text": "drinking",
-       "note": "one who drinks takes something inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "drinking",
+         "at": 21,
+         "note": "the old bishop takes the next piece in, as a drinker takes in drink"
+        }
+       ],
        "parts": [
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O abbreviates old"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 10,
+           "gives": "O"
+          },
+          {
+           "words": "bishop",
+           "at": 14,
+           "gives": "B",
+           "note": "B is the chess notation abbreviation for bishop"
+          }
+         ]
         },
         {
          "words": "Double Diamonds",
+         "at": 30,
          "gives": "DD",
-         "note": "the first letter of Diamonds, written twice because of Double"
-        },
-        {
-         "words": "bishop",
-         "gives": "B",
-         "note": "B is the chess notation for bishop"
-        },
-        {
-         "words": "every one",
-         "gives": "ALL",
-         "note": "every one is all"
+         "note": "D is the card abbreviation for diamonds, and double means two of them; Double Diamond was also a British beer"
         }
        ]
+      },
+      {
+       "words": "every one",
+       "at": 48,
+       "gives": "ALL",
+       "note": "every one together is all"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange old bishop downs every bottle of Double Diamond, a British pale ale.",
-     "walkthrough": "Double Diamond was a well-known British beer, but here it is two Ds for diamonds. They sit inside old plus bishop, and ALL closes the word.",
-     "definitionFit": "An oddball is an informal noun for a peculiar, unconventional person, the same as an eccentric."
+     "surface": "An eccentric elderly bishop downing pint after pint of Double Diamond, a once-popular British bitter.",
+     "walkthrough": "'drinking' looks like the bishop's habit, but it is the container signal; D is the card-suit abbreviation for diamonds, and 'Double' means two of them.",
+     "definitionFit": "An oddball is a strange or eccentric person, so the noun matches eccentric used as a noun."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Diamonds"
     }
    }
@@ -1245,46 +1253,66 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PITFALL",
-     "indicators": [
-      {
-       "text": "swapped at the front",
-       "note": "swapping the fronts of two words exchanges their opening sounds"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "swapped",
+         "at": 28,
+         "note": "swapped says the first word's letter is exchanged for one from its partner"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "In good form",
-         "gives": "PIT",
-         "soundsLike": "FIT",
+         "at": 0,
+         "gives": "FIT",
          "note": "someone in good form is fit"
         },
         {
-         "unchecked": true,
+         "gives": "F"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "at the front",
+         "at": 36,
+         "note": "at the front says the exchange is made on the words' opening letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "become tired",
-         "gives": "FALL",
-         "soundsLike": "PALL",
-         "note": "to pall is to grow tiresome or weary"
+         "at": 14,
+         "gives": "PALL",
+         "note": "to pall is to become tiresome or tired"
+        },
+        {
+         "gives": "P"
+        },
+        {
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Eden Hazard, the footballer, was in good form but tired and got substituted.",
-     "walkthrough": "Hazard was a star Belgian forward at Chelsea, so 'swapped' sounds like a substitution. The two words trade their first letters.",
-     "definitionFit": "A pitfall is a hidden danger or trap, so a risk or peril waiting to catch someone out."
+     "surface": "A sportsman in good form tires, and is swapped for a player named Hazard, as footballer Eden Hazard was.",
+     "walkthrough": "FIT and PALL are 'swapped at the front': F and P trade places, so FIT becomes PIT and PALL becomes FALL.",
+     "definitionFit": "A pitfall is a hidden danger or trap, so it is a hazard."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Hazard"
     }
    }
@@ -1472,43 +1500,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SEDITIOUS",
      "indicators": [
       {
        "text": "in",
-       "note": "a thing in another sits inside it"
+       "at": 32,
+       "note": "in says the shortened publication sits inside the South America pair"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "South",
+         "at": 35,
+         "gives": "S"
+        },
+        {
+         "words": "America",
+         "at": 41,
+         "gives": "US",
+         "note": "US stands for the United States of America"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "curtailed",
-         "note": "to curtail is to cut short, so the tail letter is lost"
+         "at": 22,
+         "note": "curtailed means cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "South",
-           "gives": "S",
-           "note": "S abbreviates south"
-          },
-          {
-           "words": "publication",
-           "gives": "EDITION",
-           "note": "an edition is one publication of a work"
-          },
-          {
-           "words": "America",
-           "gives": "US",
-           "note": "the US is America"
-          }
-         ]
+         "words": "publication",
+         "at": 10,
+         "gives": "EDITION",
+         "note": "an edition is a published version of a book or newspaper"
         },
         {
          "gives": "N"
@@ -1518,14 +1548,14 @@
      ]
     },
     "explanation": {
-     "surface": "An underground newspaper in South America is censored.",
-     "walkthrough": "'South America' looks like one place but splits into S and US, with the shortened publication between them.",
-     "definitionFit": "Both words describe opposing established authority and stirring up rebellion against the state."
+     "surface": "A dissident's underground publication cut short somewhere in South America.",
+     "walkthrough": "'South America' is read as two pieces, S and US, rather than the continent; 'curtailed' cuts the last letter from the publication, giving EDITIO, which goes 'in' them.",
+     "definitionFit": "A dissident voice is one stirring rebellion against the state, which is seditious behaviour."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "curtailed"
+     "misdirectedWord": "America"
     }
    }
   },
