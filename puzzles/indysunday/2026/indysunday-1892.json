@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -224,34 +225,39 @@
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
-         "text": "Outside",
-         "note": "The outside of a word is the letter at each end, and those two are all that is kept of the downpour."
+         "text": "Outside in",
+         "at": 0,
+         "note": "Outside in asks for what is on the outside of the word that follows, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Outside in deluge",
-         "gives": "DE",
-         "select": "outer",
-         "note": "the first and last letters of DELUGE, the middle of the word washed away"
+         "words": "deluge",
+         "at": 11,
+         "note": "the outer letters of deluge are D and E"
         }
        ]
       },
       {
        "words": "fellow",
+       "at": 19,
        "gives": "MISTER",
-       "note": "a fellow is a mister, the everyday title for a man"
+       "note": "mister is a way of addressing a fellow, a man"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Outside' looks like part of the rainy picture rather than an instruction, and that is the whole disguise. Every word of the surface is weather; the answer is the gadget that fights it.",
-     "definitionFit": "drier in the car → DEMISTER: the demister blows warm air across the windscreen to dry the film of mist off it, so it really is the car's drier."
+     "surface": "A man caught out in a downpour finds a dry spot in his car.",
+     "walkthrough": "'Outside in deluge' gives DE, the ends of the word. 'gets' links the wordplay to the definition, which is a cryptic way of describing the windscreen gadget.",
+     "definitionFit": "A demister blows warm air on a car's windscreen to clear condensation, so it dries the glass inside the vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drier"
     }
    }
   },
@@ -709,39 +715,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WHITELINE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so his name alone is the instruction to swap them."
+       "at": 0,
+       "note": "Spooner's refers to the Reverend Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "low-alcohol",
+       "at": 10,
+       "gives": "LITE",
+       "note": "lite is the trade spelling of light, used for low-alcohol drinks"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WHINE",
        "parts": [
         {
-         "unchecked": true,
-         "words": "low-alcohol",
-         "gives": "WHITE",
-         "soundsLike": "LIGHT",
-         "note": "a drink low in alcohol is a light one, and it hands its opening sound over to its neighbour"
-        },
-        {
-         "unchecked": true,
          "words": "champagne perhaps",
-         "gives": "LINE",
-         "soundsLike": "WINE",
-         "note": "champagne is one example of wine, and it collects the sound the other word gave up"
+         "at": 22,
+         "gives": "WINE",
+         "note": "champagne is one example of wine, which is then said as if it began with the wh sound of whine"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain version aloud first — a light wine is exactly what the surface is offering — and the swap does the rest. What comes out is painted on a road.",
-     "definitionFit": "driver's limit → WHITE LINE: the white line down a road is the boundary a driver is not meant to cross, the same idea as 'crossing the line'."
+     "surface": "A tipsy cleric's drink order turns into a warning about drink-driving.",
+     "walkthrough": "Swap the opening sounds of LITE and WINE (said as whine) and you get WH-ITE L-INE.",
+     "definitionFit": "A white line painted along the road marks lanes and edges that a driver must keep within."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "limit"
     }
    }
   },
@@ -939,36 +950,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DELIBERATE",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "A reduced word has been cut short, and what a cut takes off a name is the letter standing at its end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 33,
+         "note": "reduced means cut short, so the composer's name loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "French composer",
-         "gives": "DELIBE",
-         "note": "Léo Delibes wrote Coppélia and Lakmé; cut short, his name loses its final S"
+         "at": 17,
+         "gives": "DELIBES",
+         "note": "Léo Delibes was the French composer of the ballet Coppélia"
         },
         {
-         "words": "tempo",
-         "gives": "RATE",
-         "note": "the tempo of a thing is the rate it goes at"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "tempo",
+       "at": 41,
+       "gives": "RATE",
+       "note": "a rate is a pace or tempo"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition wants the unhurried sense of the word rather than the 'done on purpose' one, and Delibes is the sort of nineteenth-century name crosswords keep in circulation.",
-     "definitionFit": "Slow and careful → DELIBERATE: a deliberate movement is an unhurried, considered one, the adjective's taking-its-time sense rather than its intentional one."
+     "surface": "A French composer cuts the speed of a piece, playing it slowly and carefully.",
+     "walkthrough": "'reduced' trims DELIBES to DELIBE before RATE.",
+     "definitionFit": "Deliberate describes something done unhurriedly with careful thought, such as a deliberate pace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
     }
    }
   },
