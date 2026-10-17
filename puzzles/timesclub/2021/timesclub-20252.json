@@ -114,46 +114,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shot",
-       "note": "something shot is ruined or broken up, so the letters of the neighbouring word are scrambled"
+       "text": "Before",
+       "at": 0,
+       "note": "the noise comes before the rest, so its letters lead the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "racket",
+       "at": 21,
+       "gives": "DIN",
+       "note": "a racket is a loud noise, a din"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Before",
-         "note": "before tells us which piece is written first in the line of letters"
+         "text": "shot",
+         "at": 15,
+         "note": "shot in the sense of ruined or broken up, so the letters of chasing are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "racket",
-         "gives": "DIN",
-         "note": "a din is a loud noise, a racket"
-        },
-        {
          "words": "chasing",
-         "note": "the letters of chasing, rearranged"
+         "at": 7,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Talk of a drink after a stiff shot, with noise being exactly what's needed.",
-     "walkthrough": "'chasing shot' reads like a chaser after a drink, but chasing is the fodder and shot rearranges it.",
-     "definitionFit": "Kant's German phrase means the thing in itself, reality independent of perception; 'just the thing' is a playful gloss on that."
+     "surface": "A sports player is told the racket, ahead of chasing a shot, is exactly the right tool for the job.",
+     "walkthrough": "'Shot' looks like a stroke in a racket game, but it means wrecked, so the word after it is jumbled; 'Before' puts the noise ahead. The question mark flags that 'just the thing' is read philosophically, as Kant's term.",
+     "definitionFit": "Kant's German term names an object as it is in itself, independent of perception: the thing purely and simply."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "chasing"
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -1443,41 +1447,68 @@
      "indicators": [
       {
        "text": "to the west",
-       "note": "going west in an across answer means travelling right to left"
+       "at": 17,
+       "note": "in an across answer, going west means reading from right to left"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "HATFIB",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out of bounds",
-         "note": "the bounds are the outermost letters, and being out of them leaves just the inner ones"
+         "text": "bounds",
+         "at": 37,
+         "note": "the bounds are the outer letters, so the opening boundary letter goes too"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "which lies",
-         "gives": "HATFIB",
-         "select": "middle",
-         "note": "which is that and lies are fibs; the joined pair loses its two outermost letters"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "out of",
+           "at": 30,
+           "note": "out of, read with bounds, takes the closing boundary letter off the end"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "which",
+             "at": 6,
+             "gives": "THAT",
+             "note": "which and that are interchangeable relative pronouns"
+            },
+            {
+             "words": "lies",
+             "at": 12,
+             "gives": "FIBS",
+             "note": "lies as a verb: fibs"
+            }
+           ]
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hip joint, which lies westward, off limits to visitors.",
-     "walkthrough": "THATFIBS loses its first and last letters, and HATFIB is then reversed.",
-     "definitionFit": "Biftah is slang for a cannabis cigarette, a joint in the drug-taking sense rather than a body part."
+     "surface": "Someone describes a building or a pub that sits west of town and is off limits to visitors.",
+     "walkthrough": "'Out of bounds' strips both end letters from THAT FIBS: losing the final one gives THATFIB, losing the first gives HATFIB; 'to the west' then reads that right to left, as an across answer runs west.",
+     "definitionFit": "This is a slang word for a cannabis cigarette, which is also called a joint."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Joint"
     }
    }
@@ -1504,52 +1535,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HOSEL",
      "indicators": [
       {
        "text": "going for",
-       "note": "one thing going for another means making way for it, a swap of letters"
+       "at": 28,
+       "note": "one letter goes in place of another, replacing it in the word"
       }
      ],
      "parts": [
       {
        "words": "One pursuing golf",
+       "at": 0,
        "gives": "HOTEL",
-       "note": "in the NATO phonetic alphabet Hotel comes straight after Golf"
+       "note": "in the NATO phonetic alphabet the word after Golf is Hotel"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "at": 23,
+       "gives": "T"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "latest in",
-         "note": "the latest in a sequence is the last, so the final letter of the word is kept"
+         "at": 38,
+         "note": "the latest, final letter of the word that follows"
         }
        ],
        "parts": [
         {
          "words": "clubs",
-         "note": "the last letter of clubs"
+         "at": 48,
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer with time to spare gets the latest clubs and hits a hole in one.",
-     "walkthrough": "'golf' is a word of the phonetic alphabet, not the game, and S replaces the T in HOTEL. The definition is cryptic: the hole sits in one club.",
-     "definitionFit": "A hosel is the socket in a golf club's head into which the shaft fits, a hole in the club itself."
+     "surface": "A golfer chasing the game, with clubs in hand, makes a hole in one.",
+     "walkthrough": "In HOTEL the T of time is replaced, 'going for' it, by S, 'latest in' clubs being its last letter. 'Hole in one' is not the golfing feat: it means a hole in one of the clubs.",
+     "definitionFit": "The hosel is the socket in a golf club's head into which the shaft fits, a hole in a club."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "golf"
+     "misdirectedWord": "hole"
     }
    }
   },
