@@ -462,42 +462,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WHISPER",
-     "indicators": [
-      {
-       "text": "Unfinished",
-       "note": "something unfinished is missing its end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unfinished",
+         "at": 0,
+         "note": "unfinished means the game's name stops before its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "card game",
-         "gives": "WHIS",
-         "note": "whist is a card game, here without its last letter"
+         "at": 11,
+         "gives": "WHIST",
+         "note": "whist is a trick-taking card game"
         },
         {
-         "words": "according to",
-         "gives": "PER",
-         "note": "per means according to, as in per the rules"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "according to",
+       "at": 22,
+       "gives": "PER",
+       "note": "per means according to, as in per the rules"
       }
      ]
     },
     "explanation": {
-     "surface": "A card game that never ended becomes the subject of gossip.",
+     "surface": "A card game abandoned partway, as gossip reports it.",
      "walkthrough": "'According to rumor' reads as one phrase, but 'according to' is wordplay and 'rumor' alone defines.",
-     "definitionFit": "A whisper is a piece of gossip passed on quietly, which is a rumor."
+     "definitionFit": "A whisper can be a rumor or hint passed quietly from person to person."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "according"
+     "misdirectedWord": "game"
     }
    }
   },
@@ -1132,40 +1136,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BULLPEN",
      "indicators": [
       {
        "text": "to Reverend Spooner",
-       "note": "Spooner famously swapped the first sounds of words, so the start sounds are exchanged"
+       "at": 13,
+       "note": "William Spooner was famous for swapping the first sounds of words, so the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "PULL",
        "parts": [
         {
-         "unchecked": true,
          "words": "Drag",
-         "gives": "BULL",
-         "soundsLike": "PULL",
-         "note": "to drag is to pull; it takes the opening sound of the second word"
-        },
-        {
-         "unchecked": true,
-         "words": "Affleck",
-         "gives": "PEN",
-         "soundsLike": "BEN",
-         "note": "the actor Ben Affleck; he takes the opening sound of the first word"
+         "at": 0,
+         "gives": "PUL",
+         "note": "to pull is to drag; the word is taken by its sound, the opening P to be swapped"
         }
        ]
+      },
+      {
+       "words": "Affleck",
+       "at": 5,
+       "gives": "BEN",
+       "note": "Ben Affleck is the American actor"
       }
      ]
     },
     "explanation": {
-     "surface": "Hauling an actor to the Reverend, where some comfort might be found.",
-     "walkthrough": "In baseball the bullpen is where relief pitchers warm up, so that is where 'relief' comes from.",
-     "definitionFit": "Relief pitchers wait in the baseball bullpen before entering the game, so relief comes from there."
+     "surface": "Hauling a Hollywood actor over to meet a famous Oxford clergyman.",
+     "walkthrough": "'To Reverend Spooner' swaps the opening sounds, so PULL BEN becomes BULL PEN. In baseball the bullpen is where relief pitchers warm up, hence the relief.",
+     "definitionFit": "A bullpen is the area where relief pitchers warm up before entering a baseball game."
     },
     "features": {
      "answerInScene": false,
