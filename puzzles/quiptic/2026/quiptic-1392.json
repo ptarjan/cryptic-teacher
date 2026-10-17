@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -94,39 +95,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "allowed",
-      "at": 25
+      "text": "that's allowed",
+      "at": 18
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LICIT",
-     "indicators": [
-      {
-       "text": "Mostly"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most but not all of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "tongue",
-         "gives": "LIC",
-         "note": "LICK — to tongue — with 'mostly' dropping its last letter"
+         "at": 7,
+         "gives": "LICK",
+         "note": "to tongue something is to lick it"
         },
         {
-         "words": "it",
-         "note": "lifted straight into the answer"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 14,
+       "gives": "IT"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Mostly' trims the last letter off LICK, and IT comes along unchanged. 'That's' is the joinery pointing at the definition.",
-     "definitionFit": "Licit means lawful or permitted — 'allowed' exactly — a word met far more often in its negative, illicit."
+     "surface": "A tongue-in-cheek instruction to lick something mostly, as long as it is permitted.",
+     "walkthrough": "'Tongue' is a verb here: to lick. 'Mostly' cuts LICK to LIC before IT is added.",
+     "definitionFit": "Licit means lawful or permitted, the opposite of illicit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tongue"
     }
    }
   },
@@ -671,38 +684,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEAL",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "discounting"
+       "text": "discounting",
+       "at": 26,
+       "note": "discounting means leaving out, so the thousand is removed from the meal"
       },
       {
-       "text": "instead"
+       "text": "instead",
+       "at": 64,
+       "note": "instead means the five hundred takes the place of what was removed"
       }
      ],
      "parts": [
       {
        "words": "banquet, perhaps",
+       "at": 8,
        "gives": "MEAL",
-       "note": "a banquet is an example of a meal"
+       "note": "a banquet is an example of a meal, hence perhaps"
       },
       {
        "words": "a thousand",
+       "at": 38,
        "gives": "M",
-       "note": "Roman numeral M = 1,000, taken away"
+       "note": "M is the Roman numeral for a thousand"
       },
       {
        "words": "five hundred",
+       "at": 51,
        "gives": "D",
-       "note": "Roman numeral D = 500, put in M's place"
+       "note": "D is the Roman numeral for five hundred"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A banquet is a meal 'perhaps'; then one Roman numeral is discounted and another put in its place — letter swaps like this are worth learning to spot.",
-     "definitionFit": "To deal is to lay out the cards around the table — the card-table sense of laying out, right on theme for this puzzle."
+     "surface": "Instructions for budgeting a feast, cutting the bill from a thousand to five hundred.",
+     "walkthrough": "The numbers look like money, but they are Roman numerals: M swaps for D in MEAL.",
+     "definitionFit": "To deal cards is to lay them out to the players, distributing them around the table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thousand"
     }
    }
   },
@@ -1248,35 +1272,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMMY",
-     "indicators": [
-      {
-       "text": "Headless"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Run",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the cricket scorer's abbreviation for a run"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Headless",
+         "at": 5,
+         "note": "headless means without its head, the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Run",
-         "gives": "R",
-         "note": "r = run, from cricket scorecards"
+         "words": "Egyptian corpse",
+         "at": 14,
+         "gives": "MUMMY",
+         "note": "a mummy is an embalmed Egyptian corpse"
         },
         {
-         "words": "Egyptian corpse",
-         "gives": "UMMY",
-         "note": "a MUMMY, 'headless' removing its first letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "R is the cricket scorecard's run; 'headless' then beheads the MUMMY. Another game for the puzzle's running card table.",
-     "definitionFit": "Rummy is the card game of melding sets and runs — one more hand dealt into this puzzle's deck of card references."
+     "surface": "A cry to flee from a headless mummy, as in a horror film.",
+     "walkthrough": "'Run!' looks like a shouted warning but simply gives R.",
+     "definitionFit": "Rummy is a card game in which players collect sets and sequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Run"
     }
    }
   },
