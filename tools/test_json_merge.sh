@@ -128,7 +128,7 @@ PY
   git clone -q origin.git a 2>/dev/null && cd a || exit 1
   git config user.email nobody@example.com; git config user.name test
   mkdir -p tools/data
-  cp "$ROOT/tools/json_merge.py" "$ROOT/tools/puzzle_schema.py" "$ROOT/tools/push_puzzle_commit.sh" tools/
+  cp "$ROOT/tools/json_merge.py" "$ROOT/tools/puzzle_schema.py" "$ROOT/tools/push_puzzle_commit.sh" "$ROOT/tools/clobber_guard.py" tools/
   cp "$ROOT/tools/data/puzzle.schema.json" tools/data/
   cp "$ROOT/.gitattributes" .
   # solve_misses.record, standing in for the daily unit's writer, without the

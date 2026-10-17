@@ -21,7 +21,7 @@ ident() { git config user.email nobody@example.com; git config user.name test; }
 git init -q --bare -b master origin.git
 git clone -q origin.git seed 2>/dev/null && cd seed && ident || exit 1
 mkdir -p tools puzzles/cryptic/2026
-cp "$ROOT/tools/publish_fetched.sh" "$ROOT/tools/push_puzzle_commit.sh" tools/
+cp "$ROOT/tools/publish_fetched.sh" "$ROOT/tools/push_puzzle_commit.sh" "$ROOT/tools/clobber_guard.py" tools/
 echo '{"id":"cryptic-1"}' > puzzles/cryptic/2026/cryptic-1.json
 git add -A && git commit -qm base && git push -q origin master
 cd .. && git clone -q origin.git burn && git clone -q origin.git upstream

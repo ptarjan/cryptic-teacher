@@ -23,10 +23,9 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import lesson_checks as L  # noqa: E402
-import puzzle_schema  # noqa: E402
-import validate_annotations as V  # noqa: E402
+import lesson_checks as L
+import puzzle_schema
+import validate_annotations as V
 
 ROOT = Path(__file__).resolve().parent.parent
 FIELD = "spelling.unsaid"

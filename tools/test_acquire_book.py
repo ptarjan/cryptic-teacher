@@ -62,6 +62,7 @@ def fresh():
 
 
 # ---------------------------------------------------------------- parts 1
+import hashlib
 import json, re, tempfile
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
@@ -104,10 +105,19 @@ with ProcessPoolExecutor(max_workers=4) as pool:
             fail(f"#{bn}: {len(found)} grid(s), expected {len(want['expected_grids'])}"
                  f" — the recovered geometry moved")
             ok = False
-        if info["nodes"] != want["expected_nodes"]:
+        spec_digest = hashlib.sha256(json.dumps(
+            PUZZLES[bn]["light_spec"], sort_keys=True,
+            separators=(",", ":")).encode()).hexdigest()
+        if spec_digest != want["spec_digest"]:
+            fail(f"#{bn}: the stored light spec changed — the light spec that "
+                 f"went in is not the one this control was measured with")
+            ok = False
+        elif info["nodes"] != want["expected_nodes"]:
+            # Same spec, same grids (checked above): the search itself prunes
+            # differently. Re-measure expected_nodes once the grids still match.
             fail(f"#{bn}: search visited {info['nodes']} nodes, expected "
-                 f"{want['expected_nodes']} — the light spec that went in is "
-                 f"not the one this control was measured with")
+                 f"{want['expected_nodes']} — the spec is unchanged, so the "
+                 f"search's pruning changed; re-measure the control")
             ok = False
         if bool(info["truncated"]) != want["expected_truncated"]:
             fail(f"#{bn}: truncated={info['truncated']}, expected "
@@ -155,7 +165,6 @@ if not text.exists():
     print(f"part 2: SKIPPED — no OCR text at {text}")
     print("  (set PENGUIN_TEXT, or run tools/fetch_ia_book.py, to gate the parser)")
 else:
-    import hashlib
     from parse_penguin_book import parse_book
     print(f"part 2: the parser, against {text}")
     parsed = {p["book_number"]: p for p in parse_book(text)}
