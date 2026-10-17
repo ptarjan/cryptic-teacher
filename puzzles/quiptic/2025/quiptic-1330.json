@@ -194,47 +194,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "SCINTILLA",
+     "spelt": "SCINTILLA",
      "indicators": [
       {
        "text": "reported",
-       "note": "reported speech is heard, so the pieces are spoken"
+       "at": 19,
+       "note": "reported means as spoken, so the phrase is heard rather than spelt"
       }
      ],
      "parts": [
       {
-       "words": "crime",
-       "gives": "SIN",
-       "note": "a sin is a wrong"
-      },
-      {
-       "words": "farmer",
-       "gives": "TILLER",
-       "note": "a farmer tills the soil"
-      },
-      {
-       "op": "homophone",
-       "spelt": "SCINTILLA",
-       "parts": [
-        {
-         "words": "crime farmer reported",
-         "gives": "SINTILLER",
-         "note": "said together, sin + tiller matches the answer"
-        }
-       ]
+       "words": "crime farmer",
+       "at": 6,
+       "gives": "SINTILLER",
+       "note": "a crime is a sin and a farmer is a tiller of the soil, giving sin tiller"
       }
      ]
     },
     "explanation": {
-     "surface": "A detective asked to trace a crime that a farmer has reported.",
-     "walkthrough": "'Trace' pretends to be a verb for police work; it is the noun meaning a tiny amount.",
-     "definitionFit": "A scintilla is the tiniest trace of something, as in 'not a scintilla of evidence'."
+     "surface": "A detective follows a trace of evidence about a crime linked to a farmer.",
+     "walkthrough": "'reported' asks for the sound: SIN TILLER, said in a non-rhotic accent, is a close match for the answer.",
+     "definitionFit": "A scintilla is a tiny amount, a mere hint or vestige of something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Trace"
+     "joke": "pun",
+     "misdirectedWord": "farmer"
     }
    }
   },
@@ -738,45 +724,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LOSTCAUSE",
      "indicators": [
       {
        "text": "Spooner said",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 18,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Price",
+       "at": 0,
+       "gives": "COST",
+       "note": "a price is a cost"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LAUSE",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Price",
-         "gives": "LOST",
-         "soundsLike": "COST",
-         "note": "price = cost; it takes the L sound from the next word"
-        },
-        {
-         "unchecked": true,
          "words": "regulations",
-         "gives": "CAUSE",
-         "soundsLike": "LAWS",
-         "note": "regulations = laws; it takes the C sound from the first word"
+         "at": 6,
+         "gives": "LAWS",
+         "note": "regulations are laws"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Price controls that Spooner thought were doomed.",
-     "walkthrough": "Swap the first sounds of COST and LAWS and you get LOST CAUSE.",
-     "definitionFit": "An idiom: the phrase names an effort already doomed, so the clue's 'no hope' is its plain meaning."
+     "surface": "Price regulations are criticised as hopeless by someone named Spooner.",
+     "walkthrough": "'Spooner said' swaps the opening sounds of COST LAWS, giving LOST CAWS; CAWS is said just like CAUSE, so the spelling follows the sound. Price regulations are what 'have' no hope.",
+     "definitionFit": "A lost cause is an undertaking with no chance of success, something beyond hope."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "regulations"
+     "joke": "pun",
+     "misdirectedWord": "Price"
     }
    }
   },
@@ -1165,46 +1150,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SUPERHERO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 44,
+       "note": "around means the jumbled letters go round the river letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "restless",
-         "note": "restless letters will not stay in place"
-        },
-        {
-         "text": "around",
-         "note": "the anagram goes around the river"
+         "at": 35,
+         "note": "restless sheep move about, so the letters are jumbled"
         }
        ],
        "parts": [
         {
          "words": "our sheep",
-         "gives": "SUPEHERO",
-         "note": "OUR SHEEP rearranged, split SUPE…HERO"
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R = river, placed inside"
+         "at": 25,
+         "note": "taken as written, the letters to be rearranged"
         }
        ]
+      },
+      {
+       "words": "river",
+       "at": 51,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A wolverine unsettling the farmer's flock.",
-     "walkthrough": "The surface wants the wolverine to be an animal worrying sheep; it is the Marvel character, one of the X-Men.",
-     "definitionFit": "Wolverine is a Marvel superhero, so 'perhaps' marks him as one example."
+     "surface": "A farmer's sheep grow restless near a river, as if threatened by a wild animal.",
+     "walkthrough": "'restless' shuffles OUR SHEEP into SUPEHERO and 'around' wraps that about R. Wolverine is not the animal here but the Marvel comic character.",
+     "definitionFit": "Wolverine is a Marvel comics hero with claws and healing powers, an example of a superhero."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Wolverine"
     }
    }
