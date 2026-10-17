@@ -980,55 +980,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FRANKENSTEIN",
+     "indicators": [
+      {
+       "text": "acquiring",
+       "at": 11,
+       "note": "acquiring means taking something in, so the honest mug pair takes the next letters between them"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "Honest",
+         "at": 0,
+         "gives": "FRANK",
+         "note": "frank means honest, candid"
+        },
+        {
+         "words": "mug",
+         "at": 7,
+         "gives": "STEIN",
+         "note": "a stein is a large beer mug"
+        }
+       ]
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "acquiring"
+         "text": "side-swiped",
+         "at": 21,
+         "note": "with its sides swiped away, the word Benz loses its outer letters and keeps only its middle"
         }
        ],
        "parts": [
         {
-         "words": "Honest",
-         "gives": "FRANK",
-         "note": "frank = honest"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "EN",
-         "indicators": [
-          {
-           "text": "side-swiped",
-           "note": "Benz loses its sides, B and Z"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "side-swiped Benz",
-           "gives": "EN",
-           "select": "outer",
-           "note": "BENZ with its sides swiped off"
-          }
-         ]
-        },
-        {
-         "words": "mug",
-         "gives": "STEIN",
-         "note": "a stein is a beer mug"
+         "words": "Benz",
+         "at": 33,
+         "note": "the car maker's name, trimmed by the indicator"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A straight-talking fool is given a battered Mercedes in exchange for a Swiss aristocrat.",
-     "walkthrough": "'Mug' looks like a fool; it is a beer mug. Victor Frankenstein in Mary Shelley's novel is from Geneva; the films made him a Baron.",
-     "definitionFit": "Baron Frankenstein, the Genevan scientist who builds the monster, is the Swiss baron."
+     "surface": "A frank beer mug somehow absorbs a crashed Mercedes on its way to a Swiss nobleman.",
+     "walkthrough": "'side-swiped' strips the outer letters B and Z from BENZ, leaving EN, which goes between FRANK and STEIN.",
+     "definitionFit": "In Mary Shelley's novel Victor Frankenstein is from Geneva, and stage and film versions make him a baron."
     },
     "features": {
      "answerInScene": false,
