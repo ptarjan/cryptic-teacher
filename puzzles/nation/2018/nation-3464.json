@@ -588,37 +588,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RELAPSE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter of the warning word is dropped"
+       "text": "return",
+       "at": 14,
+       "note": "to return something is to send it back, so the combined letters are read in the opposite direction"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "return",
-         "note": "to return is to go back, so the whole combination is read from the end to the start"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "psychic's gift",
+         "at": 21,
+         "gives": "ESP",
+         "note": "a psychic's supposed gift is ESP, extrasensory perception"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 50,
+           "note": "mostly means most but not all of the word, so its final letter is dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "psychic's gift",
-           "gives": "ESP",
-           "note": "ESP, extrasensory perception, is the gift a psychic claims"
+           "words": "warning",
+           "at": 41,
+           "gives": "ALERT",
+           "note": "an alert is a warning"
           },
           {
-           "words": "warning",
-           "gives": "ALER",
-           "note": "an alert is a warning; mostly drops its final letter"
+           "gives": "T"
           }
          ]
         }
@@ -627,9 +632,9 @@
      ]
     },
     "explanation": {
-     "surface": "A sceptic, tired of a fortune-teller's predictions, wants to give the gift back with a caution.",
-     "walkthrough": "ESP plus ALER makes ESPALER, which read backwards is RELAPSE.",
-     "definitionFit": "To relapse is to slip back into a former, worse state, which is what backsliding means."
+     "surface": "Someone backsliding hands back a clairvoyant's gift with most of a warning attached.",
+     "walkthrough": "'Mostly' trims ALERT to ALER; 'return' then turns ESP plus ALER, ESPALER, back to front.",
+     "definitionFit": "To relapse is to fall back into a former bad state or habit, which is what backsliding means."
     },
     "features": {
      "answerInScene": false,
@@ -769,41 +774,32 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RUMMAGESALE",
      "indicators": [
       {
        "text": "Between",
-       "note": "between puts the sorcerer's word in the gap separating two drinks"
+       "at": 0,
+       "note": "between means the sorcerer's letters are placed with one drink on either side"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "drinks",
-         "gives": "RUM",
-         "note": "rum is a drink, the first of the pair"
-        },
-        {
-         "words": "sorcerer's",
-         "gives": "MAGES",
-         "note": "a mage is a sorcerer, with the possessive s kept"
-        },
-        {
-         "words": "drinks",
-         "gives": "ALE",
-         "note": "ale is a drink, the second of the pair"
-        }
-       ]
+       "words": "drinks",
+       "at": 8,
+       "gives": "RUMALE",
+       "note": "rum and ale are two drinks, one on each side"
+      },
+      {
+       "words": "sorcerer's",
+       "at": 16,
+       "gives": "MAGES",
+       "note": "a mage is a sorcerer, and the 's stays as S"
       }
      ]
     },
     "explanation": {
-     "surface": "A wizard who earns a living between rounds at the pub.",
-     "walkthrough": "The single word drinks has to supply two different drinks, one on each side of the sorcerer.",
-     "definitionFit": "A rummage sale sells donated second-hand goods to raise funds, typically for a charity or church."
+     "surface": "A wizard, between drinks, comes up with a moneymaking scheme.",
+     "walkthrough": "The two drinks are RUM and ALE; MAGE'S sits between them.",
+     "definitionFit": "A rummage sale is a sale of donated second-hand goods, a common way for charities to raise funds."
     },
     "features": {
      "answerInScene": false,
@@ -1012,53 +1008,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARLEQUIN",
-     "indicators": [
-      {
-       "text": "bobtail",
-       "note": "a bobtail is a docked tail, so the horse word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 6,
+         "note": "in a down entry, up means the word is read from bottom to top, so backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down clue up means reading upwards, so the cheer is written backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Cheer",
-           "gives": "RAH",
-           "note": "rah is an American cheer, as in rah-rah"
-          }
-         ]
-        },
+         "words": "Cheer",
+         "at": 0,
+         "gives": "RAH",
+         "note": "rah is a cheer, as in rah-rah"
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "at": 9,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the clothing-size abbreviation for large"
-        },
+         "text": "bobtail",
+         "at": 15,
+         "note": "a bobtail is a docked tail, so the word loses its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "horse",
-         "gives": "EQUIN",
-         "note": "equine means horse; bobtail removes its final letter"
+         "at": 23,
+         "gives": "EQUINE",
+         "note": "an equine is a horse"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trying to lift spirits with a big short-tailed horse and a circus clown.",
-     "walkthrough": "'Cheer up' looks like the definition, meaning to hearten; it is two instructions.",
-     "definitionFit": "Harlequin is the masked comic servant of commedia dell'arte in a diamond-patterned costume, a stock clown figure."
+     "surface": "Raise a cheer for a big docked-tail horse that comes with a circus clown.",
+     "walkthrough": "'Up' turns RAH into HAR; 'bobtail' trims EQUINE to EQUIN.",
+     "definitionFit": "Harlequin is the comic servant character of the commedia dell'arte, so a buffoon or jester figure."
     },
     "features": {
      "answerInScene": true,
