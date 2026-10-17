@@ -998,44 +998,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "CHOOCHOO",
-     "indicators": [
-      {
-       "text": "twice",
-       "note": "twice means the same piece is written two times in a row"
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CHOOCHOO",
        "indicators": [
         {
          "text": "Half",
-         "note": "half means only the front portion is kept and the rest dropped"
+         "at": 0,
+         "note": "only half of the word is kept, its first four letters, and the second half is dropped"
         }
        ],
        "parts": [
         {
          "words": "opting",
+         "at": 5,
          "gives": "CHOOSING",
-         "note": "opting means selecting"
+         "note": "opting means choosing, taken here as the -ing form of the verb"
+        },
+        {
+         "gives": "SING"
         }
        ]
+      },
+      {
+       "words": "twice",
+       "at": 12,
+       "gives": "CHOO",
+       "note": "twice asks for the same half of the word again, so those four letters are repeated"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone half-heartedly choosing a train, twice over.",
-     "walkthrough": "The answer is a child's word for a steam train.",
-     "definitionFit": "This is the nursery word for a railway engine, imitating the puffing sound it makes."
+     "surface": "Someone half-heartedly deciding, twice over, to take the train.",
+     "walkthrough": "Opting is CHOOSING; 'Half' keeps its first four letters, and 'twice' doubles them.",
+     "definitionFit": "Choo-choo is the nursery word for a railway locomotive, imitating the sound of a steam engine."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "opting"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Half"
     }
    }
   },
