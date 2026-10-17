@@ -2450,6 +2450,26 @@ def check_type_against_blog(puzzle, warnings):
                 + blog_file_hint("type"))
 
 
+def _fragment_clear_of_definitions(entry, ann, frag):
+    """True when every place `frag` sits in the clue lies outside every placed
+    definition: sharing a word (azed-2693 30A "Small amount of money, very
+    small, last in purse": def "Small amount of money", block "very small") is
+    a coincidence of vocabulary, not one stretch of clue doing both jobs. False
+    when the clue, the fragment or a definition's `at` cannot be pinned down."""
+    clue = ((entry.get("clue") or {}).get("text") or "")
+    spans = [(d["at"], d["at"] + len(d["text"])) for d in ann.get("definitions") or []
+             if isinstance(d, dict) and isinstance(d.get("at"), int) and d.get("text")]
+    if not clue or not frag or not spans or len(spans) != len(ann.get("definitions") or []):
+        return False
+    low, f, i, found = clue.lower(), frag.lower(), 0, False
+    while (i := low.find(f, i)) >= 0:
+        found = True
+        if any(i < b and a < i + len(f) for a, b in spans):
+            return False
+        i += 1
+    return found
+
+
 def check_definition_not_fodder(entries, errors, warnings):
     """The definition's words may not also be the wordplay's letters.
 
@@ -2488,6 +2508,8 @@ def check_definition_not_fodder(entries, errors, warnings):
                 continue
             frag = b.get("clueFragment") or ""
             shared = dw & set(re.findall(r"[a-z]+", frag.lower()))
+            if shared and _fragment_clear_of_definitions(e, ann, frag):
+                continue
             if shared:
                 hits.append(tag)
                 warnings.append(
@@ -3549,12 +3571,46 @@ def span_overlaps(tree):
 
 
 def in_definition(ann):
-    """Wordplay spans inside a definition of a clue that is not &lit."""
+    """Wordplay spans inside a definition of a clue that is not &lit.
+
+    Two shapes are the setter's, not a fault, and are not counted (read off the
+    45 grandfathered rows, 10-17):
+      * the definition is the fodder: a palindrome or reversal over one leaf on
+        exactly the definition's words ("Bread, either way" NAAN, "Touch, one way
+        or the other" TAP), the clue's two halves being the same words;
+      * a word split in two: the leaf takes the whole word and the definition
+        only the end or start of it ("Woollen hat found lying under stopcock"
+        BANTAM: STOP gives BAN, definition "cock"; "Guard's company" SCREW,
+        S from "Guard's", definition "Guard"). The page can only mark whole
+        leaves, so the definition is the part and the leaf the word."""
     if ann.get("andLit"):
         return 0
-    ds = [(d["at"], d["at"] + len(d["text"])) for d in ann.get("definitions") or []
+    ds = [(d["at"], d["at"] + len(d["text"]), d["text"]) for d in ann.get("definitions") or []
           if isinstance(d, dict) and "at" in d and d.get("text")]
-    return sum(1 for s in _claimed(ann.get("wordplay")) if any(s[1] < b and a < s[2] for a, b in ds))
+    n, stack = 0, [(ann.get("wordplay"), None)] if isinstance(ann.get("wordplay"), dict) else []
+    while stack:
+        node, parent = stack.pop()
+        if node.get("op") == "cryptic":
+            continue
+        spans = [("indicator", i["at"], i["at"] + len(i["text"]), i["text"])
+                 for i in node.get("indicators") or [] if "at" in i]
+        if "words" in node and "at" in node:
+            spans.append(("leaf", node["at"], node["at"] + len(node["words"]), node["words"]))
+        for kind, s0, s1, text in spans:
+            for a, b, dtext in ds:
+                if not (s0 < b and a < s1):
+                    continue
+                if kind == "leaf" and (s0, s1) == (a, b) and parent and parent.get("op") in ("palindrome", "reversal"):
+                    continue
+                lo, dl = text.lower(), dtext.lower()
+                if kind == "leaf" and len(lo) > len(dl) and s0 <= a and b <= s1 and (
+                        (lo.endswith(dl) and lo[-len(dl) - 1].isalpha())
+                        or (lo.startswith(dl) and not lo[len(dl)].isspace())):
+                    continue
+                n += 1
+                break
+        stack += [(p, node) for p in node.get("parts") or [] if isinstance(p, dict)]
+    return n
 
 
 def leaf_folds(tree):
@@ -3722,7 +3778,12 @@ def shape_warnings(tag, ann):
         out.append(f"{tag}: {k} {SPAN_OVERLAP}: two leaves or indicators share clue words")
     if k := in_definition(ann):
         out.append(f"{tag}: {k} {IN_DEFINITION}: the definition and the wordplay do not share words "
-                   f"unless the clue is &lit")
+                   f"unless the clue is &lit. Often the definition is drawn too wide: an "
+                   f"article (\"a\", \"the\") or link word the wordplay uses belongs outside it "
+                   f"(def \"little instrument\", not \"a little instrument\"). If one clue word "
+                   f"is split (\"stopcock\": STOP = BAN in the wordplay, \"cock\" the definition) "
+                   f"keep the leaf on the whole word and put the definition on only its "
+                   f"part, \"at\" pointing inside the word")
     if k := leaf_folds(tree):
         out.append(f"{tag}: {k} {LEAF_FOLD}: a selection, deletion or hidden word is an op, "
                    f"not a leaf")

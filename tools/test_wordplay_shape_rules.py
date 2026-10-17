@@ -62,6 +62,24 @@ check("the shape detector agrees", None, ss.d_span_overlap({"wp": same}))
 ann = {"definitions": [{"text": "ab", "at": 0}], "wordplay": {"words": "ab", "at": 0, "gives": "X"}}
 check("wordplay inside the definition is counted", 1, v.in_definition(ann))
 check("unless the clue is &lit", 0, v.in_definition({**ann, "andLit": True}))
+pal = {"definitions": [{"text": "Bread", "at": 0}], "wordplay": {"op": "palindrome", "indicators": [{"text": "either way", "at": 7}], "parts": [{"words": "Bread", "at": 0, "gives": "NAAN"}]}}
+check("a palindrome over the definition's own words is the setter's", 0, v.in_definition(pal))
+check("a charade leaf on the definition's words still is counted", 1, v.in_definition(
+    {**pal, "wordplay": {"op": "charade", "parts": [pal["wordplay"]["parts"][0]]}}))
+split = {"definitions": [{"text": "cock", "at": 34}], "wordplay": {"op": "charade", "parts": [{"words": "stopcock", "at": 30, "gives": "BAN"}]}}
+check("a leaf on a word whose end is the definition (a split word) is not counted", 0, v.in_definition(split))
+check("a leaf on two words that merely reach into the definition still is", 1, v.in_definition(
+    {"definitions": [{"text": "a game", "at": 22}], "wordplay": {"words": "for a", "at": 18, "gives": "PER"}}))
+dup = {"clue": {"text": "Small amount of money, very small, last in purse"}}
+ann2 = {"definitions": [{"text": "Small amount of money", "at": 0}], "blocks": [{"clueFragment": "very small", "gives": "DIM"}]}
+w = []
+v.check_definition_not_fodder([{"number": 30, "direction": "across", **dup, "annotation": ann2}], [], w)
+check("a block sharing a vocabulary word with the definition, but not its words, is no reuse", [], w)
+w = []
+ann2["definitions"][0]["at"] = 23
+ann2["definitions"][0]["text"] = "very small"
+v.check_definition_not_fodder([{"number": 30, "direction": "across", **dup, "annotation": {**ann2, "blocks": [{"clueFragment": "very small", "gives": "DIM"}]}}], [], w)
+check("but a block on the definition's own words is", 1, len(w))
 check("a leaf giving a stretch of its words is counted", 1, v.leaf_folds({"words": "bridge", "gives": "RID"}))
 check("a leaf with a note is not", 0, v.leaf_folds({"words": "bridge", "gives": "RID", "note": "x"}))
 check("a leaf under a hidden-word op is not", 0, v.leaf_folds({"op": "hidden", "parts": [{"words": "bridge", "gives": "RID"}]}))
