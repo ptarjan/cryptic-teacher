@@ -43,42 +43,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEMONSTRATED",
-     "indicators": [
-      {
-       "text": "badly",
-       "note": "something done badly is done wrong, so the letters of STARTED come out in the wrong order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a devil",
+       "at": 12,
+       "gives": "DEMON",
+       "note": "a demon is a devil or evil spirit"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 29,
+         "note": "badly says the letters of started are put together wrongly, in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "a devil",
-         "gives": "DEMON",
-         "note": "a demon is a devil"
-        },
-        {
-         "words": "started badly",
-         "gives": "STRATED",
-         "note": "the letters of STARTED rearranged"
+         "words": "started",
+         "at": 21,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who began a task poorly has proved themselves a little devil.",
-     "walkthrough": "The indicator only reaches STARTED; DEMON goes in unchanged ahead of the rearranged letters.",
-     "definitionFit": "A plain synonym: a thing demonstrated has been made visible or proved, which is what shown means in a past sense."
+     "surface": "Someone is revealed as a fiend, having got off to a poor start.",
+     "walkthrough": "'Shown to be a devil' reads as one claim, but the definition is just 'Shown'; 'to be' only joins it to the wordplay, and 'badly' scrambles 'started'.",
+     "definitionFit": "To demonstrate something is to show or prove it, so demonstrated is the past participle matching shown."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "devil"
+     "misdirectedWord": "started"
     }
    }
   },
@@ -402,47 +402,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STIRFRY",
-     "indicators": [
-      {
-       "text": "cook",
-       "note": "to cook the books is to rearrange them dishonestly, so the letters of FIRST are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cook",
+         "at": 6,
+         "note": "to cook the books is to falsify them, so cook here means doctor or rearrange the letters"
+        }
+       ],
        "parts": [
         {
-         "words": "First cook",
-         "gives": "STIRF",
-         "note": "the letters of FIRST rearranged"
-        },
+         "words": "First",
+         "at": 0,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "to empty",
-           "note": "READY with its inside removed leaves only its outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ready to empty",
-           "note": "READY emptied of EAD leaves R…Y"
-          }
-         ]
+         "text": "to empty",
+         "at": 17,
+         "note": "emptying a word removes its insides, leaving only the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ready",
+         "at": 11,
+         "note": "the word whose outer letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen instruction: first, the cook should get ready to serve a mixed dish.",
-     "walkthrough": "'cook' reads as a person or a verb about food, and 'mixed' looks like an anagram indicator; in fact 'cook' rearranges FIRST and 'mixed dish' is the definition.",
-     "definitionFit": "A stir-fry is a dish of mixed ingredients fried quickly while being stirred."
+     "surface": "An instruction in a recipe: the first thing to cook is the dish once it is ready.",
+     "walkthrough": "'First cook' looks like a recipe step, but 'cook' is the anagram signal for 'First'.",
+     "definitionFit": "A stir-fry is a dish of mixed ingredients tossed together quickly in a hot wok."
     },
     "features": {
      "answerInScene": true,
@@ -725,47 +726,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FLOTSAM",
+     "op": "container",
      "indicators": [
       {
-       "text": "drifting",
-       "note": "letters that drift move out of place"
+       "text": "around",
+       "at": 26,
+       "note": "the jumbled letters go around the abbreviation for lake"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around"
+         "text": "drifting",
+         "at": 17,
+         "note": "drifting letters float out of place into a new order"
         }
        ],
        "parts": [
         {
-         "words": "of mast drifting",
-         "gives": "FOTSAM",
-         "note": "the letters of OF MAST rearranged"
+         "words": "of",
+         "at": 9,
+         "note": "taken as written, as anagram fodder"
         },
         {
-         "words": "lake",
-         "gives": "L",
-         "note": "L = lake, as on maps"
+         "words": "mast",
+         "at": 12,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "lake",
+       "at": 33,
+       "gives": "L",
+       "note": "L is the map abbreviation for lake"
       }
      ]
     },
     "explanation": {
-     "surface": "The broken remains of a ship's mast float about on a lake.",
-     "walkthrough": "'of' looks like a link word but its letters are part of the fodder; F(L)OTSAM.",
-     "definitionFit": "Flotsam is the wreckage of a ship or its cargo found floating on the water."
+     "surface": "Bits of a broken mast float about on a lake after a shipwreck.",
+     "walkthrough": "The drifting mast is a natural shipwreck picture, which hides that 'of mast' is just the six letters to rearrange around L.",
+     "definitionFit": "Flotsam is the floating debris of a wrecked ship, so it is wreckage found on the water."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "of"
+     "misdirectedWord": "drifting"
     }
    }
   },
@@ -1162,60 +1170,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRIED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "the single letter goes inside the rearranged diet"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "first of",
-         "note": "take just the opening letter of 'roughage'"
-        },
-        {
          "text": "new",
-         "note": "DIET made new comes out in a different order"
+         "at": 29,
+         "note": "a new version of the word diet puts its letters in a fresh order"
         }
        ],
        "parts": [
         {
-         "words": "new diet",
-         "gives": "TIED",
-         "note": "the letters of DIET rearranged"
-        },
+         "words": "diet",
+         "at": 33,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "in"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "first of roughage",
-           "gives": "R",
-           "select": "first",
-           "note": "the first letter of 'roughage'"
-          }
-         ]
+         "text": "first of",
+         "at": 8,
+         "note": "only the opening letter of the next word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roughage",
+         "at": 17,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has had a taste of fibre as part of a new eating plan.",
-     "walkthrough": "R goes inside the rearranged DIET: T(R)IED.",
-     "definitionFit": "A plain synonym: a dish you tried is one you tasted, which is the food sense the surface supports."
+     "surface": "Someone tried a new diet that starts with plenty of fibre.",
+     "walkthrough": "'New diet' sounds like a health plan, but 'new' is the anagram signal: DIET becomes TIED, and R from 'first of roughage' goes in.",
+     "definitionFit": "To try food is to taste it, so tried means sampled."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "roughage"
+     "misdirectedWord": "new"
     }
    }
   },
@@ -1246,42 +1254,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHEMISTRYSET",
-     "indicators": [
-      {
-       "text": "bursts",
-       "note": "a burst tyre is blown apart, so its letters are scattered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Scientist",
+       "at": 0,
+       "gives": "CHEMIST",
+       "note": "a chemist is a scientist who studies chemistry"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bursts",
+         "at": 10,
+         "note": "burst tyres fly apart, so their letters scatter into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Scientist",
-         "gives": "CHEMIST",
-         "note": "a chemist is a scientist"
-        },
-        {
-         "words": "bursts tyres",
-         "gives": "RYSET",
-         "note": "the letters of TYRES rearranged"
+         "words": "tyres",
+         "at": 17,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scientist blows out tyres with a toy used for experiments.",
-     "walkthrough": "'bursts' looks like a verb with the scientist as its subject; it is the instruction to rearrange TYRES.",
-     "definitionFit": "A chemistry set is a children's kit for doing simple experiments."
+     "surface": "A scientist punctures some tyres while playing with an experiment.",
+     "walkthrough": "'Bursts' looks like the scientist's action on the tyres, but it is the signal to rearrange them.",
+     "definitionFit": "A chemistry set is a children's kit of chemicals and equipment for doing small home experiments."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "bursts"
     }
    }
