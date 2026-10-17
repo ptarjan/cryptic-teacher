@@ -45,4 +45,6 @@ check("a clue that fails is left", [], C.clear_puzzle({"id": "test-2", "entries"
 C._problems = lambda p: (C.collections.Counter(new=1), C.collections.Counter(), 0) if not C.flagged(p["entries"][0]["annotation"]["wordplay"]) else (C.collections.Counter(), C.collections.Counter(), 1)
 check("a clear that adds an error is held back", [], C.clear_puzzle(puzzle)[1])
 C._problems = real
+check("a failing clue is bucketed by reason", "eval: wrong string", C.bucket(first, "N")[1])
+check("a clearing clue has the cleared bucket", "cleared", C.bucket(first, "M")[1])
 raise SystemExit(fails)
