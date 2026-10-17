@@ -34,6 +34,7 @@ import argparse
 import clue_text
 import collections
 import datetime
+import difflib
 import html
 import json
 import re
@@ -679,18 +680,42 @@ def unstretched(rects):
 
 #: A PDF that is one picture of the page, no text in it: where on the picture
 #: the clue list is printed, as fractions (x0, y0, x1, y1) of its size, each
-#: box read in turn. No 150 prints one column below the grid.
-OCR_BOXES = {150: [(0, 0.43, 1, 1)]}
+#: box read in turn. No 150 prints one column below the grid; No 174 two
+#: columns (Across, Down) below it, the instructions beside the grid.
+OCR_BOXES = {150: [(0, 0.43, 1, 1)], 174: [(0, 0.48, 0.5, 1), (0.5, 0.48, 1, 1)]}
 #: The clue OCR's readers (ocr_clues.READERS), of two engines: a clue files
 #: only when both read it alike.
 OCR_READERS = ("en5", "times")
 #: The preamble a page leaves off, as its fifteensquared post quotes it.
 #: No 150's PDF prints the grid and clues alone; the post opens "The preamble
 #: states that: In one way or another 20,9 is missing from each clue."
-POST_PREAMBLE = {150: "In one way or another 20,9 is missing from each clue."}
+POST_PREAMBLE = {150: "In one way or another 20,9 is missing from each clue.",
+                 # No 174's PDF prints its instructions beside the grid.
+                 174: "In each clue the wordplay indicates an extra letter, not required for its solution. "
+                      "These extra letters in clue order spell out an instruction as to how a number of "
+                      "solutions are to be treated before being entered in the grid."}
 
 
-def ocr_page(number, image):
+def post_clue(post, number, count):
+    """The clue the fifteensquared `post` quotes as "number words (count)",
+    when that is the one such line of the post, else None."""
+    body = (post or {}).get("content") or {}
+    body = body.get("rendered", "") if isinstance(body, dict) else body
+    # A table row has the number and the clue in cells of their own: block
+    # tags break a line, inline ones (a word underlined) do not.
+    text = html.unescape(re.sub(r"<[^>]+>", "\n", re.sub(r"</?(?:span|em|strong|a|u|b|i)\b[^>]*>", "", body)))
+    found = {re.sub(r"\s+([,.:;!?])", r"\1", re.sub(r"\s+", " ", m.group(1)).strip())
+             for m in re.finditer(rf"(?<![\d,/])\b{number}\s+([A-Z‘“\"'][^\n]{{4,200}}?)\s*"
+                                  rf"\({re.escape(count)}\)", text)}
+    return found.pop() if len(found) == 1 else None
+
+
+#: How alike, as letters alone, an OCR reading and the post's quoted clue
+#: must be for the post's text to stand (a letter or two in a clue misread).
+POST_ALIKE = 0.93
+
+
+def ocr_page(number, image, post=None):
     """(parse_text's fields, None) off a page picture read by each of
     OCR_READERS over OCR_BOXES[number], or (None, why not). Both readings must
     lay the same clues with the same counts and the same words (a dash or a
@@ -714,12 +739,32 @@ def ocr_page(number, image):
     clues = []
     for c in first["clues"]:
         o = other[tuple(c["lights"])]
-        if norm(c["clue"]) != norm(o["clue"]) or c["enumeration"] != o["enumeration"]:
-            return None, (f"{c['lights'][0][0]} {c['lights'][0][1]} read two ways: "
-                          f"{c['clue']!r} {o['clue']!r}")
+        if c["enumeration"] != o["enumeration"]:
+            return None, f"{c['lights'][0][0]} {c['lights'][0][1]} counted two ways"
         pick = c if len(c["clue"]) >= len(o["clue"]) else o
-        if ocr_clues.suspect(pick["clue"]):
-            return None, f"{c['lights'][0][0]} {c['lights'][0][1]}: {ocr_clues.suspect(pick['clue'])[:2]}"
+        bad = (None if norm(c["clue"]) == norm(o["clue"]) else
+               f"{c['lights'][0][0]} {c['lights'][0][1]} read two ways: {c['clue']!r} {o['clue']!r}")
+        bad = bad or (ocr_clues.suspect(pick["clue"]) and
+                      f"{c['lights'][0][0]} {c['lights'][0][1]}: {ocr_clues.suspect(pick['clue'])[:2]}")
+        # The post quotes the clue typed. Where a reading is within a letter or
+        # two of it, its text stands (the readers may split over a lost "I",
+        # or run two words together on a page set tight); and where the very
+        # characters agree, the post's marks and spacing (a lost apostrophe or
+        # hyphen), the page's capitals being the reading's.
+        quoted = post_clue(post, c["lights"][0][0], c["enumeration"])
+        letters = lambda t: "".join(ch for ch in t if ch.isalnum())
+        # The reading's own marks must all be the post's (the post may drop one).
+        marks = lambda t: collections.Counter(
+            re.sub("[‘’]", "'", re.sub("[‐-—]", "-", t))) - collections.Counter(
+            ch for ch in t if ch.isalnum() or ch.isspace())
+        full = f"{quoted} ({c['enumeration']})"
+        if quoted and not bad and letters(full) == letters(pick["clue"]) and not marks(pick["clue"]) - marks(full):
+            pick = dict(pick, clue=full)
+        elif bad:
+            if not quoted or max(difflib.SequenceMatcher(None, letters(quoted).lower(), letters(r["clue"]).lower()).ratio()
+                                 for r in (c, o)) < POST_ALIKE:
+                return None, bad
+            pick = dict(c, clue=quoted)
         clues.append(pick)
     # The grid is the picture above the clues.
     top = int(image.height * min(b[1] for b in OCR_BOXES[number]))
@@ -727,7 +772,7 @@ def ocr_page(number, image):
                 else None, number=None, grid=grid_of_images([image.crop((0, 0, image.width, top))], clues)), None
 
 
-def read_pdf(path):
+def read_pdf(path, post=None):
     """{number, setter, preamble, clues, grid, kind, text} off a Genius PDF.
     `kind` says where the grid came from: "vector", "image" or None."""
     import logging
@@ -739,7 +784,7 @@ def read_pdf(path):
     raw += "\n" + "\n".join(pg.extract_text() or "" for pg in reader.pages[1:])
     number = int(Path(path).stem) if Path(path).stem.isdigit() else None
     if not raw.strip() and number in OCR_BOXES:
-        out, why = ocr_page(number, reader.pages[0].images[0].image)
+        out, why = ocr_page(number, reader.pages[0].images[0].image, post)
         raw = "" if why else "ocr"
         out = out or parse_text("")
         out["ocr"] = why or "read"
@@ -1990,7 +2035,7 @@ def restore_from_post(pdf, post):
 
 def read_puzzle(n, post):
     """read_pdf or read_article of puzzle n, with restore_from_post's clues."""
-    pdf = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+    pdf = read_pdf(pdf_path(n), post) if have_file("pdf", n) else read_article(n)
     restore_from_post(pdf, post)
     return pdf
 

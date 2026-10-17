@@ -321,6 +321,10 @@ got, why = G.ocr_page(9997, page)
 emit("ocr-agree", why, [c["clue"] for c in got["clues"]])
 said["times"] = said["times"].replace("abandon", "abanden")
 emit("ocr-disagree", G.ocr_page(9997, page)[1])
+# The post quotes the clue typed: where the readers split a letter, its text stands.
+quoting = {"content": {"rendered": "<p>Across</p><p>7 Lives in abandon (6) ALIVE</p><p>8 Other (8)</p>"}}
+got, why = G.ocr_page(9997, page, quoting)
+emit("ocr-post", why, got["clues"][0]["clue"] if got else None)
 ocr_clues.read_words, ocr_clues.lines_of = real
 emit("special-classes", sorted(G.SPECIAL_UNSOLVED), sorted(G.SPECIAL_UNSOLVED - G.GRID_MISFIT))
 z = clues_only.read("genius-280")
@@ -488,6 +492,8 @@ check('two OCR readers alike up to spaces, dashes and quotes file the fuller rea
       get('ocr-agree'), 'None [\'Lives in abandon (6)\', "Spooner\'s fighting \'usky? (8)", \'Pip — hung (6)\']')
 check('a word the OCR readers read differently files nothing',
       get('ocr-disagree'), "7 across read two ways: 'Lives in abandon (6)' 'Lives in abanden (6)'")
+check("a clue the readers split on a letter stands as the post quotes it (174)",
+      get('ocr-post'), "None Lives in abandon")
 check('the special classes are grid misfits the clues-only hold catches if refused',
       get('special-classes'), '["enumeration is not the entry\'s length", \'lights left unclued\'] []')
 if get('held-280'):
