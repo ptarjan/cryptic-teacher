@@ -1025,52 +1025,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UGLY",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "'mostly' means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means most of the word but not all, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "fruit",
-         "gives": "UGL",
-         "note": "the ugli is a Jamaican citrus fruit, here without its last letter"
+         "at": 11,
+         "gives": "UGLI",
+         "note": "the ugli is a Jamaican citrus fruit, a cross of grapefruit and tangerine"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ending in",
-           "note": "the ending of a word is its final letter, so only that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "jelly",
-           "note": "the closing letter of this word"
-          }
-         ]
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "at": 24,
+         "note": "ending in points to the last letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jelly",
+         "at": 34,
+         "gives": "Y",
+         "note": "last letter of jelly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit dessert that ends up mostly as an unappetising jelly.",
-     "walkthrough": "The ugli fruit is a knobbly grapefruit-tangerine cross whose name is a play on ugly, so the parse comes close to spelling the answer itself.",
-     "definitionFit": "Ugly describes something disagreeable or nasty, as in an ugly mood or scene, so it fits unpleasant as an adjective."
+     "surface": "A grumble about a dessert where the fruit tasted nasty and the jelly finish spoiled it.",
+     "walkthrough": "'mostly' cuts the last letter off UGLI to leave UGL; 'ending in' takes the Y that closes jelly.",
+     "definitionFit": "Something ugly is disagreeable or nasty, as in an ugly mood or ugly scene, so it is a synonym for unpleasant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "jelly"
+     "misdirectedWord": "fruit"
     }
    }
   },
@@ -1237,48 +1243,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GULAG",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "'mostly' means not quite all, so the final letter is dropped"
+       "text": "following",
+       "at": 8,
+       "note": "following places the convict piece after the shortened gut"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "following",
-         "note": "'following' means coming after, so the piece it describes is placed second rather than first"
+         "text": "mostly",
+         "at": 23,
+         "note": "mostly means most of the word but not all, so its final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "gut",
-         "gives": "GU",
-         "note": "the word without its last letter"
+         "at": 18,
+         "gives": "GUT",
+         "note": "taken as written before being cut"
         },
         {
-         "words": "Convict",
-         "gives": "LAG",
-         "note": "a lag is British slang for a convict, as in old lag"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Convict",
+       "at": 0,
+       "gives": "LAG",
+       "note": "an old lag is British slang for a habitual convict"
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner trusts their instinct, most of the time, while held in a labour camp.",
-     "walkthrough": "'Following' places the convict after the shortened gut. Lag is British slang for a prisoner, usually a habitual one.",
-     "definitionFit": "The Gulag was the Soviet system of forced labour camps, and the word now names any such harsh prison camp."
+     "surface": "A prisoner trailing behind someone's belly in a labour camp, a grim image of hunger.",
+     "walkthrough": "'Convict' reads as a verb but is the noun lag, British slang for a prisoner, especially a repeat offender; 'in' is only a link to the definition.",
+     "definitionFit": "The Gulag was the Soviet network of forced-labour camps, and the word now names any such prison camp."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gut"
+     "misdirectedWord": "following"
     }
    }
   }
