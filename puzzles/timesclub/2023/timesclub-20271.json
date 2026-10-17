@@ -274,7 +274,8 @@
        "indicators": [
         {
          "text": "containing",
-         "note": "holding something inside, so one piece wraps round the other"
+         "at": 21,
+         "note": "the centre of hotpot holds the halved vegetable between its two letters"
         }
        ],
        "parts": [
@@ -283,34 +284,36 @@
          "indicators": [
           {
            "text": "core",
-           "note": "the core of something is its centre, so only the middle of hotpot is used"
+           "at": 16,
+           "note": "the core of a dish is its centre, so the central letters of the word"
           }
          ],
          "parts": [
           {
-           "words": "hotpot's",
-           "gives": "HOTPOT",
-           "note": "the two central letters of hotpot"
+           "words": "hotpot",
+           "at": 7,
+           "note": "a stew; its two central letters are used"
           }
          ]
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OK",
+         "op": "deletion",
          "indicators": [
           {
            "text": "halved",
-           "note": "cut in half, so only the front half of okra is kept"
+           "at": 32,
+           "note": "only the first half of the word okra is kept"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "okra",
-           "gives": "OK",
-           "select": "first",
-           "note": "the first half of okra"
+           "at": 39,
+           "note": "a vegetable; its first two letters are used"
+          },
+          {
+           "gives": "RA",
+           "note": "the second half of okra, which is dropped"
           }
          ]
         }
@@ -318,14 +321,16 @@
       },
       {
        "words": "enjoys popularity",
+       "at": 44,
        "gives": "ISIN",
-       "note": "something that enjoys popularity is in"
+       "note": "something that is in fashion is in, so enjoys popularity means is in"
       }
      ]
     },
     "explanation": {
-     "surface": "A Caribbean stew whose okra-studded centre is a hit with diners.",
-     "definitionFit": "Tok Pisin is the English-based creole spoken as a national language in Papua New Guinea."
+     "surface": "A recipe note: the heart of a hotpot has some okra in it and the dish is popular.",
+     "walkthrough": "A Creole here is a language, not a person or a dish; 'containing' slips the first half of okra between the central letters of hotpot.",
+     "definitionFit": "Tok Pisin is the English-based creole spoken widely in Papua New Guinea."
     },
     "features": {
      "answerInScene": false,
@@ -999,43 +1004,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FLOORSHOW",
+     "op": "container",
      "indicators": [
       {
-       "text": "absurdly",
-       "note": "in an absurd, nonsensical manner, so the letters fall into a new order"
+       "text": "inside",
+       "at": 21,
+       "note": "the call to be quiet goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "placed within, so one piece sits in the middle of the other"
+         "text": "absurdly",
+         "at": 28,
+         "note": "absurdly signals that the words low roof are jumbled into a new order"
         }
        ],
        "parts": [
         {
          "words": "low roof",
-         "gives": "FLOOROW",
-         "note": "the letters of low roof rearranged"
-        },
-        {
-         "words": "pipe down",
-         "gives": "SH",
-         "note": "sh is the hushing word for be quiet"
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "pipe down",
+       "at": 11,
+       "gives": "SH",
+       "note": "sh is the call to pipe down, so be quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone told to be quiet under a ridiculously low ceiling, like a cramped pub with smoking pipes.",
-     "walkthrough": "Pipe is a verb meaning make a noise; pipe down is the order to stop.",
-     "definitionFit": "A floor show is a cabaret or variety entertainment performed in a nightclub, so variety names it."
+     "surface": "Someone told to hush while sitting in a silly loft with a low ceiling.",
+     "walkthrough": "'pipe down' is not a plumbing instruction but the hush SH; the jumbled LOW ROOF has it inside, after its fifth letter.",
+     "definitionFit": "A floor show is a cabaret of mixed acts, the kind of entertainment called variety."
     },
     "features": {
      "answerInScene": false,
@@ -1066,74 +1071,72 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "KIMCHI",
      "indicators": [
       {
-       "text": "advanced",
-       "note": "moved forward, with slightly saying just one step in the alphabet, so one letter swaps for its successor"
+       "text": "having advanced",
+       "at": 36,
+       "note": "the Greek letter moves forward in the Greek alphabet"
+      },
+      {
+       "text": "slightly",
+       "at": 68,
+       "note": "only one step forward, to the very next letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "escaping",
+         "at": 15,
+         "note": "these letters escape, so leave, the spy's name"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "escaping",
-           "note": "what escapes gets away, so those letters leave the spy's name"
-          }
-         ],
+         "words": "Soviet spy",
+         "at": 24,
+         "gives": "KIMPHILBY",
+         "note": "Kim Philby was the British intelligence officer who spied for the Soviet Union"
+        },
+        {
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Soviet spy",
-             "gives": "KIMPHILBY",
-             "note": "Kim Philby, the British intelligence officer who spied for Moscow"
-            },
-            {
-             "words": "left",
-             "gives": "L",
-             "note": "L is the abbreviation for left"
-            },
-            {
-             "words": "by",
-             "note": "taken as written"
-            }
-           ]
+           "words": "left",
+           "at": 7,
+           "gives": "L"
           },
           {
-           "gives": "PHILBYLBY"
+           "words": "by",
+           "at": 12,
+           "gives": "BY"
           }
          ]
-        },
-        {
-         "words": "Greek character",
-         "gives": "CHI",
-         "note": "phi moves on one place in the Greek alphabet to the next letter"
-        },
-        {
-         "unchecked": true,
-         "words": "slightly",
-         "note": "no letters: it limits the advance to a single step along the alphabet"
         }
        ]
+      },
+      {
+       "words": "Greek character",
+       "at": 52,
+       "gives": "PHI",
+       "note": "phi is a letter of the Greek alphabet"
+      },
+      {
+       "gives": "CHI"
       }
      ]
     },
     "explanation": {
-     "surface": "A spy-story fragment: a Soviet mole escapes, leaving behind a Greek with slightly better prospects.",
-     "walkthrough": "Kim Philby defected to Moscow in 1963. Removing L and BY leaves KIM PHI, and phi becomes chi.",
-     "definitionFit": "Kimchi is the Korean pickle of fermented cabbage and other vegetables seasoned with chilli."
+     "surface": "A defector slips away from the Soviets with a Greek ally edging ahead.",
+     "walkthrough": "Remove L and BY from KIM PHILBY to leave KIMPHI; phi is followed directly by chi in the Greek alphabet, so moving it on slightly gives KIMCHI.",
+     "definitionFit": "Kimchi is a Korean pickle of fermented cabbage and other vegetables."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Pickle"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -1324,52 +1327,52 @@
     "definitions": [
      {
       "text": "Black medic possibly",
-      "at": 0
+      "at": 0,
+      "note": "black medic is one of the clover-like plants sold as the Irish emblem"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SHAMROCK",
      "indicators": [
       {
        "text": "in",
-       "note": "placed in something means going inside it"
+       "at": 34,
+       "note": "the twisted letters go in the word for a traumatised state"
       }
      ],
      "parts": [
+      {
+       "words": "traumatised state",
+       "at": 37,
+       "gives": "SHOCK",
+       "note": "shock is the state of someone traumatised"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "twisting",
-         "note": "twisted letters are bent out of their order"
+         "at": 21,
+         "note": "twisting signals the letters of arm are rearranged"
         }
        ],
        "parts": [
         {
          "words": "arm",
-         "gives": "AMR",
-         "note": "the letters of arm rearranged"
-        },
-        {
-         "words": "traumatised state",
-         "gives": "SHOCK",
-         "note": "shock is the state of someone traumatised"
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Black doctor twists an arm while someone is in shock.",
-     "walkthrough": "Black medic is not a doctor: black medick is a clover-like plant, one of several claimed as the true shamrock.",
-     "definitionFit": "Black medick is a trefoil sometimes sold as the Irish emblem, hence possibly as a by-example hint."
+     "surface": "A doctor in shock after having an arm twisted.",
+     "walkthrough": "'Black medic' looks like a person, a doctor, but it is a trefoil plant, one of those sold as the Irish emblem.",
+     "definitionFit": "Black medic is a small trefoil often sold as the Irish emblem, so it is a possible example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "medic"
     }
    }
