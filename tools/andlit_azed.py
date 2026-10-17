@@ -530,9 +530,6 @@ def read_pdf(data):
             "grid": grid, "printed": printed, "lines": sections(lines)}
 
 
-MAC_PUNCTUATION = str.maketrans("ÕÔÒÓÐÑ", "’‘“”–—")
-
-
 def mac_punctuation(runs):
     """The runs with Mac Roman's punctuation put right: 2482 is set in that
     encoding, so "Santa's helpers - seamen" reads "SantaÕs helpers Ð seamen"
@@ -540,7 +537,7 @@ def mac_punctuation(runs):
     English) is turned, so a legitimate Ð or Ñ elsewhere stays."""
     if not any(c in t for _p, _x, _y, _s, t in runs for c in "ÕÔÒÓ"):
         return runs
-    return [(p, x, y, s, t.translate(MAC_PUNCTUATION)) for p, x, y, s, t in runs]
+    return [(p, x, y, s, clue_text.mac_punctuation(t)) for p, x, y, s, t in runs]
 
 
 def overprinted_once(runs):

@@ -606,6 +606,7 @@ def mend_scan_text(part):
     part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
     part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
     part = re.sub(r"(?<=\d)(ac|dn)\.(?=[A-Z‘“'\"])", r"\1. ", part)
+    part = mend_between_clues(part)
     return WORDS_COUNT.sub(r"(\1)", part)
 
 
@@ -888,3 +889,87 @@ ENUM_SEG = re.compile(r"[\s.?!;:'\"]*[(\[{]?\s*(\d{1,2}(?:(?:\s*[,.\-]\s*|\s+)\d
 RUN_ON_NUMBER = re.compile(rf"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])({RUN_ON_NUM}){RUN_ON_AFTER}")
 #: A clue that is only a cross-reference, its count never there.
 BARE_SEE = re.compile(rf"\(?\s*{SEE_WORD}\s*({SEE_NUMBER}|[lI])\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)
+
+
+# ======================================================================
+# Fixes that lived in one source's reader, moved here so every source has them.
+# tools/test_ocr_text_central.py fails on a new one left in a reader.
+# ======================================================================
+
+#: Mac Roman's punctuation as cp1252 reads it: a PDF set in that encoding
+#: reads "SantaÕs helpers Ð seamen" for "Santa's helpers - seamen".
+MAC_PUNCTUATION = str.maketrans("ÕÔÒÓÐÑ", "’‘“”–—")
+
+
+def mac_punctuation(text):
+    """`text` with Mac Roman's punctuation put right. Only text that shows a
+    Mac quote (Õ Ô Ò Ó, none of them English) is turned, so a legitimate Ð or
+    Ñ elsewhere stays."""
+    if not any(c in text for c in "ÕÔÒÓ"):
+        return text
+    return text.translate(MAC_PUNCTUATION)
+
+
+def enum_figures(printed):
+    """A printed count's figures with spaces dropped and an en dash made a
+    hyphen: "5 – 3" is "5-3"."""
+    return re.sub(r"\s+", "", printed).replace("\u2013", "-")
+
+
+def same_text_key(text):
+    """`text` boiled down to compare two readings of one clue: quotes
+    straightened, spaces and dashes gone."""
+    return re.sub(r"[\s\u2014\u2013-]+", "", re.sub("[\u2018\u2019]", "'", text))
+
+
+def mend_list_start(text):
+    """The number opening a list, with the stop or speck the scan put for its
+    space: "1.Religion", "1-Chinese" are "1 Religion", "1 Chinese"."""
+    return re.sub(r"^(\d{1,2})[.,:;'\u2019\-\u00bb\u2022]+\s*(?=[\"'A-Za-z])", r"\1 ", text)
+
+
+def mend_between_clues(text):
+    """A list's run-together text with the specks and punctuation read between
+    a clue's count and the next clue's number taken out."""
+    # A speck the OCR read between two clues ("(3-6). _ 3 It's") is not text.
+    text = re.sub(r"(\)\.?)\s+[_|*\u2022~^#=+\-\u2014.]{1,3}(?=\s)", r"\1", text)
+    # So is punctuation it read between a count and the next clue's number
+    # ("(10). : 6 Angry", "(5)' 6 Salt", "(9). \u25a0 \u25a0 16 Bill", "(4, 3). , ' *4
+    # Be"), and what it read after that number for a space or a comma
+    # ("(9) 7;Ko-ko's", "(5) 11.12A product", "(9). 10' It's").
+    text = re.sub(r"(\)\.?)[\s.,:;'\u2019\"`<>\u00ab\u00bb\u25a0_|*\u2022~^#=+\-\u2014]+(?=\d)", r"\1 ", text)
+    return re.sub(r"(\)\.? )(\d{1,2}(?:[.,]\s?\d{1,2})*)(?:[.,;:'\u2019]\s?|(?=[A-Z]))(?=[A-Za-z\"'])",
+                  lambda m: m[1] + m[2].replace(".", ",") + " ", text)
+
+
+def space_before_quote(text):
+    """A quote or bracket run onto the word before it: "in\u201cThe" is
+    "in \u201cThe", "sire?(anag.)" is "sire? (anag.)"."""
+    return re.sub(r"(?<=[A-Za-z?!])(?=[\u201c\u2018(])", " ", text)
+
+
+def mend_numbered_run(part):
+    """A scan's answer list run together, its numbers mended: the 1 that opens
+    it read as "i" or "|" ("DOWN: i Emma 2 Orgasm", Private Eye 54), a speck
+    before a number ("2 Belgrano -3 Oppo", 63), a number run into its word
+    ("12Ethelred", "28See.", "8S and M", "22.Panorama"), an underscore or
+    rule for the space ("18Hess_20 Clever dick"), and the direction letter a
+    link's tail may carry ("6/20d")."""
+    part = re.sub(r"^\s*[|lIi](?=\s+(?:[A-Z]|\(see))", "1", part)
+    part = re.sub(r"\s[-\u2013\u2014~]+(?=\d)", " ", part)
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]{2,})", r"\1 ", part)
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]\s)", r"\1 ", part)
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})\.(?=[A-Z])", r"\1 ", part)
+    part = re.sub(r"(?<=[A-Za-z])[_|](?=\d)", " ", part)
+    return re.sub(r"(?:(?<=\s)|^)(\d{1,2}(?:/\d{1,2})*/\d{1,2})[ad]\b", r"\1", part)
+
+
+#: A clue number's last figure and the one of like shape a reading takes it
+#: for: the old-style 8 read "3" (No 3's "48." read "43."), 9 read "0".
+FIGURE_SLIPS = {"3": "8", "8": "3", "0": "9", "9": "0"}
+
+
+def number_figures(text):
+    """A printed number read as figures only: the commas, stops, specks and
+    spaces a scan put in it ("15,683", "1 5.683") taken out."""
+    return re.sub(r"[\s,.^'*`\u2019\-]", "", text)

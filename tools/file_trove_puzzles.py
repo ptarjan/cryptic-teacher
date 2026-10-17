@@ -447,7 +447,7 @@ def list_start(text, start):
     turn", "') Seeing"), led by "#" for the grid to place."""
     m = re.match(LIST_JUNK.format(SPECKS) + r"(?=\d|[IlJjt|!]\s+[\"']?[A-Z])", text)
     if m:
-        return re.sub(r"^(\d{1,2})[.,:;'’\-»•]+\s*(?=[\"'A-Za-z])", r"\1 ", text[m.end():])
+        return clue_text.mend_list_start(text[m.end():])
     if start.match(text):
         return text
     # The least junk: a quote may open the first clue.
@@ -465,15 +465,7 @@ def clues(text):
     number starts."""
     start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
                        re.IGNORECASE)
-    # A speck the OCR read between two clues ("(3-6). _ 3 It's") is not text.
-    text = re.sub(r"(\)\.?)\s+[_|*•~^#=+\-—.]{1,3}(?=\s)", r"\1", text)
-    # So is punctuation it read between a count and the next clue's number
-    # ("(10). : 6 Angry", "(5)' 6 Salt", "(9). ■ ■ 16 Bill", "(4, 3). , ' *4
-    # Be"), and what it read after that number for a space or a comma
-    # ("(9) 7;Ko-ko's", "(5) 11.12A product", "(9). 10' It's").
-    text = re.sub(r"(\)\.?)[\s.,:;'’\"`<>«»■_|*•~^#=+\-—]+(?=\d)", r"\1 ", text)
-    text = re.sub(r"(\)\.? )(\d{1,2}(?:[.,]\s?\d{1,2})*)(?:[.,;:'’]\s?|(?=[A-Z]))(?=[A-Za-z\"'])",
-                  lambda m: m[1] + m[2].replace(".", ",") + " ", text)
+    text = clue_text.mend_between_clues(text)
     # A count before a capitalised word, at most a speck between ("(5). He",
     # "(6). '• He", "(4). 'lO \"Fear"), ends a clue: the next one's number
     # is what the speck reads as, else lost ("#"), for the grid to place.

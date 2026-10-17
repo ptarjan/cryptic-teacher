@@ -301,19 +301,15 @@ def lay(parsed, guessed=None):
 
 def slipped(nums, last, after):
     """The clue number a misread one (`nums`, not above `last`) stands for:
-    its last figure swapped for its lookalike (FIGURE_SLIPS), when that is
+    its last figure swapped for its lookalike (clue_text.FIGURE_SLIPS), when that is
     above `last` and below `after` (the next clue's number). None when
     nothing bounds it from above or it is no such number."""
     if after is None:
         return None
-    got = {int(str(n)[:-1] + FIGURE_SLIPS[str(n)[-1]]) for n in nums if n >= 10 and str(n)[-1] in FIGURE_SLIPS}
+    got = {int(str(n)[:-1] + clue_text.FIGURE_SLIPS[str(n)[-1]]) for n in nums if n >= 10 and str(n)[-1] in clue_text.FIGURE_SLIPS}
     got = {m for m in got if last < m < after}
     return got.pop() if len(got) == 1 else None
 
-
-#: A clue number's last figure and the one of like shape a reading takes it
-#: for: the old-style 8 read "3" (No 3's "48." read "43."), 9 read "0".
-FIGURE_SLIPS = {"3": "8", "8": "3", "0": "9", "9": "0"}
 
 #: How alike two readings' texts for a light must be to corroborate it.
 CORROBORATE = 0.7

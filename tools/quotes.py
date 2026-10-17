@@ -30,6 +30,7 @@ import wordplay
 LIGATURES = {"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi", "\ufb04": "ffl",
              "\ufb05": "st", "\ufb06": "st"}
 STRAIGHT = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "`": "'", **LIGATURES})
+UNLIGATURE = str.maketrans(LIGATURES)
 CURLY = frozenset("\u2018\u2019\u201c\u201d`" + "".join(LIGATURES))
 
 
@@ -64,6 +65,12 @@ def curl(text):
         else:
             out.append("‘")
     return "".join(out)
+
+
+def unligature(text):
+    """`text` with every Unicode ligature spelt as its letters, quotes left as
+    printed (a PDF's "stu\ufb00" is "stuff")."""
+    return text.translate(UNLIGATURE) if isinstance(text, str) else text
 
 
 def straight(text):

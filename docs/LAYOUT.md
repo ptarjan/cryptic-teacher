@@ -2708,6 +2708,10 @@ tools/test_failed_backoff.py                   does a code-only edit re-buy a fa
 tools/test_clue_text.py                        does tools/clue_text.py read every ACROSS / DOWN
                                                heading spelling, torn count and numeral slip
                                                the filers' old copies accepted?
+tools/test_ocr_text_central.py                 does any source reader or fetcher hold an OCR
+                                               text fix (a translate table, dash/quote/ellipsis
+                                               normalisation, a letter-for-digit confusion
+                                               table) instead of tools/clue_text.py?
 
 building and checking the site
 tools/test_inflate.js                          does inflate.js, the gunzip app.js falls back on

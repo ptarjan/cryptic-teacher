@@ -198,7 +198,7 @@ def note_cut(clue):
         if NOTE.match(tail) or (last and re.search(r"[A-Za-z]", tail) and sum(
                 map(int, re.findall(r"\d+", last.group(1)))) == sum(
                 map(int, re.findall(r"\d+", m.group(1))))):
-            return clue[:m.end()], re.sub(r"\s+", "", m.group(1)).replace("–", "-")
+            return clue[:m.end()], clue_text.enum_figures(m.group(1))
     return None
 
 
