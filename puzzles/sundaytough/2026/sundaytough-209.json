@@ -151,28 +151,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SUNDAY",
+     "spelt": "SUNDAY",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two spoken words trade their first consonants"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "demand for payment, perhaps",
-       "gives": "SUNDAY",
-       "soundsLike": "DUN SAY",
-       "note": "a dun is a demand for payment; 'perhaps' = SAY; swap the D and S sounds"
+       "op": "homophone",
+       "spelt": "DONE",
+       "parts": [
+        {
+         "words": "demand for payment",
+         "at": 10,
+         "gives": "DUN",
+         "note": "a dun is a demand for payment of a debt; it is said the same as done"
+        }
+       ]
+      },
+      {
+       "words": "perhaps",
+       "at": 30,
+       "gives": "SAY",
+       "note": "say and perhaps both mean for example"
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering whether a bill might land on the day this crossword runs.",
-     "walkthrough": "SAY is the usual stand-in for 'perhaps' or 'for example'. The definition is a self-reference: this puzzle ran in the Sunday Telegraph.",
-     "definitionFit": "A self-referential definition: this toughie ran in the Sunday Telegraph, so the day it appears names the answer."
+     "surface": "A Spoonerism joke: a bill's demand arriving on the day you settle down with the crossword.",
+     "walkthrough": "Dun is said like DONE; Spooner's swap of first sounds turns 'dun say' into 'sun day'. The definition refers to this crossword itself, a Sunday Telegraph puzzle.",
+     "definitionFit": "This Toughie ran in the Sunday Telegraph, so its publication day is the Sabbath."
     },
     "features": {
      "answerInScene": true,
@@ -266,30 +277,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "MIST",
      "indicators": [
       {
        "text": "half of",
-       "note": "keep only the first half of the word"
+       "at": 26,
+       "note": "half of an eight-letter word keeps its first four letters and drops the other four"
       }
      ],
      "parts": [
       {
        "words": "oversights",
-       "gives": "MIST",
-       "note": "oversights = MISTAKES; its first four letters"
+       "at": 34,
+       "gives": "MISTAKES",
+       "note": "oversights are mistakes"
+      },
+      {
+       "gives": "AKES"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark on what causes oversights.",
-     "walkthrough": "The whole clue reads as a comment about oversights, which are mistakes; halving MISTAKES leaves MIST.",
-     "definitionFit": "Mist cuts visibility, making it hard to see."
+     "surface": "A comment that half of all errors come from poor visibility.",
+     "walkthrough": "'half of' keeps the front four of the eight letters of MISTAKES.",
+     "definitionFit": "Mist is fine water droplets in the air that reduce visibility, like a thin fog."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "oversights"
     }
    }
   },
@@ -674,46 +689,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "regularly means at even intervals, so take every second letter"
+       "text": "seen in",
+       "at": 33,
+       "note": "seen in places these letters inside the port's name"
       }
      ],
      "parts": [
       {
        "words": "port",
+       "at": 41,
        "gives": "VIGO",
-       "note": "Vigo, a port in north-west Spain"
+       "note": "Vigo is a port in north-west Spain"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "RA",
        "indicators": [
         {
-         "text": "seen in"
+         "text": "of",
+         "at": 14,
+         "note": "of ties the letter selection to the fish: the letters are taken from bream"
+        },
+        {
+         "text": "regularly",
+         "at": 23,
+         "note": "regularly takes every other letter of the fish's name"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "of bream",
-         "gives": "RA",
-         "select": "alternate",
-         "note": "second and fourth letters of bREaM... b-R-e-A-m"
+         "words": "bream",
+         "at": 17,
+         "note": "the word whose alternate letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A frightening kind of fish turns up in the harbour.",
-     "walkthrough": "'Type of bream' suggests a fish species, but 'Fearsome type' is the definition.",
-     "definitionFit": "A virago is a domineering, fierce woman."
+     "surface": "A sinister kind of fish is often spotted in a harbour.",
+     "walkthrough": "'regularly' takes the even letters of bream, R and A; 'seen in' puts them inside VIGO. 'type of bream' reads as one phrase but 'type' belongs to the definition.",
+     "definitionFit": "A virago is a domineering, violent or bad-tempered woman, a fearsome person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "type"
+     "misdirectedWord": "bream"
     }
    }
   },
@@ -1188,47 +1208,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHIMERA",
+     "op": "container",
      "indicators": [
       {
-       "text": "entering"
+       "text": "entering",
+       "at": 16,
+       "note": "entering puts the chap's pronoun inside the jumbled race"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "fancy",
-         "note": "the letters of RACE are rearranged"
+         "at": 25,
+         "note": "fancy as a verb-like adjective means elaborate or fanciful, so the letters of race are rearranged"
         }
        ],
        "parts": [
         {
          "words": "race",
-         "gives": "CERA",
-         "note": "anagram of RACE"
-        },
-        {
-         "words": "that chap",
-         "gives": "HIM",
-         "note": "pronoun"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "that chap",
+       "at": 6,
+       "gives": "HIM",
+       "note": "him refers to that chap"
       }
      ]
     },
     "explanation": {
-     "surface": "Surprise at a man entering a fancy-dress race.",
-     "walkthrough": "The repeated 'fancy' does two jobs: the first is the definition, a noun meaning an illusion; the second rearranges RACE.",
-     "definitionFit": "A chimera is a wild fancy, an illusion of the mind."
+     "surface": "An exclamation of surprise at a man joining an elaborate contest.",
+     "walkthrough": "'Fancy' appears twice: the first is the definition (a fancy as a figment), the second the signal to rearrange.",
+     "definitionFit": "A chimera is a fanciful illusion or wild dream, a thing that exists only in the imagination."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Fancy"
     }
    }
@@ -1454,26 +1474,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CHIN",
      "indicators": [
       {
        "text": "short",
-       "note": "short means cut off, so CHINA loses its tail"
+       "at": 11,
+       "note": "short means the word loses its last letter"
       }
      ],
      "parts": [
       {
        "words": "service",
-       "gives": "CHIN",
-       "note": "CHINA, a dinner service, without its last letter"
+       "at": 17,
+       "gives": "CHINA",
+       "note": "a china service is a set of plates and cups"
+      },
+      {
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Something that marks a quick church service.",
-     "walkthrough": "Service suggests a church or a tennis serve; it is a set of china.",
-     "definitionFit": "A definition by example: the chin is one of the features of a face."
+     "surface": "A tennis player's trademark is an abbreviated serve.",
+     "walkthrough": "'short' drops the last letter of CHINA. Feature here means a part of the face, not an article or attraction.",
+     "definitionFit": "The chin is one of the facial features, the protruding part below the mouth."
     },
     "features": {
      "answerInScene": false,
