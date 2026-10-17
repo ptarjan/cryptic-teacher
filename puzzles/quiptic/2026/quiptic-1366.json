@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -192,50 +193,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "overturned",
-       "note": "Something overturned has been tipped up to stand the wrong way round, and in a down entry that means reading its letters upward."
-      }
-     ],
      "parts": [
-      {
-       "words": "dessert overturned",
-       "gives": "TRAT",
-       "note": "a TART is a dessert, and stood on its head in a down entry it reads upward"
-      },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "breaks out",
-         "note": "When a riot breaks out order collapses, so the letters named beside it stop keeping the sequence they were given."
+         "text": "overturned",
+         "at": 27,
+         "note": "overturned means turned upside down, which in a down clue reads the dessert word from the bottom up"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "a riot breaks out",
-           "gives": "TORIA",
-           "note": "the five letters of A RIOT in a new order"
-          }
-         ]
+         "words": "dessert",
+         "at": 19,
+         "gives": "TART",
+         "note": "a tart is a pastry dessert"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaks out",
+         "at": 49,
+         "note": "a riot that breaks out scatters, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a riot",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pudding knocked over in an Italian place and the room erupting into a brawl.",
-     "walkthrough": "'Overturned' means read upward because this is a down entry; across clues get 'recalled' or 'sent back' for the same job. Nine letters split four and five, with the definition doing no cryptic work at all.",
-     "definitionFit": "A trattoria is the informal, family-run end of Italian eating out, plainer and cheaper than a ristorante."
+     "surface": "In an Italian restaurant a dessert is knocked over and a brawl erupts.",
+     "walkthrough": "'overturned' turns TART upside down to TRAT, and 'breaks out' reworks A RIOT into TORIA.",
+     "definitionFit": "A trattoria is a simple, informal Italian eating house, less formal than a ristorante."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "riot"
+     "misdirectedWord": "breaks"
     }
    }
   },
@@ -897,38 +900,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Initially",
-       "note": "Initially means at the very start, so only the opening letter of the word it introduces is taken."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "In is the plainest container word there is: whatever is in a thing sits inside it."
+         "at": 17,
+         "note": "in places that letter inside the word for lavatory"
         }
        ],
        "parts": [
         {
          "words": "lavatory",
+         "at": 20,
          "gives": "BOG",
          "note": "bog is British slang for a lavatory"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "L",
+         "indicators": [
+          {
+           "text": "Initially",
+           "at": 0,
+           "note": "initially means at the start, so only the first letter of locked is used"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Initially locked",
-           "gives": "L",
-           "select": "first",
-           "note": "the opening letter of LOCKED"
+           "words": "locked",
+           "at": 10,
+           "note": "its first letter is the one taken"
           }
          ]
         }
@@ -936,19 +938,21 @@
       },
       {
        "words": "situation",
+       "at": 31,
        "gives": "POST",
-       "note": "a post is a job or situation, as in the situations vacant column"
+       "note": "a post is a job or position, a situation"
       }
      ]
     },
     "explanation": {
-     "surface": "Getting shut in the toilet and then telling the internet all about it.",
-     "walkthrough": "'Situation' is the old word for a job — 'situations vacant' still heads the small ads — and that is the sense wanted. The dash carries no instruction; it only lets two unrelated halves share a sentence.",
-     "definitionFit": "A blog post is one dated entry on a personal website, a single person's comment published online."
+     "surface": "Someone locked in a toilet tells the world about it online.",
+     "walkthrough": "'Bog' is British slang for a toilet; 'Initially' gives the L that goes 'in' it, and a situation is a job, a POST.",
+     "definitionFit": "A blog post is a single entry on a blog, a comment or article published online."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "situation"
     }
    }
@@ -1387,8 +1391,7 @@
     "definitions": [
      {
       "text": "coastal decline",
-      "at": 36,
-      "note": "Erosion is any wearing away and not only the sea's, so the question mark flags a definition by one familiar example."
+      "at": 36
      }
     ],
     "wordplay": {
@@ -1396,7 +1399,8 @@
      "indicators": [
       {
        "text": "Recalled",
-       "note": "To recall something is to call it back, and letters called back arrive in the reverse of the order they left in."
+       "at": 0,
+       "note": "recalled read as called back, so the whole assembly is read backwards"
       }
      ],
      "parts": [
@@ -1405,32 +1409,31 @@
        "indicators": [
         {
          "text": "about",
-         "note": "Something set about a thing is wrapped around its outside, so these letters take the next ones within them."
+         "at": 16,
+         "note": "about means going round, so the noise wraps around the limits of our"
         }
        ],
        "parts": [
         {
          "words": "uproar",
+         "at": 9,
          "gives": "NOISE",
-         "note": "noise is uproar, din"
+         "note": "an uproar is a great noise"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "OR",
          "indicators": [
           {
            "text": "limits to",
-           "note": "The limits of a word are the points at which it stops, which are its first and its last letter."
+           "at": 22,
+           "note": "the limits of a word are its outside letters, first and last"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "limits to our",
-           "gives": "OR",
-           "select": "outer",
-           "note": "the outermost letters of OUR"
+           "words": "our",
+           "at": 32,
+           "note": "its first and last letters are what is used"
           }
          ]
         }
@@ -1439,14 +1442,14 @@
      ]
     },
     "explanation": {
-     "surface": "A remembered row about how far our shoreline has worn back.",
-     "walkthrough": "'Recalled' governs the whole of the wordplay and not just the word beside it, so the insertion is made first and the turnaround comes last. 'Our' is not a possessive at all but a three-letter word to be stripped.",
-     "definitionFit": "Erosion is the slow wearing away of land by sea and weather, so a coastline steadily losing ground is the sense the clue points at."
+     "surface": "A protest recalled over the threat to our coastline.",
+     "walkthrough": "NOISE goes 'about' OR, the 'limits to' our, giving NOISORE; 'Recalled' then reads all of it backwards.",
+     "definitionFit": "Erosion is the gradual wearing away of land, as cliffs and beaches are worn down by the sea."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "our"
+     "aptDefinition": false,
+     "misdirectedWord": "Recalled"
     }
    }
   },
@@ -1513,46 +1516,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADDENDUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "confused",
-       "note": "Something confused is muddled and out of order, so the letters it describes cannot be trusted in the sequence given."
+       "text": "about",
+       "at": 22,
+       "note": "about means going round, so the scrambled letters surround the Democrat's letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "Set about a thing means wrapped around it, so the muddled letters close over the one named next."
+         "text": "confused",
+         "at": 13,
+         "note": "confused means mixed up, so the letters of man and dude are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "Man and dude confused",
-         "gives": "ADENDUM",
-         "note": "the seven letters of MAN and DUDE in a new order"
-        },
-        {
-         "words": "Democrat",
-         "gives": "D",
-         "note": "d = Democrat, as used throughout American election coverage"
+         "words": "Man and dude",
+         "at": 0,
+         "gives": "MANDUDE",
+         "note": "the two words man and dude, joined by and, are taken together as one set of letters"
         }
        ]
+      },
+      {
+       "words": "Democrat",
+       "at": 28,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Two blokes getting muddled up over something a Democrat has said.",
-     "walkthrough": "The apostrophe-s reads as a possessive and is only there to join, and the letter it hands over goes inside the jumble rather than after it. 'Man and dude' is an odd pairing to write, which is usually the sign of fodder chosen for its letters.",
-     "definitionFit": "An addendum is the bit added at the end of a book or a report, a further remark tacked on once the main text is done."
+     "surface": "A man and his pal get muddled over a Democrat's footnote.",
+     "walkthrough": "'confused' reworks MAN and DUDE into ADENDUM, which goes 'about' D.",
+     "definitionFit": "An addendum is something added at the end of a text, a supplementary note or remark."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "confused"
     }
