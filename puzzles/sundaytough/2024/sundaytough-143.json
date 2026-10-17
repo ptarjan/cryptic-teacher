@@ -107,41 +107,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a monster",
-      "at": 41
+      "text": "is a monster",
+      "at": 38
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HYDRA",
+     "op": "cycling",
      "indicators": [
       {
-       "text": "upset",
-       "note": "in a down clue something upset is turned upside down, so the letters run the other way"
-      },
-      {
        "text": "after opening letter",
-       "note": "this limits the turnaround to the part following the first letter, which stays where it is"
+       "at": 16,
+       "note": "after opening letter means the novelist's first letter stays in front while everything after it is turned"
       }
      ],
      "parts": [
       {
-       "words": "Novelist",
-       "gives": "HARDY",
-       "note": "Thomas Hardy, author of Tess of the d'Urbervilles"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 10,
+         "note": "upset, in a down clue, means turned upside down, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Novelist",
+         "at": 0,
+         "gives": "HARDY",
+         "note": "Thomas Hardy, the novelist of Tess of the d'Urbervilles"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer, rattled after reading the first letter, turns out to be a monster.",
-     "walkthrough": "'Opening letter' sounds like a postal greeting, but it is the novelist's first letter, which stays in place while everything after it flips.",
-     "definitionFit": "The Hydra is the many-headed serpent of Greek myth slain by Heracles, a classic mythological beast."
+     "surface": "A literary jibe: the novelist, once upset, turns out to be a monster.",
+     "walkthrough": "Keep the novelist's first letter in front and turn 'upset' everything 'after opening letter'. The parse shows this as the whole name reversed, YDRAH, with its H brought back round to the front, which comes to the same letters.",
+     "definitionFit": "The Hydra is the many-headed serpent of Greek myth that Hercules killed, a classic mythological monster."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "letter"
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -172,41 +180,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ROYALWE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "finally",
-       "note": "only the final part is taken inside, while the rest stays outside in front"
-      },
-      {
-       "text": "accepted by",
-       "note": "something accepted by another is taken inside it"
+       "at": 9,
+       "note": "finally says it is only the argument's last letter that the university takes in, so the closing pair of letters ends up the other way round"
       }
      ],
      "parts": [
       {
-       "words": "Argument",
-       "gives": "ROW",
-       "note": "a row is a quarrel"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepted by",
+         "at": 17,
+         "note": "accepted by means the university's name is taken into the argument word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Argument",
+         "at": 0,
+         "gives": "ROW",
+         "note": "a row is a noisy quarrel"
+        },
+        {
+         "words": "US university",
+         "at": 29,
+         "gives": "YALE",
+         "note": "Yale is an Ivy League university in Connecticut"
+        }
+       ]
       },
       {
-       "words": "US university",
-       "gives": "YALE",
-       "note": "Yale is an Ivy League university in Connecticut"
+       "gives": "EW"
+      },
+      {
+       "gives": "WE"
       }
      ]
     },
     "explanation": {
-     "surface": "A debate's conclusion is endorsed by an American college as justification for a particular pronoun.",
-     "walkthrough": "'Finally' applies to the argument: only its last letter goes inside the university, and the other two letters stand in front.",
-     "definitionFit": "The royal 'we' is the monarch's habit of saying 'we' when meaning 'I', a plural pronoun used in a singular, ceremonial way."
+     "surface": "A US university finally accepts an argument about a special pronoun.",
+     "walkthrough": "Setting the whole university inside the quarrel gives ROYALEW; 'finally' corrects that, since only the quarrel's last letter is 'accepted by' the university, going in before its E, which turns EW into WE.",
+     "definitionFit": "The royal we is the first-person plural that a monarch uses to mean 'I', a special use of the pronoun."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "finally"
+     "misdirectedWord": "Argument"
     }
    }
   },
@@ -1300,46 +1323,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MILKSOP",
+     "spelt": "MILKSOP",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Rev. Spooner was famous for swapping the opening sounds of words"
+       "at": 31,
+       "note": "according to Spooner means the opening sounds of the two words are swapped, as Rev Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "MILK",
        "parts": [
         {
-         "unchecked": true,
          "words": "fabric",
-         "gives": "MILK",
-         "soundsLike": "SILK",
-         "note": "silk is a fabric; it trades its opening sound with the next word's"
-        },
-        {
-         "unchecked": true,
-         "words": "cleaner",
-         "gives": "SOP",
-         "soundsLike": "MOP",
-         "note": "a mop is a cleaning tool; it takes the other word's opening sound"
+         "at": 15,
+         "gives": "SILK",
+         "note": "silk is a fine fabric; with its first sound swapped it is heard as milk"
         }
        ]
+      },
+      {
+       "words": "cleaner",
+       "at": 22,
+       "gives": "MOP",
+       "note": "a mop is a floor cleaner"
       }
      ]
     },
     "explanation": {
-     "surface": "A flimsy kind of cloth-cleaning product, as the Reverend Spooner would put it.",
-     "walkthrough": "'Feeble sort of fabric cleaner' reads as one phrase, but 'of' is the link and the definition is just the first two words.",
-     "definitionFit": "A milksop is a timid, spineless person lacking courage, so it names a weak, unmanly individual."
+     "surface": "A rather weak sort of cloth-cleaning gadget, as the Reverend Spooner would say.",
+     "walkthrough": "A silk mop, a fabric cleaner, has its first sounds swapped 'according to Spooner', the Oxford don famous for such slips.",
+     "definitionFit": "A milksop is a timid, ineffectual person, a weakling lacking spirit or courage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Feeble"
+     "joke": "pun",
+     "misdirectedWord": "fabric"
     }
    }
   },
@@ -1534,31 +1556,47 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ICENI",
      "indicators": [
       {
-       "text": "hosting",
-       "note": "a host holds a guest within, so only the inner letters are kept and the outer ones dropped"
+       "text": "Doubly",
+       "at": 0,
+       "note": "Doubly asks for nice to be written twice, and the second copy's C falls outside the guest and is dropped"
       }
      ],
      "parts": [
       {
-       "words": "Doubly nice",
-       "gives": "NICENICE",
-       "note": "the word written twice in a row"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "hosting",
+         "at": 13,
+         "note": "hosting means the doubled word holds the answer inside it, as a host holds guests, so its first and last letters are left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "at": 7,
+         "gives": "NICENICE",
+         "note": "written twice, as Doubly asks: NICENICE"
+        }
+       ]
+      },
+      {
+       "gives": "C",
+       "note": "the C of the second copy of nice, which lies outside the hidden answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Something twice as pleasant welcomes an old people.",
-     "walkthrough": "The answer straddles the join of the doubled word: n-ICE-NI-ce.",
-     "definitionFit": "The Iceni were the Celtic people of eastern Britain led by Boudicca in her revolt against Rome."
+     "surface": "Someone doubly nice is hosting a gathering of an ancient tribe.",
+     "walkthrough": "Write nice twice, as 'Doubly' asks, and the tribe sits inside it: n-ICENI-ce. 'hosting' leaves out the outer letters to give ICENIC, and the last C goes too. The Iceni were Boudicca's tribe in eastern Britain, who rose against Rome.",
+     "definitionFit": "The Iceni were a Celtic people of ancient Britain, led by Queen Boudicca in her revolt against Rome."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Doubly"
+     "misdirectedWord": "nice"
     }
    }
   },
