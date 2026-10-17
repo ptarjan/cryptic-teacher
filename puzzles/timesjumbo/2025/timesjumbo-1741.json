@@ -728,46 +728,63 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "After"
-      },
-      {
-       "text": "upset",
-       "note": "to upset is to knock over"
+       "text": "After",
+       "at": 0,
+       "note": "After places the clipped nap in front of the next piece, Joe"
       }
      ],
      "parts": [
       {
-       "words": "short nap",
-       "gives": "RES",
-       "note": "REST without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 6,
+         "note": "short means the word is cut off before its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nap",
+         "at": 12,
+         "gives": "REST",
+         "note": "a nap is a rest"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "short",
-         "note": "something short is missing a bit, so REST loses its last letter"
+         "text": "upset",
+         "at": 21,
+         "note": "upset in a down clue means turned over, so the letters run backwards"
         }
        ],
        "parts": [
         {
          "words": "Joe",
+         "at": 17,
          "gives": "GI",
-         "note": "GI Joe is the American soldier"
+         "note": "GI Joe is the American soldier, so Joe gives GI"
         }
        ]
       },
       {
        "words": "country",
+       "at": 27,
        "gives": "NATION",
-       "note": "plain synonym"
+       "note": "a country is a nation"
       }
      ]
     },
     "explanation": {
-     "surface": "A politician named Joe naps, then upsets the country by quitting.",
-     "walkthrough": "Joe = GI comes from GI Joe, the nickname for an American soldier.",
-     "definitionFit": "Plain synonym: quitting a job or official post by formal notice."
+     "surface": "After a quick sleep, Joe tips his country into turmoil as he quits his post.",
+     "walkthrough": "'short' trims REST to RES; 'upset' turns GI (Joe) round to IG; 'After' puts RES first, then NATION completes it.",
+     "definitionFit": "Resignation is the act of formally giving up a job or post."
     },
     "features": {
      "answerInScene": true,
@@ -861,33 +878,30 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "WREN",
      "indicators": [
       {
        "text": "starts to",
-       "note": "take the first letter of each word that follows"
+       "at": 12,
+       "note": "starts to means take the opening letter of each of the following words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "starts to warble regularly, every night",
-       "gives": "WREN",
-       "select": "first",
-       "note": "Warble Regularly Every Night"
+       "words": "warble regularly, every night",
+       "at": 22,
+       "note": "the first letters of these four words"
       }
      ]
     },
     "explanation": {
-     "surface": "A small bird sings at regular intervals every night.",
-     "walkthrough": "\"Regularly\" usually calls for alternate letters; here it is only one of the words whose first letter is taken.",
-     "definitionFit": "The wren is one of the smallest British birds."
+     "surface": "A small songbird begins singing its song at regular intervals every evening.",
+     "walkthrough": "'starts to' takes the first letter of warble, regularly, every and night.",
+     "definitionFit": "The wren is a tiny brown songbird, one of Britain's smallest."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "regularly"
+     "misdirectedWord": "starts"
     }
    }
   },
@@ -921,46 +935,39 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "starts to",
-       "note": "take the first letter of each of the next three words"
+       "text": "stormy",
+       "at": 44,
+       "note": "stormy means churned up, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "stormy",
-         "note": "a stormy sea is churned up, so the letters are mixed"
+         "text": "starts to",
+         "at": 14,
+         "note": "starts to means take the opening letter of each of the next three words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ROJ",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "starts to roll off Jutland",
-           "gives": "ROJ",
-           "select": "first",
-           "note": "Roll Off Jutland"
-          }
-         ]
-        },
-        {
-         "words": "North Sea",
-         "note": "used as it stands"
+         "words": "roll off Jutland",
+         "at": 24,
+         "note": "the first letters of roll, off and Jutland"
         }
        ]
+      },
+      {
+       "words": "North Sea",
+       "at": 51
       }
      ]
     },
     "explanation": {
-     "surface": "A troopship starts rolling as it leaves Jutland on a rough North Sea.",
-     "walkthrough": "Jutland is the Danish peninsula on the North Sea, so the whole surface is a plausible voyage.",
-     "definitionFit": "The Greeks hid soldiers inside the wooden Trojan horse to get them into Troy."
+     "surface": "A troopship's voyage begins off the Danish coast of Jutland in a rough North Sea.",
+     "walkthrough": "'starts to' gives ROJ from 'roll off Jutland'; 'stormy' rearranges ROJ with NORTHSEA.",
+     "definitionFit": "The Trojan Horse was the hollow wooden horse that carried Greek soldiers into Troy."
     },
     "features": {
      "answerInScene": false,
@@ -1787,48 +1794,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "smuggled by",
+       "at": 20,
+       "note": "smuggled by means the first item is carried hidden inside what follows"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "State",
+         "at": 32,
          "gives": "AVER",
-         "note": "to aver is to state"
+         "note": "to state is to aver"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "smuggled by",
-           "note": "smuggled goods are hidden inside a carrier"
-          },
-          {
            "text": "initially",
-           "note": "take the first letter of Trooper"
+           "at": 46,
+           "note": "initially means take only the first letter of the word"
           }
          ],
          "parts": [
           {
-           "words": "diamonds",
-           "note": "the card-suit abbreviation"
+           "words": "Trooper",
+           "at": 38,
+           "note": "first letter of Trooper"
           }
          ]
         }
        ]
       },
       {
-       "words": "Trooper initially",
-       "gives": "T",
-       "note": "first letter of Trooper"
+       "words": "diamonds",
+       "at": 11,
+       "gives": "D",
+       "note": "D is the card-suit abbreviation for diamonds"
       }
      ]
     },
     "explanation": {
-     "surface": "A US state trooper catches someone smuggling diamonds, as seen on TV.",
-     "walkthrough": "\"State Trooper\" looks like one US police title; state is the verb AVER.",
-     "definitionFit": "Plain synonym: the noun for a paid promotion on TV or radio, in its short British form."
+     "surface": "Diamonds are smuggled past a state trooper, an American police officer.",
+     "walkthrough": "'State' is the verb AVER; 'initially' takes T from Trooper to make AVERT, and 'smuggled by' puts D inside it.",
+     "definitionFit": "A commercial is a TV or radio advertisement, informally an advert."
     },
     "features": {
      "answerInScene": false,
@@ -2395,43 +2409,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LAVABO",
+     "op": "container",
      "indicators": [
       {
-       "text": "inverted",
-       "note": "OVAL is turned the other way round"
+       "text": "put in",
+       "at": 7,
+       "note": "put in means the first item is placed inside the next"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "put in",
-         "note": "to put something in a container is to place it inside"
+         "text": "inverted",
+         "at": 14,
+         "note": "inverted means turned the other way, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "inverted elliptical",
-         "gives": "LAVO",
-         "note": "OVAL reversed"
-        },
-        {
-         "words": "Sailor",
-         "gives": "AB",
-         "note": "able-bodied seaman"
+         "words": "elliptical",
+         "at": 23,
+         "gives": "OVAL",
+         "note": "an elliptical shape is an oval"
         }
        ]
+      },
+      {
+       "words": "Sailor",
+       "at": 0,
+       "gives": "AB",
+       "note": "AB is an able-bodied seaman, a sailor"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor stuck into an upturned oval basin.",
-     "walkthrough": "\"Elliptical washbasin\" looks like a description of the basin; elliptical is OVAL and the definition is washbasin alone.",
-     "definitionFit": "Plain synonym, if a rare one: the word is Latin for I will wash, first used of the priest's ritual handwashing."
+     "surface": "A sailor is installed in an upside-down oval sink.",
+     "walkthrough": "'inverted' turns OVAL round to LAVO, and 'put in' places AB inside it.",
+     "definitionFit": "A lavabo is a basin for washing, originally the priest's ritual hand-washing basin."
     },
     "features": {
      "answerInScene": true,
