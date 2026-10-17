@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -291,36 +292,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RELAPSE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shattered",
-       "note": "Something shattered lies in pieces, and the pieces of a word are letters that have to be picked up in a new order."
+       "text": "after",
+       "at": 28,
+       "note": "after means the jumbled letters follow the run"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "run",
+       "at": 34,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for run"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shattered",
+         "at": 18,
+         "note": "shattered means smashed to pieces, so the letters are broken up and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "run",
-         "gives": "R",
-         "note": "R is the cricket scoreboard's abbreviation for run"
-        },
-        {
          "words": "asleep",
-         "gives": "ELAPSE",
-         "note": "the six letters of asleep, resettled"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sink back' is the definition and looks like part of the drowsy picture, which is the trap. The R hides in a single word doing service as a cricket score.",
-     "definitionFit": "Sink back → RELAPSE: to relapse is to slide back into an illness or a bad habit after a spell of improvement, so the movement is downhill again."
+     "surface": "Someone exhausted after a jog, sinking back into sleep.",
+     "walkthrough": "'shattered' looks like it means exhausted after the run, but it is the signal to mix up the letters of 'asleep'.",
+     "definitionFit": "To relapse is to fall back into a worse state, such as illness or old habits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shattered"
     }
    }
   },
@@ -445,46 +459,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GREGORIANCHANT",
-     "indicators": [
-      {
-       "text": "messing up",
-       "note": "To mess something up is to disturb its arrangement, and a disturbed word will not keep its letters in place."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "from the start",
+         "at": 5,
+         "note": "from the start means only the first letter is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "from the start",
-           "note": "From the start points at where a word begins, so only its opening letter is wanted."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Grim",
-           "note": "the first letter of Grim"
-          }
-         ]
-        },
+         "words": "Grim",
+         "at": 0,
+         "note": "the first letter of grim is G"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "messing up",
+         "at": 36,
+         "note": "messing up means jumbling, so the letters are thrown into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "hearing cantor",
-         "gives": "REGORIANCHANT",
-         "note": "thirteen letters resettled behind that G"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface has a cantor being scolded at rehearsal. 'Hearing' is only more material to shuffle, despite looking every inch like an instruction of its own.",
-     "definitionFit": "old music → GREGORIAN CHANT: the plainsong of the medieval Western church, sung in unison and named for Pope Gregory, so 'old' does real work."
+     "surface": "A gloomy listener hearing a cantor botch some ancient sacred music.",
+     "walkthrough": "A cantor is a church singer, which fits the surface, but here 'hearing cantor' is just the letters to be mixed.",
+     "definitionFit": "Gregorian chant is medieval plainsong of the Western church, named after Pope Gregory I."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cantor"
     }
    }
   },
@@ -615,35 +635,41 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "Half of a four-letter word is two letters, and the front half is the one meant unless the clue says otherwise."
+         "at": 19,
+         "note": "half means only the first half of the word is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "grey",
-         "gives": "GR",
-         "select": "first",
-         "note": "the first half of GREy"
+         "at": 24
+        },
+        {
+         "gives": "EY"
         }
        ]
       },
       {
        "words": "bird",
+       "at": 29,
        "gives": "OWL",
-       "note": "an owl is the bird"
+       "note": "an owl is a bird"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "OWL is the crossword's default bird — short, vowel-rich, endlessly useful — so it is worth trying whenever a bare 'bird' turns up.",
-     "definitionFit": "Warning sound → GROWL: a dog's low rumble is the noise it makes before it bites, so the word names a warning by the animal that gives it."
+     "surface": "A noise given off by a partly grey bird, as if in alarm.",
+     "walkthrough": "'half grey' keeps GR, the front two of its four letters.",
+     "definitionFit": "A growl is a low throaty noise an animal makes to threaten or warn off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grey"
     }
    }
   },
@@ -1094,34 +1120,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Missing some",
+       "at": 0,
+       "note": "missing some means letters are dropped at each end, leaving a run within the words"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Missing",
-       "note": "nothing is taken away here — Missing only sets up the shopping story"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "some",
-         "note": "Some asks for a portion of what follows rather than all of it, so a run of consecutive letters is what you want."
-        }
-       ],
-       "parts": [
-        {
-         "words": "gear, rang emporium",
-         "gives": "ARRANGE",
-         "note": "the answer runs straight through geARRANGEmporium"
-        }
-       ]
+       "words": "gear, rang emporium",
+       "at": 13,
+       "note": "the letters run on from the end of gear through rang into the start of emporium"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The emporium story is a decoy — nothing is being ordered. The answer spans the join between two words, which is why a comma is such good cover.",
-     "definitionFit": "order → ARRANGE: to arrange things is to put them into a chosen order, and the verb also covers fixing up a meeting or scoring music for players."
+     "surface": "Someone short of kit who phoned a big store to place an order.",
+     "walkthrough": "The answer runs through gEAR RANG Emporium, the letters at each end being left out.",
+     "definitionFit": "To arrange things is to put them in order, so the verb sense of order matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
     }
    }
   },
@@ -1319,35 +1342,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TITANIA",
-     "indicators": [
-      {
-       "text": "The last to leave",
-       "note": "The last to leave is the one that goes, so the final letter of the word beside it departs and the rest stay."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "The last to leave",
+         "at": 0,
+         "note": "the last to leave means the final letter departs"
+        }
+       ],
        "parts": [
         {
          "words": "doomed ship",
-         "gives": "TITANI",
-         "note": "the Titanic is the doomed ship, and its closing C is the one that leaves"
+         "at": 18,
+         "gives": "TITANIC",
+         "note": "the Titanic sank on her maiden voyage in 1912"
         },
         {
-         "words": "a",
-         "note": "the article taken straight off the page"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Drama queen' is an insult on the surface and a job description in the answer: a queen who lives in a play. Shakespeare's fairy monarch is the one wanted.",
-     "definitionFit": "drama queen → TITANIA: Titania is the fairy queen of A Midsummer Night's Dream, so the idiom for a histrionic person doubles as queen-in-a-play."
+     "surface": "A melodramatic woman abandoning a sinking ship, last off like a captain.",
+     "walkthrough": "'drama queen' looks like a fussy person, but it is a queen in a play: Titania in Shakespeare's A Midsummer Night's Dream.",
+     "definitionFit": "Titania is queen of the fairies in Shakespeare's A Midsummer Night's Dream, so a stage queen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drama"
     }
    }
   },
