@@ -469,38 +469,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FRAGRANCE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about means around, so the jumbled letters go round the relative"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Silly"
-        },
-        {
-         "text": "about"
+         "text": "Silly",
+         "at": 0,
+         "note": "silly means foolish or nonsensical, so the letters of farce are jumbled"
         }
        ],
        "parts": [
         {
          "words": "farce",
-         "gives": "FRACE",
-         "note": "'silly' shuffles it, and it opens around GRAN"
-        },
-        {
-         "words": "elderly relative",
-         "gives": "GRAN",
-         "note": "grandmother, tucked inside the shaken FARCE"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "elderly relative",
+       "at": 18,
+       "gives": "GRAN",
+       "note": "gran is short for grandmother, an older relative"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The jumbled FARCE opens up to admit GRAN — 'about' says the farce goes around her. 'Bouquet' is the wine-taster's word for a scent.",
-     "definitionFit": "A fragrance is a pleasant smell, and bouquet is exactly that — the scent of a wine or a bunch of flowers — noun for noun."
+     "surface": "A ridiculous comedy revolves around a grandmother receiving a bunch of flowers.",
+     "walkthrough": "'bouquet' suggests flowers but here means a scent, as of wine. 'Silly' turns FARCE into FRACE, and 'about' wraps it around GRAN.",
+     "definitionFit": "A wine's bouquet is its aroma, so the word is a synonym for a pleasant smell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bouquet"
     }
    }
   },
