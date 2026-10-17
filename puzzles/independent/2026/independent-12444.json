@@ -462,39 +462,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MAIZE",
      "indicators": [
       {
        "text": "to replace",
-       "note": "replacing means one thing stands where another stood, so nothing is merely added and nothing is merely dropped"
-      },
-      {
-       "text": "at first",
-       "note": "reaches back over both nouns, taking the opening letter of each rather than the whole word"
+       "at": 46,
+       "note": "to replace signals a swap: one letter goes in where another comes out"
       }
      ],
      "parts": [
       {
        "words": "cloth covering snooker table",
+       "at": 5,
        "gives": "BAIZE",
-       "note": "baize is the green woollen cloth stretched over the slate"
+       "note": "baize is the green felt stretched over a snooker table"
       },
       {
-       "words": "balls",
-       "gives": "B",
-       "note": "the opening letter of the word, and the one that has to go"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 64,
+         "note": "at first points to the opening letter of the word balls"
+        }
+       ],
+       "parts": [
+        {
+         "words": "balls",
+         "at": 57,
+         "note": "the word whose opening letter is taken"
+        }
+       ]
       },
       {
        "words": "money",
-       "gives": "M",
-       "note": "the opening letter of the word, moving in to take that place"
+       "at": 40,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a snooker table being sold off, cloth and balls priced separately. The wordplay wants two initials and one swap between them.",
-     "definitionFit": "Crop -> MAIZE: maize is the cereal grown as sweetcorn and cattle feed, named by species where the definition names the category."
+     "surface": "A snooker hall is refitted: new cloth, and cash spent on fresh balls.",
+     "walkthrough": "Take BAIZE; 'balls, at first' is B, and money (M) is put 'to replace' it.",
+     "definitionFit": "This cereal plant, also called corn, is one of the world's major farmed grains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "balls"
     }
    }
   },
@@ -1599,40 +1613,51 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ASYET",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 24,
+       "note": "in front of places the cycled word before the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
          "text": "to cycle",
-         "note": "cycling brings you round to where you started, so a letter dropped off one end reappears at the other"
-        },
-        {
-         "text": "in front of",
-         "note": "tells you which piece leads: the cycled word goes ahead of the single letter, not after it"
+         "at": 15,
+         "note": "to cycle a word is to move its first letter round to the end"
         }
        ],
        "parts": [
         {
          "words": "simple",
-         "gives": "ASYE",
-         "note": "easy means simple, and its leading E has been sent round to the back"
-        },
-        {
-         "words": "Tesla",
-         "gives": "T",
-         "note": "T is the symbol for the tesla, the SI unit of magnetic flux density"
+         "at": 8,
+         "gives": "EASY",
+         "note": "simple means easy"
         }
        ]
+      },
+      {
+       "words": "Tesla",
+       "at": 36,
+       "gives": "T",
+       "note": "T is the symbol of the tesla, the SI unit of magnetic flux density"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Tesla is a car, a physicist and a unit; the surface wants the first of those and the wordplay wants the third, with 'cycle' keeping the traffic going.",
-     "definitionFit": "So far -> AS YET: both are idioms for 'up to this point in time', and both nearly always sit next to a negative — nothing has happened yet."
+     "surface": "Driving a Tesla is said to be easy compared with riding a bicycle.",
+     "walkthrough": "'to cycle' moves the E of EASY to the back, giving ASYE, which goes 'in front of' T. Tesla is not the car but the physics unit.",
+     "definitionFit": "The phrase means up to the present time, used of something that has not happened yet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tesla"
     }
    }
   },
@@ -1709,40 +1734,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MAGNETRON",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 16,
+       "note": "welcoming means taking in a guest, so the reversed piece goes inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Nursing officer",
+       "at": 0,
+       "gives": "MATRON",
+       "note": "a matron is a senior nurse in charge of a hospital ward"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "welcoming",
-         "note": "to welcome someone is to take them in, so the outer word opens up and receives the inner one"
-        },
-        {
          "text": "revolutionary",
-         "note": "a revolution turns a thing right round, so these letters are written down from the end backwards"
+         "at": 26,
+         "note": "revolutionary suggests turning round, so the abbreviation is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Nursing officer",
-         "gives": "MATRON",
-         "note": "a matron is the senior nurse in charge of a hospital ward"
-        },
-        {
          "words": "English",
-         "gives": "GNE",
-         "note": "English shortens to ENG, and it is turned round before it goes in"
+         "at": 40,
+         "gives": "ENG",
+         "note": "Eng. is the usual dictionary abbreviation of English"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Revolutionary English' reads as a person — Cromwell, Paine — and is only an instruction plus an abbreviation, which is the whole of the disguise here.",
-     "definitionFit": "microwave source -> MAGNETRON: the vacuum tube that generates microwaves, whether in a radar transmitter or in the back of a kitchen oven."
+     "surface": "A senior nurse makes a radical Englishman welcome on the ward.",
+     "walkthrough": "'revolutionary' turns ENG into GNE, and MATRON is 'welcoming' it after MA.",
+     "definitionFit": "This vacuum tube generates the high-frequency radiation used in radar and in microwave ovens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
     }
    }
   }
