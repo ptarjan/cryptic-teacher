@@ -50,52 +50,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LETDOWN",
-     "indicators": [
-      {
-       "text": "in a mess",
-       "note": "A thing in a mess has been tipped out of the arrangement it was given, so the letters beside it will not stay in their printed order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Rental property",
+       "at": 0,
+       "gives": "LET",
+       "note": "a let is a property rented out to a tenant"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 16,
+         "note": "the close of a word is its end, so only the final letter is used"
+        }
+       ],
        "parts": [
         {
-         "words": "Rental property",
-         "gives": "LET",
-         "note": "a property on the rental market is a let"
-        },
+         "words": "ground",
+         "at": 25,
+         "note": "last letter taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "close to",
-           "note": "Being close to the end of a word puts you at its final letter, so that one letter is all that is taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "ground",
-           "note": "the last letter of the word, taken on its own"
-          }
-         ]
-        },
+         "text": "in a mess",
+         "at": 36,
+         "note": "something in a mess is jumbled up, so its letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "now",
-         "gives": "OWN",
-         "note": "the three letters of the word resettled into another order"
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rented flat right beside the ground has been left in a complete state.",
-     "walkthrough": "'Close to ground' looks like a description of where the flat is, and it is an instruction to take the last letter of a single word.",
-     "definitionFit": "A LET-DOWN is the flat feeling left when something promised turns out worse than expected, which is a disappointment."
+     "surface": "A rented house near the land is now a shambles, which is a big disappointment.",
+     "walkthrough": "'close to ground' gives D, and 'in a mess' rearranges NOW into OWN. LET is the British word for a rented property.",
+     "definitionFit": "A let-down is an anticlimax or failure to meet expectations, a synonym for disappointment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
     }
    }
   },
@@ -409,37 +415,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "INCENSE",
+     "spelt": "INCENSE",
      "indicators": [
       {
        "text": "reportedly",
-       "note": "What is reported is spoken rather than written, so the letters have to be spelled out of the sound and not out of the words."
+       "at": 34,
+       "note": "reportedly means as told by word of mouth, so the letters are what is heard"
       }
      ],
      "parts": [
       {
-       "words": "faculty",
-       "gives": "SENSE",
-       "note": "sight, hearing and smell are the senses, and a faculty is exactly one of those powers"
-      },
-      {
-       "op": "homophone",
-       "spelt": "INCENSE",
-       "parts": [
-        {
-         "words": "in faculty",
-         "gives": "INSENSE",
-         "note": "run the little word and that five-letter word together, say them aloud, and they come out as one word spelled differently"
-        }
-       ]
+       "words": "in faculty",
+       "at": 22,
+       "gives": "INSENSE",
+       "note": "IN followed by SENSE, since a sense such as smell is a faculty"
       }
      ]
     },
     "explanation": {
-     "surface": "A pleasant scent said to be drifting through a university department.",
-     "walkthrough": "A faculty is a university department in the surface and a bodily power in the wordplay, and it is the second sense the sound gets built on.",
-     "definitionFit": "INCENSE is the resin burned in churches and temples for its fragrance, so it literally is a source of sweet smell."
+     "surface": "A sweet aroma is said to be noticeable in a university department.",
+     "walkthrough": "'faculty' looks like a university department, but here it is a sense, one of the body's faculties; IN SENSE said aloud gives the answer.",
+     "definitionFit": "Incense is aromatic material burned to give off a fragrant smoke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "faculty"
     }
    }
   },
