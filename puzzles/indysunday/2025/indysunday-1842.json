@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -430,53 +431,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DELOUSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "strangely",
-       "note": "Letters behaving strangely are not behaving as given, so they arrive in another order."
+       "text": "through",
+       "at": 15,
+       "note": "through means passing right inside, so the middle of tour goes into the rearranged city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "through",
-         "note": "Something driven through a thing passes into its body, so these letters land inside the others rather than beside them."
+         "text": "strangely",
+         "at": 29,
+         "note": "something done strangely is out of its normal order, so the letters of Leeds are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Leeds",
-         "gives": "DELSE",
-         "note": "the five letters of the Yorkshire city, rearranged"
-        },
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "Middle of",
-           "note": "The middle of a four-letter word is the pair standing in the centre, one letter trimmed from each side."
-          }
-         ],
-         "parts": [
-          {
-           "words": "tour",
-           "note": "the two letters at the centre of the word"
-          }
-         ]
+         "text": "Middle of",
+         "at": 0,
+         "note": "the middle of a word is its central letters, here the two inner letters of tour"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tour",
+         "at": 10,
+         "note": "taken as written, before its middle letters are picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The middle leg of a tour through Leeds, oddly free of small children.",
-     "walkthrough": "'Nippers' is British for small children on the surface and biting insects underneath, so the definition is a job of work rather than a happy coincidence. The city is there for its letters alone.",
-     "definitionFit": "To delouse is to rid a person or a place of lice, and lice are nippers in the literal sense — they bite."
+     "surface": "A tour stops halfway through Leeds and the travellers go odd ways.",
+     "walkthrough": "Nippers looks like slang for children, but here it means lice, which nip or bite.",
+     "definitionFit": "To delouse is to rid a person or animal of lice, small biting pests playfully called nippers."
     },
     "features": {
      "answerInScene": false,
@@ -1230,49 +1232,57 @@
      "op": "charade",
      "parts": [
       {
+       "words": "network of tunnels",
+       "at": 23,
+       "gives": "WARREN",
+       "note": "a warren is the network of burrows rabbits dig"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "WARRENGHARDING",
        "indicators": [
         {
          "text": "hides",
-         "note": "To hide a thing is to cover it over, so one of the two letters named goes out of sight and the other is what you see in its place."
+         "at": 6,
+         "note": "hides means covers up, so the letter for Henry goes over the letter for uranium and takes its place"
+        },
+        {
+         "text": "in",
+         "at": 20,
+         "note": "in says where the swap happens: inside the word for protecting that follows the network of tunnels"
         }
        ],
        "parts": [
         {
-         "words": "in network of tunnels",
-         "gives": "WARREN",
-         "note": "a warren is the network of tunnels a rabbit colony digs"
+         "words": "protecting",
+         "at": 42,
+         "gives": "GUARDING",
+         "note": "guarding means protecting"
         },
         {
-         "words": "protecting",
-         "gives": "GUARDING",
-         "note": "protecting is guarding, and that is the word the swap happens inside"
+         "words": "uranium",
+         "at": 12,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
         },
         {
          "words": "Henry",
+         "at": 0,
          "gives": "H",
          "note": "H is the symbol for the henry, the unit of inductance"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "uranium",
-       "note": "uranium is U, the letter that disappears under the henry"
       }
      ]
     },
     "explanation": {
-     "surface": "A spy stashing uranium in the tunnel network that shields the president.",
-     "walkthrough": "Two scientific symbols do the work, one stepping into the other's place inside a long word. Warren Gamaliel Harding won the White House in 1920 and died in office three years later.",
-     "definitionFit": "Warren G Harding was the twenty-ninth president of the United States, and the middle initial is part of how he is always named."
+     "surface": "A man called Henry hides radioactive material in a tunnel system guarding the president.",
+     "walkthrough": "Henry looks like a first name, but it is the physics unit of inductance; 'hides' means its letter covers over the uranium, and 'in' says that happens within the protecting word.",
+     "definitionFit": "Warren G. Harding was the 29th president of the United States, from 1921 to 1923."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hides"
+     "misdirectedWord": "Henry"
     }
    }
   },
@@ -1596,58 +1606,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HAYMAKER",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Silly",
+       "at": 0,
+       "note": "silly means daft and disordered, so the letters are jumbled into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "Silly",
-         "note": "Letters behaving sillily are not behaving as given, so they end up in another order."
+         "text": "making",
+         "at": 15,
+         "note": "making large hot means turning the letter for large into the letter for hot"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "making",
-           "note": "Making one thing into another puts the second in the first's place, so the letter named second joins the mixture and the first drops out."
-          }
-         ],
-         "parts": [
-          {
-           "words": "malarkey",
-           "gives": "MAARKEY",
-           "note": "the word's letters with the L lifted out"
-          },
-          {
-           "words": "hot",
-           "gives": "H",
-           "note": "H is hot, as marked on a tap, and it takes the L's place"
-          }
-         ]
+         "words": "malarkey",
+         "at": 6,
+         "gives": "MALARKEY"
         },
         {
-         "unchecked": true,
          "words": "large",
-         "note": "large is L, the letter that goes"
+         "at": 22,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "hot",
+         "at": 28,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Daft nonsense that ends up producing a big bowl of hot punch.",
-     "walkthrough": "'Punch' is the party bowl on the surface and a blow underneath. The blow takes its name from the wide swing of a scythe through hay, which has nothing to do with the drink.",
-     "definitionFit": "A haymaker is a wild swinging blow thrown to knock someone out, named for the sweep of a scythe at harvest."
+     "surface": "A daft bit of nonsense turns into a big, heated brawl.",
+     "walkthrough": "'making' large hot changes the L of MALARKEY to H, giving MAHARKEY, which 'Silly' rearranges.",
+     "definitionFit": "A haymaker is a wild, swinging punch, named after the scything motion of making hay."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "punch"
     }
    }
