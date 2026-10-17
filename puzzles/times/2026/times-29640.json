@@ -669,40 +669,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HAMPTONCOURT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 16,
+       "note": "about means around: the rearranged letters go round the word for closed"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "out",
-         "note": "the letters of MONARCH PUT are put out of order"
-        },
-        {
-         "text": "about"
+         "at": 12,
+         "note": "out here means out of order, so the letters of monarch put are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Monarch put",
-         "gives": "HAMPNCOURT",
-         "note": "anagram of MONARCH PUT"
-        },
-        {
-         "words": "closed",
-         "gives": "TO",
-         "note": "a door pulled to is closed"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "closed",
+       "at": 22,
+       "gives": "TO",
+       "note": "to, as in a door pulled to, means closed"
       }
      ]
     },
     "explanation": {
-     "surface": "A king is thrown out of a royal palace that has been shut.",
-     "walkthrough": "'Put out' looks like one phrase, but 'put' is fodder and 'out' the instruction. Hampton Court is Henry VIII's palace on the Thames near London.",
-     "definitionFit": "Hampton Court Palace is a royal palace, property of the Crown."
+     "surface": "A deposed king, put out of office, finds his royal residence shut up.",
+     "walkthrough": "'Put out' reads as one phrase, but 'put' is fodder and only 'out' signals the rearrangement; 'about' wraps that around the word for closed, as in a door pulled to.",
+     "definitionFit": "Hampton Court is a Tudor palace on the Thames owned by the Crown, a royal residence of Henry VIII."
     },
     "features": {
      "answerInScene": true,
@@ -958,47 +961,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "APPOINTED",
-     "indicators": [
-      {
-       "text": "arranged",
-       "note": "the letters of IN DEPOT are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "area",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 29,
+         "note": "arranged means put in a new order, so the letters are shuffled"
+        }
+       ],
        "parts": [
         {
-         "words": "area",
-         "gives": "A",
-         "note": "A = area"
-        },
-        {
          "words": "parking",
+         "at": 21,
          "gives": "P",
-         "note": "P = parking, on road signs"
+         "note": "P is the road-sign letter for parking"
         },
         {
-         "words": "in depot",
-         "gives": "POINTED",
-         "note": "anagram of IN DEPOT"
+         "words": "in",
+         "at": 38
+        },
+        {
+         "words": "depot",
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A marked-out parking zone laid out in a depot.",
-     "walkthrough": "'Designated area' looks like the definition, but 'area' is the letter A and only 'Designated' defines.",
-     "definitionFit": "Appointed means designated, as in an appointed time or place."
+     "surface": "Instructions for laying out a designated parking area at a bus depot.",
+     "walkthrough": "'In depot' looks like a placement, but 'in' is part of what gets rearranged with P and DEPOT.",
+     "definitionFit": "Appointed and designated both mean chosen or fixed in advance for a role, as an appointed time or person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "area"
+     "misdirectedWord": "in"
     }
    }
   },
@@ -1071,33 +1077,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "regularly",
-       "note": "take every other letter of Trump's"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "lying about",
-         "note": "the letters lie turned about, back to front"
+         "at": 18,
+         "note": "lying about means turned round, so the picked letters are read backwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "TUP",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 8,
+           "note": "regularly means at even intervals, so every other letter is taken"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Trump's regularly",
-           "gives": "TUP",
-           "select": "alternate",
-           "note": "T, U, P: every other letter of TRUMPS"
+           "words": "Trump's",
+           "at": 0,
+           "note": "its odd letters T, U, P"
           }
          ]
         }
@@ -1105,15 +1109,16 @@
       },
       {
        "words": "popular",
+       "at": 30,
        "gives": "IN",
-       "note": "in = popular, fashionable"
+       "note": "in means popular or fashionable"
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe that Trump habitually lies about a well-liked leader.",
-     "walkthrough": "The surface reads as political gossip, and 'leader' seems to point back at Trump himself, but the leader is a different president.",
-     "definitionFit": "A definition by example: Vladimir, Russia's president since 2000 bar a spell as prime minister, heads a nation."
+     "surface": "A jibe that Trump is forever lying about a popular leader.",
+     "walkthrough": "'Lying' reads as dishonesty, but with 'about' it says the letters TUP lie the other way round. Putin is the leader of Russia.",
+     "definitionFit": "Vladimir Putin is the president and long-standing leader of Russia."
     },
     "features": {
      "answerInScene": true,
@@ -1339,34 +1344,42 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "SPUR",
-     "indicators": [
-      {
-       "text": "Primarily",
-       "note": "take the first letter of each following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "stimulate, prod and urge, right",
-       "gives": "SPUR",
-       "select": "first",
-       "note": "first letters of Stimulate, Prod, Urge, Right"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Primarily",
+         "at": 0,
+         "note": "primarily means first of all, so the opening letter of each word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stimulate, prod",
+         "at": 10,
+         "note": "first letters S and P"
+        }
+       ]
+      },
+      {
+       "words": "urge, right",
+       "at": 30,
+       "gives": "UR",
+       "note": "the same 'Primarily' takes the first letters of urge and right, U and R"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question checking that spurring someone means stimulating and urging them.",
-     "walkthrough": "The whole clue defines as well: to spur is exactly to stimulate, prod and urge.",
-     "definitionFit": "To spur is to urge on, as with the spike on a rider's heel."
+     "surface": "A list of near-synonyms for goading someone on, ending with a check that the list is right.",
+     "walkthrough": "'Primarily' governs all four words; 'and' is only a link and gives no letter. The whole clue also defines the answer: stimulate, prod and urge are all senses of spur.",
+     "definitionFit": "To spur is to stimulate or urge on, from the spiked device a rider uses to prod a horse."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": false
     }
    }
   },
