@@ -828,36 +828,37 @@
      "indicators": [
       {
        "text": "fantastic",
-       "note": "fantastic means fanciful or bizarre, so the kept letters are rearranged"
+       "at": 22,
+       "note": "fantastic means wild or fanciful, so the kept letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ARSE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Top four for",
-         "note": "the top four of a word are its first four letters, so only those are kept"
+         "at": 0,
+         "note": "only the top four letters of the word are kept, so its last three go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Arsenal",
-         "gives": "ARSE",
-         "select": "first",
-         "note": "the first four letters of the football club's name"
+         "at": 13,
+         "note": "taken as written, then cut down to its first four letters"
+        },
+        {
+         "gives": "NAL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Finishing in the top four is a fantastic achievement for Arsenal, for once.",
-     "walkthrough": "Arsenal is a London football club, and 'top four' sounds like a league table.",
-     "definitionFit": "Eras are long spans of history marked by a particular character, so the word means periods of time."
+     "surface": "A football pundit hails a fantastic top-four finish for Arsenal, the London club.",
+     "walkthrough": "'Top four for' keeps ARSE from ARSENAL; 'fantastic' rearranges those four letters. The league-table reading of 'Top four' is the misdirection.",
+     "definitionFit": "Eras are long spans of history marked by a particular character, so they are periods of time."
     },
     "features": {
      "answerInScene": false,
@@ -1301,58 +1302,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HEARTOFOAK",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not having",
+       "at": 19,
+       "note": "not having says one letter is missing from the letters before they are rearranged"
+      },
+      {
        "text": "possibly",
-       "note": "possibly signals one of several arrangements, so the letters may be rearranged"
+       "at": 41,
+       "note": "possibly signals that the letters could be put in another order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HEARTOFOAK",
-       "indicators": [
-        {
-         "text": "not having",
-         "note": "not having means lacking, so this letter is taken out of the fodder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Shook",
-         "note": "taken as written"
+         "at": 0,
+         "note": "taken as written, part of the letters to rearrange"
         },
         {
-         "words": "fear",
-         "note": "taken as written"
-        },
-        {
-         "words": "at",
-         "note": "taken as written"
-        },
-        {
-         "words": "succeeded",
-         "gives": "S",
-         "note": "S is the abbreviation for succeeded in genealogies"
+         "words": "fear at",
+         "at": 11,
+         "note": "taken as written, part of the letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "succeeded",
+       "at": 30,
+       "gives": "S",
+       "note": "s is the genealogical abbreviation for succeeded"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone denies they trembled with fright at failing.",
-     "walkthrough": "The S of SHOOK goes, and the rest of SHOOK FEAR AT rearranges; the whole clue is what a brave person would say.",
-     "definitionFit": "A heart of oak is a brave, resolute person, someone who would never tremble in terror."
+     "surface": "Someone who trembled with fear at failing protests that they are no brave soul.",
+     "walkthrough": "'not having' takes S (succeeded) out of SHOOK FEAR AT; 'possibly' rearranges the rest. The whole clue is the definition: a speaker who shook with fear is no stout-hearted hero.",
+     "definitionFit": "A heart of oak is a brave, resolute person, which someone shaking with fear plainly is not."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Shook"
+     "misdirectedWord": "succeeded"
     }
    }
   },
@@ -1855,30 +1851,44 @@
      }
     ],
     "wordplay": {
-     "op": "alternate",
-     "unchecked": true,
-     "gives": "APRON",
+     "op": "charade",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "regularly means at even intervals, so every second letter is taken"
+       "text": "put on",
+       "at": 29,
+       "note": "put on means the piece goes after, added on to what comes before"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "barperson",
-       "gives": "APRON",
-       "select": "alternate",
-       "note": "the second, fourth, sixth, eighth and tenth letters"
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 19,
+         "note": "regularly means taking letters at regular intervals, here every second one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barperson",
+         "at": 7,
+         "note": "taken as written, every second letter taken"
+        }
+       ]
+      },
+      {
+       "words": "Number",
+       "at": 0,
+       "gives": "N"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A garment a bar worker routinely wears.",
-     "walkthrough": "'Number' means an item of clothing, as in a little black number.",
-     "definitionFit": "An apron is a protective garment tied over clothes, which bar staff regularly wear on shift."
+     "surface": "A question about what a bar worker regularly puts on for a shift.",
+     "walkthrough": "'regularly' takes the second, fourth, sixth and eighth letters of BARPERSON, giving APRO; N (number) is 'put on' after it. The whole clue also describes the answer.",
+     "definitionFit": "An apron is the protective garment a bar worker ties on over their clothes before serving."
     },
     "features": {
      "answerInScene": true,
