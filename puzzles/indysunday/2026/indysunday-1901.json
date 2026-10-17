@@ -211,39 +211,59 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EXPANSIVE",
      "indicators": [
       {
-       "text": "for",
-       "note": "'X for Y' is how a swap gets announced: the first letter takes over the place the second one was holding"
+       "text": "has",
+       "at": 15,
+       "note": "has here means the dear word takes on a new letter"
       },
       {
-       "text": "initially",
-       "note": "doing something initially means at the very outset, so only the opening letter of the word counts"
+       "text": "for",
+       "at": 26,
+       "note": "answer for everything initially means the answer letter stands in place of that opening letter"
       }
      ],
      "parts": [
       {
        "words": "dear",
+       "at": 10,
        "gives": "EXPENSIVE",
-       "note": "dear means costly, not beloved — and this is the word that gets altered"
+       "note": "dear means expensive, costly"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 42,
+         "note": "initially means only the opening letter of everything is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 30,
+         "gives": "E",
+         "note": "first letter of everything"
+        }
+       ]
       },
       {
        "words": "answer",
-       "gives": "A",
-       "note": "A is the standard abbreviation for answer, and it is the letter moving in"
-      },
-      {
-       "words": "everything",
-       "gives": "E",
-       "note": "the opening letter of everything is the one being turned out"
+       "at": 19,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A whole nine-letter word arrives almost intact and one vowel changes hands, which is why the clue feels too short for its answer.",
-     "definitionFit": "An expansive host opens up and talks freely, a sense of the word quite separate from taking up room."
+     "surface": "A chatty, pricey person has a reply to every question.",
+     "walkthrough": "'initially' takes E from everything; the word 'has' A 'for' that E, turning EXPENSIVE into the answer.",
+     "definitionFit": "An expansive person is open and communicative, given to talking freely and at length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dear"
     }
    }
   },
@@ -534,25 +554,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PARISH",
      "indicators": [
       {
        "text": "that needs fixing",
-       "note": "anything needing repair is broken, and broken letters cannot be relied on to stay in the order they arrived in"
+       "at": 22,
+       "note": "that needs fixing says the letters of has rip are broken and must be put back together in another order"
       }
      ],
      "parts": [
       {
        "words": "has rip",
-       "gives": "PARISH",
-       "note": "the six letters of HAS RIP, reset in a new order"
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A torn cassock and a vicar make one continuous picture, so nothing announces itself as a mechanism — and the fodder hides in two of the commonest words in English.",
-     "definitionFit": "Vicar's patch -> PARISH: the district a vicar has charge of, with 'patch' the informal word for the ground anyone covers."
+     "surface": "The clergyman's trousers are torn and need mending.",
+     "walkthrough": "'patch' looks like a repair to the rip, but 'Vicar's patch' is the area a vicar looks after; 'that needs fixing' rearranges HAS RIP.",
+     "definitionFit": "A parish is the district served by a vicar, informally the area he or she covers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "patch"
     }
    }
   },
@@ -884,25 +909,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "INHOSPITABLE",
      "indicators": [
       {
        "text": "in disrepair",
-       "note": "something in disrepair has fallen apart, and letters that have fallen apart can be set down again in any order"
+       "at": 14,
+       "note": "in disrepair says the letters of plain bothies are broken down and rebuilt in a new order"
       }
      ],
      "parts": [
       {
        "words": "Plain bothies",
-       "gives": "INHOSPITABLE",
-       "note": "the twelve letters of PLAIN BOTHIES, rebuilt"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A bothy is a rough hut kept unlocked for walkers in the Scottish hills, which is exactly what makes the surface hang together and the definition sting.",
-     "definitionFit": "An inhospitable coast gives a traveller nothing to get out of the weather in, so the word describes terrain and not a rude host."
+     "surface": "Simple mountain huts have fallen apart and no longer keep out the weather.",
+     "walkthrough": "A bothy is a basic hut, often an unlocked shelter in the Scottish hills; 'in disrepair' rearranges PLAIN BOTHIES.",
+     "definitionFit": "Inhospitable land or weather is harsh and offers no welcome or cover to travellers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
     }
    }
   },
