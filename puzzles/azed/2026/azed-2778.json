@@ -855,27 +855,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDLE",
+     "op": "middle",
      "indicators": [
       {
        "text": "outsides trimmed",
-       "note": "trimming the outsides removes the first and last letters"
+       "at": 7,
+       "note": "the outer letters at each end are cut away, leaving only the inner part of the word"
       }
      ],
      "parts": [
       {
        "words": "Edges",
+       "at": 0,
        "gives": "SIDLES",
-       "note": "to edge along is to sidle"
+       "note": "to edge is to move sideways cautiously, which is to sidle; here the verb form sidles"
       }
      ]
     },
     "explanation": {
-     "surface": "Borders that have had their outer parts cut are no use.",
-     "walkthrough": "Edges looks like a noun, but here it is the verb to edge: SIDLES.",
-     "definitionFit": "Idle can mean pointless or of no effect, as in idle threats or idle speculation."
+     "surface": "Someone dismisses a set of edges whose outer parts have been trimmed off as now useless.",
+     "walkthrough": "'Edges' looks like a noun but is the verb: someone edges along, that is, sidles. Trimming both outsides leaves the inside of SIDLES.",
+     "definitionFit": "Idle can mean pointless or of no effect, as in idle threats, a synonym for useless."
     },
     "features": {
      "answerInScene": false,
@@ -1317,55 +1317,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ARTDECO",
      "indicators": [
       {
        "text": "out",
-       "note": "out suggests the letters are thrown out of their original order"
+       "at": 24,
+       "note": "out signals that the letters of traced are put out of order, rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "traced",
+       "at": 17
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 31,
+         "note": "the central letter of the seven-letter word baroque is taken"
+        }
+       ],
        "parts": [
         {
-         "words": "traced",
-         "gives": "ARTDEC",
-         "note": "the six letters rearranged"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "O",
-         "indicators": [
-          {
-           "text": "centre of",
-           "note": "centre of takes only the middle letter of the next word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "baroque",
-           "gives": "O",
-           "select": "middle",
-           "note": "its middle letter"
-          }
-         ]
+         "words": "baroque",
+         "at": 41,
+         "note": "the word whose middle letter is used; its fourth of seven letters"
         }
        ]
       }
      ]
     },
-    "spelling": "ART DECO",
     "explanation": {
-     "surface": "A decorative style is copied out over the heart of a baroque design.",
-     "definitionFit": "Art Deco was the geometric decorative design movement of the 1920s and 1930s."
+     "surface": "A decorative style is copied out by tracing on top of the core of a baroque design.",
+     "walkthrough": "'traced out' gives the letters of TRACED rearranged, joined by O, the middle letter of BAROQUE; 'on' simply links them. The surface's mention of baroque is a nod to another ornamental style.",
+     "definitionFit": "Art Deco is the decorative design movement of the 1920s and 30s, an ornamental style of architecture and objects."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "baroque"
     }
    }
   },
@@ -2028,57 +2019,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SLAPSHOT",
-     "indicators": [
-      {
-       "text": "Catching",
-       "note": "catching means holding something inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Catching",
+         "at": 0,
+         "note": "catching means the anagrammed letters hold the line abbreviation within them"
+        }
+       ],
        "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "wild",
-           "note": "wild letters run out of control and land in a new order"
+           "at": 14,
+           "note": "wild signals the letters of pass are thrown into a disordered new arrangement"
           }
          ],
          "parts": [
           {
-           "words": "line",
-           "gives": "L",
-           "note": "L is the abbreviation for line"
-          },
-          {
            "words": "pass",
-           "gives": "SAPS",
-           "note": "the four letters rearranged"
+           "at": 19
           }
          ]
         },
         {
-         "words": "powerful",
-         "gives": "HOT",
-         "note": "hot means potent or strong"
+         "words": "line",
+         "at": 9,
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "powerful",
+       "at": 25,
+       "gives": "HOT",
+       "note": "hot can mean strong or powerful, as in a hot favourite or hot shot"
       }
      ]
     },
     "explanation": {
-     "surface": "An ice hockey scene: a wild pass and a powerful strike that sends the puck flying.",
-     "walkthrough": "Puck looks like the sprite from Shakespeare, but this is the hockey disc.",
-     "definitionFit": "A slap shot is a hard hockey shot made with a big swinging stroke of the stick."
+     "surface": "A sports commentator describes a wild, powerful pass caught along a line.",
+     "walkthrough": "Rearrange PASS ('wild') to SAPS, catch L inside to make SLAPS, then add HOT. Puck here is the ice-hockey disc, not Shakespeare's sprite.",
+     "definitionFit": "A slapshot is an ice-hockey stroke with a raised stick, used to drive the hockey disc hard at goal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Puck"
     }
    }
