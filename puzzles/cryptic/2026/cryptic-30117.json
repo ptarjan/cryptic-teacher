@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -915,52 +916,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FEROCITY",
+     "op": "container",
      "indicators": [
       {
-       "text": "on vacation",
-       "note": "A word on vacation is emptied out: everyone between the first letter and the last has gone away."
+       "text": "in",
+       "at": 34,
+       "note": "in places the rearranged letters inside what is left of the family word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "manoeuvring",
-         "note": "Something being manoeuvred is being worked into a different position, and letters manoeuvred do not end up where they started."
-        },
-        {
-         "text": "in",
-         "note": "What goes in something has that something wrapped round it on both sides."
+         "text": "on vacation",
+         "at": 44,
+         "note": "on vacation means emptied, so family loses all its inside letters and keeps only its ends"
         }
        ],
        "parts": [
         {
-         "words": "family on vacation",
-         "gives": "FY",
-         "note": "FAMILY with everything between its first and last letters gone, leaving two to close round the rest"
-        },
+         "words": "family",
+         "at": 37,
+         "note": "the word family, of which only the first and last letters stay"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvring",
+         "at": 22,
+         "note": "manoeuvring means moving things about, so the letters of erotic are shifted into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "erotic",
-         "gives": "EROCIT",
-         "note": "the six letters of 'erotic' worked into a new order"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something erotic being manoeuvred while the family is away on holiday.",
-     "walkthrough": "'On vacation' is the pun the clue turns on: the family really is away, and the word really is emptied. The anagram fodder is sitting in plain sight, spelt exactly as the surface needs it.",
-     "definitionFit": "Ferocity is savage violence, the quality of a ferocious attack, which is what viciousness names."
+     "surface": "Steamy goings-on in a household that has gone away on holiday lead to savagery.",
+     "walkthrough": "'on vacation' looks like a holiday, but it empties FAMILY of its middle letters.",
+     "definitionFit": "Ferocity is fierce, savage cruelty, which is what viciousness describes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "vacation"
     }
    }
