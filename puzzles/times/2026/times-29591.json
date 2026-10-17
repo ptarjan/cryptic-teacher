@@ -147,12 +147,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RIFTVALLEY",
      "indicators": [
       {
        "text": "Taking",
-       "note": "the rest of the wordplay takes the Tube in, holding it inside"
+       "at": 0,
+       "note": "taking means taking in, so the run-provided-path string holds the next piece inside it"
       }
      ],
      "parts": [
@@ -161,37 +160,40 @@
        "parts": [
         {
          "words": "run",
+         "at": 17,
          "gives": "R",
-         "note": "r = run, the cricket scoring abbreviation"
+         "note": "R is the cricket abbreviation for run"
         },
         {
          "words": "provided",
+         "at": 21,
          "gives": "IF",
-         "note": "provided (that) = if"
-        },
-        {
-         "words": "the Tube",
-         "gives": "TV",
-         "note": "the tube = television, slang for the set"
+         "note": "if means provided, as in 'if it rains'"
         },
         {
          "words": "narrow path",
+         "at": 30,
          "gives": "ALLEY",
-         "note": "an alley is a narrow path between buildings"
+         "note": "an alley is a narrow passage between buildings"
         }
        ]
+      },
+      {
+       "words": "the Tube",
+       "at": 7,
+       "gives": "TV",
+       "note": "the tube is slang for television, TV"
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner catches the Underground, then runs down a narrow path.",
-     "walkthrough": "The capital T makes 'the Tube' look like the London Underground; it is slang for the television set.",
-     "definitionFit": "A definition by description: a rift valley forms where the earth's crust splits apart, leaving land divided either side."
+     "surface": "A commuter on the London Underground running along a narrow path to some divided district.",
+     "walkthrough": "'the Tube' looks like the London Underground but is the television set, TV, which R IF ALLEY is 'Taking' in.",
+     "definitionFit": "A rift valley is a lowland formed where the earth's crust has split apart along faults."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Tube"
     }
    }
@@ -391,40 +393,55 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ENJOIN",
      "indicators": [
       {
        "text": "ignoring",
-       "note": "to ignore letters is to leave them out"
-      },
-      {
-       "text": "leaders of",
-       "note": "the leaders of words are their first letters"
+       "at": 28,
+       "note": "ignoring means leaving out, so those letters are dropped from the word"
       }
      ],
      "parts": [
       {
-       "words": "having the benefit of",
-       "gives": "ENJOYING",
-       "note": "to enjoy good health is to have the benefit of it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaders of",
+         "at": 37,
+         "note": "leaders of says the first letters of the two following words are what gets left out, one taken from each"
+        }
+       ],
+       "parts": [
+        {
+         "words": "having the benefit of",
+         "at": 6,
+         "gives": "ENJOYING",
+         "note": "to enjoy something is to have the benefit of it, as in enjoying good health"
+        },
+        {
+         "words": "youth",
+         "at": 48,
+         "gives": "Y",
+         "note": "the leader, first letter, of youth is Y"
+        }
+       ]
       },
       {
-       "words": "leaders of youth groups",
-       "gives": "YG",
-       "note": "first letters of youth and groups, both left out"
+       "words": "groups",
+       "at": 54,
+       "gives": "G",
+       "note": "the leader, first letter, of groups is G"
       }
      ]
     },
     "explanation": {
-     "surface": "A directive on who may use a benefit, excluding youth-group heads.",
-     "walkthrough": "Enjoy has the sense 'possess', as in enjoying a right, which is how it can mean having the benefit of something.",
-     "definitionFit": "A plain synonym: to enjoin someone to act is to order or instruct them to."
+     "surface": "An instruction that benefits from bypassing the people who run youth clubs.",
+     "walkthrough": "ENJOYING ('having the benefit of') is 'ignoring' the 'leaders of youth groups', Y and G; they sit apart in the word, so each is removed on its own, leaving the answer.",
+     "definitionFit": "To enjoin is to instruct or command someone formally, so it is a verb meaning to order."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Order"
+     "misdirectedWord": "leaders"
     }
    }
   },
@@ -493,46 +510,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IRONCLAD",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 10,
+       "note": "used in means put inside, so the element symbol goes into the reworked letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "used in",
-         "note": "the element is used in the rebuild, going inside it"
-        },
-        {
          "text": "reconstruction of",
-         "note": "a reconstruction rebuilds the word's letters in a new order"
+         "at": 18,
+         "note": "reconstruction means rebuilding, so the letters of the word are put together in a new order"
         }
        ],
        "parts": [
         {
          "words": "Nordic",
-         "gives": "IRONCD",
-         "note": "NORDIC rearranged"
-        },
-        {
-         "words": "Lanthanum",
-         "gives": "LA",
-         "note": "La is the chemical symbol for lanthanum"
+         "at": 36,
+         "note": "taken as written, letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "Lanthanum",
+       "at": 0,
+       "gives": "LA",
+       "note": "La is the chemical symbol for lanthanum"
       }
      ]
     },
     "explanation": {
-     "surface": "A museum team rebuilds a Viking longship using a rare-earth metal.",
-     "walkthrough": "The surface wants a Viking longship; the warship is a 19th-century armoured steamship.",
-     "definitionFit": "A definition by example: ironclads were steam warships protected by iron plating."
+     "surface": "A metal element employed in rebuilding a Viking-era warship.",
+     "walkthrough": "'reconstruction of Nordic' rearranges it as IRONCD, and LA ('Lanthanum') is 'used in' it.",
+     "definitionFit": "An ironclad was a nineteenth-century steam warship protected by iron armour plates."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Nordic"
+     "aptDefinition": false
     }
    }
   },
@@ -702,40 +721,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CAVALCADE",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is exchanged for it"
-      },
-      {
-       "text": "first",
-       "note": "a word's first is its opening letter"
+       "at": 18,
+       "note": "for means in place of, so the name's short form takes the place of the letter"
       }
      ],
      "parts": [
       {
        "words": "Fall",
+       "at": 0,
        "gives": "CASCADE",
-       "note": "a cascade is a waterfall"
+       "note": "a cascade is a waterfall, a fall of water"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 34,
+         "note": "first takes just the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Singleton's",
+         "at": 22,
+         "note": "its first letter is S"
+        }
+       ]
       },
       {
        "words": "Valerie",
+       "at": 10,
        "gives": "VAL",
-       "note": "Valerie cut down to her first three letters, the usual short form"
-      },
-      {
-       "words": "Singleton's first",
-       "gives": "S",
-       "note": "first letter of Singleton, swapped out"
+       "note": "Val is the short form of the name Valerie"
       }
      ]
     },
     "explanation": {
-     "surface": "Valerie Singleton, the children's TV presenter, fronting a waterfall piece.",
-     "walkthrough": "Valerie Singleton was a long-serving Blue Peter presenter on British children's TV, so the two names look like one person; they are separate pieces.",
-     "definitionFit": "A plain synonym: a cavalcade is a formal procession, originally one of riders on horseback."
+     "surface": "A tumble with a woman called Valerie, standing in for the first single person.",
+     "walkthrough": "'Fall' looks like the definition but is a waterfall, part of the wordplay; the 'for' swap targets only the opening S.",
+     "definitionFit": "A cavalcade is a formal parade, originally of riders on horseback, so a type of procession."
     },
     "features": {
      "answerInScene": false,
@@ -823,36 +851,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EXHALATION",
      "indicators": [
       {
        "text": "stands for",
-       "note": "one thing that stands for another takes its place"
+       "at": 44,
+       "note": "stands for means takes the place of, so one abbreviation replaces the other"
       }
      ],
      "parts": [
       {
        "words": "being all in",
+       "at": 16,
        "gives": "EXHAUSTION",
-       "note": "all in = worn out, exhausted"
-      },
-      {
-       "words": "Louisiana",
-       "gives": "LA",
-       "note": "LA is the postal abbreviation for Louisiana"
+       "note": "all in means exhausted, so being all in is exhaustion"
       },
       {
        "words": "America",
+       "at": 55,
        "gives": "US",
-       "note": "US = America, the letters swapped out"
+       "note": "US is the abbreviation for the United States, America"
+      },
+      {
+       "words": "Louisiana",
+       "at": 34,
+       "gives": "LA",
+       "note": "LA is the postal abbreviation for the state of Louisiana"
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted boxer takes a punch while a US state stands in for the nation.",
-     "walkthrough": "'Blow' suggests a punch after 'all in'; it is a puff of breath. 'Perhaps' marks a blow as one kind of breathing out.",
-     "definitionFit": "A definition by example: blowing out candles is one kind of breathing out."
+     "surface": "Totally worn out once one US state takes the place of the whole country.",
+     "walkthrough": "'being all in' gives EXHAUSTION; LA 'stands for' US in it. 'Perhaps a blow' marks the definition by example.",
+     "definitionFit": "An exhalation is a breath out, and blowing out air is one example of it."
     },
     "features": {
      "answerInScene": false,
@@ -921,43 +951,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MULTITUDE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Dreadful",
-       "note": "dreadful means in a bad state, so the letters come out mangled"
+       "text": "gripping",
+       "at": 16,
+       "note": "gripping means holding inside, so the rearranged letters wrap round the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "gripping",
-         "note": "the rearranged letters grip the abbreviation, holding it inside"
+         "text": "Dreadful",
+         "at": 0,
+         "note": "dreadful suggests something badly made, so the letters are put in a new order"
         }
        ],
        "parts": [
         {
-         "words": "Dreadful tedium",
-         "gives": "MITUDE",
-         "note": "TEDIUM rearranged"
-        },
-        {
-         "words": "last month's",
-         "gives": "ULT",
-         "note": "ult. (ultimo) = of last month, in old business letters"
+         "words": "tedium",
+         "at": 9,
+         "note": "taken as written, letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "last month's",
+       "at": 25,
+       "gives": "ULT",
+       "note": "ult., short for ultimo, means of last month in old business letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull evening at which the host held everyone's attention.",
-     "walkthrough": "'Host' looks like the person throwing the party; it means a great crowd, as in a heavenly host.",
-     "definitionFit": "A plain synonym: a host, as in 'a host of golden daffodils', is a great number."
+     "surface": "Terrible boredom has held the hosts since last month.",
+     "walkthrough": "'Dreadful' rearranges TEDIUM as MUITDE, 'gripping' ULT; ultimo is Latin, used in commercial letters to mean last month.",
+     "definitionFit": "A host can mean a great number of people or things, so it is a synonym for a multitude."
     },
     "features": {
      "answerInScene": false,
@@ -1102,44 +1133,32 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "APHID",
+     "op": "homophone",
+     "spelt": "APHID",
      "indicators": [
       {
-       "text": "not entirely",
-       "note": "Not all of the words are used, only a run of letters from inside them."
+       "text": "pronounced",
+       "at": 7,
+       "note": "pronounced means spoken out, so the hidden letters are taken by their sound"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "APHID",
-       "indicators": [
-        {
-         "text": "pronounced",
-         "note": "what is pronounced is spoken, so the letters count for their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "not entirely safe, idiomatically",
-         "gives": "AFEID",
-         "note": "s(AFE ID)iomatically, said as one word"
-        }
-       ]
+       "words": "not entirely safe, idiomatically",
+       "at": 18,
+       "gives": "AFEID",
+       "note": "not entirely means only part of these words is used: the letters a-f-e-i-d run inside safe idiomatically, and said aloud they sound like the insect"
       }
      ]
     },
     "explanation": {
-     "surface": "A gullible person is told something is not quite safe, as the saying goes.",
-     "walkthrough": "'Sucker' looks like a dupe; it is a sap-sucking insect. The letters hidden in 'safe, idiomatically' are spelt wrongly but, pronounced, sound right.",
-     "definitionFit": "A definition by description: this greenfly feeds by sucking sap from plants."
+     "surface": "A dupe who has been declared only partly secure, to put it colloquially.",
+     "walkthrough": "'not entirely' takes AFEID from inside sAFE IDiomatically; 'pronounced', those letters say 'a-fid', the sound of the answer. 'Sucker' looks like a dupe but is the sap-sucking insect.",
+     "definitionFit": "An aphid is a greenfly or blackfly, an insect that sucks sap from plants."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Sucker"
     }
    }
@@ -1406,43 +1425,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INPRIVATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "working",
-       "note": "letters that are working are active, moved about into a new order"
+       "text": "caught by",
+       "at": 5,
+       "note": "caught by means held inside, so the drip goes into the reworked letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "caught by",
-         "note": "what is caught by something is held inside it"
+         "text": "working",
+         "at": 23,
+         "note": "working means in operation, so the letters are moved into a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "painter working",
-         "gives": "INPRATE",
-         "note": "PAINTER rearranged"
-        },
-        {
-         "words": "Drip",
-         "gives": "IV",
-         "note": "an IV (intravenous) drip in hospital"
+         "words": "painter",
+         "at": 15,
+         "note": "taken as written, letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "Drip",
+       "at": 0,
+       "gives": "IV",
+       "note": "an IV is an intravenous drip in hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist is caught quietly dripping paint while at work.",
-     "walkthrough": "'Drip' fits a painter's work, but it is the hospital kind, fed into a vein.",
-     "definitionFit": "An idiom: doing something away from others' eyes is doing it secretly."
+     "surface": "A wet blob of paint caught by an artist at work, done on the quiet.",
+     "walkthrough": "'painter working' rearranges as INPRATE, and IV ('Drip') is 'caught by' it.",
+     "definitionFit": "Doing something in private means away from others, the same as doing it secretly."
     },
     "features": {
      "answerInScene": false,
@@ -1615,59 +1635,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "UNIFIED",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 23,
+       "note": "for means in place of, so the new letters replace the one named"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "UNIFIED",
+       "words": "25",
+       "at": 35,
+       "gives": "UNWED",
+       "note": "the answer to 25 across is unwed"
+      },
+      {
+       "words": "wife",
+       "at": 27,
+       "gives": "W"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "'in' puts the female inside the two"
-        },
-        {
-         "text": "for",
-         "note": "one thing put for another is exchanged for it, so the new letters replace the wife"
+         "at": 16,
+         "note": "in puts the letter for female inside the pair"
         }
        ],
        "parts": [
         {
-         "words": "25",
-         "gives": "UNWED",
-         "note": "the answer to 25 across"
-        },
-        {
          "words": "two",
+         "at": 19,
          "gives": "II",
-         "note": "Roman numeral two"
+         "note": "II is two in Roman numerals"
         },
         {
          "words": "female",
-         "gives": "F",
-         "note": "f = female, inside the II"
-        },
-        {
-         "words": "wife",
-         "gives": "W",
-         "note": "w = wife, swapped out"
+         "at": 9,
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wedding pairs one female with another, uniting the two.",
-     "walkthrough": "The clue borrows 25 across's answer, and swapping one letter turns the word for unmarried into one about joining. A neat pairing.",
-     "definitionFit": "A plain synonym: things brought together into a single whole have been made one."
+     "surface": "A couple got married, with a female put in the place of the wife of a single person.",
+     "walkthrough": "F goes 'in' II to make IFI, which stands 'for' the W ('wife') of UNWED, the answer to 25.",
+     "definitionFit": "Unified means joined together into one, as when two parties are united into a single whole."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "wife"
+     "misdirectedWord": "two"
     }
    }
   },
