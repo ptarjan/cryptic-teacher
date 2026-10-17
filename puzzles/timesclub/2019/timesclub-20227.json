@@ -709,36 +709,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RUMPFED",
      "indicators": [
       {
        "text": "replacement for",
-       "note": "a replacement for something takes its place, so one letter swaps in where another stood"
+       "at": 8,
+       "note": "replacement for means one letter is put in the place of the other in the word"
       }
      ],
      "parts": [
       {
-       "words": "Folio's",
-       "gives": "F",
-       "note": "F is the abbreviation for folio"
+       "words": "wrinkly",
+       "at": 32,
+       "gives": "RUMPLED",
+       "note": "rumpled means creased and wrinkly"
       },
       {
        "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
+       "at": 24,
+       "gives": "L"
       },
       {
-       "words": "wrinkly",
-       "gives": "RUMPLED",
-       "note": "rumpled means creased"
+       "words": "Folio's",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the abbreviation for folio"
       }
      ]
     },
     "explanation": {
-     "surface": "A literary note on how the First Folio text describes a scabby woman through a witch's mouth.",
-     "walkthrough": "F replaces L in RUMPLED. 'Folio' tempts a Shakespeare First Folio reading, which fits the definition but plays no part in it.",
-     "definitionFit": "In Macbeth the First Witch recalls a sailor's wife shrieking at her, quoting the 'rump-fed ronyon', a fat-bottomed scabby woman."
+     "surface": "A Shakespearean editor noting a Folio variant in a witch's wrinkled insult.",
+     "walkthrough": "In Macbeth the First Witch curses a sailor's wife as a 'rump-fed ronyon', a fat-bottomed scabby woman; the First Folio is the 1623 collection of Shakespeare's plays.",
+     "definitionFit": "Rump-fed, meaning fattened on choice cuts or fat-rumped, is the witch's own epithet for the ronyon in Macbeth."
     },
     "features": {
      "answerInScene": true,
@@ -1679,32 +1680,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMBULACRUM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "utterly pointless",
-       "note": "points here are compass points, and utterly means every one of them is removed"
+       "text": "before",
+       "at": 29,
+       "note": "before puts the shortened vehicle ahead of the next piece"
       }
      ],
      "parts": [
       {
-       "words": "Meat wagon",
-       "gives": "AMBULANCE",
-       "note": "meat wagon is slang for an ambulance"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pointless",
+         "at": 19,
+         "note": "pointless means without compass points, so the letter for east is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "utterly",
+           "at": 11,
+           "note": "utterly says every compass point goes, not just one, so the north letter is removed as well"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Meat wagon",
+           "at": 0,
+           "gives": "AMBULANCE",
+           "note": "meat wagon is slang for an ambulance"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "strange",
+       "at": 36,
        "gives": "RUM",
-       "note": "rum is British slang for odd or peculiar"
+       "note": "rum is British slang for strange or odd"
       }
      ]
     },
     "explanation": {
-     "surface": "An ambulance going nowhere before a gang of street kids shows up.",
-     "walkthrough": "AMBULANCE loses its compass points N and E. 'Strange' looks like an anagram signal but simply means RUM; 'urchins' are sea urchins, not street children.",
-     "definitionFit": "An ambulacrum is one of the radial bands on a sea urchin's shell bearing its tube feet."
+     "surface": "An ambulance, completely useless, rolls up before some weird group of kids.",
+     "walkthrough": "'utterly pointless' means stripped of every compass point the word holds, here both north and east. 'urchins' looks like scruffy children but means sea urchins.",
+     "definitionFit": "An ambulacrum is one of the radial zones bearing tube feet on a sea urchin or starfish."
     },
     "features": {
      "answerInScene": false,
