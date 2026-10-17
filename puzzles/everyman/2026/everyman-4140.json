@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -405,46 +406,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "bless",
+      "text": "bless!",
       "at": 56
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONSECRATE",
-     "indicators": [
-      {
-       "text": "taking wings off",
-       "note": "Wings are the outermost parts of a thing spread wide, so a word losing its wings loses the letter at each end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Dupe",
+       "at": 0,
+       "gives": "CON",
+       "note": "to dupe someone is to con them"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "taking wings off",
+         "at": 5,
+         "note": "the wings of a word are its outer letters, so both ends are removed"
+        }
+       ],
        "parts": [
         {
-         "words": "Dupe",
-         "gives": "CON",
-         "note": "to con somebody is to dupe them out of their money"
-        },
-        {
          "words": "used",
-         "gives": "SE",
-         "note": "the U at the front and the D at the back fly off, and the middle pair is what stays"
-        },
-        {
-         "words": "car that's seen better days",
-         "gives": "CRATE",
-         "note": "a crate is a rattling old vehicle, the same joke as calling a car a heap"
+         "at": 22,
+         "note": "taken as written before losing its ends"
         }
        ]
+      },
+      {
+       "words": "car that's seen better days",
+       "at": 27,
+       "gives": "CRATE",
+       "note": "a crate is slang for an old, battered car"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Dupe' is the con and not the shabby car, and 'bless!' reads as an aside about something decrepit rather than as the definition it turns out to be.",
-     "definitionFit": "bless: the formal, priestly sense — setting a church or its ground apart as sacred, not wishing somebody well."
+     "surface": "Someone is cheated over a worn-out second-hand car and can only exclaim in exasperation.",
+     "walkthrough": "'Taking wings off' trims USED to SE. 'Bless!' sounds like an exclamation of sympathy, but it is the definition as a verb.",
+     "definitionFit": "To consecrate something is to make it holy by a religious rite, which is what blessing it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bless"
     }
    }
   },
@@ -649,39 +657,51 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HOCKEYSTICK",
      "indicators": [
       {
-       "text": "Spooner's spoken of",
-       "note": "The Reverend Spooner swapped the opening sounds of two words as he talked, so naming him is the instruction to trade them and listen."
+       "text": "Spooner's",
+       "at": 0,
+       "note": "Spooner was the clergyman famous for swapping the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "STOCKEY",
+       "indicators": [
+        {
+         "text": "spoken of",
+         "at": 10,
+         "note": "spoken means going by sound, so the swap is made on how the words are said"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "thickset",
-         "gives": "HOCKEY",
-         "soundsLike": "STOCKY",
-         "note": "a thickset build is a stocky one, and it gives up the ST at its front"
-        },
-        {
-         "unchecked": true,
-         "words": "yokel",
-         "gives": "STICK",
-         "soundsLike": "HICK",
-         "note": "a hick is a country bumpkin, and it collects the ST the first word let go"
+         "at": 20,
+         "gives": "STOCKY",
+         "note": "a thickset person is short and sturdily built, or stocky"
         }
        ]
+      },
+      {
+       "words": "yokel's",
+       "at": 29,
+       "gives": "HICK",
+       "note": "a hick is an unsophisticated country person, a yokel"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain pair aloud first and the swap does the rest. The stray 's' on 'yokel's' belongs to the surface possessive, not to the wordplay.",
-     "definitionFit": "sporting equipment: the curved wooden implement a player carries up the pitch, named as one item of kit rather than defined as a phrase."
+     "surface": "A sturdy country bumpkin's kit, as the famously tongue-tied Reverend Spooner might put it.",
+     "walkthrough": "Say STOCKY HICK and swap the opening sounds ST and H to get HOCKEY STICK; the spelling of hockey is set by sound, not letters.",
+     "definitionFit": "A hockey stick is the curved club players use to hit the ball, so it is sporting kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "thickset"
     }
    }
   },
@@ -801,57 +821,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROOKERY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Pooh's friend",
+       "at": 0,
+       "gives": "ROO",
+       "note": "Roo is the young kangaroo among Winnie-the-Pooh's friends"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "Something done regularly happens at a fixed interval, so take every second letter of the word beside it."
+         "text": "to begin with",
+         "at": 21,
+         "note": "to begin with means only the first letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "Pooh's friend",
-         "gives": "ROO",
-         "note": "Roo is the young kangaroo of the Hundred Acre Wood"
-        },
+         "words": "Kanga",
+         "at": 14,
+         "note": "the name of Roo's mother, whose first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "to begin with",
-           "note": "Tucked in brackets after a name, this asks for the letter that name starts with and nothing that follows it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Kanga (to begin with)",
-           "gives": "KANGA",
-           "note": "Roo's mother supplies her initial and nothing more"
-          }
-         ]
-        },
+         "text": "muddled",
+         "at": 57,
+         "note": "muddled letters are mixed up, so they are rearranged"
+        }
+       ],
+       "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "ERY",
          "indicators": [
           {
-           "text": "muddled",
-           "note": "Muddled means jumbled into no order at all, so the letters it governs are free to be re-set."
+           "text": "regularly",
+           "at": 47,
+           "note": "regularly means taking letters at even intervals, every other one"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "Eeyore",
-           "gives": "ERY",
-           "select": "alternate",
-           "note": "the first, third and fifth letters of the donkey's name are E, Y and R, and they are then re-ordered"
+           "at": 40,
+           "note": "the donkey's name, from which every other letter is taken"
           }
          ]
         }
@@ -860,8 +878,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "Three of Pooh's neighbours in one line, and only the first is taken whole: the others give up a single letter and a scattering. 'Muddled' governs those three letters alone.",
-     "definitionFit": "bird's home: the colony of nests that rooks build high in a stand of trees, named after the birds that crowd it."
+     "surface": "Characters from Winnie-the-Pooh get confused while visiting a bird's nest.",
+     "walkthrough": "'Regularly' takes E, Y, R from EEYORE, and 'muddled' turns them into ERY. Kanga and Eeyore are Pooh's friends too, but here Kanga just gives K.",
+     "definitionFit": "A rookery is a colony of rooks' nests, so it is home to a bird, the rook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kanga"
     }
    }
   },
