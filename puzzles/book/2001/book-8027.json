@@ -530,51 +530,43 @@
     "definitions": [
      {
       "text": "showing competence",
-      "at": 32
+      "at": 32,
+      "note": "an adjective phrase, matching the adjective answer"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CAPABLE",
      "indicators": [
       {
        "text": "brought in",
-       "note": "something brought in is placed inside, here the secretary goes inside the message"
+       "at": 20,
+       "note": "brought in means put inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Message",
-         "gives": "CA",
-         "note": "first part of a cable, a telegram"
-        },
-        {
-         "words": "secretary's",
-         "gives": "PA",
-         "note": "personal assistant"
-        },
-        {
-         "words": "Message",
-         "gives": "BLE",
-         "note": "rest of the cable"
-        }
-       ]
+       "words": "Message",
+       "at": 0,
+       "gives": "CABLE",
+       "note": "a cable is a message sent by telegraph"
+      },
+      {
+       "words": "secretary's",
+       "at": 8,
+       "gives": "PA",
+       "note": "PA, a personal assistant, is a secretary"
       }
      ]
     },
     "explanation": {
-     "surface": "An office scene where the secretary delivers a message and proves efficient.",
-     "walkthrough": "A cable is a telegram; PA, a personal assistant, sits inside it.",
-     "definitionFit": "Capable describes having the ability to do things well, the adjective for showing competence."
+     "surface": "An office scene: a secretary brings in a telegram, proving how efficient they are.",
+     "walkthrough": "PA (personal assistant) is 'brought in' to CABLE, an old word for a telegram.",
+     "definitionFit": "Someone capable has the skill and ability to do a job well, which is what competence means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "brought"
+     "misdirectedWord": "Message"
     }
    }
   },
@@ -807,50 +799,46 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DRAMSHOP",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so the doctor's word wraps the other piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 18,
+         "note": "about means the doctor's letters go around the American ones"
+        }
+       ],
        "parts": [
         {
          "words": "doctor's",
-         "gives": "DR",
-         "note": "abbreviation for doctor"
+         "at": 9,
+         "gives": "DRS",
+         "note": "DR is the abbreviation for doctor, and the 's adds S"
         },
         {
          "words": "American",
-         "gives": "AM",
-         "note": "abbreviation for American"
-        },
-        {
-         "words": "doctor's",
-         "gives": "S",
-         "note": "the possessive ending"
-        },
-        {
-         "words": "dance",
-         "gives": "HOP",
-         "note": "a hop is an informal dance"
+         "at": 0,
+         "gives": "AM"
         }
        ]
+      },
+      {
+       "words": "dance",
+       "at": 33,
+       "gives": "HOP",
+       "note": "a hop is an informal dance"
       }
      ]
     },
     "explanation": {
-     "surface": "An American doctor heads to a dance being held in an off-licence.",
-     "walkthrough": "The doctor's possessive gives DRS, which goes around AM.",
-     "definitionFit": "A dramshop is an old term for a bar or tavern selling spirits by the dram."
+     "surface": "An American physician is about to head off to a dance held in an off-licence.",
+     "walkthrough": "'about to go' reads as a single phrase, but 'about' alone is the containment signal and 'to go to' just joins the pieces. A dram is a small measure of spirits.",
+     "definitionFit": "A dramshop is an old American term for a bar or saloon where spirits are sold by the dram."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "about"
     }
