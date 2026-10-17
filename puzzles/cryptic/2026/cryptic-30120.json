@@ -149,58 +149,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SLEEPING",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "does U-turn",
-         "note": "A car doing a U-turn heads back the way it came, so these letters are read from their far end."
+         "text": "to stop",
+         "at": 25,
+         "note": "to stop something is to plug it, so the reversed name goes inside the word for evil"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "evil",
+         "at": 33,
+         "gives": "SIN",
+         "note": "sin is evil, wrongdoing"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "to stop",
-           "note": "To stop something is to plug it, so these letters go into the gap of the words that follow."
+           "text": "does U-turn",
+           "at": 13,
+           "note": "a U-turn sends you back the way you came, so the name is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "evil",
-           "gives": "SIN",
-           "note": "sin is wickedness, evil"
-          },
-          {
            "words": "PM once",
-           "gives": "LEEP",
-           "note": "Robert Peel was a nineteenth-century British Prime Minister, founder of the Metropolitan Police; PEEL turned round"
+           "at": 5,
+           "gives": "PEEL",
+           "note": "Sir Robert Peel was British Prime Minister in the 1830s and 1840s"
           }
          ]
-        },
-        {
-         "words": "government",
-         "gives": "G",
-         "note": "G is a standard abbreviation for government"
         }
        ]
+      },
+      {
+       "words": "government",
+       "at": 38,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy former prime minister makes a policy reversal to block a wicked regime.",
-     "walkthrough": "'Idle PM' looks like one phrase about a slack premier, but 'Idle' stands alone as the definition. The old PM is PEEL, a favourite of setters, and he goes backwards into SIN before G is added.",
-     "definitionFit": "A sleeping partner or sleeping machine is inactive, so 'sleeping' in the sense of dormant, not working, means idle."
+     "surface": "A former prime minister reversing course to block a wicked administration.",
+     "walkthrough": "PEEL 'does U-turn' to give LEEP, which goes in SIN 'to stop' it, with G after.",
+     "definitionFit": "Something sleeping is dormant or inactive, the same as lying idle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Idle"
+     "misdirectedWord": "PM"
     }
    }
   },
@@ -827,46 +829,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISUNITING",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "taking away",
+       "at": 13,
+       "note": "taking away tells you to remove the letters of see from the fodder before rearranging"
+      },
+      {
+       "text": "randomly",
+       "at": 48,
+       "note": "randomly means in no set order, so the remaining letters are shuffled"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DISUNITING",
-       "indicators": [
-        {
-         "text": "taking away",
-         "note": "Taking away is subtraction, so the named letters are removed from the rest."
-        },
-        {
-         "text": "randomly",
-         "note": "Letters placed randomly are in no fixed order, so the remainder is rearranged."
-        }
-       ],
-       "parts": [
-        {
-         "words": "use nine digits",
-         "note": "the clue's own words, taken as they stand"
-        },
-        {
-         "words": "see",
-         "note": "these three letters are removed from the fodder before it is rearranged"
-        }
-       ]
+       "words": "use nine digits",
+       "at": 32,
+       "note": "taken as written"
+      },
+      {
+       "words": "see",
+       "at": 26,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An arithmetic lesson on division and subtraction, using the digits one to nine.",
-     "walkthrough": "The maths words are a disguise: 'dividing' is the definition, 'taking away' removes SEE, and 'use nine digits' are the letters. The digits never become numbers.",
-     "definitionFit": "To disunite is to split apart what was joined, so disuniting is a plain synonym of dividing."
+     "surface": "A maths lesson on division and subtraction, using the nine digits at random.",
+     "walkthrough": "'taking away' looks like subtraction to go with dividing: take S, E, E out of USE NINE DIGITS, and 'randomly' rearranges what is left.",
+     "definitionFit": "Disuniting means splitting apart, so it is a synonym of dividing in the sense of separating."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Dividing"
+     "misdirectedWord": "taking"
     }
    }
   },
@@ -891,42 +888,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TRANSPORT",
-     "indicators": [
-      {
-       "text": "exchanged",
-       "note": "To exchange one thing for another is to swap them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "relative's",
-       "gives": "GRANS",
-       "note": "a gran is a grandmother, a relative, and 's supplies the S"
-      },
-      {
-       "words": "G&T",
-       "gives": "T",
-       "note": "the G of GRANS is exchanged for T, making TRANS"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "After G&T exchanged",
+         "at": 0,
+         "note": "once G is swapped for T, the relative's word changes its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relative's",
+         "at": 21,
+         "gives": "GRANS",
+         "note": "gran's, a grandmother's, with the possessive s kept"
+        },
+        {
+         "gives": "G"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "left",
+       "at": 32,
        "gives": "PORT",
-       "note": "port is the left side of a ship"
+       "note": "port is the nautical word for left"
       }
      ]
     },
     "explanation": {
-     "surface": "A gin and tonic swapped, and a family member leaves happily.",
-     "walkthrough": "G&T looks like the drink but is just two letters: one goes out, the other comes in. 'Left' means the ship's side, not departed.",
-     "definitionFit": "Transport in the older sense of a rapture, as in 'transports of delight', means an overwhelming joy."
+     "surface": "After swapping gin and tonic for something else, Gran's left feeling delighted.",
+     "walkthrough": "G&T looks like a drink, but it says change G to T: GRANS becomes TRANS.",
+     "definitionFit": "Transport, as a noun, means an overwhelming emotion such as rapture, as in transports of joy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "exchanged"
+     "misdirectedWord": "G&T"
     }
    }
   },
@@ -1394,36 +1398,43 @@
     "definitions": [
      {
       "text": "Burned a little",
-      "at": 0
+      "at": 0,
+      "note": "past tense: singed means burned slightly, at the surface"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SINGED",
+     "op": "substitution",
      "indicators": [
       {
        "text": "core lifting",
-       "note": "The core is the middle, and lifting in a down entry reads it upwards, so the centre pair is turned round."
+       "at": 30,
+       "note": "the core of the word is its central pair of letters, and lifting them in a down clue turns them upside down"
       }
      ],
      "parts": [
       {
        "words": "witnessed",
+       "at": 20,
        "gives": "SIGNED",
-       "note": "a witness adds their signature to a document, so witnessed means signed"
+       "note": "to witness a document is to sign it as a witness"
+      },
+      {
+       "gives": "GN"
+      },
+      {
+       "gives": "NG"
       }
      ]
     },
     "explanation": {
-     "surface": "A document scorched slightly as it was being witnessed.",
-     "walkthrough": "Only the middle two letters of SIGNED move; everything else stays put. The two words differ by just that swapped pair.",
-     "definitionFit": "To singe is to burn slightly on the surface, so singed means burned a little."
+     "surface": "A note that someone got slightly burned and saw a reactor core rise.",
+     "walkthrough": "'witnessed' gives SIGNED; its 'core' is GN, which 'lifting' turns over to NG.",
+     "definitionFit": "To singe is to scorch slightly, burning only the surface or the tips of something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lifting"
+     "misdirectedWord": "witnessed"
     }
    }
   },
@@ -1448,42 +1459,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NAPPIES",
-     "indicators": [
-      {
-       "text": "returns",
-       "note": "Something that returns goes back, so these letters are read from their far end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 4,
+         "note": "returns means goes back, so the god's name is read from end to start"
+        }
+       ],
        "parts": [
         {
          "words": "God",
-         "gives": "NAP",
-         "note": "Pan is the Greek god of the wild; PAN turned round"
-        },
-        {
-         "words": "good",
-         "gives": "PI",
-         "note": "pi, short for pious, is slang for good"
-        },
-        {
-         "words": "tablets",
-         "gives": "ES",
-         "note": "E is slang for an ecstasy tablet, so tablets are Es"
+         "at": 0,
+         "gives": "PAN",
+         "note": "Pan is the Greek god of the wild"
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 12,
+       "gives": "PI",
+       "note": "PI, short for pious, is the crossword convention for good"
+      },
+      {
+       "words": "tablets",
+       "at": 17,
+       "gives": "ES",
+       "note": "Es are ecstasy tablets, E being slang for the drug"
       }
      ]
     },
     "explanation": {
-     "surface": "A deity hands back some fine pills because they are full of padding.",
-     "walkthrough": "The tablets sound medical but are the party drug's slang, and 'good' is the old slang PI. The definition describes the answer by what is inside it.",
-     "definitionFit": "Nappies, British for diapers, are padded with absorbent material, so the definition describes them by their filling."
+     "surface": "A god coming back with good tablets that soak something up.",
+     "walkthrough": "'returns' turns PAN round to NAP; Es are ecstasy pills.",
+     "definitionFit": "Nappies are pads of absorbent material worn by babies; nappy is British for diaper."
     },
     "features": {
      "answerInScene": false,
