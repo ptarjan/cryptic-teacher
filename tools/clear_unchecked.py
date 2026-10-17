@@ -23,6 +23,7 @@ import json
 import multiprocessing
 import os
 import random
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -56,15 +57,32 @@ def stripped(node):
     return node
 
 
-def verdict(wp, answer):
-    """'cleared' (the stripped tree gives the answer), 'failing' (WordplayError) or 'crashed'."""
+def bucket(wp, answer):
+    """(outcome, reason bucket, detail): why a clue clears or does not."""
     try:
         wordplay.evaluate(stripped(wp), answer)
-    except wordplay.WordplayError:
-        return "failing"
-    except Exception:
-        return "crashed"
-    return "cleared"
+    except wordplay.WordplayError as e:
+        msg = str(e)
+        if msg.startswith("the wordplay does not give"):
+            return "failing", "eval: wrong string", msg[:150]
+        if "the fodder already reads" in msg:
+            return "failing", "eval: anagram fodder already the answer", msg[:150]
+        if "takes" in msg and "part(s)" in msg:
+            return "failing", "eval: " + msg.split("(")[0] + " part count", msg[:150]
+        return "failing", "eval: " + " ".join(msg.split()[:4]), msg[:150]
+    except Exception as e:
+        return "crashed", "crashed: " + type(e).__name__, str(e)[:150]
+    return "cleared", "cleared", ""
+
+
+def verdict(wp, answer):
+    """'cleared' (the stripped tree gives the answer), 'failing' (WordplayError) or 'crashed'."""
+    return bucket(wp, answer)[0]
+
+
+WHY = "why:"  # counts keys: WHY + bucket (a count) and EX + bucket + | + example (one each)
+EX = "ex:"
+OUTCOMES = ("cleared", "failing", "crashed")
 
 
 def _label(held):
@@ -76,6 +94,11 @@ def _problems(puzzle):
     _, errors, warnings = V.validate_puzzle(puzzle, corpus=True)
     keep = collections.Counter(w for w in warnings if V.UNCHECKED_STEP not in w)
     return collections.Counter(errors), keep, V.count_backlog(warnings)[FIELD]
+
+
+def _code(finding):
+    """A finding's leading words, to group gate failures."""
+    return " ".join(re.sub(r"^\d+[AD]: ", "", finding).split()[:5])[:40]
 
 
 def _worse(before, after):
@@ -91,11 +114,14 @@ def clear_puzzle(puzzle):
         wp = ann.get("wordplay")
         if not isinstance(wp, dict) or not flagged(wp):
             continue
-        out = verdict(wp, held.get("solution") or "")
+        out, why, detail = bucket(wp, held.get("solution") or "")
         counts[out] += 1
+        if out != "cleared":
+            counts[WHY + why] += 1
+            counts[f"{EX}{why}|{_label(held)} {held.get('solution')}: {detail}"] = 1
         if out == "cleared":
             todo.append((i, _label(held), held.get("solution"), wordplay.render(stripped(wp))))
-    n_flagged = sum(counts.values())
+    n_flagged = sum(counts[o] for o in OUTCOMES)
     if not todo:  # no validator run for a puzzle with nothing to clear: it is the slow part
         return puzzle, [], counts, n_flagged, n_flagged
     base = _problems(puzzle)
@@ -121,6 +147,14 @@ def clear_puzzle(puzzle):
     held_back = len(todo) - len(chosen)
     counts["cleared"] -= held_back
     counts["failing"] += held_back
+    kept = {t[0] for t in chosen}
+    for t in todo:
+        if t[0] not in kept:
+            new = (_problems(apply([t]))[:2])
+            codes = sorted({_code(k) for c in (new[0] - base[0], new[1] - base[1]) for k in c})
+            why = "gate: " + (", ".join(codes) or "combined")
+            counts[WHY + why] += 1
+            counts[f"{EX}{why}|{t[1]} {t[2]} = {t[3]}"] = 1
     if not chosen:
         return puzzle, [], counts, base[2], base[2]
     return puzzle_schema.order(trial), [t[1:] for t in chosen], counts, base[2], after[2]
@@ -190,11 +224,18 @@ def main():
     paths = flagged_files()[k - 1::n][:a.limit]
     results = run(paths, a.write)
     total = sum((r[2] for r in results), collections.Counter())
+    n_total = sum(total[o] for o in OUTCOMES)
     cleared = sum(len(r[1]) for r in results)
-    print(f"{sum(total.values())} unchecked clues in {len(results)} puzzles: "
+    print(f"{n_total} unchecked clues in {len(results)} puzzles: "
           f"{cleared} {'cleared' if a.write else 'clearable'} in {sum(1 for r in results if r[1])} puzzles, "
           f"{total['failing']} still failing, {total['crashed']} crashed; "
           f"{sum(r[4] for r in results)} left flagged")
+    whys = {k[len(WHY):]: v for k, v in total.items() if k.startswith(WHY)}
+    for why, n in sorted(whys.items(), key=lambda kv: -kv[1]):
+        print(f"  {n:5d}  {why}")
+        exs = sorted(k[len(EX):].split("|", 1)[1] for k in total if k.startswith(EX + why + "|"))
+        for e in exs[:2]:
+            print(f"         e.g. {e[:230]}")
     rows = [(Path(p).stem, c) for p, d, *_ in results for c in d]
     for pid, (clue, answer, tree) in random.Random(1).sample(rows, min(a.examples, len(rows))):
         print(f"  {pid} {clue}: {answer} = {tree}")
