@@ -1035,49 +1035,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DIAMOND",
-     "indicators": [
-      {
-       "text": "hauled up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "hauled up",
+         "at": 16,
+         "note": "in a down clue, hauling a word up makes it read from bottom to top, so its letters run backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Lady-in-waiting",
-         "gives": "DIAM",
-         "note": "a MAID, hauled up the grid"
-        },
+         "at": 0,
+         "gives": "MAID",
+         "note": "a lady-in-waiting is a maid attending a queen or princess"
+        }
+       ]
+      },
+      {
+       "words": "over",
+       "at": 26,
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over, a set of six balls"
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "words": "over",
-         "gives": "O",
-         "note": "O = over, from cricket scoring"
-        },
+         "text": "case of",
+         "at": 31,
+         "note": "the case of a word is its outside, its first and last letters with the middle removed"
+        }
+       ],
+       "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "case of"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nicked",
-           "note": "its 'case' — the outer letters"
-          }
-         ]
+         "words": "nicked",
+         "at": 39,
+         "note": "the word whose outer letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The MAID is 'hauled up' the down entry, O is the cricket over, and 'case of nicked' keeps only that word's outer letters.",
-     "definitionFit": "A diamond is a precious jewel — and, in a puzzle dealt from a full pack, also one of the four card suits."
+     "surface": "A queen's attendant is hauled up before the court over a stolen jewel found in her case.",
+     "walkthrough": "'Hauled up' reverses the maid in this down clue; 'nicked' is British slang for stolen, which fits a jewel thief, but 'case of' keeps only its outside letters.",
+     "definitionFit": "A diamond is a precious stone, the most familiar example of a jewel set in rings and necklaces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
     }
    }
   },
