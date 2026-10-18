@@ -47,41 +47,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCEPTICAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involvement in",
+       "at": 27,
+       "note": "involvement in means the church letters are drawn into the middle of the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "involvement in",
-         "note": "the church's letters become involved in, i.e. sit inside, the other letters"
-        },
-        {
          "text": "surgery",
-         "note": "surgery cuts up and rebuilds, so PLASTIC is reshaped"
+         "at": 50,
+         "note": "surgery reshapes something, so the letters of plastic are rearranged"
         }
        ],
        "parts": [
         {
          "words": "plastic",
-         "gives": "SPTICAL",
-         "note": "PLASTIC rearranged, split S…PTICAL around the church"
-        },
-        {
-         "words": "church's",
-         "gives": "CE",
-         "note": "CE = Church of England"
+         "at": 42
         }
        ]
+      },
+      {
+       "words": "church's",
+       "at": 18,
+       "gives": "CE",
+       "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "A sceptic wonders why the church is getting mixed up in cosmetic surgery.",
-     "walkthrough": "'Plastic surgery' reads as one phrase, but it splits: PLASTIC is the fodder and 'surgery' is what is done to it.",
-     "definitionFit": "Someone sceptical is unconvinced by what they are told."
+     "surface": "Someone doubtful about the Church getting mixed up in cosmetic surgery.",
+     "walkthrough": "'plastic surgery' reads as one phrase, but 'plastic' is the fodder and 'surgery' reworks it into SPTICAL; 'involvement in' then puts CE inside after the S.",
+     "definitionFit": "Being sceptical means doubting a claim, the state of someone not yet persuaded."
     },
     "features": {
      "answerInScene": true,
@@ -239,45 +241,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRUDGE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to get in",
+       "at": 39,
+       "note": "to get in means to go inside the word for fair and square"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "fair and square",
+       "at": 49,
+       "gives": "TRUE",
+       "note": "fair and square means honest, true"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "Balls-free",
-         "note": "the Os, which look like balls, are removed from GOOD"
-        },
-        {
          "text": "backing",
-         "note": "in a down clue, the letters run backwards"
-        },
-        {
-         "text": "to get in",
-         "note": "the result goes inside the other piece"
+         "at": 31,
+         "note": "backing means read backwards"
         }
        ],
        "parts": [
         {
-         "words": "fair and square",
-         "gives": "TRUE",
-         "note": "TRUE = fair and square, opened to take the middle"
-        },
-        {
-         "words": "good, Balls-free, backing",
-         "gives": "DG",
-         "note": "GOOD minus its two Os gives GD, then reversed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Balls-free",
+           "at": 19,
+           "note": "balls are round O shapes, so being free of balls means losing both Os from good"
+          }
+         ],
+         "parts": [
+          {
+           "words": "good",
+           "at": 13,
+           "note": "the word good, which loses its two Os"
+          },
+          {
+           "gives": "OO"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dig at the Labour party and Ed Balls: it needs good backing, without him, to win fairly.",
-     "walkthrough": "Balls is Ed Balls, the former Labour shadow chancellor, and the capital letter hides that here it just means the letter O.",
-     "definitionFit": "To trudge is to labour along, walking heavily and with effort."
+     "surface": "A political jibe: the Labour Party, rid of Ed Balls, must back good ideas to win honestly.",
+     "walkthrough": "Ed Balls was a Labour shadow chancellor, hence the capital B. 'Balls-free' takes the Os out of GOOD to leave GD, 'backing' turns it to DG, and that goes 'to get in' TRUE.",
+     "definitionFit": "To trudge is to walk heavily and wearily, to labour along on foot."
     },
     "features": {
      "answerInScene": false,
@@ -308,36 +324,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DOER",
-     "indicators": [
-      {
-       "text": "turning"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Party",
+       "at": 0,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 6,
+         "note": "turning means the letters of the word for on are read the other way round"
+        }
+       ],
        "parts": [
         {
-         "words": "Party",
-         "gives": "DO",
-         "note": "a do = a party"
-        },
-        {
          "words": "on",
-         "gives": "ER",
-         "note": "RE = on, about, reversed"
+         "at": 14,
+         "gives": "RE",
+         "note": "re means on, concerning, as in a letter heading"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political party turns on one of its own operatives.",
-     "walkthrough": "'Agent' suggests a spy or operative; here it has its root sense, one who acts.",
-     "definitionFit": "Agent in its root sense, from Latin agere, to do: the one who performs an action."
+     "surface": "A political party switching sides to back an agent.",
+     "walkthrough": "'on' is the word meaning concerning, as in the heading of a letter, and it is that word, not the party, that is 'turning'.",
+     "definitionFit": "A doer is one who acts, and an agent in the general sense is anyone who does something."
     },
     "features": {
      "answerInScene": false,
@@ -505,52 +523,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARSONIST",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ARSONIST",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 5,
+         "note": "lacking means going without, so the energy letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "lacking energy",
-           "note": "E (energy) is dropped from ARSE"
-          },
-          {
-           "text": "turning",
-           "note": "the letters are turned into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Bum, lacking energy",
-           "gives": "ARS",
-           "note": "ARSE, a British word for bum, minus E"
-          },
-          {
-           "words": "is not turning",
-           "gives": "ONIST",
-           "note": "IS NOT rearranged"
-          }
-         ]
+         "words": "Bum",
+         "at": 0,
+         "gives": "ARSE",
+         "note": "a bum is an arse, in British slang"
+        },
+        {
+         "words": "energy",
+         "at": 13,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 28,
+         "note": "turning means twisting round, so the letters of is not are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is not",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy layabout who can't be bothered to change is becoming a crook.",
-     "walkthrough": "'Bum' reads as a layabout, but it is the backside, and only the British spelling ARSE gives the right letters.",
-     "definitionFit": "An arsonist is a criminal who deliberately sets fires."
+     "surface": "A backside that has lost its energy and will not turn into a crook.",
+     "walkthrough": "'lacking energy' cuts ARSE to ARS, and 'turning' rearranges IS NOT into ONIST, not a simple reversal.",
+     "definitionFit": "An arsonist deliberately sets fire to property, a crime, so is one kind of criminal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "turning"
     }
    }
@@ -906,69 +931,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AMPLIFY",
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "dismally",
-         "note": "done dismally, FAIL is jumbled"
+         "text": "to rein in",
+         "at": 14,
+         "note": "to rein in is to hold back inside, so the politician goes within the jumbled letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "to rein in",
-           "note": "the jumbled FAIL holds the politician inside"
+           "text": "dismally",
+           "at": 5,
+           "note": "dismally suggests things going badly wrong, so the letters of fail are jumbled"
           }
          ],
          "parts": [
           {
-           "words": "Fail dismally",
-           "gives": "ALIF",
-           "note": "FAIL rearranged, split A…LIF"
-          },
-          {
-           "words": "politician",
-           "gives": "MP",
-           "note": "MP = Member of Parliament"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "last",
-             "note": "take the last letter of Tory"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Tory's last",
-             "gives": "TORY",
-             "note": "last letter of TORY"
-            }
-           ]
+           "words": "Fail",
+           "at": 0
           }
          ]
+        },
+        {
+         "words": "politician",
+         "at": 25,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 45,
+         "note": "last means the final letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory's",
+         "at": 38,
+         "gives": "TORY",
+         "note": "the word Tory, whose possessive 's points to its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A failed attempt to keep an MP in check, and a Tory's final push.",
-     "walkthrough": "'Fail dismally' reads as a single phrase for flopping, but 'dismally' is the instruction to jumble FAIL.",
-     "definitionFit": "A plain synonym, most familiar from sound: an amplifier boosts a signal."
+     "surface": "A political taunt: a failing Tory reins in an MP and gets a boost at the end.",
+     "walkthrough": "'Fail dismally' reads as a verdict on the politician, but 'Fail' is the fodder; the reworked letters hold the MP ('to rein in') to give AMPLIF before the Tory's 'last' letter.",
+     "definitionFit": "To amplify a signal or sound is to make it stronger, to boost it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "rein"
+     "misdirectedWord": "Fail"
     }
    }
   },
