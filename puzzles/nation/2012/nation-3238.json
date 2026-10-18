@@ -233,36 +233,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENSUE",
+     "op": "hidden",
      "indicators": [
       {
-       "text": "Getting rid of",
-       "note": "getting rid of something removes it, so those letters are taken out"
+       "text": "Getting rid of doctor",
+       "at": 0,
+       "note": "MD is the abbreviation for a doctor, and men sued begins with M and ends with D, so removing the doctor strips both ends"
       }
      ],
      "parts": [
       {
-       "words": "doctor",
-       "gives": "MD",
-       "note": "MD is a doctor of medicine"
-      },
-      {
        "words": "men sued",
-       "note": "the two words taken as written; their opening M and closing D are the doctor's letters, so what remains runs unbroken across them, a coincidence of the deletion rather than a hiding"
+       "at": 23,
+       "note": "the phrase men sued begins with M and ends with D, and the letters between them are the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Patients sacking their physician and suing to win a verdict.",
-     "walkthrough": "Remove the M and the D of the doctor from the two words and what is left is the answer.",
-     "definitionFit": "To ensue is to follow as a consequence, the same as to result."
+     "surface": "A doctor is dropped after some men took him to court.",
+     "walkthrough": "'Getting rid of doctor' strips the M at the front and the D at the back of MEN SUED, as MD is a doctor; what is left inside reads straight through.",
+     "definitionFit": "To result, as a verb, is to follow as a consequence, which is exactly what ensue means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "doctor"
+     "misdirectedWord": "sued"
     }
    }
   },
@@ -664,51 +659,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBTRUSIVE",
-     "indicators": [
-      {
-       "text": "leaderless",
-       "note": "without a leader means the first letter is dropped from the next word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaderless",
+         "at": 12,
+         "note": "leaderless says the mob loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "mob",
-         "gives": "OB",
-         "note": "the word mob with its first letter removed"
+         "at": 23
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "corrupted",
-           "note": "corrupted things are spoilt and twisted out of shape, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "virtues",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupted",
+         "at": 27,
+         "note": "corrupted signals that the letters of virtues are spoiled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "virtues",
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A busybody crowd with no one in charge has lost its moral standards.",
-     "definitionFit": "Obtrusive behaviour pushes itself into others' business, which is what interfering, meddlesome people do."
+     "surface": "A mob without a leader has had its virtues corrupted and turned interfering.",
+     "walkthrough": "MOB without its first letter gives OB; VIRTUES rearranged gives TRUSIVE.",
+     "definitionFit": "Someone obtrusive pushes themselves forward unwanted, much like a meddler or busybody."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "corrupted"
+     "misdirectedWord": "virtues"
     }
    }
   },
@@ -979,52 +977,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEVIATED",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "uprising",
-       "note": "in a down entry rising means going upward, so the letters are read from the bottom"
+       "text": "changing",
+       "at": 31,
+       "note": "changing 50 to 5 swaps one Roman numeral for another in the reversed word"
+      },
+      {
+       "text": "to",
+       "at": 43,
+       "note": "to goes with changing: the first numeral is changed to the second"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "DEVIATED",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "changing 50 to 5",
-         "note": "the Roman numeral for fifty is swapped for the numeral for five"
+         "text": "uprising",
+         "at": 21,
+         "note": "in a down clue uprising says the word detailed is read from the bottom up, so backwards"
         }
        ],
        "parts": [
         {
          "words": "detailed",
-         "note": "taken as written"
-        },
-        {
-         "words": "50",
-         "gives": "L",
-         "note": "L is the Roman numeral for fifty"
-        },
-        {
-         "words": "5",
-         "gives": "V",
-         "note": "V is the Roman numeral for five"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "50",
+       "at": 40,
+       "gives": "L",
+       "note": "L is the Roman numeral for 50"
+      },
+      {
+       "words": "5",
+       "at": 46,
+       "gives": "V",
+       "note": "V is the Roman numeral for 5"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone strayed from a carefully planned revolt by trading a fifty for a five.",
-     "walkthrough": "Read the given word backwards, then swap its L for a V.",
-     "definitionFit": "To deviate is to depart from a course, which is to veer away."
+     "surface": "Someone departs from a detailed plan by altering a number.",
+     "walkthrough": "'Uprising' reverses DETAILED to DELIATED; 'changing 50 to 5' turns its L into V, giving the answer.",
+     "definitionFit": "To deviate is to turn aside from a course, which is what veering means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "uprising"
     }
@@ -1584,37 +1587,41 @@
      "indicators": [
       {
        "text": "breaking",
-       "note": "breaking something smashes it apart, so its letters are put back together differently"
+       "at": 26,
+       "note": "breaking signals the letters are broken up and reassembled"
       }
      ],
      "parts": [
       {
        "words": "records",
-       "note": "taken as written"
+       "at": 35
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "S",
+       "indicators": [
+        {
+         "text": "latest",
+         "at": 55,
+         "note": "latest picks the final letter of Guinness's"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Guinness's latest",
-         "gives": "S",
-         "select": "last",
-         "note": "the last letter of Guinness"
+         "words": "Guinness's",
+         "at": 44,
+         "note": "the last letter of Guinness's is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A charity setting world records, with the Guinness Book of Records noting its newest feat.",
-     "walkthrough": "Guinness hints at the record book, but only its final letter is used.",
-     "definitionFit": "The Red Cross is the international movement that provides humanitarian aid in war and disasters."
+     "surface": "Breaking records sounds like an entry in the Guinness Book of Records.",
+     "walkthrough": "RECORDS plus S, the last letter of Guinness's, are rearranged together.",
+     "definitionFit": "The Red Cross is the international aid movement that helps victims of war and disaster."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "breaking"
     }

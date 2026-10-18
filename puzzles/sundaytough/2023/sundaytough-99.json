@@ -499,66 +499,75 @@
    "annotation": {
     "definitions": [
      {
-      "text": "final stop?",
+      "text": "final stop",
       "at": 51
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BUSSTATION",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one letter is placed inside the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "at": 12,
+         "note": "in a down clue overturned says the boat is turned upside down, so read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "overturned",
-           "note": "something overturned is upside down, so in a down clue it reads backwards"
-          }
-         ],
+         "words": "Diving boat",
+         "at": 0,
+         "gives": "SUB",
+         "note": "a sub, short for submarine, is a boat that dives"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "in says the numeral for one is placed inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "Diving boat",
-           "gives": "SUB",
-           "note": "a sub, or submarine, is a boat that dives"
+           "words": "fact",
+           "at": 32,
+           "gives": "STAT",
+           "note": "a stat, short for statistic, is a fact expressed as a number"
+          },
+          {
+           "words": "about",
+           "at": 37,
+           "gives": "ON",
+           "note": "on means about, as in a book on birds"
           }
          ]
         },
         {
-         "words": "fact",
-         "gives": "STAT",
-         "note": "a stat is a statistic, a numerical fact"
-        },
-        {
          "words": "one",
+         "at": 25,
          "gives": "I",
-         "note": "I is the Roman numeral one"
-        },
-        {
-         "words": "about",
-         "gives": "ON",
-         "note": "on means about, as in a talk on a topic"
+         "note": "one is the Roman numeral I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A capsized submarine and someone with the facts about to reach the end.",
-     "walkthrough": "The question mark flags that a terminus is only one kind of last stop; the coach terminus is where a route ends.",
-     "definitionFit": "A depot where coaches end their routes is the terminus, the last place passengers get off."
+     "surface": "A submarine has capsized, and in fact it is about to make its last stop.",
+     "walkthrough": "SUB upside down gives BUS; I goes inside STAT + ON, making STATION.",
+     "definitionFit": "A bus station is the terminus, where a bus route ends and passengers alight for the last time."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Diving"
     }
@@ -1534,55 +1543,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Steady!",
+      "text": "Steady",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PERSISTENT",
-     "indicators": [
-      {
-       "text": "tucked in",
-       "note": "something tucked in is pushed inside, so one piece sits within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "PERSISTENT",
+       "op": "container",
        "indicators": [
         {
-         "text": "on a cycle",
-         "note": "going round a cycle moves letters from the front around to the back"
+         "text": "tucked in",
+         "at": 25,
+         "note": "tucked in says the rotated nurse goes inside the word for hem in"
         }
        ],
        "parts": [
         {
-         "words": "Nurse",
-         "gives": "SISTER",
-         "note": "a sister is a senior nurse in British hospitals"
-        },
-        {
          "words": "hem in",
+         "at": 35,
          "gives": "PEN",
-         "note": "to pen is to confine or hem in"
+         "note": "to hem in is to pen, to enclose"
         },
         {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "on a cycle",
+           "at": 14,
+           "note": "on a cycle says the nurse's letters are rotated, some moved from front to back"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nurse",
+           "at": 8,
+           "gives": "SISTER",
+           "note": "a sister is a senior nurse in a British hospital"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 42,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A nurse cycling to work, skirt hem tucked in, told to keep steady.",
-     "walkthrough": "In British hospitals a sister is a senior nurse. Cycling here means moving the front letter round to the back, not riding a bicycle.",
-     "definitionFit": "Constant and unwavering, continuing without let-up, is a synonym for steady in the sense of persevering."
+     "surface": "A nurse on a bicycle has had her hem tucked in to keep it out of the spokes, in good time.",
+     "walkthrough": "SISTER cycled gives ERSIST, which goes inside PEN to make PERSISTEN, then T for time. In Britain a sister is a senior nurse.",
+     "definitionFit": "Persistent means continuing firmly and constantly, so it is close in sense to steady."
     },
     "features": {
      "answerInScene": false,

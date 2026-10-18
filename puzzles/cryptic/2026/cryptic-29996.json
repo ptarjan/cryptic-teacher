@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -87,52 +88,58 @@
     "definitions": [
      {
       "text": "Falls",
-      "at": 0,
-      "note": "'Falls' is plural and the answer is one place name, because the cataract itself is always spoken of in the plural."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NIAGARA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "climbing",
-         "note": "Climbing goes upwards, and in a down entry that means these letters are read from the bottom of the answer towards the top."
+         "at": 11,
+         "note": "in a down clue climbing says the word for over is written upwards, so reversed"
         }
        ],
        "parts": [
         {
          "words": "over",
-         "gives": "NIAGA",
-         "note": "to do a thing over is to do it again, and that word is written upwards here"
-        },
+         "at": 6,
+         "gives": "AGAIN",
+         "note": "over means again, as in do it over"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "out of bounds",
-           "note": "The bounds of a word are the letters at either end, and they are sent out, leaving only what sat between them."
-          }
-         ],
-         "parts": [
-          {
-           "words": "crag",
-           "note": "the pair left when the first and last letters of this word go"
-          }
-         ]
+         "text": "out of bounds",
+         "at": 25,
+         "note": "out of bounds says crag loses its outer letters, its boundaries"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crag",
+         "at": 20,
+         "note": "crag without its outer C and G leaves RA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A climber going over a cliff face somewhere off the permitted route.",
-     "walkthrough": "'Falls over' reads as one phrase about a tumble; the definition stops at the first word and 'over' is a piece of the wordplay.",
-     "definitionFit": "Niagara is the great waterfall on the border between Canada and the United States, so 'Falls' defines it by the class of thing it is."
+     "surface": "Someone tumbles again while scaling a rock face they should not have been on.",
+     "walkthrough": "AGAIN climbing becomes NIAGA; CRAG without its bounds is RA.",
+     "definitionFit": "Niagara is the great waterfall on the US-Canada border, often called Niagara Falls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Falls"
     }
    }
   },
@@ -259,57 +266,76 @@
     "definitions": [
      {
       "text": "impossible",
-      "at": 46,
-      "note": "The definition is an adjective and the answer a spoken phrase: the setter swaps a word for the flat refusal that means the same."
+      "at": 46
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOCANDO",
-     "indicators": [
-      {
-       "text": "In retrospect",
-       "note": "Looking back over what has just been said, so in an across entry the letters are written out the other way, right to left."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "In retrospect",
+         "at": 0,
+         "note": "in retrospect means looking back, so the word for working is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "working",
-         "gives": "NO",
-         "note": "a machine that is working is on, and that little word is set down backwards"
-        },
+         "at": 14,
+         "gives": "ON",
+         "note": "on means working, as in the machine is on"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "of",
+         "at": 33,
+         "note": "'both sides of casino' reads as 'both C and O', so the and sits between the two sides"
+        }
+       ],
+       "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "CANDO",
          "indicators": [
           {
-           "text": "both sides of",
-           "note": "The sides of a word are its first and last letters, and both of them are wanted with nothing from the middle."
+           "text": "sides",
+           "at": 27,
+           "note": "sides picks the outer letters of casino, its first and last"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "both sides of casino",
-           "gives": "CANDO",
-           "select": "outer",
-           "note": "the outer letters of the word are C and O, and calling for both of them — C and O — writes the joining word into the middle"
+           "words": "casino",
+           "at": 36,
+           "note": "the first and last letters of casino are C and O"
           }
          ]
+        },
+        {
+         "words": "both",
+         "at": 22,
+         "gives": "AND",
+         "note": "both points to the and of 'both C and O', the two sides of casino linked together"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who has been playing both ends of a casino thinking better of it afterwards.",
-     "walkthrough": "'Both sides' looks as though it can only ever hand over two letters, and the pair named as a pair carries an extra three between them.",
-     "definitionFit": "NO CAN DO is the flat spoken refusal — it cannot be done — so the phrase stands in for 'impossible' as a whole idiom."
+     "surface": "Playing both ends of a casino, looked at with hindsight, cannot work.",
+     "walkthrough": "ON looked at backwards gives NO; 'both sides of casino' is read as 'C and O', giving C AND O.",
+     "definitionFit": "No can do is an informal reply meaning that something cannot be done, so it says impossible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "both"
     }
    }
   },
@@ -506,7 +532,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "This might help vehicle that's regularly going the wrong way",
+      "text": "This might help",
       "at": 0
      }
     ],
@@ -514,36 +540,35 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "Taken at regular intervals — the first, third and fifth letters of the word beside it, and none of the ones between."
+       "text": "going the wrong way",
+       "at": 41,
+       "note": "going the wrong way says the van and the picked letters are read in reverse order"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "going the wrong way",
-         "note": "The wrong way is the reverse of the right one, so in an across entry the pieces are written out from right to left."
-        }
-       ],
        "parts": [
         {
          "words": "vehicle",
+         "at": 16,
          "gives": "VAN",
-         "note": "a van is one, and it arrives back to front"
+         "note": "a van is a vehicle"
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "TAS",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 31,
+           "note": "regularly picks alternate letters of that's, the first, third and fifth"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "that's regularly",
-           "gives": "TAS",
-           "select": "alternate",
-           "note": "letters one, three and five of this word, the apostrophe ignored"
+           "words": "that's",
+           "at": 24,
+           "note": "the first, third and fifth letters of that's are T, A and S"
           }
          ]
         }
@@ -551,11 +576,15 @@
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A driver who keeps taking wrong turnings and could do with some help.",
-     "walkthrough": "Every word is working twice over: the sentence describes what the gadget is for while the same words hand over a vehicle and three letters to turn round.",
-     "definitionFit": "A sat-nav is precisely the thing that helps a driver forever heading the wrong way, so the whole sentence reads straight as its description."
+     "surface": "A device that might help a driver whose van keeps heading off in the wrong direction.",
+     "walkthrough": "VAN followed by TAS (the odd letters of that's) is reversed as a whole. Some read the whole clue as an &lit.",
+     "definitionFit": "A satnav is a satellite navigation device that guides drivers, so it is something that might help."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "vehicle"
     }
    }
   },
@@ -841,46 +870,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "easily shocked",
-      "at": 46
+      "text": "being easily shocked",
+      "at": 40
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SQUEAMISH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invades",
+       "at": 30,
+       "note": "invades says the turned name goes inside the word for crush"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Crush",
+       "at": 0,
+       "gives": "SQUISH",
+       "note": "to crush is to squish"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "revolutionary",
-         "note": "A revolution turns a thing full circle, so the name beside it is written out the other way round."
-        },
-        {
-         "text": "invades",
-         "note": "An invader forces a way in, so those letters end up inside the word already assembled rather than beside it."
+         "text": "when revolutionary",
+         "at": 11,
+         "note": "when revolutionary says the actress's first name is turned right round"
         }
        ],
        "parts": [
         {
-         "words": "Crush",
-         "gives": "SQUISH",
-         "note": "to squish a thing is to crush it, and this word splits after three letters"
-        },
-        {
          "words": "West",
-         "gives": "EAM",
-         "note": "Mae West, the Hollywood star, lends her first name, and it turns round on the way in"
+         "at": 6,
+         "gives": "MAE",
+         "note": "Mae West was the American film actress and comic"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A revolutionary invading the West and crushing it.",
-     "walkthrough": "'West' is a person rather than a direction — Mae West, the 1930s film star — and the political surface is what keeps you reading it as territory.",
-     "definitionFit": "Someone squeamish is turned queasy by blood or cruelty, so 'easily shocked' describes the same low threshold for anything unpleasant."
+     "surface": "A revolutionary army invades and crushes the West, an alarming scenario.",
+     "walkthrough": "'West' is not a compass point but Mae West: MAE reversed gives EAM, which goes inside SQUISH.",
+     "definitionFit": "Squeamish describes someone quickly upset or disgusted, which is being easily shocked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
     }
    }
   },
@@ -911,41 +949,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MUCKRAKER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 26,
+       "note": "covers says the friend's letters go around the reversed chest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "best mate",
+       "at": 16,
+       "gives": "MUCKER",
+       "note": "mucker is British slang for a close friend"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "covers",
-         "note": "A cover goes over a thing and round it, so this word closes over the letters named after it."
-        },
-        {
          "text": "up",
-         "note": "In a down entry up means read from the bottom towards the top, so those letters run in the opposite direction."
+         "at": 39,
+         "note": "in a down clue up says the chest is written upwards, so reversed"
         }
        ],
        "parts": [
         {
-         "words": "best mate",
-         "gives": "MUCKER",
-         "note": "a mucker is British slang for a pal, and the word opens after three letters"
-        },
-        {
          "words": "chest",
-         "gives": "KRA",
-         "note": "an ark is a chest — the Ark of the Covenant was a box — and it is written upwards"
+         "at": 33,
+         "gives": "ARK",
+         "note": "an ark is a chest or box, as in the Ark of the Covenant"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gossip columnist's closest friend keeping his chest covered up.",
-     "walkthrough": "Both halves of the surface change job at once: 'chest' is a box rather than a body part, and 'covers ... up' is two separate instructions with a word between them.",
-     "definitionFit": "A muckraker digs up dirt about people and sells it, which is the trade a scandalmonger follows."
+     "surface": "A gossip's best friend covers up his chest.",
+     "walkthrough": "ARK reversed gives KRA, which sits inside MUCKER, after MUC. A mucker is a British word for a mate.",
+     "definitionFit": "A muckraker digs up scandal about public figures, which makes them a scandalmonger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
     }
    }
   },
@@ -971,58 +1018,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finally",
-       "note": "At the finish — the last letter of each word named before it, and nothing else from either."
-      }
-     ],
      "parts": [
       {
        "words": "comic Eric",
+       "at": 12,
        "gives": "IDLE",
-       "note": "Eric Idle of Monty Python, one of two comic Erics the clue could mean"
+       "note": "Eric Idle is the Monty Python comedian"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "visiting",
-         "note": "A visitor goes inside the house, so these letters sit within the piece named after them."
+         "at": 44,
+         "note": "visiting says the two final letters go inside what is left of Naxos"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "NS",
          "indicators": [
           {
            "text": "on vacation",
-           "note": "A place on vacation stands empty, so this word keeps only the letters at its two ends and loses everything between."
+           "at": 59,
+           "note": "on vacation means emptied, so Naxos keeps only its outer letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Naxos on vacation",
-           "gives": "NS",
-           "select": "outer",
-           "note": "the Greek island emptied out, keeping only the letter at each end"
+           "words": "Naxos",
+           "at": 53,
+           "note": "Naxos emptied of its middle letters leaves N and S"
           }
          ]
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "ES",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 36,
+           "note": "finally picks the last letter of each of Morecambe and is"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Morecambe is finally",
-           "gives": "ES",
-           "select": "last",
-           "note": "the last letter of each of these two words, in the order given"
+           "words": "Morecambe is",
+           "at": 23,
+           "note": "the last letters of Morecambe and is are E and S"
           }
          ]
         }
@@ -1031,9 +1074,14 @@
      ]
     },
     "explanation": {
-     "surface": "Eric Morecambe holidaying on a Greek island and doing nothing much at all.",
-     "walkthrough": "Two Erics collide: the surface hands you Morecambe, the great British comic of the seventies, while the wordplay wants Idle — and Morecambe keeps only his last letter.",
-     "definitionFit": "Vegetating is doing nothing whatever, and idleness is the state of doing nothing, so the gerund and the noun name the same condition."
+     "surface": "A comedian lazing about on holiday on the Greek island of Naxos.",
+     "walkthrough": "'comic Eric Morecambe' looks like one person, Eric Morecambe the British comedian, but Eric goes with IDLE and Morecambe gives E. ES goes inside NS (emptied Naxos).",
+     "definitionFit": "Idleness is doing nothing, the state of someone vegetating, so the noun matches the verbal noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Morecambe"
     }
    }
   },
@@ -1674,45 +1722,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OSTRICH",
+     "indicators": [
+      {
+       "text": "involved",
+       "at": 65,
+       "note": "involved says the letter for right is wrapped up inside the two German words"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in Germany",
-         "note": "Said in Germany means said in German, so two of the words that follow are wanted in that language rather than in English."
-        },
-        {
-         "text": "involved",
-         "note": "Getting something involved brings it in among the rest, so the letter named lands inside the pieces already assembled."
-        }
-       ],
        "parts": [
         {
-         "words": "east of Berlin",
+         "words": "in Germany — east",
+         "at": 18,
          "gives": "OST",
-         "note": "east as they say it in Berlin"
+         "note": "Ost is the German word for east"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "r = right, the standard abbreviation"
-        },
-        {
-         "words": "I",
+         "words": "of Berlin — I",
+         "at": 36,
          "gives": "ICH",
-         "note": "the German for 'I', which is what the clue's own pronoun turns into"
+         "note": "ich is the word for I in the language of Berlin, German"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 59,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A German supplier of enormous eggs, somewhere east of Berlin.",
-     "walkthrough": "'In Germany' is doing translation work on two separate words a long way apart, and the dashes make the middle of the clue read as an aside about geography.",
-     "definitionFit": "An ostrich lays the largest egg of any living bird, so 'Huge egg supplier' identifies it by the one thing it is famous for producing."
+     "surface": "A travel note about German geography and someone needing to get things right.",
+     "walkthrough": "In German, east is OST and I is ICH; R goes between them.",
+     "definitionFit": "The ostrich lays the largest egg of any living bird, so it supplies huge eggs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Berlin"
     }
    }
   }

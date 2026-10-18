@@ -416,42 +416,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARMALADE",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the word is dropped"
+       "text": "covered in",
+       "at": 21,
+       "note": "covered in says the limb and the shortened word sit inside the word for cooked"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "covered in",
-         "note": "something covered in another thing is wrapped by it, so the first group goes inside the second"
-        }
-       ],
+       "words": "cooked",
+       "at": 32,
+       "gives": "MADE",
+       "note": "cooked food is made, as in a made dish"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "cooked",
-         "gives": "MADE",
-         "note": "a meal that is made has been cooked"
+         "words": "Limb",
+         "at": 0,
+         "gives": "ARM",
+         "note": "an arm is a limb"
         },
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 5,
+           "note": "almost says the word for entirely loses its last letter"
+          }
+         ],
          "parts": [
           {
-           "words": "Limb",
-           "gives": "ARM",
-           "note": "an arm is a limb"
+           "words": "entirely",
+           "at": 12,
+           "gives": "ALL",
+           "note": "entirely means all"
           },
           {
-           "words": "entirely",
-           "gives": "AL",
-           "note": "entirely means all; almost all loses its last letter"
+           "gives": "L"
           }
          ]
         }
@@ -460,9 +466,9 @@
      ]
     },
     "explanation": {
-     "surface": "A leg of meat is almost entirely smothered in a cooked breakfast.",
-     "walkthrough": "'Cooked food' looks like one phrase, but 'cooked' belongs to the wordplay and the definition starts at 'food'.",
-     "definitionFit": "Marmalade is the citrus preserve spread on toast, a staple of the British breakfast table."
+     "surface": "A leg or arm smothered in a cooked meal at breakfast time, a gruesome picture.",
+     "walkthrough": "'almost entirely' is ALL short of its final L, giving AL; ARM and AL go inside MADE.",
+     "definitionFit": "Marmalade, a preserve of citrus fruit, is traditionally spread on toast at the British breakfast table."
     },
     "features": {
      "answerInScene": true,

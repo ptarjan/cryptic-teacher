@@ -736,56 +736,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LEADCRYSTAL",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 5,
+       "note": "into says the call goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "into",
-         "note": "the call is put inside the rest"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "principal",
+         "at": 10,
+         "gives": "LEAD",
+         "note": "lead means principal, as in the lead role"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "wanting"
+           "text": "wanting",
+           "at": 31,
+           "note": "wanting means lacking, so the letter for large is taken away"
           }
          ],
          "parts": [
           {
-           "words": "principal",
-           "gives": "LEAD",
-           "note": "the lead role is the principal one"
-          },
-          {
-           "words": "Call",
-           "gives": "CRY",
-           "note": "to cry is to call out"
-          },
-          {
            "words": "sales area",
+           "at": 20,
            "gives": "STALL",
-           "note": "a market stall"
+           "note": "a stall is a small area from which goods are sold"
+          },
+          {
+           "words": "large",
+           "at": 39,
+           "gives": "L",
+           "note": "L is the clothing-size abbreviation for large"
           }
          ]
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L = large, as on clothing labels; one L is dropped"
         }
        ]
+      },
+      {
+       "words": "Call",
+       "at": 0,
+       "gives": "CRY",
+       "note": "to cry is to call out"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone phones the main shop floor asking for big glasses.",
-     "walkthrough": "'Call into' reads as phoning in, but it is an instruction to insert.",
-     "definitionFit": "Lead crystal is fine glass made with lead oxide, prized for decanters and wine glasses."
+     "surface": "Someone shouts into the main shop floor, which lacks a large item of glassware.",
+     "walkthrough": "STALL without one L gives STAL; CRY goes between LEAD and STAL.",
+     "definitionFit": "Lead crystal is a heavy, brilliant glass containing lead oxide, used for decanters and wine glasses."
     },
     "features": {
      "answerInScene": true,
@@ -1064,47 +1069,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replacing",
+       "at": 8,
+       "note": "replacing says one article takes the place of a different one inside the word for obscure"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "BLETHER",
-       "indicators": [
-        {
-         "text": "replacing",
-         "note": "one article takes the place of the other"
-        }
-       ],
-       "parts": [
-        {
-         "words": "obscure",
-         "gives": "BLEAR",
-         "note": "to blear is to blur or obscure"
-        },
-        {
-         "words": "Article",
-         "gives": "THE",
-         "note": "the definite article, which comes in"
-        }
-       ]
+       "words": "obscure",
+       "at": 29,
+       "gives": "BLEAR",
+       "note": "to blear is to blur or dim, so to obscure"
       },
       {
-       "unchecked": true,
        "words": "another",
-       "note": "points at the other article already in BLEAR, its A, which is deleted to make way"
+       "at": 18,
+       "gives": "A",
+       "note": "another refers to a second article, the indefinite article a"
+      },
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "the is the definite article"
       }
      ]
     },
     "explanation": {
-     "surface": "Politicians hold an unclear debate in the Scottish Parliament.",
-     "walkthrough": "Holyrood is the Scottish Parliament, so the definition asks for a Scots word for idle chatter.",
-     "definitionFit": "A regional use: blether is Scots for chat or talk, fitting for discussion in Edinburgh."
+     "surface": "A grammatical article swapped for another in some murky debate at the Scottish Parliament.",
+     "walkthrough": "In BLEAR the article A is swapped for THE. Holyrood is the Scottish Parliament, and blether is Scots for idle chat.",
+     "definitionFit": "Blether is Scots for long-winded talk or a chat, so it fits a discussion in Scotland, where Holyrood stands."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun"
+     "misdirectedWord": "obscure"
     }
    }
   },
@@ -1424,61 +1426,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "KOOKY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Satisfactory in two ways",
+       "at": 0,
+       "gives": "KOOK",
+       "note": "OK means satisfactory; written both ways, backwards then forwards, it gives KO and OK"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "in two ways",
-         "note": "written one way and then the other"
+         "text": "ultimately",
+         "at": 26,
+         "note": "ultimately picks the last letter of very"
         }
        ],
        "parts": [
         {
-         "words": "Satisfactory",
-         "gives": "KO",
-         "note": "OK, written backwards the first way"
-        },
-        {
-         "words": "Satisfactory",
-         "gives": "OK",
-         "note": "OK again, written forwards the second way"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means in the end, so the word's final letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ultimately very",
-           "gives": "Y",
-           "select": "last",
-           "note": "last letter of very"
-          }
-         ]
+         "words": "very",
+         "at": 37,
+         "note": "the last letter of very is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who is fine one way and fine another yet in the end very strange.",
-     "walkthrough": "'In two ways' means the same word both backwards and forwards.",
-     "definitionFit": "A plain synonym: kooky is informal American for odd or eccentric."
+     "surface": "Something that is fine both ways round, yet very strange in the end.",
+     "walkthrough": "'two ways' means OK written backwards then forwards, KO + OK, followed by Y from the end of very.",
+     "definitionFit": "Kooky is informal for eccentric or crazy, so it is a synonym of odd."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Satisfactory"
     }
    }
   },
