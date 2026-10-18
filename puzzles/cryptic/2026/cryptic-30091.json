@@ -209,46 +209,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "It asks only for the letter a word starts out with, not for the word itself."
+       "text": "wearing",
+       "at": 24,
+       "note": "the pieces are wearing the outer word as clothing, so they sit inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "wearing",
-         "note": "You go inside whatever you have on, so the letters doing the wearing sit within the garment word."
-        }
-       ],
-       "parts": [
-        {
-         "words": "plain",
-         "gives": "OVERT",
-         "note": "overt means open and undisguised, plain to anyone looking"
-        },
-        {
-         "words": "Company",
-         "gives": "CO",
-         "note": "Co is how company is abbreviated on any letterhead"
-        }
-       ]
+       "words": "plain",
+       "at": 32,
+       "gives": "OVERT",
+       "note": "overt means plain, open to view"
       },
       {
-       "op": "first",
+       "op": "charade",
        "parts": [
         {
-         "words": "actor",
-         "note": "the opening letter of actor"
+         "words": "Company",
+         "at": 0,
+         "gives": "CO"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 14,
+           "note": "initially points to the opening letter of actor"
+          }
+         ],
+         "parts": [
+          {
+           "words": "actor",
+           "at": 8,
+           "note": "gives its first letter A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Plain' is the trap: it means overt here, out in the open, rather than undecorated. The surface dresses a nervous understudy.",
-     "definitionFit": "The answer is the heavy outer garment worn over everything else, so 'attire' names it by class: clothing, of which this is one item."
+     "surface": "A theatre company's actor at first appears in plain costume.",
+     "definitionFit": "An overcoat is a heavy outer garment, so it is an item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
     }
    }
   },
@@ -575,35 +584,43 @@
      "indicators": [
       {
        "text": "presented in",
-       "note": "Presenting one thing in another puts it inside, so these letters are lodged within the word that follows rather than after it."
+       "at": 12,
+       "note": "presented in means shown within, so the court and award pieces sit inside the alternative word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "alternative",
-         "gives": "OR",
-         "note": "or is the alternative in any either/or"
-        },
-        {
-         "words": "Court",
-         "gives": "CT",
-         "note": "Ct is how Court is abbreviated in a street address"
-        }
-       ]
+       "words": "alternative",
+       "at": 25,
+       "gives": "OR",
+       "note": "or introduces an alternative"
       },
       {
-       "words": "award",
-       "gives": "OBE",
-       "note": "the Order of the British Empire, the crossword's standard honour"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Court",
+         "at": 0,
+         "gives": "CT"
+        },
+        {
+         "words": "award",
+         "at": 6,
+         "gives": "OBE",
+         "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface pictures a prize handed over on a tennis court, and every word of it is quietly doing a different job in the parse.",
-     "definitionFit": "The definition names the answer by its class rather than by a synonym: it is simply one of the twelve, the tenth in the calendar."
+     "surface": "A court hands out an honour in some other month.",
+     "definitionFit": "October is the tenth month of the calendar year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
     }
    }
   },
@@ -1496,28 +1513,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "abroad",
-       "note": "It says the word wanted is not the English one but its foreign equivalent."
-      }
-     ],
      "parts": [
       {
-       "words": "gratitude",
+       "words": "gratitude abroad",
+       "at": 22,
        "gives": "MERCI",
-       "note": "merci is how you say thanks in France"
+       "note": "merci is French for thank you"
       },
       {
        "words": "reduced",
+       "at": 39,
        "gives": "LESS",
-       "note": "reduced means made less"
+       "note": "less means reduced, smaller in amount"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark covers the joke: a traveller whose thanks have run short is being called hard, and two languages end up jammed into one word.",
-     "definitionFit": "Showing no mercy is the sense, and somebody who shows none goes at you without let-up, which is the everyday way of saying it."
+     "surface": "A question about whether lower thanks overseas makes things harder.",
+     "walkthrough": "Read the clue as 'merci less': a smaller amount of French thanks.",
+     "definitionFit": "Merciless means pitiless and unrelenting, which is what very hard describes in a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "level"
     }
    }
   }

@@ -666,53 +666,82 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "said shortly, a word is delivered clipped, and the letter it ends on never gets said"
-      },
-      {
-       "text": "taken in",
-       "note": "someone taken in has been let inside, so this pair of letters goes within the pair before it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Methuselah will",
+       "at": 7,
+       "gives": "ILL",
+       "note": "the setter is Methuselah, so Methuselah will is I'll"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "the same instruction on a smaller word — say it brief and the last letter goes missing"
+         "text": "shortly",
+         "at": 27,
+         "note": "shortly means cut short, so the last letter of use goes"
         }
        ],
        "parts": [
         {
-         "words": "Methuselah will",
-         "gives": "ILL",
-         "note": "the compiler of this puzzle signs himself Methuselah, so he is 'I', and 'I will' contracts"
-        },
-        {
          "words": "use",
-         "gives": "US",
-         "note": "the word docked of its final letter"
+         "at": 23,
+         "note": "taken as written before losing its end"
         },
         {
-         "words": "is",
-         "note": "two letters at face value, and they are about to be prised apart"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "ON",
-       "note": "the word with its tail cut off"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taken in",
+         "at": 52,
+         "note": "taken in means absorbed within, so the word is holds the shortened piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 37,
+         "note": "taken as written as the holder"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 44,
+           "note": "briefly means cut short, so the last letter of one goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "one",
+           "at": 40,
+           "note": "taken as written before losing its end"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters call themselves 'I' or 'me', so a pen name inside a clue is usually just a pronoun; the ellipsis is punctuation, not an instruction.",
-     "definitionFit": "Tricks -> ILLUSIONS: an illusion is a trick of the eye or of the mind, so the plural nouns match — conjuring, not deception in general."
+     "surface": "The setter promises to deploy some tricks and asks whether anyone is fooled.",
+     "walkthrough": "The setter's pseudonym gives I'LL. Shortening 'use' gives US, and ON (one cut short) is taken into IS.",
+     "definitionFit": "Illusions are deceptive appearances, the stuff of a conjuror's tricks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Methuselah"
     }
    }
   },
@@ -1480,7 +1509,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "squeeze",
+      "text": "squeeze?",
       "at": 39
      }
     ],
@@ -1488,8 +1517,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "in",
-       "note": "a letter that is in something sits inside it, so the husband is planted within the word that follows"
+       "text": "After",
+       "at": 0,
+       "note": "after shows the new letter follows the rest"
       }
      ],
      "parts": [
@@ -1497,33 +1527,43 @@
        "op": "container",
        "indicators": [
         {
-         "text": "After",
-         "note": "what is written after comes behind, so the final letter joins at the end of everything before it"
+         "text": "in",
+         "at": 16,
+         "note": "in places the husband letter inside the place word"
         }
        ],
        "parts": [
         {
          "words": "a better place",
+         "at": 19,
          "gives": "CASINO",
-         "note": "a better is someone who bets, and this is the place they go to do it"
+         "note": "a better is someone who bets, so a better place is a casino"
         },
         {
          "words": "husband",
+         "at": 6,
          "gives": "H",
-         "note": "H is the standard abbreviation for husband, the one used on family trees"
+         "note": "H is the genealogy abbreviation for husband"
         }
        ]
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N is the usual abbreviation for new"
+       "at": 35,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'a better place' reads as heaven, which is the trap: 'better' here is one who bets, and the widow the surface conjures is doing nothing else.",
-     "definitionFit": "squeeze -> CASH IN ON: to cash in on something is to squeeze money out of an opportunity, the profiteering sense rather than physical pressure."
+     "surface": "Once her husband has died, a widow finds a new partner.",
+     "walkthrough": "'In a better place' looks like a euphemism for death; it is a casino, a place for bettors. H goes in CASINO, then N follows.",
+     "definitionFit": "To cash in on something is to exploit it for profit, the sense of squeeze as wringing gain from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
     }
    }
   },

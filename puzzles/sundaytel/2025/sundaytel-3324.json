@@ -1479,40 +1479,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece is placed round the others"
+       "at": 5,
+       "note": "about means surrounding, so the turn word goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Turn",
-         "gives": "SPIN",
-         "note": "a spin is a turn"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
-        }
-       ]
+       "words": "Turn",
+       "at": 0,
+       "gives": "SPIN",
+       "note": "a spin is a turn"
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 11,
+         "gives": "R"
+        },
+        {
+         "words": "a",
+         "at": 22
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dance move: turn round to the right with a twist.",
-     "walkthrough": "'About turn' and 'right' sound like drill commands; 'with' only links the wordplay to the definition.",
-     "definitionFit": "To wrench a joint such as an ankle and injure its ligaments is to twist it."
+     "surface": "Turn around to the right with a twisting motion.",
+     "walkthrough": "R and A go inside SPIN.",
+     "definitionFit": "To sprain an ankle is to twist it, wrenching the ligaments."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "twist"
+     "misdirectedWord": "Turn"
     }
    }
   },
