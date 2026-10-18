@@ -643,49 +643,52 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "COSTCARD",
-     "indicators": [
-      {
-       "text": "sandwiches",
-       "note": "bread enclosing a filling: the fish word wraps round what follows"
-      },
-      {
-       "text": "bagged in",
-       "note": "something bagged in another is held inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "sandwiches",
+         "note": "bread enclosing a filling: the fish word wraps round what follows"
+        },
+        {
+         "text": "bagged in",
+         "note": "something bagged in another is held inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "Fish",
-         "gives": "CO",
-         "note": "the first two letters of cod, a fish"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Fish",
+           "gives": "CO",
+           "note": "the first two letters of cod, a fish"
+          },
+          {
+           "words": "a hundred",
+           "gives": "C",
+           "note": "C is the Roman numeral for a hundred"
+          }
+         ]
         },
         {
          "words": "brilliant",
          "gives": "ST",
          "note": "first part of star, slang for brilliant"
-        },
-        {
-         "words": "a hundred",
-         "gives": "C",
-         "note": "C is the Roman numeral for a hundred"
-        },
-        {
-         "words": "brilliant",
-         "gives": "AR",
-         "note": "the rest of star"
-        },
-        {
-         "words": "Fish",
-         "gives": "D",
-         "note": "the end of cod"
         }
        ]
+      },
+      {
+       "words": "brilliant",
+       "gives": "AR",
+       "note": "the rest of star"
+      },
+      {
+       "words": "Fish",
+       "gives": "D",
+       "note": "the end of cod"
       }
      ]
     },
@@ -1168,29 +1171,19 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "TATER",
+     "indicators": [
+      {
+       "text": "is heard",
+       "note": "is heard means spoken out loud, so the sound counts rather than the spelling"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Dick",
-       "note": "the first syllable of the spoken word; it is said but not entered"
-      },
-      {
-       "op": "homophone",
-       "spelt": "TATER",
-       "indicators": [
-        {
-         "text": "is heard",
-         "note": "is heard means spoken out loud, so the sound counts rather than the spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a tyrant",
-         "gives": "DICKTATER",
-         "note": "dictator spoken out loud splits into Dick plus a second word"
-        }
-       ]
+       "words": "a tyrant",
+       "gives": "DICKTATER",
+       "note": "dictator spoken out loud splits into Dick plus a second word"
       }
      ]
     },

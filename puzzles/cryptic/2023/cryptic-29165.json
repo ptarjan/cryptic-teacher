@@ -280,40 +280,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GOTHIC",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one item placed in another sits inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one item placed in another sits inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "turn",
-         "gives": "GO",
-         "note": "your go is your turn"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "turn",
+           "gives": "GO",
+           "note": "your go is your turn"
+          },
+          {
+           "words": "husband",
+           "gives": "H",
+           "note": "H is the abbreviation for husband"
+          }
+         ]
         },
         {
          "words": "time",
          "gives": "T",
          "note": "T is the abbreviation for time"
-        },
-        {
-         "words": "husband",
-         "gives": "H",
-         "note": "H is the abbreviation for husband"
-        },
-        {
-         "words": "I see",
-         "gives": "IC",
-         "note": "I, then C which sounds like 'see'"
         }
        ]
+      },
+      {
+       "words": "I see",
+       "gives": "IC",
+       "note": "I, then C which sounds like 'see'"
       }
      ]
     },
@@ -1102,30 +1105,28 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MINIM",
-     "indicators": [
-      {
-       "text": "reversing",
-       "note": "a car reversing goes backwards, so the word is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "note": "a car reversing goes backwards, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "car",
-         "gives": "MINI",
+         "gives": "INIM",
          "note": "the Mini is a classic British car"
-        },
-        {
-         "words": "motorway",
-         "gives": "M",
-         "note": "M as in M1, M25, the motorway prefix"
         }
        ]
+      },
+      {
+       "words": "motorway",
+       "gives": "M",
+       "note": "M as in M1, M25, the motorway prefix"
       }
      ]
     },
@@ -1357,8 +1358,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COURIER",
      "indicators": [
       {
        "text": "swapping units of temperature",
@@ -1370,6 +1369,12 @@
        "words": "French mathematician",
        "gives": "FOURIER",
        "note": "Joseph Fourier, the French mathematician of Fourier series"
+      },
+      {
+       "gives": "F"
+      },
+      {
+       "gives": "C"
       }
      ]
     },

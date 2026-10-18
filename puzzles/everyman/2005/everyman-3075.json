@@ -636,46 +636,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CIGAR",
+     "op": "container",
      "indicators": [
       {
-       "text": "returning",
-       "note": "something returning goes back the way it came, so these letters are read backwards"
+       "text": "in",
+       "note": "in places the preceding letters inside the word that follows"
       }
      ],
      "parts": [
       {
        "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places the preceding letters inside the word that follows"
-        }
-       ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "returning",
+           "note": "something returning goes back the way it came, so these letters are read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "vehicle",
-           "gives": "CAR",
+           "gives": "RAC",
            "note": "a car is a vehicle"
-          },
-          {
-           "words": "good",
-           "gives": "G",
-           "note": "G is the standard abbreviation for good"
           }
          ]
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "words": "good",
+         "gives": "G",
+         "note": "G is the standard abbreviation for good"
         }
        ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
       }
      ]
     },

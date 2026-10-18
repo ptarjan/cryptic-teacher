@@ -1682,22 +1682,20 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PUDDING",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "about means turned around, so this word is read backwards"
+       "text": "eating",
+       "note": "something that eats takes another thing inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "eating",
-         "note": "something that eats takes another thing inside it"
+         "text": "exits",
+         "note": "whatever exits leaves the word, so it is taken out"
         }
        ],
        "parts": [
@@ -1705,52 +1703,52 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "exits",
-           "note": "whatever exits leaves the word, so it is taken out"
+           "text": "to leave",
+           "note": "these letters also leave the word, dropping out"
           }
          ],
          "parts": [
           {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "to leave",
-             "note": "these letters also leave the word, dropping out"
-            }
-           ],
+           "op": "charade",
            "parts": [
             {
-             "op": "charade",
+             "op": "reversal",
+             "indicators": [
+              {
+               "text": "about",
+               "note": "about means turned around, so this word is read backwards"
+              }
+             ],
              "parts": [
               {
                "words": "station",
-               "gives": "PADDINGTON",
+               "gives": "NOTGNIDDAP",
                "note": "Paddington is a major London railway station"
-              },
-              {
-               "words": "not",
-               "note": "taken as written"
               }
              ]
             },
             {
-             "gives": "TONNOT"
+             "words": "not",
+             "note": "taken as written"
             }
            ]
           },
           {
-           "words": "Adult",
-           "gives": "A",
-           "note": "A is the film-rating abbreviation for adult"
+           "gives": "TONNOT"
           }
          ]
         },
         {
-         "words": "posh",
-         "gives": "U",
-         "note": "U means upper-class, posh"
+         "words": "Adult",
+         "gives": "A",
+         "note": "A is the film-rating abbreviation for adult"
         }
        ]
+      },
+      {
+       "words": "posh",
+       "gives": "U",
+       "note": "U means upper-class, posh"
       }
      ]
     },

@@ -1419,32 +1419,40 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ALHAMBRA",
-     "indicators": [
-      {
-       "text": "inside",
-       "note": "inside means one piece is placed within the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "inside means one piece is placed within the others"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last",
-           "note": "last points to the final letter of the name before it"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Brenda's",
-           "gives": "BRENDA",
-           "note": "the final letter of Brenda"
+           "op": "last",
+           "indicators": [
+            {
+             "text": "last",
+             "note": "last points to the final letter of the name before it"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Brenda's",
+             "gives": "BRENDA",
+             "note": "the final letter of Brenda"
+            }
+           ]
+          },
+          {
+           "words": "joint",
+           "gives": "HAM",
+           "note": "a ham is a joint of meat"
           }
          ]
         },
@@ -1452,18 +1460,13 @@
          "words": "left",
          "gives": "L",
          "note": "L is the abbreviation for left"
-        },
-        {
-         "words": "joint",
-         "gives": "HAM",
-         "note": "a ham is a joint of meat"
-        },
-        {
-         "words": "supporter",
-         "gives": "BRA",
-         "note": "a bra is a supporting undergarment"
         }
        ]
+      },
+      {
+       "words": "supporter",
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
       }
      ]
     },

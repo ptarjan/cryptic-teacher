@@ -622,45 +622,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SHOUTINGMATCH",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in means the joined words go inside the pair that follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue over means the first word sits above the second"
+         "text": "in",
+         "note": "in means the joined words go inside the pair that follows"
         }
        ],
        "parts": [
         {
-         "words": "quiet",
-         "gives": "SH",
-         "note": "sh is the call for quiet"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "quiet",
+           "gives": "SH",
+           "note": "sh is the call for quiet"
+          },
+          {
+           "words": "mat",
+           "note": "taken as written"
+          }
+         ]
         },
         {
          "words": "Trip",
          "gives": "OUTING",
          "note": "an outing is a trip"
-        },
-        {
-         "words": "mat",
-         "note": "taken as written"
-        },
-        {
-         "words": "church",
-         "gives": "CH",
-         "note": "CH is the abbreviation for church"
         }
        ]
+      },
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "CH is the abbreviation for church"
       }
      ]
     },

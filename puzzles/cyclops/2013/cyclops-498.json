@@ -474,8 +474,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MURKY",
      "indicators": [
       {
        "text": "ousts",
@@ -487,11 +485,6 @@
        "words": "Dirty",
        "gives": "MUCKY",
        "note": "mucky means dirty"
-      },
-      {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
       },
       {
        "op": "first",
@@ -507,6 +500,11 @@
          "note": "the first letter of Conservatives"
         }
        ]
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
       }
      ]
     },
@@ -651,8 +649,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ATFIRST",
      "indicators": [
       {
        "text": "crazy",
@@ -863,8 +859,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RECTUM",
      "indicators": [
       {
        "text": "crooked",
@@ -1324,8 +1318,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BUNGLER",
      "indicators": [
       {
        "text": "twisted",
@@ -1445,40 +1437,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ORIEL",
-     "indicators": [
-      {
-       "text": "separating",
-       "note": "to separate two things you stand between them, so the abbreviation goes inside the pair"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separating",
+         "note": "to separate two things you stand between them, so the abbreviation goes inside the pair"
+        }
+       ],
        "parts": [
         {
-         "words": "sod all",
-         "gives": "O",
-         "note": "sod all means nothing, which is zero"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "sod all",
+           "gives": "O",
+           "note": "sod all means nothing, which is zero"
+          },
+          {
+           "words": "that is",
+           "gives": "IE",
+           "note": "i.e. is the abbreviation of id est, that is"
+          }
+         ]
         },
         {
          "words": "Right",
          "gives": "R",
          "note": "R is the abbreviation for right"
-        },
-        {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e. is the abbreviation of id est, that is"
-        },
-        {
-         "words": "Left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
         }
        ]
+      },
+      {
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
       }
      ]
     },

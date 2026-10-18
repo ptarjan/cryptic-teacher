@@ -273,40 +273,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "COCKNIFY",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one piece is placed inside the abbreviation for the city named after it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece is placed inside the abbreviation for the city named after it"
+        }
+       ],
        "parts": [
         {
-         "words": "male",
-         "gives": "COCK",
-         "note": "a cock is a male bird"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "male",
+           "gives": "COCK",
+           "note": "a cock is a male bird"
+          },
+          {
+           "words": "whenever",
+           "gives": "IF",
+           "note": "if can mean whenever, as in 'if it rains, we stay in'"
+          }
+         ]
         },
         {
          "words": "New York",
          "gives": "N",
          "note": "first part of NY, the abbreviation for New York"
-        },
-        {
-         "words": "whenever",
-         "gives": "IF",
-         "note": "if can mean whenever, as in 'if it rains, we stay in'"
-        },
-        {
-         "words": "New York",
-         "gives": "Y",
-         "note": "the rest of NY"
         }
        ]
+      },
+      {
+       "words": "New York",
+       "gives": "Y",
+       "note": "the rest of NY"
       }
      ]
     },

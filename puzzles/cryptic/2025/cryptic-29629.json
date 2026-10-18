@@ -1016,8 +1016,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "MEGASTAR",
      "indicators": [
       {
        "text": "played",
@@ -1309,40 +1307,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STAIRWELL",
-     "indicators": [
-      {
-       "text": "outside",
-       "note": "outside means the jail word surrounds the abbreviation"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "outside means the jail word surrounds the abbreviation"
+        }
+       ],
        "parts": [
         {
-         "words": "Jail",
-         "gives": "ST",
-         "note": "start of stir, slang for prison"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Jail",
+           "gives": "ST",
+           "note": "start of stir, slang for prison"
+          },
+          {
+           "words": "Jail",
+           "gives": "IR",
+           "note": "end of stir, slang for prison"
+          }
+         ]
         },
         {
          "words": "America",
          "gives": "A",
          "note": "standard abbreviation"
-        },
-        {
-         "words": "Jail",
-         "gives": "IR",
-         "note": "end of stir, slang for prison"
-        },
-        {
-         "words": "my",
-         "gives": "WELL",
-         "note": "both are exclamations of surprise"
         }
        ]
+      },
+      {
+       "words": "my",
+       "gives": "WELL",
+       "note": "both are exclamations of surprise"
       }
      ]
     },

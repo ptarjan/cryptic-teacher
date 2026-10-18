@@ -100,8 +100,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AGENCIES",
      "indicators": [
       {
        "text": "to use",
@@ -119,14 +117,14 @@
        "note": "potencies are powers or strengths"
       },
       {
-       "words": "silver",
-       "gives": "AG",
-       "note": "Ag is the chemical symbol for silver"
-      },
-      {
        "words": "cannabis",
        "gives": "POT",
        "note": "pot is slang for cannabis"
+      },
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
       }
      ]
     },
@@ -229,46 +227,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SWEETFA",
-     "indicators": [
-      {
-       "text": "holds",
-       "note": "whatever holds something has it inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "to",
-         "note": "'to' here means next to, so one piece is placed beside another"
+         "text": "holds",
+         "note": "whatever holds something has it inside"
         }
        ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "S is the clothing-size abbreviation for small"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Small",
+           "gives": "S",
+           "note": "S is the clothing-size abbreviation for small"
+          },
+          {
+           "words": "shirt",
+           "gives": "T",
+           "note": "a T is a kind of shirt, as in T-shirt"
+          }
+         ]
         },
         {
          "words": "little",
          "gives": "WEE",
          "note": "wee is Scottish and informal for little"
-        },
-        {
-         "words": "shirt",
-         "gives": "T",
-         "note": "a T is a kind of shirt, as in T-shirt"
-        },
-        {
-         "words": "note",
-         "gives": "FA",
-         "note": "fa is the fourth note of the sol-fa scale"
         }
        ]
+      },
+      {
+       "words": "note",
+       "gives": "FA",
+       "note": "fa is the fourth note of the sol-fa scale"
       }
      ]
     },
@@ -1163,37 +1158,26 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CRAYFISH",
+     "op": "composite",
      "indicators": [
       {
        "text": "processed",
        "note": "processing raw material changes its form, so the letters are reworked"
+      },
+      {
+       "text": "missing",
+       "note": "what is missing has been taken away"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CRAYFISH",
-       "indicators": [
-        {
-         "text": "missing",
-         "note": "what is missing has been taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Factory ship",
-         "note": "taken as written"
-        },
-        {
-         "words": "parts of pot",
-         "gives": "POT",
-         "note": "the three letters are taken out separately, wherever they sit"
-        }
-       ]
+       "words": "Factory ship",
+       "note": "taken as written"
+      },
+      {
+       "words": "parts of pot",
+       "gives": "POT",
+       "note": "the three letters are taken out separately, wherever they sit"
       }
      ]
     },

@@ -947,8 +947,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TOMKITTEN",
      "indicators": [
       {
        "text": "works",
@@ -1039,8 +1037,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "MORTALSIN",
      "indicators": [
       {
        "text": "nuts",
@@ -1213,40 +1209,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OLIVIER",
-     "indicators": [
-      {
-       "text": "carried by",
-       "note": "something carried is held within the carrier"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carried by",
+         "note": "something carried is held within the carrier"
+        }
+       ],
        "parts": [
         {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "Oscar is O in the NATO phonetic alphabet"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Oscar",
+           "gives": "O",
+           "note": "Oscar is O in the NATO phonetic alphabet"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral one"
+          }
+         ]
         },
         {
          "words": "large",
          "gives": "L",
          "note": "L is the clothing-size abbreviation for large"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "German figure",
-         "gives": "VIER",
-         "note": "vier is German for four"
         }
        ]
+      },
+      {
+       "words": "German figure",
+       "gives": "VIER",
+       "note": "vier is German for four"
       }
      ]
     },
