@@ -48,6 +48,19 @@ same("hit: the padding leaf is removed", R.unpad_charades(e, puzzle), ["with"])
 same("the lone remaining part replaces the charade", e["annotation"]["wordplay"]["op"], "anagram")
 
 for name, leaf in [
+    ("joining note that names letters", dict(pad, note="joins the two sets of letters")),
+    ("placement note", dict(pad, words="for", note="places the first piece before the second")),
+    ("surface padding that gives no letters", dict(pad, words="sits",
+                                                   note="surface padding: it sets the scene and gives no letters")),
+]:
+    e = entry(leaf)
+    same(f"hit: {name}", R.unpad_charades(e, puzzle), [leaf["words"]])
+
+for name, leaf in [
+    ("link word that is the letter removed", dict(pad, words="a", note="the letter removed")),
+    ("joining word whose note says what is removed", dict(pad, note="joins what is removed from the fodder")),
+    ("surface padding that supplies a letter", dict(pad, words="reads",
+                                                    note="the extra word, surface padding whose first letter joins the hidden message")),
     ("note gives another job", dict(pad, note="second meaning of the clue")),
     ("pronoun that may refer back", dict(pad, words="it", note="surface padding")),
     ("not padding by its note", dict(pad, note="the printed word is read as its two halves")),
