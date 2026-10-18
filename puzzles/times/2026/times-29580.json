@@ -1218,33 +1218,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost all of the word, dropping its last letter"
-      },
-      {
-       "text": "head abandoning",
-       "note": "the first letter leaves the word"
-      }
-     ],
      "parts": [
       {
-       "words": "stop",
-       "gives": "EN",
-       "note": "END (stop) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the word is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stop",
+         "at": 7,
+         "gives": "END",
+         "note": "to end is to stop"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
-       "words": "opportunity",
-       "gives": "HANCE",
-       "note": "CHANCE without its head, C"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "head abandoning",
+         "at": 12,
+         "note": "the head of a word is its first letter, which is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opportunity",
+         "at": 28,
+         "gives": "CHANCE",
+         "note": "a chance is an opportunity"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plea to nearly stop the boss walking away from a chance to get better.",
-     "walkthrough": "'Head' reads as a boss walking out; it is the first letter of the word after it.",
-     "definitionFit": "A plain verb synonym: both mean to make something better."
+     "surface": "A manager nearly halts things when the boss quits a chance to get better.",
+     "definitionFit": "To enhance something is to increase its quality, make it better."
     },
     "features": {
      "answerInScene": false,
