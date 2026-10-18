@@ -1129,33 +1129,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DEALFISH",
      "indicators": [
       {
        "text": "Spooner's said",
-       "note": "Spooner swapped the starting sounds of words, so the opening sounds of the two words trade places"
+       "at": 8,
+       "note": "Spooner swapped the first sounds of words, so the two words trade openings"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "believe lovely",
-       "gives": "DEALFISH",
-       "soundsLike": "FEEL DISH",
-       "note": "to feel is to believe, and a dish is a lovely person; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "FEAL",
+       "parts": [
+        {
+         "words": "believe",
+         "at": 26,
+         "gives": "FEEL",
+         "note": "to feel is to believe; feel is said aloud like feal"
+        }
+       ]
+      },
+      {
+       "words": "lovely",
+       "at": 34,
+       "gives": "DISH",
+       "note": "a dish is a lovely person"
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer, according to Reverend Spooner, believes in loveliness.",
-     "walkthrough": "Swap the first sounds of the two words: F and D change places.",
-     "definitionFit": "The dealfish is a long, ribbon-like deep-sea fish, so it is a swimmer."
+     "surface": "Spooner thinks a swimmer is gorgeous.",
+     "walkthrough": "'Feel dish' Spooner-style gives 'deal fish'.",
+     "definitionFit": "The dealfish is a long, thin ribbonfish of the deep Atlantic."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Swimmer"
     }
    }
@@ -1629,41 +1639,44 @@
      "indicators": [
       {
        "text": "bringing in",
-       "note": "to bring something in is to take it inside, so these letters go within the man"
+       "at": 10,
+       "note": "bringing in means holding inside, so the gent word contains the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "gent",
-         "gives": "MAN",
-         "note": "a gent is a man"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        }
-       ]
+       "words": "gent",
+       "at": 5,
+       "gives": "MAN",
+       "note": "a gent is a man"
       },
       {
-       "words": "pound",
-       "gives": "L",
-       "note": "L is the abbreviation for pound, from Latin libra"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 22,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "pound",
+         "at": 26,
+         "gives": "L",
+         "note": "L is the abbreviation for pound, from libra"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A businessman in the City of London earns a pound.",
-     "walkthrough": "'City gent' suggests a London financier, but City is the definition and gent the wordplay.",
-     "definitionFit": "Milan is a major city in northern Italy, capital of Lombardy."
+     "surface": "A city gentleman earns a single pound.",
+     "definitionFit": "Milan is the major city of Lombardy in northern Italy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "City"
+     "misdirectedWord": "gent"
     }
    }
   },

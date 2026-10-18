@@ -324,31 +324,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PITFALL",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the initial consonants change places"
+       "at": 30,
+       "note": "Spooner swapped the starts of words, so the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "attractive letter writer",
-       "gives": "PITFALL",
-       "soundsLike": "FIT PAL",
-       "note": "fit is British slang for attractive, and a pen pal writes letters"
+       "words": "attractive",
+       "at": 5,
+       "gives": "FIT",
+       "note": "fit is British slang for attractive"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PALL",
+       "parts": [
+        {
+         "words": "letter writer",
+         "at": 16,
+         "gives": "PAL",
+         "note": "a pen pal writes letters, so a pal here; pal is said aloud the same as pall"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that a charming correspondent may be luring someone into a snare.",
-     "walkthrough": "'Fit' is British slang for sexy or attractive.",
-     "definitionFit": "A pitfall is a concealed hole for catching animals, hence any hidden danger or trap."
+     "surface": "A seductive correspondent sets a snare for the Reverend Spooner.",
+     "walkthrough": "Spooner would say 'fit pal' with its first sounds swapped, giving 'pit fall'.",
+     "definitionFit": "A pitfall is a hidden danger, originally a covered pit dug to catch animals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "attractive"
@@ -1501,40 +1511,42 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means surrounding, so the word goes about the other letters"
+       "at": 16,
+       "note": "around means the clear word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "clear",
-         "gives": "OBVIOUS",
-         "note": "obvious means plain or clear"
-        },
-        {
-         "words": "50",
-         "gives": "L",
-         "note": "Roman numeral fifty"
-        }
-       ]
+       "words": "It's clear",
+       "at": 0,
+       "gives": "OBVIOUS",
+       "note": "something clear is obvious"
       },
       {
-       "words": "I",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "50",
+         "at": 23,
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        },
+        {
+         "words": "I",
+         "at": 26
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone admits wryly that hitting fifty brings memory lapses.",
-     "definitionFit": "Being oblivious means being unaware or unmindful, close to forgetful of one's surroundings."
+     "surface": "Someone around the age of fifty admits that being forgetful comes with the territory.",
+     "definitionFit": "Oblivious means unaware or unmindful, as someone who has forgotten what is around them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "clear"
+     "misdirectedWord": "50"
     }
    }
   },

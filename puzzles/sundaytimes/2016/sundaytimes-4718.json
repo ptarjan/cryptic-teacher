@@ -488,34 +488,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CARFERRY",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Dr Spooner famously swapped the opening sounds of words, so the following pair has its starts exchanged"
+       "at": 26,
+       "note": "Spooner swapped the starts of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "distant Irish county",
-       "gives": "CARFERRY",
-       "soundsLike": "FAR KERRY",
-       "note": "far means distant and Kerry is a county in south-west Ireland; swap the opening sounds"
+       "words": "distant",
+       "at": 36,
+       "gives": "FAR",
+       "note": "far means distant"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CERRY",
+       "parts": [
+        {
+         "words": "Irish county",
+         "at": 44,
+         "gives": "KERRY",
+         "note": "Kerry is a county in south-west Ireland; its hard opening sound is the same as a hard C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Could this vessel carry you to a remote county in Ireland?",
-     "walkthrough": "FAR KERRY with its opening sounds swapped becomes CAR FERRY.",
-     "definitionFit": "A car ferry is a ship that carries passengers and their vehicles across water."
+     "surface": "Asks whether something could carry you off to a remote Irish county, as Spooner would phrase it.",
+     "walkthrough": "Spooner's 'far Kerry' becomes 'car ferry'.",
+     "definitionFit": "A car ferry is a boat that carries vehicles and their passengers across water."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "transport"
+     "misdirectedWord": "distant"
     }
    }
   },

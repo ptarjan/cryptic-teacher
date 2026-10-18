@@ -213,39 +213,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "spreading",
-       "note": "the letters of BACK US are spread out and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Millions",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the abbreviation for million"
+      },
+      {
+       "words": "say",
+       "at": 10,
+       "gives": "EG",
+       "note": "EG, for example, is what 'say' means"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spreading",
+         "at": 23,
+         "note": "spreading means the letters are scattered into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Millions",
-         "gives": "M",
-         "note": "m = million(s)"
+         "words": "back",
+         "at": 15
         },
         {
-         "words": "say",
-         "gives": "EG",
-         "note": "eg = for example, which 'say' also means"
-        },
-        {
-         "words": "back US",
-         "note": "BACK US rearranged"
+         "words": "US",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plea for the United States to share its riches around, backed by millions.",
-     "walkthrough": "\"Back US\" reads as support for America, but it is six letters to be scrambled.",
-     "definitionFit": "Megabucks is slang for a huge amount of money."
+     "surface": "A comment that America, with its millions, ought to share its riches around.",
+     "walkthrough": "'Millions' looks like the definition but gives only M; the definition is 'wealth' at the end.",
+     "definitionFit": "Megabucks is informal for a very large sum of money, a fortune."
     },
     "features": {
      "answerInScene": true,
@@ -451,63 +458,48 @@
      "indicators": [
       {
        "text": "to retain",
-       "note": "the way holds the sporting event inside it"
+       "at": 30,
+       "note": "to retain is to hold, so the way word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "way",
-         "gives": "PATH",
-         "note": "a path = a way"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "cut by 50 per cent",
-           "note": "only half the event's name is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "big sporting event",
-           "gives": "OLYMPICS",
-           "note": "the Olympics"
-          },
-          {
-           "gives": "MPICS"
-          }
-         ]
-        }
-       ]
+       "words": "way",
+       "at": 26,
+       "gives": "PATH",
+       "note": "a path is a way"
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "though cut by 50 per cent",
+         "at": 60,
+         "note": "the event is still held, though cut by half means the second half of the event's letters is lost"
+        }
+       ],
        "parts": [
         {
-         "words": "though cut by 50 per cent",
-         "gives": "OLYM",
-         "note": "the first four of the eight letters"
+         "words": "big sporting event",
+         "at": 40,
+         "gives": "OLYMPICS",
+         "note": "the Olympics are the biggest sporting event"
         },
         {
-         "gives": "OLY"
+         "gives": "PICS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An expert travels a route to a major sports event, though with half the budget.",
-     "walkthrough": "\"Cut by 50 per cent\" reads like a budget cut; it halves the eight-letter event name to its first four letters.",
-     "definitionFit": "A polymath is someone learned in many subjects."
+     "surface": "A clever athlete keeps the Games going though the budget is halved.",
+     "definitionFit": "A polymath is someone with learning across many fields, a person of wide knowledge."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "way"
     }
    }
   },

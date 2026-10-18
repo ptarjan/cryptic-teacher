@@ -47,51 +47,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "backward",
-       "note": "backward tells us to read the word for a European from right to left"
+       "text": "in",
+       "at": 7,
+       "note": "in means these letters go inside the act word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in says the following letters sit inside the word for the act"
-        }
-       ],
+       "words": "the act",
+       "at": 10,
+       "gives": "DEED",
+       "note": "a deed is an act"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "the act",
-           "gives": "DEED",
-           "note": "an act or action is a deed"
-          },
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "V is the standard abbreviation for very"
-          }
-         ]
+         "words": "very",
+         "at": 21,
+         "gives": "V"
         },
         {
-         "words": "European",
-         "gives": "POLE",
-         "note": "a Pole is a European from Poland"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "backward",
+           "at": 26,
+           "note": "backward means the European word is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "European",
+           "at": 35,
+           "gives": "POLE",
+           "note": "a Pole is a European"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone caught red-handed is also hopelessly behind the times, a European laggard.",
-     "walkthrough": "'Caught in the act' reads as one phrase, but only 'Caught' defines; 'the act' is the container, and 'is' simply links it to what goes inside.",
-     "definitionFit": "To catch a cold is to develop one, so caught and developed are interchangeable in that sense of contracting an illness."
+     "surface": "A European caught red-handed is called deeply backward.",
+     "walkthrough": "'Caught in the act' reads as one phrase, but 'Caught' alone is the definition and 'in' is the insertion signal.",
+     "definitionFit": "To develop an illness is to catch it, as in 'she developed a cold'."
     },
     "features": {
      "answerInScene": false,
