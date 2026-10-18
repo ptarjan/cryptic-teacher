@@ -223,43 +223,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "screwed",
-       "note": "something screwed up is twisted out of shape, so the letters are scrambled"
+       "text": "Full of",
+       "at": 0,
+       "note": "Full of means the reworked letters have the drug word inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Full of",
-         "note": "being full of something means holding it inside, so one piece goes within the other"
+         "text": "screwed",
+         "at": 26,
+         "note": "screwed means twisted, so the letters of she are rearranged"
         }
        ],
        "parts": [
         {
          "words": "she",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "amphetamines",
-         "gives": "ES",
-         "note": "Es are ecstasy pills, an amphetamine-type drug"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "amphetamines",
+       "at": 8,
+       "gives": "ES",
+       "note": "Es are ecstasy tablets, an amphetamine-type drug"
       }
      ]
     },
     "explanation": {
-     "surface": "A drugged-up woman went to bed with a writer.",
+     "surface": "A drugged-up woman sleeps with a writer, in Private Eye's racy style.",
+     "walkthrough": "E is slang for an ecstasy pill, a drug of the amphetamine family, so amphetamines in the plural are Es.",
      "definitionFit": "Hermann Hesse was the German-Swiss author of Steppenwolf and Siddhartha."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "screwed"
     }
    }
@@ -1027,62 +1032,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TEETOTAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "fiasco",
-       "note": "a fiasco is a total mess, so the letters are thrown into disorder"
+       "text": "Immersed in",
+       "at": 0,
+       "note": "Immersed in means the shortened name sits within the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Immersed in",
-         "note": "something immersed in another is sunk inside it, so one piece goes within the other"
+         "text": "fiasco",
+         "at": 19,
+         "note": "fiasco implies a shambles, so the letters of Attlee are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "Attlee",
-         "note": "the six letters rearranged"
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 32,
+         "note": "half means only the first two of Tony's four letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tony",
+         "at": 27
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TO",
-         "indicators": [
-          {
-           "text": "half",
-           "note": "half of a word means only its first two of four letters survive"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Tony",
-           "gives": "TO",
-           "select": "first",
-           "note": "half of the four-letter name, its first two letters"
-          }
-         ]
+         "gives": "NY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair, caught up in an Attlee-style disaster, half gives up the drink.",
-     "walkthrough": "Attlee was Britain's postwar Labour prime minister, and Tony is Blair.",
-     "definitionFit": "A teetotal person abstains completely from alcohol."
+     "surface": "Tony Blair, caught up in a Labour fiasco over Attlee, is half off the drink.",
+     "walkthrough": "Clement Attlee was a post-war Labour prime minister, and Tony evokes Tony Blair, so the surface is Labour politics.",
+     "definitionFit": "Teetotal means refraining entirely from alcohol, so it describes someone abstaining from drink."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Tony"
+     "misdirectedWord": "abstaining"
     }
    }
   },

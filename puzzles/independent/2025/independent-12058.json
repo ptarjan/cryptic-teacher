@@ -1055,69 +1055,68 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "one piece placed outside another wraps round it"
+       "at": 27,
+       "note": "outside means the stripped market word goes around the remaining pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 9,
+         "note": "discovered means the cover, the first and last letters of market, is removed"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "middle",
-           "indicators": [
-            {
-             "text": "discovered",
-             "note": "dis-covered means with the cover stripped, so the outside letters of market go"
-            }
-           ],
-           "parts": [
-            {
-             "words": "market",
-             "note": "mARKEt without its outer letters"
-            }
-           ]
-          },
-          {
-           "words": "church",
-           "gives": "CH",
-           "note": "CH = church"
-          }
-         ]
+         "words": "market",
+         "at": 20,
+         "note": "market itself is uncovered to leave its inner letters"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "church",
+         "at": 35,
+         "gives": "CH"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "close to",
-           "note": "the close of a word is its end, so only the last letter of Sheffield counts"
+           "at": 42,
+           "note": "close to means the end letter of Sheffield"
           }
          ],
          "parts": [
           {
            "words": "Sheffield",
-           "note": "the last letter of SheffielD"
+           "at": 51
           }
          ]
+        },
+        {
+         "words": "University",
+         "at": 61,
+         "gives": "U"
         }
        ]
-      },
-      {
-       "words": "University",
-       "gives": "U",
-       "note": "U = university"
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat found a market beside a church near Sheffield's university.",
-     "walkthrough": "'Discovered' reads as 'found', but it strips the market bare. 'Close to' looks like 'near', and it means the final letter.",
-     "definitionFit": "An archduke is a high-ranking noble title, historically held by princes of the Austrian imperial family."
+     "surface": "A nobleman was spotted at a market near the church by Sheffield University.",
+     "walkthrough": "'discovered' is read as un-covered: the market loses its outer letters before wrapping round the rest.",
+     "definitionFit": "An archduke is a high-ranking noble title, chiefly of the Austrian imperial family."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "discovered"
     }

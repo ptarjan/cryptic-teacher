@@ -234,42 +234,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THREAT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "nicked",
-       "note": "nicked means cut, so the word loses its final letter"
+       "text": "being damaged",
+       "at": 24,
+       "note": "being damaged signals that the letters are broken up and reordered"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "art",
+       "at": 8
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "being damaged",
-         "note": "damaged things are broken and put out of shape, so these letters are rearranged"
+         "text": "nicked",
+         "at": 17,
+         "note": "nicked means cut slightly, so the word they loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "art",
-         "note": "taken as written"
+         "words": "they",
+         "at": 12
         },
         {
-         "words": "they",
-         "gives": "THE",
-         "note": "the word they cut short"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thieves who steal artworks risk damaging them.",
-     "walkthrough": "'Nicked' reads as stolen, but here it means cut: THEY loses its Y.",
-     "definitionFit": "A threat and a risk are both a danger that something harmful may happen."
+     "surface": "Gallery staff fear that stolen paintings will be harmed.",
+     "walkthrough": "'nicked' looks like 'stolen' beside art, but it clips THEY to THE; 'being damaged' then rearranges ART and THE.",
+     "definitionFit": "A threat is a possible danger, so it is a noun synonym for a risk."
     },
     "features": {
      "answerInScene": false,
@@ -414,45 +416,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "twisted round",
-       "note": "twisted round means bent out of shape, so the instrument's letters are rearranged"
+       "text": "inside",
+       "at": 23,
+       "note": "inside places the hiding word within the rearranged instrument"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "one piece goes within the other, which wraps round it"
+         "text": "twisted round",
+         "at": 37,
+         "note": "twisted round tells us the letters of piano are turned into a new order"
         }
        ],
        "parts": [
         {
          "words": "piano",
-         "note": "piano rearranged"
-        },
-        {
-         "words": "concealed itself",
-         "gives": "HID",
-         "note": "to conceal oneself is to hide; past tense hid"
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "concealed itself",
+       "at": 6,
+       "gives": "HID",
+       "note": "hid means concealed itself, the intransitive past of hide"
       }
      ]
     },
     "explanation": {
-     "surface": "A snake has hidden itself inside a piano and coiled up.",
-     "walkthrough": "Ophidian is usually an adjective, but it also works as a noun for a member of the snake suborder, so it can stand for 'Snake'.",
-     "definitionFit": "Ophidian is the zoological term for a snake or anything snakelike, from Greek ophis, serpent."
+     "surface": "A snake slipped into a piano to hide, coiling itself up.",
+     "walkthrough": "'concealed itself' is one intransitive verb, so the snake hid: that past tense is the inserted piece.",
+     "definitionFit": "Ophidian means relating to snakes and also, as a noun, a member of the snake suborder."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "round"
+     "misdirectedWord": "twisted"
     }
    }
   },
@@ -671,80 +676,86 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GUACAMOLE",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the last letter of the laughing word goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "dressing",
+         "at": 48,
+         "note": "dressing means the reversed letters are wrapped around the next pieces, like clothes"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "dressing",
-           "note": "dressing something means wrapping it in clothes, so one piece goes round another"
+           "text": "about",
+           "at": 42,
+           "note": "about tells us the shortened laugh is read backwards"
           }
          ],
          "parts": [
           {
-           "op": "reversal",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "about",
-             "note": "turned about means facing the other way, so the letters run backwards"
+             "text": "briefly",
+             "at": 34,
+             "note": "briefly means the word for giggle is cut short by its last letter"
             }
            ],
            "parts": [
             {
              "words": "giggle",
-             "gives": "LAUG",
-             "note": "a giggle is a laugh, here missing its last letter"
-            }
-           ]
-          },
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "river",
-             "gives": "CAM",
-             "note": "the Cam is the river through Cambridge"
+             "at": 27,
+             "gives": "LAUGH",
+             "note": "a giggle is a small laugh"
             },
             {
-             "words": "over",
-             "gives": "O",
-             "note": "O is the cricket abbreviation for over"
+             "gives": "H"
             }
            ]
           }
          ]
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "river",
+           "at": 7,
+           "gives": "CAM",
+           "note": "the Cam is the river through Cambridge"
+          },
+          {
+           "words": "over",
+           "at": 13,
+           "gives": "O",
+           "note": "O is the cricket abbreviation for over"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 19,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes a dip in a river and an English onlooker giggles at their outfit.",
-     "walkthrough": "LAUGH loses its H and is reversed to GUAL, which wraps CAM and O; E follows. 'Dip' looks like a swim but is the food.",
-     "definitionFit": "Guacamole is a Mexican avocado purée served as a dip with tortilla chips."
+     "surface": "Someone takes a dip in a river, while an English giggle concerns a salad dressing.",
+     "walkthrough": "'dressing' sounds like a salad topping but is the container signal: the shortened, reversed giggle clothes the river and over. The Cam flows through Cambridge.",
+     "definitionFit": "Guacamole is a mashed avocado sauce served with crisps or vegetables, a classic party dip."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Dip"
+     "misdirectedWord": "dressing"
     }
    }
   },
@@ -1079,49 +1090,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ROSARIUM",
      "indicators": [
       {
        "text": "Outside",
-       "note": "one word goes outside, wrapped round the others"
+       "at": 0,
+       "note": "Outside means the word for curious stands around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ROSARIUM",
-       "indicators": [
-        {
-         "text": "discovered",
-         "note": "discovered means uncovered, with its outer covering stripped, so the first and last letters go"
-        }
-       ],
+       "words": "curious",
+       "at": 37,
+       "gives": "RUM",
+       "note": "rum is a British word for odd or curious"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "curious",
-         "gives": "RUM",
-         "note": "rum is an old word for odd or curious"
-        },
-        {
          "words": "huge",
+         "at": 8,
          "gives": "OS",
-         "note": "OS stands for outsize, the clothing label for very large"
+         "note": "OS, outsize, is the clothing-size abbreviation for huge"
         },
         {
-         "words": "capital city",
-         "gives": "PARIS",
-         "note": "Paris, capital of France, losing its outer letters"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "discovered",
+           "at": 26,
+           "note": "discovered means uncovered, so the capital loses its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "capital city",
+           "at": 13,
+           "gives": "PARIS",
+           "note": "Paris is the capital of France"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unusual flower garden has been found just outside a vast capital.",
-     "walkthrough": "'Outside' reads as where the garden is, but it is the wrapping signal. OS for outsize is a British clothing-size label.",
-     "definitionFit": "A rosarium is a rose garden, a garden laid out for growing roses."
+     "surface": "Outside a huge capital, a traveller found an intriguing garden of flowers.",
+     "walkthrough": "'discovered' means uncovered, stripping the capital's outer letters; rum is British slang for odd, and OS (outsize) is a clothing label.",
+     "definitionFit": "A rosarium is a rose garden, the Latin-derived word for a planted collection of roses."
     },
     "features": {
      "answerInScene": true,
@@ -1306,43 +1323,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LETOFF",
+     "op": "charade",
      "indicators": [
       {
-       "text": "case dismissed",
-       "note": "the case of a word is its outer shell, and dismissing it strips the first and last letters"
+       "text": "following",
+       "at": 21,
+       "note": "following places the aristocrat after the trimmed plea"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "following",
-         "note": "following means coming after, so the aristocrat is placed second in the answer"
+         "text": "case dismissed",
+         "at": 37,
+         "note": "case dismissed means the outer letters, the case of the word plea, are removed"
         }
        ],
        "parts": [
         {
          "words": "plea",
-         "gives": "LE",
-         "note": "plea without its outer letters"
-        },
-        {
-         "words": "aristocrat",
-         "gives": "TOFF",
-         "note": "toff is British slang for an upper-class person"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "aristocrat",
+       "at": 10,
+       "gives": "TOFF",
+       "note": "toff is British slang for a posh or upper-class person"
       }
      ]
     },
     "explanation": {
-     "surface": "A nobleman is cleared after his plea, and the judge throws out the case.",
-     "walkthrough": "'Case dismissed' sounds like a courtroom ruling but removes the outer letters of PLEA. 'Following' puts the aristocrat after.",
-     "definitionFit": "To let someone off is to excuse them from punishment, clearing them as exonerating does."
+     "surface": "A court lets a nobleman walk free after his plea when the case is thrown out.",
+     "walkthrough": "'case dismissed' sounds like a judge's ruling but strips PLEA to LE. A toff is British slang for a posh person.",
+     "definitionFit": "To let someone off is to excuse them from punishment, a phrasal-verb synonym of exonerate or acquit."
     },
     "features": {
      "answerInScene": true,

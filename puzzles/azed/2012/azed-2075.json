@@ -217,43 +217,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UPRIVER",
+     "op": "container",
      "indicators": [
       {
-       "text": "losing leader",
-       "note": "losing its leader means the word for tremble drops its opening letter"
+       "text": "about",
+       "at": 43,
+       "note": "about means the shortened word goes round the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going round, so the shortened word wraps around the release"
+         "text": "losing leader",
+         "at": 49,
+         "note": "losing leader means the first letter of the word for tremble goes"
         }
        ],
        "parts": [
         {
          "words": "tremble",
-         "gives": "UIVER",
-         "note": "quiver means tremble; its first letter goes"
+         "at": 35,
+         "gives": "QUIVER",
+         "note": "to quiver is to tremble"
         },
         {
-         "words": "press release",
-         "gives": "PR",
-         "note": "PR, public relations, is what issues press releases"
+         "gives": "Q"
         }
        ]
+      },
+      {
+       "words": "press release",
+       "at": 20,
+       "gives": "PR",
+       "note": "PR is a recognised abbreviation for press release"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone at odds with a current press release is trembling about losing their party leader.",
-     "walkthrough": "'Current' reads like topical news, but it is the flow of a river.",
-     "definitionFit": "Going upriver means travelling towards the source, against the direction the stream's current flows."
+     "surface": "Someone shakes with nerves over a press release that goes against the trend.",
+     "walkthrough": "'Contrary to current' sounds like 'against fashion' but means against a river's flow.",
+     "definitionFit": "Going upriver means heading toward a river's source, against the flow of the water."
     },
     "features": {
      "answerInScene": false,
@@ -701,37 +706,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIPOCHROME",
-     "indicators": [
-      {
-       "text": "not the first",
-       "note": "not the first means the opening letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Kiss",
+       "at": 0,
+       "gives": "LIP",
+       "note": "Chambers gives lip as a verb meaning to kiss"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nasty",
+         "at": 14,
+         "note": "nasty suggests the letters are spoilt and set in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Kiss",
-         "gives": "LIP",
-         "note": "Chambers gives lip as a verb meaning to touch with the lips, to kiss"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "nasty",
-           "note": "nasty suggests something spoilt or messed about, so the remaining letters are shuffled"
+           "text": "not the first",
+           "at": 30,
+           "note": "not the first means smoocher drops its opening letter"
           }
          ],
          "parts": [
           {
            "words": "smoocher",
-           "gives": "MOOCHER",
-           "note": "smoocher without its first letter"
+           "at": 20
+          },
+          {
+           "gives": "S"
           }
          ]
         }
@@ -740,15 +748,15 @@
      ]
     },
     "explanation": {
-     "surface": "An unwelcome kiss from a creep makes a dairymaid blush.",
-     "walkthrough": "The hyphen in 'colour-ing' hints that this is a pigment, not blushing; the dairy is where it is found, in butter fat.",
-     "definitionFit": "A lipochrome is a fat-soluble pigment, such as the carotenoids that give butter and cream their yellow tint."
+     "surface": "A kiss from an unpleasant smoocher turns a milkmaid red?",
+     "walkthrough": "'not the first' cuts SMOOCHER to MOOCHER, which 'nasty' rearranges.",
+     "definitionFit": "Lipochromes are fat-soluble pigments such as carotene, which gives butter and cream their yellow hue."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "colour-ing"
+     "misdirectedWord": "dairy"
     }
    }
   },
@@ -1507,42 +1515,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the cross goes round what follows"
+       "at": 15,
+       "note": "about means the cross word is placed round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cross",
-         "gives": "TAU",
-         "note": "a tau cross is T-shaped, named after the Greek letter"
-        },
-        {
-         "words": "e.g. worker",
-         "gives": "MAN",
-         "note": "a man is an example of a worker, as in management and men"
-        }
-       ]
+       "words": "cross",
+       "at": 9,
+       "gives": "TAU",
+       "note": "a tau is a T-shaped cross"
       },
       {
-       "words": "density",
-       "gives": "D",
-       "note": "D is the symbol for density"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "e.g. worker",
+         "at": 21,
+         "gives": "MAN",
+         "note": "a worker is an example of a man, as in men on a building site"
+        },
+        {
+         "words": "density",
+         "at": 33,
+         "gives": "D",
+         "note": "D is the scientific symbol for density"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An anteater gets cross about a worker ant's density.",
-     "walkthrough": "'Worker' alongside 'Anteater' suggests an ant; here it is a man.",
-     "definitionFit": "The tamandu, or tamandua, is a tree-dwelling anteater of Central and South America."
+     "surface": "An irritable anteater asks about the density of its workers, such as ants.",
+     "walkthrough": "'cross' looks like 'angry' but is TAU, the T-shaped cross.",
+     "definitionFit": "The tamandu, or tamandua, is a tree-dwelling South American anteater."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "worker"
+     "misdirectedWord": "cross"
     }
    }
   },
@@ -1928,42 +1939,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CENTUMVIRI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "heartless means its middle letter is removed"
+       "text": "Tortured",
+       "at": 0,
+       "note": "Tortured means twisted, so the letters are wrenched into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "victim",
+       "at": 9
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Tortured",
-         "note": "something tortured is twisted and wrenched out of shape, so the letters are reordered"
+         "text": "heartless",
+         "at": 22,
+         "note": "heartless means under loses its central letter"
         }
        ],
        "parts": [
         {
-         "words": "victim",
-         "note": "taken as written"
+         "words": "under",
+         "at": 16
         },
         {
-         "words": "under",
-         "gives": "UNER",
-         "note": "under with its middle letter gone"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A torture victim suffers under a cruel Roman.",
-     "walkthrough": "'Heartless Roman' looks like a cruel ruler, but heartless works on the word before it, and Roman belongs to the definition.",
-     "definitionFit": "The centumviri, literally a hundred men, were a court of judges in ancient Rome that heard civil cases."
+     "surface": "A tormented victim suffers under cruel Roman judges.",
+     "walkthrough": "'heartless' takes the middle D from UNDER to leave UNER, and 'Tortured' rearranges that with VICTIM.",
+     "definitionFit": "The centumviri were the 'hundred men', a panel of judges in ancient Rome hearing civil cases."
     },
     "features": {
      "answerInScene": true,

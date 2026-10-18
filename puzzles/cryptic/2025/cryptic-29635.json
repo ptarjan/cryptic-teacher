@@ -599,40 +599,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "bananas",
-       "note": "going bananas means going crazy, so the letters run wild into a new order"
+       "text": "carrying",
+       "at": 25,
+       "note": "carrying means the vehicle word holds the shuffled letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vehicle",
+       "at": 17,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "a vehicle carrying something holds it inside, so one piece sits within the other"
+         "text": "bananas",
+         "at": 42,
+         "note": "bananas means crazy, signalling that CIA and top are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "vehicle",
-         "gives": "CAR",
-         "note": "a car is a vehicle"
+         "words": "CIA",
+         "at": 34
         },
         {
-         "words": "CIA top",
-         "note": "the six letters of these two words rearranged"
+         "words": "top",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An electrical shop's van carries the CIA's top people, who have gone bananas.",
-     "walkthrough": "'Top bananas' looks like a phrase for bosses, but top belongs to the fodder and bananas is the anagram signal. 'Electrical store' is not a shop.",
-     "definitionFit": "A capacitor is a circuit component that stores electric charge, so it is literally a device for electrical storage."
+     "surface": "An electrical shop's van transports the CIA's top bananas, its leaders.",
+     "walkthrough": "'top bananas' reads as 'bosses', but 'bananas' is the anagram signal for CIA and TOP. 'Electrical store' is not a shop: a capacitor stores charge.",
+     "definitionFit": "A capacitor is a component that holds electric charge, so it is literally a store of electricity."
     },
     "features": {
      "answerInScene": false,
@@ -804,45 +811,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "out here means put out of order, so the letters are rearranged"
+       "text": "to embrace",
+       "at": 17,
+       "note": "to embrace means the scrambled letters hold the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to embrace",
-         "note": "to embrace is to hug, so the rearranged letters wrap around another piece"
+         "text": "out",
+         "at": 13,
+         "note": "out signals that the letters of He's reached are put out of order"
         }
        ],
        "parts": [
         {
-         "words": "He's reached",
-         "note": "these ten letters rearranged"
+         "words": "He's",
+         "at": 0
         },
         {
-         "words": "the first and last",
-         "gives": "AZ",
-         "note": "A and Z are the first and last letters of the alphabet"
+         "words": "reached",
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "the first and last",
+       "at": 28,
+       "gives": "AZ",
+       "note": "A and Z are the first and last letters of the alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A man stretches out to hug the person who came both first and last.",
-     "walkthrough": "'The first and last' sounds like a person, but here it means the alphabet's ends, A to Z.",
-     "definitionFit": "She is the narrator of the Arabian Nights, who survives by telling the sultan a new tale every night."
+     "surface": "Someone has stretched out to hug both the first and the last person in a line.",
+     "walkthrough": "'out' rearranges HE'S REACHED, and those letters take in A and Z, the alphabet's first and last.",
+     "definitionFit": "Scheherazade is the narrator of The Thousand and One Nights, telling tales to stay alive."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "first"
+     "misdirectedWord": "embrace"
     }
    }
   },
@@ -978,39 +992,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "erupted",
-       "note": "a volcano that has erupted is blown apart, so its letters scatter into a new order"
+       "text": "internally",
+       "at": 47,
+       "note": "internally means the other pieces go inside the word for China"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "internally",
-         "note": "internally means inside, so these pieces go within the other"
-        }
-       ],
+       "words": "China",
+       "at": 20,
+       "gives": "PAL",
+       "note": "china is rhyming slang for mate (china plate), and a mate is a pal"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "China",
-         "gives": "PAL",
-         "note": "china is cockney rhyming slang for mate (china plate), and a mate is a pal"
+         "words": "right",
+         "at": 27,
+         "gives": "R"
         },
         {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "erupted",
+           "at": 39,
+           "note": "erupted means the volcano's name bursts into a new order"
+          }
+         ],
          "parts": [
           {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
-          },
-          {
            "words": "Etna",
-           "note": "these four letters rearranged"
+           "at": 34
           }
          ]
         }
@@ -1019,9 +1036,9 @@
      ]
     },
     "explanation": {
-     "surface": "A history of China before its birth, when Etna erupted from deep inside.",
-     "walkthrough": "'The birth of China' looks like a nation's founding; China is a person here.",
-     "definitionFit": "Prenatal describes the period of pregnancy, the time preceding a baby being born."
+     "surface": "A question about whether Etna exploded before China itself was born.",
+     "walkthrough": "'China' looks like the country, but it is rhyming slang: china plate = mate, so PAL. Inside it go R and NATE ('Etna erupted').",
+     "definitionFit": "Prenatal means occurring before birth, the adjective for care or tests during pregnancy."
     },
     "features": {
      "answerInScene": false,
@@ -1057,34 +1074,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "fatuously",
-       "note": "acting fatuously means acting foolishly, so the letters are jumbled senselessly"
+       "text": "pursuing",
+       "at": 29,
+       "note": "pursuing puts the jumbled letters after the singer's surname"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Sabrina",
+       "at": 38,
+       "gives": "CARPENTER",
+       "note": "Sabrina Carpenter is an American pop singer"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fatuously",
+         "at": 19,
+         "note": "fatuously means foolishly, so the name Nat is jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Sabrina?",
-         "gives": "CARPENTER",
-         "note": "Sabrina Carpenter, the American pop singer"
-        },
-        {
          "words": "Nat",
-         "note": "the three letters of this name rearranged"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull man named Nat foolishly chases after a woman called Sabrina.",
-     "walkthrough": "'Pursuing' puts the rearranged name after the surname. 'Boring thing' suggests something tedious, but the insect bores into wood.",
-     "definitionFit": "This large insect excavates galleries in timber to nest, so it literally drills or tunnels through wood."
+     "surface": "A dull man named Nat is foolishly chasing after a woman called Sabrina.",
+     "walkthrough": "'Boring thing' pretends to mean dull; the insect bores tunnels in wood.",
+     "definitionFit": "Carpenter ants excavate galleries in timber to nest, so the insect literally bores into wood."
     },
     "features": {
      "answerInScene": false,
@@ -1464,38 +1490,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Cast",
-       "note": "cast in the sense of thrown about, so the letters land in a new order"
+       "text": "outside",
+       "at": 9,
+       "note": "outside means the reworked letters wrap around the word in"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "placed outside another word, these letters surround it"
+         "text": "Cast",
+         "at": 0,
+         "note": "Cast means thrown about, so the letters of get are rearranged"
         }
        ],
        "parts": [
         {
          "words": "get",
-         "note": "these three letters rearranged"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "Actors are told to go outside and stand in the shade.",
-     "definitionFit": "A tinge is a slight trace of colour, the same as a shade or tint of a hue."
+     "surface": "Actors in a play are told to step out of the shade.",
+     "walkthrough": "'Cast' reads as a theatre company, but in the sense of thrown it is the anagram signal.",
+     "definitionFit": "A tinge is a faint trace of colour, so it means a slight shade or tint."
     },
     "features": {
      "answerInScene": false,
