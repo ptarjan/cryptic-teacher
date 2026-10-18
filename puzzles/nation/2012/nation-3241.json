@@ -819,38 +819,60 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "OVERREACH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "moving first to last",
-       "note": "the opening letter of the word is taken from the front and put at the back"
-      },
-      {
-       "text": "last to first",
-       "note": "the closing letter of the next word is brought round to the front"
+       "text": "and",
+       "at": 28,
+       "note": "and joins the two altered words side by side"
       }
      ],
      "parts": [
       {
-       "words": "Nomad",
-       "gives": "ROVER",
-       "note": "a rover is a wanderer"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "moving first to last",
+         "at": 7,
+         "note": "the opening letter of the nomad word is moved to its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nomad",
+         "at": 0,
+         "gives": "ROVER",
+         "note": "a rover is a wanderer, a nomad"
+        }
+       ]
       },
       {
-       "words": "feel pain",
-       "gives": "ACHE",
-       "note": "to ache is to feel a dull pain"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "last to first",
+         "at": 32,
+         "note": "here the final letter of the pain word is brought round to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feel pain",
+         "at": 50,
+         "gives": "ACHE",
+         "note": "to ache is to feel pain"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wanderer pushes on through the pain and goes beyond his limits.",
-     "definitionFit": "To overreach is to try to do more than one can, exceeding one's proper limit."
+     "surface": "A wanderer shuffling about, in pain, pushing too far.",
+     "walkthrough": "'moving first to last' turns ROVER into OVERR; 'last to first' turns ACHE into EACH.",
+     "definitionFit": "To overreach is to try to do more than one can, overextending oneself."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Nomad"
     }
@@ -1642,50 +1664,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FACTOID",
      "indicators": [
       {
        "text": "involved in",
-       "note": "something involved in another is wrapped up inside it"
+       "at": 47,
+       "note": "the rearranged coat is wrapped up inside the other letters"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "false",
+         "at": 59,
+         "gives": "F",
+         "note": "F stands for false, as in true/false answers"
+        },
+        {
+         "words": "identification",
+         "at": 65,
+         "gives": "ID"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "shabby",
-         "note": "a shabby garment is worn out of shape, so the letters lose their order"
+         "at": 35,
+         "note": "shabby means worn and tattered, so the letters of coat are knocked out of order"
         }
        ],
        "parts": [
         {
-         "words": "false",
-         "gives": "F",
-         "note": "F is a standard abbreviation for false, as in T/F"
-        },
-        {
          "words": "coat",
-         "note": "taken as written"
-        },
-        {
-         "words": "identification",
-         "gives": "ID",
-         "note": "ID is the usual short form of identification"
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dubious detail and a tatty coat lead to someone being wrongly identified.",
-     "definitionFit": "A factoid is an unverified claim repeated so often that it is accepted as fact."
+     "surface": "A dubious fact about a scruffy coat in a case of mistaken identity.",
+     "walkthrough": "'false identification' reads as one idea, a fake ID, but it splits in two: F, the true/false-test letter for false, and ID, with the shabby coat 'involved in' between them.",
+     "definitionFit": "A factoid is an unreliable claim repeated so often it is taken as true, so its accuracy is questionable."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "false"
+     "misdirectedWord": "shabby"
     }
    }
   },

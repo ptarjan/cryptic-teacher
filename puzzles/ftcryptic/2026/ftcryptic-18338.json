@@ -1384,55 +1384,65 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ATREST",
      "indicators": [
       {
        "text": "making",
-       "note": "making one thing into another changes it, so one letter becomes a different letter"
+       "at": 10,
+       "note": "making means the first right is turned into, replaced by, the new letter"
       }
      ],
      "parts": [
       {
        "words": "slow",
+       "at": 5,
        "gives": "ARREST",
-       "note": "to arrest progress is to slow or check it"
-      },
-      {
-       "words": "right",
-       "gives": "R",
-       "note": "R is short for right"
+       "note": "to arrest progress is to slow or halt it"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "first",
-         "note": "first picks out the earlier of two identical letters in the word as the one to change"
-        },
+         "at": 17,
+         "note": "first says the earlier of the two right letters in the word is the one changed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 23,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
          "text": "heading for",
-         "note": "the heading of a word is its start, so only the opening letter is taken"
+         "at": 29,
+         "note": "heading for picks the opening letter of town"
         }
        ],
        "parts": [
         {
          "words": "town",
-         "note": "the opening letter of the word"
+         "at": 41,
+         "note": "first letter of town"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traffic instruction: go very slowly, turn first right, and head into the town.",
-     "walkthrough": "The clue reads like driving directions. Change the first R of ARREST to T.",
-     "definitionFit": "At rest is a gentle euphemism for dead, as on gravestones where someone is laid to rest."
+     "surface": "Crawling along, taking the first right turn on the way into town.",
+     "walkthrough": "'making' turns the first R of ARREST into the T from 'heading for town'. 'Dead slow' looks like a driving instruction, but 'Dead' alone is the definition.",
+     "definitionFit": "At rest is a gentle euphemism used of someone who has died, as on gravestones."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "slow"
+     "aptDefinition": true,
+     "misdirectedWord": "Dead"
     }
    }
   },
