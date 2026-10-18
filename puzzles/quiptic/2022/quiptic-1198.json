@@ -257,58 +257,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HAPHAZARD",
-     "indicators": [
-      {
-       "text": "blown top",
-       "note": "to blow one's top is to lose one's head, so the opening letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "blown top",
+         "at": 13,
+         "note": "the man has lost his top, the first letter of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "man",
-         "gives": "HAP",
-         "note": "a man is a chap, which loses its first letter"
+         "words": "man's",
+         "at": 7,
+         "gives": "CHAP",
+         "note": "man's here is 'man has'; a chap is a man"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "comprehend",
-           "note": "to comprehend is literally to grasp or take in, so one word holds another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "difficult",
-           "gives": "HARD",
-           "note": "difficult means hard; it goes around the next piece"
-          },
-          {
-           "words": "street map",
-           "gives": "AZ",
-           "note": "the A-Z is the classic London street atlas"
-          }
-         ]
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to comprehend",
+         "at": 38,
+         "note": "to comprehend is to take in, so the map goes inside the word for difficult"
+        }
+       ],
+       "parts": [
+        {
+         "words": "difficult",
+         "at": 28,
+         "gives": "HARD",
+         "note": "hard means difficult"
+        },
+        {
+         "words": "street map",
+         "at": 52,
+         "gives": "AZ",
+         "note": "the A-Z is the classic book of London street maps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A random man loses his temper because a street map is so hard to understand.",
-     "walkthrough": "Chap minus its top letter starts things. The A-Z is a well-known British book of street maps, here placed after the first letter of the word for difficult.",
-     "definitionFit": "Something done without plan, order or method is random, so the two words are synonyms."
+     "surface": "A chap loses his temper over a street map he cannot make sense of.",
+     "walkthrough": "'blown top' reads as losing one's temper but means the man loses his first letter; the street map is the A-Z, the standard London street atlas, which 'difficult' takes in.",
+     "definitionFit": "Haphazard means lacking any plan or order, done by chance, so it is a synonym of random."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "comprehend"
+     "misdirectedWord": "blown"
     }
    }
   },
@@ -863,58 +869,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABHOR",
+     "op": "container",
      "indicators": [
       {
-       "text": "half",
-       "note": "half of a word means only part of it is kept and the rest dropped"
+       "text": "sitting in",
+       "at": 15,
+       "note": "the half word sits inside the rearranged bar"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "sitting in",
-         "note": "to sit in something is to be inside it, so one piece is placed within another"
+         "text": "seedy",
+         "at": 26,
+         "note": "seedy means shabby and run-down, so the letters of bar are knocked out of shape"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "seedy",
-           "note": "seedy means shabby and run-down, so these letters are in disorder"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bar",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
-        },
+         "words": "bar",
+         "at": 32,
+         "note": "the word as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 5,
+         "note": "half means only the first half of the word hour is used"
+        }
+       ],
+       "parts": [
         {
          "words": "hour",
-         "gives": "HO",
-         "note": "a deletion: the first half of the word's four letters, the rest dropped"
+         "at": 10,
+         "note": "the word as written; its first half is HO"
+        },
+        {
+         "gives": "UR",
+         "note": "the back half of hour, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone loathes spending even half an hour in a sleazy bar.",
-     "walkthrough": "The rearranged drinking place splits to take the half hour between its second and third letters.",
-     "definitionFit": "To detest or loathe something intensely is what the verb means, so it is a strong synonym for hate."
+     "surface": "Someone loathes the thirty minutes spent in a sleazy pub.",
+     "walkthrough": "'half hour' sounds like thirty minutes, but 'half' takes HO from 'hour'; that sits inside ABR, the letters of 'bar' made 'seedy'.",
+     "definitionFit": "To abhor something is to detest or loathe it, a stronger synonym for hate."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "seedy"
+     "misdirectedWord": "half"
     }
    }
   },

@@ -331,58 +331,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRUNDLEBED",
      "indicators": [
       {
        "text": "admitting",
-       "note": "editor lets the scrambled blunder in"
+       "at": 25,
+       "note": "admitting means letting in, so the jumbled letters go inside the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "TRUNDLEBED",
-       "indicators": [
+       "op": "charade",
+       "parts": [
         {
-         "text": "lead",
-         "note": "the leading letter of Telegraph"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "lead",
+           "at": 12,
+           "note": "the lead of the Telegraph is the first letter of the paper's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Telegraph's",
+           "at": 0,
+           "note": "the name as written; its first letter is T"
+          }
+         ]
         },
         {
+         "words": "editor",
+         "at": 17,
+         "gives": "ED"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
          "text": "awful",
-         "note": "the letters of blunder are made a mess of"
+         "at": 35,
+         "note": "awful suggests something botched, so the letters of blunder are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Telegraph's lead",
-           "gives": "T",
-           "note": "first letter of Telegraph"
-          },
-          {
-           "words": "awful blunder",
-           "gives": "RUNDLEB",
-           "note": "BLUNDER rearranged"
-          },
-          {
-           "words": "editor",
-           "gives": "ED",
-           "note": "ED = editor"
-          }
-         ]
+         "words": "blunder",
+         "at": 41,
+         "note": "the word as written, to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper editor makes a dreadful gaffe and is pushed into retirement.",
-     "walkthrough": "The surface pensions off a disgraced editor; the definition means going to bed, retiring for the night. A trundle bed is a low bed on castors kept under another.",
-     "definitionFit": "A trundle bed is wheeled out from under a bigger bed when someone retires for the night."
+     "surface": "A newspaper's chief editor who has made a terrible gaffe is pushed out into retirement.",
+     "walkthrough": "'Telegraph's lead editor' reads as one person, but it is two pieces that, via 'admitting', wrap round the 'awful' blunder. Retirement here means going to bed, not leaving work.",
+     "definitionFit": "A trundle bed is a low bed on castors stored under another and rolled out when needed for sleeping."
     },
     "features": {
      "answerInScene": false,
@@ -420,44 +426,39 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "FLUEPIPE",
      "indicators": [
       {
+       "text": "One of",
+       "at": 0,
+       "note": "one of the two instruments, the first, is the one that drops the time letter"
+      },
+      {
        "text": "isn't keeping",
-       "note": "the time is not kept, so T drops out"
+       "at": 28,
+       "note": "the first of the two instruments isn't keeping hold of the time letter, so it is dropped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "One of two wind instruments",
-         "gives": "FLUE",
-         "note": "FLUTE, with T for time removed"
-        },
-        {
-         "words": "two wind instruments",
-         "gives": "PIPE",
-         "note": "the other of the two instruments"
-        },
-        {
-         "unchecked": true,
-         "words": "time",
-         "note": "T = time, the letter lost"
-        }
-       ]
+       "words": "two wind instruments",
+       "at": 7,
+       "gives": "FLUTEPIPE",
+       "note": "a flute and a pipe are both wind instruments"
+      },
+      {
+       "words": "time",
+       "at": 42,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A wind player out of time, finding the performance tiring.",
-     "walkthrough": "'Exhausting' looks like tiring; a flue pipe carries exhaust gases away. It is also a kind of organ pipe, fitting the instruments.",
-     "definitionFit": "A flue pipe carries exhaust fumes out of a stove or boiler."
+     "surface": "A musician moans that one of the two woodwind players can't keep the beat, which is tiring.",
+     "walkthrough": "'One of' tells you only the first instrument, the flute, loses T when 'isn't keeping' applies. 'exhausting' is fair because the pipe carries exhaust away.",
+     "definitionFit": "A flue pipe carries smoke and fumes out of a boiler or stove, literally conducting exhaust gases away."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "exhausting"
@@ -597,45 +598,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Withdrawing",
-       "note": "drawing back, so the food runs backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "reduced",
-         "note": "cut short by its last letter"
+         "text": "Withdrawing",
+         "at": 0,
+         "note": "withdrawing means drawing back, so the word for food is read backwards"
         }
        ],
        "parts": [
         {
          "words": "food",
+         "at": 12,
          "gives": "GRUB",
-         "note": "grub = food"
+         "note": "grub is informal for food"
         }
        ]
       },
       {
-       "words": "reduced fat",
-       "gives": "LAR",
-       "note": "LARD without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 22,
+         "note": "reduced means cut short, so the word for fat loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fat",
+         "at": 30,
+         "gives": "LARD",
+         "note": "lard is pig fat used in cooking"
+        },
+        {
+         "gives": "D",
+         "note": "the last letter of the word for fat, cut off"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cutting back on food and fat is a crime.",
-     "walkthrough": "The surface sounds like a diet; 'criminal' as an exclamation is the noun definition.",
-     "definitionFit": "A burglar is a criminal who breaks into buildings to steal."
+     "surface": "Cutting out food along with low-fat options is a crime.",
+     "walkthrough": "'Withdrawing food' sounds like a diet, but 'Withdrawing' means reading the food word backwards; 'reduced' cuts the last letter off the fat.",
+     "definitionFit": "A burglar is a criminal who breaks into buildings to steal, so the answer is one kind of criminal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "criminal"
+     "misdirectedWord": "Withdrawing"
     }
    }
   },
@@ -894,65 +908,79 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "essentially",
-       "note": "take the essence, the middle letter, of for and of man"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "step",
+       "at": 6,
+       "gives": "PACE",
+       "note": "a pace is a single step"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "inspiring",
-         "note": "breathing in, so O and A take the word for a inside"
+         "at": 31,
+         "note": "inspiring means breathing in, so the two middle letters take the word for a inside them"
         }
        ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "S = small"
-        },
-        {
-         "words": "step",
-         "gives": "PACE",
-         "note": "a pace is a step"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "OA",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 19,
+           "note": "essentially means at its core, so each of the two words is cut down to its middle letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "for man essentially",
-           "gives": "OA",
-           "select": "middle",
-           "note": "middle letters of fOr and mAn"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "for",
+             "at": 11,
+             "note": "the word as written; at its core is O"
+            },
+            {
+             "words": "man",
+             "at": 15,
+             "note": "the word as written; at its core is A"
+            }
+           ]
+          },
+          {
+           "gives": "FRMN",
+           "note": "the outer letters of the two words, stripped to leave their cores"
           }
          ]
+        },
+        {
+         "words": "a",
+         "at": 41,
+         "gives": "PER",
+         "note": "per means a, as in 'ten pounds a head'"
         }
        ]
-      },
-      {
-       "words": "a",
-       "gives": "PER",
-       "note": "per = a, as in twice a day"
       }
      ]
     },
     "explanation": {
-     "surface": "Armstrong's 'small step for man' inspiring a science fiction story.",
-     "walkthrough": "The quote from the Moon landing leads you to read 'for man' as a phrase; each word gives only its middle letter. A space opera is a sci-fi adventure on a galactic scale.",
-     "definitionFit": "A space opera is a melodramatic science fiction adventure set in space."
+     "surface": "Neil Armstrong's 'small step for man' is the inspiration for a sci-fi epic.",
+     "walkthrough": "'essentially' takes O and A, the middles of 'for' and 'man'; 'inspiring' puts PER, meaning 'a', between them. The surface quotes Armstrong's first words on the Moon.",
+     "definitionFit": "Space opera is a genre of melodramatic sci-fi adventure set among the stars, such as Star Wars."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "inspiring"
     }
    }
   },
@@ -1042,12 +1070,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPEACH",
      "indicators": [
       {
        "text": "leaders removed from",
-       "note": "each word loses its first letter"
+       "at": 7,
+       "note": "the leaders, the first letters, of the two words are taken away"
       }
      ],
      "parts": [
@@ -1056,28 +1083,33 @@
        "parts": [
         {
          "words": "slack",
-         "gives": "IMP",
-         "note": "LIMP, without its first letter"
+         "at": 28,
+         "gives": "LIMP",
+         "note": "limp means slack or floppy"
         },
         {
          "words": "school",
-         "gives": "EACH",
-         "note": "TEACH, without its first letter"
+         "at": 34,
+         "gives": "TEACH",
+         "note": "to school someone is to teach them"
         }
        ]
+      },
+      {
+       "gives": "LT",
+       "note": "the first letters of the two words, removed"
       }
      ]
     },
     "explanation": {
-     "surface": "Charging the heads of a failing school after they are sacked.",
-     "walkthrough": "'Leaders' reads as school heads; it means first letters. School is the verb, to teach.",
-     "definitionFit": "To impeach is to formally charge, indict, an official."
+     "surface": "Charging the heads of a lax school with wrongdoing.",
+     "walkthrough": "'school' looks like a noun but is a verb, to TEACH. 'leaders removed from' strips the first letters from LIMP and TEACH.",
+     "definitionFit": "To impeach is to charge a public official formally with misconduct, a formal accusation like an indictment."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "leaders"
+     "misdirectedWord": "school"
     }
    }
   },
@@ -1214,42 +1246,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOTHEADS",
-     "indicators": [
-      {
-       "text": "irregular",
-       "note": "the letters of deaths are out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "hospital",
+       "at": 25,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      },
+      {
+       "words": "round",
+       "at": 34,
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "irregular",
+         "at": 52,
+         "note": "irregular means not in normal order, so the letters of deaths are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "hospital",
-         "gives": "H",
-         "note": "H = hospital"
-        },
-        {
-         "words": "round",
-         "gives": "O",
-         "note": "O is round"
-        },
-        {
-         "words": "irregular deaths",
-         "gives": "THEADS",
-         "note": "DEATHS rearranged"
+         "words": "deaths",
+         "at": 62,
+         "note": "the word as written, to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Doctors on a hospital round spotting a rash linked to unexplained deaths.",
-     "walkthrough": "'Come across rash' reads as finding a rash on the ward; it means appear reckless.",
-     "definitionFit": "Hotheads are impetuous people who come across as rash."
+     "surface": "Doctors on a ward round find a skin rash connected with unusual deaths.",
+     "walkthrough": "'rash' looks like a skin complaint, but it is an adjective: hotheads strike others as rash. 'irregular' rearranges 'deaths' to THEADS, which follows H and O.",
+     "definitionFit": "Hotheads are impetuous people who act without thinking, so they strike others as reckless."
     },
     "features": {
      "answerInScene": false,
@@ -1280,52 +1313,66 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ROBBERS",
-     "indicators": [
-      {
-       "text": "swapping outer layers for",
-       "note": "Sibyl's outside letters are replaced by gown"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "gown",
-       "gives": "ROBE",
-       "note": "robe = gown; it wraps round the B"
-      },
-      {
-       "words": "Sibyl",
-       "gives": "B",
-       "note": "siByL with its outer layers SI and YL gone"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RS",
+       "op": "container",
        "indicators": [
         {
-         "text": "starts to",
-         "note": "the first letters of the next words"
+         "text": "for",
+         "at": 29,
+         "note": "the outer layers are traded for the gown, which then wraps round what is left"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts to read some",
-         "gives": "RS",
-         "select": "first",
-         "note": "first letters of read and some"
+         "words": "gown",
+         "at": 33,
+         "gives": "ROBE",
+         "note": "a robe is a gown"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "swapping outer layers",
+           "at": 7,
+           "note": "the outer letters of the name are swapped out, leaving only its middle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sibyl",
+           "at": 0,
+           "note": "the name as written; its middle letter is B"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 39,
+         "note": "starts to picks the first letter of each of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "read some",
+         "at": 49,
+         "note": "first letters R and S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fortune teller in a gown reading tea leaves.",
-     "walkthrough": "A sibyl really would read tea leaves, which hides that 'tea leaves' is Cockney rhyming slang: tea leaf = thief.",
-     "definitionFit": "In rhyming slang tea leaves are thieves, so robbers."
+     "surface": "A prophetess changes her clothes for a robe and starts reading fortunes in tea leaves.",
+     "walkthrough": "Tea leaves is rhyming slang for thieves. Take SIBYL's outer letters off, leaving B, and wrap ROBE round it; then add R and S, the 'starts to' 'read some'.",
+     "definitionFit": "In Cockney rhyming slang tea leaves are thieves, and robbers are thieves who use force."
     },
     "features": {
      "answerInScene": false,
@@ -1580,45 +1627,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GYPSY",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "to take the place of",
+       "at": 24,
+       "note": "the reversed agent takes the place of the letter a in the word for happy"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "GYPSY",
+       "words": "Happy",
+       "at": 0,
+       "gives": "GAY",
+       "note": "gay in its older sense means happy"
+      },
+      {
+       "words": "a",
+       "at": 45,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "set up",
-         "note": "in a down clue, raised so it reads upwards"
-        },
-        {
-         "text": "to take the place of"
+         "at": 17,
+         "note": "in a down answer, set up means written upwards, so the agent's word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "Happy",
-         "gives": "GAY",
-         "note": "gay = happy; its A is swapped out"
-        },
-        {
-         "words": "agent set up",
-         "gives": "YPS",
-         "note": "SPY reversed"
+         "words": "agent",
+         "at": 11,
+         "gives": "SPY",
+         "note": "a spy is a secret agent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful spy going undercover as a traveller.",
-     "walkthrough": "'A traveller' reads as one noun phrase; the a is the letter replaced.",
-     "definitionFit": "Gypsy is a name for a member of the travelling Romani people."
+     "surface": "A cheerful man and his agent arrange to stand in for a travelling performer.",
+     "walkthrough": "'a' looks like a mere article, but it names the letter that the reversed SPY replaces in GAY.",
+     "definitionFit": "Traveller is a term for a member of a nomadic community, including the Romani people historically called gypsies."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "a"
     }
@@ -1700,53 +1755,55 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "UNFUNNY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "the first letter moves round to the end"
+       "text": "by",
+       "at": 26,
+       "note": "by means next to, so the pieces sit side by side in order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "by",
-         "note": "'by' in the sense of beside, so the pieces are placed side by side"
+         "text": "cycling",
+         "at": 18,
+         "note": "cycling means going round, so the first letter of the word for enjoyment moves to the end"
         }
        ],
        "parts": [
         {
-         "words": "enjoyment cycling",
-         "gives": "UNF",
-         "note": "FUN with its F moved to the back"
-        },
-        {
-         "words": "a French",
-         "gives": "UN",
-         "note": "un is French for a"
-        },
-        {
-         "words": "city",
-         "gives": "NY",
-         "note": "NY = New York"
+         "words": "enjoyment",
+         "at": 8,
+         "gives": "FUN",
+         "note": "fun means enjoyment"
         }
        ]
+      },
+      {
+       "words": "a French",
+       "at": 29,
+       "gives": "UN",
+       "note": "un is French for a"
+      },
+      {
+       "words": "city",
+       "at": 38,
+       "gives": "NY",
+       "note": "NY is New York City"
       }
      ]
     },
     "explanation": {
-     "surface": "Serious enjoyment of a cycling trip past a French city.",
-     "walkthrough": "The surface is a cycling holiday in France; the city is New York.",
-     "definitionFit": "A plain synonym: a joke that falls flat leaves the room serious."
+     "surface": "Someone sober-minded takes pleasure cycling past a city in France.",
+     "walkthrough": "'cycling' sounds like riding a bike, but it moves the F of FUN to the back. 'a French' is UN, not a French city.",
+     "definitionFit": "Something unfunny lacks any humour, so it is serious in tone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
