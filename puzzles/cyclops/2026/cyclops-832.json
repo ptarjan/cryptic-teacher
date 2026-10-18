@@ -48,34 +48,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "Something off has gone out of its proper state, and letters out of their proper state are read in a new order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 15,
+         "note": "off signals that the letters of rip are thrown out of order"
+        }
+       ],
        "parts": [
         {
          "words": "rip",
-         "note": "the three letters of rip, resettled"
-        },
-        {
-         "words": "politicians",
-         "gives": "MPS",
-         "note": "mps is the short form for members of parliament"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "politicians",
+       "at": 19,
+       "gives": "MPS",
+       "note": "MPs are Members of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "Politicians being smartened up for a swindle.",
-     "walkthrough": "'Dresses up' looks like an instruction to tidy the letters and is the definition instead; the shuffling is done by the 'off' of 'rip-off'. A rip-off is a swindle, so the hyphenated word reads as one idea.",
-     "definitionFit": "To primp is to fuss over your own appearance, adjusting clothes and hair, which is what dressing up amounts to."
+     "surface": "Private Eye's jab at politicians whose dressing up is a swindle.",
+     "walkthrough": "'Rip-off' reads as one word meaning a swindle; split, 'off' is the anagram signal for rip.",
+     "definitionFit": "To primp is to groom oneself fussily, so it means smartening one's appearance."
     },
     "features": {
      "answerInScene": true,
@@ -1314,44 +1316,58 @@
     "definitions": [
      {
       "text": "It could be the death of you",
-      "at": 33,
-      "note": "The definition warns about the answer instead of naming it: the setter gives the consequence rather than a synonym, which is how a poison gets defined without the word poison."
+      "at": 33
      }
     ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "Almost a word is the word one letter short of finished, so its last letter never arrives."
-      },
-      {
        "text": "to go after",
-       "note": "What goes after something is written behind it, so these letters follow the ones already down."
+       "at": 16,
+       "note": "to go after places the shortened word behind the word for git"
       }
      ],
      "parts": [
       {
        "words": "git",
+       "at": 28,
        "gives": "ARSE",
-       "note": "calling a man an arse is the same insult as calling him a git"
+       "note": "arse is British slang for a stupid or contemptible person, like git"
       },
       {
-       "words": "pleasant",
-       "gives": "NIC",
-       "note": "pleasant is nice, docked of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the last letter of the word for pleasant is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pleasant",
+         "at": 7,
+         "gives": "NICE",
+         "note": "nice means pleasant"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Going for an idiot would be almost enjoyable, and quite possibly fatal.",
-     "walkthrough": "Both words for the fool are mild British abuse, which is why the swap reads so naturally in the sentence. The question mark covers a definition that warns rather than defines.",
-     "definitionFit": "Arsenic is the classic Victorian poison, tasteless in food and lethal in small doses, so a warning about dying picks it out exactly."
+     "surface": "Being nice to a git is unbearable enough to kill you.",
+     "walkthrough": "Git and arse are both rude British words for an unpleasant or foolish person.",
+     "definitionFit": "Arsenic is a notorious poison, so a dose of it may well kill you."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "pleasant"
+     "joke": "absurd",
+     "misdirectedWord": "git"
     }
    }
   },

@@ -156,49 +156,62 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost means not quite all of it, so the word loses its last letter."
-      }
-     ],
      "parts": [
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 5,
+       "gives": "IN"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "holding",
-         "note": "Holding means gripping something within, so the next piece goes inside this one."
+         "at": 28,
+         "note": "holding means the shortened martial art surrounds the word for on"
         }
        ],
        "parts": [
         {
-         "words": "martial art",
-         "gives": "JUD",
-         "note": "JUDO without its last letter, which 'almost' asks for"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 21,
+           "note": "almost means the last letter of the martial art is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "martial art",
+           "at": 8,
+           "gives": "JUDO",
+           "note": "judo is a Japanese martial art"
+          },
+          {
+           "gives": "O"
+          }
+         ]
         },
         {
          "words": "on",
+         "at": 36,
          "gives": "RE",
-         "note": "re = on, concerning, as in 'a report on/re the matter'; it goes inside JUD"
+         "note": "re means on or about, as in a letter heading"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone got hurt doing a martial art, nearly managing to hang on.",
-     "walkthrough": "The surface reads like a judo bout gone wrong. RE for 'on' is the memo-heading sense: 'on the subject of'.",
-     "definitionFit": "A plain synonym: both are past participles meaning harmed in body."
+     "surface": "Someone got hurt practising a martial art while hanging on.",
+     "walkthrough": "RE is the Latin-derived 'regarding', used for 'on' (as in 'a talk on cats').",
+     "definitionFit": "Injured means wounded or harmed, the past participle matching hurt."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "holding"
+     "misdirectedWord": "on"
     }
    }
   },
@@ -532,51 +545,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "In means inside, so the letters before it are placed inside the word after it."
+       "at": 20,
+       "note": "in means these letters go inside the word for father's"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "father's",
+       "at": 23,
+       "gives": "PAS",
+       "note": "pa is father, so pa's"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "father's",
-         "gives": "PAS",
-         "note": "pa = father, plus the S; YJAM goes inside it"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Finally",
+           "at": 0,
+           "note": "finally takes the last letter of remedy"
+          }
+         ],
+         "parts": [
+          {
+           "words": "remedy",
+           "at": 8,
+           "note": "last letter Y"
+          }
+         ]
         },
         {
          "words": "hole",
+         "at": 15,
          "gives": "JAM",
-         "note": "a hole = a jam, a tight spot, as in 'in a hole'"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "Finally",
-         "note": "Finally means at the very end, so take the last letter of the next word."
-        }
-       ],
-       "parts": [
-        {
-         "words": "remedy",
-         "note": "last letter of remedY"
+         "note": "a jam is a tight spot or difficulty, as is a hole"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plea to mend the hole in Dad's pyjamas at last.",
-     "walkthrough": "The surface is darning, but 'hole' is a predicament, hence JAM. PYJAMAS is the British spelling of pajamas.",
-     "definitionFit": "A definition by category: pyjamas are the loose jacket and trousers worn in bed, the commonest nightwear."
+     "surface": "A fix for a hole in Dad's night clothes at last.",
+     "walkthrough": "Being in a hole and being in a jam both mean being in trouble.",
+     "definitionFit": "Pyjamas are the loose jacket and trousers worn for sleeping."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "hole"
     }
    }

@@ -164,42 +164,53 @@
      "indicators": [
       {
        "text": "touring",
-       "note": "to tour a place is to go all around it"
+       "at": 8,
+       "note": "touring means the word for rascals goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "half-cut",
-         "note": "cut down to half, so only half of LEFT is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Rascals",
-         "gives": "BRATS",
-         "note": "brats = unruly children"
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE = Church of England"
-        }
-       ]
+       "words": "Rascals",
+       "at": 0,
+       "gives": "BRATS",
+       "note": "brats are badly behaved children, rascals"
       },
       {
-       "words": "left",
-       "gives": "LE",
-       "note": "the first half of LEFT"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "church",
+         "at": 16,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half-cut",
+           "at": 23,
+           "note": "half-cut keeps only the first half of left"
+          }
+         ],
+         "parts": [
+          {
+           "words": "left",
+           "at": 32
+          },
+          {
+           "gives": "FT"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drunken young troublemakers on a church tour end up in handcuffs.",
-     "walkthrough": "'Half-cut' is British slang for drunk, which fits the rascals, but here it trims a word to half its length. BRA(CE LE)TS.",
-     "definitionFit": "Old criminal slang: handcuffs worn on the wrists were called by the jewellery's name."
+     "surface": "Tipsy hooligans are left handcuffed after a church visit.",
+     "walkthrough": "'Half-cut' is British slang for drunk, but here it halves a word. 'Bracelets' is old slang for handcuffs.",
+     "definitionFit": "Bracelets is a slang word for handcuffs, which ring the wrists like jewellery."
     },
     "features": {
      "answerInScene": true,

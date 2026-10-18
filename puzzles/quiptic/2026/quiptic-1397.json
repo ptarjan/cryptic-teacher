@@ -942,33 +942,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "Initially means at the very start, so only the opening letter of the word beside it is wanted."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "put into",
-         "note": "To put one thing into another is to place it bodily inside, so the single letter lands within the word that follows."
+         "at": 33,
+         "note": "put into tells us the letter from gains goes inside the word for Barclays"
         }
        ],
        "parts": [
         {
-         "words": "Barclays?",
+         "words": "Barclays",
+         "at": 42,
          "gives": "BANK",
-         "note": "Barclays is one of the British high-street banks, and the question mark admits it is only an example of the general word"
+         "note": "Barclays is an example of a bank, hence the question mark"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 23,
+           "note": "initially means only the first letter of gains is used"
+          }
+         ],
          "parts": [
           {
            "words": "gains",
-           "note": "just the initial letter of the word, which is all that is asked for"
+           "at": 17,
+           "note": "first letter G"
           }
          ]
         }
@@ -976,14 +980,21 @@
       },
       {
        "words": "All right",
+       "at": 52,
        "gives": "OK",
-       "note": "OK is the everyday spelling of 'all right' used as assent"
+       "note": "OK means all right"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Overseas capital gains' reads as a tax phrase, and that is the trap: the definition stops at 'capital', and 'gains' is in the clue for its first letter alone.",
-     "definitionFit": "Bangkok is the capital of Thailand, and 'overseas' does the work of saying the city wanted is a foreign one rather than a British one."
+     "surface": "A query about whether profits made abroad get paid into a British high-street bank, answered with a reassurance.",
+     "walkthrough": "Barclays is a major British bank; the question mark flags that it stands for a bank in general.",
+     "definitionFit": "The answer is the capital city of Thailand, a capital far from Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Barclays"
     }
    }
   },

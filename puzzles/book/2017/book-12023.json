@@ -444,54 +444,59 @@
      "indicators": [
       {
        "text": "around",
-       "note": "the spreads word is placed round the outside of the rest"
+       "at": 14,
+       "note": "around means the word for spreads is wrapped about the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "spreads",
-         "gives": "SPANS",
-         "note": "stretches across"
-        },
-        {
-         "words": "ruinous",
-         "gives": "ILL",
-         "note": "harmful, bad"
-        }
-       ]
+       "words": "spreads",
+       "at": 6,
+       "gives": "SPANS",
+       "note": "spans means stretches across, spreads"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "endlessly",
-         "note": "without an end means the last letter is cut off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "ancient city",
-         "gives": "THEBES",
-         "note": "the city of ancient Egypt or Greece"
+         "words": "ruinous",
+         "at": 21,
+         "gives": "ILL",
+         "note": "ill can mean harmful or ruinous, as in ill effects"
         },
         {
-         "gives": "S"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 30,
+           "note": "endlessly drops the last letter of the city's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ancient city",
+           "at": 40,
+           "gives": "THEBES",
+           "note": "Thebes was an ancient city of Egypt and of Greece"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grass overgrowing the ruins of a long-gone city.",
-     "walkthrough": "THEBES loses its last letter; SP(ILL THEBE)ANS. To grass is British slang for informing on someone.",
-     "definitionFit": "To spill the beans is an idiom for revealing a secret, and in British slang to grass is to inform."
+     "surface": "An old city's ruins sprawl outwards, with grass growing over them.",
+     "walkthrough": "'Grass' looks like vegetation over the ruins; it is the slang verb for informing on someone.",
+     "definitionFit": "To grass is to inform on someone, the same as revealing a secret by telling all."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Grass"
     }
    }
