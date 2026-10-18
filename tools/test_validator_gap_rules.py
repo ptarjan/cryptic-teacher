@@ -97,4 +97,21 @@ check("a Spooner clue that loses the spoonerism is refused", ["lost_spoonerism"]
     good, old={"definitions": [], "wordplay": None}, clue="Spooner's moral tale, displayed, in part"))
 check("shape_queue.regressions delegates to it", ["downgraded"], [r.split(":")[0] for r in Q.regressions(
     {"annotation": good, "clue": {"text": CLUE}}, bare)])
+# A connective only a junk leaf held may be taken out; a content word, or the
+# same connective as an indicator, may not.
+CLUE2 = "Moral tale with part (4)"
+junk = {"definitions": [{"text": "Moral tale", "at": 0}],
+        "wordplay": {"op": "charade", "parts": [
+            {"words": "with", "at": 11, "unchecked": True}, {"words": "part", "at": 16, "gives": "PART"}]}}
+fixed = {"definitions": [{"text": "Moral tale", "at": 0}],
+         "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 16, "gives": "PART"}]}}
+check("taking a connective-only junk leaf out is not a loss", [], redo(fixed, old=junk, clue=CLUE2))
+check("dropping a content leaf is still refused", ["dropped_words"], redo(
+    {**fixed, "wordplay": {"op": "charade", "parts": [{"words": "tale", "at": 6, "gives": "TALE"}]}},
+    old={**junk, "wordplay": {"op": "charade", "parts": [
+        {"words": "tale", "at": 6, "gives": "TALE"}, {"words": "part", "at": 16, "gives": "PART"}]}}, clue=CLUE2))
+as_ind = {"definitions": [{"text": "Moral tale", "at": 0}],
+          "wordplay": {"op": "charade", "indicators": [{"text": "with", "at": 11}],
+                       "parts": [{"words": "part", "at": 16, "gives": "PART"}]}}
+check("a connective that was an indicator is still refused", ["dropped_words"], redo(fixed, old=as_ind, clue=CLUE2))
 raise SystemExit(fails)

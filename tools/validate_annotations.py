@@ -3905,12 +3905,18 @@ def _clue_words(text):
     return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
 
 
-def _accounted_words(ann):
-    """The clue words an annotation accounts for: wordplay leaves, indicators on
-    any op or definition, definitions, and declared link words."""
+# Connectives a stripped-down leaf may swallow ("with", "and", "'s"); the fix for
+# an unchecked leaf of one is to take it out, so it is no loss when the redo does.
+CONNECTIVE_WORDS = frozenset(
+    "a an and as at be but by for from has having in is it of on or s that the this to when with".split())
+
+
+def _accounted_words(ann, leaves=True):
+    """The clue words an annotation accounts for: wordplay leaves (when `leaves`),
+    indicators on any op or definition, definitions, and declared link words."""
     got = set()
     for n in _walk(ann.get("wordplay")):
-        if "op" not in n:
+        if leaves and "op" not in n:
             got |= _clue_words(n.get("words"))
         for i in n.get("indicators") or []:
             got |= _clue_words(i.get("text") if isinstance(i, dict) else i)
@@ -3948,6 +3954,10 @@ def redo_regressions(old, new, clue):
         out.append("lost_spoonerism: the clue names Spooner and the tree has no spoonerism op")
     if old.get("wordplay"):
         lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
+        # A connective only a leaf of the old tree held (an unchecked "with" leaf
+        # the re-annotation exists to remove) may go; as an indicator, definition
+        # or link word it still has to stay.
+        lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves=False)
         if lost:
             out.append("dropped_words: " + ", ".join(sorted(lost)) + " were in the old wordplay "
                        "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now")
