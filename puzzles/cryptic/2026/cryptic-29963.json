@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -701,37 +702,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CASSIS",
-     "indicators": [
-      {
-       "text": "unlimited",
-       "note": "Something unlimited has had its limits taken off, and a word's limits are the letters at either end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 16,
+         "note": "unlimited means without limits, so the first and last letters of the musician go"
+        }
+       ],
        "parts": [
         {
-         "words": "Cold",
-         "gives": "C",
-         "note": "c = cold, the letter on the tap"
+         "words": "musician",
+         "at": 5,
+         "gives": "BASSIST",
+         "note": "a bassist is a musician who plays bass"
         },
         {
-         "words": "musician",
-         "gives": "ASSIS",
-         "note": "the musician is a bassist, stripped of the letter at each end"
+         "gives": "BT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chilly musician drinking without limit.",
-     "walkthrough": "'Unlimited' is worth learning beside 'limits': the first and last letters of a word are its limits, and both go at once. The drink is French, a blackcurrant liqueur.",
-     "definitionFit": "drink → CASSIS: crème de cassis is the French blackcurrant liqueur poured into white wine to make a kir."
+     "surface": "A shivering bass player helps themselves to the bar's free drink.",
+     "walkthrough": "'unlimited' strips B and T from BASSIST, leaving ASSIS.",
+     "definitionFit": "Cassis is a blackcurrant liqueur from France, often mixed with white wine to make kir."
     },
     "features": {
      "answerInScene": true,
@@ -821,40 +826,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GEOGRAPHY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen outside",
+       "at": 27,
+       "note": "seen outside means placed round, so the rearranged letters surround the pub"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "alter",
-         "note": "To alter a thing is to change the way it is arranged, so these letters are to be rearranged."
-        },
-        {
-         "text": "seen outside",
-         "note": "What is seen outside stands round the edge of something else, which goes in the middle."
+         "at": 10,
+         "note": "to alter is to change, so the letters of ego and Gary are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "ego 'Gary'",
-         "note": "the seven letters of 'ego' and 'Gary' rearranged, ready to be opened up"
+         "words": "ego",
+         "at": 16
         },
         {
-         "words": "pub",
-         "gives": "PH",
-         "note": "PH is public house, the mark used for a pub on a British map"
+         "words": "Gary",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "pub",
+       "at": 40,
+       "gives": "PH",
+       "note": "PH is the map abbreviation for public house"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody's alter ego, a man called Gary, spotted standing outside a pub.",
-     "walkthrough": "'Alter ego' is so fixed a phrase that the eye will not break it, and the setter wants only its second half. The quotation marks round the name are surface dressing and carry no instruction.",
-     "definitionFit": "Subject → GEOGRAPHY: a subject on a school timetable, standing alongside history and maths as one of the standard ones."
+     "surface": "A man called Gary has a second self who is spotted outside the pub.",
+     "walkthrough": "'alter ego' reads as a fixed phrase, but 'alter' is the anagram signal: EGO and GARY become GEOGRAY, which goes round PH.",
+     "definitionFit": "Geography is a school subject, the study of the earth's physical features and peoples."
     },
     "features": {
      "answerInScene": false,
@@ -1156,51 +1168,61 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CONSTRUCT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "replace",
-       "note": "To replace one thing with another is to take the first out and stand the second in the gap it leaves."
-      },
-      {
        "text": "after",
-       "note": "In an across entry what comes after something is written to its right, so the altered word lands at the end."
+       "at": 45,
+       "note": "after puts the altered president behind the tricks"
       }
      ],
      "parts": [
       {
        "words": "tricks",
+       "at": 51,
        "gives": "CONS",
-       "note": "a con is a trick or a swindle"
+       "note": "cons are swindles or tricks"
       },
       {
-       "words": "president",
-       "gives": "TRUMP",
-       "note": "Donald Trump, a US president, taken before anything is done to the name"
-      },
-      {
-       "words": "politician",
-       "gives": "MP",
-       "note": "MP is a Member of Parliament, the British politician — these are the letters coming out"
-      },
-      {
-       "words": "court",
-       "gives": "CT",
-       "note": "ct = court, as it appears in a street address — these are the letters going in"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replace",
+         "at": 15,
+         "note": "replace with means take out one thing and put another in its place, so the politician's letters give way to the court's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "president",
+         "at": 5,
+         "gives": "TRUMP",
+         "note": "Donald Trump is a US president"
+        },
+        {
+         "words": "politician",
+         "at": 23,
+         "gives": "MP",
+         "note": "MP stands for member of parliament, a politician"
+        },
+        {
+         "words": "court",
+         "at": 39,
+         "gives": "CT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A president swapping a politician for a courtroom in the wake of some swindles.",
-     "walkthrough": "'Make' sits at the front looking like an order given to the president, and it is the definition. The president is never named: you supply the surname yourself, then operate on it.",
-     "definitionFit": "Make → CONSTRUCT: to construct something is to make it by fitting parts together, the building sense of make rather than the forcing one."
+     "surface": "A satirical charge: tricks are used to make a president swap a politician for a court.",
+     "walkthrough": "'replace' changes TRUMP's MP into CT, giving TRUCT, which comes after CONS.",
+     "definitionFit": "To construct something is to build or put it together, which is to make it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Make"
+     "misdirectedWord": "president"
     }
    }
   },
@@ -1553,50 +1575,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BLUECHEESE",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "Letters that have returned come back the way they went, so in an across entry they are read from the right."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Low",
+       "at": 0,
+       "gives": "BLUE",
+       "note": "blue means low or down in spirits"
+      },
+      {
+       "words": "church",
+       "at": 4,
+       "gives": "CH"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 26,
+         "note": "returned means sent back, so the word for the bishop's seat is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Low",
-         "gives": "BLUE",
-         "note": "to feel low is to feel blue"
-        },
-        {
-         "words": "church",
-         "gives": "CH",
-         "note": "ch = church, the abbreviation used on maps"
-        },
-        {
          "words": "perhaps York",
-         "gives": "EES",
-         "note": "York is one example of a see, the district a bishop governs, and the word comes back the other way"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "e = English"
+         "at": 12,
+         "gives": "SEE",
+         "note": "York is a see, the seat of an archbishop; perhaps marks it as one example"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 35,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A plain Anglican service, perhaps at York, where the English food was sent back.",
-     "walkthrough": "'Low church' is a real phrase for plain Anglican worship, and the clue splits it down the middle. 'Perhaps' is not decoration: it flags that York is one example of the thing meant, not the thing itself.",
-     "definitionFit": "food → BLUE CHEESE: Stilton, Roquefort and gorgonzola are blue cheeses, veined with mould and very much eaten, so the general word covers them."
+     "surface": "The Low Church tradition around York, perhaps, takes back an English dish.",
+     "walkthrough": "'Low church' reads as the evangelical wing of Anglicanism, but low is BLUE and church CH. 'returned' turns SEE to EES.",
+     "definitionFit": "Blue cheese, such as Stilton, is a cheese veined with mould, a common food."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Low"
     }
