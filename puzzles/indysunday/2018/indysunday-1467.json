@@ -612,85 +612,85 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRANSGRESSIVE",
      "indicators": [
       {
        "text": "about",
-       "note": "about means going round, so the jumbled letters enclose the next piece"
+       "at": 43,
+       "note": "the rearranged letters go about the single letter, surrounding it"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "TRANSGRESSIVE",
        "indicators": [
         {
          "text": "furiously",
-         "note": "acting furiously means wildly, throwing the letters into disorder"
+         "at": 33,
+         "note": "doing something furiously throws the letters about wildly, so they are rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "TRANSGRESSIVE",
          "indicators": [
           {
            "text": "without",
-           "note": "without means lacking, so that letter is dropped"
+           "at": 10,
+           "note": "gangsters without good means the word loses the letter standing for good"
           }
          ],
          "parts": [
           {
            "words": "Gangsters",
-           "note": "taken as written"
+           "at": 0,
+           "note": "the word is used as written, less one letter"
           },
           {
            "words": "good",
-           "gives": "G",
-           "note": "G is the abbreviation for good"
-          },
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
-          },
-          {
-           "words": "vie",
-           "note": "taken as written"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "end of",
-             "note": "the end of a word is its last letter, the only one kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "heists",
-             "note": "the final letter of heists"
-            }
-           ]
+           "at": 18,
+           "gives": "G"
           }
          ]
+        },
+        {
+         "words": "right",
+         "at": 23,
+         "gives": "R"
+        },
+        {
+         "words": "vie",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 49,
+         "note": "the end of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heists",
+         "at": 56,
+         "note": "its last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crooks losing a member, competing angrily over the proceeds of robberies.",
-     "walkthrough": "Gangsters minus a G, plus R and VIE, is jumbled round S. The definition leans on the surface: law-breaking is what gangsters do.",
-     "definitionFit": "Transgressive means breaking rules or laws, characteristic behaviour of the criminals in the clue."
+     "surface": "Gangsters, minus one good man, compete fiercely over the proceeds of their robberies.",
+     "walkthrough": "'Without good' leaves ANGSTERS; add R and VIE, rearrange, then put that 'about' the S that ends heists. The definition leans on the gangsters at the start: lawbreaking is typical of them.",
+     "definitionFit": "Transgressive behaviour breaks rules or laws, which is what you would expect from criminals such as gangsters."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "good"
+     "misdirectedWord": "vie"
     }
    }
   },
@@ -890,44 +890,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LADYSSLIPPER",
-     "indicators": [
-      {
-       "text": "possibly",
-       "note": "possibly signals one of several possible arrangements of the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LADYSSLIPPER",
+       "words": "Large",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
          "text": "not",
-         "note": "'not' tells you to leave the following item out of the letters"
+         "at": 22,
+         "note": "not tells us the alien's letters are left out of the mix"
+        },
+        {
+         "text": "possibly",
+         "at": 32,
+         "note": "possibly signals that the letters could be arranged another way"
         }
        ],
        "parts": [
         {
-         "words": "Large",
-         "gives": "L",
-         "note": "L is the clothing-size abbreviation for large"
-        },
-        {
-         "words": "spidery",
-         "note": "taken as written"
-        },
-        {
-         "words": "petal's",
-         "note": "taken as written, the apostrophe ignored"
+         "words": "spidery petal's",
+         "at": 6
         },
         {
          "words": "alien",
+         "at": 26,
          "gives": "ET",
-         "note": "ET is the film's extraterrestrial"
+         "note": "ET is the alien of the Spielberg film"
         }
        ]
       }
@@ -935,9 +929,9 @@
     },
     "spelling": "LADY'S SLIPPER",
     "explanation": {
-     "surface": "A botanist describing a flower with long, thin petals that looks strangely otherworldly.",
-     "walkthrough": "Remove E and T from L+SPIDERY+PETALS, then rearrange the twelve letters left.",
-     "definitionFit": "Lady's slipper is a wild orchid named for its pouch-shaped lip, which resembles a little shoe."
+     "surface": "A description of a big, spidery flower whose petal does not look extraterrestrial.",
+     "walkthrough": "A composite anagram: the letters of SPIDERY PETAL'S are the rest of the answer plus ET, so rearrange them with ET 'not' there, after the L.",
+     "definitionFit": "The lady's slipper is a type of orchid named for its pouch-shaped lip, resembling a slipper."
     },
     "features": {
      "answerInScene": true,

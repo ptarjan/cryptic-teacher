@@ -438,48 +438,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMERALD",
-     "indicators": [
-      {
-       "text": "Retired",
-       "note": "retired means drawn back, so in a down answer the word is read upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "EMERALD",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycled around",
-         "note": "cycled around means letters move round from the end of the word to its front"
+         "text": "Retired",
+         "at": 0,
+         "note": "retired means drawn back, so the word for the author is read backwards"
         }
        ],
        "parts": [
         {
          "words": "author",
+         "at": 8,
          "gives": "ME",
-         "note": "the author of the clue refers to the setter as me"
-        },
+         "note": "the author of the clue is the setter, who refers to themself as me"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycled around",
+         "at": 15,
+         "note": "cycled around means letters from the front of the tree's name are moved round to the back"
+        }
+       ],
+       "parts": [
         {
          "words": "tree",
+         "at": 29,
          "gives": "ALDER",
-         "note": "the alder is a tree"
+         "note": "the alder is a tree of damp ground, related to the birch"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retired writer goes cycling round a tree in the countryside.",
-     "walkthrough": "The final two letters of the tree name are rotated round to its front.",
-     "definitionFit": "Emerald is a vivid shade of green, named after the gemstone."
+     "surface": "A writer in retirement goes cycling round a tree in the countryside.",
+     "walkthrough": "'Cycled around' moves ALD from the front of ALDER to the back, giving ERALD. 'In green' reads as the setting, but green is the definition.",
+     "definitionFit": "Emerald is a bright, rich shade of green, named after the gemstone of that colour."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cycled"
     }

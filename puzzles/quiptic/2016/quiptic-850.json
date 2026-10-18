@@ -746,53 +746,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "YEARS",
+     "op": "composite",
      "indicators": [
       {
        "text": "Unreliable",
-       "note": "an unreliable account cannot be trusted to keep its order, so the letters are rearranged"
+       "at": 0,
+       "note": "an unreliable account cannot be trusted to keep its order, so its letters are rearranged"
+      },
+      {
+       "text": "dismissed",
+       "at": 30,
+       "note": "dismissed tells us the named letters are sent away from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "YEARS",
-       "indicators": [
-        {
-         "text": "dismissed",
-         "note": "whatever is dismissed is sent away, so those letters leave the word"
-        }
-       ],
+       "words": "hearsay",
+       "at": 11
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "hearsay",
-         "note": "taken as written"
-        },
-        {
          "words": "a",
-         "note": "taken as written"
+         "at": 19
         },
         {
          "words": "hospital",
+         "at": 21,
          "gives": "H",
-         "note": "H is the map symbol for a hospital"
+         "note": "H is the standard abbreviation for hospital, as on road signs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Untrustworthy gossip kept a hospital from acting for a very long time.",
-     "walkthrough": "Remove A and H from the gossip word, then rearrange the five letters that remain.",
-     "definitionFit": "Ages is an informal way of saying a long time, as is years in 'I haven't seen her in years'."
+     "surface": "Gossip turns out to be untrustworthy, and a hospital sacked someone over it for a long time.",
+     "walkthrough": "A composite anagram: the letters of HEARSAY are the answer plus A and H, so 'dismissed' sends those two away before the 'unreliable' rearrangement.",
+     "definitionFit": "Ages and years both mean a very long stretch of time, as in 'I haven't seen you for years'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dismissed"
+     "misdirectedWord": "hospital"
     }
    }
   },

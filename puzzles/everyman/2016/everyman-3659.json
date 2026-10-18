@@ -198,52 +198,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TALISMAN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter of that word is dropped"
+       "text": "after",
+       "at": 5,
+       "note": "the chap comes after the rest in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "after says the following word is placed behind what comes before"
+         "text": "endless",
+         "at": 11,
+         "note": "an endless word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "chat",
-         "gives": "TAL",
-         "note": "talk loses its last letter"
+         "at": 19,
+         "gives": "TALK",
+         "note": "to talk is to chat"
         },
         {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "Chap",
-         "gives": "MAN",
-         "note": "a chap is a man"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 24
+      },
+      {
+       "words": "Chap",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a chap is a man"
       }
      ]
     },
     "explanation": {
-     "surface": "A fellow who keeps chatting without stopping is turning on the charm.",
-     "walkthrough": "'Charm' reads as charisma but is the lucky object; chat is TALK, cut short.",
-     "definitionFit": "A talisman is an object believed to bring luck or ward off evil, which is a charm in the amulet sense."
+     "surface": "A man who follows small talk turns out to have plenty of charm.",
+     "walkthrough": "'Charm' looks like a quality of the chap, but it is a lucky object. TALK made 'endless' loses its K; 'after' places MAN at the end.",
+     "definitionFit": "A talisman is an object believed to bring luck or ward off harm, the same as a lucky charm."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "charm"
     }
    }
@@ -660,51 +664,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEPOSE",
-     "indicators": [
-      {
-       "text": "right away",
-       "note": "right gone away means the letter for right is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "at": 10,
+         "note": "the leader in a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader in",
-           "note": "the leader of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "disgrace",
-           "note": "the first letter of disgrace"
-          }
-         ]
-        },
+         "words": "disgrace",
+         "at": 20,
+         "note": "its first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 45,
+         "note": "the right letter goes away, removed from the word for rest"
+        }
+       ],
+       "parts": [
         {
          "words": "rest",
-         "gives": "EPOSE",
-         "note": "repose without its R for right"
+         "at": 33,
+         "gives": "REPOSE",
+         "note": "repose means rest"
+        },
+        {
+         "words": "right",
+         "at": 39,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disgraced ruler is toppled and sent off to retire at once.",
-     "definitionFit": "To depose a ruler is to remove them from power by force, which is to overthrow them."
+     "surface": "A ruler in disgrace is told to rest, with the right-hand side cleared out.",
+     "walkthrough": "'Leader in' takes the first letter of disgrace; REPOSE with 'right away' drops its R.",
+     "definitionFit": "To depose a ruler is to remove them from power, which is to overthrow them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "leader"
     }
    }
   },

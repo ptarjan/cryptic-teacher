@@ -169,57 +169,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RAREBIT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "to return",
-         "note": "return = go back, so the time word is written backwards"
+         "at": 11,
+         "note": "to return is to go back, so the word for time is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "starter of",
-           "note": "the starter of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Right",
-           "note": "R = right"
-          }
-         ]
-        },
-        {
          "words": "time",
-         "gives": "ARE",
-         "note": "ERA = time, turned round"
-        },
-        {
-         "words": "starter of bruschetta",
-         "gives": "B",
-         "note": "first letter of BRUSCHETTA"
-        },
-        {
-         "words": "Italian",
-         "gives": "IT",
-         "note": "IT = Italian (as in gin and it, Italian vermouth)"
+         "at": 6,
+         "gives": "ERA",
+         "note": "an era is a period of time"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starter of",
+         "at": 21,
+         "note": "the starter of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bruschetta",
+         "at": 32,
+         "note": "its first letter is taken"
+        }
+       ]
+      },
+      {
+       "words": "Italian",
+       "at": 47,
+       "gives": "IT",
+       "note": "IT is a standard abbreviation for Italian, as in It vermouth"
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant deciding the moment is right to bring back its Italian starter.",
-     "walkthrough": "The Italian menu is a decoy: the dish is Welsh rarebit, cheese on toast.",
-     "definitionFit": "Rarebit, or Welsh rabbit, is a dish of melted cheese on toast."
+     "surface": "It is the right moment to send back the bruschetta starter and order an Italian dish.",
+     "walkthrough": "The bruschetta and Italian food point to an Italian dish, but the answer is Welsh: rarebit is cheese on toast, also called Welsh rabbit.",
+     "definitionFit": "Rarebit, or Welsh rarebit, is a savoury dish of melted cheese sauce served on toast."
     },
     "features": {
      "answerInScene": true,
@@ -423,56 +426,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AISLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 18,
+       "note": "the shortened union stretches across the letter, which goes inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "cut",
-         "note": "the union's name is cut short, losing its last letter"
-        },
-        {
-         "text": "middle of",
-         "note": "the centre letter of the next word"
+         "at": 14,
+         "note": "a cut word loses its end, here the final letter"
         }
        ],
        "parts": [
         {
-         "words": "Train drivers cut",
-         "gives": "ASLE",
-         "note": "ASLEF, the British train drivers' union, minus its last letter"
+         "words": "Train drivers",
+         "at": 0,
+         "gives": "ASLEF",
+         "note": "ASLEF is the British trade union for train drivers"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "across",
-           "note": "the shortened name lies across the extra letter, enclosing it"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "middle of sidings",
-           "gives": "I",
-           "select": "middle",
-           "note": "middle letter of SIDINGS, placed inside A…SLE"
-          }
-         ]
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 25,
+         "note": "the middle of a seven-letter word is its fourth letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sidings",
+         "at": 35,
+         "note": "its middle letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Train drivers taking a shortcut over the sidings to reach a footpath.",
-     "walkthrough": "ASLEF (Associated Society of Locomotive Engineers and Firemen) is the British train drivers' union. 'Cut' looks like drivers crossing; it docks the F.",
-     "definitionFit": "An aisle is a walkway between rows of seats."
+     "surface": "Striking rail workers stop work across the yard sidings and head for a footpath.",
+     "walkthrough": "ASLEF, the Associated Society of Locomotive Engineers and Firemen, is the British train drivers' union. Cut short it is ASLE, which takes in the I from the middle of sidings.",
+     "definitionFit": "An aisle is a passage between rows of seats, as in a church, plane or supermarket, so a walkway."
     },
     "features": {
      "answerInScene": false,
@@ -508,58 +514,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "POSTWAR",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "Rising",
-         "note": "in a down clue, rising means read upwards, so the letters go backwards"
+         "at": 0,
+         "note": "in a down clue rising means read upwards, so the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "very quietly",
-         "gives": "POS",
-         "note": "SO (very) + P (piano, quietly), turned upwards"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "drinks",
-           "note": "the sailor takes the whiskey inside, as one drinks"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "sailor",
-           "gives": "TAR",
-           "note": "tar = a sailor"
+           "words": "very",
+           "at": 7,
+           "gives": "SO",
+           "note": "so means very, as in 'so good'"
           },
           {
-           "words": "whiskey",
-           "gives": "W",
-           "note": "W is whiskey in the NATO alphabet, inside T…AR"
+           "words": "quietly",
+           "at": 12,
+           "gives": "P",
+           "note": "P is the musical abbreviation for piano, quietly"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "drinks",
+         "at": 28,
+         "note": "drinks means takes in, so the sailor's word holds the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sailor",
+         "at": 21,
+         "gives": "TAR",
+         "note": "a tar is an old word for a sailor"
+        },
+        {
+         "words": "whiskey",
+         "at": 35,
+         "gives": "W",
+         "note": "Whiskey is the NATO alphabet code word for W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor quietly getting drunk on whiskey once the fighting is over.",
-     "walkthrough": "'Very quietly' tempts as PP, the musical marking; here it is SO + P.",
-     "definitionFit": "Hostilities is a formal word for fighting, and the adjective describes the period once a war has ended."
+     "surface": "A sailor quietly gets up and has a whiskey once the fighting is over.",
+     "walkthrough": "'Rising' reverses SO and P to give POS in this down clue, and TAR 'drinks' W to make TWAR.",
+     "definitionFit": "Postwar describes the period after a war has ended, the time following hostilities."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drinks"
+     "misdirectedWord": "whiskey"
     }
    }
   },
@@ -949,47 +969,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BEESWAX",
+     "op": "charade",
      "indicators": [
       {
-       "text": "confused",
-       "note": "the letters of 'was' are mixed up"
+       "text": "after",
+       "at": 40,
+       "note": "the scrambled word and the vote come after the gathering"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "social gathering",
+       "at": 46,
+       "gives": "BEE",
+       "note": "a bee is a gathering for work and socialising, as in a quilting bee or spelling bee"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "the mixed letters and vote come after the gathering"
+         "text": "confused",
+         "at": 23,
+         "note": "confused means mixed up, so the letters of the word are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "social gathering",
-         "gives": "BEE",
-         "note": "a bee is a gathering for work and company, as in a sewing bee"
-        },
-        {
          "words": "was",
-         "note": "WAS jumbled"
-        },
-        {
-         "words": "vote",
-         "gives": "X",
-         "note": "X is the cross marked on a ballot paper"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "vote",
+       "at": 35,
+       "gives": "X",
+       "note": "an X is the mark made on a ballot paper to vote"
       }
      ]
     },
     "explanation": {
-     "surface": "A Polish voter bewildered by the ballot after a party.",
-     "walkthrough": "The capital P makes 'Polish' look like the nationality; it is polish for furniture.",
-     "definitionFit": "Beeswax is a key ingredient of furniture polish."
+     "surface": "Someone from Poland was befuddled by a ballot held after a party.",
+     "walkthrough": "'Polish' looks like a nationality, but it is furniture polish. A bee is an American-style gathering for work or competition, as in a spelling bee.",
+     "definitionFit": "Beeswax is a traditional ingredient of furniture and floor polishes, giving a soft shine."
     },
     "features": {
      "answerInScene": false,
@@ -1375,42 +1397,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removed from",
+       "at": 8,
+       "note": "the article is taken out of the word for grubby"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "removed from",
-         "note": "the article is taken out of the next word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "grubby",
-         "gives": "UNCLEAN",
-         "note": "unclean = grubby"
-        },
-        {
-         "gives": "AN"
-        }
-       ]
+       "words": "grubby",
+       "at": 21,
+       "gives": "UNCLEAN",
+       "note": "unclean means grubby or dirty"
       },
       {
-       "unchecked": true,
        "words": "Article",
-       "note": "AN, the indefinite article, taken from the end of the grubby word"
+       "at": 0,
+       "gives": "AN",
+       "note": "an is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "A dirty-dealing pawnbroker having an item taken away.",
-     "walkthrough": "'Uncle' is old British slang for a pawnbroker. 'Article' looks like a pawned item; it is the grammatical article AN.",
-     "definitionFit": "Uncle is an old slang word for a pawnbroker."
+     "surface": "A newspaper story taken down from a seedy moneylender's file.",
+     "walkthrough": "Uncle is old British slang for a pawnbroker: goods left with them were 'at my uncle's'.",
+     "definitionFit": "Uncle is a dated slang term for a pawnbroker, used for the person who holds pawned goods."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Article"
     }
    }
@@ -1608,41 +1625,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 11,
+       "note": "the Republican leaves, so that letter goes from the meal"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leaves",
-         "note": "the Republican departs from the meal word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "meal",
-         "gives": "BRUNCH",
-         "note": "brunch is a meal"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "meal",
+       "at": 18,
+       "gives": "BRUNCH",
+       "note": "brunch is a late-morning meal combining breakfast and lunch"
       },
       {
-       "unchecked": true,
        "words": "Republican",
-       "note": "R = Republican, taken out of B(R)UNCH"
+       "at": 0,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican walking out of a group lunch.",
-     "walkthrough": "Brunch is the late-morning meal combining breakfast and lunch; 'leaves' is the verb, not foliage.",
-     "definitionFit": "A plain synonym, as in 'a bunch of friends'."
+     "surface": "A Republican politician walks out of a lunch held for some faction.",
+     "walkthrough": "'Leaves' could be the foliage of a bunch of greens, but here it is the verb: the R walks out of BRUNCH.",
+     "definitionFit": "A bunch is a number of things or people together, as in a bunch of friends: a group."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "leaves"
     }
@@ -1733,44 +1744,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MORON",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "saving",
+       "at": 33,
+       "note": "saving means keeping safe inside, so the reversed word holds the letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "returns",
-         "note": "the standard comes back, written backwards"
-        },
-        {
-         "text": "saving",
-         "note": "it keeps the nothing safe inside it"
+         "at": 24,
+         "note": "returns means turns back, so the word is read in reverse"
         }
        ],
        "parts": [
         {
          "words": "accepted standard",
-         "gives": "MRON",
-         "note": "a norm is an accepted standard; NORM turned round"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "O = nothing, zero, inside M…RON"
+         "at": 6,
+         "gives": "NORM",
+         "note": "a norm is an accepted standard of behaviour"
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 40,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A fool who took the standard refund and saved nothing.",
-     "walkthrough": "'Returns' looks like money back; it reverses NORM.",
-     "definitionFit": "A plain synonym: both are insults for a stupid person, moron once being a clinical term."
+     "surface": "A fool sticks to the usual line on tax returns and saves no money at all.",
+     "walkthrough": "'Returns' and 'saving' suggest money, but one reverses NORM to MRON and the other keeps O safe inside.",
+     "definitionFit": "A moron is an informal and insulting word for a very stupid person, an idiot."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "returns"
     }
