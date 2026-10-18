@@ -65,10 +65,13 @@ def d_arity_ins(r):
 
 
 def d_arity_other(r):
-    """del/sub/homophone with more parts than the evaluator takes (del 3+, sub != 3, sound 3+)."""
+    """del/sub/homophone with more parts than the evaluator takes (del 3+, sub 0 or 4+, sound 3+).
+    A one- or two-part substitution is not flagged: a letter swap ("change of heart" WITNESS ->
+    WITLESS, TONNES -> SONNET) is a correct reading the evaluator cannot express, and no redo
+    can file it as a three-part sub."""
     for n in nodes(r["wp"]):
         op, k = n.get("op"), len(n.get("parts") or [])
-        if (op == "deletion" and k >= 3) or (op == "substitution" and k != 3) or (op == "homophone" and k >= 3) \
+        if (op == "deletion" and k >= 3) or (op == "substitution" and k not in (1, 2, 3)) or (op == "homophone" and k >= 3) \
                 or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1):
             return f"{cs.SHORT.get(op, op)} has {k} parts"
 
@@ -120,14 +123,19 @@ def d_leaf_in_def(r):
                 return f"leaf '{lf['words']}' is inside the definition '{d.get('text')}'"
 
 
-def _sanctioned_unchecked(lf, parent):
+def _sanctioned_unchecked(lf, parent, ancestors=()):
     """Whether an unchecked leaf is the mandatory form, not an unverified synonym:
-    the sound leaf under a spoonerism (`soundsLike` says what is said aloud, and its
-    `gives` is not the words' own letters, so it can never be checked), or a `select`
+    a sound leaf anywhere under a spoonerism (`soundsLike` says what is said aloud, and its
+    `gives` is not the words' own letters, so it can never be checked; the usual shape is
+    spoonerism > charade > sound leaves), a letterless leaf under a `hidden` whose own
+    `gives` is a run of the leaf's words (the op over it does the picking), or a `select`
     leaf whose `gives` is letters picked from its own words (first, middle, outer,
     last: the op over it does the picking, the leaf cannot be checked)."""
-    if lf.get("soundsLike") and (parent or {}).get("op") == "spoonerism":
+    if lf.get("soundsLike") and any(a.get("op") == "spoonerism" for a in (*ancestors, parent or {})):
         return True
+    if (parent or {}).get("op") == "hidden" and not L(lf.get("gives")):
+        g = L(parent.get("gives"))
+        return bool(g) and g in L(lf.get("words"))
     if lf.get("select"):
         g, w = L(lf.get("gives")), L(lf.get("words"))
         it = iter(w)
@@ -137,12 +145,12 @@ def _sanctioned_unchecked(lf, parent):
 
 def d_unchecked_leaf_word(r):
     """An unchecked leaf (gives taken as filed) with clue words."""
-    stack = [(r["wp"], None)]
+    stack = [(r["wp"], None, ())]
     while stack:
-        n, parent = stack.pop()
-        stack += [(p, n) for p in n.get("parts") or []]
+        n, parent, anc = stack.pop()
+        stack += [(p, n, anc + ((parent,) if parent else ())) for p in n.get("parts") or []]
         if "op" not in n and n.get("unchecked") and n.get("words") and "dropped" not in (n.get("note") or "") \
-                and not _sanctioned_unchecked(n, parent):
+                and not _sanctioned_unchecked(n, parent, anc):
             return f"unchecked leaf '{n['words']}'"
 
 
