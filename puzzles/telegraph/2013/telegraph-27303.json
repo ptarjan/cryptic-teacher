@@ -955,65 +955,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEROKEE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 42,
+       "note": "under in a down clue puts the last piece below the others"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "drop the last letter of KEEP"
-        },
-        {
-         "text": "under"
+         "text": "initially",
+         "at": 55,
+         "note": "initially means the first letter of the word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "C",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "take the first letter of 'cover'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "cover, initially",
-           "gives": "C",
-           "select": "first",
-           "note": "first letter of COVER"
-          }
-         ]
+         "words": "cover",
+         "at": 48,
+         "note": "first letter of cover"
+        }
+       ]
+      },
+      {
+       "words": "protagonist",
+       "at": 16,
+       "gives": "HERO",
+       "note": "a protagonist is the hero of a story"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 35,
+         "note": "mostly means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "living",
+         "at": 28,
+         "gives": "KEEP",
+         "note": "a living is your keep, as in earning your keep"
         },
         {
-         "words": "protagonist",
-         "gives": "HERO",
-         "note": "the hero is the protagonist of a story"
-        },
-        {
-         "words": "living mostly",
-         "gives": "KEE",
-         "note": "your keep is your living, as in earn your keep; lose the P"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Native American hero lying low, living mostly under cover.",
-     "walkthrough": "'Living' is the noun, as in earning your keep, not the verb.",
-     "definitionFit": "Definition by class: one of the peoples of the south-eastern United States, so a member is a Native American."
+     "surface": "The hero of a story lives in hiding, mostly undercover.",
+     "walkthrough": "'mostly' cuts KEEP to KEE, which goes under C and HERO in this down entry.",
+     "definitionFit": "The Cherokee are a Native American people from the south-eastern United States."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "living"
+     "misdirectedWord": "cover"
     }
    }
   },

@@ -977,41 +977,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARBOREAL",
-     "indicators": [
-      {
-       "text": "not all",
-       "note": "taking not all of a word means part of it is left off, here its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not all",
+         "at": 10,
+         "note": "not all means the word is cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "are",
-         "gives": "AR",
-         "note": "the word with its last letter removed"
+         "at": 18,
+         "note": "are without its last letter"
         },
         {
-         "words": "a post-glacial period",
-         "gives": "BOREAL",
-         "note": "the Boreal is a climatic phase after the last ice age"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a post-glacial period",
+       "at": 25,
+       "gives": "BOREAL",
+       "note": "the Boreal is a climatic period after the last Ice Age"
       }
      ]
     },
     "explanation": {
-     "surface": "Not every tree dates from the era after the Ice Age.",
-     "walkthrough": "The Boreal period ran roughly 9,000 to 7,500 years ago, a cool dry phase after the glaciers retreated.",
-     "definitionFit": "Arboreal means relating to or living in trees, from the Latin for tree, so it is an adjective matching the phrase."
+     "surface": "A note that trees of a post-glacial era were not all present.",
+     "walkthrough": "The Boreal is the name of a warm, dry climatic phase that followed the last glaciation.",
+     "definitionFit": "Arboreal is the adjective for things relating to or living in trees."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "all"
     }
    }
   },
@@ -1940,38 +1944,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PLANETARIUM",
-     "indicators": [
-      {
-       "text": "set back at front",
-       "note": "setting back the opening of a word sends its first couple of letters backwards, so they swap order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "flat",
+       "at": 23,
        "gives": "PLANE",
        "note": "a plane is a flat surface"
       },
       {
-       "words": "central hall",
-       "gives": "ATRIUM",
-       "note": "an atrium is a central hall or courtyard in a building"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "set back at front",
+         "at": 54,
+         "note": "set back at front means only the opening pair of letters is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "central hall",
+         "at": 33,
+         "gives": "ATRIUM",
+         "note": "an atrium is a central hall in a building"
+        },
+        {
+         "gives": "AT"
+        },
+        {
+         "gives": "TA"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An advert for a flat with a central hall, set back from the street.",
-     "walkthrough": "The word 'at' that stands at the front of the hall is what gets set back: the first two letters of the second piece are reversed.",
-     "definitionFit": "A planetarium is a domed building where images of stars and planets are projected, so it is a venue for space shows."
+     "surface": "An apartment with a central hall, its front recessed.",
+     "walkthrough": "Only the first two letters of ATRIUM are turned, making TARIUM.",
+     "definitionFit": "A planetarium is a domed theatre where images of the stars and planets are projected for an audience."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "space"
+     "misdirectedWord": "flat"
     }
    }
   },
@@ -2207,46 +2223,57 @@
      "parts": [
       {
        "words": "about",
+       "at": 9,
        "gives": "CA",
-       "note": "ca. (circa) means about"
+       "note": "CA is circa, about"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "involving",
-         "note": "to involve something is to take it in, so pieces are placed inside a word"
+         "at": 26,
+         "note": "involving means taking in, so the trial holds the other letters"
         }
        ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "separated",
+           "at": 36,
+           "note": "separated means the two inserted pieces go into the trial at different places"
+          }
+         ],
          "parts": [
           {
            "words": "court case",
+           "at": 15,
            "gives": "TRIAL",
-           "note": "a trial is a case heard in court"
+           "note": "a trial is a court case"
           },
           {
-           "words": "separated self",
-           "gives": "EGO",
-           "note": "the ego is the self; 'separated' means it goes in apart from the next piece"
+           "words": "Charlie",
+           "at": 55,
+           "gives": "C",
+           "note": "C is Charlie in the NATO phonetic alphabet"
           }
          ]
         },
         {
-         "words": "Charlie",
-         "gives": "C",
-         "note": "Charlie is the NATO alphabet word for C"
+         "words": "self",
+         "at": 46,
+         "gives": "EGO",
+         "note": "the ego is the self"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is sure about a court case concerning a split personality and a man called Charlie.",
-     "walkthrough": "'Separated' tells you the two inserted pieces go in at different places in the court case, not side by side.",
-     "definitionFit": "A categorical statement is absolute and unqualified, so it is definite."
+     "surface": "Someone sure of a court case about a divided personality.",
+     "definitionFit": "Categorical means absolute and unqualified, as in a categorical denial, so it is definite."
     },
     "features": {
      "answerInScene": false,

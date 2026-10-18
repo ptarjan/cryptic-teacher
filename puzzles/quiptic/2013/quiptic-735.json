@@ -174,36 +174,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANGST",
-     "indicators": [
-      {
-       "text": "Leaderless",
-       "note": "without a leader means the first letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Leaderless",
+         "at": 0,
+         "note": "leaderless means without its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "gang",
-         "gives": "ANG",
-         "note": "the word gang without its first letter"
+         "at": 11,
+         "note": "gang without its first letter"
         },
         {
-         "words": "street",
-         "gives": "ST",
-         "note": "ST is the abbreviation for street"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "street",
+       "at": 19,
+       "gives": "ST"
       }
      ]
     },
     "explanation": {
-     "surface": "A gang with no boss roaming the street is frightening the neighbourhood.",
-     "definitionFit": "Angst is a feeling of deep anxiety or dread, close in sense to fear."
+     "surface": "A gang with no boss out on the street makes people afraid.",
+     "definitionFit": "Angst is a feeling of dread or anxiety, a form of fear."
     },
     "features": {
      "answerInScene": true,
@@ -788,8 +790,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Clown",
-      "at": 0
+      "text": "Clown's",
+      "at": 0,
+      "note": "read as Clown is, the 's joining the definition to the wordplay"
      }
     ],
     "wordplay": {
@@ -797,40 +800,44 @@
      "indicators": [
       {
        "text": "is entertaining",
-       "note": "entertaining guests means having them in, so the other pieces go inside"
+       "at": 13,
+       "note": "is entertaining means hosting guests inside, so the gift holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "gift",
-         "gives": "BOON",
-         "note": "a boon is a blessing or gift"
-        },
-        {
-         "words": "upper-class",
-         "gives": "U",
-         "note": "U means upper-class in British usage"
-        }
-       ]
+       "words": "gift",
+       "at": 8,
+       "gives": "BOON",
+       "note": "a boon is a gift or blessing"
       },
       {
-       "words": "fellows",
-       "gives": "FF",
-       "note": "F is fellow, doubled for the plural"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "upper-class",
+         "at": 29,
+         "gives": "U"
+        },
+        {
+         "words": "fellows",
+         "at": 41,
+         "gives": "FF",
+         "note": "F is the abbreviation for fellow; FF makes it plural"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clown's talent lies in amusing posh men.",
-     "definitionFit": "A buffoon is a ridiculous person who plays the fool, much like a clown."
+     "surface": "A clown's talent is amusing the toffs.",
+     "walkthrough": "'Clown's' stands for 'Clown is', so the definition is the clown.",
+     "definitionFit": "A buffoon is someone who acts the fool, a synonym of clown."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "entertaining"
+     "misdirectedWord": "gift"
     }
    }
   },

@@ -769,45 +769,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "playing",
-       "note": "players move about the pitch, so the remaining letters are shuffled into a new order"
+       "at": 27,
+       "note": "playing suggests the letters are moving about, so the fodder is rearranged"
+      },
+      {
+       "text": "without",
+       "at": 35,
+       "note": "without tells us some letters of the fodder are left out of the rearrangement"
       }
      ],
      "parts": [
       {
+       "words": "underdogs",
+       "at": 17
+      },
+      {
        "op": "deletion",
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so the stated letters are taken away from the fodder"
+         "text": "half of",
+         "at": 43,
+         "note": "half of the four-letter word side is two of its letters, here the back pair"
         }
        ],
        "parts": [
         {
-         "words": "underdogs",
-         "note": "taken as written; it is the fodder"
+         "words": "side",
+         "at": 51,
+         "note": "side keeps only its second half"
         },
         {
-         "words": "half of side",
-         "gives": "DE",
-         "note": "the second half of the word side"
+         "gives": "SI"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is there any reason for the underdogs fielding a team that is only half complete?",
-     "walkthrough": "Remove DE from UNDERDOGS, leaving UNRDOGS, then rearrange.",
-     "definitionFit": "Grounds are the reasons or basis for an action, which is what a justification supplies."
+     "surface": "Speculation about whether underdogs playing a man short have any excuse.",
+     "walkthrough": "'half of side' gives DE; take D and E away from the letters of UNDERDOGS and 'playing' rearranges the rest.",
+     "definitionFit": "Grounds are the reasons offered to justify something, as in grounds for complaint."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "playing"
+     "misdirectedWord": "side"
     }
    }
   },
@@ -1372,42 +1382,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COUNSEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter of the word is dropped"
+       "text": "to tackle",
+       "at": 26,
+       "note": "to tackle is to grab hold of, so the shortened word wraps around the points"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to tackle",
-         "note": "to tackle someone is to grab them round the middle, so one piece holds the other"
+         "text": "mostly",
+         "at": 19,
+         "note": "mostly means the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "was able",
-         "gives": "COUL",
-         "note": "could, losing its last letter"
+         "at": 10,
+         "gives": "COULD",
+         "note": "was able means could"
         },
         {
-         "words": "three points",
-         "gives": "NSE",
-         "note": "north, south and east are three points of the compass"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "three points",
+       "at": 36,
+       "gives": "NSE",
+       "note": "three compass points: north, south and east"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer managed, mostly, to deal with three arguments in a case.",
-     "definitionFit": "Counsel is the term for a barrister or barristers presenting a case in court."
+     "surface": "A lawyer once managed to deal with three points of argument.",
+     "walkthrough": "'mostly' cuts COULD to COUL, which goes around N, S and E.",
+     "definitionFit": "In Britain counsel is the term for a barrister acting for a client in court."
     },
     "features": {
      "answerInScene": true,

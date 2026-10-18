@@ -822,58 +822,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERIYAKI",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "made brief, the word is cut short by losing its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 14,
+         "note": "cooked means altered or mixed up, signalling the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "cooked",
-           "note": "cooked letters are mixed up and transformed like ingredients"
+           "text": "Briefly",
+           "at": 0,
+           "note": "briefly means cut short, so tried loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "tried",
-           "gives": "TRIE",
-           "note": "tried shortened by one letter"
+           "at": 8,
+           "note": "tried without its final letter"
           },
           {
-           "words": "rabbit",
-           "gives": "YAK",
-           "note": "to rabbit, as to yak, is to chatter on"
+           "gives": "D"
           }
          ]
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "rabbit",
+       "at": 21,
+       "gives": "YAK",
+       "note": "to rabbit and to yak both mean to chatter"
+      },
+      {
+       "words": "one",
+       "at": 29,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sampled cooked rabbit as an Asian dish.",
-     "walkthrough": "'Rabbit' looks like the meat, but it is the British verb for chattering. 'Rabbit on' means talk at length.",
-     "definitionFit": "Teriyaki is a Japanese dish of meat or fish glazed with sweet soy sauce, so it comes from Asia."
+     "surface": "Someone quickly tried rabbit cooked as an Asian dish.",
+     "walkthrough": "'rabbit' is not the animal: to rabbit on is British slang for chattering, as is to yak. TRIE, shortened from tried, is rearranged to TERI.",
+     "definitionFit": "Teriyaki is a Japanese cooking style with a glaze of soy and mirin, served as a dish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "rabbit"
     }
    }

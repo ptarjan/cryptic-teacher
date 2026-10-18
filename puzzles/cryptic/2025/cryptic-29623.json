@@ -580,39 +580,46 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces inside the letters of the next word"
+       "at": 34,
+       "note": "in places the letters within the word my"
       }
      ],
      "parts": [
       {
        "words": "my",
-       "note": "taken as written, the outer shell"
+       "at": 37,
+       "gives": "MY",
+       "note": "taken as written"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "beginning to",
-         "note": "beginning to signals just the opening letter of the following word is taken"
-        }
-       ],
        "parts": [
         {
          "words": "Second",
+         "at": 0,
          "gives": "OTHER",
-         "note": "a second option is the other one"
+         "note": "second as in a second or other option"
         },
         {
          "words": "nobleman",
+         "at": 7,
          "gives": "COUNT",
-         "note": "a count is a European noble"
+         "note": "a count is a European nobleman"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 16,
+           "note": "beginning to means the first letter of the next word"
+          }
+         ],
          "parts": [
           {
            "words": "rule",
-           "note": "the first letter of this word"
+           "at": 29,
+           "note": "first letter of rule"
           }
          ]
         }
@@ -621,9 +628,8 @@
      ]
     },
     "explanation": {
-     "surface": "A second-rank aristocrat starting to govern in the speaker's native land.",
-     "walkthrough": "M and Y go round OTHER, COUNT and R. 'Second' looks like a time abbreviation but means other.",
-     "definitionFit": "Mother country is a phrase for the land of one's birth or ancestry, the same idea as a homeland."
+     "surface": "A deputy aristocrat begins to govern in someone's own country.",
+     "definitionFit": "Your mother country is the land of your birth or ancestry, your homeland."
     },
     "features": {
      "answerInScene": true,
@@ -1144,53 +1150,57 @@
      "indicators": [
       {
        "text": "transfixing",
-       "note": "transfixing means piercing through, so these pieces go through the middle of the team letters"
+       "at": 20,
+       "note": "transfixing means piercing through, so the error goes through the middle of the team"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 32,
+         "note": "half of the four-letter team is two letters, the front pair here"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "half of keeps only two of the four letters of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "team",
-           "note": "only its first half is kept, the outer shell"
-          },
-          {
-           "gives": "AM"
-          }
-         ]
+         "words": "team",
+         "at": 40,
+         "note": "team keeps only its first half"
         },
         {
-         "words": "Own goal perhaps",
-         "gives": "ERROR",
-         "note": "an own goal is an example of an error"
+         "gives": "AM"
         }
        ]
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Own goal perhaps",
+         "at": 0,
+         "gives": "ERROR",
+         "note": "an own goal is an example of an error"
+        },
+        {
+         "words": "is",
+         "at": 17
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football own goal leaves half the team in a state of fright.",
-     "walkthrough": "'Perhaps' flags an own goal as just one kind of mistake, a definition by example.",
-     "definitionFit": "To terrorise is to frighten someone badly, so it works as the verb scare."
+     "surface": "A defender's own goal sends a shockwave through the side.",
+     "walkthrough": "'half of team' is TE; ERROR plus IS go through it.",
+     "definitionFit": "To terrorise is to fill with fear, a stronger form of the verb scare."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "goal"
+     "misdirectedWord": "transfixing"
     }
    }
   },

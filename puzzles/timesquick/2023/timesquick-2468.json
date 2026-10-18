@@ -665,41 +665,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTOGRAPH",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of a word is all but its final letter"
+       "text": "used",
+       "at": 20,
+       "note": "used in the sense of worked over or reshaped, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "used",
-         "note": "letters that are used are put to work in a new arrangement"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of the word page means all of it except its final letter"
         }
        ],
        "parts": [
         {
          "words": "page",
-         "gives": "PAG",
-         "note": "the word without its last letter"
+         "at": 8,
+         "note": "page without its last letter"
         },
         {
-         "words": "author",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "author",
+       "at": 13,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer signing a book on almost all of a page.",
-     "definitionFit": "An autograph is a person's handwritten signature, especially a famous one."
+     "surface": "A writer borrows part of a page to sign their name.",
+     "walkthrough": "'Most of' trims page to PAG; 'used' then rearranges PAG together with AUTHOR.",
+     "definitionFit": "An autograph is a person's own handwritten name, the same thing as their signature."
     },
     "features": {
      "answerInScene": true,
