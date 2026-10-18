@@ -555,7 +555,10 @@ def _assembly(tree, got):
                                             and _slip_size(got[id(_parts(n)[0])], got[id(n)]) <= SLIP_LETTERS))]
     revs = [{"from": got[id(_parts(n)[0])], "to": got[id(n)]}
             for n, _ in _walk(tree) if n.get("op") == "reversal" and id(_parts(n)[0]) in got
-            and not n.get("unchecked")]
+            and not n.get("unchecked")
+            # A reversal of a named stretch (wordplay._span_flips) is no whole-word
+            # reversal: the list says from -> to read backwards, so it is left out.
+            and _letters(got[id(_parts(n)[0])])[::-1] == _letters(got[id(n)])]
     if anas:
         out["anagrams"] = anas
     if revs:
