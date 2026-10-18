@@ -3980,14 +3980,36 @@ ORDERING_INDICATORS = frozenset(
     "in front of|going before|preceding|followed by|supporting|on|to|for|from|getting|"
     "having|bringing|giving|making|showing|catching|joining|meeting|alongside|against|"
     "early|late|last|finally|at last|at the end|"
-    "to follow|coming after|going after|in pursuit of|pursuing".split("|"))
+    "to follow|coming after|going after|in pursuit of|pursuing|close to|near|adjacent to|"
+    "touching|joined to|attached to".split("|"))
+
+
+#: An inner container whose indicator says its piece goes in apart from the other
+#: ("separately", "in two places"): the two pieces land at different points of one
+#: holder, which no charade of them can say (WILBERFORCE, UNDERTHEWEATHER).
+SEPARATE_INSERTION = re.compile(r"separate|apart|two places|different|both|each|respective|twice", re.I)
+
+
+def _separate_insertion(outer, inner):
+    """True when `outer` = ins(inner = ins(holder, x), y) puts x and y in at different
+    points on purpose: the inner indicator says so, or x and y are the same letters
+    (a letter put in twice, MALAYAN) since a charade of the two is not a fair parse
+    of a repeated piece named once."""
+    if any(SEPARATE_INSERTION.search(str(i.get("text") or "")) for i in inner.get("indicators") or []):
+        return True
+    x = (inner.get("parts") or [None, None])[1:2]
+    y = (outer.get("parts") or [None, None])[1:2]
+    same = lambda p: wordplay.letters(p.get("gives") or p.get("words")) if isinstance(p, dict) and "op" not in p else None
+    return bool(x and y and same(x[0]) and same(x[0]) == same(y[0]))
 
 
 def nested_containers(tree):
-    """How many checked containers hold, as their first part, another checked container."""
+    """How many checked containers hold, as their first part, another checked container
+    (less the ones that put two pieces into one holder at different points on purpose)."""
     return sum(1 for n in _walk(tree) if n.get("op") == "container" and not n.get("unchecked")
                for p in (n.get("parts") or [])[:1]
-               if isinstance(p, dict) and p.get("op") == "container" and not p.get("unchecked"))
+               if isinstance(p, dict) and p.get("op") == "container" and not p.get("unchecked")
+               and not _separate_insertion(n, p))
 
 
 #: An anagram scrambles the clue's own letters. A leaf in its fodder that gives a
