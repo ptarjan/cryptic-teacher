@@ -980,63 +980,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DAUNTING",
+     "indicators": [
+      {
+       "text": "to wear",
+       "at": 28,
+       "note": "the relative at home puts on the coat, so those letters go inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "to wear"
+         "text": "coat",
+         "at": 42,
+         "note": "a coat is the outer layer, so only the first and last letters of dog are kept"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "D",
-         "indicators": [
-          {
-           "text": "coat"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "dog's coat",
-           "gives": "D",
-           "select": "outer",
-           "note": "first of the outer letters of dog"
-          }
-         ]
-        },
+         "words": "dog's",
+         "at": 36,
+         "gives": "DOG",
+         "note": "the word dog, whose coat is meant"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "relative",
+         "at": 11,
          "gives": "AUNT",
          "note": "an aunt is a relative"
         },
         {
          "words": "at home",
+         "at": 20,
          "gives": "IN",
-         "note": "in = at home"
-        },
-        {
-         "words": "dog's coat",
-         "gives": "G",
-         "note": "last of the outer letters of dog"
+         "note": "in means at home, as in staying in"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stern relative stays in and wears a dog-fur coat.",
-     "walkthrough": "The coat is the outside of the word DOG, not its fur.",
-     "definitionFit": "A plain synonym: a forbidding cliff face is one that makes you lose heart before you start."
+     "surface": "An aunt stays in and dresses up in the pet's fur, which is rather alarming.",
+     "walkthrough": "'Dog's coat' is the outside of DOG, namely D and G, and AUNT plus IN goes inside it.",
+     "definitionFit": "Something daunting is intimidating and off-putting, which is what forbidding means as an adjective."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "coat"
     }
    }
@@ -1456,27 +1453,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARNE",
+     "op": "middle",
      "indicators": [
       {
        "text": "to lose case",
-       "note": "the word's outer letters, its case, are removed"
+       "at": 36,
+       "note": "the case is the outside of the word, so its first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "deserved",
-       "gives": "ARNE",
-       "note": "EARNED without its first and last letters"
+       "at": 27,
+       "gives": "EARNED",
+       "note": "earned means deserved, as in an earned reward"
       }
      ]
     },
     "explanation": {
-     "surface": "A staff member who hands out notes deserved to lose a legal case.",
-     "walkthrough": "The notes are musical and the staff is the musical stave; Thomas Arne composed Rule, Britannia!",
-     "definitionFit": "Arne was a composer, someone who puts notes on the staff."
+     "surface": "Someone who wrote memos for employees deserved to lose a legal case.",
+     "walkthrough": "'Notes on staff' sounds like office memos, but the staff is the musical stave and the notes are music: Thomas Arne was an English composer, author of Rule, Britannia!",
+     "definitionFit": "A composer puts musical notes on the stave, so the composer of Rule, Britannia! provides them."
     },
     "features": {
      "answerInScene": false,
@@ -1571,36 +1568,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EEL",
      "indicators": [
       {
        "text": "not",
-       "note": "'not run' means without the run, so that letter is taken away"
+       "at": 11,
+       "note": "the word for swim is taken without the letter for run"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "swim",
-         "gives": "EEL",
-         "note": "reel = swim (as a head swims), minus R"
-        },
-        {
-         "unchecked": true,
-         "words": "run",
-         "note": "r = run, the letter removed"
-        }
-       ]
+       "words": "swim",
+       "at": 5,
+       "gives": "REEL",
+       "note": "when your head swims it reels, so swim means reel"
+      },
+      {
+       "words": "run",
+       "at": 15,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "A fish swims but does not run.",
-     "walkthrough": "'Swim' is what your head does when dizzy, so it means reel; r is the cricket abbreviation for a run.",
-     "definitionFit": "A definition by category: the eel is a long snake-like fish, a crossword regular for its three letters."
+     "surface": "An instruction to a fish: swim, don't run.",
+     "walkthrough": "'Swim' looks like what the fish does, but it is the giddy sense, as when a head swims or reels.",
+     "definitionFit": "The eel is a long snakelike fish, so it is one example of a fish."
     },
     "features": {
      "answerInScene": true,
@@ -1630,32 +1623,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIL",
+     "op": "middle",
      "indicators": [
       {
        "text": "coverage must be removed from",
-       "note": "the word's outside letters are stripped"
+       "at": 9,
+       "note": "the covering of a word is its outer letters, so the first and last are stripped"
       }
      ],
      "parts": [
       {
        "words": "newspaper",
-       "gives": "AIL",
-       "note": "DAILY without its outer D and Y"
+       "at": 39,
+       "gives": "DAILY",
+       "note": "a daily is a newspaper published every day"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper should drop its unpleasant reporting.",
-     "walkthrough": "'Coverage' is press coverage in the surface; in the wordplay it is the cover, the outer letters of DAILY, a daily newspaper.",
-     "definitionFit": "A slightly old-fashioned verb for being ill, as in 'what ails you?'"
+     "surface": "Someone feels unwell about a story that must be pulled from the paper.",
+     "walkthrough": "'Coverage' sounds like press reporting, but it is the word's outer layer: D and Y come off DAILY.",
+     "definitionFit": "To ail is to be unwell or in poor health, the verb that matches feel bad."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "coverage"
     }
    }
@@ -1749,51 +1741,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "empty",
-       "note": "HISTORIC with its contents taken out"
+       "text": "ground",
+       "at": 35,
+       "note": "ground means crushed or milled, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "lease",
+       "at": 14,
+       "note": "taken as written"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "ground",
-         "note": "ground up, the letters broken down and remixed"
+         "text": "empty",
+         "at": 20,
+         "note": "an empty word loses its insides, leaving the first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "lease",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "HC",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "empty historic",
-           "gives": "HC",
-           "select": "outer",
-           "note": "the outside letters of historic"
-          }
-         ]
+         "words": "historic",
+         "at": 26,
+         "note": "taken as written, emptied to its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football club leases an old stadium standing empty.",
-     "walkthrough": "'Ground' is the stadium in the surface and the anagram signal in the wordplay; Chelsea is a London football club.",
-     "definitionFit": "Chelsea is an English Premier League football team."
+     "surface": "A club rents an old, deserted stadium.",
+     "walkthrough": "'Ground' looks like a stadium, but it is a past participle signalling the anagram of LEASE plus HC from 'empty historic'.",
+     "definitionFit": "Chelsea is a Premier League football club based at Stamford Bridge in west London."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "ground"
     }
    }

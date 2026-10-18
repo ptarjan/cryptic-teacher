@@ -363,37 +363,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AWESOME",
-     "indicators": [
-      {
-       "text": "removed from",
-       "note": "removing something from a word takes those letters out, leaving the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "kelp, say",
-       "gives": "SEAWEED",
-       "note": "kelp is an example of seaweed"
-      },
-      {
-       "words": "Seed split",
-       "gives": "SEED",
-       "note": "the word seed in two parts, one at each end"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "split and removed from",
+         "at": 5,
+         "note": "the letters of seed are split up and each taken out of the kelp word in turn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kelp, say",
+         "at": 28,
+         "gives": "SEAWEED",
+         "note": "kelp is an example of seaweed, as the say signals"
+        },
+        {
+         "words": "Seed",
+         "at": 0,
+         "note": "taken as written, its letters taken out one by one"
+        }
+       ]
       },
       {
        "words": "not a little",
+       "at": 40,
        "gives": "SOME",
-       "note": "some is a fair amount, not just a little"
+       "note": "some, as in some nerve, means a fair amount: not a little"
       }
      ]
     },
     "explanation": {
-     "surface": "A marine biologist marvels at seeds teased out of kelp.",
-     "walkthrough": "'Seed split' means the word is cut in two, with one part at each end of the kelp word, so removing it leaves the core.",
-     "definitionFit": "Something awesome inspires wonder, which is exactly what an impressive sight does."
+     "surface": "A gardener's or botanist's note about extracting seed from kelp, rated rather impressive.",
+     "walkthrough": "Taking S, E, E and D separately out of SEAWEED leaves AWE; 'not a little' is SOME in its sense of considerable.",
+     "definitionFit": "Awesome means inspiring wonder or admiration, which is what something impressive does."
     },
     "features": {
      "answerInScene": false,
@@ -1092,39 +1098,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "thrashing about",
-       "note": "thrashing about is wild disordered movement"
+       "text": "inside",
+       "at": 20,
+       "note": "the jumbled letters go inside the word for leaves"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "leaves",
+       "at": 27,
+       "gives": "PAGES",
+       "note": "the leaves of a book are its pages"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside places one thing within another"
+         "text": "thrashing about",
+         "at": 4,
+         "note": "thrashing about means flailing wildly, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "leaves",
-         "gives": "PAGES",
-         "note": "the leaves of a book"
-        },
-        {
          "words": "One",
-         "note": "rearranged"
+         "at": 0,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone thrashing among fallen leaves while in captivity.",
-     "definitionFit": "Peonage is a system of servitude where labourers are bound to work off debts."
+     "surface": "Someone flails around in a heap of fallen leaves.",
+     "walkthrough": "'Leaves' looks botanical but means book pages; EON, from 'One thrashing about', goes inside PAGES.",
+     "definitionFit": "Peonage is a system of forced labour to pay off debt, so the plural names conditions of servitude."
     },
     "features": {
      "answerInScene": false,
@@ -1556,47 +1567,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "new",
-       "note": "making something new reshapes it"
-      },
-      {
-       "text": "fantastic",
-       "note": "fantastic suggests wild invention, so the letters are rearranged freely"
+       "text": "about",
+       "at": 17,
+       "note": "the first rearranged word goes round the second"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, one set placed around the other"
+         "text": "new",
+         "at": 8,
+         "note": "a new version of the word is a fresh arrangement of its letters"
         }
        ],
        "parts": [
         {
          "words": "tune",
-         "note": "tune rearranged"
-        },
+         "at": 12,
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fantastic",
+         "at": 23,
+         "note": "fantastic here means fanciful or bizarre, so these letters are rearranged too"
+        }
+       ],
+       "parts": [
         {
          "words": "fans",
-         "note": "fans rearranged"
+         "at": 33,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Releasing a new song about devoted followers.",
-     "definitionFit": "To unfasten is to undo a fastening, letting something loose."
+     "surface": "A band releases a new song about its devoted followers.",
+     "walkthrough": "UNTEN (a 'new' TUNE) goes 'about' FAS (the 'fantastic' FANS), giving UN-FAS-TEN.",
+     "definitionFit": "To unfasten something is to undo its fastenings and so set it free, which is to release it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fans"
+     "misdirectedWord": "Release"
     }
    }
   },
@@ -1881,49 +1905,59 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Measurements",
+      "text": "Measurements from tools",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "new",
-       "note": "new signals a fresh arrangement"
+       "text": "in",
+       "at": 24,
+       "note": "in sets having letters installed: the sets word is where the new letters go"
+      },
+      {
+       "text": "installed",
+       "at": 47,
+       "note": "the rearranged letters are put in place inside the word for sets"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sets",
+       "at": 27,
+       "gives": "GANGS",
+       "note": "a set of people is a group or gang"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "installed",
-         "note": "installing something puts it inside"
+         "text": "new",
+         "at": 39,
+         "note": "a new version of the letters is a fresh arrangement of them"
         }
        ],
        "parts": [
         {
-         "words": "tools in sets",
-         "gives": "GANGS",
-         "note": "a gang is a set of tools used together"
-        },
-        {
          "words": "GUI",
-         "note": "the letters rearranged"
+         "at": 43,
+         "note": "taken as written, then rearranged: a graphical user interface"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Surveying from toolkits with a new graphical user interface installed.",
-     "definitionFit": "Gaugings are measurings taken with a gauge."
+     "surface": "Computer sets get a new graphical user interface installed, along with tool readings.",
+     "walkthrough": "UGI, a 'new' arrangement of GUI, is 'installed' in GANGS after GA.",
+     "definitionFit": "Gauges are measuring instruments, and gaugings are the readings they take, such as depth or flow."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "GUI"
+     "misdirectedWord": "sets"
     }
    }
   },

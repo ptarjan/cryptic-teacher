@@ -523,27 +523,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESENT",
+     "op": "middle",
      "indicators": [
       {
        "text": "unwrapped",
-       "note": "unwrapping strips away the outer covering, so the outside letters are removed"
+       "at": 18,
+       "note": "the gifts lose their wrapping, the first and last letters on the outside of the word"
       }
      ],
      "parts": [
       {
        "words": "Christmas gifts",
+       "at": 28,
        "gives": "PRESENTS",
-       "note": "gifts given at Christmas"
+       "note": "presents are gifts given at Christmas"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is offended by receiving unwrapped Christmas presents.",
-     "walkthrough": "'Unwrapped' sounds like a complaint about the gifts, but it takes off the first and last letters.",
-     "definitionFit": "To take exception to something is to object to it or feel aggrieved by it, the same sense as to begrudge."
+     "surface": "Someone objects to finding their Christmas gifts handed over without any wrapping paper.",
+     "walkthrough": "'Unwrapped' looks like a description of careless giving, but it strips P and S from the ends of PRESENTS.",
+     "definitionFit": "To resent something is to feel bitter indignation at it, the same as taking exception to it."
     },
     "features": {
      "answerInScene": true,
@@ -758,40 +758,54 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "ABYSS",
-     "indicators": [
-      {
-       "text": "during",
-       "note": "something that happens during another is within it, so the letters lie inside the phrase"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "ABYSS",
        "indicators": [
         {
-         "text": "Doing a somersault",
-         "note": "a somersault flips you over, so the letters read backwards"
+         "text": "Doing",
+         "at": 0,
+         "note": "doing a somersault turns the performer over, so this word belongs with the reversal signal"
+        },
+        {
+         "text": "somersault",
+         "at": 8,
+         "note": "a somersault turns head over heels, so the hidden letters are read backwards"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "embassy ball",
-         "note": "the letters run backwards across the end of the first word and the start of the second"
+         "op": "hidden",
+         "indicators": [
+          {
+           "text": "during",
+           "at": 19,
+           "note": "the letters are found inside the run of the phrase embassy ball"
+          }
+         ],
+         "parts": [
+          {
+           "words": "embassy ball",
+           "at": 26,
+           "gives": "SSYB",
+           "note": "the letters sit across the end of embassy and the start of ball"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A guest turns a somersault at an embassy ball, which is declared null.",
-     "walkthrough": "Read 'embassy ball' backwards and the answer appears straddling the two words: ...SSY BA...",
-     "definitionFit": "An abyss is a bottomless chasm or emptiness, so it serves as a noun synonym of a void."
+     "surface": "A guest turns cartwheels at a diplomatic dance, which is ruled invalid.",
+     "walkthrough": "The letters SSYB sit inside 'embassy ball'; turned over by 'somersault' they become BYSS, placed after A.",
+     "definitionFit": "A void is an empty bottomless space, which is what an abyss is: a chasm too deep to measure."
     },
     "features": {
      "answerInScene": false,

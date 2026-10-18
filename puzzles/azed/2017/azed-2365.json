@@ -297,42 +297,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEMEME",
+     "op": "container",
      "indicators": [
       {
-       "text": "semi",
-       "note": "semi means half, so only half of the following word survives and the rest is dropped"
+       "text": "in",
+       "at": 14,
+       "note": "the doubled rule goes inside the halved word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "placing one thing in another puts it inside"
+         "text": "semi",
+         "at": 17,
+         "note": "semi means half, so only half of the following word is kept"
         }
        ],
        "parts": [
         {
-         "words": "semi (",
-         "gives": "SE",
-         "note": "half of the word semi, its first two letters"
+         "words": "semi",
+         "at": 22,
+         "note": "taken as written, then halved to its first two letters"
         },
         {
-         "words": "Rule repeated",
-         "gives": "EMEM",
-         "note": "an em rule is a printer's dash, so EM twice"
+         "gives": "MI"
         }
        ]
+      },
+      {
+       "words": "Rule repeated",
+       "at": 0,
+       "gives": "EMEM",
+       "note": "an em rule is a printer's long dash, so EM, written twice"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about prefixes: 'semi semi' looks like a stutter, and the bracket glosses it.",
-     "walkthrough": "The first semi is the instruction 'half'; the second is the word halved. An em rule is the long dash in printing.",
+     "surface": "A bracketed definition sits beside a playful instruction about repeating rules inside half-words.",
+     "walkthrough": "The first 'semi' tells you to take half of the second, leaving SE; an em rule is a typesetting dash, and two of them, EMEM, go 'in' it.",
      "definitionFit": "In linguistics a sememe is the smallest unit of meaning, one that cannot be broken down further."
     },
     "features": {
@@ -409,26 +413,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HORA",
+     "op": "middle",
      "indicators": [
       {
        "text": "without limits",
-       "note": "limits are the edges, so the outermost letters at each end are dropped"
+       "at": 25,
+       "note": "the word loses its limits, the letters at each end"
       }
      ],
      "parts": [
       {
        "words": "music for singing",
+       "at": 6,
        "gives": "CHORAL",
-       "note": "choral music is written for singers"
+       "note": "choral music is written for a choir to sing"
       }
      ]
     },
     "explanation": {
-     "surface": "A dance set to vocal music performed without restraint.",
-     "definitionFit": "The hora is a lively Romanian and Israeli circle dance."
+     "surface": "A dance tune meant for voices is performed without any restrictions.",
+     "walkthrough": "'Without limits' sounds like unrestrained singing, but it trims C and L from the ends of CHORAL.",
+     "definitionFit": "The hora is a circle dance from the Balkans and Israel, a traditional folk dance at weddings."
     },
     "features": {
      "answerInScene": true,

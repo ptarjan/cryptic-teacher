@@ -667,48 +667,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SNAKEOIL",
+     "op": "container",
      "indicators": [
       {
-       "text": "practically",
-       "note": "practically means almost, so the word falls just short of complete"
+       "text": "caked in",
+       "at": 40,
+       "note": "something caked in dirt is coated in it, so the dirt goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dirt",
+       "at": 49,
+       "gives": "SOIL",
+       "note": "soil is earth, dirt"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "caked in",
-         "note": "something caked in mud is wrapped by it, so one piece sits within the other"
+         "text": "practically",
+         "at": 18,
+         "note": "practically means almost, so the word for starkers loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "dirt",
-         "gives": "SOIL",
-         "note": "earth or muck"
+         "words": "starkers",
+         "at": 30,
+         "gives": "NAKED",
+         "note": "starkers is British slang for stark naked"
         },
         {
-         "words": "starkers",
-         "gives": "NAKE",
-         "note": "starkers is British slang for naked; drop the final letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quack's advice: strip off and roll in mud for a miracle cure.",
-     "definitionFit": "The phrase names a fraudulent remedy sold by quacks as a cure for everything."
+     "surface": "A quack's patter: strip off and smear yourself with mud to be cured.",
+     "walkthrough": "'Starkers' is British slang for naked; almost all of it, NAKE, is 'caked in' SOIL.",
+     "definitionFit": "Snake oil is a fraudulent remedy sold as a cure-all, the sarcastic sense of a miracle cure."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "absurd",
-     "misdirectedWord": "starkers"
+     "misdirectedWord": "caked"
     }
    }
   },
@@ -1229,39 +1235,31 @@
    "annotation": {
     "definitions": [
      {
-      "text": "one who has them",
-      "at": 29
+      "text": "habits' — one who has them",
+      "at": 19
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Vigorously",
+       "at": 1,
+       "note": "done vigorously, the letters are shaken up into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Vigorously",
-         "note": "doing something vigorously shakes it up, so the letters are thrown around"
-        }
-       ],
-       "parts": [
-        {
-         "words": "resist",
-         "note": "the letters to be rearranged"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "habits",
-       "note": "surface padding: the thing the definition's 'them' points back to"
+       "words": "resist",
+       "at": 12,
+       "note": "taken as written, then rearranged"
       }
      ]
     },
     "explanation": {
-     "surface": "A slogan urging people to fight bad habits, credited to someone who has them.",
-     "walkthrough": "'Habits' looks like bad tendencies; the definition reads it as the nun's robes.",
-     "definitionFit": "A nun is addressed as Sister, and nuns wear the long robes called habits."
+     "surface": "A slogan urging people to break their bad habits, followed by a comment about whoever has them.",
+     "walkthrough": "'Habits' looks like bad routines, but the definition takes it as a nun's robes: 'one who has them' is a nun.",
+     "definitionFit": "A sister is a nun, and nuns wear habits, the long robes of a religious order."
     },
     "features": {
      "answerInScene": false,
