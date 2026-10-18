@@ -527,45 +527,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REPHRASE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 39,
+       "note": "the rearranged letters go around the next piece, as about can mean surrounding"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "confused",
-         "note": "the letters of hearers are mixed up"
-        },
-        {
-         "text": "about",
-         "note": "the mixed letters go around the page"
+         "at": 30,
+         "note": "confused letters are muddled up, so hearers is rearranged"
         }
        ],
        "parts": [
         {
          "words": "hearers",
-         "note": "HEARERS with its letters rearranged"
-        },
-        {
-         "words": "page",
-         "gives": "P",
-         "note": "p is the standard abbreviation for page"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "page",
+       "at": 45,
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "Rewording something because the listeners got muddled over a page.",
-     "walkthrough": "'Word' opens the clue looking like a noun; it is the verb, to put into words, so 'Word differently' is the whole definition.",
-     "definitionFit": "To rephrase is to put something in different words."
+     "surface": "A speaker has to put something another way because the listeners are bewildered by a page.",
+     "walkthrough": "'confused' turns HEARERS into REHRASE, which goes 'about' P after its first two letters.",
+     "definitionFit": "To rephrase is to express the same idea again in other words, which is putting it differently."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Word"
+     "misdirectedWord": "hearers"
     }
    }
   },

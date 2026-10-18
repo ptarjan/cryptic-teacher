@@ -1084,28 +1084,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEERMUG",
+     "spelt": "BEERMUG",
      "indicators": [
       {
        "text": "put by Spooner",
-       "note": "Spooner swapped the first sounds of word pairs, so the opening sounds trade places"
+       "at": 20,
+       "note": "Spooner famously swapped the opening sounds of words, so the starts of the two words here trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Perhaps pond-skater",
-       "gives": "BEERMUG",
-       "soundsLike": "MERE BUG",
-       "note": "a pond-skater is an insect that skims a pond, or mere"
+       "op": "homophone",
+       "spelt": "MEAR",
+       "parts": [
+        {
+         "words": "Perhaps pond",
+         "at": 0,
+         "gives": "MERE",
+         "note": "a mere is a small lake, one kind of pond, hence the perhaps"
+        }
+       ]
+      },
+      {
+       "words": "skater",
+       "at": 13,
+       "gives": "BUG",
+       "note": "a pond-skater is a water bug that skims the surface"
       }
      ]
     },
     "explanation": {
-     "surface": "A water insect is perhaps dropped by the Reverend Spooner into a thick jar.",
-     "walkthrough": "Stout is the dark beer, not a sturdy description; a mere is a small lake.",
-     "definitionFit": "A tankard holds beer, and stout is a strong dark kind of beer."
+     "surface": "A pond insect is somehow dropped by an elderly clergyman into a tankard of stout.",
+     "walkthrough": "A pond-skater is a mere bug, an insect living on a mere; 'put by Spooner' swaps the M and B sounds of MERE BUG, heard as MEAR BUG. 'Perhaps' signals that a mere is only one sort of pond.",
+     "definitionFit": "Stout is a dark beer, and a beer mug is the vessel you drink it from."
     },
     "features": {
      "answerInScene": false,
@@ -1603,7 +1614,8 @@
      "indicators": [
       {
        "text": "severing",
-       "note": "to sever is to cut between, so the nothing comes between the two named parts"
+       "at": 4,
+       "note": "the zero cuts into the jumbled letters, splitting them apart"
       }
      ],
      "parts": [
@@ -1612,48 +1624,49 @@
        "indicators": [
         {
          "text": "nuts",
-         "note": "nuts means crazy, so the letters go wild"
+         "at": 34,
+         "note": "nuts means crazy, so the pooled letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "Zip",
-         "gives": "O",
-         "note": "zip is nothing, zero"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 13,
+           "note": "only the first half of John is kept, so its second half goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "John",
+           "at": 21
+          },
+          {
+           "gives": "HN"
+          }
+         ]
         },
         {
          "words": "Wayne's",
-         "note": "taken as written"
+         "at": 26
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "JO",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "half of keeps only the first two of the name's four letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "John",
-         "gives": "JO",
-         "select": "first",
-         "note": "first half of John"
-        }
-       ]
+       "words": "Zip",
+       "at": 0,
+       "gives": "O",
+       "note": "zip is slang for nothing, which is the letter O"
       }
      ]
     },
     "spelling": "NO WAY JOSÉ",
     "explanation": {
-     "surface": "A grisly cowboy accident: a zip fastener catching John Wayne where it hurts.",
-     "walkthrough": "'No way, José' is a jocular American way of saying absolutely not.",
-     "definitionFit": "The phrase is an emphatic refusal, saying something cannot or will not happen."
+     "surface": "A grisly scene: a zip fastener catching the actor John Wayne in a painful place.",
+     "walkthrough": "John Wayne was the Hollywood western star, and the surface pictures a painful zip accident; but 'Zip' is the letter O, and 'nuts' is the anagram signal, not anatomy. The O goes 'severing' the jumbled NWAYJOSE after its first letter.",
+     "definitionFit": "No way, José is jokey slang refusal meaning absolutely not, so it says something cannot happen."
     },
     "features": {
      "answerInScene": false,

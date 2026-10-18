@@ -542,7 +542,8 @@
      "indicators": [
       {
        "text": "grabs",
-       "note": "something that grabs another holds it within its grasp"
+       "at": 23,
+       "note": "the jumbled letters of rather close around the next pieces, as a hand grabs something"
       }
      ],
      "parts": [
@@ -551,33 +552,40 @@
        "indicators": [
         {
          "text": "oddly",
-         "note": "done oddly means done in a strange way, so the letters of the word before are rearranged"
+         "at": 17,
+         "note": "done oddly means done in a strange way, so the letters of rather are rearranged"
         }
        ],
        "parts": [
         {
          "words": "rather",
-         "gives": "HARTER",
-         "note": "the six letters of this word, rearranged"
-        },
-        {
-         "words": "antique",
-         "gives": "OLD",
-         "note": "antiques are old"
+         "at": 10
         }
        ]
       },
       {
-       "words": "brooch",
-       "gives": "PIN",
-       "note": "a brooch is a decorative pin"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "antique",
+         "at": 29,
+         "gives": "OLD",
+         "note": "an antique thing is old"
+        },
+        {
+         "words": "brooch",
+         "at": 37,
+         "gives": "PIN",
+         "note": "a brooch is fastened with a pin, and pin can name the brooch itself"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A playwright somewhat strangely snatches an old brooch.",
-     "walkthrough": "'oddly' tempts you to take alternate letters of rather, but here it signals a rearrangement of the whole word.",
-     "definitionFit": "Harold Pinter was a Nobel-winning English playwright, author of The Birthday Party."
+     "surface": "An odd scene: someone fairly peculiarly snatches an old piece of jewellery.",
+     "walkthrough": "'oddly' tempts you to take alternate letters of 'rather'; it is an anagram signal instead, giving HARTER, which 'grabs' OLD and PIN in its middle.",
+     "definitionFit": "Harold Pinter was a Nobel-winning English playwright, author of The Birthday Party and The Caretaker."
     },
     "features": {
      "answerInScene": false,
@@ -665,34 +673,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LIEINWAIT",
+     "spelt": "LIEINWAIT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "named after Reverend Spooner, who swapped the opening sounds of words"
+       "at": 17,
+       "note": "Spooner was famous for swapping the opening sounds of words, so the starts of two words here trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "reason for delayed arrival at work?",
-       "gives": "LIEINWAIT",
-       "soundsLike": "WHY IN LATE",
-       "note": "the question asked of a latecomer; swap the opening sounds of the first and last words"
+       "op": "homophone",
+       "spelt": "WIE",
+       "parts": [
+        {
+         "words": "reason for",
+         "at": 27,
+         "gives": "WHY",
+         "note": "why asks for the reason for something"
+        }
+       ]
+      },
+      {
+       "words": "delayed arrival at work",
+       "at": 38,
+       "gives": "INLATE",
+       "note": "to be in late is to turn up at work after the start time"
       }
      ]
     },
     "explanation": {
-     "surface": "A boss asks for the reason someone turned up late to work.",
-     "walkthrough": "The clue phrase is really the question 'Why in late?', which with W and L swapped becomes the answer.",
-     "definitionFit": "To lie in wait is to stay hidden ready to ambush, that is, to get ready to catch someone."
+     "surface": "Someone gets ready to catch a colleague's excuse for turning up late to the office.",
+     "walkthrough": "'Spooner's' asks you to say 'why in late' and swap the opening W and L sounds: you get 'lie in wait'.",
+     "definitionFit": "To lie in wait is to stay hidden ready to ambush, which is preparing to catch someone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "reason"
+     "joke": "pun",
+     "misdirectedWord": "catch"
     }
    }
   },

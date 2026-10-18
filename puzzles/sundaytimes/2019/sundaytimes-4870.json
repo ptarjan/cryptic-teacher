@@ -47,56 +47,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WOTCHA",
-     "indicators": [
-      {
-       "text": "casual",
-       "note": "something casual is loose and haphazard, so the following word's letters are thrown together in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "at": 16,
+         "note": "the leads of words are their opening letters, so the first letter of each of words and or is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "WO",
-         "indicators": [
-          {
-           "text": "leads to",
-           "note": "the leads of words are the letters at their front, so only the opening letter of each is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "words or",
-           "gives": "WO",
-           "select": "first",
-           "note": "the opening letters of the two words"
-          }
-         ]
-        },
+         "words": "words or",
+         "at": 25,
+         "note": "the initial letters of words and or"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "casual",
+         "at": 34,
+         "note": "something done casually is loose and haphazard, so the letters of chat are thrown into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "chat",
-         "note": "the four letters of chat rearranged"
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A laid-back hello turns into an easy-going conversation.",
-     "walkthrough": "The second 'casual' is not a repeat of the first: it is the anagram signal working on chat.",
-     "definitionFit": "Wotcha is a cockney contraction of 'what cheer', an informal British way of saying hello."
+     "surface": "A relaxed hello opens the way to a bit of easy-going conversation.",
+     "walkthrough": "'leads to' takes W and O from 'words or'; 'casual' then rearranges CHAT into TCHA. Wotcha is a London-flavoured British slang hello, from 'what cheer'.",
+     "definitionFit": "It is informal British slang used as a hello between friends, so it is an informal salutation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "casual"
+     "misdirectedWord": "leads"
     }
    }
   },
