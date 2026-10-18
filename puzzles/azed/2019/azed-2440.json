@@ -453,26 +453,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "OMER",
      "indicators": [
       {
        "text": "first to last",
-       "note": "the opening letter is moved round to the end of the word"
+       "at": 33,
+       "note": "first to last means the opening letter of the capital moves to the end"
       }
      ],
      "parts": [
       {
        "words": "capital",
+       "at": 24,
        "gives": "ROME",
-       "note": "Rome is the Italian capital"
+       "note": "Rome is the capital of Italy"
       }
      ]
     },
     "explanation": {
-     "surface": "A grain measurement that is a capital one, read from start to end.",
-     "walkthrough": "ROME with its R moved to the back gives OMER.",
-     "definitionFit": "The omer is a Hebrew dry measure, a tenth of an ephah, used for grain."
+     "surface": "A grain measure from the capital, read with its head moved to its tail.",
+     "walkthrough": "ROME with R moved 'first to last'.",
+     "definitionFit": "An omer is an ancient Hebrew unit of dry volume, a tenth of an ephah, used for barley and wheat."
     },
     "features": {
      "answerInScene": false,
@@ -576,53 +576,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCONE",
+     "op": "composite",
      "indicators": [
       {
        "text": "wasted",
-       "note": "wasted means ruined, so the remaining letters are wrecked into a new order"
+       "at": 14,
+       "note": "wasted means ruined and broken up, so the letters of the cream tea are reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCONE",
-       "indicators": [
-        {
-         "text": "trash",
-         "note": "to trash something is to throw it away, so those letters are discarded"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Cornish tea's",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written, removed"
-        },
-        {
-         "words": "trash",
-         "note": "taken as written, removed"
-        }
-       ]
+       "words": "Cornish tea's",
+       "at": 0,
+       "note": "taken as written, the full pool of letters"
+      },
+      {
+       "words": "I trash",
+       "at": 23,
+       "note": "taken as written, the letters to remove from the pool"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone ruins a Cornish cream tea and throws away a part of it.",
-     "walkthrough": "Remove I, T, R, A, S, H from CORNISHTEAS to leave C, O, N, E, S, then mix them. The whole clue also describes the answer: a scone is part of a Cornish tea that might be trashed.",
-     "definitionFit": "A Cornish cream tea is served with scones, clotted cream and jam, so a scone is what such a tea could lose."
+     "surface": "A spoiled Cornish cream tea gets binned, and this bake is perhaps the casualty.",
+     "walkthrough": "The letters of CORNISH TEAS 'wasted' are those of I TRASH plus the answer: take I TRASH out and SCONE is left. The whole clue also describes the answer, a staple of a Cornish cream tea.",
+     "definitionFit": "A scone is the small baked cake served with clotted cream and jam in a Cornish cream tea."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "trash"
+     "misdirectedWord": "wasted"
     }
    }
   },
@@ -1395,35 +1379,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUINOUS",
-     "indicators": [
-      {
-       "text": "Peeled",
-       "note": "peeling strips the outside, so the first and last letters go"
-      },
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "fruit",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Peeled",
+         "at": 0,
+         "note": "peeled means stripped of its outer layer, so the first and last letters of fruit go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 7,
+         "note": "the middle letters of fruit"
+        }
+       ]
       },
       {
-       "words": "useless",
-       "gives": "NOUSE",
-       "note": "useless means no use"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 13,
+         "note": "almost means the phrase loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "useless",
+         "at": 20,
+         "gives": "NOUSE",
+         "note": "something useless is of no use"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fruit, skinned and nearly worthless, has gone rotten.",
-     "walkthrough": "'Useless' expands to NO USE before losing its last letter.",
-     "definitionFit": "Ruinous can describe a building fallen into ruin, dilapidated and decayed."
+     "surface": "Skinned fruit that is past its best and rotten.",
+     "walkthrough": "'Peeled' fruit is RUI; NO USE 'almost' is NOUS.",
+     "definitionFit": "Ruinous can mean fallen into ruin, dilapidated, as a crumbling building is."
     },
     "features": {
      "answerInScene": true,
@@ -1553,50 +1554,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EYEGLASS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not required by",
+       "at": 16,
+       "note": "not required by means the letter for one is surplus and comes out of the pool"
+      },
+      {
        "text": "silly",
-       "note": "silly means scatterbrained, so the letters are muddled"
+       "at": 45,
+       "note": "silly means foolish and muddled, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EYEGLASS",
-       "indicators": [
-        {
-         "text": "not required by",
-         "note": "something not required is left out, so the letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "One",
-         "gives": "A",
-         "note": "a means one"
-        },
-        {
-         "words": "eagles, say",
-         "note": "taken as written"
-        }
-       ]
+       "words": "eagles, say",
+       "at": 32,
+       "note": "taken as written, the pool of letters"
+      },
+      {
+       "words": "One",
+       "at": 12,
+       "gives": "A",
+       "note": "a means one, as in a single thing"
       }
      ]
     },
     "explanation": {
-     "surface": "Eagles have no use for a spectacle lens, given their keen sight.",
-     "walkthrough": "'Say' looks like 'for example' but is part of the fodder; one A comes out of EAGLESSAY.",
-     "definitionFit": "An eyeglass is a single lens such as a monocle, worn to help a person see."
+     "surface": "A daft remark that eagles have no need of a seeing aid, being famously sharp-eyed.",
+     "walkthrough": "EAGLES SAY 'silly' holds the answer's letters plus A; that A is 'not required by' it.",
+     "definitionFit": "An eyeglass is a single lens such as a monocle, worn to help one see better."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "say"
+     "misdirectedWord": "eagles"
     }
    }
   },
@@ -1875,30 +1869,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALME",
      "indicators": [
       {
        "text": "after removal of",
-       "note": "once these are removed, the remaining letters are what is left"
+       "at": 19,
+       "note": "after removal of means the letters C and D are taken out of the word"
       }
      ],
      "parts": [
       {
        "words": "not dancing",
+       "at": 7,
        "gives": "CALMED",
-       "note": "someone calmed down is still, not dancing about"
+       "note": "calmed means settled and still, not dancing about"
       },
       {
        "words": "CD",
-       "note": "taken as written, removed"
+       "at": 36,
+       "gives": "CD",
+       "note": "taken as written, the two letters to remove"
       }
      ]
     },
     "explanation": {
-     "surface": "A dancer stops dancing when the music disc is taken away.",
-     "walkthrough": "C and D are taken from separate ends of CALMED, not as a block.",
-     "definitionFit": "An alme is an Egyptian dancing girl, one who sings and dances professionally."
+     "surface": "A performer stops dancing when the music disc is taken away.",
+     "walkthrough": "CALMED 'after removal of' C and D leaves ALME.",
+     "definitionFit": "An alme (also almah) is an Egyptian dancing girl, a word found in Chambers."
     },
     "features": {
      "answerInScene": true,
