@@ -1261,50 +1261,55 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "drinking takes something in, so one piece goes inside the other"
+       "at": 6,
+       "note": "a drunk drinking something takes it inside, so the other letters go into the middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Drunk",
-         "gives": "SOT",
-         "note": "a sot is a drunkard"
-        },
-        {
-         "words": "with",
-         "gives": "W",
-         "note": "W is the abbreviation for with"
-        }
-       ]
+       "words": "Drunk",
+       "at": 0,
+       "gives": "SOT",
+       "note": "a sot is a habitual drunk"
       },
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "now and then",
-         "note": "now and then means occasionally, so only every other letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cheat",
-         "note": "the second and fourth letters of cheat"
+         "words": "with",
+         "at": 15,
+         "gives": "W"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "now and then",
+           "at": 26,
+           "note": "taking letters now and then means every other letter of the word cheat"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cheat",
+           "at": 20,
+           "note": "its second and fourth letters are used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boozer lining up with a swindler, shrugging off any blame.",
-     "definitionFit": "The phrase is a dismissive retort expressing indifference, the same as asking why one should care."
+     "surface": "A sozzled companion keeps drinking alongside a swindler, and the speaker shrugs it off.",
+     "walkthrough": "'now and then' here takes the second and fourth letters of 'cheat', not the first, third and fifth.",
+     "definitionFit": "A dismissive retort expressing indifference, said when someone does not care at all."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Drunk"
+     "misdirectedWord": "drinking"
     }
    }
   },

@@ -315,40 +315,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "STRIPTEASE",
-     "indicators": [
-      {
-       "text": "with typo",
-       "note": "a typo is a single mistyped letter, so one letter of the word is swapped for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with typo",
+         "at": 7,
+         "note": "a typo is a mistyped letter, so one letter of script is wrongly changed"
+        }
+       ],
        "parts": [
         {
          "words": "Script",
-         "gives": "STRIPT",
-         "note": "the C in this word is mistyped as a T"
+         "at": 0,
+         "gives": "SCRIPT",
+         "note": "the word taken as written"
         },
         {
-         "words": "Calm",
-         "gives": "EASE",
-         "note": "to calm or soothe"
+         "gives": "C"
+        },
+        {
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Calm",
+       "at": 18,
+       "gives": "EASE",
+       "note": "to ease is to calm"
       }
      ]
     },
     "explanation": {
-     "surface": "An editor spots a misprint in a screenplay and stays cool about a show that only just ended.",
-     "walkthrough": "'Barely' is the pun: the act ends with the performer bare, not with time running short.",
-     "definitionFit": "A burlesque act in which the dancer gradually removes clothing finishes with the performer nearly naked."
+     "surface": "A misprinted script, then a calm show that ended rather hastily.",
+     "walkthrough": "The typo turns the C of SCRIPT into a T, giving STRIPT. 'barely finished' means it ends with the performer bare.",
+     "definitionFit": "A striptease is an erotic act where the performer gradually undresses until nude."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "barely"
