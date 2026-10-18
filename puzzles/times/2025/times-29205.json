@@ -266,43 +266,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOPORIFIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in places the first muddle inside the second"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "works",
-         "note": "to work something is to shape or knead it, so POOR is reshaped"
-        },
-        {
-         "text": "in",
-         "note": "one thing in another sits inside it, so the reshaped POOR goes inside the other"
-        },
-        {
          "text": "dodgy",
-         "note": "dodgy means unreliable, so SCIFI's letters cannot be trusted to stay put"
+         "at": 14,
+         "note": "dodgy means unreliable, so these letters are muddled too"
         }
        ],
        "parts": [
         {
          "words": "sci-fi",
-         "note": "SCIFI rearranged, split S…IFIC"
-        },
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "works",
+         "at": 5,
+         "note": "works means is worked into a new form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "Poor",
-         "note": "POOR rearranged, placed inside"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A review of bad science fiction that sends viewers to sleep.",
-     "walkthrough": "Crash here is slang for falling asleep, not a collision.",
-     "definitionFit": "Slang sense: to crash is to fall fast asleep, and something soporific induces sleep."
+     "surface": "Poor writing in shoddy science fiction makes the reader nod off.",
+     "walkthrough": "'Crash' suggests a collision, but here it is informal for falling fast asleep, which is what boring prose makes a reader do.",
+     "definitionFit": "Soporific means inducing sleep, and to crash is informal for dropping off to sleep."
     },
     "features": {
      "answerInScene": true,
@@ -336,36 +346,51 @@
      "indicators": [
       {
        "text": "trimmed by",
-       "note": "a trim runs round the edge of a garment"
+       "at": 22,
+       "note": "trimmed by means edged round, so the butcher word goes outside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "butcher",
-         "gives": "SLAY",
-         "note": "to butcher = to slay"
-        },
-        {
-         "words": "bit of pork",
-         "gives": "P",
-         "note": "first letter of pork"
-        }
-       ]
+       "words": "butcher",
+       "at": 33,
+       "gives": "SLAY",
+       "note": "to butcher is to slay"
       },
       {
-       "words": "Guarantee",
-       "gives": "WORD",
-       "note": "to give your word is to guarantee"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Guarantee",
+         "at": 0,
+         "gives": "WORD",
+         "note": "to give your word is to guarantee"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 10,
+           "note": "bit of picks the first letter of pork"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pork",
+           "at": 17,
+           "gives": "P",
+           "note": "the word pork supplies its first letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher proving deft with a knife by trimming pork.",
-     "walkthrough": "The surface sets up a butcher's knife, and the definition is about blades too, but it means fencing.",
-     "definitionFit": "Swordplay is fencing or sword fighting, the art of handling a blade well."
+     "surface": "A butcher promises some pork trimmed with expert knife work.",
+     "definitionFit": "Swordplay is fencing, the art of handling a sword."
     },
     "features": {
      "answerInScene": true,
@@ -515,46 +540,60 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "to involve is to include within"
+       "at": 27,
+       "note": "involving means enclosing, so the other pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "most of",
-         "note": "most of a word is all but its last letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "taking shape",
-         "gives": "FORMING",
-         "note": "forming = taking shape"
-        },
-        {
-         "words": "the",
-         "gives": "TH",
-         "note": "THE without its last letter"
-        }
-       ]
+       "words": "taking shape",
+       "at": 13,
+       "gives": "FORMING",
+       "note": "something taking shape is forming"
       },
       {
-       "words": "firm",
-       "gives": "CO",
-       "note": "CO = company"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 37,
+           "note": "most of drops the last letter of the"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 45,
+           "gives": "THE",
+           "note": "the word the itself"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "firm",
+         "at": 49,
+         "gives": "CO",
+         "note": "CO is the abbreviation for company, a firm"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company plan about to materialise, with most of the firm involved.",
-     "walkthrough": "'Most of' applies only to 'the', not to the whole firm.",
-     "definitionFit": "A plain synonym: forthcoming describes what is about to appear or happen, which is what imminent means."
+     "surface": "Something about to happen is coming together, with most of the company involved.",
+     "walkthrough": "'Taking shape' reads as part of the definition alongside 'Imminent', but only 'Imminent' defines; 'and' joins it to the wordplay.",
+     "definitionFit": "Forthcoming means about to appear or happen, soon to arrive."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
     }
    }
   },
@@ -829,48 +868,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "played",
-       "note": "notes played are performed in a new arrangement, so BLUESI is rearranged"
+       "text": "over",
+       "at": 9,
+       "note": "in a down clue, over means the first piece stands above the next"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Mischief",
+       "at": 0,
+       "gives": "IMP",
+       "note": "a mischief is a naughty child, an imp"
+      },
+      {
+       "words": "US city",
+       "at": 14,
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue one thing over another sits above it"
+         "text": "played",
+         "at": 30,
+         "note": "played means performed freely, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Mischief",
-         "gives": "IMP",
-         "note": "a mischief is a naughty child, an imp"
+         "words": "blues",
+         "at": 22
         },
         {
-         "words": "US city",
-         "gives": "LA",
-         "note": "Los Angeles"
-        },
-        {
-         "words": "blues I",
-         "note": "BLUES I rearranged"
+         "words": "I",
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musician doubting they played the blues in an American city.",
-     "walkthrough": "Mischief is used in its concrete sense, a mischievous child, rather than the behaviour.",
-     "definitionFit": "A plain synonym: implausible means not easy to believe, hence unlikely."
+     "surface": "A rogue in Los Angeles claims to have played the blues, which seems doubtful.",
+     "walkthrough": "BLUES and I rearranged give USIBLE.",
+     "definitionFit": "Implausible means not seeming reasonable or probable, hard to believe."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "played"
     }
@@ -1207,50 +1254,61 @@
      "indicators": [
       {
        "text": "surrounding",
-       "note": "to surround is to enclose"
+       "at": 28,
+       "note": "surrounding means placed around, so the insect pair encloses the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "insects",
+       "at": 20,
+       "gives": "FLYANT",
+       "note": "a fly and an ant are both insects"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "insects",
-           "gives": "FLYANT",
-           "note": "two insects: fly and ant, split FL…YANT"
-          },
-          {
-           "words": "a",
-           "note": "as printed"
-          }
-         ]
+         "words": "a",
+         "at": 40
         },
         {
          "words": "doctor",
+         "at": 42,
          "gives": "MB",
-         "note": "MB = Bachelor of Medicine"
+         "note": "MB is the medical degree Bachelor of Medicine"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading for",
+           "at": 49,
+           "note": "heading for picks the first letter of Oaxaca"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Oaxaca",
+           "at": 61,
+           "gives": "O",
+           "note": "Oaxaca is a state and city in southern Mexico"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "heading for Oaxaca",
-       "gives": "O",
-       "note": "first letter of Oaxaca"
       }
      ]
     },
     "explanation": {
-     "surface": "Brightly coloured Mexican insects swarming around a doctor bound for Oaxaca.",
-     "walkthrough": "Oaxaca is a Mexican state; only its O is used. The flamboyant is also a tropical tree with vivid red flowers.",
-     "definitionFit": "Flamboyant describes something showy and vivid, and is especially used of brilliant colours."
+     "surface": "Bright insects gather round a doctor travelling to Mexico.",
+     "walkthrough": "A, MB and O go between FLY and ANT.",
+     "definitionFit": "Flamboyant means showy and vivid, as of bright colour or ornate style."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "insects"
     }
    }
   },
