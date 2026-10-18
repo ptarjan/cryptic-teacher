@@ -631,32 +631,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "YLEVEL",
-     "indicators": [
-      {
-       "text": "left for right",
-       "note": "this asks for the letter standing for left to take the place of the one standing for right"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Unknown",
+       "at": 0,
        "gives": "Y",
-       "note": "y is a standard algebraic unknown"
+       "note": "Y is an algebraic unknown, like x and z"
       },
       {
-       "words": "prize",
-       "gives": "LEVER",
-       "note": "to prize something open is to lever it"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 19,
+         "note": "for means instead of, so the letter for left takes the place of the letter for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prize",
+         "at": 8,
+         "gives": "LEVER",
+         "note": "to prize something open is to lever it, so lever is the word for prize"
+        },
+        {
+         "words": "right",
+         "at": 23,
+         "gives": "R"
+        },
+        {
+         "words": "left",
+         "at": 14,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mysterious award is left as the right equipment for a surveyor.",
-     "walkthrough": "In LEVER the R becomes L. 'Prize' tempts as an award, but it is the verb meaning to force open.",
-     "definitionFit": "A Y-level is a surveyor's spirit level whose telescope rests in Y-shaped supports."
+     "surface": "An unidentified award handed over in place of a right-hand item.",
+     "walkthrough": "'prize' is the verb, to lever open, not an award. In LEVER, L 'for' R gives LEVEL.",
+     "definitionFit": "A Y-level is a type of surveyor's levelling instrument, named for its Y-shaped supports."
     },
     "features": {
      "answerInScene": false,
@@ -816,39 +832,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in ruins, bro",
+       "at": 44,
+       "note": "in ruins means wrecked, so the letters of the two words are broken up and rebuilt; the chatty bro tag rounds off the question"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "in ruins",
-         "note": "something in ruins has had its structure broken apart, so these letters are rebuilt"
-        }
-       ],
-       "parts": [
-        {
-         "words": "namely, Rome",
-         "note": "the ten letters to be rearranged"
-        }
-       ]
+       "words": "namely",
+       "at": 31,
+       "note": "taken as written, part of the letters to be rearranged"
       },
       {
-       "unchecked": true,
-       "words": "bro",
-       "note": "surface padding: a chatty aside to a friend, giving no letters"
+       "words": "Rome",
+       "at": 39,
+       "note": "taken as written, the rest of the letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend is reminded of happy times among the crumbling ruins of Rome.",
-     "walkthrough": "The closing 'bro?' is only surface colour, a chatty aside to a friend; it gives no letters.",
-     "definitionFit": "A trip down memory lane is a nostalgic recollection, so the phrase names an imagined place of fond remembering."
+     "surface": "A mate is asked whether ruined Rome is a trip down to a nostalgic place.",
+     "walkthrough": "The ten letters of 'namely Rome' are rearranged ('in ruins, bro'), the slangy tag only adding a conversational shrug.",
+     "definitionFit": "A trip down memory lane is a nostalgic recollection of the past, imagined as a road one strolls along."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "ruins"
+     "misdirectedWord": "Rome"
     }
    }
   },
@@ -938,48 +951,31 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OVERREV",
-     "indicators": [
-      {
-       "text": "head-to-head",
-       "note": "two things head-to-head face each other, so the first one is turned to point backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "nth",
-       "n": 2,
-       "indicators": [
-        {
-         "text": "what's iterated in",
-         "note": "what is iterated is repeated, so the doubled letter in the word is the one kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "book",
-         "note": "the letter that appears twice in the word"
-        }
-       ]
+       "words": "what's iterated in book",
+       "at": 16,
+       "gives": "O",
+       "note": "the letter O appears twice in a row in the word book, so it is the iterated letter"
       },
       {
-       "words": "revisions",
-       "gives": "REVREV",
-       "note": "rev is the abbreviation for revision, and the plural gives two of them"
+       "words": "head-to-head revisions",
+       "at": 42,
+       "gives": "VERREV",
+       "note": "rev is short for revision; two of them placed head to head means the first faces backwards, so its front meets the front of the second"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone opens up loudly about repeated head-to-head edits in a book.",
-     "walkthrough": "The two REVs meet at their R's, as if nose to nose. To over-rev is to run an engine too fast.",
-     "definitionFit": "Opening up the throttle too far makes an engine race beyond its limit, which is over-revving recklessly."
+     "surface": "Brash revisions in a book where something is repeated.",
+     "walkthrough": "Two REVs set 'head-to-head' face each other: the first reads backwards as VER and meets REV at the R. The letter iterated in 'book' is its double O.",
+     "definitionFit": "To overrev an engine is to push it to excessive revs, recklessly opening up the throttle."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "book"
+     "aptDefinition": true,
+     "misdirectedWord": "book's"
     }
    }
   },
@@ -1516,41 +1512,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ELAYER",
      "indicators": [
       {
        "text": "for",
-       "note": "for here means in place of, so one piece takes over another's spot"
+       "at": 20,
+       "note": "for means instead of, so the word for amateur replaces the letter for very"
       }
      ],
      "parts": [
       {
        "words": "Always",
+       "at": 0,
        "gives": "EVER",
-       "note": "ever means always"
+       "note": "ever means always, as in ever hopeful"
       },
       {
        "words": "very",
-       "gives": "V",
-       "note": "V is the abbreviation for very"
+       "at": 24,
+       "gives": "V"
       },
       {
        "words": "amateur",
+       "at": 12,
        "gives": "LAY",
-       "note": "lay means non-professional, amateur"
+       "note": "lay means non-professional, so amateur"
       }
      ]
     },
     "explanation": {
-     "surface": "An endless amateur puts lofty reasoning above the very idea of deviation.",
-     "walkthrough": "The E-layer is a band of the ionosphere about 100 km up that reflects radio waves, bending their path back to Earth.",
-     "definitionFit": "The E-layer sits high in the atmosphere and deflects radio signals, so it is a lofty cause of their deviation."
+     "surface": "An amateur who always stands in where very lofty reasons are concerned.",
+     "walkthrough": "In EVER, LAY goes in 'for' V. The E layer of the ionosphere bends, or deviates, radio waves.",
+     "definitionFit": "The E-layer is a region of the upper atmosphere that reflects and refracts radio signals."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "reason"
+     "misdirectedWord": "amateur"
     }
    }
   },

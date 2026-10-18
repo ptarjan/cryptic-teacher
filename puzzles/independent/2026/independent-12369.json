@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -199,50 +200,50 @@
      "parts": [
       {
        "words": "gold",
+       "at": 8,
        "gives": "AU",
-       "note": "Au is gold's symbol in the periodic table, from Latin aurum"
+       "note": "Au is the chemical symbol for gold"
       },
       {
        "words": "article",
+       "at": 13,
        "gives": "THE",
-       "note": "'the' is the definite article"
+       "note": "the is the definite article"
       },
       {
        "words": "conservationists",
+       "at": 21,
        "gives": "NT",
-       "note": "the National Trust is the British charity that looks after historic houses and coastline"
+       "note": "NT is the National Trust, the British body that conserves historic houses and land"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IC",
        "indicators": [
         {
          "text": "originally",
-         "note": "Where a word originates is its opening letter, so only the first letter of each word that follows is taken."
+         "at": 38,
+         "note": "originally asks for the opening letter of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "originally insured comprehensively",
-         "gives": "IC",
-         "select": "first",
-         "note": "the first letters of INSURED and COMPREHENSIVELY"
+         "words": "insured comprehensively",
+         "at": 49,
+         "note": "the first letters of these two words are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gold object that the heritage people insured in full from the outset.",
-     "walkthrough": "Three of the four pieces are conventions rather than synonyms: Au off the periodic table, THE as 'article', and NT for the National Trust, whose initials appear on half the stately homes in England.",
-     "definitionFit": "Something authentic is the real article rather than a copy or a fake, which is what calling it genuine says."
+     "surface": "A real gold item, fully covered on the policy drawn up by heritage experts.",
+     "walkthrough": "'originally' takes the first letters of 'insured' and 'comprehensively', I and C. The National Trust looks after many British country houses and landscapes.",
+     "definitionFit": "Authentic and genuine both describe something real and of undisputed origin rather than fake."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "conservationists"
     }
    }
   },
@@ -339,45 +340,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "naked",
-       "note": "Stripped of its clothes a word loses its outermost letters and only what they covered is left."
+       "text": "in",
+       "at": 12,
+       "note": "in places the stripped word inside the word for backstreet"
       }
      ],
      "parts": [
       {
        "words": "backstreet",
+       "at": 15,
        "gives": "LANE",
        "note": "a lane is a narrow back street"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "TRI",
        "indicators": [
         {
-         "text": "in",
-         "note": "'In' puts what came before it inside what comes after."
+         "text": "naked",
+         "at": 6,
+         "note": "naked means stripped of its covering, so the first and last letters of strip are removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Strip naked",
-         "gives": "TRI",
-         "select": "middle",
-         "note": "STRIP with its outer letters taken off keeps only TRI"
+         "words": "Strip",
+         "at": 0,
+         "note": "the word strip supplies its inner letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone taking all their clothes off in a back alley.",
-     "walkthrough": "The trap is reading 'Strip' as the instruction; it is the word being undressed, and 'naked' is what does the undressing. A latrine is the trench or hut a camp digs for the purpose.",
-     "definitionFit": "A latrine is a communal toilet in a barracks or a camp, dug or built rather than plumbed."
+     "surface": "Someone undresses completely in a public convenience down an alley.",
+     "walkthrough": "'naked' strips STRIP of its outer letters to leave TRI, which goes 'in' LANE.",
+     "definitionFit": "A latrine is a basic toilet, especially one in a camp or barracks."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Strip"
     }
@@ -800,27 +800,25 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'In' drops what came before it inside what comes after."
+       "at": 23,
+       "note": "in places the two short pieces inside the end letters of the city name"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DT",
        "indicators": [
         {
          "text": "outskirts of",
-         "note": "The outskirts of a place are its edges, so only the first and last letters of the word are kept."
+         "at": 26,
+         "note": "outskirts means the outer edges, so the first and last letters of Detroit are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "outskirts of Detroit",
-         "gives": "DT",
-         "select": "outer",
-         "note": "DETROIT keeps only its edges, D and T"
+         "words": "Detroit",
+         "at": 39,
+         "note": "the city name supplies its first and last letters"
         }
        ]
       },
@@ -829,27 +827,27 @@
        "parts": [
         {
          "words": "with",
-         "gives": "W",
-         "note": "w/ is the standard short form of with"
+         "at": 6,
+         "gives": "W"
         },
         {
          "words": "the Spanish",
+         "at": 11,
          "gives": "EL",
-         "note": "'the' in Spanish is el"
+         "note": "el is Spanish for the"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who lived on the edge of Detroit with Spaniards.",
-     "walkthrough": "'The Spanish' never means people from Spain in a cryptic — it asks for their word for 'the', the same loan that supplies LE and LA from French. W for with comes from the w/ of scribbled notes.",
-     "definitionFit": "To dwell somewhere is to live there, and the past tense dwelt answers 'lived' exactly."
+     "surface": "Someone once lived with Spanish speakers on the edge of Detroit.",
+     "walkthrough": "'outskirts of' Detroit gives D and T, and W plus EL goes 'in' between them.",
+     "definitionFit": "Dwelt is the past tense of dwell, meaning resided or made one's home."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Spanish"
+     "aptDefinition": false
     }
    }
   },
@@ -1031,41 +1029,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "Something written about another wraps round the outside of it."
+       "at": 10,
+       "note": "about means the word for anecdotes goes round the letters from nondescript"
       }
      ],
      "parts": [
       {
        "words": "Anecdotes",
+       "at": 0,
        "gives": "TALES",
-       "note": "tales = anecdotes, and they open up to take the next pair"
+       "note": "tales are anecdotes or stories"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "NT",
        "indicators": [
         {
          "text": "extremely",
-         "note": "The extremes of a word are its two ends, so its first and last letters are all that come out."
+         "at": 16,
+         "note": "extremely means at the extremes, so the first and last letters of nondescript"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely nondescript",
-         "gives": "NT",
-         "select": "outer",
-         "note": "the outer letters of NONDESCRIPT"
+         "words": "nondescript",
+         "at": 26,
+         "note": "the word supplies its two end letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stories being told about somebody utterly unremarkable.",
-     "walkthrough": "'Gifts' is not parcels but the things you were born able to do — the parable of the talents, where the money handed out stands for exactly that, is why the word carries both senses.",
-     "definitionFit": "A talent is a natural gift, an ability given rather than earned, which is the sense the biblical parable left in English."
+     "surface": "Bland stories told about some unremarkable presents.",
+     "walkthrough": "'extremely' gives NT, the ends of 'nondescript', and TALES goes 'about' them.",
+     "definitionFit": "Talents are natural abilities, which we often call gifts, as in a gift for music."
     },
     "features": {
      "answerInScene": false,
@@ -1171,61 +1168,69 @@
      "op": "container",
      "indicators": [
       {
-       "text": "harnessing",
-       "note": "To harness something is to strap it in, so this letter is buckled inside the word before it."
+       "text": "Aboard",
+       "at": 0,
+       "note": "aboard means on the ship, so the rest goes inside the two letters for ship"
       }
      ],
      "parts": [
       {
-       "words": "Aboard ship",
+       "words": "ship",
+       "at": 7,
        "gives": "SS",
-       "note": "SS is a steamship, and the rest goes between the two letters"
+       "note": "SS stands for steamship"
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "harnessing",
+         "at": 33,
+         "note": "harnessing means holding, so the shortened decorator takes in the letter for line"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
          "indicators": [
           {
-           "text": "Aboard",
-           "note": "To be aboard a ship is to be inside it, so everything else sits between the ship's two letters."
-          },
-          {
            "text": "without",
-           "note": "'Without' is the older sense here, lacking, so the letter named next is dropped."
+           "at": 23,
+           "note": "without tells us to drop the letter A from the word for decorator"
           }
          ],
          "parts": [
           {
            "words": "decorator",
+           "at": 13,
            "gives": "PAINTER",
-           "note": "painter and decorator is one trade in Britain"
+           "note": "a painter is a decorator of houses"
           },
           {
-           "words": "without a",
-           "gives": "A",
-           "note": "the A comes out of PAINTER, leaving PINTER"
+           "words": "a",
+           "at": 31,
+           "gives": "A"
           }
          ]
         },
         {
          "words": "line",
-         "gives": "L",
-         "note": "l = line, the letter strapped inside"
+         "at": 44,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A decorator on board a ship, shaking with cold now his safety line has gone.",
-     "walkthrough": "'Shivers' is the sailor's noun, not the shaking: the splinters a wooden hull breaks into, as in shiver my timbers. Britain hires a painter and decorator as one man, which is where PAINTER comes from.",
-     "definitionFit": "A shiver is a splinter of wood, the sense preserved in 'shiver my timbers' — a hull smashing into fragments."
+     "surface": "On board a vessel, a painter without a safety line trembles.",
+     "walkthrough": "PAINTER 'without' A is PINTER; 'harnessing' L gives PLINTER, which goes 'Aboard' SS. Shivers here is the noun: tiny fragments.",
+     "definitionFit": "Shivers are small slivers or fragments, as in smashed to shivers, the same as splinters."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "shivers"
     }
    }
@@ -1486,7 +1491,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "dog killer",
+      "text": "dog killer?",
       "at": 51
      }
     ],
@@ -1494,41 +1499,45 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Daughter",
+       "at": 0,
+       "gives": "D"
+      },
+      {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "A word's initial is the letter it begins with, and that is all each of these words gives up."
+         "at": 9,
+         "note": "initially picks the first letter of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "words": "Daughter",
-         "note": "d = daughter, the abbreviation on a family tree"
+         "words": "implied suspicious",
+         "at": 19,
+         "note": "the first letters of these two words are taken"
         }
        ]
       },
       {
-       "words": "initially implied suspicious",
-       "gives": "IS",
-       "note": "the first letters of IMPLIED and SUSPICIOUS"
-      },
-      {
        "words": "character",
+       "at": 38,
        "gives": "TEMPER",
-       "note": "a person's temper is their character or disposition"
+       "note": "temper means disposition or character"
       }
      ]
     },
     "explanation": {
-     "surface": "A daughter hinting from the outset that some shady type has been killing dogs.",
-     "walkthrough": "'Character' is the disposition sense rather than a person in a story — your temper is the character you were given. Distemper is also the chalky wall paint decorators mixed before emulsion arrived.",
-     "definitionFit": "Canine distemper is the viral disease that kills unvaccinated dogs, so the question mark's rough label points at the illness."
+     "surface": "A daughter hints that a shady figure may have killed the family dog.",
+     "walkthrough": "'initially' takes I and S from 'implied suspicious'. The question mark warns the definition is not a person: distemper is a disease that can kill dogs.",
+     "definitionFit": "Distemper is a viral disease of dogs that is often fatal, so it is a cryptic killer of dogs."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "character"
+     "joke": "pun",
+     "misdirectedWord": "killer"
     }
    }
   },
@@ -1673,47 +1682,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Emptied",
-       "note": "A word emptied has lost everything between its ends, so its first and last letters are what remain."
+       "text": "filled with",
+       "at": 12,
+       "note": "filled with means the emptied bin takes the word for uncooked inside it"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "BN",
        "indicators": [
         {
-         "text": "filled with",
-         "note": "What a thing is filled with goes inside it."
+         "text": "Emptied",
+         "at": 0,
+         "note": "emptied means the middle of bin is removed, leaving only its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Emptied bin",
-         "gives": "BN",
-         "select": "outer",
-         "note": "BIN loses its middle and keeps B and N"
+         "words": "bin",
+         "at": 8,
+         "note": "the word supplies its first and last letters"
         }
        ]
       },
       {
        "words": "uncooked",
+       "at": 24,
        "gives": "RAW",
-       "note": "uncooked = raw"
+       "note": "raw means uncooked"
       }
      ]
     },
     "explanation": {
-     "surface": "A bin tipped out and packed with raw meat.",
-     "walkthrough": "Brawn is the British cold cut made from a boiled pig's head set in its own jelly and sold sliced at the butcher's — the same word as the one meaning muscle.",
-     "definitionFit": "Brawn is potted meat from a pig's head, so 'meat' is the plain label for it."
+     "surface": "A bin is emptied and refilled with raw meat scraps.",
+     "walkthrough": "'Emptied' leaves BN from 'bin', which is 'filled with' RAW.",
+     "definitionFit": "Brawn is a British cold cut made from a pig's head set in jelly, or more generally muscle meat."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Emptied"
+     "aptDefinition": false
     }
    }
   },
@@ -1739,38 +1746,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "oddly",
-       "note": "Taken oddly, a word yields only the letters in its odd positions, the first, the third and so on."
-      }
-     ],
      "parts": [
       {
        "words": "black",
+       "at": 5,
        "gives": "B",
-       "note": "B = black, as stamped on a pencil"
+       "note": "B is the abbreviation for black, as on pencils"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "Turned about, a pair of letters faces the other way."
+         "at": 23,
+         "note": "about here means turned round, so the odd letters are read backwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "LE",
+         "indicators": [
+          {
+           "text": "oddly",
+           "at": 17,
+           "note": "oddly takes the letters in the odd positions of the word lies"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "lies, oddly",
-           "gives": "LE",
-           "select": "alternate",
-           "note": "the first and third letters of LIES"
+           "words": "lies",
+           "at": 11,
+           "note": "the word supplies its first and third letters"
           }
          ]
         }
@@ -1778,20 +1784,21 @@
       },
       {
        "words": "Switzerland",
+       "at": 29,
        "gives": "CH",
-       "note": "CH is Switzerland's international code, from its Latin name Confoederatio Helvetica"
+       "note": "CH is the international code for Switzerland, from Confoederatio Helvetica"
       }
      ]
     },
     "explanation": {
-     "surface": "Spouting black lies about the Swiss every now and then.",
-     "walkthrough": "'About' looks like a container instruction and is not — it turns two letters round. CH is on every Swiss numberplate: the Latin name is used because the country has four languages and no favourite.",
-     "definitionFit": "To belch is to bring wind up noisily, and a chimney or a volcano belches out what it spews."
+     "surface": "Pouring out dark falsehoods about the Swiss.",
+     "walkthrough": "'oddly' takes L and E from 'lies', and 'about' turns them round to EL.",
+     "definitionFit": "To belch is to spew out or emit forcefully, as a chimney belches smoke."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "lies"
     }
    }
   },
@@ -1870,28 +1877,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HELLFIRE",
+     "spelt": "HELLFIRE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner's trademark slip was to trade the opening sounds of two words, so that trade has to be undone here."
+       "at": 19,
+       "note": "Spooner's signals a swap of the opening sounds of the two words, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Decreased rent",
-       "gives": "HELLFIRE",
-       "soundsLike": "FELL HIRE",
-       "note": "a rent that decreased fell, and rent is also hire; swap the front sounds of the two words"
+       "op": "homophone",
+       "spelt": "HELL",
+       "parts": [
+        {
+         "words": "Decreased",
+         "at": 0,
+         "gives": "FELL",
+         "note": "fell is a past tense meaning decreased, as in prices fell"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "FIRE",
+       "parts": [
+        {
+         "words": "rent",
+         "at": 10,
+         "gives": "HIRE",
+         "note": "hire means rent, as in hire a car"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cut in the rent, announced by the Reverend Spooner.",
-     "walkthrough": "Spooner clues want the innocent pair found first, so look for two plain words before attempting any swap. William Spooner was the Oxford warden whose tangled announcements made the trick famous.",
-     "definitionFit": "Hellfire is the everlasting burning promised to the damned, which is torment with no end to it."
+     "surface": "A cut in rent, which the muddled Reverend Spooner hears as damnation.",
+     "walkthrough": "\"Spooner's\" swaps the starting sounds of FELL HIRE, giving HELL FIRE.",
+     "definitionFit": "Hellfire is the fire of hell, the everlasting punishment of the damned."
     },
     "features": {
      "answerInScene": false,

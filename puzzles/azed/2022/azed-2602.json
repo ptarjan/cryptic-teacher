@@ -1047,83 +1047,74 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LIPLINER",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned",
-       "note": "turned means flipped round, so the short word before it is read backwards"
+       "text": "held by",
+       "at": 17,
+       "note": "held by means the one and the bit of plush sit inside what is left of the hatter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "held by",
-         "note": "held by means sitting inside, so these letters go within the other piece"
+         "text": "off",
+         "at": 43,
+         "note": "off means those turned letters are removed from the word for hatter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "hatter",
+         "at": 25,
+         "gives": "MILLINER",
+         "note": "a milliner makes and sells hats"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "off",
-           "note": "off means removed, so those letters are taken away"
+           "text": "turned",
+           "at": 36,
+           "note": "turned means the letters of I'm are read the other way round"
           }
          ],
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "op": "deletion",
-             "parts": [
-              {
-               "words": "hatter",
-               "gives": "MILLINER",
-               "note": "a milliner makes and sells hats"
-              },
-              {
-               "gives": "M"
-              }
-             ]
-            },
-            {
-             "op": "deletion",
-             "parts": [
-              {
-               "words": "I'm",
-               "note": "taken as written"
-              },
-              {
-               "gives": "M"
-              }
-             ]
-            }
-           ]
-          },
-          {
-           "words": "One",
-           "gives": "I",
-           "note": "Roman numeral one"
+           "words": "I'm",
+           "at": 32,
+           "gives": "IM",
+           "note": "the letters of I'm, taken as written"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "one is I, the Roman numeral"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "bit of",
-           "note": "a bit of a word here is just its opening letter"
+           "at": 4,
+           "note": "bit of takes just the opening letter of plush"
           }
          ],
          "parts": [
           {
            "words": "plush",
-           "note": "the first letter of plush"
+           "at": 11,
+           "note": "the word supplies its first letter"
           }
          ]
         }
@@ -1132,14 +1123,14 @@
      ]
     },
     "explanation": {
-     "surface": "A milliner abandons plush trimmings for make-up.",
-     "walkthrough": "Removing MI from the start of MILLINER leaves LLINER, which takes I and P after its first L.",
-     "definitionFit": "Lip liner is a cosmetic pencil used to outline the lips before applying lipstick."
+     "surface": "A hatter turns away an item of plush, refusing to work with it.",
+     "walkthrough": "'I'm turned' gives MI, and taking it 'off' MILLINER leaves LLINER. I and P ('bit of' plush) are then 'held by' it after the first L.",
+     "definitionFit": "Lip liner is a make-up pencil used to outline the lips, so it is a cosmetic."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hatter"
+     "misdirectedWord": "turned"
     }
    }
   },
@@ -1168,40 +1159,43 @@
      "parts": [
       {
        "words": "Duck",
+       "at": 0,
        "gives": "O",
-       "note": "a duck in cricket is a score of nought, O"
+       "note": "a duck in cricket is a score of nothing, so O"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "containing",
-         "note": "containing means holding something within, so one piece goes inside the pastry"
+         "at": 12,
+         "note": "containing means the word for pastry holds the half of meat inside it"
         }
        ],
        "parts": [
         {
          "words": "pastry",
+         "at": 5,
          "gives": "PIE",
          "note": "a pie is a pastry dish"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "AT",
+         "op": "deletion",
          "indicators": [
           {
            "text": "only half",
-           "note": "only half keeps one half of the word, here its second two letters"
+           "at": 23,
+           "note": "only half keeps just the second half of the word meat, dropping its first two letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "meat",
-           "gives": "AT",
-           "select": "last",
-           "note": "the last half of meat"
+           "at": 33,
+           "note": "the word supplies its last two letters"
+          },
+          {
+           "gives": "ME"
           }
          ]
         }
@@ -1210,9 +1204,9 @@
      ]
     },
     "explanation": {
-     "surface": "A disappointing duck pie with barely any meat in it, and dull besides.",
-     "walkthrough": "Duck in cricket means a batsman's score of zero.",
-     "definitionFit": "To opiate is to dull or deaden, as an opium-based drug numbs pain."
+     "surface": "A duck pie with barely any meat makes a dreary dish.",
+     "walkthrough": "'only half' of MEAT is AT, and PIE 'containing' it gives PIATE after O. A duck is a cricket score of zero, hence O.",
+     "definitionFit": "Opiate as a verb means to deaden or stupefy, as an opium-based drug would, so it means to dull."
     },
     "features": {
      "answerInScene": false,
@@ -1587,36 +1581,37 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "DE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half keeps only one half of the word, here its opening two letters"
+         "at": 17,
+         "note": "half asks for only the first two of the four letters of dead"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "dead",
-         "gives": "DE",
-         "select": "first",
-         "note": "the first half of dead"
+         "at": 22,
+         "note": "the word supplies its first half"
+        },
+        {
+         "gives": "AD"
         }
        ]
       },
       {
        "words": "melancholy",
+       "at": 32,
        "gives": "BILE",
-       "note": "black bile was the humour thought to cause melancholy"
+       "note": "black bile was the humour once thought to cause melancholy, so bile stands for it"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone old and frail is half dead with gloom.",
-     "walkthrough": "'Old' tells you the definition is an archaic word; the question mark flags melancholy for bile, after the old theory of humours.",
-     "definitionFit": "Debile is an obsolete word for weak or feeble, related to debility."
+     "surface": "Someone weak, aged and half dead from gloom.",
+     "walkthrough": "'half' of DEAD is DE, then BILE. 'old' in the definition flags an archaic word; in old medicine an excess of black bile caused melancholy.",
+     "definitionFit": "Debile is an obsolete word for weak or debilitated, the root of debility."
     },
     "features": {
      "answerInScene": true,

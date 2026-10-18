@@ -181,48 +181,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REINSTATE",
+     "op": "composite",
      "indicators": [
       {
        "text": "foolishly",
-       "note": "letters treated foolishly end up in a senseless order"
+       "at": 21,
+       "note": "foolishly suggests the letters of the street name are muddled into a new order"
+      },
+      {
+       "text": "wasting",
+       "at": 31,
+       "note": "wasting means losing, so the letter for millions is taken out of the street name"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "REINSTATE",
-       "indicators": [
-        {
-         "text": "wasting"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Main Street",
-         "note": "anagram fodder before the deletion"
-        },
-        {
-         "words": "millions",
-         "gives": "M",
-         "note": "M is the abbreviation for million(s); it is removed"
-        }
-       ]
+       "words": "Main Street",
+       "at": 8,
+       "note": "taken as written, the letters to be rearranged"
+      },
+      {
+       "words": "millions",
+       "at": 39,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A town council foolishly squanders millions restoring its high street.",
-     "walkthrough": "The M comes out before the shuffle, leaving exactly nine letters for a nine-letter answer.",
-     "definitionFit": "A plain synonym: to put a person or thing back in its former place."
+     "surface": "A plea to restore a town's high street, ruined by wasted millions.",
+     "walkthrough": "'wasting' M (millions) takes it out of MAIN STREET, leaving AINSTREET, and 'foolishly' rearranges those letters.",
+     "definitionFit": "To reinstate is to bring back to a former position or condition, which is what restoring means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Main"
+     "misdirectedWord": "millions"
     }
    }
   },
@@ -595,50 +588,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AGONISE",
-     "indicators": [
-      {
-       "text": "constraining"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "constraining",
+         "at": 14,
+         "note": "constraining means holding in, so the letter for north sits between the word for past and is"
+        }
+       ],
        "parts": [
         {
-         "words": "past",
-         "gives": "AGO",
-         "note": "ago = in the past"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "past",
+           "at": 6,
+           "gives": "AGO",
+           "note": "ago means in the past, as in two years ago"
+          },
+          {
+           "words": "is",
+           "at": 11
+          }
+         ]
         },
         {
          "words": "north",
-         "gives": "N",
-         "note": "N is the abbreviation for north"
-        },
-        {
-         "words": "is",
-         "note": "used as it stands"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
+         "at": 27,
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 33,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scandinavian is held back by anxiety about their past.",
-     "walkthrough": "'North European' reads as one idea, a Scandinavian, but it splits: north goes inside the wordplay and European comes at the end.",
-     "definitionFit": "A stronger synonym: to fret or worry intensely over something."
+     "surface": "Anxiety that the past holds back northern Europe.",
+     "walkthrough": "AGO and IS are 'constraining' N between them, giving AGONIS, and E follows.",
+     "definitionFit": "To agonise is to fret or torment oneself over something, so it means to worry."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "north"
+     "misdirectedWord": "constraining"
     }
    }
   },
@@ -1478,30 +1477,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TERSE",
      "indicators": [
       {
        "text": "after change of heart",
-       "note": "the middle letter of the word for anxious is changed"
+       "at": 14,
+       "note": "change of heart means the central letter of the word for anxious is swapped for a different one"
       }
      ],
      "parts": [
       {
        "words": "anxious",
+       "at": 6,
        "gives": "TENSE",
-       "note": "tense = anxious"
+       "note": "tense means anxious or on edge"
+      },
+      {
+       "gives": "N"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A blunt person turns anxious after changing their mind.",
-     "walkthrough": "The clue says only that the heart changes, not what to; the new middle letter comes from the definition and crossers.",
-     "definitionFit": "A near synonym: brief to the point of rudeness."
+     "surface": "Someone nervous turns brusque after changing their mind.",
+     "walkthrough": "TENSE has N at its heart; the 'change of heart' replaces it with R.",
+     "definitionFit": "Terse speech is brief and curt, which is what blunt means when said of a reply."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "heart"
     }
    }

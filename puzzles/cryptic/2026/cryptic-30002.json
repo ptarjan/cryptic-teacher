@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -388,42 +389,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GENERALIST",
-     "indicators": [
-      {
-       "text": "upsetting",
-       "note": "To upset a thing is to tip it over, and in a down entry the piece it tips is then written upwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "intelligence",
+       "at": 60,
+       "gives": "GEN",
+       "note": "gen is informal British for information or intelligence"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upsetting",
+         "at": 38,
+         "note": "upsetting in a down clue turns the word for about on its head, so it is read upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "intelligence",
-         "gives": "GEN",
-         "note": "gen is British informal for information — the gen on something"
-        },
-        {
          "words": "about",
-         "gives": "ER",
-         "note": "'about' is re, and this one arrives the other way up"
-        },
-        {
-         "words": "celebs",
-         "gives": "ALIST",
-         "note": "the A-list is where the celebrated names are kept"
+         "at": 32,
+         "gives": "RE",
+         "note": "re is Latin-derived crossword shorthand for about or concerning"
         }
        ]
+      },
+      {
+       "words": "celebs",
+       "at": 48,
+       "gives": "ALIST",
+       "note": "the A-list is the group of top celebrities"
       }
      ]
     },
     "explanation": {
-     "surface": "A man shrugging at gossip about famous people while claiming to be well informed.",
-     "walkthrough": "'Particularly' is the hinge. Taken as an adverb it says he is not very bothered; taken as 'in particular' it says what kind of mind he has, and only the second reading is the definition.",
-     "definitionFit": "Someone whose interest runs across the board rather than into particulars, so the definition turns on the two senses of 'particular'."
+     "surface": "Someone indifferent to whether he offends famous people with what he knows.",
+     "walkthrough": "'upsetting' turns RE (about) over to ER; GEN (intelligence) then ER then A-LIST (celebs), with 'with' simply joining.",
+     "definitionFit": "A generalist has broad knowledge rather than a specialism, so he is not focused on any one particular field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upsetting"
     }
    }
   },
@@ -662,46 +670,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "fire extinguisher",
+      "text": "fire extinguisher?",
       "at": 24
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WETBLANKET",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about tells us the rearranged tweet goes around the word for empty"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Angry",
-         "note": "An angry message is one that has lost its composure, and letters that lose their composure lose their printed order too."
-        },
-        {
-         "text": "about",
-         "note": "'About' means round here rather than concerning: one piece ends up wrapped round the other."
+         "at": 0,
+         "note": "angry suggests the letters of tweet are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "tweet",
-         "gives": "WETET",
-         "note": "the five letters of the message, reordered and then parted to make room"
-        },
-        {
-         "words": "empty",
-         "gives": "BLANK",
-         "note": "an empty form is a blank one"
+         "at": 6,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "empty",
+       "at": 18,
+       "gives": "BLANK",
+       "note": "something blank is empty, like a blank page"
       }
      ]
     },
     "explanation": {
-     "surface": "A furious post online about nothing whatsoever.",
-     "walkthrough": "The definition is the literal reading of a phrase almost nobody uses literally, and the question mark is the setter apologising for it. A tweet is short, which is a hint at how little fodder there is.",
-     "definitionFit": "A soaked blanket really is thrown over flames to smother them; the question mark admits that the everyday sense of the phrase is the killjoy one."
+     "surface": "A furious social media post about an extinguisher that has run dry.",
+     "walkthrough": "'Angry' rearranges TWEET to WET ET, and 'about' wraps those letters around BLANK. The question mark marks the definition as playful: a damp blanket smothers flames, and a wet blanket smothers fun.",
+     "definitionFit": "A wet blanket is a killjoy who dampens enthusiasm, figuratively putting out the fire of a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "empty"
     }
    }
   },
@@ -744,31 +761,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WESHALLNOTBEMOVED",
+     "op": "reverse",
+     "reading": "WE SHALL NOT BE + MOVED",
+     "indicators": [
+      {
+       "text": "suggested by",
+       "at": 23,
+       "note": "suggested by says the answer is what gives rise to the following words when read as an instruction"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "nobles' wealth",
-         "gives": "WESHALLNOTBE",
-         "note": "twelve letters that rearrange into the first four words of the entry"
-        },
-        {
-         "words": "suggested by",
-         "gives": "MOVED",
-         "note": "the clue runs backwards: the entry is an instruction, and this is the word in it that does the shuffling"
-        }
-       ]
+       "words": "nobles' wealth",
+       "at": 36,
+       "note": "read the answer as wordplay: its last word moved is an anagram signal, and the first four words rearranged give the letters of nobles wealth"
       }
      ]
     },
     "explanation": {
-     "surface": "A protest slogan brought on by the sight of how much the aristocracy owns.",
-     "walkthrough": "The shuffling instruction is not in the clue at all — it is the last word of the entry. Read the answer as an order rather than a statement and it tells you to move the first four words, which produces the clue's own phrase.",
-     "definitionFit": "The old union and civil-rights song is sung by people announcing that they will not budge, so the phrase is defiance itself."
+     "surface": "An aristocrat's riches prompt a defiant protest slogan.",
+     "walkthrough": "This is a reverse clue: the answer is the instruction that would produce 'nobles' wealth', since WE SHALL NOT BE rearranged ('moved') spells NOBLES WEALTH.",
+     "definitionFit": "The phrase is a famous protest song and slogan declaring that the speakers will stand firm and refuse to yield."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suggested"
     }
    }
   },
@@ -841,41 +859,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PERIOD",
-     "indicators": [
-      {
-       "text": "reflected",
-       "note": "What is reflected comes back at you the other way round, so those two letters are written in reverse."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "for a",
+       "at": 5,
+       "gives": "PER",
+       "note": "per means for each or for a, as in ten pounds per head"
+      },
+      {
+       "words": "I",
+       "at": 18
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflected",
+         "at": 20,
+         "note": "reflected means shown back as in a mirror, so the word for party is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "for",
-         "gives": "PER",
-         "note": "per means for each — twice per week"
-        },
-        {
-         "words": "I",
-         "note": "the pronoun hands over its own letter"
-        },
-        {
-         "words": "a party",
-         "gives": "OD",
-         "note": "a do is a party, and this one is turned round"
+         "words": "party",
+         "at": 11,
+         "gives": "DO",
+         "note": "a do is an informal word for a party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody deciding it is time to celebrate, then thinking better of it.",
-     "walkthrough": "A 'do' for a party is British and informal — a works do, a leaving do — and it is the only piece here that the mirror acts on.",
-     "definitionFit": "A stretch of time, the plainest of synonyms — the sense a history lesson uses when it talks about the Georgian one."
+     "surface": "A party-goer musing that it's time for a celebration.",
+     "walkthrough": "'reflected' turns DO (party) round to OD, placed after PER and I.",
+     "definitionFit": "A period is a stretch or span of time, such as a historical era or a lesson."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
     }
    }
   },
@@ -969,53 +993,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MAGNETIC",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 15,
+       "note": "over in a down clue means the whole thing is turned upside down, read from bottom to top"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "MAGNETIC",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 20,
+         "note": "accepting means the pair of words takes in the letter for number between them"
+        }
+       ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "Turned over is turned round, and here it acts on both pieces at once rather than on the nearer one only."
-          },
-          {
-           "text": "accepting",
-           "note": "To accept a thing is to take it in, so the letter named is taken into the middle of what has just been turned."
-          }
-         ],
          "parts": [
           {
-           "words": "school",
-           "gives": "MAG",
-           "note": "a gam is a school of whales, written here the other way about"
-          },
-          {
-           "words": "small number",
-           "gives": "N",
-           "note": "n is the mathematician's stand-in for a number nobody has fixed yet"
-          },
-          {
            "words": "Commend",
-           "gives": "ETIC",
-           "note": "to cite someone is to commend them, and it too goes in backwards"
+           "at": 0,
+           "gives": "CITE",
+           "note": "to cite someone is to commend them officially, as for bravery"
+          },
+          {
+           "words": "school",
+           "at": 8,
+           "gives": "GAM",
+           "note": "a gam is a school of whales"
           }
          ]
+        },
+        {
+         "words": "small number",
+         "at": 30,
+         "gives": "N",
+         "note": "N stands for number, here a small or abbreviated one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school being praised, with a modest roll of pupils who are good at art.",
-     "walkthrough": "Both halves of the wordplay are laid down and then turned as one lump, which is why neither word can be reversed on its own and made to fit. A gam is a school of whales, a word that survives mainly in whaling books and crosswords.",
-     "definitionFit": "Something that attracts pulls things towards it, so the definition uses 'draw' in its dragging sense rather than its pencil one."
+     "surface": "Praising a school that takes in a few pupils who are talented artists.",
+     "walkthrough": "CITE and GAM take N between them ('accepting') to give CITENGAM, and 'over' reverses all of it. A gam is a school of whales.",
+     "definitionFit": "A magnet is good at attracting, which is another sense of drawing, so the definition puns on art."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawing"
     }
    }
   },
@@ -1111,47 +1144,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "they're wrong",
+      "text": "they're wrong!",
       "at": 33
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRESPASSES",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "'About' is the turn-round instruction rather than 'concerning': the letters before it go in the other way."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 6,
+         "note": "about here means turned round, so the abbreviation for right is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Right",
-         "gives": "TR",
-         "note": "Rt is the abbreviation in Rt Hon, and it is entered the other way about"
-        },
-        {
-         "words": "sixth sense",
-         "gives": "ESP",
-         "note": "ESP is extra-sensory perception, the sixth sense of ghost stories"
-        },
-        {
-         "words": "Fools",
-         "gives": "ASSES",
-         "note": "an ass is a fool, and the plural follows the clue's own"
+         "at": 0,
+         "gives": "RT",
+         "note": "Rt is the abbreviation for right, as in Rt Hon"
         }
        ]
+      },
+      {
+       "words": "sixth sense",
+       "at": 12,
+       "gives": "ESP",
+       "note": "ESP, extrasensory perception, is the so-called sixth sense"
+      },
+      {
+       "words": "Fools",
+       "at": 25,
+       "gives": "ASSES",
+       "note": "asses are fools"
       }
      ]
     },
     "explanation": {
-     "surface": "A sceptic dismissing the people who believe in second sight.",
-     "walkthrough": "'Right' at the front of a clue almost always looks like the definition, and here the definition is at the far end. The word is only two letters of a title.",
-     "definitionFit": "In the Lord's Prayer these are the wrongs we ask forgiveness for — offences committed, not the people who commit them, and the plural matches 'they'."
+     "surface": "Mocking people who claim a sixth sense: they're fools and they're wrong.",
+     "walkthrough": "'about' turns RT round to TR, then ESP and ASSES follow.",
+     "definitionFit": "Trespasses are sins or wrongdoings, as in the Lord's Prayer's forgive us our trespasses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Right"
     }
    }
   },
@@ -1177,12 +1217,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IMPALE",
      "indicators": [
       {
        "text": "around",
-       "note": "What is around a thing sits on both sides of it, which is where the outer pieces end up."
+       "at": 6,
+       "note": "around says the setter's letters and that final letter go round the word for mate"
       }
      ],
      "parts": [
@@ -1191,37 +1230,47 @@
        "parts": [
         {
          "words": "Vlad's",
+         "at": 21,
          "gives": "IM",
-         "note": "Vlad set this puzzle, so 'Vlad's' is the setter's own I'm"
-        },
-        {
-         "words": "mate",
-         "gives": "PAL",
-         "note": "a mate is a pal, and this is the piece that gets enclosed"
+         "note": "Vlad is the setter, so Vlad's means I am, written I'M"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "to finish",
-           "note": "'To finish' asks for the letter a word finishes on rather than for the word itself."
+           "at": 34,
+           "note": "to finish picks the letter that ends the word close"
           }
          ],
          "parts": [
           {
            "words": "close",
-           "note": "the last letter of the word 'close' itself"
+           "at": 28,
+           "note": "the word close supplies its final letter"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "mate",
+       "at": 14,
+       "gives": "PAL",
+       "note": "a pal is a mate or friend"
       }
      ]
     },
     "explanation": {
-     "surface": "Vlad telling a friend to hang about until the end.",
-     "walkthrough": "Vlad the Impaler is the joke the setter is making at his own expense. 'Close' is there to be spelled rather than read, which is the one step that has to be seen before the rest falls out.",
-     "definitionFit": "The verb means to stick something on a point, which is 'Stick' in its transitive sense — stick a pin through it."
+     "surface": "A friend is told to wait as the setter nears the end of his task.",
+     "walkthrough": "Vlad is the setter, so 'Vlad's' gives I'M; 'to finish' takes E, the last letter of 'close'; and 'around' sets I'M...E around PAL. Fittingly, Vlad the Impaler shares the setter's name.",
+     "definitionFit": "To impale is to pierce or skewer something on a sharp point, which is one meaning of stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "close"
     }
    }
   },
@@ -1253,60 +1302,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "order",
-       "note": "An order is what letters are put into, and 'mail-order' hides the instruction to put these ones into a different one."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "inside",
-         "note": "'Inside' drops the letter named just before it into the middle of those letters rather than beside them."
+         "at": 22,
+         "note": "inside places the letter for left within the rearranged mail"
         }
        ],
        "parts": [
         {
-         "words": "mail",
-         "gives": "ALIM",
-         "note": "the four letters of mail, put into a new order"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "order",
+           "at": 11,
+           "note": "order means the letters of mail are put into a new arrangement"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mail",
+           "at": 6,
+           "note": "taken as written, as anagram fodder"
+          }
+         ]
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "left is L, and it drops into the middle of them"
+         "at": 17,
+         "gives": "L"
         }
        ]
       },
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "dock",
-         "gives": "PORT",
-         "note": "a port is where ships dock"
-        },
-        {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "worker",
-           "gives": "ANT",
-           "note": "the crossword's worker is nearly always the ant"
-          }
-         ]
-        }
-       ]
+       "words": "dock",
+       "at": 32,
+       "gives": "PORT",
+       "note": "a port is a place where ships dock"
+      },
+      {
+       "words": "worker",
+       "at": 37,
+       "gives": "ANT",
+       "note": "an ant is the classic crossword worker, from worker ants"
       }
      ]
     },
     "explanation": {
-     "surface": "A catalogue parcel left on the quay for a docker to deal with.",
-     "walkthrough": "'Mail-order' is one word in the surface and two separate instructions in the wordplay — setters call that lift and separate, and a hyphen is the usual place to look for it.",
-     "definitionFit": "Vital says nothing matters more, and the answer is the emphatic form that says exactly the same about a thing's importance."
+     "surface": "A docker leaves a mail-order package behind; it's vital.",
+     "walkthrough": "'order' rearranges MAIL to ALIM, and 'inside' puts L within it to give ALLIM; PORT and ANT follow, with 'by' just joining.",
+     "definitionFit": "Something all-important is crucial or essential, so it is of the highest importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
     }
    }
   },
