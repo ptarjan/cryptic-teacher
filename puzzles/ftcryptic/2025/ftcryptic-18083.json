@@ -231,28 +231,28 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ROOST",
      "indicators": [
       {
        "text": "Take covers off",
-       "note": "removing the covers strips the outside letters from each of the next words"
+       "at": 0,
+       "note": "a word's covers are its outer letters, so each of the two words loses its first and last letters"
       }
      ],
      "parts": [
       {
-       "words": "iron",
-       "note": "taken as written"
+       "words": "iron posts",
+       "at": 16,
+       "note": "taken as written, before each word is stripped of its ends"
       },
       {
-       "words": "posts",
-       "note": "taken as written"
+       "gives": "INPS"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to strip the casing from iron posts to make a bedframe.",
-     "definitionFit": "A roost is where birds sleep, so it is their bed; the verb sense of going to bed also fits."
+     "surface": "An instruction to strip the coverings from metal posts, as in a workshop.",
+     "walkthrough": "'Take covers off' applies to both words: iron loses I and N, posts loses P and S.",
+     "definitionFit": "A roost is where birds settle to sleep, and informally any place to sleep, so a bed."
     },
     "features": {
      "answerInScene": false,
@@ -282,52 +282,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RETICULUM",
+     "op": "composite",
      "indicators": [
       {
        "text": "somehow",
-       "note": "somehow means in some unexplained way, so the letters can come in any order"
+       "at": 23,
+       "note": "somehow means in some unspecified way, so the gathered letters are arranged anew"
+      },
+      {
+       "text": "bar",
+       "at": 31,
+       "note": "to bar is to exclude, so the named element is kept out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RETICULUM",
-       "indicators": [
-        {
-         "text": "bar",
-         "note": "to bar is to exclude, so the chemical element is shut out of the word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "ulcer",
-         "note": "taken as written"
+         "at": 8
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 16
         },
         {
          "words": "must",
-         "note": "taken as written"
-        },
-        {
-         "words": "sulphur",
-         "gives": "S",
-         "note": "S is the chemical symbol for sulphur"
+         "at": 18
         }
        ]
+      },
+      {
+       "words": "sulphur",
+       "at": 35,
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
       }
      ]
     },
     "explanation": {
-     "surface": "A patient with a stomach ulcer is told to give up sulphur in some way.",
-     "walkthrough": "Take S from MUST to leave MUT, then rearrange it with ULCER and I.",
-     "definitionFit": "The reticulum is the second chamber of a ruminant's stomach, so it is a stomach in its own right."
+     "surface": "A medical note: a stomach ulcer, and the patient must avoid sulphur at all costs.",
+     "walkthrough": "Pool ULCER, I and MUST, take out S ('bar sulphur'), and rearrange what is left as the anagram signal directs.",
+     "definitionFit": "The reticulum is the second chamber of a ruminant's four-part digestive organ, so it is a stomach in the anatomical sense."
     },
     "features": {
      "answerInScene": true,
@@ -891,47 +888,59 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "NITRE",
      "indicators": [
       {
        "text": "to be returned",
-       "note": "something returned goes back the way it came, so the word is read backwards"
+       "at": 17,
+       "note": "the remaining letters are to be sent back the other way"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "NITRE",
        "indicators": [
         {
-         "text": "decarbonised",
-         "note": "C is the symbol for carbon, so taking the carbon out removes that letter"
-        },
-        {
          "text": "inactive",
-         "note": "read as in-active, it asks for the abbreviation for active to be taken out"
+         "at": 49,
+         "note": "not active, so A, the grammatical abbreviation for active, is taken out"
         }
        ],
        "parts": [
         {
-         "words": "certain",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "decarbonised",
+           "at": 32,
+           "note": "carbon removed, so the carbon symbol C is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "certain",
+           "at": 9
+          },
+          {
+           "gives": "C"
+          }
+         ]
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chemical sure to be sent back once its carbon is removed and it is no longer reactive.",
-     "walkthrough": "Remove C (carbon) and A (active, as in grammar) from CERTAIN to leave ERTIN, then reverse it. 'Inactive' looks like a synonym for inert, a tempting anagram of the answer, but it is a deletion signal.",
-     "definitionFit": "Nitre is potassium nitrate, saltpetre, a chemical compound used in gunpowder."
+     "surface": "A lab note: a substance that is sure to come back with its carbon removed, and inert.",
+     "walkthrough": "Remove C ('decarbonised') and A ('inactive') from CERTAIN to leave ERTIN, which 'to be returned' turns round.",
+     "definitionFit": "Nitre is potassium nitrate, saltpetre, a compound used in gunpowder and fertiliser."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "inactive"
+     "misdirectedWord": "certain"
     }
    }
   },
@@ -1133,48 +1142,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PERSIMMON",
      "indicators": [
       {
        "text": "jamming",
-       "note": "jamming means squeezing in, so the shortened name is pushed inside the first word"
+       "at": 24,
+       "note": "jamming into means squeezing inside, so the trimmed name goes inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PERSIMMON",
+       "words": "Somebody",
+       "at": 0,
+       "gives": "PERSON",
+       "note": "somebody is a person"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "peeled",
-         "note": "peeling takes off the skin, so the outer letters of the name are removed"
+         "at": 9,
+         "note": "a peeled thing loses its skin, so the name loses its outer letters"
         }
        ],
        "parts": [
         {
-         "words": "Somebody",
-         "gives": "PERSON",
-         "note": "somebody is a person"
-        },
-        {
          "words": "Jimmy's",
+         "at": 16,
          "gives": "JIMMY",
-         "note": "the name, before its first and last letters come off"
+         "note": "the name Jimmy, with 's as the link 'is'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some person has stripped the skin from Jimmy's fruit for making jam.",
-     "walkthrough": "'Jamming' suggests preserves, fitting fruit, but it means squeezing in.",
-     "definitionFit": "A persimmon is an orange tomato-like fruit from an East Asian tree."
+     "surface": "Someone has peeled Jimmy's fruit, which is being made into jam.",
+     "walkthrough": "'peeled' strips JIMMY to IMM, and 'jamming' puts that into PERSON. 'jamming' looks like making jam from the fruit, which is the surface's trick.",
+     "definitionFit": "A persimmon is an orange tomato-like fruit from a tree of the ebony family."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "jamming"
     }
    }
@@ -1853,35 +1863,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAYENNE",
-     "indicators": [
-      {
-       "text": "cropped",
-       "note": "cropping trims off the end, so the last letter goes"
-      },
-      {
-       "text": "unlimited",
-       "note": "without its limits the word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Islands",
-       "gives": "CAYS",
-       "note": "cays are small low islands"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cropped",
+         "at": 14,
+         "note": "cropped means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Islands",
+         "at": 6,
+         "gives": "CAYS",
+         "note": "cays are small low islands or reefs"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
-       "words": "fennel",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 22,
+         "note": "with no limits means without its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fennel",
+         "at": 32,
+         "note": "the word with its first and last letters gone"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Spice Islands' crops include fennel grown without restriction.",
-     "walkthrough": "The Spice Islands are the Moluccas, but here Spice is the definition on its own.",
-     "definitionFit": "Cayenne is a hot red pepper ground into a spice."
+     "surface": "A spice trader's list: island produce and some fennel.",
+     "walkthrough": "'cropped' cuts CAYS to CAY, and 'unlimited' trims fennel to ENNE. 'Spice Islands' reads as the Moluccas, but Spice is the definition.",
+     "definitionFit": "Cayenne is the hot red pepper ground from dried chillies, used as a seasoning."
     },
     "features": {
      "answerInScene": true,

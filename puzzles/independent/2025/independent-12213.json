@@ -604,53 +604,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OLDEST",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "'mostly' means not all of it, so the final letter is dropped"
+       "text": "solution",
+       "at": 34,
+       "note": "a solution is something dissolved and remixed, so the gathered letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "solution",
-         "note": "a solution is something dissolved and remixed, so the letters are rearranged"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly the whole word, so its last letter goes"
         }
        ],
        "parts": [
         {
          "words": "stolen",
-         "gives": "STOLE",
-         "note": "the word without its last letter"
+         "at": 7
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "original",
-           "note": "the original of something comes first, so the opening letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "deficit's",
-           "note": "the opening letter of the word"
-          }
-         ]
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "original",
+         "at": 25,
+         "note": "original means the starting letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deficit's",
+         "at": 15,
+         "note": "the word supplies only its first letter, D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Money mostly stolen, and the eldest are given the first way out of the shortfall.",
-     "walkthrough": "'Solution' reads as an answer to the deficit, but it signals mixing the letters of STOLE and D.",
-     "definitionFit": "The most senior person in a group is the one with greatest age, so the superlative matches exactly."
+     "surface": "A report on a theft and the shortfall it caused, and how it was first resolved.",
+     "walkthrough": "'Mostly' cuts STOLEN to STOLE, 'original' takes D from 'deficit's', and 'solution' rearranges STOLED.",
+     "definitionFit": "The oldest person in a group is the one of greatest age, the eldest or most senior."
     },
     "features": {
      "answerInScene": false,
@@ -1337,47 +1341,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABSENTEE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not starting",
-       "note": "'not starting' tells you to remove the opening letter"
+       "text": "After fracas",
+       "at": 0,
+       "note": "after a fracas, a noisy brawl, things are left in disorder, so the letters are scrambled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "After fracas",
-         "note": "after a fracas everything is in disarray, so the letters end up scrambled"
+         "text": "not starting",
+         "at": 20,
+         "note": "the word loses its starting letter"
         }
        ],
        "parts": [
         {
          "words": "Keane",
-         "gives": "EANE",
-         "note": "the name without its first letter"
+         "at": 14
         },
         {
-         "words": "best",
-         "note": "taken as written"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "best",
+       "at": 35
       }
      ]
     },
     "explanation": {
-     "surface": "After a brawl, Keane is dropped from the line-up, so the best player is missing.",
-     "walkthrough": "Roy Keane, the combative former Manchester United captain, and George Best make a football scene, but both names are just letters.",
-     "definitionFit": "An absentee is a person who is missing from where they are expected, so the phrase describes him well."
+     "surface": "A football report: after a brawl, Roy Keane is benched, and his best player is missing.",
+     "walkthrough": "'not starting' drops the K of Keane, leaving EANE; 'After fracas' then scrambles EANE with BEST. Roy Keane was a famously combative footballer, which suits the brawl.",
+     "definitionFit": "An absentee is a person who is away from where they should be, someone missing."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "best"
+     "aptDefinition": true,
+     "misdirectedWord": "starting"
     }
    }
   },
@@ -1882,43 +1888,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEGEV",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "that's not right",
-       "note": "'not right' asks for the letter standing for right to be removed"
+       "text": "surprisingly",
+       "at": 7,
+       "note": "letters arranged surprisingly come out in an unexpected order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "surprisingly",
-         "note": "a surprising result comes out unexpectedly, so the letters land in an unforeseen order"
+         "text": "that's not right",
+         "at": 34,
+         "note": "the clue asks for the version without right, so R is dropped"
         }
        ],
        "parts": [
         {
          "words": "green",
-         "gives": "GEEN",
-         "note": "the word without its R"
+         "at": 20
         },
         {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "very",
+       "at": 27,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "A desert that is unexpectedly lush: surely that can't be correct?",
-     "walkthrough": "'Desert' could be a verb meaning abandon; here it is the noun, a dry region.",
-     "definitionFit": "The Negev is the arid region covering southern Israel, so it is an example of a dry wilderness."
+     "surface": "Is a desert being remarkably verdant really wrong?",
+     "walkthrough": "'that's not right' drops R from GREEN to give GEEN, and 'surprisingly' rearranges GEEN with V. The Negev is a desert in southern Israel.",
+     "definitionFit": "The Negev is the large arid region in southern Israel, a named desert."
     },
     "features": {
      "answerInScene": true,

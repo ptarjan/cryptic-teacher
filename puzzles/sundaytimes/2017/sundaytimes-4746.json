@@ -983,42 +983,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STIRRER",
+     "op": "composite",
      "indicators": [
       {
+       "text": "Not",
+       "at": 25,
+       "note": "not here means without, so the letters of the following word are kept out of the pool"
+      },
+      {
        "text": "criminal",
-       "note": "criminal suggests something crooked, so what remains is twisted into a new order"
+       "at": 32,
+       "note": "something criminal is crooked, so the remaining letters are bent into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STIRRER",
-       "indicators": [
-        {
-         "text": "Not to",
-         "note": "not means leave out, so those two letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "terrorist",
-         "note": "taken as written"
-        }
-       ]
+       "words": "terrorist",
+       "at": 14
+      },
+      {
+       "words": "to",
+       "at": 29
       }
      ]
     },
     "explanation": {
-     "surface": "A troublemaker is a terrorist? No, just a criminal.",
-     "walkthrough": "Removing one T and the O from TERRORIST leaves ERRRIST to rearrange.",
-     "definitionFit": "A stirrer is someone who deliberately stirs up trouble or ill-feeling."
+     "surface": "Is the troublemaker a terrorist? No, says someone, just a criminal.",
+     "walkthrough": "Remove the letters T and O from TERRORIST ('Not to'), leaving ERRRIST, and 'criminal' rearranges those. The question mark tempts you to take 'terrorist' as the definition.",
+     "definitionFit": "A stirrer is someone who deliberately causes trouble or stirs up bad feeling among others."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "criminal"
     }

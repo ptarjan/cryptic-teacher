@@ -41,63 +41,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "traffic",
-      "at": 39,
-      "note": "'traffic' stands for the queue it forms, a tailback"
+      "text": "in traffic",
+      "at": 36
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TAILBACK",
-     "indicators": [
-      {
-       "text": "westbound",
-       "note": "in an across clue, heading west means reading right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Follow",
+       "at": 0,
+       "gives": "TAIL",
+       "note": "to tail someone is to follow them"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "westbound",
+         "at": 7,
+         "note": "in an across clue, heading west means reading right to left, so the word runs backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Follow",
-         "gives": "TAIL",
-         "note": "to tail someone is to follow them"
-        },
+         "words": "taxi",
+         "at": 17,
+         "gives": "CAB",
+         "note": "a cab is a taxi"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "westbound taxi",
-         "gives": "BAC",
-         "note": "CAB, a taxi, run backwards"
-        },
+         "text": "finally",
+         "at": 22,
+         "note": "finally means the last letter of the next word"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "what comes finally in a word is its closing letter, so only that one is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "stuck",
-           "note": "last letter of 'stuck'"
-          }
-         ]
+         "words": "stuck",
+         "at": 30,
+         "note": "only its last letter, K, is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver trailing a cab home, both of them jammed in a queue of cars.",
-     "walkthrough": "'Stuck in traffic' reads as one phrase, but 'stuck' only lends its final letter and the definition is 'traffic' alone.",
-     "definitionFit": "A tailback is a long queue of stationary traffic, as behind roadworks."
+     "surface": "Following a cab heading west, only to end up jammed in traffic.",
+     "walkthrough": "'stuck in traffic' reads as one phrase, but 'stuck' only gives its last letter and 'in traffic' is the definition.",
+     "definitionFit": "A tailback is a long queue of vehicles held up on a road, something found in congestion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "stuck"
+     "misdirectedWord": "Follow"
     }
    }
   },
@@ -876,53 +878,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEBAUCHERY",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "each word loses its top, i.e. first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rolling over",
+         "at": 0,
+         "note": "rolling over turns the word upside down, which in a down clue reverses its letters"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "Rolling over",
-           "note": "something rolling over turns upside down, so the letters of the phrase are read in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "words": "in the sack",
-           "gives": "ABED",
-           "note": "the sack = bed; abed = in bed"
-          }
-         ]
+         "words": "in the sack",
+         "at": 13,
+         "gives": "ABED",
+         "note": "in the sack is slang for in bed, abed"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 31,
+         "note": "each of the two words loses its top, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "such very",
+         "at": 40
         },
         {
-         "words": "such",
-         "gives": "UCH",
-         "note": "SUCH without its first letter"
-        },
-        {
-         "words": "very",
-         "gives": "ERY",
-         "note": "VERY without its first letter"
+         "gives": "SV"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid-style account of bedroom antics with the clothes off.",
-     "walkthrough": "'Topless' fits the racy surface, but it tells you to behead 'such' and 'very'.",
-     "definitionFit": "Plain synonym: excessive indulgence in sensual pleasures."
+     "surface": "Rolling about in bed half-naked: such very lewd conduct.",
+     "walkthrough": "'Rolling over' turns ABED into DEBA, and 'topless' strips the first letters from 'such' and 'very', giving UCH and ERY. 'when' is only a link.",
+     "definitionFit": "Debauchery is excessive indulgence in sensual pleasures, a byword for dissolute or licentious conduct."
     },
     "features": {
      "answerInScene": true,
@@ -1364,40 +1364,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDLE",
+     "op": "middle",
      "indicators": [
       {
        "text": "after shedding skin",
-       "note": "the word loses its outer letters"
+       "at": 22,
+       "note": "a word that sheds its skin loses its outer letters"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "moved sideways",
+       "at": 7,
        "gives": "SIDLED",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "moved sideways",
-         "gives": "SIDLED",
-         "select": "outer",
-         "note": "sidled = moved sideways; S and D go"
-        }
-       ]
+       "note": "to sidle is to move sideways, furtively"
       }
      ]
     },
     "explanation": {
-     "surface": "A snake slithering off sideways after sloughing its skin.",
-     "walkthrough": "The snake is a red herring: Python is Monty Python, and Eric Idle was one of the team.",
-     "definitionFit": "Definition by example: Eric, one of the Monty Python comedy team."
+     "surface": "A snake slithering sideways after sloughing its skin.",
+     "walkthrough": "'Python' looks like the snake, which suits sideways movement and shedding skin, but it means a member of the Monty Python team, Eric Idle.",
+     "definitionFit": "Eric Idle was one of the Monty Python comedy troupe, so he is a Python."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Python"
     }
    }

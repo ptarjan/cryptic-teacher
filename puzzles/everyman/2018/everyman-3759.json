@@ -1202,52 +1202,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLYMPICTORCH",
+     "op": "composite",
      "indicators": [
       {
        "text": "Terrible",
-       "note": "something terrible is in a dreadful state, so the letters are thrown into disorder"
+       "at": 0,
+       "note": "terrible means badly made, so the pooled letters are mangled into a new order"
+      },
+      {
+       "text": "not",
+       "at": 26,
+       "note": "not here means without, so the letter of the following word is kept out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OLYMPICTORCH",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not tells us the following word must be taken out of the letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "trophy",
-         "note": "taken as written"
+         "at": 9
         },
         {
          "words": "comical",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written and then removed"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful, laughable trophy fails to represent a big sports event.",
-     "walkthrough": "Remove one A from TROPHY COMICAL and rearrange the remaining twelve letters.",
-     "definitionFit": "The Olympic torch is the flame carried in relay to light the cauldron, the emblem of the Olympic Games."
+     "surface": "A sports trophy so ugly it is laughable, unlike a proper emblem of the Games.",
+     "walkthrough": "Pool TROPHY and COMICAL, remove the A ('not a'), and 'Terrible' rearranges the twelve letters left.",
+     "definitionFit": "The Olympic torch carries the flame relayed from Greece to light the cauldron at each Games, its best-known emblem."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Terrible"
+     "misdirectedWord": "trophy"
     }
    }
   },

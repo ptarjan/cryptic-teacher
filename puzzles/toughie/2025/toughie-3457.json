@@ -995,42 +995,41 @@
      "parts": [
       {
        "words": "to",
-       "note": "taken as written"
+       "at": 9
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ODLE",
        "indicators": [
         {
          "text": "nude",
-         "note": "a nude figure has its outer covering removed, so only the inner letters are kept"
+         "at": 17,
+         "note": "a nude thing has no covering, so the word loses its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "many",
-         "gives": "ODLE",
-         "select": "middle",
-         "note": "oodles means lots, and its outer letters are stripped"
+         "at": 12,
+         "gives": "OODLES",
+         "note": "oodles is informal for a great many"
         }
        ]
       },
       {
        "words": "loves",
+       "at": 22,
        "gives": "OO",
-       "note": "love is zero in tennis, which looks like O; two of them"
+       "note": "love is zero in tennis, and two zeros look like the letters OO"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bids goodbye to a crowd of naked lovers.",
-     "walkthrough": "Many must first become the slang word oodles, which then loses its first and last letters.",
-     "definitionFit": "Toodle-oo is a jaunty, old-fashioned British way of saying goodbye, so it is a farewell."
+     "surface": "A cheeky goodbye to a crowd of naked lovers.",
+     "walkthrough": "'nude' strips OODLES to ODLE. Each love is a nil score in tennis, written as O.",
+     "definitionFit": "Toodle-oo is an old-fashioned jaunty British way of saying goodbye, a casual parting word."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "nude"
@@ -1058,32 +1057,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SHIATSU",
-     "indicators": [
-      {
-       "text": "to stand up",
-       "note": "in a down clue standing up means rising from bottom to top, so the word reads backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "small",
+       "at": 42,
        "gives": "S",
-       "note": "S is the abbreviation for small"
+       "note": "S is the standard abbreviation for small, as on clothing labels"
       },
       {
-       "words": "space",
-       "gives": "HIATUS",
-       "note": "a hiatus is a gap or break; its last two letters are the us of the clue"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "requires",
+         "at": 15,
+         "note": "the space is required to have its matching letters altered, so they are swapped for the turned version"
+        }
+       ],
+       "parts": [
+        {
+         "words": "space",
+         "at": 48,
+         "gives": "HIATUS",
+         "note": "a hiatus is a gap or break, a space"
+        },
+        {
+         "gives": "US"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "to stand up",
+           "at": 27,
+           "note": "in a down clue, standing up means reading from the bottom upwards, so the word us is turned over within the longer word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "us",
+           "at": 24,
+           "gives": "US",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A therapy that makes us stand up in a cramped room.",
-     "walkthrough": "The word for space already ends in US; that ending is turned upside down in place, after an S for small.",
-     "definitionFit": "Shiatsu is a Japanese massage therapy using finger pressure, so it is a kind of treatment."
+     "surface": "A therapy that needs us on our feet in a cramped room.",
+     "walkthrough": "The surface pictures a cramped room, but 'us' is a piece already sitting at the end of the word for space. Shiatsu is a Japanese massage therapy using finger pressure.",
+     "definitionFit": "Shiatsu is a Japanese form of therapeutic massage applying pressure with the fingers to points on the body."
     },
     "features": {
      "answerInScene": true,

@@ -211,52 +211,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORIGAMI",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "taking",
+       "at": 13,
+       "note": "the shortened word takes the next pieces into itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "taking",
-         "note": "to take something in is to hold it inside, so one piece goes within the other"
+         "text": "almost",
+         "at": 6,
+         "note": "almost the whole word, so its final letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Birth",
-           "gives": "ORIGI",
-           "note": "origin, a birth or beginning, without its last letter"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Birth",
+         "at": 0,
+         "gives": "ORIGIN",
+         "note": "a birth is an origin, a beginning"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
         },
         {
          "words": "month",
-         "gives": "M",
-         "note": "M is the abbreviation for month"
+         "at": 22,
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pregnancy running almost a month over, which one hopes will not end in tears.",
-     "walkthrough": "ORIG(A M)I. 'End in tears' reads as weeping, but tears here are rips in paper: a folded paper model should not get torn.",
-     "definitionFit": "The Japanese art of folding paper into shapes ought not to involve rips, a cryptic pun on tears as rips."
+     "surface": "A pregnancy running nearly a month longer, yet the result should be no cause for crying.",
+     "walkthrough": "'almost' trims ORIGIN to ORIGI, and 'taking' puts A and M inside it. The definition plays on tears as rips: folded paper should come out untorn.",
+     "definitionFit": "Origami is the Japanese craft of folding paper, which is spoiled if the sheet rips, hence a playful cryptic description."
     },
     "features": {
      "answerInScene": false,
@@ -1588,31 +1593,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "UNTIE",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "it turns",
-       "note": "the word it is spun round on the spot, so those two letters run the other way"
+       "text": "turns",
+       "at": 22,
+       "note": "the word it turns round, its two letters swapping places within the longer word"
       }
      ],
      "parts": [
       {
        "words": "Join together",
+       "at": 0,
        "gives": "UNITE",
-       "note": "to unite is to join together"
+       "note": "to join together is to unite"
+      },
+      {
+       "gives": "IT"
+      },
+      {
+       "op": "reversal",
+       "parts": [
+        {
+         "words": "it",
+         "at": 19,
+         "gives": "IT",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A paradox: something meant to bind ends up coming apart.",
-     "walkthrough": "In UNITE, the IT flips to TI. Loose is a verb here, meaning to set free.",
-     "definitionFit": "As a verb, to loose means to release or unfasten, the same as undoing a knot or bond."
+     "surface": "A paradox: something that should bind things together comes undone instead.",
+     "walkthrough": "In UNITE the IT 'turns' to TI, giving the opposite word.",
+     "definitionFit": "To loose a knot or bond is to undo it, the same as unfastening it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "loose"
     }
    }
