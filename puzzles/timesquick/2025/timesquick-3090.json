@@ -235,36 +235,28 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARMOUR",
      "indicators": [
       {
        "text": "exposes",
-       "note": "to expose is to strip the covering off, so each word loses its outer letters"
+       "at": 5,
+       "note": "to expose something is to strip off its covering, so each of the quoted words loses its first and last letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Barmy",
-         "gives": "ARM",
-         "note": "BARMY with its outer letters B and Y removed"
-        },
-        {
-         "words": "court",
-         "gives": "OUR",
-         "note": "COURT with its outer letters C and T removed"
-        }
-       ]
+       "words": "Barmy court",
+       "at": 14,
+       "note": "taken as written, each word stripped of its outer letters"
+      },
+      {
+       "gives": "BYCT"
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid headline ridiculing a court as mad.",
-     "walkthrough": "\"Mail\" looks like the newspaper, but it is chain mail.",
-     "definitionFit": "A definition by example: chain mail is one kind of protective metal body covering worn in battle."
+     "surface": "A newspaper headline revealing a crazy court case.",
+     "walkthrough": "'Mail' looks like the newspaper or the post, but it is chain mail. 'exposes' takes the outer letters off both Barmy and court.",
+     "definitionFit": "Mail is flexible protective armour made of interlinked metal rings, as worn by medieval knights."
     },
     "features": {
      "answerInScene": false,
@@ -305,45 +297,44 @@
      "parts": [
       {
        "words": "The Spanish",
+       "at": 0,
        "gives": "EL",
-       "note": "Spanish for \"the\""
+       "note": "el is the masculine Spanish word for the"
       },
       {
        "words": "explorer",
+       "at": 12,
        "gives": "DORA",
-       "note": "Dora the Explorer, the children's cartoon character"
+       "note": "Dora the Explorer is the heroine of a children's cartoon series"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
-         "text": "first",
-         "note": "\"first to discover\" is whatever comes first in discover, its opening letter"
+         "text": "first to",
+         "at": 21,
+         "note": "the first of a word is its opening letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "first to discover",
-         "gives": "D",
-         "select": "first",
-         "note": "first letter of discover"
+         "words": "discover",
+         "at": 30,
+         "note": "first letter taken"
         }
        ]
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "O is the standard abbreviation for old"
+       "at": 39,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A Spanish explorer is first to find a fabled lost city.",
-     "walkthrough": "The explorer is not a conquistador but the cartoon girl Dora.",
-     "definitionFit": "A proper name: the fabled South American city of gold that Spanish explorers hunted for."
+     "surface": "A Spanish explorer who first discovered an ancient fabled city.",
+     "walkthrough": "'explorer' points not to a conquistador but to Dora the Explorer, the children's television character.",
+     "definitionFit": "El Dorado was the mythical city of gold that Spanish conquistadors sought in South America."
     },
     "features": {
      "answerInScene": true,
@@ -383,42 +374,53 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "a brief version is cut short, so the word loses its last letter"
+       "text": "upset",
+       "at": 24,
+       "note": "upset means knocked over and thrown into disorder, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Elgar",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "must",
+       "at": 6,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "upset",
-         "note": "something upset is knocked over and jumbled, so the letters are rearranged"
+         "text": "briefly",
+         "at": 16,
+         "note": "briefly means cut short, so the last letter of have is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Elgar must",
-         "note": "taken letter for letter"
+         "words": "have",
+         "at": 11,
+         "note": "loses its last letter"
         },
         {
-         "words": "have briefly",
-         "gives": "HAV",
-         "note": "HAVE without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Edward Elgar was bound to have annoyed a fellow composer.",
-     "walkthrough": "One composer's name supplies letters for another's.",
-     "definitionFit": "A definition by category: the Austrian late-Romantic symphonist is named only by his profession."
+     "surface": "A claim that Elgar has to have offended another composer.",
+     "walkthrough": "'briefly' trims HAVE to HAV, and 'upset' scrambles ELGAR, MUST and HAV into the name; Elgar is fodder, not the composer meant.",
+     "definitionFit": "Gustav Mahler was an Austrian late-Romantic composer and conductor, known for his large-scale symphonies."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "upset"
+     "misdirectedWord": "Elgar"
     }
    }
   },
@@ -486,46 +488,47 @@
     "definitions": [
      {
       "text": "poison",
-      "at": 33
+      "at": 33,
+      "note": "the verb sense: to put poison into"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENVENOM",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "with its cover taken off, the word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 7,
+         "note": "uncovered means with its covering removed, so Denver loses its first and last letters"
+        }
+       ],
        "parts": [
         {
          "words": "Denver",
-         "gives": "ENVE",
-         "note": "DENVER with its outer letters D and R removed"
-        },
-        {
-         "words": "French name",
-         "gives": "NOM",
-         "note": "nom is French for name"
+         "at": 0,
+         "note": "keeps only its inner letters"
         }
        ]
+      },
+      {
+       "words": "French name",
+       "at": 17,
+       "gives": "NOM",
+       "note": "nom is the French word for name"
       }
      ]
     },
     "explanation": {
-     "surface": "A Denver investigation reveals the French name of a toxin.",
-     "walkthrough": "\"Poison\" looks like a noun but is a verb here.",
-     "definitionFit": "A plain synonym, both verbs: to put venom into something is to poison it."
+     "surface": "Denver exposed as the French name for a poison.",
+     "walkthrough": "'uncovered' strips the ends of Denver; 'poison' is a verb here, not a noun.",
+     "definitionFit": "To envenom is to make something venomous or put poison into it, a literary verb for poisoning."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "uncovered"
+     "misdirectedWord": "poison"
     }
    }
   },
@@ -637,12 +640,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BURRITOS",
      "indicators": [
       {
        "text": "in",
-       "note": "one thing sits in the middle of another"
+       "at": 15,
+       "note": "the sounded letters go in, placed among the rearranged letters of bistro"
       }
      ],
      "parts": [
@@ -651,39 +653,43 @@
        "indicators": [
         {
          "text": "cooking",
-         "note": "cooking mixes and transforms ingredients, so the letters are stirred into a new order"
+         "at": 25,
+         "note": "cooking here means being worked over, so the letters of bistro are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "UR",
-         "indicators": [
-          {
-           "text": "I hear",
-           "note": "what the setter hears is a sound, so write letters that sound like the phrase"
-          }
-         ],
-         "parts": [
-          {
-           "words": "you are",
-           "gives": "YOUARE",
-           "note": "the letters U and R said together sound like \"you are\""
-          }
-         ]
-        },
-        {
          "words": "bistro",
-         "note": "BISTRO rearranged"
+         "at": 18,
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "UR",
+       "indicators": [
+        {
+         "text": "I hear",
+         "at": 0,
+         "note": "I hear tells the solver that what follows is said aloud and written as it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you are",
+         "at": 7,
+         "gives": "YOUARE",
+         "note": "said aloud, you are sounds like the letters U and R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has heard you are at a bistro making tacos and the like.",
-     "walkthrough": "The two letters go inside the jumbled bistro, right after its B.",
-     "definitionFit": "A definition by category: wrapped filled tortillas are one Mexican dish, and the plural matches."
+     "surface": "A diner told they are in a bistro that is cooking Mexican dishes.",
+     "walkthrough": "'I hear' points to 'you are' said aloud as two letters, as in text speak; 'cooking' scrambles the bistro and 'in' sets the sounded letters among its letters.",
+     "definitionFit": "Burritos are Mexican tortillas wrapped round a filling such as beans, rice and meat."
     },
     "features": {
      "answerInScene": true,
@@ -1119,40 +1125,46 @@
     "definitions": [
      {
       "text": "I'm responsible for this",
-      "at": 0
+      "at": 0,
+      "note": "the setter speaking: a phrase standing for the thing the setter makes"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRID",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "flipping",
+       "at": 25,
+       "note": "in a down clue, flipping means turning over, so the letters are read in reverse order"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "flipping",
-         "note": "to flip something is to turn it over, so the letters read backwards"
-        },
-        {
          "text": "endless",
-         "note": "without an end, so the last letter is dropped"
+         "at": 34,
+         "note": "endless means without an end, so the final letter of dirge is dropped"
         }
        ],
        "parts": [
         {
-         "words": "endless dirge",
-         "gives": "DIRG",
-         "note": "DIRGE without its last letter"
+         "words": "dirge",
+         "at": 42,
+         "note": "loses its last letter"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone owning up to writing a dreadful mournful song.",
-     "walkthrough": "\"I\" is the setter; \"flipping\" poses as a mild curse on the dirge.",
-     "definitionFit": "A self-referential definition: the setter built the pattern of squares the solver is filling in."
+     "surface": "A setter blames themselves for this wretched lament.",
+     "walkthrough": "'I' is the setter, who makes the crossword grid. 'flipping' doubles as a mild British expletive in the surface.",
+     "definitionFit": "The setter designs the grid, the pattern of black and white squares, so it is the setter's own creation."
     },
     "features": {
      "answerInScene": false,
@@ -1183,40 +1195,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELGIN",
-     "indicators": [
-      {
-       "text": "broken",
-       "note": "a broken word is smashed apart and its letters reassembled in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 20,
+         "note": "something broken is in pieces, so the letters of leg are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "leg",
-         "note": "LEG rearranged"
-        },
-        {
-         "words": "at home",
-         "gives": "IN",
-         "note": "being in means being at home"
+         "at": 27,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "at home",
+       "at": 31,
+       "gives": "IN",
+       "note": "in means at home, as in 'staying in'"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scottish lord is laid up at home with a broken leg.",
-     "walkthrough": "The ’s stands for \"is\", joining the definition to the wordplay.",
-     "definitionFit": "A title: the Earl of Elgin is a Scottish peer, best known for the marbles from the Parthenon."
+     "surface": "A Scottish lord's broken leg keeps him at home.",
+     "walkthrough": "'broken' rearranges LEG to ELG, followed by IN for at home. Lord Elgin was the earl who brought the Parthenon Marbles to Britain.",
+     "definitionFit": "The Earl of Elgin is a Scottish title, held most famously by the man who took the Elgin Marbles."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
     }
    }
   },
