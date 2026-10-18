@@ -1548,32 +1548,32 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SECONDARY",
      "indicators": [
       {
        "text": "sadly",
-       "note": "things that go sadly go wrong, so the letters are put in a different arrangement"
+       "at": 36,
+       "note": "sadly signals the remaining letters are in a sorry, jumbled state"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SECONDARY",
        "indicators": [
         {
          "text": "with no",
-         "note": "with no means lacking, so a letter is removed"
+         "at": 21,
+         "note": "with no means the phonetic letter named by Tango is taken out of the shop's name"
         }
        ],
        "parts": [
         {
          "words": "candy store",
-         "note": "taken as written"
+         "at": 9,
+         "note": "the two words as written"
         },
         {
          "words": "Tango",
+         "at": 29,
          "gives": "T",
          "note": "Tango is T in the NATO phonetic alphabet"
         }
@@ -1582,9 +1582,9 @@
      ]
     },
     "explanation": {
-     "surface": "A second-rate sweet shop sadly has run out of the orange fizzy drink Tango.",
-     "walkthrough": "Tango is a British fizzy soft drink, but here it is the radio-alphabet word for T.",
-     "definitionFit": "Secondary means lesser in rank or quality, so it works as a synonym of inferior."
+     "surface": "A sweet shop has run out of a fizzy orange drink, to a customer's dismay.",
+     "walkthrough": "'with no' Tango takes T out of CANDY STORE, leaving CANDYSORE, which 'sadly' rearranges. Tango is also a British fizzy drink, which is the surface's misdirection.",
+     "definitionFit": "Secondary means of lesser rank or importance, so second-rate or lower in standing."
     },
     "features": {
      "answerInScene": false,
@@ -1683,43 +1683,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PARLOURMAID",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the starts of two words trade places"
+       "at": 0,
+       "note": "Spooner's name marks a swap of the opening sounds of two words, as the Oxford don famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "MARLOUR",
        "parts": [
         {
-         "unchecked": true,
          "words": "composer Gustav",
-         "gives": "PARLOUR",
-         "soundsLike": "PARLER",
-         "note": "Gustav Mahler is the composer; said with the P from the start of the other word in place of his M"
-        },
-        {
-         "words": "gave money",
-         "gives": "MAID",
-         "note": "gave money is paid; said with the M from the composer in place of its P"
+         "at": 22,
+         "gives": "MAHLER",
+         "note": "Gustav Mahler was the Austrian composer"
         }
        ]
+      },
+      {
+       "words": "gave money",
+       "at": 38,
+       "gives": "PAID",
+       "note": "paid means gave money"
       }
      ]
     },
     "explanation": {
-     "surface": "The composer Mahler paid wages to a maid.",
-     "walkthrough": "Swap the opening sounds of Mahler paid to get parler maid, which says PARLOURMAID.",
-     "definitionFit": "A parlourmaid was a woman employed in a household to wait at table and serve in the reception rooms."
+     "surface": "A tale of the composer Gustav Mahler paying his housemaid.",
+     "walkthrough": "MAHLER is said like MARLOUR; 'According to Spooner' swaps its opening M with the P of PAID, giving the sounds of PARLOUR MAID.",
+     "definitionFit": "A parlourmaid was a domestic servant who waited at table and kept the parlour."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gave"
+     "joke": "pun",
+     "misdirectedWord": "Gustav"
     }
    }
   }

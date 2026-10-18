@@ -271,41 +271,62 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TESTBAN",
-     "indicators": [
-      {
-       "text": "initially switched",
-       "note": "switching the initial letters of two words is exactly what the Reverend Spooner famously did"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 26,
+         "note": "initially points at the opening letters of the two words, which are the ones to trade"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "chief",
-         "gives": "TEST",
-         "soundsLike": "BEST",
-         "note": "the chief one is the BEST; it keeps its body but takes the opening letter of its partner"
+         "at": 15,
+         "gives": "BEST",
+         "note": "best means foremost, chief"
         },
         {
-         "unchecked": true,
+         "gives": "B"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switched",
+         "at": 36,
+         "note": "switched means those two first letters change places, each word taking the other's"
+        }
+       ],
+       "parts": [
+        {
          "words": "whip",
-         "gives": "BAN",
-         "soundsLike": "TAN",
-         "note": "to whip someone is to TAN their hide; it hands its opening letter over and takes the other's"
+         "at": 21,
+         "gives": "TAN",
+         "note": "to tan is to thrash or whip, as in tan someone's hide"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nuclear treaty is suddenly changed by a party's chief whip.",
-     "walkthrough": "'chief whip' looks like the parliamentary officer, but the two words are clued separately; swap the first letters of BEST TAN and you get TEST BAN.",
-     "definitionFit": "A treaty forbidding the trial detonation of atomic weapons, such as the 1963 one, is an international agreement of this nuclear kind."
+     "surface": "A party enforcer's opening position on an arms treaty has been reversed.",
+     "walkthrough": "'whip' looks like the parliamentary officer, but it is the verb tan. 'initially switched' swaps the first letters of BEST and TAN, giving TEST and BAN.",
+     "definitionFit": "A test ban is a treaty prohibiting nuclear weapons testing, an agreement between nuclear powers."
     },
     "features": {
      "answerInScene": true,
@@ -1089,26 +1110,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SEVERE",
      "indicators": [
       {
        "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "at": 9,
+       "note": "almost means the word stops one letter short of its end"
       }
      ],
      "parts": [
       {
        "words": "cut off",
-       "gives": "SEVERE",
-       "note": "to cut off a limb is to sever it; the past participle loses its final D"
+       "at": 16,
+       "gives": "SEVERED",
+       "note": "severed means cut off"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Being nearly amputated is drastic indeed.",
-     "walkthrough": "'cut off' gives SEVERED, and 'almost' trims the final D.",
-     "definitionFit": "Very harsh or intense conditions, such as bitter weather or grave injury, are the sense of extreme here."
+     "surface": "Something drastic, practically amputated.",
+     "walkthrough": "'almost' drops the last letter of SEVERED.",
+     "definitionFit": "Severe means harsh or extreme, as in severe weather or a severe penalty."
     },
     "features": {
      "answerInScene": false,
@@ -1494,47 +1518,32 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "SIGHTSEERS",
+     "spelt": "SIGHTSEERS",
      "indicators": [
       {
        "text": "as it is spoken",
-       "note": "spoken words are heard rather than read, so the letters follow the sound"
+       "at": 21,
+       "note": "as it is spoken means the words are heard aloud rather than read"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SIGHTS",
-       "parts": [
-        {
-         "words": "quote",
-         "gives": "CITES",
-         "note": "to quote a source is to cite it"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "SEERS",
-       "parts": [
-        {
-         "words": "Burns",
-         "gives": "SEARS",
-         "note": "to burn meat on a hot pan is to sear it"
-        }
-       ]
+       "words": "quote Burns",
+       "at": 9,
+       "gives": "CITESSEARS",
+       "note": "to quote is to cite, so quote is cites; burns is sears; said together they are the sound heard"
       }
      ]
     },
     "explanation": {
-     "surface": "Visitors recite lines from Robert Burns in a Scots accent.",
-     "walkthrough": "'Burns' with its capital looks like the Scottish poet Robert Burns, but it is the verb; the capital is just camouflage.",
-     "definitionFit": "Visitors who go around looking at famous places and landmarks are holidaymakers, so they are tourists."
+     "surface": "Visitors to Scotland recite Robert Burns's poetry in his own dialect.",
+     "walkthrough": "'Burns' looks like the Scottish poet, but it is the verb sears. CITES SEARS, 'as it is spoken', sounds like the answer.",
+     "definitionFit": "Sightseers are people visiting places of interest, which is what tourists do."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Burns"
     }
    }

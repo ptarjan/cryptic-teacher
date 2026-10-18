@@ -1104,7 +1104,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Lack of knowledge",
+      "text": "Lack of knowledge?",
       "at": 0
      }
     ],
@@ -1112,7 +1112,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 42,
+       "note": "in places the short piece inside the rearranged letters"
       }
      ],
      "parts": [
@@ -1121,48 +1123,55 @@
        "indicators": [
         {
          "text": "blighted",
-         "note": "the region's letters are ruined into a new order"
+         "at": 45,
+         "note": "blighted means spoilt, so the letters of region are ruined into a new order"
         }
        ],
        "parts": [
         {
          "words": "region",
-         "gives": "IGNORE",
-         "note": "REGION rearranged, wrapped round the next pieces"
-        },
-        {
-         "words": "An",
-         "note": "used as written"
+         "at": 54,
+         "note": "the word as written, to be rearranged"
         }
        ]
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "opening for",
-         "note": "the opening of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "opening for college",
-         "gives": "COLLEGE",
-         "note": "first letter of college"
+         "words": "An",
+         "at": 19
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening for",
+           "at": 22,
+           "note": "the opening of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "college",
+           "at": 34,
+           "note": "the word whose first letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A college opening up in a deprived area where knowledge is lacking.",
-     "walkthrough": "The rearranged REGION splits as IGNOR…E, with AN and C slotted in before the E.",
-     "definitionFit": "Plain synonym; the question mark nods to the surface, where a new college is what a deprived area needs."
+     "surface": "A university has a place in a deprived area, where knowledge is lacking.",
+     "walkthrough": "'blighted' turns REGION into IGNORE, and AN plus C (the 'opening for college') goes 'in' it. The question mark flags a definition by example rather than a dictionary synonym.",
+     "definitionFit": "Ignorance is the state of not knowing, a want of education or information."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "blighted"
+     "misdirectedWord": "opening"
     }
    }
   },

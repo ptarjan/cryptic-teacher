@@ -305,63 +305,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCOME",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all of the word, so its last letter goes"
+       "text": "securing",
+       "at": 23,
+       "note": "securing means holding something inside, so the jumbled letters wrap round the single letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "securing",
-         "note": "securing means holding fast, so the jumbled letters enclose another"
+         "text": "Terrible",
+         "at": 0,
+         "note": "something terrible is a mess, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Terrible",
-           "note": "something terrible is a mess, so the letters are jumbled"
+           "text": "almost",
+           "at": 16,
+           "note": "almost means the word loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "cinema",
-           "gives": "CINEM",
-           "note": "the word without its final letter"
+           "at": 9,
+           "note": "the word as written"
+          },
+          {
+           "gives": "A"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "opening",
-           "note": "opening picks out the first letter of the cinema chain"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Odeon's",
-           "note": "the initial letter; Odeon is a British cinema chain"
-          }
-         ]
+         "text": "opening",
+         "at": 40,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Odeon's",
+         "at": 32,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful picture house nearly lands a premiere at the Odeon, the British cinema chain, and boosts its takings.",
-     "definitionFit": "Receipts are money taken in, the earnings a business or person brings in."
+     "surface": "A dreadful picture house barely takes any money at the Odeon box office.",
+     "walkthrough": "'almost' trims CINEMA to CINEM, 'Terrible' rearranges it to INCME, and that is 'securing' O, the 'opening' of Odeon. Odeon is a British cinema chain.",
+     "definitionFit": "Income is money coming in, the takings or receipts of a person or business."
     },
     "features": {
      "answerInScene": true,
