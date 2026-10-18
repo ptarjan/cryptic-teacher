@@ -113,46 +113,48 @@
      "indicators": [
       {
        "text": "passed around",
-       "note": "the flier's name is passed round, so it wraps the other letters"
+       "at": 14,
+       "note": "passed around means the aviator's name goes around the other letters"
       }
      ],
      "parts": [
       {
        "words": "Flier Johnson",
+       "at": 0,
        "gives": "AMY",
-       "note": "Amy Johnson, the pioneering aviator"
+       "note": "Amy Johnson was a pioneering English aviator of the 1930s"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "IT",
+       "op": "deletion",
        "indicators": [
         {
          "text": "right-wingers",
-         "note": "the right-hand wing of a word is its end, so only its closing letters are taken"
+         "at": 28,
+         "note": "right-wingers keeps only the right-hand end of the word solicit, dropping the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "solicit",
-         "gives": "IT",
-         "select": "last",
-         "note": "the two letters at the right-hand end of the word"
+         "at": 45
+        },
+        {
+         "gives": "SOLIC"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political animal working the right of the party to win support for unity.",
-     "walkthrough": "Amy Johnson was the first woman to fly solo from Britain to Australia. The 'Johnson' and 'right-wingers' nod to Boris Johnson's party politics.",
-     "definitionFit": "Amity is friendly relations between people, a state of togetherness."
+     "surface": "A famous aviator travelled round touting for Tory support, seeking harmony.",
+     "walkthrough": "'right-wingers' sounds like Tories, but here it keeps just the right wing of 'solicit'.",
+     "definitionFit": "Amity is friendship and peaceful harmony between people or nations, a sense of fellowship."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Flier"
+     "joke": "pun",
+     "misdirectedWord": "right-wingers"
     }
    }
   },
@@ -668,32 +670,24 @@
      "indicators": [
       {
        "text": "broken by",
-       "note": "the first part is broken open so the second can sit inside it"
+       "at": 24,
+       "note": "broken by means the occasional letters are split open with the reversed piece inserted"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 11,
+         "note": "occasionally means taking every other letter of the word mirror"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "occasionally means every so often, so only every other letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mirror",
-           "note": "second, fourth and sixth letters"
-          }
-         ]
-        },
-        {
-         "words": "an",
-         "gives": "A",
-         "note": "the article"
+         "words": "mirror",
+         "at": 4
         }
        ]
       },
@@ -702,23 +696,34 @@
        "indicators": [
         {
          "text": "spinning round",
-         "note": "spinning round turns the phrase to face the other way"
+         "at": 41,
+         "note": "spinning round means the letters of 'an arm' are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "arm",
-         "gives": "LUGER",
-         "note": "a Luger is a German pistol, a firearm"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "an",
+           "at": 34,
+           "gives": "A"
+          },
+          {
+           "words": "arm",
+           "at": 37,
+           "gives": "LUGER",
+           "note": "a Luger is a German pistol, a firearm"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange mirror smashed by a flailing limb.",
-     "walkthrough": "'Arm' suggests a limb swinging round, but it is a weapon.",
-     "definitionFit": "Irregular and odd both describe something unusual or not conforming to a pattern."
+     "surface": "A strange looking-glass shattered by a whirling limb.",
+     "definitionFit": "Irregular means not even or uniform, so it describes something odd or unusual."
     },
     "features": {
      "answerInScene": false,

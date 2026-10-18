@@ -477,42 +477,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "alien",
-       "note": "alien = strange, so the letters of DIET OF are made strange"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Like",
+       "at": 0,
+       "gives": "AS",
+       "note": "as means like, in the sense of 'in the manner of'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "alien",
+         "at": 15,
+         "note": "alien means strange or foreign, so these letters are made foreign to their order"
+        }
+       ],
        "parts": [
         {
-         "words": "Like",
-         "gives": "AS",
-         "note": "as = like"
-        },
-        {
-         "words": "a",
-         "note": "taken as it stands"
-        },
-        {
-         "words": "diet of",
-         "note": "anagram"
-        },
-        {
-         "words": "a",
-         "note": "the second 'a', taken as it stands"
+         "words": "a diet of",
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 27,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether an extraterrestrial's meals come with a strong seasoning.",
-     "walkthrough": "The anagram lands on FOETID, which is itself a fine description of this famously smelly spice.",
-     "definitionFit": "Asafoetida is a strong-smelling resin spice used in Indian cooking."
+     "surface": "Someone eats an alien's diet, flavoured with a strong spice.",
+     "definitionFit": "Asafoetida is a strong-smelling dried resin from a giant fennel, used as a seasoning in Indian cookery."
     },
     "features": {
      "answerInScene": true,
@@ -1118,64 +1116,62 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the shortened word goes inside the next"
+       "at": 60,
+       "note": "in means what remains goes inside the word for distance"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "distance",
+       "at": 63,
+       "gives": "MILE",
+       "note": "a mile is a distance"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 56,
+         "note": "off means that letter is taken away from the word for struggled to walk"
+        }
+       ],
        "parts": [
         {
-         "words": "distance",
-         "gives": "MILE",
-         "note": "a mile is a distance; split MIL…E"
+         "words": "struggled to walk",
+         "at": 16,
+         "gives": "LIMPED",
+         "note": "limped means walked with difficulty"
         },
         {
-         "op": "deletion",
+         "op": "first",
          "indicators": [
           {
-           "text": "beginning to meander off",
-           "note": "the first letter of 'meander', M, leaves the word"
+           "text": "beginning to",
+           "at": 35,
+           "note": "beginning to points to the first letter of the word meander"
           }
          ],
          "parts": [
           {
-           "words": "struggled to walk",
-           "gives": "LIMPED",
-           "note": "limped = walked with difficulty"
-          },
-          {
-           "gives": "LIM"
+           "words": "meander",
+           "at": 48,
+           "note": "only its first letter is used"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "beginning to meander off",
-         "gives": "LIPED",
-         "note": "M removed"
-        },
-        {
-         "gives": "PED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny creature hobbled off to wander into the distance.",
-     "walkthrough": "The joke is that a millipede, with all those legs, is the last creature you'd expect to struggle to walk.",
-     "definitionFit": "A millipede is a small many-legged arthropod."
+     "surface": "A small animal found walking hard going, wandering off into the distance.",
+     "definitionFit": "A millipede is a small many-legged arthropod, a little crawling creature."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "meander"
+     "misdirectedWord": "struggled"
     }
    }
   },
@@ -1210,51 +1206,48 @@
      "indicators": [
       {
        "text": "round",
-       "note": "the first word goes around the next pieces"
+       "at": 5,
+       "note": "round means the word for walk encircles the abbreviations"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Walk",
+       "at": 0,
+       "gives": "STROLL",
+       "note": "a stroll is a walk"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Walk",
-           "gives": "STROLL",
-           "note": "a stroll is a walk; split STR…OLL"
-          },
-          {
-           "words": "area",
-           "gives": "A",
-           "note": "A = area"
-          }
-         ]
+         "words": "area",
+         "at": 11,
+         "gives": "A"
         },
         {
          "words": "with",
-         "gives": "W",
-         "note": "W = with"
+         "at": 16,
+         "gives": "W"
+        },
+        {
+         "words": "power",
+         "at": 21,
+         "gives": "P",
+         "note": "P is the physics symbol for power"
         }
        ]
-      },
-      {
-       "words": "power",
-       "gives": "P",
-       "note": "P = power in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "A candidate canvasses a district with influence to win a ballot.",
-     "walkthrough": "'With' looks like a joining word but is the abbreviation W.",
-     "definitionFit": "A straw poll is an informal vote to gauge opinion."
+     "surface": "A canvasser walks round a district with authority to collect votes.",
+     "definitionFit": "A straw poll is an informal unofficial ballot taken to gauge opinion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "with"
+     "misdirectedWord": "power"
     }
    }
   },

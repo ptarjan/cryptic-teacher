@@ -322,51 +322,54 @@
      "indicators": [
       {
        "text": "blocks",
-       "note": "something that blocks sits inside a passage, so these letters go into the middle of the other word"
+       "at": 49,
+       "note": "blocks means these letters sit in the middle of the spa, obstructing it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "spa",
-         "gives": "BATH",
-         "note": "Bath is the English spa town"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "Y is an algebraic unknown"
-        }
-       ]
+       "words": "spa",
+       "at": 20,
+       "gives": "BATH",
+       "note": "Bath is the famous English spa city"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately points to the last letter only of the following word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "tramp",
-         "note": "the final letter of tramp"
+         "words": "unknown",
+         "at": 24,
+         "gives": "Y",
+         "note": "Y is a mathematical unknown"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 38,
+           "note": "ultimately points to the final letter of the word tramp"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tramp",
+           "at": 32
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hiker leaves the spa town by a quiet path, its end blocked by a tramp.",
-     "walkthrough": "Y and P together go inside BATH, splitting it after the B.",
-     "definitionFit": "A bypath is a little-used side path, away from the main road, hence secluded."
+     "surface": "A quiet path out of a spa town where an unknown vagrant finally obstructs the way.",
+     "definitionFit": "A bypath is a side path or byway, away from the main road and so less frequented."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tramp"
+     "misdirectedWord": "spa"
     }
    }
   },
@@ -766,51 +769,51 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places these letters inside the surrounding word"
+       "at": 36,
+       "note": "in means the reversed letters are placed inside the word for past"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "past",
-         "gives": "BY",
-         "note": "past and by both mean going beyond, as in walking past or by"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "recalled",
-           "note": "recalled means called back, so the letters are taken in the backward direction"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tree",
-           "gives": "ELM",
-           "note": "an elm is a tree"
-          }
-         ]
-        }
-       ]
+       "words": "past",
+       "at": 39,
+       "gives": "BY",
+       "note": "by means past, as in 'walk by'"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 27,
+         "note": "recalled means called back, so the tree and the letters from Harry are read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means taking letters at even intervals, every other one"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Harry",
-           "note": "the second and fourth letters of Harry"
+           "words": "tree",
+           "at": 6,
+           "gives": "ELM",
+           "note": "an elm is a tree"
+          },
+          {
+           "op": "alternate",
+           "indicators": [
+            {
+             "text": "regularly",
+             "at": 17,
+             "note": "regularly means every second letter of the name Harry"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Harry",
+             "at": 11
+            }
+           ]
           }
          ]
         }
@@ -819,14 +822,13 @@
      ]
     },
     "explanation": {
-     "surface": "Harry fondly remembers the apple tree from years gone by.",
-     "walkthrough": "The tree and the picked letters of Harry are reversed as one unit before going inside the word for past.",
-     "definitionFit": "Bramley is a large green English cooking apple variety, so it is an example of an apple."
+     "surface": "Harry often remembered an apple tree from his childhood.",
+     "definitionFit": "The Bramley is a popular British variety of cooking apple."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Harry"
+     "misdirectedWord": "tree"
     }
    }
   },
@@ -977,36 +979,40 @@
      "indicators": [
       {
        "text": "to secure",
-       "note": "to secure something is to hold it fast inside, so one word holds the others"
+       "at": 5,
+       "note": "to secure means the word for long holds the other pieces fast inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Long",
-         "gives": "PINE",
-         "note": "to pine is to long for"
-        },
-        {
-         "words": "gold",
-         "gives": "OR",
-         "note": "or is the heraldic word for gold"
-        }
-       ]
+       "words": "Long",
+       "at": 0,
+       "gives": "PINE",
+       "note": "to pine is to long for"
       },
       {
-       "words": "trophy",
-       "gives": "CUP",
-       "note": "a cup is a trophy"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 15,
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        },
+        {
+         "words": "trophy",
+         "at": 20,
+         "gives": "CUP",
+         "note": "a cup is a trophy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prickly character yearns to win the gold trophy.",
-     "walkthrough": "'Long' looks like an adjective but is the verb, to yearn. Or is the heraldic term for gold.",
-     "definitionFit": "A porcupine is a rodent covered with sharp quills, literally prickly; the phrase also hints at a touchy person."
+     "surface": "Aching to win a gold cup for a touchy competitor.",
+     "walkthrough": "'Long' looks like an adjective but is the verb.",
+     "definitionFit": "A porcupine is a rodent covered in sharp quills, literally a prickly creature."
     },
     "features": {
      "answerInScene": false,
@@ -1265,40 +1271,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "Flipping",
-       "note": "flipping turns something over, so the letters run backwards"
+       "text": "involving",
+       "at": 13,
+       "note": "involving means the reversed word wraps around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "involving",
-         "note": "involving means wrapping in, so one word encloses the others"
+         "text": "Flipping",
+         "at": 0,
+         "note": "Flipping means the word for con is turned over and read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "con",
-           "gives": "SCAM",
-           "note": "a scam is a con"
-          },
-          {
-           "words": "American",
-           "gives": "A",
-           "note": "A is the abbreviation for American"
-          }
-         ]
+         "words": "con",
+         "at": 9,
+         "gives": "SCAM",
+         "note": "a scam is a con"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 23,
+         "gives": "A"
         },
         {
          "words": "women's",
+         "at": 32,
          "gives": "W",
          "note": "W is the abbreviation for women"
         }
@@ -1307,13 +1317,12 @@
      ]
     },
     "explanation": {
-     "surface": "A wretched swindle drawing in American women's bright aircraft.",
-     "walkthrough": "'Flipping' is also a mild British expletive, which is how it reads in the surface.",
-     "definitionFit": "Macaws are large brightly coloured parrots, so they are vivid flying birds."
+     "surface": "A wretched swindle involving bright-plumaged birds belonging to American women.",
+     "definitionFit": "Macaws are large brightly coloured parrots from Central and South America."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Flipping"
     }
    }
