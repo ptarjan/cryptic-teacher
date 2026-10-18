@@ -332,58 +332,65 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BAGHDAD",
      "indicators": [
       {
        "text": "Swinging",
-       "note": "something swinging moves about, so the letters are shaken into a new order"
+       "at": 0,
+       "note": "swinging means moving about, so the letters of handbag are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BAGHDAD",
+       "op": "substitution",
        "indicators": [
         {
          "text": "knocks out",
-         "note": "what is knocked out is removed from the word"
+         "at": 27,
+         "note": "knocks out means the daughter's letter displaces the gang's letter and takes its place"
         }
        ],
        "parts": [
         {
          "words": "handbag",
-         "note": "anagram fodder"
+         "at": 9
         },
         {
          "op": "nth",
          "n": 3,
+         "indicators": [
+          {
+           "text": "penultimate member of",
+           "at": 38,
+           "note": "penultimate member of picks the last letter but one of gang"
+          }
+         ],
          "parts": [
           {
-           "words": "penultimate member of gang",
-           "note": "the next-to-last letter, to be removed"
+           "words": "gang",
+           "at": 60,
+           "note": "the word gang, whose last letter but one is taken"
           }
          ]
         },
         {
          "words": "daughter",
+         "at": 18,
          "gives": "D",
-         "note": "D is the abbreviation for daughter"
+         "note": "D is the standard abbreviation for daughter, as in family trees"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daughter swinging her handbag fells a gang member in a foreign city.",
-     "walkthrough": "'Penultimate member of gang' sounds like a person but means the next-to-last letter of the word.",
-     "definitionFit": "Baghdad is the capital city of Iraq, so for a British setter a capital abroad."
+     "surface": "A woman swinging her handbag, with her daughter, floors a gang member in a city abroad.",
+     "walkthrough": "The penultimate letter of gang is N; D 'knocks out' the N in HANDBAG, giving HADDBAG, and 'Swinging' rearranges those letters.",
+     "definitionFit": "Baghdad is the capital city of Iraq, foreign from the British setter's viewpoint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "member"
+     "misdirectedWord": "Swinging"
     }
    }
   },
@@ -509,44 +516,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LOYALTY",
      "indicators": [
       {
        "text": "shunned by",
-       "note": "shunned means pushed out, so that letter leaves the word"
+       "at": 11,
+       "note": "shunned by means the Republican letter is rejected and dropped from the royal word"
       },
       {
        "text": "instead",
-       "note": "instead means taking the place of what was removed"
+       "at": 36,
+       "note": "instead means the left letter is put in where the dropped letter was"
       }
      ],
      "parts": [
       {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
+       "words": "monarchy",
+       "at": 22,
+       "gives": "ROYALTY",
+       "note": "royalty, the royal family, stands for the monarchy"
       },
       {
-       "words": "monarchy",
-       "gives": "ROYALTY",
-       "note": "the royal family as an institution"
+       "words": "Republican",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the standard abbreviation for Republican, as in US politics"
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 31,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A republican rejected by the crown has defected to a devoted band of supporters.",
-     "definitionFit": "Loyalty is faithful devotion, the steadfast support a committed following shows."
+     "surface": "A republican spurned by the crown leaves, and someone else stands in to show devotion.",
+     "walkthrough": "The R of ROYALTY is 'shunned by' the word and L goes in 'instead'. 'following' is a noun here: a committed following is a faithful body of supporters.",
+     "definitionFit": "Loyalty is steadfast allegiance, the quality of a devoted, committed body of supporters."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "following"
     }
    }
   },

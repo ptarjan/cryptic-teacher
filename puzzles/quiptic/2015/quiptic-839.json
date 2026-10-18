@@ -508,31 +508,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EGRESS",
-     "indicators": [
-      {
-       "text": "edges away",
-       "note": "when the edges go away, the outer portions at each end of the word are cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "European",
-       "gives": "E",
-       "note": "E is the abbreviation for European"
+       "at": 0,
+       "gives": "E"
       },
       {
-       "words": "progressive",
-       "note": "taken as written before trimming"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "edges away",
+         "at": 21,
+         "note": "edges away means the word progressive loses its outer parts, here three letters at each end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "progressive",
+         "at": 9
+        },
+        {
+         "gives": "PROIVE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A liberal European politician slowly sidles towards the way out.",
-     "walkthrough": "The edges removed are three letters at each end of progressive, leaving its centre.",
-     "definitionFit": "An egress is a way out of a place, the noun sense of exit."
+     "surface": "A forward-looking European politician sidles towards the way out.",
+     "walkthrough": "The 'edges away' are thick here: PRO at the front and IVE at the back come off progressive, leaving GRESS after E.",
+     "definitionFit": "An egress is a way out of a place, the opposite of an entrance."
     },
     "features": {
      "answerInScene": true,
@@ -1322,31 +1329,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BACKED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "loses heart",
-       "note": "losing the heart means the whole middle of the word goes, leaving only its ends"
+       "text": "after",
+       "at": 20,
+       "note": "after places the remains of England below the first piece in this down clue"
       }
      ],
      "parts": [
       {
        "words": "move to the rear",
+       "at": 26,
        "gives": "BACK",
-       "note": "to go back is to move to the rear"
+       "note": "to back is to move backwards"
       },
       {
-       "words": "England",
-       "note": "taken as written before trimming"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "loses heart",
+         "at": 8,
+         "note": "loses heart means the inside of England is dropped, keeping only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England",
+         "at": 0,
+         "note": "the word England, of which only the first and last letters survive"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The England team lose confidence after a defensive retreat, yet are backed by fans.",
-     "walkthrough": "'after' puts the trimmed country after the rear word.",
-     "definitionFit": "To be backed is to be supported or endorsed, as with a candidate or a bet."
+     "surface": "England's team is dispirited after retreating, but the fans still stand behind it.",
+     "walkthrough": "'loses heart' empties England down to ED, which sits under BACK because 'after' in a down clue means below.",
+     "definitionFit": "To be backed is to have someone's support or financial endorsement."
     },
     "features": {
      "answerInScene": true,

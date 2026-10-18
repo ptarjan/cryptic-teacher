@@ -922,12 +922,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "shot",
-       "note": "something shot is wrecked, so these three letters are rearranged"
-      },
-      {
-       "text": "wingless",
-       "note": "a word's wings are its outer letters, so both ends are clipped off"
+       "text": "captures",
+       "at": 9,
+       "note": "captures means the jumbled letters take the next piece inside them"
       }
      ],
      "parts": [
@@ -935,33 +932,46 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "captures",
-         "note": "to capture is to take and hold, so the rearranged letters hold the bird inside"
+         "text": "shot",
+         "at": 4,
+         "note": "shot in the sense of ruined or wrecked, so the letters of SLR are jumbled"
         }
        ],
        "parts": [
         {
          "words": "SLR",
-         "note": "anagram fodder; an SLR is a single-lens reflex camera"
+         "at": 0
         }
        ]
       },
       {
-       "words": "wingless bird",
-       "gives": "URKE",
-       "note": "TURKEY without its outer letters T and Y"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "wingless",
+         "at": 18,
+         "note": "a bird's wings are its sides, so wingless strips the outer letters from the bird"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "at": 27,
+         "gives": "TURKEY",
+         "note": "a turkey is a bird"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A photographer's camera snaps a flightless bird and the people hanging about.",
-     "walkthrough": "'Shot' and 'captures' look like photography, but one scrambles SLR and the other puts the clipped bird inside. The bird is a turkey.",
-     "definitionFit": "A plain synonym: people who lurk hang about out of sight, lingering."
+     "surface": "A photographer's SLR camera snaps a bird along with some people hanging about.",
+     "walkthrough": "SLR is a single-lens reflex camera, which makes 'shot' look photographic; 'wingless' strips both ends off the bird and the jumbled camera letters, L...RS, 'captures' what is left.",
+     "definitionFit": "A lurker is someone who waits about furtively, lingering out of sight."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "shot"
     }
    }
@@ -1944,47 +1954,51 @@
      "op": "charade",
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "heart",
-         "note": "the heart of a word is its centre, so take its middle letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "is",
-         "note": "used as printed"
-        }
-       ]
+       "words": "is",
+       "at": 15
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "in means placed within, so the word for uppermost goes inside"
+         "at": 28,
+         "note": "in means the next piece sits inside the letters from the name's heart"
         }
        ],
        "parts": [
         {
-         "words": "Phoebe's heart",
-         "gives": "OE",
-         "note": "the two middle letters of PHOEBE"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart",
+           "at": 40,
+           "note": "the heart of a name is its very centre, here the central pair of the six letters of Phoebe"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Phoebe's",
+           "at": 31,
+           "gives": "PHOEBE",
+           "note": "the name Phoebe, whose two central letters are wanted"
+          }
+         ]
         },
         {
          "words": "uppermost",
+         "at": 18,
          "gives": "TOP",
-         "note": "top = uppermost; it goes between those two letters"
+         "note": "the uppermost part of something is its top"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something elemental is foremost in Phoebe's heart.",
-     "walkthrough": "'Heart' could mean feelings; it takes the middle of PHOEBE, which has six letters and so two at its centre.",
-     "definitionFit": "Each isotope is a form of a chemical element with a different number of neutrons."
+     "surface": "Someone or something takes first place in a woman's affections.",
+     "walkthrough": "Phoebe has six letters, so its 'heart' is the central pair OE; 'in' puts TOP between them, giving OTOPE after IS.",
+     "definitionFit": "An isotope is a variant of a chemical element differing in neutron number, so it is one form an element takes."
     },
     "features": {
      "answerInScene": false,
@@ -2299,62 +2313,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RHETORIC",
+     "op": "reversal",
      "indicators": [
       {
        "text": "reversed",
-       "note": "something reversed runs the other way, so the letters are read backwards"
+       "at": 37,
+       "note": "reversed means what is left of the two names is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drawn from",
+         "at": 9,
+         "note": "drawn from means the articles are pulled out of the city names"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Articles",
-         "note": "A and AN, the indefinite articles, are to be removed"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "drawn from",
-           "note": "things drawn from a word are pulled out of it, so the articles go"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Cairo",
-             "gives": "CIRO",
-             "note": "CAIRO without A"
-            },
-            {
-             "words": "Tehran",
-             "gives": "TEHR",
-             "note": "TEHRAN without AN"
-            }
-           ]
+           "words": "Cairo",
+           "at": 20
+          },
+          {
+           "words": "Tehran",
+           "at": 30
           }
          ]
+        },
+        {
+         "words": "Articles",
+         "at": 0,
+         "gives": "AAN",
+         "note": "A and AN are the two indefinite articles in English"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grand speeches from two Middle Eastern capitals, turned around.",
-     "walkthrough": "'Articles' suggests newspaper pieces; it means the grammatical articles A and AN.",
-     "definitionFit": "Rhetoric in its disparaging sense is showy, insincere language: artificial expression."
+     "surface": "Pieces of writing are taken from the Egyptian and Iranian capitals and run backwards.",
+     "walkthrough": "'and' only joins the two cities. The articles are 'drawn from' the names, leaving CIROTEHR, which is then 'reversed'.",
+     "definitionFit": "Rhetoric can mean showy, insincere language, speech crafted for effect rather than sincerity."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Articles"
     }
    }
@@ -2839,21 +2847,18 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
          "text": "Initially",
-         "note": "initially means at the start, so take the first letter of each word"
+         "at": 0,
+         "note": "initially means the opening letter of each of the two following words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Initially sober, then",
-         "gives": "ST",
-         "select": "first",
-         "note": "first letters of SOBER and THEN"
+         "words": "sober, then",
+         "at": 10,
+         "note": "first letters of sober and then"
         }
        ]
       },
@@ -2862,29 +2867,31 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about can mean turned round, so these letters are read backwards"
+         "at": 31,
+         "note": "about here means turned round, so the word for learning is read backwards"
         }
        ],
        "parts": [
         {
          "words": "learning",
+         "at": 22,
          "gives": "LORE",
-         "note": "lore = learning, knowledge"
+         "note": "lore is traditional knowledge or learning"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sober at first, then reading up about hard spirits.",
-     "walkthrough": "'Solid alcohol' sounds like a joke about strong drink; in chemistry, alcohols are a class of compounds, and some are solids.",
-     "definitionFit": "A sterol, such as cholesterol, is a steroid alcohol, solid at room temperature."
+     "surface": "Someone sober to begin with then learns about strong drink.",
+     "walkthrough": "'Initially' takes ST from sober, then; LORE turned 'about' gives EROL. 'solid alcohol' reads as hard liquor, but sterols are alcohols solid at room temperature.",
+     "definitionFit": "Sterols such as cholesterol are steroid alcohols, waxy solids in chemistry."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "alcohol"
+     "misdirectedWord": "solid"
     }
    }
   },
@@ -2964,55 +2971,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ABSTAIN",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in means the rearranged letters are placed inside the next pieces"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 22,
+         "gives": "A"
+        },
+        {
+         "words": "wine store",
+         "at": 24,
+         "gives": "BIN",
+         "note": "a bin is a rack or store for wine bottles"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "after collapse",
-         "note": "after it has collapsed, the word is in a heap, so its letters are rearranged"
+         "at": 4,
+         "note": "after collapse means the letters of sat have fallen apart and been rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "in means inside, so the rearranged letters go into the rest"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Sat",
-           "note": "anagram fodder"
-          },
-          {
-           "words": "a",
-           "note": "used as printed"
-          },
-          {
-           "words": "wine store",
-           "gives": "BIN",
-           "note": "a bin is a rack or cellar for wine bottles; it holds the rearranged letters"
-          }
-         ]
+         "words": "Sat",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "After collapsing in the wine cellar, someone decides to stay off the drink.",
-     "walkthrough": "'Wine store' suggests a shop; a wine bin is the rack in a cellar. The surface is a hangover story.",
-     "definitionFit": "To abstain is to refrain, especially from alcohol, so choosing not to drink."
+     "surface": "Someone who sat down after collapsing in a wine shop decides to stay off the drink.",
+     "walkthrough": "'after collapse' scrambles the given word, and 'in' places it in the wine rack, after A; a bin is a wine store.",
+     "definitionFit": "To abstain is to refrain from something, especially alcohol, by deliberate choice."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "collapse"
+     "aptDefinition": false,
+     "misdirectedWord": "store"
     }
    }
   },

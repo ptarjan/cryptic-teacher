@@ -382,37 +382,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RURAL",
-     "indicators": [
-      {
-       "text": "missed in odd places",
-       "note": "letters missed at every other position are dropped, leaving only those in the odd positions"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "sport",
+       "at": 8,
        "gives": "RU",
-       "note": "RU is Rugby Union"
+       "note": "RU is the standard abbreviation for rugby union"
       },
       {
-       "words": "greatly",
-       "gives": "REALLY",
-       "note": "really, as in really good, means greatly"
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "missed in odd places",
+         "at": 22,
+         "note": "missed in odd places means the letters in the first, third, fifth and seventh positions are dropped, leaving the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "greatly",
+         "at": 14,
+         "note": "the word greatly, from which only the even-placed letters survive"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country's favourite sport is sorely missed in some strange locations.",
-     "walkthrough": "Of REALLY only the first, third and fifth letters survive. Country here is an adjective, as in country life.",
-     "definitionFit": "Rural describes the countryside rather than towns, the same sense as country used adjectivally."
+     "surface": "A country sport is sorely missed in some peculiar locations.",
+     "walkthrough": "'odd places' looks like strange locations, but it means the odd-numbered letter positions of greatly; dropping G, E, T and Y leaves RAL. 'Country' is an adjective here.",
+     "definitionFit": "Rural describes the countryside, as in country life as opposed to town life."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "missed"
+     "misdirectedWord": "odd"
     }
    }
   },

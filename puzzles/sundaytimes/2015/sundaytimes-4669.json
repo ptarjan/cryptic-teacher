@@ -595,47 +595,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OILDRUMS",
+     "op": "container",
      "indicators": [
       {
-       "text": "complex",
-       "note": "something complex is intricate and tangled, so the letters are mixed up"
+       "text": "houses",
+       "at": 14,
+       "note": "houses means the rearranged letters hold the next piece inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "houses",
-         "note": "a thing that houses another holds it inside"
+         "text": "complex",
+         "at": 6,
+         "note": "complex means intricate or tangled, so the letters of solid are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Solid",
-         "note": "the letters of solid rearranged"
-        },
-        {
-         "words": "odd",
-         "gives": "RUM",
-         "note": "rum means odd or strange"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "odd",
+       "at": 21,
+       "gives": "RUM",
+       "note": "rum is a British word for odd or strange"
       }
      ]
     },
     "explanation": {
-     "surface": "A solid building complex contains strange fluid tanks.",
-     "walkthrough": "The rearranged letters wrap round RUM after their first four.",
-     "definitionFit": "Oil drums are large barrels made to hold oil or other fluids, so they are containers for liquid."
+     "surface": "A sturdy building complex contains some strange barrels of liquid.",
+     "walkthrough": "'complex' looks like a noun for buildings, but it is the signal to rearrange; 'odd' is the British adjective rum, not an instruction to take alternate letters.",
+     "definitionFit": "Oil drums are large metal barrels for holding oil and other liquids."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "odd"
+     "misdirectedWord": "complex"
     }
    }
   },
@@ -799,37 +800,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "It was once",
-      "at": 28
+      "text": "Old airline's",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TWAS",
+     "op": "hidden",
      "indicators": [
       {
        "text": "slimmed down",
-       "note": "slimmed down means made thinner, here by dropping the apostrophe"
+       "at": 14,
+       "note": "slimmed down means made thinner, so the two words are pared to the letters inside them, losing the opening I"
       }
      ],
      "parts": [
       {
-       "words": "Old airline's",
-       "gives": "TWAS",
-       "note": "TWA was Trans World Airlines, a defunct American carrier, plus the possessive"
+       "words": "It was",
+       "at": 28,
+       "note": "the phrase it was, whose letters after the opening I run on unbroken"
       }
      ]
     },
     "spelling": "'TWAS",
     "explanation": {
-     "surface": "A former airline is said to have downsized, as it did in the past.",
-     "walkthrough": "The only thing removed is the apostrophe, which slims the possessive down to a plain word.",
-     "definitionFit": "'Twas is the archaic contraction of it was, used in poems and old tales, hence 'once'."
+     "surface": "A defunct airline wonders whether it was downsized, as it once was.",
+     "walkthrough": "'It was' is 'slimmed down' by losing the I, the old poetic contraction that 'once' marks as dated; the definition reads it as TWA'S, the possessive of Trans World Airlines, a US carrier that closed in 2001.",
+     "definitionFit": "TWA was Trans World Airlines, defunct since 2001, so belonging to that old carrier is TWA's."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "slimmed"
     }

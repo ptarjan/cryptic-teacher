@@ -841,31 +841,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANGEL",
-     "indicators": [
-      {
-       "text": "laid bare",
-       "note": "laying something bare strips off its covering, so the outside letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "risk",
-       "gives": "DANGER",
-       "note": "a risk is a danger"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "laid bare",
+         "at": 24,
+         "note": "laid bare means stripped of its covering, so the outer letters of the word for risk come off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "risk",
+         "at": 34,
+         "gives": "DANGER",
+         "note": "danger means risk or peril"
+        }
+       ]
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 43,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A ghostly figure exposes the peril and departs.",
-     "definitionFit": "An angel is a heavenly spirit, and appearances of angels are a kind of otherworldly vision."
+     "surface": "A ghostly vision was exposed as a hazard and then departed.",
+     "walkthrough": "'laid bare' strips DANGER to ANGE, and L follows.",
+     "definitionFit": "An angel is a heavenly being, a spirit sometimes seen as a visitation from beyond the natural world."
     },
     "features": {
      "answerInScene": true,
@@ -1489,50 +1495,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TUTOR",
+     "op": "container",
      "indicators": [
       {
-       "text": "essentially heading west",
-       "note": "the essence is the middle, and heading west in an across answer means running right to left, so the core alone is turned round"
+       "text": "across",
+       "at": 36,
+       "note": "across means the trip word spreads either side of the Thailand letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "TUTOR",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "across",
-         "note": "lying across something means stretching over it, so the trip letters straddle the single letter"
+         "text": "essentially heading west",
+         "at": 11,
+         "note": "essentially heading west means only the core of the word for trip, its middle pair, runs right to left"
         }
        ],
        "parts": [
         {
          "words": "trip",
+         "at": 6,
          "gives": "TOUR",
          "note": "a tour is a trip"
         },
         {
-         "words": "Thailand",
-         "gives": "T",
-         "note": "T is the international vehicle registration code for Thailand"
+         "gives": "OU"
+        },
+        {
+         "gives": "UO"
         }
        ]
+      },
+      {
+       "words": "Thailand",
+       "at": 43,
+       "gives": "T",
+       "note": "T is the international vehicle registration code for Thailand"
       }
      ]
     },
     "explanation": {
-     "surface": "A bus journey travelling westwards through Thailand.",
-     "walkthrough": "'Coach' looks like a bus that suits the trip, but it is the teacher. Only the middle pair of the trip is turned round before the Thailand letter goes in.",
-     "definitionFit": "A tutor is a private teacher, and to coach someone is to tutor them, so the nouns are synonyms."
+     "surface": "A coach trip travels westward through Thailand.",
+     "walkthrough": "'essentially heading west' turns only the middle of TOUR, giving TUOR, which goes 'across' T. 'Coach' looks like the bus, but it is the teacher.",
+     "definitionFit": "A tutor is a private teacher who coaches a pupil individually."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Coach"
     }
    }
