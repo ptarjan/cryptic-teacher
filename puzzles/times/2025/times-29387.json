@@ -205,66 +205,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CODSWALLOP",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 22,
+       "note": "in a down answer, one piece on another sits above it, so it comes first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Fish",
+       "at": 0,
+       "gives": "COD",
+       "note": "the cod is a fish"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost is nearly all, so the word stops short of its last letter"
-        },
-        {
-         "text": "on",
-         "note": "in a down clue, a piece that is on another sits above it"
+         "at": 15,
+         "note": "almost means not quite all, so the final letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Fish",
-         "gives": "COD",
-         "note": "the cod, a common food fish"
+         "words": "take food",
+         "at": 5,
+         "gives": "SWALLOW",
+         "note": "to take food down is to swallow it"
         },
         {
-         "words": "take food almost",
-         "gives": "SWALLO",
-         "note": "SWALLOW (take food) without its final W"
-        },
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "top of",
-           "note": "the top of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "top of pond",
-           "gives": "P",
-           "select": "first",
-           "note": "first letter of POND"
-          }
-         ]
+         "text": "top of",
+         "at": 25,
+         "note": "the top of a word written downwards is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pond",
+         "at": 32,
+         "note": "pond is taken as written; only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fish rising to feed at the surface of a pond, followed by a scornful dismissal.",
-     "walkthrough": "The pond scene tempts you to read 'top of pond' as the water's surface; it is only its first letter. Codswallop is British slang.",
-     "definitionFit": "A regional use: British informal slang for rubbish talk."
+     "surface": "A fish rising to eat something on the surface of a pond, dismissed as rubbish.",
+     "walkthrough": "In this down answer 'on' puts the shortened swallow above the pond's first letter; codswallop is British slang, so the definition may be unfamiliar outside the UK.",
+     "definitionFit": "Codswallop is British slang for rubbish talk, utter twaddle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "top"
+     "misdirectedWord": "Fish"
     }
    }
   },
@@ -338,31 +342,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PUFFIN",
      "indicators": [
       {
        "text": "almost",
-       "note": "almost is nearly all, so the word stops one letter short of the end"
+       "at": 6,
+       "note": "almost means the word stops one letter short of its end"
       }
      ],
      "parts": [
       {
        "words": "out of breath",
-       "gives": "PUFFIN",
-       "note": "PUFFING (out of breath) without its final G"
+       "at": 13,
+       "gives": "PUFFING",
+       "note": "someone out of breath is puffing"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A diver surfacing nearly winded.",
-     "walkthrough": "The diver is a person in the surface but a bird in the answer.",
-     "definitionFit": "A definition by example: this seabird dives from the surface to catch fish."
+     "surface": "A swimmer surfacing nearly winded.",
+     "walkthrough": "'Diver' suggests a person, but it is a seabird that dives for fish; PUFFING loses its last letter.",
+     "definitionFit": "The puffin is a seabird that plunges underwater to catch fish, so it is a diving bird."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Diver"
     }
    }
@@ -910,52 +916,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "One allowed into cycling eliminator",
+      "text": "One",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ATHLETE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 12,
+       "note": "into means the second piece goes inside the first"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "into",
-         "note": "'into' sends one word inside another"
-        },
-        {
          "text": "cycling",
-         "note": "the letters go round in a cycle, the first moving to the end"
+         "at": 17,
+         "note": "cycling moves letters round from one end of the word to the other"
         }
        ],
        "parts": [
         {
          "words": "eliminator",
-         "gives": "ATHE",
-         "note": "HEAT, a qualifying round, with its first letter cycled to the end"
-        },
-        {
-         "words": "allowed",
-         "gives": "LET",
-         "note": "let = allowed"
+         "at": 25,
+         "gives": "HEAT",
+         "note": "a heat is a qualifying race that eliminates the slower runners"
         }
        ]
+      },
+      {
+       "words": "allowed",
+       "at": 4,
+       "gives": "LET",
+       "note": "allowed means let"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A rider admitted to a qualifying race in a cycling event.",
-     "walkthrough": "'Cycling' looks like the sport; here it tells you to move letters round in a ring. Read straight, the whole clue also describes the answer.",
-     "definitionFit": "An &lit: a competitor admitted to a qualifying heat is exactly what the clue describes."
+     "surface": "A rider admitted to a knockout race in a cycling competition.",
+     "walkthrough": "'Cycling' looks like the sport, but it rotates HEAT to ATHE, and LET goes into that. 'One' is a rather bare definition, explained by the whole clue: a competitor in a heat.",
+     "definitionFit": "An athlete is a person who competes in sport, such as a runner taking part in a heat."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
    }
@@ -1305,30 +1313,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STUN",
      "indicators": [
       {
        "text": "almost",
-       "note": "almost is nearly all, so the word loses its last letter"
+       "at": 7,
+       "note": "almost means not quite complete, so the last letter goes"
       }
      ],
      "parts": [
       {
        "words": "attacked by bee",
-       "gives": "STUN",
-       "note": "STUNG (attacked by a bee) without its final G"
+       "at": 14,
+       "gives": "STUNG",
+       "note": "a bee attacks by stinging, so its victim is stung"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "The shock of nearly being stung.",
-     "walkthrough": "'Almost' here trims a word, not the attack: the bee's sting is complete, only its final letter goes.",
-     "definitionFit": "A plain synonym: both mean to daze with a sudden blow or surprise."
+     "surface": "Someone nearly stung by a bee gets a fright.",
+     "definitionFit": "To stun is to daze or astonish someone, much as a sudden shock does."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
     }
    }
   },
@@ -1519,50 +1530,41 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "finally",
-       "note": "at the end, so the last letter of 'student'"
+       "text": "leaves",
+       "at": 20,
+       "note": "leaves means the letter departs from the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "UNIT",
+       "note": "a unit is a single thing, one"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "leaves",
-         "note": "to leave is to go away, so that letter departs from the word for one"
+         "text": "finally",
+         "at": 12,
+         "note": "finally picks the last letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "One",
-         "gives": "UNIT",
-         "note": "a unit is one"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "UNI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "student finally leaves",
-           "gives": "UNI",
-           "select": "last",
-           "note": "T, the last letter of STUDENT, goes out of UNIT"
-          }
-         ]
+         "words": "student",
+         "at": 4,
+         "note": "student is taken as written; only its last letter is used"
         }
        ]
-      },
-      {
-       "gives": "UNIT"
       }
      ]
     },
     "explanation": {
-     "surface": "A student at last leaving after graduation.",
-     "walkthrough": "The definition 'here' refers to the whole clue: the place a student eventually leaves, hence the question mark.",
-     "definitionFit": "A definition by reference: 'here' is the place the clue describes, the university a student finally leaves."
+     "surface": "A puzzle about where a lone student ends up going away from.",
+     "walkthrough": "'Student finally' is T, which leaves UNIT. The question mark flags 'here' as a place defined by the surface: a student leaves university at the end of the course.",
+     "definitionFit": "University, informally shortened, is the place a graduating student finally departs from, so it is the 'here' of the clue."
     },
     "features": {
      "answerInScene": true,
