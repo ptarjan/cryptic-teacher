@@ -1403,8 +1403,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FATALIST",
      "indicators": [
       {
        "text": "Taken in by",
@@ -1421,25 +1419,25 @@
          "note": "fat = bulky"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head of",
-           "note": "the head is the top, so take the first letter of 'authority'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "head of authority",
-           "gives": "AUTHORITY",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
          "words": "catalogue",
          "gives": "LIST",
          "note": "a list is a catalogue"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "the head is the top, so take the first letter of 'authority'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "head of authority",
+         "gives": "AUTHORITY",
+         "note": "first letter"
         }
        ]
       }
@@ -2955,43 +2953,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PERISH",
-     "indicators": [
-      {
-       "text": "Retired",
-       "note": "to retire is to go back, so REP is reversed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retired",
+         "note": "to retire is to go back, so REP is reversed"
+        }
+       ],
        "parts": [
         {
          "words": "Retired agent",
-         "gives": "PER",
+         "gives": "REP",
          "note": "REP, a sales agent, turned back"
-        },
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "note": "as printed"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "is",
-         "note": "as printed"
-        },
+         "text": "first of",
+         "note": "take the first letter of 'heroes'"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first of",
-           "note": "take the first letter of 'heroes'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "first of heroes",
-           "gives": "HEROES",
-           "note": "first letter"
-          }
-         ]
+         "words": "first of heroes",
+         "gives": "HEROES",
+         "note": "first letter"
         }
        ]
       }
@@ -3256,8 +3252,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EXTREMIST",
      "indicators": [
       {
        "text": "new",
@@ -3275,14 +3269,14 @@
        ],
        "parts": [
         {
-         "words": "Be",
-         "gives": "EXIST",
-         "note": "to be = to exist"
-        },
-        {
          "words": "new term",
          "gives": "TREM",
          "note": "TERM rearranged"
+        },
+        {
+         "words": "Be",
+         "gives": "EXIST",
+         "note": "to be = to exist"
         }
        ]
       }

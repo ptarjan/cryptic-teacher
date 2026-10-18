@@ -440,40 +440,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EIFFEL",
-     "indicators": [
-      {
-       "text": "in the Spanish arena",
-       "note": "being in an arena means being inside its enclosed space, so the pieces go within the Spanish article"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in the Spanish arena",
+         "note": "being in an arena means being inside its enclosed space, so the pieces go within the Spanish article"
+        }
+       ],
        "parts": [
         {
-         "words": "the Spanish",
-         "gives": "E",
-         "note": "first part of the Spanish word for the"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the Spanish",
+           "gives": "E",
+           "note": "first part of the Spanish word for the"
+          },
+          {
+           "words": "iron",
+           "gives": "FE",
+           "note": "Fe is the chemical symbol for iron"
+          }
+         ]
         },
         {
          "words": "providing",
          "gives": "IF",
          "note": "providing and if both introduce a condition"
-        },
-        {
-         "words": "iron",
-         "gives": "FE",
-         "note": "Fe is the chemical symbol for iron"
-        },
-        {
-         "words": "the Spanish",
-         "gives": "L",
-         "note": "end of the Spanish word for the, EL"
         }
        ]
+      },
+      {
+       "words": "the Spanish",
+       "gives": "L",
+       "note": "end of the Spanish word for the, EL"
       }
      ]
     },
@@ -1029,8 +1032,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RNLI",
      "indicators": [
       {
        "text": "wrecked",
@@ -1040,8 +1041,6 @@
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RNLI",
        "indicators": [
         {
          "text": "out of",
@@ -1049,6 +1048,10 @@
         }
        ],
        "parts": [
+        {
+         "words": "liner",
+         "note": "taken as written"
+        },
         {
          "op": "last",
          "indicators": [
@@ -1063,10 +1066,6 @@
            "note": "last letter of escape"
           }
          ]
-        },
-        {
-         "words": "liner",
-         "note": "taken as written"
         }
        ]
       }

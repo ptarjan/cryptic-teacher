@@ -458,8 +458,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FRANCES",
      "indicators": [
       {
        "text": "to replace",
@@ -680,39 +678,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "WHALEBONE",
-     "indicators": [
-      {
-       "text": "hosts",
-       "note": "a host takes guests in, so one piece holds another inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hosts",
+         "note": "a host takes guests in, so one piece holds another inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "with",
-         "gives": "W",
-         "note": "W is the abbreviation for with"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "with",
+           "gives": "W",
+           "note": "W is the abbreviation for with"
+          },
+          {
+           "words": "British",
+           "gives": "B",
+           "note": "B is the abbreviation for British"
+          }
+         ]
         },
         {
          "words": "healthy",
          "gives": "HALE",
          "note": "hale means healthy, as in 'hale and hearty'"
-        },
-        {
-         "words": "British",
-         "gives": "B",
-         "note": "B is the abbreviation for British"
-        },
-        {
-         "words": "one",
-         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "one",
+       "note": "taken as written"
       }
      ]
     },

@@ -50,8 +50,6 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "REININ",
      "indicators": [
       {
        "text": "out",
@@ -456,40 +454,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CONFIRMED",
-     "indicators": [
-      {
-       "text": "welcoming",
-       "note": "welcoming someone means taking them in, so one piece goes inside the two others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "welcoming",
+         "note": "welcoming someone means taking them in, so one piece goes inside the two others"
+        }
+       ],
        "parts": [
         {
-         "words": "two companies",
-         "gives": "CO",
-         "note": "CO is the abbreviation for company: the first of the two"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "two companies",
+           "gives": "CO",
+           "note": "CO is the abbreviation for company: the first of the two"
+          },
+          {
+           "words": "two companies",
+           "gives": "FIRM",
+           "note": "a firm is a company: the second of the two"
+          }
+         ]
         },
         {
          "words": "new",
          "gives": "N",
          "note": "N is the abbreviation for new"
-        },
-        {
-         "words": "two companies",
-         "gives": "FIRM",
-         "note": "a firm is a company: the second of the two"
-        },
-        {
-         "words": "editor",
-         "gives": "ED",
-         "note": "ED is the abbreviation for editor"
         }
        ]
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "ED is the abbreviation for editor"
       }
      ]
     },

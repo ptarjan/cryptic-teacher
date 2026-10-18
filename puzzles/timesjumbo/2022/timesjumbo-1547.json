@@ -706,8 +706,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FOCUS",
      "indicators": [
       {
        "text": "in",
@@ -734,24 +732,24 @@
          ]
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Start",
-           "note": "the start of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "college",
-           "note": "the opening letter of college"
-          }
-         ]
-        },
-        {
          "words": "America",
          "gives": "US",
          "note": "the United States"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start",
+         "note": "the start of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "college",
+         "note": "the opening letter of college"
         }
        ]
       }
@@ -3121,8 +3119,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RATEL",
      "indicators": [
       {
        "text": "switching sides",
@@ -3134,6 +3130,12 @@
        "words": "after a time",
        "gives": "LATER",
        "note": "later means after some time"
+      },
+      {
+       "gives": "LATER"
+      },
+      {
+       "gives": "RATEL"
       }
      ]
     },

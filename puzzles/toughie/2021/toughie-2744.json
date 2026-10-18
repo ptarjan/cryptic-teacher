@@ -571,36 +571,25 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CAROM",
+     "op": "composite",
      "indicators": [
       {
        "text": "Cowboy",
        "note": "a cowboy job is a botched one, so the letters are botched"
+      },
+      {
+       "text": "refusing",
+       "note": "refusing the duel means leaving those letters out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CAROM",
-       "indicators": [
-        {
-         "text": "refusing",
-         "note": "refusing the duel means leaving those letters out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "clamoured",
-         "note": "the starting word"
-        },
-        {
-         "words": "duel",
-         "note": "these letters leave, giving CAMOR"
-        }
-       ]
+       "words": "clamoured",
+       "note": "the starting word"
+      },
+      {
+       "words": "duel",
+       "note": "these letters leave, giving CAMOR"
       }
      ]
     },
@@ -1594,8 +1583,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ELKIE",
      "indicators": [
       {
        "text": "will leave",
@@ -1719,44 +1706,47 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AGERELATED",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the hours words sit in the day"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the hours words sit in the day"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "before",
+           "gives": "ERE",
+           "note": "ere is old-fashioned for before"
+          }
+         ]
         },
         {
          "words": "good",
          "gives": "G",
          "note": "G = good"
-        },
-        {
-         "words": "before",
-         "gives": "ERE",
-         "note": "ere is old-fashioned for before"
-        },
-        {
-         "words": "after hours",
-         "gives": "LATE",
-         "note": "after hours is late"
-        },
-        {
-         "words": "day",
-         "gives": "D",
-         "note": "D = day"
         }
        ]
+      },
+      {
+       "words": "after hours",
+       "gives": "LATE",
+       "note": "after hours is late"
+      },
+      {
+       "words": "day",
+       "gives": "D",
+       "note": "D = day"
       }
      ]
     },

@@ -735,8 +735,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LASER",
      "indicators": [
       {
        "text": "to be",
@@ -1813,40 +1811,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CRAFTSMANSHIP",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in means placed inside, so this piece goes within the boats"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means placed inside, so this piece goes within the boats"
+        }
+       ],
        "parts": [
         {
-         "words": "key",
-         "gives": "C",
-         "note": "C is a musical key"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "key",
+           "gives": "C",
+           "note": "C is a musical key"
+          },
+          {
+           "words": "crew",
+           "gives": "MAN",
+           "note": "to man a vessel is to crew it"
+          }
+         ]
         },
         {
          "words": "at least three boats",
          "gives": "RAFTS",
          "note": "rafts are two or more boats"
-        },
-        {
-         "words": "crew",
-         "gives": "MAN",
-         "note": "to man a vessel is to crew it"
-        },
-        {
-         "words": "at least three boats",
-         "gives": "SHIP",
-         "note": "with the rafts, one more vessel makes three or more"
         }
        ]
+      },
+      {
+       "words": "at least three boats",
+       "gives": "SHIP",
+       "note": "with the rafts, one more vessel makes three or more"
       }
      ]
     },
@@ -1884,8 +1885,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DETECTIVE",
      "indicators": [
       {
        "text": "has",
@@ -1899,14 +1898,14 @@
        "note": "defective means faulty, not working"
       },
       {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
-      },
-      {
        "words": "female",
        "gives": "F",
        "note": "F is the abbreviation for female"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
       }
      ]
     },

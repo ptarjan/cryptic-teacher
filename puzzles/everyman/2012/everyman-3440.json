@@ -1105,23 +1105,31 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BREWERY",
-     "indicators": [
-      {
-       "text": "brought in by",
-       "note": "what is brought in by something ends up inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "brought in by",
+         "note": "what is brought in by something ends up inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "by",
-         "gives": "B",
-         "note": "first part of by, which wraps round the rest"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "by",
+           "gives": "B",
+           "note": "first part of by, which wraps round the rest"
+          },
+          {
+           "words": "large jug",
+           "gives": "EWER",
+           "note": "a ewer is a large wide-mouthed pitcher"
+          }
+         ]
         },
         {
          "op": "last",
@@ -1137,18 +1145,13 @@
            "note": "last letter of refrigerator"
           }
          ]
-        },
-        {
-         "words": "large jug",
-         "gives": "EWER",
-         "note": "a ewer is a large wide-mouthed pitcher"
-        },
-        {
-         "words": "by",
-         "gives": "Y",
-         "note": "end part of by, closing round the rest"
         }
        ]
+      },
+      {
+       "words": "by",
+       "gives": "Y",
+       "note": "end part of by, closing round the rest"
       }
      ]
     },

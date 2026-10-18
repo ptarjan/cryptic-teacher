@@ -577,42 +577,40 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SEIGNEUR",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "RUE is read in the other direction"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "binding"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "binding"
-          }
-         ],
-         "parts": [
-          {
-           "words": "notice",
-           "gives": "SIGN",
-           "note": "a sign is a notice, split round E"
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E = English"
-          }
-         ]
+         "words": "notice",
+         "gives": "SIGN",
+         "note": "a sign is a notice, split round E"
         },
         {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "RUE is read in the other direction"
+        }
+       ],
+       "parts": [
+        {
          "words": "French way back",
-         "gives": "EUR",
+         "gives": "RUE",
          "note": "rue is French for street, turned round"
         }
        ]
@@ -1168,48 +1166,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AMENDMENT",
-     "indicators": [
-      {
-       "text": "accepting"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting"
+        }
+       ],
        "parts": [
         {
-         "words": "American",
-         "gives": "AM",
-         "note": "Am. = American"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "American",
+           "gives": "AM",
+           "note": "Am. = American"
+          },
+          {
+           "words": "guys",
+           "gives": "MEN",
+           "note": "guys = men"
+          }
+         ]
         },
         {
          "words": "goal",
          "gives": "END",
          "note": "an end is an aim or goal"
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "guys",
-         "gives": "MEN",
-         "note": "guys = men"
-        },
+         "text": "beginning to",
+         "note": "takes the first letter of 'table'"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning to",
-           "note": "takes the first letter of 'table'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "beginning to table",
-           "gives": "TABLE",
-           "note": "first letter of table"
-          }
-         ]
+         "words": "beginning to table",
+         "gives": "TABLE",
+         "note": "first letter of table"
         }
        ]
       }

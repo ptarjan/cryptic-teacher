@@ -400,8 +400,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GUZZLE",
      "indicators": [
       {
        "text": "abandoned",
@@ -649,8 +647,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VISCOUS",
      "indicators": [
       {
        "text": "trading",
@@ -718,40 +714,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LATTERDAYSAINT",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "'about' puts the coffee and time around the abbreviation for right"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' puts the coffee and time around the abbreviation for right"
+        }
+       ],
        "parts": [
         {
-         "words": "Coffee",
-         "gives": "LATTE",
-         "note": "milky espresso"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Coffee",
+           "gives": "LATTE",
+           "note": "milky espresso"
+          },
+          {
+           "words": "time's",
+           "gives": "DAYS",
+           "note": "a day is a period of time, with the 's"
+          }
+         ]
         },
         {
          "words": "right",
          "gives": "R",
          "note": "abbreviation"
-        },
-        {
-         "words": "time's",
-         "gives": "DAYS",
-         "note": "a day is a period of time, with the 's"
-        },
-        {
-         "words": "Isn't",
-         "gives": "AINT",
-         "note": "colloquial contraction"
         }
        ]
+      },
+      {
+       "words": "Isn't",
+       "gives": "AINT",
+       "note": "colloquial contraction"
       }
      ]
     },

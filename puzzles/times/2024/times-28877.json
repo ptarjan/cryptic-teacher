@@ -171,46 +171,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CAMEMBERT",
-     "indicators": [
-      {
-       "text": "to receive",
-       "note": "receiving something means taking it inside, so one part goes within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down clue, one item placed on another sits directly above it"
+         "text": "to receive",
+         "note": "receiving something means taking it inside, so one part goes within another"
         }
        ],
        "parts": [
         {
-         "words": "arrived",
-         "gives": "CAME",
-         "note": "came is a synonym of arrived"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "arrived",
+           "gives": "CAME",
+           "note": "came is a synonym of arrived"
+          },
+          {
+           "words": "right",
+           "gives": "R",
+           "note": "R is the abbreviation for right"
+          }
+         ]
         },
         {
          "words": "honour",
          "gives": "MBE",
          "note": "the MBE is a British honour, Member of the Order of the British Empire"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
         }
        ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
       }
      ]
     },
@@ -1069,33 +1066,41 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NAUTILUS",
-     "indicators": [
-      {
-       "text": "eaten by",
-       "note": "whatever is eaten ends up inside the eater, so one letter goes within"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eaten by",
+         "note": "whatever is eaten ends up inside the eater, so one letter goes within"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "NAUT",
-         "indicators": [
-          {
-           "text": "Reportedly",
-           "note": "what is reported is heard said, so the word is taken by its sound"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "nothing",
-           "gives": "NOUGHT",
-           "note": "nought means nothing; the spelling here matches its sound"
+           "op": "homophone",
+           "spelt": "NAUT",
+           "indicators": [
+            {
+             "text": "Reportedly",
+             "note": "what is reported is heard said, so the word is taken by its sound"
+            }
+           ],
+           "parts": [
+            {
+             "words": "nothing",
+             "gives": "NOUGHT",
+             "note": "nought means nothing; the spelling here matches its sound"
+            }
+           ]
+          },
+          {
+           "words": "large",
+           "gives": "L",
+           "note": "L is the abbreviation for large"
           }
          ]
         },
@@ -1103,18 +1108,13 @@
          "words": "one",
          "gives": "I",
          "note": "I is the Roman numeral for one"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "US means American"
         }
        ]
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US means American"
       }
      ]
     },

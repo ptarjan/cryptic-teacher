@@ -184,8 +184,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DETECTIVE",
      "indicators": [
       {
        "text": "having little time for female",
@@ -199,14 +197,14 @@
        "note": "something out of order is faulty or broken"
       },
       {
-       "words": "little time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
-      },
-      {
        "words": "female",
        "gives": "F",
        "note": "F is the abbreviation for female"
+      },
+      {
+       "words": "little time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
       }
      ]
     },
@@ -1184,39 +1182,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THEPARTYSOVER",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "'about' means around, so the article with its 's goes around the group"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' means around, so the article with its 's goes around the group"
+        }
+       ],
        "parts": [
         {
-         "words": "Article",
-         "gives": "THE",
-         "note": "the definite article"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Article",
+           "gives": "THE",
+           "note": "the definite article"
+          },
+          {
+           "words": "'s",
+           "note": "taken as written"
+          }
+         ]
         },
         {
          "words": "group",
          "gives": "PARTY",
          "note": "a party is a group of people"
-        },
-        {
-         "words": "'s",
-         "note": "taken as written"
-        },
-        {
-         "words": "covering",
-         "gives": "OVER",
-         "note": "something placed over another is covering it"
         }
        ]
+      },
+      {
+       "words": "covering",
+       "gives": "OVER",
+       "note": "something placed over another is covering it"
       }
      ]
     },

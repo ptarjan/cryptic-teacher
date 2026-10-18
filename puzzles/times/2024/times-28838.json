@@ -115,8 +115,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ELEPHANT",
      "indicators": [
       {
        "text": "leaving for",
@@ -1175,44 +1173,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places that word inside the pub"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "pub",
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places that word inside the pub"
+         "text": "knocked over",
+         "note": "something knocked over is upended, so the word for protégé is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "pub",
-         "gives": "INN",
-         "note": "an inn is a pub"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "knocked over",
-           "note": "something knocked over is upended, so the word for protégé is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "protégé",
-           "gives": "WARD",
-           "note": "a ward is someone under another's protection"
-          }
-         ]
+         "words": "protégé",
+         "gives": "WARD",
+         "note": "a ward is someone under another's protection"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "enumeration error, this should read",
-       "note": "surface padding: an editor's note correcting a misprinted letter count, not wordplay"
       }
      ]
     },

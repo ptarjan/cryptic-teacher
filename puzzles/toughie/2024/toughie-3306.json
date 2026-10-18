@@ -153,40 +153,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MISTRANSLATIONS",
-     "indicators": [
-      {
-       "text": "cuts",
-       "note": "something that cuts into a line splits it and sits in the gap"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cuts",
+         "note": "something that cuts into a line splits it and sits in the gap"
+        }
+       ],
        "parts": [
         {
-         "words": "Film",
-         "gives": "MIST",
-         "note": "a film of moisture"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Film",
+           "gives": "MIST",
+           "note": "a film of moisture"
+          },
+          {
+           "words": "strip",
+           "gives": "SLAT",
+           "note": "a slat is a thin strip of wood"
+          }
+         ]
         },
         {
          "words": "published",
          "gives": "RAN",
          "note": "a paper ran the story"
-        },
-        {
-         "words": "strip",
-         "gives": "SLAT",
-         "note": "a slat is a thin strip of wood"
-        },
-        {
-         "words": "charged items",
-         "gives": "IONS",
-         "note": "ions are electrically charged particles"
         }
        ]
+      },
+      {
+       "words": "charged items",
+       "gives": "IONS",
+       "note": "ions are electrically charged particles"
       }
      ]
     },
@@ -1492,32 +1495,22 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "hidden",
+     "indicators": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "checks",
-         "note": "checks here means holds back or contains, so the letters sit inside the word"
-        },
-        {
-         "text": "borders",
-         "note": "borders here means surrounds on each side, so the answer lies within the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "transatlantic",
-         "gives": "ANTI",
-         "note": "lies inside the word"
-        }
-       ]
+       "text": "checks",
+       "note": "checks here means holds back or contains, so the letters sit inside the word"
       },
       {
-       "unchecked": true,
-       "words": "insubstantial",
-       "note": "a second word containing the same four letters, confirming the first hiding place"
+       "text": "borders",
+       "note": "borders here means surrounds on each side, so the answer lies within the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transatlantic",
+       "gives": "ANTI",
+       "note": "lies inside the word"
       }
      ]
     },

@@ -100,8 +100,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GUST",
      "indicators": [
       {
        "text": "End of",
@@ -117,6 +115,12 @@
        "words": "intestines",
        "gives": "GUTS",
        "note": "guts are the intestines"
+      },
+      {
+       "gives": "TS"
+      },
+      {
+       "gives": "ST"
       }
      ]
     },
@@ -404,45 +408,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "IMPALEMENT",
-     "indicators": [
-      {
-       "text": "interrupted by",
-       "note": "something interrupted has another thing break into its middle, so a pair of words splits it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "at first",
-         "note": "at first points to the opening letter of the word just before, terrified"
+         "text": "interrupted by",
+         "note": "something interrupted has another thing break into its middle, so a pair of words splits it"
         }
        ],
        "parts": [
         {
-         "words": "I'm",
-         "note": "taken as written, without the apostrophe"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I'm",
+           "note": "taken as written, without the apostrophe"
+          },
+          {
+           "words": "people",
+           "gives": "MEN",
+           "note": "men are people"
+          }
+         ]
         },
         {
          "words": "4",
          "gives": "PALE",
          "note": "the answer to 4 down means pale-faced"
-        },
-        {
-         "words": "people",
-         "gives": "MEN",
-         "note": "men are people"
-        },
-        {
-         "words": "terrified",
-         "gives": "T",
-         "note": "the first letter of terrified"
         }
        ]
+      },
+      {
+       "words": "terrified",
+       "gives": "T",
+       "note": "the first letter of terrified"
       }
      ]
     },

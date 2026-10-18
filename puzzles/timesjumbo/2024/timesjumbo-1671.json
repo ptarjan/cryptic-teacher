@@ -99,30 +99,38 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ARBORETUM",
-     "indicators": [
-      {
-       "text": "bringing in"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bringing in"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "take only the last letter of 'bulldozer'"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "a",
-           "note": "the word itself"
+           "op": "last",
+           "indicators": [
+            {
+             "text": "finally",
+             "note": "take only the last letter of 'bulldozer'"
+            }
+           ],
+           "parts": [
+            {
+             "words": "a",
+             "note": "the word itself"
+            }
+           ]
+          },
+          {
+           "words": "nuisance",
+           "gives": "BORE",
+           "note": "a bore is a tiresome nuisance"
           }
          ]
         },
@@ -130,18 +138,13 @@
          "words": "bulldozer finally",
          "gives": "R",
          "note": "last letter of bulldozeR, brought in after the A"
-        },
-        {
-         "words": "nuisance",
-         "gives": "BORE",
-         "note": "a bore is a tiresome nuisance"
-        },
-        {
-         "words": "corporation",
-         "gives": "TUM",
-         "note": "corporation is an old jokey word for a large belly, a tum"
         }
        ]
+      },
+      {
+       "words": "corporation",
+       "gives": "TUM",
+       "note": "corporation is an old jokey word for a large belly, a tum"
       }
      ]
     },
@@ -1125,8 +1128,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TOWERING",
      "indicators": [
       {
        "text": "to secure"
@@ -1142,25 +1143,25 @@
          "note": "tow = pull"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "at the back",
-           "note": "take the last letter of 'cable'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cable at the back",
-           "gives": "CABLE",
-           "note": "last letter of cablE"
-          }
-         ]
-        },
-        {
          "words": "loop",
          "gives": "RING",
          "note": "a ring is a loop"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at the back",
+         "note": "take the last letter of 'cable'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cable at the back",
+         "gives": "CABLE",
+         "note": "last letter of cablE"
         }
        ]
       }

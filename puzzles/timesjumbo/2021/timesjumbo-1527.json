@@ -476,8 +476,6 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "PIECE",
      "indicators": [
       {
        "text": "sent up",
@@ -487,8 +485,6 @@
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PIECE",
        "indicators": [
         {
          "text": "with margins trimmed",
@@ -499,6 +495,12 @@
         {
          "words": "receipt",
          "note": "taken as written"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
@@ -1801,8 +1803,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GERBERA",
      "indicators": [
       {
        "text": "reorganised",
@@ -1812,8 +1812,6 @@
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "GERBERA",
        "indicators": [
         {
          "text": "having removed",
@@ -3470,46 +3468,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unnamed",
+       "note": "unnamed means without a name, so the letter standing for name is removed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "unnamed",
-         "note": "unnamed means without a name, so the letter standing for name is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Like",
-           "gives": "AS",
-           "note": "as means like"
-          },
-          {
-           "words": "top man",
-           "gives": "KING",
-           "note": "the king is the top man of a realm"
-          },
-          {
-           "words": "son",
-           "gives": "PRINCE",
-           "note": "a king's son is a prince"
-          }
-         ]
+         "words": "Like",
+         "gives": "AS",
+         "note": "as means like"
         },
         {
-         "gives": "N"
+         "words": "top man",
+         "gives": "KING",
+         "note": "the king is the top man of a realm"
+        },
+        {
+         "words": "son",
+         "gives": "PRINCE",
+         "note": "a king's son is a prince"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "his",
-       "note": "ties the son to the king"
+       "gives": "N"
       }
      ]
     },
@@ -3683,39 +3671,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CALUMNY",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "to be in something is to sit inside it, so one piece goes within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "to be in something is to sit inside it, so one piece goes within another"
+        }
+       ],
        "parts": [
         {
-         "words": "constant",
-         "gives": "C",
-         "note": "c is the scientific symbol for a constant, such as the speed of light"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "constant",
+           "gives": "C",
+           "note": "c is the scientific symbol for a constant, such as the speed of light"
+          },
+          {
+           "words": "smoker",
+           "gives": "LUM",
+           "note": "a lum is a chimney in Scots, something that smokes"
+          }
+         ]
         },
         {
          "words": "a",
          "note": "taken as written"
-        },
-        {
-         "words": "smoker",
-         "gives": "LUM",
-         "note": "a lum is a chimney in Scots, something that smokes"
-        },
-        {
-         "words": "city",
-         "gives": "NY",
-         "note": "NY is New York"
         }
        ]
+      },
+      {
+       "words": "city",
+       "gives": "NY",
+       "note": "NY is New York"
       }
      ]
     },

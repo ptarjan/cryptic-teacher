@@ -856,8 +856,6 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ROGUE",
      "indicators": [
       {
        "text": "left unstarted",
@@ -890,6 +888,9 @@
          "note": "a vogue is a fashionable style; its first letter goes"
         }
        ]
+      },
+      {
+       "gives": "E"
       }
      ]
     },
@@ -1410,40 +1411,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PERUGIA",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one thing in another is placed inside its letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing in another is placed inside its letters"
+        }
+       ],
        "parts": [
         {
-         "words": "country",
-         "gives": "PERU",
-         "note": "Peru is a South American country"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "country",
+           "gives": "PERU",
+           "note": "Peru is a South American country"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "the Roman numeral for one"
+          }
+         ]
         },
         {
          "words": "good",
          "gives": "G",
          "note": "G is the abbreviation for good"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
         }
        ]
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A is the abbreviation for area"
       }
      ]
     },

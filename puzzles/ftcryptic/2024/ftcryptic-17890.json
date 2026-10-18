@@ -306,37 +306,39 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AQUEDUCT",
-     "indicators": [
-      {
-       "text": "taken in by",
-       "note": "something taken in by another is absorbed into it, so it sits inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "in France",
-         "note": "in France says the preceding words are translated into French"
+         "text": "taken in by",
+         "note": "something taken in by another is absorbed into it, so it sits inside"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "drained",
-           "note": "a drained vessel has had its contents emptied, so only the outside letters of the word remain"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "agronomist",
-           "note": "first of the two outer letters"
+           "op": "first",
+           "indicators": [
+            {
+             "text": "drained",
+             "note": "a drained vessel has had its contents emptied, so only the outside letters of the word remain"
+            }
+           ],
+           "parts": [
+            {
+             "words": "agronomist",
+             "note": "first of the two outer letters"
+            }
+           ]
+          },
+          {
+           "words": "Duke",
+           "gives": "DUC",
+           "note": "duc is French for duke"
           }
          ]
         },
@@ -344,20 +346,15 @@
          "words": "That",
          "gives": "QUE",
          "note": "que is French for that"
-        },
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
         {
-         "words": "Duke",
-         "gives": "DUC",
-         "note": "duc is French for duke"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "agronomist",
-           "note": "last of the two outer letters"
-          }
-         ]
+         "words": "agronomist",
+         "note": "last of the two outer letters"
         }
        ]
       }

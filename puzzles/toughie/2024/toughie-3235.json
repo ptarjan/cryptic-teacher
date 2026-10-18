@@ -133,49 +133,52 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CURIOSITY",
-     "indicators": [
-      {
-       "text": "In",
-       "note": "'In' tells us the following capital sits inside the word for America"
-      },
-      {
-       "text": "invested into",
-       "note": "money invested into something is put inside it, so this unit goes within the municipality word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "'In' tells us the following capital sits inside the word for America"
+        },
+        {
+         "text": "invested into",
+         "note": "money invested into something is put inside it, so this unit goes within the municipality word"
+        }
+       ],
        "parts": [
         {
-         "words": "municipality",
-         "gives": "C",
-         "note": "first part of CITY, a municipality, which wraps everything else"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "municipality",
+           "gives": "C",
+           "note": "first part of CITY, a municipality, which wraps everything else"
+          },
+          {
+           "words": "capital no longer",
+           "gives": "RIO",
+           "note": "Rio de Janeiro was Brazil's capital until 1960"
+          }
+         ]
         },
         {
          "words": "America",
          "gives": "U",
          "note": "first letter of US, America, which holds the old capital"
-        },
-        {
-         "words": "capital no longer",
-         "gives": "RIO",
-         "note": "Rio de Janeiro was Brazil's capital until 1960"
-        },
-        {
-         "words": "America",
-         "gives": "S",
-         "note": "second letter of US"
-        },
-        {
-         "words": "municipality",
-         "gives": "ITY",
-         "note": "rest of CITY"
         }
        ]
+      },
+      {
+       "words": "America",
+       "gives": "S",
+       "note": "second letter of US"
+      },
+      {
+       "words": "municipality",
+       "gives": "ITY",
+       "note": "rest of CITY"
       }
      ]
     },
@@ -726,8 +729,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "POLITICO",
      "indicators": [
       {
        "text": "Racy",
@@ -737,8 +738,6 @@
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "POLITICO",
        "indicators": [
         {
          "text": "censored",
@@ -1095,33 +1094,35 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CHRISTMAS",
-     "indicators": [
-      {
-       "text": "finale",
-       "note": "the finale is the closing part, so only the last letter of the name is used"
-      },
-      {
-       "text": "welcomed by",
-       "note": "a guest welcomed by hosts is taken in among them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "then",
-         "note": "then means next in sequence, so this part comes after"
+         "text": "finale",
+         "note": "the finale is the closing part, so only the last letter of the name is used"
+        },
+        {
+         "text": "welcomed by",
+         "note": "a guest welcomed by hosts is taken in among them"
         }
        ],
        "parts": [
         {
-         "words": "children",
-         "gives": "CH",
-         "note": "CH is a standard abbreviation for children"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "children",
+           "gives": "CH",
+           "note": "CH is a standard abbreviation for children"
+          },
+          {
+           "words": "first",
+           "gives": "IST",
+           "note": "first written as 1ST, with I for one"
+          }
+         ]
         },
         {
          "op": "last",
@@ -1132,18 +1133,13 @@
            "note": "last letter of Gallagher"
           }
          ]
-        },
-        {
-         "words": "first",
-         "gives": "IST",
-         "note": "first written as 1ST, with I for one"
-        },
-        {
-         "words": "parents",
-         "gives": "MAS",
-         "note": "mothers, informally"
         }
        ]
+      },
+      {
+       "words": "parents",
+       "gives": "MAS",
+       "note": "mothers, informally"
       }
      ]
     },

@@ -777,45 +777,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEPOSIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means the letters run backwards"
+       "text": "inside",
+       "note": "inside places the turned pair within the store word"
       }
      ],
      "parts": [
       {
        "op": "container",
-       "indicators": [
-        {
-         "text": "inside",
-         "note": "inside places the turned pair within the store word"
-        }
-       ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "back means the letters run backwards"
+          }
+         ],
          "parts": [
           {
            "words": "Arsenal",
-           "gives": "DEPOT",
+           "gives": "TOPED",
            "note": "an arsenal is a store of weapons, a depot"
-          },
-          {
-           "words": "international",
-           "gives": "I",
-           "note": "I is the abbreviation for international"
           }
          ]
         },
         {
-         "words": "'s",
-         "note": "the possessive ending supplies its letter"
+         "words": "international",
+         "gives": "I",
+         "note": "I is the abbreviation for international"
         }
        ]
+      },
+      {
+       "words": "'s",
+       "note": "the possessive ending supplies its letter"
       }
      ]
     },

@@ -382,39 +382,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ELIMINATED",
-     "indicators": [
-      {
-       "text": "all round",
-       "note": "a word that goes all round others wraps them inside itself"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "all round",
+         "note": "a word that goes all round others wraps them inside itself"
+        }
+       ],
        "parts": [
         {
-         "words": "exultant",
-         "gives": "EL",
-         "note": "first part of ELATED, exultant"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "exultant",
+           "gives": "EL",
+           "note": "first part of ELATED, exultant"
+          },
+          {
+           "words": "batting",
+           "gives": "IN",
+           "note": "in cricket the side batting is in"
+          }
+         ]
         },
         {
          "words": "I'm",
          "note": "taken as written without the apostrophe"
-        },
-        {
-         "words": "batting",
-         "gives": "IN",
-         "note": "in cricket the side batting is in"
-        },
-        {
-         "words": "exultant",
-         "gives": "ATED",
-         "note": "rest of ELATED, wrapping round the others"
         }
        ]
+      },
+      {
+       "words": "exultant",
+       "gives": "ATED",
+       "note": "rest of ELATED, wrapping round the others"
       }
      ]
     },
@@ -454,8 +457,6 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "REGENERATE",
      "indicators": [
       {
        "text": "development",

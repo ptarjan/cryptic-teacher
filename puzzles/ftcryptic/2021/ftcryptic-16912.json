@@ -279,8 +279,6 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "FISHERMAN",
      "indicators": [
       {
        "text": "reversing",
@@ -292,14 +290,14 @@
        "op": "charade",
        "parts": [
         {
-         "words": "providing",
-         "gives": "FI",
-         "note": "providing = IF, then turned around"
+         "words": "tank",
+         "gives": "NAMREHS",
+         "note": "the Sherman was an American Second World War tank"
         },
         {
-         "words": "tank",
-         "gives": "SHERMAN",
-         "note": "the Sherman was an American Second World War tank"
+         "words": "providing",
+         "gives": "IF",
+         "note": "providing = IF, then turned around"
         }
        ]
       }
@@ -663,32 +661,40 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ENCRYPT",
-     "indicators": [
-      {
-       "text": "to fill",
-       "note": "filling something puts it inside, so 'keen' goes inside 'new empty pot'"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to fill",
+         "note": "filling something puts it inside, so 'keen' goes inside 'new empty pot'"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first of",
-           "note": "only the first letter of 'eggs' is wanted"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "first of eggs",
-           "gives": "EGGS",
-           "note": "the opening letter"
+           "op": "first",
+           "indicators": [
+            {
+             "text": "first of",
+             "note": "only the first letter of 'eggs' is wanted"
+            }
+           ],
+           "parts": [
+            {
+             "words": "first of eggs",
+             "gives": "EGGS",
+             "note": "the opening letter"
+            }
+           ]
+          },
+          {
+           "words": "keen",
+           "gives": "CRY",
+           "note": "to keen is to wail in grief"
           }
          ]
         },
@@ -696,27 +702,22 @@
          "words": "new",
          "gives": "N",
          "note": "standard abbreviation"
-        },
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "words": "keen",
-         "gives": "CRY",
-         "note": "to keen is to wail in grief"
-        },
+         "text": "empty",
+         "note": "an empty pot has lost its contents, keeping only the outer letters"
+        }
+       ],
+       "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "an empty pot has lost its contents, keeping only the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "empty pot",
-           "gives": "POT",
-           "note": "the word with its middle removed"
-          }
-         ]
+         "words": "empty pot",
+         "gives": "POT",
+         "note": "the word with its middle removed"
         }
        ]
       }
@@ -1750,36 +1751,34 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RAKED",
+     "op": "container",
      "indicators": [
       {
-       "text": "wheels",
-       "note": "wheeling round turns something to face the other way"
+       "text": "saving",
+       "note": "saving something keeps it held inside, so the grand is enclosed"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "saving",
-         "note": "saving something keeps it held inside, so the grand is enclosed"
+         "text": "wheels",
+         "note": "wheeling round turns something to face the other way"
         }
        ],
        "parts": [
         {
          "words": "Expensive",
-         "gives": "RAED",
+         "gives": "DEAR",
          "note": "expensive = DEAR, turned around"
-        },
-        {
-         "words": "grand",
-         "gives": "K",
-         "note": "a grand is a thousand, K"
         }
        ]
+      },
+      {
+       "words": "grand",
+       "gives": "K",
+       "note": "a grand is a thousand, K"
       }
      ]
     },

@@ -45,45 +45,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THRIFT",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "the races go round, enclosing the words that come before them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "the races go round, enclosing the words that come before them"
+        }
+       ],
        "parts": [
         {
-         "words": "races",
-         "gives": "T",
-         "note": "first half of TT, the Isle of Man motorcycle races"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "races",
+           "gives": "T",
+           "note": "first half of TT, the Isle of Man motorcycle races"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral one"
+          }
+         ]
         },
         {
          "words": "60 minutes",
          "gives": "HR",
          "note": "an hour, abbreviated"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "standard abbreviation for fellow"
-        },
-        {
-         "words": "races",
-         "gives": "T",
-         "note": "second half of TT"
         }
        ]
+      },
+      {
+       "words": "fellow",
+       "gives": "F",
+       "note": "standard abbreviation for fellow"
+      },
+      {
+       "words": "races",
+       "gives": "T",
+       "note": "second half of TT"
       }
      ]
     },

@@ -582,8 +582,6 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "EVOLVED",
      "indicators": [
       {
        "text": "cycling",
@@ -683,40 +681,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NORTHEAST",
-     "indicators": [
-      {
-       "text": "written in",
-       "note": "words written in something are placed inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "written in",
+         "note": "words written in something are placed inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "new",
+           "gives": "N",
+           "note": "N is the abbreviation for new"
+          },
+          {
+           "words": "articles",
+           "gives": "THEA",
+           "note": "the and a are the definite and indefinite articles"
+          }
+         ]
         },
         {
          "words": "alternative",
          "gives": "OR",
          "note": "or introduces an alternative"
-        },
-        {
-         "words": "articles",
-         "gives": "THEA",
-         "note": "the and a are the definite and indefinite articles"
-        },
-        {
-         "words": "way",
-         "gives": "ST",
-         "note": "ST is street, a way"
         }
        ]
+      },
+      {
+       "words": "way",
+       "gives": "ST",
+       "note": "ST is street, a way"
       }
      ]
     },

@@ -275,8 +275,6 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "AGREE",
      "indicators": [
       {
        "text": "Cycling",
@@ -542,40 +540,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "INDISCREET",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "to be about something is to surround it, so one piece wraps another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to be about something is to surround it, so one piece wraps another"
+        }
+       ],
        "parts": [
         {
-         "words": "popular",
-         "gives": "IN",
-         "note": "in means fashionable"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "popular",
+           "gives": "IN",
+           "note": "in means fashionable"
+          },
+          {
+           "words": "about",
+           "gives": "RE",
+           "note": "re means concerning"
+          }
+         ]
         },
         {
          "words": "record",
          "gives": "DISC",
          "note": "a disc is a record"
-        },
-        {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means concerning"
-        },
-        {
-         "words": "film",
-         "gives": "ET",
-         "note": "E.T. is the Spielberg film"
         }
        ]
+      },
+      {
+       "words": "film",
+       "gives": "ET",
+       "note": "E.T. is the Spielberg film"
       }
      ]
     },

@@ -265,31 +265,39 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NOURISHED",
-     "indicators": [
-      {
-       "text": "trapped in",
-       "note": "something trapped is held inside, so one piece sits within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trapped in",
+         "note": "something trapped is held inside, so one piece sits within another"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the end, so only the closing letter of the word is used"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "robin",
-           "note": "the last letter of robin"
+           "op": "last",
+           "indicators": [
+            {
+             "text": "finally",
+             "note": "finally points to the end, so only the closing letter of the word is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "robin",
+             "note": "the last letter of robin"
+            }
+           ]
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "I is the Roman numeral one"
           }
          ]
         },
@@ -297,18 +305,13 @@
          "words": "your and my",
          "gives": "OUR",
          "note": "what belongs to you and me is ours"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        },
-        {
-         "words": "outhouse",
-         "gives": "SHED",
-         "note": "a shed is an outhouse"
         }
        ]
+      },
+      {
+       "words": "outhouse",
+       "gives": "SHED",
+       "note": "a shed is an outhouse"
       }
      ]
     },
@@ -602,8 +605,6 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AIL",
      "indicators": [
       {
        "text": "endless",
@@ -635,6 +636,9 @@
          "note": "ill means evil; it loses its last letter"
         }
        ]
+      },
+      {
+       "gives": "B"
       }
      ]
     },

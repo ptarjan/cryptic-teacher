@@ -1708,8 +1708,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AMENDMENT",
      "indicators": [
       {
        "text": "switching from",
@@ -3112,40 +3110,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "COARSEN",
-     "indicators": [
-      {
-       "text": "In",
-       "note": "in means placed inside, so one piece goes within the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "in means placed inside, so one piece goes within the others"
+        }
+       ],
        "parts": [
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is short for cold, as on a tap"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cold",
+           "gives": "C",
+           "note": "C is short for cold, as on a tap"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E is short for English"
+          }
+         ]
         },
         {
          "words": "rowers",
          "gives": "OARS",
          "note": "oars are rowers, the people who row a boat"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is short for English"
-        },
-        {
-         "words": "November",
-         "gives": "N",
-         "note": "November is N in the NATO phonetic alphabet"
         }
        ]
+      },
+      {
+       "words": "November",
+       "gives": "N",
+       "note": "November is N in the NATO phonetic alphabet"
       }
      ]
     },

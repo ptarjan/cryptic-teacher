@@ -695,40 +695,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CATASTROPHE",
-     "indicators": [
-      {
-       "text": "throttled by",
-       "note": "the pet is gripped round the neck, held inside the other letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "throttled by",
+         "note": "the pet is gripped round the neck, held inside the other letters"
+        }
+       ],
        "parts": [
         {
-         "words": "feline",
-         "gives": "CAT",
-         "note": "a feline is a cat"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "feline",
+           "gives": "CAT",
+           "note": "a feline is a cat"
+          },
+          {
+           "words": "pet",
+           "gives": "STROP",
+           "note": "a pet is a fit of sulking, a strop"
+          }
+         ]
         },
         {
          "words": "alpha",
          "gives": "A",
          "note": "alpha = A, the first letter"
-        },
-        {
-         "words": "pet",
-         "gives": "STROP",
-         "note": "a pet is a fit of sulking, a strop"
-        },
-        {
-         "words": "male",
-         "gives": "HE",
-         "note": "a male is a he"
         }
        ]
+      },
+      {
+       "words": "male",
+       "gives": "HE",
+       "note": "a male is a he"
       }
      ]
     },
@@ -1063,28 +1066,18 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "moves",
+       "note": "one letter moves to a new place in the word"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "moves",
-         "note": "one letter moves to a new place in the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ebullience",
-         "gives": "HEARTINESS",
-         "note": "ebullience = heartiness"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "Henry",
-       "note": "H, the henry (unit of inductance), is the letter that moves, from the front to after EART"
+       "words": "ebullience",
+       "gives": "HEARTINESS",
+       "note": "ebullience = heartiness"
       }
      ]
     },

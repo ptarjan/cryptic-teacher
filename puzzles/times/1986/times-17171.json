@@ -1459,45 +1459,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DUELLIST",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in puts the joined pieces inside the other word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "after",
-         "note": "after places one piece behind the other, so the order of joining is reversed from the clue"
+         "text": "in",
+         "note": "in puts the joined pieces inside the other word"
         }
        ],
        "parts": [
         {
-         "words": "a song",
-         "gives": "DUE",
-         "note": "the start of DUET, a song for two"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a song",
+           "gives": "DUE",
+           "note": "the start of DUET, a song for two"
+          },
+          {
+           "words": "is",
+           "note": "taken as written"
+          }
+         ]
         },
         {
          "words": "two lines",
          "gives": "LL",
          "note": "L is the abbreviation for line, so two of them"
-        },
-        {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "a song",
-         "gives": "T",
-         "note": "the end of DUET, closing round the inserted letters"
         }
        ]
+      },
+      {
+       "words": "a song",
+       "gives": "T",
+       "note": "the end of DUET, closing round the inserted letters"
       }
      ]
     },

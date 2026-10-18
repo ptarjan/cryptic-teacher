@@ -351,48 +351,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SUNBATHE",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one piece is placed inside the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece is placed inside the other"
+        }
+       ],
        "parts": [
         {
-         "words": "Star",
-         "gives": "SUN",
-         "note": "the sun is a star"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Star",
+           "gives": "SUN",
+           "note": "the sun is a star"
+          },
+          {
+           "words": "husband",
+           "gives": "H",
+           "note": "H is the abbreviation for husband"
+          }
+         ]
         },
         {
          "words": "Club",
          "gives": "BAT",
          "note": "a bat is a club, as in cricket or baseball"
-        },
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "husband",
-         "gives": "H",
-         "note": "H is the abbreviation for husband"
-        },
+         "text": "centre",
+         "note": "the centre is the middle letter of the word"
+        }
+       ],
+       "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "centre",
-           "note": "the centre is the middle letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Med",
-           "note": "the middle letter of the three"
-          }
-         ]
+         "words": "Med",
+         "note": "the middle letter of the three"
         }
        ]
       }

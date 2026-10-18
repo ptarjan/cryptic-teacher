@@ -153,8 +153,6 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ASS",
      "indicators": [
       {
        "text": "cut at both ends",
@@ -166,6 +164,12 @@
        "words": "bit of rope",
        "gives": "LASSO",
        "note": "a lasso is a length of rope with a running noose"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "O"
       }
      ]
     },
@@ -1048,50 +1052,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BEGRUDGE",
-     "indicators": [
-      {
-       "text": "During",
-       "note": "during means within the span of, so these pieces go inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "During",
+         "note": "during means within the span of, so these pieces go inside"
+        }
+       ],
        "parts": [
         {
-         "words": "shift",
-         "gives": "B",
-         "note": "the opening of budge, which means shift"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "shift",
+           "gives": "B",
+           "note": "the opening of budge, which means shift"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "finally",
+             "note": "finally points to the end of the word, its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "letter",
+             "note": "the last letter of letter"
+            }
+           ]
+          }
+         ]
         },
         {
          "words": "say",
          "gives": "EG",
          "note": "e.g. means for example, or say"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the end of the word, its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "letter",
-           "note": "the last letter of letter"
-          }
-         ]
-        },
-        {
-         "words": "shift",
-         "gives": "UDGE",
-         "note": "the rest of budge"
         }
        ]
+      },
+      {
+       "words": "shift",
+       "gives": "UDGE",
+       "note": "the rest of budge"
       }
      ]
     },

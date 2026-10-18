@@ -303,8 +303,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SOGGY",
      "indicators": [
       {
        "text": "after making",
@@ -1249,54 +1247,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PSYCHED",
-     "indicators": [
-      {
-       "text": "separating",
-       "note": "something separating a word splits it and sits in the gap"
-      },
-      {
-       "text": "in",
-       "note": "in places the combined piece inside the games word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separating",
+         "note": "something separating a word splits it and sits in the gap"
+        },
+        {
+         "text": "in",
+         "note": "in places the combined piece inside the games word"
+        }
+       ],
        "parts": [
         {
-         "words": "games",
-         "gives": "P",
-         "note": "the first half of PE, physical education, school games"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "games",
+           "gives": "P",
+           "note": "the first half of PE, physical education, school games"
+          },
+          {
+           "words": "year",
+           "gives": "Y",
+           "note": "Y is short for year"
+          }
+         ]
         },
         {
          "words": "School",
          "gives": "S",
          "note": "the start of SCH, the abbreviation for school"
-        },
-        {
-         "words": "year",
-         "gives": "Y",
-         "note": "Y is short for year"
-        },
-        {
-         "words": "School",
-         "gives": "CH",
-         "note": "the end of SCH"
-        },
-        {
-         "words": "games",
-         "gives": "E",
-         "note": "the second half of PE"
-        },
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D is short for daughter"
         }
        ]
+      },
+      {
+       "words": "School",
+       "gives": "CH",
+       "note": "the end of SCH"
+      },
+      {
+       "words": "games",
+       "gives": "E",
+       "note": "the second half of PE"
+      },
+      {
+       "words": "daughter",
+       "gives": "D",
+       "note": "D is short for daughter"
       }
      ]
     },
