@@ -110,30 +110,44 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "REFLECTION",
      "indicators": [
       {
-       "text": "after securing not E but F",
-       "note": "obtaining F where E stood means one letter is swapped for another"
+       "text": "after securing",
+       "at": 21,
+       "note": "after securing means once the swap has been made"
+      },
+      {
+       "text": "not",
+       "at": 36,
+       "note": "not marks the letter to be removed"
+      },
+      {
+       "text": "but",
+       "at": 42,
+       "note": "but marks the letter brought in instead"
       }
      ],
      "parts": [
       {
        "words": "Getting to sit again",
+       "at": 0,
        "gives": "REELECTION",
-       "note": "an MP getting to sit in Parliament again has won re-election"
+       "note": "re-election lets an MP sit in parliament again"
+      },
+      {
+       "words": "E",
+       "at": 40
       },
       {
        "words": "F",
-       "note": "taken as written"
+       "at": 46
       }
      ]
     },
     "explanation": {
-     "surface": "Someone retaking a seat after a grade improves from E to F, apparently needing some thought.",
-     "walkthrough": "The second E of REELECTION is replaced by F, giving REFLECTION; 'securing' just means obtaining that swap.",
-     "definitionFit": "Reflection is careful thought or contemplation, which is study carried on in the mind."
+     "surface": "A politician seeking another term needs to swap a grade E for an F and think hard.",
+     "walkthrough": "The second E of REELECTION gives way to F.",
+     "definitionFit": "Reflection is careful thought or contemplation, a study by the mind."
     },
     "features": {
      "answerInScene": false,
@@ -847,74 +861,92 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HOITYTOITY",
-     "indicators": [
-      {
-       "text": "getting",
-       "note": "getting one thing for another means exchanging them, so one letter replaces another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dispersed",
+         "at": 35,
+         "note": "dispersed means sent away, so those letters leave the word"
+        }
+       ],
        "parts": [
         {
+         "words": "hostility's",
+         "at": 9,
+         "gives": "HOSTILITY",
+         "note": "hostility taken as written"
+        },
+        {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "HOITYTOITY",
          "indicators": [
           {
            "text": "not quite",
-           "note": "not quite means falling short, so the word is trimmed and then taken out of the longer one"
-          },
-          {
-           "text": "dispersed",
-           "note": "dispersed means sent away, so those letters leave the longer word"
+           "at": 21,
+           "note": "not quite means the word falls one letter short"
           }
          ],
          "parts": [
           {
-           "words": "hostility's",
-           "gives": "HOSTILITY",
-           "note": "taken as written"
-          },
-          {
            "words": "yet",
+           "at": 31,
            "gives": "STILL",
-           "note": "still means yet, as in still waiting"
+           "note": "still means yet"
           },
           {
-           "words": "tense",
-           "gives": "T",
-           "note": "T is the grammar abbreviation for tense"
-          },
-          {
-           "words": "hours",
-           "gives": "H",
-           "note": "H is the abbreviation for hours"
+           "gives": "L"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "getting",
+         "at": 56,
+         "note": "getting means taking on a new letter"
         },
         {
-         "unchecked": true,
-         "words": "again",
-         "note": "tells the solver to write the remaining piece a second time"
+         "text": "for",
+         "at": 70,
+         "note": "for here means standing in place of, so the tense letter replaces the hours letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yet again",
+         "at": 46,
+         "gives": "HOITY",
+         "note": "yet again means repeat what was just made"
+        },
+        {
+         "words": "hours",
+         "at": 74,
+         "gives": "H"
+        },
+        {
+         "words": "tense",
+         "at": 64,
+         "gives": "T",
+         "note": "T is the grammar abbreviation for tense"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hostility from a snob that still hasn't faded, flaring up again hour after hour.",
-     "walkthrough": "STILL shortened to STIL is removed from HOSTILITY, leaving HOITY; 'yet again' repeats it, with T for H giving TOITY.",
-     "definitionFit": "Hoity-toity describes someone haughty and snobbish, behaving as if superior, which is arrogant."
+     "surface": "Lingering hostility, not fully cleared, flares again with tension building over time.",
+     "walkthrough": "STIL leaves HOSTILITY to give HOITY; the repeat swaps its H for T to give TOITY.",
+     "definitionFit": "Hoity-toity describes someone haughty and superior in manner, a snob."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dispersed"
+     "misdirectedWord": "tense"
     }
    }
   },
@@ -1277,46 +1309,50 @@
      "indicators": [
       {
        "text": "can grip",
-       "note": "gripping something means holding it inside, so one piece goes within another"
+       "at": 27,
+       "note": "can grip means holds the following letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "which",
-         "gives": "THAT",
-         "note": "that and which are both relative pronouns"
-        },
-        {
-         "words": "ordinary",
-         "gives": "O",
-         "note": "O is the abbreviation for ordinary, as in O level"
-        }
-       ]
+       "words": "which",
+       "at": 21,
+       "gives": "THAT",
+       "note": "that can stand for which, as in the book that I read"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at tip",
-         "note": "the tip of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "prehensively",
-         "note": "the opening letter of the word"
+         "words": "ordinary",
+         "at": 67,
+         "gives": "O",
+         "note": "O is short for ordinary, as in O level"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at tip",
+           "at": 49,
+           "note": "at tip means the first letter of prehensively"
+          }
+         ],
+         "parts": [
+          {
+           "words": "prehensively",
+           "at": 36
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monkey whose tail can grasp things with its tip.",
-     "walkthrough": "The surface pictures a prehensile tail, but 'tails' is a tailcoat worn with formal headwear.",
-     "definitionFit": "A top hat is the tall formal hat traditionally worn with a tailcoat, or tails."
+     "surface": "An animal with a gripping tail is seen at the tip of a branch.",
+     "walkthrough": "'tails' suggests a monkey, but it is the tailcoat of formal dress.",
+     "definitionFit": "A tall silk hat is traditionally worn with a tailcoat in formal morning or evening dress."
     },
     "features": {
      "answerInScene": false,

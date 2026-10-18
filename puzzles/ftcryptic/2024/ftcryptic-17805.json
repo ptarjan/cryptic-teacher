@@ -177,51 +177,55 @@
      "indicators": [
       {
        "text": "penned by",
-       "note": "something penned by another is enclosed in it, as in a pen or fold"
+       "at": 22,
+       "note": "penned by means held inside, as in an enclosure"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "popular",
-         "gives": "IN",
-         "note": "in means fashionable or popular"
-        },
-        {
-         "words": "Rubbish",
-         "gives": "BS",
-         "note": "BS is a vulgar abbreviation for nonsense"
-        }
-       ]
+       "words": "popular",
+       "at": 32,
+       "gives": "IN",
+       "note": "in means popular, fashionable"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "intro",
-         "note": "an intro is the opening part, so only the start of the word essay is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "essay's",
-         "note": "the opening letter of essay"
+         "words": "Rubbish",
+         "at": 0,
+         "gives": "BS",
+         "note": "BS is slang shorthand for rubbish, nonsense"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "intro",
+           "at": 16,
+           "note": "intro means the opening letter of essay"
+          }
+         ],
+         "parts": [
+          {
+           "words": "essay's",
+           "at": 8
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trashy essay opening is written by a best-selling author.",
-     "walkthrough": "'Popular' looks like praise for the writer, but it is the word IN, as in fashionable; BS is a vulgar abbreviation.",
-     "definitionFit": "Henrik Ibsen was the Norwegian playwright of A Doll's House and Hedda Gabler."
+     "surface": "A poor essay's opening is written by a well-liked author.",
+     "walkthrough": "Henrik Ibsen was the Norwegian playwright of A Doll's House.",
+     "definitionFit": "Ibsen was a dramatist, a writer of plays such as Hedda Gabler and Peer Gynt."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "popular"
+     "misdirectedWord": "penned"
     }
    }
   },
@@ -1607,53 +1611,65 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in case of",
-       "note": "something in a case is enclosed, and the case of a word is its outer pair of letters"
+       "text": "in",
+       "at": 50,
+       "note": "in means the following letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "sexting",
-           "note": "the first and last letters of sexting"
-          }
-         ]
-        },
-        {
-         "words": "personnel",
-         "gives": "HR",
-         "note": "HR, human resources, is the personnel department"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "U",
+       "op": "outer",
        "indicators": [
         {
-         "text": "you heard",
-         "note": "heard says the word is taken by its sound, giving a letter that sounds the same"
+         "text": "case of",
+         "at": 53,
+         "note": "case of means the outside letters of sexting, its casing"
         }
        ],
        "parts": [
         {
-         "words": "you",
-         "gives": "YOU",
-         "note": "the letter U sounds like you"
+         "words": "sexting",
+         "at": 61,
+         "note": "first and last letters taken"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "personnel",
+         "at": 28,
+         "gives": "HR",
+         "note": "HR, human resources, is the personnel department"
+        },
+        {
+         "op": "homophone",
+         "spelt": "U",
+         "indicators": [
+          {
+           "text": "heard",
+           "at": 43,
+           "note": "heard means the word you is taken by its sound, the letter U"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you",
+           "at": 39,
+           "gives": "YOU",
+           "note": "you sounds like the letter U"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A staff member quits after a sexting scandal.",
-     "walkthrough": "'Resignation' looks like quitting a job, but here it means acceptance of the inevitable.",
-     "definitionFit": "A shrug of the shoulders is the classic gesture of resigned acceptance."
+     "surface": "Somebody's departure from the staff is announced over a scandal involving explicit texts.",
+     "walkthrough": "'resignation' looks like quitting a job, but it means acceptance of fate.",
+     "definitionFit": "Lifting the shoulders is a gesture of resignation, showing that one accepts what cannot be helped."
     },
     "features": {
      "answerInScene": false,
