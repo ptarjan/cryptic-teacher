@@ -1312,14 +1312,20 @@ RIGHT_SPAN, RIGHT_GUTTER, RIGHT_RISE, RIGHT_DROP = 1.055, (0.35, 0.65), 50, 0.3
 RIGHT_INK = 0.03
 
 
-def right_columns(img, grid):
+#: The 2005 to 2006-10 Times pages: the grid at the page's foot left of its
+#: title (locate_grid's "left"), the clues right of it out to this much of the
+#: grid's width past its right edge.
+RIGHT_SPAN_LEFT = 1.45
+
+
+def right_columns(img, grid, span=RIGHT_SPAN):
     """(x1, bottom) of the two clue columns right of `grid`, or None when the
     clues are not there: they are only when the page ends too soon under the
     grid for clues (1.8 grids' widths, the layout every other page has) and
-    the strip right of the grid, as wide as RIGHT_SPAN, is inked like text."""
+    the strip right of the grid, as wide as `span`, is inked like text."""
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
-    x1 = int(gx1 + RIGHT_SPAN * gw)
+    x1 = int(gx1 + span * gw)
     if x1 > img.width or img.height - gy1 >= 1.2 * gw:
         return None
     bottom = int(gy1 + RIGHT_DROP * (gy1 - gy0))
@@ -2561,10 +2567,39 @@ def times1930_headings(lines, titles=()):
     return titles, sols
 
 
+#: A line that is only "NO 21,610", the number the Gale Times of 2000 (from
+#: 2000-03-13) prints on its own row under "THE TIMES CROSSWORD".
+BARE_NUMBER = re.compile(r"^\W*n[o0]\W{0,3}\s*([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d(?:\s?\d)?)\W*$", re.IGNORECASE)
+#: The words of a "THE TIMES CROSSWORD" line, up to "CROSSWORD".
+CROSSWORD_END = re.compile(r"[co0]r\s?ossword\W*$", re.IGNORECASE)
+
+
+def joined_numbers(lines):
+    """`lines` with each bare "NO n,nnn" row (BARE_NUMBER) joined to the
+    "THE TIMES CROSSWORD" row just over it, starting at the same x, as one
+    line (the title's words up to "CROSSWORD", then the number's)."""
+    out = list(lines)
+    for bare in lines:
+        if not BARE_NUMBER.match(" ".join(w[4] for w in bare)):
+            continue
+        bx0, by0 = bare[0][0], bare[0][1]
+        height = max(w[3] for w in bare) - min(w[1] for w in bare)
+        for ws in lines:
+            if ws is bare or not (-height / 2 <= by0 - ws[0][3] <= height) or abs(ws[0][0] - bx0) > 3 * height:
+                continue
+            text = ""
+            for k, w in enumerate(ws):
+                text = (text + " " + w[4]).strip()
+                if CROSSWORD_END.search(text):
+                    out.append(list(ws[:k + 1]) + list(bare))
+                    break
+    return out
+
+
 def times_headings(lines, titles=()):
     """headings() of a Times page: TITLE, and solution headings read against
     its titles and `titles`."""
-    found = headings(lines, TITLE)
+    found = headings(joined_numbers(lines), TITLE)
     return [(n, box, None) for n, box in found], solution_headings(lines, [n for n, _ in found] + list(titles))
 
 
@@ -3385,7 +3420,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T03:45:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T04:23:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3431,6 +3466,11 @@ def read_puzzle(d, found, hit, solutions):
     # The 2014 Times: the clue columns right of a grid at the page's foot.
     right = right_columns(img, gbox) if side == "below" and top is None and not column and not paper.four \
         and not third else None
+    # The 2005 Times: the same, the grid left of its title (side "left").
+    if side == "left" and paper.key in ("times", "gale") and not paper.four and not third:
+        right = right_columns(img, gbox, RIGHT_SPAN_LEFT)
+        if right:
+            beside, crop = False, None
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not right \
         and not paper.four else None
