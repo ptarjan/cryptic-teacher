@@ -1111,48 +1111,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "A lot of",
-       "note": "most, but not all, of DIRT is used"
+       "text": "on left side of",
+       "at": 14,
+       "note": "the shortened muck sits on the left side of the next piece"
       }
      ],
      "parts": [
       {
-       "words": "muck",
-       "gives": "DIR",
-       "note": "DIRT less its last letter"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "K",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "left side of",
-         "note": "in an across word the left side is the first letter"
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of, but not all, so the last letter is removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "left side of Kelvin",
-         "gives": "K",
-         "select": "first",
-         "note": "the first letter of KELVIN"
+         "words": "muck",
+         "at": 9,
+         "gives": "DIRT",
+         "note": "dirt is muck"
+        },
+        {
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Kelvin's",
+       "at": 30,
+       "gives": "K",
+       "note": "K is the symbol for the kelvin unit of temperature"
       }
      ]
     },
     "explanation": {
-     "surface": "Mud all over the left side of Kelvin's Scottish souvenir sticker.",
-     "walkthrough": "A 'sticker' sounds like a label, but it is something you stick people with: a dirk is a Scottish Highland dagger.",
-     "definitionFit": "A dirk is a long dagger traditionally carried in the Scottish Highlands."
+     "surface": "Mud has spattered one side of a Scottish man's Highland sticker.",
+     "walkthrough": "DIRT loses its last letter for 'a lot of', and DIR goes left of K. 'Kelvin' reads as a Scottish name but is the temperature unit.",
+     "definitionFit": "A dirk is a long dagger traditionally worn by Scottish Highlanders, something that sticks or stabs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "sticker"
+     "misdirectedWord": "Kelvin's"
     }
    }
   },
@@ -1307,46 +1310,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CREOLES",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 28,
+       "note": "broadcast means scattered, so the letters are spread into a new order"
+      },
+      {
+       "text": "having lost",
+       "at": 48,
+       "note": "having lost says some letters go from the fodder before rearranging"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CREOLES",
-       "indicators": [
-        {
-         "text": "broadcast",
-         "note": "the letters are scattered, like seed broadcast over a field"
-        },
-        {
-         "text": "having lost"
-        }
-       ],
-       "parts": [
-        {
-         "words": "scoreline",
-         "note": "the letters to be rearranged, once IN is gone"
-        },
-        {
-         "words": "at home",
-         "gives": "IN",
-         "note": "to be in is to be at home; these letters are removed"
-        }
-       ]
+       "words": "scoreline",
+       "at": 38
+      },
+      {
+       "words": "at home",
+       "at": 60,
+       "gives": "IN",
+       "note": "in means at home, as in 'staying in'"
       }
      ]
     },
     "explanation": {
-     "surface": "A foreign-born team's supporters hear a result read out after an away defeat.",
-     "walkthrough": "'Broadcast' seems to go with the scoreline on the radio, but it only rearranges letters.",
-     "definitionFit": "Creoles are people born in the Caribbean or Americas of European or mixed ancestry."
+     "surface": "A sports result is broadcast showing the home team have lost.",
+     "walkthrough": "SCORELINE without I and N leaves SCORELE, which is rearranged.",
+     "definitionFit": "Creoles are people born in the colonies, especially the Caribbean, but descended from European or African settlers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "broadcast"
+     "misdirectedWord": "scoreline"
     }
    }
   },
@@ -1837,39 +1835,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "awkwardly",
-       "note": "the letters of eats are arranged awkwardly, out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awkwardly",
+         "at": 8,
+         "note": "awkwardly means clumsily, so the letters are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "eats",
-         "note": "EATS rearranged"
-        },
-        {
-         "words": "second",
-         "gives": "S",
-         "note": "S = second"
-        },
-        {
-         "words": "fish",
-         "gives": "IDE",
-         "note": "the ide is a freshwater fish, a crossword favourite"
+         "at": 18
         }
        ]
+      },
+      {
+       "words": "second",
+       "at": 23,
+       "gives": "S"
+      },
+      {
+       "words": "fish",
+       "at": 30,
+       "gives": "IDE",
+       "note": "the ide is a freshwater fish"
       }
      ]
     },
     "explanation": {
-     "surface": "A substitute player clumsily eats a second helping of fish.",
-     "walkthrough": "'Reserve' looks like a noun, a substitute player, but it is a verb here.",
-     "definitionFit": "A plain synonym: keeping something back for later use."
+     "surface": "A clumsy diner tucks into a second fish.",
+     "walkthrough": "EATS rearranged gives SETA, then S and IDE.",
+     "definitionFit": "To set aside something is to save or keep it back for later use."
     },
     "features": {
      "answerInScene": false,

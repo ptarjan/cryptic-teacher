@@ -779,40 +779,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "Put in",
-       "note": "put in after tells us where to place one piece, namely at the end of the others"
+       "at": 0,
+       "note": "the consume word is put inside the combination of the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "short time",
-       "gives": "MO",
-       "note": "a mo is a moment, a short time"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 13,
+         "note": "the mouth comes after the short time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "short time",
+         "at": 19,
+         "gives": "MO",
+         "note": "mo is short for moment"
+        },
+        {
+         "words": "mouth",
+         "at": 7,
+         "gives": "TRAP",
+         "note": "trap is slang for mouth, as in 'shut your trap'"
+        }
+       ]
       },
       {
        "words": "consume",
+       "at": 31,
        "gives": "USE",
-       "note": "to use up is to consume"
-      },
-      {
-       "words": "mouth",
-       "gives": "TRAP",
-       "note": "trap is slang for mouth, as in shut your trap"
+       "note": "to use is to consume"
       }
      ]
     },
     "explanation": {
-     "surface": "An order to pop something into the mouth briefly and eat some poor-quality cheese.",
-     "walkthrough": "The wordplay is read as: put the word for mouth after the other two pieces.",
-     "definitionFit": "Mousetrap is British slang for cheap, unappetising cheese, the kind used to bait a trap."
+     "surface": "Someone eats poor-quality cheese, popping it in their mouth after a moment.",
+     "walkthrough": "'Put in' governs 'consume', which goes inside the moment-plus-mouth string even though it comes later in the clue.",
+     "definitionFit": "Mousetrap is British slang for cheap, bland cheddar, the kind used to bait traps."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "mouth"
     }
    }
