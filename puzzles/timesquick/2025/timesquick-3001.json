@@ -470,62 +470,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PANDERS",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "first of",
-         "note": "take the first letter of the word that follows"
+         "at": 7,
+         "note": "only the opening letter of parties is wanted"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "50 per cent off",
-           "note": "half the word is removed, here its first half"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "first of parties",
-           "gives": "P",
-           "select": "first",
-           "note": "the first letter of parties"
-          }
-         ]
-        },
+         "words": "parties",
+         "at": 16,
+         "note": "the first letter of parties"
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "at": 24,
+       "gives": "AND",
+       "note": "and means with or plus"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "with",
-         "gives": "AND",
-         "note": "and = with, as in bread and butter"
-        },
+         "text": "50 per cent off",
+         "at": 29,
+         "note": "half the word ciders is taken away, its first three letters"
+        }
+       ],
+       "parts": [
         {
          "words": "ciders",
-         "gives": "ERS",
-         "note": "CIDERS with its first three letters, half of six, taken off"
+         "at": 45,
+         "note": "the second half of ciders"
+        },
+        {
+         "gives": "CID"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caterer at a party knocking half price off the ciders.",
-     "walkthrough": "'Caters' looks like a noun for the people supplying the party; it is the verb, as in caters to someone's whims.",
-     "definitionFit": "To pander to someone is to cater to their wishes, usually too readily."
+     "surface": "A host provides for a party by cutting half the cost off the ciders.",
+     "walkthrough": "'50 per cent off' reads like a drinks discount, but it halves the word ciders itself, while 'first of' parties sets the opening letter.",
+     "definitionFit": "To pander is to indulge or gratify someone's wishes, so to cater to them, usually in a disapproving sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Caters"
+     "misdirectedWord": "off"
     }
    }
   },
@@ -1197,39 +1197,30 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "crazy",
+       "at": 15,
+       "note": "crazy means wild or deranged, so the letters of acolytes going are jumbled into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "going crazy",
-         "note": "the letters go mad and rearrange"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Acolytes going",
-         "note": "anagram fodder, 13 letters"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "crazy",
-       "note": "anagram indicator"
+       "words": "Acolytes going",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "Altar servers losing their minds and needing medical attention.",
-     "walkthrough": "'Going' belongs to the fodder even though 'going crazy' reads as a single phrase.",
-     "definitionFit": "A gynaecologist is a doctor specialising in women's reproductive health."
+     "surface": "Church altar servers lose their minds and are sent for medical help.",
+     "walkthrough": "'crazy' rearranges the thirteen letters of ACOLYTES GOING. 'Doctor' could be a verb or an anagram signal, but here it is the plain definition.",
+     "definitionFit": "A gynaecologist is a medical specialist in women's reproductive health, a kind of physician."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "going"
+     "misdirectedWord": "Acolytes"
     }
    }
   },

@@ -49,42 +49,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COCOON",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so the word that follows stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "two companies",
+       "at": 8,
+       "gives": "COCO",
+       "note": "CO is the abbreviation for company, so two of them give CO twice"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 23,
+         "note": "almost all of the word is used, the final letter falling short"
+        }
+       ],
        "parts": [
         {
-         "words": "two companies",
-         "gives": "COCO",
-         "note": "CO is the abbreviation for company, written twice"
+         "words": "one",
+         "at": 31,
+         "note": "the word one without its last letter"
         },
         {
-         "words": "one",
-         "gives": "ON",
-         "note": "the word itself with its last letter cut off"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether to shield two firms, and gets a hesitant answer: nearly, just one.",
-     "walkthrough": "The question mark and semicolon chop the clue into fragments; read 'two companies' as CO twice, then trim 'one'.",
-     "definitionFit": "To cocoon someone is a verb meaning to wrap them up and shelter them from harm."
+     "surface": "Someone asks whether to shield two firms, then decides they are nearly a single business.",
+     "walkthrough": "'Almost' trims one to ON, which follows the two CO abbreviations.",
+     "definitionFit": "To cocoon someone is to wrap them up and shelter them, as a silk case shelters a pupa."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Almost"
+     "misdirectedWord": "companies"
     }
    }
   },
@@ -257,28 +260,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "OURMUTUALFRIEND",
+     "spelt": "OURMUTUALFRIEND",
      "indicators": [
       {
-       "text": "Spooner",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of words"
+       "text": "in which Spooner",
+       "at": 16,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so his request comes out with its first sounds exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "solicits orange healer",
-       "gives": "OURMUTUALFRIEND",
-       "soundsLike": "OUR FRUITAL MEND",
-       "note": "asking for 'our fruit-al mend(er)': an orange is a fruit and a healer is one who mends"
+       "op": "homophone",
+       "spelt": "OURFRUTUAL",
+       "parts": [
+        {
+         "words": "solicits orange",
+         "at": 33,
+         "gives": "OURFRUITYOULL",
+         "note": "the request is about our fruit, an orange being a fruit; 'our fruit you'll' is said as OUR FRUTUAL"
+        }
+       ]
+      },
+      {
+       "words": "healer",
+       "at": 49,
+       "gives": "MEND",
+       "note": "a healer is someone who will mend things"
       }
      ]
     },
     "explanation": {
-     "surface": "A Victorian novel in which a clergyman goes about begging for an orange-coloured doctor.",
-     "walkthrough": "Spooner, soliciting, asks for 'our fruit-al mend'; swap the opening sounds of the last two words to get the Dickens title.",
-     "definitionFit": "This was the last novel Charles Dickens completed, published in 1864-65, firmly within Queen Victoria's reign."
+     "surface": "A Victorian novel in which a character begs someone to cure his orange.",
+     "walkthrough": "Spooner asks 'our fruit you'll mend?'; swapping the FR and M sounds back gives the Dickens title. Bloggers found the sound match loose.",
+     "definitionFit": "Charles Dickens published this, his last completed novel, in 1864 and 1865 during Queen Victoria's reign."
     },
     "features": {
      "answerInScene": false,
@@ -560,39 +574,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NINETY",
      "indicators": [
       {
        "text": "not",
-       "note": "not marks one letter as rejected, and the abbreviation placed beside it stands in its place"
+       "at": 31,
+       "note": "the clue says number, not 100, so the number letter takes the place of the hundred"
       }
      ],
      "parts": [
       {
        "words": "Degree of precision",
+       "at": 0,
        "gives": "NICETY",
        "note": "a nicety is a fine detail or exactness"
       },
       {
-       "words": "Number",
-       "gives": "N",
-       "note": "N is the abbreviation for number"
+       "words": "100",
+       "at": 35,
+       "gives": "C",
+       "note": "C is the Roman numeral for 100"
       },
       {
-       "words": "100",
-       "gives": "C",
-       "note": "C is the Roman numeral for a hundred, swapped out"
+       "words": "Number",
+       "at": 22,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A pedantic exchange about exact figures: a number, not a hundred, just under it.",
-     "walkthrough": "'Degree' tempts a reading about angles, but the phrase is a single word for exactness; swap its C for N.",
-     "definitionFit": "Ninety is a round figure ten short of a hundred, so it sits only a little below that total."
+     "surface": "A precise figure is demanded: not a hundred, but a little under it.",
+     "walkthrough": "In NICETY, the C (Roman 100) gives way to N for number, as the 'not' instructs.",
+     "definitionFit": "Ninety is ten short of a century, so a modest amount below that figure."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Degree"
     }
@@ -658,41 +673,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHERIDAN",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "not half means half of the word is thrown away and only the rest kept"
-      },
-      {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 18,
+         "note": "half of the name is dropped, leaving its first two letters"
+        }
+       ],
        "parts": [
         {
          "words": "Shaw",
-         "gives": "SH",
-         "note": "the first half of the name"
+         "at": 12,
+         "note": "the first half of Shaw"
         },
         {
-         "op": "anagram",
+         "gives": "AW"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confusing",
+         "at": 27,
+         "note": "confusing jumbles the remaining letters into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "confusing",
-           "note": "to confuse is to muddle, so these letters are jumbled"
+           "text": "mostly",
+           "at": 46,
+           "note": "most of the word is kept, the final letter lost"
           }
          ],
          "parts": [
           {
            "words": "reading",
-           "gives": "READIN",
-           "note": "the word without its last letter"
+           "at": 37,
+           "note": "reading without its last letter"
+          },
+          {
+           "gives": "G"
           }
          ]
         }
@@ -701,9 +730,9 @@
      ]
     },
     "explanation": {
-     "surface": "Reviewing George Bernard Shaw: half of his reading is confusing.",
-     "walkthrough": "Shaw looks like part of the definition, since he was a playwright too, but he is only wordplay.",
-     "definitionFit": "Richard Brinsley Sheridan wrote The Rivals and The School for Scandal, classic eighteenth-century stage comedies."
+     "surface": "A literary critic finds a Shaw play confusing to read, and does not half say so.",
+     "walkthrough": "'not half' cuts Shaw to SH; 'mostly' cuts reading to READIN, which 'confusing' rearranges as ERIDAN. Shaw is a playwright too, which tempts as the definition.",
+     "definitionFit": "Richard Brinsley Sheridan was an Irish dramatist who wrote The Rivals and The School for Scandal."
     },
     "features": {
      "answerInScene": true,
@@ -1259,38 +1288,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UVULAS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "topless",
-       "note": "without its top, the word loses its first letter, which is the top in a down entry"
+       "text": "resort",
+       "at": 17,
+       "note": "to re-sort is to sort again, putting the letters in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "resort",
-         "note": "to re-sort is to sort again, putting the letters into a fresh order"
+         "text": "topless",
+         "at": 9,
+         "note": "without its top, the first letter, since this is a down clue"
         }
        ],
        "parts": [
         {
          "words": "Tuvalu's",
-         "gives": "UVALUS",
-         "note": "the Pacific island nation's name plus the S, minus its first letter"
+         "at": 0,
+         "note": "Tuvalu is a small Pacific island nation; its name and the s lose the first letter"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A topless beach resort on Tuvalu, full of fleshy sunbathers.",
-     "walkthrough": "'resort' reads as a holiday destination, but split it as re-sort and it signals rearrangement.",
-     "definitionFit": "The uvula is the fleshy lobe hanging at the back of the throat, so several are fleshy bodies."
+     "surface": "A Pacific island beach resort where the bathers go topless and show plenty of flesh.",
+     "walkthrough": "'topless' removes T, leaving UVALUS, and 'resort' rearranges it. 'resort' looks like a holiday spot but is the anagram signal.",
+     "definitionFit": "The uvula is the small fleshy lobe hanging at the back of the throat, so each is a soft body part."
     },
     "features": {
      "answerInScene": false,

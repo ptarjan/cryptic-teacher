@@ -47,39 +47,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DICTIONARY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 44,
+       "note": "the journal wraps around the rearranged letters, holding them inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "that of Pepys",
+       "at": 29,
+       "gives": "DIARY",
+       "note": "Samuel Pepys is famous for his diary of 1660s London"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "embracing"
-        },
-        {
          "text": "new",
-         "note": "the letters of TONIC are made new, rearranged"
+         "at": 54,
+         "note": "new signals a fresh arrangement of the letters of tonic"
         }
        ],
        "parts": [
         {
-         "words": "that of Pepys",
-         "gives": "DIARY",
-         "note": "Samuel Pepys is famous for his diary"
-        },
-        {
          "words": "tonic",
-         "note": "TONIC rearranged, placed inside DI…ARY"
+         "at": 58
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comparison of two famous English writers' great works.",
-     "walkthrough": "Samuel Johnson compiled the great 1755 dictionary of English; 'say' marks him as one example of a lexicographer. Pepys was a 17th-century London diarist.",
-     "definitionFit": "A definition by example: Johnson's most famous work is his Dictionary of the English Language."
+     "surface": "Comparing two famous literary works, one of them recommending a fresh tonic.",
+     "walkthrough": "'new' turns tonic into CTION, which DIARY is 'embracing'. Samuel Johnson compiled his famous English dictionary in 1755.",
+     "definitionFit": "Dr Johnson's best-known achievement is his 1755 reference book of English words, an example of the answer."
     },
     "features": {
      "answerInScene": true,
@@ -157,26 +161,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COO",
      "indicators": [
       {
        "text": "isn't finished",
-       "note": "the word is left without its final letter"
+       "at": 8,
+       "note": "the word for chef stops short, missing its last letter"
       }
      ],
      "parts": [
       {
-       "words": "chef isn't finished",
-       "gives": "COO",
-       "note": "COOK loses its last letter K"
+       "words": "chef",
+       "at": 3,
+       "gives": "COOK",
+       "note": "a chef is a cook"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone complaining that their cook is still at work.",
-     "walkthrough": "'My' looks like a possessive but is the exclamation of surprise, as is 'Coo!', an old-fashioned British expression of astonishment.",
-     "definitionFit": "Both 'My!' and 'Coo!' are exclamations of surprise."
+     "surface": "Someone notices with dismay that their cook hasn't completed the meal.",
+     "walkthrough": "'My' is not a possessive but an exclamation of surprise; 'isn't finished' cuts the last letter off COOK.",
+     "definitionFit": "Coo is a British exclamation of surprise, used just like the exclamation my!"
     },
     "features": {
      "answerInScene": false,
@@ -519,41 +526,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Extremely",
-       "note": "take the extremes, the outer letters, of 'useful'"
+       "text": "to put in",
+       "at": 17,
+       "note": "the two end letters are placed inside the reliable word"
       }
      ],
      "parts": [
       {
        "words": "reliable",
+       "at": 27,
        "gives": "CONSTANT",
-       "note": "reliable = constant"
+       "note": "constant means steady or reliable"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "UL",
        "indicators": [
         {
-         "text": "to put in"
+         "text": "Extremely",
+         "at": 0,
+         "note": "extremely means at the extremes, so only the first and last letters of useful"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Extremely useful",
-         "gives": "UL",
-         "select": "outer",
-         "note": "first and last letters of useful, placed inside CONS…TANT"
+         "words": "useful",
+         "at": 10,
+         "note": "the first and last letters of useful"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Praise for a dependable senior doctor who is very useful.",
-     "walkthrough": "'Extremely' reads as 'very' but asks for the ends of 'useful'. In British hospitals a consultant is the most senior grade of doctor.",
-     "definitionFit": "A regional use: in the British NHS this is the title of the top grade of hospital specialist."
+     "surface": "A dependable senior medic would be very handy to have on staff.",
+     "walkthrough": "'Extremely' looks like an intensifier for useful but takes its ends, UL, which go 'to put in' CONSTANT.",
+     "definitionFit": "In British hospitals a consultant is the most senior grade of specialist physician."
     },
     "features": {
      "answerInScene": true,
@@ -955,37 +962,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ONBALANCE",
-     "indicators": [
-      {
-       "text": "returning",
-       "note": "NO goes back, reading right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 3,
+         "note": "returning means the little word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "No returning",
-         "gives": "ON",
-         "note": "NO backwards"
-        },
-        {
-         "words": "the total in one's account",
-         "gives": "BALANCE",
-         "note": "your balance is the total in your bank account"
+         "words": "No",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "the total in one's account",
+       "at": 13,
+       "gives": "BALANCE",
+       "note": "the balance is the amount held in a bank account"
       }
      ]
     },
     "explanation": {
-     "surface": "A bank refusing to return a customer's savings.",
-     "walkthrough": "The banking surface hides an idiom: weighing up both sides of a scale.",
-     "definitionFit": "On balance means having weighed everything up, all things considered."
+     "surface": "A bank customer finds nothing coming back to their account.",
+     "walkthrough": "The banking surface hides that 'No returning' is just the little word read the other way round.",
+     "definitionFit": "On balance is an idiom meaning after weighing everything up, taking everything into account."
     },
     "features": {
      "answerInScene": true,
