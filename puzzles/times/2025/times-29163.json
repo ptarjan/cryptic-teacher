@@ -1200,40 +1200,43 @@
      "indicators": [
       {
        "text": "takes in",
-       "note": "the oaf holds the other letters inside"
+       "at": 17,
+       "note": "takes in means holds within, so the oaf word encloses the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "oaf",
-         "gives": "LOUT",
-         "note": "a lout is an oaf"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "O looks like zero, nothing"
-        }
-       ]
+       "words": "oaf",
+       "at": 13,
+       "gives": "LOUT",
+       "note": "a lout is a clumsy, uncouth man, an oaf"
       },
       {
-       "words": "very well",
-       "gives": "OK",
-       "note": "OK means very well, as in agreement"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "nothing",
+         "at": 26,
+         "gives": "O",
+         "note": "O, the figure zero, means nothing"
+        },
+        {
+         "words": "very well",
+         "at": 34,
+         "gives": "OK",
+         "note": "OK is said to agree, meaning very well"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worry arises when a clumsy man understands nothing.",
-     "walkthrough": "'Concern' is the sense in 'that's your lookout', meaning your own business.",
-     "definitionFit": "'That's your lookout' means that's your concern."
+     "surface": "A worry arises when a clumsy man absorbs nothing particularly well.",
+     "definitionFit": "Saying 'that's your lookout' means it is your own responsibility or business, so the word means a concern."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Concern"
     }
    }
@@ -1486,50 +1489,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TOWERBLOCK",
+     "indicators": [
+      {
+       "text": "housing",
+       "at": 27,
+       "note": "housing means holding inside, so the first pieces surround the reversed one"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "to",
+         "at": 17,
+         "gives": "TO"
+        },
+        {
+         "words": "secure",
+         "at": 20,
+         "gives": "LOCK",
+         "note": "to secure a door is to lock it"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "housing"
+         "text": "that's had backing",
+         "at": 40,
+         "note": "had backing means it has been sent backwards, so the word for plan is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "to",
-         "note": "TO as printed"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "that's had backing",
-           "note": "the plan is written backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "plan",
-           "gives": "BREW",
-           "note": "to brew is to plan or plot; reversed it is WERB"
-          }
-         ]
-        },
-        {
-         "words": "secure",
-         "gives": "LOCK",
-         "note": "to lock is to secure"
+         "words": "plan",
+         "at": 35,
+         "gives": "BREW",
+         "note": "to brew something up is to plot or plan it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A city building project that has secured financial backing.",
-     "walkthrough": "'Backing' sounds like funding for the housing plan, but it reverses BREW.",
-     "definitionFit": "A definition by description: the tall block of flats is a typical urban building, hence 'in city'."
+     "surface": "A building in town is to protect a scheme that got financial support.",
+     "walkthrough": "'backing' looks like financial support but means the plan word is read backwards; 'housing' then sets it between the other two pieces.",
+     "definitionFit": "A tower block is a tall block of flats or offices, the typical high-rise in a city."
     },
     "features": {
      "answerInScene": true,

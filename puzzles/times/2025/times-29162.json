@@ -182,39 +182,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "contrived",
-       "note": "a contrived smile is artificially arranged, so its letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "contrived",
+         "at": 5,
+         "note": "contrived means artificially made up, so the letters of smile are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "smile",
-         "note": "SMILE rearranged"
-        },
-        {
-         "words": "go through again",
-         "gives": "ITERATE",
-         "note": "to iterate is to repeat a process"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "go through again",
+       "at": 22,
+       "gives": "ITERATE",
+       "note": "to iterate is to repeat, going through a process again"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to repeat a lesson, fake grin and all, for a struggling pupil.",
-     "walkthrough": "Only SMILE is anagrammed; ITERATE is added unchanged after it.",
-     "definitionFit": "A semiliterate person can barely read and write, an under-educated type."
+     "surface": "Wearing a forced smile, a poorly schooled person repeats the process.",
+     "definitionFit": "A semiliterate person can barely read and write, so is someone with little schooling."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "contrived"
+     "misdirectedWord": "smile"
     }
    }
   },
@@ -448,71 +449,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Lagging",
+      "text": "Lagging round",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INSULATING",
+     "indicators": [
+      {
+       "text": "crowds",
+       "at": 44,
+       "note": "crowds means presses round, so the slight word encloses the letter from arena"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "causing slight",
+       "at": 29,
+       "gives": "INSULTING",
+       "note": "insulting means giving a slight, an offence"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "round",
-         "note": "INSULTING goes round the A"
-        },
-        {
-         "text": "crowds",
-         "note": "INSULTING crowds in on A from both sides"
+         "text": "back of",
+         "at": 14,
+         "note": "the back of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "words": "causing slight",
-         "gives": "INSUL",
-         "note": "insulting = causing a slight; first part"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "back of",
-           "note": "the back of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "back of arena",
-           "gives": "A",
-           "select": "last",
-           "note": "the last letter of arenA"
-          }
-         ]
-        },
-        {
-         "words": "causing slight",
-         "gives": "TING",
-         "note": "the rest of INSULTING"
+         "words": "arena",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crowds at an arena being wrapped up, perhaps in foil blankets.",
-     "walkthrough": "'Slight' is a noun, an insult, not an adjective meaning small. Lagging is the British word for pipe insulation.",
-     "definitionFit": "Lagging pipes means insulating them with a wrapping to stop heat loss."
+     "surface": "A slow player in an arena round crowds the stands with insults.",
+     "walkthrough": "'Lagging' looks like falling behind, but it is the noun for pipe covering; INSULTING takes in A.",
+     "definitionFit": "Lagging is material wrapped round pipes and tanks to stop heat escaping, so it keeps heat in."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "slight"
+     "aptDefinition": true,
+     "misdirectedWord": "Lagging"
     }
    }
   },
@@ -988,58 +971,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IDLER",
+     "indicators": [
+      {
+       "text": "splitting",
+       "at": 24,
+       "note": "splitting means breaking apart, so the letter from repartee goes between the side letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
+         "words": "I had",
+         "at": 13,
          "gives": "ID",
-         "indicators": [
-          {
-           "text": "side-splitting"
-          },
-          {
-           "text": "ending of",
-           "note": "the last letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "I had",
-           "gives": "ID",
-           "select": "last",
-           "note": "I'd = I had"
-          }
-         ]
+         "note": "I'd is the contraction of I had"
         },
         {
          "words": "side",
-         "gives": "L",
-         "note": "left, one side"
-        },
+         "at": 19,
+         "gives": "LR",
+         "note": "L and R, left and right, are the two sides"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "ending of repartee",
-         "gives": "E",
-         "note": "the last letter of reparteE"
-        },
+         "text": "ending of",
+         "at": 34,
+         "note": "the ending of a word is its last letter"
+        }
+       ],
+       "parts": [
         {
-         "words": "side",
-         "gives": "R",
-         "note": "right, the other side"
+         "words": "repartee",
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy friend and I shared a hilariously funny exchange.",
-     "walkthrough": "'Side-splitting' looks like 'hilarious'; here E splits the two sides, left and right, as L and R.",
-     "definitionFit": "A plain synonym: both name someone who avoids work and lazes about."
+     "surface": "A lazy person and I enjoyed a hilarious end to the banter.",
+     "walkthrough": "'side-splitting' reads as hilarious but is split into side, L and R, and splitting, which puts E between them.",
+     "definitionFit": "An idler is a lazy person who avoids work, which is what sluggard means."
     },
     "features": {
      "answerInScene": true,
@@ -1171,30 +1149,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "the word is not quite complete, so its last letter goes"
-      },
-      {
-       "text": "on"
+       "text": "on",
+       "at": 23,
+       "note": "on in a down clue means sitting above, so the shortened money word comes before the time letter"
       }
      ],
      "parts": [
       {
-       "words": "ready",
-       "gives": "MONE",
-       "note": "ready = cash, money; MONEY without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 7,
+         "note": "not quite means the last letter is left off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ready",
+         "at": 17,
+         "gives": "MONEY",
+         "note": "the ready is British slang for cash, money"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "t = time"
+       "at": 26,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A painter who is never quite ready on time.",
-     "walkthrough": "'Ready' is British slang for cash (the readies), not an adjective.",
-     "definitionFit": "Claude Monet was the French Impressionist painter."
+     "surface": "A painter who is almost prepared to start on schedule.",
+     "walkthrough": "'ready' is not 'prepared' but slang for money, as in 'the readies'.",
+     "definitionFit": "Claude Monet was the French Impressionist painter of the Water Lilies series."
     },
     "features": {
      "answerInScene": true,
@@ -1263,28 +1255,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "briefly"
-      }
-     ],
      "parts": [
       {
-       "words": "one",
-       "gives": "B",
-       "note": "one of the two suit colours, black, abbreviated to B"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 22,
+         "note": "briefly means cut short, so only the first letter of black is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 18,
+         "gives": "BLACK",
+         "note": "one of the two colours of playing-card suits, black"
+        }
+       ]
       },
       {
        "words": "Colours of suits",
+       "at": 0,
        "gives": "RED",
-       "note": "the other suit colour, red, in full"
+       "note": "the card suits are coloured black and red; this is the other colour"
       }
      ]
     },
     "explanation": {
-     "surface": "Men's suit colours, one of them quickly copied.",
-     "walkthrough": "The suits are the four in a pack of cards, which come in two colours, black and red; only black is shortened.",
-     "definitionFit": "Bred is the past tense of breed, to reproduce."
+     "surface": "Card suits in two colours, one of them for a short time, were copied.",
+     "walkthrough": "Playing-card suits are black and red: black is shortened to B and red stays whole.",
+     "definitionFit": "To breed is to reproduce, so bred is its past tense, meaning produced offspring."
     },
     "features": {
      "answerInScene": false,
