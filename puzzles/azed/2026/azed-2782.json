@@ -1655,38 +1655,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "I've abandoned",
-       "note": "abandoned means left behind, so these letters are dropped from the word before"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "A bit of a kip",
-         "gives": "AT",
-         "note": "the at is a Laotian coin, a hundredth of the kip"
-        },
-        {
-         "words": "diffident",
-         "gives": "TENTATIVE",
-         "note": "tentative means hesitant, diffident"
-        }
-       ]
+       "words": "A bit of a kip",
+       "at": 0,
+       "gives": "AT",
+       "note": "the kip is the currency of Laos, and the at is a hundredth of a kip, a small coin"
       },
       {
-       "gives": "IVE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned",
+         "at": 32,
+         "note": "abandoned means dropped, so the letters of I've are left out of the word for diffident"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diffident",
+         "at": 16,
+         "gives": "TENTATIVE",
+         "note": "tentative means hesitant or diffident"
+        },
+        {
+         "words": "I've",
+         "at": 27,
+         "gives": "IVE",
+         "note": "the letters of I've, taken as written without the apostrophe"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bit of a nap, a timid sleeper gives up; it was a botched crime.",
-     "walkthrough": "Kip looks like British slang for a nap, but it is the currency of Laos.",
-     "definitionFit": "An attentat is an attempted crime, especially a failed assassination attempt on a political figure."
+     "surface": "A shy person gives up on taking a nap, half asleep.",
+     "walkthrough": "'kip' looks like a nap, but here it is the Laotian currency, whose hundredth part is the at. 'abandoned' takes IVE out of TENTATIVE, leaving TENTAT.",
+     "definitionFit": "An attentat is a criminal attempt, especially a failed assassination or violent attack, a legal and historical term."
     },
     "features": {
      "answerInScene": false,
