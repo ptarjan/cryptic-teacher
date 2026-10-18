@@ -155,48 +155,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WORTH",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced has been cut short, so a letter is lost from the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 6,
+         "note": "about means turned round, so the word for argue is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about can mean turned around, as in about-face, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Argue",
-           "gives": "ROW",
-           "note": "a row is a quarrel; to row is to argue"
-          }
-         ]
-        },
+         "words": "Argue",
+         "at": 0,
+         "gives": "ROW",
+         "note": "to row is to argue noisily"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 16,
+         "note": "reduced means cut short, so the word loses its final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "the word with its last letter cut"
+         "at": 12,
+         "note": "taken as written"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People quarrel over a price that has been cut.",
-     "walkthrough": "ROW rhymes with cow here, the British word for a quarrel.",
-     "definitionFit": "Worth and value are plain synonyms for how much something is reckoned to be held in esteem or cost."
+     "surface": "Arguing over a price that has been cut.",
+     "walkthrough": "ROW turned 'about' gives WOR, then 'reduced' trims THE to TH.",
+     "definitionFit": "Worth is the value of something, as in the jewel's worth, which is its monetary price."
     },
     "features": {
      "answerInScene": true,
@@ -446,47 +450,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUSHI",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter goes"
+       "text": "filled with",
+       "at": 21,
+       "note": "filled with means containing, so the shortened word holds the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "filled with",
-         "note": "a thing filled with something holds it inside"
+         "text": "almost",
+         "at": 14,
+         "note": "almost means not quite complete, so the final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "Steamer maybe",
-         "gives": "SHI",
-         "note": "a steamer is a kind of ship, cut short"
+         "at": 0,
+         "gives": "SHIP",
+         "note": "a steamer is an example of a ship"
         },
         {
-         "words": "American",
-         "gives": "US",
-         "note": "US is the standard abbreviation"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "American",
+       "at": 33,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "A cooking steamer is almost full of some American food.",
-     "walkthrough": "'Steamer' wants to be kitchen equipment beside 'dish'; 'maybe' marks it as an example of a vessel.",
-     "definitionFit": "Sushi is a Japanese preparation of vinegared rice with raw fish, served as a meal or course."
+     "surface": "A steamer packed with an American meal.",
+     "walkthrough": "'Steamer' suggests a kitchen steamer; it is a steamship. Almost SHIP is SHI, which holds US.",
+     "definitionFit": "Sushi is a Japanese food of vinegared rice with raw fish, served as a plate of food."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Steamer"
     }
    }

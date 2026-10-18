@@ -217,48 +217,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCRAPHEAP",
+     "op": "composite",
      "indicators": [
       {
-       "text": "run down",
-       "note": "run down here means with the run taken away, run being the cricket abbreviation removed from the word"
+       "text": "abandoned",
+       "at": 25,
+       "note": "abandoned suggests letters let loose with no order, so they are rearranged, with the run letter dropped"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "abandoned",
-         "note": "abandoned means wild and unrestrained, so these letters are let loose into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "car",
-         "gives": "CA",
-         "note": "the word with R, short for run, taken out"
+         "at": 11,
+         "note": "taken as written"
         },
         {
          "words": "perhaps",
+         "at": 16,
          "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "run",
+       "at": 2,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "An old banger might well be dumped somewhere like this.",
-     "walkthrough": "The whole clue also defines: a run-down car is just what gets abandoned at this place. R is the cricket scorer's abbreviation for a run.",
-     "definitionFit": "A scrapheap is a pile of discarded metal and junk, where worn-out cars end their days."
+     "surface": "A clapped-out car might well be dumped in a place like this.",
+     "walkthrough": "The letters of CAR PERHAPS hold the answer plus one R, the run that goes 'down' and out; the rest are rearranged. The whole clue also describes the place.",
+     "definitionFit": "A scrapheap is a pile of discarded junk, the place where an old wrecked vehicle ends up dumped."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "abandoned"
+     "misdirectedWord": "run"
     }
    }
   },
@@ -744,47 +744,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TROOP",
+     "op": "container",
      "indicators": [
       {
-       "text": "limited",
-       "note": "a limited word is kept within bounds, so its outer letters are cut away"
+       "text": "clothing",
+       "at": 5,
+       "note": "clothing means covering, so the word for best wraps around the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Best",
+       "at": 0,
+       "gives": "TOP",
+       "note": "top means best, as in top marks"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "clothing",
-         "note": "a thing clothing another wraps around it, so one piece is placed inside the other"
+         "text": "limited",
+         "at": 19,
+         "note": "limited means cut back at both ends, leaving only the inner letters of the word"
         }
        ],
        "parts": [
         {
-         "words": "Best",
-         "gives": "TOP",
-         "note": "top means the best"
-        },
-        {
          "words": "from",
-         "gives": "RO",
-         "note": "the word with its first and last letters removed"
+         "at": 14,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fine garments sold by a limited company.",
-     "walkthrough": "'limited company' reads as a firm, but 'limited' works on 'from' alone.",
-     "definitionFit": "A troop is a company of soldiers or a group of people, so the two are synonyms."
+     "surface": "The finest outfits come from a limited company.",
+     "walkthrough": "'limited' trims the ends from FROM to give RO, which TOP (best) clothes.",
+     "definitionFit": "A troop is a group of soldiers or performers, so it is a company in the military or theatrical sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "limited"
     }
    }
@@ -873,12 +875,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FERMENTATION",
      "indicators": [
       {
        "text": "breaks",
-       "note": "one thing breaking another splits it open and sits in the gap"
+       "at": 23,
+       "note": "breaks means splits apart, so the rearranged letters go into the middle of the outer pair"
       }
      ],
      "parts": [
@@ -887,41 +888,45 @@
        "parts": [
         {
          "words": "following",
+         "at": 30,
          "gives": "F",
-         "note": "f is the abbreviation for following, as in page references"
+         "note": "F is the standard abbreviation for following, as in page references"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "construction",
-           "note": "a construction is something built up from parts, so these letters are reassembled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Terminate",
-           "note": "letters to be rearranged"
-          },
-          {
-           "words": "working",
-           "gives": "ON",
-           "note": "a machine that is working is on"
-          }
-         ]
+         "words": "working",
+         "at": 40,
+         "gives": "ON",
+         "note": "on means working, as in a machine that is switched on"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "construction",
+         "at": 10,
+         "note": "construction means building something anew, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Terminate",
+         "at": 0,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Building work is halted after trouble among the workforce.",
-     "walkthrough": "'Terminate construction' reads as halting a building project; the first word is the fodder and the second its signal.",
-     "definitionFit": "Fermentation figuratively means agitation or turmoil, a state of social unrest."
+     "surface": "An order to end the building project leads to a strike after the workforce grows restless.",
+     "walkthrough": "'unrest' is fair because fermentation is also used figuratively for agitation or turmoil.",
+     "definitionFit": "Ferment is figurative agitation or turmoil, so fermentation can mean a state of social excitement or agitation."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "construction"
     }
    }

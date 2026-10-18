@@ -1132,57 +1132,60 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "to involve something is to include it, so the shortened word takes the others inside"
+       "at": 23,
+       "note": "involving means wrapping around, so the shortened plot surrounds the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 5,
+         "note": "out of signals that the named letter is removed from the word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "out of",
-           "note": "a letter left out of a word is removed from it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "main story",
-           "gives": "PLOT",
-           "note": "the plot is the main storyline"
-          },
-          {
-           "words": "Left",
-           "gives": "L",
-           "note": "L is the abbreviation for left"
-          }
-         ]
+         "words": "main story",
+         "at": 12,
+         "gives": "PLOT",
+         "note": "the plot is the main storyline of a book or film"
         },
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
+         "words": "Left",
+         "at": 0,
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "Irish",
-       "gives": "IR",
-       "note": "IR is the abbreviation for Irish"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 33,
+         "gives": "O"
+        },
+        {
+         "words": "Irish",
+         "at": 37,
+         "gives": "IR"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A narrative stripped of its left-wing slant, featuring an elderly Irish sleuth.",
-     "walkthrough": "PLOT loses L to give POT, which then holds O and IR.",
-     "definitionFit": "Hercule Poirot is Agatha Christie's famous Belgian detective."
+     "surface": "A crime novel's main plot features an old Irish sleuth, left out of the action.",
+     "walkthrough": "'main story' sounds like a headline, but it is simply the plot of a tale.",
+     "definitionFit": "Hercule Poirot is Agatha Christie's famous Belgian sleuth, the fictional investigator of many mysteries."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Irish"
+     "misdirectedWord": "main"
     }
    }
   },

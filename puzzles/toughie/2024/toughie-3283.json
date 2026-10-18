@@ -277,37 +277,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "RODGERS",
-     "indicators": [
-      {
-       "text": "to provide a change of hat for",
-       "note": "a hat sits on top, so changing the hat swaps the opening letter for a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "at": 21,
+       "gives": "R"
       },
       {
-       "words": "seniors",
-       "gives": "CODGERS",
-       "note": "codgers are old men; its first letter is the one replaced"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to provide a change of hat for",
+         "at": 27,
+         "note": "the hat is the top letter of the word, which is taken off to be swapped for another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seniors",
+         "at": 58,
+         "gives": "CODGERS",
+         "note": "codgers are old men, an informal word for elderly people"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musician helping the old folk choose new headgear.",
-     "walkthrough": "R replaces the C at the head of CODGERS. Richard Rodgers wrote the music for The Sound of Music.",
-     "definitionFit": "Richard Rodgers composed the score of the musical, making him its man of musical notes."
+     "surface": "A musician whose duty is to give old folk a new hat.",
+     "walkthrough": "CODGERS has its first letter replaced: the C hat comes off and R for right goes on.",
+     "definitionFit": "Richard Rodgers was the composer in the songwriting partnership with Oscar Hammerstein, so he is the musician of the pair."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "hat"
     }
    }

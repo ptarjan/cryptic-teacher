@@ -498,47 +498,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEWSGROUP",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Only half",
-       "note": "keeping only half of a word means dropping the rest of its letters"
+       "text": "sadly",
+       "at": 44,
+       "note": "sadly means things went wrong, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sadly",
-         "note": "sadly suggests things have gone wrong, so the letters end up in a bad order"
+         "text": "Only half",
+         "at": 19,
+         "note": "only half means the word is cut to its first half, losing the second"
         }
        ],
        "parts": [
         {
          "words": "seem",
-         "gives": "SE",
-         "note": "the first half of the word, its first two letters"
+         "at": 29,
+         "note": "taken as written"
         },
         {
-         "words": "grown up",
-         "note": "taken as written"
+         "gives": "EM"
         }
        ]
+      },
+      {
+       "words": "grown up",
+       "at": 34,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A lament that only half of all bloggers seem to be mature adults.",
-     "walkthrough": "'Only half' looks like it refers to the bloggers, but it trims the next word. The question mark flags a definition by example.",
-     "definitionFit": "An online discussion forum where many users post messages is a crowd of internet writers gathered together."
+     "surface": "A complaint that only half the people blogging appear to be adults.",
+     "walkthrough": "Half of seem is SE; with GROWNUP, 'sadly' rearranges the lot. The question mark admits the definition is loose.",
+     "definitionFit": "A newsgroup is an online discussion forum where many users post messages, so it is a collection of posters."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "half"
+     "misdirectedWord": "sadly"
     }
    }
   },
@@ -1115,43 +1119,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EAGLET",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end, so the final letter is dropped"
+       "text": "full of",
+       "at": 23,
+       "note": "full of means containing, so the word for nibble holds the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "to nibble",
+       "at": 12,
+       "gives": "EAT",
+       "note": "to nibble is to eat a little"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "full of",
-         "note": "something full of another thing holds it inside"
+         "text": "endless",
+         "at": 31,
+         "note": "endless means the final letter is removed"
         }
        ],
        "parts": [
         {
-         "words": "nibble",
-         "gives": "EAT",
-         "note": "to nibble is to eat"
+         "words": "joy",
+         "at": 39,
+         "gives": "GLEE",
+         "note": "glee means joy or delight"
         },
         {
-         "words": "joy",
-         "gives": "GLE",
-         "note": "glee means joy; here its last letter is lost"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small bird pecking at food, overflowing with happiness.",
-     "walkthrough": "'Little bird' is not a tit or wren: it is a young bird of a big species.",
-     "definitionFit": "An eaglet is a young eagle, so it is a small, immature bird of prey."
+     "surface": "A tiny bird takes a nibble, brimming with happiness.",
+     "walkthrough": "'endless' cuts GLEE to GLE, and EAT is full of it.",
+     "definitionFit": "An eaglet is a young eagle, a chick not yet grown, so it is a small bird."
     },
     "features": {
      "answerInScene": true,

@@ -1473,44 +1473,50 @@
      "indicators": [
       {
        "text": "filling",
-       "note": "filling means going inside, so the article and remnant sit within the letters taken"
+       "at": 18,
+       "note": "filling means occupying the inside, so the next letters go between the outer ones"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle",
+         "at": 34,
+         "note": "middle picks the central pair of letters in the word"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "middle",
-           "note": "middle keeps only the central letters of the horses word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "steeds'",
-           "note": "the two central letters of the word"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "words": "steeds'",
+         "at": 26,
+         "note": "taken as written for its central letters"
         }
        ]
       },
       {
-       "words": "remnant",
-       "gives": "TAG",
-       "note": "a tag is a loose end or leftover piece"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 8,
+         "gives": "A"
+        },
+        {
+         "words": "remnant",
+         "at": 10,
+         "gives": "TAG",
+         "note": "a tag is a loose end or remnant, as in a tag of wool"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Feed for horses: scraps stuffed into a steed's belly.",
-     "definitionFit": "Eatage is grass available for grazing, so it is fodder for animals."
+     "surface": "Animal feed, a leftover scrap stuffed into the horses' bellies.",
+     "walkthrough": "The central pair of steeds' is EE, and A with TAG fills it.",
+     "definitionFit": "Eatage is a dialect word for grass available for grazing, so it is food for livestock."
     },
     "features": {
      "answerInScene": true,
@@ -2138,34 +2144,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WATERBEETLE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the excerpt inside the tree word"
+       "at": 23,
+       "note": "in means the extracted letters go inside the word for acacia"
       }
      ],
      "parts": [
       {
+       "words": "Acacia",
+       "at": 26,
+       "gives": "WATTLE",
+       "note": "wattle is the Australian name for acacia trees"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "WATERBEETLE",
        "indicators": [
         {
          "text": "Extract from",
-         "note": "an extract is a short excerpt, so only some inner letters of the composer's name are kept"
+         "at": 0,
+         "note": "an extract is a passage lifted out of a longer work, here a run of letters inside the composer's name"
         }
        ],
        "parts": [
         {
-         "words": "Acacia",
-         "gives": "WATTLE",
-         "note": "wattle is the Australian name for acacia"
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Meyerbeer",
+           "at": 13,
+           "note": "the composer's name, from which a central passage is taken"
+          },
+          {
+           "gives": "MEY"
+          }
+         ]
         },
         {
-         "words": "Meyerbeer",
-         "note": "the composer's name, from which a run of inner letters is taken"
+         "gives": "R"
         }
        ]
       }
@@ -2173,14 +2190,14 @@
     },
     "spelling": "WATER BEETLE",
     "explanation": {
-     "surface": "A snippet of Meyerbeer's music from an opera called Acacia Whirligig.",
-     "walkthrough": "Meyerbeer was a 19th-century opera composer; the question mark flags the definition as an example.",
-     "definitionFit": "The whirligig beetle spins about on pond surfaces, a kind of water beetle."
+     "surface": "A passage of Meyerbeer's music played in a whirling acacia setting.",
+     "walkthrough": "Meyerbeer was a German opera composer; wattle is the Australian name for acacia. The question mark marks the definition by example.",
+     "definitionFit": "The whirligig is a small beetle that spins around on the surface of ponds, so it is one example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Acacia"
+     "misdirectedWord": "Extract"
     }
    }
   }

@@ -736,51 +736,46 @@
      "indicators": [
       {
        "text": "following",
-       "note": "what follows comes after, so the built piece is placed after the next one"
+       "at": 33,
+       "note": "following means coming after, so the rest is placed after the Conservative letter"
       }
      ],
      "parts": [
       {
        "words": "Conservative",
-       "gives": "C",
-       "note": "C is the usual abbreviation for Conservative"
+       "at": 43,
+       "gives": "C"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "suppressing",
-         "note": "to suppress something is to hold it down within, so one piece encloses the other"
+         "at": 16,
+         "note": "suppressing means holding down inside, so the leader letters hold the word for rage"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
+         "words": "Labour leader's",
+         "at": 0,
          "gives": "LS",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Labour leader's",
-           "gives": "LS",
-           "select": "first",
-           "note": "the first letter of Labour, with the possessive s kept"
-          }
-         ]
+         "note": "the first letter of Labour with the possessive s"
         },
         {
          "words": "rage",
+         "at": 28,
          "gives": "ANGER",
-         "note": "rage is a synonym of anger"
+         "note": "anger means rage"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political report: the Labour leader is holding back fury after a string of Tory blunders.",
-     "walkthrough": "In British slang a clanger is an embarrassing blunder, as in dropping a clanger.",
-     "definitionFit": "Clangers are glaring, embarrassing errors in British informal speech, so a plural synonym for mistakes."
+     "surface": "Labour's leader, holding back fury after the Tory party's blunders.",
+     "walkthrough": "Labour's leader is L and the 's is an S: together they hold in ANGER, all following C. A clanger is British slang for a gaffe.",
+     "definitionFit": "Clangers are blunders, conspicuous errors, as in to drop a clanger in British slang."
     },
     "features": {
      "answerInScene": true,
@@ -990,32 +985,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "USAGE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "50% removed for",
-       "note": "half of a word is taken out and something else put in its place"
+       "text": "for",
+       "at": 31,
+       "note": "for means in place of, so the you-and-me word stands where the removed half was"
       }
      ],
      "parts": [
       {
-       "words": "waste",
-       "gives": "SEWAGE",
-       "note": "sewage is waste matter carried in drains"
+       "words": "you and me",
+       "at": 35,
+       "gives": "US",
+       "note": "us means you and me together"
       },
       {
-       "words": "you and me",
-       "gives": "US",
-       "note": "us refers to you and me together"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50% removed",
+         "at": 19,
+         "note": "50% removed means half the word is taken away, the first three of its six letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "waste",
+         "at": 13,
+         "gives": "SEWAGE",
+         "note": "sewage is waste matter carried in sewers"
+        },
+        {
+         "gives": "SEW"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report on processing effluent, half of which has been cleared away for our benefit.",
-     "walkthrough": "The first half of the six-letter word for waste, SEW, is swapped for US.",
-     "definitionFit": "Usage is the way something is handled or used, as in rough usage, so a synonym for treatment."
+     "surface": "A sewage plant that has halved its waste for the benefit of people like us.",
+     "walkthrough": "'Treatment' suggests a sewage works, but it is the definition, as in rough treatment.",
+     "definitionFit": "Usage is the way something is used or handled, as in rough usage, meaning the way it is dealt with."
     },
     "features": {
      "answerInScene": false,
@@ -1675,7 +1686,8 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "something that eats takes another thing inside it"
+       "at": 40,
+       "note": "eating means taking in, so the shortened station name surrounds the letter for posh"
       }
      ],
      "parts": [
@@ -1683,8 +1695,9 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "exits",
-         "note": "whatever exits leaves the word, so it is taken out"
+         "text": "to leave",
+         "at": 31,
+         "note": "to leave means the reversed letters are removed from the station name"
         }
        ],
        "parts": [
@@ -1692,59 +1705,57 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "to leave",
-           "note": "these letters also leave the word, dropping out"
+           "text": "exits",
+           "at": 6,
+           "note": "exits means goes out, so the letter for adult is removed"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "op": "reversal",
-             "indicators": [
-              {
-               "text": "about",
-               "note": "about means turned around, so this word is read backwards"
-              }
-             ],
-             "parts": [
-              {
-               "words": "station",
-               "gives": "NOTGNIDDAP",
-               "note": "Paddington is a major London railway station"
-              }
-             ]
-            },
-            {
-             "words": "not",
-             "note": "taken as written"
-            }
-           ]
+           "words": "station",
+           "at": 12,
+           "gives": "PADDINGTON",
+           "note": "Paddington is a major London railway terminus"
           },
           {
-           "gives": "TONNOT"
+           "words": "Adult",
+           "at": 0,
+           "gives": "A",
+           "note": "A is the film rating abbreviation for adult"
           }
          ]
         },
         {
-         "words": "Adult",
-         "gives": "A",
-         "note": "A is the film-rating abbreviation for adult"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 25,
+           "note": "about means turned round, so the word not is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "at": 21,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       },
       {
        "words": "posh",
+       "at": 47,
        "gives": "U",
-       "note": "U means upper-class, posh"
+       "note": "U means upper class, as in U and non-U"
       }
      ]
     },
     "explanation": {
-     "surface": "A grown-up leaves a station, not wanting to go while eating a fancy pudding.",
-     "walkthrough": "Paddington is a London railway terminus; 'not about' is a reversed word dropped from it, not a negation. U for upper-class is an old British usage.",
-     "definitionFit": "Pudding is the everyday British word for the sweet course at the end of a meal, a synonym for dessert."
+     "surface": "An adult leaves the railway station, but stays to eat a fancy pudding.",
+     "walkthrough": "Paddington is a London railway station. 'exits' removes A to give PDDINGTON; 'not about' is TON, which 'to leave' removes to give PDDING; 'eating' then puts U (posh) inside.",
+     "definitionFit": "Pudding is the British word for the sweet course at the end of a meal, and so a dessert."
     },
     "features": {
      "answerInScene": true,

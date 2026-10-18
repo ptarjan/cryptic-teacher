@@ -1553,13 +1553,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NECROPOLIS",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the last letter is dropped"
+       "text": "in",
+       "at": 6,
+       "note": "Oscar is placed in the middle of the reworked letters that follow"
       }
      ],
      "parts": [
@@ -1568,34 +1567,55 @@
        "indicators": [
         {
          "text": "condemned",
-         "note": "a condemned building is torn down, so these letters are knocked into a new order"
+         "at": 9,
+         "note": "condemned suggests something wrecked or ruined, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "Oscar is O in the NATO phonetic alphabet"
+         "words": "prison",
+         "at": 19,
+         "note": "taken as written"
         },
         {
-         "words": "prison cell",
-         "gives": "PRISONCEL",
-         "note": "the phrase without its final letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 31,
+           "note": "briefly means cut short, so the word cell loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cell",
+           "at": 26,
+           "note": "taken as written"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Oscar",
+       "at": 0,
+       "gives": "O",
+       "note": "O is Oscar in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Oscar, sentenced in a cell, is stuck there; a nod to Oscar Wilde's imprisonment.",
-     "walkthrough": "'In' just puts the O into the mix. The definition is cryptic: a place where remains lie, so 'remains there'.",
-     "definitionFit": "A necropolis is a large ancient cemetery, literally a city of the dead, where bodily remains are laid to rest."
+     "surface": "A convict in a condemned man's cell, his remains to be left there.",
+     "walkthrough": "CEL (cell, 'briefly') joins PRISON, and 'condemned' rearranges those letters; Oscar's O goes in to complete it.",
+     "definitionFit": "A necropolis is a large ancient cemetery, a city of the dead where human remains lie."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "remains"
+     "misdirectedWord": "condemned"
     }
    }
   },
@@ -2092,37 +2112,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ONSCREEN",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "to cut something is to trim it, so its last letter is lopped off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 2,
+         "note": "cut means the word is shortened, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "I",
-         "gives": "ON",
-         "note": "I is one; trimmed, it loses its last letter"
+         "at": 0,
+         "gives": "ONE",
+         "note": "I is the number one, written out as a word"
         },
         {
-         "words": "vet",
-         "gives": "SCREEN",
-         "note": "to vet a candidate is to screen them"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "vet",
+       "at": 9,
+       "gives": "SCREEN",
+       "note": "to vet candidates is to screen them, checking them over"
       }
      ]
     },
     "explanation": {
-     "surface": "A TV vet narrates: I trimmed something while the cameras rolled.",
-     "walkthrough": "I stands for the number one written as a word; cutting it drops the E.",
-     "definitionFit": "A programme being broadcast appears on the television's display, so it is literally visible to viewers there."
+     "surface": "Someone decides to cut to the vet as the show goes out on air.",
+     "walkthrough": "I as the numeral one gives ONE; 'cut' drops its tail to leave ON, and to vet is to SCREEN.",
+     "definitionFit": "Something on-screen is being shown on a television or display, so it is being broadcast."
     },
     "features": {
      "answerInScene": true,
@@ -2233,53 +2257,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INPARTICULAR",
      "indicators": [
       {
        "text": "dons",
-       "note": "to don clothing is to put it on, so the word wraps around the letter"
+       "at": 14,
+       "note": "to don is to put on, so the quiet letter is wearing the longer word around it"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "INPARTICULAR",
-       "indicators": [
-        {
-         "text": "last two denied right",
-         "note": "the final pair of letters is refused and a single letter takes over in their place"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "unable to speak",
-         "gives": "INARTICULATE",
-         "note": "someone inarticulate cannot express themselves"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "denied",
+           "at": 45,
+           "note": "denied means withheld, so the named final letters are taken away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unable to speak",
+           "at": 19,
+           "gives": "INARTICULATE",
+           "note": "inarticulate means unable to express oneself in speech"
+          },
+          {
+           "words": "last two",
+           "at": 36,
+           "gives": "TE",
+           "note": "the final two letters of the word just found"
+          }
+         ]
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is short for right"
-        },
-        {
-         "words": "quiet",
-         "gives": "P",
-         "note": "p, piano, is the musical mark for quiet"
+         "at": 52,
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "quiet",
+       "at": 8,
+       "gives": "P",
+       "note": "P is piano, the musical direction for quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "Silent dons who cannot speak are notably denied their rights.",
-     "walkthrough": "Dons look like Oxbridge tutors, but it is a verb, puts on. The TE at the end of the word for speechless is swapped for R before the P goes in.",
-     "definitionFit": "Both expressions single something out for special mention, so they work as interchangeable adverbs meaning especially."
+     "surface": "University dons left tongue-tied, notably silent, with a remark about rights denied.",
+     "walkthrough": "'dons' reads as university teachers, but it is the verb: the quiet letter puts on the rest like a coat, so it ends up inside.",
+     "definitionFit": "In particular is an adverbial phrase meaning especially or specifically, which is what notably means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "dons"
     }
    }
