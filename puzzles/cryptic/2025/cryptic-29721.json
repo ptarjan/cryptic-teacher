@@ -835,35 +835,39 @@
      "indicators": [
       {
        "text": "to entertain",
-       "note": "a host entertaining guests holds them within, so one piece is placed inside another"
+       "at": 12,
+       "note": "to entertain means to receive as a guest, so the stars hold the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "stars",
-         "gives": "SUNS",
-         "note": "every sun is a star"
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "M is the abbreviation for male"
-        }
-       ]
+       "words": "stars",
+       "at": 6,
+       "gives": "SUNS",
+       "note": "the sun is a star, so suns are stars"
       },
       {
-       "words": "doctor",
-       "gives": "MO",
-       "note": "MO is a medical officer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "male",
+         "at": 25,
+         "gives": "M"
+        },
+        {
+         "words": "doctor",
+         "at": 30,
+         "gives": "MO",
+         "note": "MO is a Medical Officer, a military doctor"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Celebrities are told to host a male physician.",
-     "definitionFit": "A summons is an official command to appear, typically before a court."
+     "surface": "Celebrities are told to host a male doctor.",
+     "walkthrough": "'stars' suggests celebrities, but here it means actual stars like our sun; the doctor is the military Medical Officer.",
+     "definitionFit": "A summons is an official order to appear, for example before a court: as nouns they are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1411,44 +1415,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SOCIETY",
-     "indicators": [
-      {
-       "text": "to replace",
-       "note": "replacing means one thing takes another's place, so a letter is swapped out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "communist council",
-       "gives": "SOVIET",
-       "note": "a soviet is a workers' council in the USSR"
-      },
-      {
-       "words": "five",
-       "gives": "V",
-       "note": "the Roman numeral for five, which is removed"
-      },
-      {
-       "words": "about",
-       "gives": "C",
-       "note": "C is short for circa, Latin for about"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to replace",
+         "at": 18,
+         "note": "to replace tells us one letter is swapped out of the council word and another put in its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "communist council",
+         "at": 37,
+         "gives": "SOVIET",
+         "note": "a soviet was an elected council in the USSR"
+        },
+        {
+         "words": "five",
+         "at": 29,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        },
+        {
+         "words": "about",
+         "at": 12,
+         "gives": "C",
+         "note": "C is short for circa, Latin for about"
+        }
+       ]
       },
       {
        "words": "yes",
+       "at": 56,
        "gives": "Y",
-       "note": "Y is an informal abbreviation for yes"
+       "note": "Y is a texting abbreviation for yes"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about a committee being reorganised within a communist body.",
-     "definitionFit": "A society is a club or organised group of people with a shared interest or purpose."
+     "surface": "A question about some body moving to replace a delegate on a communist council.",
+     "walkthrough": "'about to replace five' means C (circa) takes the place of V (five) in SOVIET, giving SOCIET; Y for yes completes it.",
+     "definitionFit": "A society is an organised group of people sharing an interest, which is an association: a synonym."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "about"
     }

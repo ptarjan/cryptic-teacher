@@ -775,50 +775,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EPITOMISE",
      "indicators": [
       {
        "text": "fantastic",
-       "note": "something fantastic is wildly imagined, so these letters are rearranged freely"
+       "at": 7,
+       "note": "fantastic suggests something wild and fanciful, so the letters are rearranged into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EPITOMISE",
        "indicators": [
         {
          "text": "with no",
-         "note": "with no means lacking, so that letter is taken out of the fodder"
+         "at": 30,
+         "note": "with no here means without, so the named letter is taken away from the fodder"
         }
        ],
        "parts": [
         {
-         "words": "times",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
-         "words": "hope",
-         "note": "taken as written"
+         "words": "times I hope",
+         "at": 17
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
-           "note": "the end of a word is its final letter, so only that one is picked out"
+           "at": 38,
+           "note": "end of picks out the final letter of the word relish, which is the letter to remove"
           }
          ],
          "parts": [
           {
            "words": "relish",
-           "note": "the final letter of relish, the one to remove"
+           "at": 45,
+           "note": "taken from the word relish"
           }
          ]
         }
@@ -827,9 +819,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone sums up wonderful days they hope for, lacking a little enthusiasm at the end.",
-     "walkthrough": "The H that ends relish comes out of HOPE, leaving TIMES I OPE to rearrange.",
-     "definitionFit": "To epitomise something is to be or give its perfect summary, capturing its essence in brief form."
+     "surface": "Someone hopes to summarise wonderful times, minus the enjoyment.",
+     "walkthrough": "'with no end of relish' removes H (the last letter of relish) from TIMES I HOPE, leaving TIMESIOPE, and 'fantastic' rearranges those letters.",
+     "definitionFit": "To epitomise something is to be or give a concise typical summary of it, matching sum up as a verb."
     },
     "features": {
      "answerInScene": false,
@@ -1094,39 +1086,45 @@
      "indicators": [
       {
        "text": "entertaining",
-       "note": "to entertain guests is to take them in, so the resident word holds the others"
+       "at": 19,
+       "note": "entertaining means playing host to, so the man and the priest are taken inside the resident"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Temporary resident",
-         "gives": "TENANT",
-         "note": "a tenant rents rather than owns"
-        },
-        {
-         "words": "man",
-         "gives": "HE",
-         "note": "he is a man"
-        }
-       ]
+       "words": "Temporary resident",
+       "at": 0,
+       "gives": "TENANT",
+       "note": "a tenant lives in a place for a rented period, a temporary resident"
       },
       {
-       "words": "priest",
-       "gives": "REV",
-       "note": "short for Reverend"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "man",
+         "at": 32,
+         "gives": "HE",
+         "note": "he is the pronoun for a man"
+        },
+        {
+         "words": "priest",
+         "at": 41,
+         "gives": "REV",
+         "note": "Rev is short for Reverend, the title of a priest"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lodger hosts a man and a clergyman in a movie.",
-     "definitionFit": "The Revenant is the 2015 frontier survival movie starring Leonardo DiCaprio, who won an Oscar for it."
+     "surface": "A lodger puts up a man and a priest who appear in a film.",
+     "walkthrough": "The Revenant is a 2015 film starring Leonardo DiCaprio; the parts go in after the resident's first letter, and the title then reads as three words.",
+     "definitionFit": "The Revenant is a 2015 film about a frontiersman left for dead, so the answer is an example of a film."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
     }
    }
   },

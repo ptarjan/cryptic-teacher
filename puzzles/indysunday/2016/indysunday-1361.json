@@ -198,36 +198,40 @@
      "indicators": [
       {
        "text": "to admit",
-       "note": "to admit is to let in, so the refusal word takes the other pieces inside it"
+       "at": 8,
+       "note": "to admit means to let in, so the refusal word takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Refusal",
-         "gives": "NAY",
-         "note": "nay is an old word for no"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        }
-       ]
+       "words": "Refusal",
+       "at": 0,
+       "gives": "NAY",
+       "note": "nay is an old word for no, a refusal"
       },
       {
-       "words": "medical specialist",
-       "gives": "VET",
-       "note": "a vet is a doctor who specialises in animals"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "medical specialist's",
+         "at": 21,
+         "gives": "VET",
+         "note": "a vet is an animal doctor, a medical specialist; the 's is a link"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor who will not acknowledge they are out of their depth.",
-     "walkthrough": "The 's stands for 'is', joining the wordplay to the definition.",
-     "definitionFit": "Naivety is innocence or simplicity arising from never having encountered the world."
+     "surface": "A vet's refusal to admit a patient shows how green they are.",
+     "walkthrough": "'Refusal to admit' reads as one idea, but the refusal is the container and 'to admit' tells it to take in the other pieces.",
+     "definitionFit": "Naivety is innocence or simplicity arising from inexperience, so it amounts to a lack of experience."
     },
     "features": {
      "answerInScene": false,
@@ -719,34 +723,36 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "SOLD",
+     "op": "deletion",
      "indicators": [
       {
        "text": "Half of",
-       "note": "half of a word means taking just its first portion and dropping the rest"
+       "at": 0,
+       "note": "half of means only the first half of the word is kept, so its last four letters go"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "army personnel",
-       "gives": "SOLD",
-       "select": "first",
-       "note": "the first four of the eight letters of soldiers"
+       "at": 8,
+       "gives": "SOLDIERS",
+       "note": "soldiers are the personnel of an army"
+      },
+      {
+       "gives": "IERS",
+       "note": "the second half of the word, dropped"
       }
      ]
     },
     "explanation": {
-     "surface": "Some of the troops have been treacherously handed over to the enemy.",
-     "walkthrough": "Army personnel are SOLDIERS; the first half of its eight letters is SOLD.",
-     "definitionFit": "To sell someone out is to betray them, so sold can mean betrayed."
+     "surface": "Half the troops were sold out by their leaders.",
+     "walkthrough": "'Half of' keeps just the first four of the eight letters.",
+     "definitionFit": "To sell someone, as in sold down the river, is to betray them, so sold means betrayed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "betrayed"
+     "misdirectedWord": "personnel"
     }
    }
   },

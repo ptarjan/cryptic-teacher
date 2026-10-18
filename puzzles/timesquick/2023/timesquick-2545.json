@@ -936,55 +936,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TALISMAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not the last",
-       "note": "not having the final one means the word loses its closing letter"
+       "text": "arranged",
+       "at": 26,
+       "note": "arranged means set out in a fresh order, so the gathered letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Latin",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "arranged",
-         "note": "things arranged are set out in a new order, so the letters are reordered"
+         "text": "not the last",
+         "at": 12,
+         "note": "not the last means without the final letter, so mass is cut short"
         }
        ],
        "parts": [
         {
-         "words": "Latin",
-         "note": "taken as written"
+         "words": "mass",
+         "at": 6
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "MAS",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "mass",
-           "gives": "MAS",
-           "select": "first",
-           "note": "mass without its last letter"
-          }
-         ]
+         "gives": "S",
+         "note": "the final letter of mass, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Latin Mass is arranged in the hope of bringing good luck.",
-     "definitionFit": "A talisman is a charm or object believed to bring its owner luck."
+     "surface": "A traditional Latin Mass is planned, with the last part skipped, in the hope of good luck.",
+     "walkthrough": "'(not the last)' shortens MASS to MAS, which joins LATIN as fodder for 'arranged'.",
+     "definitionFit": "A talisman is a charm or object believed to have magic powers to bring luck to its owner."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "arranged"
+     "misdirectedWord": "mass"
     }
    }
   },
