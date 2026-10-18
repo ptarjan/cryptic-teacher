@@ -83,30 +83,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TUCK",
      "indicators": [
       {
        "text": "not the first",
-       "note": "tells you to drop the opening letter"
+       "at": 15,
+       "note": "not the first means the word loses its opening letter"
       }
      ],
      "parts": [
       {
-       "words": "stabbed, not the first",
-       "gives": "TUCK",
-       "note": "STUCK = stabbed, minus its first letter S"
+       "words": "stabbed",
+       "at": 6,
+       "gives": "STUCK",
+       "note": "stuck can mean stabbed or pierced, as in stuck with a knife"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A news snippet about a monk who has been knifed.",
-     "walkthrough": "Friar Tuck is Robin Hood's jolly companion; 'Friar' alone points to him, as setters often use a famous bearer of a title.",
-     "definitionFit": "Tuck is the best-known friar in English legend, of Robin Hood's band."
+     "surface": "A monk was knifed, though he was not the first victim.",
+     "walkthrough": "'not the first' drops the S from STUCK. Friar Tuck is the jovial monk of Robin Hood's band of outlaws.",
+     "definitionFit": "Friar Tuck is the monk in the Robin Hood legends, so the name stands for a friar."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "stabbed"
     }
    }
@@ -401,24 +404,46 @@
      {
       "text": "Mark",
       "at": 0,
-      "meaning": "the punctuation mark '"
+      "meaning": "first meaning: a punctuation mark"
      },
      {
       "text": "address",
       "at": 5,
-      "meaning": "in rhetoric, a speech addressed to someone absent or to an abstraction"
+      "meaning": "second meaning: in rhetoric, a speech turned to someone absent or to a thing"
      }
     ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 13,
+       "note": "wrong in the sense of incorrect, so the letters that follow are put in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "too",
+       "at": 19,
+       "note": "taken as written"
+      },
+      {
+       "words": "perhaps",
+       "at": 24,
+       "note": "taken as written"
+      }
+     ]
+    },
     "explanation": {
-     "surface": "Someone rebuking a writer for getting an address wrong on an envelope.",
-     "walkthrough": "'Wrong too, perhaps' is a sly aside: the apostrophe is the mark most often used wrongly, as in a greengrocer's 'potato's'.",
-     "definitionFit": "Apostrophe names both the punctuation mark and a rhetorical address to an absent person."
+     "surface": "A teacher's margin note: Mark's address is wrong as well, perhaps.",
+     "walkthrough": "'Mark address' looks like a name in need of a possessive, which is itself a nod to the answer. In rhetoric the word also names an address to someone absent, a second definition.",
+     "definitionFit": "The punctuation mark showing possession or omission bears this name, and in rhetoric it is a speech turned to an absent listener."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "address"
+     "misdirectedWord": "Mark"
     }
    }
   },
@@ -839,53 +864,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "lifting",
-       "note": "in a down clue, raising a letter moves it upward, earlier in the word"
-      },
-      {
        "text": "then",
-       "note": "adds the next piece after"
-      },
-      {
-       "text": "in",
-       "note": "places the singer inside the church scene; the wordplay is built from the church"
+       "at": 41,
+       "note": "then means the letter for the other hand comes next, after the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "in means the lifted letter is put back into the word, here one place higher up the down entry"
+        }
+       ],
        "parts": [
         {
-         "words": "the other",
-         "gives": "L",
-         "note": "the other hand: L for left"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lifting",
+           "at": 23,
+           "note": "lifting in the sense of picking up and taking away, so the letter for one hand is first lifted out of the church word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "large church",
+           "at": 10,
+           "gives": "MINSTER",
+           "note": "a minster is a large or important church, as York Minster"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
-         "words": "lifting one hand",
-         "gives": "ER",
-         "note": "the ending ER, with R (right hand) lifted above E, becomes RE"
-        },
-        {
-         "words": "large church",
-         "gives": "TSNIM",
-         "note": "MINSTER, a large church, keeps MINST"
+         "words": "one hand",
+         "at": 31,
+         "gives": "R",
+         "note": "R for right, one of the two hands"
         }
        ]
+      },
+      {
+       "words": "the other",
+       "at": 46,
+       "gives": "L",
+       "note": "L for left, the other hand"
       }
      ]
     },
     "explanation": {
-     "surface": "A chorister in a cathedral raising one hand, then the other, as they sing.",
-     "walkthrough": "The raised hands look like a singer's gesture; in a down clue 'lifting' moves R (right) up past E, so MINSTER becomes MINSTRE, then the other hand, L (left), is added.",
-     "definitionFit": "A plain synonym with a historical flavour: the medieval travelling entertainer who sang to a lute or harp."
+     "surface": "A chorister in a cathedral raises one hand and then the other.",
+     "walkthrough": "The R of MINSTER is 'lifting', taken out to leave MINSTE and put back 'in' one place higher up the down entry, giving MINSTRE; 'then the other' hand, L, is added at the end.",
+     "definitionFit": "A minstrel was a medieval travelling musician who sang or recited poetry, so a singer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lifting"
+     "misdirectedWord": "hand"
     }
    }
   },
@@ -910,53 +953,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PATRICIDAL",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PATRICIDAL",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the name falls just short, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "stop one letter short of the end"
-          },
-          {
-           "text": "out",
-           "note": "laid out is disordered, so rearrange the letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Irish saint almost",
-           "gives": "PATRIC",
-           "note": "PATRICK, Ireland's patron saint, without its last letter"
-          },
-          {
-           "words": "laid out",
-           "gives": "IDAL",
-           "note": "LAID rearranged"
-          }
-         ]
+         "words": "Irish saint",
+         "at": 0,
+         "gives": "PATRICK",
+         "note": "St Patrick is the patron saint of Ireland"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 24,
+         "note": "out in the sense of disordered, so the letters of laid are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laid",
+         "at": 19,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A saint's body lies in state while someone nurses dark thoughts.",
-     "walkthrough": "'Laid out' suggests a corpse prepared for burial, fitting the saint; here it rearranges LAID. 'Unfatherly' is a coy understatement for wanting to kill one's father.",
-     "definitionFit": "Patricidal means inclined to kill one's father."
+     "surface": "Ireland's saint, nearly laid to rest, secretly dreaming of killing his father.",
+     "walkthrough": "'almost' trims the K from PATRICK, and 'out' rearranges LAID to IDAL. The question mark flags the playful definition.",
+     "definitionFit": "Patricidal means relating to killing one's own father, so thoughts of that kind are anything but fatherly in their affection."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "laid"
     }
    }
@@ -1020,48 +1066,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCRAPE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Bad",
-       "note": "the letters are in a bad state, so rearrange them"
+       "text": "about",
+       "at": 10,
+       "note": "about means the rearranged letters go around the letter for parking"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "goes around the next piece"
+         "text": "Bad",
+         "at": 0,
+         "note": "bad in the sense of faulty, so the letters of scare are put into a different order"
         }
        ],
        "parts": [
         {
-         "words": "Bad scare",
-         "gives": "SCRAE",
-         "note": "SCARE rearranged, split SCRA...E"
-        },
-        {
-         "words": "parking",
-         "gives": "P",
-         "note": "P is the parking sign"
+         "words": "scare",
+         "at": 4,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "parking",
+       "at": 16,
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver's fright while parking leaves a mark on the car.",
-     "walkthrough": "The surface is a parking mishap, and a scrape is exactly what you might get; the scrambled SCARE wraps round the P.",
-     "definitionFit": "A plain synonym: both are the scratch left when a surface rubs against something."
+     "surface": "A fright in a car park, leaving a scratch on the paintwork.",
+     "walkthrough": "'about' wraps the shuffled letters round P, so the parking letter sits near the end rather than at the front.",
+     "definitionFit": "A scrape is a mark made by rubbing against something rough, the same as a scuff."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "scare"
+     "aptDefinition": false
     }
    }
   },
@@ -1231,29 +1277,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INTER",
      "indicators": [
       {
        "text": "doesn't take the lead",
-       "note": "the first letter is left off"
+       "at": 13,
+       "note": "doesn't take the lead means the word goes without its leading letter"
       }
      ],
      "parts": [
       {
        "words": "some three months",
-       "gives": "INTER",
-       "note": "WINTER, a three-month season, minus its first letter W"
+       "at": 38,
+       "gives": "WINTER",
+       "note": "winter is a season, a stretch of roughly three months"
+      },
+      {
+       "gives": "W"
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian football side on a losing run over a whole season.",
-     "walkthrough": "'Doesn't take the lead' sounds like a team failing to score first; here it drops the leading W. Inter is Inter Milan.",
-     "definitionFit": "Inter Milan, usually just Inter, is an Italian football club."
+     "surface": "A football side from Italy fails to top the table for a whole season.",
+     "walkthrough": "'doesn't take the lead' removes the W from WINTER.",
+     "definitionFit": "Inter Milan, usually called Inter, is a leading Italian football club based in Milan."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "lead"
     }
@@ -1280,41 +1329,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXTRADITE",
-     "indicators": [
-      {
-       "text": "unusual",
-       "note": "the letters are arranged unusually"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "more",
+       "at": 19,
+       "gives": "EXTRA",
+       "note": "extra means more, additional"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "at": 24,
+         "note": "unusual in the sense of out of the ordinary, so the letters of diet are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "more",
-         "gives": "EXTRA",
-         "note": "more = extra"
-        },
-        {
-         "words": "unusual diet",
-         "gives": "DITE",
-         "note": "DIET rearranged"
+         "words": "diet",
+         "at": 32,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sourcing foreign ingredients for a more exotic diet.",
-     "walkthrough": "The surface is about food shopping abroad; the definition means bringing a fugitive back from another country.",
-     "definitionFit": "To extradite is to obtain a suspect from a foreign country for trial."
+     "surface": "Someone abroad looking to buy in more of an exotic diet.",
+     "walkthrough": "Read the definition as 'from abroad, obtain': extradition normally sends someone away, but the receiving country obtains the person from abroad.",
+     "definitionFit": "To extradite a suspect is to have them handed over by a foreign state, so to get them back from another country."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "diet"
     }
    }

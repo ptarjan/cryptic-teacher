@@ -863,43 +863,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a shock",
-      "at": 48
+      "text": "shock",
+      "at": 50
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Leader of",
-       "note": "the leader of a word is its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "aboard"
+         "text": "aboard",
+         "at": 16,
+         "note": "aboard means that letter is carried inside the word for public transport"
         }
        ],
        "parts": [
         {
          "words": "public transport",
+         "at": 23,
          "gives": "TRAM",
-         "note": "a tram is a street-running rail vehicle"
+         "note": "a tram is a form of public transport running on street rails"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "U",
+         "indicators": [
+          {
+           "text": "Leader of",
+           "at": 0,
+           "note": "leader of means only the first letter of the next word is used"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Leader of Union",
-           "gives": "U",
-           "select": "first",
-           "note": "first letter of Union, placed inside TRA…M"
+           "words": "Union",
+           "at": 10,
+           "note": "its first letter is taken"
           }
          ]
         }
@@ -907,18 +907,20 @@
       },
       {
        "words": "a",
-       "note": "taken as it is"
+       "at": 48,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A union boss on the bus or tram gets an unpleasant jolt.",
-     "walkthrough": "The final A is the 'a' in 'a shock', shared between wordplay and definition.",
-     "definitionFit": "Plain synonym: a deeply distressing experience that stays with you."
+     "surface": "A union boss riding a tram gets an unpleasant surprise.",
+     "walkthrough": "The 'Leader of Union' is U, which goes 'aboard' TRAM before the final A.",
+     "definitionFit": "Trauma is a severe emotional upset or physical injury, so a shock in either sense."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Union"
     }
    }
   },
@@ -1158,30 +1160,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROUGH",
+     "op": "middle",
      "indicators": [
       {
        "text": "Endless",
-       "note": "both ends of the word are removed"
+       "at": 0,
+       "note": "endless means the word loses the letters at both of its ends"
       }
      ],
      "parts": [
       {
        "words": "shortage of water",
+       "at": 8,
        "gives": "DROUGHT",
-       "note": "a drought is a lack of rain; drop its first and last letters"
+       "note": "a drought is a long spell with too little rain, a shortage of water"
       }
      ]
     },
     "explanation": {
-     "surface": "A never-ending drought makes life hard.",
-     "walkthrough": "'Endless' reads as 'unending'; here it cuts both ends off the word for a dry spell.",
-     "definitionFit": "Plain synonym: both describe treatment that is severe or unkind."
+     "surface": "A never-ending drought is a hard thing to bear.",
+     "walkthrough": "'Endless' strips D and T from DROUGHT.",
+     "definitionFit": "Rough can mean severe or unpleasant, as in a rough time, a sense shared with harsh."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Endless"
     }
