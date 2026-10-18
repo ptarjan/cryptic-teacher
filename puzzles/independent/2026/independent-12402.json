@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -49,41 +50,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCAREDYCAT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "to escape",
+       "at": 5,
+       "note": "to escape means to get out, so the love letter leaves the pool before it is rearranged"
+      },
+      {
+       "text": "staggering",
+       "at": 15,
+       "note": "staggering means reeling unsteadily, so the remaining letters lurch into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCAREDYCAT",
-       "indicators": [
-        {
-         "text": "to escape",
-         "note": "whatever escapes is no longer in your hands, so the letter named beside it leaves the mix before anything else happens"
-        },
-        {
-         "text": "staggering",
-         "note": "a stagger is a walk that cannot hold a line, and letters made to stagger will not hold their printed order either"
-        }
-       ],
-       "parts": [
-        {
-         "words": "day care cost",
-         "note": "eleven letters handed over whole, one of which is about to walk out"
-        },
-        {
-         "words": "Love",
-         "gives": "O",
-         "note": "love is the tennis scoreline of nothing, written as the round letter that escapes"
-        }
-       ]
+       "words": "day care cost",
+       "at": 26,
+       "note": "taken as written: the fodder pool"
+      },
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "love is zero in tennis scoring, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Love = O is one of the conventions worth owning outright. The surface sells you a childcare invoice; the (7-3) enumeration is what gives the hyphenated playground insult away.",
-     "definitionFit": "big baby -> SCAREDY-CAT: playground name-calling for a coward, casting the frightened person as an infant rather than as anyone actually young."
+     "surface": "Parents are left reeling, their love draining away, at the shocking price of nursery care.",
+     "walkthrough": "'to escape' takes O (Love) out of DAY CARE COST, leaving DAYCARECST, and 'staggering' rearranges those ten letters. 'staggering' reads as 'shocking' describing the cost; it is the anagram signal.",
+     "definitionFit": "A scaredy-cat is a timid person, and calling a grown-up a big baby is the same taunt of cowardice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "staggering"
     }
    }
   },
@@ -554,41 +556,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOSED",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "around suggests letters moved round about, so what is left is rearranged"
+      },
+      {
+       "text": "out of",
+       "at": 30,
+       "note": "out of means removed from, so the work letters come out of the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NOSED",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "letters sent around are sent every which way, with nothing left holding them in the order the clue printed"
-        },
-        {
-         "text": "out of",
-         "note": "taking one thing out of another leaves the second short by exactly the letters that were taken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "snooped",
-         "note": "seven letters lifted whole from the clue, two of which will not survive"
-        },
-        {
-         "words": "work",
-         "gives": "OP",
-         "note": "OP is opus, a composer's work, and that pair comes out before the shuffle"
-        }
-       ]
+       "words": "snooped",
+       "at": 10,
+       "note": "taken as written: the fodder pool"
+      },
+      {
+       "words": "work",
+       "at": 37,
+       "gives": "OP",
+       "note": "op, short for opus, is a work of music"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Pried and snooped' looks like a pair of synonyms padding each other out. It is a definition followed by its fodder, and the second word is there to be taken apart.",
-     "definitionFit": "Pried -> NOSED: both past-tense verbs for poking into what is not your business, as in nosing around somebody's desk."
+     "surface": "Someone nosy poked about while they had no job.",
+     "walkthrough": "'out of' takes OP (work, short for opus) from SNOOPED, leaving SNOED, and 'around' rearranges it. 'out of work' looks like 'unemployed'; it splits into a removal and its letters.",
+     "definitionFit": "To nose, as in nose about, is to pry or meddle inquisitively into others' affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
     }
    }
   },
@@ -817,45 +820,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "put on trial here?",
+      "text": "put on trial here",
       "at": 32
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TESTBED",
+     "spelt": "TESTBED",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of two words, so the first sounds of the pair change places"
+       "at": 0,
+       "note": "Spooner, the clergyman famous for swapping the starts of words, signals that the opening sounds trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BEHST",
        "parts": [
         {
-         "unchecked": true,
          "words": "top",
-         "gives": "TEST",
-         "soundsLike": "BEST",
-         "note": "top is best; Spooner sends its B across to the other word and takes that word's T in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "unruly youth once",
-         "gives": "BED",
-         "soundsLike": "TED",
-         "note": "a Ted was a Teddy boy, the drape-jacketed British youth of the 1950s — its T went the other way, leaving B"
+         "at": 10,
+         "gives": "BEST",
+         "note": "best means top, the finest"
         }
        ]
+      },
+      {
+       "words": "unruly youth once",
+       "at": 14,
+       "gives": "TED",
+       "note": "a Ted, short for Teddy boy, was a rebellious 1950s British youth in Edwardian-style dress"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Spooner clues are solved backwards. You hunt for the phrase the entry turns into when its two opening sounds trade places, and only the definition tells you where to start.",
-     "definitionFit": "put on trial here? -> TEST BED: the rig an engine or a design is tried out on, so anything on trial is literally put on one."
+     "surface": "An old-fashioned delinquent is put on trial, with the question mark asking whether this is the place.",
+     "walkthrough": "'Spooner's' swaps the opening B and T sounds of BEST TED (BEHST spells the sound of best), giving TEST BED. Teddy boys were 1950s British youths with a reputation for rowdiness. 'put on trial' looks like a court case; with 'here' it defines a place for trials of equipment.",
+     "definitionFit": "A test bed is a site or rig where new equipment is trialled, so it is where something is put on trial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trial"
     }
    }
   },
