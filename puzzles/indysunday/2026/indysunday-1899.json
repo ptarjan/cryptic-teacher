@@ -460,40 +460,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "half-hearted",
-       "note": "The heart of a word is its middle, and half of a doubled middle is one of the pair."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "overturned",
-         "note": "Something overturned ends up the other way up, so the assembled letters are read from the far end."
+         "at": 45,
+         "note": "overturned in a down clue means the order's letters are read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "order",
+         "at": 39,
+         "gives": "OM",
+         "note": "OM is the Order of Merit, a British honour"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-hearted",
+         "at": 26,
+         "note": "half-hearted means half of the doubled middle of sees is lost, one of its two central letters"
         }
        ],
        "parts": [
         {
          "words": "sees",
-         "gives": "SES",
-         "note": "SEES has a double E at its heart, and half a heart leaves one of them"
+         "at": 21,
+         "note": "taken as written before one heart letter goes"
         },
         {
-         "words": "order",
-         "gives": "OM",
-         "note": "the Order of Merit is OM after a name"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Flight' is the Exodus, not an aeroplane. OM for the Order of Merit is worth banking: a clue that says order and wants two letters usually means this one.",
-     "definitionFit": "Leader during flight → MOSES: the Israelites' escape from Egypt is a flight from slavery, and the answer names the one who led it."
+     "surface": "A commander on a flight checks an order that has been overruled.",
+     "walkthrough": "The flight is the Exodus from Egypt, which Moses led. SEES has a double E at its heart; halving it leaves SES.",
+     "definitionFit": "Moses led the Israelites in their flight out of Egypt, so he is the leader of that escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
     }
    }
   },
@@ -1140,49 +1158,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "Bit of",
-       "note": "A bit of a word is a fragment of it, and the smallest fragment on offer is the letter it opens with."
+       "text": "inside",
+       "at": 12,
+       "note": "inside means the single letter sits within the joined words that follow"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "inside",
-         "note": "What goes inside sits within what is there already, so this letter drops into the join between the two words."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "sealing",
+         "at": 19,
          "gives": "STAMPING",
-         "note": "an official seal is stamped onto the document"
+         "note": "sealing a document with a seal is stamping it"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "glue",
-           "note": "the opening letter of the word"
-          }
-         ]
+         "words": "circular",
+         "at": 27,
+         "gives": "ROUND",
+         "note": "circular means round"
         }
        ]
       },
       {
-       "words": "circular",
-       "gives": "ROUND",
-       "note": "circular means round"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Bit of",
+         "at": 0,
+         "note": "bit of here takes just the first letter of glue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "glue",
+         "at": 7,
+         "note": "first letter only"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is somebody gluing a patch on. 'Sealing' has to be heard as the stamping of a document before the fourteen letters will come apart.",
-     "definitionFit": "patch → STAMPING GROUND: your stamping ground is the territory you habitually haunt, and 'patch' is the same idea in police and market-trader slang."
+     "surface": "A repair job: a dab of glue under a round patch sealing something.",
+     "walkthrough": "'Bit of glue' suggests an adhesive patch, but it yields only one letter; 'sealing' is read as the act of stamping a seal.",
+     "definitionFit": "Patch can mean one's own area or territory, which is what a stamping ground is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "patch"
     }
    }
   },

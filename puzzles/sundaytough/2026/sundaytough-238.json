@@ -647,53 +647,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "back"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "accepting"
+         "text": "accepting",
+         "at": 19,
+         "note": "accepting means the reversed word takes in the letter for hard"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 14,
+           "note": "back means the word for shoots is reversed"
+          }
+         ],
          "parts": [
           {
            "words": "shoots",
+           "at": 7,
            "gives": "FIRES",
-           "note": "fires = shoots; turned round it is SERIF"
-          },
-          {
-           "words": "hard",
-           "gives": "H",
-           "note": "H = hard, as on pencils; goes inside SERIF after the S"
+           "note": "fires means shoots a gun"
           }
          ]
+        },
+        {
+         "words": "hard",
+         "at": 29,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
         }
        ]
       },
       {
        "words": "force",
+       "at": 34,
        "gives": "F",
-       "note": "F = force in physics"
+       "note": "F is the physics symbol for force"
       }
      ]
     },
     "explanation": {
-     "surface": "A Western lawman fires back at an outlaw, using heavy force.",
-     "walkthrough": "The Western shoot-out is pure scene-setting; 'shoots back' is FIRES reversed.",
-     "definitionFit": "A sheriff is a law officer, especially in the American West."
+     "surface": "A lawman firing back while accepting heavy force.",
+     "walkthrough": "FIRES reversed is SERIF; H goes inside and F follows.",
+     "definitionFit": "A sheriff is a law-enforcement officer, especially in the American West."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "shoots"
+     "aptDefinition": false
     }
    }
   },

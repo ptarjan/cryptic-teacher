@@ -901,58 +901,44 @@
      "indicators": [
       {
        "text": "dividing",
-       "note": "the result splits the other word in two"
+       "at": 40,
+       "note": "dividing means the shortened word splits the word for everyone"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "everyone's",
-         "gives": "ALL",
-         "note": "all = everyone; it is split AL…L"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "to leave",
-           "note": "the last couple leave the party, so the final two letters depart from the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Jointly entertain",
-           "gives": "COHOST",
-           "note": "to co-host is to entertain jointly"
-          },
-          {
-           "gives": "OST"
-          }
-         ]
-        }
-       ]
+       "words": "everyone's",
+       "at": 49,
+       "gives": "ALL",
+       "note": "all means everyone; the 's is everyone is"
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "last couple to leave",
+         "at": 18,
+         "note": "last couple to leave means the final two letters are dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "last couple to leave",
-         "gives": "COHO",
-         "note": "COHOST loses its last two letters, ST; what is left splits the other word"
+         "words": "Jointly entertain",
+         "at": 0,
+         "gives": "COHOST",
+         "note": "to co-host is to entertain guests jointly"
         },
         {
-         "gives": "COH"
+         "gives": "ST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two hosts at a party wait for the last couple to go home, then split everyone's leftover drinks.",
-     "walkthrough": "'Last couple to leave' pictures departing guests; it means the last two letters go.",
-     "definitionFit": "Alcohol is drink in the sense of intoxicating liquor."
+     "surface": "Party hosts waiting for the last couple to go, sharing drinks out.",
+     "walkthrough": "'Jointly entertain' is to co-host; 'last couple' are its final two letters, not a pair of guests.",
+     "definitionFit": "Alcohol is a general word for intoxicating drink."
     },
     "features": {
      "answerInScene": true,
@@ -1046,36 +1032,54 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "the fraud wraps round what follows"
+       "at": 12,
+       "note": "involving means the word for fraud wraps round the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fraud",
-         "gives": "CON",
-         "note": "a con is a fraud; it goes round the rest, CO…N"
-        },
-        {
-         "words": "note",
-         "gives": "ME",
-         "note": "me (mi) is the third note of the sol-fa scale"
-        }
-       ]
+       "words": "fraud",
+       "at": 6,
+       "gives": "CON",
+       "note": "a con is a fraud or swindle"
       },
       {
-       "words": "plainly falling short",
-       "gives": "CLEA",
-       "note": "CLEAR (plainly) without its last letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "note",
+         "at": 22,
+         "gives": "ME",
+         "note": "me, or mi, is a note of the sol-fa scale"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "falling short",
+           "at": 36,
+           "note": "falling short means the last letter is missing"
+          }
+         ],
+         "parts": [
+          {
+           "words": "plainly",
+           "at": 28,
+           "gives": "CLEAR",
+           "note": "clear, as in speak clear, means plainly"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A confession that a scam involving a banknote was plainly not enough.",
-     "walkthrough": "'Note' suggests money beside 'fraud', but it is the musical note ME.",
-     "definitionFit": "An idiom: coming clean is confessing, washing off the dirt of a secret."
+     "surface": "Someone owning up to a fraud with a note, spoken plainly.",
+     "definitionFit": "To come clean is to confess the truth, so it means to admit something."
     },
     "features": {
      "answerInScene": true,
@@ -1551,41 +1555,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "only half",
-       "note": "just half the word is used"
+       "text": "digested",
+       "at": 21,
+       "note": "digested food is broken down, so the letters are broken and remade"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Oleic",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "digested",
-         "note": "broken down, so the letters are rearranged"
+         "text": "only half",
+         "at": 11,
+         "note": "only half keeps the first two of the four letters of acid"
         }
        ],
        "parts": [
         {
-         "words": "Oleic",
-         "note": "the word itself"
+         "words": "acid",
+         "at": 6,
+         "note": "taken as written before half goes"
         },
         {
-         "words": "acid only half",
-         "gives": "AC",
-         "note": "first half of ACID"
+         "gives": "ID"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diet note: a certain fatty acid is only partly absorbed by people on a gluten-free diet.",
-     "walkthrough": "The chemistry and digestion make the clue read as nutrition advice, which hides that 'digested' means rearranged.",
-     "definitionFit": "A description rather than a synonym: coeliac disease is an immune reaction to gluten, so sufferers cut it from their diet."
+     "surface": "Oleic acid barely digested in a person on a gluten-free diet.",
+     "definitionFit": "A coeliac has coeliac disease, an intolerance to gluten, and must avoid it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "digested"
     }
    }

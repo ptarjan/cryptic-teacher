@@ -573,36 +573,52 @@
      "indicators": [
       {
        "text": "In retreat",
-       "note": "An army in retreat goes back the way it came, so these letters are read from the far end of the row instead."
+       "at": 0,
+       "note": "in retreat means going backwards, so the letters are reversed"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "largely",
-         "note": "Take the large part of a word and leave the remainder, which here means dropping its final letter."
-        }
-       ],
        "parts": [
         {
          "words": "Starmer",
+         "at": 12,
          "gives": "PM",
-         "note": "Keir Starmer is the British prime minister, and PM is the abbreviation for that office"
+         "note": "Keir Starmer is UK Prime Minister, the PM"
         },
         {
-         "words": "ailing",
-         "gives": "IL",
-         "note": "ailing is ill, with the last of its three letters left off"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "largely",
+           "at": 20,
+           "note": "largely means most of the word, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ailing",
+           "at": 28,
+           "gives": "ILL",
+           "note": "ailing means ill"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Politics is the misdirection: a prime minister in retreat over a policy is a headline, not wordplay. Build the two short pieces first, then read them the other way.",
-     "definitionFit": "weak → LIMP: the adjective for something drooping and without firmness, a limp handshake or limp lettuce, rather than the verb about walking."
+     "surface": "A political sketch: the PM in retreat, largely ailing and weak.",
+     "definitionFit": "Limp means lacking firmness or energy, so it is a synonym of weak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

@@ -752,11 +752,12 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "eaten by",
-       "note": "Being eaten puts the smaller thing right inside the bigger one."
+       "text": "before",
+       "at": 41,
+       "note": "before means the player's name with the pin inside comes ahead of the last letter"
       }
      ],
      "parts": [
@@ -764,20 +765,23 @@
        "op": "container",
        "indicators": [
         {
-         "text": "before",
-         "note": "'Before' fixes the running order: everything built so far sits ahead of the letter that follows."
+         "text": "eaten by",
+         "at": 15,
+         "note": "eaten by means the skittle goes inside the tennis player's surname"
         }
        ],
        "parts": [
         {
          "words": "tennis's Monica",
+         "at": 24,
          "gives": "SELES",
-         "note": "Monica Seles won nine grand slam singles titles in the 1990s."
+         "note": "Monica Seles was a champion tennis player"
         },
         {
          "words": "Skittle",
+         "at": 7,
          "gives": "PIN",
-         "note": "The skittles you knock down in a bowling alley are pins."
+         "note": "a skittle is a pin knocked down in bowling"
         }
        ]
       },
@@ -786,22 +790,30 @@
        "indicators": [
         {
          "text": "beginning to",
-         "note": "The beginning of a word is the letter it starts with, and that single letter is all this hands over."
+         "at": 48,
+         "note": "beginning to takes only the first letter of serve"
         }
        ],
        "parts": [
         {
          "words": "serve",
-         "note": "The opening letter of this word, and nothing else."
+         "at": 61,
+         "note": "first letter only"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A yellow sweet swallowed by a tennis champion moments before she serves.",
-     "walkthrough": "Skittle wears a capital to send you to the sweets, but the bowling sense is the one that pays, and 'Yellow' is an accusation of cowardice rather than a colour.",
-     "definitionFit": "Yellow has meant cowardly since the nineteenth century, and spineless is the same accusation put anatomically: no backbone."
+     "surface": "A tennis star swallowing a sweet before serving.",
+     "walkthrough": "'Skittle' looks like the sweet but is a bowling pin. 'Before' just places the S last.",
+     "definitionFit": "Yellow is slang for cowardly, and a spineless person lacks courage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Skittle"
     }
    }
   },
@@ -987,46 +999,55 @@
      "indicators": [
       {
        "text": "smuggling",
-       "note": "Smuggling is carrying something concealed inside you, so these letters go within the word rather than beside it."
+       "at": 36,
+       "note": "smuggling means the drug and letter are carried inside the workers"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "farm workers",
-         "gives": "TILLERS",
-         "note": "Tillers are the people who work the soil."
-        },
-        {
-         "words": "heroin",
-         "gives": "H",
-         "note": "H is the standing abbreviation for heroin."
-        }
-       ]
+       "words": "farm workers",
+       "at": 23,
+       "gives": "TILLERS",
+       "note": "tillers are those who till the soil"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "end in",
-         "note": "The end of a word is its final letter, and that one letter is all this contributes."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "disaster",
-         "note": "The final letter of this word."
+         "words": "heroin",
+         "at": 46,
+         "gives": "H",
+         "note": "H is slang shorthand for heroin"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end in",
+           "at": 53,
+           "note": "end in takes the final letter of disaster"
+          }
+         ],
+         "parts": [
+          {
+           "words": "disaster",
+           "at": 60,
+           "note": "last letter only"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Farmhands caught running drugs, and the whole business ending badly.",
-     "walkthrough": "'End in disaster' is the sentence's natural finish and an instruction at the same time, which is what makes it easy to read straight past. H for heroin is worth learning once.",
-     "definitionFit": "A thriller is a story written to excite, so 'sensational stories' is a plain synonym, plural for plural."
+     "surface": "Lurid tales of farmhands smuggling drugs that end badly.",
+     "definitionFit": "Thrillers are exciting novels or films full of suspense, so they are sensational stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smuggling"
     }
    }
   },

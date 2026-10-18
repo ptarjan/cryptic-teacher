@@ -926,55 +926,58 @@
      "indicators": [
       {
        "text": "to contain",
-       "note": "to contain something is to hold it inside, so the shortened word wraps around the rest"
+       "at": 30,
+       "note": "to contain means the shortened word holds the other two pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "seemed",
-           "gives": "FELT",
-           "note": "it felt cold means it seemed cold"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "words": "seemed",
+         "at": 23,
+         "gives": "FELT",
+         "note": "felt as in it felt right means seemed"
         },
         {
-         "words": "top-quality",
-         "gives": "ACE",
-         "note": "ace means first-rate"
+         "gives": "T"
         }
        ]
       },
       {
-       "words": "rope",
-       "gives": "TOW",
-       "note": "a tow is a rope used for towing"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "top-quality",
+         "at": 41,
+         "gives": "ACE",
+         "note": "ace means excellent, first-rate"
+        },
+        {
+         "words": "rope",
+         "at": 53,
+         "gives": "TOW",
+         "note": "a tow is a rope used for pulling"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something that dried you mostly seemed to hold some first-class cord.",
-     "walkthrough": "'Seemed' is a verb in the surface but supplies a word meaning it, past tense of a verb of sensing, before losing its tail.",
-     "definitionFit": "A face towel is a small washcloth for the face, made of absorbent terry."
+     "surface": "A cloth that seemed to hold a fine rope.",
+     "definitionFit": "A face towel is a small towel for drying the face, an absorbent cloth."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "seemed"
+     "aptDefinition": false
     }
    }
   },
