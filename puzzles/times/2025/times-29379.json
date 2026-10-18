@@ -357,44 +357,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "front of",
-       "note": "the front of a word is its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across clue, written after the other piece"
+         "text": "front of",
+         "at": 11,
+         "note": "the front is the opening letter of mirror's"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "front of mirror",
-         "gives": "M",
-         "select": "first",
-         "note": "first letter of mirror"
+         "words": "mirror's",
+         "at": 20,
+         "note": "first letter M"
         }
        ]
       },
       {
-       "words": "Working",
+       "words": "Working on",
+       "at": 0,
        "gives": "USING",
-       "note": "working a machine is using it"
+       "note": "using a tool means working on it, employing it"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone works on the front of a mirror, perhaps polishing their reflection.",
-     "walkthrough": "The mirror makes 'reflection' look like an image; it means thought.",
-     "definitionFit": "Musing is thinking things over, which is reflection."
+     "surface": "Someone at the dressing table working on their face in the mirror's reflection.",
+     "walkthrough": "'reflection' suggests the mirror image, but here it means thought; M comes before USING.",
+     "definitionFit": "Musing is quiet thought or contemplation, the same sense as reflection on a subject."
     },
     "features": {
      "answerInScene": false,
@@ -712,37 +704,41 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "holds the other pieces inside it"
+       "at": 6,
+       "note": "the steering word carries the others inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Pilot",
-         "gives": "STEER",
-         "note": "to pilot is to steer"
-        },
-        {
-         "words": "key",
-         "gives": "ALT",
-         "note": "the Alt key on a keyboard"
-        }
-       ]
+       "words": "Pilot",
+       "at": 0,
+       "gives": "STEER",
+       "note": "to pilot is to steer"
       },
       {
-       "words": "atomic weapon",
-       "gives": "HBOMB",
-       "note": "an H-bomb, a hydrogen bomb"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "key",
+         "at": 15,
+         "gives": "ALT",
+         "note": "Alt is a key on a computer keyboard"
+        },
+        {
+         "words": "atomic weapon",
+         "at": 19,
+         "gives": "HBOMB",
+         "note": "an H-bomb is a hydrogen bomb, a thermonuclear weapon"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A pilot flying a nuclear weapon, and the question of what aircraft he is in.",
-     "walkthrough": "Read whole, the clue also describes the aircraft itself, which is why it ends 'on this?'. Alt is a keyboard key; an H-bomb is a hydrogen bomb.",
-     "definitionFit": "A stealth bomber is an aircraft built to carry bombs, including nuclear ones, undetected."
+     "surface": "A pilot flying a crucial nuclear weapon, and asking what aircraft carries it.",
+     "walkthrough": "'key' is a computer key, Alt; read whole, the clue also asks what aircraft a pilot would fly carrying such a weapon.",
+     "definitionFit": "A stealth bomber is a radar-evading aircraft such as the B-2, built to deliver nuclear bombs."
     },
     "features": {
      "answerInScene": true,
@@ -837,47 +833,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "centre of",
-       "note": "takes the middle letters of city"
+       "text": "interrupting",
+       "at": 23,
+       "note": "the middle letters break into the word for calm, sitting inside it"
       }
      ],
      "parts": [
       {
        "words": "calm",
+       "at": 36,
        "gives": "EQUABLE",
-       "note": "equable = even-tempered, calm"
+       "note": "equable means calm, even-tempered"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "IT",
        "indicators": [
         {
-         "text": "interrupting",
-         "note": "breaks into the other word, sitting inside it"
+         "text": "centre of",
+         "at": 8,
+         "note": "the centre of city is its two middle letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of city",
-         "gives": "IT",
-         "select": "middle",
-         "note": "middle two letters of cITy, placed inside EQUABLE"
+         "words": "city",
+         "at": 18,
+         "note": "middle letters IT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fair held in the middle of town breaks the peace.",
-     "walkthrough": "'Fair' pretends to be a funfair in the city centre; it is the adjective meaning just.",
-     "definitionFit": "Equitable means fair and even-handed."
+     "surface": "A fair held in the middle of town breaking the peace.",
+     "walkthrough": "'Fair' looks like an event, but it is the adjective meaning just.",
+     "definitionFit": "Equitable means just and impartial, treating everyone fairly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Fair"
     }
    }
@@ -912,46 +906,45 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "head of",
-       "note": "the head of a word is its first letter"
+       "text": "removed",
+       "at": 27,
+       "note": "removed means this letter is taken out of the flower's name"
       }
      ],
      "parts": [
       {
        "words": "Flower",
+       "at": 0,
        "gives": "BUTTERCUP",
        "note": "the buttercup is a yellow wild flower"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
-         "text": "removed"
+         "text": "head of",
+         "at": 12,
+         "note": "the head is the first letter of carpel"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "head of carpel",
-         "gives": "C",
-         "select": "first",
-         "note": "first letter of carpel, removed from BUTTERCUP"
+         "words": "carpel",
+         "at": 20,
+         "note": "first letter C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A botany note: a flower missing the top of its carpel is flatter.",
-     "walkthrough": "The carpel is a real part of a flower, so the botany hangs together, and 'flatter' reads as less bumpy until it becomes the verb.",
-     "definitionFit": "To flatter someone is to lay on the praise, as if spreading it thick on bread."
+     "surface": "A botany note: a flower whose carpel tip has been cut off is flatter in shape.",
+     "walkthrough": "'flatter' reads as an adjective, but it is a verb; BUTTERCUP loses its C.",
+     "definitionFit": "To butter up someone is to compliment them insincerely, to win favour through praise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "flatter"
     }
    }
@@ -1025,49 +1018,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "starting",
-       "note": "starting as in jumping up with a jolt, so the letters are jolted into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "entrance to",
-         "note": "the entrance to a word is its first letter"
+         "text": "starting",
+         "at": 16,
+         "note": "starting in the sense of jumping in surprise, so the letters of Paris jump into a new order"
         }
        ],
        "parts": [
         {
          "words": "Paris",
-         "note": "anagram fodder"
-        },
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "L",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "entrance to Louvre",
-           "gives": "L",
-           "select": "first",
-           "note": "first letter of Louvre, added at the end"
-          }
-         ]
+         "text": "entrance to",
+         "at": 30,
+         "note": "the entrance is the first letter of Louvre"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Louvre",
+         "at": 42,
+         "note": "first letter L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tourist advice: tour Paris, beginning at the Louvre's door.",
-     "walkthrough": "'Starting with' reads as 'beginning at', which suggests L comes first; in fact 'starting' is the anagram signal and L goes last.",
-     "definitionFit": "Moving round and round in a widening curve is the verb sense of going round."
+     "surface": "Touring Paris by beginning at the Louvre's doors.",
+     "walkthrough": "SPIRA, the rearranged letters of Paris, then L.",
+     "definitionFit": "To spiral is to move in a winding, circling course, turning round and round."
     },
     "features": {
      "answerInScene": false,

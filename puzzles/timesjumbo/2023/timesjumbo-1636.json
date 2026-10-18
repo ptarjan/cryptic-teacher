@@ -374,36 +374,40 @@
      "indicators": [
       {
        "text": "can stop",
-       "note": "a stopper plugs a gap from within, so these letters plug the middle of another word"
+       "at": 26,
+       "note": "the letters plug the middle of the word, stopping it up"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "what he is",
+       "at": 35,
+       "gives": "UNWED",
+       "note": "a bachelor is unwed, unmarried"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "what he is",
-         "gives": "UNWED",
-         "note": "a bachelor is unmarried"
+         "words": "bachelor",
+         "at": 8,
+         "gives": "B",
+         "note": "B is the abbreviation for bachelor, as in degrees"
         },
         {
          "words": "nothing",
+         "at": 18,
          "gives": "O",
-         "note": "O looks like zero"
+         "note": "O looks like zero, nothing"
         }
        ]
-      },
-      {
-       "words": "bachelor",
-       "gives": "B",
-       "note": "B is the abbreviation for bachelor"
       }
      ]
     },
     "explanation": {
-     "surface": "A stubborn single man boasts nothing will stop him staying single.",
-     "walkthrough": "'What he is' points back at the bachelor: he is unmarried.",
-     "definitionFit": "Someone unbowed has not bent the knee or submitted, remaining resistant and undaunted."
+     "surface": "A determined single man insisting nothing can change his status.",
+     "walkthrough": "B and O go inside UNWED. 'Bachelor' does double work: it gives B, and 'what he is' points back to it.",
+     "definitionFit": "Unbowed means not having submitted, unbeaten in spirit and defiant."
     },
     "features": {
      "answerInScene": true,
@@ -1130,52 +1134,58 @@
      "indicators": [
       {
        "text": "is in",
-       "note": "to be in something is to sit inside it, so letters are placed within another word"
+       "at": 31,
+       "note": "the letters are in the remaining word, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 20,
+         "note": "not means the letter is left out of the word for fashion"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "not",
-           "note": "'not' says something is absent, so one letter is taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fashion",
-           "gives": "STYLE",
-           "note": "style is fashion"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L is the abbreviation for large"
-          }
-         ]
+         "words": "fashion",
+         "at": 37,
+         "gives": "STYLE",
+         "note": "style is fashion"
         },
         {
-         "words": "medium",
-         "gives": "M",
-         "note": "M is the clothing-size abbreviation for medium"
+         "words": "large",
+         "at": 24,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "medium",
+         "at": 8,
+         "gives": "M",
+         "note": "M is the clothing-size abbreviation for medium"
+        },
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Clothes sizes: a medium, never a large, is what is fashionable in a basket.",
-     "walkthrough": "'Hamper' looks like a picnic basket noun, but it is the verb. The sizes M and L are swapped in effect: lose the large and put medium plus one in.",
-     "definitionFit": "To stymie someone is to obstruct or thwart their progress, to impede and frustrate them."
+     "surface": "A shopper notes a medium item that is not large is currently fashionable.",
+     "walkthrough": "'Hamper' looks like a basket, but it is a verb; STYLE loses L and takes M and I inside.",
+     "definitionFit": "To stymie someone is to obstruct or thwart them, to hinder their progress."
     },
     "features": {
      "answerInScene": false,
