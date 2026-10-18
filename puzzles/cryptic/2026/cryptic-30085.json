@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -498,43 +499,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "woman",
+      "text": "woman?",
       "at": 45
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NATASHA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "after means this piece comes behind the other one"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "after"
-        },
-        {
-         "text": "recalling"
+         "text": "recalling",
+         "at": 29,
+         "note": "recalling means calling back, so the word is read in the reverse direction"
         }
        ],
        "parts": [
         {
          "words": "devil",
-         "gives": "NATAS",
-         "note": "Satan is the devil, written backwards by 'recalling'"
-        },
-        {
-         "words": "Exclamation of success",
-         "gives": "HA",
-         "note": "'Ha!' is the cry of triumph"
+         "at": 39,
+         "gives": "SATAN",
+         "note": "Satan is the Devil"
         }
        ]
+      },
+      {
+       "words": "Exclamation of success",
+       "at": 0,
+       "gives": "HA",
+       "note": "ha is a cry of triumph"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark is doing real work: a name can only ever be an example of 'woman', so the setter has to flag it. Satan backwards is a device you will meet again.",
-     "definitionFit": "woman → NATASHA: definition by example, a Russian given name standing in for the whole category, which the question mark politely admits."
+     "surface": "Someone shouts in triumph after summoning a demonic woman.",
+     "walkthrough": "The question mark flags that the woman is only one example: the answer is a girl's name, not a word meaning woman.",
+     "definitionFit": "Natasha is a female first name, so it is an example of a woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalling"
     }
    }
   },
@@ -882,42 +895,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Fascist movement",
+      "text": "Fascist movement?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GOOSESTEP",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 34,
+       "note": "among means set in the middle of the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Republicans",
+       "at": 40,
+       "gives": "GOP",
+       "note": "the GOP, the Grand Old Party, is the US Republican Party"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "changes"
-        },
-        {
-         "text": "among"
+         "text": "changes",
+         "at": 26,
+         "note": "changes means these letters are altered into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Republicans",
-         "gives": "GOP",
-         "note": "the GOP is the Grand Old Party, and it splits to hold the anagram"
-        },
-        {
          "words": "Sees to",
-         "note": "the letters of SEES TO, rearranged by 'changes'"
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "GOP for the Republicans is American shorthand a British puzzle assumes you know, and the surface — Republicans making changes — is where all the misdirection sits.",
-     "definitionFit": "Fascist movement → GOOSE STEP: the stiff-legged parade march adopted by fascist armies, so 'movement' means a way of moving rather than a political faction."
+     "surface": "A political figure arranges a shake-up within the US Republican Party, read as a fascist trend.",
+     "walkthrough": "'movement' looks like a political movement, but the definition is a physical one, a style of marching.",
+     "definitionFit": "The goose step is the stiff-legged marching style associated with Nazi and other fascist parades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "movement"
     }
    }
   },
@@ -942,35 +968,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GENERATOR",
-     "indicators": [
-      {
-       "text": "Not entirely"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "classes",
+       "at": 21,
+       "gives": "GENERA",
+       "note": "genera, plural of genus, are classes in biology"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 37,
+         "note": "not entirely means the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "classes",
-         "gives": "GENERA",
-         "note": "genera are biological classes, the plural of genus"
+         "words": "rushed",
+         "at": 29,
+         "gives": "TORE",
+         "note": "tore means rushed, as in tore down the road"
         },
         {
-         "words": "rushed",
-         "gives": "TOR",
-         "note": "tore is rushed, and 'Not entirely' leaves the last letter off"
+         "gives": "E",
+         "note": "the letter dropped from the end"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Not entirely' sits at the end but only reaches back to 'rushed': a trimming instruction takes the word beside it, never the whole clue.",
-     "definitionFit": "Something that makes → GENERATOR: an agent noun, where the -or ending names a machine by the job it does, here turning fuel or steam into electricity."
+     "surface": "Someone asks what causes school classes to be hurried, only partly.",
+     "walkthrough": "'makes classes' reads as one phrase, but the definition stops at 'makes'.",
+     "definitionFit": "A generator is a producer, anything that creates or brings something into being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "classes"
     }
    }
   },
@@ -991,55 +1029,60 @@
     "definitions": [
      {
       "text": "Coaches?",
-      "at": 0,
-      "note": "'Coaches' is plural and the answer a mass noun; the question mark marks definition by example, coaches being one kind of it rather than a synonym."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRANSPORT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after means this piece comes behind the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after"
+         "text": "disembarked",
+         "at": 30,
+         "note": "disembarked means got off, so this letter leaves the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "disembarked"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Coaches",
-           "gives": "TRANS",
-           "note": "the second Coaches is railway carriages, TRAINS, with the I stepping off"
-          },
-          {
-           "words": "left",
-           "gives": "PORT",
-           "note": "port is the left-hand side of a ship"
-          }
-         ]
+         "words": "Coaches",
+         "at": 9,
+         "gives": "TRAINS",
+         "note": "trains means coaches, as a verb for teaching"
         },
         {
-         "unchecked": true,
-         "words": "I disembarked",
-         "note": "the letter taken out: I leaves TRAINS"
+         "words": "I",
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 17,
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke is one word doing opposite jobs: the first Coaches defines, the second is rolling stock. Repeating a word like that is a legitimate device, not a slip.",
-     "definitionFit": "Coaches? → TRANSPORT: definition by example, coaches being one form of the uncountable noun for the moving of people and goods."
+     "surface": "Coaches are asked about, then some coaching left once one person got off.",
+     "walkthrough": "The repeated word has two jobs: the first is the noun meaning vehicles, the second the verb meaning teaches.",
+     "definitionFit": "Coaches are buses, a means of carrying people, so they are an example of transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coaches"
     }
    }
   },
@@ -1110,49 +1153,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KHAKI",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
-         "text": "finally"
+         "text": "finally",
+         "at": 12,
+         "note": "finally means taking the final letter of each of these words"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "KH",
-         "indicators": [
-          {
-           "text": "a lot of"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Book launch finally",
-           "gives": "KH",
-           "select": "last",
-           "note": "the last letters of Book and launch"
-          }
-         ]
+         "words": "Book launch",
+         "at": 0,
+         "note": "the last letters of the two words are used"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 27,
+         "note": "a lot of means most of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "similar",
+         "at": 36,
+         "gives": "AKIN",
+         "note": "akin means similar"
         },
         {
-         "words": "a lot of similar",
-         "gives": "AKI",
-         "note": "akin means similar, and 'a lot of' keeps all but its last letter"
+         "gives": "N",
+         "note": "the letter dropped from the end"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Finally' can harvest the last letter of every word in front of it, not just one. Reading it as a plural instruction is what makes the opening pair available.",
-     "definitionFit": "military material → KHAKI: the dust-coloured cloth armies have uniformed in since India in the 1840s, so the definition names a fabric by who wears it."
+     "surface": "A book launch ends with plenty of matching army uniforms.",
+     "walkthrough": "'finally' works on both words before it, not just 'launch'.",
+     "definitionFit": "Khaki is the dull brownish cloth used for army uniforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "launch"
     }
    }
   },
@@ -1186,45 +1238,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "various"
+       "text": "about",
+       "at": 41,
+       "note": "about means going round the outside of the other piece"
       }
      ],
      "parts": [
       {
-       "words": "readers",
-       "gives": "REASRED",
-       "note": "the letters of readers, shuffled by 'various'"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "various",
+         "at": 25,
+         "note": "various means mixed or diverse, so the letters come in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "readers",
+         "at": 33,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "about"
+         "text": "volte-face",
+         "at": 62,
+         "note": "a volte-face is an about-turn, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "volte-face"
-          }
-         ],
-         "parts": [
-          {
-           "words": "The Guardian",
-           "gives": "SU",
-           "note": "the paper printing the puzzle is US, and a volte-face turns it about"
-          }
-         ]
+         "words": "The Guardian's",
+         "at": 47,
+         "gives": "US",
+         "note": "the Guardian's own setters use US for the paper, as in 'ours'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Guardian calling itself 'us' is the setter winking at the paper the puzzle appears in — a trick every publication's crossword allows itself, and one to watch for in the Times too.",
-     "definitionFit": "Relieved apprehension → REASSURED: to reassure somebody is precisely to take their fear away, and the two-word definition matches the verb's past tense."
+     "surface": "Fear spreads among Guardian readers about the paper's sudden U-turn.",
+     "walkthrough": "'apprehension' looks like part of the wordplay, but it belongs with 'Relieved' as a verb phrase.",
+     "definitionFit": "To reassure someone is to remove their doubts and fears, so it means relieving apprehension."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "apprehension"
     }
    }
   },
@@ -1249,39 +1314,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALIBI",
-     "indicators": [
-      {
-       "text": "but not"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 7
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 25,
+         "note": "but not means the word that follows is taken away"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "the clue's own 'a', taken at face value"
-        },
-        {
          "words": "sexual impulse",
-         "gives": "LIBI",
-         "note": "LIBIDO is the sexual impulse, with two letters removed"
+         "at": 9,
+         "gives": "LIBIDO",
+         "note": "libido is sexual drive"
         },
         {
-         "unchecked": true,
          "words": "act",
-         "note": "act = DO, and DO is the pair of letters coming off LIBIDO"
+         "at": 33,
+         "gives": "DO",
+         "note": "to do is to act"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The deletion works on a word the clue never spells out and removes another it only hints at, so you have to reach LIBIDO and read 'act' as DO before anything can be trimmed.",
-     "definitionFit": "Excuse → ALIBI: strictly a plea of having been somewhere else, but everyday use has widened it to any excuse offered for one's conduct."
+     "surface": "Someone excuses a sexual urge on the grounds that nothing was done.",
+     "definitionFit": "An alibi is a claim that one was elsewhere, used as an excuse or defence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "act"
     }
    }
   },
@@ -1309,39 +1381,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately"
+       "text": "hosted by",
+       "at": 30,
+       "note": "hosted by means held within the other word, as a guest inside"
       }
      ],
      "parts": [
       {
        "words": "another European",
+       "at": 40,
        "gives": "DANE",
-       "note": "a Dane is another European, and here the host word"
+       "note": "a Dane is a person from Denmark"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "hosted by"
+         "text": "ultimately",
+         "at": 19,
+         "note": "ultimately means the last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "not ultimately",
-         "gives": "T",
-         "select": "last",
-         "note": "'ultimately' takes the last letter of not"
+         "words": "not",
+         "at": 15,
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Not' is raw material here rather than a negative, which is the trap. 'Ultimately' always means the final letter of the word beside it and never the word itself.",
-     "definitionFit": "Italian writer → DANTE: definition by example, Dante Alighieri of the Divine Comedy being the Italian a five-letter space is usually after."
+     "surface": "An Italian author is not, in the end, welcomed by a fellow European.",
+     "definitionFit": "Dante Alighieri was the medieval Italian poet who wrote the Divine Comedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hosted"
     }
    }
   },
@@ -1409,40 +1487,52 @@
      {
       "text": "stupid",
       "at": 21,
-      "note": "'Stupid' is an adjective and the answer a noun; the setter leans on the way English uses this particular noun attributively — an idiot grin, idiot boy — where the two are interchangeable."
+      "note": "stupid here is a noun, as in 'Hey, stupid!'"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDIOT",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "the heart of DIVOT is its middle letter V, and that is what goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 4,
+         "note": "heartless means without its central letter"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral one"
+         "words": "sod",
+         "at": 14,
+         "gives": "DIVOT",
+         "note": "a divot is a piece of turf, or sod, dug up by a golf club"
         },
         {
-         "words": "sod",
-         "gives": "DIOT",
-         "note": "a divot is a sod of turf, minus the letter at its centre"
+         "gives": "V",
+         "note": "the middle letter removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sod' is turf here rather than an insult — a divot is the lump a golfer digs out of the grass — and 'heartless' always means the middle letter leaves.",
-     "definitionFit": "stupid → IDIOT: the noun names a person by the quality, the way 'fool' does, so an adjective can stand in for somebody who has it."
+     "surface": "Someone with no feelings, a real sod, is called stupid.",
+     "walkthrough": "'sod' reads as the British insult, but here it means turf.",
+     "definitionFit": "Stupid used as a form of address is an insult for a fool, the same as calling someone an idiot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sod"
     }
    }
   },
