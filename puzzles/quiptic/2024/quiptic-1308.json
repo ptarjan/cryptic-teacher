@@ -1548,49 +1548,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 6,
+       "note": "'about' means the smile word wraps round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Smile",
-         "gives": "GRIN",
-         "note": "a grin is a broad smile"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E = European"
-        }
-       ]
+       "words": "Smile",
+       "at": 0,
+       "gives": "GRIN",
+       "note": "a grin is a broad smile"
       },
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "oddly",
-         "note": "the odd-numbered letters: M and L of MaLe"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "male",
-         "note": "1st and 3rd letters of MALE"
+         "words": "European",
+         "at": 12,
+         "gives": "E"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly",
+           "at": 26,
+           "note": "oddly means take the odd-numbered letters, first and third"
+          }
+         ],
+         "parts": [
+          {
+           "words": "male",
+           "at": 21,
+           "note": "its odd letters are used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grinning at a strange European man who turns out to be an imp.",
-     "walkthrough": "'Oddly' looks like 'strangely' but here it means the odd letters: M(a)L(e).",
-     "definitionFit": "A gremlin is a mischievous imaginary sprite blamed for mechanical faults."
+     "surface": "Grinning at a strangely behaved European man, someone takes him for an imp.",
+     "definitionFit": "A gremlin is an imaginary imp blamed for unexplained mechanical faults, so a mischievous sprite."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "oddly"
     }

@@ -198,49 +198,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "welcomes"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "most of",
-         "note": "take ALL without its last letter"
+         "text": "welcomes",
+         "at": 14,
+         "note": "'welcomes' means the word for wedding takes the next piece in, holding it inside"
         }
        ],
        "parts": [
         {
          "words": "wedding",
+         "at": 6,
          "gives": "UNION",
-         "note": "a marriage is a union"
+         "note": "a wedding is a union of two people"
         },
         {
          "words": "group of sisters",
+         "at": 23,
          "gives": "CONVENT",
-         "note": "a community of nuns"
+         "note": "a convent is a community of nuns, who are sisters"
         }
        ]
       },
       {
-       "words": "most of all",
-       "gives": "AL",
-       "note": "ALL missing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 40,
+         "note": "'most of' means the word all loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "at": 48,
+         "gives": "ALL",
+         "note": "taken as written before it is cut"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Gypsy wedding is attended by a party of nuns.",
-     "walkthrough": "'Most of all' sounds like 'above everything' but is just ALL losing a letter. 'Gypsy' used as an adjective means bohemian.",
-     "definitionFit": "Gypsy in the sense of a roving, bohemian life means unconventional."
+     "surface": "A traveller wedding takes in a whole party of nuns, the most striking of all.",
+     "walkthrough": "'Gypsy' reads as a noun about a wedding, but it is an adjective: a free, roaming, unconventional way of life.",
+     "definitionFit": "A gypsy lifestyle is nomadic and outside settled norms, so gypsy can describe something not conforming to convention."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "most"
+     "misdirectedWord": "Gypsy"
     }
    }
   },
@@ -1266,39 +1280,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "without"
+       "text": "without",
+       "at": 21,
+       "note": "'without' in its old sense of outside: the account and one surround the credit"
       }
      ],
      "parts": [
       {
-       "words": "account",
-       "gives": "AC",
-       "note": "abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "account",
+         "at": 8,
+         "gives": "AC"
+        },
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "A",
+         "note": "A means one, as in a single item"
+        }
+       ]
       },
       {
        "words": "credit",
+       "at": 29,
        "gives": "CR",
-       "note": "abbreviation on statements"
-      },
-      {
-       "words": "one",
-       "gives": "A",
-       "note": "a = one"
+       "note": "CR is the bookkeeping abbreviation for credit"
       }
      ]
     },
     "explanation": {
-     "surface": "A capital account with someone who has no credit.",
-     "walkthrough": "'Capital account' is a banking term; the capital is a city.",
-     "definitionFit": "A definition by example: the city is the capital of Ghana, one capital among many."
+     "surface": "A banking note: a capital account, with one entry lacking any credit.",
+     "walkthrough": "'without' does not mean lacking here; it means outside, an old sense still found in hymns and place names.",
+     "definitionFit": "Accra is the capital city of Ghana."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Capital"
+     "joke": "pun",
+     "misdirectedWord": "without"
     }
    }
   },

@@ -677,39 +677,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "taken through",
-       "note": "something taken through a word passes into the middle of it and stops there, between the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "a bleak",
-         "gives": "ABARE",
-         "note": "a bleak hillside is a bare one, and with its 'a' in front the phrase splits after two letters"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the usual abbreviation for English, as on a school timetable"
-        }
-       ]
+       "words": "a",
+       "at": 27,
+       "gives": "A"
       },
       {
-       "words": "road",
-       "gives": "RD",
-       "note": "Rd is how a road is shortened in an address"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taken through",
+         "at": 13,
+         "note": "'taken through' puts the English road pieces inside the word for bleak"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bleak",
+         "at": 29,
+         "gives": "BARE",
+         "note": "bare means bleak and empty, as of a landscape"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "English",
+           "at": 0,
+           "gives": "E"
+          },
+          {
+           "words": "road",
+           "at": 8,
+           "gives": "RD"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Aber- opens a great many Welsh place names and means the mouth of a river; this one is a former coal town in the Cynon Valley, north-west of Cardiff.",
-     "definitionFit": "Welsh town -> ABERDARE: a town in the south Wales valleys, built on coal and iron in the nineteenth century."
+     "surface": "An English road runs across a desolate landscape to a town in Wales.",
+     "definitionFit": "Aberdare is a former mining town in the Cynon Valley in South Wales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1056,33 +1072,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "worked",
-       "note": "dough that is worked is pushed about until it takes a new shape, and letters worked the same way come out in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Animal doctor",
+       "at": 0,
+       "gives": "VET",
+       "note": "a vet is a veterinary surgeon, a doctor for animals"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worked",
+         "at": 14,
+         "note": "worked as in worked over, kneaded, so the letters of near are reshaped"
+        }
+       ],
        "parts": [
         {
-         "words": "Animal doctor",
-         "gives": "VET",
-         "note": "the doctor animals are taken to"
-        },
-        {
          "words": "near",
-         "note": "the four letters of near, rearranged"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface puts a vet at work beside an old cavalry mount, which is exactly the wrong seam: the horse is the definition, not part of the scene.",
-     "definitionFit": "warhorse -> VETERAN: a warhorse is an old campaigner, someone who has been through many battles and is still going."
+     "surface": "The vet treated an animal close to an old war horse.",
+     "walkthrough": "'warhorse' reads as a cavalry animal, but it is used figuratively for an old campaigner.",
+     "definitionFit": "An old warhorse is someone with long experience of a field, a seasoned veteran."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "warhorse"
     }
    }
   },

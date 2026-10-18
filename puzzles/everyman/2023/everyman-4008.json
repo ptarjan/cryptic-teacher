@@ -762,31 +762,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "eaten",
-       "note": "whatever is eaten ends up inside the eater, so letters go inside another word"
+       "text": "later",
+       "at": 48,
+       "note": "'later' says the duck also goes inside the president's name, at a point further along than the first piece"
       }
      ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "eaten",
+         "at": 19,
+         "note": "'eaten' means the president's name swallows the next piece, holding it inside"
+        }
+       ],
        "parts": [
         {
-         "words": "French president",
+         "words": "French president's",
+         "at": 0,
          "gives": "MACRON",
-         "note": "Emmanuel Macron, President of France"
+         "note": "Emmanuel Macron is the French president"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "starter of",
-           "note": "a starter is what comes first, so only the opening letter is taken"
+           "at": 25,
+           "note": "the starter of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "andouilles",
-           "note": "first letter of the French sausages"
+           "at": 36,
+           "note": "its first letter is used"
           }
          ]
         }
@@ -794,15 +805,16 @@
       },
       {
        "words": "duck",
+       "at": 54,
        "gives": "O",
-       "note": "a duck is a zero score in cricket, shaped like the letter O"
+       "note": "a duck in cricket is a score of zero, O"
       }
      ]
     },
     "explanation": {
-     "surface": "The French president dines on andouille sausages, then duck, then an almond cake.",
-     "walkthrough": "Two letters go inside the president's name at different points. A duck in cricket is a score of nothing, hence the O shape; andouilles are French sausages.",
-     "definitionFit": "This is a small sweet biscuit-like cake made from ground almonds, egg white and sugar."
+     "surface": "The French president has eaten a sausage starter, then duck and an almond cake.",
+     "walkthrough": "The president's name takes in two things at two different points, so this is a double insertion rather than one. Andouilles are French sausages; a duck is a cricket score of nought.",
+     "definitionFit": "A macaroon is a small biscuit or cake made with ground almonds."
     },
     "features": {
      "answerInScene": true,

@@ -245,52 +245,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRIBUNAL",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 19,
+       "note": "'during' puts the turned word inside the word for the judicial examination"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "judicial examination",
+       "at": 26,
+       "gives": "TRIAL",
+       "note": "a trial is the judicial examination of a case"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "raised",
-         "note": "in a down clue, raising a word writes it bottom to top"
+         "at": 6,
+         "note": "in a down clue 'raised' means the word is read upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "judicial examination",
-         "gives": "TRI",
-         "note": "first part of TRIAL"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "during",
-           "note": "the point goes inside the examination"
-          }
-         ],
-         "parts": [
-          {
-           "words": "point",
-           "gives": "NUB",
-           "note": "the nub is the central point"
-          }
-         ]
-        },
-        {
-         "words": "judicial examination",
-         "gives": "AL",
-         "note": "rest of TRIAL"
+         "words": "point",
+         "at": 13,
+         "gives": "NUB",
+         "note": "the nub is the central point of an issue"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer raising a point in the middle of a hearing.",
-     "walkthrough": "'Raised' looks like 'brought up in court', but here it turns NUB upside down.",
-     "definitionFit": "A plain synonym: a tribunal is a body that sits in judgement, as a court does."
+     "surface": "A judge objects that a point was raised in the middle of a court hearing.",
+     "definitionFit": "A tribunal is a body that hears and judges cases, a kind of court."
     },
     "features": {
      "answerInScene": true,
@@ -482,37 +473,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LAMBRUSCO",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LAMBRUSCO",
+       "words": "meat",
+       "at": 4,
+       "gives": "LAMB",
+       "note": "lamb is a meat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 23,
+         "note": "'terrible' says the shortened word is thrown into a mess, its letters reordered"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
            "text": "mostly",
-           "note": "most of COURSE, with its last letter gone"
-          },
-          {
-           "text": "terrible",
-           "note": "the remaining letters are in a terrible state, so rearranged"
+           "at": 16,
+           "note": "'mostly' means the word course loses its final letter"
           }
          ],
          "parts": [
           {
-           "words": "meat",
-           "gives": "LAMB",
-           "note": "a meat"
+           "words": "course",
+           "at": 9,
+           "gives": "COURSE",
+           "note": "taken as written before it is cut"
           },
           {
-           "words": "course mostly terrible",
-           "gives": "RUSCO",
-           "note": "COURS(E) with the E dropped, rearranged"
+           "gives": "E"
           }
          ]
         }
@@ -521,13 +517,13 @@
      ]
     },
     "explanation": {
-     "surface": "A restaurant review: rare meat, and a main course that was mostly awful.",
-     "walkthrough": "'Red meat' pulls as one phrase, but 'Red' alone is the definition, a red wine.",
-     "definitionFit": "Lambrusco is a sparkling Italian red wine."
+     "surface": "A diner complains that the red meat course was mostly dreadful.",
+     "walkthrough": "'Red meat' reads as one phrase, but 'Red' alone is the definition: a red wine.",
+     "definitionFit": "Lambrusco is a sparkling Italian red wine, and red is everyday shorthand for red wine."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Red"
     }
    }
@@ -1085,37 +1081,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CANNABIS",
-     "indicators": [
-      {
-       "text": "when drunk",
-       "note": "the basin's letters stagger about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "toilet",
+       "at": 8,
+       "gives": "CAN",
+       "note": "can is American slang for a toilet"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "when drunk",
+         "at": 25,
+         "note": "something drunk is reeling, so the letters of basin are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "toilet",
-         "gives": "CAN",
-         "note": "the can is slang for the toilet"
-        },
-        {
-         "words": "basin when drunk",
-         "gives": "NABIS",
-         "note": "BASIN rearranged"
+         "words": "basin",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone drunk finding weed in the loo and the sink.",
-     "walkthrough": "'Weed' could be any garden plant, but in the surface's bathroom full of drunks it is the drug.",
-     "definitionFit": "A slang sense: 'weed' is an everyday nickname for the drug."
+     "surface": "Someone who has had too much ends up sick in the toilet and the basin.",
+     "definitionFit": "Weed is common slang for cannabis, the drug from the hemp plant."
     },
     "features": {
      "answerInScene": true,
@@ -1198,26 +1192,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AUREATE",
      "indicators": [
       {
        "text": "loses",
-       "note": "whatever the poet loses is no longer part of him, so the L drops out of LAUREATE"
+       "at": 14,
+       "note": "'loses' says the poet's title drops a letter, taking it away"
       }
      ],
      "parts": [
       {
-       "words": "Nation's poet loses pound",
-       "gives": "AUREATE",
-       "note": "LAUREATE without L, the pound sign"
+       "words": "Nation's poet",
+       "at": 0,
+       "gives": "LAUREATE",
+       "note": "the Poet Laureate is the nation's official poet"
+      },
+      {
+       "words": "pound",
+       "at": 20,
+       "gives": "L",
+       "note": "L is the abbreviation for pound, from the Latin libra"
       }
      ]
     },
     "explanation": {
-     "surface": "The national poet going broke.",
-     "walkthrough": "The Poet Laureate is Britain's official national poet; L stands for a pound, from Latin libra.",
-     "definitionFit": "A plain synonym from Latin aurum, gold: aureate things are golden."
+     "surface": "The country's official poet goes without a pound of gold in fees.",
+     "walkthrough": "The Poet Laureate is the UK's official national poet.",
+     "definitionFit": "Aureate is a literary adjective meaning golden or made of gold, from Latin aurum."
     },
     "features": {
      "answerInScene": false,
@@ -1409,42 +1409,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CROWNGREEN",
-     "indicators": [
-      {
-       "text": "one's left",
-       "note": "I (one) has left, gone out of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 58,
+         "note": "'left' as in departed: the letter for one has gone from the bragging word"
+        }
+       ],
        "parts": [
         {
          "words": "bragging",
-         "gives": "CROWNG",
-         "note": "CROWING, with I (one) gone"
+         "at": 26,
+         "gives": "CROWING",
+         "note": "crowing is boasting"
         },
         {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about"
-        },
-        {
-         "words": "space",
-         "gives": "EN",
-         "note": "an en is a printer's space"
+         "words": "one's",
+         "at": 52,
+         "gives": "I",
+         "note": "I is one, the Roman numeral; one's here means one has"
         }
        ]
+      },
+      {
+       "words": "about",
+       "at": 35,
+       "gives": "RE",
+       "note": "RE means about or concerning"
+      },
+      {
+       "words": "space",
+       "at": 41,
+       "gives": "EN",
+       "note": "an en is a printer's space, half an em"
       }
      ]
     },
     "explanation": {
-     "surface": "Jack showing off about a flat he has just moved out of.",
-     "walkthrough": "Jack looks like a man, but it is the small white ball bowlers aim at, and a crown green is a lawn for bowls with a raised middle.",
-     "definitionFit": "The jack is the target ball in bowls, played on a green such as a crown green."
+     "surface": "A boastful man named Jack brags about the room he left behind.",
+     "walkthrough": "Jack reads as a man's name, but in bowls the jack is the small white target ball. A crown green is a bowling green that rises to a hump in the middle.",
+     "definitionFit": "The jack is the target ball in bowls, so it is found on a bowling green such as a crown green."
     },
     "features": {
      "answerInScene": false,
@@ -1476,26 +1484,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "GRIM",
      "indicators": [
       {
        "text": "curtailed",
-       "note": "its tail, the last letter, is cut off"
+       "at": 16,
+       "note": "to curtail is to cut off the tail, so the last letter goes"
       }
      ],
      "parts": [
       {
-       "words": "smut curtailed",
-       "gives": "GRIM",
-       "note": "GRIME without its E"
+       "words": "smut",
+       "at": 11,
+       "gives": "GRIME",
+       "note": "smut is soot or dirt, like grime"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Filthy talk, cut short because it is nasty.",
-     "walkthrough": "'Smut' suggests dirty jokes, but it is literal dirt, grime.",
-     "definitionFit": "A plain synonym: a grim task or prospect is a thoroughly nasty one."
+     "surface": "Someone complains that indecent material has been censored, and finds it unpleasant.",
+     "walkthrough": "'smut' suggests indecency, but here it is soot or dirt.",
+     "definitionFit": "Grim describes something depressing or disagreeable, a synonym of unpleasant."
     },
     "features": {
      "answerInScene": false,
@@ -1698,67 +1709,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STRESSTEST",
-     "indicators": [
-      {
-       "text": "terrible",
-       "note": "the setter's letters are in a terrible state"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "at": 0,
+         "note": "the start of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Start to",
-           "note": "the first letter of suspect"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Start to suspect",
-           "gives": "SUSPECT",
-           "note": "first letter of suspect"
-          }
-         ]
-        },
+         "words": "suspect",
+         "at": 9,
+         "note": "its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "terrible setter's",
-         "gives": "TRESSTE",
-         "note": "SETTERS rearranged"
-        },
+         "text": "terrible",
+         "at": 17,
+         "note": "'terrible' says the setter's letters are in a bad state, rearranged"
+        }
+       ],
+       "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "only the extreme letters of self-confident"
-          }
-         ],
-         "parts": [
-          {
-           "words": "extremely self-confident",
-           "gives": "SELFCONFIDENT",
-           "note": "outer letters of SelF-confidenT"
-          }
-         ]
+         "words": "setter's",
+         "at": 26,
+         "gives": "SETTERS",
+         "note": "the letters of setters, apostrophe ignored"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 35,
+         "note": "'extremely' takes only the outer letters of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "self-confident",
+         "at": 45,
+         "note": "its first and last letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Suspicion that a bad crossword setter is far too cocky in an exam.",
-     "walkthrough": "The setter's 'S counts in the anagram, and 'extremely' takes just the two ends of self-confident.",
-     "definitionFit": "A stress test is an examination of how a system, heart or bank copes under strain."
+     "surface": "The setter, beginning to doubt himself, is awfully self-assured about an examination.",
+     "definitionFit": "A stress test is a check of how a system, bank or heart performs under strain, a kind of examination."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "terrible"
     }

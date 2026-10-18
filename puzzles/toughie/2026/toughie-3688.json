@@ -152,7 +152,8 @@
      "indicators": [
       {
        "text": "Escalating",
-       "note": "in a down clue, escalating means climbing upward, so the letters read from bottom to top"
+       "at": 0,
+       "note": "in a down clue escalating means going upwards, so the whole construction is read backwards"
       }
      ],
      "parts": [
@@ -161,50 +162,58 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about means around, so one piece is wrapped around the others"
+         "at": 20,
+         "note": "'about' means the quarrel word goes round the next pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "argument",
-           "gives": "SPAT",
-           "note": "a spat is a petty quarrel"
-          },
-          {
-           "words": "low",
-           "gives": "MOO",
-           "note": "to low is to make a cow's noise"
-          }
-         ]
+         "words": "argument",
+         "at": 11,
+         "gives": "SPAT",
+         "note": "a spat is a petty quarrel"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "taking away",
-           "note": "to take away is to subtract, so some letters are removed from a word"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "roof",
-           "note": "taken as written, before letters are removed"
+           "words": "low",
+           "at": 26,
+           "gives": "MOO",
+           "note": "to low is to moo, as cattle do"
           },
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "taking away",
+             "at": 36,
+             "note": "'taking away' removes the letters for nothing and from from the roof word"
+            }
+           ],
            "parts": [
             {
-             "words": "nothing",
-             "gives": "O",
-             "note": "O looks like zero, nothing; this letter is removed"
+             "words": "roof",
+             "at": 30,
+             "gives": "ROOF",
+             "note": "taken as written before letters are removed"
             },
             {
-             "words": "from",
-             "gives": "OF",
-             "note": "of can mean from, as in 'a man of Kent'; these letters are removed"
+             "op": "charade",
+             "parts": [
+              {
+               "words": "nothing",
+               "at": 48,
+               "gives": "O",
+               "note": "O looks like zero, nothing"
+              },
+              {
+               "words": "from",
+               "at": 56,
+               "gives": "OF",
+               "note": "taken as written: the word of"
+              }
+             ]
             }
            ]
           }
@@ -215,9 +224,9 @@
      ]
     },
     "explanation": {
-     "surface": "A heated dispute over a low ceiling in a brewery's bar.",
-     "walkthrough": "Both 'nothing' (O) and 'from' (OF) are taken out of ROOF, leaving R. SPAT then goes about MOO plus R, and the whole is read upward.",
-     "definitionFit": "A taproom is a bar where beer is served from the tap, often attached to a brewery as its drinking room."
+     "surface": "A rising row over a low ceiling at the brewery, with nothing removed from the premises.",
+     "walkthrough": "'low roof' looks like a building detail, but low is the cow's call and the roof is stripped of 'nothing' and 'from'. In a down answer, 'Escalating' reads upwards.",
+     "definitionFit": "Taprooms are bars where beer is served on tap, often attached to a brewery."
     },
     "features": {
      "answerInScene": true,
