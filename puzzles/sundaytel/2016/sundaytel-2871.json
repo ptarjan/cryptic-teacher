@@ -632,52 +632,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISENTANGLED",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "broken nets are torn apart, so the four letters of 'nets' are rearranged"
+       "text": "taking in",
+       "at": 10,
+       "note": "taking something in means holding it inside, so the other pieces go within the outer word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "taking in",
-         "note": "to take in is to absorb, so the word for completed holds the rest inside it"
-        }
-       ],
+       "words": "Completed",
+       "at": 0,
+       "gives": "DID",
+       "note": "did means completed, as in 'did the job'"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Completed",
-         "gives": "DID",
-         "note": "did means carried out, completed"
-        },
-        {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "broken",
+           "at": 20,
+           "note": "broken nets are torn apart, so their letters are rearranged"
+          }
+         ],
          "parts": [
           {
            "words": "nets",
-           "note": "anagram fodder"
-          },
-          {
-           "words": "fish",
-           "gives": "ANGLE",
-           "note": "to angle is to fish with rod and line"
+           "at": 27
           }
          ]
+        },
+        {
+         "words": "fish",
+         "at": 38,
+         "gives": "ANGLE",
+         "note": "to angle is to fish with rod and line"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fishermen finish hauling in torn nets and free the trapped fish.",
-     "walkthrough": "'With' simply joins the two inserted pieces; both go inside the word for completed.",
-     "definitionFit": "Freeing something from a knot or tangle is exactly what extricating means: releasing it from a snare."
+     "surface": "An angler finishes the day, gathering in torn nets after a fish has been freed.",
+     "walkthrough": "'Broken' turns NETS into SENT; DID, 'taking in' SENT and ANGLE, gives the answer. 'Fish' is a verb here, not the creature.",
+     "definitionFit": "To be extricated is to be freed from a tangle, which is exactly what being disentangled means; they are synonyms."
     },
     "features": {
      "answerInScene": true,
@@ -1520,29 +1522,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LASS",
      "indicators": [
       {
        "text": "when head's away",
-       "note": "the head of a word is its first letter, and with it away the word loses its opening"
+       "at": 22,
+       "note": "the head of a word is its first letter, so that letter goes missing"
       }
      ],
      "parts": [
       {
        "words": "lesson in school",
-       "gives": "LASS",
-       "note": "a class is a school lesson; drop its first letter"
+       "at": 5,
+       "gives": "CLASS",
+       "note": "a class is a lesson taught in school"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil skips a lesson while the headteacher is out.",
-     "walkthrough": "'Miss' looks like a verb, to skip class, but it is a noun for a young woman; 'head' is the first letter, not the headteacher.",
-     "definitionFit": "A young unmarried woman is addressed as Miss, and the Scottish or northern word for a girl means the same."
+     "surface": "A pupil skips lessons while the headteacher is out of school.",
+     "walkthrough": "The head teacher's absence is really the first letter, C, dropping from CLASS. 'Miss' reads like a verb, skipping lessons, but it is the noun for a young woman.",
+     "definitionFit": "Miss is a title and an informal name for a young unmarried woman, the same as a lass, a girl."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Miss"

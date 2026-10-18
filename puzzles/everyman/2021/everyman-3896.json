@@ -568,62 +568,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRATISLAVA",
+     "op": "container",
      "indicators": [
       {
-       "text": "Not half",
-       "note": "not half means half is cut away, so only the first part of the word survives"
+       "text": "admitted",
+       "at": 43,
+       "note": "something admitted is let in, so the French article goes inside the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "admitted",
-         "note": "to be admitted is to be let inside, so one piece goes into another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Horrid child",
-           "gives": "BRAT",
-           "note": "a brat is a badly behaved child"
-          },
-          {
-           "words": "is",
-           "note": "taken as written"
-          },
-          {
-           "words": "vain",
-           "gives": "VA",
-           "note": "first half of the word"
-          }
-         ]
+         "words": "Horrid child",
+         "at": 0,
+         "gives": "BRAT",
+         "note": "a brat is a badly behaved child"
         },
         {
-         "words": "the French",
-         "gives": "LA",
-         "note": "la is French for 'the' (feminine)"
+         "words": "is",
+         "at": 13
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not half",
+           "at": 22,
+           "note": "only half the word survives, so its second half is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vain",
+           "at": 16,
+           "note": "losing its second half, IN, vain leaves VA"
+          },
+          {
+           "gives": "IN"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "the French",
+       "at": 32,
+       "gives": "LA",
+       "note": "la is the French feminine word for 'the'"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a nasty child is conceited, and the French reply 'not half', meaning very much so.",
-     "walkthrough": "'Not half!' is a British exclamation meaning 'very much', so the surface reads as a reply; in the wordplay it simply halves the following word, and the French article is admitted into the middle.",
-     "definitionFit": "Bratislava is the capital city of Slovakia, on the Danube."
+     "surface": "A conceited, nasty child is being described, with a French aside thrown in.",
+     "walkthrough": "The question mark warns that 'vain' is to be chopped, not used whole, and 'capital' hides at the end after a colon, looking like an exclamation of approval.",
+     "definitionFit": "Bratislava is the capital city of Slovakia, so it is an example of a capital."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "capital"
     }
    }
   },
@@ -832,45 +837,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GREATDANES",
+     "spelt": "GREATDANES",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts here are exchanged"
+       "at": 5,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "M Eastern",
+       "at": 21,
+       "gives": "DATE",
+       "note": "dates are the fruit of the Middle East, M standing for Middle"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GRANES",
        "parts": [
         {
-         "unchecked": true,
-         "words": "M Eastern culinary staples",
-         "gives": "GREAT",
-         "soundsLike": "GRATE",
-         "note": "dates and grains are Middle Eastern staples; 'date' takes the GR of 'grains'"
-        },
-        {
-         "unchecked": true,
-         "words": "M Eastern culinary staples",
-         "gives": "DANES",
-         "soundsLike": "DAINS",
-         "note": "'grains' takes the D of 'date'"
+         "words": "culinary staples",
+         "at": 31,
+         "gives": "GRAINS",
+         "note": "grains such as wheat and rice are basic foods, staples of cooking"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dogs are being fed Middle Eastern cooking basics.",
-     "walkthrough": "Swap the opening D and GR of the two foods and you say the dog breed.",
-     "definitionFit": "The Great Dane is a giant breed of domestic dog, an example of the general category."
+     "surface": "Someone, speaking like Spooner, reports that dogs have been fed Middle Eastern foods.",
+     "walkthrough": "DATE GRAINS with the opening sounds D and GR swapped gives GRATE DAINS, which sounds like GREAT DANES. M is short for Middle here.",
+     "definitionFit": "Great Danes are a very large breed of dog, so the answer names examples of dogs."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "given"
     }
    }
@@ -1544,26 +1548,27 @@
      "indicators": [
       {
        "text": "whichever way you look at it",
-       "note": "if it looks the same from either direction, the word reads identically left to right and right to left"
+       "at": 21,
+       "note": "read from either end the word is the same, so the answer looks identical backwards and forwards"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "whichever way you look at it",
-       "note": "the word reads the same from left or right"
+       "words": "Curry accompaniment",
+       "at": 0,
+       "gives": "NAAN",
+       "note": "the flatbread served with curry"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone insists the bread served with a curry is the same however you regard it.",
-     "walkthrough": "The exclamation sounds like a judgement on food; it only says the word is the same in both directions.",
-     "definitionFit": "Naan is the leavened flatbread baked in a tandoor and eaten alongside Indian dishes."
+     "surface": "A diner insists the bread is the perfect partner to a curry, however you see it.",
+     "walkthrough": "The definition is all the clue gives; 'whichever way you look at it' adds that the answer reads the same in both directions.",
+     "definitionFit": "Naan is the leavened flatbread served alongside Indian curries, a classic side to the meal."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "look"
+     "aptDefinition": false
     }
    }
   },

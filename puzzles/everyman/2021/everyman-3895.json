@@ -106,42 +106,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OUTSTAY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "most of",
-       "note": "taking most but not all of a word means its final letter is dropped"
+       "text": "might suggest",
+       "at": 35,
+       "note": "the letters might suggest another word if rearranged, so they are mixed into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "might suggest?",
-         "note": "the letters only hint at the result, which must be found by rearranging them freely"
+         "text": "most of",
+         "at": 17,
+         "note": "most of a word is all of it except the final letter"
         }
        ],
        "parts": [
         {
          "words": "your",
-         "gives": "YOU",
-         "note": "the word with its last letter removed"
+         "at": 25,
+         "note": "without its last letter, R, your leaves YOU"
         },
         {
-         "words": "stat",
-         "note": "taken as written"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "stat",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's statistics claim they will endure longer than they actually will.",
-     "walkthrough": "YOU plus STAT, seven letters, rearrange into the answer.",
-     "definitionFit": "To outstay is to remain somewhere beyond a set time or beyond another person, so it means outlasting."
+     "surface": "A query about whether a statistic hints at someone lasting longer than expected.",
+     "walkthrough": "'Most of' cuts YOUR to YOU, and 'might suggest' rearranges YOU with STAT. The question mark admits the anagram signal is loose.",
+     "definitionFit": "To outstay is to remain somewhere longer than someone or something else, as in outstaying a welcome."
     },
     "features": {
      "answerInScene": false,
@@ -229,52 +232,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOSUCHLUCK",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "half",
-       "note": "keeping only half a word means the back four of its eight letters are thrown away"
+       "text": "getting reboot",
+       "at": 28,
+       "note": "a film reboot remakes the old story in new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Hulk",
+       "at": 1
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "reboot",
-         "note": "a reboot of a film franchise remakes the material in a new form, so the letters are rearranged"
+         "text": "not half",
+         "at": 7,
+         "note": "only half the word is kept, so its second four letters are dropped"
         }
        ],
        "parts": [
         {
-         "words": "Hulk",
-         "note": "taken as written"
-        },
-        {
-         "words": "not",
-         "gives": "NO",
-         "note": "no and not both express negation"
-        },
-        {
          "words": "succeeds",
-         "gives": "SUCC",
-         "note": "the first half of the word"
+         "at": 16,
+         "note": "without its second half, EEDS, succeeds leaves SUCC"
+        },
+        {
+         "gives": "EEDS"
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A remake of the Hulk film is only half successful: the hoped-for reboot is wishful thinking.",
-     "walkthrough": "HULK, NO and SUCC are pooled and rearranged; 'on getting' simply links that wordplay to the phrase meaning wishful thinking.",
-     "definitionFit": "Both are rueful idioms said when something wished for is unlikely ever to happen."
+     "surface": "A film fan doubts that a remake of the Hulk will ever come off.",
+     "walkthrough": "'Not half' looks as if it applies to Hulk, but it trims SUCCEEDS to SUCC; HULK, SUCC and ON are then mixed by 'getting reboot'.",
+     "definitionFit": "Both are idioms of wry disappointment, said when something hoped for is very unlikely to happen."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "reboot"
+     "misdirectedWord": "Hulk"
     }
    }
   },

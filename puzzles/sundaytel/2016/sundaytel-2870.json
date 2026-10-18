@@ -143,45 +143,33 @@
      "op": "charade",
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "Either side of cooker",
+       "at": 0,
        "gives": "CORR",
-       "indicators": [
-        {
-         "text": "Either side of",
-         "note": "either side means one end or the other, so the outermost letters are wanted, joined by the word 'or'"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "cooker",
-         "gives": "CORR",
-         "select": "outer",
-         "note": "'either side' read literally is first letter OR last letter: C, then OR, then R"
-        }
-       ]
+       "note": "the two sides of cooker are its outer letters C and R, and offering 'either' one gives the choice C OR R"
       },
       {
        "words": "raised",
+       "at": 27,
        "gives": "UP",
-       "note": "raised means up"
+       "note": "up means raised, as in 'the blinds are up'"
       },
       {
        "words": "temperature",
-       "gives": "T",
-       "note": "T is the standard abbreviation for temperature"
+       "at": 34,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A cooker heating up on both sides is a worrying sign in the kitchen.",
-     "walkthrough": "The trick is taking 'either' as the word OR placed between the two end letters of cooker. The definition is the whole closing remark, read as an adjective meaning bad.",
-     "definitionFit": "Corrupt means dishonest or morally rotten, so it describes something that is not good."
+     "surface": "A kitchen worry: the oven is running hot on both sides, and that cannot be right.",
+     "walkthrough": "'Either side of cooker' is read literally: either C or R, written C OR R, the outer letters of cooker with OR between them.",
+     "definitionFit": "Something corrupt is rotten, dishonest or debased, so it is plainly not good."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Either"
     }
    }
@@ -453,46 +441,48 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing being in another means it is placed inside it"
+       "at": 36,
+       "note": "the slice goes inside the manner of speaking, so those letters are placed within it"
       }
      ],
      "parts": [
       {
        "words": "manner of speaking",
+       "at": 39,
        "gives": "DICTION",
-       "note": "diction is one's manner of speaking"
+       "note": "diction is a person's way of pronouncing and speaking"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "SSE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "middle slice of",
-         "note": "a slice from the middle means only the central letters of the following word are kept"
+         "at": 11,
+         "note": "a slice from the middle cuts away the edges, so only the central letters of the word are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "dessert",
-         "gives": "SSE",
-         "select": "middle",
-         "note": "the central three of its seven letters"
+         "at": 27,
+         "note": "taking off DE at the front and RT at the back, dessert leaves its middle three letters SSE"
+        },
+        {
+         "gives": "DERT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone slicing up a pudding, describing it in elaborate language.",
-     "walkthrough": "The middle three letters of dessert go inside DICTION.",
-     "definitionFit": "Dissection is the act of cutting something apart, as in anatomy, so it is a cutting up."
+     "surface": "Someone carving a pudding comments on it in an affected voice.",
+     "walkthrough": "'Middle slice of dessert' keeps the central three letters SSE, which go 'in' DICTION between DI and CTION. 'Cutting up' matches the dessert in the scene but is the definition.",
+     "definitionFit": "Dissection is the act of cutting something into pieces, especially a body for study, so it means cutting up."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "dessert"
+     "misdirectedWord": "slice"
     }
    }
   },

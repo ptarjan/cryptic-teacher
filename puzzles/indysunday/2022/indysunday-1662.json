@@ -776,36 +776,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GUESS",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing standing for another takes its place, so a letter is exchanged"
+       "at": 46,
+       "note": "one letter stands in place of another, so the succeeded letter replaces the time letter"
       }
      ],
      "parts": [
       {
        "words": "one receiving hospitality",
+       "at": 6,
        "gives": "GUEST",
-       "note": "a guest is entertained by a host"
-      },
-      {
-       "words": "has succeeded",
-       "gives": "S",
-       "note": "S is the abbreviation for succeeded, as in family trees"
+       "note": "a guest is someone entertained by a host"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "standard abbreviation for time"
+       "at": 50,
+       "gives": "T"
+      },
+      {
+       "words": "has succeeded",
+       "at": 32,
+       "gives": "S",
+       "note": "S is the abbreviation for succeeded, used in genealogies and records"
       }
      ]
     },
     "explanation": {
-     "surface": "A host reckons the visitor has done well for the time they had.",
-     "walkthrough": "The final T of GUEST is replaced by S.",
-     "definitionFit": "To guess is to suppose or reckon, the informal sense of think as in 'I guess so'."
+     "surface": "A visitor muses that they have overstayed and someone else has taken their slot.",
+     "walkthrough": "'Has succeeded for time' reads as a sentence about a person, but it is an instruction: S takes the place of T at the end of GUEST.",
+     "definitionFit": "To guess is to suppose or reckon, the same as to think something without being sure; the verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1214,42 +1215,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENGORGE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Not quite",
-       "note": "not quite complete means falling short by a little, so the last letter is dropped"
+       "text": "for change",
+       "at": 29,
+       "note": "the letters are taken for a change, so they are rearranged into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "for change",
-         "note": "to change is to make different, so these letters are rearranged"
+         "text": "Not quite",
+         "at": 15,
+         "note": "a word not quite complete is missing its final letter"
         }
        ],
        "parts": [
         {
          "words": "greens",
-         "gives": "GREEN",
-         "note": "the word without its final letter"
+         "at": 7,
+         "note": "without its last letter, S, greens leaves GREEN"
         },
         {
-         "words": "go",
-         "note": "taken as written"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "go",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "Someone told to eat vegetables decides to try something different instead.",
-     "walkthrough": "'Greens' looks like vegetables to be eaten, but it is only letter fodder.",
-     "definitionFit": "To engorge is an old sense meaning to gorge or gulp down greedily."
+     "surface": "A diner considering vegetables decides to try something different for once.",
+     "walkthrough": "'Not quite' trims GREENS to GREEN, and 'for change' mixes GREEN with GO. 'Devour' looks like the eating in the scene, but it is the definition.",
+     "definitionFit": "To engorge is to gorge or eat greedily, an old sense close to devouring food in quantity."
     },
     "features": {
      "answerInScene": true,

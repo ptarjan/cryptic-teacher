@@ -131,12 +131,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NEEDS",
      "indicators": [
       {
        "text": "conceals",
-       "note": "to conceal is to hide something inside, so one piece goes within the others"
+       "at": 33,
+       "note": "something that conceals another hides it inside, so the daughter goes within the other letters"
       }
      ],
      "parts": [
@@ -145,42 +144,45 @@
        "parts": [
         {
          "words": "born",
+         "at": 9,
          "gives": "NEE",
-         "note": "née means born, used before a maiden name"
-        },
-        {
-         "words": "Daughter",
-         "gives": "D",
-         "note": "standard abbreviation for daughter"
+         "note": "née, French for born, introduces a woman's maiden name"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "close to",
-           "note": "the close of a word is its end, so only its final letter is kept"
+           "at": 14,
+           "note": "the close of a word is its final letter"
           }
          ],
          "parts": [
           {
            "words": "Christmas",
-           "note": "final letter of the word"
+           "at": 23,
+           "note": "the last letter of Christmas is S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Daughter",
+       "at": 0,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A baby girl arrives just before Christmas, and someone is keeping their wishes secret.",
-     "walkthrough": "'Born close to Christmas' makes NEE + S, which hides the D for daughter between them.",
-     "definitionFit": "Wants in the sense of necessities or requirements are needs, a straightforward synonym as plural nouns."
+     "surface": "A baby girl arriving near Christmas is keeping her wishes to herself.",
+     "walkthrough": "'Close to Christmas' gives S, and NEE plus S 'conceals' D, which sits between them. 'Wants' is a noun here, things needed, not a verb.",
+     "definitionFit": "Needs are the things a person requires, the same as their wants in the old sense of lacks or necessities."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "close"
+     "misdirectedWord": "born"
     }
    }
   },
@@ -1402,58 +1404,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOUTING",
-     "indicators": [
-      {
-       "text": "50% off",
-       "note": "taking half away leaves only the front portion of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "brings in",
+         "at": 15,
+         "note": "one piece brings the other into it, so the public word is placed inside"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "brings in",
-           "note": "to bring something in is to take it inside"
+           "text": "50% off",
+           "at": 0,
+           "note": "half the word is taken off, so its last three letters go"
           }
          ],
          "parts": [
           {
            "words": "tinsel",
-           "gives": "TIN",
-           "note": "the first half of the six letters"
+           "at": 8,
+           "note": "without its second half, SEL, tinsel leaves TIN"
           },
           {
-           "words": "public",
-           "gives": "OUT",
-           "note": "something made public is out in the open"
+           "gives": "SEL"
           }
          ]
         },
         {
-         "words": "good",
-         "gives": "G",
-         "note": "standard abbreviation"
+         "words": "public",
+         "at": 25,
+         "gives": "OUT",
+         "note": "out means public or no longer secret, as in 'the news is out'"
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 37,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A half-price tinsel sale draws in shoppers thanks to clever adverts.",
-     "walkthrough": "'Public' looks like the noun for shoppers, but it is the adjective OUT, held inside the half of tinsel.",
-     "definitionFit": "Touting is soliciting custom or promoting something persistently, much as advertising does."
+     "surface": "A half-price sale on Christmas decorations draws in shoppers, which makes good publicity.",
+     "walkthrough": "'50% off tinsel' leaves TIN, which 'brings in' OUT after its T, and G for good follows. The sale reading of '50% off' is the misdirection.",
+     "definitionFit": "Touting is soliciting custom or praising something to sell it, which is a form of advertising."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "public"
+     "misdirectedWord": "off"
     }
    }
   },
