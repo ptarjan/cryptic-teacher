@@ -906,27 +906,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TOODLEPIP",
+     "spelt": "TOODLEPIP",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words, so the initial sounds trade places"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words for dog and hint trade first consonants"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "dog hint",
-       "gives": "TOODLEPIP",
-       "soundsLike": "POODLE TIP",
-       "note": "a poodle is a dog and a tip is a hint"
+       "op": "homophone",
+       "spelt": "TOODLE",
+       "parts": [
+        {
+         "words": "dog",
+         "at": 10,
+         "gives": "POODLE",
+         "note": "a poodle is a breed of dog"
+        }
+       ]
+      },
+      {
+       "words": "hint",
+       "at": 14,
+       "gives": "TIP",
+       "note": "a tip is a hint or piece of advice"
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman's tip about his dog wins applause.",
-     "definitionFit": "Toodle-pip is old British slang for goodbye, as is cheers in casual parting."
+     "surface": "Someone gives a clue about a dog, and it ends in a cheery goodbye.",
+     "walkthrough": "A dog hint is a POODLE TIP; 'Spooner's' version swaps the P and T sounds to give TOODLE PIP. Cheers here is the British informal goodbye, not a toast.",
+     "definitionFit": "Toodle-pip is dated British slang for goodbye, and cheers is also used in Britain as a casual farewell."
     },
     "features": {
      "answerInScene": false,
@@ -1404,41 +1416,43 @@
      "indicators": [
       {
        "text": "without",
-       "note": "without in its old sense of outside, so one piece wraps around another"
+       "at": 23,
+       "note": "without in its old sense of outside: the kept letters go round the word for regret"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "CL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half ignored",
-         "note": "ignoring half a word leaves only the other half"
+         "at": 10,
+         "note": "the second half of the word clue is dropped, leaving its first two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "clue",
-         "gives": "CL",
-         "select": "first",
-         "note": "the first half of the word"
+         "at": 5,
+         "note": "the word clue, of which only the first half is kept"
+        },
+        {
+         "gives": "UE"
         }
        ]
       },
       {
        "words": "regret",
+       "at": 31,
        "gives": "RUE",
        "note": "to rue is to regret"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter dismisses a nasty clue with no remorse.",
-     "walkthrough": "C(RUE)L.",
-     "definitionFit": "Cruel and vile both describe wicked, nasty behaviour."
+     "surface": "A nasty clue that is half ignored and causes no remorse.",
+     "walkthrough": "'Vile clue' reads as a complaint about the puzzle, but clue is fodder. 'without' is used in its old sense of outside, so the kept half wraps the regret.",
+     "definitionFit": "Cruel describes deliberately causing suffering, so it fits vile in the sense of wicked."
     },
     "features": {
      "answerInScene": false,

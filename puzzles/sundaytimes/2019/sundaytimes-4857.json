@@ -420,38 +420,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HOIPOLLOI",
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside the next piece"
+       "at": 26,
+       "note": "the altered god's name goes inside the greeting"
       }
      ],
      "parts": [
       {
+       "words": "greeting",
+       "at": 29,
+       "gives": "HI",
+       "note": "hi is a casual greeting"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "HOIPOLLOI",
        "indicators": [
         {
          "text": "alters intro to",
-         "note": "altering an intro means the opening letter is swapped for something else"
+         "at": 4,
+         "note": "the opening letter of the god's name is swapped for the exclamation that follows"
         }
        ],
        "parts": [
         {
-         "words": "greeting",
-         "gives": "HI",
-         "note": "an informal hello"
+         "words": "God",
+         "at": 0,
+         "gives": "APOLLO",
+         "note": "Apollo is the Greek god of the sun and music"
         },
         {
-         "words": "God",
-         "gives": "APOLLO",
-         "note": "the Greek god of the sun and music"
+         "gives": "A"
         },
         {
          "words": "Oi",
+         "at": 21,
+         "gives": "OI",
          "note": "taken as written"
         }
        ]
@@ -459,15 +464,14 @@
      ]
     },
     "explanation": {
-     "surface": "A deity shouts a rough 'Oi!' instead of a polite hello to ordinary people.",
-     "walkthrough": "Only the god's opening letter is replaced, by both letters of the exclamation.",
-     "definitionFit": "Hoi polloi is a Greek phrase for the many, used in English for the masses or ordinary people."
+     "surface": "A deity tweaks how he opens, shouting 'Oi!' as he greets the common people.",
+     "walkthrough": "'alters intro to \"Oi!\"' replaces the A of APOLLO with OI, giving OIPOLLO, which goes 'in' HI: H-OIPOLLO-I.",
+     "definitionFit": "Hoi polloi is a Greek-derived phrase for the masses, the ordinary people, i.e. commoners."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "greeting"
+     "misdirectedWord": "intro"
     }
    }
   },
@@ -549,40 +553,40 @@
      "indicators": [
       {
        "text": "fed",
-       "note": "when one thing is fed something, that something goes inside it"
+       "at": 4,
+       "note": "the men are fed the horse and letter, so those go inside"
       }
      ],
      "parts": [
       {
        "words": "Men",
+       "at": 0,
        "gives": "OR",
-       "note": "OR, other ranks, is the usual crossword abbreviation for soldiers who are not officers"
+       "note": "OR (other ranks) is the crossword abbreviation for ordinary soldiers, men"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "horse",
+         "at": 8,
          "gives": "NAG",
-         "note": "a nag is an old or poor horse"
+         "note": "a nag is an old horse"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "E",
          "indicators": [
           {
-           "text": "first",
-           "note": "the first of a word means only its opening letter is wanted"
+           "text": "first to",
+           "at": 14,
+           "note": "only the opening letter of the word enrage is used"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "to enrage",
-           "gives": "E",
-           "select": "first",
-           "note": "opening letter of enrage"
+           "words": "enrage",
+           "at": 23,
+           "note": "its first letter is E"
           }
          ]
         }
@@ -591,14 +595,14 @@
      ]
     },
     "explanation": {
-     "surface": "Soldiers feed a horse first, which annoys a different animal waiting its turn.",
-     "walkthrough": "'Enrage' tempts an anagram, but only its first letter is used; 'first' attaches to it, not to the horse.",
-     "definitionFit": "An onager is a wild ass of Asia, so like the horse in the clue it is a member of the equid family."
+     "surface": "Soldiers feed a horse first, enough to infuriate a different member of the horse family.",
+     "walkthrough": "NAG plus E ('first to enrage', its opening letter) is 'fed' into OR (other ranks, i.e. men): O-NAGE-R.",
+     "definitionFit": "An onager is a wild ass of Asia, so like the horse it is a member of the equine family."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "enrage"
+     "misdirectedWord": "fed"
     }
    }
   },

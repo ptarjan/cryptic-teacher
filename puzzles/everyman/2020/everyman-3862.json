@@ -49,60 +49,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BUNSENBURNERS",
-     "indicators": [
-      {
-       "text": "represented",
-       "note": "to be represented anew is to be presented in another form, so the painter's name is rearranged"
-      },
-      {
-       "text": "badly",
-       "note": "done badly suggests a botched order, so the word before it is jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BUNSENBURNERS",
+       "words": "Cake",
+       "at": 0,
+       "gives": "BUN",
+       "note": "a bun is a small cake"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "missing",
-         "note": "a current that is missing has been taken out of the word it would sit in"
+         "text": "represented",
+         "at": 12,
+         "note": "represented means shown in a new form, so the painter's name is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Cake",
-         "gives": "BUN",
-         "note": "a bun is a small cake"
-        },
-        {
          "words": "Rubens",
-         "note": "the Flemish painter's name, taken as written to be rearranged"
-        },
+         "at": 5,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "risen",
-         "note": "taken as written before losing a letter"
-        },
+         "text": "badly",
+         "at": 37,
+         "note": "badly means in a poor way, so the letters left over are jumbled"
+        }
+       ],
+       "parts": [
         {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the symbol for electric current"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "at": 52,
+           "note": "the current letter goes missing from the word risen"
+          }
+         ],
+         "parts": [
+          {
+           "words": "risen",
+           "at": 31,
+           "note": "taken as written, as anagram fodder"
+          },
+          {
+           "words": "current",
+           "at": 44,
+           "gives": "I",
+           "note": "I is the physics symbol for electric current"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A baker's cake, decorated in the manner of Rubens, has risen badly because the electricity failed in the ovens.",
-     "walkthrough": "'Current missing' applies only to the second word: the I for electric current goes before it is jumbled.",
-     "definitionFit": "Bunsen burners are the gas flames used in laboratories, so they are one kind of heating device."
+     "surface": "A cake shaped like a Rubens painting has failed to rise properly after a power cut in the ovens.",
+     "walkthrough": "BUN, then RUBENS 'represented' as SENBUR; RISEN with the I 'missing' leaves RSEN, which 'badly' rearranges to NERS.",
+     "definitionFit": "Bunsen burners are laboratory gas burners used for heating substances, so they are heaters."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "current"
     }
@@ -1590,59 +1605,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BERTOLTBRECHT",
+     "op": "composite",
      "indicators": [
       {
+       "text": "spending",
+       "at": 7,
+       "note": "spending means using up, so the letter for energy goes from the pool"
+      },
+      {
+       "text": "once",
+       "at": 23,
+       "note": "once means a single time: the energy symbol is spent just one time, though the pool holds it more than once"
+      },
+      {
        "text": "novel",
-       "note": "novel means new, so the listed items are made into a fresh arrangement"
+       "at": 31,
+       "note": "novel means new, so the remaining letters take a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BERTOLTBRECHT",
-       "indicators": [
-        {
-         "text": "spending",
-         "note": "spending means using up, so the energy symbol is removed from the fodder"
-        },
-        {
-         "text": "once",
-         "note": "once means a single time, so only one of the several energy symbols is taken away"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the physics symbol for energy"
-        },
-        {
          "words": "Torch",
-         "note": "taken as written"
+         "at": 38,
+         "note": "taken as written, as part of the letter pool"
         },
         {
          "words": "Belt",
-         "note": "taken as written"
+         "at": 45,
+         "note": "taken as written, as part of the letter pool"
         },
         {
          "words": "Beret",
-         "note": "taken as written"
+         "at": 52,
+         "note": "taken as written, as part of the letter pool"
         }
        ]
+      },
+      {
+       "words": "energy",
+       "at": 16,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "An author's novel is titled like a list of kit: a torch, a belt and a beret.",
-     "walkthrough": "Only one of the three Es in TORCH, BELT and BERET is dropped, which is what 'once' says.",
-     "definitionFit": "Bertolt Brecht was the German playwright and poet who wrote Mother Courage and The Threepenny Opera."
+     "surface": "A list of props for a novel: a torch, a belt and a beret, with a nod to spent energy.",
+     "walkthrough": "TORCH, BELT and BERET hold three Es; 'spending energy once' removes just one, and 'novel' rearranges the thirteen letters left.",
+     "definitionFit": "Bertolt Brecht was a German playwright and poet, author of The Threepenny Opera, so he is a writer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "novel"
     }

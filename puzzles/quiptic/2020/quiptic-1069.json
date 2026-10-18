@@ -1107,54 +1107,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CYGNET",
-     "indicators": [
-      {
-       "text": "treated",
-       "note": "something treated has been processed, so these letters are worked into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CYGNET",
+       "words": "Caught",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "missing",
-         "note": "missing means a letter is absent from the word"
+         "text": "treated",
+         "at": 18,
+         "note": "treated means processed or worked on, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Caught",
-         "gives": "C",
-         "note": "C is caught in cricket scoring"
-        },
-        {
-         "words": "gently",
-         "note": "taken as written"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "at": 26,
+           "note": "the letter for large is missing from the word gently"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gently",
+           "at": 11,
+           "note": "taken as written; one letter is removed before the rest is rearranged"
+          },
+          {
+           "words": "large",
+           "at": 34,
+           "gives": "L",
+           "note": "L is the abbreviation for large, as on clothing labels"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rescued chick is caught and handled carefully.",
-     "walkthrough": "Take L out of GENTLY, rearrange GENTY and put C in front.",
-     "definitionFit": "A cygnet is a baby swan, a juvenile of one of the largest birds."
+     "surface": "A young bird was caught and handled gently, though a large one got away.",
+     "walkthrough": "GENTLY with L 'missing' leaves GENTY, which 'treated' rearranges after C (caught). Cygnet is specific: the young of a swan.",
+     "definitionFit": "A cygnet is a baby swan, so it is one particular kind of young bird."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "large"
+     "misdirectedWord": "treated"
     }
    }
   },

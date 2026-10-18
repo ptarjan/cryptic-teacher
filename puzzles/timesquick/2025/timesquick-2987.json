@@ -538,8 +538,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "she's in order",
-      "at": 18
+      "text": "Either way round, she's in order",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -547,21 +547,24 @@
      "indicators": [
       {
        "text": "Either way round",
-       "note": "whichever way round you read it, the word is the same"
+       "at": 0,
+       "note": "whichever end you start from, the word for this woman reads the same, so it is a palindrome"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Either way round",
-       "note": "palindrome indicator: the answer must read the same forwards and backwards"
+       "words": "she's in order",
+       "at": 18,
+       "gives": "NUN",
+       "note": "a woman who has taken vows in a religious order, such as a convent sister"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Someone is being reassured that all is tidy, whichever way you look at it.",
-     "walkthrough": "'In order' sounds like tidy; it means a member of a religious order.",
-     "definitionFit": "A cryptic-style definition: a woman who has joined a religious order is literally 'in order'."
+     "surface": "Whichever way you look at it, she keeps everything tidy and in its proper place.",
+     "walkthrough": "'in order' suggests neatness, but it means a member of a religious order. 'Either way round' tells you the three-letter word reads the same backwards.",
+     "definitionFit": "A nun is a woman who has taken vows in a religious community such as the Benedictines."
     },
     "features": {
      "answerInScene": false,
@@ -592,40 +595,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SEPARATED",
-     "indicators": [
-      {
-       "text": "Returned",
-       "note": "something returned comes back the way it went, so the word is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Returned",
+         "at": 0,
+         "note": "returned means sent back, so the word for copies is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Returned copies",
-         "gives": "SEPA",
-         "note": "apes = copies, turned round"
-        },
-        {
-         "words": "evaluated",
-         "gives": "RATED",
-         "note": "rated = evaluated"
+         "words": "copies",
+         "at": 9,
+         "gives": "APES",
+         "note": "to ape is to copy, so apes means copies"
         }
        ]
+      },
+      {
+       "words": "evaluated",
+       "at": 16,
+       "gives": "RATED",
+       "note": "rated means evaluated or assessed"
       }
      ]
     },
     "explanation": {
-     "surface": "Graded papers handed back to students, then divided among them.",
-     "walkthrough": "'Copies' is the verb: to ape someone is to copy them.",
-     "definitionFit": "A plain synonym: split up and separated both mean parted, as a couple or a set of items might be."
+     "surface": "Copies were sent back, assessed, and then divided into separate batches.",
+     "walkthrough": "To ape is to copy, and 'Returned' sends that plural verb backwards. 'split up' is the definition, describing a couple who have parted.",
+     "definitionFit": "Separated means parted or divided, as a couple who split up live apart."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "copies"
     }
@@ -811,29 +815,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Half-hearted",
-       "note": "the heart is the middle of the word, and half of it goes"
-      },
-      {
        "text": "upset",
-       "note": "to upset is to knock over, so the letters tumble into a new order"
+       "at": 22,
+       "note": "upset means knocked over or disturbed, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Half-hearted kidder's",
-       "gives": "KIDER",
-       "note": "KIDDER with one of its two middle Ds dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half-hearted",
+         "at": 0,
+         "note": "half its heart is lost: one of the two middle letters of kidder is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kidder's",
+         "at": 13,
+         "gives": "KIDDER",
+         "note": "the word kidder, a teaser; the 's is part of the surface only"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A joker whose heart isn't in it is upset and irritable.",
-     "walkthrough": "'Half-hearted' is literal: the heart of the word is a double letter, and only one survives.",
-     "definitionFit": "A plain synonym: to irk is to irritate, so irked means annoyed."
+     "surface": "A joker who teases without enthusiasm ends up upset and irritated.",
+     "walkthrough": "'Half-hearted' takes one D out of the doubled heart of KIDDER, leaving KIDER, which 'upset' rearranges.",
+     "definitionFit": "Irked is the past participle of irk, to irritate or vex, so it means annoyed."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Half-hearted"
     }
@@ -967,46 +984,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SOP",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "the turned letters come after the letter for small"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "small",
+       "at": 32,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "making U-turn",
-         "note": "a vehicle making a U-turn heads back the way it came, so the letters run backwards"
-        },
-        {
-         "text": "after",
-         "note": "coming after means following, so this piece is placed behind the other"
+         "at": 12,
+         "note": "a U-turn sends you back the way you came, so the abbreviation is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small, as on clothing labels"
-        },
-        {
          "words": "Post Office",
-         "gives": "OP",
-         "note": "PO, turned round; that the answer also reads backwards from the start of 'Post' is a coincidence"
+         "at": 0,
+         "gives": "PO",
+         "note": "PO is the abbreviation for Post Office; that the reversed pair also sits at the start of Post is a coincidence"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A post office reverses a decision after a minor compromise.",
-     "walkthrough": "The wordplay is read in the order the clue gives it, but the answer puts the small piece first.",
-     "definitionFit": "A plain synonym: a sop is a small concession offered to placate someone."
+     "surface": "The Post Office does an about-turn after making a minor concession to customers.",
+     "walkthrough": "'making U-turn' gives OP, placed 'after' S. A sop is something given to keep a person quiet.",
+     "definitionFit": "A sop is a small offering made to placate someone, a token concession."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "small"
+     "misdirectedWord": "concession"
     }
    }
   },
@@ -1032,31 +1053,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAID",
      "indicators": [
       {
        "text": "Half of",
-       "note": "the party's name has two words, and half of it is one of them"
+       "at": 0,
+       "note": "only the first of the party's two words is kept, the other half dropped"
       }
      ],
      "parts": [
       {
        "words": "nationalist party",
-       "gives": "PLAID",
-       "note": "the Welsh nationalist party; keep the first word of its two-word name and drop CYMRU"
+       "at": 8,
+       "gives": "PLAIDCYMRU",
+       "note": "Plaid Cymru is the Welsh nationalist party"
+      },
+      {
+       "gives": "CYMRU"
       }
      ]
     },
     "explanation": {
-     "surface": "A political party's members dressed in tartan.",
-     "walkthrough": "Plaid Cymru is the Welsh nationalist party; 'half' is one word of its two-word name, not half the letters.",
-     "definitionFit": "A plain synonym: plaid is tartan cloth or its checked pattern, the American word for it."
+     "surface": "Part of a nationalist party appears dressed in tartan.",
+     "walkthrough": "Plaid Cymru is the Welsh nationalist party; 'Half of' its name, the first word, is all that is kept.",
+     "definitionFit": "Plaid is a woven chequered cloth, the Scottish tartan pattern, and the word is used for tartan fabric."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Half"
+     "misdirectedWord": "nationalist"
     }
    }
   },
@@ -1081,44 +1105,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BATHTUB",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 31,
+       "note": "the rearranged letters go into the trimmed bubbly"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "squiffy",
-         "note": "squiffy means tipsy, so the letters stagger into a new order"
-        },
-        {
-         "text": "into",
-         "note": "going into something means ending up inside it"
-        },
-        {
          "text": "Not half",
-         "note": "not half means only half is used"
+         "at": 44,
+         "note": "half of the word bubbly is not used, leaving its first three letters"
         }
        ],
        "parts": [
         {
-         "words": "bubbly? Not half",
-         "gives": "BUB",
-         "note": "the first half of BUBBLY"
+         "words": "bubbly",
+         "at": 36,
+         "note": "taken as written; only its first half is kept"
         },
         {
-         "words": "that",
-         "note": "the four letters rearranged"
+         "gives": "BLY"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "squiffy",
+         "at": 22,
+         "note": "squiffy is British slang for tipsy, so the letters reel into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that's",
+         "at": 15,
+         "gives": "THAT",
+         "note": "the word that; the 's is part of the surface only"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy drinker of champagne heads for a long soak.",
-     "walkthrough": "Squiffy is British slang for slightly drunk, and bubbly is champagne.",
-     "definitionFit": "A definition by function: a soak is a long bath, and the tub is where you take it."
+     "surface": "Someone a bit tipsy heads for the champagne, but only half of it.",
+     "walkthrough": "'Not half' cuts BUBBLY to BUB; THAT, made 'squiffy', becomes ATHT and goes 'into' it: B-ATHT-UB. Squiffy is British slang for slightly drunk; soak is a long bath.",
+     "definitionFit": "A bathtub is where you have a long soak, so it is the place for one."
     },
     "features": {
      "answerInScene": true,

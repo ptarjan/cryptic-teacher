@@ -215,40 +215,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SHODDY",
      "indicators": [
       {
-       "text": "take wife's place"
+       "text": "take wife's place",
+       "at": 24,
+       "note": "the daughters replace the letter for wife, W being the abbreviation for wife in genealogies"
       }
      ],
      "parts": [
       {
        "words": "blingy",
+       "at": 7,
        "gives": "SHOWY",
-       "note": "bling is showy jewellery"
+       "note": "blingy means flashy, showy"
+      },
+      {
+       "gives": "W"
       },
       {
        "words": "daughters",
+       "at": 14,
        "gives": "DD",
-       "note": "d = daughter, twice for the plural"
-      },
-      {
-       "words": "wife",
-       "gives": "W",
-       "note": "w = wife; this is the letter that goes out"
+       "note": "D is the abbreviation for daughter, so two of them give DD"
       }
      ]
     },
     "explanation": {
-     "surface": "A family drama: flashy daughters muscling in on their mother's role.",
-     "walkthrough": "SHOWY loses its W and gains DD in the same spot.",
-     "definitionFit": "Shoddy and tatty both mean cheap and poorly made."
+     "surface": "A flashy pair of daughters move in and take over from the wife.",
+     "walkthrough": "In SHOWY, the daughters (DD) 'take wife's place', replacing the W: SHO-DD-Y.",
+     "definitionFit": "Shoddy means badly made or of poor quality, and tatty means worn and shabby."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wife's"
+     "misdirectedWord": "place"
     }
    }
   },
@@ -530,63 +530,66 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "REHEARSAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "the letters of HERE go round, HE moving from front to back"
+       "text": "after",
+       "at": 30,
+       "note": "the trimmed store comes after the rotated word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "after",
-         "note": "'after' in its sense of 'following in sequence' puts the magazine's letters behind the cycled 'here'"
+         "text": "cycling",
+         "at": 36,
+         "note": "cycling sends letters round from the front of the word here to its back"
         }
        ],
        "parts": [
         {
          "words": "here",
-         "gives": "REHE",
-         "note": "HERE with HE cycled to the end"
+         "at": 44,
+         "note": "taken as written, before its letters are rotated"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 23,
+         "note": "the nurse leaves, so those letters are taken out of the store"
+        }
+       ],
+       "parts": [
+        {
+         "words": "magazine",
+         "at": 8,
+         "gives": "ARSENAL",
+         "note": "an arsenal is a magazine, a store for weapons and ammunition"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "leaves"
-          }
-         ],
-         "parts": [
-          {
-           "words": "magazine",
-           "gives": "ARSENAL",
-           "note": "a magazine is a store of weapons"
-          },
-          {
-           "words": "nurse",
-           "gives": "EN",
-           "note": "EN = Enrolled Nurse; these letters go"
-          }
-         ]
+         "words": "nurse",
+         "at": 17,
+         "gives": "EN",
+         "note": "EN is an enrolled nurse"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reader with a magazine, and a nurse heading off after a bike ride.",
-     "walkthrough": "'Magazine' suggests reading matter, but it is the weapons store ARSENAL. 'Cycling' looks like the nurse's exercise and is the instruction to rotate HERE.",
-     "definitionFit": "A reading of a play, where the cast reads through the script, is a kind of rehearsal."
+     "surface": "Reading a magazine, a nurse leaves after cycling here.",
+     "walkthrough": "'Reading' is not the town or someone reading a magazine: it is the definition, a read-through of a play. A magazine here is an arms store, and the rotated word comes first, with the store 'after' it.",
+     "definitionFit": "A reading in the theatre is a read-through of a script, which is a kind of rehearsal."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "magazine"
     }
    }
@@ -1094,41 +1097,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PIMIENTO",
-     "indicators": [
-      {
-       "text": "halved"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Good",
+       "at": 0,
+       "gives": "PI",
+       "note": "PI, short for pious, means good in crosswords"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "the half word goes inside the doctor"
+        }
+       ],
        "parts": [
         {
-         "words": "Good",
-         "gives": "PI",
-         "note": "pi = pious, good"
+         "words": "Dr",
+         "at": 24,
+         "gives": "MO",
+         "note": "MO is a medical officer, a doctor"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in",
-           "note": "'in' read literally: the halved nutrient is placed in the doctor"
+           "text": "halved",
+           "at": 14,
+           "note": "halved means cut in two, so only the latter half of nutrient is used"
           }
          ],
          "parts": [
           {
-           "words": "Dr",
-           "gives": "MO",
-           "note": "MO = medical officer, a doctor"
+           "words": "nutrient",
+           "at": 5,
+           "note": "taken as written; only its second half is kept"
           },
           {
-           "words": "nutrient",
-           "gives": "IENT",
-           "note": "the second half of NUTRIENT"
+           "gives": "NUTR"
           }
          ]
         }
@@ -1137,9 +1146,9 @@
      ]
     },
     "explanation": {
-     "surface": "A health claim for the soft drink Dr Pepper.",
-     "walkthrough": "'Dr Pepper' reads as the brand name; it splits, with Dr the MO and Pepper the definition.",
-     "definitionFit": "Definition by genus: the pimiento is one variety of sweet red pepper, the kind stuffed into olives."
+     "surface": "A soft drink contains half the goodness it claims.",
+     "walkthrough": "Dr Pepper reads as the American soft drink, but the two words split: Dr is a medical officer and Pepper is the definition. 'halved' keeps the back half of nutrient, which goes 'in' the doctor, after the good letters.",
+     "definitionFit": "A pimiento is a sweet red pepper, the kind stuffed into olives."
     },
     "features": {
      "answerInScene": false,
@@ -1526,42 +1535,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KILN",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "KILL stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite, so the last letter of the word for destroy is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "destroy",
-         "gives": "KIL",
-         "note": "KILL without its last letter"
+         "at": 7,
+         "gives": "KILL",
+         "note": "to kill is to destroy"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "n = new"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 15,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly wrecking a brand-new oven.",
-     "walkthrough": "'New oven' reads as one purchase; 'new' belongs to the wordplay.",
-     "definitionFit": "A kiln is an oven for firing pottery or bricks."
+     "surface": "Someone nearly wrecks a brand-new cooker.",
+     "walkthrough": "'destroy' and 'oven' suggest a kitchen disaster, but the oven is the definition: the kind potters fire their clay in.",
+     "definitionFit": "A kiln is a furnace or oven for firing pottery or drying materials."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "destroy"
     }
    }
   },
@@ -1686,64 +1698,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLANGENT",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "PLAY is cut short by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 2,
+         "note": "short means cut off, so the last letter of play goes"
+        }
+       ],
        "parts": [
         {
          "words": "play",
-         "gives": "PLA",
-         "note": "PLAY without its last letter"
+         "at": 8,
+         "note": "taken as written; its last letter is cut"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "'in' read literally: good is placed in the points"
-          }
-         ],
-         "parts": [
-          {
-           "words": "points",
-           "gives": "NE",
-           "note": "N and E, two compass points"
-          },
-          {
-           "words": "good",
-           "gives": "G",
-           "note": "g = good"
-          }
-         ]
-        },
-        {
-         "words": "theatre's",
-         "gives": "NT",
-         "note": "NT = National Theatre in London"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "the letter for good goes inside the compass points"
+        }
+       ],
+       "parts": [
+        {
+         "words": "points",
+         "at": 22,
+         "gives": "NE",
+         "note": "N and E are compass points"
+        },
+        {
+         "words": "good",
+         "at": 14,
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "words": "theatre's",
+       "at": 33,
+       "gives": "NT",
+       "note": "NT is the National Theatre; the 's is part of the surface"
       }
      ]
     },
     "explanation": {
-     "surface": "A short play with good moments, and the theatre is booming with success.",
-     "walkthrough": "'Booming' reads as thriving box office; it is the definition in its sound sense. The National Theatre is on London's South Bank.",
-     "definitionFit": "Plangent means loud and resonant, with a mournful ring, so booming."
+     "surface": "A brief play at a theatre with a resonant production, continuing the previous clue.",
+     "walkthrough": "'short' trims PLAY to PLA; G goes 'in' NE (compass points), then NT (National Theatre) closes it.",
+     "definitionFit": "Plangent describes a loud, deep, resonant sound, often mournful, so it means booming."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "booming"
+     "misdirectedWord": "points"
     }
    }
   },
