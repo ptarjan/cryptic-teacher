@@ -50,32 +50,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HATEMAIL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of neighbouring words, so his version trades starts"
+       "at": 0,
+       "note": "Reverend Spooner famously swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "pal greeting",
-       "gives": "HATEMAIL",
-       "soundsLike": "MATE HAIL",
-       "note": "a pal is a mate, and to hail someone is to greet them"
+       "op": "homophone",
+       "spelt": "MATE",
+       "parts": [
+        {
+         "words": "pal",
+         "at": 10,
+         "gives": "MAYT",
+         "note": "a mate is a pal; Spooner swaps sounds, so the word is taken as said, 'mayt'"
+        }
+       ]
+      },
+      {
+       "words": "greeting",
+       "at": 14,
+       "gives": "HAIL",
+       "note": "hail is a greeting, as in 'hail, friend'"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend says hello to someone bringing letters nobody wants.",
-     "walkthrough": "Swap the opening sounds of MATE HAIL and you get HATE MAIL.",
-     "definitionFit": "Abusive letters are post that nobody wants, carried by the postman like any other mail."
+     "surface": "A friendly hello from a mate to the postman, who is carrying a nasty letter.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of MATE HAIL. 'postman's unwanted delivery' reads as the postman's own burden; it means abusive letters the recipient never wanted.",
+     "definitionFit": "Hate mail is abusive or threatening letters, the kind of post nobody wants to receive."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "greeting"
     }
    }
@@ -409,54 +420,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORATORS",
-     "indicators": [
-      {
-       "text": "working",
-       "note": "letters set working are put into motion and change position"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ORATORS",
+       "words": "Nothing",
+       "at": 0,
+       "gives": "O",
+       "note": "O, the figure zero, is nothing"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wanting",
-         "note": "wanting means lacking, so a letter goes missing"
+         "text": "working",
+         "at": 8,
+         "note": "working means being worked or reshaped, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Nothing",
-         "gives": "O",
-         "note": "nothing is zero, shaped like O"
-        },
-        {
-         "words": "for star",
-         "note": "taken as written"
-        },
-        {
-         "words": "loud",
-         "gives": "F",
-         "note": "F is forte, the musical direction for loud, and is the letter removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "wanting",
+           "at": 25,
+           "note": "wanting means lacking, so the letter for loud is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "for star",
+           "at": 16,
+           "note": "the anagram fodder before the loud letter goes"
+          },
+          {
+           "words": "loud",
+           "at": 33,
+           "gives": "F",
+           "note": "F stands for forte, loud in music"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An idle celebrity wants nothing to do with noisy talkers.",
-     "walkthrough": "'loud speakers' reads as a phrase, but 'loud' belongs to the wordplay and only 'speakers' defines.",
-     "definitionFit": "Orators are people who make public speeches, so they are speakers in the formal sense."
+     "surface": "A celebrity told to stop working because the speakers are too loud.",
+     "walkthrough": "'wanting' takes F (forte, loud) out of FOR STAR to leave ORSTAR, and 'working' rearranges that into RATORS after O.",
+     "definitionFit": "Orators are people who give public speeches, so they are speakers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "loud"
+     "joke": "pun",
+     "misdirectedWord": "speakers"
     }
    }
   },
@@ -482,29 +500,29 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "FERMI",
      "indicators": [
       {
        "text": "covering",
-       "note": "to cover something is to enclose it, so the letters lie inside the phrase"
+       "at": 15,
+       "note": "the two words cover the answer, which lies across the gap between them"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Golfer misses",
-       "note": "the run of letters spans the two words"
+       "at": 0,
+       "gives": "FERMI",
+       "note": "the letters are taken as written, spanning both words"
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer misses the putt despite being only a tiny distance away.",
-     "walkthrough": "GolFER MIsses holds the answer across the word break.",
-     "definitionFit": "A fermi is a unit of length equal to a femtometre, used for sizes of atomic nuclei."
+     "surface": "A golfer misses a putt, even though the ball has only a short way to go.",
+     "walkthrough": "The answer sits in golFER MIsses, hidden by 'covering'.",
+     "definitionFit": "A fermi is a unit of length of one femtometre, used for nuclear distances, so it is very small."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "covering"
     }
@@ -1240,45 +1258,55 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NEEDLERS",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally points to the very end, picking out a closing letter"
-      },
-      {
        "text": "replaces",
-       "note": "replacing means one thing takes another's place"
+       "at": 24,
+       "note": "replaces means one letter takes another's place, so the letter from director stands in for the one meaning singular"
       }
      ],
      "parts": [
       {
        "words": "Otiose",
+       "at": 0,
        "gives": "NEEDLESS",
-       "note": "otiose means serving no purpose"
-      },
-      {
-       "words": "director",
-       "gives": "R",
-       "note": "the closing letter of the word"
+       "note": "otiose means serving no purpose, needless"
       },
       {
        "words": "singular",
+       "at": 33,
        "gives": "S",
-       "note": "S is the abbreviation for singular, the letter swapped out"
+       "note": "S is the grammar abbreviation for singular"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 16,
+         "note": "only the final letter of director is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "director",
+         "at": 7,
+         "gives": "R",
+         "note": "supplies its last letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A useless manager is finally swapped out for odd, annoying folk.",
-     "walkthrough": "In NEEDLESS one S gives way to R.",
-     "definitionFit": "To needle someone is to provoke or annoy them, so needlers are people who irritate."
+     "surface": "A superfluous film director who ends up taking over from people who annoy everyone.",
+     "walkthrough": "'director finally' gives R, and it 'replaces' one S (singular) in NEEDLESS.",
+     "definitionFit": "To needle is to irritate or provoke, so needlers are people who annoy others."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "director"
+     "misdirectedWord": "singular"
     }
    }
   },
@@ -1479,7 +1507,8 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "to keep something is to hold it inside"
+       "at": 27,
+       "note": "keeping means holding, so the paper and the Spanish word hold the regular letters between them"
       }
      ],
      "parts": [
@@ -1488,11 +1517,13 @@
        "parts": [
         {
          "words": "paper",
+         "at": 10,
          "gives": "I",
          "note": "the i is a British national newspaper"
         },
         {
          "words": "in Spanish",
+         "at": 16,
          "gives": "EN",
          "note": "en is Spanish for in"
         }
@@ -1500,33 +1531,30 @@
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "BS",
        "indicators": [
         {
          "text": "regularly",
-         "note": "regularly means at even intervals, so every other letter is kept"
+         "at": 40,
+         "note": "taken at regular intervals, so every other letter of busy"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "busy",
-         "gives": "BS",
-         "select": "alternate",
-         "note": "the first and third letters"
+         "at": 35,
+         "note": "gives its first and third letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist writing in Spanish keeps busy on a regular basis.",
-     "walkthrough": "'Writer of paper' looks like a journalist, but the definition is 'Writer' alone; the i is a British daily paper.",
-     "definitionFit": "Henrik Ibsen was the Norwegian playwright of A Doll's House, a famous writer."
+     "surface": "An author who writes for a Spanish paper and stays constantly occupied.",
+     "walkthrough": "The i is a British daily newspaper, and en is the Spanish word for in.",
+     "definitionFit": "Henrik Ibsen was the Norwegian playwright of A Doll's House and Hedda Gabler."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "paper"
     }

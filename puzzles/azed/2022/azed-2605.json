@@ -400,44 +400,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Terribly",
-       "note": "something done terribly is done badly, so these letters come out in a muddled order"
+       "text": "about",
+       "at": 13,
+       "note": "about means around, so the jumbled letters go round the word for hostility"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so these letters surround the next word"
+         "text": "Terribly",
+         "at": 0,
+         "note": "something done terribly is done badly, so the letters of sad are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "sad",
-         "note": "the letters of sad rearranged"
-        },
-        {
-         "words": "hostility",
-         "gives": "WAR",
-         "note": "war is open hostility"
+         "at": 9,
+         "note": "the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "hostility",
+       "at": 19,
+       "gives": "WAR",
+       "note": "war is open hostility"
       }
      ]
     },
     "explanation": {
-     "surface": "A bitter feud ends with prizes being handed out, which is rather sad.",
-     "definitionFit": "Awards are prizes given in recognition of merit, so the two nouns are synonyms."
+     "surface": "A gloomy remark that conflict ends up bringing honours.",
+     "walkthrough": "'Terribly' jumbles SAD into ADS, which goes 'about' WAR.",
+     "definitionFit": "Awards are prizes or honours given in recognition of merit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hostility"
+     "misdirectedWord": "Terribly"
     }
    }
   },
@@ -603,48 +608,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DOVETAIL",
+     "op": "container",
      "indicators": [
       {
-       "text": "swinging",
-       "note": "something swinging moves about, so these letters are shaken into a new order"
+       "text": "in",
+       "at": 11,
+       "note": "the word for OK goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one word placed in the other ends up enclosed by it"
+         "text": "swinging",
+         "at": 21,
+         "note": "swinging means moving about, so the letters of a lido are rearranged"
         }
        ],
        "parts": [
         {
          "words": "a lido",
-         "gives": "DOAIL",
-         "note": "the letters of a lido rearranged"
-        },
-        {
-         "words": "OK",
-         "gives": "VET",
-         "note": "to vet something is to check and approve it, to OK it"
+         "at": 14,
+         "note": "the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "OK",
+       "at": 7,
+       "gives": "VET",
+       "note": "to OK something is to approve it, or vet it"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone smokes a joint at a swinging open-air pool and says it's fine.",
-     "walkthrough": "'Joint' tempts as a cannabis cigarette; it is the woodworking kind.",
-     "definitionFit": "A dovetail is an interlocking woodworking joint shaped like a dove's spread tail."
+     "surface": "A cheerful report on the swinging scene at an open-air swimming pool.",
+     "walkthrough": "'swinging' rearranges A LIDO into DOAIL, and VET goes 'in' it. A lido is a public open-air pool.",
+     "definitionFit": "A dovetail is a woodworking joint of interlocking wedge-shaped tenons."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "OK"
+     "joke": "pun",
+     "misdirectedWord": "Joint"
     }
    }
   },
@@ -719,13 +726,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GOOSEFOOT",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "in",
+       "at": 67,
+       "note": "the egg-shaped letter goes inside the mixture"
       }
      ],
      "parts": [
@@ -734,37 +740,56 @@
        "indicators": [
         {
          "text": "when cooked",
-         "note": "cooking transforms ingredients, so these letters are mixed into a new order"
+         "at": 46,
+         "note": "food that has been cooked is altered from its raw state, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "soft",
+         "at": 24,
          "note": "taken as written"
         },
         {
-         "words": "gooey",
-         "gives": "GOOE",
-         "note": "gooey without its last letter"
-        },
-        {
-         "words": "egg",
-         "gives": "O",
-         "note": "an egg is round like the letter O"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 33,
+           "note": "mostly means nearly all, so the last letter of gooey is left off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gooey",
+           "at": 40,
+           "note": "loses its final letter"
+          },
+          {
+           "gives": "Y",
+           "note": "the dropped last letter"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "egg",
+       "at": 63,
+       "gives": "O",
+       "note": "an egg is shaped like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe for a vegetable like beetroot, cooked soft and sticky with an egg mixed in.",
-     "walkthrough": "The egg's O is added to the other letters before they are cooked together.",
-     "definitionFit": "Goosefoot is the plant genus Chenopodium, in the same family as beet and spinach, so it is a botanical relative."
+     "surface": "A recipe for beetroot cooked soft and sticky with an egg stirred in.",
+     "walkthrough": "'mostly' cuts GOOEY to GOOE; 'when cooked' mixes that with SOFT into GOSEFOOT, and an egg's O goes 'in'. 'beet' looks like the vegetable in a recipe; it is part of a botanical definition.",
+     "definitionFit": "Goosefoot is a plant of the family that includes beet and spinach, named for its leaf shape."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "egg"
+     "misdirectedWord": "cooked"
     }
    }
   },
@@ -1106,43 +1131,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LECTURE",
+     "op": "container",
      "indicators": [
       {
-       "text": "adjusted",
-       "note": "adjusted means altered, so these letters are reset in another order"
+       "text": "after being taken in by",
+       "at": 21,
+       "note": "once taken in, the jumbled letters are enclosed, sitting inside the word for spinner"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "spinner",
+       "at": 45,
+       "gives": "LURE",
+       "note": "a spinner is a fishing lure that revolves in the water"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after being taken in by",
-         "note": "a thing taken in by another is held inside it"
+         "text": "adjusted",
+         "at": 12,
+         "note": "adjusted means altered, so the letters of etc are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "spinner",
-         "gives": "LURE",
-         "note": "a spinner is a revolving fishing lure"
-        },
-        {
          "words": "etc",
-         "gives": "ECT",
-         "note": "the letters of etc rearranged"
+         "at": 8,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A speech, and so on, gets revised after a spin doctor fools the speaker.",
-     "walkthrough": "'Spinner' suggests a spin doctor or a cricket bowler; here it is the angler's lure.",
-     "definitionFit": "An address is a formal speech, and a lecture is a talk given to an audience."
+     "surface": "A speech, et cetera, revised after a smooth-talking spin doctor fooled the speaker.",
+     "walkthrough": "'spinner' suggests a spin doctor or a bowler; here it is the angler's LURE. 'adjusted' makes ECT from etc, and 'after being taken in by' puts it inside LURE.",
+     "definitionFit": "A lecture is a formal talk given to an audience, which an address also is."
     },
     "features": {
      "answerInScene": true,
@@ -1277,43 +1303,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DRAGEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "fancy",
-       "note": "fancy means elaborate or fanciful, so the letters are arranged afresh"
+       "text": "within",
+       "at": 18,
+       "note": "the age goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "within",
-         "note": "a thing within another is enclosed by it"
+         "text": "fancy",
+         "at": 25,
+         "note": "fancy means elaborate or fanciful, so the letters of red are reworked"
         }
        ],
        "parts": [
         {
          "words": "red",
-         "gives": "DRE",
-         "note": "the letters of red rearranged"
-        },
-        {
-         "words": "Number of candles",
-         "gives": "AGE",
-         "note": "a birthday cake has as many candles as the person's age"
+         "at": 31,
+         "note": "the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "Number of candles",
+       "at": 0,
+       "gives": "AGE",
+       "note": "a birthday cake carries as many candles as the person's age"
       }
      ]
     },
     "explanation": {
-     "surface": "A birthday cake with its candles inside a fancy red ornament.",
-     "walkthrough": "The question mark flags that a dragee is one example of a cake decoration.",
-     "definitionFit": "A dragee is a sugar-coated sweet, notably the silver balls used to decorate cakes."
+     "surface": "Counting the candles on an elaborate red birthday cake.",
+     "walkthrough": "'fancy' turns RED into DRE, and AGE sits 'within' it. The question mark admits that a dragee is only one kind of cake decoration.",
+     "definitionFit": "A dragee is a sugar-coated sweet, such as the silver balls used to decorate cakes."
     },
     "features": {
      "answerInScene": true,
@@ -1599,42 +1626,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IDANT",
+     "op": "container",
      "indicators": [
       {
-       "text": "a form of",
-       "note": "a different form of the letters means their order is rearranged"
+       "text": "contains",
+       "at": 15,
+       "note": "the word it holds the jumbled letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "It",
+       "at": 12
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "contains",
-         "note": "something that contains another holds it inside"
+         "text": "a form of",
+         "at": 24,
+         "note": "a form of something is a version of it, so the letters of DNA appear in a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "It",
-         "note": "taken as written"
-        },
-        {
          "words": "DNA",
-         "gives": "DAN",
-         "note": "the letters of DNA rearranged"
+         "at": 34,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chromosome, naturally, contains some DNA.",
-     "walkthrough": "The question mark admits an idant is an old term rather than a strict synonym.",
-     "definitionFit": "Idant was Weismann's term for a unit of heredity, roughly a chromosome, made up of smaller ids."
+     "surface": "A biology question: is this a chromosome, given that it carries DNA?",
+     "walkthrough": "'a form of' turns DNA into DAN, which IT 'contains'. The question mark hedges: an idant is an old term, close to a chromosome but not quite.",
+     "definitionFit": "Idant was Weismann's term for a unit of hereditary material, roughly what is now called a chromosome."
     },
     "features": {
      "answerInScene": true,
@@ -1987,43 +2014,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRUTHY",
+     "op": "container",
      "indicators": [
       {
-       "text": "collapsing",
-       "note": "a collapsing structure falls apart, so its letters come down in another order"
+       "text": "in",
+       "at": 15,
+       "note": "the jumbled letters go inside the word for strain"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "strain",
+       "at": 18,
+       "gives": "TRY",
+       "note": "to try is to strain or tax, as in trying one's patience"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one word placed in another is enclosed by it"
+         "text": "collapsing",
+         "at": 4,
+         "note": "a collapsing hut falls apart, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "strain",
-         "gives": "TRY",
-         "note": "to try is to strain or tax, as in trying one's patience"
-        },
-        {
          "words": "Hut",
-         "gives": "UTH",
-         "note": "the letters of hut rearranged"
+         "at": 0,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hut falls down under stress, so it can seldom be trusted.",
-     "walkthrough": "'Rarely' is part of the definition, marking a rare sense; it is not a deletion signal.",
-     "definitionFit": "Truthy is a rare word for truthful or reliable, so something trustworthy, to be relied upon."
+     "surface": "A flimsy hut that caves in under strain is seldom dependable.",
+     "walkthrough": "'collapsing' turns HUT into UTH, which goes 'in' TRY. 'rarely' marks the sense as rare: the definition is a rare usage, not a statement that the thing is rarely reliable.",
+     "definitionFit": "Chambers gives truthy as a rare word meaning truthful or trustworthy, hence reliable."
     },
     "features": {
      "answerInScene": false,

@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -162,46 +163,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "odds",
-       "note": "Odds are the odd-numbered ones, so the first, third and fifth letters of the word beside it are taken and the rest dropped."
+       "text": "in order",
+       "at": 27,
+       "note": "put in order, so the jumbled letters are arranged properly"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "I then",
+       "at": 0
+      },
+      {
+       "words": "took",
+       "at": 7
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "in order",
-         "note": "Putting something in order means arranging it, and letters arranged afresh come out in a sequence they were not handed to you in."
+         "text": "odds on",
+         "at": 12,
+         "note": "odds on a word means its odd-numbered letters, first, third and fifth, of the word twenty"
         }
        ],
        "parts": [
         {
-         "words": "I then took",
-         "note": "nine of the twelve letters, taken exactly as they stand"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TET",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "odds on twenty",
-           "gives": "TET",
-           "select": "alternate",
-           "note": "the first, third and fifth letters of t-w-e-n-t-y"
-          }
-         ]
+         "words": "twenty",
+         "at": 20,
+         "note": "its odd letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone betting on number twenty at long odds, hoping the winnings will pay for a wedding.",
-     "walkthrough": "'Odds' is the bookmaker's word the surface needs and the letter-picking instruction the wordplay needs, and 'in order' reads as purpose while meaning arrangement.",
-     "definitionFit": "To tie the knot is the idiom for marrying and 'get hitched' is the same idea in slang, both standing for going through with the wedding."
+     "surface": "Someone who placed a bet at twenty-to-one and then arranged to marry.",
+     "walkthrough": "'odds on twenty' gives TET; add I THEN and TOOK, and 'in order' arranges the whole pool into the answer. 'odds on' reads as betting talk, not letter selection.",
+     "definitionFit": "Tying the knot is an idiom for marrying, and getting hitched is a casual way to say the same."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
     }
    }
   },
@@ -451,41 +454,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MOTLEY",
-     "indicators": [
-      {
-       "text": "with a twist in the tail",
-       "note": "A twist in the tail turns the end round, so the last two letters of the word before swap places."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "motel",
-       "note": "the word as it stands, before its last two letters are turned"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "with a twist in the tail",
+         "at": 16,
+         "note": "the end of the word motel is twisted round, its last two letters changing places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motel",
+         "at": 10
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "End of",
-         "note": "The end of a word is the letter it finishes on, which is all that is taken from the word that follows."
+         "at": 42,
+         "note": "the end of a word is its final letter, so only the closing letter of story is used"
         }
        ],
        "parts": [
         {
          "words": "story",
-         "note": "the letter this word finishes on"
+         "at": 49,
+         "gives": "Y",
+         "note": "its final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheap roadside motel and a tale with a surprise ending.",
-     "walkthrough": "'A twist in the tail' is what every good short story has, and the setter means it letter by letter; the exclamation mark is the tell that 'End of story!' is working too.",
-     "definitionFit": "Motley means made of clashing, ill-assorted parts — a motley crew — which is what disparate says about a collection of unlike things."
+     "surface": "A mixed-up motel story capped with a surprise ending, then the words that close a tale.",
+     "walkthrough": "'with a twist in the tail' swaps the final two letters of MOTEL to give MOTLE; the last letter of story finishes it.",
+     "definitionFit": "A motley collection is varied and ill-assorted, so disparate in its parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "twist"
     }
    }
   },
@@ -520,30 +536,33 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "imperfect",
-       "note": "Something imperfect is not as it should be, and letters not as they should be are out of their proper order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Exploit",
+       "at": 0,
+       "gives": "FEAT",
+       "note": "a feat is an exploit, a daring deed"
+      },
+      {
+       "words": "flyer",
+       "at": 8,
+       "gives": "HERON",
+       "note": "a heron is a bird, a flyer"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "imperfect",
+         "at": 19,
+         "note": "imperfect letters are flawed, so the word tenses is rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Exploit",
-         "gives": "FEAT",
-         "note": "an exploit is a feat"
-        },
-        {
-         "words": "flyer",
-         "gives": "HERON",
-         "note": "a long-legged river bird, and a flyer like any other"
-        },
-        {
          "words": "tenses",
-         "note": "the six letters of TENSES rebuilt"
+         "at": 29
         }
        ]
       }
@@ -551,9 +570,15 @@
     },
     "spelling": "FEATHER ONE'S NEST",
     "explanation": {
-     "surface": "Taking advantage of a leaflet whose grammar has all the tenses wrong.",
-     "walkthrough": "The imperfect is itself a tense, which is what makes 'imperfect tenses' read as grammar rather than as an instruction, and 'exploit' looks like the verb the sentence needs.",
-     "definitionFit": "To feather one's nest is to line it comfortably at somebody else's expense, so it means enriching yourself — benefit that is personal and usually improper."
+     "surface": "A grammar lesson on taking advantage of a bird by using the imperfect tense.",
+     "walkthrough": "'imperfect' looks like grammar beside 'tenses' but it is the anagram signal, making ESNEST.",
+     "definitionFit": "Feathering one's nest is an idiom for enriching oneself, often improperly, through one's position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "imperfect"
     }
    }
   },
@@ -1257,52 +1282,64 @@
     "definitions": [
      {
       "text": "mañana, got that, but not tomorrow",
-      "at": 28,
-      "note": "This is not a synonym but an instruction to look at the Spanish word rather than read it: what you get from mañana is the mark on the page, not the meaning tomorrow."
+      "at": 28
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TILDE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Finally",
-       "note": "Finally means at the end, so what is taken from the word after it is the letter it finishes with."
-      },
-      {
-       "text": "crash",
-       "note": "A crash leaves the pieces of a thing lying where they fell, so these letters are rebuilt in a different arrangement."
+       "text": "in",
+       "at": 14,
+       "note": "the letter goes inside the jumbled word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "This puts the single letter inside the group beside it instead of alongside them."
+         "text": "crash",
+         "at": 17,
+         "note": "a crash diet, but here crash means the letters of diet are smashed and rearranged"
         }
        ],
        "parts": [
         {
          "words": "diet",
-         "gives": "TIDE",
-         "note": "the four letters of DIET rearranged"
-        },
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "Finally enrol",
+         "text": "Finally",
+         "at": 0,
+         "note": "finally means at the very end, so only the closing letter of enrol is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enrol",
+         "at": 8,
          "gives": "L",
-         "note": "the letter enrol ends on"
+         "note": "its final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Signing up at the last minute for a crash diet, then putting it off until the day after.",
-     "walkthrough": "The definition asks you to look at the Spanish word rather than translate it: what mañana has and 'tomorrow' has not is the squiggle over its n.",
-     "definitionFit": "A tilde is the wavy mark written over the n in mañana, so the definition names the symbol on the page rather than what the word means."
+     "surface": "Someone resolving to start a crash diet, but in Spanish fashion, not until tomorrow.",
+     "walkthrough": "'crash diet' reads as a whole phrase, but 'crash' rearranges DIET around L. Mañana is Spanish for tomorrow and carries the mark over its n; the English word tomorrow does not.",
+     "definitionFit": "The tilde is the wavy accent over the n in mañana, absent from the English equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "crash"
     }
    }
   },
