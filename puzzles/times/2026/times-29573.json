@@ -239,8 +239,9 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "entertaining",
-       "note": "a host entertaining a guest has them inside the house, so the portion word holds the politician"
+       "text": "to lose",
+       "at": 49,
+       "note": "to lose says the letter that follows is dropped from what comes before"
       }
      ],
      "parts": [
@@ -248,54 +249,54 @@
        "op": "container",
        "indicators": [
         {
-         "text": "to lose",
-         "note": "to lose something is to be left without it, so this letter is taken out"
+         "text": "entertaining",
+         "at": 25,
+         "note": "entertaining means hosting, so one piece takes the other in"
         }
        ],
        "parts": [
         {
          "words": "helping",
+         "at": 17,
          "gives": "RATION",
-         "note": "a helping is a ration or portion"
+         "note": "a ration is a helping or allotted portion"
         },
         {
          "words": "politician",
+         "at": 38,
          "gives": "MP",
-         "note": "Member of Parliament"
+         "note": "MP, Member of Parliament, is a politician"
         }
        ]
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally means at the end, so only the last letter of weight is used"
+         "at": 64,
+         "note": "finally points to the last letter of the word before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "weight finally",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of weight; this is the letter removed"
+         "words": "weight",
+         "at": 57,
+         "note": "the word whose final letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician is served a salad while trying to shed some pounds.",
-     "walkthrough": "The surface is a diet, with 'lose weight' reading as one phrase; in fact 'weight' gives up only its last letter.",
-     "definitionFit": "Rampion is a bellflower whose roots and leaves were once eaten in salads, so it is a salad ingredient by example."
+     "surface": "A salad portion offered while hosting a politician who is trying to slim down.",
+     "walkthrough": "'entertaining' puts MP inside RATION to make RAMPTION; 'to lose' then drops T, the last letter of 'weight' ('finally').",
+     "definitionFit": "Rampion is a bellflower whose roots and leaves were once commonly eaten as a salad vegetable."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "weight"
+     "misdirectedWord": "entertaining"
     }
    }
   },
@@ -320,39 +321,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "revolutionary",
-       "note": "a revolution is a turn, so the country's letters are turned round"
-      },
-      {
        "text": "to south of",
-       "note": "south is below on a map, and in a down entry below means after, so the road follows the country"
+       "at": 35,
+       "note": "in a down clue, to the south of means placed below, so this piece comes after"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 47,
+         "note": "revolutionary suggests turning round, so the country's letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "road",
-         "gives": "DR",
-         "note": "standard abbreviation of road"
-        },
-        {
-         "words": "revolutionary country",
+         "words": "country",
+         "at": 61,
          "gives": "UK",
-         "note": "the United Kingdom's abbreviation, turned round"
+         "note": "UK, the United Kingdom, is a country"
         }
        ]
+      },
+      {
+       "words": "road",
+       "at": 30,
+       "gives": "RD"
       }
      ]
     },
     "explanation": {
-     "surface": "An emigrant takes the road south from a country in revolution.",
-     "walkthrough": "'Revolutionary' suggests politics, but it only turns the country round. The country is the UK, not any land in revolt.",
-     "definitionFit": "The Kurds are an ethnic group of the Middle East, so a Kurd is one member of that group."
+     "surface": "A member of an ethnic group sets off down a road to the south of a country in revolt.",
+     "walkthrough": "'revolutionary' turns UK round to KU, and in this down clue 'to south of' puts RD after it.",
+     "definitionFit": "The Kurds are a people living mainly in the mountains where Turkey, Iraq, Iran and Syria meet."
     },
     "features": {
      "answerInScene": true,
@@ -383,42 +389,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PITFALL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. William Spooner was famous for swapping the first sounds of words, so this asks for that swap"
+       "at": 0,
+       "note": "Spooner's signals a Spoonerism: the opening sounds of the two words are swapped, after the Rev. William Spooner"
       }
      ],
      "parts": [
       {
        "words": "able",
+       "at": 10,
        "gives": "FIT",
-       "note": "fit and able"
+       "note": "to be fit for a job is to be able to do it"
       },
       {
-       "words": "Christian correspondent",
-       "gives": "PAUL",
-       "note": "St Paul wrote letters (epistles) to the early churches"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's",
-       "gives": "PITFALL",
-       "soundsLike": "FIT PAUL",
-       "note": "swap the opening F and P sounds of the two words"
+       "op": "homophone",
+       "spelt": "PALL",
+       "parts": [
+        {
+         "words": "Christian correspondent",
+         "at": 15,
+         "gives": "PAUL",
+         "note": "St Paul wrote many of the New Testament's letters, making him the great Christian correspondent; the name Paul is said just like the word pall"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A capable Christian letter-writer hides a danger.",
-     "walkthrough": "The 'correspondent' is not a journalist but St Paul, author of many New Testament letters.",
-     "definitionFit": "A pitfall was originally a covered pit dug as a trap, so it is literally a hazard kept hidden."
+     "surface": "An able letter-writer of the early Church conceals a danger.",
+     "walkthrough": "FIT PAUL, with the first sounds swapped as Spooner would, becomes PIT FALL; PAUL and PALL sound alike.",
+     "definitionFit": "A pitfall is a hidden danger or trap, originally a covered pit into which animals fell."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "correspondent"
     }
    }
@@ -938,54 +945,49 @@
      "indicators": [
       {
        "text": "confused",
-       "note": "something confused is muddled up, so its letters are jumbled"
+       "at": 8,
+       "note": "confused means mixed up, so all these letters are jumbled together"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "A hotel",
+       "at": 0,
+       "note": "taken as written as fodder"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
          "text": "empty",
-         "note": "an empty word has lost its contents, so only its outside letters remain"
+         "at": 22,
+         "note": "an empty word has had its insides removed, leaving just its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "A hotel",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "PB",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "empty pub",
-           "gives": "PB",
-           "select": "outer",
-           "note": "pub without its middle letter"
-          }
-         ]
-        },
-        {
-         "words": "is",
-         "note": "anagram fodder"
+         "words": "pub",
+         "at": 28,
+         "note": "the word whose outer letters are kept"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 32,
+       "note": "taken as written as fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled hotel paired with a deserted pub still gives visitors a warm reception.",
-     "walkthrough": "'Is' looks like a link before the definition, but its letters are needed in the anagram.",
-     "definitionFit": "Hospitable means warmly receptive to guests, a plain synonym for welcoming."
+     "surface": "A hotel mistaken for a deserted pub still seems friendly.",
+     "walkthrough": "'empty' leaves PB from 'pub'; add A HOTEL and IS, and 'confused' rearranges the lot. 'with' is just a link.",
+     "definitionFit": "Hospitable describes a person or place that is friendly and generous to guests."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "confused"
     }
    }
   },
@@ -1512,41 +1514,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the word for conflicted goes round the letter"
+       "at": 25,
+       "note": "about means surrounding, so the torn feeling wraps round the next piece"
       }
      ],
      "parts": [
       {
        "words": "conflicted",
+       "at": 14,
        "gives": "TORN",
-       "note": "torn between two choices"
+       "note": "someone torn between choices is conflicted"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "H",
        "indicators": [
         {
          "text": "leader of",
-         "note": "the leader goes first, so only the first letter of house is used"
+         "at": 31,
+         "note": "the leader of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leader of house",
-         "gives": "H",
-         "select": "first",
-         "note": "first letter of house"
+         "words": "house",
+         "at": 41,
+         "note": "the word whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aged person is torn about a house.",
-     "walkthrough": "'Character' means a letter of an alphabet, not a person.",
-     "definitionFit": "Thorn (þ) is an Old English letter for the 'th' sound, now dropped, so an old character in the alphabet sense."
+     "surface": "An old figure is torn about who should lead the house.",
+     "walkthrough": "'leader of' gives H from 'house', and 'about' puts TORN round it. The answer is an Old English letter, still used in Icelandic.",
+     "definitionFit": "Thorn is a runic letter used in Old English to represent the 'th' sound."
     },
     "features": {
      "answerInScene": false,
@@ -1767,47 +1768,45 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "the first to",
-       "note": "the first of a word is its first letter"
+       "text": "sail",
+       "at": 34,
+       "note": "to sail is to set off and leave, so this letter departs from the plan"
       }
      ],
      "parts": [
       {
        "words": "plan",
+       "at": 10,
        "gives": "SKETCH",
-       "note": "a sketch is a rough plan"
+       "note": "a sketch is a rough plan or outline"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "set sail",
-         "note": "a ship that sets sail departs, so that letter leaves the word for plan"
+         "text": "the first to",
+         "at": 16,
+         "note": "the first to means the opening letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the first to \"set",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of set, which is removed"
+         "words": "set",
+         "at": 30,
+         "note": "the word whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat drawn in a plan is the first to get under way.",
-     "walkthrough": "The quotation marks show 'set sail' doing a double job: 'set' supplies the letter, and 'set sail' tells it to leave.",
-     "definitionFit": "A ketch is a two-masted sailing boat, a vessel by example."
+     "surface": "A ship's planned voyage, with the first boat about to put to sea.",
+     "walkthrough": "'the first to' gives S, the opening letter of 'set', and 'sail' makes it leave SKETCH. 'Set sail' looks like one phrase but is split between the two jobs.",
+     "definitionFit": "A ketch is a two-masted sailing boat, a type of vessel."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "sail"
     }
    }
