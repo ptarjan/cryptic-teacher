@@ -650,44 +650,47 @@
     "definitions": [
      {
       "text": "Number",
-      "at": 0
+      "at": 0,
+      "note": "read as numb-er, something that numbs: a local anaesthetic"
      }
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "LOCAL",
      "indicators": [
       {
        "text": "cycling",
-       "note": "a cycle goes round and comes back, so letters from the front are carried round to the end"
+       "at": 30,
+       "note": "cycling moves letters round from the front to the back of the word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOCAL",
        "indicators": [
         {
          "text": "mostly",
-         "note": "most of a thing is all but a bit, so the last letter is dropped"
+         "at": 8,
+         "note": "mostly means not quite all, so the last letter goes"
         }
        ],
        "parts": [
         {
          "words": "inexperienced",
-         "gives": "CALLO",
-         "note": "callow means inexperienced, here without its final letter"
+         "at": 15,
+         "gives": "CALLOW",
+         "note": "callow means young and inexperienced"
+        },
+        {
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist is still mostly a novice at the sport.",
-     "walkthrough": "'Number' is read as 'something that numbs': a local anaesthetic. Moving CAL from the front of CALLO to the back gives the answer.",
-     "definitionFit": "A local is short for a local anaesthetic, which numbs one part of the body, so it is literally a numbing agent."
+     "surface": "Some figure is described as raw and going round in circles.",
+     "walkthrough": "'Number' is not a figure but something that numbs. 'mostly' cuts CALLOW to CALLO, and 'cycling' moves CAL to the back.",
+     "definitionFit": "A local is a local anaesthetic, which deadens feeling in one part of the body, so it is a numbing agent."
     },
     "features": {
      "answerInScene": false,
@@ -718,58 +721,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARTICHOKE",
+     "op": "composite",
      "indicators": [
       {
+       "text": "denied",
+       "at": 26,
+       "note": "denied means refused entry, so those letters are kept out of the mix"
+      },
+      {
        "text": "cooking",
-       "note": "cooking transforms ingredients, so the letters are mixed and rearranged"
+       "at": 33,
+       "note": "cooking means being worked up or concocted, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ARTICHOKE",
+       "words": "thick orange",
+       "at": 41
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "originally denied",
-         "note": "denying is refusing entry, and originally points at the opening letters, so those first letters are refused"
+         "text": "originally",
+         "at": 15,
+         "note": "originally points to the first letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "NG",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "New girlfriend",
-           "gives": "NG",
-           "select": "first",
-           "note": "the initial letters of each word, which are taken away"
-          }
-         ]
-        },
-        {
-         "words": "thick orange",
-         "note": "the letters before removal"
+         "words": "New girlfriend",
+         "at": 0,
+         "note": "first letters give N and G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new partner refuses to make a stodgy orange vegetable dish.",
-     "walkthrough": "'Thick orange vegetable' reads like a description of a carrot or squash; only the last word defines. Remove N and G from 'thick orange' and rearrange the rest.",
-     "definitionFit": "The globe artichoke and Jerusalem artichoke are both plants eaten as vegetables."
+     "surface": "A new partner turns down an orange vegetable dish thick with sauce.",
+     "walkthrough": "'originally' takes N and G from 'New girlfriend', and 'denied' removes them from THICK ORANGE; 'cooking' rearranges the rest.",
+     "definitionFit": "The globe artichoke is a thistle-like plant whose flower head is eaten as a vegetable."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "orange"
+     "misdirectedWord": "cooking"
     }
    }
   },
@@ -1323,31 +1320,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAISE",
+     "op": "middle",
      "indicators": [
       {
        "text": "Outsiders excluded from",
-       "note": "the outsiders are the edge letters, and excluding them leaves only the inside"
+       "at": 0,
+       "note": "the outsiders of a word are its first and last letters, which are dropped here"
       }
      ],
      "parts": [
       {
        "words": "acclaimed",
+       "at": 24,
        "gives": "PRAISED",
-       "note": "something acclaimed is praised"
+       "note": "praised means acclaimed"
       }
      ]
     },
     "explanation": {
-     "surface": "Non-members are kept out of a prestigious academy.",
-     "walkthrough": "'Institute' looks like a noun for the academy; it is the verb, to start something up, as in raising an objection.",
-     "definitionFit": "To institute proceedings or a question is to set it going, and to raise one means to bring it up and start it."
+     "surface": "People on the outside are shut out of a celebrated academy.",
+     "walkthrough": "'institute' looks like a noun, a college, but here it is a verb, to set up.",
+     "definitionFit": "To raise an objection or an action is to institute it, to set it going formally."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "institute"
     }
    }

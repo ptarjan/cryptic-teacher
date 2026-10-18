@@ -61,49 +61,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHADUF",
-     "indicators": [
-      {
-       "text": "with end bit fallen off",
-       "note": "an end bit falling off means the final letter of the preceding word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "SHADUF",
        "indicators": [
         {
          "text": "somehow",
-         "note": "somehow says the letters arrive by some unstated route, so the word before it is jumbled"
+         "at": 25,
+         "note": "somehow means in some way or other, so the letters of has are reordered"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "has",
-           "note": "the three letters of has, rearranged"
-          },
-          {
-           "words": "broken",
-           "gives": "DUF",
-           "note": "duff is slang for broken or useless; its last letter goes"
-          }
-         ]
+         "words": "has",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with end bit fallen off",
+         "at": 40,
+         "note": "the end bit of the word drops away, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broken",
+         "at": 33,
+         "gives": "DUFF",
+         "note": "duff is British slang for broken or useless"
+        },
+        {
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pump for lifting water has broken down, with a part dropping off its end.",
-     "walkthrough": "SHA plus DUF(F) gives SHADUF. 'Duff' is British slang for broken or useless.",
-     "definitionFit": "A shaduf is the counterweighted pole and bucket used in Egypt and the Middle East to lift water for irrigation."
+     "surface": "An old pump has broken down, with a piece snapped off its end.",
+     "walkthrough": "The anagram indicator rearranges HAS into SHA, and 'with end bit fallen off' cuts DUFF to DUF.",
+     "definitionFit": "A shaduf is a pole with a bucket and counterweight, used in Egypt and elsewhere to lift water for irrigation."
     },
     "features": {
      "answerInScene": true,
@@ -222,12 +224,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DINANTIAN",
      "indicators": [
       {
        "text": "about",
-       "note": "about means going round, so one piece is wrapped around the other"
+       "at": 38,
+       "note": "about means around, so the jumbled letters go round the insect"
       }
      ],
      "parts": [
@@ -236,33 +237,36 @@
        "indicators": [
         {
          "text": "excited",
-         "note": "excited letters are stirred up and rearranged"
+         "at": 30,
+         "note": "excited means stirred up, so the letters of Indian are mixed"
         }
        ],
        "parts": [
         {
-         "words": "insect",
-         "gives": "ANT",
-         "note": "the ant is an insect"
-        },
-        {
          "words": "Indian's",
-         "gives": "DINIAN",
-         "note": "the letters of Indian, rearranged"
+         "at": 21,
+         "gives": "INDIAN",
+         "note": "Indian's reads as Indian is, the word itself giving the letters"
         }
        ]
+      },
+      {
+       "words": "insect",
+       "at": 14,
+       "gives": "ANT",
+       "note": "an ant is an insect"
       }
      ]
     },
     "explanation": {
-     "surface": "An Indian person gets excited about a prehistoric insect.",
-     "walkthrough": "The 's is read as 'is'. 'Carboniferous' looks like an adjective for the insect, but it is the definition.",
-     "definitionFit": "The Dinantian is the earliest epoch of the Carboniferous period in Europe, named after Dinant in Belgium."
+     "surface": "An Indian person is thrilled about a fossil insect from the coal age.",
+     "walkthrough": "'excited' rearranges INDIAN into DINIAN, and 'about' puts it round ANT.",
+     "definitionFit": "The Dinantian is the lowest series of the Carboniferous period in Europe, so it is a geological age term."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Carboniferous"
+     "misdirectedWord": "excited"
     }
    }
   },
@@ -384,42 +388,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TSWANA",
+     "op": "composite",
      "indicators": [
       {
        "text": "astray",
-       "note": "things gone astray have wandered from their places, so the letters are jumbled"
+       "at": 24,
+       "note": "astray means off course, so the letters wander into a new order"
+      },
+      {
+       "text": "could be seen in",
+       "at": 31,
+       "note": "the answer and the letters of led together can be found jumbled in the next word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TSWANA",
-       "parts": [
-        {
-         "words": "led",
-         "note": "taken as written"
-        },
-        {
-         "words": "wasteland",
-         "note": "taken as written"
-        }
-       ]
+       "words": "wasteland",
+       "at": 48
+      },
+      {
+       "words": "led",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "Members of an African people who were led off course are spotted in a desert.",
-     "walkthrough": "The clue runs backwards: TSWANA plus LED, jumbled, gives WASTELAND. So take LED out of WASTELAND and rearrange the rest.",
+     "surface": "A group of Africans wanders lost in a barren landscape.",
+     "walkthrough": "A composite anagram: 'astray' and 'could be seen in' say the answer plus LED, rearranged, gives WASTELAND, so WASTELAND without L, E, D leaves the answer's letters.",
      "definitionFit": "The Tswana are a Bantu people of southern Africa, the main group in Botswana."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "led"
+     "misdirectedWord": "wasteland"
     }
    }
   },
@@ -1201,26 +1202,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARRIAGE",
      "indicators": [
       {
        "text": "not begun",
-       "note": "a word not begun is missing its opening letter"
+       "at": 8,
+       "note": "not begun means the word lacks its start, so the first letter goes"
       }
      ],
      "parts": [
       {
        "words": "Wedding",
-       "gives": "ARRIAGE",
-       "note": "marriage, without its first letter"
+       "at": 0,
+       "gives": "MARRIAGE",
+       "note": "a marriage is a wedding"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A wedding that never got under way, in an old Scottish church.",
-     "walkthrough": "'Service' suggests a church ceremony to go with the wedding; here it is labour owed to a landlord.",
-     "definitionFit": "Arriage was a feudal duty in Scotland: labour with horses and carts owed by a tenant to the landlord."
+     "surface": "A wedding that never got under way is set beside an old Scottish church service.",
+     "walkthrough": "'not begun' drops the M. 'service' is not a church service but feudal work owed to a landlord.",
+     "definitionFit": "Arriage was a feudal duty in Scotland of providing horses and carts for a landlord, an obsolete form of labour."
     },
     "features": {
      "answerInScene": false,
@@ -1706,47 +1710,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGGRO",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "nameless",
-       "note": "nameless means without N, the abbreviation for name"
+       "text": "criminal",
+       "at": 40,
+       "note": "criminal means wrong or crooked, so the letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "criminal",
-         "note": "something criminal is crooked, so the letters are jumbled"
+         "text": "nameless",
+         "at": 23,
+         "note": "nameless means without N, the abbreviation for name, so that letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "gang",
-         "gives": "GAG",
-         "note": "gang with its N for name taken away"
+         "at": 32
         },
         {
-         "words": "or",
-         "note": "taken as written"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "or",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "Trouble caused by an anonymous gang or a lawbreaker.",
-     "walkthrough": "N is the standard abbreviation for name. Aggro is British slang, short for aggravation.",
-     "definitionFit": "Aggro is informal British slang for aggravation: annoyance, hassle or aggressive trouble."
+     "surface": "Annoyance comes from an unnamed gang or a lawbreaker.",
+     "walkthrough": "'nameless' drops N from GANG to give GAG; with OR added, 'criminal' rearranges GAGOR.",
+     "definitionFit": "Aggro is British slang for aggravation, meaning trouble or annoyance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "nameless"
+     "misdirectedWord": "criminal"
     }
    }
   },
@@ -1832,45 +1838,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEOLOGASTER",
+     "op": "composite",
      "indicators": [
       {
-       "text": "This man",
-       "note": "this man means the answer is the word man taken out of the following letters"
+       "text": "being cracked up",
+       "at": 44,
+       "note": "cracked means broken apart, so the letters are rearranged, with man to be left out of the result"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "cracked up",
-         "note": "something cracked up is broken into pieces and reassembled"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "hoot, great Anselm",
-         "gives": "HOOTGREATSEL",
-         "note": "all fifteen letters of the three words, less M, A and N"
+         "words": "hoot",
+         "at": 25
+        },
+        {
+         "words": "great",
+         "at": 31
+        },
+        {
+         "words": "Anselm",
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "man",
+       "at": 5
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A shallow theologian gets hooted at while great Saint Anselm is praised to the skies.",
-     "walkthrough": "Jumble HOOT GREAT ANSELM and this man is what is left after MAN is taken away. 'Cracked up' also means highly praised, the honour Anselm gets that the answer does not.",
-     "definitionFit": "A theologaster is a shallow or petty theologian, the sort of pseudo-scholar who deserves derision rather than respect."
+     "surface": "A petty preacher is jeered at, while the great Saint Anselm is praised to the skies.",
+     "walkthrough": "A composite anagram: 'being cracked up' says the answer plus MAN, rearranged, gives HOOT GREAT ANSELM. A petty theologian would be hooted at, while the real thing, Anselm, is cracked up, meaning praised.",
+     "definitionFit": "A theologaster is a shallow or trivial theologian, the sort mocked rather than revered."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Anselm"
+     "misdirectedWord": "cracked"
     }
    }
   },

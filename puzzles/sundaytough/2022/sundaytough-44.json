@@ -160,43 +160,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RESCRIPTS",
+     "op": "composite",
      "indicators": [
       {
        "text": "novel",
-       "note": "novel means new, so the combined letters appear in a fresh arrangement"
+       "at": 10,
+       "note": "novel means new and different, so the letters are formed into a fresh arrangement"
+      },
+      {
+       "text": "with such",
+       "at": 16,
+       "note": "with such means combined with the answer itself, whose letters join the man's in the pool"
+      },
+      {
+       "text": "might make",
+       "at": 35,
+       "note": "the answer together with the man's letters could be rearranged to make the final phrase"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RESCRIPTS",
-       "indicators": [
-        {
-         "text": "with such",
-         "note": "with such says the answer joins the first words to make the phrase that follows, so the answer is that phrase less those words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Christmas present",
-         "note": "the target phrase, taken as written"
-        },
-        {
-         "words": "The man's",
-         "note": "taken as written, letters to be taken away from the target phrase"
-        }
-       ]
+       "words": "Christmas present",
+       "at": 46
+      },
+      {
+       "words": "The man's",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rewriting a novel imagines it could become a Christmas present.",
-     "walkthrough": "A composite anagram: THE MAN'S plus the answer's letters rearrange into CHRISTMAS PRESENT, so take THE MAN'S out and shuffle what is left into RESCRIPTS.",
-     "definitionFit": "A rescript is a rewriting of something, so rescripts is a plural noun meaning versions written again."
+     "surface": "Someone says a man's novel, if heavily rewritten, would be a fine gift at Christmas.",
+     "walkthrough": "A composite anagram: 'novel' and 'might make' say THE MAN'S plus the answer, rearranged, gives CHRISTMAS PRESENT; take THEMANS out of those letters and the answer's are left.",
+     "definitionFit": "A rescript is an official edict or reply, and also something written again, so rescripts are revised texts."
     },
     "features": {
      "answerInScene": true,
@@ -1512,26 +1508,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DIPPER",
      "indicators": [
       {
-       "text": "Exchanging tips",
-       "note": "exchanging tips means the first and last letters swap places"
+       "text": "Exchanging",
+       "at": 0,
+       "note": "exchanging means trading places, so the letter now at the front is swapped for the other end letter"
       }
      ],
      "parts": [
       {
-       "words": "muscular",
-       "gives": "RIPPED",
-       "note": "ripped is slang for very muscular"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "tips",
+         "at": 11,
+         "note": "the tips of a word are its end letters; here the last one is changed to match the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "muscular",
+         "at": 21,
+         "gives": "RIPPED",
+         "note": "ripped is slang for very muscular, with well-defined muscles"
+        },
+        {
+         "gives": "D"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Trading advice with a muscle-bound diver.",
-     "walkthrough": "'Tips' looks like advice; it means the ends of the word.",
-     "definitionFit": "The dipper is a small bird that dives and walks underwater in streams to feed."
+     "surface": "A well-built diver swaps advice with others.",
+     "walkthrough": "'tips' looks like advice being traded, but it means the ends of RIPPED. 'Exchanging tips' swaps its R and D: first the D end becomes R (RIPPER), then the front R becomes D.",
+     "definitionFit": "The dipper is a small bird that dives and walks underwater in streams to catch insects."
     },
     "features": {
      "answerInScene": false,
