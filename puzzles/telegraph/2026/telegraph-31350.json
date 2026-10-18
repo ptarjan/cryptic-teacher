@@ -90,47 +90,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POPULATE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "ramshackle",
+       "at": 8,
+       "note": "a ramshackle hut is tumbledown and disordered, so its letters are put into a new order"
+      },
+      {
+       "text": "not",
+       "at": 31,
+       "note": "not tells you the hotel letter is to be left out of the pool before rearranging"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "POPULATE",
-       "indicators": [
-        {
-         "text": "ramshackle",
-         "note": "a ramshackle hut is falling apart, so its letters are rearranged"
-        },
-        {
-         "text": "not",
-         "note": "'not hotel' means without the hotel, so the letter for hotel is excluded from the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Aleppo hut",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "hotel",
-         "gives": "H",
-         "note": "Hotel is H in the NATO alphabet; take it out, leaving ALEPPOUT"
-        }
-       ]
+       "words": "Aleppo hut",
+       "at": 19
+      },
+      {
+       "words": "hotel",
+       "at": 35,
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of someone living in a tumbledown shack in Aleppo, with no hotel nearby.",
-     "walkthrough": "Remove the H first, then rearrange the eight letters that remain.",
-     "definitionFit": "A plain synonym: the people who inhabit a town are said to populate it."
+     "surface": "Someone takes up residence in a rickety shack in Aleppo, not a hotel.",
+     "walkthrough": "From the letters of ALEPPO HUT, 'not' hotel (H) leaves ALEPPOUT, which 'ramshackle' rearranges. Aleppo is a city in Syria.",
+     "definitionFit": "To populate a place is to inhabit it, so the verb works as dwelling in or occupying somewhere."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hotel"
+     "misdirectedWord": "Aleppo"
     }
    }
   },
@@ -366,42 +360,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LENIN",
-     "indicators": [
-      {
-       "text": "having ousted leader",
-       "note": "the first letter of Benin is thrown out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "left",
+       "at": 15,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having ousted leader",
+         "at": 27,
+         "note": "ousting a word's leader throws out its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "left",
-         "gives": "L",
-         "note": "L = left"
+         "words": "Benin",
+         "at": 20,
+         "note": "taken as written; Benin is a West African country, here losing its first letter"
         },
         {
-         "words": "Benin",
-         "gives": "ENIN",
-         "note": "Benin without its first letter B"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news line about a Russian leader leaving the West African state of Benin after a coup.",
-     "walkthrough": "'Leader' appears twice: the first is part of the definition, the second is the first letter of Benin.",
-     "definitionFit": "Lenin led the Bolshevik revolution and the early Soviet state."
+     "surface": "A Russian leader departed Benin after a coup removed its head of state.",
+     "walkthrough": "In 'having ousted leader', the leader is the first letter of Benin, not a head of state, so ENIN follows L. Benin is a country in West Africa.",
+     "definitionFit": "Vladimir Lenin was the founding head of Soviet Russia after the 1917 revolution."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ousted"
+     "misdirectedWord": "leader"
     }
    }
   },
@@ -629,37 +625,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCUT",
-     "indicators": [
-      {
-       "text": "shelled",
-       "note": "shelling removes the outer layer, so each word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "shelled",
+         "at": 12,
+         "note": "a shelled nut has lost its outer casing, so the words lose their first and last letters"
+        }
+       ],
        "parts": [
         {
          "words": "Munch",
-         "gives": "UNC",
-         "note": "MUNCH without its outer letters M and H"
-        },
-        {
-         "words": "nuts",
-         "gives": "UT",
-         "note": "NUTS without its outer letters N and S"
+         "at": 0,
+         "note": "taken as written; without its ends it leaves its three middle letters"
         }
        ]
+      },
+      {
+       "words": "nuts",
+       "at": 6,
+       "gives": "UT",
+       "note": "the word nuts, also shelled, keeps only its two middle letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A snack instruction: crack the nuts and eat them whole.",
-     "walkthrough": "'Shelled' fits nuts so well that it reads as surface, but it strips both Munch and nuts.",
-     "definitionFit": "Something uncut is whole, still in one piece."
+     "surface": "Eat nuts with their shells off, and in one piece.",
+     "walkthrough": "'shelled' applies to both MUNCH and NUTS, stripping each of its outer letters to leave UNC and UT.",
+     "definitionFit": "Something uncut has not been divided or shortened, so it remains entire or complete."
     },
     "features": {
      "answerInScene": false,
@@ -1445,36 +1441,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEMO",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "from the right",
+       "at": 15,
+       "note": "read from the right means read backwards, from the last letter to the first"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "middle",
        "indicators": [
         {
-         "text": "from the right",
-         "note": "reading from the right means starting at the end, so the letters run backwards"
-        },
-        {
          "text": "lacks boundaries",
-         "note": "a word's boundaries are its edges, so the first and last letters go"
+         "at": 30,
+         "note": "a word that lacks its boundaries has lost its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "comedy",
-         "gives": "OMED",
-         "note": "COMEDY without its first and last letters"
+         "at": 8,
+         "note": "taken as written; without its ends it leaves its four middle letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Political comedy from the right has no limits.",
-     "walkthrough": "'From the right' looks political; it means read backwards.",
-     "definitionFit": "An abbreviation: short for demonstration, a public protest."
+     "surface": "A satirical show performed by the political right drops all restraint.",
+     "walkthrough": "COMEDY 'lacks boundaries', giving OMED, which read 'from the right' gives the answer.",
+     "definitionFit": "A demo is short for a demonstration, a public march or rally held in protest."
     },
     "features": {
      "answerInScene": false,
