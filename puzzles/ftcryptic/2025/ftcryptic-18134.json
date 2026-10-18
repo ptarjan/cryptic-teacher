@@ -972,63 +972,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALCOHOL",
+     "op": "composite",
      "indicators": [
       {
        "text": "Ruined",
-       "note": "something ruined has been wrecked, so the remaining letters are jumbled"
+       "at": 0,
+       "note": "the pool of letters is ruined, broken up and rearranged"
+      },
+      {
+       "text": "removed",
+       "at": 35,
+       "note": "the letters of etc are taken away from the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALCOHOL",
-       "indicators": [
-        {
-         "text": "removed",
-         "note": "removed means taken away, so the abbreviation's letters are struck out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "top",
-           "note": "the top of a word is its first letter"
+           "at": 15,
+           "note": "the top of Lindt's is its first letter"
           }
          ],
          "parts": [
           {
            "words": "Lindt's",
-           "note": "the opening letter of the brand name"
+           "at": 7,
+           "note": "L, the first letter of Lindt's"
           }
          ]
         },
         {
          "words": "chocolate",
-         "note": "taken as written"
-        },
-        {
-         "words": "etc",
-         "note": "taken as written"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "etc",
+       "at": 29
       }
      ]
     },
     "explanation": {
-     "surface": "Fancy Swiss chocolate has been spoilt by spiking it with booze.",
-     "walkthrough": "Strip E, T and C from chocolate, add the L, then rearrange.",
-     "definitionFit": "Alcohol is a drug on which drinkers can become dependent, hence an addictive substance."
+     "surface": "Someone spoils a bar of Lindt's best chocolate and the like, then takes it away.",
+     "walkthrough": "'top' gives L from Lindt's; with CHOCOLATE that is LCHOCOLATE. 'removed' takes out E, T and C (the letters of etc), and 'Ruined' rearranges the remaining LHOCOLA.",
+     "definitionFit": "Drink such as wine or spirits is a habit-forming drug, so it is fairly called an addictive substance."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Ruined"
+     "misdirectedWord": "etc"
     }
    }
   },
@@ -1347,51 +1345,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DRUDGE",
      "indicators": [
       {
        "text": "for",
-       "note": "for means in place of, so one letter stands in for another"
+       "at": 26,
+       "note": "the mustard letter is swapped in for the good letter, replacing it"
       }
      ],
      "parts": [
       {
        "words": "Beef",
+       "at": 0,
        "gives": "GRUDGE",
        "note": "a beef is a grievance or grudge"
+      },
+      {
+       "words": "good",
+       "at": 30,
+       "gives": "G"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "last of",
-         "note": "the last of a word is its final letter"
+         "at": 10,
+         "note": "takes the final letter of mustard"
         }
        ],
        "parts": [
         {
          "words": "mustard",
-         "note": "the closing letter of mustard"
+         "at": 18,
+         "note": "D, the last letter of mustard"
         }
        ]
-      },
-      {
-       "words": "good",
-       "gives": "G",
-       "note": "g is the standard abbreviation for good"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about the mustard from a hard-working beef eater.",
-     "walkthrough": "Beef looks like meat to go with mustard; it means a grudge.",
-     "definitionFit": "A drudge is someone who does menial, tedious work, so a worker."
+     "surface": "A meat dish with mustard is for a hard-working cook.",
+     "walkthrough": "'last of' gives D from mustard, and 'for' puts that D in place of G (good) at the start of GRUDGE.",
+     "definitionFit": "A drudge is someone who does dull, menial work, a toiling worker."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Beef"
     }
    }

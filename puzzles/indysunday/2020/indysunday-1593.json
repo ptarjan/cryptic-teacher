@@ -989,83 +989,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PIKELET",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the mixed-up letters inside the word for bread"
+       "at": 24,
+       "note": "the rearranged leek goes inside what is left of the bread"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 34,
+         "note": "the bread has no thanks, so those letters are taken out"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "no",
-           "note": "no means without, so the word for thanks is removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bread",
-           "gives": "PITTA",
-           "note": "pitta is a flat Middle Eastern bread"
-          },
-          {
-           "gives": "TTA"
-          }
-         ]
+         "words": "bread",
+         "at": 27,
+         "gives": "PITTA",
+         "note": "pitta is a flat Middle Eastern bread"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "cooked",
-           "note": "cooking transforms ingredients, so the vegetable's letters are mixed up"
-          }
-         ],
-         "parts": [
-          {
-           "op": "deletion",
-           "parts": [
-            {
-             "op": "charade",
-             "parts": [
-              {
-               "words": "leek",
-               "note": "taken as written"
-              },
-              {
-               "words": "thanks",
-               "gives": "TA",
-               "note": "TA is informal British for thank you"
-              }
-             ]
-            },
-            {
-             "gives": "A"
-            }
-           ]
-          }
-         ]
+         "words": "thanks",
+         "at": 37,
+         "gives": "TA",
+         "note": "ta is British informal for thanks"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 12,
+         "note": "cooked means altered, so the letters of leek are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leek",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen order: a crumpet plus cooked leek in a pitta, but don't bother thanking me.",
-     "walkthrough": "The deletion happens first: the bread loses its thanks before the vegetable goes inside what remains.",
-     "definitionFit": "A pikelet is a regional British name for a thin crumpet or griddle cake eaten toasted."
+     "surface": "Someone declines a crumpet and some leek cooked in bread.",
+     "walkthrough": "'no thanks' reads as a polite refusal, but it is an instruction: ta is British slang for thanks, and the bread must lose it. A pikelet is a regional British name for a thin crumpet.",
+     "definitionFit": "In the Midlands and North of England a pikelet is a flat griddle cake, a kind of crumpet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "thanks"
+     "misdirectedWord": "cooked"
     }
    }
   },

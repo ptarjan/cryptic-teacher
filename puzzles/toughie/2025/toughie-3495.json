@@ -235,56 +235,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AFRICANVIOLET",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
-       "note": "could be suggests the letters might form something else once rearranged"
+       "at": 36,
+       "note": "the letters could become something else when rearranged"
+      },
+      {
+       "text": "must leave",
+       "at": 12,
+       "note": "the letters of we have to leave the pool before it is reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AFRICANVIOLET",
-       "indicators": [
-        {
-         "text": "must leave",
-         "note": "the pair named as having to leave are removed from the letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "A flower",
-         "note": "taken as written"
+         "words": "A",
+         "at": 0
         },
         {
-         "words": "we",
-         "note": "taken as written, to be removed"
+         "words": "flower",
+         "at": 2
         },
         {
-         "words": "in cave",
-         "note": "taken as written"
+         "words": "in",
+         "at": 23
+        },
+        {
+         "words": "cave",
+         "at": 26
         },
         {
          "words": "it",
-         "note": "taken as written"
+         "at": 33
         }
        ]
+      },
+      {
+       "words": "we",
+       "at": 9
       }
      ]
     },
     "explanation": {
-     "surface": "We have to quit a cave where a flower grows, which may be a favourite houseplant.",
-     "walkthrough": "Remove W and E from A FLOWER IN CAVE IT, then rearrange the remaining thirteen letters.",
-     "definitionFit": "The African violet, a saintpaulia, is one of the most common flowering houseplants grown indoors."
+     "surface": "We should leave a flower in a cave and see what it could become.",
+     "walkthrough": "Pool A FLOWER, IN CAVE and IT; 'must leave' takes out W and E, and 'could be' rearranges what is left. 'flower' is part of the fodder, not the definition.",
+     "definitionFit": "The saintpaulia, with violet-like blooms and furry leaves, is a common houseplant grown in pots on windowsills."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cave"
+     "misdirectedWord": "flower"
     }
    }
   },
@@ -735,46 +739,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRAFFICWARDEN",
-     "indicators": [
-      {
-       "text": "not starting",
-       "note": "not starting means the first letter of the vehicle word is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "dealing",
+       "at": 9,
+       "gives": "TRAFFIC",
+       "note": "traffic means dealing or trading, often illicitly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 44,
+         "note": "possibly signals that the letters may be arranged another way"
+        }
+       ],
        "parts": [
         {
-         "words": "dealing",
-         "gives": "TRAFFIC",
-         "note": "trafficking is dealing in goods, often illicit"
+         "words": "with",
+         "at": 17,
+         "gives": "W"
         },
         {
-         "op": "anagram",
+         "words": "red",
+         "at": 22
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "possibly",
-           "note": "possibly hints that the letters could be arranged another way"
+           "text": "not starting",
+           "at": 30,
+           "note": "van loses its first letter"
           }
          ],
          "parts": [
           {
-           "words": "with",
-           "gives": "W",
-           "note": "W is the abbreviation for with"
-          },
-          {
-           "words": "red",
-           "note": "taken as written"
-          },
-          {
            "words": "van",
-           "gives": "AN",
-           "note": "the word loses its opening letter"
+           "at": 26
+          },
+          {
+           "gives": "V"
           }
          ]
         }
@@ -783,9 +790,9 @@
      ]
     },
     "explanation": {
-     "surface": "An official handles a red van that won't start, perhaps a breakdown.",
-     "walkthrough": "A traffic warden is a British parking enforcer who issues tickets to illegally parked cars.",
-     "definitionFit": "A traffic warden is a uniformed official who enforces parking rules, a fitting person to deal with a stuck van."
+     "surface": "A council officer is dealing with a red van that will not start.",
+     "walkthrough": "'not starting' cuts VAN to AN, and 'possibly' rearranges W, RED and AN into WARDEN. A traffic warden is a British parking enforcement officer.",
+     "definitionFit": "This uniformed council officer enforces parking rules and issues tickets, so is a kind of official."
     },
     "features": {
      "answerInScene": true,
