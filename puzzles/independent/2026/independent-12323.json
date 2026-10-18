@@ -307,47 +307,45 @@
      "indicators": [
       {
        "text": "inhaled by",
-       "note": "the dope goes inside the other letters, as smoke goes into lungs"
+       "at": 5,
+       "note": "the information is breathed in, so it goes inside the other letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "AT",
        "indicators": [
         {
          "text": "vacuously",
-         "note": "a word emptied of its middle keeps only its outer letters"
+         "at": 16,
+         "note": "emptied of its contents, the word keeps only its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "vacuously abhorrent",
-         "gives": "AT",
-         "select": "outer",
-         "note": "ABHORRENT emptied, leaving A…T"
+         "words": "abhorrent",
+         "at": 26,
+         "note": "first and last letters of abhorrent"
         }
        ]
       },
       {
        "words": "Dope",
+       "at": 0,
        "gives": "GEN",
-       "note": "dope and gen both mean information; it goes inside A…T"
+       "note": "gen and dope are both slang for information"
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter with a hateful personality smokes some dope.",
-     "walkthrough": "'Dope' looks like a drug, but it means information, GEN. The setter is not a crossword setter but a setting agent, as in a glue or cement.",
-     "definitionFit": "A technical sense: a setting agent is a substance that makes something set, so a setter."
+     "surface": "A junkie setter breathes in drugs, empty-headed and repellent.",
+     "walkthrough": "'Dope' looks like a drug but means information, as in getting the gen. An agent can be anything that sets off an effect, as a setting agent sets a jelly or glue.",
+     "definitionFit": "An agent is something that brings about a result, and a setting agent is one that makes a substance harden."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "setter"
+     "misdirectedWord": "Dope"
     }
    }
   },
@@ -1498,45 +1496,44 @@
      "indicators": [
       {
        "text": "after",
-       "note": "'after' is positional: in a down answer, what comes after sits below the other piece"
+       "at": 7,
+       "note": "the outlaw's letters come after the drop"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "O",
        "indicators": [
         {
          "text": "drop of",
-         "note": "a drop is a tiny amount, so just the first letter"
+         "at": 13,
+         "note": "a drop is a tiny amount, here just the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drop of overpriced",
-         "gives": "O",
-         "select": "first",
-         "note": "first letter of OVERPRICED"
+         "words": "overpriced",
+         "at": 21,
+         "note": "first letter of overpriced"
         }
        ]
       },
       {
        "words": "Outlaw",
+       "at": 0,
        "gives": "BAN",
-       "note": "to outlaw is to ban"
+       "note": "to ban something is to outlaw it"
       }
      ]
     },
     "explanation": {
-     "surface": "A call to ban even a drop of expensive port wine.",
-     "walkthrough": "'port' looks like the fortified wine; it is a harbour town in western Scotland.",
-     "definitionFit": "A definition by example: Oban is a ferry port on the west coast of Scotland."
+     "surface": "Banning a pricey drop of port wine.",
+     "walkthrough": "'port' looks like the fortified wine, matching 'drop' and 'overpriced', but it is a harbour town: Oban is a port on the west coast of Scotland.",
+     "definitionFit": "Oban is a harbour town on the west coast of Scotland, the ferry gateway to the Hebrides."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "port"
     }
    }
@@ -1557,45 +1554,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "here",
-      "at": 21,
-      "note": "'here' stands for a place; the question mark marks it as a city where yen are used."
+      "text": "Took up stealing Yen here?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOKYO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stealing",
+       "at": 8,
+       "note": "the rearranged letters steal the yen, taking it inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "up",
-         "note": "letters that are 'up' are stirred up, as in mixed up"
-        },
-        {
-         "text": "stealing"
+         "at": 5,
+         "note": "up in the sense of stirred up, so the letters of took are mixed"
         }
        ],
        "parts": [
         {
          "words": "Took",
-         "note": "TOOK stirred up"
-        },
-        {
-         "words": "Yen",
-         "gives": "Y",
-         "note": "Y = yen, the Japanese currency, stolen into TOK…O"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "Yen",
+       "at": 17,
+       "gives": "Y",
+       "note": "Y is the abbreviation for the Japanese yen"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Someone took to pocketing cash in Japan.",
-     "walkthrough": "'here?' works because the yen is Japan's currency, so the place of the theft is a Japanese city.",
-     "definitionFit": "A definition by context: 'here' points to the place where yen would be stolen, Japan's capital."
+     "surface": "Someone took to pickpocketing yen, perhaps in a Japanese city.",
+     "walkthrough": "The whole clue is the definition too: a city where you might steal yen, the Japanese currency.",
+     "definitionFit": "Tokyo is the capital of Japan, where the yen is the currency in everyone's pocket."
     },
     "features": {
      "answerInScene": true,

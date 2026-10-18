@@ -1257,45 +1257,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TUTORIAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "sorted",
-       "note": "sorting puts things in order, so the word 'out' is rearranged"
+       "text": "in",
+       "at": 22,
+       "note": "the rearranged letters go inside the court case"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "case",
+       "at": 25,
+       "gives": "TRIAL",
+       "note": "a trial is a court case"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "the rearranged word goes inside the word for 'case'"
+         "text": "sorted",
+         "at": 10,
+         "note": "letters that are sorted are rearranged into a new order"
         }
        ],
        "parts": [
         {
-         "words": "case",
-         "gives": "TRIAL",
-         "note": "a legal case heard in court"
-        },
-        {
          "words": "out",
-         "note": "rearranged by 'sorted'"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher reassuring that the lesson has been dealt with, just in case.",
-     "walkthrough": "'Sorted out' reads as one phrase; 'sorted' is the indicator and 'out' its fodder. 'In case' is a container, not a hedge.",
-     "definitionFit": "A tutorial is a teaching session with a tutor for one student or a small group."
+     "surface": "A lesson is settled, presumably in a particular case.",
+     "walkthrough": "'sorted out' reads as one phrase meaning resolved, but 'sorted' rearranges the word out and 'in' puts the result into the court case.",
+     "definitionFit": "A tutorial is a teaching session with a tutor, often one-to-one, so a lesson."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "case"
     }

@@ -1498,47 +1498,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REFIT",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not",
+       "at": 32,
+       "note": "not leaves out the word that follows, so its letters are taken from the pool"
+      },
+      {
        "text": "abomination",
-       "note": "an abomination is something hideously mangled, so the letters are disordered"
+       "at": 39,
+       "note": "an abomination is a horrible mess, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "REFIT",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not means without, so the letters that follow are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "fine art",
-         "note": "taken as written"
-        },
-        {
-         "words": "an",
-         "note": "these two letters are taken away"
-        }
-       ]
+       "words": "fine art",
+       "at": 23
+      },
+      {
+       "words": "an",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "A critic dismisses a reinstalled art exhibit as no abomination.",
-     "walkthrough": "Remove A and N from FINE ART, then rearrange the remaining FIERT.",
-     "definitionFit": "A refit is a ship or shop being fitted out anew, so it is a repeated installation of equipment."
+     "surface": "A gallery's rehang of fine art turns out not to be the eyesore feared.",
+     "walkthrough": "Remove A and N from the letters of FINE ART ('not an'), leaving FIERT, and 'abomination' rearranges those letters.",
+     "definitionFit": "A refit is a renewed fitting-out, such as a ship or shop re-equipped, so a second installation."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "abomination"
     }
    }

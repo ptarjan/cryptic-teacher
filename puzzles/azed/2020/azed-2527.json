@@ -227,35 +227,40 @@
      "indicators": [
       {
        "text": "but not",
-       "note": "but not means a letter is excluded from the preceding word"
+       "at": 40,
+       "note": "the following letter is excluded, taken out of the lively character"
       }
      ],
      "parts": [
       {
        "words": "sprightly character",
+       "at": 20,
        "gives": "SPARK",
-       "note": "a spark is a lively person"
+       "note": "a spark is a lively, sprightly person, as in 'a bright spark'"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
+       "indicators": [
+        {
+         "text": "lead in",
+         "at": 48,
+         "note": "the lead of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lead in panto",
-         "gives": "P",
-         "select": "first",
-         "note": "the leading letter of panto"
+         "words": "panto",
+         "at": 56,
+         "note": "first letter of panto"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pantomime dame who is lively, yet not the lead.",
-     "walkthrough": "'Dame' suggests pantomime; it is the Dame of Sark, the island's hereditary ruler, notably Dame Sibyl Hathaway. Sark is one of the Channel Islands.",
-     "definitionFit": "Sark is famous for its feudal ruler, the Dame, so it is the place that 'has' a famous dame."
+     "surface": "A pantomime dame, lively but not cast in the lead role.",
+     "walkthrough": "The pantomime dame is a misdirection: the famous dame is the Dame of Sark, the hereditary ruler of the Channel Island, so the island is what 'has' her. Removing P from SPARK leaves the answer.",
+     "definitionFit": "Sark is a Channel Island whose feudal ruler was the Dame of Sark, most famously Sibyl Hathaway."
     },
     "features": {
      "answerInScene": false,
@@ -1486,43 +1491,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AARGH",
+     "op": "composite",
      "indicators": [
       {
        "text": "breaking up",
-       "note": "breaking up means the letters fall apart and are reassembled"
+       "at": 23,
+       "note": "breaking up means falling to pieces, so the letters are scrambled together"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AARGH",
+       "words": "Haemorrhage",
+       "at": 1
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Haemorrhage",
-         "note": "the full word whose letters are the whole mix"
+         "words": "re",
+         "at": 15
         },
         {
-         "words": "re home",
-         "note": "taken as written; these letters plus the answer make the first word"
+         "words": "home",
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A haemorrhage is so painful you would cry out.",
-     "walkthrough": "A composite anagram: RE HOME together with the answer is an anagram of HAEMORRHAGE, so removing those letters leaves A, R, H, A, G.",
-     "definitionFit": "Aargh is the cry of someone in agony, what you utter when something hurts badly."
+     "surface": "A medical note: a haemorrhage at home with this cry of pain hurts terribly.",
+     "walkthrough": "A composite anagram: the letters of HAEMORRHAGE are those of RE and HOME together with the answer, all 'breaking up' into each other. 'With this' points to the answer as the missing part of the mix.",
+     "definitionFit": "Aargh is the cry of someone in great pain, the noise one makes when something hurts badly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "home"
+     "misdirectedWord": "re"
     }
    }
   },

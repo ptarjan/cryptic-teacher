@@ -501,30 +501,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LEADING",
      "indicators": [
       {
        "text": "has change of heart",
-       "note": "the heart of a word is its middle letter, and a change of heart swaps that letter for another"
+       "at": 20,
+       "note": "the central letter of the word is swapped for a different one, a heart being the middle"
       }
      ],
      "parts": [
       {
        "words": "resigning",
+       "at": 10,
        "gives": "LEAVING",
-       "note": "someone resigning is leaving their post"
+       "note": "resigning from a job is leaving it"
+      },
+      {
+       "gives": "V"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A head teacher who quits has second thoughts.",
-     "walkthrough": "The middle V of LEAVING becomes D, giving LEADING. 'Principal' sounds like a head teacher but is the adjective.",
-     "definitionFit": "Leading and principal both mean chief or foremost, as in the leading role or principal role."
+     "surface": "A head teacher who quits suddenly thinks better of it.",
+     "walkthrough": "The heart of LEAVING is its middle letter V; changing it to D gives the answer. 'Principal' looks like a school head but is the adjective.",
+     "definitionFit": "A principal role or point is the chief, foremost one, which is what a leading one is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Principal"
     }
    }
@@ -1162,47 +1169,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AIRCON",
-     "indicators": [
-      {
-       "text": "inside",
-       "note": "inside places the firm within the letters that follow it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Excellent",
+       "at": 0,
+       "gives": "AI",
+       "note": "A1 means first-rate; written AI in crosswords"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 15,
+         "note": "the firm's letters sit within the letters for runs and new"
+        }
+       ],
        "parts": [
         {
-         "words": "Excellent",
-         "gives": "AI",
-         "note": "A1 means first-rate, with the digit 1 read as the letter I"
-        },
-        {
-         "words": "runs",
-         "gives": "R",
-         "note": "R is the cricket scoring abbreviation for runs"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "runs",
+           "at": 22,
+           "gives": "R",
+           "note": "R is the cricket abbreviation for runs"
+          },
+          {
+           "words": "new",
+           "at": 27,
+           "gives": "N"
+          }
+         ]
         },
         {
          "words": "firm",
+         "at": 10,
          "gives": "CO",
          "note": "CO is the abbreviation for company"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A first-rate company installs a new air-conditioning setup.",
-     "walkthrough": "A1 is a common way of saying excellent; crosswords often let the 1 stand as the letter I.",
-     "definitionFit": "Air-con is short for air-conditioning, the system that keeps a building or car cool."
+     "surface": "A top company is said to be fitting a new air-conditioning unit indoors.",
+     "definitionFit": "Air conditioning, shortened to aircon, is the equipment that keeps a building cool."
     },
     "features": {
      "answerInScene": true,

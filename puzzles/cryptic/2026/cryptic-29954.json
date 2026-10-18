@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -114,40 +115,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GUILTIER",
-     "indicators": [
-      {
-       "text": "No end to",
-       "note": "a word with no end to it stops one letter short, giving up the last one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No end to",
+         "at": 0,
+         "note": "the word loses its end, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "deception",
-         "gives": "GUIL",
-         "note": "deception is guile, and the E at the end goes"
+         "at": 10,
+         "gives": "GUILE",
+         "note": "guile is cunning deception"
         },
         {
-         "words": "Bank",
-         "gives": "TIER",
-         "note": "a tier is a bank of seats, one row rising behind another"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Bank",
+       "at": 21,
+       "gives": "TIER",
+       "note": "a tier is a bank, a row of seats or layers rising one above another"
       }
      ]
     },
     "explanation": {
-     "surface": "Deception with no end in sight, and a bank carrying more of the blame.",
-     "walkthrough": "'Bank' arrives in a sentence about deception, which is exactly where a financial reading belongs, and the word wanted is the row of seats. Guilt is responsibility for a wrong, so its comparative works as a comparative.",
-     "definitionFit": "Whoever is guiltier bears more of the responsibility for what went wrong, guilt being blame for a wrong rather than charge of a task."
+     "surface": "Endless trickery leaves a bank more to blame.",
+     "walkthrough": "'Bank' looks like the financial villain of the surface but means a row or layer. 'No end to' cuts GUILE to GUIL.",
+     "definitionFit": "Being guiltier means bearing more of the blame, so being more responsible for a wrong."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Bank"
     }
@@ -535,45 +540,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOUCHLINE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 18,
+       "note": "over in the sense of covering, so the rearranged letters lie over and around the one"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "playing",
-         "note": "letters playing about will not stay in the order they were handed over in"
-        },
-        {
-         "text": "over",
-         "note": "over here means round about, so what is jumbled closes over the letter that follows"
+         "at": 10,
+         "note": "playing suggests the letters are moving about in play, so they are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Tuchel on",
-         "note": "the eight letters of TUCHEL ON played into a new order"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is one in Roman numerals"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "Tuchel out on the field, playing across one side of the pitch.",
-     "walkthrough": "Thomas Tuchel is a German football manager, of Chelsea and then England, so his name sits in a football sentence without a ripple. The touchline is the long side of the pitch, the one his technical area stands on.",
-     "definitionFit": "The touchline marks the long edge of a football pitch, the boundary a ball crosses when it goes into touch."
+     "surface": "Thomas Tuchel, the football manager, prowls one side of the pitch during a game.",
+     "walkthrough": "'playing' rearranges TUCHEL ON, and 'over' has those letters covering I, which ends up near the end.",
+     "definitionFit": "The touchline is the boundary marking each long side of a football or rugby pitch."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Tuchel"
+     "misdirectedWord": "playing"
     }
    }
   },
@@ -1147,52 +1155,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UPHEAVAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "erred",
-       "note": "what has erred has gone wrong, and these letters have gone wrong in their order"
-      },
-      {
-       "text": "cryptic",
-       "note": "a cryptic version of a name is a disguised one, with the letters no longer in their plain order"
+       "text": "cracking",
+       "at": 11,
+       "note": "the first set of letters breaks into the second, sitting inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "cracking",
-         "note": "to crack something open is to get inside it, so what is cracking a word sits within it"
+         "text": "cryptic",
+         "at": 25,
+         "note": "cryptic means puzzling and hidden, so the letters of Paul are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "Paul cryptic",
-         "gives": "UPAL",
-         "note": "PAUL disguised, its four letters resettled round the break"
-        },
+         "words": "Paul",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "Have erred",
-         "gives": "HEAV",
-         "note": "HAVE gone wrong"
+         "text": "erred",
+         "at": 5,
+         "note": "something that has erred has gone astray, so the letters of have are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Have",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Paul owning up to his mistakes, which leads to confusion.",
-     "walkthrough": "Paul sets Guardian crosswords himself, so his name reads as a nod from one setter to another while doing the work of four letters. Both halves of the wordplay are jumbles, one dropped inside the other.",
-     "definitionFit": "An upheaval throws everything out of its settled place, which leaves the confusion the definition asks for."
+     "surface": "Someone confesses a mistake in solving a Paul cryptic, ending in confusion.",
+     "walkthrough": "Paul is a fellow Guardian setter, and 'cryptic' looks like it describes his puzzle, but it is the signal to jumble his name; 'erred' and 'cracking' do the other two jobs.",
+     "definitionFit": "An upheaval is a violent disturbance or disruption, a state of turmoil and confusion."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Paul"
+     "misdirectedWord": "cryptic"
     }
    }
   },

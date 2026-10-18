@@ -289,43 +289,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASTERN",
+     "op": "composite",
      "indicators": [
       {
        "text": "mutated",
-       "note": "a mutation is a change of form, so the letters are rearranged"
+       "at": 9,
+       "note": "something mutated has changed form, so the letters are reshuffled"
+      },
+      {
+       "text": "left",
+       "at": 32,
+       "note": "the uranium is left out of the letter pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASTERN",
-       "indicators": [
-        {
-         "text": "left",
-         "note": "something that has left has gone away, so that letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Nature's",
-         "note": "the word with its possessive S kept as a letter"
-        },
-        {
-         "words": "uranium",
-         "gives": "U",
-         "note": "U is the chemical symbol for uranium"
-        }
-       ]
+       "words": "Nature's",
+       "at": 0
+      },
+      {
+       "words": "uranium's",
+       "at": 22,
+       "gives": "U",
+       "note": "U is the chemical symbol for uranium"
       }
      ]
     },
     "explanation": {
-     "surface": "Nature changes once uranium has been abandoned, perhaps after a nuclear disaster.",
-     "walkthrough": "'Left behind' reads as a phrase meaning abandoned; it splits, with 'left' removing U from NATURES and 'behind' as the definition.",
+     "surface": "A science-fiction line: nature mutates once uranium is abandoned.",
+     "walkthrough": "Take U out of NATURES to leave NATRES, and 'mutated' rearranges those letters. 'Left behind' reads as one phrase, but 'left' does the removing and 'behind' is the definition.",
      "definitionFit": "Astern is a nautical word for at or towards the back of a ship, so behind."
     },
     "features": {
@@ -1153,39 +1145,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RATBAG",
      "indicators": [
       {
        "text": "removes",
-       "note": "to remove is to take away, so the named letters vanish"
+       "at": 6,
+       "note": "the two name letters are taken out of the combined words"
       }
      ],
      "parts": [
       {
-       "words": "rave",
-       "gives": "RANT",
-       "note": "to rave is to rant"
-      },
-      {
-       "words": "report",
-       "gives": "BANG",
-       "note": "a report is a loud bang, as of a gun"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rave",
+         "at": 30,
+         "gives": "RANT",
+         "note": "to rant is to rave"
+        },
+        {
+         "words": "report",
+         "at": 35,
+         "gives": "BANG",
+         "note": "a bang is the report of a gun"
+        }
+       ]
       },
       {
        "words": "both names",
+       "at": 14,
        "gives": "NN",
-       "note": "N is the abbreviation for name, taken twice"
+       "note": "N is the abbreviation for name, and both means two of them"
       }
      ]
     },
     "explanation": {
-     "surface": "An unpleasant person strikes both names out of a glowing review.",
-     "walkthrough": "'Rave report' looks like a glowing review; it is two separate words, each losing one N.",
-     "definitionFit": "Ratbag is informal for a nasty, contemptible person, much like calling someone a creep."
+     "surface": "A sneak edits a party write-up to strip out both people's names.",
+     "walkthrough": "'rave report' suggests a glowing review, but it is two words, RANT and BANG; 'removes' takes one N from each.",
+     "definitionFit": "A ratbag is an unpleasant, contemptible person, the same kind of insult as calling someone a creep."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rave"
     }
