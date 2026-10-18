@@ -216,33 +216,29 @@
     ],
     "wordplay": {
      "op": "alternate",
-     "unchecked": true,
-     "gives": "LANGUEDOC",
      "indicators": [
       {
-       "text": "once regular characters leave",
-       "note": "regular characters leaving means every other letter departs, keeping the rest"
+       "text": "regular characters leave",
+       "at": 36,
+       "note": "every second letter of the phrase drops out, leaving the alternate ones"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "learnt glut ends",
-       "gives": "LANGUEDOC",
-       "select": "alternate",
-       "note": "the odd-placed letters"
+       "words": "learnt glut ends once",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "A wine region learnt its glut ended once regular workers left.",
-     "walkthrough": "The Languedoc is a large wine-making region in southern France, so 'producer' is a place, not a person.",
-     "definitionFit": "Languedoc is a region of southern France that produces a large share of the country's wine."
+     "surface": "A winemaker who has learnt that a surplus ends things.",
+     "walkthrough": "Keep the first, third, fifth and every other letter of 'learnt glut ends once'.",
+     "definitionFit": "Languedoc is a large region of southern France famous for its vineyards and wine output."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "producer"
+     "misdirectedWord": "learnt"
     }
    }
   },
@@ -511,59 +507,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HALTERNECK",
+     "op": "container",
      "indicators": [
       {
-       "text": "Seconds away from",
-       "note": "the second letters are taken away, leaving the rest of each word"
+       "text": "cutting",
+       "at": 35,
+       "note": "these pieces cut into the word for journalist"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "cutting",
-         "note": "something cutting into another goes inside it"
-        }
-       ],
+       "words": "journalist's",
+       "at": 43,
+       "gives": "HACK",
+       "note": "a hack is a journalist"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "journalist's",
-         "gives": "HACK",
-         "note": "a hack is a journalist"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Seconds away from",
+           "at": 0,
+           "note": "the second letter of each word goes, A from late and U from run"
+          }
+         ],
          "parts": [
           {
            "words": "late run",
-           "gives": "LTERN",
-           "note": "late and run without their second letters"
+           "at": 18
           },
           {
-           "words": "Echo",
-           "gives": "E",
-           "note": "Echo is E in the NATO alphabet"
+           "gives": "AU"
           }
          ]
+        },
+        {
+         "words": "Echo",
+         "at": 30,
+         "gives": "E",
+         "note": "E is Echo in the NATO alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reporter hurries in late with a headline story for the front page.",
-     "walkthrough": "Seconds means the second letter of each word, not time. The resulting run goes between the A and C of the journalist.",
-     "definitionFit": "A halterneck is a style of women's top with a strap round the neck, so the phrase names a neckline for a top."
+     "surface": "A tardy reporter rushing to cut the headline of a newspaper item.",
+     "walkthrough": "'Top line' looks like a headline; it is the neckline of a garment.",
+     "definitionFit": "A halterneck is a style of women's top whose strap goes round the back of the neck."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Seconds"
+     "misdirectedWord": "line"
     }
    }
   },
@@ -952,57 +951,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELEVATION",
+     "op": "container",
      "indicators": [
       {
-       "text": "after leader is deposed",
-       "note": "a leader deposed is the head removed, so the first letter goes"
+       "text": "in",
+       "at": 14,
+       "note": "the currency goes inside the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places the currency inside the following words"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "European",
-           "gives": "E",
-           "note": "E is the abbreviation for European"
-          },
-          {
-           "words": "country",
-           "gives": "ATION",
-           "note": "nation without its first letter"
-          }
-         ]
+         "words": "European",
+         "at": 17,
+         "gives": "E"
         },
         {
-         "words": "currency",
-         "gives": "LEV",
-         "note": "the lev is the Bulgarian currency"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "after leader is deposed",
+           "at": 34,
+           "note": "once the first letter is removed, like a toppled ruler"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country",
+           "at": 26,
+           "gives": "NATION",
+           "note": "a nation is a country"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "currency",
+       "at": 5,
+       "gives": "LEV",
+       "note": "the lev is the currency of Bulgaria"
       }
      ]
     },
     "explanation": {
-     "surface": "A plan to introduce a currency in a European country once its leader has been toppled.",
-     "definitionFit": "In architecture an elevation is a drawing of one face of a building, a kind of plan."
+     "surface": "A scheme for money in a European state after its ruler's overthrow.",
+     "walkthrough": "An elevation is an architect's drawing of a building's face, which loosely counts as a plan.",
+     "definitionFit": "In architecture an elevation is a scale drawing of one side of a building, one of its plans."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Plan"
+     "misdirectedWord": "deposed"
     }
    }
   },
@@ -1100,44 +1105,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "awfully",
-       "note": "awfully suggests something done badly, so the letters come out in a mangled order"
+       "text": "by",
+       "at": 33,
+       "note": "the jumbled piece comes before the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 36,
+         "note": "done badly, so the letters are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "acrid",
-         "note": "the fodder for the anagram"
-        },
+         "at": 44
+        }
+       ]
+      },
+      {
+       "words": "Life force",
+       "at": 0,
+       "gives": "CHI",
+       "note": "chi, or qi, is the vital energy in Chinese philosophy"
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "Life force",
-         "gives": "CHI",
-         "note": "chi (or qi) is the vital energy in Chinese philosophy"
-        },
+         "text": "essentially",
+         "at": 11,
+         "note": "the essence of the word is its central letter"
+        }
+       ],
+       "parts": [
         {
-         "words": "essentially",
-         "gives": "O",
-         "note": "apparently a lone circle, as the core of the matter; this reading is uncertain"
+         "words": "supported",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vital essence needs propping up by a horribly bitter vegetable.",
-     "walkthrough": "The word for life force sits after the rearranged fodder; the clue leaves the final O unclear, and 'essentially' is the likeliest source of it.",
-     "definitionFit": "Radicchio is a red-leaved Italian chicory, eaten as a bitter salad vegetable."
+     "surface": "A sharp-tasting vegetable that keeps you going.",
+     "walkthrough": "'supported by' reads like a down-clue placing, but this is across: O is the central letter of supported.",
+     "definitionFit": "Radicchio is a bitter red-leaved chicory eaten in salads."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "force"
+     "misdirectedWord": "supported"
     }
    }
   },

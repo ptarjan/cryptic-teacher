@@ -50,12 +50,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DONALDDUCK",
      "indicators": [
       {
        "text": "about",
-       "note": "about means going around, so the outer pair wraps round the jumbled word"
+       "at": 59,
+       "note": "the pieces go round the scrambled letters"
       }
      ],
      "parts": [
@@ -64,41 +63,45 @@
        "parts": [
         {
          "words": "do",
+         "at": 48,
+         "gives": "DO",
          "note": "taken as written"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "abandoned",
-           "note": "something abandoned is left in disorder, so the word before it is jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "land",
-           "note": "taken as written, to be jumbled"
-          },
-          {
-           "words": "nothing",
-           "gives": "DUCK",
-           "note": "a duck is a score of nothing in cricket"
-          }
-         ]
+         "words": "nothing",
+         "at": 51,
+         "gives": "DUCK",
+         "note": "a duck is a score of nought in cricket"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "having abandoned",
+         "at": 25,
+         "note": "the letters of land have been thrown about, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "land",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor comes ashore and decides to sit around doing nothing about it.",
-     "walkthrough": "'it' points back to the jumbled land, so the outer pair wraps round it. A duck is cricket's word for a score of nothing.",
-     "definitionFit": "The Disney cartoon duck is famously dressed in a blue sailor's top and cap."
+     "surface": "A deserter who left shore and now lazes about in uniform.",
+     "walkthrough": "In cricket a duck is a score of zero, hence nothing; 'it' points back to the jumbled land.",
+     "definitionFit": "The Disney cartoon duck always wears a blue sailor's top and cap."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "abandoned"
+     "misdirectedWord": "sailor"
     }
    }
   },
@@ -1021,46 +1024,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "METATARSI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cut means trimmed, so the word loses its last letter"
+       "text": "proving tricky",
+       "at": 28,
+       "note": "being awkward, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "proving tricky",
-         "note": "something tricky is awkward and twisted, so the letters are rearranged"
+         "text": "cut",
+         "at": 10,
+         "note": "cut short, so the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "are",
-         "gives": "AR",
-         "note": "the word with its tail cut off"
+         "at": 6
         },
         {
-         "words": "meat: it's",
-         "note": "letters taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "meat",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "it's",
+       "at": 23,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher finds bones in the meat, which makes carving it difficult.",
-     "definitionFit": "The metatarsi are the five long bones of the foot between ankle and toes."
+     "surface": "A butcher finds some bones in the meat hard to carve.",
+     "walkthrough": "'cut' trims are to AR; AR, MEAT and ITS are then shuffled.",
+     "definitionFit": "The metatarsals are the five long foot bones between the ankle and toes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Bones"
+     "misdirectedWord": "cut"
     }
    }
   },

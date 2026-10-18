@@ -435,41 +435,45 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the preceding pieces inside the word for the sun"
+       "at": 23,
+       "note": "the pieces go inside the word for sun"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "sun",
-         "gives": "SOL",
-         "note": "Sol is the Latin name for the sun"
-        },
-        {
-         "words": "New",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
-        }
-       ]
+       "words": "sun",
+       "at": 26,
+       "gives": "SOL",
+       "note": "sol is Latin for sun"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "note": "mostly means most but not all, so the last letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "US cemetery",
-         "gives": "ARLINGTON",
-         "note": "Arlington National Cemetery in Virginia is the US military burial ground"
+         "words": "New",
+         "at": 0,
+         "gives": "N"
         },
         {
-         "gives": "N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 16,
+           "note": "the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "US cemetery",
+           "at": 4,
+           "gives": "ARLINGTON",
+           "note": "Arlington National Cemetery is in Virginia"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
@@ -477,13 +481,14 @@
     },
     "spelling": "SNARLING TOOL",
     "explanation": {
-     "surface": "A new American cemetery basks in the sunshine, oddly linked to a metalworker.",
-     "definitionFit": "A snarling tool is a long-armed iron used by metalworkers to raise embossed work from inside a hollow vessel."
+     "surface": "Visiting a new American graveyard on a sunny day.",
+     "walkthrough": "Arlington is the US national military cemetery; 'mostly' drops its final letter, and the sun here is the Latin word for it.",
+     "definitionFit": "A snarling tool is a metalworker's implement for embossing the inside of hollow vessels."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sun"
+     "misdirectedWord": "cemetery"
     }
    }
   },

@@ -100,50 +100,52 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the earlier words are placed inside the edges of the following word"
+       "at": 14,
+       "note": "the pieces go inside the outer letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 17,
+         "note": "the outer edges are the first and last letters of district"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "outskirts of",
-           "note": "the outskirts of a place are its edges, so only the first and last letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "district",
-           "note": "the two edge letters of district"
-          }
-         ]
-        },
-        {
-         "words": "we",
-         "note": "taken as written"
+         "words": "district",
+         "at": 30
         }
        ]
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the standard abbreviation for left"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "we",
+         "at": 6,
+         "gives": "WE"
+        },
+        {
+         "words": "left",
+         "at": 9,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes a home they once shared, out on the edge of a district.",
-     "walkthrough": "'Abode' looks like a noun for a home, but it is the past tense of the verb abide.",
-     "definitionFit": "To abide is an old verb for living somewhere, so its past tense abode matches the past tense of dwell."
+     "surface": "We moved out of our house on the edge of the district.",
+     "walkthrough": "'Abode' looks like a noun for a home, but it is the past tense of abide.",
+     "definitionFit": "Abode is the old past tense of abide, meaning lived or resided."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Abode"
     }
    }
@@ -1194,39 +1196,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "drifting",
-       "note": "something drifting wanders off course, so these letters stray from their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Nasty pong",
+       "at": 0,
+       "gives": "BO",
+       "note": "BO is body odour, an unpleasant smell"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drifting",
+         "at": 11,
+         "note": "wandering about, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Nasty pong",
-         "gives": "BO",
-         "note": "BO is body odour, an unpleasant smell"
-        },
-        {
          "words": "along",
-         "note": "the letters of along rearranged"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bad smell wafts through the streets of an Italian city.",
-     "walkthrough": "'Pong' is British slang for a bad smell. 'Nasty pong drifting' looks like a seven-letter anagram, but only the last word is fodder.",
-     "definitionFit": "Bologna is a city in northern Italy; 'town' is used loosely for any settlement."
+     "surface": "A foul smell wafting through an Italian street.",
+     "walkthrough": "A pong is a British word for a bad smell.",
+     "definitionFit": "Bologna is a city in northern Italy, famed for its food and university."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pong"
+     "misdirectedWord": "drifting"
     }
    }
   },
@@ -1547,40 +1551,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "doctor",
-       "note": "to doctor something is to tamper with it, so the next word is reworked"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Immortal",
+       "at": 0,
+       "gives": "ETERNAL",
+       "note": "eternal means everlasting, never dying"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 9,
+         "note": "to doctor is to tamper with, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Immortal",
-         "gives": "ETERNAL",
-         "note": "immortal means living for ever, eternal"
-        },
-        {
          "words": "altering",
-         "note": "the letters of altering rearranged"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An undying physician changing a historic European pact.",
-     "walkthrough": "The Triple Alliance was a real 1882 pact of Germany, Austria-Hungary and Italy, but here it is a romantic arrangement. 'Doctor' looks like a noun, but is a verb.",
-     "definitionFit": "An eternal triangle is a love affair involving three people, wittily recast as a three-way alliance."
+     "surface": "A deathless physician revising a historic pact between three nations.",
+     "walkthrough": "The Triple Alliance looks like the 1882 pact of Germany, Austria-Hungary and Italy, but here it is a love triangle.",
+     "definitionFit": "An eternal triangle is a romantic situation involving three people, a cheeky triple alliance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "doctor"
+     "misdirectedWord": "Alliance"
     }
    }
   },

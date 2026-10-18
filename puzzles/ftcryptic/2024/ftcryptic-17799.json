@@ -102,47 +102,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "VENISON",
      "indicators": [
       {
        "text": "below",
-       "note": "in a down entry, something below another comes after it in the answer"
+       "at": 6,
+       "note": "in a down clue the child comes under the other piece"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "VENISON",
+       "op": "substitution",
        "indicators": [
         {
          "text": "half-lifted",
-         "note": "in a down clue lifted means turned upward, so the second half is read bottom to top"
+         "at": 19,
+         "note": "in a down clue, lifted means turned upwards, and only the second half of the word is turned round"
         }
        ],
        "parts": [
         {
          "words": "vessel",
+         "at": 12,
          "gives": "VEIN",
-         "note": "a blood vessel"
+         "note": "a vein is a blood vessel"
         },
         {
-         "words": "Child",
-         "gives": "SON",
-         "note": "a son is a child"
+         "gives": "IN"
+        },
+        {
+         "gives": "NI"
         }
        ]
+      },
+      {
+       "words": "Child",
+       "at": 0,
+       "gives": "SON",
+       "note": "a son is a child"
       }
      ]
     },
     "explanation": {
-     "surface": "A child in a boat lifts up some meat.",
-     "walkthrough": "Only the second half of VEIN is turned, giving VENI, and SON goes beneath it.",
-     "definitionFit": "Venison is the meat of deer, a game dish."
+     "surface": "A boy beneath a boat that is half out of the water.",
+     "walkthrough": "Turning the second half of VEIN gives VENI.",
+     "definitionFit": "Venison is the flesh of deer eaten as game."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "vessel"
     }
@@ -1629,37 +1635,36 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PROSE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "with conclusion towards the top",
-       "note": "the final letter moves up the column toward the top, landing inside the word near its start"
+       "at": 24,
+       "note": "in a down clue the word's final letter climbs upwards, moving nearer its head and landing in second place"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PROSE",
-       "parts": [
-        {
-         "words": "tricky question",
-         "gives": "POSER",
-         "note": "a poser is a puzzling question"
-        }
-       ]
+       "words": "tricky question",
+       "at": 8,
+       "gives": "POSER",
+       "note": "a poser is a puzzling question"
+      },
+      {
+       "gives": "OSER"
+      },
+      {
+       "gives": "ROSE"
       }
      ]
     },
     "explanation": {
-     "surface": "A difficult essay question has its answer at the top.",
-     "walkthrough": "Lift the last letter of POSER up the column, stopping after the P. 'Towards' rather than 'to' tells you it does not reach the very top.",
-     "definitionFit": "Prose is ordinary written language, as opposed to verse, so it is a kind of writing."
+     "surface": "A hard question about writing, with the punchline at the start.",
+     "walkthrough": "The final R of POSER moves up the column towards the top, to second place.",
+     "definitionFit": "Prose is ordinary written language, as opposed to verse."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "conclusion"
     }
