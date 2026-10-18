@@ -215,8 +215,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GENRE",
      "indicators": [
       {
        "text": "for",
@@ -230,23 +228,24 @@
        "note": "a genie is a spirit, as from a lamp"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "R",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "a drop of rum",
-         "gives": "R",
-         "select": "first",
-         "note": "the first letter of rum"
-        }
-       ]
-      },
-      {
        "words": "yours truly",
        "gives": "I",
        "note": "yours truly is the setter, I"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a drop of",
+         "note": "these words say which letters are picked from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rum",
+         "note": "the first letter of rum"
+        }
+       ]
       }
      ]
     },
@@ -1641,8 +1640,6 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "MARG",
        "indicators": [
         {
          "text": "is half-cut",
@@ -1651,10 +1648,8 @@
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Minor",
-         "gives": "MARG",
-         "select": "first",
+         "gives": "MARGINAL",
          "note": "minor means marginal, whose first half is kept"
         }
        ]
