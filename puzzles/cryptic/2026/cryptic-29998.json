@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,37 +44,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PANAMA",
-     "indicators": [
-      {
-       "text": "from the east",
-       "note": "Anything coming from the east is travelling westwards, and in an across entry westwards means the letters are picked up from their far end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Dad",
+       "at": 0,
+       "gives": "PA",
+       "note": "pa is an informal word for dad"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the east",
+         "at": 14,
+         "note": "in an across clue, coming from the east means read from right to left, so these letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Dad",
-         "gives": "PA",
-         "note": "pa is the crossword's standard dad"
-        },
-        {
-         "words": "a fellow",
-         "gives": "NAMA",
-         "note": "a fellow is A MAN, and those four letters arrive the other way round"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 5,
+           "gives": "A"
+          },
+          {
+           "words": "fellow",
+           "at": 7,
+           "gives": "MAN",
+           "note": "a fellow is a man"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dad and another chap arriving from somewhere out east.",
-     "walkthrough": "Two ordinary words of the surface, 'a' and 'fellow', have to be taken together as letters before the reversal has anything to work on, which is what keeps the join invisible.",
-     "definitionFit": "Panama is the Central American republic joining the two halves of the continent, so 'country' names it by plain category."
+     "surface": "Father and a man who has come from the East are introduced to the nation.",
+     "walkthrough": "'From the east' sends A and MAN right to left, as NAMA, after PA.",
+     "definitionFit": "Panama is the Central American nation crossed by the Panama Canal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
     }
    }
   },
@@ -547,63 +564,70 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FIRETRAP",
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "collapsing",
-         "note": "A collapsing structure loses the arrangement it was built in, so the word beside it comes apart and goes back differently."
+         "text": "around",
+         "at": 18,
+         "note": "around means surrounding, so the jumbled rafter goes round the letter for one"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "around",
-           "note": "What goes around something encloses it, so the shuffled letters have to be built with the numeral inside them."
+           "text": "collapsing",
+           "at": 7,
+           "note": "a collapsing rafter falls apart, so its letters fall into a new order"
           }
          ],
          "parts": [
           {
            "words": "Rafter",
-           "note": "anagram fodder, six letters"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "one is the numeral I, taken inside the shuffle"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "start to",
-             "note": "'Start to' asks only for the opening letter of the word that follows, not for the word itself."
-            }
-           ],
-           "parts": [
-            {
-             "words": "start to panic",
-             "gives": "PANIC",
-             "note": "the first letter of panic"
-            }
-           ]
+           "at": 0
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 31,
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "panic",
+         "at": 40,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A roof beam giving way overhead, and the first flutter of panic.",
-     "walkthrough": "'Rafter' belongs to the roof in the surface and is really six letters to rearrange, which is easy to miss because a collapsing rafter is exactly the picture the answer warns about.",
-     "definitionFit": "A firetrap is a building so badly built or so blocked up that a fire in it would trap the people inside."
+     "surface": "A beam caves in around someone, starting a panic in an unsafe building.",
+     "walkthrough": "'Collapsing' turns rafter into FRETRA, which goes 'around' I, and 'start to panic' adds P at the end.",
+     "definitionFit": "A firetrap is a building where a fire would spread fast and trap the people inside, so it is hazardous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collapsing"
     }
    }
   },

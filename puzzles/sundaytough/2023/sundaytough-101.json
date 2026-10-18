@@ -170,51 +170,65 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "EXCUSE",
-     "indicators": [
-      {
-       "text": "on a cycle",
-       "note": "a cycle goes round, so the front letter is carried round to the back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Lovemaking",
-       "gives": "SEX",
-       "note": "a common crossword synonym"
-      },
-      {
-       "words": "copper",
-       "gives": "CU",
-       "note": "Cu is the chemical symbol for copper"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "on a cycle",
+         "at": 26,
+         "note": "going round a cycle carries the front letter of the lovemaking-plus-copper string round to its back"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Lovemaking",
+           "at": 0,
+           "gives": "SEX",
+           "note": "lovemaking is sex"
+          },
+          {
+           "words": "copper",
+           "at": 19,
+           "gives": "CU",
+           "note": "Cu is the chemical symbol for copper"
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "at the start, so only the opening letter of the word is kept"
+         "at": 48,
+         "note": "initially points to the opening letter of the next word"
         }
        ],
        "parts": [
         {
          "words": "examined",
-         "note": "first letter of the word"
+         "at": 39,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A couple caught in the act by a policeman on a bike are questioned and released without charge.",
-     "walkthrough": "'Copper' is a police officer in the story but the chemical element in the wordplay; the first S of the joined pair moves round to the end.",
-     "definitionFit": "To excuse someone is to release them from a duty or punishment, which is what being let off means."
+     "surface": "A lurid tale of a policeman caught in the act on a bike, inspected and then released without charge.",
+     "walkthrough": "SEX beside CU gives SEXCU; 'on a cycle' moves its S from the front to the back, giving EXCUS, and 'initially' adds the E of 'examined'.",
+     "definitionFit": "To excuse someone from a duty or penalty is to release them from it, the same as letting them off."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "copper"
     }
    }
@@ -936,42 +950,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVEN",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite, so the word stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all, so the last letter of the word for finished is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "finished",
-         "gives": "OVE",
-         "note": "over means finished, here with its final letter lost"
+         "at": 7,
+         "gives": "OVER",
+         "note": "a match that is finished is over"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "the standard abbreviation"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 23,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen refit is nearly complete, with the new equipment going in.",
-     "walkthrough": "The clue reads as a progress report on a kitchen; the full word meaning finished is cut short before the extra letter.",
-     "definitionFit": "An oven is a standard piece of equipment found in a kitchen, an example of kitchen apparatus."
+     "surface": "Someone has nearly completed fitting out their kitchen with fresh equipment.",
+     "definitionFit": "An oven is a standard piece of cooking equipment found in any kitchen."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "kit"
+     "aptDefinition": true,
+     "misdirectedWord": "finished"
     }
    }
   },
@@ -1237,7 +1253,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Leader of 20",
+      "text": "Leader of 20, assets regularly wasted, overthrown",
       "at": 0
      }
     ],
@@ -1246,7 +1262,8 @@
      "indicators": [
       {
        "text": "overthrown",
-       "note": "a ruler overthrown is turned upside down, so the letters run the other way"
+       "at": 39,
+       "note": "overthrown means turned upside down, which in a down-style reading sends the letters backwards"
       }
      ],
      "parts": [
@@ -1255,30 +1272,36 @@
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "R",
          "indicators": [
           {
-           "text": "regularly wasted",
-           "note": "wasting at regular intervals throws away every other letter, keeping the rest"
+           "text": "Leader of",
+           "at": 0,
+           "note": "the leader of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "20",
-           "gives": "R",
-           "select": "first",
-           "note": "the answer at 20 down is a country whose first letter is taken"
+           "at": 10,
+           "gives": "RUSSIA",
+           "note": "20 refers to the answer to 20 down, RUSSIA"
           }
          ]
         },
         {
          "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly wasted",
+           "at": 21,
+           "note": "wasting letters at regular intervals leaves every other letter of assets"
+          }
+         ],
          "parts": [
           {
            "words": "assets",
-           "note": "first, third and fifth letters"
+           "at": 14,
+           "note": "every other letter is kept"
           }
          ]
         }
@@ -1286,14 +1309,15 @@
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A country's ruler has squandered its wealth and is overthrown, with the story continuing in the next clue.",
-     "walkthrough": "'Leader of 20' does double duty: it defines the ruler of the country at 20 down and supplies its first letter. The ellipsis links the surface to 21 across.",
-     "definitionFit": "Tsar was the title of the emperor who ruled imperial Russia until the 1917 revolution."
+     "surface": "A ruler of Russia sees his wealth steadily squandered before being deposed, the ellipsis running on into the next clue.",
+     "walkthrough": "The whole clue describes the last tsar and also builds him: 'Leader of 20' gives R, the first letter of RUSSIA, 'regularly wasted' leaves AST from assets, and 'overthrown' turns RAST round.",
+     "definitionFit": "The tsar was the emperor of Russia, deposed in the 1917 revolution after the dynasty's fortunes collapsed."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "wasted"
     }
    }

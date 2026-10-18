@@ -107,12 +107,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RUSTIC",
      "indicators": [
       {
        "text": "devoured",
-       "note": "whatever is devoured ends up inside the eater, so one set of letters swallows another"
+       "at": 52,
+       "note": "devoured means eaten up, so the cycled bread swallows the letter from the deli"
       }
      ],
      "parts": [
@@ -121,46 +120,46 @@
        "indicators": [
         {
          "text": "after cycling",
-         "note": "a cycle goes round, so the front letter travels round to the end of the word"
+         "at": 21,
+         "note": "cycling means rotating, so the front letter of the bread is carried round to the back"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "piece of bread",
-           "gives": "CRUST",
-           "note": "the hard outer piece of a loaf"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "back from",
-             "note": "the back of a word is its end, so only its final letter is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "deli",
-             "note": "the last letter of the word"
-            }
-           ]
-          }
-         ]
+         "words": "piece of bread",
+         "at": 6,
+         "gives": "CRUST",
+         "note": "a crust is a piece of bread"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back from",
+         "at": 35,
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deli's",
+         "at": 45,
+         "gives": "DELI",
+         "note": "the deli, whose last letter is used; the 's links it to what follows"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone buys a plain bit of bread at the deli and eats it on the bike ride home.",
-     "walkthrough": "CRUST with its C cycled to the back becomes RUSTC, which then swallows the I to give RUSTIC.",
-     "definitionFit": "Rustic describes something simple and unsophisticated in a countryside way, so plain is a fair synonym."
+     "surface": "Someone cycles home from the delicatessen and wolfs down a hunk of bread.",
+     "walkthrough": "'After cycling' moves the C of CRUST to the end, giving RUSTC, and that 'devoured' the I at the back of 'deli'.",
+     "definitionFit": "Rustic describes something simple and unsophisticated, like country life, which is what plain means here."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
@@ -190,41 +189,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first pair of SEATs",
+       "at": 16,
        "gives": "SE",
-       "indicators": [
-        {
-         "text": "first pair of",
-         "note": "a first pair means the opening two letters of the next word are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "SEATs",
-         "gives": "SE",
-         "select": "first",
-         "note": "the opening two letters of the car brand"
-        }
-       ]
+       "note": "the first two letters of SEATs"
       },
       {
        "words": "unchanged",
+       "at": 36,
        "gives": "SAME",
-       "note": "what is unchanged stays the same"
+       "note": "something unchanged stays the same"
       }
      ]
     },
     "explanation": {
-     "surface": "A mechanic finds the oil in a couple of SEAT cars has not been changed.",
-     "walkthrough": "SEAT is a Spanish car maker, so the surface is about servicing; 'Possibly oil' is the definition by example, since sesame is one kind of oil.",
-     "definitionFit": "Sesame oil is a common cooking oil pressed from the seeds, so sesame is one possible example of oil."
+     "surface": "Perhaps oil has got into the first two SEAT cars without changing them.",
+     "walkthrough": "SEAT is a Spanish car maker, which is why the word is in capitals.",
+     "definitionFit": "Sesame is a plant whose seeds are pressed for a widely used cooking oil, so oil is an example of it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "oil"
+     "aptDefinition": false,
+     "misdirectedWord": "SEATs"
     }
    }
   },
@@ -1278,12 +1264,14 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "a sandwich holds a filling between its outer layers, so one piece encloses another"
+       "at": 5,
+       "note": "sandwiches means holds in between, so the golf club goes round the jumbled filling"
       }
      ],
      "parts": [
       {
        "words": "Club",
+       "at": 0,
        "gives": "PUTTER",
        "note": "a putter is a golf club"
       },
@@ -1292,31 +1280,32 @@
        "indicators": [
         {
          "text": "possibly",
-         "note": "possibly signals one possible arrangement of the letters, not the given one"
+         "at": 16,
+         "note": "possibly means the letters could be arranged otherwise, so they are reordered"
         }
        ],
        "parts": [
         {
          "words": "tuna",
-         "note": "taken as written"
+         "at": 25
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "BE",
+         "op": "deletion",
          "indicators": [
           {
            "text": "half of",
-           "note": "half of a word is just one half of its letters, here the opening pair"
+           "at": 35,
+           "note": "half of means only two of the four letters of best are kept"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "best",
-           "gives": "BE",
-           "select": "first",
-           "note": "the first half of the four-letter word"
+           "at": 43,
+           "note": "the first half of best is kept"
+          },
+          {
+           "gives": "ST"
           }
          ]
         }
@@ -1325,9 +1314,9 @@
      ]
     },
     "explanation": {
-     "surface": "A club sandwich might contain tuna along with the best spread.",
-     "walkthrough": "Club sandwich is a real snack, but club is a golf club, PUTTER, which sandwiches the rearranged TUNA plus BE.",
-     "definitionFit": "Peanut butter is a paste of ground nuts that is spread on bread, so it is a spread."
+     "surface": "Club sandwiches might have tuna with half the best spread on them.",
+     "walkthrough": "'Club sandwiches' reads like a lunch order, but the club is a golf club. 'Half of' best gives BE; 'possibly' scrambles TUNA and BE into EANUTB, which goes inside PUTTER.",
+     "definitionFit": "Peanut butter is a paste of ground roasted peanuts, eaten on bread like jam."
     },
     "features": {
      "answerInScene": true,
