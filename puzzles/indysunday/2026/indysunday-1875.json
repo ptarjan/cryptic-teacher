@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -195,26 +196,32 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "GUNS",
      "indicators": [
       {
        "text": "up",
-       "note": "a down entry read from its foot back to its head runs upwards, which is the direction this word sends the letters"
+       "at": 22,
+       "note": "a Down entry read from its foot back to its head runs upwards, which is the direction this word sends the letters"
       }
      ],
      "parts": [
       {
        "words": "warm",
-       "gives": "GUNS",
-       "note": "snug means warm and cosy, and those four letters are then read from the bottom of the column upwards"
+       "at": 17,
+       "gives": "SNUG",
+       "note": "snug means warm and cosy"
       }
      ]
     },
     "explanation": {
      "surface": "Arsenal's second team having a warm-up before kick-off.",
-     "walkthrough": "Arsenal are nicknamed the Gunners, so club and armoury pull the same way and the football picture holds together while the wordplay quietly wants an adjective.",
-     "definitionFit": "An arsenal is a store of weapons, so the things it holds in reserve are guns."
+     "walkthrough": "Arsenal, the London football club, are nicknamed the Gunners, so the surface's football picture hides an armoury; 'warm' is the adjective, not the verb in 'warm up'.",
+     "definitionFit": "An arsenal is a store of weapons, so the things it holds in reserve are firearms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Arsenal"
     }
    }
   },
@@ -519,43 +526,40 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EVADE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "held back",
-         "note": "an across entry read backwards runs right to left, and something held back travels the way it came"
+         "at": 16,
+         "note": "an Across entry read backwards runs right to left, and something held back travels the way it came"
         }
        ],
        "parts": [
         {
          "words": "TV channel once",
-         "gives": "EVAD",
-         "note": "Dave is the British television channel of that name, since rebranded, and its four letters are then read right to left"
-        },
+         "at": 0,
+         "gives": "DAVE",
+         "note": "Dave was the name of a British television channel, since rebranded"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "final part of",
-           "note": "the final part of a word is the last letter of it, so only that one is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "final part of Daphne",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of the name"
-          }
-         ]
+         "text": "final part of",
+         "at": 26,
+         "note": "the final part of a word here is its last letter, so only that one is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Daphne",
+         "at": 40,
+         "note": "taken as written; only its last letter is used"
         }
        ]
       }
@@ -563,8 +567,13 @@
     },
     "explanation": {
      "surface": "A defunct channel holding back the closing seconds of a cartoon.",
-     "walkthrough": "'Daphne Duck' reads as one character's name and the split runs straight between the two words: the duck is the definition, and it is the verb rather than the bird.",
-     "definitionFit": "To duck a question is to evade it, the verb sense of dodging something rather than the bird."
+     "walkthrough": "DAVE, a former British TV channel, is 'held back' to EVAD, then the 'final part of' Daphne is added. 'Daphne Duck' reads as one name, but 'Duck' is the definition, a verb.",
+     "definitionFit": "To duck a question is to dodge it, the verb sense of avoiding something rather than the bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
     }
    }
   },
@@ -709,42 +718,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "primary means first, so only the opening letter of each word named is taken"
+       "text": "containing",
+       "at": 17,
+       "note": "what a thing contains sits inside it, so the opening letters are planted within the mineral word"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "aggregate",
+       "at": 7,
        "gives": "ORE",
+       "note": "an ore is a naturally occurring mineral aggregate"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "containing",
-         "note": "what a thing contains sits inside it, so the letters that follow are planted in the middle"
+         "text": "and",
+         "at": 33,
+         "note": "and simply joins the two opening letters together, one after the other"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "aggregate",
-         "gives": "ORE",
-         "select": "first",
-         "note": "an ore is a naturally occurring mineral aggregate, and the word opens after its first letter"
+         "words": "clay",
+         "at": 28,
+         "gives": "C",
+         "note": "the word clay, also taken primarily, gives just its first letter"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 46,
+           "note": "primarily means first of all, so only the opening letter of each mineral named is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hematite",
+           "at": 37,
+           "note": "taken as written; only its first letter is used"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "clay and hematite",
-       "gives": "CH",
-       "note": "the opening letters of the two minerals named"
       }
      ]
     },
     "explanation": {
-     "surface": "A yellowish gravel with clay and iron mixed through it.",
-     "walkthrough": "Every word belongs to geology, which is what hides the mechanism: 'aggregate' is a mineral mass rather than a total, and 'primarily' is not describing the main ingredient.",
+     "surface": "A yellowish gravel with clay and iron ore mixed through it.",
+     "walkthrough": "'containing' puts CH, the first letters of clay and hematite, inside ORE. Every word belongs to geology, which hides the mechanism: 'aggregate' is a mineral mass rather than a total.",
      "definitionFit": "Ochre is an earth pigment running from yellow to brown, and yellow ochre is the commonest form of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aggregate"
     }
    }
   },
@@ -983,37 +1014,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EVILNESS",
-     "indicators": [
-      {
-       "text": "to the North",
-       "note": "north is up the page, and a down entry read upwards runs from its foot back to its head"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the North",
+         "at": 24,
+         "note": "north is up the page, and a Down entry read upwards runs from its foot back to its head"
+        }
+       ],
        "parts": [
         {
          "words": "existing",
-         "gives": "EVIL",
-         "note": "something existing is live, and those four letters are then read from the bottom of the column upwards"
-        },
-        {
-         "words": "where the monster lurks",
-         "gives": "NESS",
-         "note": "Loch Ness in the Scottish Highlands, the lake its famous monster is supposed to live in"
+         "at": 15,
+         "gives": "LIVE",
+         "note": "something existing is live, alive and real"
         }
        ]
+      },
+      {
+       "words": "where the monster lurks",
+       "at": 37,
+       "gives": "NESS",
+       "note": "Loch Ness in the Scottish Highlands is the lake its famous monster is supposed to live in"
       }
      ]
     },
     "explanation": {
      "surface": "A dark power up in the north, in the loch where the monster is.",
-     "walkthrough": "The monster gives itself away once you think of Loch Ness rather than a horror film, and 'existing' wants the adjective 'live' rather than any form of the verb.",
+     "walkthrough": "'existing' wants the adjective live, which goes 'to the North', upwards; the monster gives itself away once you think of Loch Ness rather than a horror film.",
      "definitionFit": "Evilness is wickedness regarded as a power at work in the world, which is what a sinister force means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "monster"
     }
    }
   },
@@ -1081,40 +1118,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DISSIPATE",
      "indicators": [
       {
        "text": "Spooner's",
+       "at": 14,
        "note": "the Reverend Spooner was famous for trading the opening sounds of two words, so his name alone is the instruction to swap them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "PISSI",
        "parts": [
         {
-         "unchecked": true,
          "words": "tetchy",
-         "gives": "DISSI",
-         "soundsLike": "PISSY",
-         "note": "somebody tetchy is pissy, short-tempered and snappy, and this word hands its opening sound over to its neighbour"
-        },
-        {
-         "unchecked": true,
-         "words": "American girlfriend",
-         "gives": "PATE",
-         "soundsLike": "DATE",
-         "note": "an American calls a girlfriend a date, and this word collects the sound the other one gave up"
+         "at": 24,
+         "gives": "PISSY",
+         "note": "somebody tetchy is pissy, short-tempered and snappy; said aloud, its ending matches the answer's middle"
         }
        ]
+      },
+      {
+       "words": "American girlfriend",
+       "at": 31,
+       "gives": "DATE",
+       "note": "an American calls a girlfriend a date"
       }
      ]
     },
     "explanation": {
      "surface": "Splitting up with a bad-tempered girlfriend from the States.",
-     "walkthrough": "Say the plain version aloud first, since a pissy date is exactly what the surface is offering, and trading the two opening sounds turns it into a word for scattering away to nothing.",
-     "definitionFit": "To dissipate is to break up and disperse — a crowd, a mist or a fortune all dissipate as they scatter."
+     "walkthrough": "Say 'pissy date' aloud, then do as 'Spooner's' says and trade the opening sounds: PISSI with D and DATE with P give the answer. Pissy is coarse slang for irritable.",
+     "definitionFit": "To dissipate is to break up and disperse: a crowd, a mist or a fortune all dissipate as they scatter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tetchy"
     }
    }
   },
@@ -1142,27 +1183,49 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of a word is all of it bar the final letter, so that last one is dropped before anything else"
-      },
-      {
        "text": "relaxing",
+       "at": 17,
        "note": "letters that relax let go of the order they were handed over in and settle somewhere else"
       }
      ],
      "parts": [
       {
-       "words": "It's mostly easy",
-       "gives": "ITSEAS",
-       "note": "the two words run together with the last letter of the second one dropped, giving six letters"
+       "words": "It's",
+       "at": 0,
+       "note": "taken as written, apostrophe ignored"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "most of a word is all of it bar the final letter, so that last one is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "easy",
+         "at": 12,
+         "note": "taken as written, losing its last letter"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
      "surface": "Somebody making the case that lounging about takes no effort at all.",
-     "walkthrough": "The whole clue is the definition and the whole clue is the wordplay: read once it describes an afternoon nap, read again it hands over six letters and tells you to shuffle them.",
-     "definitionFit": "A siesta is the afternoon sleep taken in hot countries, so easy relaxing is a fair description of what one is."
+     "walkthrough": "The whole clue is both definition and wordplay: ITS with EASY 'mostly' (EAS) gives six letters that 'relaxing' shuffles, and read again the clue describes an afternoon nap.",
+     "definitionFit": "A siesta is the afternoon sleep taken in hot countries, so easy relaxing is a fair description of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "relaxing"
     }
    }
   },
