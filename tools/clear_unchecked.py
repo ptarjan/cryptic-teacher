@@ -213,6 +213,7 @@ def run(paths, write):
             if write and r[1]:
                 commit(r[0])
             out.append(r)
+            print(f"[{len(out)}/{len(paths)}] {Path(r[0]).stem}: {len(r[1])} cleared", file=sys.stderr, flush=True)
     return out
 
 
