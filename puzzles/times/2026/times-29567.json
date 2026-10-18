@@ -988,51 +988,54 @@
      "indicators": [
       {
        "text": "turned",
-       "note": "the whole string is turned round"
+       "at": 9,
+       "note": "turned means flipped round, so the assembled string is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in the end",
-         "note": "take only the end letter of THINK"
-        }
-       ],
        "parts": [
         {
          "words": "queer",
+         "at": 16,
          "gives": "ODD",
-         "note": "queer in its old sense of strange = odd"
+         "note": "queer in its old sense means odd, strange"
+        },
+        {
+         "words": "I",
+         "at": 22
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "in the end",
+           "at": 30,
+           "note": "in the end points to the final letter of the word think"
+          }
+         ],
          "parts": [
           {
-           "words": "I",
-           "note": "the word itself"
+           "words": "think",
+           "at": 24,
+           "note": "its last letter is K"
           }
          ]
-        },
-        {
-         "words": "think in the end",
-         "gives": "K",
-         "note": "last letter of THINK; all three chunks are then turned round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone says a young man has become strange, they think, in the end.",
-     "walkthrough": "'Queer' is used in its older sense of odd or strange.",
-     "definitionFit": "Kiddo is an affectionate form of address to a young person, like 'dear boy'."
+     "surface": "Someone muses that a young man has ultimately become strange.",
+     "walkthrough": "Build ODD (queer) + I + K ('in the end' of think), then 'turned' reverses the whole string ODDIK.",
+     "definitionFit": "Kiddo is an affectionate informal address to a young person, much like calling someone a dear boy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "queer"
+     "misdirectedWord": "turned"
     }
    }
   },

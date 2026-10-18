@@ -254,12 +254,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AMENDED",
      "indicators": [
       {
        "text": "to cover",
-       "note": "covering something means wrapping around it, so the words on either side enclose the duke"
+       "at": 42,
+       "note": "to cover means to wrap round, so the agreement word and the editor go either side of the duke's letter"
       }
      ],
      "parts": [
@@ -268,27 +267,29 @@
        "parts": [
         {
          "words": "I agree",
+         "at": 18,
          "gives": "AMEN",
-         "note": "amen is said to express assent"
-        },
-        {
-         "words": "Duke",
-         "gives": "D",
-         "note": "D is the abbreviation for duke"
+         "note": "amen is said to express agreement, as at the end of a prayer"
         },
         {
          "words": "newspaper boss",
+         "at": 27,
          "gives": "ED",
-         "note": "ED is short for editor"
+         "note": "ED is short for editor, the boss of a newspaper"
         }
        ]
+      },
+      {
+       "words": "Duke",
+       "at": 11,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper editor agrees to cover the story of a duke who has mended his ways.",
-     "walkthrough": "The agreement and the editor sit on either side of the duke.",
-     "definitionFit": "Something amended has been changed or corrected, which is what reformed means of a text or law."
+     "surface": "A newspaper editor agrees to cover the story of a nobleman who has mended his ways.",
+     "walkthrough": "The dash makes 'Reformed' look like a quotation about the duke; it is the definition, and 'to cover' tells the agreement word and the editor to enclose the duke.",
+     "definitionFit": "Something amended has been altered or improved, the way a reformed law or text has been revised."
     },
     "features": {
      "answerInScene": false,
@@ -1073,32 +1074,31 @@
      }
     ],
     "wordplay": {
-     "op": "alternate",
-     "unchecked": true,
-     "gives": "KRISHNA",
+     "op": "regular",
      "indicators": [
       {
        "text": "regularly",
-       "note": "regularly means at even intervals, so every second letter is taken"
+       "at": 22,
+       "note": "regularly means at even intervals, so every second letter of the words is taken"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Skirt (it's chiné)",
-       "gives": "KRISHNA",
-       "select": "alternate",
-       "note": "the second, fourth, sixth letters and so on"
+       "words": "Skirt (it's chiné) as",
+       "at": 0,
+       "note": "the even-placed letters of these words, starting from the second, spell out the god's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A deity wears a skirt of chiné, a fabric with a mottled woven pattern.",
-     "definitionFit": "A major Hindu god, the eighth avatar of Vishnu, so a divine being."
+     "surface": "A god is pictured wearing a skirt of chiné fabric, a cloth with a mottled, clouded pattern.",
+     "walkthrough": "Starting with the K of Skirt, 'regularly' takes every other letter of 'Skirt it's chiné as'; 'worn by' just links the wordplay to the definition. Chiné is a fabric with a blurred pattern.",
+     "definitionFit": "Krishna is a major Hindu god, an incarnation of Vishnu, so he is a deity."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Skirt"
     }
    }
   },

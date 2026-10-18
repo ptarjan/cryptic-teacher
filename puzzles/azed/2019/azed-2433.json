@@ -174,57 +174,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GARJAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "ill",
-       "note": "something ill is out of sorts, so the word before it is put out of order"
+       "text": "planted in",
+       "at": 23,
+       "note": "planted in means set into the ground, so the jumbled letters go inside the garden's edges"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "planted in",
-         "note": "a plant set into soil is surrounded by it, so one part goes inside another"
+         "text": "fringes of",
+         "at": 34,
+         "note": "fringes of means the outer edges, so only the first and last letters of garden are used"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "fringes of",
-           "note": "the fringes of a word are its edges, its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "garden",
-           "note": "the outside letters of garden"
-          }
-         ]
-        },
+         "words": "garden",
+         "at": 45,
+         "note": "its outer letters are G and N"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ill",
+         "at": 18,
+         "note": "ill means unwell or out of sorts, so the letters of raja are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "raja",
-         "note": "the word raja rearranged"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sick Indian prince plants a timber tree at the edges of his garden.",
-     "walkthrough": "The question mark admits the raja is only planted figuratively, as letters inside the edges of garden.",
-     "definitionFit": "Garjan is a large South-east Asian tree of the dipterocarp family, valued for its wood and oil."
+     "surface": "A sick Indian prince has had a tree planted at the edge of his garden.",
+     "walkthrough": "'ill' turns RAJA into ARJA, and 'planted in' sets that between G and N, the 'fringes of garden'. A raja is an Indian prince.",
+     "definitionFit": "Garjan is a large South Asian tree of the dipterocarp family, valued for its wood and oil."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "planted"
+     "misdirectedWord": "ill"
     }
    }
   },
@@ -249,37 +251,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPANCEL",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "cutting something short trims off its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Width",
+       "at": 0,
+       "gives": "SPAN",
+       "note": "a span is a width or breadth, as of a bridge or hand"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 32,
+         "note": "cut short means docked at the end, so the final letter of the word for a prison room is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Width",
-         "gives": "SPAN",
-         "note": "a span is a width or extent"
+         "words": "where prisoner's confined",
+         "at": 6,
+         "gives": "CELL",
+         "note": "a cell is where a prisoner is locked up"
         },
         {
-         "words": "where prisoner's confined",
-         "gives": "CEL",
-         "note": "a cell with its last letter removed"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner's narrow cell has been cut down, and he must hobble about in it.",
-     "walkthrough": "The definition reads as 'a thing one has, to hobble with': a spancel is a hobbling rope.",
-     "definitionFit": "A spancel is a rope tied round an animal's legs to hobble it, so it is what one uses for hobbling."
+     "surface": "A narrow space where a prisoner is held is cut down, and someone is left to limp.",
+     "walkthrough": "'cut short' docks CELL to CEL. 'one has to hobble' reads as a person who must limp, but means a thing used to hobble an animal.",
+     "definitionFit": "A spancel is a rope tied round a cow's or horse's legs to stop it straying, a tether for hobbling livestock."
     },
     "features": {
      "answerInScene": true,
@@ -356,47 +362,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GABFEST",
+     "op": "container",
      "indicators": [
       {
-       "text": "messed up",
-       "note": "something messed up is in disorder, so the letters are scrambled"
+       "text": "entering",
+       "at": 10,
+       "note": "entering means going inside, so the fool's letters go into the jumbled stage"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "entering",
-         "note": "entering means going inside, so one part is placed within the other"
+         "text": "messed up",
+         "at": 25,
+         "note": "messed up means thrown into disorder, so the letters of stage are rearranged"
         }
        ],
        "parts": [
         {
          "words": "stage",
-         "note": "the word stage rearranged"
-        },
-        {
-         "words": "Silly ass",
-         "gives": "BF",
-         "note": "BF, short for bloody fool, is in Chambers"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "Silly ass",
+       "at": 0,
+       "gives": "BF",
+       "note": "BF is the abbreviation for 'bloody fool', a silly ass"
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy fool walks on stage and spoils a long debate in progress.",
-     "walkthrough": "'Silly ass' is not an anagram signal: it is the Chambers abbreviation for bloody fool, which sits inside the rearranged stage.",
+     "surface": "A foolish donkey wanders onto a stage and wrecks the show.",
+     "walkthrough": "BF stands for bloody fool, a British euphemism. 'messed up' turns STAGE into GAEST, and 'entering' puts BF inside it after GA.",
      "definitionFit": "A gabfest is an informal word for a long session of talk or chatter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stage"
+     "misdirectedWord": "ass"
     }
    }
   },
@@ -1043,53 +1050,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STEY",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut down, so the word loses a letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 21,
+         "note": "short here means in shortened form, so is loses its first letter, as in the contraction 's"
+        }
+       ],
        "parts": [
         {
          "words": "is",
-         "gives": "S",
-         "note": "is shortened, as in the contraction 's"
+         "at": 18
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "backward",
-           "note": "going backward means the word is read from right to left"
-          }
-         ],
-         "parts": [
-          {
-           "words": "even",
-           "gives": "YET",
-           "note": "yet and even are synonyms, as in 'yet more' or 'even more'"
-          }
-         ]
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backward",
+         "at": 33,
+         "note": "backward means read the other way, so the word for even is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "even",
+         "at": 28,
+         "gives": "YET",
+         "note": "even and yet both stress a comparison, as in 'even better' and 'yet better'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rugged Scotsman is described as short and even rather backward.",
-     "walkthrough": "Caledonian means Scottish: stey is the Scots word for steep.",
-     "definitionFit": "Stey is Scots for steep, so a craggy Scottish slope is stey."
+     "surface": "A Scotsman who is a little short is still behind the times.",
+     "walkthrough": "'short' cuts IS to S, as in the contraction 's, and 'backward' reverses YET to TEY. Caledonian means Scottish: stey is the Scots word for steep.",
+     "definitionFit": "Stey is a Scots word for steep, which suits a craggy hillside."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Craggy"
+     "misdirectedWord": "short"
     }
    }
   },
@@ -1833,67 +1843,70 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RIBBED",
      "indicators": [
       {
        "text": "in",
-       "note": "in places this letter inside the other letters"
+       "at": 15,
+       "note": "in means placed inside, so the climb's last letter goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "RIBBED",
        "indicators": [
         {
          "text": "jumble of",
-         "note": "a jumble is a disordered heap, so the letters are mixed up"
+         "at": 18,
+         "note": "a jumble is a disordered heap, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "RIBBED",
          "indicators": [
           {
            "text": "mostly",
-           "note": "mostly means all but a little, so the last letter is dropped"
+           "at": 36,
+           "note": "mostly means most but not all, so the last letter of debris is dropped"
           }
          ],
          "parts": [
           {
            "words": "debris",
-           "gives": "RIED",
-           "note": "debris loses its last letter and is rearranged"
+           "at": 28,
+           "gives": "DEBRIS"
           },
           {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "ending",
-             "note": "the ending of a word is its final letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Climb's",
-             "gives": "CLIMB",
-             "note": "the final letter of climb"
-            }
-           ]
+           "gives": "S"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 8,
+         "note": "ending points to the last letter of climb"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Climb's",
+         "at": 0,
+         "gives": "B",
+         "note": "its last letter is B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At the end of a climb, someone stumbles through a pile of rubble on a ridged slope.",
-     "definitionFit": "Ribbed means having raised ribs or ridges, as in ribbed fabric."
+     "surface": "A climb finishes in a heap of rubble, mostly with ridged surfaces.",
+     "walkthrough": "'mostly' cuts DEBRIS to DEBRI, 'jumble of' rearranges that to RIBED, and B ('ending' of Climb's) goes 'in' after RIB.",
+     "definitionFit": "Ribbed fabric or rock has raised parallel bands, a corrugated texture of ridges."
     },
     "features": {
      "answerInScene": true,

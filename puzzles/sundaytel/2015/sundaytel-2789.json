@@ -42,42 +42,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PLAYWRIGHT",
+     "op": "container",
      "indicators": [
       {
-       "text": "awfully",
-       "note": "something done awfully is done badly, so these letters come out jumbled"
+       "text": "in",
+       "at": 34,
+       "note": "in means placed inside, so the jumbled letters go into the word for a tricky situation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "tricky situation",
+       "at": 37,
+       "gives": "PLIGHT",
+       "note": "a plight is a difficult or dangerous situation"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in tells us one group of letters sits inside another word"
+         "text": "awfully",
+         "at": 21,
+         "note": "awfully means badly, so the letters of wary are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "tricky situation",
-         "gives": "PLIGHT",
-         "note": "a plight is an awkward predicament"
-        },
-        {
          "words": "wary",
-         "note": "the four letters of wary rearranged"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cowardly person behaves very cautiously when caught in an awkward spot.",
-     "walkthrough": "Coward reads as a timid person, but it is Noël Coward, the English dramatist; the jumbled WARY goes inside PLIGHT after its first two letters.",
-     "definitionFit": "Noël Coward wrote plays such as Private Lives, so he is an example of a dramatist."
+     "surface": "A timid person is very cautious when caught in a difficult position.",
+     "walkthrough": "'Coward' looks like a timid person, but it is Noël Coward, the English dramatist. 'awfully' turns WARY into AYWR, which goes 'in' PLIGHT after PL.",
+     "definitionFit": "Noël Coward wrote plays such as Private Lives and Blithe Spirit, so he is an example of a dramatist."
     },
     "features": {
      "answerInScene": false,
@@ -347,47 +348,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOSTELRY",
+     "op": "container",
      "indicators": [
       {
-       "text": "arranged",
-       "note": "arranged means put into a new order, so the letters are reordered"
+       "text": "comes in",
+       "at": 46,
+       "note": "comes in means enters, so the European's letter goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "comes in",
-         "note": "comes in means a letter enters the middle of another group"
+         "text": "arranged",
+         "at": 14,
+         "note": "arranged means put in a new order, so the letters of shortly are reshuffled"
         }
        ],
        "parts": [
         {
          "words": "shortly",
-         "note": "the letters of shortly rearranged"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "standard abbreviation for European"
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 37,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Lodging gets sorted out soon after a European guest arrives.",
-     "walkthrough": "Shortly looks like an adverb meaning soon, but it is the anagram fodder.",
-     "definitionFit": "A hostelry is an inn or pub offering rooms, a place providing lodging."
+     "surface": "Lodging will be sorted out soon, once a visitor from Europe arrives.",
+     "walkthrough": "'arranged' reshuffles SHORTLY into HOSTLRY, and E 'comes in' after HOST.",
+     "definitionFit": "A hostelry is an inn or pub, a place offering lodging and food to travellers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shortly"
+     "misdirectedWord": "arranged"
     }
    }
   },
@@ -560,61 +561,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ARDUOUS",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in says one piece goes inside the letters around it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "in means placed inside, so the pair goes inside the other letters"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "middle of points to the central letter of the word after it"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "rural",
-           "gives": "R",
-           "select": "middle",
-           "note": "the third of the five letters"
+           "op": "middle",
+           "indicators": [
+            {
+             "text": "middle of",
+             "at": 19,
+             "note": "middle of points to the central letter of the five-letter word rural"
+            }
+           ],
+           "parts": [
+            {
+             "words": "rural",
+             "at": 29,
+             "note": "its middle letter is R"
+            }
+           ]
+          },
+          {
+           "words": "America",
+           "at": 35,
+           "gives": "US",
+           "note": "US is the standard abbreviation for the United States, America"
           }
          ]
         },
         {
          "words": "couple",
+         "at": 9,
          "gives": "DUO",
-         "note": "a duo is a pair"
-        },
-        {
-         "words": "America",
-         "gives": "US",
-         "note": "standard abbreviation for the United States"
+         "note": "a duo is a couple, a pair"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pair living out in the American countryside find life hard.",
-     "walkthrough": "Rural America is surface scenery; middle of rural takes its central letter, and the pair sits inside the letters around it.",
-     "definitionFit": "Taxing and arduous both describe a task that is demanding and strenuous."
+     "surface": "Two people find life in the American countryside burdensome.",
+     "walkthrough": "R ('middle of rural') plus US makes RUS, and the couple, DUO, goes 'in' between R and US. 'Taxing' means demanding, not to do with tax.",
+     "definitionFit": "Arduous means needing great effort, just as a taxing job wears you out."
     },
     "features": {
      "answerInScene": true,

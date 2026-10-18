@@ -403,56 +403,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RADAR",
+     "op": "palindrome",
      "indicators": [
       {
-       "text": "breaks",
-       "note": "breaking into something means getting inside it, so one piece enters the other"
+       "text": "Going north and south",
+       "at": 0,
+       "note": "in a down clue, going north and south means reading upwards and downwards alike, so the word must be the same both ways"
       }
      ],
      "parts": [
       {
-       "op": "palindrome",
+       "op": "container",
        "indicators": [
         {
-         "text": "Going north and south",
-         "note": "in a down entry, reading the same going up and going down means the word is identical both ways"
+         "text": "breaks",
+         "at": 27,
+         "note": "breaks means splits open, so the girl's name goes into the middle of the car letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "posh car's",
-           "gives": "R",
-           "note": "first half of RR, Rolls-Royce, the posh car"
-          },
-          {
-           "words": "girl",
-           "gives": "ADA",
-           "note": "a girl's name"
-          },
-          {
-           "words": "posh car's",
-           "gives": "R",
-           "note": "second half of RR"
-          }
-         ]
+         "words": "posh car's",
+         "at": 34,
+         "gives": "RR",
+         "note": "RR stands for Rolls-Royce, the classic posh car"
+        },
+        {
+         "words": "girl",
+         "at": 22,
+         "gives": "ADA",
+         "note": "Ada is a girl's name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl joyriding in a posh car breaks into its satnav.",
-     "walkthrough": "RR (Rolls-Royce) is split by ADA, giving a word that reads the same up or down the grid.",
-     "definitionFit": "Radar locates and follows aircraft or ships by reflected radio waves, so it is a tracking system."
+     "surface": "A girl who travels in both directions crashes into an expensive car and its tracking system.",
+     "walkthrough": "ADA 'breaks' into RR (Rolls-Royce) between its two letters, and 'Going north and south' says the result reads the same up or down the grid.",
+     "definitionFit": "Radar locates and follows aircraft or ships with radio echoes, so it is a tracking system."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "breaks"
     }
@@ -1492,25 +1484,25 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "INDIA",
+     "op": "reverse",
+     "reading": "IN DIA",
      "parts": [
       {
        "words": "How Delia may describe the Spanish",
-       "gives": "INDIA",
-       "note": "the name Delia is D and IA with EL, Spanish for the, sitting in between"
+       "at": 0,
+       "note": "the Spanish for 'the' is el, and Delia spelt out is D + EL + IA"
       }
      ]
     },
     "explanation": {
-     "surface": "A cookery writer is asked how she would sum up Spain.",
-     "walkthrough": "A reverse clue: the answer is the instruction that would build DELIA from EL. Delia Smith is a famous British TV cook.",
-     "definitionFit": "India is a large nation of South Asia."
+     "surface": "A cookery writer named Delia describes some Spanish dish from a foreign land.",
+     "walkthrough": "Delia Smith is a famous British cookery writer, but here her name is just letters: EL ('the' in Spanish) sits inside D...IA, so EL is 'in DIA'.",
+     "definitionFit": "India is a large nation of South Asia, so it is a sovereign state."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Delia"
     }
    }
