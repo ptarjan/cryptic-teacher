@@ -644,26 +644,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "INPUT",
      "indicators": [
       {
        "text": "recycled",
-       "note": "recycled suggests going round again, so letters from the front are moved to the back"
+       "at": 44,
+       "note": "recycled suggests going round again, so the last two letters of the name come round to the front"
       }
      ],
      "parts": [
       {
        "words": "bellicose president",
+       "at": 24,
        "gives": "PUTIN",
        "note": "Vladimir Putin, the warlike Russian president"
       }
      ]
     },
     "explanation": {
-     "surface": "Data held on a computer concerns a war-hungry head of state.",
-     "walkthrough": "The first three letters of the president's name move to the end.",
-     "definitionFit": "Data fed into or entered on a machine is called by this term in computing, the opposite of output."
+     "surface": "A warmongering head of state is being recycled, as if a newspaper story about him were.",
+     "walkthrough": "'recycled' moves the IN at the end of PUTIN round to the front.",
+     "definitionFit": "Input is data fed into a computer, the information it is given to store or process."
     },
     "features": {
      "answerInScene": false,
@@ -1130,59 +1130,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NOURISH",
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "sandwiching means putting between two slices, so those two letters go either side"
+       "at": 37,
+       "note": "sandwiches means holds between two slices, so the two first letters enclose the other pieces"
       }
      ],
      "parts": [
       {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starters of",
+         "at": 16,
+         "note": "starters are the first courses, so the first letter of each word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice ham",
+         "at": 28,
+         "note": "the first letters of nice and ham"
+        }
+       ]
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "starters of",
-           "note": "starters are the opening items, so only the first letters of the next two words are used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nice",
-           "note": "the first letter of nice"
-          }
-         ]
-        },
-        {
          "words": "our",
-         "note": "taken as written"
+         "at": 5
         },
         {
          "words": "island",
-         "gives": "IS",
-         "note": "Is is the abbreviation for island"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "ham",
-           "note": "the first letter of ham"
-          }
-         ]
+         "at": 9,
+         "gives": "IS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Feed the islanders with nice ham sandwiches.",
-     "walkthrough": "'Starters' and 'sandwiches' look like menu items but both are instructions.",
-     "definitionFit": "To nourish is to give food to or sustain, which is what feeding a person or animal does."
+     "surface": "A menu note: our island serves sandwiches filled with nice ham.",
+     "walkthrough": "'starters of' takes N and H from nice ham, and 'sandwiches' puts OUR and IS between them. 'sandwiches' looks like food on the menu, but it is a verb telling you to enclose.",
+     "definitionFit": "To nourish someone is to give them food, which is to feed them."
     },
     "features": {
      "answerInScene": true,

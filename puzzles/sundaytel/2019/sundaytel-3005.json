@@ -226,52 +226,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLORA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the phrase before it loses its final letter"
+       "text": "entirely destroyed",
+       "at": 27,
+       "note": "something wrecked completely is broken up, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "entirely destroyed",
-         "note": "something entirely destroyed is wrecked to pieces, so the remaining letters are scrambled"
+         "text": "almost",
+         "at": 20,
+         "note": "almost means not quite all, so the final letter of the phrase is dropped"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "FORAL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "for all",
-           "gives": "FORAL",
-           "select": "first",
-           "note": "the two words run together, minus their final letter"
-          }
-         ]
+         "words": "for all",
+         "at": 11
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grim note that plant life, which belongs to everyone, has been nearly wiped out.",
-     "walkthrough": "'Almost entirely' looks like one phrase; in fact 'almost' trims the words before it and 'entirely destroyed' smashes up what is left.",
-     "definitionFit": "Flora is the collective term for the plants of a region or period."
+     "surface": "Plants meant for everyone have been nearly wiped out.",
+     "walkthrough": "'almost' takes the last L off FOR ALL, leaving FORAL, and 'entirely destroyed' rearranges those five letters. 'Plant life' is the definition, not the thing destroyed.",
+     "definitionFit": "Flora is the collective term for the plants of a particular region or period."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "almost"
+     "misdirectedWord": "destroyed"
     }
    }
   },
@@ -1011,45 +1004,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VENUE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "without an end means the final letter of the following word is dropped"
+       "text": "approaching",
+       "at": 15,
+       "note": "approaching means coming up to, so the trimmed name comes just before the abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means without its end, so the last letter of the goddess is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "VENU",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "beauty",
-           "gives": "VENU",
-           "select": "first",
-           "note": "Venus is the goddess of beauty, cut short of her last letter"
-          }
-         ]
+         "words": "beauty",
+         "at": 8,
+         "gives": "VENUS",
+         "note": "Venus, the Roman goddess of love, stands for a great beauty"
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 27,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "An endlessly beautiful English spot coming into view.",
-     "definitionFit": "A venue is a place where an event happens, a locale."
+     "surface": "A never-ending beauty draws near to an English spot.",
+     "walkthrough": "A beauty is often called a Venus after the goddess; 'Endless' takes off its S to leave VENU.",
+     "definitionFit": "A venue is the place where something happens, which is a locale."
     },
     "features": {
      "answerInScene": false,

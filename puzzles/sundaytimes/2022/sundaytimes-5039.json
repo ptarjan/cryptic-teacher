@@ -2471,41 +2471,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COMMINGLE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not all of it, so the end is cut off"
+       "text": "over",
+       "at": 12,
+       "note": "in a down clue, over means placed above, so the shortened name comes before the hearth word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means not quite all, so the last letter of the punctuation mark's name is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Mix",
-         "gives": "COMM",
-         "note": "COMMIX, an old verb for mix, with its tail cut off; the clue word does double duty"
+         "words": ",",
+         "at": 3,
+         "gives": "COMMA",
+         "note": "the comma printed in the clue right after Mix, read by its name"
         },
         {
-         "words": "fireplace",
-         "gives": "INGLE",
-         "note": "an ingle is a hearth fire, as in inglenook"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "fireplace",
+       "at": 17,
+       "gives": "INGLE",
+       "note": "an ingle is a fireplace or hearth, as in inglenook"
       }
      ]
     },
     "explanation": {
-     "surface": "Stirring together most of something above the hearth.",
-     "walkthrough": "This parse is uncertain: one reading takes COMMIX, an old word for mix, cut short and set over INGLE, with 'Mix' also the definition. In a down clue 'over' means above.",
-     "definitionFit": "To commingle is to blend or mix things together, a formal word for mixing."
+     "surface": "An instruction to stir something together, most of it above the hearth.",
+     "walkthrough": "The trick is the punctuation: the comma after 'Mix' is itself wordplay, read as the word COMMA, and 'mostly' cuts it to COMM.",
+     "definitionFit": "To commingle is to blend things together, a formal word for mixing."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mostly"
     }
    }
   },
@@ -2762,56 +2775,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "about means around, so the setter's pronoun goes round the other two pieces"
+      }
+     ],
      "parts": [
       {
        "words": "Author",
+       "at": 0,
        "gives": "ME",
-       "note": "the setter is the author, so me"
+       "note": "the author of the clue refers to himself as me"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "consume",
-         "note": "consuming takes something inside"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "turned about means the letters are moved around"
-          }
-         ],
-         "parts": [
-          {
-           "words": "to consume",
-           "gives": "EAT",
-           "note": "to consume food is to eat it"
-          }
-         ]
+         "words": "to consume",
+         "at": 13,
+         "gives": "EAT",
+         "note": "to eat is to consume"
         },
         {
          "words": "ancient",
+         "at": 24,
          "gives": "PAST",
-         "note": "ancient, as in past"
+         "note": "past means long gone, ancient"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer is about to tuck into an ancient sandwich spread.",
-     "walkthrough": "This parse is uncertain: EAT seems to be rearranged and wrapped round the ancient word, though a past-tense ATE for 'consume' is another reading.",
-     "definitionFit": "Meat paste is a smooth spreadable meat product eaten on bread, a staple British sandwich filling."
+     "surface": "A writer is about to tuck into an old sandwich filling.",
+     "walkthrough": "'about' looks like it means on the point of, but it is the container signal: ME goes round EAT and PAST. Meat paste is a cheap British sandwich spread.",
+     "definitionFit": "Meat paste is a smooth spreadable meat product eaten on bread, so it is a kind of spread."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Author"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -3297,13 +3303,12 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GERRYMANDERS",
+     "op": "substitution",
      "indicators": [
       {
        "text": "turning heads",
-       "note": "swapping the heads, the opening sounds, of two words is what a Spooner slip does"
+       "at": 27,
+       "note": "the heads of two words are their first letters, and turning them swaps them over"
       }
      ],
      "parts": [
@@ -3311,27 +3316,31 @@
        "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "festive",
-         "gives": "GERRY",
-         "soundsLike": "MERRY",
-         "note": "festive is merry; it takes the opening sound of the looks word"
+         "at": 12,
+         "gives": "MERRY",
+         "note": "merry means festive and jolly"
         },
         {
-         "unchecked": true,
          "words": "looks",
-         "gives": "MANDERS",
-         "soundsLike": "GANDERS",
-         "note": "a gander is a look; it takes the opening sound of the festive word"
+         "at": 20,
+         "gives": "GANDERS",
+         "note": "a gander is informal British for a look, as in take a gander"
         }
        ]
+      },
+      {
+       "gives": "MERRYG"
+      },
+      {
+       "gives": "GERRYM"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's festive appearance makes heads turn.",
-     "walkthrough": "'Gander' is informal for a look, as in 'take a gander'. Swapping the first sounds of the festive word and the looks word gives the answer.",
-     "definitionFit": "To gerrymander is to manipulate electoral boundaries for party advantage, a specific form of manipulation."
+     "surface": "Someone's festive appearance turns heads at a party.",
+     "walkthrough": "MERRY GANDERS with their first letters exchanged gives the answer; 'turning heads' sounds like attracting attention, but it tells you to swap the initial letters.",
+     "definitionFit": "To gerrymander is to manipulate electoral boundaries for party advantage, a particular kind of manipulation."
     },
     "features": {
      "answerInScene": false,
