@@ -1309,43 +1309,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "prepared",
-       "note": "a loaf prepared is dough reworked, so its letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cut of meat",
+       "at": 0,
+       "gives": "RIB",
+       "note": "a rib is a cut of meat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "at": 17,
+         "note": "prepared means made ready, so the letters of loaf are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Cut of meat",
-         "gives": "RIB",
-         "note": "a rib is a cut of meat"
-        },
-        {
          "words": "loaf",
-         "note": "anagram of LOAF"
-        },
-        {
-         "words": "wine",
-         "gives": "VIN",
-         "note": "vin is French for wine"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "wine",
+       "at": 31,
+       "gives": "VIN",
+       "note": "vin is French for wine"
       }
      ]
     },
     "explanation": {
-     "surface": "A meal plan: a cut of meat, bread and wine as the basic diet.",
-     "walkthrough": "'Meat loaf' reads as one dish; it breaks after 'meat', and 'loaf prepared' is the anagram.",
-     "definitionFit": "Riboflavin is vitamin B2, a nutrient the body needs from food."
+     "surface": "A rib cut and a meat loaf are served with wine for a hearty meal.",
+     "definitionFit": "Riboflavin is vitamin B2, a vitamin the body needs from the diet."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "loaf"
     }
    }

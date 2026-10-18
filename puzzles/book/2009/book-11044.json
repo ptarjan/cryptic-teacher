@@ -52,11 +52,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "indicators": [
       {
-       "text": "three-quarter",
-       "note": "three quarters of a four-letter word means one of its letters is dropped, here the final one"
+       "text": "eating",
+       "at": 29,
+       "note": "eating means taking something inside, so the shortened section goes within the other letters"
       }
      ],
      "parts": [
@@ -65,45 +66,57 @@
        "indicators": [
         {
          "text": "put on",
-         "note": "put on means added at the end, so the numeral is tacked onto what follows it in the clue"
-        },
-        {
-         "text": "eating",
-         "note": "eating is used loosely here to have the calories abbreviation take on the next piece straight after it"
+         "at": 13,
+         "note": "put on means placed after, so the one follows the calories"
         }
        ],
        "parts": [
         {
          "words": "calories",
+         "at": 20,
          "gives": "CAL",
-         "note": "standard abbreviation for calories"
-        },
-        {
-         "words": "section",
-         "gives": "ZONE",
-         "note": "a zone is a section or area"
+         "note": "CAL is the abbreviation for calories"
         },
         {
          "words": "one",
+         "at": 9,
          "gives": "I",
-         "note": "Roman numeral one"
+         "note": "I is the Roman numeral one"
         }
        ]
       },
       {
-       "gives": "E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "three-quarter",
+         "at": 36,
+         "note": "three quarters of a four-letter word is its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "section",
+         "at": 50,
+         "gives": "ZONE",
+         "note": "a zone is an area or section"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pizza order where somebody piles on calories by eating most of a slice.",
-     "walkthrough": "CAL is followed by three of the four letters of ZONE, and 'one put on' adds I at the end.",
-     "definitionFit": "Calzoni is the Italian plural of calzone, a folded, stuffed type of pizza."
+     "surface": "Pizza adds weight to someone already eating most of a portion.",
+     "walkthrough": "In an across answer 'put on' means added after, so one follows calories before the shortened section is eaten.",
+     "definitionFit": "Calzoni is a plural of calzone, a folded, stuffed pizza turnover."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "section"
+     "misdirectedWord": "eating"
     }
    }
   },

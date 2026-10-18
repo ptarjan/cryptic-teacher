@@ -896,35 +896,41 @@
      "indicators": [
       {
        "text": "Rebuffed",
-       "note": "rebuffed means pushed back, so the whole is read backwards"
+       "at": 0,
+       "note": "to be rebuffed is to be pushed back, so the whole run of pieces is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "hosting",
-         "note": "a host has guests inside the house, so the concessions word holds MY inside it"
-        }
-       ],
        "parts": [
         {
          "words": "excellent",
+         "at": 9,
          "gives": "AI",
-         "note": "A1 = excellent, the 1 read as I"
+         "note": "A1 means excellent, written here as AI"
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "when hosting",
+           "at": 31,
+           "note": "hosting means having a guest inside, so the word my goes within concessions"
+          }
+         ],
          "parts": [
           {
            "words": "concessions",
+           "at": 19,
            "gives": "SOPS",
-           "note": "sops are concessions to appease someone; MY goes inside before the last S"
+           "note": "sops are small concessions made to placate someone"
           },
           {
            "words": "my",
-           "note": "used as it stands"
+           "at": 44,
+           "gives": "MY",
+           "note": "taken as written"
           }
          ]
         }
@@ -933,14 +939,14 @@
      ]
     },
     "explanation": {
-     "surface": "Generous concessions are turned down when I host meetings.",
-     "walkthrough": "A1 SOP(MY)S is assembled first and then read backwards; the 1 in A1 serves as the letter I.",
-     "definitionFit": "Symposia is the plural of symposium, a conference."
+     "surface": "Someone with excellent bargaining offers is snubbed while hosting a series of conferences.",
+     "walkthrough": "Excellent is A1, with the digit read as the letter I; sops are things offered to placate.",
+     "definitionFit": "Symposia are formal meetings where experts discuss a subject, a plural synonym for conferences."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Rebuffed"
+     "misdirectedWord": "excellent"
     }
    }
   },
@@ -1297,54 +1303,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so the less convincing word sits around the motive letter"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "heading for",
-         "note": "the heading of a word is its first letter"
+         "text": "about",
+         "at": 20,
+         "note": "about means surrounding, so lamer goes round the letter from motive"
         }
        ],
        "parts": [
         {
-         "words": "Son",
-         "note": "S = son"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "parts": [
-        {
          "words": "less convincing",
+         "at": 4,
          "gives": "LAMER",
-         "note": "a lame excuse is unconvincing; goes around M"
+         "note": "a lame excuse is unconvincing, so lamer means less convincing"
         },
         {
-         "words": "motive's heading",
-         "gives": "M",
-         "note": "first letter of motive"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading for",
+           "at": 35,
+           "note": "a heading is what comes at the top, so only the first letter of motive is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "motive's",
+           "at": 26,
+           "gives": "M",
+           "note": "first letter of motive"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A son with an ever feebler story about why he did it is headed for jail.",
-     "walkthrough": "The surface is a courtroom scene, so 'prison' at the end looks like the fate of the son rather than the definition.",
-     "definitionFit": "A slang sense: the slammer is prison, named for the door slammed shut on the inmate."
+     "surface": "A son's weak alibi about his motive leads him to jail.",
+     "walkthrough": "LAMER goes about M to make LAMMER, after S for son. Slammer is slang for prison.",
+     "definitionFit": "Slammer is informal slang for a jail, so it is a colloquial synonym for prison."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "less"
     }
    }
   },
@@ -1669,47 +1680,51 @@
      "indicators": [
       {
        "text": "upheld",
-       "note": "in a down clue, held up means read from the bottom"
+       "at": 24,
+       "note": "in a down answer, held up means the letters run from bottom to top, so the pieces read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "about means around, so the story wraps around the Conservative letter"
-        }
-       ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 37,
+           "note": "about means surrounding, so the lie goes round the letter for Conservative"
+          }
+         ],
          "parts": [
           {
            "words": "story",
+           "at": 31,
            "gives": "LIE",
-           "note": "a lie is a story; it goes around C"
+           "note": "a story is a lie, a fib"
           },
           {
            "words": "Conservative",
-           "gives": "C",
-           "note": "C = Conservative"
+           "at": 43,
+           "gives": "C"
           }
          ]
         },
         {
          "words": "clubs",
+         "at": 56,
          "gives": "C",
-         "note": "C = clubs, the card suit"
+         "note": "C is the card-suit abbreviation for clubs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old English dynasty is backed by a tale about Tory clubs.",
-     "walkthrough": "LI(C)E + C is built first, then the whole is read upwards. The Cecils are the family of Lord Burghley and the Marquesses of Salisbury, statesmen since Elizabeth I.",
-     "definitionFit": "The Cecils are a long-standing English political family."
+     "surface": "A tale about Conservative clubs is upheld concerning an old English dynasty.",
+     "walkthrough": "C inside LIE gives LICE; add C for clubs to get LICEC, and 'upheld' reads that upwards.",
+     "definitionFit": "The Cecils are a long-established aristocratic English dynasty, including Lord Burghley and the Marquesses of Salisbury."
     },
     "features": {
      "answerInScene": true,
