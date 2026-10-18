@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -107,53 +108,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "KASPAROV",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "climbing",
-         "note": "Something climbing a down entry is written from the bottom upwards, so the wood named here goes into the grid back to front."
+         "text": "stops",
+         "at": 37,
+         "note": "stops in the sense of plugs or fills a gap, so the mast sits inside the other letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "stops",
-           "note": "To stop a hole is to plug it, so the piece named next is driven into the middle of what is already there."
+           "text": "climbing",
+           "at": 16,
+           "note": "climbing in a down clue means the word reads upwards, backwards"
           }
          ],
          "parts": [
           {
            "words": "wooden",
-           "gives": "KAO",
-           "note": "oak is the wood, and it climbs the entry rather than descending it"
-          },
-          {
-           "words": "mast",
-           "gives": "SPAR",
-           "note": "a spar is the pole a sail is set on"
+           "at": 25,
+           "gives": "OAK",
+           "note": "oak is a wood, so wooden suggests oak"
           }
          ]
         },
         {
-         "words": "playing",
-         "gives": "V",
-         "note": "v for versus, the way a fixture list writes two sides playing each other"
+         "words": "mast",
+         "at": 32,
+         "gives": "SPAR",
+         "note": "a spar is a pole such as a mast"
         }
        ]
+      },
+      {
+       "words": "playing",
+       "at": 43,
+       "gives": "V",
+       "note": "V is short for versus, as in one team playing another"
       }
      ]
     },
     "explanation": {
-     "surface": "A ship's master swarming up the wooden mast, and somebody's game being brought to a halt.",
-     "walkthrough": "The board is a chessboard, not a deck: 'Master on board' is the entire definition, and every nautical word after it — climbing, mast, spar — is there to keep you at sea.",
-     "definitionFit": "Garry Kasparov was world chess champion, so 'master on board' picks him out as the master at the board rather than a ship's officer."
+     "surface": "Sailors clamber up a wooden mast and the game stops.",
+     "walkthrough": "The ship's mast is a decoy picture: 'on board' means a chessboard, and 'playing' is the versus of a match, not sailors at play.",
+     "definitionFit": "Garry Kasparov was world chess champion, a grandmaster at the board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
     }
    }
   },
@@ -278,42 +288,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INEXTREMIS",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "A word given almost in full stops one letter short, so the word just before it arrives without its last letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "following",
+       "at": 4,
+       "gives": "NEXT",
+       "note": "next means following"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 29,
+         "note": "almost means not quite all, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "following",
-         "gives": "NEXT",
-         "note": "the following item is the next one"
-        },
-        {
          "words": "careless",
-         "gives": "REMIS",
-         "note": "careless work is remiss, here one letter short"
+         "at": 19,
+         "gives": "REMISS",
+         "note": "remiss means careless or negligent"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A follower growing sloppy, and very nearly paying for it.",
-     "walkthrough": "In extremis is the Latin that both the church and the law use for the point of death, which is why a plain English participle can define a phrase in another language.",
-     "definitionFit": "In extremis means at the point of death, so 'dying' translates it; the phrase also survives in the weaker sense of a desperate last resort."
+     "surface": "The next person in line grows careless and nearly dies.",
+     "walkthrough": "'almost' cuts the final S from REMISS.",
+     "definitionFit": "The Latin phrase means at the point of death, used in English for someone in their last moments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
     }
    }
   },
@@ -345,48 +365,60 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "added",
+       "at": 32,
+       "note": "added in the sense of put into the drink, so these letters go inside the tea"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "tea",
-         "gives": "BREW",
-         "note": "a brew is a pot of tea, and it opens up to take the rest"
-        },
-        {
-         "words": "with",
-         "gives": "AND",
-         "note": "and does the same joining job as with"
-        }
-       ]
+       "words": "tea",
+       "at": 5,
+       "gives": "BREW",
+       "note": "a brew is a pot or cup of tea"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "N",
-       "indicators": [
-        {
-         "text": "added",
-         "note": "What is added to a brew goes down into it, so these letters are dropped inside the word rather than tacked on the end."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "a touch of nutmeg",
-         "gives": "N",
-         "select": "first",
-         "note": "a touch of a word is the first letter of it"
+         "words": "with",
+         "at": 9,
+         "gives": "AND",
+         "note": "and means with, in addition to"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a touch of",
+           "at": 14,
+           "note": "a touch of something is the smallest amount: its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nutmeg",
+           "at": 25,
+           "note": "supplies its first letter N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pot of herbal tea being improved with a scrape of nutmeg.",
-     "walkthrough": "'Mint' is the trap: it sits in front of 'tea' looking like the herb, and it is the definition, from the condition of a coin fresh off the press.",
-     "definitionFit": "Something in mint condition has never been used or handled, which is exactly what brand-new claims."
+     "surface": "A recipe for mint tea finished with a grating of nutmeg.",
+     "walkthrough": "'Mint' looks like the herb in the tea, but it is the definition, in the sense of mint condition.",
+     "definitionFit": "Mint as an adjective means in pristine condition, as new as when it was made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mint"
     }
    }
   },
@@ -662,53 +694,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "XENOPUS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 40,
+       "note": "about here means next to or around the work, the new letter standing just in front of it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "XENOPUS",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "When reviewing",
+         "at": 0,
+         "note": "reviewing read as re-viewing, looking back, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "When reviewing",
-           "note": "Reviewing is looking back over something, so the piece it introduces is read from its end to its start."
-          },
-          {
-           "text": "about",
-           "note": "About means round, so the letter it governs is wrapped by the pieces either side of it instead of being parked at one end."
-          }
-         ],
-         "parts": [
-          {
-           "words": "I used to love her",
-           "gives": "XE",
-           "note": "the woman you used to love is your ex, taken backwards"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the standard abbreviation for new"
-          },
-          {
-           "words": "work",
-           "gives": "OPUS",
-           "note": "an opus is a composer's or a writer's work"
-          }
-         ]
+         "words": "I used to love her",
+         "at": 16,
+         "gives": "EX",
+         "note": "a former partner is an ex"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 46,
+       "gives": "N"
+      },
+      {
+       "words": "work",
+       "at": 35,
+       "gives": "OPUS",
+       "note": "opus is Latin for a work, especially a musical one"
       }
      ]
     },
     "explanation": {
-     "surface": "A critic looking back over the output of a woman he was once in love with.",
-     "walkthrough": "Xenopus is the African clawed frog, the laboratory animal that made much of twentieth-century embryology possible. Nothing in the surface sounds like taxonomy, which is the point of writing it as a critic's reminiscence.",
-     "definitionFit": "Xenopus is the genus that African clawed frogs belong to, so the definition names a rank in the scientific classification rather than offering a synonym."
+     "surface": "A man looks back on a former love's work concerning a new kind of frog.",
+     "walkthrough": "Xenopus, the African clawed frog, is the genus widely used in laboratories; the frog is the definition, not part of the reminiscence.",
+     "definitionFit": "Xenopus is the scientific genus name of the African clawed frogs, widely used in biological research."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reviewing"
     }
    }
   },
@@ -982,36 +1016,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INHERENT",
-     "indicators": [
-      {
-       "text": "contracted",
-       "note": "A contracted word is written short with an apostrophe standing in for what has gone, which costs this one its middle letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Where you may find me",
+       "at": 0,
+       "gives": "INHERE",
+       "note": "a speaker would say you can find me in here"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contracted",
+         "at": 22,
+         "note": "contracted means shortened, as not becomes n't, losing its vowel"
+        }
+       ],
        "parts": [
         {
-         "words": "Where you may find me",
-         "gives": "INHERE",
-         "note": "the speaker is in here, wherever here happens to be"
+         "words": "not",
+         "at": 33,
+         "gives": "NOT",
+         "note": "not, with its O dropped, gives NT"
         },
         {
-         "words": "not",
-         "gives": "NT",
-         "note": "contracted to n't, the way it is in can't and won't"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the single word at the end, and it does the least work in the sentence: everything before it is a set of directions dressed up as somebody speaking.",
-     "definitionFit": "An inherent quality belongs to a thing by its own nature, so 'natural' matches it as an adjective in the sense of innate rather than unspoilt."
+     "surface": "A cryptic remark: look in here and you'll find me shrunken and unnatural.",
+     "walkthrough": "'not natural' reads as a negation, but 'not' is wordplay: 'contracted' shortens it to n't, which follows IN HERE.",
+     "definitionFit": "An inherent quality is built in by nature rather than acquired, so it is natural to the thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
     }
    }
   },
@@ -1214,60 +1258,56 @@
      "indicators": [
       {
        "text": "into",
-       "note": "What goes into a thing ends up inside it, so the pieces named before land within the letters that follow."
+       "at": 17,
+       "note": "into means going inside, so these letters are put within the city's remaining letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "empty",
-         "note": "An empty word keeps only its walls, the first letter and the last, with everything between them gone."
+         "at": 22,
+         "note": "an empty word loses all its inside letters, leaving its first and last"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "ML",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "empty Montreal",
-           "gives": "ML",
-           "select": "outer",
-           "note": "the city's name with its insides removed, leaving the outer pair"
-          }
-         ]
-        },
-        {
-         "words": "Books",
-         "gives": "OT",
-         "note": "the Old Testament, the books of the Bible in crossword shorthand"
+         "words": "Montreal",
+         "at": 28,
+         "note": "emptied it leaves ML"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "E",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
+         "words": "Books",
+         "at": 0,
+         "gives": "OT",
+         "note": "OT, the Old Testament, is a set of books of the Bible"
+        },
+        {
          "words": "sweetheart",
+         "at": 6,
          "gives": "E",
-         "select": "middle",
-         "note": "the heart of the word sweet is its middle letter"
+         "note": "the heart of sweet is its middle letter E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody booking their sweetheart a room in a deserted Montreal.",
-     "walkthrough": "'Books' looks like the verb the sentence needs and is a noun in the wordplay, the Old Testament — the booking the surface describes never happens at all.",
-     "definitionFit": "A motel is roadside accommodation, rooms built for travellers arriving by car, so the definition names the plain category it belongs to."
+     "surface": "A traveller books a place for a sweetheart in a deserted Montreal.",
+     "walkthrough": "'Books' is not a verb here but OT, the Old Testament. OT and E go 'into' ML.",
+     "definitionFit": "A motel is a roadside hotel, so it provides overnight lodging for motorists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Books"
     }
    }
   },
@@ -1641,41 +1681,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SETFIRETO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sealing",
+       "at": 19,
+       "note": "sealing means closing in, so the gap sits inside the other phrase"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Do something about",
+       "at": 0,
+       "gives": "SEETO",
+       "note": "to see to something is to deal with it"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "sealing",
-         "note": "To seal something is to close it up around whatever is inside, so the phrase before shuts over the letters that follow."
-        },
-        {
          "text": "over",
-         "note": "Turned over is upside down, so the word this follows goes in the other way round."
+         "at": 31,
+         "note": "over signals turning the word over, reading it backwards"
         }
        ],
        "parts": [
         {
-         "words": "Do something about",
-         "gives": "SEETO",
-         "note": "to see to a thing is to deal with it"
-        },
-        {
          "words": "gap",
-         "gives": "TFIR",
-         "note": "a rift is a gap, written the other way round"
+         "at": 27,
+         "gives": "RIFT",
+         "note": "a rift is a gap or split"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A handyman being told to deal with the draughty gap above the light.",
-     "walkthrough": "'Light' is the definition and it is a verb — the surface has it as the lamp on the ceiling, which is why the last word looks like part of the job description.",
-     "definitionFit": "To light something is to set fire to it, so the definition matches as a verb in the everyday sense of lighting a fire or a cigarette."
+     "surface": "Someone told to deal with a gap by sealing it over with light.",
+     "walkthrough": "'light' at the end looks like a material for sealing, but it is the verb, to ignite.",
+     "definitionFit": "To light something is to ignite it, which is what the phrase means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
     }
    }
   }
