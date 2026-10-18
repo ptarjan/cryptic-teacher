@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -297,31 +298,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RECLINE",
      "indicators": [
       {
        "text": "taking head",
-       "note": "Taking the head of a word means occupying its first position, so the letter named moves in and the letter that was there moves out."
+       "at": 19,
+       "note": "taking the head means seizing the first position, so the opening letter of the refusal word is swapped out"
       }
      ],
      "parts": [
       {
-       "words": "Right",
-       "gives": "R",
-       "note": "r = right, as in a stage direction or the marking in a shoe"
+       "words": "turn down",
+       "at": 9,
+       "gives": "DECLINE",
+       "note": "to decline is to turn down an offer"
       },
       {
-       "words": "turn down",
-       "gives": "DECLINE",
-       "note": "to turn down an invitation is to decline it"
+       "gives": "D"
+      },
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A refusal made while somebody settles back against the headrest.",
-     "walkthrough": "Rather than joining two pieces, this clue swaps one: the R takes over the leading position in the word for a refusal, pushing its D out. 'Head rest' looks like one object and splits between the wordplay and the definition.",
-     "definitionFit": "To recline is to lean back at ease, which is what 'rest' asks for — verb for verb, the lying-back sense rather than the pausing one."
+     "surface": "Advice that the correct way to refuse is to lie back with your head on the rest.",
+     "walkthrough": "Swap the D at the front of DECLINE for R. 'head rest' reads as one thing, a cushion for the head, but the clue splits there.",
+     "definitionFit": "To recline is to lie back or lean at ease, a way of resting the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
     }
    }
   },
@@ -607,42 +616,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Regularly",
-       "note": "Taking letters regularly means at a fixed interval rather than taking them all, and the interval a setter means is every second one."
+       "text": "about",
+       "at": 19,
+       "note": "about means surrounding, so the picked letters go around the word for delayed"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "PAU",
        "indicators": [
         {
-         "text": "about",
-         "note": "Something placed about another thing is wrapped round it, so these letters open up and take the next piece inside."
+         "text": "Regularly",
+         "at": 0,
+         "note": "regularly means at even intervals, so every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Regularly speak up",
-         "gives": "PAU",
-         "select": "alternate",
-         "note": "every second letter of sPeAkUp"
+         "words": "speak up",
+         "at": 10,
+         "note": "the even letters of speak up are P, A and U"
         }
        ]
       },
       {
        "words": "delayed",
+       "at": 25,
        "gives": "LATE",
-       "note": "a delayed train is a late one"
+       "note": "late means delayed, behind schedule"
       }
      ]
     },
     "explanation": {
-     "surface": "A speaker raising their voice about an aircraft that has been held up.",
-     "walkthrough": "'Plane' looks like the aircraft the delay belongs to and is the flat-surface sense instead. 'Up' is not a reversal here — it belongs to 'speak up', and its letters are among the ones being sampled.",
-     "definitionFit": "A plateau is a level stretch of high ground and 'plane' is the word for a flat surface — both nouns for something level."
+     "surface": "A passenger is told to complain loudly about a late flight.",
+     "walkthrough": "'plane' looks like an aircraft, which fits the delayed flight, but here it means a flat surface. 'Regularly' picks the even letters of the two words.",
+     "definitionFit": "A plateau is a raised area of level ground, a high flat plane of land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
     }
    }
   },
@@ -763,40 +777,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "Turning around is facing the other way, so the piece this follows is written from its last letter back to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "silver",
+       "at": 9,
+       "gives": "AG",
+       "note": "AG is the chemical symbol for silver"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 26,
+         "note": "around means turned round, so the unit is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "entrance",
-         "gives": "ETAG",
-         "note": "a gate is the entrance through a wall or fence"
-        },
-        {
-         "words": "work unit around",
+         "words": "work unit",
+         "at": 16,
          "gives": "ERG",
-         "note": "the erg is the physicist's unit of work, set down the other way round"
-        },
-        {
-         "words": "silver",
-         "gives": "GA",
-         "note": "ag is the chemical symbol for silver, from the Latin argentum"
+         "note": "the erg is the unit of work in the CGS system of physics"
         }
        ]
+      },
+      {
+       "words": "entrance",
+       "at": 33,
+       "gives": "GATE",
+       "note": "a gate is an entrance"
       }
      ]
     },
     "explanation": {
-     "surface": "Building a silver fitting around the entrance to a workshop.",
-     "walkthrough": "'Around' is doing turning duty rather than surrounding duty, which is the reading the surface offers. The erg is worth learning: the tiny unit of work in the old centimetre-gram-second system, and a setter's favourite.",
-     "definitionFit": "To aggregate things is to gather them into a single mass, so 'Assemble' is a verb-for-verb synonym in the bringing-together sense."
+     "surface": "Instructions to put together a silver-working team near the way in.",
+     "walkthrough": "The erg is a small unit of work used in older physics, a crossword favourite; 'around' means it is read backwards.",
+     "definitionFit": "To aggregate is to gather separate things together into a single whole, which is what assembling does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
     }
    }
   },
@@ -928,8 +951,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "treated",
-       "note": "Treating something means working on it until it comes out changed, and letters worked on that way come out in a different order."
+       "text": "around",
+       "at": 20,
+       "note": "around means surrounding, so the rearranged letters enclose the picked letter"
       }
      ],
      "parts": [
@@ -937,43 +961,46 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "Going around something means enclosing it, so the shuffled letters close on both sides of the one named next."
+         "text": "treated",
+         "at": 5,
+         "note": "treated means processed or worked on, so the letters are reworked into a new order"
         }
        ],
        "parts": [
         {
          "words": "sprain",
-         "note": "six letters of fodder"
+         "at": 13
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
          "text": "middle of",
-         "note": "The middle of a word is the letter with an equal number either side, which a five-letter word has exactly one of."
+         "at": 27,
+         "note": "the middle of a five-letter word is its third letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of thigh",
-         "gives": "I",
-         "select": "middle",
-         "note": "the middle letter of thIgh, with two letters standing either side of it"
+         "words": "thigh",
+         "at": 37,
+         "note": "the middle letter of thigh is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Treating a sprain in the middle of somebody's thigh.",
-     "walkthrough": "The medical surface does all the hiding: 'treated' reads as what you do to an injury, and it is the instruction to disturb the word next to it.",
-     "definitionFit": "Aspirin is the everyday painkiller sold over the counter, so 'Drug' names the category rather than offering a synonym."
+     "surface": "A pill was given for a pulled muscle in the upper leg.",
+     "walkthrough": "'treated' rearranges SPRAIN, and 'around' puts that around I from the thigh. The medical surface makes 'treated' look like care for the injury.",
+     "definitionFit": "Aspirin is a common painkilling and anti-inflammatory drug, acetylsalicylic acid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
     }
    }
   },
@@ -999,43 +1026,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "across",
-       "note": "Laying one thing across another spans it on both sides, so the letter named next is written inside the word that spans it."
-      }
-     ],
      "parts": [
       {
        "words": "Old",
+       "at": 0,
        "gives": "EX",
-       "note": "an ex is the old holder of a post or the former partner"
+       "note": "ex means former or old, as in an ex-partner"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "front of",
-         "note": "The front of a word is the letter it begins with, and that single letter is all this asks for."
+         "text": "across",
+         "at": 9,
+         "note": "across means stretched over, so the sign word straddles the picked letter"
         }
        ],
        "parts": [
         {
          "words": "sign",
+         "at": 4,
          "gives": "CLUE",
-         "note": "a clue is the sign that points a detective the right way"
+         "note": "a clue is a sign, an indication"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "D",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 16,
+           "note": "the front of a word is its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "front of door",
-           "gives": "D",
-           "select": "first",
-           "note": "the first letter of door"
+           "words": "door",
+           "at": 25,
+           "note": "the first letter of door is D"
           }
          ]
         }
@@ -1044,9 +1071,14 @@
      ]
     },
     "explanation": {
-     "surface": "An old sign nailed across the front of the door to a pub.",
-     "walkthrough": "'Bar' is a verb — to shut somebody out — while the surface is all saloon. 'Old' gives two letters here, the former partner rather than the single O setters use more often.",
-     "definitionFit": "To exclude somebody is to keep them out, which is exactly what barring them means — verb for verb."
+     "surface": "An old notice hung over the front door says entry is forbidden.",
+     "walkthrough": "'bar' could be a pub, given the door, but it is the verb meaning keep out.",
+     "definitionFit": "To exclude someone is to shut them out, to prevent their entry or participation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
     }
    }
   },
@@ -1075,7 +1107,8 @@
      "indicators": [
       {
        "text": "gyrating",
-       "note": "Gyrating is spinning on the spot, and letters spun round land in some order other than the one they started in."
+       "at": 24,
+       "note": "gyrating means spinning about, so the remaining letters are jumbled"
       }
      ],
      "parts": [
@@ -1084,36 +1117,35 @@
        "indicators": [
         {
          "text": "dropping",
-         "note": "To drop something is to let it fall away, so the letter named is taken out of the word in front of it."
+         "at": 7,
+         "note": "dropping means letting go of something, so the drug's letter leaves the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "ecstasy",
-           "gives": "E",
-           "note": "e = ecstasy, the drug's single letter — and here the letter to lose"
-          },
-          {
-           "words": "Oracle dropping",
-           "gives": "ORACL",
-           "note": "ORACLE with that E gone, leaving five letters to be shuffled"
-          }
-         ]
+         "words": "Oracle",
+         "at": 0
         },
         {
-         "gives": "E"
+         "words": "ecstasy",
+         "at": 16,
+         "gives": "E",
+         "note": "E is the common abbreviation for the drug ecstasy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An oracle giving up drugs and whirling into song.",
-     "walkthrough": "The whole surface is a prophetess in a trance, which is what disguises the pair of instructions inside it. 'To' is joinery only and contributes no letters.",
-     "definitionFit": "A carol is a song, most often a Christmas one, so the definition offers the general word for a particular kind."
+     "surface": "A prophet at a rave, high and dancing wildly to music.",
+     "walkthrough": "'dropping ecstasy' sounds like taking the drug, but it means removing E from ORACLE, leaving ORACL, which 'gyrating' rearranges.",
+     "definitionFit": "A carol is a joyful song, especially a Christmas hymn sung by groups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
     }
    }
   },
@@ -1365,48 +1397,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NURTURE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "To turn about is to face the other way, so the word before it is written from its final letter back to its first."
+       "text": "by",
+       "at": 25,
+       "note": "by means beside, so the river comes next to the time letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "by",
-         "note": "A thing standing by another is right beside it, so these letters simply join on at the end."
+         "text": "about",
+         "at": 14,
+         "note": "about means turned around, so the word for work is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "work about",
-         "gives": "NUR",
-         "note": "to run a business is to work it, and those three letters are set down the other way round"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "t = time, as in the countdown to lift-off"
-        },
-        {
-         "words": "river",
-         "gives": "URE",
-         "note": "the Ure is a Yorkshire river, one of the handful setters keep for their short letter chunks"
+         "words": "work",
+         "at": 9,
+         "gives": "RUN",
+         "note": "to run is to work or operate, as a machine runs"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 20,
+       "gives": "T"
+      },
+      {
+       "words": "river",
+       "at": 28,
+       "gives": "URE",
+       "note": "the Ure is a river in North Yorkshire"
       }
      ]
     },
     "explanation": {
-     "surface": "Raising the question of working hours during a walk by the river.",
-     "walkthrough": "'Bring up' is rearing a child, not raising a subject, which is what the office surface is selling. Britain's short river names are worth learning as a set — the Ure, the Exe, the Dee, the Po.",
-     "definitionFit": "To nurture a child is to bring them up — feeding, protecting, raising — so the phrasal verb and the answer name the same act."
+     "surface": "Raise the matter of a working schedule beside the river.",
+     "walkthrough": "'about' turns RUN into NUR. The Ure is a Yorkshire river that often crops up in crosswords.",
+     "definitionFit": "To nurture a child is to raise it, caring for its growth and development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
     }
    }
   },
@@ -1431,48 +1470,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IDYLLIC",
+     "op": "charade",
      "indicators": [
       {
-       "text": "crushed",
-       "note": "Something crushed has lost the shape it had, and letters that lose their shape come out in a new order."
+       "text": "by",
+       "at": 32,
+       "note": "by means next to, so the crushed flower comes beside the papers"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "papers",
+       "at": 35,
+       "gives": "ID",
+       "note": "ID means identity papers"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "by",
-         "note": "Something set by another thing is placed next to it, so these letters attach at the side rather than inside."
+         "text": "crushed",
+         "at": 13,
+         "note": "crushed means squashed out of shape, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "papers",
-         "gives": "ID",
-         "note": "your papers are your identification, shortened the way the card is"
-        },
-        {
-         "words": "Lily crushed",
-         "gives": "YLLI",
-         "note": "the four letters of LILY in a fresh order"
-        },
-        {
-         "words": "caught",
-         "gives": "C",
-         "note": "c = caught, from the way a cricket scorecard records that dismissal"
+         "words": "Lily",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "caught",
+       "at": 25,
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
       }
      ]
     },
     "explanation": {
-     "surface": "A perfect Lily, flattened and then picked up by the newspapers.",
-     "walkthrough": "'Caught by papers' reads as a tabloid scoop and conceals two separate pieces, one of them the cricket scorer's c. The capital on Lily makes it look like a person when it is only four letters of fodder.",
-     "definitionFit": "An idyllic scene is one of untroubled perfection, so 'Perfect' is an adjective standing in for an adjective."
+     "surface": "A flawless flower was squashed and covered by the newspapers.",
+     "walkthrough": "'papers' suggests newspapers in the surface, but it means identity papers; 'by' places the crushed flower beside them.",
+     "definitionFit": "Idyllic describes something blissfully perfect, like a peaceful pastoral scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
     }
    }
   },

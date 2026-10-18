@@ -791,55 +791,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "opening"
+       "text": "opening",
+       "at": 32,
+       "note": "the pieces open up the outer pair of letters, sitting inside them"
       }
      ],
      "parts": [
       {
        "words": "Macron's case",
+       "at": 40,
        "gives": "MN",
-       "note": "outer letters of MACRON"
+       "note": "the case of a word is its outer shell, the first and last letters of Macron"
       },
       {
        "op": "charade",
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "say",
-           "note": "BA is given as an example of a degree"
-          },
-          {
-           "text": "case",
-           "note": "a word's case is its outside, its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "on",
-           "note": "the word itself"
-          }
-         ]
+         "words": "on",
+         "at": 21,
+         "gives": "ON"
         },
         {
          "words": "say, BA",
+         "at": 24,
          "gives": "DEGREE",
-         "note": "a BA (Bachelor of Arts) is a degree; ON DEGREE goes inside M…N"
+         "note": "a BA, Bachelor of Arts, is an example of a degree, as 'say' signals"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark by President Macron about a British university degree gets misread.",
-     "walkthrough": "A mondegreen is a misheard phrase, named after 'laid him on the green' heard as 'Lady Mondegreen'.",
-     "definitionFit": "A mondegreen is a set of words misheard and so misinterpreted, usually a song lyric."
+     "surface": "A news report about the French president, a British Airways flight and some misheard remarks.",
+     "walkthrough": "'say' marks BA as an example of a DEGREE. A mondegreen is a misheard lyric or phrase, named after a misheard ballad line 'laid him on the green' heard as 'Lady Mondegreen'.",
+     "definitionFit": "A mondegreen is a phrase misheard and so misunderstood, typically a song lyric reinterpreted by the listener."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "case"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "BA"
     }
    }
   },
@@ -1197,48 +1187,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POLARISED",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "POLARISED",
+       "indicators": [
+        {
+         "text": "Incomplete",
+         "at": 0,
+         "note": "incomplete means not whole, so the final letter of the vote word is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Incomplete",
-           "note": "POLL loses its last letter"
-          },
-          {
-           "text": "differently",
-           "note": "IS READ is arranged differently"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Incomplete ballot",
-           "gives": "POL",
-           "note": "a poll is a ballot; incomplete drops the last L"
-          },
-          {
-           "words": "is read differently",
-           "gives": "ARISED",
-           "note": "anagram of IS READ"
-          }
-         ]
+         "words": "ballot",
+         "at": 11,
+         "gives": "POLL",
+         "note": "a poll is a ballot, a vote"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "differently",
+         "at": 26,
+         "note": "read differently, so these letters are put in a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is read",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spoiled ballot paper is interpreted differently by the two sides.",
-     "walkthrough": "The surface is an election count, where a half-filled ballot gets argued over by both camps.",
-     "definitionFit": "A polarised electorate is split into two opposing camps."
+     "surface": "An unfinished vote count is interpreted in contrasting ways by rival factions.",
+     "walkthrough": "'Incomplete' cuts POLL to POL, and 'differently' rearranges IS READ into ARISED.",
+     "definitionFit": "Polarised opinion has split into two opposite extremes, leaving people divided in rival groups."
     },
     "features": {
      "answerInScene": true,

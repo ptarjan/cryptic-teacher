@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,45 +44,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTHENTIC",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "something unfinished stops before its end, so the word named after it arrives without its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "gold",
+       "at": 5,
+       "gives": "AU",
+       "note": "AU is the chemical symbol for gold, from Latin aurum"
+      },
+      {
+       "words": "in addition to this",
+       "at": 10,
+       "gives": "THEN",
+       "note": "then can mean 'besides' or 'moreover', adding a further point"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 30,
+         "note": "unfinished means lacking its ending, so the last letter of the mark goes"
+        }
+       ],
        "parts": [
         {
-         "words": "gold",
-         "gives": "AU",
-         "note": "Au is gold on the periodic table, from the Latin aurum"
-        },
-        {
-         "words": "in addition to this",
-         "gives": "THEN",
-         "note": "then carries the sense of besides, as in that and then some"
-        },
-        {
          "words": "check",
-         "gives": "TIC",
-         "note": "a check mark is a TICK, and the instruction in front takes the K off"
+         "at": 41,
+         "gives": "TICK",
+         "note": "a tick is a check mark, as in American usage"
+        },
+        {
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A test of whether the gold is real that nobody ever got to the end of.",
-     "walkthrough": "A tick is the mark a British hand makes where an American writes a check, which is the knowledge the last chunk needs. 'Real gold' reads as one phrase and splits in two, the first word defining and the second starting the charade.",
-     "definitionFit": "Something authentic is the genuine article rather than a copy or a forgery, which is what calling a thing real says of it."
+     "surface": "A genuine gold item comes with this incomplete mark of approval.",
+     "walkthrough": "'unfinished' cuts TICK to TIC. A check in American English is the mark British writers call a tick.",
+     "definitionFit": "Authentic means genuine, not fake or copied, which is what real describes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "check"
     }
@@ -1125,25 +1131,25 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FEELOUT",
+     "op": "reverse",
+     "reading": "FEEL OUT",
      "parts": [
       {
        "words": "clue for 'Flee'",
-       "gives": "FEELOUT",
-       "note": "read as a crossword instruction, the answer itself clues the word in quotes: FEEL, with its letters out of order"
+       "at": 19,
+       "note": "read as wordplay, the answer's first word with its second word as an anagram signal shuffles into the quoted word, so the answer is itself a clue for it"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody being gently quizzed about a clue for the word 'Flee'.",
-     "walkthrough": "This one runs backwards: rather than the clue telling you to shuffle, the answer does the telling, working as a clue for the word in quotation marks. The phrase is American; British usage would sound somebody out.",
-     "definitionFit": "To feel someone out is to probe cautiously for their view without asking outright, which is interrogating them gently."
+     "surface": "Probing someone softly for a clue about running away.",
+     "walkthrough": "This is a reverse clue: treat FEEL OUT as a mini-clue, where 'out' asks you to rearrange FEEL, and you get FLEE.",
+     "definitionFit": "To feel someone out is to sound them out tactfully, testing their views with careful questions."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "clue"
     }
    }
@@ -1274,41 +1280,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PLECTRA",
+     "indicators": [
+      {
+       "text": "active",
+       "at": 6,
+       "note": "active means busy and moving about, so the letters are set in motion into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PLECTRA",
        "indicators": [
         {
-         "text": "active",
-         "note": "what is active is on the move, and these letters will not stay where they are put"
-        },
-        {
          "text": "with no",
-         "note": "with no something is that something absent, so the letter named after it comes out before the rest is used"
+         "at": 22,
+         "note": "with no means lacking, so the current letter is removed from the word"
         }
        ],
        "parts": [
         {
          "words": "particle",
-         "note": "the eight letters worked on"
+         "at": 13
         },
         {
          "words": "current",
+         "at": 30,
          "gives": "I",
-         "note": "I is current in physics, the I of V = IR, and it is the letter taken out"
+         "note": "I is the symbol for electric current in physics"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An active particle carrying no current at all.",
-     "walkthrough": "Every word of the surface belongs to a physics lesson, and only 'Picks' stands outside it, which is a good sign of where a definition is hiding. The plural is the Latin one, -a for -um, so it looks nothing like a guitar shop.",
-     "definitionFit": "Plectra are the small picks a guitar or lute player plucks the strings with, so the plural noun answers the plural noun."
+     "surface": "Physics jargon: an energetic particle carrying no electric current.",
+     "walkthrough": "'with no current' takes I out of PARTICLE to leave PARTCLE, and 'active' rearranges those letters. In this physics setting 'active' looks like a description of the particle.",
+     "definitionFit": "Plectra, plural of plectrum, are the small picks used to pluck guitar or mandolin strings."
     },
     "features": {
      "answerInScene": false,
@@ -1339,46 +1346,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ASPERITY",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 21,
+       "note": "surprisingly means in an unexpected way, so the letters come out in an unexpected order"
+      }
+     ],
      "parts": [
       {
+       "words": "is",
+       "at": 9
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ASPERITY",
        "indicators": [
         {
-         "text": "surprisingly",
-         "note": "what happens surprisingly comes out other than expected, and so do these letters"
-        },
-        {
          "text": "after losing",
-         "note": "what is left after a loss is short of the thing lost, so the letter named next is gone from the letters before"
+         "at": 35,
+         "note": "losing means giving up, so the letter for husband is first taken out of therapy"
         }
        ],
        "parts": [
         {
-         "words": "is therapy",
-         "note": "the nine letters worked on"
+         "words": "therapy",
+         "at": 12
         },
         {
          "words": "husband",
+         "at": 48,
          "gives": "H",
-         "note": "H is the standard letter for husband, and it is the one lost"
+         "note": "H is the abbreviation for husband in genealogy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody arguing that rudeness is good therapy once the husband has gone.",
-     "walkthrough": "The wordplay swallows 'is', which reads as the sentence's own verb and is two of the letters being shuffled. What the answer names is harshness of tone, the sharpness in a reply rather than bad table manners.",
-     "definitionFit": "Asperity is harshness of manner or tone, the edge that makes a remark rude rather than merely blunt."
+     "surface": "An odd claim that counselling sessions become rude once a spouse is gone.",
+     "walkthrough": "The surface reads 'is therapy' as a phrase, but both words are fodder: 'after losing husband' drops the H, and 'surprisingly' shuffles the resulting ISTERAPY.",
+     "definitionFit": "Asperity is harshness of manner or tone, a sharpness that comes across as rude."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "joke": "absurd",
+     "misdirectedWord": "therapy"
     }
    }
   },
