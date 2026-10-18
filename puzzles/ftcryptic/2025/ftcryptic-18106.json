@@ -312,47 +312,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PACKET",
      "indicators": [
       {
        "text": "will make",
-       "note": "one letter 'will make' way for another, turning the word into something new"
+       "at": 22,
+       "note": "one thing will make another means it is turned into it, so one letter is swapped for the other"
       }
      ],
      "parts": [
       {
        "words": "Nick",
+       "at": 17,
        "gives": "POCKET",
-       "note": "to nick is to steal, to pocket"
+       "note": "to nick and to pocket both mean to steal"
       },
       {
        "words": "love",
+       "at": 32,
        "gives": "O",
-       "note": "love is zero in tennis, shaped like O"
+       "note": "love is nil in tennis scoring, shaped like the letter O"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "1st",
-         "note": "'1st' asks for the opening letter of the month's name"
+         "at": 44,
+         "note": "1st points to the opening letter of the month"
         }
        ],
        "parts": [
         {
-         "words": "August 1st",
-         "gives": "AUGUST",
-         "note": "first letter of August"
+         "words": "August",
+         "at": 37,
+         "note": "taken as written, giving its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wedding announcement: Penny and Nick will marry on the first of August.",
-     "walkthrough": "The O in the word for nick is swapped for A. 'Pretty Penny' looks like the bride; a pretty penny is a large sum of money, as is a packet in British slang.",
-     "definitionFit": "Both are informal British idioms for a large sum of money, as in costing a packet."
+     "surface": "A woman called Penny and a man called Nick planning to sleep together on the first of August.",
+     "walkthrough": "'Pretty Penny' looks like a woman with Nick, but it is the definition. Nick gives POCKET; 'will make' turns its O (love) into A, the '1st' letter of August.",
+     "definitionFit": "A pretty penny and a packet are both informal British phrases for a large sum of money."
     },
     "features": {
      "answerInScene": false,
@@ -758,43 +760,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EAGLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "'mostly' means all but the final letter of the word for keen"
+       "text": "to snap up",
+       "at": 30,
+       "note": "to snap something up is to seize and hold it, so the shortened word takes the letter inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to snap up",
-         "note": "to snap something up is to seize it and hold it, so the shortened word grips the next"
+         "text": "mostly",
+         "at": 18,
+         "note": "mostly means most of the word, so its final letter goes"
         }
        ],
        "parts": [
         {
          "words": "keen",
-         "gives": "EAGE",
-         "note": "keen means eager, minus its last letter"
+         "at": 25,
+         "gives": "EAGER",
+         "note": "keen and eager are synonyms"
         },
         {
-         "words": "liberal",
-         "gives": "L",
-         "note": "L is the standard abbreviation for Liberal"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "liberal",
+       "at": 41,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A 1920s flapper girl eager to grab a liberal-minded partner.",
-     "walkthrough": "A flapper here is anything that flaps its wings, not a jazz-age girl.",
-     "definitionFit": "The eagle is a large bird of prey, hunting with talons, and birds fly by beating wings."
+     "surface": "A 1920s flapper, keen to snap up a liberal man, is presented as a predator.",
+     "walkthrough": "'flapper' suggests a 1920s party girl, but here it is something that flaps its wings. 'mostly' cuts EAGER to EAGE, which 'to snap up' wraps round L.",
+     "definitionFit": "An eagle is a bird of prey, so a winged hunter, which flaps its wings."
     },
     "features": {
      "answerInScene": false,
@@ -1544,48 +1550,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRAINEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Briefly",
-       "note": "'briefly' cuts the word short by its last letter"
+       "text": "about",
+       "at": 16,
+       "note": "about means going round, so the shortened word surrounds the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "the shortened word goes 'about' the shower, surrounding it"
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means cut short, so the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "bristle",
-         "gives": "TEE",
-         "note": "to bristle with is to teem with, cut short"
+         "at": 8,
+         "gives": "TEEM",
+         "note": "to bristle with something and to teem with it both mean to be full of it"
         },
         {
-         "words": "shower",
-         "gives": "RAIN",
-         "note": "a shower is light rain"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "shower",
+       "at": 22,
+       "gives": "RAIN",
+       "note": "a shower is a brief fall of rain"
       }
      ]
     },
     "explanation": {
-     "surface": "A contestant on the TV business show bristling over a row in the shower.",
-     "walkthrough": "The Apprentice is a reality TV contest; stripped of its title capitals, an apprentice is a learner.",
-     "definitionFit": "An apprentice is a person learning a trade under supervision, so a learner in training."
+     "surface": "A contestant on the TV show The Apprentice bristles with irritation around a shower.",
+     "walkthrough": "To bristle with is to teem with; 'Briefly' docks its tail and 'about' wraps it round the shower. 'The Apprentice' looks like the TV business contest, but read plainly it means the learner in question.",
+     "definitionFit": "A trainee is someone learning a trade on the job, which is what an apprentice is."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "shower"
     }
    }

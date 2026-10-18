@@ -237,29 +237,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARGUE",
      "indicators": [
       {
        "text": "lost",
-       "note": "what is lost is no longer there, so those letters are taken out of the longer word"
+       "at": 11,
+       "note": "the flower's name has lost these letters, which are taken out of it one by one in order"
       }
      ],
      "parts": [
       {
        "words": "Marguerite",
-       "note": "a marguerite is a daisy-like flower; taken as written, and the answer's letters also happen to run consecutively inside it, a coincidence of the deletion"
+       "at": 0,
+       "note": "taken as written; that the answer also sits inside it is a coincidence, the parse being the removal of the letters of merit"
       },
       {
        "words": "merit",
-       "note": "the letters to be removed, taken as written"
+       "at": 16,
+       "gives": "MERIT",
+       "note": "the word taken as written, its letters to be removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman called Marguerite came off badly in an argument.",
-     "walkthrough": "Take M, E, R, I, T out of MARGUERITE in order and A, R, G, U, E remain.",
-     "definitionFit": "To argue a case is to dispute or discuss it, which is what debating involves."
+     "surface": "A woman called Marguerite lost her standing, or her merit, during a debate.",
+     "walkthrough": "'lost' asks for a scattered removal: the five letters of merit are not together in the flower's name, but taken out one at a time in order they leave the answer.",
+     "definitionFit": "To argue is to debate, both verbs meaning to dispute a point with someone."
     },
     "features": {
      "answerInScene": true,
@@ -933,46 +935,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPAGHETTI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the last letter of the word is dropped"
+       "text": "for cooking",
+       "at": 24,
+       "note": "cooking ingredients mixes them up, so these letters are stirred into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "It's",
+       "at": 0,
+       "note": "taken as written, the apostrophe ignored"
+      },
+      {
+       "words": "the",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cooking",
-         "note": "cooking something up means concocting it, so the letters are mixed together"
+         "text": "briefly",
+         "at": 15,
+         "note": "said briefly, the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "It's",
-         "note": "taken as written"
-        },
-        {
-         "words": "the",
-         "note": "taken as written"
-        },
-        {
          "words": "page",
-         "gives": "PAG",
-         "note": "page without its final letter"
+         "at": 9,
+         "note": "taken as written, then shortened to PAG"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone points out the recipe page for making pasta.",
-     "walkthrough": "'Cooking' sits naturally beside pasta in the surface, which disguises it as the anagram signal.",
-     "definitionFit": "Spaghetti is a type of long, thin Italian noodle, a familiar example of pasta."
+     "surface": "A recipe book pointing to the right page for cooking pasta.",
+     "walkthrough": "'briefly' trims PAGE to PAG; ITS + THE + PAG is then rearranged, as 'for cooking' signals.",
+     "definitionFit": "Spaghetti is a kind of pasta, long thin strings of it."
     },
     "features": {
      "answerInScene": true,
@@ -1476,38 +1483,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRUCIAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut off end of",
-       "note": "cutting off the end removes the final letter of the following word"
+       "text": "redistribute",
+       "at": 46,
+       "note": "to redistribute is to share out again in a new way, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "redistribute",
-         "note": "to redistribute is to share out again in a new arrangement"
+         "text": "cut off end of",
+         "at": 18,
+         "note": "the final letter of the next word is cut off"
         }
        ],
        "parts": [
         {
          "words": "circular",
-         "gives": "CIRCULA",
-         "note": "circular without its final letter"
+         "at": 33,
+         "note": "taken as written, losing its final R"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An office instruction: trim the end off a memo and send it round again.",
-     "walkthrough": "A circular is a letter sent round to many people, which fits the office picture.",
-     "definitionFit": "Something crucial is decisive or vital, of the greatest importance."
+     "surface": "An instruction to trim a circular leaflet and share it round again, said to be important.",
+     "walkthrough": "'cut off end of' takes the R off CIRCULAR, leaving CIRCULA, whose letters 'redistribute' rearranges.",
+     "definitionFit": "Something crucial is of decisive importance, a near synonym."
     },
     "features": {
      "answerInScene": false,

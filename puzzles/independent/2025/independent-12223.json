@@ -284,83 +284,87 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTRACURRICULAR",
-     "indicators": [
-      {
-       "text": "Brief",
-       "note": "something brief is cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Brief",
+         "at": 0,
+         "note": "brief means cut short, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "passage",
-         "gives": "EXTRAC",
-         "note": "an extract is a passage from a text, here shortened by its last letter"
+         "at": 6,
+         "gives": "EXTRACT",
+         "note": "an extract is a passage taken from a book"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "URR",
-         "indicators": [
-          {
-           "text": "skinned",
-           "note": "skinning strips away the outer layer, so each word loses its first and last letters and keeps its inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "furry",
-           "gives": "URR",
-           "select": "middle",
-           "note": "the inside of the word"
-          }
-         ]
-        },
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "mice",
-           "note": "the inside of the word"
-          }
-         ]
-        },
+         "words": "furry",
+         "at": 16,
+         "note": "taken as written, without its ends"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "mule",
-           "note": "the inside of the word"
-          }
-         ]
-        },
+         "words": "mice",
+         "at": 22,
+         "note": "taken as written, without its ends"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "mare",
-           "note": "the inside of the word"
-          }
-         ]
+         "words": "mule",
+         "at": 28,
+         "note": "taken as written, without its ends"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "skinned",
+         "at": 42,
+         "note": "skinned means with the outer layer removed, so each of the four words loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mare",
+         "at": 37,
+         "note": "taken as written, without its ends"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short quoted extract about furry animals being skinned, read like a line from some grim text.",
-     "walkthrough": "The quotation marks make the animals look like the content of the passage; really each animal word is stripped to its core and strung after the shortened extract.",
-     "definitionFit": "Activities beyond the regular curriculum, such as clubs and sports, happen apart from lessons, so they lie outside the timetable."
+     "surface": "A short reading about furry animals and farm beasts, presented as an out-of-hours school activity.",
+     "walkthrough": "'Brief' drops the T from EXTRACT. 'skinned' sits by the mare but governs all four animals in the list, each stripped of its outer letters; the colon makes the quotation look like the passage itself.",
+     "definitionFit": "Extracurricular activities are those pursued beyond the normal timetable, literally outside the curriculum of a school."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "skinned"
     }
    }
@@ -465,42 +469,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCARNATE",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "taking half means losing the other half, so the first two letters of the four are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "On The Road perhaps",
+       "at": 9,
+       "gives": "INCAR",
+       "note": "Kerouac's novel is set on a road trip, so its characters are mostly travelling in a car"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 50,
+         "note": "in means the remaining letters are placed within the state's abbreviation"
+        }
+       ],
        "parts": [
         {
-         "words": "On The Road perhaps",
-         "gives": "INCAR",
-         "note": "being on the road is, for example, travelling by car"
+         "words": "Nebraska",
+         "at": 53,
+         "gives": "NE",
+         "note": "NE is the US postal abbreviation for Nebraska"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "smashed in",
-           "note": "something smashed in is forced inside, so one piece is pushed into another"
+           "text": "half-smashed",
+           "at": 37,
+           "note": "half of the word is smashed away, so only its second half survives"
           }
          ],
          "parts": [
           {
-           "words": "Nebraska",
-           "gives": "NE",
-           "note": "the first two letters, also the US postal code for the state"
+           "words": "beat's",
+           "at": 30,
+           "gives": "BEAT",
+           "note": "the word beat, the 's linking it to what follows"
           },
           {
-           "words": "beat",
-           "gives": "AT",
-           "note": "the second half of the word"
+           "gives": "BE"
           }
          ]
         }
@@ -509,9 +519,9 @@
      ]
     },
     "explanation": {
-     "surface": "Kerouac's novel On the Road embodies the Beat generation, half-drunk on a drive through Nebraska.",
-     "walkthrough": "The italicised title suggests the book, but 'perhaps' marks it as just one example of a road trip. 'Smashed' looks like drunk; it is the container signal.",
-     "definitionFit": "Something incarnate is given bodily or physical form, the very spirit made flesh, which is what embodied means."
+     "surface": "A description of Kerouac's Beat Generation novel, its hero half-drunk while crossing Nebraska.",
+     "walkthrough": "'half-smashed' knocks out the first half of BEAT, leaving AT, which goes 'in' NE. 'On The Road' is a Beat novel, which the surface exploits.",
+     "definitionFit": "Incarnate means given bodily form, so something embodied in flesh is the same idea."
     },
     "features": {
      "answerInScene": false,
