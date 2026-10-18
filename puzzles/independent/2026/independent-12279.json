@@ -115,42 +115,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PICKIER",
-     "indicators": [
-      {
-       "text": "turns guts",
-       "note": "turning the guts flips the inner letters of a word round while its ends stay put"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "irrational",
+       "at": 17,
        "gives": "PI",
        "note": "pi is the best-known irrational number"
       },
       {
        "words": "cold",
+       "at": 32,
        "gives": "C",
-       "note": "C for cold, as on a tap"
+       "note": "C is the abbreviation for cold, as on taps"
       },
       {
-       "words": "Starmer",
-       "gives": "KEIR",
-       "note": "the first name of Keir Starmer, UK prime minister"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "turns guts",
+         "at": 46,
+         "note": "turns guts means only the inner letters of the name are turned round, leaving its ends in place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Starmer",
+         "at": 38,
+         "gives": "KEIR",
+         "note": "Keir Starmer is the British Labour leader and prime minister"
+        },
+        {
+         "gives": "EI"
+        },
+        {
+         "gives": "IE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe: a fussy, unreasonable and chilly Starmer performing a U-turn on his principles.",
-     "walkthrough": "'Irrational' looks like a description of the prime minister but is a noun clue for the number pi. Only the middle pair of the first name swap round.",
-     "definitionFit": "A choosier person is harder to please and more selective, the comparative of fussy or particular."
+     "surface": "A dig at a politician: an irrational, cold Starmer turning on his party's insides.",
+     "walkthrough": "Keir Starmer is the UK prime minister; 'turns guts' swaps only his middle letters EI to IE, giving KIER.",
+     "definitionFit": "Someone pickier is fussier and harder to please, so more discerning in their choices."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "irrational"
+     "misdirectedWord": "guts"
     }
    }
   },
@@ -234,49 +247,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OSCARWILDE",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down entry, upsetting a word tips it over so it reads bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "OSCARWILDE",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling means going round, so the last letter rotates to the front of the word"
+         "text": "upset",
+         "at": 10,
+         "note": "in a down clue upset means turned upside down, so the word reads from the bottom"
         }
        ],
        "parts": [
         {
          "words": "so",
-         "note": "taken as written"
-        },
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "at": 16,
+       "gives": "CA",
+       "note": "ca, short for circa, means about"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
         {
-         "words": "about",
-         "gives": "CA",
-         "note": "ca is short for circa, Latin for about"
-        },
+         "text": "cycling",
+         "at": 22,
+         "note": "cycling means the last letter of the name is moved round to the front"
+        }
+       ],
+       "parts": [
         {
          "words": "director Billy",
+         "at": 30,
          "gives": "WILDER",
-         "note": "Billy Wilder directed Some Like It Hot and Sunset Boulevard"
+         "note": "Billy Wilder directed Some Like It Hot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A novelist is distressed about the film-maker Billy going round on a bicycle.",
-     "walkthrough": "'Cycling' suggests a bike ride, but it moves the final R of the director's surname round to the front.",
-     "definitionFit": "The Irish author of The Picture of Dorian Gray and The Importance of Being Earnest was a celebrated playwright and novelist."
+     "surface": "An upset cyclist is about to meet the film director Billy.",
+     "walkthrough": "SO 'upset' gives OS, CA is circa (about), and WILDER 'cycling' brings its R to the front.",
+     "definitionFit": "Oscar Wilde was the Irish playwright and novelist, author of The Importance of Being Earnest."
     },
     "features": {
      "answerInScene": false,
@@ -1018,41 +1036,42 @@
      "indicators": [
       {
        "text": "accepts",
-       "note": "to accept something is to take it in, so one word receives the other"
+       "at": 11,
+       "note": "to accept something is to take it in, so the dog holds the letters"
       }
      ],
      "parts": [
       {
        "words": "French dog",
+       "at": 0,
        "gives": "CHIEN",
-       "note": "chien is the French word for dog"
+       "note": "chien is French for dog"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LDR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "prime bits from",
-         "note": "prime bits are the letters at prime-numbered positions: the second, third and fifth"
+         "at": 19,
+         "note": "prime bits means the letters in prime-numbered positions (second, third and fifth) are kept and the others dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "older",
-         "gives": "LDR",
-         "select": "prime",
-         "note": "letters two, three and five"
+         "at": 35
+        },
+        {
+         "gives": "OE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French dog gets the best scraps from the older youngsters.",
-     "walkthrough": "'Prime bits' sounds like choice morsels for the dog, but it is a numerical instruction: take positions 2, 3 and 5, the prime numbers.",
-     "definitionFit": "Young people, boys and girls below adult age, are informally called this."
+     "surface": "A French dog takes in the best scraps left by older children.",
+     "walkthrough": "'Prime bits' looks like choice morsels, but means the letters at the prime-numbered positions, second, third and fifth, of the word older.",
+     "definitionFit": "Kids is the everyday informal word for children, so the two are synonyms."
     },
     "features": {
      "answerInScene": true,
@@ -1084,28 +1103,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "TAN",
      "indicators": [
       {
        "text": "stripped down",
-       "note": "stripping something down removes its outer layer, so the outermost letters go"
+       "at": 12,
+       "note": "stripped down means the outer letters are peeled off, leaving the core"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "booth",
-       "gives": "TAN",
-       "select": "middle",
-       "note": "a booth at a fair is a stand; its inner letters"
+       "at": 6,
+       "gives": "STAND",
+       "note": "a stand is a booth at a fair or exhibition"
       }
      ]
     },
     "explanation": {
-     "surface": "A tanning booth with someone lying in it undressed.",
-     "walkthrough": "The surface evokes a tanning booth, which helps; 'booth' must first become STAND before its ends are removed.",
-     "definitionFit": "A light yellowish-brown colour, as of sunburnt skin, is a shade of this colour."
+     "surface": "A tanning booth, with someone stripped down for an all-over brown.",
+     "walkthrough": "A booth is a STAND, which loses its first and last letters.",
+     "definitionFit": "Tan is a light yellowish-brown colour, and also skin browned by the sun."
     },
     "features": {
      "answerInScene": true,
@@ -1551,35 +1568,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "lowering female",
+       "at": 6,
+       "note": "in a down clue lowering the female means the letter for female (F) is moved further down the word"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "lowering",
-         "note": "in a down entry lowering a letter moves it further down the column, rearranging the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Pilot",
-         "gives": "FLIER",
-         "note": "a flier is someone who flies a plane"
-        }
-       ]
+       "words": "Pilot",
+       "at": 0,
+       "gives": "FLIER",
+       "note": "a flier is someone who flies, a pilot"
       },
       {
-       "unchecked": true,
-       "words": "female",
-       "note": "names the letter F, already at the top of the pilot word, as the one that moves"
+       "gives": "FLI"
+      },
+      {
+       "gives": "LIF"
       }
      ]
     },
     "explanation": {
-     "surface": "An airman brings a woman inmate down to the ground.",
-     "walkthrough": "The F (female) at the top of the pilot word is moved two places down the column; 'female' names which letter shifts.",
-     "definitionFit": "Someone serving a life sentence in jail is a long-term inmate."
+     "surface": "A pilot brings a woman prisoner down.",
+     "walkthrough": "In a down clue 'lowering' the F (female) at the top of FLIER moves it further down the column, two places later, behind LI.",
+     "definitionFit": "A lifer is a prisoner serving a life sentence, a slang term for such an inmate."
     },
     "features": {
      "answerInScene": true,

@@ -1005,41 +1005,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "INFERENCE",
      "indicators": [
       {
        "text": "substitutes for",
-       "note": "one thing substituting for another takes its place, swapping one chunk of letters for another"
+       "at": 5,
+       "note": "one piece substitutes for another when it takes its place, so the word for home takes the place of the football club inside the longer word"
       }
      ],
      "parts": [
       {
-       "words": "Home",
-       "gives": "IN",
-       "note": "at home is in"
+       "words": "thwarting",
+       "at": 35,
+       "gives": "INTERFERENCE",
+       "note": "thwarting someone's plans is interference with them"
       },
       {
        "words": "Milan team",
+       "at": 21,
        "gives": "INTER",
-       "note": "Inter Milan is an Italian football club"
+       "note": "Inter Milan is a famous football club in Milan"
       },
       {
-       "words": "thwarting",
-       "gives": "INTERFERENCE",
-       "note": "interference is obstruction or thwarting"
+       "words": "Home",
+       "at": 0,
+       "gives": "IN",
+       "note": "to be in is to be at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A home side brings on substitutes against an Italian team while trying to block them.",
-     "walkthrough": "Football words abound, but 'Home' simply means IN, which replaces INTER in INTERFERENCE.",
+     "surface": "A football report: a home side replaces the Milan team in a match decided by thwarting tactics.",
+     "walkthrough": "Inter (Internazionale) is one of Milan's two big football clubs. 'Substitutes for' swaps INTER out of INTERFERENCE and puts IN in its place.",
      "definitionFit": "An inference is a conclusion reached by reasoning from evidence, so the two nouns are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "substitutes"
+     "misdirectedWord": "Home"
     }
    }
   },
@@ -1358,41 +1360,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FUTON",
      "indicators": [
       {
        "text": "overcoming",
-       "note": "one letter overcoming another defeats and replaces it in the word"
+       "at": 22,
+       "note": "the force letter overcomes, that is beats and displaces, the quiet letter in the phrase"
       }
      ],
      "parts": [
       {
-       "words": "Stage a show",
+       "words": "Stage",
+       "at": 0,
        "gives": "PUTON",
-       "note": "to put on a show is to stage it"
-      },
-      {
-       "words": "force",
-       "gives": "F",
-       "note": "F is the abbreviation for force in physics"
+       "note": "to stage a play is to put it on"
       },
       {
        "words": "quiet",
+       "at": 33,
        "gives": "P",
-       "note": "p, piano, is the musical marking for quiet"
+       "note": "P is piano, the musical direction for quiet"
+      },
+      {
+       "words": "a show of force",
+       "at": 6,
+       "gives": "F",
+       "note": "F is the standard symbol for force in physics, a one-letter show of it"
       }
      ]
     },
     "explanation": {
-     "surface": "A display of military might crushes a peaceful protest.",
-     "walkthrough": "'a show of force' reads as one phrase, but 'Stage a show' is PUT ON and force is F, replacing P.",
-     "definitionFit": "A futon is a thin mattress used as a bed, so it is literally a place to rest or sleep."
+     "surface": "Someone stages a show of strength to defeat a call for quiet in the place where people rest.",
+     "walkthrough": "Stage gives PUT ON; 'overcoming' has F (force) beat and replace P (quiet, the musical piano).",
+     "definitionFit": "A futon is a Japanese-style mattress or sofa bed, somewhere a person lies down to sleep."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "force"
+     "misdirectedWord": "Stage"
     }
    }
   },
@@ -1418,54 +1422,69 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ROBBERIES",
      "indicators": [
       {
-       "text": "after",
-       "note": "after places the fruit word behind the alumnus in the answer"
+       "text": "to the front",
+       "at": 57,
+       "note": "to the front means the moved letter now leads the whole word"
       }
      ],
      "parts": [
       {
+       "words": "right",
+       "at": 51,
+       "gives": "R"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ROBBERIES",
        "indicators": [
         {
          "text": "moves",
-         "note": "a letter that moves leaves its place, so it is taken out of the middle before going elsewhere"
+         "at": 45,
+         "note": "the letter that moves leaves its original position in the fruits"
         }
        ],
        "parts": [
         {
-         "words": "alumnus",
-         "gives": "OB",
-         "note": "OB, old boy, is a former pupil of a school"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "after",
+           "at": 31,
+           "note": "after means the fruits come after the alumnus in the answer"
+          }
+         ],
+         "parts": [
+          {
+           "words": "alumnus",
+           "at": 37,
+           "gives": "OB",
+           "note": "OB stands for old boy, a former pupil or alumnus"
+          },
+          {
+           "words": "fruits",
+           "at": 24,
+           "gives": "BERRIES",
+           "note": "berries are small fruits"
+          }
+         ]
         },
         {
-         "words": "fruits",
-         "gives": "BERRIES",
-         "note": "berries are small fruits"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old boy goes to the front after a series of fruit thefts.",
-     "walkthrough": "OB + BERRIES gives OBBERRIES; one R moves to the front to make ROBBERIES.",
-     "definitionFit": "A robbery is an instance of stealing by force, so robberies are occasions on which plundering takes place."
+     "surface": "An old student follows some fruit-picking, then the right-hand one goes up front: a sequence of raids.",
+     "walkthrough": "OB (old boy) followed by BERRIES gives OBBERRIES; 'moves' takes the first R out of the berries and 'to the front' puts it at the start.",
+     "definitionFit": "Robberies are acts of theft, each one an instance of plundering someone's property."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "fruits"
     }
    }
   },
@@ -1491,26 +1510,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BASED",
      "indicators": [
       {
-       "text": "ten times greater in the end",
-       "note": "the last letter is a Roman numeral that is replaced by one worth ten times as much"
+       "text": "in the end",
+       "at": 38,
+       "note": "in the end points to the final letter of the city, which is the one swapped"
       }
      ],
      "parts": [
       {
        "words": "Swiss city",
+       "at": 8,
        "gives": "BASEL",
        "note": "Basel is a city in northern Switzerland"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "words": "ten times greater",
+       "at": 20,
+       "gives": "D",
+       "note": "the Roman numeral L is fifty, and D, five hundred, is ten times greater"
       }
      ]
     },
     "explanation": {
-     "surface": "A Swiss city was established and grew tenfold eventually.",
-     "walkthrough": "L is 50 in Roman numerals and D is 500, so L becomes D.",
-     "definitionFit": "Based means founded or established on something, as in a story based on fact."
+     "surface": "Someone founded a Swiss city that ended up ten times bigger.",
+     "walkthrough": "The last letter of BASEL is the Roman numeral L (50); replace it with D (500), ten times greater.",
+     "definitionFit": "Something based on a principle is founded on it; both words describe what rests on a foundation."
     },
     "features": {
      "answerInScene": false,
