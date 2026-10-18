@@ -398,29 +398,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CLODHOPPER",
-     "indicators": [
-      {
-       "text": "welcoming",
-       "note": "to welcome is to take in, so the first word holds the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "before",
-         "note": "one piece is placed ahead of the next"
+         "text": "welcoming",
+         "note": "to welcome is to take in, so the first word holds the others"
         }
        ],
        "parts": [
         {
-         "words": "Prick",
-         "gives": "C",
-         "note": "slang for penis is CHOPPER; its first letter opens the wrapper"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Prick",
+           "gives": "C",
+           "note": "slang for penis is CHOPPER; its first letter opens the wrapper"
+          },
+          {
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "reverse",
+             "note": "going into reverse means the word for party runs backwards"
+            }
+           ],
+           "parts": [
+            {
+             "words": "party",
+             "gives": "DO",
+             "note": "a do is a party"
+            }
+           ]
+          }
+         ]
         },
         {
          "op": "first",
@@ -436,29 +449,13 @@
            "note": "first letter of Labour"
           }
          ]
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "reverse",
-           "note": "going into reverse means the word for party runs backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "party",
-           "gives": "DO",
-           "note": "a do is a party"
-          }
-         ]
-        },
-        {
-         "words": "Prick",
-         "gives": "HOPPER",
-         "note": "the rest of CHOPPER closes the wrapper"
         }
        ]
+      },
+      {
+       "words": "Prick",
+       "gives": "HOPPER",
+       "note": "the rest of CHOPPER closes the wrapper"
       }
      ]
     },
