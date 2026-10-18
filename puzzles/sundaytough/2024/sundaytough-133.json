@@ -44,28 +44,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DITCHWATER",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Dr Spooner famously swapped the opening sounds of words, so his version of a phrase trades its initial sounds"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of pairs of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "crone offspring",
-       "gives": "DITCHWATER",
-       "soundsLike": "WITCH DAUGHTER",
-       "note": "a crone is a hag or witch, and a female offspring is a daughter; swap the opening sounds of that pair"
+       "words": "crone",
+       "at": 10,
+       "gives": "WITCH",
+       "note": "a crone is an ugly old woman, a witch in fairy tales"
+      },
+      {
+       "op": "homophone",
+       "spelt": "DATER",
+       "parts": [
+        {
+         "words": "offspring",
+         "at": 16,
+         "gives": "DAUGHTER",
+         "note": "a daughter is female offspring; said aloud it rhymes with water"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old hag and her child brew up something revolting, like a witch's cauldron scene.",
-     "walkthrough": "Say WITCH DAUGHTER with the opening sounds swapped and you get DITCH WATER, written as one word.",
-     "definitionFit": "Stagnant water lying in a roadside trench is murky and dirty, the proverbial dull and unpleasant fluid."
+     "surface": "A hag's child brews up some disgusting drink.",
+     "walkthrough": "'Spooner's' swaps the opening W of WITCH with the opening D of DAUGHTER, said aloud: DITCH and WATER.",
+     "definitionFit": "Ditchwater is the stagnant water in a ditch, proverbially dull and certainly a dirty, unpleasant fluid."
     },
     "features": {
      "answerInScene": true,
@@ -364,28 +374,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "PATH",
      "indicators": [
       {
-       "text": "exposed",
-       "note": "to expose is to strip the covering off, so the outer letters go and the inside remains"
+       "text": "gets exposed",
+       "at": 20,
+       "note": "something exposed has lost its covering, so the word sheds its first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "lack of concern",
-       "gives": "PATH",
-       "select": "middle",
-       "note": "apathy is a lack of concern; its inner letters are kept"
+       "at": 4,
+       "gives": "APATHY",
+       "note": "apathy is a lack of interest or concern"
       }
      ]
     },
     "explanation": {
-     "surface": "Indifference leads to someone being found out.",
-     "walkthrough": "APATHY loses its outside letters A and Y to leave the answer.",
-     "definitionFit": "A path is a route or track you follow, so it is a synonym for a way."
+     "surface": "Indifference in one's manner soon reveals itself.",
+     "walkthrough": "'Gets exposed' strips the outer A and Y from APATHY, leaving PATH.",
+     "definitionFit": "A path is a track or route, so it is a synonym of way in the sense of a road to follow."
     },
     "features": {
      "answerInScene": false,
@@ -1430,53 +1438,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "mixes",
-      "at": 33
+      "text": "One could arrange duet with such mixes for audio cassettes",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASSOCIATES",
+     "op": "composite",
      "indicators": [
       {
        "text": "arrange",
-       "note": "to arrange things is to put them into a new order"
+       "at": 10,
+       "note": "arranging means putting letters in a new order, so the letters of duet plus the answer are reordered to make audio cassettes"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASSOCIATES",
-       "indicators": [
-        {
-         "text": "with such",
-         "note": "the answer is what must join the other word, so it is the remainder once that word's letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "audio cassettes",
-         "note": "taken as written, the target of the rearrangement"
-        },
-        {
-         "words": "duet",
-         "note": "taken as written, these letters are removed from the target"
-        }
-       ]
+       "words": "audio cassettes",
+       "at": 43,
+       "note": "the full set of letters, which hold duet and the answer between them"
+      },
+      {
+       "words": "duet",
+       "at": 18,
+       "note": "the letters to be taken out of audio cassettes, leaving the answer's letters"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A musician might put a duet on tape among a compilation of tracks.",
-     "walkthrough": "A composite anagram: the answer plus DUET rearranged give AUDIO CASSETTES, so take D, U, E, T out of that phrase and rearrange the rest. 'mixes' sounds like music compilations.",
-     "definitionFit": "To associate with people is to mingle or keep company with them, so the verb is a synonym for socialises."
+     "surface": "A musician might record a two-hander with friends and sell the mixes on tape.",
+     "walkthrough": "Take the letters D, U, E, T out of AUDIO CASSETTES and the remaining ten letters rearrange to ASSOCIATES. Read whole, the clue also says a duet is performed with partners.",
+     "definitionFit": "Associates are partners or colleagues, the sort of people one might arrange a duet with, and with the letters of duet they mix up into audio cassettes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "mixes"
     }
    }
