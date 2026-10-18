@@ -580,46 +580,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MOUSY",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "for here means in place of, so one letter stands in where another was"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "maiden",
+       "at": 4,
        "gives": "M",
-       "note": "M is the cricket abbreviation for a maiden over"
+       "note": "M is the cricket scorecard abbreviation for a maiden over"
       },
       {
-       "words": "engaged",
-       "gives": "BUSY",
-       "note": "engaged as a phone line is busy"
-      },
-      {
-       "words": "love",
-       "gives": "O",
-       "note": "love is zero in tennis, shaped like O"
-      },
-      {
-       "words": "bachelor",
-       "gives": "B",
-       "note": "B is the abbreviation for bachelor, the letter swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 32,
+         "note": "one thing showing in place of another, so love stands where bachelor was"
+        }
+       ],
+       "parts": [
+        {
+         "words": "engaged",
+         "at": 11,
+         "gives": "BUSY",
+         "note": "a telephone line that is engaged is busy"
+        },
+        {
+         "words": "bachelor",
+         "at": 36,
+         "gives": "B",
+         "note": "B is the abbreviation for bachelor, as in degrees such as BA"
+        },
+        {
+         "words": "love",
+         "at": 27,
+         "gives": "O",
+         "note": "love is a score of nothing in tennis, the letter O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A timid young woman, now engaged, shows her love for a single man.",
-     "walkthrough": "Maiden and bachelor look like people in a romance; both are just abbreviations.",
-     "definitionFit": "Mousy describes a person who is timid and retiring, like a quiet little mouse."
+     "surface": "A timid young woman, now betrothed, reveals that romance has replaced her single life.",
+     "walkthrough": "'Engaged' looks like betrothal but is the telephone sense; 'for' asks the solver to put love's letter where the bachelor's was.",
+     "definitionFit": "Mousy describes a timid, retiring person, like a quiet mouse, so it is a synonym of shy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "engaged"
     }
    }
@@ -766,47 +775,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ASTEROID",
      "indicators": [
       {
        "text": "to screen",
-       "note": "to screen is to hide behind, so the jumbled letters wrap round the next word"
+       "at": 24,
+       "note": "to screen is to shield something from view, so the jumbled crew closes round the last piece"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ASTEROID",
        "indicators": [
         {
          "text": "out",
+         "at": 20,
          "note": "out as in out of order, so the crew's letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Roadies",
-           "note": "taken as written"
-          },
-          {
-           "words": "it",
-           "note": "the word as printed less its I, which the parse has no room for: the setter's slip"
-          }
-         ]
+         "words": "Roadies",
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 34,
+       "gives": "T",
+       "note": "only the T of it is used; its I is already among the roadies' letters"
       }
      ]
     },
     "explanation": {
-     "surface": "Rock band roadies leaving a stadium to hide their space-rock gear.",
-     "walkthrough": "The setter has slipped: the letters supplied total nine, one I more than the eight-letter answer needs, so a solver must let the two I's merge. Space rock also puns on the music genre.",
-     "definitionFit": "An asteroid is a rocky body orbiting the sun, literally a rock in space."
+     "surface": "A rock band's road crew head out to hide something from view.",
+     "walkthrough": "'Out' rearranges ROADIES and 'to screen' wraps those letters round 'it'; the I of 'it' is already in ROADIES, so only T is new, a loose touch by the setter.",
+     "definitionFit": "An asteroid is a rocky body orbiting the sun, literally a rock in space; the question mark nods to the music genre."
     },
     "features": {
      "answerInScene": false,
@@ -963,31 +967,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PASTIT",
-     "indicators": [
-      {
-       "text": "out of bounds",
-       "note": "the bounds of a word are its edges, so the first and last letters are put outside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "by",
+       "at": 14,
        "gives": "PAST",
-       "note": "by as in going by, or past"
+       "note": "past means beyond or by, as in walking past the house"
       },
       {
-       "words": "mines",
-       "gives": "PITS",
-       "note": "pits are coal mines"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "out of bounds",
+         "at": 23,
+         "note": "the bounds of a word are its first and last letters, which are dropped here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mines",
+         "at": 17,
+         "gives": "PITS",
+         "note": "pits are mines, as in coal pits"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Old mines past the hilltop have been fenced off.",
-     "definitionFit": "Being past it and over the hill are both idioms for being too old to do things well."
+     "surface": "Someone too old for adventure wanders by some forbidden mine workings.",
+     "walkthrough": "'Out of bounds' strips the outer letters from PITS, leaving IT.",
+     "definitionFit": "Past it is an idiom for too old to do something well, the same as being over the hill."
     },
     "features": {
      "answerInScene": false,

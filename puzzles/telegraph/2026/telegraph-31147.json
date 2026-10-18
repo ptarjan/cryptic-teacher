@@ -360,58 +360,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOAH",
-     "indicators": [
-      {
-       "text": "returning",
-       "note": "returning means going back the way it came, so the word on is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across clue, one piece on another simply follows it in the line"
+         "text": "returning",
+         "at": 7,
+         "note": "returning means coming back the way it went, so the little word is read from right to left"
         }
        ],
        "parts": [
         {
          "words": "on",
-         "gives": "NO",
-         "note": "the word on read backwards"
-        },
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AH",
-         "indicators": [
-          {
-           "text": "on a regular basis",
-           "note": "taking letters at regular intervals keeps every second one of the word yacht"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "yacht",
-           "gives": "AH",
-           "select": "alternate",
-           "note": "second and fourth letters"
-          }
-         ]
+         "text": "on a regular basis",
+         "at": 26,
+         "note": "a regular basis means every other letter, so alternate letters of the boat's name are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yacht",
+         "at": 20,
+         "note": "the second and fourth letters of yacht, its alternate letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A yachtsman heads home, sailing regularly.",
-     "walkthrough": "The first 'on' is the word to be turned round; the second 'on' just joins the pieces.",
-     "definitionFit": "Noah built the ark and navigated it through the Flood in Genesis, making him a biblical seafarer."
+     "surface": "A sailor heads back home aboard a yacht they take out often.",
+     "walkthrough": "'Sailor' suggests a word like TAR or AB, but the answer is a Bible figure: he built and steered the ark through the Flood.",
+     "definitionFit": "In Genesis Noah built the ark and navigated it through the Flood, so he is a seafarer in a broad, playful sense."
     },
     "features": {
      "answerInScene": true,
@@ -1120,31 +1109,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ENDINGS",
      "indicators": [
       {
        "text": "spades to the rear",
-       "note": "spades is the card-game abbreviation S, and sending it to the rear moves that letter from the front of the word to its end"
+       "at": 26,
+       "note": "the S for spades, the card-suit abbreviation, is moved from the front to the back"
       }
      ],
      "parts": [
       {
        "words": "throwing",
+       "at": 17,
        "gives": "SENDING",
-       "note": "sending a ball is throwing it"
+       "note": "sending can mean throwing, as in sending a ball down the pitch"
       }
      ]
     },
     "explanation": {
-     "surface": "Drawing conclusions from someone flinging their spades backwards.",
-     "walkthrough": "The S at the front of the word for throwing is shifted to the end.",
-     "definitionFit": "Endings are the final parts of things, so the plural noun means conclusions or finishes."
+     "surface": "Conclusions drawn from discarding spades last in a hand of cards.",
+     "walkthrough": "'Spades to the rear' moves the initial S of SENDING to the end. S is the bridge abbreviation for spades.",
+     "definitionFit": "Endings are the final parts of things, so they are conclusions in the sense of finishes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "spades"
+     "misdirectedWord": "throwing"
     }
    }
   },
@@ -1222,58 +1211,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUESSES",
+     "op": "composite",
      "indicators": [
       {
        "text": "cook",
+       "at": 9,
        "note": "to cook is to doctor or falsify, so the letters are rearranged"
+      },
+      {
+       "text": "but not",
+       "at": 24,
+       "note": "but not means except for, so the letter named next is taken away from the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GUESSES",
+       "words": "uses sage",
+       "at": 14
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "but not",
-         "note": "but not means without, so one letter is removed from the fodder"
+         "text": "initially",
+         "at": 41,
+         "note": "initially asks for just the first letter of the herb named"
         }
        ],
        "parts": [
         {
-         "words": "uses",
-         "note": "taken as written, part of the fodder"
-        },
-        {
-         "words": "sage",
-         "note": "taken as written, part of the fodder"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the first letter of angelica"
-          }
-         ],
-         "parts": [
-          {
-           "words": "angelica",
-           "note": "the opening letter, which is taken away"
-          }
-         ]
+         "words": "angelica",
+         "at": 32,
+         "note": "angelica is a herb; only its first letter is wanted here"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chef presumes they can use sage but leave out the angelica.",
-     "walkthrough": "'cook' reads as a chef but is the instruction to rearrange; the A of sage is removed before shuffling.",
-     "definitionFit": "To guess is to suppose without proof, so the verb in the third person matches assumes or supposes."
+     "surface": "A recipe tells you to use sage in place of the angelica.",
+     "walkthrough": "'But not' removes A, the letter 'initially' takes from angelica, from USES SAGE before 'cook' rearranges what is left. Both herbs belong to the kitchen scene, which disguises the mechanics.",
+     "definitionFit": "Guesses and presumes both mean supposes or assumes something without proof."
     },
     "features": {
      "answerInScene": false,
