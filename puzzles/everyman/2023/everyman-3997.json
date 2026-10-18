@@ -309,56 +309,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PIRANHA",
+     "op": "container",
      "indicators": [
       {
-       "text": "not half",
-       "note": "having only half of something means the other half is dropped"
+       "text": "into",
+       "at": 6,
+       "note": "into tells us the words I ran go inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "into",
-         "note": "running into something means entering it, so one piece goes inside another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "quiet",
-           "gives": "P",
-           "note": "p (piano) is the musical marking for quiet"
-          },
-          {
-           "words": "hall",
-           "gives": "HA",
-           "note": "the first half of the four-letter word"
-          }
-         ]
+         "words": "quiet",
+         "at": 11,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, meaning quiet"
         },
         {
-         "words": "I ran",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not half",
+           "at": 23,
+           "note": "not half says only half of the word hall is kept, its second half dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hall",
+           "at": 17,
+           "note": "the word hall, which loses its last two letters"
+          },
+          {
+           "gives": "LL"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "I ran",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dashed into a hushed hall and met a fearsome character.",
-     "walkthrough": "P wraps the run of letters from 'I ran', then the first two letters of 'hall' follow.",
-     "definitionFit": "The South American freshwater fish is notorious for sharp teeth and savage feeding frenzies, a byword for ferocity."
+     "surface": "Someone rushes into a silent hall, only to meet a fierce character there.",
+     "walkthrough": "'quiet' reads as describing the hall, but it is its own piece, the musical P; 'not half' keeps the front half of hall, and 'into' places I RAN between the two.",
+     "definitionFit": "The piranha is a South American fish notorious for its savage, flesh-tearing bite, so it is a ferocious kind of creature."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "quiet"
     }
    }

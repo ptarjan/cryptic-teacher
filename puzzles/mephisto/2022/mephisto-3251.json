@@ -175,44 +175,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADULTERANT",
+     "op": "composite",
      "indicators": [
       {
        "text": "mistakenly",
-       "note": "done mistakenly means put together wrongly, so those letters come out in the wrong order"
+       "at": 26,
+       "note": "mistakenly means in error, so the letters of natural diet are put in the wrong order"
+      },
+      {
+       "text": "should be removed",
+       "at": 45,
+       "note": "should be removed says one letter is taken out of the jumbled fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ADULTERANT",
-       "indicators": [
-        {
-         "text": "should be removed",
-         "note": "the instruction to take something away tells you a piece must go from the letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "natural diet",
-         "note": "taken as written"
-        },
-        {
-         "words": "Indeed",
-         "gives": "I",
-         "note": "I is an old spelling of ay or aye, meaning yes or indeed"
-        }
-       ]
+       "words": "natural diet",
+       "at": 13,
+       "note": "the words natural and diet, taken as written"
+      },
+      {
+       "words": "Indeed",
+       "at": 38,
+       "gives": "I",
+       "note": "I is an old spelling of aye, meaning yes, so it stands for indeed"
       }
      ]
     },
     "explanation": {
-     "surface": "A worry that something has wrongly got into a natural diet and should be taken out.",
-     "walkthrough": "Chambers lists I as a variant of ay, meaning yes or indeed, so 'Indeed' supplies the letter to strike out before rearranging.",
-     "definitionFit": "An adulterant is a substance mixed into food or drink that makes it impure, which is exactly the 'substance' meant."
+     "surface": "Someone suspects a foreign substance has got into their wholesome food and wants it out.",
+     "walkthrough": "'Indeed' gives I, an archaic form of aye (yes) found in Chambers. Remove it from NATURAL DIET, which 'should be removed' asks, and rearrange the rest as 'mistakenly' says.",
+     "definitionFit": "An adulterant is a substance added to food or another product that makes it impure or of poorer quality."
     },
     "features": {
      "answerInScene": true,
@@ -306,55 +299,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UPBEAT",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one thing inside the next word's letters"
+       "at": 14,
+       "note": "in says the metal symbol goes inside the posh food"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Not entirely",
-         "note": "not entirely means falling short of the whole, so the final letter is lopped off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "posh",
-           "gives": "U",
-           "note": "U means upper-class, from Nancy Mitford's U and non-U usage"
-          },
-          {
-           "words": "lead",
-           "gives": "PB",
-           "note": "Pb is the chemical symbol for lead"
-          },
-          {
-           "words": "food",
-           "gives": "EATS",
-           "note": "eats is informal for food"
-          }
-         ]
+         "words": "posh",
+         "at": 17,
+         "gives": "U",
+         "note": "U stands for upper class, as in U and non-U usage, so it means posh"
         },
         {
-         "gives": "S"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not entirely",
+           "at": 28,
+           "note": "not entirely says the word for food loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "food",
+           "at": 22,
+           "gives": "EATS",
+           "note": "eats is an informal word for food"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "lead",
+       "at": 9,
+       "gives": "PB",
+       "note": "Pb is the chemical symbol for lead"
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering whether a positive lead in upmarket food is quite complete.",
-     "walkthrough": "'Lead' reads as taking the lead; it is the metal, symbol Pb, sitting inside U.",
-     "definitionFit": "Upbeat means cheerful and optimistic, a close synonym of positive in mood."
+     "surface": "A cheerful question about whether a smart meal is any good, answered with a hedge.",
+     "walkthrough": "'lead' looks like a verb or the front of something; it is the metal, PB, put 'in' U plus EATS cut short, as 'Not entirely' says.",
+     "definitionFit": "Upbeat describes a cheerful, optimistic outlook, which is a positive one."
     },
     "features": {
      "answerInScene": false,
@@ -828,59 +824,67 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNLEASH",
      "indicators": [
       {
        "text": "stuck in",
-       "note": "stuck in means lodged inside, so one piece goes into the other"
+       "at": 19,
+       "note": "stuck in says the jumbled seal is lodged within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "badly",
-         "note": "done badly means messed up, so the word's letters are jumbled"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "a French",
+         "at": 28,
          "gives": "UN",
          "note": "un is French for a"
-        },
-        {
-         "words": "seal",
-         "note": "taken as written"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "opening",
-           "note": "an opening is the start, so only the first letter is kept"
+           "at": 47,
+           "note": "opening asks for the first letter of the harbour word"
           }
          ],
          "parts": [
           {
            "words": "harbour's",
-           "note": "the initial of harbour"
+           "at": 37,
+           "note": "the word whose first letter is taken"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 13,
+         "note": "badly means poorly done, so the letters of seal are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seal",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Freeing a seal that has got trapped at the mouth of a French harbour.",
-     "walkthrough": "'Seal' is the animal in the surface but is just four letters to rearrange.",
-     "definitionFit": "To unleash is to let loose, so it is a synonym of release."
+     "surface": "A seal stuck clumsily at the mouth of a French port needs to be freed.",
+     "walkthrough": "'badly' turns SEAL into LEAS, which is 'stuck in' UN (French for a) followed by H, the 'opening' of harbour.",
+     "definitionFit": "To unleash is to let something loose from restraint, so it is a verb meaning to release."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "seal"
     }
@@ -1429,41 +1433,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FOGGER",
      "indicators": [
       {
        "text": "for",
-       "note": "x for y means put one thing in place of another, so one letter replaces another"
+       "at": 31,
+       "note": "for says one letter swaps in to take the place of another"
       }
      ],
      "parts": [
       {
        "words": "data recorder",
+       "at": 12,
        "gives": "LOGGER",
-       "note": "a logger records data automatically"
+       "note": "a logger is a device that records data over time"
+      },
+      {
+       "words": "a short line",
+       "at": 35,
+       "gives": "L",
+       "note": "L is a short form of line"
       },
       {
        "words": "fine",
+       "at": 26,
        "gives": "F",
-       "note": "F is the abbreviation for fine, as on pencils"
-      },
-      {
-       "words": "short line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
+       "note": "F is the pencil-grading abbreviation for fine"
       }
      ]
     },
     "explanation": {
-     "surface": "A railway signalman's recording device judged fine for a branch line.",
-     "walkthrough": "'Signalman's' reads as possessive, but the 's is just 'is' linking definition and wordplay.",
-     "definitionFit": "A fogger was a railwayman who placed detonators on the track as warning signals in fog."
+     "surface": "A railway signalman's black box is swapped, a fine replacing a short line of text.",
+     "walkthrough": "The F of 'fine' comes in 'for' the L of 'a short line' in LOGGER, the data recorder.",
+     "definitionFit": "A fogger was a railway worker who placed detonating signals on the track in fog, a kind of fog signalman."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "short"
+     "misdirectedWord": "fine"
     }
    }
   },

@@ -98,51 +98,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "take letters at regular intervals: the 2nd, 4th and 6th"
+       "text": "eating",
+       "at": 20,
+       "note": "eating says the alternate letters take the other pieces inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "eating",
-         "note": "the outer letters take the next part inside them"
+         "text": "regularly",
+         "at": 10,
+         "note": "regularly asks for every other letter of the words before it"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "SSA",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "As usual, regularly",
-           "gives": "SSA",
-           "select": "alternate",
-           "note": "every other letter of AS USUAL: a S u S u A l"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "kept as it is"
+         "words": "As usual",
+         "at": 0,
+         "note": "the words whose second, fourth and sixth letters are kept"
         }
        ]
       },
       {
-       "words": "second",
-       "gives": "MO",
-       "note": "a mo = a moment, a second"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 27,
+         "gives": "A"
+        },
+        {
+         "words": "second",
+         "at": 29,
+         "gives": "MO",
+         "note": "a mo is a moment, a second, as in hang on a mo"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone routinely treating themselves to a second pastry.",
-     "walkthrough": "'second' looks like the ordinal, as in a second helping; it is a noun, a moment. A samosa is a fried triangular pastry from South Asia.",
-     "definitionFit": "A samosa is a savoury pastry parcel of spiced filling."
+     "surface": "Someone, as is their habit, is tucking into a second savoury snack.",
+     "walkthrough": "'As usual' reads as a habit but is the fodder: 'regularly' keeps its even letters, and those are 'eating' the a and the second, which slip in after the first letter.",
+     "definitionFit": "A samosa is a fried triangular pastry with a spiced filling, from South Asian cooking."
     },
     "features": {
      "answerInScene": true,
@@ -291,42 +291,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EVENTHORIZON",
-     "indicators": [
-      {
-       "text": "shaped",
-       "note": "the letters of ZION are formed into a new shape"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "True",
+       "at": 0,
+       "gives": "EVEN",
+       "note": "even means true in the sense of level or straight, as a true line"
+      },
+      {
+       "words": "God",
+       "at": 6,
+       "gives": "THOR",
+       "note": "Thor is the Norse god of thunder"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shaped",
+         "at": 10,
+         "note": "shaped means formed into a new shape, so the letters of Zion are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "True",
-         "gives": "EVEN",
-         "note": "true = even, level, as in 'true to the line'"
-        },
-        {
-         "words": "God",
-         "gives": "THOR",
-         "note": "Norse god of thunder"
-        },
-        {
-         "words": "shaped Zion",
-         "gives": "IZON",
-         "note": "ZION rearranged"
+         "words": "Zion",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A believer's claim that God shaped Zion and nobody can get away from it.",
-     "walkthrough": "The capital G makes 'God' look like the one God; here it is a particular god, THOR. An event horizon is the boundary of a black hole, past which nothing escapes.",
-     "definitionFit": "Nothing, not even light, can escape once it crosses a black hole's event horizon."
+     "surface": "A religious claim that God made Zion, followed by a remark that nobody escapes it.",
+     "walkthrough": "'God' looks like the creator of the surface but is THOR; 'shaped' then reworks ZION as IZON.",
+     "definitionFit": "An event horizon is the boundary of a black hole beyond which nothing, not even light, can escape its gravity."
     },
     "features": {
      "answerInScene": false,
@@ -476,37 +476,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHEEPDIP",
-     "indicators": [
-      {
-       "text": "sort of",
-       "note": "PIPED is made into another sort of word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Novel",
+       "at": 0,
+       "gives": "SHE",
+       "note": "She is an 1887 adventure novel by H. Rider Haggard"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sort of",
+         "at": 6,
+         "note": "sort of says the next word comes out in a kind of new form, its letters rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Novel",
-         "gives": "SHE",
-         "note": "'She' is H. Rider Haggard's novel"
-        },
-        {
-         "words": "sort of piped",
-         "gives": "EPDIP",
-         "note": "PIPED rearranged"
+         "words": "piped",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Disinfectant that comes out of the pipes in some new form.",
-     "walkthrough": "'Novel' looks like an adjective meaning new, which would make it the anagram signal; it is the noun, the book 'She'.",
-     "definitionFit": "Sheep-dip is the chemical wash farmers use to kill parasites on sheep."
+     "surface": "Some new kind of disinfectant is delivered through pipes.",
+     "walkthrough": "'Novel' reads as an adjective meaning new, but it is the book SHE by H. Rider Haggard. 'sort of' then rearranges PIPED.",
+     "definitionFit": "Sheep dip is a liquid insecticide and disinfectant that sheep are plunged into to kill parasites."
     },
     "features": {
      "answerInScene": true,
@@ -637,11 +636,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AFTERS",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 13,
+       "note": "in says the female letter sits within the rearranged tears"
       }
      ],
      "parts": [
@@ -650,33 +649,32 @@
        "indicators": [
         {
          "text": "sadly",
-         "note": "tears shed sadly leave things in a sorry state, so the letters are disordered"
+         "at": 22,
+         "note": "sadly here means in a sorry state, so the letters of tears are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "female",
-         "gives": "F",
-         "note": "F = female"
-        },
-        {
-         "words": "tears sadly",
-         "gives": "ATERS",
-         "note": "TEARS rearranged, split around the F: A + TERS"
+         "words": "tears",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "female",
+       "at": 6,
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A sweet girl crying her eyes out.",
-     "walkthrough": "'Sweet' looks like a description of the female; it is the noun, the pudding course. Afters is British slang for dessert.",
-     "definitionFit": "Afters is the sweet course that comes after the main meal."
+     "surface": "A sweet woman is crying unhappily.",
+     "walkthrough": "'Sweet' looks like a description of the female but is the definition, a noun; 'sadly' mixes TEARS into ATERS, with F 'in' it.",
+     "definitionFit": "Afters is British informal for the sweet or dessert course that follows the main meal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Sweet"
     }
    }
@@ -810,44 +808,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TOODLEPIP",
      "indicators": [
       {
        "text": "to Spooner",
-       "note": "Dr Spooner swapped the first sounds of words"
+       "at": 23,
+       "note": "to Spooner says the opening sounds of the two words are swapped, as Rev. Spooner did"
       }
      ],
      "parts": [
       {
-       "words": "dog",
-       "gives": "POODLE",
-       "note": "a poodle is a dog"
+       "op": "homophone",
+       "spelt": "POODLE",
+       "parts": [
+        {
+         "words": "dog",
+         "at": 12,
+         "gives": "POODUL",
+         "note": "a poodle is a breed of dog, said aloud as poo-dul; the Spoonerism swaps its opening sound with that of tip"
+        }
+       ]
       },
       {
        "words": "advice",
+       "at": 16,
        "gives": "TIP",
-       "note": "a tip = a piece of advice"
-      },
-      {
-       "unchecked": true,
-       "words": "to Spooner",
-       "gives": "TOODLEPIP",
-       "soundsLike": "POODLE TIP",
-       "note": "swap the P and T sounds"
+       "note": "a tip is a piece of advice"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone leaving a dog-training tip for Spooner.",
-     "walkthrough": "Toodle-pip is an old-fashioned British way of saying goodbye.",
-     "definitionFit": "Saying toodle-pip is saying goodbye, that you're leaving."
+     "surface": "A dog trainer's tip given to a man called Spooner.",
+     "walkthrough": "Swap the initial sounds of POODLE and TIP 'to Spooner' and the result is a jaunty old British way of saying goodbye.",
+     "definitionFit": "Toodle-pip is dated British slang for goodbye, said when someone is leaving."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "leaving"
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "advice"
     }
    }
   },
@@ -1514,46 +1512,44 @@
      "indicators": [
       {
        "text": "collecting",
-       "note": "to collect is to gather up, so the word for hamper takes the other letters inside"
+       "at": 17,
+       "note": "collecting says the word for hamper gathers in the middle letters"
       }
      ],
      "parts": [
       {
        "words": "hamper",
+       "at": 10,
        "gives": "CUMBER",
-       "note": "to cumber = to hamper, encumber"
+       "note": "to cumber is to hamper or hinder, as in encumber"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "UC",
        "indicators": [
         {
          "text": "in the middle",
-         "note": "only the letters in the middle of MUCK are used"
+         "at": 33,
+         "note": "in the middle asks for the central letters of muck, its ends dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "muck in the middle",
-         "gives": "UC",
-         "select": "middle",
-         "note": "the middle letters of mUCk"
+         "words": "muck",
+         "at": 28,
+         "note": "the word whose middle two letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vegetable hamper with some dirt in the centre.",
-     "walkthrough": "'hamper' reads as a basket; it is the verb. C(UC)UMBER.",
-     "definitionFit": "A cucumber is a long green salad vegetable."
+     "surface": "A picnic basket of vegetables picks up some dirt in its centre.",
+     "walkthrough": "'hamper' reads as a basket but is the verb, to hinder: CUMBER. It is 'collecting' UC, the letters 'in the middle' of muck.",
+     "definitionFit": "A cucumber is a long green salad vegetable of the gourd family, eaten raw."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "hamper"
     }
    }
@@ -1633,42 +1629,47 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "curtailed",
-       "note": "WITH loses its tail, the last letter"
+       "text": "barking",
+       "at": 32,
+       "note": "barking is British slang for mad, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "hound",
+       "at": 11,
+       "note": "the word hound, taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "barking",
-         "note": "barking mad: the letters are scrambled"
+         "text": "curtailed",
+         "at": 22,
+         "note": "curtailed means having its tail cut off, so the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "hound",
-         "note": "anagram fodder"
+         "words": "with",
+         "at": 17,
+         "note": "the word with, which drops its final letter"
         },
         {
-         "words": "with curtailed",
-         "gives": "WIT",
-         "note": "WITH without its last letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The puzzle of a hound whose barking has been cut short.",
-     "walkthrough": "'barking' sits naturally with 'hound', but it means mad. The surface nods to the Sherlock Holmes story in which the clue is a dog that did not bark.",
-     "definitionFit": "A whodunit is a detective story, a murder mystery."
+     "surface": "A tale of a dog with a short tail that keeps yapping, like the Hound of the Baskervilles.",
+     "walkthrough": "'barking' looks like the hound's noise but is the anagram signal, from British slang barking mad. 'curtailed' docks the last letter of with before everything is mixed.",
+     "definitionFit": "A whodunit is a detective story or crime novel in which the puzzle is who committed the crime, a mystery."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "barking"
     }
    }

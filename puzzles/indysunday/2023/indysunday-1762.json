@@ -362,40 +362,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BROKE",
      "indicators": [
       {
        "text": "getting rid of",
-       "note": "getting rid of something throws it out"
+       "at": 14,
+       "note": "getting rid of says a letter of the word for man is thrown out"
       },
       {
        "text": "for",
-       "note": "one thing for another means in exchange"
+       "at": 37,
+       "note": "for says a replacement letter takes the place of the one removed"
       }
      ],
      "parts": [
       {
        "words": "man",
+       "at": 10,
        "gives": "BLOKE",
-       "note": "bloke = man, British slang"
+       "note": "a bloke is an informal word for a man"
       },
       {
        "words": "Liberal",
-       "gives": "L",
-       "note": "L = Liberal, taken out"
+       "at": 29,
+       "gives": "L"
       },
       {
        "words": "Republican",
-       "gives": "R",
-       "note": "R = Republican, put in where the L was"
+       "at": 41,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A man ruins himself by switching parties from Liberal to Republican.",
-     "walkthrough": "Bloke is everyday British slang for a man.",
-     "definitionFit": "A plain synonym: broke is the informal word for having no money at all."
+     "surface": "A hard-up fellow switches his political allegiance from the Liberals to the Republicans.",
+     "walkthrough": "BLOKE (man), 'getting rid of' its L (Liberal) and taking R (Republican) 'for' it, becomes the answer.",
+     "definitionFit": "Broke is the informal adjective for having no money at all, which is what penniless means."
     },
     "features": {
      "answerInScene": true,
@@ -475,66 +476,63 @@
     "definitions": [
      {
       "text": "We supply cards",
-      "at": 0,
-      "note": "the definition speaks as the dealers themselves"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "doddery",
-       "note": "doddery means shaky on one's feet, so the letters wobble into a new order"
+       "text": "will receive",
+       "at": 31,
+       "note": "will receive says the shuffled letters take in another letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "will receive",
-         "note": "to receive something is to take it in, so the A joins the elders' letters"
+         "text": "doddery",
+         "at": 16,
+         "note": "doddery means shaky and unsteady, so the letters of elders are jumbled"
         }
        ],
        "parts": [
         {
          "words": "elders",
-         "note": "anagram fodder"
-        },
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "1st of",
-           "note": "the first of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "1st of April",
-           "gives": "A",
-           "select": "first",
-           "note": "the first letter of APRIL"
-          }
-         ]
+         "text": "1st of",
+         "at": 44,
+         "note": "1st of asks for only the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "April",
+         "at": 51,
+         "note": "the word whose first letter is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A greeting-card firm says its elderly customers will get cards on April Fool's Day.",
-     "walkthrough": "The surface suggests greeting cards posted to old folk; the answer deals playing cards.",
-     "definitionFit": "A description in the first person: dealers are the players who hand out the cards."
+     "surface": "Elderly card players are about to be joined by someone at the start of April.",
+     "walkthrough": "'doddery' rearranges ELDERS as DELERS, and that 'will receive' A, the '1st of April', after its first two letters.",
+     "definitionFit": "In card games the dealers are the players who hand out the cards, so they could say they supply them."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "cards"
+     "misdirectedWord": "doddery"
     }
    }
   },
@@ -1393,45 +1391,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EPITOME",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in says the shortened swine sits inside the English book"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 36,
+         "gives": "E"
+        },
+        {
+         "words": "book",
+         "at": 44,
+         "gives": "TOME",
+         "note": "a tome is a large book"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "no-good",
-         "note": "no good means without G, the abbreviation for good"
+         "text": "no",
+         "at": 19,
+         "note": "no says the following abbreviation is removed from the swine"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "one thing in another sits inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E = English"
-          },
-          {
-           "words": "swine",
-           "gives": "PIG",
-           "note": "pig = swine, less G: PI"
-          },
-          {
-           "words": "book",
-           "gives": "TOME",
-           "note": "a tome is a big book, following E, with PI in between"
-          }
-         ]
+         "words": "swine",
+         "at": 27,
+         "gives": "PIG",
+         "note": "a pig is a swine"
         },
         {
+         "words": "good",
+         "at": 22,
          "gives": "G"
         }
        ]
@@ -1439,9 +1441,9 @@
      ]
     },
     "explanation": {
-     "surface": "A worthless pig in an English book is a typical example of something.",
-     "walkthrough": "No-good reads as worthless, but it tells you to remove G from PIG.",
-     "definitionFit": "A plain synonym: an epitome is a perfect embodiment of a type."
+     "surface": "A worthless pig appears as the perfect specimen in an English volume.",
+     "walkthrough": "PIG with 'no' G (good) leaves PI, which goes 'in' E (English) plus TOME (book).",
+     "definitionFit": "An epitome is a person or thing that perfectly represents a whole class, so it is the most typical example."
     },
     "features": {
      "answerInScene": false,

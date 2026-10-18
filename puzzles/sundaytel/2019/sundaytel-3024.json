@@ -1612,43 +1612,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRENDIEST",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the final letter of the city is dropped"
+       "text": "in",
+       "at": 37,
+       "note": "in says the word for stop goes inside the shortened city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the stop word inside the shortened city"
+         "text": "briefly",
+         "at": 62,
+         "note": "briefly says the city's name is cut short by its last letter"
         }
        ],
        "parts": [
         {
          "words": "northern Italian city",
-         "gives": "TRIEST",
-         "note": "Trieste, port in north-east Italy, minus its last letter"
+         "at": 40,
+         "gives": "TRIESTE",
+         "note": "Trieste is a port city in north-east Italy"
         },
         {
-         "words": "stop",
-         "gives": "END",
-         "note": "to stop is to end"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "stop",
+       "at": 32,
+       "gives": "END",
+       "note": "to end is to stop"
       }
      ]
     },
     "explanation": {
-     "surface": "The smartest choice of all is a stopover in a city in Italy's north.",
-     "walkthrough": "END goes into TRIEST(E): TR(END)IEST.",
-     "definitionFit": "The superlative of trendy means most stylish, ahead of all the others in fashion."
+     "surface": "A fashion note: the trendiest crowd make a stop in an Italian city for a short while.",
+     "walkthrough": "'stop' reads as a halt on a journey, which suits the surface; it is END, set 'in' TRIESTE once 'briefly' has cut its final letter.",
+     "definitionFit": "Trendiest is the superlative of trendy, being most in style, so it means more fashionable than all others."
     },
     "features": {
      "answerInScene": false,
