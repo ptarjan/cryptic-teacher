@@ -127,22 +127,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SONG",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "penned by",
-       "note": "something penned by others is enclosed between them"
+       "text": "uplifting",
+       "at": 37,
+       "note": "in a down answer, uplifting means the letters are read from bottom to top"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "uplifting",
-         "note": "in a down entry lifting up means reading from the bottom, backwards"
+         "text": "penned by",
+         "at": 7,
+         "note": "penned by means enclosed by, so the number goes between the two initials"
         }
        ],
        "parts": [
@@ -151,29 +151,31 @@
          "parts": [
           {
            "words": "Gilbert",
+           "at": 17,
            "gives": "G",
-           "note": "initial of Gilbert"
-          },
-          {
-           "words": "Number",
-           "gives": "NO",
-           "note": "No. is the abbreviation for number"
+           "note": "G is Gilbert's initial"
           },
           {
            "words": "Sullivan",
+           "at": 27,
            "gives": "S",
-           "note": "initial of Sullivan"
+           "note": "S is Sullivan's initial"
           }
          ]
+        },
+        {
+         "words": "Number",
+         "at": 0,
+         "gives": "NO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful number written by the operetta duo Gilbert and Sullivan.",
-     "walkthrough": "'Number' looks like the definition, a musical number, but it is the abbreviation; the definition is 'composition'.",
-     "definitionFit": "A song is a short musical composition with words for singing, the kind of piece a songwriter produces."
+     "surface": "A number written by Gilbert and Sullivan, a cheering piece of music.",
+     "walkthrough": "NO inside G and S makes GNOS, which reads upwards as the answer. 'Number' looks like the definition but is the abbreviation.",
+     "definitionFit": "A song is a short musical composition with words, sung by a voice."
     },
     "features": {
      "answerInScene": true,
@@ -657,66 +659,66 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the rainbow and following pieces sit inside the mirrored light source"
+       "at": 30,
+       "note": "in means the other pieces are placed inside the reversed light source"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflection of",
+         "at": 33,
+         "note": "a reflection shows things the other way round, so the letters are read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "reflection of",
-           "note": "a reflection shows things mirrored, so the source word reads backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "light source",
-           "gives": "SUN",
-           "note": "the sun is our main source of light"
-          }
-         ]
-        },
-        {
-         "op": "container",
-         "parts": [
-          {
-           "words": "is",
-           "note": "taken as written"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "beginning to",
-             "note": "the beginning of a word is just its opening letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "shine",
-             "note": "opening letter of shine"
-            }
-           ]
-          }
-         ]
+         "words": "light source",
+         "at": 47,
+         "gives": "SUN",
+         "note": "the sun is the source of daylight"
         }
        ]
       },
       {
-       "words": "Rainbow",
-       "gives": "ARC",
-       "note": "a rainbow is an arc of colour in the sky"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Rainbow",
+         "at": 0,
+         "gives": "ARC",
+         "note": "a rainbow forms an arc across the sky"
+        },
+        {
+         "words": "is",
+         "at": 8
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 11,
+           "note": "beginning to points at the first letter of shine"
+          }
+         ],
+         "parts": [
+          {
+           "words": "shine",
+           "at": 24
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rainbow begins to glow in reflected sunlight, and a light bulb finishes the scene.",
-     "walkthrough": "'Bulb' seems to continue the light-source theme, but it is a plant bulb; the myth of Narcissus and his reflection adds a neat echo.",
-     "definitionFit": "The narcissus is a spring flower, including daffodils, that grows from an underground bulb, so the plant is named by its storage organ."
+     "surface": "A rainbow begins to shine in the reflected sunlight, an exclamation about a bulb.",
+     "walkthrough": "'bulb' looks like part of the light-source picture, but it is the definition: a flower bulb.",
+     "definitionFit": "Narcissus is the genus of daffodils, plants grown from bulbs."
     },
     "features": {
      "answerInScene": false,
@@ -1365,35 +1367,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "breaking",
-       "note": "breaking in after the other parts, so that the central part is attached at the end"
+       "at": 6,
+       "note": "breaking means splitting the heart word open so the other letters go inside it"
       }
      ],
      "parts": [
       {
-       "words": "caught",
-       "gives": "C",
-       "note": "c is the scorecard abbreviation for caught"
-      },
-      {
-       "words": "condition",
-       "gives": "RICKETS",
-       "note": "rickets is a bone-softening disease"
-      },
-      {
        "words": "Heart",
+       "at": 0,
        "gives": "CORE",
        "note": "the core is the heart of something"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "condition",
+         "at": 15,
+         "gives": "RICKETS",
+         "note": "rickets is a medical condition of the bones"
+        },
+        {
+         "words": "caught",
+         "at": 25,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medical report on a heart condition picked up after a series of blows.",
-     "walkthrough": "'Knocks' sounds like injuries, but in cricket a knock is a batsman's innings, and the total of all the innings is the team's score.",
-     "definitionFit": "A cricket score is the total runs a side makes, built up from the individual innings that cricketers informally call knocks."
+     "surface": "A heartbreaking illness is caught, the result of a series of blows.",
+     "walkthrough": "'Heart-breaking' reads as one sad word, but it splits: the heart is broken open by the condition and caught. In cricket a knock is an innings.",
+     "definitionFit": "In cricket an innings is called a knock, and a team total adds up the batters' individual innings."
     },
     "features": {
      "answerInScene": false,

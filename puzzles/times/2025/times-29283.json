@@ -46,53 +46,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GIRDLE",
+     "op": "reversal",
      "indicators": [
       {
        "text": "the wrong way",
-       "note": "turns the whole string round"
+       "at": 22,
+       "note": "read the wrong way means the combined letters are turned back to front"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "'andled",
-         "note": "the apostrophe drops the H"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "'andled",
-           "gives": "ELD",
-           "note": "handled = HELD, with the H dropped as in cockney speech"
-          },
-          {
-           "words": "kit",
-           "gives": "RIG",
-           "note": "rig = kit, gear"
-          }
-         ]
+         "words": "'andled",
+         "at": 10,
+         "gives": "ELD",
+         "note": "handled means held; with the aitch dropped, as the apostrophe shows, it becomes 'eld"
+        },
+        {
+         "words": "kit",
+         "at": 18,
+         "gives": "RIG",
+         "note": "rig means kit or equipment"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cockney helper has fumbled the kit and put it on back to front.",
-     "walkthrough": "The apostrophe is the deletion signal: ’andled is handled with its H dropped, so the word you want loses its H too. ELD + RIG is then read backwards.",
-     "definitionFit": "A girdle is a supporting undergarment, a foundation garment."
+     "surface": "Someone with a dropped-aitch accent says they handled a set of gear clumsily.",
+     "walkthrough": "The apostrophe is the hint: 'andled is handled spoken without its H, so held loses its H too, giving ELD. ELD then RIG, both read backwards, gives the answer.",
+     "definitionFit": "A girdle is a corset-like undergarment that gives the figure support."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Supporter"
+     "aptDefinition": false,
+     "misdirectedWord": "kit"
     }
    }
   },
@@ -375,69 +365,70 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HANSHOLBEIN",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 14,
+       "note": "in a down answer, a piece under the others is written after them"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "hotel",
+       "at": 20,
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "under"
-        },
-        {
-         "text": "ultimately",
-         "note": "take the last letter of material"
+         "text": "new",
+         "at": 33,
+         "note": "new signals the letters of 'has no' are made into something new, a fresh arrangement"
         }
        ],
        "parts": [
         {
-         "words": "hotel",
-         "gives": "H",
-         "note": "H is Hotel in the phonetic alphabet"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "ANSHOL",
-         "indicators": [
-          {
-           "text": "new",
-           "note": "HAS NO L is made new, rearranged"
-          },
-          {
-           "text": "livin'",
-           "note": "the apostrophe drops the G of being"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "has no new material, ultimately",
-           "gives": "ANSHOL",
-           "select": "last",
-           "note": "HAS NO plus L, the last letter of material, rearranged"
-          }
-         ]
-        },
-        {
-         "words": "livin'",
-         "gives": "BEIN",
-         "note": "living = BEING, with the final G dropped as the apostrophe shows"
+         "words": "has no",
+         "at": 26
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 47,
+         "note": "ultimately points to the final letter of the word material"
+        }
+       ],
+       "parts": [
+        {
+         "words": "material",
+         "at": 37
+        }
+       ]
+      },
+      {
+       "words": "livin'",
+       "at": 7,
+       "gives": "BEIN",
+       "note": "livin' is 'living' with its last letter dropped; in the same way 'being' (living) loses its G"
       }
      ]
     },
     "explanation": {
-     "surface": "A painter living over a hotel has nothing new to wear in the end.",
-     "walkthrough": "'Livin’' copies its dropped G into the answer: being loses its G. 'New' looks like an adjective for material but stirs HAS NO L.",
-     "definitionFit": "Hans Holbein the Younger was the German portrait painter at Henry VIII's court."
+     "surface": "A painter living in a hotel basement has run out of cloth to paint on.",
+     "walkthrough": "The apostrophe in livin' tells you to drop a final G: living means being, and being without its G finishes the answer, placed under everything else in this down clue.",
+     "definitionFit": "Hans Holbein the Younger was a German-Swiss painter, famous for his portraits of Henry VIII's court."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "material"
     }
    }
   },
@@ -1311,41 +1302,43 @@
      "op": "container",
      "indicators": [
       {
-       "text": "secreted by"
+       "text": "secreted by",
+       "at": 18,
+       "note": "something secreted by another is hidden inside it, so these letters go in the middle"
       }
      ],
      "parts": [
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "IO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "odd bits torn out",
-         "note": "remove the odd-numbered letters"
+         "at": 37,
+         "note": "the odd-numbered letters (first, third, fifth) of minor are removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "minor, odd bits torn out",
-         "gives": "IO",
-         "select": "alternate",
-         "note": "MINOR loses M, N and R, leaving I and O, which hold MAG"
+         "words": "minor",
+         "at": 30
+        },
+        {
+         "gives": "MNR"
         }
        ]
       },
       {
        "words": "publication",
+       "at": 6,
        "gives": "MAG",
-       "note": "mag = magazine"
+       "note": "a mag (magazine) is a publication"
       }
      ]
     },
     "explanation": {
-     "surface": "An adult magazine is hidden away by a youngster, with some pages torn out.",
-     "walkthrough": "'Adult publication' looks like one phrase, but only Adult is the definition, in the insect sense.",
-     "definitionFit": "An imago is the adult, final stage of an insect."
+     "surface": "An under-age reader has hidden an adult magazine, with pages ripped out.",
+     "walkthrough": "Removing the first, third and fifth letters of minor leaves IO; the magazine goes between them.",
+     "definitionFit": "An imago is the final, adult stage of an insect after metamorphosis, so the word names a grown insect."
     },
     "features": {
      "answerInScene": false,
