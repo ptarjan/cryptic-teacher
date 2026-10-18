@@ -1491,29 +1491,52 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "AREA",
-     "indicators": [
-      {
-       "text": "with no sides at all",
-       "note": "removing every side means each word loses both its outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "dark meat",
-       "gives": "AREA",
-       "select": "middle",
-       "note": "the inside letters of each word"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no sides",
+         "at": 28,
+         "note": "with no sides means the word loses its outer letters, leaving its inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dark",
+         "at": 18
+        },
+        {
+         "gives": "DK"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "at all",
+         "at": 42,
+         "note": "at all extends the side-trimming to every word, so the second word loses its ends too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meat",
+         "at": 23
+        },
+        {
+         "gives": "MT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cut of dark meat served with no side dishes at all.",
-     "walkthrough": "'sides' suggests vegetables accompanying a meal, but it means each word's first and last letters.",
-     "definitionFit": "An area is a region or tract of land, a section of ground."
+     "surface": "A cut of meat from the ground, the dark kind, served without side dishes.",
+     "walkthrough": "'at all' extends the trimming to both words: dARk and mEAt.",
+     "definitionFit": "An area is a stretch or region of land, a portion of ground."
     },
     "features": {
      "answerInScene": false,

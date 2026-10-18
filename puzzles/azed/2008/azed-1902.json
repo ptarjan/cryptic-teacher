@@ -631,48 +631,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LORN",
+     "op": "container",
      "indicators": [
       {
-       "text": "half lost",
-       "note": "when half of a word is lost, only its first three letters of six survive"
+       "text": "in",
+       "at": 7,
+       "note": "in says the rupee letter sits inside the shortened capital"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "the currency letter goes in, sitting inside the shortened city name"
+         "text": "half lost",
+         "at": 18,
+         "note": "half of the six letters of the city's name go missing, leaving its first half"
         }
        ],
        "parts": [
         {
          "words": "capital",
-         "gives": "LON",
-         "note": "the first half of London, the UK capital"
+         "at": 10,
+         "gives": "LONDON",
+         "note": "London is the UK capital"
         },
         {
-         "words": "Rupees",
-         "gives": "R",
-         "note": "R is the abbreviation for rupees"
+         "gives": "DON"
         }
        ]
+      },
+      {
+       "words": "Rupees",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the standard abbreviation for rupees, the Indian currency"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller laments the rupees that vanished somewhere in the capital, half of them gone.",
-     "walkthrough": "The first 'lost' is an indicator; the definition is 'lost long ago', meaning lost in old-fashioned language.",
-     "definitionFit": "LORN is the archaic past participle of the verb lose, so it is a word for lost that has long gone out of use."
+     "surface": "Money from India vanishes into a capital, and half of it goes missing, a loss from long ago.",
+     "walkthrough": "'half lost' cuts LONDON to LON; R goes 'in' to give the answer. 'long ago' marks the definition as an archaic word.",
+     "definitionFit": "Lorn is an old past participle of 'lese', meaning lost or forsaken; in modern use it survives mostly in 'forlorn'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "lost"
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
     }
    }
   },

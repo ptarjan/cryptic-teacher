@@ -284,40 +284,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "One thing placed in another sits inside it."
+       "at": 31,
+       "note": "in says the abbreviation goes inside the rearranged letters"
       }
      ],
      "parts": [
-      {
-       "words": "strange setting",
-       "gives": "TESTING",
-       "note": "SETTING rearranged"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "strange",
-         "note": "Strange means odd or out of the ordinary, so the letters of SETTING come out in an unusual order."
+         "at": 34,
+         "note": "strange signals that 'setting' appears in an odd new order"
         }
        ],
        "parts": [
         {
-         "words": "for your information",
-         "gives": "FYI",
-         "note": "the usual abbreviation, placed after TESTI"
+         "words": "setting",
+         "at": 42
         }
        ]
+      },
+      {
+       "words": "for your information",
+       "at": 10,
+       "gives": "FYI"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is announcing news, handing over information in an odd location.",
-     "walkthrough": "'Strange setting' reads as an odd place; it is the anagram of SETTING that houses FYI.",
-     "definitionFit": "To testify is to declare something formally, as a witness does."
+     "surface": "Making an announcement, just to let you know, in an unusual place.",
+     "walkthrough": "'setting' looks like a place, but it is only the letters to rearrange.",
+     "definitionFit": "To testify is to state something formally as evidence, so testifying is declaring."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "setting"
     }
@@ -642,45 +643,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "Something turned over ends up the other way round, so the letters run backwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 10,
+         "note": "over means turned over, so the two letters are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "aroma",
-         "gives": "TNECS",
-         "note": "an aroma is a scent"
-        },
-        {
-         "words": "fish",
-         "gives": "ELOS",
-         "note": "sole is a flatfish"
-        },
-        {
-         "words": "Bad smell over",
+         "words": "Bad smell",
+         "at": 0,
          "gives": "BO",
-         "note": "BO (body odour) turned round"
+         "note": "BO is body odour, a bad smell"
         }
        ]
+      },
+      {
+       "words": "fish",
+       "at": 24,
+       "gives": "SOLE",
+       "note": "a sole is a flatfish"
+      },
+      {
+       "words": "aroma",
+       "at": 15,
+       "gives": "SCENT",
+       "note": "an aroma is a scent"
       }
      ]
     },
     "explanation": {
-     "surface": "A stale fish is giving off a nasty smell.",
-     "walkthrough": "The surface makes 'past its prime' describe the fish; it is the definition. 'Aroma of fish' is read in reverse order: SOLE then SCENT.",
-     "definitionFit": "Something obsolescent is becoming outdated, past its best."
+     "surface": "A rank smell rising from fish that has gone off.",
+     "walkthrough": "'aroma of fish' is read as the fish's aroma, so the fish comes before the aroma in the answer.",
+     "definitionFit": "Obsolescent means becoming obsolete or outdated, so declining after its best days."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "over"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aroma"
     }
    }
   },
@@ -749,67 +754,70 @@
      {
       "text": "Tax's",
       "at": 0,
-      "note": "'Tax's' works as an adjective, 'of tax', matching FISCAL."
+      "note": "an adjective meaning relating to tax, like the possessive"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FISCAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 28,
+       "note": "after says the current and range pieces come behind the February letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "reduced",
-         "note": "Something reduced is cut short, so the last letter goes."
-        },
-        {
          "text": "first of",
-         "note": "Just the first letter of the word is taken."
+         "at": 34,
+         "note": "first of picks the opening letter of 'February'"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "F",
-         "indicators": [
-          {
-           "text": "after"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "first of February",
-           "gives": "F",
-           "select": "first",
-           "note": "the first letter of February"
-          }
-         ]
+         "words": "February",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "words": "current",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 20,
+         "note": "reduced means the word is shortened by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "range",
+         "at": 14,
+         "gives": "SCALE",
+         "note": "a scale is a range of values"
         },
         {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the symbol for electric current"
-        },
-        {
-         "words": "range reduced",
-         "gives": "SCAL",
-         "note": "SCALE, a range, cut short"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The tax band available is being cut from the start of February.",
-     "walkthrough": "I for current is a physics convention. 'Tax's' is the definition in adjective form: fiscal means relating to tax.",
-     "definitionFit": "Fiscal describes government revenue and taxation."
+     "surface": "The current range of tax rates is cut back after the start of February.",
+     "definitionFit": "Fiscal means relating to public revenue and taxation, as in fiscal policy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "current"
     }
@@ -840,39 +848,58 @@
      "indicators": [
       {
        "text": "gets round",
-       "note": "One word gets round others by enclosing them."
+       "at": 12,
+       "note": "gets round says the cable surrounds the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Guy perhaps",
-         "gives": "CABLE",
-         "note": "a guy is a rope or cable that steadies a tent or mast"
-        },
-        {
-         "words": "concerning",
-         "gives": "ON",
-         "note": "on, as in 'a talk on birds'"
-        }
-       ]
+       "words": "Guy perhaps",
+       "at": 0,
+       "gives": "CABLE",
+       "note": "a guy is a rope or cable that holds something steady, so a cable is an example"
       },
       {
-       "words": "brief challenge",
-       "gives": "QUER",
-       "note": "QUERY, a challenge, cut short"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "concerning",
+         "at": 23,
+         "gives": "ON",
+         "note": "on means concerning or about"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "brief",
+           "at": 34,
+           "note": "brief means the word is cut short by its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "challenge",
+           "at": 40,
+           "gives": "QUERY",
+           "note": "a query is a question or challenge"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man faces a short challenge he can get through.",
-     "walkthrough": "'Guy' looks like a man; here it is the rope, and 'perhaps' flags that CABLE is one example.",
-     "definitionFit": "A plain synonym: to conquer is to overcome, and -able turns it into 'possible to'."
+     "surface": "A man called Guy dodges a short challenge about something that can be beaten.",
+     "walkthrough": "'Guy' looks like a man's name; it is a guy rope, a cable steadying a tent or mast.",
+     "definitionFit": "Conquerable means able to be conquered, defeated or overcome."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Guy"
     }
@@ -1106,39 +1133,59 @@
      "indicators": [
       {
        "text": "trapped by",
-       "note": "Something trapped by another is enclosed inside it."
+       "at": 43,
+       "note": "trapped by says the pieces are held inside the revolutionary's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "revolutionary",
-         "gives": "CHE",
-         "note": "Che Guevara, the Argentine-Cuban revolutionary"
-        },
-        {
-         "words": "I'm",
-         "note": "taken as printed, apostrophe dropped"
-        }
-       ]
+       "words": "revolutionary",
+       "at": 54,
+       "gives": "CHE",
+       "note": "Che Guevara is the crossword's stock revolutionary"
       },
       {
-       "words": "tank unit nearly",
-       "gives": "PANZE",
-       "note": "PANZER, a German tank unit, without its last letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 17,
+         "gives": "IM",
+         "note": "taken as written, without the apostrophe"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 36,
+           "note": "nearly means the word stops short of its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tank unit",
+           "at": 26,
+           "gives": "PANZER",
+           "note": "a panzer is a German tank or armoured unit"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier in Africa describes being caught with a tank squad by a rebel.",
-     "walkthrough": "'Being' looks like a verb; it is the noun, a creature living in Africa.",
-     "definitionFit": "Chimpanzees are great apes native to African forests."
+     "surface": "A soldier in Africa, part of a tank unit, almost captured by a guerrilla.",
+     "walkthrough": "'Being' looks like a verb but is a noun, a living creature; Che Guevara is the stock revolutionary.",
+     "definitionFit": "A chimpanzee is an ape living in the forests of Africa, so a creature there; 'being' means a living creature."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Being"
     }
    }
