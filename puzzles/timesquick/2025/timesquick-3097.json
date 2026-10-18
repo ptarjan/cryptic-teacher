@@ -156,38 +156,36 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "TW",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "Ultimately means in the end, so each of the next words gives only its end letter."
+         "at": 7,
+         "note": "ultimately means in the end, so each word gives its final letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "ultimately don't show",
-         "gives": "TW",
-         "select": "last",
-         "note": "the last letters of DON'T and SHOW"
+         "words": "don't show",
+         "at": 18,
+         "note": "the last letters of don't and show"
         }
        ]
       },
       {
        "words": "love",
+       "at": 29,
        "gives": "O",
-       "note": "love = O, a zero score in tennis"
+       "note": "love is nil in tennis scoring, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A pair who, in the end, keep their affection hidden.",
-     "walkthrough": "\"Don't show love\" reads as one phrase about a reserved pair; it splits into two words to be clipped and a zero.",
-     "definitionFit": "Plain synonym: a couple is a pair, a set of that number."
+     "surface": "A pair, in the end, fail to turn up for their romance.",
+     "walkthrough": "'ultimately' applies to both 'don't' and 'show', giving T and W, before O for love.",
+     "definitionFit": "A couple is a pair, and two is the number in a pair."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "show"
     }
@@ -568,31 +566,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HAT",
+     "op": "middle",
      "indicators": [
       {
        "text": "trimmed at both ends",
-       "note": "Trimming cuts away the edges, and both ends means the first and last letters go."
+       "at": 13,
+       "note": "trimming at both ends removes the first and last letters of the word"
       }
      ],
      "parts": [
       {
        "words": "that's",
-       "note": "the word itself, apostrophe ignored"
+       "at": 6,
+       "note": "the letters of that's, apostrophe ignored, are what gets trimmed"
       }
      ]
     },
     "explanation": {
-     "surface": "A cover with its edges cut back.",
-     "walkthrough": "\"That's\" looks like grammar gluing the clue together; it is the word being trimmed.",
-     "definitionFit": "Definition by function: headgear covers the head."
+     "surface": "A lid or covering that has been cut back at either side.",
+     "walkthrough": "Count the apostrophe out: THATS loses T and S to leave the answer.",
+     "definitionFit": "A hat is a covering for the head."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "that"
+     "misdirectedWord": "trimmed"
     }
    }
   },
@@ -617,59 +615,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "centrally",
-       "note": "Centrally means at the centre, so only the middle letter of the word is used."
+       "text": "involved in",
+       "at": 22,
+       "note": "to be involved in something is to be inside it, so one piece goes into the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "the actual",
+       "at": 34,
+       "gives": "THEVERY",
+       "note": "the very means the actual, as in the very thing"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "involved in",
-         "note": "To be involved in something is to be inside it, so that letter goes within the next word."
+         "text": "centrally",
+         "at": 12,
+         "note": "only the central letter of the word is used"
         }
        ],
        "parts": [
         {
-         "words": "the",
-         "note": "used as it stands, opened up after its second letter"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "I",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Individuals centrally",
-           "gives": "I",
-           "select": "middle",
-           "note": "the middle (6th of 11) letter of INDIVIDUALS, placed after TH"
-          }
-         ]
+         "words": "Individuals",
+         "at": 0,
+         "note": "the middle letter of individuals"
         }
        ]
-      },
-      {
-       "words": "actual",
-       "gives": "VERY",
-       "note": "very = actual, as in 'the very man'"
       }
      ]
     },
     "explanation": {
-     "surface": "Some people are caught up in the middle of a real robbery.",
-     "walkthrough": "\"The actual act\" reads as one phrase; split it after \"the\", which holds the I, and \"actual\" becomes VERY.",
-     "definitionFit": "Plain synonym: the noun for stealing, as larceny or theft."
+     "surface": "Some people at the heart of a real robbery.",
+     "walkthrough": "Individuals has eleven letters, so its centre is the single I, which is 'involved in' THE VERY after TH.",
+     "definitionFit": "Thievery is the practice of theft, the taking of others' property."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "actual"
+     "misdirectedWord": "Individuals"
     }
    }
   },
