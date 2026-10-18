@@ -310,52 +310,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETRUSCAN",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "European",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means not quite all, so the final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E is short for European"
-        },
-        {
          "words": "hope",
-         "gives": "TRUS",
-         "note": "trust, a hope or belief, minus its last letter"
+         "at": 9,
+         "gives": "TRUST",
+         "note": "trust in the sense of hope, as in 'I trust you are well'"
         },
         {
-         "words": "about",
-         "gives": "CA",
-         "note": "ca, short for circa, means about"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "about",
+       "at": 22,
+       "gives": "CA",
+       "note": "CA is short for circa, about"
+      },
+      {
+       "words": "new",
+       "at": 28,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A European's wish to learn a fresh tongue, more or less.",
-     "walkthrough": "'About' looks like a container signal but simply supplies CA; the pieces just follow one another.",
-     "definitionFit": "Etruscan was the tongue of ancient Etruria in Italy, spoken before Latin replaced it."
+     "surface": "A European hopes, though not entirely, for something about a new tongue.",
+     "definitionFit": "Etruscan was the language of ancient Etruria in Italy, still only partly understood."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "hope"
     }
    }
   },
@@ -629,12 +632,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IGNORAMUS",
      "indicators": [
       {
        "text": "if never taken all the way",
-       "note": "never going all the way means stopping short, so each word loses its final letter"
+       "at": 37,
+       "note": "never taken all the way means each word stops short of its end, so both final letters go"
       }
      ],
      "parts": [
@@ -643,26 +645,32 @@
        "parts": [
         {
          "words": "overlook",
-         "gives": "IGNOR",
-         "note": "to overlook is to ignore, cut short by one letter"
+         "at": 8,
+         "gives": "IGNORE",
+         "note": "to ignore something is to overlook it"
         },
         {
          "words": "what diversion does",
-         "gives": "AMUS",
-         "note": "a diversion amuses, cut back to its stem"
+         "at": 17,
+         "gives": "AMUSE",
+         "note": "a diversion is entertainment, and what it does is amuse"
         }
        ]
+      },
+      {
+       "gives": "EE"
       }
      ]
     },
     "explanation": {
-     "surface": "A silly person fails to notice what entertainment ever accomplishes.",
-     "walkthrough": "The deletion applies to both pieces: IGNORE and AMUSE each lose their final E.",
-     "definitionFit": "An ignoramus is an ignorant, foolish person, so the word works as a synonym."
+     "surface": "A fool is urged to ignore something that seems to be a road diversion that never finishes.",
+     "walkthrough": "Both words lose their last letter: IGNOR plus AMUS.",
+     "definitionFit": "An ignoramus is an ignorant person, a fool or dunce."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "diversion"
     }
    }
@@ -1018,57 +1026,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPECIALISTS",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "cutting something shortens it, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 23,
+         "note": "cut means shortened, so the final letter of the word is lopped off"
+        }
+       ],
        "parts": [
         {
          "words": "money",
-         "gives": "SPECI",
-         "note": "specie is coin money, shortened by one letter"
+         "at": 17,
+         "gives": "SPECIE",
+         "note": "specie is money in the form of coins"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "outside",
-           "note": "outside means surrounding, so one piece wraps another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "as",
-           "note": "taken as written"
-          },
-          {
-           "words": "roster",
-           "gives": "LIST",
-           "note": "a roster is a list of names"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 30,
+         "note": "outside means surrounding, so the two letters of as go round the roster"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as",
+         "at": 27,
+         "gives": "AS",
+         "note": "taken as written"
+        },
+        {
+         "words": "roster",
+         "at": 38,
+         "gives": "LIST",
+         "note": "a roster is a list"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Senior doctors suffer a pay cut beyond the duty rota.",
-     "walkthrough": "Specie is coins as opposed to notes. The two letters of 'as' split to surround the roster.",
-     "definitionFit": "In British hospitals a consultant is a senior doctor who is an expert in one field of medicine."
+     "surface": "Hospital consultants see their pay reduced because they are left off the duty rota.",
+     "walkthrough": "Specie is an old word for money in coin rather than notes; a roster as a duty rota is a list of names.",
+     "definitionFit": "Hospital consultants are senior doctors, each a specialist in one branch of medicine."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Consultants"
+     "misdirectedWord": "roster"
     }
    }
   },
@@ -1825,53 +1840,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORRERY",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 13,
+         "note": "backing means going in reverse, so the shortened word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "backing",
-           "note": "backing means moving backwards, so the letters run in the opposite direction"
+           "text": "Mostly",
+           "at": 0,
+           "note": "Mostly means not all of it, so the last letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "wrong",
-           "gives": "ERRO",
-           "note": "an error is a wrong, shortened"
+           "at": 7,
+           "gives": "ERROR",
+           "note": "an error is a wrong"
+          },
+          {
+           "gives": "R"
           }
          ]
-        },
-        {
-         "words": "railway",
-         "gives": "RY",
-         "note": "RY is the abbreviation for railway"
         }
        ]
+      },
+      {
+       "words": "railway",
+       "at": 21,
+       "gives": "RY"
       }
      ]
     },
     "explanation": {
-     "surface": "A clockwork train set that mostly runs backwards.",
-     "walkthrough": "An orrery is a mechanical model of the solar system; 'system' is the solar system, not a railway network.",
-     "definitionFit": "The device shows the planets circling the sun, driven by geared clockwork, so it models the solar system."
+     "surface": "A railway network operated by clockwork goes into reverse, mostly wrongly.",
+     "walkthrough": "ERROR loses its final R to give ERRO, which 'backing' turns into ORRE.",
+     "definitionFit": "An orrery is a clockwork model of the solar system, its planets turned by gears."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "system"
+     "misdirectedWord": "railway"
     }
    }
   },
@@ -2414,47 +2433,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SENIORITY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in later stages",
-       "note": "the later stages are what remain once the opening stages are gone, so the start of each word is dropped"
+       "text": "later",
+       "at": 48,
+       "note": "later says the years letter comes at the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in later stages",
+         "at": 14,
+         "note": "in later stages means only the latter parts of each word are used, their openings dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Chosen",
-         "gives": "SEN",
-         "note": "the last three letters"
+         "words": "Chosen junior",
+         "at": 0,
+         "note": "the two words whose later parts are kept"
         },
         {
-         "words": "junior",
-         "gives": "IOR",
-         "note": "the last three letters"
-        },
-        {
-         "words": "it",
-         "note": "taken as written"
-        },
-        {
-         "words": "years",
-         "gives": "Y",
-         "note": "Y is short for years"
+         "gives": "CHOJUN"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 39,
+       "gives": "IT",
+       "note": "taken as written"
+      },
+      {
+       "words": "years",
+       "at": 42,
+       "gives": "Y",
+       "note": "Y is the abbreviation for year or years"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A favoured young employee will be promoted in due course.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: a chosen junior earns rank with long service.",
-     "definitionFit": "Seniority is the higher standing that comes from length of service, which a junior acquires over many years."
+     "surface": "A junior who is picked now will gain this rank with the passing of years.",
+     "walkthrough": "Take the later stages of chosen and junior (SEN and IOR), then IT, then Y for years placed last.",
+     "definitionFit": "Seniority is the higher rank that comes from long service, which a junior earns over time."
     },
     "features": {
      "answerInScene": true,
