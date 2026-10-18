@@ -843,48 +843,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HEALTHFOOD",
+     "op": "composite",
      "indicators": [
       {
        "text": "supply",
-       "note": "supply here is the adverb of supple, so the letters bend into a new order"
+       "at": 45,
+       "note": "supply here is the adverb from supple, meaning flexibly, so the letters bend into a new order"
+      },
+      {
+       "text": "wanting",
+       "at": 28,
+       "note": "wanting means lacking, so the letter for European is taken out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HEALTHFOOD",
-       "indicators": [
-        {
-         "text": "wanting",
-         "note": "wanting means lacking, so one letter goes missing"
-        }
-       ],
-       "parts": [
-        {
-         "words": "head of hotel",
-         "note": "taken as written"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European, here removed"
-        }
-       ]
+       "words": "head of hotel",
+       "at": 13
+      },
+      {
+       "words": "European",
+       "at": 36,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A hotel manager short of European supplies of oats.",
-     "walkthrough": "'Head of hotel' wants to give H, but all three words are fodder, and 'supply' is not a noun but means flexibly.",
-     "definitionFit": "Oats are a classic example of wholesome, natural fare sold as nourishing diet produce."
+     "surface": "A hotel manager, short of a European, provides porridge oats.",
+     "walkthrough": "'supply' looks like a verb but is the adverb of supple. Take an E ('wanting European') out of HEAD OF HOTEL and rearrange the rest.",
+     "definitionFit": "Oats are a classic example of wholesome food sold for its benefits to the body, hence 'for one'."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "supply"
     }
    }
@@ -974,53 +965,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENVELOP",
+     "op": "charade",
      "indicators": [
       {
-       "text": "a lot of",
-       "note": "a lot of something is not all of it, so the last letter is dropped"
+       "text": "after",
+       "at": 17,
+       "note": "after places the reversed staff behind what comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 23,
+         "note": "a lot of, but not all, means the last letter is lost"
+        }
+       ],
        "parts": [
         {
          "words": "resentment",
-         "gives": "ENV",
-         "note": "envy loses its final letter"
+         "at": 32,
+         "gives": "ENVY",
+         "note": "envy is resentment of what another has"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "going back means travelling the opposite way, so the word is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "staff",
-           "gives": "POLE",
-           "note": "a staff is a long pole"
-          }
-         ]
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 12,
+         "note": "back means the word for staff is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staff",
+         "at": 6,
+         "gives": "POLE",
+         "note": "a pole is a staff or long rod"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Covering for a colleague returning after a long grudge.",
-     "walkthrough": "'Staff' reads as employees covering a shift, but it is a stick.",
-     "definitionFit": "To envelop is to wrap up or surround something completely, so it covers it."
+     "surface": "Someone covers for a colleague who is bitterly resented.",
+     "walkthrough": "'staff' looks like employees but is a rod: read it 'back' and put it 'after' 'a lot of' (all but the last letter of) the word for resentment.",
+     "definitionFit": "To envelop is to wrap up or surround completely, so to cover."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "staff"
     }
    }

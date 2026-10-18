@@ -384,40 +384,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NATURALLY",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means nearly all of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "kind",
-         "gives": "NATUR",
-         "note": "nature is a kind or sort, cut short"
+         "at": 7,
+         "gives": "NATURE",
+         "note": "kind as a noun, meaning sort or nature"
         },
         {
-         "words": "colleague",
-         "gives": "ALLY",
-         "note": "an ally is a partner or associate"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "colleague",
+       "at": 12,
+       "gives": "ALLY",
+       "note": "an ally is a partner or colleague"
       }
      ]
     },
     "explanation": {
-     "surface": "Asked whether a co-worker is generally nice, someone answers with enthusiastic agreement.",
-     "walkthrough": "'Kind' looks like an adjective meaning nice, but here it is the noun, as in 'of that nature'.",
-     "definitionFit": "Both are emphatic replies of agreement, used as interjections meaning of course or certainly."
+     "surface": "Someone asked whether a co-worker is generally nice replies with emphatic agreement.",
+     "walkthrough": "'kind' reads as an adjective, but here it is the noun meaning sort, i.e. nature, cut short by 'Mostly'.",
+     "definitionFit": "Naturally! is an exclamation of emphatic agreement, used as of course or certainly would be."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "kind"
     }
