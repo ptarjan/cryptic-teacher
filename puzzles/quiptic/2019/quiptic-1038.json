@@ -1615,42 +1615,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "In the bellies of",
+       "at": 0,
+       "note": "the belly is the middle of the body, so only the central part of each word is kept, two letters trimmed from each end"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "In the bellies of",
-         "note": "the belly is the middle of the body, so the central letters are taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "whales",
-         "note": "the middle two of six letters"
+         "at": 18
+        },
+        {
+         "words": "science",
+         "at": 26
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "IEN",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "science",
-         "gives": "IEN",
-         "select": "middle",
-         "note": "the middle three of seven letters"
-        }
-       ]
+       "gives": "WHESSCCE"
       }
      ]
     },
     "explanation": {
-     "surface": "Scientists cut open whales and discover something odd inside.",
-     "definitionFit": "An alien thing is foreign or unfamiliar, so the noun names something strange or out of place."
+     "surface": "Science discovers something odd inside whales' stomachs.",
+     "walkthrough": "Each word loses its outer two letters at both ends, leaving its belly: two letters of whales, three of science.",
+     "definitionFit": "An alien thing is foreign or unfamiliar, so strange; the noun can also mean an extraterrestrial."
     },
     "features": {
      "answerInScene": true,

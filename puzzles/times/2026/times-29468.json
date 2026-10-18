@@ -745,35 +745,49 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "returning",
-       "note": "going back, so A GIRO is read backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "only half of"
+         "text": "returning",
+         "at": 5,
+         "note": "returning means a and the cheque are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "a cheque",
-         "gives": "AGIRO",
-         "note": "a giro is a British cheque, for example one paying benefits; read backwards it is ORIGA"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 15
+          },
+          {
+           "words": "cheque",
+           "at": 17,
+           "gives": "GIRO",
+           "note": "a giro is a British cheque, especially a benefits payment"
+          }
+         ]
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "only half of",
+         "at": 25,
+         "note": "only half of the word is kept, its last three letters dropped"
+        }
+       ],
        "parts": [
         {
          "words": "amount",
+         "at": 38,
          "gives": "NUMBER",
-         "note": "an amount is a number; only its first half, NUM, is kept"
+         "note": "a number is an amount"
         },
         {
          "gives": "BER"
@@ -783,14 +797,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone returns a cheque for a herb, having paid only half.",
-     "walkthrough": "Halving 'amount' itself gives nothing useful; it is its synonym NUMBER that is halved.",
-     "definitionFit": "Origanum is the plant genus of marjoram and oregano."
+     "surface": "A cheque is sent back because it covers only half the amount.",
+     "walkthrough": "A GIRO backwards is ORIGA; NUMBER halved is NUM. A giro is a British state benefit cheque.",
+     "definitionFit": "Origanum is the genus of herbs that includes oregano and marjoram."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cheque"
+     "misdirectedWord": "Herb"
     }
    }
   },
@@ -995,39 +1009,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wandering about",
-       "note": "letters that wander about end up in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "people",
+       "at": 12,
+       "gives": "MEN",
+       "note": "men are people"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wandering about",
+         "at": 27,
+         "note": "wandering about suggests the letters of I noted move around into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "people",
-         "gives": "MEN",
-         "note": "men are people"
+         "words": "I",
+         "at": 19
         },
         {
-         "words": "I noted",
-         "note": "I NOTED rearranged"
+         "words": "noted",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recalls spotting a few people roaming around.",
-     "walkthrough": "'Referred to' could be any verb phrase; the past tense points to -ED, which this anagram supplies.",
-     "definitionFit": "To mention something is to refer to it."
+     "surface": "Someone recalls people they spotted roaming around.",
+     "definitionFit": "Mentioned means spoken of briefly, which is referred to."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "noted"
+     "misdirectedWord": "wandering"
     }
    }
   },
@@ -1621,41 +1640,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to keep"
+       "text": "to keep",
+       "at": 15,
+       "note": "the court word keeps the others, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Taken to court",
-         "gives": "SUED",
-         "note": "to take someone to court is to sue them"
-        },
-        {
-         "words": "quiet",
-         "gives": "P",
-         "note": "P, piano, is the musical mark for quiet"
-        }
-       ]
+       "words": "Taken to court",
+       "at": 0,
+       "gives": "SUED",
+       "note": "sued means taken to court"
       },
       {
-       "words": "urge",
-       "gives": "PRESS",
-       "note": "to urge is to press; P and PRESS go inside SUED"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quiet",
+         "at": 23,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, quiet"
+        },
+        {
+         "words": "urge",
+         "at": 29,
+         "gives": "PRESS",
+         "note": "to press is to urge"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone was sued to silence an urge that had been banned.",
-     "walkthrough": "'prohibited' is the definition in its past-participle sense, banned.",
-     "definitionFit": "Something suppressed has been banned or kept from view."
+     "surface": "Someone is sued to silence an urge that was banned.",
+     "definitionFit": "Suppressed means forcibly put down or banned, close to prohibited."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "quiet"
+     "misdirectedWord": "urge"
     }
    }
   },

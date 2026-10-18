@@ -1088,52 +1088,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the word for positive goes round what precedes it"
+       "at": 35,
+       "note": "the positive goes about the other letters, surrounding them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "positive",
-         "gives": "PLUS",
-         "note": "plus is a positive sign"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "positive",
+       "at": 26,
+       "gives": "PLUS",
+       "note": "plus means positive"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "tailless",
-         "note": "tailless means the word for sort loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sort",
-         "gives": "TYPE",
-         "note": "a type is a sort"
+         "words": "a",
+         "at": 8
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 10,
+           "note": "tailless means the last letter of the word is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sort",
+           "at": 19,
+           "gives": "TYPE",
+           "note": "a type is a sort"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mammal of an odd tail-less kind, and are we sure about that?",
-     "walkthrough": "'Tailless' seems to describe the mammal, but it trims the word for sort; 'that' points back to the a-plus-sort pair that positive goes round.",
+     "surface": "Is a mammal with no tail a good sort to be confident about?",
      "definitionFit": "The platypus is an egg-laying Australian mammal with a duck-like bill."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "positive"
     }

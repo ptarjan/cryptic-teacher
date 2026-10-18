@@ -267,36 +267,37 @@
      "indicators": [
       {
        "text": "presses",
-       "note": "the obsolete word presses the others inside it"
+       "at": 38,
+       "note": "the obsolete word presses the editor and charge between its letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "obsolete",
-         "gives": "DATED",
-         "note": "dated = obsolete, split D…ATED around the rest"
-        },
-        {
-         "words": "editor",
-         "gives": "ED",
-         "note": "ED = editor"
-        }
-       ]
+       "words": "obsolete",
+       "at": 29,
+       "gives": "DATED",
+       "note": "obsolete means dated"
       },
       {
-       "words": "in charge",
-       "gives": "IC",
-       "note": "IC = in charge"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "editor",
+         "at": 9,
+         "gives": "ED"
+        },
+        {
+         "words": "in charge",
+         "at": 16,
+         "gives": "IC"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hard-working editor running outdated printing presses.",
-     "walkthrough": "'Presses' looks like printing machinery to suit the editor, but it is a verb: DATED squeezes ED and IC.",
-     "definitionFit": "A plain synonym: someone dedicated to their work gives it steady, careful effort."
+     "surface": "A hardworking editor runs some antiquated printing presses.",
+     "definitionFit": "A dedicated worker is committed and conscientious, so diligent is a synonym."
     },
     "features": {
      "answerInScene": false,
@@ -602,56 +603,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "backed",
-       "note": "the faculty boss is written backwards"
-      }
-     ],
      "parts": [
       {
        "words": "University",
-       "gives": "U",
-       "note": "U = university"
+       "at": 0,
+       "gives": "U"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "checking",
-         "note": "the reversed word holds (checks, restrains) the papers"
+         "at": 31,
+         "note": "the boss checks the papers, holding them in, so they sit inside"
         }
        ],
        "parts": [
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "backed",
+           "at": 11,
+           "note": "backed means turned round, so the boss is read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "faculty boss",
+           "at": 18,
            "gives": "DEAN",
-           "note": "the dean heads a faculty; reversed to NAED and split NA…ED"
+           "note": "a dean heads a university faculty"
           }
          ]
         },
         {
          "words": "papers",
+         "at": 40,
          "gives": "ID",
-         "note": "ID = identity papers"
+         "note": "ID means identity papers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university dean inspects paperwork with no staff to help.",
-     "walkthrough": "The question mark flags the definition: without staff means without help, not only without employees.",
-     "definitionFit": "Unaided means without help, as if without assistants or a supporting stick."
+     "surface": "A university dean is reviewing someone's documents and seems short of support staff.",
+     "walkthrough": "The question mark flags the playful sense of staff: not employees but a supporting stick.",
+     "definitionFit": "Unaided means without help; staff can be people helping or a walking stick, so either way the support is absent."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "checking"
+     "misdirectedWord": "staff"
     }
    }
   },
@@ -862,35 +867,49 @@
      "op": "container",
      "indicators": [
       {
+       "text": "around",
+       "at": 9,
+       "note": "the scrambled race goes around the rest, so the other letters sit inside it"
+      },
+      {
        "text": "involves",
        "at": 23,
-       "note": "involves says the outer letters take in the rearranged boat"
+       "note": "involves says the boat and island are taken inside the race"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "at": 9,
-         "note": "around says the jumbled letters sit either side of the island's letter"
+         "text": "Mad",
+         "at": 0,
+         "note": "mad suggests the letters of race are crazily rearranged"
         }
        ],
+       "parts": [
+        {
+         "words": "race",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "op": "charade",
        "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
-           "text": "Mad",
-           "at": 0,
-           "note": "mad here means wild, so the letters of race go crazy and are rearranged"
+           "text": "flying",
+           "at": 32,
+           "note": "flying suggests the letters of boat are thrown about into a new order"
           }
          ],
          "parts": [
           {
-           "words": "race",
-           "at": 4
+           "words": "boat",
+           "at": 39
           }
          ]
         },
@@ -900,28 +919,13 @@
          "gives": "I"
         }
        ]
-      },
-      {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "flying",
-         "at": 32,
-         "note": "flying letters are tossed about, so boat is rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "boat",
-         "at": 39
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A frantic island boat race featuring a seaplane.",
-     "definitionFit": "Aerobatics are stunts done by aircraft, so aerobatic describes an aeroplane doing tricks in the air."
+     "surface": "A frantic race around an island includes a flying boat.",
+     "walkthrough": "'Mad' scrambles race, and the scrambled letters go around both the scrambled boat and the island.",
+     "definitionFit": "Aerobatic describes the loops and rolls an aircraft does in a display, which are stunts."
     },
     "features": {
      "answerInScene": true,
@@ -1792,45 +1796,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word is all but a little, so its last letter is dropped"
-      }
-     ],
      "parts": [
       {
        "words": "restricted to",
+       "at": 14,
        "gives": "BETWEEN",
-       "note": "as in 'between ourselves' = restricted to us"
+       "note": "something restricted to two parties is between them, as in between you and me"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "hosts",
-         "note": "the shortened word takes the exploit inside"
+         "at": 42,
+         "note": "the shortened word hosts the exploit, holding it inside"
         }
        ],
        "parts": [
         {
-         "words": "most of these",
-         "gives": "THES",
-         "note": "THESE without its last E; split THE…S"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 28,
+           "note": "most of the word means its last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "these",
+           "at": 36
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "exploit",
+         "at": 6,
          "gives": "ACT",
-         "note": "an act = a deed, an exploit"
+         "note": "an exploit is a deed or act"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new stunt only for most of the people hosting the event.",
-     "walkthrough": "'Novel' reads as the adjective 'new' before exploit, but it is the definition: Virginia Woolf's last novel.",
-     "definitionFit": "Definition by category: Virginia Woolf's final work, published in 1941, is a novel."
+     "surface": "A novel trick is reserved for most of the hosts present.",
+     "walkthrough": "THESE loses its last letter to make THES, which holds ACT to give THEACTS.",
+     "definitionFit": "Between the Acts is the final novel by Virginia Woolf, published in 1941."
     },
     "features": {
      "answerInScene": false,
