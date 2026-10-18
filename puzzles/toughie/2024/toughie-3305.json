@@ -89,55 +89,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APOCRYPHA",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "said briefly, the word is cut short and loses its final letter"
-      },
-      {
-       "text": "endless",
-       "note": "without an end, the word drops its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "Post Office",
+       "at": 2,
+       "gives": "PO"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 20,
+         "note": "briefly means the word for vault loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
-         "words": "Post Office",
-         "gives": "PO",
-         "note": "standard abbreviation for Post Office"
-        },
-        {
          "words": "vault",
-         "gives": "CRYP",
-         "note": "a crypt is an underground vault; shortened by one letter"
+         "at": 14,
+         "gives": "CRYPT",
+         "note": "a crypt is an underground vault"
         },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 33,
+         "note": "endless means the last letter of the word for held is dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "held",
-         "gives": "HA",
-         "note": "held is HAD, missing its last letter"
+         "at": 28,
+         "gives": "HAD",
+         "note": "had means held"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A post office strongroom holds unusual, concealed secrets.",
-     "walkthrough": "'Rarely encountered' flags a rare dictionary sense: the Greek root means hidden things, beyond the usual meaning of doubtful scriptures.",
-     "definitionFit": "In its rare, etymological sense the Greek-derived word denotes things concealed or kept secret, as opposed to books of disputed authorship."
+     "surface": "A post office strongroom once kept things that are rare, concealed or secret.",
+     "definitionFit": "Apocrypha are writings of doubtful authenticity; the Greek root means hidden things, kept from general reading."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "held"
+     "misdirectedWord": "vault"
     }
    }
   },
@@ -1576,45 +1591,50 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means taking in, so the objection surrounds the other letters"
+       "at": 20,
+       "note": "involving means the objection word wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "an objection",
-         "gives": "BUT",
-         "note": "as in 'no buts'"
-        },
-        {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the physics symbol for electric current"
-        }
-       ]
+       "words": "an objection",
+       "at": 7,
+       "gives": "BUT",
+       "note": "but is an objection, as in no buts"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader of",
-         "note": "the leader of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Labour",
-         "note": "the first letter"
+         "words": "current",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the symbol for electric current"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 38,
+           "note": "leader of means the first letter of Labour"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Labour",
+           "at": 48
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An objection raised that involved the current Labour leader; Labour is a main British political party.",
-     "definitionFit": "Built means constructed or shaped, the same as formed."
+     "surface": "Someone raised an objection concerning the present Labour Party leader.",
+     "walkthrough": "'current leader' reads as today's Labour leader, but 'current' gives I and 'leader of Labour' gives L.",
+     "definitionFit": "Built and formed are synonyms in the sense of constructed or shaped."
     },
     "features": {
      "answerInScene": false,

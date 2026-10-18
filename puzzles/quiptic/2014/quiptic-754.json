@@ -580,43 +580,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "IMMINENTLY",
      "indicators": [
       {
+       "text": "with leader gone",
+       "at": 11,
+       "note": "with leader gone means the first letter of the word for obviously is removed"
+      },
+      {
        "text": "standing in",
-       "note": "standing in means taking someone's place, so a new piece fills the vacancy"
+       "at": 33,
+       "note": "standing in means the letters of I'm take the place of the removed leader"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IMMINENTLY",
-       "indicators": [
-        {
-         "text": "with leader gone",
-         "note": "the leader is the opening letter, and gone means it is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Obviously",
-         "gives": "EMINENTLY",
-         "note": "eminently means conspicuously or obviously"
-        },
-        {
-         "words": "I'm",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Obviously",
+       "at": 0,
+       "gives": "EMINENTLY",
+       "note": "eminently means conspicuously or obviously"
+      },
+      {
+       "gives": "E"
+      },
+      {
+       "words": "I'm",
+       "at": 29,
+       "gives": "IM"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone announces they will obviously be standing in as leader very shortly.",
-     "walkthrough": "The E at the front of the word for obviously is replaced by I'M.",
-     "definitionFit": "Imminently means about to happen at any moment, so very soon."
+     "surface": "Someone says that, with the boss gone, they will clearly be deputising soon.",
+     "definitionFit": "Something happening imminently is about to happen shortly."
     },
     "features": {
      "answerInScene": false,
@@ -650,49 +645,42 @@
      "parts": [
       {
        "words": "Sporty American boy",
+       "at": 0,
        "gives": "JOCK",
-       "note": "in American slang a jock is an athletic young man"
+       "note": "a jock is an American term for a sporty young man"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimate",
-         "note": "ultimate means final, so only the closing letter of each word is kept"
+         "at": 26,
+         "note": "ultimate means the final letter of the"
         }
        ],
        "parts": [
         {
          "words": "the",
-         "note": "last letter of the"
+         "at": 22
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "Y",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "young",
-         "gives": "Y",
-         "select": "last",
-         "note": "last letter of young"
-        }
-       ]
+       "words": "young",
+       "at": 35,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "An athletic American lad is the best young rider of all.",
-     "walkthrough": "'the ultimate young horseman' reads as praise, but 'ultimate' takes the end letters of 'the' and 'young'.",
-     "definitionFit": "A jockey is a professional rider in horse races, a kind of horseman."
+     "surface": "An athletic American lad is the perfect young rider.",
+     "walkthrough": "'young horseman' reads as one phrase, but 'young' gives Y and only 'horseman' is the definition.",
+     "definitionFit": "A jockey is a professional rider of racehorses."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ultimate"
+     "misdirectedWord": "young"
     }
    }
   },

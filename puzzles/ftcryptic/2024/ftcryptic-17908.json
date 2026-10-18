@@ -526,48 +526,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLEARS",
+     "op": "container",
      "indicators": [
       {
-       "text": "details",
-       "note": "read as de-tails: the phrase that follows loses its tail end"
+       "text": "about",
+       "at": 29,
+       "note": "about means the trimmed as-well word goes round the king"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going round, so one piece wraps the other"
+         "text": "details",
+         "at": 13,
+         "note": "details is read as de-tails, removing the tail or last letter"
         }
        ],
        "parts": [
         {
          "words": "as well",
-         "gives": "ALS",
-         "note": "as well is also, cut short by the deletion signal"
+         "at": 21,
+         "gives": "ALSO",
+         "note": "also means as well"
         },
         {
-         "words": "tragic king",
-         "gives": "LEAR",
-         "note": "King Lear is Shakespeare's tragic king"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "tragic king",
+       "at": 35,
+       "gives": "LEAR",
+       "note": "King Lear is Shakespeare's tragic king"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone eager to hear every detail about a doomed monarch.",
-     "walkthrough": "'Details' poses as a plural noun but is a verb: remove the tail of the phrase that follows it.",
-     "definitionFit": "Being all ears is the idiom for listening eagerly and attentively."
+     "surface": "Eager to learn the particulars of a famous tragic monarch as well.",
+     "walkthrough": "'details' looks like a noun but is read as de-tails, removing the last letter.",
+     "definitionFit": "Someone all ears is listening intently, eager for what is said."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "details"
     }
    }
@@ -941,41 +945,42 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LOTHARIO",
-     "indicators": [
-      {
-       "text": "into",
-       "note": "bringing something into a place puts it inside, so it sits within the other piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "heap",
+       "at": 5,
+       "gives": "LOT",
+       "note": "a lot means a heap, a large amount"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 32,
+         "note": "into means the rearranged letters go within the house abbreviation"
+        }
+       ],
        "parts": [
         {
-         "words": "heap",
-         "gives": "LOT",
-         "note": "a lot is a heap, a large amount"
+         "words": "house",
+         "at": 37,
+         "gives": "HO"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "fresh",
-           "note": "fresh means made new, so the letters of air are remade in another order"
+           "at": 22,
+           "note": "fresh suggests something renewed, so the letters of air are rearranged"
           }
          ],
          "parts": [
           {
            "words": "air",
-           "note": "the letters of air, reordered"
-          },
-          {
-           "words": "house",
-           "gives": "HO",
-           "note": "HO is the abbreviation for house"
+           "at": 28
           }
          ]
         }
@@ -984,14 +989,13 @@
      ]
     },
     "explanation": {
-     "surface": "Gardening chores: rake the leaf pile, then air the house.",
-     "walkthrough": "'Rake' looks like the garden tool but is the old word for a womanising libertine.",
-     "definitionFit": "A Lothario is a seducer of women, which is what a rake means in its old sense of dissolute man."
+     "surface": "Someone is told to rake the heap and then air out the house.",
+     "walkthrough": "'Rake' looks like a garden tool or verb; it is the noun for a womaniser.",
+     "definitionFit": "A Lothario, from a character in a Rowe play, is a seducer of women, as is a rake."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Rake"
     }
    }

@@ -177,46 +177,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PASTA",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "with no end, the wine loses its final letter"
+       "text": "consuming",
+       "at": 4,
+       "note": "consuming means the dad word eats up the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Dad",
+       "at": 0,
+       "gives": "PA",
+       "note": "pa is an informal word for dad"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "consuming",
-         "note": "Dad swallowing something means it ends up inside him"
+         "text": "endless",
+         "at": 14,
+         "note": "endless means the wine loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Dad",
-         "gives": "PA",
-         "note": "an informal word for father"
+         "words": "wine",
+         "at": 22,
+         "gives": "ASTI",
+         "note": "Asti is a sparkling Italian wine"
         },
         {
-         "words": "wine",
-         "gives": "AST",
-         "note": "Asti, the Italian sparkling wine, without its last letter"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Father getting through the wine and the dinner, a picture of a hearty family meal.",
-     "definitionFit": "Pasta is a staple Italian dish of dough shapes such as spaghetti, so it is a kind of food."
+     "surface": "Father is drinking unlimited wine and eating.",
+     "definitionFit": "Pasta is an Italian staple foodstuff made of durum wheat dough."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
     }
    }
   },

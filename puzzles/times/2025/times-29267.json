@@ -875,45 +875,51 @@
      "indicators": [
       {
        "text": "Having engaged",
-       "note": "the rearranged THEY takes NARCH inside"
+       "at": 0,
+       "note": "having engaged means the rearranged letters take the other pieces inside them"
       }
      ],
      "parts": [
-      {
-       "words": "they adapted",
-       "gives": "ETHY",
-       "note": "anagram of THEY"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "adapted",
-         "note": "something adapted has been altered to fit, so THEY's letters are rearranged"
+         "at": 35,
+         "note": "adapted means altered, so the letters of they are rearranged"
         }
        ],
        "parts": [
         {
+         "words": "they",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "new",
-         "gives": "N",
-         "note": "N = new"
+         "at": 15,
+         "gives": "N"
         },
         {
          "words": "principal",
+         "at": 19,
          "gives": "ARCH",
-         "note": "arch = chief, principal, as in arch-enemy"
+         "note": "arch means principal or chief, as in arch-enemy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school that has hired a new head and changed how it is run.",
-     "walkthrough": "'New principal' looks like a headteacher, but it is two parts, N + ARCH, going inside ETH…Y.",
-     "definitionFit": "An ethnarchy is rule by an ethnarch, a governor of a people or province."
+     "surface": "After hiring a new head teacher, the school changed its style of management.",
+     "definitionFit": "Ethnarchy is rule by an ethnarch, a governor over a particular people or province."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "principal"
     }
@@ -1052,42 +1058,47 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "a host welcoming guests takes them inside, so HIS holds the rest"
+       "at": 4,
+       "note": "welcoming means His takes the other letters in"
       }
      ],
      "parts": [
       {
        "words": "His",
-       "note": "outer shell"
+       "at": 0
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "sporting",
-         "note": "to sport something is to wear it"
+         "at": 30,
+         "note": "sporting means wearing, so the show word wears the Henry and fine letters inside it"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "show",
-           "gives": "GIVE",
-           "note": "give = show, as in give signs"
-          },
-          {
-           "words": "Henry",
-           "gives": "H",
-           "note": "H = henry, the unit of inductance"
-          }
-         ]
+         "words": "show",
+         "at": 39,
+         "gives": "GIVE",
+         "note": "to give a show of something is to show it"
         },
         {
-         "words": "fine",
-         "gives": "F",
-         "note": "F = fine, on pencils"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Henry",
+           "at": 14,
+           "gives": "H",
+           "note": "H is the symbol for the henry, the unit of inductance"
+          },
+          {
+           "words": "fine",
+           "at": 25,
+           "gives": "F",
+           "note": "F is the abbreviation for fine, as on pencils"
+          }
+         ]
         }
        ]
       }
@@ -1095,9 +1106,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A man greets Henry with a fine display of sportsmanship.",
-     "walkthrough": "Henry is the unit of inductance and fine is the pencil grade, so each gives one letter. Read straight, the whole clue pictures a man greeting Henry with a palm-slap.",
-     "definitionFit": "The whole clue is the picture: a high five is the raised-palm slap with which a player welcomes a teammate."
+     "surface": "A man greets Henry with a fine sporting gesture.",
+     "walkthrough": "'sporting' looks like part of the sports picture, but it means wearing, so GIVE wears H and F.",
+     "definitionFit": "A high five is a celebratory palm slap often seen among sports players, a gesture of greeting."
     },
     "features": {
      "answerInScene": true,
@@ -1356,47 +1367,34 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HELGA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "involved",
+       "at": 8,
+       "note": "involved means mixed up, so the letters of Healing are rearranged, with those of in left over"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "involved",
-         "note": "entangled, so the letters are mixed"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "Healing",
-           "gives": "HEALG",
-           "note": "HEALING with I and N set aside"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "in",
-         "note": "IN is the part the mystery woman is joined by to make HEALING"
-        }
-       ]
+       "words": "Healing",
+       "at": 0
+      },
+      {
+       "words": "in",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "A healing process that required bringing a certain woman in.",
-     "walkthrough": "Reverse logic: HEALING is an anagram of the answer plus IN, so strip IN from it and rearrange the rest.",
-     "definitionFit": "Helga is a woman's name; 'this woman' points at the answer itself."
+     "surface": "A healing process brought in a particular woman.",
+     "walkthrough": "The answer plus IN makes an anagram of HEALING, so the clue says the woman and 'in', mixed, give 'Healing'.",
+     "definitionFit": "Helga is a female first name, so it names a woman as the clue requires."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Healing"
+     "misdirectedWord": "involved"
     }
    }
   },
@@ -1589,36 +1587,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "written about"
+       "text": "written about",
+       "at": 9,
+       "note": "written about means the writer goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Writer's",
-         "gives": "POE",
-         "note": "Edgar Allan Poe"
-        },
-        {
-         "words": "open country",
-         "gives": "LEA",
-         "note": "lea = meadow"
-        }
-       ]
+       "words": "Writer's",
+       "at": 0,
+       "gives": "POE",
+       "note": "Edgar Allan Poe is an American writer"
       },
       {
-       "words": "by",
-       "gives": "X",
-       "note": "by = times = X, as in 3 by 4"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "open country",
+         "at": 23,
+         "gives": "LEA",
+         "note": "a lea is open grassland, a poetic word"
+        },
+        {
+         "words": "by",
+         "at": 36,
+         "gives": "X",
+         "note": "X is the multiplication sign, read as by in 3 by 4"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An author writes about moorland beside a fell.",
-     "walkthrough": "'Fell' looks like the northern English word for a hill, but it is the verb, to knock down.",
-     "definitionFit": "Named after the slaughterman's axe: to poleaxe is to knock someone down in one blow."
+     "surface": "An author has written about walking the countryside of the fells.",
+     "walkthrough": "'fell' looks like a noun for a hill, matching open country, but it is the verb to fell, cut down.",
+     "definitionFit": "To poleaxe someone is to strike them down suddenly, which is to fell them."
     },
     "features": {
      "answerInScene": false,
