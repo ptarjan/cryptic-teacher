@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -865,26 +866,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "SHADE",
      "indicators": [
       {
        "text": "Floor to ceiling",
-       "note": "In a down entry the floor is the bottom square and the ceiling the top, so the letter at the foot climbs to the head and the rest move down one."
+       "at": 0,
+       "note": "in a down answer the floor is the bottom letter, and moving it to the ceiling puts it at the top"
       }
      ],
      "parts": [
       {
        "words": "hell's",
+       "at": 18,
        "gives": "HADES",
-       "note": "Hades is the Greek underworld, hell under another name"
+       "note": "Hades is the underworld of Greek myth, a name for hell"
       }
      ]
     },
     "explanation": {
-     "surface": "Hell filling a room from floor to ceiling in the half-dark.",
-     "walkthrough": "'hell's' is a possessive in the sentence and a whole word in the wordplay, which is why the apostrophe sends you hunting for something belonging to hell.",
-     "definitionFit": "Shade is the dimness under a tree where the light is blocked, which is the 'gloom' the definition asks for."
+     "surface": "A building's gloomy interior, floor to ceiling, feels like hell.",
+     "walkthrough": "'Floor to ceiling' takes the last S of HADES, the bottom of the down light, and lifts it to the top.",
+     "definitionFit": "Shade is partial darkness out of the light, so gloom is a fair synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Floor"
     }
    }
   },
@@ -1121,63 +1127,75 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EPILOGUE",
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "EPILOGUE",
+       "indicators": [
+        {
+         "text": "Corrupt",
+         "at": 0,
+         "note": "corrupt means spoilt or perverted, so the remaining letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "EPILOGUE",
          "indicators": [
           {
-           "text": "Corrupt",
-           "note": "Corrupt data comes out scrambled, its parts no longer in the order anybody wrote them."
-          },
-          {
            "text": "wanting",
-           "note": "A thing wanting something is missing it, so the letter that stands for the word after is not there to use."
-          },
-          {
-           "text": "to reverse",
-           "note": "To reverse a piece is to write it the other way round, so those two letters go in backwards."
+           "at": 15,
+           "note": "wanting means lacking, so the letter is taken out of the word police"
           }
          ],
          "parts": [
           {
            "words": "police",
-           "note": "six letters, one of which is about to be taken away"
+           "at": 8
           },
           {
            "words": "Conservative",
-           "gives": "C",
-           "note": "c is the ballot paper's short form for a Conservative, and it is the letter that goes"
-          },
-          {
-           "words": "government",
-           "gives": "G",
-           "note": "g is the standard short form of government"
-          },
-          {
-           "words": "EU",
-           "gives": "UE",
-           "note": "the union's two letters, written the other way round"
+           "at": 23,
+           "gives": "C"
           }
          ]
+        }
+       ]
+      },
+      {
+       "words": "government",
+       "at": 36,
+       "gives": "G"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to reverse",
+         "at": 47,
+         "note": "to reverse means the two letters of the European Union abbreviation are turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "EU's",
+         "at": 58,
+         "gives": "EU",
+         "note": "EU is the European Union; the 's joins it to the definition"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crooked officers hoping a Conservative government will undo what the EU decided.",
-     "walkthrough": "'Conservative government' reads as one phrase and is two separate pieces — one of them thrown away, the other kept.",
-     "definitionFit": "An epilogue is the closing passage tacked on after a book or play has ended, so 'conclusion' names it by its place."
+     "surface": "Bent police with no Tory government in charge make Brussels turn tail.",
+     "walkthrough": "'wanting Conservative' leaves POLIE, which 'Corrupt' reshuffles to EPILO; G follows, then EU 'to reverse' gives UE.",
+     "definitionFit": "An epilogue is the closing section of a book or play, the part that forms its conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Corrupt"
     }
    }
   },
@@ -1322,28 +1340,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Curried",
-       "note": "Curried meat has been chopped up and stirred through a sauce, and these letters are stirred the same way."
+       "text": "follows",
+       "at": 13,
+       "note": "follows means the curried lamb comes after the two single letters"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "follows",
-         "note": "What follows something comes along after it, so the stirred letters are written behind the letter named next."
+         "text": "starter of",
+         "at": 21,
+         "note": "the starter of a word is its opening letter, here the first of egg"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starter of egg",
-         "gives": "E",
-         "select": "first",
-         "note": "the first letter of 'egg'"
+         "words": "egg",
+         "at": 32,
+         "note": "E is the first letter of egg"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 40,
+         "note": "finally picks the closing letter of the word plum"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plum",
+         "at": 48,
+         "note": "M is the last letter of plum"
         }
        ]
       },
@@ -1351,39 +1384,30 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "starter of",
-         "note": "The starter of a word is the letter it opens with, and that single letter is all that is taken."
+         "text": "Curried",
+         "at": 0,
+         "note": "curried, like a cooked dish whose ingredients are mixed together, means the letters of lamb are rearranged"
         }
        ],
        "parts": [
         {
          "words": "lamb",
-         "note": "four letters of fodder, waiting for the treatment the word in front prescribes"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "'Finally' points at the far end of the word beside it, so its last letter is the one used."
-          }
-         ],
-         "parts": [
-          {
-           "words": "finally plum",
-           "gives": "PLUM",
-           "note": "the last letter of 'plum'"
-          }
-         ]
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A curry of lamb after an egg starter, with plum jam to finish.",
-     "walkthrough": "The menu runs egg, lamb, plum, three courses in order, and 'preserve' at the end reads as the jam rather than as the definition.",
-     "definitionFit": "To embalm a body is to treat it so that it does not decay, which is 'preserve' used as a verb."
+     "surface": "A menu: curried lamb after an egg starter, then a plum preserve.",
+     "walkthrough": "'starter of' egg gives E and 'finally' plum gives M; the lamb is 'Curried' into BALM, which 'follows' them.",
+     "definitionFit": "To embalm a body is to treat it so it is preserved from decay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "preserve"
     }
    }
   },
@@ -1489,51 +1513,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "STAG",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "employing",
+       "at": 19,
+       "note": "employing means the reversed word takes on, and so holds, the extra letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "Turning a thing about is writing it the other way round, so those letters run in reverse."
-        },
-        {
-         "text": "leader",
-         "note": "The leader of a word is the letter at its head, and that one letter is all that is used."
+         "at": 13,
+         "note": "about means turned round, so the word for talk is read backwards"
         }
        ],
        "parts": [
         {
          "words": "talk",
-         "gives": "SAG",
-         "note": "gas is idle talk, and it goes in backwards here"
-        },
+         "at": 8,
+         "gives": "GAS",
+         "note": "to gas is to talk at length"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "employing",
-           "note": "To employ something is to take it on, so the letter named after it is taken inside."
-          }
-         ],
-         "parts": [
-          {
-           "words": "technical",
-           "note": "the first letter of 'technical'"
-          }
-         ]
+         "text": "leader",
+         "at": 39,
+         "note": "the leader of technical is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "technical",
+         "at": 29,
+         "note": "T is the first letter of technical"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man discussing the hiring of a technical boss.",
-     "walkthrough": "'talk about' looks like one phrase, discussing a subject, and 'about' is the instruction that turns the word in front of it.",
-     "definitionFit": "A stag is the male red deer, so 'Male' is the animal sense — the gamekeeper's word for the one with antlers."
+     "surface": "A man is asked to talk about hiring someone to head the technical side.",
+     "walkthrough": "GAS read 'about' is SAG, which goes 'employing' T, the 'leader' of technical, inside it.",
+     "definitionFit": "A stag is an adult male deer, and the word is also used for a man on his own, as in a stag party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "talk"
     }
    }
   },

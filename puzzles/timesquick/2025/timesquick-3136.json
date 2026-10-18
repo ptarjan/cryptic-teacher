@@ -98,42 +98,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INFUSE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is missing its end, so the final letter is dropped"
+       "text": "on",
+       "at": 11,
+       "note": "in a down clue, on means the first piece sits above the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 5,
+         "note": "short means cut off before the end, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Info",
-         "gives": "INF",
-         "note": "the word loses its final O"
+         "at": 0,
+         "gives": "INFO"
         },
         {
-         "words": "employment",
-         "gives": "USE",
-         "note": "use is employment of something"
+         "gives": "O",
+         "note": "the final letter, dropped"
         }
        ]
+      },
+      {
+       "words": "employment",
+       "at": 14,
+       "gives": "USE",
+       "note": "use is employment, as in putting something to use"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is lacking information about a job, phrased like a note to a heavy drinker.",
-     "walkthrough": "'On' just places the second piece after the first in this down clue.",
-     "definitionFit": "To infuse tea or herbs is to steep them in liquid, letting them sit and soak."
+     "surface": "Brief information about a job comes with a soaking.",
+     "walkthrough": "'short' trims INFO to INF, which sits 'on' USE in the down light.",
+     "definitionFit": "To infuse tea or herbs is to steep them in liquid, so it means to soak."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "soak"
+     "misdirectedWord": "employment"
     }
    }
   },
@@ -588,42 +599,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASPEN",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the word stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "area",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 16,
+         "note": "almost means not quite all, so the last letter is left off"
+        }
+       ],
        "parts": [
         {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "words": "finished",
+         "at": 23,
+         "gives": "SPENT",
+         "note": "spent means used up or finished"
         },
         {
-         "words": "finished",
-         "gives": "SPEN",
-         "note": "finished means spent, missing its last letter"
+         "gives": "T",
+         "note": "the final letter, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ski resort's slopes are nearly done for the season.",
-     "walkthrough": "'Area' looks like part of the definition but is the opening letter.",
-     "definitionFit": "Aspen is a famous upmarket ski resort town in the Rocky Mountains of Colorado."
+     "surface": "A ski area that has nearly run its course.",
+     "walkthrough": "'almost' trims SPENT to SPEN, which follows A.",
+     "definitionFit": "Aspen is a well-known ski town in the Rocky Mountains of Colorado."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "area"
+     "misdirectedWord": "finished"
     }
    }
   },
