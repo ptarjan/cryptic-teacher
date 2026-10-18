@@ -487,30 +487,48 @@ def _words(node):
 
 
 def _select(op, n, s, words):
+    """Every string `op` can pick from `s`. Where the leaf's words are known the pick
+    is also made from any run of them (the leaf may carry an indicator word, "strain
+    of MRSA"), and a first/last/outer pick is a stretch of any length ("40% of Truro"
+    is TR), a middle pick any centred stretch (ACHE from teachers)."""
     out = set()
-    words = words or [s]
     if not s:
         return out
-    if op == "first":
-        out |= {s[0], "".join(w[0] for w in words)}
-    elif op == "last":
-        out |= {s[-1], "".join(w[-1] for w in words)}
-    elif op == "middle":
-        h = len(s) // 2
-        out |= {s[h] if len(s) % 2 else s[h - 1:h + 1]}
-        if len(s) > 2:
-            out.add(s[1:-1])
-    elif op == "outer":
-        out |= {s[0] + s[-1]} if len(s) > 1 else set()
-    elif op == "alternate":
-        out |= {s[0::2], s[1::2]}
-    elif op == "regular":
-        out |= {s[k::step] for step in (2, 3) for k in range(step)}
-    elif op == "nth":
-        if len(s) >= n:
-            out.add(s[n - 1])
-        if all(len(w) >= n for w in words):
-            out.add("".join(w[n - 1] for w in words))
+    words = words or [s]
+    runs = [words[i:j] for i in range(len(words)) for j in range(i + 1, len(words) + 1)]
+    if op in ("first", "last", "nth") and 2 < len(words) <= 7:
+        # a linking word between them is skipped ("blancmange and jelly" for L, E)
+        runs += [list(c) for k in range(2, len(words)) for c in itertools.combinations(words, k)
+                 if c not in map(tuple, runs)]
+    for run in runs:
+        t = "".join(run)
+        if op == "first":
+            out |= {t[:k] for k in range(1, len(t))}
+            out.add("".join(w[0] for w in run))
+        elif op == "last":
+            out |= {t[-k:] for k in range(1, len(t))}
+            out.add("".join(w[-1] for w in run))
+        elif op == "middle":
+            out |= {t[k:len(t) - k] for k in range(1, (len(t) + 1) // 2)}
+        elif op == "outer":
+            out |= {t[:k] + t[-k:] for k in range(1, len(t) // 2 + 1)}
+            out.add("".join(w[0] + w[-1] for w in run if len(w) > 1))
+        elif op == "alternate":
+            out |= {t[0::2], t[1::2]}
+        elif op == "regular":
+            out |= {t[k::step] for step in (2, 3, 4) for k in range(step)}
+            # every other pair (DEEP from deCRepIT's pairs) and the letters left once
+            # every 2nd/3rd is discarded (LUBE from pLUMBER's P, M, R)
+            for step in (2, 3):
+                chunks = [t[i:i + step] for i in range(0, len(t), step)]
+                out |= {"".join(chunks[k::2]) for k in (0, 1)}
+                out |= {"".join(c for i, c in enumerate(t) if i % step != k) for k in range(step)}
+        elif op == "nth":
+            if len(t) >= n:
+                out.add(t[n - 1])
+            if all(len(w) >= n for w in run):
+                out.add("".join(w[n - 1] for w in run))
+            out |= {t[n - 1:n - 1 + k] for k in (2, 3) if len(t) >= n - 1 + k}
     return {x for x in out if x}
 
 

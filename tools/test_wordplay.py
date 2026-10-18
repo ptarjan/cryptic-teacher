@@ -480,4 +480,25 @@ check("a failing three-piece deletion under an anagram is diagnosed, not a crash
 check("an unchecked node with a wrong count is left alone",
       refused({"op": "container", "unchecked": True, "gives": "AB", "parts": [leaf("ab")]}, "AB") == "evaluated")
 
+# Selections of a stretch, from a run of the leaf's words, every other pair.
+def _sel(op, words, answer, pre=None, n=None):
+    node = {"op": op, "parts": [{"words": words}]}
+    if n:
+        node["n"] = n
+    tree = {"op": "charade", "parts": ([pre] if pre else []) + [node]}
+    return refused(tree, answer) == "evaluated"
+check("first two letters of a word (40% of Truro)", _sel("first", "Truro", "TR"))
+check("first stretch can not be the whole answer wrongly", not _sel("first", "Truro", "TU"))
+check("last stretch of a word", _sel("last", "Plymouth", "OUTH"))
+check("centred stretch (ACHE from teachers)", _sel("middle", "teachers", "ACHE"))
+check("an off-centre stretch is no middle", not _sel("middle", "teachers", "TEAC"))
+check("outer pair of letters", _sel("outer", "city", "CY"))
+check("odd couples of Decrepit", _sel("regular", "Decrepit", "DEEP"))
+check("regularly discarded letters (LUBE from plumber)", _sel("regular", "Plumber", "LUBE"))
+check("nth of each word in a run, indicator word riding along", _sel("nth", "seconds of blancmange and jelly", "LE", n=2))
+check("alternate letters", _sel("alternate", "true", "TU"))
+check("a wrong alternate fails", not _sel("alternate", "true", "TR"))
+_mo = {"op": "reversal", "parts": [{"op": "charade", "parts": [leaf("mo"), leaf("c"), leaf("ha")]}]}
+check("a reversal of MO+C+HA is not MOCHA", "does not give" in refused(_mo, "MOCHA"), refused(_mo, "MOCHA"))
+
 raise SystemExit(fails > 0)
