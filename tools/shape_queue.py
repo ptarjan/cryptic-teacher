@@ -134,20 +134,59 @@ def _validator_rules():
             "anaCharade": lambda t, a, c: V.anagram_charades(t)}
 
 
+def _answer(entry):
+    alt = entry.get("alteration")
+    return alt["from"] if isinstance(alt, dict) and alt.get("from") else entry.get("solution", "")
+
+
+def _bad_tree(entry, ann):
+    """True when the wordplay tree does not give the answer (or cannot be evaluated)."""
+    import wordplay
+    try:
+        wordplay.evaluate(ann["wordplay"], _answer(entry))
+    except (wordplay.WordplayError, KeyError, TypeError, ValueError, IndexError):
+        return True
+    return False
+
+
+def _walkthrough_gap(entry, ann):
+    """True when the walkthrough leaves an indicator or intermediate result unnamed."""
+    import validate_annotations as V
+    import wordplay
+    walk = (ann.get("explanation") or {}).get("walkthrough")
+    if not walk:
+        return False
+    try:
+        return bool(V.walkthrough_gaps(ann["wordplay"], _answer(entry), walk))
+    except (wordplay.WordplayError, KeyError, TypeError, ValueError):
+        return False  # a tree that does not give its answer is another reason's job
+
+
+#: Reasons a stored reason class names, re-checked on the tree as it stands: the
+#: tree gives the answer now (the reason is only "model-fixable: bad tree"), or the
+#: walkthrough now follows it.
+_ENTRY_RULES = {"model-fixable": lambda e, a: _bad_tree(e, a),
+                "walkthrough": _walkthrough_gap}
+
+
 def settled(entry, reason):
     """True when every detector the row's reason names is known and none fires on
     the entry's annotation as it stands: the row is stale (the clue was fixed
     by another sweep, or the detector changed after the row was queued) and a
     run on it would redo a clue nothing flags (~4k tokens). A reason that names
-    anything else (model-fixable, walkthrough, ...) or a clue with no tree is
-    never settled: only the model can say those are done."""
+    anything else (walkthrough-gate, ddMissesWordplay, ...) or a clue with no tree
+    is never settled: only the model can say those are done. "model-fixable" and
+    "walkthrough" are re-checked (the tree gives the answer now; no walkthrough gap)."""
     ann = entry.get("annotation")
     if not ann or ann.get("wordplay") is None:
         return False
     names = [p.split(":")[0].strip() for p in str(reason).split("; ")]
     rules = _validator_rules()
     import shape_suspects as ss
-    if not names or any(n not in rules and n not in ss.PRECISION for n in names):
+    if not names or any(n not in rules and n not in ss.PRECISION and n not in _ENTRY_RULES
+                        for n in names):
+        return False
+    if any(n in _ENTRY_RULES and _ENTRY_RULES[n](entry, ann) for n in names):
         return False
     fired = {f.split(":")[0] for f in findings(entry)}
     clue = (entry.get("clue") or {}).get("text", "")

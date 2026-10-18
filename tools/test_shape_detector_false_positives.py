@@ -78,5 +78,32 @@ check("two-part substitution is not flagged", [], kinds("Poem given weight when 
 check("four-part substitution still is", ["arity_other"], kinds("Poem given weight when switching", "SONNET",
       sub([tonnes, {"words": "a", "gives": "T"}, {"words": "b", "gives": "S"}, {"words": "c", "gives": "S"}])))
 
+# Multi-piece deletion: BADASS = ana(del(bastards, T, R)) is valid, not "del has 3 parts".
+badass = {"op": "anagram", "indicators": [{"text": "wild"}], "parts": [
+    {"op": "deletion", "unchecked": True, "parts": [{"words": "bastards", "gives": "BASTARDS"},
+        {"words": "T", "gives": "T"}, {"words": "R", "gives": "R"}]}]}
+check("a three-part deletion is not arity_other", [], kinds("Wild bastards", "BADASS", badass))
+
+# Stale model-fixable / walkthrough rows are settled once the tree gives the answer / the walk follows it.
+def row(sol, wp, walk=None):
+    return {"clue": {"text": "Wild bastards"}, "solution": sol,
+            "annotation": {"wordplay": wp, "explanation": {"walkthrough": walk}}}
+BAD = "model-fixable: bad tree, the wordplay does not give the answer (wrong string, mechanical repairs tried)"
+checked = {**badass, "parts": [{k: v for k, v in badass["parts"][0].items() if k != "unchecked"}]}
+check("model-fixable row whose tree now gives the answer is settled", True, Q.settled(row("BADASS", checked), BAD))
+check("model-fixable row whose tree misses the answer is kept", False, Q.settled(row("BADGER", checked), BAD))
+check("walkthrough row with no walkthrough gap is settled", True,
+      Q.settled(row("BADASS", badass), "walkthrough: it never names the indicators 'wild'"))
+
+# Data bug: solution length against the printed count (reported, never queued).
+import prune_shape_queue as PQ
+check("solution shorter than its count is a data bug", True,
+      bool(PQ.length_bug({"solution": "PARTING", "clue": {"text": "x", "enumeration": "7,4"}})))
+check("a linked group's leader prints the whole count", None,
+      PQ.length_bug({"solution": "PARTING", "group": ["4-down", "20-down"], "clue": {"text": "x", "enumeration": "7,4"}}))
+check("a matching count is fine", None, PQ.length_bug({"solution": "AT HOME", "clue": {"text": "x", "enumeration": "2,4"}}))
+check("a worded count with the right total is fine", None,
+      PQ.length_bug({"solution": "MOSHAVOVDIM", "clue": {"text": "x (11, two words)"}}))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

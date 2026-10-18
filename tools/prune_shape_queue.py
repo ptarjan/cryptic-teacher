@@ -14,6 +14,7 @@ shape_queue.flagged() applies the same test, so a run skips a stale row even
 before this prunes it. Loads only the queued puzzles."""
 import collections
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -21,8 +22,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import shape_queue as Q
 
 
-def stale_ids(rs, load):
-    """The set of row ids in `rs` that are stale; `load(pid)` gives the puzzle or None."""
+def stale_ids(rs, load, bugs=None):
+    """The set of row ids in `rs` that are stale; `load(pid)` gives the puzzle or None.
+    A row whose clue has a length_bug is stale too (reported, never queued for the
+    model); with `bugs` a dict, {row id: message} for those is filled in."""
     by_pid = collections.defaultdict(list)
     for r in rs:
         pid, _, clue = r["id"].partition("#")
@@ -34,9 +37,37 @@ def stale_ids(rs, load):
             continue
         entries = {Q.clue_key(e): e for e in puzzle.get("entries") or []}
         for clue, r in items:
-            if clue in entries and Q.settled(entries[clue], r.get("reason", "")):
+            if clue not in entries:
+                continue
+            if msg := length_bug(entries[clue]):
+                out.add(r["id"])
+                if bugs is not None:
+                    bugs[r["id"]] = msg
+            elif Q.settled(entries[clue], r.get("reason", "")):
                 out.add(r["id"])
     return out
+
+
+def length_bug(entry):
+    """A data bug the model cannot fix: the solution's letters do not add up to the
+    clue's printed enumeration ("7,4" over PARTING), or a "(11, two words)" count's
+    total. Returns the message, else None. A linked answer's leader prints the whole
+    group's count, so an entry with a `group` is skipped; a clue with no count at
+    all is not a bug (the light's own length is the count)."""
+    import enumeration
+    if entry.get("group"):
+        return None
+    clue = entry.get("clue") or {}
+    have = len(re.sub(r"[^A-Za-z]", "", entry.get("solution") or ""))
+    if clue.get("enumeration"):
+        want = sum(enumeration.counts(clue["enumeration"]))
+    elif w := enumeration.worded(clue.get("text") or ""):
+        want = w[0]
+    else:
+        return None
+    if want != have:
+        return f"{entry.get('solution')} has {have} letters, the count says {want}"
+    return None
 
 
 def _load(pid):
@@ -51,7 +82,10 @@ def main(argv):
     write = "--write" in argv
     with Q.locked():
         rs = json.loads(Q.PATH.read_text())
-        gone = stale_ids(rs, _load)
+        bugs = {}
+        gone = stale_ids(rs, _load, bugs)
+        for rid, msg in sorted(bugs.items()):
+            print(f"data bug {rid}: {msg}")
         per, total = collections.Counter(), collections.Counter()
         for r in rs:
             cls = r.get("reason", "").split(":")[0]
