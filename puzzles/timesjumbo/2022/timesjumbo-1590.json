@@ -459,46 +459,51 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "what eats takes something inside itself, so one piece goes within another"
+       "at": 15,
+       "note": "one word eating others takes them inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Make a mess of",
-         "gives": "BOTCH",
-         "note": "to botch is to bungle or mess up"
-        },
-        {
-         "words": "complete",
-         "gives": "UTTER",
-         "note": "utter means complete, as in utter nonsense"
-        }
-       ]
+       "words": "Make a mess of",
+       "at": 0,
+       "gives": "BOTCH",
+       "note": "to botch a job is to make a mess of it"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "box of",
-         "note": "a box is the outside casing, so only the outer letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "synthetic",
-         "note": "the first and last letters of synthetic"
+         "words": "complete",
+         "at": 22,
+         "gives": "UTTER",
+         "note": "utter means complete, as in utter nonsense"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "box of",
+           "at": 31,
+           "note": "the box of a word is its outside, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "synthetic",
+           "at": 38,
+           "note": "the word whose outer letters are taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone ruins things by scoffing a whole packet of artificial confectionery.",
-     "walkthrough": "The two middle pieces go inside the bungling word after its first letter.",
-     "definitionFit": "Butterscotch is a hard confection made from butter and brown sugar, a kind of sweet or candy."
+     "surface": "Someone ruins a sweet by eating it straight from a box of artificial confectionery.",
+     "walkthrough": "'box of' looks like a carton of sweets, but it means the outside of 'synthetic', its first and last letters.",
+     "definitionFit": "Butterscotch is a hard confection made from butter and brown sugar, a kind of sweet."
     },
     "features": {
      "answerInScene": true,
@@ -647,37 +652,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MAESTRO",
-     "indicators": [
-      {
-       "text": "brief",
-       "note": "a brief version is cut short, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "from West, say",
+       "at": 10,
+       "gives": "MAE",
+       "note": "Mae West, the film actress, is an example of a West, so the name taken from her"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 31,
+         "note": "brief means cut short, so the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "from West, say",
-         "gives": "MAE",
-         "note": "Mae West was a Hollywood actress; 'say' signals an example of the name"
+         "words": "tantrum",
+         "at": 37,
+         "gives": "STROP",
+         "note": "a strop is a fit of bad temper"
         },
         {
-         "words": "tantrum",
-         "gives": "STRO",
-         "note": "a strop is a sulky tantrum, here losing its last letter"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bandleader from the western states throws a short fit.",
-     "walkthrough": "'West, say' is not a direction but the surname of Mae West; a strop is a British word for a fit of bad temper.",
-     "definitionFit": "Maestro is the respectful title for a distinguished musician, especially one who leads an orchestra."
+     "surface": "A conductor from the West Coast has a short outburst on the podium.",
+     "walkthrough": "Mae West was a Hollywood film star; 'strop' is British slang for a sulky tantrum.",
+     "definitionFit": "A maestro is a distinguished musician, especially an orchestral conductor."
     },
     "features": {
      "answerInScene": true,
@@ -1686,42 +1695,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASSESSMENT",
-     "indicators": [
-      {
-       "text": "to skip a",
-       "note": "skipping something means leaving it out, so that letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fools",
+       "at": 0,
+       "gives": "ASSES",
+       "note": "asses are foolish people"
+      },
+      {
+       "words": "son",
+       "at": 12,
+       "gives": "S",
+       "note": "S is the genealogical abbreviation for son"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to skip",
+         "at": 26,
+         "note": "to skip something is to leave it out, so the letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Fools",
-         "gives": "ASSES",
-         "note": "asses are fools"
-        },
-        {
-         "words": "son",
-         "gives": "S",
-         "note": "S is the abbreviation for son"
-        },
-        {
          "words": "intended",
-         "gives": "MENT",
-         "note": "meant is intended, here minus its A"
+         "at": 17,
+         "gives": "MEANT",
+         "note": "meant means intended"
+        },
+        {
+         "words": "a",
+         "at": 34,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some idiots and a boy planned to miss an exam.",
-     "walkthrough": "'A test' reads as the thing skipped, but the A belongs to the skipping and the definition is just 'test'.",
-     "definitionFit": "An assessment is an evaluation of someone's ability, such as an examination, so a test."
+     "surface": "Some silly people and a boy plan to dodge an exam.",
+     "walkthrough": "'to skip a' drops only the single letter from 'intended'; the fools and son stay whole.",
+     "definitionFit": "An assessment is an evaluation or examination, so a test of ability."
     },
     "features": {
      "answerInScene": true,
@@ -1949,46 +1965,51 @@
      "indicators": [
       {
        "text": "clasped by",
-       "note": "what is clasped is held within, so one piece sits inside another"
+       "at": 28,
+       "note": "something clasped by another is held inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "boy",
+       "at": 39,
+       "gives": "SON",
+       "note": "a son is a boy"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "boy",
-         "gives": "SON",
-         "note": "a son is a boy"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 13,
+           "note": "initially points to the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cake",
+           "at": 8,
+           "note": "the word whose first letter is taken"
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 24,
          "gives": "I",
          "note": "I is the Roman numeral for one"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means at the start, so only the opening letter is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "cake",
-         "note": "the first letter of cake"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boy holds a cake at the start of the slicing.",
-     "walkthrough": "'Cutting' looks like slicing the cake, but it is a noun: a piece taken from a plant.",
-     "definitionFit": "In gardening a scion is a shoot taken from one plant to graft onto another, a type of cutting."
+     "surface": "A boy hugs someone while cutting a cake.",
+     "walkthrough": "'Cutting' looks like part of the cake scene, but it is the definition, in the gardener's sense.",
+     "definitionFit": "A scion is a shoot or twig cut from a plant for grafting, a gardener's cutting."
     },
     "features": {
      "answerInScene": false,
@@ -2370,35 +2391,38 @@
      "indicators": [
       {
        "text": "eats",
-       "note": "what eats takes something inside itself"
+       "at": 15,
+       "note": "one word eating others takes them inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Lady, perhaps",
-         "gives": "PEER",
-         "note": "a lady can be a peeress, a member of the peerage, so a peer"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Lady, perhaps",
+       "at": 0,
+       "gives": "PEER",
+       "note": "a Lady may be a peer of the realm, a titled member of the aristocracy"
       },
       {
-       "words": "northern",
-       "gives": "N",
-       "note": "N is the abbreviation for northern"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
+        },
+        {
+         "words": "northern",
+         "at": 22,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman munches on a cheese from up north.",
-     "walkthrough": "In Britain a Lady may hold a title in the House of Lords, making her a peer.",
-     "definitionFit": "Paneer is a fresh, unsalted cheese used in South Asian cooking, as in saag paneer."
+     "surface": "An aristocratic lady tucks into a cheese from the north.",
+     "walkthrough": "A peer is a member of the British nobility, and a woman with the title Lady may be one.",
+     "definitionFit": "Paneer is a fresh unsalted cheese used in South Asian cooking."
     },
     "features": {
      "answerInScene": true,
@@ -2839,35 +2863,38 @@
      "indicators": [
       {
        "text": "placed around",
-       "note": "what is placed around something encloses it"
+       "at": 16,
+       "note": "the explosive is placed around the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "explosive",
-         "gives": "MINE",
-         "note": "a mine is an explosive device"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "explosive",
+       "at": 6,
+       "gives": "MINE",
+       "note": "a mine is an explosive device"
       },
       {
-       "words": "river",
-       "gives": "R",
-       "note": "R is the abbreviation for river"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 30,
+         "gives": "A"
+        },
+        {
+         "words": "river",
+         "at": 32,
+         "gives": "R",
+         "note": "R is the map abbreviation for river"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sea mine is laid around a waterway.",
-     "walkthrough": "'Naval explosive' reads as one phrase, but the definition is just 'Naval'.",
-     "definitionFit": "Marine means relating to the sea or to shipping, overlapping closely with naval as an adjective."
+     "surface": "A navy lays an explosive charge around a river.",
+     "definitionFit": "Marine as an adjective means relating to the sea and shipping, so naval in sense."
     },
     "features": {
      "answerInScene": true,

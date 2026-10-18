@@ -370,39 +370,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANDES",
      "indicators": [
       {
-       "text": "heading down to the middle",
-       "note": "the front letter travels down into the centre, so it is placed inside what remains"
+       "text": "to the middle",
+       "at": 21,
+       "note": "the moved letter goes to the middle of what remains"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ANDES",
+       "indicators": [
+        {
+         "text": "down",
+         "at": 16,
+         "note": "down here means taken down from its place at the top of the word"
+        }
+       ],
        "parts": [
         {
          "words": "Vikings",
+         "at": 0,
          "gives": "DANES",
-         "note": "the Vikings were Danes and other Scandinavians"
+         "note": "the Danes were Vikings"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading",
+         "at": 8,
+         "note": "the heading of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vikings",
+         "at": 0,
+         "gives": "DANES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Viking raiders marching down into the middle of Derbyshire's Peak District.",
-     "walkthrough": "The 'heading' of DANES is its first letter D; moving it down into the middle gives AN-D-ES. 'Peak District' looks like the English national park but means any region of peaks.",
-     "definitionFit": "The Andes is the great South American mountain range, a whole district of peaks, cheekily described with an English place name."
+     "surface": "Vikings head down to the middle of England's Peak District.",
+     "walkthrough": "The Peak District is an English national park; here it means a district of peaks, a mountain range.",
+     "definitionFit": "The Andes are a huge South American mountain range, punningly a region of peaks."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "District"
+     "misdirectedWord": "Peak"
     }
    }
   },
@@ -428,31 +453,34 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PLYWOOD",
      "indicators": [
       {
-       "text": "replacing leading trio",
-       "note": "replacing the first three letters means swapping them out for something new"
+       "text": "replacing leading trio in",
+       "at": 16,
+       "note": "the power letter replaces the first three letters of the word"
       }
      ],
      "parts": [
       {
-       "words": "power",
-       "gives": "P",
-       "note": "P is the physics symbol for power"
+       "words": "film industry",
+       "at": 42,
+       "gives": "HOLLYWOOD",
+       "note": "Hollywood is the centre of the American film industry"
       },
       {
-       "words": "film industry",
-       "gives": "HOLLYWOOD",
-       "note": "Hollywood is the home of the American film industry"
+       "gives": "HOL"
+      },
+      {
+       "words": "power",
+       "at": 10,
+       "gives": "P",
+       "note": "P is the physics abbreviation for power"
       }
      ]
     },
     "explanation": {
-     "surface": "A board of directors gains power in the movie business.",
-     "walkthrough": "HOLLYWOOD loses its first three letters HOL, and P takes their place.",
-     "definitionFit": "Plywood is building board made from thin glued layers of timber."
+     "surface": "A film studio board has power to replace its top three executives.",
+     "definitionFit": "Plywood is a building board made of thin layers of wood glued together."
     },
     "features": {
      "answerInScene": false,
