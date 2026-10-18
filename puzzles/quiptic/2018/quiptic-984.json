@@ -196,31 +196,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VIABILITY",
      "indicators": [
       {
-       "text": "replaces Head of",
-       "note": "one thing takes the place of the first letter of the word that follows, swapping out its opening"
+       "text": "replaces",
+       "at": 31,
+       "note": "replaces says one letter is swapped out for another in the word for debt"
+      },
+      {
+       "text": "Head of",
+       "at": 40,
+       "note": "head of names the first letter of the debt word as the one swapped out"
       }
      ],
      "parts": [
       {
-       "words": "Vatican",
-       "gives": "V",
-       "note": "V is the international vehicle code for Vatican City"
+       "words": "Debt",
+       "at": 48,
+       "gives": "LIABILITY",
+       "note": "a debt is a liability"
       },
       {
-       "words": "Debt",
-       "gives": "LIABILITY",
-       "note": "a debt is a financial liability"
+       "gives": "L"
+      },
+      {
+       "words": "Vatican",
+       "at": 23,
+       "gives": "V",
+       "note": "V is the international vehicle code for Vatican City"
       }
      ]
     },
     "explanation": {
-     "surface": "A financial story: the Holy See takes over a loan, which improves its prospects.",
-     "walkthrough": "The L at the head of LIABILITY is swapped for V, giving VIABILITY.",
-     "definitionFit": "A plan's viability is its capacity to work in practice, its likelihood of succeeding."
+     "surface": "Someone muses on whether the Vatican could take over running the debt office.",
+     "walkthrough": "LIABILITY (debt) loses its first letter L, which is replaced by V for Vatican City.",
+     "definitionFit": "Viability is the likelihood of a plan working, its capacity to succeed in practice."
     },
     "features": {
      "answerInScene": false,
@@ -1124,58 +1133,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "rhythmic sound",
-      "at": 27
+      "text": "a rhythmic sound",
+      "at": 25
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Half of",
+       "at": 0,
+       "note": "half of applies to both following words: keep the front half of each and drop the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TH",
-       "indicators": [
-        {
-         "text": "Half of",
-         "note": "half of a word means keeping only one of its halves, here the front portion"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "them",
-         "gives": "TH",
-         "select": "first",
-         "note": "the first two of four letters"
+         "at": 8,
+         "note": "its front half is kept"
+        },
+        {
+         "words": "rumble",
+         "at": 13,
+         "note": "its front half is kept"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RUM",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "rumble",
-         "gives": "RUM",
-         "select": "first",
-         "note": "the first three of six letters"
-        }
-       ]
+       "gives": "EMBLE"
       }
      ]
     },
     "explanation": {
-     "surface": "A group of people half-heartedly making a low, rolling noise.",
-     "walkthrough": "Half of governs both words: the front half of each is kept.",
-     "definitionFit": "A thrum is a continuous rhythmic humming or strumming, like fingers drummed on a table."
+     "surface": "Half of a group of people make a low rumbling noise together.",
+     "walkthrough": "'Half of' governs both words: TH from THem and RUM from RUMble.",
+     "definitionFit": "A thrum is a steady humming or drumming noise, like fingers tapping or an engine idling."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "them"
+     "misdirectedWord": "rumble"
     }
    }
   },

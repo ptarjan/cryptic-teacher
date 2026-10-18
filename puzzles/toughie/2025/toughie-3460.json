@@ -568,35 +568,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PROFLIGATE",
-     "indicators": [
-      {
-       "text": "to change direction",
-       "note": "one direction letter is swapped for its opposite, right turning into left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "for",
+       "at": 9,
        "gives": "PRO",
-       "note": "pro means in favour of"
+       "note": "pro means for, in favour of"
       },
       {
-       "words": "vessel",
-       "gives": "FRIGATE",
-       "note": "a frigate is a warship"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to change direction",
+         "at": 20,
+         "note": "changing direction swaps right for left, so the R of the ship becomes L"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "at": 13,
+         "gives": "FRIGATE",
+         "note": "a frigate is a warship"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calls it reckless for a ship to make a sudden turn.",
-     "walkthrough": "R and L are the abbreviations for right and left, so changing direction swaps one for the other inside the vessel.",
-     "definitionFit": "Profligate means wildly extravagant or dissolute, close to recklessly wasteful."
+     "surface": "It would be rash to make a ship turn round.",
+     "walkthrough": "In FRIGATE the R (right) changes direction to L (left).",
+     "definitionFit": "Profligate means recklessly wasteful or extravagant, especially with money."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "direction"
     }
@@ -1126,62 +1138,69 @@
      "indicators": [
       {
        "text": "locking",
-       "note": "locking in means holding inside, so the outer letters enclose the rest"
+       "at": 22,
+       "note": "locking means holding fast inside, so the light and business go within"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "outside",
-           "note": "the outside of a name is its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Jamie's",
-           "gives": "JAMIE",
-           "note": "first and last letters of Jamie"
-          }
-         ]
-        },
-        {
-         "words": "kind of light",
-         "gives": "UV",
-         "note": "ultraviolet"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
+       "op": "outer",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, up means the word is read from bottom to top"
+         "text": "outside",
+         "at": 14,
+         "note": "outside means the outer letters only"
         }
        ],
        "parts": [
         {
-         "words": "business",
-         "gives": "LINE",
-         "note": "one's line of work is one's business"
+         "words": "Jamie's",
+         "at": 6,
+         "gives": "JAMIE",
+         "note": "outer letters of Jamie; the 's means is"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "kind of light",
+         "at": 30,
+         "gives": "UV",
+         "note": "UV is ultraviolet light"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 53,
+           "note": "in a down clue up means the word is read from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "business",
+           "at": 44,
+           "gives": "LINE",
+           "note": "a line is a line of business, a trade"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young Jamie outdoors, locking up a lighting business.",
-     "definitionFit": "Juvenile means youthful, an adjective for someone not yet adult."
+     "surface": "A young lad is outdoors, shutting away some lighting business.",
+     "walkthrough": "JE (Jamie's outside) holds UV and ENIL, which is LINE read upwards.",
+     "definitionFit": "Juvenile is used of the young, as in juvenile offenders, those not yet adult."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "locking"
+     "misdirectedWord": "light"
     }
    }
   },
