@@ -243,29 +243,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DISCUS",
      "indicators": [
       {
        "text": "Endlessly",
-       "note": "without an end, so the word loses its final letter"
+       "at": 0,
+       "note": "endlessly means without its end, so the final letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "debate",
-       "gives": "DISCUS",
-       "note": "a seven-letter verb for debate, less its last letter"
+       "at": 10,
+       "gives": "DISCUSS",
+       "note": "to discuss is to debate"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about an argument that drags on over a sports fixture.",
-     "walkthrough": "DISCUSS loses its final S. \"Endlessly\" looks like an adverb for a tedious debate, but it cuts the last letter.",
-     "definitionFit": "Named by its implement: the discus throw is the field event in which the heavy disc is hurled."
+     "surface": "An argument that drags on forever over some sporting fixture.",
+     "walkthrough": "'Endlessly' cuts the last S off DISCUSS; the discus is the field event of throwing a heavy disc.",
+     "definitionFit": "The discus is a track-and-field contest in which a heavy disc is thrown for distance."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Endlessly"
     }
@@ -340,31 +343,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "FIN",
      "indicators": [
       {
        "text": "half gone",
-       "note": "if half of the word is gone, only its first half is left"
+       "at": 20,
+       "note": "half gone says the second half of the six-letter word disappears"
       }
      ],
      "parts": [
       {
        "words": "finger",
-       "gives": "FIN",
-       "note": "a deletion: keep the first three of its six letters, the second half gone"
+       "at": 12
+      },
+      {
+       "gives": "GER"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has eaten half a fish finger.",
-     "walkthrough": "\"Fish finger\" reads as one breaded snack, but \"fish\" belongs to the definition and \"finger\" is the word to cut; a fish finger is a fish stick.",
-     "definitionFit": "A definition by part: the fin is the bit of a fish it swims and steers with."
+     "surface": "A fish finger with half of it already eaten.",
+     "walkthrough": "'fish finger' reads as one breaded snack, but 'fish' belongs to the definition and 'finger' alone is the fodder, with 'half gone' removing its last three letters.",
+     "definitionFit": "A fin is the limb-like part of a fish's body that it swims with."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "finger"
     }
    }
@@ -680,7 +683,8 @@
     "definitions": [
      {
       "text": "in roads",
-      "at": 38
+      "at": 38,
+      "note": "driveways are private roads leading in to houses; the plural noun matches"
      }
     ],
     "wordplay": {
@@ -688,45 +692,45 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "DR",
        "indicators": [
         {
          "text": "Finally",
-         "note": "finally points to what comes at the end, here the last letter of each of the next two words"
+         "at": 0,
+         "note": "finally picks out the last letter of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Finally reprimanded for",
-         "gives": "DR",
-         "select": "last",
-         "note": "last letters of reprimandeD and foR"
+         "words": "reprimanded for",
+         "at": 8,
+         "note": "each of these two words supplies its last letter"
         }
        ]
       },
       {
        "words": "one's",
+       "at": 24,
        "gives": "IVE",
-       "note": "one's = one has = I'VE"
+       "note": "one's can be read as 'one has', and I've is the contraction of I have"
       },
       {
        "words": "manners",
+       "at": 30,
        "gives": "WAYS",
-       "note": "ways = manners, habits"
+       "note": "ways, as in someone's habits or manners"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has at last been told off for their behaviour on the roads.",
-     "walkthrough": "\"One's\" is read as \"one has\", giving I'VE. The definition is roads leading in, from the street to a house.",
-     "definitionFit": "Read cryptically: private tracks that lead in from the street to a house or garage, so roads in."
+     "surface": "Someone is told off at last for their bad behaviour on the streets.",
+     "walkthrough": "'Finally' applies to both 'reprimanded' and 'for', giving DR. 'one's' is not a possessive: it stands for 'one has', which becomes I'VE. 'in roads' playfully suggests the roads by which one drives in.",
+     "definitionFit": "A driveway is a short private road leading from the street in to a house or garage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "manners"
+     "joke": "pun",
+     "misdirectedWord": "one's"
     }
    }
   },
@@ -754,26 +758,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not all, so the phrase loses its last letter"
-      },
-      {
        "text": "rough",
-       "note": "something roughed up is disordered, so the letters are shaken up"
+       "at": 16,
+       "note": "rough suggests the letters are roughed up, put into disorder"
       }
      ],
      "parts": [
       {
-       "words": "They are mostly",
-       "gives": "THEYAR",
-       "note": "THEY ARE without its final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "mostly means all but the last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "They are",
+         "at": 0
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of some coarse, bawdy people.",
-     "walkthrough": "\"Rough and ribald\" reads as a pair of adjectives, but \"rough\" is the instruction.",
-     "definitionFit": "Earthy humour is frank about bodily things, crude in the way ribald jokes are."
+     "surface": "A description of some people as generally coarse and bawdy.",
+     "walkthrough": "'mostly' trims the final E from THEY ARE, leaving THEYAR, and 'rough' rearranges those six letters.",
+     "definitionFit": "Earthy humour is coarse and frank about bodily matters, much the same as bawdy, crude jokes."
     },
     "features": {
      "answerInScene": true,
@@ -1002,53 +1017,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RACED",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "turned over, so it reads upward in a down clue"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 15,
+         "note": "over in a down clue means turned over, so the word reads upwards"
+        }
+       ],
        "parts": [
         {
          "words": "car",
-         "gives": "RAC",
-         "note": "CAR turned over"
-        },
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "borders",
-           "note": "a country's borders are its edges, so take the first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "England's borders",
-           "gives": "ENGLAND",
-           "note": "first and last letters of EnglanD"
-          }
-         ]
+         "text": "borders",
+         "at": 30,
+         "note": "the borders of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England's",
+         "at": 20,
+         "gives": "ENGLAND",
+         "note": "the word England; its possessive ties it to the borders"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sped a car across the English border.",
-     "walkthrough": "\"Fast car\" reads as one phrase, but \"fast\" belongs to the definition and \"car\" alone is reversed.",
-     "definitionFit": "A plain synonym: to race a car is to drive it at speed."
+     "surface": "A motorist speeds a vehicle across the English frontier.",
+     "walkthrough": "'car over' turns CAR upside down in this down clue to give RAC, and 'England's borders' adds ED, the first and last letters of England.",
+     "definitionFit": "To race is to go at high speed, so raced matches drove at speed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "over"
+     "misdirectedWord": "borders"
     }
    }
   },

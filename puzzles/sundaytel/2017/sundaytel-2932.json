@@ -278,38 +278,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "hidden",
+     "indicators": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the word sits within the run of letters that follows, spanning the word gaps"
-        }
-       ],
-       "parts": [
-        {
-         "words": "boat if fit",
-         "gives": "TIFF",
-         "note": "found across the end of boat and the words if and fit"
-        }
-       ]
+       "text": "in",
+       "at": 4,
+       "note": "in says the answer sits inside the run of letters 'boat if fit'"
       },
       {
-       "unchecked": true,
-       "words": "also going the other way at the end",
-       "note": "padding that adds a bonus: read backwards from the end, the same letters appear again"
+       "text": "also going the other way at the end",
+       "at": 20,
+       "note": "the setter adds that the last words, 'if fit', read backwards also contain the same four letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boat if fit",
+       "at": 7,
+       "gives": "TIFF",
+       "note": "the letters run unbroken across the end of boat, all of if and the start of fit"
       }
      ]
     },
     "explanation": {
-     "surface": "A squabble breaks out in a boat over whether someone is fit.",
-     "walkthrough": "The extra phrase notes a bonus: the end of the fragment, read backwards, also starts with the answer, as fit-if-t gives T, I, F, F.",
-     "definitionFit": "A tiff is a minor quarrel, which is one meaning of a row (rhyming with cow)."
+     "surface": "A quarrel on a boat between people who are fit, with someone heading back the other way.",
+     "walkthrough": "'in' points to the letters spanning 'boaT IF Fit'; 'also going the other way at the end' is the setter's bonus: the final 'if fit', read backwards, holds the same four letters.",
+     "definitionFit": "A row in the sense of a petty quarrel or squabble is a tiff."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Row"
     }
@@ -336,48 +333,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SAFARI",
-     "indicators": [
-      {
-       "text": "rearranged",
-       "note": "rearranged says the remaining letters are put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SAFARI",
+       "words": "South",
+       "at": 16,
+       "gives": "S",
+       "note": "S is the compass abbreviation for South"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
-         "text": "no",
-         "note": "no means the selected letter is to be absent from the country's name"
+         "text": "rearranged",
+         "at": 52,
+         "note": "rearranged tells us the remaining letters of 'Africa' are put in a new order"
+        },
+        {
+         "text": "with no",
+         "at": 30,
+         "note": "with no says a letter must be removed from 'Africa' before it is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "South",
-         "gives": "S",
-         "note": "S is the compass abbreviation for south"
-        },
-        {
          "words": "Africa",
-         "note": "taken as written"
+         "at": 22
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
-           "note": "end of points to the final letter of the next word"
+           "at": 38,
+           "note": "end of picks out the final letter of the word panic"
           }
          ],
          "parts": [
           {
            "words": "panic",
-           "note": "the last letter of panic, which is taken away"
+           "at": 45,
+           "note": "panic supplies its last letter, the one dropped"
           }
          ]
         }
@@ -386,9 +382,9 @@
      ]
     },
     "explanation": {
-     "surface": "A hunting trip in South Africa goes calmly, with panic ending and plans reshuffled.",
-     "walkthrough": "'In South Africa' reads as a location, but South and Africa are separate pieces; removing C from AFRICA leaves AFRIA to reorder.",
-     "definitionFit": "A safari is an expedition to hunt or observe wild animals, especially in Africa."
+     "surface": "A garbled travel note about a South African expedition that went off without any panic.",
+     "walkthrough": "Don't take 'South Africa' as SA: South gives only S, and the continent's name is the fodder. 'with no end of panic' drops a C, and 'rearranged' scrambles the remainder.",
+     "definitionFit": "A safari is an expedition, classically in Africa, to hunt or observe big game."
     },
     "features": {
      "answerInScene": true,
