@@ -91,43 +91,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ELIOT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Revolutionary",
-       "note": "a revolution turns something right round, so the word is read backwards"
+       "text": "introduced by",
+       "at": 19,
+       "note": "introduced by means led in by, so the English letter comes in front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 33,
+       "gives": "E"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "introduced by",
-         "note": "the following piece is preceded by the first one"
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "revolutionary means turning round, so the work word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English"
-        },
-        {
-         "words": "Revolutionary work",
-         "gives": "LIOT",
-         "note": "TOIL (work) turned round"
+         "words": "work",
+         "at": 14,
+         "gives": "TOIL",
+         "note": "toil means hard work"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A radical piece of writing launched by an English author.",
-     "walkthrough": "The wordplay is read in answer order: English comes first because it introduces the reversed work.",
-     "definitionFit": "George Eliot and T. S. Eliot are both famous writers."
+     "surface": "A radical book is presented by an English author.",
+     "walkthrough": "'Revolutionary work' reads as a radical book, but 'Revolutionary' is the reversal signal and 'introduced by' puts the English letter at the front.",
+     "definitionFit": "George Eliot and T. S. Eliot are both famous authors, so the name stands for a writer."
     },
     "features": {
      "answerInScene": true,
@@ -157,47 +158,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSIPIDLY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "around",
-       "note": "letters moved around are rearranged"
+       "text": "following",
+       "at": 29,
+       "note": "following says the other pieces come after the current letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "current",
+       "at": 39,
+       "gives": "I",
+       "note": "I is the symbol for electric current in physics"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "following"
+         "text": "around",
+         "at": 14,
+         "note": "around can mean in a muddled, roundabout order, so the letters of spin are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the symbol for electric current"
-        },
-        {
-         "words": "spin around",
-         "gives": "NSIP",
-         "note": "SPIN rearranged"
-        },
-        {
-         "words": "lazily",
-         "gives": "IDLY",
-         "note": "idly = lazily"
+         "words": "spin",
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "lazily",
+       "at": 22,
+       "gives": "IDLY",
+       "note": "idly means lazily, without effort"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lazily drifting and turning in a current, rather dully.",
-     "walkthrough": "The river picture hides that current is the physics symbol I, which sits first; the shuffled SPIN and IDLY follow it.",
-     "definitionFit": "Something done insipidly is done in a dull, flavourless, boring way."
+     "surface": "Someone drifts in circles on a river, idly carried along by the flow, which is dull.",
+     "walkthrough": "'current' looks like the river's flow but is I, the physics symbol; 'around' rearranges SPIN into NSIP.",
+     "definitionFit": "Insipidly means in a dull, flavourless way, so the adverb is a synonym of boringly."
     },
     "features": {
      "answerInScene": false,
@@ -678,54 +681,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "every other letter is taken"
+       "text": "checking",
+       "at": 24,
+       "note": "checking means holding back or restraining, so the outer pieces hold the fish inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "checking"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Hotel",
+         "at": 0,
          "gives": "INN",
-         "note": "an inn is a hotel"
+         "note": "an inn is a small hotel"
         },
         {
-         "words": "fish",
-         "gives": "SOLE",
-         "note": "sole is a flatfish"
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "periodically",
+           "at": 11,
+           "note": "periodically means at regular intervals, so take every other letter of chef"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chef",
+           "at": 6,
+           "note": "the first and third letters of chef are C and E"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "CE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "chef periodically",
-         "gives": "CE",
-         "select": "alternate",
-         "note": "C h E f: every other letter"
-        }
-       ]
+       "words": "fish",
+       "at": 33,
+       "gives": "SOLE",
+       "note": "sole is a flat fish"
       }
      ]
     },
     "explanation": {
-     "surface": "A hotel chef keeps checking on the sauce for the fish.",
-     "walkthrough": "In a kitchen scene 'sauce' reads literally; it is the British sense of cheek or impudence.",
-     "definitionFit": "Sauce, in British usage, is cheeky impudence, which is insolence."
+     "surface": "A hotel cook keeps checking on the fish and its sauce.",
+     "walkthrough": "'sauce' looks like the kitchen kind the chef is making, but here it means cheek; 'periodically' picks the chef's letters and 'checking' holds the fish.",
+     "definitionFit": "Sauce is informal British for cheek or impudence, which is what insolence is."
     },
     "features": {
      "answerInScene": false,
@@ -1291,57 +1295,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LARGEST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in says the resistance and reversed example letters go inside the final word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "put up",
-         "note": "in a down answer, putting up reads the letters upwards, reversed"
-        }
-       ],
+       "words": "final",
+       "at": 36,
+       "gives": "LAST",
+       "note": "last means final"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "resistance",
+         "at": 9,
+         "gives": "R",
+         "note": "R is the symbol for electrical resistance"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in"
+           "text": "put up",
+           "at": 26,
+           "note": "put up in a down clue means written upwards, so the letters of the say word are reversed"
           }
          ],
          "parts": [
           {
-           "words": "final",
-           "gives": "LAST",
-           "note": "last = final"
-          },
-          {
-           "words": "resistance",
-           "gives": "R",
-           "note": "R = resistance in physics"
+           "words": "say",
+           "at": 21,
+           "gives": "EG",
+           "note": "e.g., for example, is what 'say' means in 'a fruit, say, an apple'"
           }
          ]
-        },
-        {
-         "words": "say",
-         "gives": "GE",
-         "note": "EG (for example) reversed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The strongest opposition is mounted in the final.",
-     "walkthrough": "The sports-final picture hides that final is simply LAST, which opens to take in R and the upturned EG.",
-     "definitionFit": "Largest means biggest, the greatest in size."
+     "surface": "The most determined opposition is mounted in the last match.",
+     "walkthrough": "'say' is the usual crossword signal for an example, giving the abbreviation e.g.; in a down clue 'put up' means written upwards, and 'in' places the pieces inside the final word.",
+     "definitionFit": "Largest means the biggest, which is one sense of greatest; they are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "say"
+     "misdirectedWord": "resistance"
     }
    }
   },
@@ -1463,42 +1471,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOURNAMENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "unbalanced",
-       "note": "letters thrown off balance are rearranged"
+       "text": "adopting",
+       "at": 22,
+       "note": "adopting means taking in as one's own, so the tout takes the rearranged letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "solicitor",
+       "at": 12,
+       "gives": "TOUT",
+       "note": "a tout is someone who solicits custom, e.g. a ticket tout"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "adopting"
+         "text": "unbalanced",
+         "at": 31,
+         "note": "unbalanced means upset or deranged, so the letters of manner are thrown into a new order"
         }
        ],
        "parts": [
         {
-         "words": "solicitor",
-         "gives": "TOUT",
-         "note": "a tout solicits custom"
-        },
-        {
-         "words": "unbalanced manner",
-         "gives": "RNAMEN",
-         "note": "MANNER rearranged"
+         "words": "manner",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer entering a contest behaves erratically.",
-     "walkthrough": "'Solicitor' suggests a lawyer; it is someone who solicits, a tout.",
-     "definitionFit": "A plain synonym: a tournament is a sporting or games competition played in rounds."
+     "surface": "A lawyer in a contest takes on an erratic style.",
+     "walkthrough": "'solicitor' suggests a British lawyer, but here it is a tout, one who solicits customers; 'adopting' has it take in the scrambled manner.",
+     "definitionFit": "A tournament is a series of contests between players or teams, a kind of competition."
     },
     "features": {
      "answerInScene": false,
@@ -1585,28 +1594,26 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "principally",
-       "note": "principal means first, so only the first letters of the preceding words are used"
+       "text": "mashing",
+       "at": 49,
+       "note": "mashing means crushing into a pulp, so the initial letters are mixed into a new order"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "DPSU",
        "indicators": [
         {
-         "text": "mashing",
-         "note": "mashed things are pulped out of shape, so the letters are rearranged"
+         "text": "principally",
+         "at": 33,
+         "note": "principally means chiefly or first of all, so take the first letter of each of these words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Désirée possibly, something used principally",
-         "gives": "DPSU",
-         "select": "first",
-         "note": "first letters of Désirée, possibly, something, used"
+         "words": "Désirée possibly, something used",
+         "at": 0,
+         "note": "the first letters of Désirée, possibly, something and used are D, P, S and U"
         }
        ]
       }
@@ -1614,14 +1621,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A woman named Désirée, perhaps, and something mainly used for mashing.",
-     "walkthrough": "Désirée is a popular red-skinned potato variety, not a woman. Read straight, the whole clue describes a potato; as wordplay, the heads of four words are mashed.",
-     "definitionFit": "Spud is informal for potato, and Désirée is a potato variety."
+     "surface": "A gardener describes a potato variety mainly grown for making mash.",
+     "walkthrough": "Désirée is a red-skinned potato variety. Take the first letters D, P, S and U and rearrange them; the whole clue also describes the potato.",
+     "definitionFit": "Spud is informal for a potato, and Désirée is a popular potato variety often mashed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Désirée"
     }
    }
@@ -1647,37 +1653,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AEROPLANE",
-     "indicators": [
-      {
-       "text": "Rock",
-       "note": "to rock something is to shake it, disturbing the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Rock",
+         "at": 0,
+         "note": "to rock is to shake or sway, so the letters of opera are shaken into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Rock opera",
-         "gives": "AEROP",
-         "note": "OPERA rearranged"
-        },
-        {
-         "words": "track",
-         "gives": "LANE",
-         "note": "a lane is a track"
+         "words": "opera",
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "track",
+       "at": 11,
+       "gives": "LANE",
+       "note": "a lane is a narrow track or road"
       }
      ]
     },
     "explanation": {
-     "surface": "A song from a rock opera that someone might strip away or imitate.",
-     "walkthrough": "'Rock opera' is a single genre on the surface, like Tommy; split it and rock shakes up OPERA. 'Take off' then reads as copying rather than flight.",
-     "definitionFit": "An aeroplane is the thing that takes off from a runway."
+     "surface": "A rock opera has a song that might become a big hit.",
+     "walkthrough": "'Rock opera' reads as a music genre, but 'Rock' rearranges OPERA into AEROP.",
+     "definitionFit": "An aeroplane takes off from a runway, so it is a thing that might take off."
     },
     "features": {
      "answerInScene": false,
@@ -1824,45 +1829,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESTONIANS",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "lively",
+       "at": 24,
+       "note": "lively means energetic and moving about, so the remaining letters are jumbled"
+      },
+      {
+       "text": "off",
+       "at": 6,
+       "note": "off means taken away, so the marry letters are removed from the long word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ESTONIANS",
-       "indicators": [
-        {
-         "text": "off",
-         "note": "when something comes off it is removed"
-        },
-        {
-         "text": "lively",
-         "note": "lively letters jump about into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "sensationally",
-         "note": "the word to work on"
-        },
-        {
-         "words": "Marry off",
-         "gives": "ALLY",
-         "note": "to ally is to join, as in marriage; it is removed"
-        }
-       ]
+       "words": "sensationally",
+       "at": 10
+      },
+      {
+       "words": "Marry",
+       "at": 0,
+       "gives": "ALLY",
+       "note": "to ally is to join or unite, as in marriage"
       }
      ]
     },
     "explanation": {
-     "surface": "A call to wed some wonderfully energetic Europeans.",
-     "walkthrough": "SENSATIONALLY loses ALLY to leave SENSATION, which is shuffled.",
-     "definitionFit": "Estonians are the people of Estonia in north-east Europe."
+     "surface": "Some energetic continental people are married off in sensational style.",
+     "walkthrough": "Take the letters of ALLY ('Marry') out of SENSATIONALLY, and 'lively' rearranges the nine that are left.",
+     "definitionFit": "Estonians are people from Estonia, a Baltic country, so they are Europeans."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Marry"
     }

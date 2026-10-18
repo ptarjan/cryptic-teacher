@@ -357,34 +357,35 @@
     "definitions": [
      {
       "text": "desires",
-      "at": 36
+      "at": 36,
+      "note": "a plural noun, as the answer is"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "URGES",
+     "op": "middle",
      "indicators": [
       {
        "text": "innermost",
-       "note": "innermost keeps only the inside, so the outside letters at each end are lost"
+       "at": 26,
+       "note": "innermost asks for the inside of the author's name, without its outer letters"
       }
      ],
      "parts": [
       {
        "words": "Clockwork Orange author's",
+       "at": 0,
        "gives": "BURGESS",
-       "note": "Anthony Burgess wrote A Clockwork Orange"
+       "note": "Anthony Burgess wrote the novel A Clockwork Orange"
       }
      ]
     },
     "explanation": {
-     "surface": "A literary query about the private longings of the novelist behind A Clockwork Orange.",
-     "walkthrough": "Strip the first and last letters from BURGESS.",
-     "definitionFit": "Urges are strong wishes or impulses, so the plural noun matches the longings named in the clue."
+     "surface": "The deepest wishes of the writer of a famous dystopian novel.",
+     "walkthrough": "'innermost desires' reads as a single phrase, but 'innermost' acts on BURGESS, removing its first and last letters.",
+     "definitionFit": "Urges are strong impulses or longings, so the plural noun is a synonym of desires."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "innermost"
     }
@@ -464,53 +465,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THOUGHTBUBBLE",
-     "indicators": [
-      {
-       "text": "misprinted",
-       "note": "a misprint puts letters in the wrong places, so this word's letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "THOUGHTBUBBLE",
+       "words": "But",
+       "at": 0,
+       "gives": "THOUGH",
+       "note": "though can mean but or however, as in 'it was cold, though sunny'"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "misprinted",
+         "at": 10,
+         "note": "misprinted means set in the wrong type, so the letters come out in a jumbled order"
+        },
+        {
          "text": "hasn't",
-         "note": "something that hasn't a thing is lacking it, so a letter is removed"
+         "at": 27,
+         "note": "hasn't says one of the letters in the pool is missing from the result"
         }
        ],
        "parts": [
         {
-         "words": "But",
-         "gives": "THOUGH",
-         "note": "but and though both introduce a contrast"
-        },
-        {
-         "words": "but",
-         "note": "taken as written"
-        },
-        {
-         "words": "Bible",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "but",
+           "at": 6
+          },
+          {
+           "words": "Bible",
+           "at": 21
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 34,
          "gives": "I",
-         "note": "one is I as a Roman numeral"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone splutters about a faulty printing of the Bible missing a bit.",
-     "walkthrough": "The repeated word does two different jobs: the first is a synonym, THOUGH; the second is jumbled to TBU; then BIBLE loses its I.",
-     "definitionFit": "In comics, a cloud-shaped balloon shows what a character is thinking, a drawn picture of a notion."
+     "surface": "Someone splutters at a badly printed Bible that lacks a page.",
+     "walkthrough": "The first 'But' gives THOUGH. Then the letters of 'but' and BIBLE, with the I ('one') taken out, are rearranged by 'misprinted' to make TBUBBLE.",
+     "definitionFit": "In comics, a thought bubble is the cloud-shaped balloon showing what a character thinks, so it pictures an idea."
     },
     "features": {
      "answerInScene": false,
@@ -1584,36 +1588,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCALPEL",
-     "indicators": [
-      {
-       "text": "removing outer layers",
-       "note": "taking off outer layers strips letters from both ends, two from each side"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Area of skin",
+       "at": 0,
        "gives": "SCALP",
-       "note": "the scalp is the skin of the head"
+       "note": "the scalp is the skin covering the top of the head"
       },
       {
-       "words": "peeled",
-       "note": "taken as written"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing outer layers",
+         "at": 21,
+         "note": "outer layers, plural, means two letters are stripped from each end of peeled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peeled",
+         "at": 13
+        },
+        {
+         "gives": "PEED"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A surgeon peels back skin, and the question is what tool would do it.",
-     "walkthrough": "PEELED loses PE and ED from its ends, leaving EL; the whole clue describes what the answer is used for.",
-     "definitionFit": "A surgeon's small, very sharp blade is the instrument that would cut away layers of skin."
+     "surface": "A surgeon asks which instrument would be used to cut away layers of skin.",
+     "walkthrough": "Taking two letters off each end of PEELED leaves EL; the whole clue also describes the knife's job.",
+     "definitionFit": "A scalpel is the small, very sharp surgical knife used to cut through skin and tissue."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "peeled"
     }
    }
   },

@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -80,47 +81,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "football team",
+      "text": "football team?",
       "at": 17
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CITY",
      "indicators": [
       {
        "text": "off",
-       "note": "'went off' sounds like an alarm going, but 'off' is a removal instruction: the word WENT is what goes away."
+       "at": 13,
+       "note": "off means taken away, so the letters of went leave the string"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "100",
-         "gives": "C",
-         "note": "C is 100 in Roman numerals"
-        },
-        {
-         "words": "1",
-         "gives": "I",
-         "note": "I is 1 in Roman numerals"
-        },
-        {
-         "words": "20 went",
-         "gives": "TY",
-         "note": "write 20 out as TWENTY, take WENT out of the middle of it and the ends close up"
-        }
-       ]
+       "words": "100,120",
+       "at": 0,
+       "gives": "CITWENTY",
+       "note": "read as 100, 1, 20: C is the Roman numeral for 100, I for one, and 20 is twenty spelt out"
+      },
+      {
+       "words": "went",
+       "at": 8
       }
      ]
     },
     "explanation": {
-     "surface": "A numbered device goes off, and a football team is somehow involved.",
-     "walkthrough": "One string of digits, three different treatments: two Roman numerals and then a number spelled out in English so it can be robbed. Asteroid City is the Wes Anderson film this half belongs to.",
-     "definitionFit": "Clubs named for their town are called City by their fans — Manchester City, Leicester City — so the word names a team by example."
+     "surface": "A crowd figure of a hundred thousand-odd poured out of a football ground.",
+     "walkthrough": "The number is split as 100, 1, 20, giving C, I and TWENTY; 'went off' removes WENT from TWENTY, leaving TY. Manchester City is the obvious example of the team.",
+     "definitionFit": "Several English clubs carry City in their name, such as Manchester City, so the word can stand for a football team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "went"
     }
    }
   },
@@ -275,28 +270,31 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ACRE",
      "indicators": [
       {
        "text": "soul",
-       "note": "the soul of a thing is what sits deepest inside it, so this asks for the letters at the centre and throws the ends away."
+       "at": 17,
+       "note": "the soul is the innermost core of something, so take the inside of the holy word without its ends"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "holy",
-       "gives": "ACRE",
-       "select": "middle",
-       "note": "SACRED means holy, and its innermost four letters are what survive"
+       "at": 12,
+       "gives": "SACRED",
+       "note": "sacred means holy, dedicated to a god"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody measuring a soul, as though you could put a tape round one.",
-     "walkthrough": "Nothing announces a word to work on: 'holy' has to be turned into SACRED before the instruction can bite, and that unstated step is where the clue hides.",
-     "definitionFit": "An acre is a unit of land area — 'Measure' as the noun for a unit, the way a furlong or a bushel is one."
+     "surface": "A priest sizes up the spirit of a devout person.",
+     "walkthrough": "'soul' fits the religious picture, but it means core: SACRED with its outer letters removed.",
+     "definitionFit": "An acre is a unit of land area, 4,840 square yards, so it is a measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soul"
     }
    }
   },
@@ -635,53 +633,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MEMOIR",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "In",
-         "note": "the clue opens with 'In' as though setting a year, and it is really the instruction to put what follows inside the number."
+         "at": 0,
+         "note": "In says the Spain letter goes inside the two-thousand letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "rejecting",
-           "note": "to reject something is to throw it back, so the port's letters arrive in the opposite order."
-          }
-         ],
-         "parts": [
-          {
-           "words": "2000",
-           "gives": "MM",
-           "note": "2000 in Roman numerals is a pair of Ms"
-          },
-          {
-           "words": "Spain",
-           "gives": "E",
-           "note": "E is Spain's international vehicle code, from España"
-          }
-         ]
+         "words": "2000",
+         "at": 3,
+         "gives": "MM",
+         "note": "M is the Roman numeral for 1,000, so MM is 2,000"
         },
         {
+         "words": "Spain",
+         "at": 9,
+         "gives": "E",
+         "note": "E is the international vehicle registration for Spain (España)"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejecting",
+         "at": 15,
+         "note": "rejecting means turning back, so the port's letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
          "words": "port",
-         "gives": "OIR",
-         "note": "Rio de Janeiro is the port, thrown back the way it came"
+         "at": 25,
+         "gives": "RIO",
+         "note": "Rio, Rio de Janeiro, is a major Brazilian port"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spain in the millennium year, turning down a harbour town's version of events.",
-     "walkthrough": "'Port' looks like the drink the Iberian surface has been setting up, and it is the harbour — a Brazilian one at that.",
-     "definitionFit": "A memoir is an account of a life, 'account' in the sense of a written telling of events rather than a bank one."
+     "surface": "In the millennium year, Spain turned away a harbour's bill.",
+     "walkthrough": "'2000' reads as a year, but Roman numerals turn it into two letters; 'port's' is the port plus a link 's meaning 'is'.",
+     "definitionFit": "A memoir is a written record of the author's own life and experiences, an account of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
     }
    }
   },
@@ -759,34 +765,30 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Time period",
+      "text": "Time period at the heart of Romeo and Juliet?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "NOVEMBER",
-     "indicators": [
-      {
-       "text": "at the heart of",
-       "note": "the heart of two things is the point midway between them, which here means midway along the alphabet from one letter to the other."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Romeo and Juliet",
-       "gives": "NOVEMBER",
-       "select": "middle",
-       "note": "Romeo and Juliet are R and J in the NATO alphabet, and the letter sitting midway between J and R has its own name in that same alphabet"
+       "words": "Time period at the heart of Romeo and Juliet?",
+       "at": 0,
+       "note": "Romeo and Juliet are words of the NATO phonetic alphabet; the letter at the centre of 'and' between them is N, whose NATO word is also a month"
       }
      ]
     },
     "explanation": {
-     "surface": "A stretch of time somewhere in the middle of Shakespeare's tragedy.",
-     "walkthrough": "Shakespeare is the false trail: 'Romeo and Juliet?' looks like the play, and the question mark is the only signal that the pair are letters rather than lovers.",
-     "definitionFit": "November is a month, and a month is a period of time — the definition names the category the answer is a member of."
+     "surface": "A question about what period lies at the core of Shakespeare's tragedy.",
+     "walkthrough": "The play's title points to the radio alphabet, where Romeo is R and Juliet J. The middle letter of 'and' joining them is N, which the same alphabet calls November.",
+     "definitionFit": "November is the eleventh month of the year, and a month is a period of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Romeo"
     }
    }
   },
@@ -811,41 +813,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VAN",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignores",
+       "at": 9,
+       "note": "ignores means leaves out, so the reversed bloke letters are dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "Hooligan",
+       "at": 0,
+       "gives": "VANDAL",
+       "note": "a vandal is a hooligan who wrecks property"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "ignores",
-         "note": "to ignore something is to leave it out, so the letters it names are the ones not written down."
-        },
-        {
          "text": "reversing",
-         "note": "the young bloke's three letters arrive back to front, which is the only way they match the tail of the longer word."
+         "at": 29,
+         "note": "reversing tells us the young bloke word is written backwards"
         }
        ],
        "parts": [
         {
-         "words": "Hooligan",
-         "gives": "VANDAL",
-         "note": "a vandal is a hooligan — the word the deletion works on"
-        },
-        {
          "words": "young bloke",
-         "gives": "DAL",
-         "note": "a lad is a young bloke, and turned round he is the three letters that go"
+         "at": 17,
+         "gives": "LAD",
+         "note": "a lad is a young man"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hooligan taking no notice of a young man backing a vehicle out.",
-     "walkthrough": "The whole thing reads as a scene in a car park, where 'reversing vehicle' is one phrase; the split the solver needs comes a word earlier than the eye wants it.",
-     "definitionFit": "A van is a vehicle, in the plain delivery sense rather than the vanguard sense that shares the spelling."
+     "surface": "A yob pays no attention to a young man backing up his truck.",
+     "walkthrough": "'reversing vehicle' reads as a van backing up, but 'reversing' turns LAD into DAL, which is removed from the end of VANDAL.",
+     "definitionFit": "A van is a covered motor vehicle for carrying goods, so it is a type of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
     }
    }
   },
@@ -1054,54 +1065,64 @@
     "definitions": [
      {
       "text": "Sceptic",
-      "at": 0
+      "at": 0,
+      "note": "the 's after Sceptic is a link meaning 'is'"
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "odd",
-       "note": "odd means strange, and a strange version of a word is one whose letters have gone out of true."
+       "text": "over",
+       "at": 22,
+       "note": "over means covering, so the rearranged letters lie across and enclose the next letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "over",
-         "note": "going over a thing is covering it, so the rearranged letters wrap round the single letter that follows."
+         "text": "odd",
+         "at": 10,
+         "note": "odd means strange or irregular, so the letters of actions are reordered"
         }
        ],
        "parts": [
         {
          "words": "actions",
-         "note": "the seven letters of ACTIONS, put back in a different order"
-        },
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "the origin of",
-           "note": "the origin of a word is where it begins, so this hands over its first letter and nothing more."
-          }
-         ],
-         "parts": [
-          {
-           "words": "God",
-           "note": "the first letter of God, taken on its own"
-          }
-         ]
+         "text": "the origin of",
+         "at": 27,
+         "note": "the origin is the starting point, so take the first letter of God"
+        }
+       ],
+       "parts": [
+        {
+         "words": "God",
+         "at": 41,
+         "note": "the first letter of God is G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doubter's strange behaviour, and the question of where the idea of God began.",
-     "walkthrough": "'Odd actions' reads as a description of the man himself, which is where the anagram hides: the word doing the shuffling is the one that sounds most like character.",
-     "definitionFit": "An agnostic holds that nothing can be known about God, so 'sceptic' fits in its everyday sense of a doubter rather than its philosophical one."
+     "surface": "A doubter's strange behaviour relates to the question of where God came from.",
+     "walkthrough": "'odd' rearranges ACTIONS into ANOSTIC, and 'over' wraps it around G, the origin of 'God', after the first A.",
+     "definitionFit": "An agnostic holds that God's existence cannot be known, a kind of religious sceptic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "origin"
     }
    }
   },
@@ -1172,49 +1193,57 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "shake",
-       "note": "shaking a thing rattles its parts loose, so the word beside it comes out in another order."
+       "text": "after",
+       "at": 18,
+       "note": "after says the Frenchman piece comes behind the shaken letters"
       }
      ],
      "parts": [
       {
-       "words": "with",
-       "gives": "WHIT",
-       "note": "the four letters of WITH, shaken into a new order"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shake",
+         "at": 24,
+         "note": "to shake something is to jumble it, so the letters of with are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with",
+         "at": 30
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "retired",
-         "note": "someone retired has gone back, and the Frenchman's letters are written in the opposite direction."
+         "at": 10,
+         "note": "retired means withdrawn or gone back, so the name is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "after",
-           "note": "'after' puts the retired name behind the shaken letters rather than in front of them."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Frenchman",
-           "gives": "ENER",
-           "note": "René is the setters' stock Frenchman, here written backwards"
-          }
-         ]
+         "words": "Frenchman",
+         "at": 0,
+         "gives": "RENE",
+         "note": "René is a typical French man's name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retired Frenchman after a milkshake made with something out of a jar.",
-     "walkthrough": "The fodder is 'with', a word so small and so grammatical that the eye passes over it as joinery instead of as material to be shuffled.",
-     "definitionFit": "Whitener is the powder stirred into coffee when there is no milk, so 'artificial milk' names it by the thing it stands in for."
+     "surface": "A Frenchman went to bed after a milkshake made with fake milk.",
+     "walkthrough": "'shake' suggests a milkshake, but it rearranges WITH into WHIT; 'retired' turns RENE into ENER.",
+     "definitionFit": "A whitener is a powder or liquid added to tea or coffee in place of milk, a milk substitute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shake"
     }
    }
   },
@@ -1385,57 +1414,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STIRFRYING",
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "mash",
-         "note": "mashing food breaks it up and mixes it, so the word beside it is pulped into a new order."
+         "at": 8,
+         "note": "to mash is to crush into a pulp, so the letters of first are pulped into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "first",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filled",
+         "at": 46,
+         "note": "filled says the doughnut shape holds the jelly letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doughnut",
+         "at": 53,
+         "gives": "RING",
+         "note": "a ring doughnut is the ring-shaped kind, so ring stands for the doughnut"
+        },
+        {
+         "op": "last",
          "indicators": [
           {
            "text": "the ultimate in",
-           "note": "the ultimate one is the last one, so this takes the final letter of the word that follows."
+           "at": 24,
+           "note": "the ultimate is the last, so take the final letter of jelly"
           }
          ],
          "parts": [
           {
-           "words": "first",
-           "gives": "STIRF",
-           "note": "the five letters of FIRST, mashed into another order"
-          },
-          {
-           "words": "doughnut",
-           "gives": "RING",
-           "note": "a doughnut is a ring of dough, and it opens after its first letter"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "Y",
-           "indicators": [
-            {
-             "text": "filled",
-             "note": "a filled doughnut has something pushed into the middle of it, which is where the single letter goes."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "the ultimate in jelly",
-             "gives": "Y",
-             "select": "last",
-             "note": "the last letter of jelly"
-            }
-           ]
+           "words": "jelly",
+           "at": 40,
+           "note": "the last letter of jelly is Y"
           }
          ]
         }
@@ -1444,9 +1470,14 @@
      ]
     },
     "explanation": {
-     "surface": "A recipe barked across a kitchen: mash first, then deal with the jam doughnut.",
-     "walkthrough": "'Mash first' reads as step one of the recipe, and that is the trap: 'first' is the material and 'mash' is the instruction to jumble it.",
-     "definitionFit": "Stir-frying is cooking food fast in a very hot pan, so the general word defines by naming the family this method belongs to."
+     "surface": "A recipe: mash things first, then make a doughnut with jam in the middle.",
+     "walkthrough": "'mash' looks like part of the recipe but rearranges FIRST into STIRF; Y, the last letter of 'jelly', fills RING to give RYING.",
+     "definitionFit": "Stir-frying is a method of cooking food quickly in a wok over high heat while stirring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mash"
     }
    }
   },
@@ -1471,64 +1502,71 @@
     "definitions": [
      {
       "text": "Mount",
-      "at": 67,
-      "note": "'Mount' is not a synonym for the answer: it is the first word of a proper name, and the entry supplies the rest of it."
+      "at": 67
      }
     ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "taking a word regularly means picking its letters at a steady interval — here every second one, starting with the second."
+       "text": "about",
+       "at": 43,
+       "note": "about can mean near or beside, so the letters from worried are placed next to the Mason letter, which comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Former Liverpool striker",
+       "at": 0,
+       "gives": "RUSH",
+       "note": "Ian Rush was Liverpool's record goalscorer in the 1980s"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "header from",
-         "note": "a header is the top of a thing, so it hands over the first letter of the name after it, while heading is also what footballers do."
+         "at": 49,
+         "note": "a header is at the top, so take the first letter of Mason"
         }
        ],
        "parts": [
         {
-         "words": "Former Liverpool striker",
-         "gives": "RUSH",
-         "note": "Ian, the Welsh striker who is Liverpool's record goalscorer, from the 1980s"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Mason",
-           "note": "the head of Mason, its first letter"
-          }
-         ]
-        },
-        {
-         "op": "alternate",
-         "parts": [
-          {
-           "words": "worried",
-           "note": "every second letter of wOrRiEd, the rest falling away"
-          }
-         ]
+         "words": "Mason",
+         "at": 61,
+         "note": "the first letter of Mason is M"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "about",
-       "note": "surface only — 'worried about' is the sentence's own phrase and adds no letters"
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 25,
+         "note": "regularly means at even intervals, so take every other letter of worried"
+        }
+       ],
+       "parts": [
+        {
+         "words": "worried",
+         "at": 35,
+         "note": "the second, fourth and sixth letters of worried are O, R and E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer fretting over a header from Mason Mount.",
-     "walkthrough": "Mason Mount is an England midfielder, so his name passes as one more player in a football sentence. Rushmore is another of the Wes Anderson films buried in this grid.",
-     "definitionFit": "Mount Rushmore is the South Dakota cliff carved with four presidents' heads, and the answer is the name that word introduces."
+     "surface": "An old Liverpool forward was anxious about a header from the footballer Mason Mount.",
+     "walkthrough": "Mason Mount is a real England midfielder, so 'header' and 'Mount' look footballing; here 'header' takes M and 'Mount' is the definition. The second, fourth and sixth letters of 'worried' give ORE.",
+     "definitionFit": "Mount Rushmore in South Dakota is the mountain carved with four presidents' faces, so Mount names it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mount"
     }
    }
   },
@@ -1615,60 +1653,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LEWES",
+     "indicators": [
+      {
+       "text": "keep",
+       "at": 18,
+       "note": "keep means hold, so the fifty and farm letters hold the sheep between them"
+      },
+      {
+       "text": "in",
+       "at": 29,
+       "note": "keep sheep in: the in completes the instruction that the sheep are kept inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "keep",
-         "note": "keeping livestock is penning them, so the animal named after this word is shut inside the letters either side."
-        },
-        {
-         "text": "close to",
-         "note": "the close of a word is its final letter."
-        }
-       ],
        "parts": [
         {
          "words": "50",
+         "at": 0,
          "gives": "L",
-         "note": "L is 50 in Roman numerals"
-        },
-        {
-         "words": "sheep",
-         "gives": "EWE",
-         "note": "a ewe is a female sheep, and setters keep a flock of them"
+         "note": "L is the Roman numeral for 50"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "S",
          "indicators": [
           {
-           "text": "in",
-           "note": "'in' completes the penning: the sheep go within the other letters rather than alongside them."
+           "text": "close to",
+           "at": 3,
+           "note": "the close is the end, so take the last letter of farms"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "close to farms",
-           "gives": "S",
-           "select": "last",
-           "note": "the last letter of farms"
+           "words": "farms",
+           "at": 12,
+           "note": "the last letter of farms is S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "sheep",
+       "at": 23,
+       "gives": "EWE",
+       "note": "a ewe is a female sheep"
       }
      ]
     },
     "explanation": {
-     "surface": "Sheep penned at the edge of the farms outside a Sussex town.",
-     "walkthrough": "Lewes is the county town of East Sussex, said 'LOO-iss', and the flocks in the clue are the ones grazing the Downs above it.",
-     "definitionFit": "Lewes is the county town of East Sussex, so the definition points at it as one instance of the county's towns."
+     "surface": "Fifty farms near a Sussex town keep sheep.",
+     "walkthrough": "L and S, the close of 'farms', hold EWE between them; Sussex is a county on England's south coast.",
+     "definitionFit": "Lewes is the county town of East Sussex, so it is a Sussex town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
     }
    }
   },
