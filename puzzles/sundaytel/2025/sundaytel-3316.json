@@ -326,26 +326,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STAR",
      "indicators": [
       {
        "text": "shortly",
-       "note": "making a word short means cutting off its final letter"
+       "at": 5,
+       "note": "shortly means cut short, so the word loses its final letter"
       }
      ],
      "parts": [
       {
        "words": "Dawn",
-       "gives": "STAR",
-       "note": "dawn is the start of something; cut short it loses its final T"
+       "at": 0,
+       "gives": "START",
+       "note": "dawn is the start of the day, and as a verb to dawn is to start"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Waiting a little while at daybreak for the sun to rise.",
-     "walkthrough": "'Dawn' is a noun meaning beginning, START, not the time of day; 'shortly' looks like 'soon' but trims the last letter.",
-     "definitionFit": "Our sun is a typical example of a star, a glowing ball of hot gas in space."
+     "surface": "Soon it will be daybreak, and time for the sun to rise.",
+     "walkthrough": "'shortly' looks like 'soon', but it trims START (dawn, the beginning) of its last letter T.",
+     "definitionFit": "The sun is the star at the centre of our solar system, so it is one example of the class."
     },
     "features": {
      "answerInScene": true,
@@ -1417,51 +1420,54 @@
     "definitions": [
      {
       "text": "that's not important",
-      "at": 31,
-      "note": "a phrase describing a thing, standing for the noun meaning a trifle"
+      "at": 31
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BAGATELLE",
-     "indicators": [
-      {
-       "text": "hasn't closed",
-       "note": "a word that has not closed is missing its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Sack",
+       "at": 0,
+       "gives": "BAG",
+       "note": "a sack is a bag"
+      },
+      {
+       "words": "a",
+       "at": 5
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hasn't closed",
+         "at": 15,
+         "note": "something that hasn't closed is left without its end, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Sack",
-         "gives": "BAG",
-         "note": "a sack is a bag"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "cashier",
-         "gives": "TELLE",
-         "note": "a bank cashier is a teller; cut its final R"
+         "at": 7,
+         "gives": "TELLER",
+         "note": "a bank cashier is a teller"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Firing a cashier for not shutting the till is dismissed as no big deal.",
-     "walkthrough": "'Sack' looks like the verb to fire, but here it is the noun, a bag.",
-     "definitionFit": "A bagatelle is a trifle, something of little value or consequence, borrowed from French."
+     "surface": "A bank clerk keeps the till open while someone fills a sack, and shrugs it off.",
+     "walkthrough": "BAG (sack) and A, then TELLER (cashier) which 'hasn't closed', so its final R goes.",
+     "definitionFit": "A bagatelle is a trifle, something of little value or consequence; it is also a light piece of music and a table game."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Sack"
+     "misdirectedWord": "closed"
     }
    }
   },
