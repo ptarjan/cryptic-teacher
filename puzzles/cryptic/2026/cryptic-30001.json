@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -49,44 +50,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "comeback",
-       "note": "A comeback is a return along the road you came by, so the word beside it is written out back to front."
-      },
-      {
        "text": "after",
-       "note": "'after' puts the piece it introduces later in the line, so the turned-round word settles behind the takings."
+       "at": 44,
+       "note": "after places the reversed word straight after the box office letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "box office",
+       "at": 50,
+       "gives": "BO"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "comeback",
+         "at": 35,
+         "note": "a comeback is a return, so the word for managed is read backwards here"
+        }
+       ],
        "parts": [
         {
-         "words": "passed bill",
-         "gives": "WAL",
-         "note": "a bill becomes this once Parliament has passed it"
-        },
-        {
          "words": "managed",
+         "at": 27,
          "gives": "RAN",
-         "note": "managed a shop or a stable = RAN, then turned round"
-        },
-        {
-         "words": "box office",
-         "gives": "OB",
-         "note": "the trade's short form for box office, as in 'BO takings'"
+         "note": "managed a business means ran it"
         }
        ]
+      },
+      {
+       "words": "passed bill",
+       "at": 61,
+       "gives": "LAW",
+       "note": "a bill that Parliament has passed becomes a law"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone called Andrew who used to run the country makes a comeback once the box-office takings have settled the bill.",
-     "walkthrough": "Number 10 is 10 Downing Street, the prime minister's London house, so 'once at Number 10' means a past occupant — and this grid is full of them, some whole and some split across two answers.",
-     "definitionFit": "The definition names a man by his first name and his address: the Conservative who took Number 10 in 1922, the only prime minister born outside the British Isles."
+     "surface": "A note about a former prime minister who staged a comeback once his bill had passed.",
+     "walkthrough": "'managed' is RAN, and 'comeback' turns it into NAR, which comes 'after' BO. Andrew Bonar Law was a British prime minister in 1922-23; Number 10 Downing Street is the PM's residence.",
+     "definitionFit": "Andrew Bonar Law was UK prime minister in the early 1920s, so he once lived at Number 10 Downing Street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bill"
     }
    }
   },
@@ -115,41 +127,45 @@
      "indicators": [
       {
        "text": "swallowing",
-       "note": "Swallowing something takes it inside you, so the word before it closes around what comes next."
+       "at": 20,
+       "note": "swallowing means taking something inside, so the next letter goes within the word for gallivant"
       }
      ],
      "parts": [
       {
        "words": "to gallivant",
+       "at": 6,
        "gives": "GAD",
-       "note": "to gad about is to gallivant — roam around looking for fun"
+       "note": "to gad about is to gallivant, roaming in search of fun"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
          "text": "drop of",
-         "note": "A drop is the smallest amount you can take of anything, and of a word that is one letter."
+         "at": 31,
+         "note": "a drop of something is just a tiny bit, here the opening letter of LSD"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drop of LSD",
-         "gives": "L",
-         "select": "first",
-         "note": "one letter taken off the front of the drug's three"
+         "words": "LSD",
+         "at": 39,
+         "note": "the drug name, whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party-goer out on the town swallows a tab of acid.",
-     "walkthrough": "LSD is lysergic acid diethylamide; in older crosswords the same three letters are pounds, shillings and pence, so a drop of LSD can be chemistry or money.",
-     "definitionFit": "A plain synonym: both are adjectives meaning pleased, though the answer is the warmer one you use when agreeing to do somebody a favour."
+     "surface": "Someone is cheerfully off on a wild night out, taking a little acid along the way.",
+     "walkthrough": "'drop of LSD' is just L, and GAD 'swallowing' it gives the answer.",
+     "definitionFit": "Glad is a plain synonym of happy, describing being pleased or content."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
     }
    }
   },
@@ -271,29 +287,49 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "THAT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "leads",
-       "note": "'leads' asks for the letter heading each word, the way a headline strips a phrase down to initials."
+       "text": "and",
+       "at": 28,
+       "note": "and simply adds the final word's initial onto the others, in the same order"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to her arrest and transportation",
-       "gives": "THAT",
-       "select": "first",
-       "note": "the opening letters of 'to', 'her', 'arrest' and 'transportation', with 'and' only holding the phrase up"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads",
+         "at": 8,
+         "note": "leads here are the leading letters, so the opening letter of each word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to her arrest",
+         "at": 14,
+         "note": "taken as written; the words whose initials are used"
+        }
+       ]
+      },
+      {
+       "words": "transportation",
+       "at": 32,
+       "gives": "T",
+       "note": "its leading letter too, the leads covering every word after which"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman is arrested and shipped off to the colonies.",
-     "walkthrough": "The row of dots carries straight on from 4 down, so the sentence you are reading began in the clue above. Transportation is the old punishment of shipping convicts to Australia.",
-     "definitionFit": "Both are relative pronouns and swap freely in a defining clause — 'the arrest which followed' says the same either way."
+     "surface": "Continuing 4 down, the story of a woman whose firing led to her arrest and being shipped off to a penal colony.",
+     "walkthrough": "The ellipsis links back to 4 down's story. The initials of 'to her arrest' and 'transportation' spell the answer.",
+     "definitionFit": "As a relative pronoun, that can stand in for which, introducing a clause about something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leads"
     }
    }
   },
@@ -757,42 +793,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "finale",
-       "note": "A finale is the last thing to happen, so it asks for the last letter of the word in front of it."
+       "text": "to follow",
+       "at": 21,
+       "note": "to follow puts the competition's final letter after the cricket team"
       }
      ],
      "parts": [
       {
-       "words": "Test team's",
+       "words": "Test team",
+       "at": 31,
        "gives": "WI",
-       "note": "WI is the West Indies, one of the sides that plays Test cricket"
+       "note": "WI is West Indies, a team that plays Test cricket"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
-         "text": "to follow",
-         "note": "'To follow' sends that letter to the back of the assembly instead of the front."
+         "text": "finale",
+         "at": 14,
+         "note": "a finale is the very end, so the last letter of competition is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Competition's finale",
-         "gives": "N",
-         "select": "last",
-         "note": "the last letter of 'competition'"
+         "words": "Competition's",
+         "at": 0,
+         "gives": "COMPETITION",
+         "note": "the word competition, possessive aside, whose closing letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The closing stage of a tournament comes after the touring side's success.",
-     "walkthrough": "Test cricket is the five-day international format and the West Indies are one of the dozen nations who play it, which is the outside knowledge this clue leans on.",
-     "definitionFit": "'Victory' is the noun for coming out on top of a contest, and the answer is the everyday sporting word for the same result."
+     "surface": "A sports report about the end of a series leading to a cricket team's triumph.",
+     "walkthrough": "Test matches are international cricket games; the West Indies team is abbreviated WI. Competition's 'finale' is N, which goes after WI.",
+     "definitionFit": "A win is a triumph or success in a contest, the same as a victory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Test"
     }
    }
   },
@@ -1403,38 +1444,49 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 21,
+       "note": "and adds the next letter straight after the revolutionary's name"
+      }
+     ],
      "parts": [
       {
        "words": "revolutionary",
+       "at": 5,
        "gives": "CHE",
-       "note": "Che Guevara is the crossword's standing revolutionary"
+       "note": "Che Guevara is the crossword's favourite revolutionary"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "leader",
-         "note": "'leader' asks for the front letter of the word it refers back to, which here is a word already used in the clue."
+         "at": 29,
+         "note": "a leader goes at the front, so only the opening letter of the word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "its leader",
-         "gives": "R",
-         "select": "first",
-         "note": "'its' points back at the word 'revolutionary', whose front letter is taken"
+         "words": "its",
+         "at": 25,
+         "gives": "REVOLUTIONARY",
+         "note": "its is a pronoun pointing back at the word revolutionary just used in the clue"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beloved revolutionary is named alongside whoever leads him.",
-     "walkthrough": "'Its leader' sends you back to a word the clue has already used, which is a trick worth knowing: the pronoun points at the text rather than at anything in the story.",
-     "definitionFit": "'Dear' is the English of the French adjective the answer spells — the word at the top of a letter written in French."
+     "surface": "An affectionate address to a radical, mentioning the head of his movement.",
+     "walkthrough": "'its' refers back to the word revolutionary, so its 'leader' is R, added 'and' after CHE. Cher is French for dear.",
+     "definitionFit": "In French, cher is the adjective meaning dear, both beloved and costly, as in mon cher ami."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
     }
    }
   },
