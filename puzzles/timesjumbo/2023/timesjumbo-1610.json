@@ -168,52 +168,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OCTAVO",
+     "op": "container",
      "indicators": [
       {
-       "text": "extremely abridged",
-       "note": "abridged at the extremes means the doctor loses both first and last letters"
+       "text": "penned by",
+       "at": 23,
+       "note": "penned by means held inside, as if in a pen, by the shortened doctor"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "penned by",
-         "note": "what is penned by something is written inside it, so the article and volume sit within the shortened doctor"
+         "text": "extremely abridged",
+         "at": 41,
+         "note": "extremely abridged means the word doctor loses both its end letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "doctor",
-           "gives": "OCTO",
-           "note": "DOCTOR without its outer D and R"
-          },
-          {
-           "words": "a",
-           "note": "the article as it stands"
-          }
-         ]
+         "words": "doctor",
+         "at": 33,
+         "note": "the word doctor without its ends"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 14,
+         "gives": "A"
         },
         {
          "words": "volume",
-         "gives": "V",
-         "note": "V is the standard abbreviation for volume"
+         "at": 16,
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bibliographer notes a book's format while a doctor has written a heavily cut-down volume.",
-     "walkthrough": "The doctor here is the whole word DOCTOR, trimmed at each end, not an abbreviation like DR or MO.",
-     "definitionFit": "Octavo is a traditional book format, made by folding printed sheets into eight leaves, so it names a page size."
+     "surface": "A medical writer produces a heavily cut volume of a certain size.",
+     "walkthrough": "doctor without its extremes leaves OCTO, and A plus V go inside it.",
+     "definitionFit": "Octavo is a book format in which each sheet is folded into eight leaves, giving a mid-sized book."
     },
     "features": {
      "answerInScene": true,
@@ -2040,37 +2041,52 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TOASTMASTER",
-     "indicators": [
-      {
-       "text": "embracing",
-       "note": "the phrase for ideally and the word for mother each embrace one of the two sons"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "In ideal way",
-       "gives": "TOAT",
-       "note": "done to a T is done perfectly"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embracing",
+         "at": 21,
+         "note": "embracing means the pieces before it hold the sons inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In ideal way",
+         "at": 0,
+         "gives": "TOAT",
+         "note": "to a T means perfectly, in an ideal way"
+        },
+        {
+         "words": "two sons",
+         "at": 31,
+         "gives": "S",
+         "note": "S is the abbreviation for son, here twice"
+        }
+       ]
       },
       {
-       "words": "two sons",
-       "gives": "SS",
-       "note": "s is son, twice"
-      },
-      {
-       "words": "mother",
-       "gives": "MATER",
-       "note": "mater is Latin for mother, old public-school slang"
+       "op": "container",
+       "parts": [
+        {
+         "words": "mother",
+         "at": 14,
+         "gives": "MATER",
+         "note": "mater is Latin for mother, used in British school slang"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mother, hugging her two boys perfectly, heads the round of speeches.",
-     "walkthrough": "One son goes into each half: TO A (S) T, then MA (S) TER. 'To a T' means perfectly.",
-     "definitionFit": "A toastmaster announces the speakers and proposes toasts at a formal dinner or banquet."
+     "surface": "A mother hugs her two sons perfectly while leading the tributes at a dinner.",
+     "walkthrough": "Each S goes into its own piece: TO A T holds one to make TOAST, and MATER holds the other to make MASTER.",
+     "definitionFit": "A toastmaster announces speakers and leads the toasts at a formal dinner."
     },
     "features": {
      "answerInScene": true,
@@ -2735,37 +2751,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BARREL",
-     "indicators": [
-      {
-       "text": "incomplete",
-       "note": "incomplete means the word for count loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Pub",
+       "at": 0,
+       "gives": "BAR",
+       "note": "a bar is a pub"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 10,
+         "note": "incomplete means the last letter of the word for count is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Pub",
-         "gives": "BAR",
-         "note": "a bar is a pub"
+         "words": "count",
+         "at": 4,
+         "gives": "RELY",
+         "note": "to count on someone is to rely on them"
         },
         {
-         "words": "count",
-         "gives": "REL",
-         "note": "to count on someone is to rely on them; RELY cut short"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub's tally of drinks is unfinished, though one container holds plenty of beer.",
-     "walkthrough": "'Count' is the verb as in 'count on', meaning rely, not a tally.",
-     "definitionFit": "A barrel is a large cask, and a beer barrel holds dozens of pints."
+     "surface": "A pub's tally of drinks is left unfinished while a cask holds plenty of beer.",
+     "definitionFit": "A barrel is a large cask used to store beer in quantity, so it holds many pints."
     },
     "features": {
      "answerInScene": true,
@@ -3006,12 +3025,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ORIGIN",
      "indicators": [
       {
        "text": "though lacking leaders",
-       "note": "each of the three words loses its first letter, its leader"
+       "at": 28,
+       "note": "though lacking leaders means each of the three words loses its first letter"
       }
      ],
      "parts": [
@@ -3020,32 +3038,31 @@
        "parts": [
         {
          "words": "for",
-         "gives": "OR",
-         "note": "without its F"
+         "at": 15
         },
         {
          "words": "big",
-         "gives": "IG",
-         "note": "without its B"
+         "at": 19
         },
         {
          "words": "win",
-         "gives": "IN",
-         "note": "without its W"
+         "at": 23
         }
        ]
+      },
+      {
+       "gives": "FBW"
       }
      ]
     },
     "explanation": {
-     "surface": "The beginning of a big victory, even though the team lacked its captains.",
-     "walkthrough": "'For' looks like a link word; it is the first of the three beheaded words.",
-     "definitionFit": "An origin is where something begins, its source or beginning."
+     "surface": "The basis for a big victory, even without the people in charge.",
+     "definitionFit": "An origin is the source from which something begins, its starting point."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "leaders"
     }
    }
   },

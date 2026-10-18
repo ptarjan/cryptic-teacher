@@ -1005,59 +1005,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PAPYRI",
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so one piece goes within the other"
+       "at": 28,
+       "note": "in means the reworked pay goes inside the middle of April"
       }
      ],
      "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 31,
+         "note": "middle of means April without its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "April",
+         "at": 41,
+         "note": "the middle letters of April"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "reviewing",
-         "note": "re-viewing suggests looking again in a new way, so the letters are reworked"
+         "at": 14,
+         "note": "reviewing means looking again, so the letters of pay are rearranged"
         }
        ],
        "parts": [
         {
          "words": "pay",
-         "note": "these three letters rearranged"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "PRI",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the middle of a word is its central letters, dropping the ends"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "April",
-           "gives": "PRI",
-           "select": "middle",
-           "note": "the month without its first and last letters"
-          }
-         ]
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An accountant goes over old pay records in mid-April, at the start of the tax year.",
-     "walkthrough": "In Britain the tax year begins in early April, which suits the reviewing of pay.",
-     "definitionFit": "Papyri are ancient manuscripts written on sheets made from the papyrus reed, the plural of papyrus."
+     "surface": "Someone looks over their pay records in mid-April, around tax time.",
+     "definitionFit": "Papyri are ancient manuscripts written on papyrus, so old documents."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "reviewing"
     }

@@ -388,61 +388,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "REFORM",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means going round, so the jumbled letters surround another piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "REFORM",
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "dithering",
-         "note": "dithering is wavering back and forth, so the letters wander into a new order"
+         "text": "about",
+         "at": 37,
+         "note": "about means the rearranged letters go round the start of fiscal"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "REFORM",
+         "op": "composite",
          "indicators": [
           {
-           "text": "\"no-can\"",
-           "note": "the instruction says to remove the letters of the word can from the name"
+           "text": "dithering",
+           "at": 27,
+           "note": "dithering suggests confusion, so the letters are mixed up"
           }
          ],
          "parts": [
           {
-           "words": "Right",
-           "gives": "R",
-           "note": "R is the standard abbreviation for right"
-          },
-          {
            "words": "Cameron",
-           "note": "the name taken as written"
+           "at": 19
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "start of",
-             "note": "the start of a word is just its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "fiscal",
-             "note": "first letter of fiscal"
-            }
-           ]
+           "words": "no-can",
+           "at": 11,
+           "gives": "CAN",
+           "note": "no-can tells you to take the letters of can away from Cameron"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "at": 43,
+           "note": "start of picks the first letter of fiscal"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fiscal",
+           "at": 52,
+           "note": "first letter of fiscal"
           }
          ]
         }
@@ -451,14 +449,14 @@
      ]
     },
     "explanation": {
-     "surface": "A dig at David Cameron as an ineffectual Tory leader wavering over economic change.",
-     "walkthrough": "Removing C, A, N from CAMERON leaves MERO; jumbled round F and placed after R, it gives REFORM.",
-     "definitionFit": "To reform is to change something, typically to improve an institution or policy."
+     "surface": "Private Eye mocks David Cameron as a dithering 'no-can' leader fumbling with fiscal change.",
+     "walkthrough": "Cameron without C, A, N leaves EROM, rearranged around F to give EFORM, after R.",
+     "definitionFit": "Reform means improving something by changing it, so it is a change for the better."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "dithering"
+     "misdirectedWord": "Right"
     }
    }
   },

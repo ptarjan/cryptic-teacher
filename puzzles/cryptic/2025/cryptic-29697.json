@@ -1529,46 +1529,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "INSERTION",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "one thing for another means it stands in that place instead"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "by",
+       "at": 6,
        "gives": "IN",
-       "note": "by and in are interchangeable in phrases such as by or in the evening"
+       "note": "by can mean in, as in 'by day' meaning in the day"
       },
       {
-       "words": "passage",
-       "gives": "SECTION",
-       "note": "a passage of text is a section of it"
-      },
-      {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
-      },
-      {
-       "words": "college",
-       "gives": "C",
-       "note": "C is the abbreviation for college"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 23,
+         "note": "for means one letter stands in place of another, right replacing college"
+        }
+       ],
+       "parts": [
+        {
+         "words": "passage",
+         "at": 9,
+         "gives": "SECTION",
+         "note": "a section is a passage of a text"
+        },
+        {
+         "words": "college",
+         "at": 27,
+         "gives": "C"
+        },
+        {
+         "words": "right",
+         "at": 17,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Getting into a university by switching from one college to another and finding the right way in.",
-     "definitionFit": "An insertion is something put in, such as an entry added to a text or register."
+     "surface": "A student's admission is gained by a right of passage for college.",
+     "walkthrough": "'by' supplies IN in the sense of 'by day', meaning in the day; 'for' signals one letter standing in for another.",
+     "definitionFit": "An insertion is something put in, an entry made into a text or a space."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "college"
+     "misdirectedWord": "passage"
     }
    }
   }
