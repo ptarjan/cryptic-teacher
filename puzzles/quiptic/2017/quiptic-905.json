@@ -585,35 +585,40 @@
      "indicators": [
       {
        "text": "securing",
-       "note": "to secure something is to hold it fast, so one piece wraps around the others"
+       "at": 21,
+       "note": "the cat holds the letters safely inside it, securing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tom",
-         "gives": "CAT",
-         "note": "a tom is a male cat"
-        },
-        {
-         "words": "victory",
-         "gives": "V",
-         "note": "V for victory"
-        }
-       ]
+       "words": "Tom",
+       "at": 17,
+       "gives": "CAT",
+       "note": "a tom is a male cat"
       },
       {
-       "words": "gold",
-       "gives": "OR",
-       "note": "or is gold in heraldry"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "victory",
+         "at": 30,
+         "gives": "V",
+         "note": "V is short for victory, as in V for Victory"
+        },
+        {
+         "words": "gold",
+         "at": 42,
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Celebrating with a teammate called Tom after winning gold.",
-     "definitionFit": "To cavort is to leap or prance about excitedly, to caper."
+     "surface": "A man called Tom leaps about after winning first prize!",
+     "walkthrough": "Tom looks like a man's name, but it is a male cat.",
+     "definitionFit": "To cavort is to prance or caper about excitedly."
     },
     "features": {
      "answerInScene": true,
@@ -1029,46 +1034,59 @@
      "indicators": [
       {
        "text": "is included",
-       "note": "something included is taken inside, so one piece goes within the other"
+       "at": 31,
+       "note": "the shuffled list is put inside the shortened word"
       }
      ],
      "parts": [
       {
-       "words": "when",
-       "gives": "WHILE",
-       "note": "while means when, during the time that"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ST",
+       "op": "deletion",
        "indicators": [
         {
          "text": "detailed",
-         "note": "the detail here is the tail, so only the end of the phrase is kept"
+         "at": 12,
+         "note": "detailed means with its tail cut off, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "cast list",
-         "gives": "ST",
-         "select": "last",
-         "note": "the tail end of the phrase, its final two letters"
+         "words": "when",
+         "at": 7,
+         "gives": "WHEN",
+         "note": "taken as written before losing its end"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cast",
+         "at": 21,
+         "note": "cast can mean thrown into a new shape, so the letters of list are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "list",
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cue given when the full list of actors is printed.",
-     "walkthrough": "A loose device: 'detailed' is read as 'the tail of', giving the last two letters of cast list, which sit inside the word for 'when'.",
-     "definitionFit": "A referee's whistle is a sound used to signal, and to whistle is to signal."
+     "surface": "A sign given once a full list of actors has been added.",
+     "walkthrough": "'Cast list' reads as a theatre programme, but 'cast' is the instruction to throw the following word into a new order, and 'detailed' docks the tail of 'when'.",
+     "definitionFit": "A whistle is a shrill sound made to give a signal, as a referee does."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "detailed"
+     "misdirectedWord": "cast"
     }
    }
   },
@@ -1144,7 +1162,8 @@
      "indicators": [
       {
        "text": "between",
-       "note": "something between two others sits inside them, flanked on both sides"
+       "at": 14,
+       "note": "the horse sits between the other two pieces"
       }
      ],
      "parts": [
@@ -1153,6 +1172,7 @@
        "parts": [
         {
          "words": "exercise",
+         "at": 22,
          "gives": "PE",
          "note": "PE is physical education, school exercise"
         },
@@ -1161,13 +1181,14 @@
          "indicators": [
           {
            "text": "regular",
-           "note": "regular means at even intervals, so every other letter is kept"
+           "at": 35,
+           "note": "regular letters are every other one, taken at even intervals"
           }
          ],
          "parts": [
           {
            "words": "feeds",
-           "note": "the second and fourth letters of feeds"
+           "at": 43
           }
          ]
         }
@@ -1175,14 +1196,15 @@
       },
       {
        "words": "horse",
+       "at": 8,
        "gives": "GG",
-       "note": "gee-gee is a child's word for a horse"
+       "note": "gee-gee, GG, is a childish word for a horse"
       }
      ]
     },
     "explanation": {
-     "surface": "Stable routine: a horse is tied up between its workout and its meals.",
-     "definitionFit": "Something pegged is fastened in place, held down by pegs."
+     "surface": "A horse was tied up between its workout and its routine meals.",
+     "definitionFit": "To peg something is to fasten it down, so pegged means fixed in place."
     },
     "features": {
      "answerInScene": true,
