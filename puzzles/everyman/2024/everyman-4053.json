@@ -1143,30 +1143,42 @@
      "indicators": [
       {
        "text": "meandering",
-       "note": "wandering letters, rearranged"
-      },
-      {
-       "text": "mostly",
-       "note": "most of the word but not all of it, so the final letter is dropped"
+       "at": 22,
+       "note": "meandering means wandering about, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Detroit, mostly",
-       "gives": "DETROI",
-       "note": "DETROIT without its last T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 45,
+         "note": "mostly means not quite all of the word: its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Detroit",
+         "at": 36,
+         "note": "the city name, taken as written before trimming"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A literary celebrity spotted wandering around Detroit.",
-     "walkthrough": "'Literary figure' suggests an author or a character, but an editor works in literature too.",
-     "definitionFit": "An editor is a figure in the literary world, preparing others' writing for print."
+     "surface": "A writer is spotted wandering around the Motor City.",
+     "walkthrough": "'mostly' trims Detroit to DETROI, and 'meandering' rearranges those six letters.",
+     "definitionFit": "An editor works on books and magazines, so counts as a person in the literary world."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "figure"
+     "misdirectedWord": "meandering"
     }
    }
   },
@@ -1434,44 +1446,43 @@
      "indicators": [
       {
        "text": "without",
-       "note": "the gift goes without, that is lacks, the letter that follows"
+       "at": 27,
+       "note": "without means lacking, so a letter is taken away from the word"
       }
      ],
      "parts": [
       {
        "words": "gift",
+       "at": 22,
        "gives": "PRESENT",
-       "note": "a present is a gift"
+       "note": "a gift is a present"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
          "text": "slightest hint of",
-         "note": "only the first letter of provocation"
+         "at": 35,
+         "note": "the slightest hint of a word is just its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "slightest hint of provocation",
-         "gives": "P",
-         "select": "first",
-         "note": "first letter of provocation, removed"
+         "words": "provocation",
+         "at": 53,
+         "note": "supplies its opening letter P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Returning a present that was sent unprovoked.",
-     "walkthrough": "The answer is read as RE-SENT, not the verb 'resent', which the word 'provocation' hints at.",
-     "definitionFit": "Re-sent means dispatched once again."
+     "surface": "Someone sends back a present, without any provocation at all.",
+     "walkthrough": "Read the answer as RE-SENT, sent again; 'without' removes P, the first letter of provocation, from PRESENT.",
+     "definitionFit": "To re-send something is to dispatch it a second time, the hyphen-free spelling coinciding with the verb meaning begrudge."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "provocation"
