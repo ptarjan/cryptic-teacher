@@ -992,40 +992,45 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "accepting means taking in, so the delayed word holds the money inside"
+       "at": 8,
+       "note": "accepting means taking in, so delayed holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Delayed",
-         "gives": "LATE",
-         "note": "behind time"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        }
-       ]
+       "words": "Delayed",
+       "at": 0,
+       "gives": "LATE",
+       "note": "late means delayed"
       },
       {
-       "words": "pound",
-       "gives": "QUID",
-       "note": "quid is British slang for a pound sterling"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 18,
+         "gives": "I",
+         "note": "I is one in Roman numerals"
+        },
+        {
+         "words": "pound",
+         "at": 22,
+         "gives": "QUID",
+         "note": "a quid is British slang for a pound"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A late payer hands over a single pound to settle up.",
+     "surface": "A late payment includes a single pound to settle a debt.",
+     "walkthrough": "A quid is British slang for one pound sterling.",
      "definitionFit": "To liquidate a debt is to settle it in full, clearing what is owed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Delayed"
+     "misdirectedWord": "accepting"
     }
    }
   },
@@ -1060,46 +1065,49 @@
      "indicators": [
       {
        "text": "around",
-       "note": "the word for follow someone goes around the other pieces, enclosing them"
+       "at": 15,
+       "note": "around says stalk goes round the small town pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Follow someone",
-         "gives": "STALK",
-         "note": "to stalk is to follow someone persistently"
-        },
-        {
-         "words": "small",
-         "gives": "WEE",
-         "note": "wee is Scottish for little"
-        }
-       ]
+       "words": "Follow someone",
+       "at": 0,
+       "gives": "STALK",
+       "note": "to stalk is to follow someone secretly"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially asks for only the opening letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "town",
-         "note": "the first letter of town"
+         "words": "small",
+         "at": 22,
+         "gives": "WEE",
+         "note": "wee is Scots for small"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 33,
+           "note": "initially takes the first letter of town"
+          }
+         ],
+         "parts": [
+          {
+           "words": "town",
+           "at": 28
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stalker trails someone round a little town hoping to charm them.",
-     "walkthrough": "'Flatter' is a verb here, not a comparative of flat.",
-     "definitionFit": "To sweet-talk someone is to coax them with compliments and persuasive charm, much as flattering does."
+     "surface": "Trailing someone round a small town to butter them up.",
+     "definitionFit": "To sweet-talk is to coax with compliments, which is to flatter."
     },
     "features": {
      "answerInScene": true,

@@ -166,57 +166,61 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "drinking means taking something inside"
+       "at": 21,
+       "note": "drinking means taking in, so the trimmed guy swallows the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Shy of",
+         "at": 0,
+         "note": "shy of means lacking, so the letter for masculine is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Shy of",
-           "note": "shy of means short of, so a letter is missing"
-          }
-         ],
-         "parts": [
-          {
-           "words": "guy",
-           "gives": "MALE",
-           "note": "a guy is a male"
-          },
-          {
-           "words": "masculine",
-           "gives": "M",
-           "note": "abbreviation for masculine"
-          }
-         ]
+         "words": "guy",
+         "at": 17,
+         "gives": "MALE",
+         "note": "a guy is a male"
         },
         {
-         "words": "fine",
-         "gives": "F",
-         "note": "F for fine, as on pencils"
+         "words": "masculine",
+         "at": 7,
+         "gives": "M"
         }
        ]
       },
       {
-       "words": "cool",
-       "gives": "FAB",
-       "note": "fab is slang for great, cool"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine",
+         "at": 30,
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        },
+        {
+         "words": "cool",
+         "at": 36,
+         "gives": "FAB",
+         "note": "fab, short for fabulous, means cool"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy man sipping a fine, chilled fruit cordial.",
-     "walkthrough": "MALE without M is ALE, which takes in F plus FAB. Cordial looks like the drink but is an adjective.",
-     "definitionFit": "Affable means friendly and good-natured, the same warmth that cordial describes."
+     "surface": "A timid fellow sips a fine, chilled fruit drink.",
+     "walkthrough": "'Cordial' looks like a drink, but here it is the adjective meaning warm and friendly.",
+     "definitionFit": "Affable and cordial both describe a friendly, pleasant manner; they are synonyms."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "cordial"
     }
    }

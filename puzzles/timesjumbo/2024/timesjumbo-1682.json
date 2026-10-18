@@ -109,39 +109,41 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "the band takes the letters in, as a host welcomes guests through the door"
+       "at": 11,
+       "note": "welcoming means taking in, so the band name holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "1980s band",
-         "gives": "WHAM",
-         "note": "Wham!, the 1980s pop duo"
-        },
-        {
-         "words": "a",
-         "note": "as written"
-        }
-       ]
+       "words": "1980s band",
+       "at": 0,
+       "gives": "WHAM",
+       "note": "Wham! was a 1980s pop duo of George Michael and Andrew Ridgeley"
       },
       {
-       "words": "day",
-       "gives": "D",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21
+        },
+        {
+         "words": "day",
+         "at": 23,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pop group from the eighties spends a day playing at an Oxford college.",
-     "walkthrough": "The inserted pair lands right after the band's first letter.",
-     "definitionFit": "Wadham, founded in 1610, is one of the constituent colleges of Oxford University."
+     "surface": "An eighties pop group plays host for a day at a university college.",
+     "definitionFit": "Wadham is one of the constituent colleges of the University of Oxford."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "welcoming"
     }
    }
   },
@@ -668,67 +670,73 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Rising",
-       "note": "in a down clue, a rising word is read upwards"
+       "text": "by",
+       "at": 29,
+       "note": "by means next to, so the river pieces follow straight after the area letter"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "round",
-         "note": "the upturned mist goes round the delta letter"
+         "at": 12,
+         "note": "round means surrounding, so the reversed mist goes around delta"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "by",
-           "note": "the rest is set beside it, following on"
+           "text": "Rising",
+           "at": 0,
+           "note": "in a down clue rising means the word reads upwards, backwards"
           }
          ],
          "parts": [
           {
            "words": "mist",
+           "at": 7,
            "gives": "FOG",
-           "note": "fog = mist"
-          },
-          {
-           "words": "delta",
-           "gives": "D",
-           "note": "D is delta in the phonetic alphabet"
+           "note": "fog is a thick mist"
           }
          ]
+        },
+        {
+         "words": "delta",
+         "at": 18,
+         "gives": "D",
+         "note": "D is delta in the NATO phonetic alphabet"
         }
        ]
       },
       {
        "words": "area",
-       "gives": "A",
-       "note": "standard abbreviation"
+       "at": 24,
+       "gives": "A"
       },
       {
        "words": "the",
-       "note": "as written"
+       "at": 32
       },
       {
        "words": "River",
-       "gives": "R",
-       "note": "standard abbreviation"
+       "at": 36,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Fog lifts from a delta near a river called the Don.",
-     "walkthrough": "The River Don is a real river in Yorkshire, which disguises Don as a Mafia boss.",
-     "definitionFit": "In Mafia usage a don is a boss, and The Godfather made that title famous."
+     "surface": "Fog lifting around a river mouth beside the River Don.",
+     "walkthrough": "The River Don is a real English river, but Don here is a Mafia boss.",
+     "definitionFit": "A Mafia don, head of a crime family, is called a godfather, after the film."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Don"
     }
    }
@@ -926,31 +934,28 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "the eating word goes around the number, enclosing it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "sent back",
-         "note": "the party and letter return, so read them backwards"
+         "text": "around",
+         "at": 7,
+         "note": "around means surrounding, so eating goes round the Roman six"
         }
        ],
        "parts": [
         {
          "words": "Eating",
+         "at": 0,
          "gives": "DINING",
-         "note": "dining = eating"
+         "note": "eating out is dining"
         },
         {
          "words": "6",
+         "at": 14,
          "gives": "VI",
-         "note": "6 in Roman numerals"
+         "note": "VI is six in Roman numerals"
         }
        ]
       },
@@ -958,8 +963,9 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "first in",
-         "note": "take the opening letter of restaurant only"
+         "text": "sent back",
+         "at": 43,
+         "note": "sent back means the pieces are reversed"
         }
        ],
        "parts": [
@@ -968,13 +974,25 @@
          "parts": [
           {
            "words": "party",
+           "at": 17,
            "gives": "DO",
            "note": "a do is a party"
           },
           {
-           "words": "first in restaurant",
-           "gives": "R",
-           "note": "first letter of restaurant"
+           "op": "first",
+           "indicators": [
+            {
+             "text": "first in",
+             "at": 23,
+             "note": "first in takes the first letter of restaurant"
+            }
+           ],
+           "parts": [
+            {
+             "words": "restaurant",
+             "at": 32
+            }
+           ]
           }
          ]
         }
@@ -983,14 +1001,12 @@
      ]
     },
     "explanation": {
-     "surface": "A restaurant party sends its food back to the staff and asks for water.",
-     "walkthrough": "Staff means a stick, not waiters, and the 6 refers to nothing in the grid: it is a Roman numeral.",
-     "definitionFit": "Dowsers walk with a forked stick that is said to dip over underground water."
+     "surface": "A diner around six sends back a party's order at a restaurant.",
+     "definitionFit": "A divining rod is a forked stick that dowsers use to locate underground water."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "staff"
     }
    }
@@ -1324,39 +1340,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "playing",
-       "note": "the trio's letters are played about with, like notes rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is one in Roman numerals"
+      },
+      {
+       "words": "books",
+       "at": 4,
+       "gives": "NT",
+       "note": "NT is the New Testament, a set of books"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 15,
+         "note": "playing suggests performing freely, so the letters of trio are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "Roman numeral"
-        },
-        {
-         "words": "books",
-         "gives": "NT",
-         "note": "the New Testament"
-        },
-        {
          "words": "trio",
-         "note": "anagram"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hires a three-piece band to perform church music.",
-     "walkthrough": "Books is the verb 'hires' on the surface; in the wordplay it is a set of scriptures.",
-     "definitionFit": "An introit is the psalm or chant sung as the priest approaches the altar at Mass."
+     "surface": "A musician engages a trio to perform church music.",
+     "definitionFit": "An introit is a psalm or anthem sung as the priest approaches the altar at the start of Mass."
     },
     "features": {
      "answerInScene": true,
@@ -1759,39 +1777,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "coming up",
-       "note": "in a down clue, coming up means read from the bottom"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "badly",
-         "note": "the letters are arranged badly, out of their proper order"
+         "text": "coming up",
+         "at": 12,
+         "note": "in a down clue coming up means read from the bottom, backwards"
         }
        ],
        "parts": [
         {
          "words": "number",
-         "gives": "NO",
-         "note": "No. = number"
+         "at": 5,
+         "gives": "NO"
         }
        ]
       },
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 27,
+         "note": "badly signals the letters of do notes are thrown into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "do",
-         "note": "anagram fodder"
+         "at": 24
         },
         {
          "words": "notes",
-         "note": "anagram fodder"
+         "at": 38
         }
        ]
       }
@@ -1799,14 +1819,14 @@
     },
     "spelling": "ON ONE'S TOD",
     "explanation": {
-     "surface": "A soloist's number comes round and they fluff the notes.",
-     "walkthrough": "Do and notes read as a botched performance; together they are the anagram fodder.",
-     "definitionFit": "On one's tod is British rhyming slang (Tod Sloan, own) for on one's own, alone."
+     "surface": "A soloist's turn arrives, but they perform poorly with the notes.",
+     "walkthrough": "On one's tod is rhyming slang: Tod Sloan, a jockey, rhymes with own, so it means on one's own.",
+     "definitionFit": "The phrase is British slang meaning alone, which matches doing something without others."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Solo"
+     "misdirectedWord": "number"
     }
    }
   },
@@ -2585,44 +2605,35 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "front of",
-       "note": "the front of a word is its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "in",
-         "note": "the first letter goes in ahead of the rest of the answer"
+         "text": "in front of",
+         "at": 4,
+         "note": "in front of picks the first letter of Escort"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "front of Escort",
-         "gives": "E",
-         "select": "first",
-         "note": "first letter"
+         "words": "Escort",
+         "at": 16
         }
        ]
       },
       {
        "words": "say",
+       "at": 24,
        "gives": "STATE",
-       "note": "to state = to say"
+       "note": "to state something is to say it"
       }
      ]
     },
     "explanation": {
-     "surface": "A Ford Escort parked ahead of another car.",
-     "walkthrough": "The Escort is a Ford model, which pulls the eye to car types. Say is the verb.",
-     "definitionFit": "British English calls a station wagon an estate car, or simply an estate."
+     "surface": "One car is ahead of a Ford Escort.",
+     "walkthrough": "Escort, a Ford model, tempts you towards cars; only its first letter is used.",
+     "definitionFit": "An estate is a car with a long body and rear door, called a station wagon in America."
     },
     "features": {
      "answerInScene": true,
@@ -2842,57 +2853,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "holding",
-       "note": "the child holds the letter inside, between its own"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "strangely",
-         "note": "the letters are set out strangely, in an odd new order"
+         "text": "holding",
+         "at": 6,
+         "note": "holding means containing, so child goes around the letter for new"
         }
        ],
        "parts": [
         {
          "words": "Child",
+         "at": 0,
          "gives": "KID",
-         "note": "kid = child"
+         "note": "a kid is a child"
         },
         {
          "words": "new",
-         "gives": "N",
-         "note": "standard abbreviation"
+         "at": 14,
+         "gives": "N"
         }
        ]
       },
       {
+       "words": "suit",
+       "at": 18,
+       "gives": "HEARTS",
+       "note": "hearts is one of the four card suits"
+      },
+      {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "strangely",
+         "at": 23,
+         "note": "strangely signals the letters of ends cartoon are put in an odd new order"
+        }
+       ],
        "parts": [
         {
-         "words": "suit",
-         "gives": "HEARTS",
-         "note": "a suit of cards"
+         "words": "ends",
+         "at": 33
         },
         {
-         "words": "ends cartoon",
-         "note": "anagram fodder"
+         "words": "cartoon",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child in a new outfit oddly ends up watching a cartoon.",
-     "walkthrough": "Cartoon points at animation, but the film is live action. Suit is cards, not clothes.",
-     "definitionFit": "Kind Hearts and Coronets is a 1949 Ealing Studios black comedy starring Alec Guinness."
+     "surface": "A child in a new outfit oddly finishes off an animated film.",
+     "definitionFit": "Kind Hearts and Coronets is a 1949 Ealing comedy film starring Alec Guinness in several roles."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "suit"
     }
@@ -2920,34 +2938,40 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "case of",
-       "note": "the case is the outside, so take the outer letters of indigestion"
-      }
-     ],
      "parts": [
       {
        "words": "family",
+       "at": 24,
        "gives": "KIN",
-       "note": "kin = family"
+       "note": "kin are one's family"
       },
       {
        "words": "doctor",
+       "at": 31,
        "gives": "GP",
-       "note": "a general practitioner"
+       "note": "a GP is a general practitioner, a family doctor"
       },
       {
-       "words": "case of indigestion",
-       "gives": "IN",
-       "note": "first and last letters of indigestion"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case of",
+         "at": 43,
+         "note": "case of takes the outer letters of indigestion"
+        }
+       ],
+       "parts": [
+        {
+         "words": "indigestion",
+         "at": 51
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is overwhelmed by the family doctor treating their indigestion.",
-     "walkthrough": "Bowled over reads as amazed; it is literal, as a skittle is knocked down.",
-     "definitionFit": "In skittles and tenpin bowling, the kingpin is a key target knocked flat by the ball."
+     "surface": "A family doctor deals with an indigestion case.",
+     "definitionFit": "In bowling a kingpin is the front or central pin, one of those a ball knocks down."
     },
     "features": {
      "answerInScene": false,
