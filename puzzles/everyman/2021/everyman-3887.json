@@ -261,53 +261,44 @@
     "definitions": [
      {
       "text": "Got back",
-      "at": 0
+      "at": 0,
+      "note": "past tense, matching the answer: took revenge for"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AVENGED",
+     "op": "composite",
      "indicators": [
       {
        "text": "bust",
-       "note": "something bust is broken, so its letters are smashed into a new order"
+       "at": 18,
+       "note": "bust means broken, so the letters are smashed up and reassembled"
+      },
+      {
+       "text": "away",
+       "at": 29,
+       "note": "away means the letter for right is sent off before the rest is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AVENGED",
-       "indicators": [
-        {
-         "text": "away",
-         "note": "sent away means removed, so one letter is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "engraved",
-         "note": "taken as written"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the standard abbreviation for right, and it is the letter dropped"
-        }
-       ]
+       "words": "engraved",
+       "at": 9
+      },
+      {
+       "words": "right",
+       "at": 23,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recovered an engraved bust, the sculpture of a head.",
-     "walkthrough": "'Bust' looks like a carved head to go with 'engraved', but it means broken. 'Got back' is the idiom of getting back at someone.",
-     "definitionFit": "To get back at someone is to take revenge on them, which is exactly what this past-tense verb describes."
+     "surface": "Someone retrieved a carved sculpture of a head, then left immediately.",
+     "walkthrough": "'right away' looks like 'at once', but 'away' takes the R (right) out of ENGRAVED, leaving ENGAVED for 'bust' to rearrange.",
+     "definitionFit": "To get back at someone is to retaliate, and to avenge a wrong is to exact retribution for it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bust"
     }
    }
@@ -724,67 +715,83 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Dog",
-      "at": 0
+      "text": "Dog's",
+      "at": 0,
+      "note": "read as dog is, so the definition is dog with is as the link"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AFGHANHOUND",
-     "indicators": [
-      {
-       "text": "dressing removed",
-       "note": "a dressing covers a wound on the outside, so taking it off strips the outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 12,
+         "note": "in means one piece goes inside the other"
+        }
+       ],
        "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "mobile",
-           "note": "mobile means able to move, so the letters move around"
+           "at": 21,
+           "note": "mobile means able to move, so the letters of Ghana shift around"
           }
          ],
          "parts": [
           {
-           "words": "fine",
-           "gives": "F",
-           "note": "F is the pencil-grade abbreviation for fine"
-          },
-          {
            "words": "Ghana",
+           "at": 15,
            "note": "taken as written"
-          },
-          {
-           "words": "hospital",
-           "gives": "H",
-           "note": "H is the map and road-sign abbreviation for hospital"
           }
          ]
         },
         {
+         "words": "fine",
+         "at": 6,
+         "gives": "F",
+         "note": "F is the pencil-grade and penalty abbreviation for fine"
+        }
+       ]
+      },
+      {
+       "words": "hospital",
+       "at": 28,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "dressing removed from",
+         "at": 38,
+         "note": "dressing removed means the outer covering of the word, its first and last letters, is stripped off"
+        }
+       ],
+       "parts": [
+        {
          "words": "wounds",
-         "gives": "OUND",
-         "note": "the word with its first and last letters stripped off"
+         "at": 60,
+         "note": "the word whose outer letters go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A field report from Ghana: the dog is fine at the mobile hospital, and its wounds have had their dressings taken off.",
-     "walkthrough": "'Mobile hospital' reads as one thing, but 'mobile' belongs with the country before it and the hospital is a single letter.",
-     "definitionFit": "This is a tall long-haired sighthound breed originally from the mountains of Afghanistan, so it is an example of a dog."
+     "surface": "A dog is doing well in a Ghanaian field hospital after the bandages come off its injuries.",
+     "walkthrough": "Dressing sounds medical in this hospital scene, but it is the outside of wounds. F goes into AFGHAN (Ghana rearranged by 'mobile'), and OUND is what is left of wounds.",
+     "definitionFit": "The Afghan hound is a tall breed of hunting dog with a long silky coat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mobile"
+     "misdirectedWord": "dressing"
     }
    }
   },

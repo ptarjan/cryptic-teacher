@@ -1017,38 +1017,32 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "sat on",
+       "at": 22,
+       "note": "sat on means placed above, which in a down entry puts the first part on top of the second"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "half the month",
+       "at": 7,
        "gives": "NOVE",
-       "indicators": [
-        {
-         "text": "half",
-         "note": "half of a word is its first four of eight letters here"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "the month",
-         "gives": "NOVE",
-         "select": "first",
-         "note": "the first half of November"
-        }
-       ]
+       "note": "the first half of November, the eight-letter month"
       },
       {
        "words": "table",
+       "at": 29,
        "gives": "LIST",
-       "note": "a table is a list of figures"
+       "note": "a table of data is a list"
       }
      ]
     },
     "explanation": {
-     "surface": "An author spent half the month sitting on furniture.",
-     "walkthrough": "In a down answer the first piece sits on top of the second, hence 'sat on'.",
-     "definitionFit": "A novelist writes novels, a specific kind of writer."
+     "surface": "An author spent half a month sitting on a piece of furniture.",
+     "walkthrough": "The month must be November, the only one whose first half makes a usable start; 'sat on' stacks that half above LIST in the down entry.",
+     "definitionFit": "A novelist is an author who writes long works of fiction, so is a kind of writer."
     },
     "features": {
      "answerInScene": false,
@@ -1085,45 +1079,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MONEYBOX",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Reverend Spooner was famous for swapping the opening sounds of words"
+       "at": 0,
+       "note": "the Reverend Spooner was famous for swapping the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BONEY",
        "parts": [
         {
-         "unchecked": true,
          "words": "rabbit",
-         "gives": "MONEY",
-         "soundsLike": "BUNNY",
-         "note": "a bunny is a rabbit; it takes the opening sound of the other word"
-        },
+         "at": 22,
+         "gives": "BUNNY",
+         "note": "a bunny is a rabbit; it rhymes with money, so for the swap it is spelt with the vowels of that word"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MOX",
+       "parts": [
         {
-         "unchecked": true,
-         "words": "takes the mickey",
-         "gives": "BOX",
-         "soundsLike": "MOCKS",
-         "note": "to take the mickey is British for teasing, to mock; it takes the opening sound of the first word"
+         "words": "takes the mickey out of",
+         "at": 29,
+         "gives": "MOCKS",
+         "note": "to take the mickey out of someone, British slang, is to mock them; mocks is said just like a word ending in X"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rabbit poking fun at a rhinoceros in a zoo enclosure.",
-     "walkthrough": "Rhino is old British slang for money, so the animal is a red herring.",
-     "definitionFit": "A money box is a container where cash is saved, so it is where rhino, slang for money, is held."
+     "surface": "A pet rabbit teases its owner about a stash of cash.",
+     "walkthrough": "Swapping the opening sounds of BUNNY MOCKS gives MUNNY BOCKS, said like the answer. Rhino is old British slang for money.",
+     "definitionFit": "A money box is a small container with a slot where coins are saved, so cash (rhino) is kept in it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "rhino"
     }
    }

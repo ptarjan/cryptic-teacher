@@ -565,36 +565,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLAMOROUS",
-     "indicators": [
-      {
-       "text": "Heartless",
-       "note": "a heartless word has had its middle removed, leaving just its outside letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heartless",
+         "at": 0,
+         "note": "heartless means the middle of the word is cut out, leaving only its outer letters"
+        }
+       ],
        "parts": [
         {
          "words": "girl",
-         "gives": "GL",
-         "note": "the word girl without its middle letters"
+         "at": 10,
+         "note": "taken as written before its middle goes"
         },
         {
-         "words": "passionate",
-         "gives": "AMOROUS",
-         "note": "amorous means full of passionate love"
+         "gives": "IR"
         }
        ]
+      },
+      {
+       "words": "passionate",
+       "at": 16,
+       "gives": "AMOROUS",
+       "note": "amorous means passionate, full of romantic desire"
       }
      ]
     },
     "explanation": {
-     "surface": "A cold-hearted girl who is nonetheless passionate and lovely, a femme fatale.",
-     "definitionFit": "Glamorous describes someone strikingly attractive and alluring, close to beautiful."
+     "surface": "A cold-hearted young woman who is nonetheless ardent and good-looking.",
+     "walkthrough": "'Heartless' removes IR, the two middle letters of GIRL, leaving GL.",
+     "definitionFit": "Glamorous describes someone strikingly attractive in an alluring, stylish way."
     },
     "features": {
      "answerInScene": true,
@@ -671,50 +675,53 @@
     "definitions": [
      {
       "text": "Put out",
-      "at": 0
+      "at": 0,
+      "note": "used as an adjective: extinguished, like a fire"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTINCT",
-     "indicators": [
-      {
-       "text": "initially rejected",
-       "note": "rejecting something initially means dropping its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially rejected",
+         "at": 13,
+         "note": "initially rejected means the first letter of the word is thrown away"
+        }
+       ],
        "parts": [
         {
          "words": "text",
-         "gives": "EXT",
-         "note": "text without its opening letter"
+         "at": 8,
+         "note": "taken as written before losing its first letter"
         },
         {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "CT is a standard abbreviation for court"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 32
+      },
+      {
+       "words": "court",
+       "at": 35,
+       "gives": "CT"
       }
      ]
     },
     "explanation": {
-     "surface": "A text message is refused as evidence in a courtroom.",
-     "walkthrough": "'In court' looks like a location, but IN and CT both supply letters.",
-     "definitionFit": "A fire or light that has been put out is extinguished, and extinct is used of a volcano or flame no longer burning."
+     "surface": "A legal document is dismissed by a judge before it gets a hearing.",
+     "walkthrough": "Dropping the first letter of TEXT ('initially rejected') leaves EXT. 'Put out' reads as a verb but works as an adjective, like a flame that has been put out.",
+     "definitionFit": "A fire or volcano that is extinct has stopped burning, which is exactly what being extinguished means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "court"
+     "misdirectedWord": "rejected"
     }
    }
   },
@@ -1261,24 +1268,25 @@
      "indicators": [
       {
        "text": "Partly",
-       "note": "partly says only a part of the following letters is used"
+       "at": 0,
+       "note": "partly means only a portion of the following words is used, the letters lying across them"
       }
      ],
      "parts": [
       {
        "words": "declaim, partly",
-       "gives": "IMPART",
-       "note": "found running across the end of the first word and the start of the second"
+       "at": 7,
+       "note": "the end of declaim runs into the start of partly, and the letters across that join spell the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "A speaker half declaims and half talks.",
-     "walkthrough": "The second 'partly' is both part of the hiding place and a decoy for the definition's structure.",
-     "definitionFit": "To impart information is to communicate or pass it on."
+     "surface": "A speaking coach's advice to use half declamation, half ordinary talk.",
+     "walkthrough": "The second 'partly' is not only a signal: its own first four letters complete the hidden answer after the end of declaim.",
+     "definitionFit": "To impart information is to pass it on or make it known, which is what communicating does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "partly"
     }
@@ -1555,36 +1563,25 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TENDERED",
-     "indicators": [
-      {
-       "text": "abbreviated",
-       "note": "an abbreviated word is cut short, leaving only part of it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "caretaker",
-         "gives": "TENDER",
-         "note": "a tender is someone who tends or looks after something"
-        },
-        {
-         "words": "education",
-         "gives": "ED",
-         "note": "ED is the usual short form of education"
-        }
-       ]
+       "words": "caretaker",
+       "at": 8,
+       "gives": "TENDER",
+       "note": "a tender is someone who looks after something, as in a bartender or a lock-tender"
+      },
+      {
+       "words": "abbreviated education",
+       "at": 18,
+       "gives": "ED",
+       "note": "ED is the short form of education"
       }
      ]
     },
     "explanation": {
-     "surface": "A school caretaker was given only a brief education.",
-     "definitionFit": "To tender something, such as a resignation or payment, is to formally offer it."
+     "surface": "A school janitor received only a shortened schooling.",
+     "definitionFit": "To tender something is to offer it formally, as in tendering a resignation or a bid."
     },
     "features": {
      "answerInScene": false,
