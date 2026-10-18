@@ -2878,6 +2878,13 @@ tools/tidy_cdef_repeat.py                      rewrite cryptic definitions store
                                                leaves, corpus-wide (wordplay.cdefRepeat)
 tools/shape_queue.py                           the clues whose wordplay tree
                                                tools/shape_suspects.py flags and
+tools/prune_shape_queue.py                     drop the shape re-annotation rows no detector
+                                               their reason names fires on now (--write to
+                                               rewrite; shape_queue.flagged skips the same rows)
+tools/test_fix_shape_suspects.py               the ins_split repair of fix_shape_suspects.py: a
+                                               container over a flat 3-part charade becomes
+                                               part 2 inside parts 1+3 when the letters say so
+                                               and no other nesting spells the answer
 tools/test_shape_queue.py                      the shape re-annotation list
                                                (tools/shape_queue.py): a listed clue is written
                                                by a run on its hinted puzzle, the old hint is

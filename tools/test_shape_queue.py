@@ -38,13 +38,13 @@ shutil.copy(src, path)
 a, b = clues[0], clues[1]
 aid, bid = groups.entry_id(a), groups.entry_id(b)
 Q.PATH.write_text(json.dumps([
-    {"id": f"{puzzle['id']}#{Q.clue_key(a)}", "reason": "del_single: test"},
+    {"id": f"{puzzle['id']}#{Q.clue_key(a)}", "reason": "walkthrough: test"},
     {"id": f"{puzzle['id']}#{Q.clue_key(b)}", "reason": "old", "tried": True}]))
 
 view = json.loads(AC.write_view(path).read_text())
 check("a fully hinted puzzle writes just the listed clue", view.get("annotateOnly") == [aid])
 check("the tried clue is not redone", bid not in view.get("annotateOnly", []))
-check("the view says why", "del_single: test" in view.get("flagged", {}).get(aid, ""))
+check("the view says why", "walkthrough: test" in view.get("flagged", {}).get(aid, ""))
 
 full = {groups.entry_id(e): e["annotation"] for e in clues}
 pz = F.read_puzzle_file(path)
@@ -243,6 +243,26 @@ OR._landed = lambda pid, clue: True
 check("a landed puzzle's rows leave", OR.keep_unlanded(head, staged, {"w-1"}) == staged)
 OR._landed = real
 check("a puzzle with no file here has not landed", not OR._landed("nosuch-1", "1a"))
+
+# Stale rows: a row whose named detector no longer fires is skipped by flagged()
+# and dropped by tools/prune_shape_queue.py; any other reason is kept.
+import prune_shape_queue as PR
+bad = {"op": "container", "unchecked": True, "indicators": [{"text": "in"}], "parts": [leaf("a words", "A")]}
+fine = {"op": "container", "indicators": [{"text": "in"}], "parts": [leaf("a", "A"), leaf("b", "B")]}
+def entry(n, wp): return {"number": n, "direction": "across", "solution": "AB",
+                          "clue": {"text": "a in b"}, "annotation": ann(wp)}
+pz = {"id": "stale-1", "entries": [entry(1, bad), entry(2, fine), entry(3, fine), entry(4, fine)]}
+check("the flagged tree fires its detector", Q.settled(pz["entries"][0], "arity_ins: x") is False)
+check("a fixed tree is settled for its detector", Q.settled(pz["entries"][1], "arity_ins: x"))
+check("a reason the detectors cannot judge is never settled", not Q.settled(pz["entries"][2], "model-fixable: x"))
+check("one unknown name keeps the row", not Q.settled(pz["entries"][2], "arity_ins: x; walkthrough: y"))
+check("a clue with no tree is never settled", not Q.settled({"annotation": None}, "arity_ins: x"))
+rows_ = [{"id": "stale-1#1a", "reason": "arity_ins: x"}, {"id": "stale-1#2a", "reason": "arity_ins: x"},
+         {"id": "stale-1#3a", "reason": "model-fixable: x"}, {"id": "gone-1#1a", "reason": "arity_ins: x"}]
+Q.PATH.write_text(json.dumps(rows_))
+check("flagged skips the stale row", Q.flagged(pz) == {"1-across": "arity_ins: x", "3-across": "model-fixable: x"})
+check("prune drops only the stale row",
+      PR.stale_ids(rows_, lambda pid: pz if pid == "stale-1" else None) == {"stale-1#2a"})
 
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)
