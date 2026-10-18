@@ -158,64 +158,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OBELISK",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places the rearranged letters between the outer pair"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "OBELISK",
+       "words": "Circle",
+       "at": 0,
+       "gives": "O",
+       "note": "a circle is round, like the letter O"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "moving",
-         "note": "moving letters around rearranges them"
+         "text": "in",
+         "at": 41,
+         "note": "in says the rearranged letters go inside the outer letters of Bank"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "OBELISK",
+         "op": "outer",
          "indicators": [
           {
-           "text": "apart from",
-           "note": "apart from means excluding, so that letter is removed"
+           "text": "bounds of",
+           "at": 44,
+           "note": "the bounds of a word are its first and last letters"
           }
          ],
          "parts": [
           {
-           "words": "Circle",
-           "gives": "O",
-           "note": "a circle is shaped like the letter O"
-          },
+           "words": "Bank",
+           "at": 54,
+           "note": "its first and last letters are B and K"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
           {
-           "words": "line's",
-           "note": "line with its s"
-          },
+           "text": "moving",
+           "at": 14,
+           "note": "moving, in the sense of shifting about, says the remaining letters are rearranged"
+          }
+         ],
+         "parts": [
           {
-           "words": "Northern",
-           "gives": "N",
-           "note": "N is the abbreviation for Northern"
-          },
-          {
-           "op": "outer",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "bounds of",
-             "note": "the bounds of a word are its first and last letters"
+             "text": "apart from",
+             "at": 21,
+             "note": "apart from means except, so the Northern letter is taken out"
             }
            ],
            "parts": [
             {
-             "words": "Bank",
-             "note": "first and last letters of Bank"
+             "words": "line's",
+             "at": 7,
+             "gives": "LINES",
+             "note": "the letters of line's, with the S kept"
+            },
+            {
+             "words": "Northern",
+             "at": 32,
+             "gives": "N"
             }
            ]
           }
@@ -226,14 +233,14 @@
      ]
     },
     "explanation": {
-     "surface": "A London Underground announcement: the Circle line is running, but not the Northern, between Bank and Monument stations.",
-     "walkthrough": "Circle, Northern, Bank and Monument are all London Underground names, which makes the clue read like a travel bulletin; only Monument is a definition.",
-     "definitionFit": "An obelisk is a tall tapering stone pillar erected as a monument or memorial."
+     "surface": "A London Underground journey: the Circle line moves away from the Northern line between Bank and Monument stations.",
+     "walkthrough": "Circle, Northern, Bank and Monument are all London Underground names, which is the misdirection; 'apart from Northern' removes an N, 'moving' jumbles what is left, and 'in bounds of Bank' puts it between that word's first and last letters.",
+     "definitionFit": "An obelisk is a tall tapering stone pillar put up as a memorial, so it is a kind of monument."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Monument"
+     "misdirectedWord": "Circle"
     }
    }
   },

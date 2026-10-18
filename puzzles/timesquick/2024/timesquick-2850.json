@@ -1346,47 +1346,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUSTY",
-     "indicators": [
-      {
-       "text": "missing half",
-       "note": "missing half means losing half its letters, so only part of the word stays"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Rugby",
+       "at": 0,
+       "gives": "RU",
+       "note": "RU is the abbreviation for Rugby Union"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing half",
+         "at": 12,
+         "note": "missing half means the word loses half its letters, here the second two"
+        }
+       ],
        "parts": [
         {
-         "words": "Rugby",
-         "gives": "RU",
-         "note": "RU is rugby union"
-        },
-        {
          "words": "star",
-         "gives": "ST",
-         "note": "the word cut down to its first half"
+         "at": 6,
+         "gives": "STAR",
+         "note": "the word star supplies the letters, cut in half"
         },
         {
-         "words": "year",
-         "gives": "Y",
-         "note": "Y is the abbreviation for year"
+         "gives": "AR"
         }
        ]
+      },
+      {
+       "words": "year",
+       "at": 25,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A top rugby player sidelined for six months has lost match sharpness.",
-     "walkthrough": "'Missing half year' reads as six months out injured, but the halving applies to the star and the year is only its abbreviation.",
-     "definitionFit": "Rusty describes skills that have deteriorated through lack of use, like metal corroding when left idle."
+     "surface": "A rugby star sidelined for six months has lost match sharpness.",
+     "walkthrough": "'Rugby star' reads as one person, but the words work separately, and 'missing half' applies only to the star; Rugby Union is the fifteen-a-side code of the sport.",
+     "definitionFit": "Rusty describes skills that have deteriorated through lack of use, so being out of practice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "missing"
+     "misdirectedWord": "star"
     }
    }
   },

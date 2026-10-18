@@ -453,70 +453,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "crossing",
-       "note": "One word crossing another sits across it."
+       "text": "missing",
+       "at": 39,
+       "note": "missing says the hotel letter is absent from the result"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "from the south",
-         "note": "In a down answer, read from the south means read from the bottom up."
+         "at": 23,
+         "note": "in a down answer, from the south means read from the bottom up, so the letters run backwards"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "op": "container",
          "indicators": [
           {
-           "text": "missing",
-           "note": "Missing a letter means it has gone."
+           "text": "crossing",
+           "at": 8,
+           "note": "crossing says the delayed phrase straddles the delta letter, which sits inside it"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Delayed",
-             "gives": "HELDUP",
-             "note": "held up means delayed"
-            },
-            {
-             "words": "missing hotel",
-             "gives": "ELDUP",
-             "note": "H, hotel in the radio alphabet, is dropped"
-            }
-           ]
+           "words": "Delayed",
+           "at": 0,
+           "gives": "HELDUP",
+           "note": "held up means delayed"
           },
           {
-           "gives": "HELDUP"
+           "words": "delta",
+           "at": 17,
+           "gives": "D",
+           "note": "Delta is the NATO alphabet word for D"
           }
          ]
-        },
-        {
-         "words": "delta",
-         "gives": "D",
-         "note": "radio alphabet"
         }
        ]
+      },
+      {
+       "words": "hotel",
+       "at": 47,
+       "gives": "H",
+       "note": "Hotel is the NATO alphabet word for H"
       }
      ]
     },
     "explanation": {
-     "surface": "A late-running traveller crossing the Nile delta from the south, having missed the hotel pool.",
-     "walkthrough": "Both delta and hotel are radio-alphabet letters, D and H, rather than places on a trip. ELDDUP read upward gives the answer.",
-     "definitionFit": "A plain synonym in the small sense: a little pool of rainwater on the ground."
+     "surface": "A traveller's report of a delay crossing a river delta and a hotel without a swimming pool.",
+     "walkthrough": "'crossing' puts D into HELD UP to give HELDDUP; 'from the south' turns that to PUDDLEH, and 'missing hotel' drops the H.",
+     "definitionFit": "A puddle is a small pool of water, typically left on the ground after rain."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hotel"
+     "misdirectedWord": "pool"
     }
    }
   },
@@ -623,36 +621,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RACKETEERING",
      "indicators": [
       {
        "text": "replaced by",
-       "note": "What is replaced is taken out and the new letter put in its place."
+       "at": 60,
+       "note": "replaced by says the named words are swapped out for the letter that follows"
       }
      ],
      "parts": [
       {
        "words": "wheel-turning mechanism",
+       "at": 23,
        "gives": "RACKANDPINIONSTEERING",
-       "note": "rack-and-pinion steering turns a car's front wheels"
+       "note": "rack and pinion steering is the mechanism that turns a car's front wheels"
       },
       {
        "words": "and pinions",
-       "gives": "RACKTEERING",
-       "note": "the run of letters AND PINIONS comes out, straddling the join into STEERING"
+       "at": 48,
+       "gives": "ANDPINIONS",
+       "note": "the words and pinion, plus the S that begins steering, are the stretch taken out"
       },
       {
-       "words": "rear of axle",
-       "gives": "E",
-       "note": "the last letter of axle goes into the gap"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear of",
+         "at": 72,
+         "note": "the rear of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "axle",
+         "at": 80,
+         "note": "its last letter is E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mechanic's note on reworking a steering system, with the pinions swapped for a part at the back of the axle.",
-     "walkthrough": "The clue's own 'and' is part of what is removed: AND PINIONS lifts out of RACK AND PINION STEERING, taking the S of STEERING with it.",
-     "definitionFit": "Racketeering is making money from illegal schemes such as extortion."
+     "surface": "A mechanic's note on a car's steering rack, with the pinions swapped for a part of the axle.",
+     "walkthrough": "Rack-and-pinion steering is the usual car steering system. Take ANDPINIONS out of RACK AND PINION STEERING and put E, the rear of axle, in its place.",
+     "definitionFit": "Racketeering is running a dishonest business, such as extortion, to make money unlawfully."
     },
     "features": {
      "answerInScene": false,
@@ -1007,55 +1018,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CONDEMNATORY",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 32,
+       "note": "to keep means to hold inside, so the other letters go within the conservatives"
+      },
+      {
+       "text": "apart",
+       "at": 58,
+       "note": "apart says the two conservative words are split with something between them"
+      }
+     ],
      "parts": [
       {
+       "words": "two conservatives",
+       "at": 40,
+       "gives": "CONTORY",
+       "note": "Con and Tory are both short words for a Conservative"
+      },
+      {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "to keep",
-         "note": "What keeps something holds it within."
-        },
-        {
-         "text": "apart",
-         "note": "Two things kept apart have something between them."
-        }
-       ],
        "parts": [
         {
-         "words": "two conservatives",
-         "gives": "CON",
-         "note": "Con, short for Conservative"
-        },
-        {
          "words": "democrat",
+         "at": 9,
          "gives": "DEM",
-         "note": "short for Democrat"
+         "note": "Dem is the US abbreviation for a Democrat"
         },
         {
          "words": "not available",
-         "gives": "NA",
-         "note": "the usual abbreviation"
-        },
-        {
-         "words": "two conservatives",
-         "gives": "TORY",
-         "note": "a Tory is a British Conservative"
+         "at": 18,
+         "gives": "NA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critical Democrat, too busy to be the go-between keeping two Conservatives apart.",
-     "walkthrough": "'Two conservatives' names two different words, and the democrat and 'not available' sit between them.",
-     "definitionFit": "Condemnatory remarks are critical, expressing condemnation."
+     "surface": "A Democrat is unavailable to separate two squabbling Conservatives, and someone is critical of it.",
+     "walkthrough": "'to keep' and 'apart' together say the abbreviations for democrat and not available sit between CON and TORY, two short words for a Conservative.",
+     "definitionFit": "Condemnatory means expressing strong disapproval, which is being critical of something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "available"
+     "misdirectedWord": "Critical"
     }
    }
   },
@@ -1458,43 +1466,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSTIL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "Shortly means in a shortened form, so a letter is cut off the end."
+       "text": "having left",
+       "at": 8,
+       "note": "having left means having on the left, so the home letters stand in front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "home",
+       "at": 20,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 26,
+         "note": "shortly says the word is cut short by its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "home",
-         "gives": "IN",
-         "note": "at home is in"
+         "words": "Not yet",
+         "at": 0,
+         "gives": "STILL",
+         "note": "still means up to now, as in not yet gone"
         },
         {
-         "words": "Not yet having left",
-         "gives": "STIL",
-         "note": "still, as in 'still here', cut short"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone still at home, told to pop round shortly.",
-     "walkthrough": "'Drop in' looks like a visit, but it is the literal sense of instil: to put in drop by drop.",
-     "definitionFit": "Instil comes from the Latin for putting in by drops, as with eye drops."
+     "surface": "Someone who has not yet left home is told to pop in briefly.",
+     "walkthrough": "'Not yet having left home' reads as one phrase, but 'having left' is positional: IN, for home, stands to the left of STIL, a shortened STILL.",
+     "definitionFit": "To instil is to introduce something gradually, originally by pouring it in drop by drop."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "drop"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -2198,44 +2216,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLDWORLD",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in says the whiskey letter is placed inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in"
-        },
-        {
          "text": "transported",
-         "note": "Letters that are transported are carried to new positions."
+         "at": 28,
+         "note": "transported means carried off somewhere else, so the letters of odd roll move into a new order"
         }
        ],
        "parts": [
         {
          "words": "odd roll",
-         "note": "ODD ROLL rearranged"
-        },
-        {
-         "words": "whiskey",
-         "gives": "W",
-         "note": "radio alphabet"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "whiskey",
+       "at": 8,
+       "gives": "W",
+       "note": "Whiskey is the NATO alphabet word for W"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange bread roll with whisky in it, imported from Asia.",
-     "walkthrough": "'Odd' is not the anagram signal here; it is fodder, and 'transported' does the rearranging.",
-     "definitionFit": "The Old World is Europe, Asia and Africa, as against the Americas."
+     "surface": "A curious bread roll with whisky inside, shipped over from Eurasia.",
+     "walkthrough": "'transported' rearranges ODD ROLL and 'in' slips W into the result. The Old World is Europe, Asia and Africa, as opposed to the Americas.",
+     "definitionFit": "Old-world describes things belonging to the eastern hemisphere, especially Europe and Asia, rather than the Americas."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "whiskey"
+     "joke": "absurd",
+     "misdirectedWord": "transported"
     }
    }
   },
@@ -3287,48 +3310,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOOTHPASTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "rude",
-       "note": "Something rude is rough and unrefined, so the letters are knocked out of order."
+       "text": "about",
+       "at": 19,
+       "note": "about means around, so the judgment word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Aesthetic judgment",
+       "at": 0,
+       "gives": "TASTE",
+       "note": "taste is the faculty of aesthetic judgment"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "One word about another goes round it."
+         "text": "rude",
+         "at": 25,
+         "note": "rude, in the sense of rough and unrefined, signals the letters of photo are roughly rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Aesthetic judgment",
-         "gives": "TASTE",
-         "note": "good taste is a matter of aesthetic judgment"
-        },
-        {
-         "words": "rude photo",
-         "gives": "OOTHP",
-         "note": "PHOTO rearranged"
+         "words": "photo",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic's verdict on an indecent picture painted with a brush.",
-     "walkthrough": "'Rude photo' is not a saucy picture: 'rude' shakes up PHOTO.",
-     "definitionFit": "A description: it is squeezed onto the brush, so it is applied with brushing."
+     "surface": "Someone passes aesthetic judgment on a rude photograph.",
+     "walkthrough": "'rude' seems to describe the photo, but it is the anagram signal; 'about' wraps the word for aesthetic judgment around the jumbled letters, and the definition is the closing phrase about brushing.",
+     "definitionFit": "Toothpaste is the paste squeezed onto a toothbrush, so it is what is used when cleaning the teeth."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "rude"
+     "misdirectedWord": "brushing"
     }
    }
   },

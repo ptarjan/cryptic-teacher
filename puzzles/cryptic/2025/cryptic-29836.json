@@ -340,54 +340,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COSTARICAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "being brief means cutting short, so the word loses its final letter"
+       "text": "into",
+       "at": 19,
+       "note": "into says the celebrity word goes inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "into",
-         "note": "going into something means sitting inside it"
+         "text": "abusing",
+         "at": 24,
+         "note": "abusing a drug mistreats it, so the letters are knocked into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "abusing",
-           "note": "abusing something is mistreating it, so its letters are knocked into a new order"
+           "text": "briefly",
+           "at": 40,
+           "note": "briefly means the word is cut short, losing its final letter"
           }
          ],
          "parts": [
           {
            "words": "cocaine",
-           "gives": "COCAIN",
-           "note": "the drug without its last letter"
+           "at": 32,
+           "note": "the drug name supplies the letters, minus its last one"
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "celebrity",
-         "gives": "STAR",
-         "note": "a celebrity is a star"
         }
        ]
+      },
+      {
+       "words": "celebrity",
+       "at": 9,
+       "gives": "STAR",
+       "note": "a celebrity is a star"
       }
      ]
     },
     "explanation": {
-     "surface": "A US celebrity is into abusing cocaine for a short while.",
-     "walkthrough": "'American' looks like it means someone from the US, but Central Americans count too; STAR goes into a jumble of COCAIN.",
-     "definitionFit": "Costa Rica lies in Central America, so a person from there is an American in the continental sense."
+     "surface": "A US film star is said to have a cocaine habit, though only for a short while.",
+     "walkthrough": "'American' looks like part of the celebrity's description, but it is the definition: Costa Rica is in Central America.",
+     "definitionFit": "A Costa Rican is a native of a Central American country, so is American in the continental sense."
     },
     "features": {
      "answerInScene": false,
@@ -1050,40 +1055,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "Changing",
+       "at": 25,
+       "note": "changing here means the two leading letters trade places in the word that follows"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "marking time",
-       "note": "these two words only supply their initials, M and T, to say which letters trade places"
-      },
-      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "STARMER",
        "indicators": [
         {
-         "text": "Changing",
-         "note": "changing things over means swapping their places, so two letters exchange positions"
-        },
-        {
          "text": "leaders",
-         "note": "leaders are the front runners, so it is the first letters of the nearby words that are swapped"
+         "at": 34,
+         "note": "leaders points to the first letters of the words marking and time"
         }
        ],
        "parts": [
         {
          "words": "smarter",
-         "note": "taken as written; its M and T trade places"
+         "at": 51,
+         "note": "the word smarter supplies the letters to be altered"
+        },
+        {
+         "words": "marking",
+         "at": 11,
+         "gives": "M",
+         "note": "its leader, the first letter, is M"
+        },
+        {
+         "words": "time",
+         "at": 19,
+         "gives": "T",
+         "note": "its leader, the first letter, is T"
         }
        ]
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe at a politician doing nothing much: replacing the party leader would be the smarter move.",
-     "walkthrough": "Keir Starmer is the UK Labour leader; 'marking time' hints at swapping the M and the T, the leading letters of 'marking' and 'time'.",
-     "definitionFit": "Keir Starmer is a British Labour politician who became Prime Minister of the United Kingdom in 2024."
+     "surface": "A politician accused of merely marking time is told a change at the top would be smarter.",
+     "walkthrough": "'leaders' picks M and T from 'marking time', and 'Changing' swaps them: SMARTER becomes STARTER, then the second T becomes M. Keir Starmer became UK Prime Minister in 2024.",
+     "definitionFit": "Keir Starmer is the Labour leader and UK Prime Minister, an example of a politician."
     },
     "features": {
      "answerInScene": true,

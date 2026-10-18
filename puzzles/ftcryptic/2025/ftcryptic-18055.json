@@ -377,68 +377,76 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RECEIVE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "crushed",
-       "note": "crushed ice is broken up, so its letters are rearranged"
+       "text": "before",
+       "at": 37,
+       "note": "before puts the reverend group ahead of the next letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "the start of",
-         "note": "the start of a word is its first letter, added here at the end"
+         "text": "choking on",
+         "at": 14,
+         "note": "someone choking on something has it stuck inside them, so the crushed letters go within the reverend"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "reverend",
+         "at": 5,
+         "gives": "REV"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "choking on",
-           "note": "something choking on food has it stuck inside its throat, so one piece sits within another"
+           "text": "crushed",
+           "at": 25,
+           "note": "crushed ice is broken up, so its letters are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "reverend",
-           "gives": "REV",
-           "note": "Rev is the abbreviation for Reverend"
-          },
-          {
            "words": "ice",
-           "note": "ice with its letters jumbled"
+           "at": 33
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "evensong",
-           "note": "first letter of evensong"
-          }
-         ]
+         "text": "the start of",
+         "at": 44,
+         "note": "the start of picks out the first letter of evensong"
+        }
+       ],
+       "parts": [
+        {
+         "words": "evensong",
+         "at": 57,
+         "note": "its first letter is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vicar chokes on crushed ice just before evening service begins.",
-     "walkthrough": "'Hear' looks like the start of a sentence about listening to the vicar, but it is the definition, in the sense of hearing a confession.",
-     "definitionFit": "To hear a case or a confession is to receive it, as a court or priest formally takes in what is presented."
+     "surface": "A vicar chokes on a crushed-ice drink just before the evening service begins.",
+     "walkthrough": "'Hear' looks like a command to listen to the reverend, but it is the definition; 'crushed' jumbles the ice inside the vicar's short title, and 'the start of evensong' supplies the final letter.",
+     "definitionFit": "To receive and to hear both mean to take in a signal or message, as in receiving a radio broadcast."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Hear"
+     "misdirectedWord": "crushed"
     }
    }
   },
@@ -463,36 +471,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AQUAS",
-     "indicators": [
-      {
-       "text": "peeled",
-       "note": "peeling removes the outer skin, so the first and last letters are taken off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 23
       },
       {
-       "words": "16",
-       "gives": "SQUASH",
-       "note": "16 Down's answer is a vegetable, here a squash"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "peeled",
+         "at": 25,
+         "note": "a peeled vegetable has lost its skin, so the word loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "16",
+         "at": 32,
+         "gives": "SQUASH",
+         "note": "16 Down is vegetable, and a squash is one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dyes obtained from a peeled vegetable.",
-     "walkthrough": "The cross-reference points at 16 Down's answer as a category, so the solver must pick a particular vegetable: SQUASH, peeled to QUAS.",
-     "definitionFit": "Aqua is a light greenish-blue shade, so aquas are colours."
+     "surface": "Dyes or pigments drawn out of a vegetable after its skin is taken off.",
+     "walkthrough": "'a peeled 16' means a vegetable (the answer to 16 Down) with its skin off: SQUASH, peeled to QUAS, after A.",
+     "definitionFit": "Aqua is a greenish-blue shade, so aquas are colours of that kind."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "extracted"
+     "misdirectedWord": "peeled"
     }
    }
   },
@@ -1496,40 +1509,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "tight",
-       "note": "tight is slang for drunk, and drunk letters stagger into a new order"
+       "text": "wearing",
+       "at": 35,
+       "note": "something worn has the wearer inside it, so the saint goes inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "something worn is surrounded by the clothing, so one piece sits inside the other"
+         "text": "tight",
+         "at": 43,
+         "note": "tight is slang for drunk, which signals the letters of lycra stagger into a new order"
         }
        ],
        "parts": [
         {
          "words": "lycra",
-         "note": "lycra with its letters rearranged"
-        },
-        {
-         "words": "Mother Theresa, perhaps",
-         "gives": "ST",
-         "note": "Mother Teresa was canonised, so she is an example of a saint, ST"
+         "at": 49
         }
        ]
+      },
+      {
+       "words": "Mother Theresa, perhaps",
+       "at": 8,
+       "gives": "ST",
+       "note": "Mother Teresa was canonised, so she is an example of a saint, abbreviated St"
       }
      ]
     },
     "explanation": {
-     "surface": "A provocative image of a saintly nun in tight-fitting lycra.",
-     "walkthrough": "'tight' looks like it describes the lycra, but it is the slang word for drunk.",
-     "definitionFit": "Crystal is a woman's first name, so the answer can stand for a woman in crossword style."
+     "surface": "An absurd image of the revered nun squeezed into skintight Lycra.",
+     "walkthrough": "Mother Teresa, the Calcutta nun, was made a saint in 2016, hence ST. 'tight' is the anagram signal, not a description of the lycra.",
+     "definitionFit": "Crystal is a female given name, so it can stand for a woman in the crossword sense."
     },
     "features": {
      "answerInScene": false,
