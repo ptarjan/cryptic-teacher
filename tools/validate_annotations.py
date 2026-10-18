@@ -3970,6 +3970,9 @@ NESTED_CONTAINER = "container whose holder is itself a container"
 #: another op (times-29420 16d: "End of", a letter selection's, on the charade) is on
 #: the wrong op. Needs a 50-use lexicon entry for the other op and none for this one.
 MISPLACED_INDICATOR = "indicator filed on an op it does not signal"
+#: The lexicon is rebuilt nightly, so a word can cross this and flag puzzles that were clean;
+#: tools/requeue_drift.py (run by the rebuild, and by hand after editing any rule) queues
+#: those clues and raises their allowance so the deploy does not go red.
 MISPLACED_MIN_USES = 200
 #: Plain ordering / juxtaposition words that setters put on a charade as often as on
 #: the op the lexicon knows them for ("at first", "opening", "off", "taking",
