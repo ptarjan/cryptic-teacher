@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -491,37 +492,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FRENCHPOLISH",
+     "op": "cycling",
      "indicators": [
       {
-       "text": "transposed",
-       "note": "Transposing two things exchanges their places, so the two halves of the description swap ends."
+       "text": "elements of",
+       "at": 11,
+       "note": "the parts of the description, its two words, are what get moved"
+      },
+      {
+       "text": "are transposed",
+       "at": 57,
+       "note": "to transpose is to swap the order, so the two halves of the description change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "elements of Marie Curie's typical description",
-         "gives": "FRENCH",
-         "note": "she took the nationality of her adopted country, so she is usually labelled by two nationality adjectives, birth nation first; swap them round"
-        },
-        {
-         "words": "elements of Marie Curie's typical description",
-         "gives": "POLISH",
-         "note": "she was born Maria Skłodowska in Warsaw, which is the front half of that label"
-        }
-       ]
+       "words": "Marie Curie's typical description",
+       "at": 23,
+       "gives": "POLISHFRENCH",
+       "note": "Marie Curie is usually described as a Polish-French physicist: born in Poland, she worked and took citizenship in France"
       }
      ]
     },
     "explanation": {
-     "surface": "The two-nationality label usually hung on Marie Curie, and what happens when its halves change places.",
-     "walkthrough": "'Elements' is the joke — she discovered polonium and radium, and named polonium after her birthplace. 'Finish' looks like the end of something and turns out to be a substance.",
-     "definitionFit": "French polish is the shellac coating rubbed into wood in many thin layers, so 'Finish' names the surface treatment rather than an ending."
+     "surface": "The biography of Marie Curie ends with a question over how her nationality should be stated.",
+     "walkthrough": "Marie Curie was born in Warsaw and became a French citizen, so she is called Polish-French. 'elements of' (a nod to her chemistry) and 'are transposed' swap those two words round.",
+     "definitionFit": "French polish is a glossy shellac finish applied to fine wooden furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "elements"
     }
    }
   },
@@ -793,49 +795,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Most of a word is all of it bar the last letter, so only the opening pair of this one is wanted."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "stolen",
-         "note": "What is stolen is carried off, so those two letters disappear from the word they were sitting in."
+         "at": 30,
+         "note": "the shortened word is taken away from the car name, as if pinched"
         }
        ],
        "parts": [
         {
-         "words": "are mostly",
-         "gives": "AR",
-         "note": "'are' docked of its final letter, and this pair is what gets taken"
-        },
-        {
          "words": "Ferraris",
-         "gives": "FERRIS",
-         "note": "the sports-car marque with that pair lifted out of its middle"
+         "at": 0,
+         "note": "taken as written"
         },
         {
-         "words": "Rolls",
-         "gives": "WHEELS",
-         "note": "a Rolls is a motor car, and the capital letter marks it as one example of the slang plural for cars"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 23,
+           "note": "most of the word is kept, its final letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "are",
+           "at": 19,
+           "note": "taken as written"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       },
       {
-       "gives": "AR"
+       "words": "Rolls",
+       "at": 13,
+       "gives": "WHEELS",
+       "note": "to roll something along is to wheel it, so rolls means wheels"
       }
      ]
     },
     "explanation": {
-     "surface": "Expensive cars being taken without permission by people who only want to drive them fast.",
-     "walkthrough": "'Joy rides' is the pivot — joyriding in a stolen car on the surface, a paying fairground customer in the answer. 'Rolls' keeps its capital to flag an example.",
-     "definitionFit": "A Ferris wheel is the giant upright fairground wheel with hanging cars, ridden purely for the fun of it — joy rides in the fairground sense."
+     "surface": "Luxury cars get nicked by joyriders.",
+     "walkthrough": "'Ferraris and Rolls' looks like a list of supercars (Rolls being a Rolls-Royce), but Rolls is the verb. 'mostly' cuts 'are' to AR, which is 'stolen' from FERRARIS to leave FERRIS.",
+     "definitionFit": "A Ferris wheel is a big fairground wheel ridden purely for pleasure, hence a 'joy ride'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rolls"
     }
    }
   },

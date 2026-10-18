@@ -366,43 +366,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HIATUS",
+     "op": "composite",
      "indicators": [
       {
        "text": "ground",
-       "note": "something ground is crushed into pieces, so the letters come out reshaped"
+       "at": 8,
+       "note": "something ground is crushed and broken up, so the letters are rearranged"
+      },
+      {
+       "text": "to be extracted",
+       "at": 30,
+       "note": "the named letters are taken out of the larger word's pool before the shuffle"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HIATUS",
-       "indicators": [
-        {
-         "text": "to be extracted",
-         "note": "extracting removes material, so some letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "authorise",
-         "note": "taken as written"
-        },
-        {
-         "words": "ore",
-         "note": "these three letters are removed"
-        }
-       ]
+       "words": "authorise",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "words": "ore",
+       "at": 26,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Breaking ground at a mine, with permission given to dig out the ore.",
-     "walkthrough": "Remove O, R, E from AUTHORISE to leave AUTHIS, then rearrange. 'Ground' looks like soil in a mining picture, but it is the past tense of grind.",
-     "definitionFit": "A hiatus is a gap or break, so it can mean an aperture or opening as well as a pause."
+     "surface": "A mining company breaks ground, authorising ore to be dug out.",
+     "walkthrough": "'ground' and 'to be extracted' sound like mining, but take the letters O, R, E out of AUTHORISE and rearrange the remaining AUTHIS.",
+     "definitionFit": "A hiatus is a gap or break, an opening in a sequence or surface."
     },
     "features": {
      "answerInScene": false,
@@ -719,45 +712,56 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TALKDOWNTO",
-     "indicators": [
-      {
-       "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so initial sounds trade places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "lecture",
+       "at": 10,
+       "gives": "TALK",
+       "note": "a talk is a lecture"
+      },
+      {
+       "op": "spoonerism",
+       "indicators": [
+        {
+         "text": "Spooner's",
+         "at": 21,
+         "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two words change places"
+        }
+       ],
        "parts": [
         {
-         "words": "lecture",
-         "gives": "TALK",
-         "note": "a lecture is a talk"
+         "words": "municipal",
+         "at": 31,
+         "gives": "TOWN",
+         "note": "a municipal matter belongs to the town"
         },
         {
-         "unchecked": true,
-         "words": "municipal party",
-         "gives": "DOWNTO",
-         "soundsLike": "TOWN DO",
-         "note": "a town do is a civic party; swap its first sounds"
+         "op": "homophone",
+         "spelt": "DO",
+         "parts": [
+          {
+           "words": "party",
+           "at": 41,
+           "gives": "DOO",
+           "note": "a do is an informal word for a party, said to rhyme with 'too'"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A condescending speech given at the town council's party.",
-     "walkthrough": "TOWN DO, with T and D exchanged, becomes DOWN TO. 'Do' is British slang for a party.",
-     "definitionFit": "To speak to someone condescendingly as if they were less intelligent is the idiom for being patronising."
+     "surface": "A condescending speech given at a civic function.",
+     "walkthrough": "A town do (a party for the municipality, 'do' said like 'doo'), with its initial sounds swapped by 'Spooner's', is said 'down too', spelt DOWN TO.",
+     "definitionFit": "To talk down to someone is to address them condescendingly, which is exactly to patronise."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "lecture"
+     "joke": "pun",
+     "misdirectedWord": "party"
     }
    }
   },
@@ -1155,7 +1159,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means being enclosed by it, so one part goes inside"
+       "at": 29,
+       "note": "the quadruplet is placed inside the other letters"
       }
      ],
      "parts": [
@@ -1164,26 +1169,23 @@
        "parts": [
         {
          "words": "southern",
-         "gives": "S",
-         "note": "S is the abbreviation for southern"
+         "at": 32,
+         "gives": "S"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "RON",
          "indicators": [
           {
            "text": "that's shelled",
-           "note": "shelling a nut strips its outer casing, leaving only the inner letters"
+           "at": 47,
+           "note": "a shelled thing loses its outer casing, so the word drops its first and last letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "front",
-           "gives": "RON",
-           "select": "middle",
-           "note": "the word without its outer letters"
+           "at": 41,
+           "note": "taken as written"
           }
          ]
         }
@@ -1191,20 +1193,20 @@
       },
       {
        "words": "one of four",
+       "at": 17,
        "gives": "QUAD",
        "note": "a quad is a quadruplet, one of four babies born together"
       }
      ]
     },
     "explanation": {
-     "surface": "A wartime army unit pinned down by artillery on the southern front.",
-     "walkthrough": "'Shelled' suggests bombardment in the military picture; it means peeled, so the word loses its outer letters.",
-     "definitionFit": "A squadron is a body of troops, ships or aircraft, a standard division within the armed forces."
+     "surface": "A soldier from a four-man team is shelled on the southern front.",
+     "walkthrough": "'that's shelled' looks like wartime bombardment but strips a word of its outer letters; 'in' then puts the quadruplet between the S and the stripped front.",
+     "definitionFit": "A squadron is a unit of an air force, cavalry regiment or navy, a military formation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "shelled"
     }
    }
