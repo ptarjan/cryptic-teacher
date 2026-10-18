@@ -414,36 +414,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NEALED",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is swapped in, so one letter replaces another"
+       "at": 5,
+       "note": "name for son means the name letter replaces the son letter"
       }
      ],
      "parts": [
       {
-       "words": "Name",
-       "gives": "N",
-       "note": "N is the abbreviation for name"
+       "words": "secured",
+       "at": 13,
+       "gives": "SEALED",
+       "note": "sealed means secured, closed fast"
       },
       {
        "words": "son",
+       "at": 9,
        "gives": "S",
-       "note": "S is the abbreviation for son"
+       "note": "S is the genealogical abbreviation for son"
       },
       {
-       "words": "secured",
-       "gives": "SEALED",
-       "note": "secured, closed fast"
+       "words": "Name",
+       "at": 0,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A boy's name is fixed and hardened, as if by deed poll.",
-     "walkthrough": "N replaces the S at the head of SEALED.",
-     "definitionFit": "Neal is an old short form of anneal, to temper glass or metal by heating, so nealed means toughened."
+     "surface": "A name is put down for a son, and the deal is secured and made firm.",
+     "walkthrough": "Take SEALED, secured, and put N (Name) 'for' S (son). Nealed is an old word for annealed, metal toughened by heating and slow cooling.",
+     "definitionFit": "To neal is an archaic form of anneal, the process of heating and gradually cooling glass or metal to harden it."
     },
     "features": {
      "answerInScene": false,
@@ -595,39 +596,38 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EMMET",
      "indicators": [
       {
        "text": "to be upset",
-       "note": "upset means turned over, which in a down entry flips the letters so they read upwards"
+       "at": 42,
+       "note": "in a down clue upset turns the remaining letters upside down, so they read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EMMET",
+       "op": "middle",
        "indicators": [
         {
          "text": "not the first or last",
-         "note": "this tells you to drop the opening and closing letters of the word before"
+         "at": 20,
+         "note": "not the first or last says the word loses both its end letters"
         }
        ],
        "parts": [
         {
          "words": "restricted",
+         "at": 8,
          "gives": "STEMMED",
-         "note": "stemmed, as in held back a flow"
+         "note": "stemmed means restricted, as when a flow is stemmed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holidaymaker, hemmed in by rules, becomes thoroughly annoyed.",
-     "walkthrough": "Emmet is Cornish dialect for a tourist (originally an ant), a mildly scornful local word.",
-     "definitionFit": "In Cornwall emmet is the local slang for a visiting tourist, likened to a swarming ant."
+     "surface": "A tourist finds their access limited, and nobody, first or last, wants to be put out.",
+     "walkthrough": "STEMMED, restricted, with 'not the first or last' letter gives TEMME, which is 'upset' to read backwards. In Cornwall an emmet, dialect for ant, is a disparaging name for a holidaymaker.",
+     "definitionFit": "Emmet is Cornish slang for a visiting holidaymaker, from the dialect word for an ant, likening swarming summer crowds to ants."
     },
     "features": {
      "answerInScene": false,
@@ -1314,49 +1314,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELTCHI",
+     "op": "composite",
      "indicators": [
       {
        "text": "abroad",
-       "note": "abroad means scattered widely, so the letters are spread into a new order"
+       "at": 8,
+       "note": "abroad means scattered widely, so the letters of the word before it are spread into a new order"
+      },
+      {
+       "text": "Not",
+       "at": 16,
+       "note": "not says the letter for acting is excluded from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELTCHI",
-       "indicators": [
-        {
-         "text": "Not",
-         "note": "not having something means it is omitted, so one letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Ethical",
-         "note": "taken as written"
-        },
-        {
-         "words": "acting",
-         "gives": "A",
-         "note": "A is the abbreviation for acting"
-        }
-       ]
+       "words": "Ethical",
+       "at": 0
+      },
+      {
+       "words": "acting",
+       "at": 20,
+       "gives": "A",
+       "note": "a is the Chambers abbreviation for acting, as in an acting post"
       }
      ]
     },
     "explanation": {
-     "surface": "A diplomat posted overseas is upright and sincere, not putting on an act.",
-     "walkthrough": "'Not acting ambassador' looks like a permanent envoy, but 'Not acting' drops the A.",
-     "definitionFit": "Eltchi is a Turkish word for an ambassador or envoy, found in Chambers."
+     "surface": "Is it ethical overseas for someone merely acting as an ambassador?",
+     "walkthrough": "'Not acting' removes A from ETHICAL, leaving ETHICL, and 'abroad' rearranges those six letters. Eltchi is a Turkish word for an ambassador, found in Chambers.",
+     "definitionFit": "An eltchi is an envoy or ambassador, from Turkish, a word used for diplomats at the Ottoman court."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "acting"
+     "misdirectedWord": "abroad"
     }
    }
   },
