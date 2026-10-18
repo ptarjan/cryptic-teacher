@@ -694,30 +694,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "about",
        "at": 40,
-       "note": "about here means next to or around the work, the new letter standing just in front of it"
+       "note": "about means going around, so the turned ex and her work together surround the new letter"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "When reviewing",
-         "at": 0,
-         "note": "reviewing read as re-viewing, looking back, so the word is read backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "I used to love her",
-         "at": 16,
-         "gives": "EX",
-         "note": "a former partner is an ex"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "When reviewing",
+           "at": 0,
+           "note": "reviewing suggests looking back over something, so the ex-partner's letters are read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "I used to love her",
+           "at": 16,
+           "gives": "EX",
+           "note": "a woman the speaker used to love is an ex"
+          }
+         ]
+        },
+        {
+         "words": "work",
+         "at": 35,
+         "gives": "OPUS",
+         "note": "opus is Latin for a work, especially a musical composition"
         }
        ]
       },
@@ -725,22 +736,15 @@
        "words": "new",
        "at": 46,
        "gives": "N"
-      },
-      {
-       "words": "work",
-       "at": 35,
-       "gives": "OPUS",
-       "note": "opus is Latin for a work, especially a musical one"
       }
      ]
     },
     "explanation": {
-     "surface": "A man looks back on a former love's work concerning a new kind of frog.",
-     "walkthrough": "Xenopus, the African clawed frog, is the genus widely used in laboratories; the frog is the definition, not part of the reminiscence.",
-     "definitionFit": "Xenopus is the scientific genus name of the African clawed frogs, widely used in biological research."
+     "surface": "Someone looking back at an old flame's writing about a newly named genus of frogs.",
+     "definitionFit": "Xenopus is the genus of African clawed frogs, much used in laboratory research."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "reviewing"
     }
@@ -1138,50 +1142,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "Initially means at the start, so only the opening letter of the word in front of it is taken."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 15,
+         "note": "round means the verb's letters are placed around the hotel letter"
+        }
+       ],
        "parts": [
         {
          "words": "Moves casually",
+         "at": 0,
          "gives": "TOOTLES",
-         "note": "to tootle is to travel in an unhurried way, as in tootling down the lane"
+         "note": "to tootle is to move along in a leisurely, unhurried way"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "round",
-           "note": "Going round a thing is going about it on every side, so the word before closes over the letter that comes next."
-          }
-         ],
-         "parts": [
-          {
-           "words": "hotel",
-           "note": "H is hotel in the NATO alphabet"
-          }
-         ]
+         "words": "hotel",
+         "at": 21,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
         }
        ]
       },
       {
-       "words": "speed",
-       "gives": "S",
-       "note": "the opening letter of the word"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 34,
+         "note": "initially means only the opening letter of speed is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speed",
+         "at": 28,
+         "gives": "S",
+         "note": "first letter of speed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A leisurely amble around a hotel, with speed nowhere in the picture.",
-     "walkthrough": "Nothing in the surface suggests teeth: the hotel and the speed build a picture of somebody dawdling, and 'being' is joinery holding that picture against the definition.",
-     "definitionFit": "Toothless means unable to bite, and so, of a law or a watchdog or a threat, unable to have any effect at all."
+     "surface": "A sluggish traveller dawdling around a hotel, proving useless.",
+     "definitionFit": "Toothless is used figuratively of a law or body lacking any power to bite, that is, ineffective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hotel"
     }
    }
   },
