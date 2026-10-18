@@ -49,47 +49,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCTICCIRCLE",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced has been cut down, so the word for frozen water loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "curve",
+       "at": 29,
+       "gives": "ARC",
+       "note": "an arc is a curve"
+      },
+      {
+       "words": "Temperature",
+       "at": 0,
+       "gives": "T"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 14,
+         "note": "reduced means cut down, so ice loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "curve",
-         "gives": "ARC",
-         "note": "an arc is a curved line"
-        },
-        {
-         "words": "Temperature",
-         "gives": "T",
-         "note": "T is the standard abbreviation for temperature"
-        },
-        {
          "words": "ice",
-         "gives": "IC",
-         "note": "ice with its last letter cut off"
+         "at": 22,
+         "gives": "ICE",
+         "note": "ice, shortened by one letter"
         },
         {
-         "words": "round",
-         "gives": "CIRCLE",
-         "note": "a round shape is a circle"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "round",
+       "at": 35,
+       "gives": "CIRCLE",
+       "note": "a circle is a round, a ring shape"
       }
      ]
     },
     "explanation": {
-     "surface": "Talk of a polar region where cold slackens and the ice lies in a sweeping bend.",
-     "walkthrough": "The pieces read ARC + T + IC + CIRCLE; 'in' only loosely places the temperature-and-ice part beside the curve.",
-     "definitionFit": "The Arctic Circle is the line of latitude that bounds the polar region at the top of the globe."
+     "surface": "A climate note: as temperatures fall, ice forms around the top of the globe.",
+     "walkthrough": "The 's after Temperature stands for has: temperature has reduced ice, T then IC, all after ARC. 'round' looks like a containment signal but simply gives CIRCLE.",
+     "definitionFit": "The Arctic Circle is the line of latitude marking the boundary of the polar region at the top of the Earth."
     },
     "features": {
      "answerInScene": true,
@@ -1563,58 +1568,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BETWEEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means cut off, so the last letter of the word is lost"
+       "text": "interrupted by",
+       "at": 31,
+       "note": "interrupted means broken into, so the shortened word breaks into the other two pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "live",
+         "at": 17,
+         "gives": "BE",
+         "note": "to be is to live or exist"
+        },
+        {
+         "words": "number",
+         "at": 22,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "interrupted by",
-         "note": "something interrupted is broken into, so another piece lands in the middle"
+         "text": "short",
+         "at": 46,
+         "note": "short means cut off, so the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "live",
-           "gives": "BE",
-           "note": "to live is to be, to exist"
-          },
-          {
-           "words": "number",
-           "gives": "N",
-           "note": "N is the abbreviation for number"
-          }
-         ]
+         "words": "Twitter comment",
+         "at": 52,
+         "gives": "TWEET",
+         "note": "a tweet is a post on Twitter"
         },
         {
-         "words": "Twitter comment",
-         "gives": "TWEE",
-         "note": "a Twitter comment is a tweet, here missing its last letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "During a concert's interval, a live music number is interrupted by a quick social media post.",
-     "walkthrough": "'interval' suggests the break at a show, but the definition is a preposition: in between.",
-     "definitionFit": "Between means in the space separating two things, which is the interval."
+     "surface": "A live music act's performance is cut into by a brief social-media post.",
+     "walkthrough": "'number' looks like a song in a live set, but it is just N; 'short' trims tweet to TWEE, which interrupts BE and N.",
+     "definitionFit": "Between can mean in the intervening time or space, as in 'meals with snacks between'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "live"
+     "aptDefinition": false,
+     "misdirectedWord": "number"
     }
    }
   },
@@ -1646,12 +1656,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "USERFRIENDLY",
      "indicators": [
       {
        "text": "getting into",
-       "note": "getting into something means ending up inside it"
+       "at": 24,
+       "note": "getting into means entering, so the word for mate goes inside the rearranged letters"
       }
      ],
      "parts": [
@@ -1660,27 +1669,30 @@
        "indicators": [
         {
          "text": "trouble",
-         "note": "a word in trouble is in disorder, so its letters are thrown about"
+         "at": 37,
+         "note": "trouble, as in a troubled or disturbed state, signals that the letters of surely are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "mate",
-         "gives": "FRIEND",
-         "note": "a mate is a friend"
-        },
-        {
          "words": "surely",
-         "note": "the word's letters rearranged"
+         "at": 46,
+         "note": "used as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "mate",
+       "at": 19,
+       "gives": "FRIEND",
+       "note": "a mate is a friend"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone surprised that their friend could be in trouble asks for reassurance.",
-     "walkthrough": "'mate' is British slang for a friend.",
-     "definitionFit": "Something user-friendly is designed so that ordinary people find it simple to use and grasp."
+     "surface": "A worried question about whether a pal has landed in difficulty.",
+     "walkthrough": "In the surface the mate is the one in trouble; cryptically 'trouble' rearranges surely, and 'getting into' places the mate's synonym inside the result.",
+     "definitionFit": "User-friendly describes something designed to be simple for ordinary people to use or follow."
     },
     "features": {
      "answerInScene": false,

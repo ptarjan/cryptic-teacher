@@ -200,45 +200,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LECTERN",
      "indicators": [
       {
        "text": "With no leaders",
-       "note": "each of the next three words loses its first letter"
+       "at": 0,
+       "note": "each of the three words loses its leader, its opening letter, so the first letters of elect, her and in are dropped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "elect",
-         "gives": "LECT",
-         "note": "elect without its first letter"
-        },
-        {
-         "words": "her",
-         "gives": "ER",
-         "note": "her without its first letter"
-        },
-        {
-         "words": "in",
-         "gives": "N",
-         "note": "in without its first letter"
-        }
-       ]
+       "words": "elect her in",
+       "at": 17,
+       "note": "the three words run together before their first letters go"
+      },
+      {
+       "gives": "EHI"
       }
      ]
     },
     "explanation": {
-     "surface": "A call to elect a woman to a leading post in a party that has lost its leaders.",
-     "walkthrough": "'Leaders' reads as party bosses; it means the first letters of the three words that follow.",
-     "definitionFit": "A lectern is the stand a speaker reads from, so it is where the speaker is positioned."
+     "surface": "An instruction to vote a woman into office even though the leading candidates have dropped out.",
+     "walkthrough": "'With no leaders' applies to each word: elect loses E to give LECT, her loses H to give ER, and in loses I to give N.",
+     "definitionFit": "A lectern is the stand a speaker reads from, so it is literally where the lecturer stands to talk."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "leaders"
     }
    }
@@ -2818,48 +2805,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UFOLOGY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about means surrounding, so the rearranged Guy goes around the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "upset",
-         "note": "to upset something is to knock it over into disorder, so GUY's letters are jumbled"
-        },
-        {
-         "text": "about",
-         "note": "'about' means surrounding, so the jumbled GUY goes round the rest"
-        },
-        {
-         "text": "crazy",
-         "note": "crazy means disordered in the mind, so FOOL's letters are jumbled"
+         "at": 4,
+         "note": "upset means knocked into disorder, so the letters of Guy are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Guy",
-         "note": "the letters of guy, jumbled and split round the rest"
-        },
+         "at": 0,
+         "note": "used as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crazy",
+         "at": 16,
+         "note": "crazy suggests something deranged, so the letters of fool are jumbled"
+        }
+       ],
+       "parts": [
         {
          "words": "fool",
-         "note": "the letters of fool, jumbled"
+         "at": 22,
+         "note": "used as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man upset by a crazy idiot's research into aliens.",
-     "walkthrough": "'Mysterious visitors' are aliens in flying saucers, unidentified flying objects.",
-     "definitionFit": "A descriptive definition: 'mysterious visitors' stands for the aliens believed to fly unidentified craft, whose study has its own -ology."
+     "surface": "A man is disturbed by some lunatic's antics.",
+     "walkthrough": "'upset' turns GUY into U...GY, which goes 'about' FOLO, the letters of fool rearranged by 'crazy'.",
+     "definitionFit": "Ufology is the study of unidentified flying objects, supposedly craft carrying visitors from other worlds."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "visitors"
+     "misdirectedWord": "Guy"
     }
    }
   },

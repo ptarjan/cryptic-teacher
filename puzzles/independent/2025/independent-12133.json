@@ -278,42 +278,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ENABLES",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "'bishop, not priest' tells you to swap one letter in for the other in the city's name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "English",
-       "gives": "E",
-       "note": "standard abbreviation"
+       "at": 9,
+       "gives": "E"
       },
       {
-       "words": "city's",
-       "gives": "NAPLES",
-       "note": "the Italian city"
-      },
-      {
-       "words": "bishop",
-       "gives": "B",
-       "note": "chess notation for bishop"
-      },
-      {
-       "words": "priest",
-       "gives": "P",
-       "note": "P is an abbreviation for priest"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 33,
+         "note": "the bishop replaces the priest: one letter comes in where the other is refused"
+        }
+       ],
+       "parts": [
+        {
+         "words": "city's",
+         "at": 17,
+         "gives": "NAPLES",
+         "note": "Naples is an Italian city"
+        },
+        {
+         "words": "priest",
+         "at": 37,
+         "gives": "P"
+        },
+        {
+         "words": "bishop",
+         "at": 24,
+         "gives": "B",
+         "note": "B is the chess notation abbreviation for bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English city's bishop, rather than a priest, gains authority.",
-     "walkthrough": "The B of bishop replaces the P of priest in NAPLES, giving NABLES after E.",
-     "definitionFit": "To enable someone is to give them the power or means to do something."
+     "surface": "A churchman in an English city is given authority, a bishop rather than a mere priest.",
+     "walkthrough": "The dash means the bishop stands in for the priest: in NAPLES the P is swapped for B.",
+     "definitionFit": "To enable someone is to give them the means or power to act, so enables is a synonym of empowers."
     },
     "features": {
      "answerInScene": false,
@@ -478,37 +484,42 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "JOE",
      "indicators": [
       {
-       "text": "when there's no doctors around",
-       "note": "taking away doctors that are around the outside means stripping letters from both ends"
+       "text": "when there's no",
+       "at": 29,
+       "note": "the doctors' letters are taken away, leaving nothing of them in the spells"
+      },
+      {
+       "text": "around",
+       "at": 53,
+       "note": "around says the doctors' letters lie on both sides of what remains, so the removal is from the two ends"
       }
      ],
      "parts": [
       {
        "words": "magic spells",
+       "at": 16,
        "gives": "MOJOES",
-       "note": "a mojo is a magic charm or spell"
+       "note": "mojoes, a plural of mojo, are magic charms or spells"
       },
       {
        "words": "doctors",
+       "at": 45,
        "gives": "MOS",
-       "note": "MO is a medical officer, so doctors are MOs"
+       "note": "MOs are medical officers, army doctors"
       }
      ]
     },
     "explanation": {
-     "surface": "An American serviceman resorts to witchcraft when no medics are available.",
-     "walkthrough": "MO at the front and S at the back go, leaving the middle. G.I. Joe is the stock nickname for an American soldier.",
-     "definitionFit": "Joe, as in G.I. Joe, is the slang name for an ordinary American serviceman."
+     "surface": "An American serviceman resorts to sorcery because no medics are on hand.",
+     "walkthrough": "Remove MO from the front and S from the end of MOJOES, the doctors having been 'around' the answer; 'uses' just links definition to wordplay.",
+     "definitionFit": "GI Joe, or simply Joe, is American slang for an ordinary enlisted soldier."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "doctors"
+     "misdirectedWord": "spells"
     }
    }
   },
@@ -1519,64 +1530,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "PRIMITIVE",
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, one piece on another follows it"
+       "at": 23,
+       "note": "in an across clue, one piece on another comes after it"
       }
      ],
      "parts": [
       {
        "op": "container",
-       "unchecked": true,
-       "gives": "PRIMITIVE",
        "indicators": [
         {
          "text": "stuck in",
-         "note": "something stuck in a place is lodged inside it"
+         "at": 31,
+         "note": "stuck in means lodged within, so the edge goes inside the hole"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "PRIMITIVE",
-         "indicators": [
-          {
-           "text": "endlessly",
-           "note": "endlessly means without ends, so both outer letters are dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hole",
-           "gives": "PIT",
-           "note": "synonym"
-          },
-          {
-           "words": "edge",
-           "gives": "RIM",
-           "note": "synonym"
-          },
-          {
-           "words": "lives",
-           "note": "taken as written, then trimmed"
-          }
-         ]
+         "words": "hole",
+         "at": 40,
+         "gives": "PIT",
+         "note": "a pit is a hole in the ground"
+        },
+        {
+         "words": "edge",
+         "at": 26,
+         "gives": "RIM",
+         "note": "a rim is an edge"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 13,
+         "note": "endlessly means without its ends, so lives drops its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lives",
+         "at": 7,
+         "note": "lives with both end letters removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone living on the edge in a hovel leads a basic life.",
-     "walkthrough": "In an across clue 'A on B' puts A after B, so the trimmed word comes last.",
-     "definitionFit": "Primitive means basic or unsophisticated, the same as simple in the sense of crude."
+     "surface": "A minimalist life is spent teetering on a ledge wedged in a pit.",
+     "walkthrough": "'lives' looks like the verb completing 'Simple lives', but it is fodder cut 'endlessly'; 'on' in an across clue puts that piece after the edge 'stuck in' the hole.",
+     "definitionFit": "Primitive can mean basic or unsophisticated, as in primitive tools, so it shares that sense with simple."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "lives"
     }

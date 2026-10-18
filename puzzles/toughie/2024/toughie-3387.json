@@ -527,65 +527,56 @@
      "indicators": [
       {
        "text": "following",
-       "note": "coming after something, so the rest of the wordplay is placed behind the month"
+       "at": 32,
+       "note": "following means coming after, so the rest of the wordplay is placed after the month's opening"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "last month's opening",
+       "at": 42,
        "gives": "DEC",
-       "indicators": [
-        {
-         "text": "occasionally",
-         "note": "something that happens occasionally happens only now and then, so only some letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "last month's",
-         "gives": "DEC",
-         "select": "first",
-         "note": "December is the last month of the year; its first three letters are the usual abbreviation"
-        }
-       ]
+       "note": "December is the last month of the year, and its opening is its first three letters, the calendar abbreviation"
       },
       {
        "op": "alternate",
        "indicators": [
         {
-         "text": "opening",
-         "note": "an opening is the start of something, so only the first part of the month's name is used"
+         "text": "occasionally",
+         "at": 19,
+         "note": "occasionally means now and then, so only every other letter of in and of heard is kept"
         }
        ],
        "parts": [
         {
          "words": "in",
-         "note": "every other letter of this word"
+         "at": 6,
+         "note": "every other letter of this word, its first"
         }
        ]
       },
       {
        "words": "pub",
+       "at": 9,
        "gives": "PH",
-       "note": "PH, public house, is the map abbreviation for a pub"
+       "note": "PH, short for public house, is the map abbreviation for a pub"
       },
       {
        "op": "alternate",
        "parts": [
         {
          "words": "heard",
-         "note": "the second and fourth letters of this word"
+         "at": 13,
+         "note": "every other letter of this word, its second and fourth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rumour about a fracture overheard in a pub now and then since the start of December.",
-     "walkthrough": "'occasionally' works on both 'in' and 'heard', keeping alternate letters, while 'pub' is the abbreviation PH between them. DEC is the calendar abbreviation for December.",
-     "definitionFit": "To crack a code or puzzle is to work it out, which is what deciphering means."
+     "surface": "A rumour of a fracture overheard now and then in a pub since early last month.",
+     "walkthrough": "'occasionally' serves both 'in' and 'heard', giving I and ER, with PH between them; DEC, the calendar abbreviation for December, goes first.",
+     "definitionFit": "To crack a code is to work out its meaning, which is what deciphering is."
     },
     "features": {
      "answerInScene": false,
@@ -1237,42 +1228,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUGURED",
-     "indicators": [
-      {
-       "text": "half-cut",
-       "note": "cut by half means only half of the word is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 14,
+         "note": "half-cut here means having half cut away, so the month loses the second half of its letters"
+        }
+       ],
        "parts": [
         {
          "words": "Month",
-         "gives": "AUG",
-         "note": "August with half its letters removed"
+         "at": 0,
+         "gives": "AUGUST",
+         "note": "August is a month"
         },
         {
-         "words": "posh",
-         "gives": "U",
-         "note": "U means upper-class, as in U and non-U"
-        },
-        {
-         "words": "wine",
-         "gives": "RED",
-         "note": "red is a kind of wine"
+         "gives": "UST"
         }
        ]
+      },
+      {
+       "words": "posh",
+       "at": 26,
+       "gives": "U",
+       "note": "U means upper-class, as in the old U and non-U distinction"
+      },
+      {
+       "words": "wine",
+       "at": 31,
+       "gives": "RED",
+       "note": "red is a kind of wine"
       }
      ]
     },
     "explanation": {
      "surface": "Someone gets tipsy every month on fancy wine, just as forecast.",
-     "walkthrough": "'half-cut' is British slang for drunk, which suits the wine, but here it halves AUGUST. U for upper-class is an old British usage.",
-     "definitionFit": "To augur is to foretell or portend, so augured is the past tense meaning predicted."
+     "walkthrough": "'half-cut' is British slang for drunk, which suits the wine, but here it halves August to AUG.",
+     "definitionFit": "To augur is to foretell or portend, so augured is a past-tense synonym of predicted."
     },
     "features": {
      "answerInScene": false,

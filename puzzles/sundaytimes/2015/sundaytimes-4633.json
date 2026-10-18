@@ -459,35 +459,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNDERTHEWEATHER",
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the articles inside the word for lingerie, at two separate points"
+       "at": 22,
+       "note": "in means placed inside, so the articles go into the lingerie word"
       }
      ],
      "parts": [
       {
-       "words": "Two separate articles",
-       "gives": "THETHE",
-       "note": "the definite article, taken twice and placed apart"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separate",
+         "at": 4,
+         "note": "separate means apart from each other, so the two copies go into the lingerie at different points"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lingerie",
+         "at": 25,
+         "gives": "UNDERWEAR",
+         "note": "lingerie is women's underwear"
+        },
+        {
+         "words": "Two",
+         "at": 0,
+         "gives": "THE",
+         "note": "Two, read with articles, asks for a second copy of the definite article, the"
+        }
+       ]
       },
       {
-       "words": "lingerie",
-       "gives": "UNDERWEAR",
-       "note": "lingerie is women's underwear"
+       "words": "articles",
+       "at": 13,
+       "gives": "THE",
+       "note": "the is the definite article"
       }
      ]
     },
     "explanation": {
-     "surface": "Two items of lingerie are looking rather tattered.",
-     "walkthrough": "The two articles go in at different points of the garment word, not side by side. 'Articles' looks like garments but means the grammatical word the.",
-     "definitionFit": "Being under the weather is an idiom for feeling unwell, just as the worse for wear means in poor shape."
+     "surface": "Two items of lingerie looking tatty from being worn.",
+     "walkthrough": "'separate' matters: the two copies of the article do not sit together but split the lingerie word at two different points.",
+     "definitionFit": "Under the weather is an idiom for feeling unwell or out of sorts, as is the worse for wear."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "articles"
     }
@@ -1555,37 +1574,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CATERERS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the last letter is dropped"
+       "text": "working",
+       "at": 17,
+       "note": "working here means being worked on, reshaped, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "working",
-         "note": "working means in operation, so the letters are set going in a new order"
+         "text": "mostly",
+         "at": 10,
+         "note": "mostly means most but not all, so Secretary loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "Secretary",
-         "gives": "SECRETAR",
-         "note": "the word without its final Y"
+         "at": 0,
+         "note": "used as anagram fodder once shortened"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A secretary works mostly for the people who supply food.",
-     "definitionFit": "Caterers provide food and drink for functions, so they are suppliers of food."
+     "surface": "An office assistant, for the most part, handles the catering contracts.",
+     "walkthrough": "'mostly' cuts Secretary to SECRETAR, and 'working' rearranges those eight letters.",
+     "definitionFit": "Caterers are businesses that provide meals and refreshments for events, so they supply food."
     },
     "features": {
      "answerInScene": true,
