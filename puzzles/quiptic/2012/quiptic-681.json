@@ -150,54 +150,44 @@
      "indicators": [
       {
        "text": "lining",
-       "note": "a lining sits inside something, so these words are placed within the selected letters"
+       "at": 37,
+       "note": "lining means sitting inside, so the joined words line the pair of letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "SL",
-         "indicators": [
-          {
-           "text": "first pair",
-           "note": "a first pair means only the opening two letters of the word are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Sleepy's",
-           "gives": "SL",
-           "select": "first",
-           "note": "the opening two letters of the dwarf's name"
-          }
-         ]
-        },
-        {
-         "words": "with",
-         "gives": "AND",
-         "note": "with means together with, and"
-        }
-       ]
+       "words": "Sleepy's first pair",
+       "at": 10,
+       "gives": "SL",
+       "note": "the first two letters of Sleepy"
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with",
+         "at": 30,
+         "gives": "AND",
+         "note": "and means with, in addition to"
+        },
+        {
+         "words": "a",
+         "at": 35,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dwarf's shoes are described as a lined pair, in a puzzle themed on Snow White's companions.",
-     "walkthrough": "The puzzle has a Snow White theme, so the dwarfs' names keep appearing; here Sleepy just supplies its opening two letters.",
-     "definitionFit": "A sandal is an open shoe held on with straps, a kind of footwear."
+     "surface": "Sleepy, one of the seven dwarfs, wearing a pair of shoes with a soft inner layer.",
+     "walkthrough": "Sleepy is one of Snow White's seven dwarfs; 'first pair' takes two opening letters, not one.",
+     "definitionFit": "A sandal is an open shoe held on by straps, a kind of footwear."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "pair"
     }
    }
@@ -1090,55 +1080,59 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside the other word"
+       "at": 9,
+       "note": "in puts the letters inside the shortened dress"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 12,
+         "note": "short means cut, so the dress loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "short",
-           "note": "short means cut off at the end, so the word drops its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dress",
-           "gives": "FROCK",
-           "note": "a frock is a dress"
-          },
-          {
-           "gives": "K"
-          }
-         ]
+         "words": "dress",
+         "at": 18,
+         "gives": "FROCK",
+         "note": "a frock is a dress"
         },
         {
-         "words": "Left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
+         "gives": "K"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Left",
+         "at": 0,
+         "gives": "L"
+        },
+        {
+         "words": "one",
+         "at": 5,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone left one person wearing a short dress at a party.",
-     "walkthrough": "'Short dress' looks like a mini skirt, but 'short' cuts FROCK to FROC before L and I go inside.",
-     "definitionFit": "A frolic is a bout of lively play or fun, the same thing as merrymaking."
+     "surface": "A woman left alone in a mini dress, having fun at a party.",
+     "walkthrough": "'short' trims FROCK to FROC; 'in' puts L and I inside it.",
+     "definitionFit": "A frolic is lively fun and play, the same as merrymaking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "short"
+     "misdirectedWord": "Left"
     }
    }
   },

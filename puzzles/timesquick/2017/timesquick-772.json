@@ -750,39 +750,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the information word goes round the other pieces"
+       "at": 25,
+       "note": "about means surrounding, so the information word goes round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "information",
-         "gives": "GEN",
-         "note": "gen is British slang for information"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "information",
+       "at": 13,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
       },
       {
-       "words": "road",
-       "gives": "RD",
-       "note": "standard abbreviation for road"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
+        },
+        {
+         "words": "road",
+         "at": 33,
+         "gives": "RD"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Perhaps a conspiracy is being hatched about a road scheme.",
-     "walkthrough": "'Plot' tempts as a scheme, but here it is a patch of ground; 'Perhaps' says the answer is one kind of plot.",
-     "definitionFit": "A cultivated patch of land beside a house is one example of a plot of ground."
+     "surface": "Details about a street, possibly for some scheme.",
+     "walkthrough": "Gen is British slang for information. 'Perhaps' signals that a plot is one example of a garden.",
+     "definitionFit": "A plot of land planted with flowers or vegetables is a garden, so plot is an example."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "plot"
     }
@@ -924,52 +927,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TABLESALT",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly asks for a shortened form of the name Sarah"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Bill",
+       "at": 10,
+       "gives": "TAB",
+       "note": "a tab is a bill, as in pick up the tab"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admitted",
+         "at": 38,
+         "note": "admitted means let in, so the name goes inside the allowed word"
+        }
+       ],
        "parts": [
         {
-         "words": "Bill",
-         "gives": "TAB",
-         "note": "a tab is a bill, as in a bar tab"
+         "words": "allowed",
+         "at": 15,
+         "gives": "LET",
+         "note": "let means allowed"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "admitted",
-           "note": "something admitted is let inside, so the short name sits within the word for allowed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "allowed",
-           "gives": "LET",
-           "note": "let means permitted"
-          },
-          {
-           "words": "Sarah",
-           "gives": "SAL",
-           "note": "Sal is a familiar short form of Sarah"
-          }
-         ]
+         "words": "Sarah briefly",
+         "at": 24,
+         "gives": "SAL",
+         "note": "Sal is a short form of the name Sarah"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bill gave permission and Sarah was briefly let in, perhaps at a dinner.",
-     "definitionFit": "Sodium chloride sprinkled on food at meals is the commonest seasoning on any table."
+     "surface": "Bill gave permission and Sarah was briefly let in, perhaps to a dinner party.",
+     "walkthrough": "Sal is a pet name for Sarah, hence 'briefly'; a tab is a bill, as in pick up the tab.",
+     "definitionFit": "Table salt is the fine salt put on a dining table as seasoning."
     },
     "features": {
      "answerInScene": false,

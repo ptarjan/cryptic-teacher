@@ -392,37 +392,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLITCH",
-     "indicators": [
-      {
-       "text": "exfoliating skin",
-       "note": "exfoliating removes the outer layer of skin, so the preceding word sheds its outside letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exfoliating skin",
+         "at": 5,
+         "note": "exfoliating removes the outer skin, so the first and last letters go"
+        }
+       ],
        "parts": [
         {
          "words": "Ugly",
-         "gives": "GL",
-         "note": "ugly with its outer letters removed"
-        },
-        {
-         "words": "rash",
-         "gives": "ITCH",
-         "note": "the itch is an old name for an itching skin rash"
+         "at": 0,
+         "note": "the word losing its outer letters"
         }
        ]
+      },
+      {
+       "words": "rash",
+       "at": 22,
+       "gives": "ITCH",
+       "note": "a rash causes an itch, a sensation like it"
       }
      ]
     },
     "explanation": {
-     "surface": "An unsightly peeling rash, perhaps caused by an insect bite.",
-     "walkthrough": "'Bug' suggests an insect or germ behind the rash; the question mark points to a software bug instead.",
-     "definitionFit": "A glitch is a minor malfunction, the sort of fault a programming error produces in a system."
+     "surface": "An ugly, peeling skin irritation that might be blamed on an insect bite.",
+     "walkthrough": "'exfoliating skin' leaves GL from ugly. The question mark is because bug looks like an insect, but here it means a software fault.",
+     "definitionFit": "A glitch is a malfunction, often in software, and a bug in code causes one."
     },
     "features": {
      "answerInScene": false,
@@ -733,44 +733,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "XANADU",
-     "indicators": [
-      {
-       "text": "non-",
-       "note": "non- negates the following word, so that word is left out of the state's name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "by",
+       "at": 22,
+       "gives": "X",
+       "note": "X is the multiplication sign, read as by in 2 by 3"
+      },
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "non",
+         "at": 27,
+         "note": "non-Tamil means the state without the word Tamil"
+        }
+       ],
        "parts": [
         {
-         "words": "by",
-         "gives": "X",
-         "note": "X is the multiplication sign, read as by, as in three by four"
+         "words": "state of India",
+         "at": 37,
+         "gives": "TAMILNADU",
+         "note": "Tamil Nadu is a state in southern India"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "Tamil state of India",
-         "gives": "NADU",
-         "note": "the state of Tamil Nadu without Tamil"
+         "words": "Tamil",
+         "at": 31,
+         "gives": "TAMIL",
+         "note": "the word removed from the state's name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grand Indian residence is described as lying beside a state other than Tamil Nadu.",
-     "walkthrough": "Coleridge's Kubla Khan opens: In Xanadu did Kubla Khan a stately pleasure-dome decree.",
-     "definitionFit": "Xanadu was the summer capital of the Mongol emperor Kublai Khan, made famous by Coleridge's poem."
+     "surface": "A grand mansion beside a region of India that is not Tamil-speaking.",
+     "walkthrough": "'non-' removes TAMIL from Tamil Nadu, leaving NADU. Coleridge's Kubla Khan opens: In Xanadu did Kubla Khan a stately pleasure-dome decree.",
+     "definitionFit": "Xanadu is where Kubla Khan built his pleasure-dome in Coleridge's poem, a byword for luxury."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "by"
     }
@@ -1178,48 +1186,53 @@
      "indicators": [
       {
        "text": "involves",
-       "note": "involves means wraps around, so the two letters that follow go inside"
+       "at": 22,
+       "note": "involves means contains, so the initials surround the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 12,
+         "note": "initially takes the first letter of each of the two words"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the opening letters of the two words before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Holiday job",
-           "note": "the first letters of holiday and job"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "words": "Holiday job",
+         "at": 0,
+         "note": "the words whose initials are used"
         }
        ]
       },
       {
-       "words": "day",
-       "gives": "D",
-       "note": "D is the abbreviation for day"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
+        },
+        {
+         "words": "day",
+         "at": 33,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holiday job comes with a day trip to Saudi Arabia.",
-     "definitionFit": "The hadj or hajj is the Muslim pilgrimage to Mecca, in Saudi Arabia, a duty once in a lifetime."
+     "surface": "A seasonal job involving a day out, travelling to Saudi Arabia.",
+     "walkthrough": "'initially' gives HJ, and 'involves' puts A and D inside it.",
+     "definitionFit": "The hadj, or hajj, is the Muslim pilgrimage to Mecca in Saudi Arabia."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Holiday"
     }
    }
@@ -1293,47 +1306,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VACUUMED",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "whilst overlooking river",
-       "note": "overlooking means ignoring, so the river abbreviation is left out of the curve"
+       "text": "meanders",
+       "at": 53,
+       "note": "meanders means winds about, so all these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Dam",
+       "at": 12
+      },
+      {
+       "words": "upper",
+       "at": 16,
+       "gives": "U",
+       "note": "U stands for upper class, as in U and non-U"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "meanders",
-         "note": "meanders means wanders along a winding course, so the letters wind into a new order"
+         "text": "whilst overlooking",
+         "at": 28,
+         "note": "overlooking means ignoring, so the river letter is left out"
         }
        ],
        "parts": [
         {
-         "words": "Dam",
-         "note": "taken as written"
-        },
-        {
-         "words": "upper",
-         "gives": "U",
-         "note": "U is the abbreviation for upper-class"
-        },
-        {
          "words": "curve",
-         "gives": "CUVE",
-         "note": "curve with R, the river, overlooked"
+         "at": 22,
+         "note": "the word losing a letter"
+        },
+        {
+         "words": "river",
+         "at": 47,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A view of the Hoover Dam's upper curve above a meandering river.",
-     "walkthrough": "'Hoover' looks like the dam's name, but used as a verb it is the British word for vacuum cleaning.",
-     "definitionFit": "Hoover is a brand of cleaner that became the British verb for vacuum cleaning a floor or carpet."
+     "surface": "The Hoover Dam's curving top seen while a river winds below it.",
+     "walkthrough": "Hoover looks like the dam's name but is the verb for cleaning. 'overlooking' drops R from curve, leaving CUVE; 'meanders' rearranges DAM, U and CUVE.",
+     "definitionFit": "Hoover is a brand name used as a British verb for vacuum-cleaning a floor."
     },
     "features": {
      "answerInScene": false,
@@ -1492,37 +1511,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOMINO",
-     "indicators": [
-      {
-       "text": "non-active",
-       "note": "non-active means without active, whose abbreviation is dropped from the acid"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "make",
+       "at": 5,
+       "gives": "DO",
+       "note": "to do is to make, as in do a drawing"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "non",
+         "at": 32,
+         "note": "non- removes the active letter from the acid"
+        }
+       ],
        "parts": [
         {
-         "words": "make",
-         "gives": "DO",
-         "note": "to do is to make, as in do a drawing"
+         "words": "protein-building acid",
+         "at": 10,
+         "gives": "AMINO",
+         "note": "amino acids are the building blocks of proteins"
         },
         {
-         "words": "protein-building acid",
-         "gives": "MINO",
-         "note": "amino acids build proteins; amino with A, for active, removed"
+         "words": "active",
+         "at": 36,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nutrition note: fats help make protein-building amino acids inactive.",
-     "walkthrough": "'Fats' poses as dietary fat in a biochemistry surface, but it names a musician.",
-     "definitionFit": "Fats Domino was the stage name of Antoine Domino, the New Orleans rock and roll pianist and singer."
+     "surface": "A dietary claim that fats produce an acid that builds proteins.",
+     "walkthrough": "Fats looks like a nutrient but is the nickname of the rock-and-roll pianist Fats Domino. 'non-active' drops A from AMINO.",
+     "definitionFit": "Fats Domino was the stage name of Antoine Domino, the New Orleans rhythm and blues singer."
     },
     "features": {
      "answerInScene": false,
@@ -1792,41 +1817,22 @@
      "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Two characters",
-       "note": "the two letters spelt out as one letter and another"
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
+       "words": "Two characters making the case for Romeo",
+       "at": 0,
        "gives": "RANDO",
-       "indicators": [
-        {
-         "text": "making the case for",
-         "note": "a case is an outer casing, so the two characters wanted are the edges of the name"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Romeo",
-         "gives": "RANDO",
-         "select": "outer",
-         "note": "the outer letters of Romeo, written out as R and O"
-        }
-       ]
+       "note": "the case of Romeo is its outer letters, R and O, written out as R and O"
       },
       {
        "words": "married",
-       "gives": "M",
-       "note": "M is the abbreviation for married"
+       "at": 48,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer presents the case for Romeo having secretly married.",
-     "walkthrough": "The joining word between the two edge letters is spelt out and becomes part of the answer.",
-     "definitionFit": "Random describes something happening without plan or pattern, purely by chance."
+     "surface": "Two actors build a defence for Romeo, who happens to have wed.",
+     "walkthrough": "The two characters are R and O, the letters enclosing Romeo, read as a phrase.",
+     "definitionFit": "Random means happening without method or plan, so by chance or haphazardly."
     },
     "features": {
      "answerInScene": false,

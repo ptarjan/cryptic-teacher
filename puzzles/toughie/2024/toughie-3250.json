@@ -293,59 +293,66 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OBSTACLE",
      "indicators": [
       {
        "text": "crossing",
-       "note": "crossing here means stretched across, so the outer letters span the inserted ones"
+       "at": 18,
+       "note": "crossing means spanning, so the shellfish letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OBSTACLE",
+       "op": "middle",
        "indicators": [
         {
          "text": "Shelled",
-         "note": "with its shell removed, the word loses its outside letters"
+         "at": 0,
+         "note": "shelled removes the outer covering, the first and last letters"
         }
        ],
        "parts": [
         {
          "words": "shellfish",
+         "at": 8,
          "gives": "LOBSTER",
          "note": "a lobster is a shellfish"
-        },
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 27,
+         "gives": "A"
         },
         {
          "words": "hundred",
+         "at": 29,
          "gives": "C",
          "note": "C is the Roman numeral for a hundred"
         },
         {
          "words": "pound",
+         "at": 37,
          "gives": "L",
-         "note": "L is the abbreviation for a pound, from Latin libra"
+         "note": "L is the abbreviation for pound, from Latin libra"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seafood stall with a barrier priced at a hundred pounds, perhaps.",
-     "walkthrough": "LOBSTER without its outer letters is OBSTE, which goes round A C L to make OBSTACLE.",
-     "definitionFit": "An obstacle is anything that blocks the way, the same job a barrier does."
+     "surface": "A peeled crustacean straddling a costly fence.",
+     "walkthrough": "'Shelled' strips LOBSTER to OBSTE; 'crossing' wraps it round A, C and L.",
+     "definitionFit": "An obstacle is anything that blocks the way, an obstruction or hurdle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Shelled"
+     "misdirectedWord": "pound"
     }
    }
   },
@@ -619,35 +626,38 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "outside means going round, so one word surrounds the rest"
+       "at": 10,
+       "note": "outside means the cut word wraps around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cut",
-         "gives": "MOW",
-         "note": "to mow is to cut grass"
-        },
-        {
-         "words": "each",
-         "gives": "EA",
-         "note": "EA is the abbreviation for each"
-        }
-       ]
+       "words": "cut",
+       "at": 6,
+       "gives": "MOW",
+       "note": "to mow is to cut grass"
       },
       {
-       "words": "day",
-       "gives": "D",
-       "note": "D is the abbreviation for day"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "each",
+         "at": 18,
+         "gives": "EA"
+        },
+        {
+         "words": "day",
+         "at": 23,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A field of grass that is cut every day.",
-     "definitionFit": "A meadow is a field of grass, often grown for hay."
+     "surface": "A field is mown in the open air every day.",
+     "walkthrough": "Cut is the verb, as in cutting grass, rather than a noun for a share.",
+     "definitionFit": "A meadow is a grassy field, often one kept for hay."
     },
     "features": {
      "answerInScene": true,
