@@ -446,47 +446,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LIPREADER",
      "indicators": [
       {
        "text": "Spooner-style",
-       "note": "Dr Spooner famously swapped the opening sounds of words"
+       "at": 12,
+       "note": "Spooner-style asks for the initial sounds of the two words to be swapped, after the Reverend Spooner's famous slips of the tongue"
       }
      ],
      "parts": [
       {
        "words": "Shred",
+       "at": 0,
        "gives": "RIP",
-       "note": "to shred is to rip apart"
+       "note": "to rip something is to shred or tear it"
       },
       {
-       "unchecked": true,
-       "words": "songs",
-       "gives": "LIEDER",
-       "soundsLike": "LEEDER",
-       "note": "Lieder are German art songs, said like 'leader'"
-      },
-      {
-       "unchecked": true,
-       "words": "Shred songs",
-       "gives": "LIPREADER",
-       "soundsLike": "LIP REEDER",
-       "note": "the two words said with their opening sounds exchanged"
+       "op": "homophone",
+       "spelt": "LEADER",
+       "parts": [
+        {
+         "words": "songs",
+         "at": 6,
+         "gives": "LIEDER",
+         "note": "lieder are German art songs, as by Schubert, and the word is said like leader"
+        }
+       ]
       }
      ]
     },
-    "spelling": "LIP-READER",
+    "spelling": "LIP‐READER",
     "explanation": {
-     "surface": "Ripping up song sheets, Spooner-fashion, with a nod to a deaf listener.",
-     "walkthrough": "Say RIP LIEDER with the opening R and L exchanged and you hear the answer; Lieder is pronounced 'leader'.",
-     "definitionFit": "A lip-reader understands speech by watching mouth movements, a skill many deaf people rely on."
+     "surface": "A request to tear up some songs, oddly phrased.",
+     "walkthrough": "Say RIP LIEDER (shred songs) with the R and L sounds swapped: LIP LEADER becomes LIP READER, since lieder sounds like leader. 'well' hints that a deaf person may be good at it.",
+     "definitionFit": "A lip-reader understands speech by watching mouth movements, a skill many people with hearing loss rely on."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "songs"
+     "misdirectedWord": "Shred"
     }
    }
   },
@@ -1813,58 +1811,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Musk's asset",
+      "text": "Musk's asset?",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 23,
+       "note": "with sets the two quoted words side by side so the answer runs on from one into the next"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "TES",
+       "op": "deletion",
        "indicators": [
         {
          "text": "there you'll have it",
-         "note": "the letters are there in the quoted words, waiting to be picked out across their join"
+         "at": 40,
+         "note": "there you'll have it says the answer is sitting right there where the quoted words meet, so the front of Equates is cleared away"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Equates",
-         "gives": "TES",
-         "select": "last",
-         "note": "the closing letters of the word"
+         "at": 15,
+         "note": "taken as written, losing its first four letters"
+        },
+        {
+         "gives": "EQUA"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "lavender",
+       "at": 28,
        "gives": "LA",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "lavender",
-         "gives": "LA",
-         "select": "first",
-         "note": "the opening letters of the word"
-        }
-       ]
+       "note": "LA is the opening pair of letters of lavender, where the run of letters from Equates continues"
       }
      ]
     },
     "explanation": {
-     "surface": "A slogan likening a tech billionaire's prize asset to a fragrant herb.",
-     "walkthrough": "The answer runs across the join of 'Equates' and 'lavender', with 'with' putting them side by side.",
-     "definitionFit": "Tesla is the electric car company that Elon Musk heads, one of his chief holdings."
+     "surface": "A quoted phrase about lavender is offered as what Elon Musk owns.",
+     "walkthrough": "'there you'll have it' points to the letters across the join of the quoted words, set side by side by 'with': equaTES LAvender. The question mark marks Tesla as one asset among Musk's many, a company he runs rather than a word for asset.",
+     "definitionFit": "Elon Musk heads the electric car company Tesla, his best-known business holding."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "lavender"
     }
    }

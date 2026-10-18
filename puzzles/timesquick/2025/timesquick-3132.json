@@ -335,51 +335,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THAW",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "cutting a word short trims its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 20,
+         "note": "cut short means the word that loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "that",
-         "gives": "THA",
-         "note": "the word that without its last letter"
+         "at": 15,
+         "note": "taken as written before its tail is docked"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "the start of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "winter",
-           "note": "opening letter of winter"
-          }
-         ]
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 30,
+         "note": "start of means only the opening letter of winter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "winter",
+         "at": 39,
+         "note": "W is the first letter of winter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Milder weather that brought an early end to the winter.",
-     "definitionFit": "A thaw is a spell of warmer weather in which ice and snow melt."
+     "surface": "A chilly day that ended winter early by turning milder.",
+     "walkthrough": "'cut short' docks the last letter of THAT, leaving THA; 'start of winter' adds W.",
+     "definitionFit": "A thaw is a spell of milder weather when ice and snow melt, so it is warmer weather."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "that"
+     "misdirectedWord": "cut"
     }
    }
   },
