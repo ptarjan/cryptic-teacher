@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """One puzzle's rows of the shared source-correction tables, and no one else's.
 
-    python3 tools/own_rows.py stage ID    # index: HEAD's file + ID's rows as the tree has them
+    python3 tools/own_rows.py stage ID...   # index: HEAD's file + each ID's rows as the tree has them
     python3 tools/own_rows.py revert ID   # tree: ID's rows put back as HEAD has them
     python3 tools/own_rows.py paths       # the files holding those rows, one per line
     python3 tools/own_rows.py graft ID DIR  # tree: ID's rows put back as DIR's copies have them
@@ -168,12 +168,14 @@ def _merger(rel):
     return splice if rel == REL else splice_list if rel in LIST_RELS else splice_json
 
 
-def stage(pid):
-    head = git("show", f"HEAD:{REL}")
-    _stage_blob(REL, splice(head, FETCHER.read_text(), pid))
-    for rel in (*DATA_RELS, *_lists()):
-        _stage_blob(rel, _merger(rel)(git("show", f"HEAD:{rel}"),
-                                      (TOOLS.parent / rel).read_text(), pid))
+def stage(*pids):
+    """Several ids chain onto one another's result, so a batch commit holds every
+    one's rows (staged one at a time, each would rebuild from HEAD and undo the last)."""
+    for rel in (REL, *DATA_RELS, *_lists()):
+        text, donor = git("show", f"HEAD:{rel}"), (TOOLS.parent / rel).read_text()
+        for pid in pids:
+            text = _merger(rel)(text, donor, pid)
+        _stage_blob(rel, text)
 
 
 def revert(pid):
@@ -212,9 +214,12 @@ def main(argv):
     if len(argv) == 3 and argv[0] == "graft":
         graft(argv[1], argv[2])
         return
-    if len(argv) != 2 or argv[0] not in ("stage", "revert"):
+    if argv[:1] == ["stage"] and len(argv) >= 2:
+        stage(*argv[1:])
+        return
+    if len(argv) != 2 or argv[0] != "revert":
         raise SystemExit(__doc__)
-    {"stage": stage, "revert": revert}[argv[0]](argv[1])
+    revert(argv[1])
 
 
 if __name__ == "__main__":

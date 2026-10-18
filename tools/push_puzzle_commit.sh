@@ -43,7 +43,34 @@ parent=$(git rev-parse --verify -q "$commit^") || {
 # A commit made from a stale tree is refused (exit 4), not replayed: see tools/clobber_guard.py.
 python3 "$(dirname "$0")/clobber_guard.py" "$commit" || exit $?
 
+# partial_replay <conflicted tree> <base> <path>...: origin's tree with the
+# clean merges of the conflicted tree and the conflicted paths left as origin
+# has them. Only for a commit of two or more puzzle files whose conflicts are
+# all puzzle files too; fails (nothing printed) otherwise.
+partial_replay() {
+  local ctree="$1" base="$2" p entry mode sha idx
+  shift 2
+  for p in "$@"; do
+    case "$p" in puzzles/*.json) ;; *) return 1 ;; esac
+  done
+  [ "$(git diff-tree --no-commit-id --name-only -r "$parent" "$commit" -- 'puzzles/*.json' | wc -l)" -ge 2 ] || return 1
+  idx="$(mktemp -d)/index"
+  GIT_INDEX_FILE=$idx git read-tree "$ctree" || return 1
+  for p in "$@"; do
+    entry=$(git ls-tree "$base" -- "$p")
+    if [ -n "$entry" ]; then
+      read -r mode _ sha _ <<<"$entry"
+      GIT_INDEX_FILE=$idx git update-index --add --cacheinfo "$mode,$sha,$p" || return 1
+    else
+      GIT_INDEX_FILE=$idx git update-index --force-remove -- "$p" || return 1
+    fi
+  done
+  GIT_INDEX_FILE=$idx git write-tree
+}
+
+final=0
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
+  final=0
   if ! out=$(git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
     printf '%s' "$out" | grep "cannot lock ref" >/dev/null || exit 1
@@ -68,7 +95,15 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
        else
          echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
          printf '%s\n' "$tree" | tail -n +2 >&2
-         exit "$CONFLICT"
+         # A batch commit (several puzzles, one "Annotate N puzzles: ..."): the
+         # puzzles that do not conflict are published anyway, and the conflicted
+         # ones keep the commit failing (CONFLICT) as a lone one would, so one
+         # bad puzzle never holds the rest of its batch back.
+         partial_tree=$(partial_replay "$(printf '%s\n' "$tree" | head -1)" "$base" "${paths[@]}") || exit "$CONFLICT"
+         if [ "$partial_tree" = "$(git rev-parse "$base^{tree}")" ]; then exit "$CONFLICT"; fi
+         echo "push_puzzle_commit: publishing the rest of the batch without: ${paths[*]}" >&2
+         tree=$partial_tree
+         final=$CONFLICT
        fi ;;
     *) exit 1 ;;
   esac
@@ -84,7 +119,7 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$commit") \
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$commit") \
     git commit-tree "${sign[@]}" "$tree" -p "$base") || exit 1
-  out=$(git push -q --no-verify origin "$sha:refs/heads/master" 2>&1) && exit 0
+  out=$(git push -q --no-verify origin "$sha:refs/heads/master" 2>&1) && exit "$final"
   printf '%s\n' "$out" >&2
   printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || exit 1
   echo "push_puzzle_commit: origin/master moved under us (attempt $attempt), rebuilding" >&2
