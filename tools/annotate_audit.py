@@ -205,7 +205,7 @@ def failed_command(command):
 def tool_error_kind(tool, command, text):
     """Name a failed tool call, or None when nothing was wasted: annotate_check
     reporting errors, or an `ls` answering that a file is not there yet."""
-    if "annotate_check" in command and text.startswith("Exit code"):
+    if ("annotate_check" in command or "annotate_bag.py check" in command) and text.startswith("Exit code"):
         return None
     for needle, kind in REFUSED.items():
         if needle in text[:200]:
