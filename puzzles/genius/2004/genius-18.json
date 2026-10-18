@@ -1545,59 +1545,66 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OREGANO",
      "indicators": [
       {
        "text": "round",
-       "note": "the altered state goes around that single letter"
+       "at": 39,
+       "note": "round means the altered state wraps around the capital letter"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "OREGANO",
        "indicators": [
         {
          "text": "turning tail",
-         "note": "the last two letters of the state's name are turned around"
+         "at": 26,
+         "note": "turning tail means only the last two letters of the state are turned back to front"
         }
        ],
        "parts": [
         {
          "words": "US state",
+         "at": 16,
          "gives": "OREGON",
-         "note": "Oregon is a state on the US Pacific coast"
+         "note": "Oregon is a state in the Pacific Northwest of the USA"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "capital of",
-           "note": "only the first letter of Arizona is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Arizona",
-           "note": "only its opening letter is used"
-          }
-         ]
+         "gives": "ON"
+        },
+        {
+         "gives": "NO"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital of",
+         "at": 45,
+         "note": "the capital of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arizona",
+         "at": 56,
+         "note": "the word Arizona, whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Talk of plants withering in one American state as you head for Arizona's capital.",
-     "walkthrough": "'Leaves dried up' looks like a verb phrase; it is the herb, sold as dried leaves.",
-     "definitionFit": "Oregano is a herb usually sold as dried leaves for cooking."
+     "surface": "Foliage withers in one American state while another state's capital gets a mention.",
+     "walkthrough": "'Turning tail' reverses only the ON at the end of OREGON, giving OREGNO, and that goes 'round' the A that is the 'capital of Arizona'.",
+     "definitionFit": "Oregano is a herb whose leaves are usually sold and used dried in cooking."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "dried"
+     "aptDefinition": false,
+     "misdirectedWord": "Leaves"
     }
    }
   },
