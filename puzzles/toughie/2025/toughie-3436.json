@@ -1078,46 +1078,51 @@
      "indicators": [
       {
        "text": "stops",
-       "note": "something that stops a gap plugs it, so the pieces fill the space between the outer letters"
+       "at": 24,
+       "note": "stops means the outside letters act as stoppers at either end of the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside of",
+         "at": 6,
+         "note": "outside of means just the first and last letters of Ealing"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "outside of",
-           "note": "the outside of a word is its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Ealing",
-           "note": "first and last letters"
-          }
-         ]
-        },
-        {
-         "words": "Daisy",
-         "gives": "ASTER",
-         "note": "the aster is a daisy-like flower"
+         "words": "Ealing",
+         "at": 17,
+         "note": "its first and last letters"
         }
        ]
       },
       {
-       "words": "for one",
-       "gives": "EG",
-       "note": "eg, for example, means for one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Daisy",
+         "at": 0,
+         "gives": "ASTER",
+         "note": "an aster is a daisy-like flower"
+        },
+        {
+         "words": "for one",
+         "at": 30,
+         "gives": "EG",
+         "note": "eg, for example, means for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman called Daisy halts outside Ealing, in west London, for a treat.",
-     "walkthrough": "'Daisy' looks like a name; it is the flower. Ealing is a London borough.",
-     "definitionFit": "An Easter egg is a chocolate egg given at Easter, a sweet confection."
+     "surface": "Someone named Daisy, on the edge of the London suburb of Ealing, halts to buy a snack.",
+     "walkthrough": "Daisy looks like a girl's name but is a flower; Ealing is a London suburb whose outside letters act as stoppers.",
+     "definitionFit": "Easter eggs are chocolate eggs given as a sweet treat at Easter time."
     },
     "features": {
      "answerInScene": true,

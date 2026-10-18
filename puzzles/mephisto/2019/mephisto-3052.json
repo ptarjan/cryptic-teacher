@@ -412,54 +412,71 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TIMARAUS",
      "indicators": [
       {
-       "text": "being for",
-       "note": "one thing being for another means it stands in its place, swapping in"
-      },
-      {
        "text": "each time",
-       "note": "each time means the swap is made at every occurrence, not just once"
+       "at": 62,
+       "note": "each time means every occurrence is swapped, not just one"
       }
      ],
      "parts": [
       {
-       "words": "very fearful",
-       "gives": "TIMOROUS",
-       "note": "timorous means very nervous or afraid"
-      },
-      {
-       "words": "area",
-       "gives": "A",
-       "note": "A is the abbreviation for area"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "O",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "being for",
+         "at": 29,
+         "note": "being for means one letter stands in place of the other"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "termination of buffalo",
-         "gives": "O",
-         "select": "last",
-         "note": "the final letter of buffalo"
+         "words": "very fearful",
+         "at": 10,
+         "gives": "TIMOROUS",
+         "note": "timorous means very fearful"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "termination of",
+           "at": 39,
+           "note": "termination of means the last letter of buffalo"
+          }
+         ],
+         "parts": [
+          {
+           "words": "buffalo",
+           "at": 54,
+           "note": "its last letter"
+          }
+         ]
+        },
+        {
+         "words": "area",
+         "at": 24,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "gives": "O"
+      },
+      {
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Nervous buffaloes in a jumbled field-guide description.",
-     "walkthrough": "'Each time' means both Os in the timid word are replaced by A.",
-     "definitionFit": "Timaraus, plural of timarau or tamarau, are small wild buffaloes of the Philippines."
+     "surface": "A herd of nervous buffaloes in some area, recorded every time.",
+     "walkthrough": "Both O's in TIMOROUS become A.",
+     "definitionFit": "Tamaraus, or timaraus, are small wild buffaloes found only in the Philippines."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "area"
+     "misdirectedWord": "termination"
     }
    }
   },
@@ -1883,54 +1900,55 @@
      "indicators": [
       {
        "text": "to pen",
-       "note": "to pen something is to enclose it, as in a pen"
+       "at": 8,
+       "note": "to pen means to enclose, as in a pen for animals"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Attempt",
+       "at": 0,
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Attempt",
-           "gives": "TRY",
-           "note": "a try is an attempt"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "a",
+         "at": 15
         },
         {
          "words": "novel",
+         "at": 17,
          "gives": "SHE",
          "note": "She is a novel by H. Rider Haggard"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
+        },
         {
-         "text": "ending with",
-         "note": "ending with picks the last letter of the next word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "utter",
-         "note": "the final letter of utter"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending with",
+           "at": 24,
+           "note": "ending with means the last letter of utter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "utter",
+           "at": 36,
+           "note": "its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An attempt to write a novel that ends up as complete garbage.",
-     "definitionFit": "Trashery is trash or worthless stuff, so rubbish."
+     "surface": "An effort at writing a novel that ends up as complete rubbish.",
+     "walkthrough": "'novel' looks like an adjective; it is the specific book by Rider Haggard.",
+     "definitionFit": "Trashery is a rare word for trash, worthless stuff or nonsense."
     },
     "features": {
      "answerInScene": true,

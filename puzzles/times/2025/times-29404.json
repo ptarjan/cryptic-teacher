@@ -487,40 +487,38 @@
      "indicators": [
       {
        "text": "cooked",
-       "note": "cooked food has been worked over, so the letters are rearranged"
+       "at": 27,
+       "note": "cooked means the letters are mixed up as in a recipe"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "say",
+       "at": 22
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "a bit of",
-         "note": "a bit of a word is its first letter"
+         "at": 39,
+         "note": "a bit of means just the opening letter of oil"
         }
        ],
        "parts": [
         {
-         "words": "say",
-         "note": "used as itself"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "oil",
-           "note": "the first letter of oil"
-          }
-         ]
+         "words": "oil",
+         "at": 48,
+         "note": "its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe tip: fry the vegan staple with a drop of oil.",
-     "walkthrough": "'Say' looks like 'for example' but its letters are the fodder.",
-     "definitionFit": "Soya beans and their products are a staple protein in a vegan diet."
+     "surface": "A tip for vegans: some protein staple, prepared with a dash of oil.",
+     "walkthrough": "'say' is not a link word here; its letters plus O are rearranged.",
+     "definitionFit": "Soya beans and their products such as tofu are a key protein source for vegans."
     },
     "features": {
      "answerInScene": true,
@@ -727,43 +725,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "swimming",
-       "note": "letters swimming move about freely, so they are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in",
+       "at": 6
+      },
+      {
+       "words": "river",
+       "at": 9,
+       "gives": "DON",
+       "note": "the Don is a river in Russia and also in England"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swimming",
+         "at": 19,
+         "note": "swimming means the letters of in and sea move around freely"
+        }
+       ],
        "parts": [
         {
          "words": "in",
-         "note": "used as itself"
+         "at": 28
         },
         {
-         "words": "river",
-         "gives": "DON",
-         "note": "the Don is a river in Russia and several in Britain"
-        },
-        {
-         "words": "in sea",
-         "note": "the letters of IN SEA rearranged"
+         "words": "sea",
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Asian traveller takes a dip in a river and then in the sea.",
-     "walkthrough": "The first 'in' is used as itself, while the second is part of the fodder.",
-     "definitionFit": "An Indonesian is a person from Indonesia, in Asia."
+     "surface": "Someone from Asia found in a river and then swimming in the sea.",
+     "walkthrough": "IN and DON are followed by ESIAN, rearranged from 'in sea'.",
+     "definitionFit": "An Indonesian comes from Indonesia, a country in South-East Asia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "river"
     }
    }
   },
@@ -1369,33 +1373,35 @@
     ],
     "wordplay": {
      "op": "last",
-     "unchecked": true,
-     "gives": "NURSE",
      "indicators": [
       {
+       "text": "in",
+       "at": 6,
+       "note": "in points to the words where the letters are found"
+      },
+      {
        "text": "ultimately",
-       "note": "ultimately means at the end, so take last letters"
+       "at": 44,
+       "note": "ultimately means the final letter of each of those five words is taken"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "in heaven, you suffer less heartache",
-       "gives": "NURSE",
-       "select": "last",
-       "note": "the last letters of heaven, you, suffer, less, heartache"
+       "words": "heaven, you suffer less heartache",
+       "at": 9
       }
      ]
     },
     "explanation": {
-     "surface": "A comforting promise that in heaven there will be less pain.",
-     "walkthrough": "The first 'in' is the link; the last letters start at heaven.",
-     "definitionFit": "Nurses are often called angels for their care."
+     "surface": "A promise that in heaven a person no longer feels the pains of the heart.",
+     "walkthrough": "'Angel' looks like a heavenly being in this scene; it is a kind word for a caring nurse.",
+     "definitionFit": "A nurse is often called an angel, as in Florence Nightingale's angel of mercy image."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "heaven"
+     "joke": "pun",
+     "misdirectedWord": "Angel"
     }
    }
   },

@@ -465,36 +465,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MAC",
      "indicators": [
       {
-       "text": "showing",
-       "note": "the word now displays a different size label in place of its first letter"
+       "text": "showing larger size initially",
+       "at": 13,
+       "note": "the first letter, small size, is upgraded to the next clothing size up"
       }
      ],
      "parts": [
       {
        "words": "pouch",
+       "at": 7,
        "gives": "SAC",
-       "note": "a sac is a pouch in an animal or plant"
+       "note": "a sac is a pouch, as in biology"
       },
       {
-       "words": "larger size initially",
+       "gives": "S",
+       "note": "S is small, a clothing size"
+      },
+      {
        "gives": "M",
-       "note": "M for medium is the size label above S for small"
+       "note": "M is medium, the next size up"
       }
      ]
     },
     "explanation": {
-     "surface": "A jacket pocket that seems to come in a bigger size than expected.",
-     "walkthrough": "SAC begins with S, the small size; swap it for M, the next size up.",
-     "definitionFit": "A mac, short for mackintosh, is a waterproof coat, loosely equated with an anorak in crosswords."
+     "surface": "A rain jacket with a bag that turns out bigger when looked at first.",
+     "walkthrough": "SAC begins with S for small; swapping in the bigger size M gives the coat.",
+     "definitionFit": "A mac, short for mackintosh, is a waterproof coat, much like an anorak."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pouch"
+     "misdirectedWord": "Anorak"
     }
    }
   },
@@ -843,60 +846,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "smeared",
-       "note": "smearing messes something up, so these letters are scrambled"
+       "text": "on",
+       "at": 35,
+       "note": "on means the lipstick letter is placed after the bend in this across clue"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Wife",
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across entry, putting one thing on another places it after, to the right"
+         "text": "smeared",
+         "at": 9,
+         "note": "smeared means the letters of has are messed into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife"
-        },
-        {
          "words": "has",
-         "note": "the three letters rearranged"
-        },
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "bend",
+       "at": 38,
+       "gives": "BOW",
+       "note": "to bow is to bend"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "bend",
-         "gives": "BOW",
-         "note": "to bow is to bend at the waist"
-        },
+         "text": "a bit of",
+         "at": 17,
+         "note": "a bit of means just the opening letter of lipstick"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "a bit of",
-           "note": "only a small piece of the word is wanted, its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lipstick",
-           "note": "the opening letter of lipstick"
-          }
-         ]
+         "words": "lipstick",
+         "at": 26,
+         "note": "its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wife has smudged lipstick on the curved part of a plumbing fitting.",
-     "walkthrough": "In an across clue, 'a bit of lipstick on bend' puts the L after BOW.",
-     "definitionFit": "A washbowl is a basin for washing, a fixture a plumber installs."
+     "surface": "A wife has a smudge of lipstick on some bend, perhaps a pipe she is fixing.",
+     "walkthrough": "In an across clue, one thing 'on' another comes after it, so the lipstick letter follows the bend.",
+     "definitionFit": "A washbowl is a basin installed by a plumber for washing hands and face."
     },
     "features": {
      "answerInScene": true,
@@ -1676,38 +1684,43 @@
      "indicators": [
       {
        "text": "around",
-       "note": "one word goes round the outside of the others"
+       "at": 7,
+       "note": "around means the obtained word wraps the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Bought",
-         "gives": "GOT",
-         "note": "got means obtained or bought"
-        },
-        {
-         "words": "500",
-         "gives": "D",
-         "note": "D is 500 in Roman numerals"
-        }
-       ]
+       "words": "Bought",
+       "at": 0,
+       "gives": "GOT",
+       "note": "got can mean bought, as in got some milk"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "from the east",
-         "note": "in an across entry, coming from the east means reading from right to left"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "fruit trees",
-         "gives": "FIGS",
-         "note": "fig trees bear figs"
+         "words": "500",
+         "at": 14,
+         "gives": "D",
+         "note": "D is the Roman numeral for 500"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "from the east",
+           "at": 30,
+           "note": "from the east means the trees are read from right to left in this across clue"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fruit trees",
+           "at": 18,
+           "gives": "FIGS",
+           "note": "figs are fruit trees"
+          }
+         ]
         }
        ]
       }
@@ -1715,13 +1728,13 @@
     },
     "spelling": "GOD'S GIFT",
     "explanation": {
-     "surface": "A buyer of 500 imported fruit trees wonders whether any is flawless.",
-     "walkthrough": "'Fruit trees' are named for their fruit; the dash hides that 'is one perfect?' is a definition of a person.",
-     "definitionFit": "Someone who thinks they are God's gift believes they are flawless, an idiom for an ideal person."
+     "surface": "Buying hundreds of fig trees from the east, someone wonders if the orchard is ideal.",
+     "walkthrough": "'from the east' reads the trees right to left in an across entry; 'is' is a link to the definition.",
+     "definitionFit": "Someone who thinks they are God's gift believes they are flawless, a gift from heaven."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "Bought"
     }
    }
