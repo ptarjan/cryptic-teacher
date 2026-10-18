@@ -157,50 +157,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "about",
-       "note": "about in the sense of concerning puts one piece after the thing it concerns, so the order flips"
+       "at": 41,
+       "note": "about means around, so the fool and the outer letters together surround the hesitation"
       }
      ],
      "parts": [
       {
-       "words": "fool",
-       "gives": "ASS",
-       "note": "an ass is a foolish person"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fool",
+         "at": 9,
+         "gives": "ASS",
+         "note": "an ass is a fool"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 19,
+           "note": "extremely takes the extreme letters, first and last, of embarrassed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "embarrassed",
+           "at": 29
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "hesitant remark",
+       "at": 47,
        "gives": "UM",
-       "note": "um is the sound of someone hesitating"
-      },
-      {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "extremely",
-         "note": "the extremes of a word are its two ends, so only the outer letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "embarrassed",
-         "note": "first and last letters"
-        }
-       ]
+       "note": "um is the sound of hesitating"
       }
      ]
     },
     "explanation": {
-     "surface": "A so-called idiot goes red over an awkward, faltering comment.",
-     "walkthrough": "The fool comes first, then the hesitation, then the outer letters of the embarrassed word; 'about' only sets the order.",
-     "definitionFit": "Both words mean taken for granted or believed without proof, as in a supposed or assumed identity."
+     "surface": "A fool is mortified by their own hesitant comment.",
+     "definitionFit": "Assumed means taken for granted, presumed without proof."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Supposed"
+     "misdirectedWord": "extremely"
     }
    }
   },
@@ -788,35 +796,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "holding",
-       "note": "someone holding cards keeps them in hand right beside him, so that piece follows straight on"
+       "at": 18,
+       "note": "holding means the scoundrel and that-is letters together close round the diamonds letter"
       }
      ],
      "parts": [
       {
-       "words": "Scoundrel",
-       "gives": "CAD",
-       "note": "a cad is a dishonourable man"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Scoundrel",
+         "at": 0,
+         "gives": "CAD",
+         "note": "a cad is a dishonourable man"
+        },
+        {
+         "words": "that is",
+         "at": 10,
+         "gives": "IE",
+         "note": "i.e. is the abbreviation for id est, that is"
+        }
+       ]
       },
       {
        "words": "diamonds",
+       "at": 26,
        "gives": "D",
-       "note": "D is the card-suit abbreviation"
-      },
-      {
-       "words": "that is",
-       "gives": "IE",
-       "note": "i.e. is the abbreviation of id est, that is"
+       "note": "D is the card-suit abbreviation for diamonds"
       }
      ]
     },
     "explanation": {
-     "surface": "A card game: a cheat hides diamonds, while this player holds clubs.",
-     "walkthrough": "Diamonds and clubs both look like card suits; only the diamonds are, and the clubs are for golf. The scoundrel holds the diamonds, so they follow him before 'that is'.",
-     "definitionFit": "A caddie carries a golfer's bag of clubs around the course, so holding the clubs is the job."
+     "surface": "A rogue clutching jewels, with a nod to card suits and clubs.",
+     "walkthrough": "'Clubs' and 'diamonds' suggest cards; the clubs are golf clubs.",
+     "definitionFit": "A caddie carries a golfer's bag of clubs around the course."
     },
     "features": {
      "answerInScene": false,
