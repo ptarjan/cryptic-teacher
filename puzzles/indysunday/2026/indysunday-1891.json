@@ -337,25 +337,20 @@
    "annotation": {
     "definitions": [
      {
-      "text": "cheap place in NYC",
+      "text": "cheap place in NYC?",
       "at": 44
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beginning to",
-       "note": "The beginning of a word is its opening letter, so only one character of what follows is taken."
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "A down entry reads bottom to top, so what has just been spelled out is read back the other way."
+         "at": 35,
+         "note": "up in a down clue means these letters are read upwards, backwards"
         }
        ],
        "parts": [
@@ -364,15 +359,23 @@
          "parts": [
           {
            "words": "Suburban property",
+           "at": 0,
            "gives": "SEMI",
-           "note": "a semi is a semi-detached house, the standard British suburban home"
+           "note": "a semi is a semi-detached house, typical of suburbs"
           },
           {
            "op": "first",
+           "indicators": [
+            {
+             "text": "beginning to",
+             "at": 18,
+             "note": "beginning to points to the first letter of dry"
+            }
+           ],
            "parts": [
             {
              "words": "dry",
-             "note": "the opening letter of the word, and nothing more of it"
+             "at": 31
             }
            ]
           }
@@ -382,14 +385,21 @@
       },
       {
        "words": "rent",
+       "at": 39,
        "gives": "TORE",
-       "note": "rent is what a rip did: the past of rend, which matches the past of tear"
+       "note": "tore is the past tense of tear; rent means torn, tore"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Beginning to dry up' begs to be read as one phrase about a drought, and the clue cuts straight through it. A dime is the American ten-cent coin the shop is priced by.",
-     "definitionFit": "cheap place in NYC → DIME STORE: the American five-and-dime, the cut-price variety shop an American rather than a Briton would name."
+     "surface": "A suburban house stops leaking, and its rent becomes cheap.",
+     "walkthrough": "A semi is a British semi-detached house; 'rent' is the past of tear, not a payment.",
+     "definitionFit": "A dime store is an American shop selling cheap goods, a budget outlet in New York."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rent"
     }
    }
   },
@@ -752,13 +762,15 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "Taking letters at regular intervals means every other one, so only half the word beside it reaches the grid."
+       "text": "on",
+       "at": 29,
+       "note": "on means placed after, so the east letters follow the walk in this across clue"
       }
      ],
      "parts": [
       {
        "words": "walk",
+       "at": 32,
        "gives": "MARCH",
        "note": "to march is to walk in step"
       },
@@ -766,14 +778,15 @@
        "op": "alternate",
        "indicators": [
         {
-         "text": "on",
-         "note": "In an across clue a piece that sits on another is written after it, the way one word leans against the next."
+         "text": "regularly",
+         "at": 19,
+         "note": "regularly takes every other letter of east"
         }
        ],
        "parts": [
         {
          "words": "east",
-         "note": "the first and third letters, picked out at every other step"
+         "at": 14
         }
        ]
       },
@@ -782,21 +795,27 @@
        "indicators": [
         {
          "text": "back from",
-         "note": "The back of a word is its final letter, so one character is taken off the end of the name that follows."
+         "at": 37,
+         "note": "back from points to the final letter of Aldi"
         }
        ],
        "parts": [
         {
          "words": "Aldi",
-         "note": "Aldi is a discount supermarket chain, and only the letter it ends on is wanted"
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a walk home from the shops, and every word of it is doing a separate job. 'Peers' means noblemen here, not people of your own age.",
-     "definitionFit": "Italian peers → MARCHESI: marchesi is the Italian plural of marchese, the rank that matches an English marquess, so both words are noblemen."
+     "surface": "Someone walks back east from the supermarket.",
+     "definitionFit": "Marchesi is the plural of marchese, an Italian nobleman ranking as a marquis, so they are Italian peers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peers"
     }
    }
   },
@@ -1050,54 +1069,63 @@
     "definitions": [
      {
       "text": "devices",
-      "at": 54,
-      "note": "'Devices' is plural and the answer is a mass noun covering all of them at once, the same way 'machinery' answers to 'machines'."
+      "at": 54
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "starts to",
-       "note": "The start of a word is its first letter, and this instruction is plural, so one letter comes off each of the two words that follow."
+       "text": "stored by",
+       "at": 34,
+       "note": "stored by means held inside the name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "stored by",
-         "note": "Whatever stores a thing keeps it inside, so the letters just named are shut up in the middle of the name beside them."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Lineker",
-         "gives": "GARY",
-         "note": "Gary Lineker, the England striker turned Match of the Day presenter, is on first-name terms with British viewers"
-        },
-        {
-         "words": "BBC boss",
-         "gives": "DG",
-         "note": "the BBC's boss is its Director-General, DG for short"
-        }
-       ]
+       "words": "Lineker's",
+       "at": 44,
+       "gives": "GARY",
+       "note": "Gary Lineker is the former footballer and BBC presenter"
       },
       {
-       "op": "first",
+       "op": "charade",
        "parts": [
         {
-         "words": "examine tweets",
-         "note": "one letter from the front of each word"
+         "words": "BBC boss",
+         "at": 0,
+         "gives": "DG",
+         "note": "DG is the Director-General, head of the BBC"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starts to",
+           "at": 9,
+           "note": "starts to points to the first letters of examine and tweets"
+          }
+         ],
+         "parts": [
+          {
+           "words": "examine tweets",
+           "at": 19
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A BBC boss and Lineker's tweets really did make headlines together, which is why the surface reads like news; the pieces of the clue have nothing to do with each other.",
-     "definitionFit": "devices → GADGETRY: gadgetry is the collective word for clever little contrivances, so it stands in where a plural naming several of them would."
+     "surface": "The BBC chief reviews posts kept by its football presenter.",
+     "walkthrough": "Gary Lineker, the BBC's long-time football presenter, clashed with the corporation over his tweets.",
+     "definitionFit": "Gadgetry is a collection of gadgets, ingenious mechanical devices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lineker's"
     }
    }
   },
