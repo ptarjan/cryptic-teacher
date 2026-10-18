@@ -1074,40 +1074,43 @@
      "indicators": [
       {
        "text": "occupies",
+       "at": 18,
        "note": "to occupy a place is to sit inside it, so one piece goes within the other"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "MY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "in the second half",
-         "note": "only the latter half of the word is kept, its closing letters"
+         "at": 32,
+         "note": "only the latter half of the word is kept, its first half dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "host",
-         "gives": "MY",
-         "select": "last",
-         "note": "a host is an army; its second half is kept"
+         "at": 27,
+         "gives": "ARMY",
+         "note": "a host is a great multitude, especially an army, as in a heavenly host"
+        },
+        {
+         "gives": "AR"
         }
        ]
       },
       {
        "words": "worry",
+       "at": 12,
        "gives": "EAT",
-       "note": "'what's eating you?' means 'what's worrying you?'"
+       "note": "'what's eating you?' means 'what's worrying you?', so to eat is to worry"
       }
      ]
     },
     "explanation": {
      "surface": "A host fretting during the second half of a party or a match.",
-     "walkthrough": "'Host' here means a large army, as in 'a heavenly host', not someone giving a party. Its last two letters wrap around EAT.",
+     "walkthrough": "'host' here means an army, not someone giving a party; 'in the second half' keeps its last two letters, MY, which EAT 'occupies'.",
      "definitionFit": "A meaty issue or role has plenty of substance to it, so the adjectives are synonyms in that figurative sense."
     },
     "features": {
@@ -1211,56 +1214,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIGHS",
-     "indicators": [
-      {
-       "text": "mainly",
-       "note": "mainly means for the most part, so the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 13,
+         "note": "mainly means for the most part, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "struck",
-         "gives": "HI",
-         "note": "struck means hit; drop the final letter"
+         "at": 20,
+         "gives": "HIT",
+         "note": "struck means hit"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "trains",
-           "note": "a train is the trailing tail of a gown, so only the tail letter of each word is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Long",
-           "note": "the final letter of the word"
-          }
-         ]
-        },
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "Beach",
-           "note": "the final letter of the word"
-          }
-         ]
-        },
+         "text": "trains",
+         "at": 27,
+         "note": "a train is the trailing tail of a gown, so only the tail letter of each word is taken"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "suburbs",
-           "note": "the final letter of the word"
-          }
-         ]
+         "words": "Long Beach suburbs",
+         "at": 37,
+         "note": "the words whose final letters are taken"
         }
        ]
       }
@@ -1268,7 +1258,7 @@
     },
     "explanation": {
      "surface": "Storms batter railway services in the outskirts of the Californian city of Long Beach.",
-     "walkthrough": "'Trains' is a noun in the surface but works as a word for tails: the end letters of Long, Beach and suburbs.",
+     "walkthrough": "'trains' is a noun in the surface but works as a word for tails, the end of each of the three words; 'mainly' cuts the last letter off the word for struck.",
      "definitionFit": "Meteorologists call areas of high pressure highs, and an anticyclone is exactly such a pressure system."
     },
     "features": {
@@ -1722,39 +1712,40 @@
      "indicators": [
       {
        "text": "Daftly",
+       "at": 0,
        "note": "done daftly means done foolishly and out of order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "50% of",
-         "note": "half of a four-letter word is its opening pair of letters"
+         "at": 8,
+         "note": "50% of a four-letter word is its opening pair of letters, the second pair dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "risk",
-         "gives": "RI",
-         "select": "first",
-         "note": "the opening half of the word"
+         "at": 15
+        },
+        {
+         "gives": "SK"
         }
        ]
       },
       {
        "words": "doubled by",
+       "at": 20,
        "note": "taken as written, as anagram material"
       }
      ]
     },
     "explanation": {
      "surface": "A foolish warning that risk is twice as high when you eat healthy food.",
-     "walkthrough": "'doubled by' reads as part of the sentence, but both words are anagram material along with RI.",
+     "walkthrough": "'doubled by' reads as part of the sentence, but both words go into the pool along with RI, the half of 'risk' that '50% of' keeps, and 'Daftly' rearranges the lot.",
      "definitionFit": "Protein-rich food that helps the body grow strong was once advertised as a body-builder, a dated food-marketing term."
     },
     "features": {
