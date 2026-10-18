@@ -48,36 +48,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BAGPIPER",
      "indicators": [
       {
        "text": "exchanging two letters",
-       "note": "two letters inside the phrase trade places with each other, so the vowels swap positions"
+       "at": 14,
+       "note": "two of the letters swap places with each other"
       }
      ],
      "parts": [
       {
-       "words": "Large",
-       "gives": "BIG",
-       "note": "large means big"
+       "words": "Large journal",
+       "at": 0,
+       "gives": "BIGPAPER",
+       "note": "a big paper is a large journal"
       },
       {
-       "words": "journal",
-       "gives": "PAPER",
-       "note": "a journal is a newspaper, a paper"
+       "gives": "IGPA"
+      },
+      {
+       "gives": "AGPI"
       }
      ]
     },
     "explanation": {
-     "surface": "A big newspaper rearranges a couple of letters to report on a Scottish musician.",
-     "walkthrough": "BIG PAPER with its I and A swapped becomes BAGPIPER. The question mark flags that the definition is by example: the bagpipes are Scotland's emblematic instrument.",
-     "definitionFit": "A bagpiper is a musician playing the bagpipes, the instrument most associated with Scotland."
+     "surface": "A broadsheet newspaper swaps two letters to reveal a Scottish musician.",
+     "walkthrough": "In BIG PAPER, the I and the A trade places.",
+     "definitionFit": "A bagpiper plays the bagpipes, the instrument closely associated with Scotland."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "journal"
+     "misdirectedWord": "player"
     }
    }
   },
@@ -1422,50 +1423,54 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the edge letters enclose the rest"
+       "at": 36,
+       "note": "about means around, so those letters surround the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 11,
+         "note": "the outskirts are the edges, so the first and last letters"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "outskirts of",
-           "note": "outskirts are the edges, so only the outermost letters of the town name are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Ballyclare",
-           "note": "first and last letters of Ballyclare"
-          }
-         ]
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is one in Roman numerals"
+         "words": "Ballyclare",
+         "at": 24,
+         "note": "a town in Northern Ireland; its ends give BE"
         }
        ]
       },
       {
-       "words": "kilometre",
-       "gives": "K",
-       "note": "K is short for kilometre"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 42,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "kilometre",
+         "at": 46,
+         "gives": "K",
+         "note": "K is the abbreviation for kilometre"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bike ride starting on the edge of Ballyclare, a town in Northern Ireland, covering a kilometre.",
-     "definitionFit": "Cycle is the everyday short word for a bicycle, which is a bike."
+     "surface": "Cycling from the edge of Ballyclare for about a kilometre.",
+     "definitionFit": "A bike is a bicycle, and to bike is to cycle."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Cycle"
+     "aptDefinition": false
     }
    }
   },

@@ -156,64 +156,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "to case",
-       "note": "to case something is to enclose it in a case"
+       "at": 27,
+       "note": "to case is to enclose, so the earlier pieces hold the next one"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "empty",
-         "note": "an emptied word has lost its contents, leaving only its outer letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "does perhaps",
+         "at": 7,
          "gives": "DEER",
-         "note": "does are female deer"
+         "note": "does are female deer, so they are examples of deer"
         },
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "SP",
-         "indicators": [
-          {
-           "text": "perhaps",
-           "note": "does are one example of deer, and 'perhaps' warns that the example stands for the wider class"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "empty shop",
-           "gives": "SP",
-           "select": "outer",
-           "note": "ShoP with its middle removed"
-          }
-         ]
+         "words": "bother",
+         "at": 20,
+         "gives": "ADO",
+         "note": "ado means fuss or bother"
         }
        ]
       },
       {
-       "words": "bother",
-       "gives": "ADO",
-       "note": "ado = fuss, bother"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 35,
+         "note": "emptied of its contents, only the outer letters remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop",
+         "at": 41,
+         "note": "with its middle gone, SP is left"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asking whether a bandit bothers to scout an empty store before robbing it.",
-     "walkthrough": "'Does' looks like the verb; it is the plural of doe, a female deer.",
-     "definitionFit": "A plain synonym: a desperado is a reckless bandit, the outlaw of Wild West stories."
+     "surface": "Someone checks out an empty shop before a burglary, bothering some does.",
+     "walkthrough": "'does' is the plural of doe, not the verb. DEERADO holds SP.",
+     "definitionFit": "A desperado is a reckless criminal, especially in the old American West."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "does"
@@ -347,40 +341,55 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DENTALHYGIENIST",
+     "indicators": [
+      {
+       "text": "reassembled",
+       "at": 33,
+       "note": "put together again in a new way, so the letters are shuffled"
+      }
+     ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "DENTALHYGIENIST",
        "indicators": [
         {
-         "text": "reassembled",
-         "note": "something reassembled has been put back together in a new order"
-        },
-        {
-         "text": "first of traps, not second"
+         "text": "not second",
+         "at": 61,
+         "note": "the second letter of traps, R, is not wanted and makes way for its first"
         }
        ],
        "parts": [
         {
          "words": "dishearteningly",
-         "note": "the anagram fodder before the swap"
+         "at": 17
         },
         {
-         "words": "first of traps, not second",
-         "gives": "T",
-         "note": "T replaces R, giving DISHEATTENINGLY"
+         "gives": "R"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 45,
+           "note": "the first letter of traps is T"
+          }
+         ],
+         "parts": [
+          {
+           "words": "traps",
+           "at": 54
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone clearing out animal traps, gloomily putting them back together.",
-     "walkthrough": "'Traps' is slang for mouths, so a cleaner of traps cleans teeth. The setter uses the word twice on purpose: once in the definition, once to supply the swapped letter.",
-     "definitionFit": "Slang sense: trap means mouth, as in 'shut your trap', and a dental hygienist cleans mouths."
+     "surface": "A mouth cleaner put together dejectedly, with one trap swapped for another.",
+     "walkthrough": "'Traps' is slang for mouths. Swap the R (second letter of traps) in DISHEARTENINGLY for T (its first) and rearrange.",
+     "definitionFit": "A dental hygienist cleans teeth, and trap is slang for a mouth."
     },
     "features": {
      "answerInScene": false,
@@ -728,39 +737,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEUTRAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dons",
+       "at": 11,
+       "note": "to don is to put on, so the university wears the rearranged letters around it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "dons"
-        },
-        {
          "text": "about",
-         "note": "'about' as in moved around, so the letters of learnt change places"
+         "at": 23,
+         "note": "about here means in a different arrangement"
         }
        ],
        "parts": [
         {
          "words": "learnt",
-         "note": "LEARNT rearranged"
-        },
-        {
-         "words": "University",
-         "gives": "U",
-         "note": "U = university"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "University",
+       "at": 0,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "University dons who have found out about something, but stay impartial.",
-     "walkthrough": "'Dons' reads as university lecturers; it is the verb, to put on clothing.",
-     "definitionFit": "A plain synonym: a neutral party backs neither side in a dispute."
+     "surface": "University academics have learnt to stay impartial.",
+     "walkthrough": "'dons' looks like academics; it is the verb. LEARNT rearranged is placed around U.",
+     "definitionFit": "Being neutral means remaining impartial and supporting neither party in a dispute."
     },
     "features": {
      "answerInScene": true,
@@ -1331,46 +1343,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INTERCEDE",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INTERCEDE",
+       "indicators": [
+        {
+         "text": "abandoning final",
+         "at": 24,
+         "note": "giving up its last letter, the phrase is cut short"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "abandoning final"
-          },
-          {
-           "text": "out of hand",
-           "note": "a thing out of hand is out of control, so its letters run wild"
-          }
-         ],
-         "parts": [
-          {
-           "words": "keen on",
-           "gives": "INT",
-           "note": "INTO (keen on) without its last letter"
-          },
-          {
-           "words": "decree",
-           "note": "DECREE rearranged"
-          }
-         ]
+         "words": "keen on",
+         "at": 16,
+         "gives": "INTO",
+         "note": "into means keen on, as in being into music"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out of hand",
+         "at": 48,
+         "note": "out of control, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "decree",
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mediator eager to scrap a final divorce decree that has got out of hand.",
-     "walkthrough": "'Final decree' looks like a legal term; 'final' belongs with 'abandoning' and cuts the end off INTO.",
-     "definitionFit": "A plain synonym: to intercede is to step in between two parties on someone's behalf."
+     "surface": "A keen negotiator drops a final ruling that has got out of hand.",
+     "walkthrough": "INTO loses its last O to give INT; DECREE rearranged gives ERCEDE.",
+     "definitionFit": "To intercede is to step in on behalf of others to settle a dispute."
     },
     "features": {
      "answerInScene": true,

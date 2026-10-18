@@ -413,37 +413,26 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CHOPIN",
-     "indicators": [
-      {
-       "text": "On the contrary",
-       "note": "this tells the solver to swap the second word of the phrase for its opposite"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "cut",
-         "gives": "CHOP",
-         "note": "to chop is to cut"
-        },
-        {
-         "words": "out",
-         "gives": "IN",
-         "note": "the opposite of out"
-        }
-       ]
+       "words": "cut",
+       "at": 16,
+       "gives": "CHOP",
+       "note": "to cut is to chop"
+      },
+      {
+       "words": "out? On the contrary",
+       "at": 20,
+       "gives": "IN",
+       "note": "the opposite of out is in, so 'cut out' read the contrary way becomes cut in"
       }
      ]
     },
     "explanation": {
-     "surface": "Asks whether a composer's piece was removed from a programme.",
-     "walkthrough": "'cut out' must become cut in, so CHOP + IN.",
-     "definitionFit": "Frédéric Chopin was the Polish composer of piano music, so he is a writer of music."
+     "surface": "A composer's work is cut out, or perhaps the reverse.",
+     "walkthrough": "'Cut out' would be CHOP OUT; 'On the contrary' says take the opposite of out, giving CHOP IN.",
+     "definitionFit": "Frédéric Chopin was a Polish composer, so he wrote music."
     },
     "features": {
      "answerInScene": true,
@@ -545,43 +534,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "blundering",
-       "note": "a blundering effort is clumsy and muddled, so the words before it are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Party",
+       "at": 0,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "blundering",
+         "at": 16,
+         "note": "blundering means making mistakes, so the two words are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Party",
-         "gives": "DO",
-         "note": "a do is a party"
+         "words": "win",
+         "at": 6
         },
         {
-         "words": "win, then",
-         "note": "the seven letters rearranged"
-        },
-        {
-         "words": "entrance",
-         "gives": "MOUTH",
-         "note": "the mouth of a cave or river is its entrance"
+         "words": "then",
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "entrance",
+       "at": 30,
+       "gives": "MOUTH",
+       "note": "a mouth is an entrance, as of a cave or river"
       }
      ]
     },
     "explanation": {
-     "surface": "A party wins, then stumbles at the door, and the mood sours.",
-     "definitionFit": "Down in the mouth is an idiom for dejected, from the drooping corners of a sad face."
+     "surface": "A party wins, then fumbles its arrival and is left unhappy.",
+     "definitionFit": "Down in the mouth is an idiom for looking dejected or miserable."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Party"
+     "misdirectedWord": "entrance"
     }
    }
   },
