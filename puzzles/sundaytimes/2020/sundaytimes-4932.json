@@ -1419,49 +1419,54 @@
      "indicators": [
       {
        "text": "Accepting",
-       "note": "to accept something is to take it in, so the outer letters receive the rest"
+       "at": 0,
+       "note": "Accepting means the final letters take in the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 17,
+         "note": "finally takes the closing letter of each of the three words that one may"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the last letter of each of the words concerned"
-          }
-         ],
-         "parts": [
-          {
-           "words": "that one may",
-           "note": "the closing letter of each of the three words"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "words": "that one may",
+         "at": 26
         }
        ]
       },
       {
-       "words": "role",
-       "gives": "PART",
-       "note": "a part in a play is a role"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10,
+         "gives": "A"
+        },
+        {
+         "words": "role",
+         "at": 12,
+         "gives": "PART",
+         "note": "a part is a role in a play"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finally accepts a role that they might perform in an afternoon matinee.",
-     "walkthrough": "'Finally' seems to modify 'Accepting a role', but it acts on the words after the comma. 'Do' is a noun here, a party.",
-     "definitionFit": "A tea party is a social gathering held over afternoon tea, and a 'do' is an informal word for a party."
+     "surface": "Someone takes on a part, at last, in something people might do after lunch.",
+     "walkthrough": "'finally' works on all three words after it, not just one. A do is British slang for a party or social event.",
+     "definitionFit": "A do is a social gathering, and a tea party is one held in the afternoon over tea."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "do"
     }
    }

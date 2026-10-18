@@ -726,35 +726,39 @@
      "indicators": [
       {
        "text": "capturing",
-       "note": "the photo takes the letters prisoner, holding them inside"
+       "at": 15,
+       "note": "capturing means the shortened photo word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Timeless photo",
-         "gives": "SHO",
-         "note": "SHOT with its T (time) removed"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
-        }
-       ]
+       "words": "Timeless photo",
+       "at": 0,
+       "gives": "SHO",
+       "note": "a photo is a shot; without the T for time it becomes SHO"
       },
       {
-       "words": "king",
-       "gives": "K",
-       "note": "K = king, in chess"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "words": "king",
+         "at": 27,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old photograph of a king wearing an army hat.",
-     "walkthrough": "'Timeless' suggests a classic photo; here it simply strips a T.",
-     "definitionFit": "A definition by type: a shako is the tall, peaked, plumed cap of nineteenth-century soldiers."
+     "surface": "A classic picture shows a monarch wearing a soldier's hat.",
+     "walkthrough": "'Timeless' sounds like praise for the photo, but it says SHOT loses T (time).",
+     "definitionFit": "A shako is a tall cylindrical military cap with a peak and a plume, worn in the 19th century."
     },
     "features": {
      "answerInScene": true,
@@ -1846,41 +1850,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the university goes in the middle letters"
+       "at": 11,
+       "note": "in means the university word goes inside those central letters"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "RC",
        "indicators": [
         {
          "text": "middle of",
-         "note": "the middle of a word is its central letters"
+         "at": 14,
+         "note": "middle of means the central letters of Mercia, with its ends dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of Mercia",
-         "gives": "RC",
-         "select": "middle",
-         "note": "the two middle letters of meRCia"
+         "words": "Mercia",
+         "at": 24
         }
        ]
       },
       {
        "words": "University",
-       "gives": "UNI",
-       "note": "uni = university"
+       "at": 0,
+       "gives": "UNI"
       }
      ]
     },
     "explanation": {
-     "surface": "A university in the English Midlands takes spelling seriously.",
-     "walkthrough": "Mercia was an Anglo-Saxon kingdom in central England. 'Spelling' looks like orthography; it means casting spells, and runes carried magic.",
-     "definitionFit": "A punning sense: runes were used in charms, so runic writing was concerned with spells as well as letters."
+     "surface": "A university in the heart of the old kingdom of Mercia studies how words are spelt.",
+     "walkthrough": "Mercia was an Anglo-Saxon kingdom in central England. 'spelling' here means casting spells, not writing words correctly.",
+     "definitionFit": "Runes were letters credited with magic power, so runic can mean to do with spells and incantations."
     },
     "features": {
      "answerInScene": false,
@@ -2144,40 +2145,60 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the mistake goes about, around, the other letters"
+       "at": 8,
+       "note": "about means the mistake word wraps round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Mistake",
-         "gives": "CLANGER",
-         "note": "a clanger is a blunder"
-        },
-        {
-         "words": "mostly doubtful",
-         "gives": "IFF",
-         "note": "IFFY without its last letter"
-        }
-       ]
+       "words": "Mistake",
+       "at": 0,
+       "gives": "CLANGER",
+       "note": "a clanger is a blunder, British slang for a mistake"
       },
       {
-       "words": "hour",
-       "gives": "H",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 14,
+           "note": "mostly means the word for doubtful loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doubtful",
+           "at": 21,
+           "gives": "IFFY",
+           "note": "iffy means doubtful or uncertain"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        },
+        {
+         "words": "hour's",
+         "at": 30,
+         "gives": "H",
+         "note": "H is the abbreviation for hour"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dubious hour of television ends with a blunder.",
-     "walkthrough": "A clanger is British slang for a blunder, from dropping something with a clang.",
-     "definitionFit": "A description of the device: a cliffhanger leaves the story unresolved so viewers come back for the next episode."
+     "surface": "A blunder over an uncertain hour of television ends on a tense note.",
+     "walkthrough": "A clanger is British slang for an embarrassing blunder; iffy is informal for doubtful.",
+     "definitionFit": "A cliffhanger is a tense, unresolved ending to an episode that keeps viewers waiting for the next."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "Mistake"
     }
    }
   },
@@ -2212,40 +2233,44 @@
      "indicators": [
       {
        "text": "reinforced by",
-       "note": "the car is filled out from within by the other letters"
+       "at": 8,
+       "note": "reinforced by means the vehicle is filled out with the other pieces placed inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Vehicle",
-         "gives": "CAR",
-         "note": "a car is a vehicle"
-        },
-        {
-         "words": "aged",
-         "gives": "OLD",
-         "note": "old = aged"
-        }
-       ]
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
       },
       {
-       "words": "tungsten",
-       "gives": "W",
-       "note": "W is the chemical symbol for tungsten"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "aged",
+         "at": 22,
+         "gives": "OLD",
+         "note": "old means aged"
+        },
+        {
+         "words": "tungsten",
+         "at": 27,
+         "gives": "W",
+         "note": "W is the chemical symbol for tungsten"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An armoured vehicle strengthened with old tungsten for battle.",
-     "walkthrough": "The military surface of armour and battle keeps the answer's war in view throughout.",
-     "definitionFit": "A definition by example: the Cold War was the decades-long standoff between the West and the Soviet bloc."
+     "surface": "An armoured vehicle strengthened with tungsten goes into battle.",
+     "definitionFit": "The Cold War was the decades-long standoff between the US and the Soviet Union, a conflict without direct fighting."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "tungsten"
     }
    }
   },
