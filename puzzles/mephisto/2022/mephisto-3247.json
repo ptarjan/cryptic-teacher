@@ -803,43 +803,53 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "placed between means set after the first item and before the next ones"
+       "at": 5,
+       "note": "between means the girl's name sits in the middle of the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "street",
-       "gives": "ST",
-       "note": "standard abbreviation for street"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "street",
+         "at": 13,
+         "gives": "ST",
+         "note": "ST is the address abbreviation for street"
+        },
+        {
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "words": "railway",
+         "at": 26,
+         "gives": "RY"
+        }
+       ]
       },
       {
        "words": "Girl",
+       "at": 0,
        "gives": "ANN",
-       "note": "a girl's name"
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "words": "railway",
-       "gives": "RY",
-       "note": "abbreviation for railway"
+       "note": "Ann is a girl's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl stands between the road and the tracks in a mining district.",
-     "walkthrough": "ST + ANN + A + RY.",
-     "definitionFit": "The stannaries were the tin-mining districts of Cornwall and Devon, with their own courts."
+     "surface": "A girl stands between a street and a railway line in an old mining district.",
+     "walkthrough": "The word is historical: Cornwall and Devon tin-mining districts had their own courts and laws.",
+     "definitionFit": "This is a tin-mining district of Cornwall or Devon, governed by its own special courts and customs."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl"
     }
    }
   },

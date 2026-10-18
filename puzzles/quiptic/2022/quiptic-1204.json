@@ -38,7 +38,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "feature of a hotel room",
+      "text": "feature of a hotel room?",
       "at": 30
      }
     ],
@@ -47,7 +47,8 @@
      "indicators": [
       {
        "text": "Put back",
-       "note": "putting something back sends it the way it came, so the letters run in the opposite direction"
+       "at": 0,
+       "note": "put back means the whole result is read in reverse"
       }
      ],
      "parts": [
@@ -56,42 +57,45 @@
        "indicators": [
         {
          "text": "in",
-         "note": "to sit in something is to be held inside it, so one piece goes within another"
+         "at": 22,
+         "note": "in means the pieces go inside the word for side"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "side",
-           "gives": "RIM",
-           "note": "a rim is the side or edge of a vessel"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "side",
+         "at": 25,
+         "gives": "RIM",
+         "note": "a rim is a side or edge"
         },
         {
-         "words": "receptacle",
-         "gives": "BIN",
-         "note": "a bin is a container for rubbish"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 9,
+           "gives": "A"
+          },
+          {
+           "words": "receptacle",
+           "at": 11,
+           "gives": "BIN",
+           "note": "a bin is a receptacle"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tidying a hotel room returns a little bin to its place beside the bed.",
-     "walkthrough": "'Side' is a noun for an edge, not the side of the room; the whole assembly is read backwards at the end.",
-     "definitionFit": "Hotel rooms commonly come with a small stocked fridge of drinks and snacks for guests."
+     "surface": "Someone tidies a hotel room by putting a container back at the side.",
+     "definitionFit": "Hotel rooms commonly have a small fridge stocked with drinks, a typical piece of the furnishing."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "side"
+     "aptDefinition": true,
+     "misdirectedWord": "receptacle"
     }
    }
   },
@@ -879,50 +883,48 @@
      "indicators": [
       {
        "text": "stops",
-       "note": "something that stops a gap plugs it, sitting inside the opening"
+       "at": 9,
+       "note": "stops means plugs a gap, so the letter for American sits within the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "American",
-           "gives": "A",
-           "note": "A is the abbreviation for American"
-          },
-          {
-           "words": "period",
-           "gives": "STRETCH",
-           "note": "a stretch is a period of time"
-          }
-         ]
+         "words": "a",
+         "at": 15,
+         "gives": "A"
         },
         {
          "words": "tense",
+         "at": 17,
          "gives": "T",
          "note": "T is the grammatical abbreviation for tense"
+        },
+        {
+         "words": "period",
+         "at": 23,
+         "gives": "STRETCH",
+         "note": "a stretch is a period of time"
         }
        ]
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "words": "American",
+       "at": 0,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "An American calms a tense period with some effort.",
-     "walkthrough": "'Stops' means plugs: the American A goes into the gap between A T and STRETCH.",
-     "definitionFit": "The idiom describes something just about achievable when one makes an extra effort."
+     "surface": "An American brings a stressful time to an end, though not easily.",
+     "definitionFit": "The idiom describes something achieved at the limit of one's ability, barely and with strain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stops"
+     "misdirectedWord": "tense"
     }
    }
   },

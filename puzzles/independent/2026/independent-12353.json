@@ -1563,46 +1563,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "called back, so read backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "having lost",
-         "note": "the P for power is dropped"
+         "text": "recalled",
+         "at": 9,
+         "note": "recalled in the sense of called back, so the vote is read from the far end"
         }
        ],
        "parts": [
         {
          "words": "vote against",
+         "at": 18,
          "gives": "NAY",
-         "note": "nay = a vote against"
+         "note": "a vote against is a nay"
         }
        ]
       },
       {
-       "words": "Remain, having lost power",
-       "gives": "KEE",
-       "note": "KEEP without P for power"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having lost",
+         "at": 39,
+         "note": "having lost signals that a letter is dropped from the word for remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Remain",
+         "at": 31,
+         "gives": "KEEP",
+         "note": "to remain is to keep (keep calm, keep still)"
+        },
+        {
+         "words": "power",
+         "at": 51,
+         "gives": "P",
+         "note": "P is the physics abbreviation for power"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A unionist politician recalled after campaigning against Remain.",
-     "walkthrough": "The surface is Brexit politics; the Unionist is a Northerner of the US Civil War, and 'remain' is the verb to keep.",
-     "definitionFit": "In the US Civil War, a Yankee was a supporter of the Union."
+     "surface": "A Northern Ireland politician changes their mind on the Brexit vote and loses influence.",
+     "walkthrough": "'Unionist' suggests Ulster politics, but here it is a soldier or supporter of the Union side in the American Civil War.",
+     "definitionFit": "In the American Civil War the Northern side was the Union, and its soldiers and supporters were nicknamed after the slang term for Northerners."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Remain"
+     "misdirectedWord": "Unionist"
     }
    }
   },
@@ -1948,35 +1962,37 @@
      "indicators": [
       {
        "text": "snared by",
-       "note": "a snared animal is held inside the trap"
+       "at": 21,
+       "note": "snared by means caught inside, so the drug's letters wrap around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "drug",
-         "gives": "SPEED",
-         "note": "speed = amphetamine"
-        },
-        {
-         "words": "a",
-         "note": "as it stands"
-        }
-       ]
+       "words": "drug",
+       "at": 31,
+       "gives": "SPEED",
+       "note": "speed is slang for amphetamine"
       },
       {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R = Republican"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 7,
+         "gives": "A"
+        },
+        {
+         "words": "Republican",
+         "at": 9,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican's drink spiked and caught up in a drugs story.",
-     "walkthrough": "'Spiked' suggests a drink laced with drugs; here it means pierced with a spear.",
-     "definitionFit": "To spear is to spike or pierce with a point."
+     "surface": "A Republican's drink is spiked when they are caught up with drugs.",
+     "definitionFit": "To spike something is to pierce it with a sharp point, just as a fish is caught with a lance."
     },
     "features": {
      "answerInScene": false,
