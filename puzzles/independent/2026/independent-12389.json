@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -91,37 +92,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GIDEONS",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "Turned about, a word faces the other way, so its letters are read from the far end back."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 26,
+         "note": "about here means turned round, so the word for understand is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "understand",
-         "gives": "GID",
-         "note": "To dig something is to understand it in slang, and it is turned round here."
-        },
-        {
-         "words": "eternities",
-         "gives": "EONS",
-         "note": "An eon is an immeasurably long stretch of time."
+         "at": 15,
+         "gives": "DIG",
+         "note": "to dig something is slang for understanding or appreciating it"
         }
        ]
+      },
+      {
+       "words": "eternities",
+       "at": 32,
+       "gives": "EONS",
+       "note": "eons are vast ages, eternities"
       }
      ]
     },
     "explanation": {
-     "surface": "Churchgoers with a firm grasp of the things that last forever.",
-     "walkthrough": "The Gideons are the association that leaves a Bible in hotel bedside drawers, so the plural definition names one body by its members.",
-     "definitionFit": "The Gideons are an evangelical association of Christian business people, so the answer is a particular set of religious folk rather than a synonym."
+     "surface": "A believer, asked to understand eternity, turns it over in their mind.",
+     "walkthrough": "'about' turns DIG (slang for understand, as in 'I dig it') backwards before EONS.",
+     "definitionFit": "The Gideons are an evangelical Christian association known for placing Bibles in hotel rooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },
@@ -881,56 +888,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CLEVERER",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "bails out of",
-         "note": "Bailing out of an aircraft is jumping clear of it, so this letter leaves the word it was sitting in."
+         "at": 13,
+         "note": "to bail out of an aircraft is to leave it, so the letter for ace leaves the word for chopper"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "spinning",
-           "note": "A spinning piece comes to rest facing the other way, so its letters are read in the opposite order."
-          }
-         ],
-         "parts": [
-          {
-           "words": "ace",
-           "gives": "A",
-           "note": "A is the standard short form of ace, and it is the letter that jumps."
-          },
-          {
-           "words": "chopper",
-           "gives": "CLEVER",
-           "note": "A butcher's chopper is a cleaver, handed over once that A has gone."
-          },
-          {
-           "words": "soldiers",
-           "gives": "ER",
-           "note": "The Royal Engineers, the army's sappers, are RE — turned round here."
-          }
-         ]
+         "words": "chopper",
+         "at": 26,
+         "gives": "CLEAVER",
+         "note": "a cleaver is a heavy chopper, a butcher's knife"
         },
         {
-         "gives": "A"
+         "words": "ace",
+         "at": 9,
+         "gives": "A",
+         "note": "A is the card abbreviation for ace"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "spinning",
+         "at": 39,
+         "note": "spinning means turning round, so the letters for soldiers are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldiers",
+         "at": 48,
+         "gives": "RE",
+         "note": "RE is the Royal Engineers, a corps of British army soldiers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pilot parachuting out of a helicopter above troops marching in circles.",
-     "walkthrough": "'Chopper' is the helicopter the surface wants and the butcher's blade the wordplay needs, and the ace stays a flying ace in either reading.",
-     "definitionFit": "Both the definition and the answer are comparatives meaning more intelligent, with 'bright' in its mental sense rather than its light one."
+     "surface": "A flying ace parachutes out of a helicopter while soldiers whirl around below.",
+     "walkthrough": "'chopper' looks like a helicopter, which suits 'bails out', but it is a CLEAVER; losing A leaves CLEVER, and RE (Royal Engineers) 'spinning' gives ER.",
+     "definitionFit": "Bright describes someone intelligent, so brighter and cleverer are comparative synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chopper"
     }
    }
   },
@@ -1019,7 +1032,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "In puts the piece just clued inside the letters that surround it rather than alongside them."
+       "at": 5,
+       "note": "in puts the word for gang inside the other letters"
       }
      ],
      "parts": [
@@ -1028,26 +1042,24 @@
        "parts": [
         {
          "words": "uniform",
+         "at": 8,
          "gives": "FLAT",
-         "note": "A flat rate is a uniform one, the same all the way through."
+         "note": "flat means uniform, even, without variation"
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "ED",
+         "op": "regular",
          "indicators": [
           {
            "text": "regularly",
-           "note": "Letters taken regularly come at an even step through the word, so every second one is picked and the rest dropped."
+           "at": 21,
+           "note": "regularly means taking every other letter, here the second and fourth of head"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "head",
-           "gives": "ED",
-           "select": "alternate",
-           "note": "The second and fourth letters of the word, taken in that order."
+           "at": 16,
+           "note": "the word whose alternate letters are taken"
           }
          ]
         }
@@ -1055,15 +1067,21 @@
       },
       {
        "words": "Gang",
+       "at": 0,
        "gives": "PACK",
-       "note": "A pack is a gang, whether of wolves or of people."
+       "note": "a pack is a gang, as in a pack of thieves"
       }
      ]
     },
     "explanation": {
-     "surface": "Uniformed heavies being loaded into a van ahead of a rally.",
-     "walkthrough": "'Gang in uniform' reads as one idea — a mob dressed alike — and the wordplay splits it, with the little word 'in' carrying the only instruction.",
-     "definitionFit": "Flat-packed furniture is sold boxed flat for the buyer to build, so the definition describes the state the wardrobe is in before the Allen key comes out."
+     "surface": "A gang in uniform, led by their chief, are boxed in before assembling.",
+     "walkthrough": "'regularly' takes ED from head; FLAT (uniform) plus ED surrounds PACK (gang).",
+     "definitionFit": "Flat-packed furniture is sold in a flat cardboard box, to be put together by the buyer at home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "uniform"
     }
    }
   },
@@ -1146,37 +1164,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PERFECT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "down",
+       "at": 42,
+       "note": "in a down clue, down means the letter is put back lower in the word than where it was"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sent down",
-         "note": "Sent down moves a letter further along a downward entry, so it comes back lower in the word than it started."
+         "text": "sent",
+         "at": 37,
+         "note": "sent here means sent away from its place, so that letter is lifted out of the word for school monitor"
         }
        ],
        "parts": [
         {
          "words": "school monitor",
-         "gives": "PEFECT",
-         "note": "A prefect is a senior pupil given authority over the others; lift out its R and this is what is left."
+         "at": 7,
+         "gives": "PREFECT",
+         "note": "a prefect is a senior pupil given authority over others, a school monitor"
         },
         {
-         "words": "Roedean's head",
-         "gives": "R",
-         "note": "Roedean is a girls' boarding school on the Sussex coast, and the letter it heads on is the one that moved."
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 32,
+         "note": "head means the first letter of Roedean's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Roedean's",
+         "at": 22,
+         "note": "the word whose first letter is taken; Roedean is an English girls' boarding school"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The head of a famous girls' school being expelled, with a prefect from Poland looking on.",
-     "walkthrough": "'Polish' opens the clue, so its capital is free and it reads as the nationality; the definition is the verb, to work at a thing until it shines.",
-     "definitionFit": "To perfect something is to polish it — the sense of going over a thing until nothing in it can be improved."
+     "surface": "A prefect at Roedean, a posh English girls' school, is expelled by the headmistress.",
+     "walkthrough": "'Polish' looks like the nationality, but it is the verb. In PREFECT, the R (the head of Roedean's) is 'sent down' two places to give the answer; 'sent down' also means expelled from school.",
+     "definitionFit": "To perfect something is to refine it until it is flawless, which is to polish it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
     }
    }
   },
