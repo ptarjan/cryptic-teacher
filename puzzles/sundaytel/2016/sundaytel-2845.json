@@ -830,7 +830,8 @@
      "indicators": [
       {
        "text": "is holding",
-       "note": "holding something means having it inside, surrounded"
+       "at": 27,
+       "note": "the toy and the two letters together hold the next word between them, as hands hold something"
       }
      ],
      "parts": [
@@ -839,41 +840,28 @@
        "parts": [
         {
          "words": "Toy",
+         "at": 0,
          "gives": "TOP",
-         "note": "a spinning top is a toy"
+         "note": "a top is a classic spinning toy"
         },
         {
-         "op": "first",
-         "unchecked": true,
+         "words": "first pair of children",
+         "at": 4,
          "gives": "CH",
-         "indicators": [
-          {
-           "text": "first pair of",
-           "note": "the opening two characters of the following word are all that are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "children",
-           "gives": "CH",
-           "select": "first",
-           "note": "opening pair of letters of the word"
-          }
-         ]
+         "note": "the opening two letters of the word children"
         }
        ]
       },
       {
        "words": "not",
-       "note": "taken as written"
+       "at": 38
       }
      ]
     },
     "explanation": {
-     "surface": "A toy the first couple of kids hold is of poor quality.",
-     "walkthrough": "TOP plus CH together hold NOT; the surface 'not of the best quality' tricks the solver into reading a negative definition.",
-     "definitionFit": "Top-notch is an informal adjective for excellent or first-rate."
+     "surface": "A toy is the first thing a couple of children hold, though it is not of the best quality.",
+     "walkthrough": "TOP for the toy and CH, the first pair of letters of 'children', sit side by side; 'is holding' then puts NOT between them. The surface pairs 'not' with 'of the best quality', which is the definition on its own.",
+     "definitionFit": "Top-notch is an informal compound meaning excellent or first-rate, the highest grade available."
     },
     "features": {
      "answerInScene": false,
@@ -1125,55 +1113,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLOTTO",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "only most of the word is kept, so its final letter goes"
+       "text": "in",
+       "at": 11,
+       "note": "the abbreviation for left goes in the shortened word for base"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 20,
+         "note": "mostly means not quite all, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "a thing placed in another is enclosed by it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "base",
-           "gives": "BO",
-           "note": "start of bottom, the base, shortened"
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "standard abbreviation"
-          }
-         ]
+         "words": "base",
+         "at": 14,
+         "gives": "BOTTOM",
+         "note": "the bottom of something is its base"
         },
         {
-         "words": "base",
-         "gives": "TTO",
-         "note": "rest of bottom without its last letter"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 6,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk was left at the bottom of the heap.",
-     "definitionFit": "Blotto is British slang for extremely drunk."
+     "surface": "Someone is left drunk back at base camp, for the most part.",
+     "walkthrough": "'mostly' trims BOTTOM to BOTTO, and 'in' puts L inside after the B. Blotto is British slang for very drunk.",
+     "definitionFit": "Blotto is informal British slang for extremely intoxicated, as in so drunk one is senseless."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "base"
     }
@@ -1421,40 +1404,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THAWING",
-     "indicators": [
-      {
-       "text": "Most of",
-       "note": "only the greater part is taken, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word is all but its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "that",
-         "gives": "THA",
-         "note": "the word without its final letter"
+         "at": 8
         },
         {
-         "words": "section of party",
-         "gives": "WING",
-         "note": "a faction within a political party"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "section of party",
+       "at": 13,
+       "gives": "WING",
+       "note": "a wing is a faction or section within a political party"
       }
      ]
     },
     "explanation": {
-     "surface": "Much of a political faction is starting to relax its opposition.",
-     "definitionFit": "Relations thawing is a metaphor from ice melting: becoming warmer and friendlier."
+     "surface": "A political observer notes that most of one party faction is growing warmer towards its rivals.",
+     "walkthrough": "'Most of' cuts 'that' to THA, then WING follows. A thaw is a softening in relations, so thawing works as an adjective for relations growing friendlier.",
+     "definitionFit": "Thawing describes a warming of relations, as when frosty diplomacy turns friendlier and tension melts away."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "party"
     }
    }
   },

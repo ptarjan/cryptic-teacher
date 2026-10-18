@@ -163,64 +163,49 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "BRILL",
-     "indicators": [
-      {
-       "text": "double",
-       "note": "doubling something means writing it twice in a row"
-      }
-     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "BRILL",
+       "op": "composite",
        "indicators": [
         {
          "text": "pissed",
-         "note": "pissed is British slang for drunk, and drunk letters stagger out of order"
+         "at": 6,
+         "note": "pissed is British slang for drunk, so the letters of Boris stagger into a new order"
+        },
+        {
+         "text": "goes off",
+         "at": 17,
+         "note": "the letters of 'so' leave the pool, departing like someone who goes off"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "BRILL",
-         "indicators": [
-          {
-           "text": "goes off",
-           "note": "whatever goes off leaves the scene, so those letters are removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Boris",
-           "note": "taken as written"
-          },
-          {
-           "words": "so",
-           "note": "taken as written, the letters that leave"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L is the clothing-size abbreviation for large"
-          }
-         ]
+         "words": "Boris",
+         "at": 0
+        },
+        {
+         "words": "so",
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "large double",
+       "at": 31,
+       "gives": "LL",
+       "note": "L is the clothing abbreviation for large, and double means it appears twice"
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk Boris Johnson wanders off for a large double whisky and declares it fab.",
-     "walkthrough": "Remove S and O from BORIS to leave BRI, then add L twice. BRILL is British slang, short for brilliant.",
-     "definitionFit": "Both words are dated British slang exclamations of enthusiasm meaning excellent or wonderful."
+     "surface": "Boris Johnson gets drunk and leaves, taking a large double measure with him, and someone cheers it.",
+     "walkthrough": "'pissed' is the anagram signal on Boris, and 'goes off' takes S and O out of it, leaving BRI. 'large double' is L twice, not a big drink. Brill is British slang, short for brilliant.",
+     "definitionFit": "Brill is informal British shorthand for brilliant, an exclamation of delight just like fab, short for fabulous."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "double"
     }
    }
@@ -435,31 +420,30 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "THUMB",
      "indicators": [
       {
        "text": "in",
-       "note": "the letters sit inside the following words rather than being built"
+       "at": 12,
+       "note": "the answer sits inside the run of letters across these two words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "fact humbled",
-       "note": "the run straddles the gap between the two words"
+       "at": 15,
+       "note": "the letters run from the end of fact into humbled"
       }
      ]
     },
     "explanation": {
-     "surface": "Tom is actually feeling chastened and brought down a peg.",
-     "walkthrough": "Tom Thumb is the tiny hero of an English folk tale, so 'Maybe Tom' points to the surname; the answer is hidden across 'fact humbled'.",
-     "definitionFit": "Tom Thumb is the thumb-sized boy of English folklore, so the surname is one possible partner for that first name."
+     "surface": "A remark that some man called Tom has, in truth, been brought low.",
+     "walkthrough": "Tom Thumb is the tiny hero of an English folk tale, so 'Tom' leads to his surname; 'Maybe' marks it as one example.",
+     "definitionFit": "Tom Thumb is the thumb-sized boy of English folklore, so the name Tom is famously paired with this word."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Tom's"
+     "misdirectedWord": "humbled"
     }
    }
   },

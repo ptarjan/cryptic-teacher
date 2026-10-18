@@ -162,43 +162,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISPEL",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "'endless' means the word for a shift loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "detective",
+       "at": 8,
+       "gives": "DI",
+       "note": "DI is the abbreviation for Detective Inspector, a British police rank"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 21,
+         "note": "endless means without an end, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "detective",
-         "gives": "DI",
-         "note": "DI is a Detective Inspector"
+         "words": "shift",
+         "at": 29,
+         "gives": "SPELL",
+         "note": "a spell is a stint or shift of work"
         },
         {
-         "words": "shift",
-         "gives": "SPEL",
-         "note": "a spell is a stint or shift of work, here missing its last letter"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective coming off a seemingly never-ending shift is finally relieved by a colleague.",
-     "walkthrough": "'Relieve' suggests swapping one officer for another, but it is used in the sense of driving away a worry or fear.",
-     "definitionFit": "To dispel fears or doubts is to drive them away, relieving the person who held them."
+     "surface": "A police detective is taken off an unending shift to give him a break.",
+     "walkthrough": "'endless' drops the last letter of SPELL to leave SPEL, after DI for detective. 'Relieve' here means to drive away a worry, as to dispel doubts.",
+     "definitionFit": "To dispel fears or doubts is to drive them away, so it can mean to relieve someone of worry."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Relieve"
+     "misdirectedWord": "shift"
     }
    }
   },
@@ -667,30 +670,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EARFUL",
      "indicators": [
       {
        "text": "losing head",
-       "note": "'losing head' means the word drops its opening letter"
+       "at": 8,
+       "note": "losing its head, the word gives up its first letter"
       }
      ],
      "parts": [
       {
        "words": "Crying",
-       "gives": "EARFUL",
-       "note": "tearful means crying, here without its first letter"
+       "at": 0,
+       "gives": "TEARFUL",
+       "note": "tearful means crying, with tears flowing"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in tears after losing their temper is given a telling-off.",
-     "walkthrough": "TEARFUL loses its T.",
-     "definitionFit": "To get an earful is to receive a long scolding, an informal word for a reprimand."
+     "surface": "Someone in tears loses their cool and gets told off.",
+     "walkthrough": "'losing head' takes the first letter off TEARFUL. An earful is an informal phrase, as in 'to give someone an earful'.",
+     "definitionFit": "An earful is a prolonged scolding or telling-off, a stream of angry words aimed at a listener."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "head"
     }
    }
@@ -865,43 +871,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENAMELS",
+     "op": "container",
      "indicators": [
       {
-       "text": "detailed",
-       "note": "'detailed' is read as de-tailed, meaning the tail letter is removed"
+       "text": "covering",
+       "at": 35,
+       "note": "the shortened word covers the name, wrapping round it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covering",
-         "note": "covering means wrapping around, so one piece goes outside the other"
+         "text": "detailed",
+         "at": 26,
+         "note": "read as de-tailed, the word loses its tail, its final letter"
         }
        ],
        "parts": [
         {
          "words": "different",
-         "gives": "ELS",
-         "note": "else means different or other, without its last letter"
+         "at": 16,
+         "gives": "ELSE",
+         "note": "else means other or different, as in someone else"
         },
         {
-         "words": "tag",
-         "gives": "NAME",
-         "note": "a tag is a label or name"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "tag",
+       "at": 7,
+       "gives": "NAME",
+       "note": "a tag is a name or label"
       }
      ]
     },
     "explanation": {
-     "surface": "Paints a label in a different, finely worked coat.",
-     "walkthrough": "'Detailed' looks like it means intricate, but it is read as de-tailed: cut off at the tail.",
-     "definitionFit": "To enamel is to coat with a glossy paint, so enamels can stand for paints as a verb."
+     "surface": "An instruction for paint labels with a different, finely detailed coating.",
+     "walkthrough": "'detailed' is read as 'de-tailed': ELSE loses its last letter to give ELS, which goes 'covering' NAME, split as E and LS. The surface's fine detail is a misdirection.",
+     "definitionFit": "Enamels are glossy hard-drying paints, used for coatings on metal and woodwork."
     },
     "features": {
      "answerInScene": true,
@@ -981,12 +992,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EVENSONG",
      "indicators": [
       {
        "text": "admitted",
-       "note": "to be admitted is to be let in, so this piece goes inside the others"
+       "at": 31,
+       "note": "the relative is admitted inside, let in between the other letters"
       }
      ],
      "parts": [
@@ -995,27 +1005,29 @@
        "parts": [
         {
          "words": "still",
+         "at": 8,
          "gives": "EVEN",
-         "note": "even means still, as in even better"
-        },
-        {
-         "words": "relative",
-         "gives": "SON",
-         "note": "a son is a relative"
+         "note": "even is used to mean still, as in even better"
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
+         "at": 14,
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "relative",
+       "at": 20,
+       "gives": "SON",
+       "note": "a son is a family relative"
       }
      ]
     },
     "explanation": {
-     "surface": "Evening prayers remain good when a family member is allowed in.",
-     "walkthrough": "'Still' is the adverb meaning even, as in still better, not the adjective for calm.",
-     "definitionFit": "Vespers is the evening service of prayer; Evensong is its Anglican counterpart."
+     "surface": "Evening prayer is still good, and a family member has been let in to attend.",
+     "walkthrough": "EVEN and G sit side by side and 'admitted' puts SON between them. 'still' looks like an adverb about time, but it gives EVEN.",
+     "definitionFit": "Evensong is the Anglican evening service of prayer, corresponding to vespers in the older monastic hours."
     },
     "features": {
      "answerInScene": true,

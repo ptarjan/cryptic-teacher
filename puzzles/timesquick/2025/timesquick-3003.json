@@ -423,32 +423,31 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Leader of",
-       "note": "the leader of a word is its first letter"
+       "text": "brought into",
+       "at": 23,
+       "note": "the single letter is brought into the word for bankruptcy, placed inside it"
       }
      ],
      "parts": [
       {
        "words": "bankruptcy",
+       "at": 36,
        "gives": "RUIN",
-       "note": "financial ruin"
+       "note": "financial ruin is another way of saying bankruptcy"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
-         "text": "brought into",
-         "note": "the letter is brought inside the next word"
+         "text": "Leader of",
+         "at": 0,
+         "note": "the leader of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Leader of negotiations",
-         "gives": "N",
-         "select": "first",
+         "words": "negotiations",
+         "at": 10,
          "note": "first letter of negotiations"
         }
        ]
@@ -456,12 +455,12 @@
      ]
     },
     "explanation": {
-     "surface": "A company's chief negotiator gets dragged into an insolvency row.",
-     "walkthrough": "N goes into RUIN between U and I.",
-     "definitionFit": "A plain synonym for an argument or brush with someone, as in a run-in with the police."
+     "surface": "A firm's lead negotiator gets dragged into a quarrel over its collapse.",
+     "walkthrough": "'Leader of negotiations' is just N, and 'brought into' places it inside RUIN. A run-in is an informal word for a quarrel.",
+     "definitionFit": "A run-in is an argument or confrontation, typically a brief clash with someone such as the police."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Leader"
     }
@@ -896,42 +895,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATHENS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with invasion of",
+       "at": 28,
+       "note": "the abbreviation for English invades the rearranged letters, going inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "changed",
-         "note": "the letters are changed round"
-        },
-        {
-         "text": "with invasion of"
+         "at": 20,
+         "note": "changed letters are altered in order, so 'hasn't' is rearranged"
         }
        ],
        "parts": [
         {
          "words": "hasn't",
-         "note": "HASNT rearranged"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 45,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A capital that has stayed the same despite an English invasion.",
-     "walkthrough": "'Hasn't changed' reads as a statement that nothing moved; 'changed' is the instruction to rearrange HASNT.",
-     "definitionFit": "A definition by example: Athens is one capital city, that of Greece."
+     "surface": "A capital city has stayed the same despite an English invasion.",
+     "walkthrough": "'changed' rearranges HASNT to ATHNS, and 'with invasion of' sends E inside it. The surface says the city 'hasn't changed', but 'changed' is the instruction.",
+     "definitionFit": "Athens is the capital of Greece, its largest city and seat of government."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "changed"
     }
@@ -958,40 +960,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANTARCTIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 34,
+       "note": "the rearranged letters go around the arc, holding it in the middle"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "shaped",
-         "note": "the letters are shaped into a new form"
-        },
-        {
-         "text": "around",
-         "note": "the rearranged letters go around the curve"
+         "at": 27,
+         "note": "shaped means formed into a new form, so the letters of 'intact' are rearranged"
         }
        ],
        "parts": [
         {
          "words": "intact",
-         "note": "INTACT rearranged"
-        },
-        {
-         "words": "curved line",
-         "gives": "ARC",
-         "note": "an arc is a curved line"
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "curved line",
+       "at": 41,
+       "gives": "ARC",
+       "note": "an arc is a curved line, part of a circle"
       }
      ]
     },
     "explanation": {
-     "surface": "A polar landscape left unspoilt, shaped around a curving line.",
-     "walkthrough": "'Intact' suggests untouched wilderness, which suits the scene, but it is the letters to be shaped.",
-     "definitionFit": "A plain equivalence: the Antarctic names the region round the South Pole."
+     "surface": "A polar region stays whole, moulded around a curving line such as the Antarctic Circle.",
+     "walkthrough": "'shaped' rearranges INTACT to ANTTIC, and 'around' wraps those letters round ARC after ANT. 'intact' seems to describe the region, but it is fodder.",
+     "definitionFit": "The Antarctic is the region around the South Pole, the ice-covered continent and surrounding seas."
     },
     "features": {
      "answerInScene": true,

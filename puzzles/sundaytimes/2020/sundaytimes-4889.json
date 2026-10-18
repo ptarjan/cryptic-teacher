@@ -956,35 +956,41 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STANCE",
      "indicators": [
       {
-       "text": "if one's never there",
-       "note": "the numeral for one is never present, so every such letter is dropped from the words"
+       "text": "if",
+       "at": 18,
+       "note": "if sets up the condition under which the letters vanish, framing the removal that follows"
+      },
+      {
+       "text": "never there",
+       "at": 27,
+       "note": "never there says that letter is absent everywhere it would have appeared"
       }
      ],
      "parts": [
       {
        "words": "Is it a nice",
-       "note": "the four words run together"
+       "at": 0
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman numeral one"
+       "words": "one's",
+       "at": 21,
+       "gives": "III",
+       "note": "one is I, the Roman numeral, and here every I in the phrase counts"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wonders whether a view is pleasant if nobody is ever present to see it.",
-     "walkthrough": "Remove all three I's from ISITANICE to leave STANCE.",
-     "definitionFit": "A stance is a position or attitude someone takes on an issue, their view of it."
+     "surface": "A wry question whether a view is worth admiring if you never go to see it.",
+     "walkthrough": "The first four words are the fodder: 'if one's never there' asks for every I (one) to be absent from 'Is it a nice', and what remains reads as the answer. 'view' sits at the end, posing as part of the question.",
+     "definitionFit": "A stance is a standpoint or attitude, the position someone takes, so it matches view as an opinion."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "view"
+     "joke": "pun",
+     "misdirectedWord": "one's"
     }
    }
   },
@@ -1185,47 +1191,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SUZERAIN",
+     "op": "container",
      "indicators": [
       {
-       "text": "mad",
-       "note": "mad means crazy or deranged, so the country name is jumbled"
+       "text": "covers",
+       "at": 8,
+       "note": "the paper's name covers the jumbled letters, wrapping around them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Tabloid",
+       "at": 0,
+       "gives": "SUN",
+       "note": "The Sun is a British tabloid newspaper"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covers",
-         "note": "to cover something is to go around it, so the newspaper encloses the next part"
+         "text": "mad",
+         "at": 15,
+         "note": "mad suggests wild disorder, so the letters of Zaire are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Tabloid",
-         "gives": "SUN",
-         "note": "the Sun is a British tabloid newspaper"
-        },
-        {
          "words": "Zaire",
-         "note": "the letters rearranged"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid reports on a crazed African ruler.",
-     "walkthrough": "The Sun is a British tabloid newspaper; Zaire was the name of the Democratic Republic of the Congo from 1971 to 1997.",
-     "definitionFit": "A suzerain is a sovereign or state that holds supreme power over a dependent territory, an overlord."
+     "surface": "A tabloid newspaper runs stories on a crazed ruler of Zaire.",
+     "walkthrough": "The Sun is a British tabloid. 'mad' rearranges ZAIRE to ZERAI, and 'covers' wraps SUN round it after SU.",
+     "definitionFit": "A suzerain is a feudal superior or a state controlling another's foreign affairs, a ruling power above lesser rulers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mad"
+     "misdirectedWord": "covers"
     }
    }
   },
