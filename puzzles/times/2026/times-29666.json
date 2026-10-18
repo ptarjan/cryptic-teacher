@@ -1249,50 +1249,54 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the fuss surrounds the letters that follow"
+       "at": 5,
+       "note": "about means the fuss goes round the fleet and the A"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Fuss",
-         "gives": "TODO",
-         "note": "a to-do is a fuss"
-        },
-        {
-         "words": "fleet",
-         "gives": "RN",
-         "note": "the Royal Navy, Britain's fleet"
-        }
-       ]
+       "words": "Fuss",
+       "at": 0,
+       "gives": "TODO",
+       "note": "a to-do is a fuss"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter of the word next to it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "adrift",
-         "note": "the first letter"
+         "words": "fleet",
+         "at": 11,
+         "gives": "RN",
+         "note": "RN, the Royal Navy, is a fleet"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 17,
+           "note": "initially means the first letter of adrift"
+          }
+         ],
+         "parts": [
+          {
+           "words": "adrift",
+           "at": 27
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A panic over ships drifting loose in a gale.",
-     "definitionFit": "A tornado is a violent rotating windstorm, a type of storm."
+     "surface": "A commotion arises over a navy that has drifted loose in bad weather.",
+     "definitionFit": "A tornado is a violent rotating windstorm."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fleet"
+     "misdirectedWord": "Fuss"
     }
    }
   },

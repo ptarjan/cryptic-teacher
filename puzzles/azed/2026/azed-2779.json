@@ -777,52 +777,56 @@
      "indicators": [
       {
        "text": "including",
-       "note": "including means holding within, so the shortened word wraps the following pieces"
+       "at": 36,
+       "note": "including means the shortened missive holds the next pieces within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 17,
+         "note": "unfinished means the last letter of the word is cut off"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "unfinished",
-           "note": "unfinished means lacking its end, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "missive",
-           "gives": "LETTER",
-           "note": "a missive is a letter"
-          },
-          {
-           "gives": "R"
-          }
-         ]
+         "words": "missive",
+         "at": 28,
+         "gives": "LETTER",
+         "note": "a missive is a letter"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "R"
         }
        ]
       },
       {
-       "words": "wound of old",
-       "gives": "DERE",
-       "note": "dere is an obsolete verb meaning to injure or harm"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 46
+        },
+        {
+         "words": "wound of old",
+         "at": 48,
+         "gives": "DERE",
+         "note": "dere is an archaic verb meaning to wound or injure"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short editorial piece: a half-finished letter about an old injury.",
-     "walkthrough": "'Of old' marks an obsolete Spenserian word, which Azed solvers find in Chambers.",
-     "definitionFit": "A leaderette is a short leading article, the leader being a newspaper's main editorial comment."
+     "surface": "A short newspaper editorial is compared to an incomplete letter recalling an ancient injury.",
+     "walkthrough": "'of old' flags a Spenserian word for injuring; a leader is the British newspaper term for an editorial, and the -ette ending makes it short.",
+     "definitionFit": "A leaderette is a short leading article, the newspaper term for a brief editorial piece."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "wound"
     }
