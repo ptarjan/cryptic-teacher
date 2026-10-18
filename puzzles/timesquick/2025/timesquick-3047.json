@@ -188,59 +188,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "costly",
-      "at": 55
+      "text": "It could be costly",
+      "at": 43
      }
     ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
-       "text": "last",
-       "note": "the final letter of the word before it is taken"
+       "text": "after",
+       "at": 11,
+       "note": "the word for thoughtful comes after the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "E",
-       "indicators": [
-        {
-         "text": "after",
-         "note": "the thoughtful word comes after the other pieces in the answer"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Conservative's last",
-         "gives": "E",
-         "select": "last",
-         "note": "last letter of Conservative"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last",
+           "at": 32,
+           "note": "only the final letter of the party word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Conservative's",
+           "at": 17,
+           "gives": "CONSERVATIVE",
+           "note": "the word Conservative, ending in E"
+          }
+         ]
+        },
+        {
+         "words": "vote",
+         "at": 37,
+         "gives": "X",
+         "note": "a voter marks a ballot with a cross, X"
         }
        ]
       },
       {
-       "words": "vote",
-       "gives": "X",
-       "note": "you mark a ballot paper with an X"
-      },
-      {
        "words": "Thoughtful",
+       "at": 0,
        "gives": "PENSIVE",
-       "note": "pensive = thoughtful"
+       "note": "pensive means deep in thought"
       }
      ]
     },
     "explanation": {
-     "surface": "A voter muses over a Conservative vote and wonders what it might cost.",
-     "walkthrough": "'After' tells you PENSIVE goes at the end even though it comes first in the clue.",
-     "definitionFit": "A plain synonym: both describe something with a high price."
+     "surface": "A Tory voter ponders the cost of their ballot.",
+     "walkthrough": "'Conservative's last' gives just E, and X is the cross a voter makes on a ballot paper; 'after' puts PENSIVE behind them.",
+     "definitionFit": "Something that could be costly is pricey, a dear purchase, which is what expensive means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "vote"
     }
    }
@@ -405,49 +411,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AVARICE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "putting",
+       "at": 6,
+       "note": "putting one thing somewhere places it, here inside the hospital letters"
+      },
+      {
+       "text": "in",
+       "at": 28,
+       "note": "the rearranged clergyman goes inside, between the two hospital letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "A&E",
+       "at": 31,
+       "gives": "AE",
+       "note": "the letters A and E, as in the hospital Accident and Emergency department"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "drunken",
-         "note": "a drunk staggers about, so the letters are jumbled"
-        },
-        {
-         "text": "putting",
-         "note": "with 'in', an instruction to place one thing inside another"
-        },
-        {
-         "text": "in",
-         "note": "the jumbled word goes inside A&E"
+         "at": 14,
+         "note": "a drunk staggers about, so the letters of vicar are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "A&E",
-         "note": "the letters A and E, split to hold the rest"
-        },
-        {
          "words": "vicar",
-         "note": "VICAR rearranged"
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk vicar ends up in hospital casualty, and greed is somehow to blame.",
-     "walkthrough": "A&E (Accident and Emergency) is the British hospital casualty department; here it just supplies its two letters.",
-     "definitionFit": "A plain synonym: an excessive desire for money or possessions."
+     "surface": "A tipsy clergyman being taken into hospital casualty.",
+     "walkthrough": "A&E is the British name for a hospital's emergency department; here it just supplies the letters A and E, with VARIC, the drunken vicar, between them.",
+     "definitionFit": "Avarice is an excessive desire for wealth, a synonym of greed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "drunken"
+     "misdirectedWord": "A&E"
     }
    }
   },
@@ -1188,40 +1198,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORGANISE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "the area letter goes inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "the area letter goes inside the jumbled letters"
-        },
-        {
          "text": "strange",
-         "note": "the letters are made strange, so rearranged"
+         "at": 15,
+         "note": "something strange is out of the ordinary, so the letters of regions are put in an unusual order"
         }
        ],
        "parts": [
         {
          "words": "regions",
-         "note": "REGIONS rearranged"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A = area"
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "area",
+       "at": 7,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "An official has to run an area in unfamiliar parts.",
-     "walkthrough": "The jumble of regions has to be chosen so that A can sit in the middle.",
-     "definitionFit": "A plain synonym: to arrange and run things efficiently."
+     "surface": "Running a territory within unfamiliar parts of the country.",
+     "walkthrough": "'strange' rearranges REGIONS into ORGNISE, and 'in' sets A for area inside it.",
+     "definitionFit": "To organise something is to arrange and run it, to manage it."
     },
     "features": {
      "answerInScene": false,

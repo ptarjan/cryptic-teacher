@@ -47,25 +47,31 @@
      "indicators": [
       {
        "text": "Doctor",
-       "note": "to doctor is to tamper with or falsify, so the letters that follow get altered"
+       "at": 0,
+       "note": "as a verb, to doctor something is to tamper with it, so the letters that follow are altered into a new order"
       }
      ],
      "parts": [
       {
-       "words": "doctor, I'm",
-       "note": "anagram fodder: the second 'doctor' plus I'M, eight letters"
+       "words": "doctor",
+       "at": 7
+      },
+      {
+       "words": "I'm",
+       "at": 15,
+       "note": "the letters I and M, the apostrophe ignored"
       }
      ]
     },
     "explanation": {
-     "surface": "The old 'Doctor, doctor, I think I'm a...' joke, with a patient who believes they are an undeveloped photo.",
-     "walkthrough": "The first 'Doctor' is the verb meaning tamper with; the second is the fodder. The joke format makes both look like the patient's cry.",
-     "definitionFit": "A microdot is a picture shrunk to the size of a full stop, so it must be enlarged before anyone can view it."
+     "surface": "The opening of a 'Doctor, doctor' joke, with a patient claiming to be a photograph.",
+     "walkthrough": "The first 'Doctor' is the verb, meaning tamper with; the second is fodder, mixed with I'M. The surface borrows the old 'Doctor, doctor, I think I'm a...' joke format.",
+     "definitionFit": "A microdot is a photograph shrunk to the size of a dot, used by spies, and must be enlarged before it can be read."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Doctor"
     }
    }
@@ -610,32 +616,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NIGHT",
-     "indicators": [
-      {
-       "text": "frameless",
-       "note": "a frame is the border round something, so losing it strips the outermost letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "new",
-       "gives": "N",
-       "note": "n is the standard abbreviation for new"
+       "at": 5,
+       "gives": "N"
       },
       {
-       "words": "spectacles",
-       "gives": "SIGHTS",
-       "note": "sights = spectacles, things worth seeing"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "frameless",
+         "at": 9,
+         "note": "without its frame, the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spectacles",
+         "at": 19,
+         "gives": "SIGHTS",
+         "note": "sights are spectacles, things worth seeing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An advert for trendy new rimless sunglasses with dark lenses.",
-     "walkthrough": "'Spectacles' and 'frameless' conjure glasses, but spectacles here are sights; removing the frame strips its first and last letters.",
-     "definitionFit": "Dark as a noun is the time after sunset, as in 'after dark', which names the hours without daylight."
+     "surface": "An optician's ad for new rimless glasses.",
+     "walkthrough": "'spectacles' looks like eyewear, which 'frameless' supports, but it means SIGHTS; dropping its outer letters leaves IGHT.",
+     "definitionFit": "Night is the dark part of the day, and 'the dark' can stand for nightfall, as in 'after dark'."
     },
     "features": {
      "answerInScene": false,

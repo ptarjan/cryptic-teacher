@@ -44,53 +44,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HICCUP",
+     "indicators": [
+      {
+       "text": "Injecting",
+       "at": 20,
+       "note": "something injected goes into the body, so the next pieces are put inside the first"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "indicators": [
         {
          "text": "on",
-         "note": "X on Y means X placed after Y, as a word sits on the one before it in reading order"
-        },
-        {
-         "text": "Injecting",
-         "note": "to inject is to push something inside, so these letters go into the middle of the others"
+         "at": 9,
+         "note": "the word for getting high is placed on, after, the drug letter"
         }
        ],
        "parts": [
         {
          "words": "heroin",
+         "at": 12,
          "gives": "H",
          "note": "H is slang for heroin"
         },
         {
+         "words": "Get high",
+         "at": 0,
+         "gives": "UP",
+         "note": "to get up is to rise, to get high"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "one",
+         "at": 30,
          "gives": "I",
-         "note": "Roman numeral one"
+         "note": "I is the Roman numeral for one"
         },
         {
          "words": "mil",
+         "at": 34,
          "gives": "CC",
-         "note": "a millilitre is one cubic centimetre, CC"
-        },
-        {
-         "words": "Get high",
-         "gives": "UP",
-         "note": "to get high is to go up"
+         "note": "mil is a pharmacy abbreviation for a millilitre, which is one cubic centimetre, cc"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grim drugs scene: someone shoots up heroin by the millilitre and their body convulses.",
-     "walkthrough": "The full stop after 'heroin' is surface punctuation only. A millilitre is exactly one cubic centimetre, which is how 'mil' becomes two letters.",
-     "definitionFit": "A hiccup is a plain synonym for a spasm: the diaphragm contracting involuntarily, a jolt of the body."
+     "surface": "A grim drug-use scene: getting high by injecting heroin brings on convulsions.",
+     "walkthrough": "The drug scene is a decoy: 'mil' is the pharmacy shorthand for a millilitre, which is the same volume as one cubic centimetre.",
+     "definitionFit": "A hiccup is an involuntary spasm of the diaphragm, a small bodily convulsion."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Injecting"
     }
@@ -361,21 +372,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VICECHANCELLORS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "for example",
-       "note": "gambling is one example of a vice"
-      },
-      {
        "text": "with",
-       "note": "'with' means accompanied by, so the last piece simply joins the end of the others"
-      },
-      {
-       "text": "roll-over",
-       "note": "rolls S + ROLL over, reversing it"
+       "at": 55,
+       "note": "with means alongside, so the reversed piece is added after the rest"
       }
      ],
      "parts": [
@@ -383,33 +385,60 @@
        "op": "charade",
        "indicators": [
         {
-         "text": "on"
+         "text": "on",
+         "at": 40,
+         "note": "in a down entry one piece on another sits above it, so the vice comes first"
         }
        ],
        "parts": [
         {
          "words": "gambling, for example",
+         "at": 17,
          "gives": "VICE",
-         "note": "gambling is a vice"
+         "note": "gambling is an example of a vice, a bad habit"
         },
         {
          "words": "probability",
+         "at": 43,
          "gives": "CHANCE",
-         "note": "chance = probability"
-        },
+         "note": "chance is likelihood, probability"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "second roll-over",
-         "gives": "LLORS",
-         "note": "S (second) + ROLL, turned over"
+         "text": "over",
+         "at": 72,
+         "note": "turned over, the letters read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "second",
+           "at": 60,
+           "gives": "S"
+          },
+          {
+           "words": "roll",
+           "at": 67,
+           "gives": "ROLL",
+           "note": "the word roll taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "University bosses betting on the odds, with a lottery rollover coming up.",
-     "walkthrough": "A rollover is a lottery jackpot carried forward, which suits the gambling surface; here the hyphen splits it into 'roll' and 'over'. In Britain the vice-chancellor is the working head of a university.",
-     "definitionFit": "In British universities the vice-chancellor is the chief executive, the chancellor being ceremonial."
+     "surface": "University bosses are betting, with a jackpot carried forward.",
+     "walkthrough": "'roll-over' suggests a lottery jackpot carried forward, but the hyphenated word splits into a piece and its reversal signal. Vice-chancellors run British universities day to day.",
+     "definitionFit": "In British universities the vice-chancellor is the chief executive, the head in practice."
     },
     "features": {
      "answerInScene": true,
@@ -698,54 +727,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "round",
-       "note": "to turn round is to face the other way, so CAT is written backwards"
+       "text": "wearing",
+       "at": 11,
+       "note": "the floppy hat is worn around the next piece, which goes inside it"
       }
      ],
      "parts": [
       {
-       "words": "floppy hat",
-       "gives": "ATH",
-       "note": "HAT rearranged, split AT…H"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "floppy",
+         "at": 19,
+         "note": "a floppy hat loses its shape, so the letters of hat are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hat",
+         "at": 26
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "the whip goes inside the hat"
+         "text": "round",
+         "at": 5,
+         "note": "turned round, the word reads backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "floppy",
-           "note": "the letters of HAT are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Whip round",
-           "gives": "TAC",
-           "note": "CAT (as in cat-o'-nine-tails) reversed"
-          }
-         ]
+         "words": "Whip",
+         "at": 0,
+         "gives": "CAT",
+         "note": "a cat, short for cat-o'-nine-tails, is a whip"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone passes a hat round for a whip-round, wearing a floppy hat and a tie.",
-     "walkthrough": "'Whip round' reads as a British office collection of money; it splits into a whip (the cat) and a reversal. The blogger saw the Cat in the Hat in it.",
-     "definitionFit": "To attach is to tie or fasten one thing to another."
+     "surface": "A person wearing a whip and a floppy hat, and tying something on.",
+     "walkthrough": "The whip is a cat, short for cat-o'-nine-tails; the clue nods to Dr Seuss's Cat in the Hat, which is literally what the wordplay builds.",
+     "definitionFit": "To attach one thing to another is to fasten or tie it on."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Whip"
     }
    }
@@ -870,8 +901,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letter of Harket"
+       "text": "seen fronting",
+       "at": 23,
+       "note": "the letter is placed in front, as a singer fronts a band"
       }
      ],
      "parts": [
@@ -879,28 +911,31 @@
        "op": "first",
        "indicators": [
         {
-         "text": "fronting",
-         "note": "Harket's letter goes in front"
+         "text": "initially",
+         "at": 13,
+         "note": "only the opening letter of Harket is taken"
         }
        ],
        "parts": [
         {
-         "words": "Harket initially",
-         "note": "first letter of HARKET"
+         "words": "Harket",
+         "at": 6,
+         "note": "Morten Harket, lead singer of a-ha; his name starts with H"
         }
        ]
       },
       {
        "words": "Norwegian group",
+       "at": 37,
        "gives": "AHA",
-       "note": "a-ha, the Norwegian band of 'Take On Me'"
+       "note": "a-ha is the Norwegian pop band known for 'Take On Me'"
       }
      ]
     },
     "explanation": {
-     "surface": "Morten Harket, singer and frontman of the Norwegian band a-ha, drops everything.",
-     "walkthrough": "Harket really does front a-ha, so 'fronting' works on both levels. 'Ditch' looks like a verb meaning abandon; it is the noun.",
-     "definitionFit": "A ha-ha is a sunken ditch that bounds a park without blocking the view."
+     "surface": "Morten Harket is spotted as frontman of his Norwegian band.",
+     "walkthrough": "'Harket initially' gives H, 'seen fronting' puts it before A-HA; Harket really does front a-ha. A ha-ha is a sunken ditch with a wall on one side, used on English estates to keep livestock out unseen.",
+     "definitionFit": "A ha-ha is a sunken ditch acting as a hidden boundary fence in landscaped grounds."
     },
     "features": {
      "answerInScene": false,
@@ -940,26 +975,32 @@
      "indicators": [
       {
        "text": "from",
-       "note": "the answer is taken out of the following words"
+       "at": 8,
+       "note": "the letters are taken out of the words that follow"
+      },
+      {
+       "text": "clip",
+       "at": 31,
+       "note": "a clip is a short extract cut from a longer piece, so the answer is a run of letters cut from the phrase"
       }
      ],
      "parts": [
       {
        "words": "Panorama ran that",
-       "gives": "AMARANTH",
-       "note": "the answer runs from the end of 'Panorama' through 'ran' into 'that'"
+       "at": 13,
+       "note": "the letters run on from the end of Panorama through ran into the start of that"
       }
      ]
     },
     "explanation": {
-     "surface": "A TV viewer exclaims that the BBC's Panorama screened a clip of a plant.",
-     "walkthrough": "Panorama is the BBC's long-running current-affairs programme; the italics make it a title, but only its letters matter, and AMARANTH starts at its fifth letter.",
-     "definitionFit": "Amaranth is a flowering plant, some kinds grown for grain."
+     "surface": "The BBC's current affairs show Panorama broadcast a clip about a plant.",
+     "walkthrough": "Panorama is a long-running BBC documentary programme; 'from' and 'clip' say a stretch is cut out of panorAMA RAN THat.",
+     "definitionFit": "Amaranth is a flowering plant, grown both as an ornamental and for its edible grain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Panorama"
+     "misdirectedWord": "clip"
     }
    }
   },
@@ -1066,53 +1107,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "leader",
-       "note": "first letter of presidential"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "after vacation"
+         "text": "after vacation",
+         "at": 9,
+         "note": "once its insides are vacated, emptied out, only the first and last letters of happily remain"
         }
        ],
        "parts": [
         {
-         "words": "Happily, after vacation",
-         "gives": "HAPPILY",
-         "note": "H(APPIL)Y emptied"
+         "words": "Happily",
+         "at": 0,
+         "note": "with its middle vacated, only the outer letters H and Y are left"
         }
        ]
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 38,
+         "note": "the leading, first letter of presidential"
+        }
+       ],
        "parts": [
         {
-         "words": "presidential leader",
-         "note": "first letter"
+         "words": "presidential",
+         "at": 25,
+         "note": "its first letter is P"
         }
        ]
       },
       {
        "words": "no longer",
+       "at": 47,
        "gives": "NOT",
-       "note": "not = no longer"
+       "note": "no longer means not any more, so NOT"
       },
       {
        "words": "in charge",
-       "gives": "IC",
-       "note": "I/C, in charge"
+       "at": 57,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "Glee after the holidays that the president is no longer in charge.",
-     "walkthrough": "'Vacation' looks like a holiday; in crosswords it means emptying a word.",
-     "definitionFit": "Hypnotic means entrancing, as though putting you in a trance."
+     "surface": "Joy at the thought that the president is finally out of office.",
+     "walkthrough": "'after vacation' sounds like a holiday but means the word is emptied of its middle, and 'no longer in charge' reads as one phrase but splits into two pieces.",
+     "definitionFit": "Hypnotic means mesmerising, holding attention as if by a spell, so entrancing."
     },
     "features": {
      "answerInScene": false,
