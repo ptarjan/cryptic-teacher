@@ -49,34 +49,25 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FILTEROUT",
+     "op": "reverse",
+     "reading": "FILTER OUT",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "trifle",
-         "note": "the six letters of trifle in a different order"
-        },
-        {
-         "words": "clue for",
-         "gives": "OUT",
-         "note": "out, as in out of order, is a standard instruction to rearrange the letters before it"
-        }
-       ]
+       "words": "clue for trifle",
+       "at": 9,
+       "note": "read as wordplay, FILTER with OUT as an anagram signal rearranges to give the word trifle"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asking for a crossword clue for the pudding trifle.",
-     "walkthrough": "A reverse anagram: the answer is not built from 'trifle', it is the instruction that would clue it, with OUT naming what was done to FILTER's letters.",
-     "definitionFit": "To filter out is to separate unwanted matter from the rest."
+     "surface": "Someone asks for a clue to the word for a layered pudding.",
+     "walkthrough": "The answer works as a clue: OUT signals an anagram of FILTER, and those letters spell TRIFLE.",
+     "definitionFit": "To filter out is to remove unwanted items, so it means to separate them from the rest."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "trifle"
     }
    }
@@ -1126,8 +1117,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of a word is nearly all of it, so the country loses just its final letter"
+       "text": "over",
+       "at": 22,
+       "note": "in a down clue over means the first part is placed above the second"
       }
      ],
      "parts": [
@@ -1136,28 +1128,46 @@
        "indicators": [
         {
          "text": "upset",
-         "note": "turned upside down, which in a down clue reverses it"
+         "at": 16,
+         "note": "in a down clue upset means turned upside down, so the letters are read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "Most of country",
-         "gives": "SENEGA",
-         "note": "SENEGAL without its L"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Most of",
+           "at": 0,
+           "note": "most of means all but the last letter of the country"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country",
+           "at": 8,
+           "gives": "SENEGAL",
+           "note": "Senegal is a country in West Africa"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
       },
       {
        "words": "one's",
+       "at": 27,
        "gives": "IS",
-       "note": "one's = one is, I'S"
+       "note": "one's is I (one) plus S"
       }
      ]
     },
     "explanation": {
-     "surface": "Much of a nation unhappy at someone's stunted growth.",
-     "walkthrough": "In a down clue 'over' puts the first part on top of the second. The country is Senegal.",
-     "definitionFit": "Agenesis is the failure of an organ or body part to develop."
+     "surface": "A country in turmoil is blamed for one person's stunted growth.",
+     "walkthrough": "The country is in West Africa; 'Most of' trims its end before 'upset' turns it, which reads bottom to top in a down clue.",
+     "definitionFit": "Agenesis is a medical term for an organ or body part that fails to form during growth."
     },
     "features": {
      "answerInScene": false,
