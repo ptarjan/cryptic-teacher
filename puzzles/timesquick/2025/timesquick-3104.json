@@ -159,46 +159,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 31,
+       "note": "about means around, so one piece goes round the other"
       }
      ],
      "parts": [
       {
-       "words": "take legal action",
+       "words": "to take legal action",
+       "at": 10,
        "gives": "SUE",
-       "note": "to sue is to take legal action"
+       "note": "to sue is to take legal action against someone"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "EG",
        "indicators": [
         {
          "text": "case of",
-         "note": "a word's case is its outside: the first and last letters"
+         "at": 37,
+         "note": "a case is the outside of something, so only the first and last letters are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case of embezzling",
-         "gives": "EG",
-         "select": "outer",
-         "note": "the outer letters of embezzling"
+         "words": "embezzling",
+         "at": 45,
+         "note": "its outer letters are E and G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Following up an embezzlement case by going to court.",
-     "walkthrough": "The legal surface makes 'case' a court case, but here a word's case is its outside, the letters that hold the rest in.",
-     "definitionFit": "To segue is to follow on smoothly from one thing to the next."
+     "surface": "A fraud victim follows up by suing over an embezzlement case.",
+     "walkthrough": "'Case of' embezzling is its shell, EG, which SUE goes 'about'.",
+     "definitionFit": "To segue is to move smoothly on from one topic or piece of music to the next."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "case"
     }
    }
@@ -381,26 +380,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "the last letter is dropped"
-      },
-      {
        "text": "converted",
-       "note": "the letters are changed into another form"
+       "at": 16,
+       "note": "converted means changed into a new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Retailer almost",
-       "gives": "RETAILE",
-       "note": "retailer without its final R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 9,
+         "note": "almost means not quite all, so the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Retailer",
+         "at": 0
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shop that has nearly finished being turned into a studio.",
-     "walkthrough": "The surface is a property conversion, so 'converted' and 'almost' seem to describe the building work.",
-     "definitionFit": "A French borrowing for a workshop, used in English for the workroom of a painter or couturier."
+     "surface": "A shop has been turned into an artist's studio.",
+     "walkthrough": "'Almost' trims Retailer to RETAILE, and 'converted' rearranges those letters.",
+     "definitionFit": "An atelier is an artist's or designer's workshop, a French word for a studio."
     },
     "features": {
      "answerInScene": true,
@@ -730,47 +740,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPEARMINT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 23,
+       "note": "about means around, so the jumbled letters go round the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "worried",
-         "note": "the letters are worried, shaken into disorder"
-        },
-        {
-         "text": "about",
-         "note": "the jumbled letters go around the note"
+         "at": 15,
+         "note": "worried in the sense of tugged and shaken about, so the letters are jumbled"
         }
        ],
        "parts": [
         {
          "words": "parents",
-         "gives": "SPEARNT",
-         "note": "PARENTS rearranged"
-        },
-        {
-         "words": "note",
-         "gives": "MI",
-         "note": "mi is a note of the sol-fa scale, set inside the jumbled letters after their fifth"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "note",
+       "at": 29,
+       "gives": "MI",
+       "note": "mi is the third note of the sol-fa scale"
       }
      ]
     },
     "explanation": {
-     "surface": "A boy called Herb whose parents are anxious about a letter from school.",
-     "walkthrough": "'Herb’s' looks like a man's name with a possessive; it is the definition, and ’s means 'is'.",
-     "definitionFit": "Spearmint is a common garden mint, a herb."
+     "surface": "A herb is causing a couple's parents some anxiety over a note they found.",
+     "walkthrough": "'Worried' rearranges parents, and that goes 'about' MI.",
+     "definitionFit": "Spearmint is a common garden mint, a herb used in cooking and to flavour sweets."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Herb"
+     "misdirectedWord": "worried"
     }
    }
   },
@@ -853,56 +864,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LETITBE",
      "indicators": [
       {
        "text": "changed",
-       "note": "the letters of 'title' change places"
+       "at": 11,
+       "note": "changed means altered, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "title",
+       "at": 5
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 28,
+         "note": "originally means at the origin, so each word gives only its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "title",
-         "gives": "LETIT",
-         "note": "TITLE rearranged"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "BE",
-         "indicators": [
-          {
-           "text": "originally",
-           "note": "the first letters of 'by' and 'Elvis'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "by Elvis originally",
-           "gives": "BE",
-           "select": "first",
-           "note": "first letters of by and Elvis"
-          }
-         ]
+         "words": "by Elvis",
+         "at": 19,
+         "note": "their first letters are B and E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A song whose name Elvis Presley altered.",
-     "walkthrough": "'By' looks like it names who made the change, but it is fodder: 'originally' takes the first letter of both 'by' and 'Elvis'. The song is by the Beatles.",
-     "definitionFit": "Definition by example: the Beatles released it in 1970 as one of their last singles."
+     "surface": "Elvis Presley renamed a song when he first covered it.",
+     "walkthrough": "TITLE plus BE (the first letters of 'by Elvis', taken 'originally') are 'changed' into a new order.",
+     "definitionFit": "Let It Be is a Beatles song, the title track of their final album."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "by"
+     "misdirectedWord": "Elvis"
     }
    }
   },
@@ -1095,57 +1096,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUTENBERG",
+     "op": "charade",
      "indicators": [
       {
-       "text": "new",
-       "note": "the letters of 'genre' are made new"
+       "text": "introduces",
+       "at": 29,
+       "note": "the first piece introduces the rest by coming before it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "corporation",
+       "at": 17,
+       "gives": "GUT",
+       "note": "corporation is jocular slang for a pot belly, i.e. a gut"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 45,
+         "note": "in means placed inside the other piece"
+        }
+       ],
        "parts": [
         {
-         "words": "corporation",
-         "gives": "GUT",
-         "note": "a corporation is jokey old slang for a pot belly, a gut"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "introduces"
+           "text": "new",
+           "at": 48,
+           "note": "new means freshly made, so the letters are arranged afresh"
           }
          ],
          "parts": [
           {
            "words": "genre",
-           "gives": "ENERG",
-           "note": "GENRE rearranged"
-          },
-          {
-           "words": "book",
-           "gives": "B",
-           "note": "b = book, set inside: EN(B)ERG"
+           "at": 52
           }
          ]
+        },
+        {
+         "words": "book",
+         "at": 40,
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A media corporation launching a book in a new literary genre.",
-     "walkthrough": "'Press corporation' reads as a newspaper company; 'corporation' is also old slang for a paunch. Gutenberg invented printing with movable type.",
-     "definitionFit": "Johannes Gutenberg pioneered the printing press in 15th-century Germany."
+     "surface": "A media company brings out a book in a fresh genre.",
+     "walkthrough": "A corporation is an old joke word for a big belly, GUT, which 'introduces' the rest. 'New' turns genre into ENERG, and B goes 'in' to make ENBERG.",
+     "definitionFit": "Johannes Gutenberg invented movable-type printing in Europe, so he pioneered the printing press."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "corporation"
     }
    }
@@ -1463,41 +1471,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "the word is cut short, losing its last letter"
+       "text": "withered",
+       "at": 18,
+       "note": "withered means shrivelled out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Has",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "withered",
-         "note": "the letters are shrivelled out of shape"
+         "text": "briefly",
+         "at": 10,
+         "note": "briefly means cut short, so the last letter of the word is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Has",
-         "note": "anagram fodder"
+         "words": "pyxie",
+         "at": 4
         },
         {
-         "words": "pyxie briefly",
-         "gives": "PYXI",
-         "note": "pyxie without its final E"
-        },
-        {
-         "words": "a",
-         "note": "anagram fodder, joined by 'with'"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "A pyxie plant that has shrivelled for want of air.",
-     "walkthrough": "Pyxie is a low evergreen shrub of the American pine barrens, so a withered one fits the surface; the E comes off before the mix.",
-     "definitionFit": "Asphyxia is suffocation, the body being starved of oxygen."
+     "surface": "A little pixie has wilted from being starved of air.",
+     "walkthrough": "'Briefly' cuts pyxie to PYXI; that, HAS and A are 'withered' into a new order.",
+     "definitionFit": "Asphyxia is the condition of suffocation, where the body is deprived of the oxygen it needs."
     },
     "features": {
      "answerInScene": true,

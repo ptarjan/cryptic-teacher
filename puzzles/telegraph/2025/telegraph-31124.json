@@ -1555,49 +1555,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ASININE",
-     "indicators": [
-      {
-       "text": "retired",
-       "note": "retired means withdrawn or gone back, so the word is read in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASININE",
+       "words": "article",
+       "at": 8,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "exposed",
-         "note": "exposed means stripped of its covering, so the outer letters are removed"
+         "text": "retired",
+         "at": 16,
+         "note": "to retire is to withdraw or go back, so the letters are read in the opposite direction"
         }
        ],
        "parts": [
         {
-         "words": "article",
-         "gives": "A",
-         "note": "the indefinite article"
-        },
-        {
-         "words": "Leninist",
-         "note": "taken as written"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "exposed",
+           "at": 33,
+           "note": "something exposed has its covering stripped, so the word loses its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Leninist",
+           "at": 24,
+           "note": "without its outer letters this leaves ENINIS"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daft piece of writing unmasks a former communist.",
-     "walkthrough": "'Article' suggests a newspaper piece, but it is just the word a.",
-     "definitionFit": "Asinine means silly or foolish, originally like a donkey, so it is a direct synonym."
+     "surface": "A newspaper piece about a former Leninist laid bare is dismissed as stupid.",
+     "walkthrough": "'Exposed' strips Leninist to ENINIS, and 'retired' turns that round to SININE, which follows the article A.",
+     "definitionFit": "Asinine means donkey-like, and by extension extremely foolish or silly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "retired"
     }
    }
   },
