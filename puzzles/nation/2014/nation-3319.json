@@ -195,7 +195,8 @@
      "indicators": [
       {
        "text": "circling",
-       "note": "to circle something is to go all the way around it, so the shuffled letters surround another"
+       "at": 30,
+       "note": "the jumbled letters go round the other piece, enclosing it"
       }
      ],
      "parts": [
@@ -204,31 +205,32 @@
        "indicators": [
         {
          "text": "Disoriented",
-         "note": "something disoriented has lost its bearings, so these letters lose their order"
+         "at": 0,
+         "note": "someone disoriented has lost their bearings, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "flier",
-         "note": "taken as written, as anagram fodder"
+         "at": 12
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "LO",
+         "op": "deletion",
          "indicators": [
           {
            "text": "half",
-           "note": "half of a four-letter word is two letters, here the opening pair"
+           "at": 19,
+           "note": "half of the word is dropped, here its second half"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "lost",
-           "gives": "LO",
-           "select": "first",
-           "note": "half of the word lost: its first two letters"
+           "at": 24
+          },
+          {
+           "gives": "ST",
+           "note": "the second half of lost, removed"
           }
          ]
         }
@@ -239,26 +241,29 @@
        "indicators": [
         {
          "text": "at first",
-         "note": "at first points to the opening letter of the word just before it"
+         "at": 46,
+         "note": "at first picks the opening letter of a word"
         }
        ],
        "parts": [
         {
          "words": "O'Hare",
-         "note": "the first letter of the Chicago airport's name"
+         "at": 39,
+         "note": "first letter of O'Hare, the Chicago airport"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A confused pilot strays, flying round Chicago's O'Hare before landing at New York's LaGuardia airport.",
-     "walkthrough": "The airport talk hides the real definition: LaGuardia is the surname of the man the New York airport is named after, so the answer is his first name.",
-     "definitionFit": "Fiorello La Guardia was the much-loved mayor of New York City in the 1930s and 40s, honoured by the airport's name."
+     "surface": "A confused air traveller, half-lost, circles over two big American airports, O'Hare and LaGuardia.",
+     "walkthrough": "'half' leaves LO of lost, and 'Disoriented' mixes it with FLIER to make FIRELLO, which goes 'circling' round O, taken 'at first' from O'Hare. Fiorello LaGuardia was a famous mayor of New York, after whom the airport is named.",
+     "definitionFit": "Fiorello was the first name of New York mayor LaGuardia, so the clue's surname stands for the man by his given name."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "LaGuardia"
     }
    }
@@ -284,37 +289,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDIGENT",
-     "indicators": [
-      {
-       "text": "practically",
-       "note": "practically means nearly but not quite, so the word falls one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "practically",
+         "at": 6,
+         "note": "practically means almost, so the word stops one letter short"
+        }
+       ],
        "parts": [
         {
          "words": "unaffiliated",
-         "gives": "INDI",
-         "note": "an indie is an unaffiliated record label or film company; its last letter is dropped"
+         "at": 18,
+         "gives": "INDIE",
+         "note": "an indie band or label is independent, not affiliated with a major company"
         },
         {
-         "words": "man",
-         "gives": "GENT",
-         "note": "a gent is a gentleman"
+         "gives": "E",
+         "note": "the last letter of indie, dropped"
         }
        ]
+      },
+      {
+       "words": "man",
+       "at": 31,
+       "gives": "GENT",
+       "note": "a gent is a man"
       }
      ]
     },
     "explanation": {
-     "surface": "Describes a needy fellow who belongs to no group.",
-     "walkthrough": "INDIE loses its final E before GENT is added.",
-     "definitionFit": "Indigent is a formal word for lacking money and the necessities of life, a synonym of poor."
+     "surface": "A man down on his luck with no affiliation to speak of.",
+     "walkthrough": "'practically' cuts the final E from INDIE, leaving INDI, and GENT follows.",
+     "definitionFit": "Indigent describes someone very poor, lacking the necessities of life."
     },
     "features": {
      "answerInScene": true,
@@ -594,47 +604,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "connection",
-      "at": 28
+      "text": "make a connection",
+      "at": 21
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONTACT",
+     "op": "container",
      "indicators": [
       {
-       "text": "doctor",
-       "note": "to doctor something is to tamper with it, so these letters are altered in order"
+       "text": "In",
+       "at": 0,
+       "note": "one piece goes in the other, here inside the bed"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bed",
+       "at": 3,
+       "gives": "COT",
+       "note": "a cot is a small bed"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "In",
-         "note": "in places the reworked letters inside the word for a bed"
+         "text": "doctor",
+         "at": 8,
+         "note": "to doctor is to tamper with or alter, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "bed",
-         "gives": "COT",
-         "note": "a cot is a small bed"
-        },
-        {
          "words": "can't",
-         "note": "the letters of can't, rearranged"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bedridden patient's physician is unable to get through to someone.",
-     "walkthrough": "'Doctor' looks like the person in the bed, but it is a verb telling the solver to tamper with can't.",
-     "definitionFit": "Contact and connection are synonyms: both mean a link or point of touch between two things or people."
+     "surface": "A bedridden patient's doctor can't get through to anyone.",
+     "walkthrough": "'doctor' looks like a noun, the physician at the bedside; it is the verb, rearranging CANT, and 'In' puts that inside COT.",
+     "definitionFit": "To contact someone is to get in touch with them, so to make a connection."
     },
     "features": {
      "answerInScene": false,
@@ -772,42 +783,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUESSWORK",
+     "op": "container",
      "indicators": [
       {
-       "text": "terribly",
-       "note": "terribly signals the following letters are mangled badly out of their order"
+       "text": "grabbing",
+       "at": 12,
+       "note": "to grab something is to hold it, so the outer piece holds the rest inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Chesterton",
+       "at": 0,
+       "gives": "GK",
+       "note": "G. K. Chesterton, the English writer, is known by his initials GK"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "grabbing",
-         "note": "to grab is to seize and hold, so the initials clasp the other letters between them"
+         "text": "terribly",
+         "at": 31,
+         "note": "terribly means very badly, so the letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "Chesterton",
-         "gives": "GK",
-         "note": "G. K. Chesterton, the English writer, is known by his initials"
+         "words": "us",
+         "at": 21
         },
         {
-         "words": "us, swore",
-         "note": "the letters of us and swore, rearranged"
+         "words": "swore",
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The writer Chesterton seizes us and curses dreadfully, perhaps stuck on a crossword.",
-     "walkthrough": "G. K. Chesterton was the author of the Father Brown stories; his initials sandwich the shuffled letters.",
-     "definitionFit": "Guesswork is reaching answers by conjecture rather than certainty, which a solver may resort to for the last few clues."
+     "surface": "The author Chesterton seizes two people and curses badly.",
+     "walkthrough": "G. K. Chesterton was an English writer of the Father Brown stories. 'terribly' mixes US and SWORE into UESSWOR, which his initials enclose.",
+     "definitionFit": "Guesswork is estimating without certain knowledge, which a solver may lean on to finish a crossword."
     },
     "features": {
      "answerInScene": true,
@@ -1492,26 +1508,34 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RENT",
      "indicators": [
       {
        "text": "after left-to right conversion",
-       "note": "converting left to right means the letter standing for left is swapped for the one for right"
+       "at": 26,
+       "note": "converting left to right swaps the abbreviation for left for that for right"
       }
      ],
      "parts": [
       {
        "words": "advanced",
+       "at": 16,
        "gives": "LENT",
-       "note": "lent means advanced, as money"
+       "note": "to advance money is to lend it, so advanced means lent"
+      },
+      {
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      },
+      {
+       "gives": "R",
+       "note": "R is the abbreviation for right"
       }
      ]
     },
     "explanation": {
-     "surface": "A tenant's monthly payment was paid in advance after a political swing from left to right.",
-     "walkthrough": "L is the standard abbreviation for left and R for right, so the opening L of LENT becomes R.",
-     "definitionFit": "Rent is the regular sum paid to a landlord, usually each month, for the use of property."
+     "surface": "A political shift from left to right is followed by an advance on the monthly payment.",
+     "walkthrough": "'left-to right conversion' sounds political; it is the letter swap of R for L.",
+     "definitionFit": "Rent is the sum a tenant usually pays a landlord each month."
     },
     "features": {
      "answerInScene": true,
@@ -1545,39 +1569,45 @@
      "indicators": [
       {
        "text": "to conceal",
-       "note": "concealing something means hiding it inside, so one piece sits within the other"
+       "at": 19,
+       "note": "to conceal something is to hide it inside, so one piece goes in the other"
       }
      ],
      "parts": [
       {
        "words": "for example",
+       "at": 6,
        "gives": "SAY",
-       "note": "say is used to introduce an example"
+       "note": "say is used to introduce an example, as in 'a fruit, say, an apple'"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
+       "indicators": [
+        {
+         "text": "trace of",
+         "at": 30,
+         "note": "a trace is a tiny amount, here the first letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "trace of larceny",
-         "gives": "L",
-         "select": "first",
-         "note": "a trace of the word is just its first letter"
+         "words": "larceny",
+         "at": 39,
+         "note": "first letter of larceny"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A murder committed, perhaps, to cover up evidence of a theft.",
-     "definitionFit": "To slay is a literary verb meaning to kill violently, so the two words are direct synonyms."
+     "surface": "A murderer kills to cover up evidence of a theft.",
+     "walkthrough": "'trace of' larceny gives L, and SAY is there 'to conceal' it.",
+     "definitionFit": "To slay is to kill violently, an old-fashioned or literary word."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "conceal"
+     "misdirectedWord": "example"
     }
    }
   },

@@ -880,50 +880,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RECTANGLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "Design",
-       "note": "to design is to arrange or lay out afresh, so the letters are rearranged"
+       "at": 0,
+       "note": "to design is to plan or lay out afresh, so the letters are rearranged"
+      },
+      {
+       "text": "excluding",
+       "at": 20,
+       "note": "excluding means leaving out, so the letter of a is taken from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RECTANGLE",
-       "indicators": [
-        {
-         "text": "excluding",
-         "note": "excluding means leaving out, so a letter is removed before rearranging"
-        }
-       ],
-       "parts": [
-        {
-         "words": "elegant",
-         "note": "taken as written"
-        },
-        {
-         "words": "car",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "the letter to be removed"
-        }
-       ]
+       "words": "elegant car",
+       "at": 7
+      },
+      {
+       "words": "a",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "A designer is asked to create a stylish car, but not of one particular form.",
-     "walkthrough": "'Design' looks like an instruction to a car designer; it is the anagram signal, and 'a certain shape' splits so that the A goes.",
-     "definitionFit": "A rectangle is a specific geometric figure with four right angles, one particular shape."
+     "surface": "A designer draws a stylish car that isn't a particular shape.",
+     "walkthrough": "A composite anagram: 'Design' rearranges ELEGANTCAR, and 'excluding' takes one A out of it first.",
+     "definitionFit": "A rectangle is a specific geometric figure, a four-sided shape with right angles."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Design"
     }

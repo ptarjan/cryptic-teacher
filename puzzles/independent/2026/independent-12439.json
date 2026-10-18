@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,24 +45,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PROJECTIONIST",
      "indicators": [
       {
        "text": "that's failed",
-       "note": "a thing that has failed has collapsed out of its proper arrangement, so its letters will not stay in the order they are given"
+       "at": 16,
+       "note": "a crop that has failed has gone to ruin, so its letters are wrecked and rearranged"
       }
      ],
      "parts": [
       {
        "words": "I jettison crop",
-       "note": "thirteen letters to rearrange: I JETTISON CROP"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a grower dumping a ruined harvest, and nothing in it suggests a cinema until the last two words arrive.",
-     "definitionFit": "A cinema screening is run from the projection box, so 'one screening' names the person doing the showing rather than the film shown."
+     "surface": "A farmer, ruined by a failed harvest, throws the crop away.",
+     "walkthrough": "'that's failed' reads as a comment on the crop; 'failed' is the anagram signal working on all thirteen letters of 'I jettison crop'.",
+     "definitionFit": "A projectionist runs the projector in a cinema, so is literally the one screening the films."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "screening"
     }
    }
   },
@@ -148,24 +154,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OUTSPOKEN",
      "indicators": [
       {
        "text": "undergoing an earthquake",
-       "note": "an earthquake leaves nothing standing where it stood, and the letters it shakes come back in a different order"
+       "at": 35,
+       "note": "letters shaken by an earthquake are thrown into a new order"
       }
      ],
      "parts": [
       {
        "words": "upon Stoke",
-       "note": "the nine letters of UPON STOKE, shaken into a new order"
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Stoke puts a real town in the surface and 'upon' reads as a preposition joining it to something — both words are material, which is the hard thing to see.",
-     "definitionFit": "Someone outspoken states views frankly and in public, so the definition spells out the readiness to speak that the single word packs in."
+     "surface": "Someone sounds off about the city of Stoke being hit by a tremor.",
+     "walkthrough": "'undergoing an earthquake' shakes up the nine letters of 'upon Stoke'. Stoke-on-Trent is an English city.",
+     "definitionFit": "An outspoken person voices views frankly and freely, so is happy to share opinions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "earthquake"
     }
    }
   },
@@ -190,26 +201,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTER",
+     "op": "middle",
      "indicators": [
       {
        "text": "removing walls",
-       "note": "the walls of a word are the letters at either end holding the rest in; knock them out and the middle is left standing"
+       "at": 15,
+       "note": "the walls of a word are its outside letters, so the first and last go"
       }
      ],
      "parts": [
       {
        "words": "tenants",
+       "at": 7,
        "gives": "RENTERS",
-       "note": "people who pay rent are renters"
+       "note": "tenants pay rent, so they are renters"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The first step here is the buried one: the clue never prints the word you are meant to demolish, only a synonym for it.",
-     "definitionFit": "To enter a figure is to write it into a ledger or register, the bookkeeping sense of the verb rather than walking through a door."
+     "surface": "A landlord logs which tenants had walls knocked out.",
+     "walkthrough": "'tenants' must first become RENTERS; 'removing walls' then strips its outer letters. Stripping TENANTS itself gives nothing useful.",
+     "definitionFit": "To enter something is to record it, as in a ledger or diary entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "walls"
     }
    }
   },
@@ -684,24 +701,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BANKRUPT",
      "indicators": [
       {
        "text": "rioting",
-       "note": "a riot leaves nothing where it was, so the letters caught up in it come back in another order"
+       "at": 5,
+       "note": "rioting is wild disorder, so the letters run riot into a new order"
       }
      ],
      "parts": [
       {
        "words": "punk brat",
-       "note": "the eight letters of PUNK BRAT, rearranged"
+       "at": 13
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three words and nothing else. Short clues are often the hardest, because there is no surface to tell you which end the definition is at.",
-     "definitionFit": "Bust is the colloquial word for having gone broke, so it matches the legal state of being unable to pay what you owe."
+     "surface": "A cop busts a young punk who has been causing a riot.",
+     "walkthrough": "'Bust' looks like an arrest; it is the definition in its sense of having gone broke. 'rioting' rearranges PUNKBRAT.",
+     "definitionFit": "A firm that has gone bust is insolvent, unable to pay its debts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bust"
     }
    }
   },
@@ -832,39 +855,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WORKERBEE",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "the Reverend Spooner's trick was to trade the opening sounds of two words, so his version of a phrase has them swapped over"
+       "at": 35,
+       "note": "Spooner swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BORKER",
        "parts": [
         {
-         "unchecked": true,
          "words": "religious outfit",
-         "gives": "WORKER",
-         "soundsLike": "BURKA",
-         "note": "a burka is the religious garment; it hands its B over and takes a W in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "tiny",
-         "gives": "BEE",
-         "soundsLike": "WEE",
-         "note": "tiny is wee, and it collects the B the first word gave up"
+         "at": 11,
+         "gives": "BURKA",
+         "note": "a burka is a garment worn by some Muslim women for religious reasons; said aloud it sounds like 'borker'"
         }
        ]
+      },
+      {
+       "words": "tiny",
+       "at": 30,
+       "gives": "WEE",
+       "note": "wee is Scottish for tiny"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Colonist' is the misdirection — it suggests settlers and empire, when the colony in question is a hive.",
-     "definitionFit": "A worker bee belongs to the colony that fills a hive, so 'colonist' names it by the community it lives in rather than by settling abroad."
+     "surface": "A clue that seems to describe a small religious garment.",
+     "walkthrough": "The burka is heard as BORKER; 'according to Spooner' swaps the opening sounds of 'borker wee' to give 'worker bee'. A colony is a beehive community, which makes the definition work.",
+     "definitionFit": "A worker bee lives in a hive colony, so it is a colonist in the insect sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Colonist's"
     }
    }
   },
@@ -1007,40 +1035,46 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' is positional here: the manger is put inside the longer word rather than next to it"
+       "at": 13,
+       "note": "one piece is placed within the other"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "INSE",
        "indicators": [
         {
          "text": "avoiding the edges",
-         "note": "the edges of a word are its first and last letters, and this one is to be taken without them"
+         "at": 33,
+         "note": "dropping its edges leaves the word without its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Xmas decoration",
-         "gives": "INSE",
-         "select": "middle",
-         "note": "the decoration is TINSEL; without its edges it reads INSE, and it opens to take a passenger"
+         "at": 16,
+         "gives": "TINSEL",
+         "note": "tinsel is glittery Christmas decoration"
         }
        ]
       },
       {
        "words": "manger",
+       "at": 6,
        "gives": "CRIB",
-       "note": "a crib is the manger in a nativity scene"
+       "note": "the manger in the nativity scene is the crib"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The crib and the tinsel keep the surface entirely Christmassy, so the two instructions buried in it — go inside, drop the edges — read as decoration.",
-     "definitionFit": "To inscribe is to cut letters into stone or metal, so 'carve' is the engraving sense of the verb rather than shaping wood."
+     "surface": "Someone carving a nativity manger in among the Christmas trimmings.",
+     "walkthrough": "'Xmas decoration' has to become a word before 'avoiding the edges' can trim it; the manger is the nativity crib.",
+     "definitionFit": "To inscribe is to carve letters or words into a hard surface such as stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manger"
     }
    }
   },
@@ -1066,25 +1100,31 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BANTAMS",
      "indicators": [
       {
        "text": "out of sorts",
-       "note": "sorts are the sorted pieces of type in a printer's case, so out of sorts is out of order"
+       "at": 25,
+       "note": "out of sorts means disordered, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "bats and man",
-       "gives": "BANTAMS",
-       "note": "BATS and MAN, seven letters shuffled together"
+       "at": 12,
+       "gives": "BATSMAN",
+       "note": "the two words bats and man, joined by and, give the pool of seven letters"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue finishes the sentence 18 down started, and 'bats' looks like an instruction to shuffle in its own right. It isn't — it is material.",
-     "definitionFit": "A bantam is a miniature breed of domestic fowl, so 'chickens' defines them by species and says nothing about the famous small size."
+     "surface": "Continues the farm scene: the cows, chickens and a grumpy batsman.",
+     "walkthrough": "The ellipsis links it to the previous clue's cows, but the clue stands on its own: 'out of sorts' rearranges BATS and MAN.",
+     "definitionFit": "Bantams are small breeds of domestic chicken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bats"
     }
    }
   },
@@ -1304,62 +1344,86 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SEQUENCING",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "the jumbled fruit sits within the shells"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "SEQUENCING",
-       "indicators": [
-        {
-         "text": "mashed",
-         "note": "mashing a thing breaks it up and leaves the pieces in no particular order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in",
-           "note": "'in' says the broken-up letters go inside what follows rather than beside it"
+           "text": "shells",
+           "at": 26,
+           "note": "taking only the shell of a word means scooping out everything inside its first and last letters"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "shells of",
-             "note": "a shell is a hard outside with nothing left within, so only the first and last letters of each word survive"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Senegalese",
-             "note": "the shell of SenegalesE"
-            }
-           ]
+           "words": "Senegalese",
+           "at": 36,
+           "note": "Senegalese hollowed out keeps only its outside letters"
           },
           {
-           "words": "quince",
-           "note": "the six letters of QUINCE, mashed"
-          },
-          {
-           "words": "nutmeg",
-           "gives": "NG",
-           "note": "the shell of NutmeG"
+           "gives": "ENEGALES"
           }
          ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "of",
+           "at": 33,
+           "note": "'shells of' governs both words, so nutmeg is hollowed out in the same way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nutmeg",
+           "at": 47,
+           "note": "nutmeg hollowed out keeps only its outside letters"
+          },
+          {
+           "gives": "UTME"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mashed",
+         "at": 9,
+         "note": "mashed fruit is pulped, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quince",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two different words supply the shell, one pair of letters each, which is what makes the container hard to see behind an entirely edible surface.",
-     "definitionFit": "Sequencing is putting things one after another into a sequence, which is what ordering means when it is arrangement rather than buying goods."
+     "surface": "A recipe: mashed quince served in shells, spiced with West African nutmeg.",
+     "walkthrough": "'shells of' applies to both Senegalese and nutmeg, so each is hollowed to its outside pair, and 'in' puts the mashed fruit between the two pairs.",
+     "definitionFit": "Sequencing is putting things into a set order, which is ordering them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mashed"
     }
    }
   },

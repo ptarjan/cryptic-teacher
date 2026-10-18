@@ -736,33 +736,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NORTHEAST",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a cut word loses its final letter, here the end of nasty"
+       "text": "to treat",
+       "at": 8,
+       "note": "to treat something is to process or work on it, so these letters are reworked"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "other",
+       "at": 17
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "treat",
-         "note": "to treat material is to process and rework it, so the letters are reworked"
+         "text": "cut",
+         "at": 29,
+         "note": "a cut word has lost its tail, here the final letter"
         }
        ],
        "parts": [
         {
-         "words": "other",
-         "note": "taken as written"
+         "words": "nasty",
+         "at": 23
         },
         {
-         "words": "nasty",
-         "gives": "NAST",
-         "note": "nasty without its last letter"
+         "gives": "Y",
+         "note": "the last letter of nasty, cut off"
         }
        ]
       }
@@ -770,12 +773,13 @@
     },
     "explanation": {
      "surface": "Advice on how to deal with someone else's nasty wound.",
-     "definitionFit": "North-east is one compass direction, and a direction is a way to head."
+     "walkthrough": "'cut' trims nasty to NAST, and 'to treat' rearranges that with OTHER. 'One way' is a compass direction.",
+     "definitionFit": "North-east is one of the compass directions, so a way or bearing to travel."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "aptDefinition": true,
+     "misdirectedWord": "treat"
     }
    }
   },
@@ -1663,58 +1667,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ASININE",
      "indicators": [
       {
        "text": "divided by",
-       "note": "a thing divided by something has it splitting it in two, so it sits in between"
+       "at": 9,
+       "note": "a word divided by another is split apart with the other in the gap"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "number",
+         "at": 2,
+         "gives": "NINE",
+         "note": "nine is a number"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "minus",
-         "note": "minus means take away, so one letter is removed"
+         "at": 24,
+         "note": "minus means take away, so a letter is removed"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "A",
-           "note": "taken as written"
-          },
-          {
-           "words": "six",
-           "note": "taken as written"
-          },
-          {
-           "words": "ten",
-           "gives": "X",
-           "note": "X is the Roman numeral for ten"
-          },
-          {
-           "words": "number",
-           "gives": "NINE",
-           "note": "nine is a number"
-          }
-         ]
+         "words": "six",
+         "at": 20
         },
         {
-         "gives": "XX"
+         "words": "ten",
+         "at": 30,
+         "gives": "X",
+         "note": "X is the Roman numeral for ten"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An arithmetic puzzle, dividing a number by six less ten, called dumb.",
-     "walkthrough": "The arithmetic is a decoy: ten is a Roman numeral removed from the word six.",
-     "definitionFit": "Asinine means donkey-like, so foolish or stupid."
+     "surface": "A sum: some number divided by six, take away ten, and the result is foolish.",
+     "walkthrough": "'minus' takes X, Roman ten, from SIX to leave SI, which splits A NINE. The arithmetic surface hides that 'divided' means physically split.",
+     "definitionFit": "Asinine means extremely foolish, literally like an ass."
     },
     "features": {
      "answerInScene": false,
