@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -325,40 +326,44 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "OT",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the outset, so only the opening letters of the words beside it are wanted"
+         "at": 17,
+         "note": "initially means the first letter of each of the words of and Texas"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "of Texas initially",
-         "gives": "OT",
-         "select": "first",
-         "note": "the first letter of each of those two words, in the order they stand"
+         "words": "of Texas",
+         "at": 8,
+         "note": "first letters O and T"
         }
        ]
       },
       {
        "words": "thanks",
+       "at": 27,
        "gives": "TA",
-       "note": "ta is the everyday British thank-you"
+       "note": "TA is British slang for thanks"
       },
       {
        "words": "Washington",
+       "at": 34,
        "gives": "WA",
        "note": "WA is the postal abbreviation for Washington state"
       }
      ]
     },
     "explanation": {
-     "surface": "A quick note on American geography: the capital of Texas, with thanks to Washington.",
-     "walkthrough": "'Capital of Texas' wants to be one phrase and would then be Austin; the definition stops after a single word, and 'of Texas' is worth only its two initials.",
-     "definitionFit": "Ottawa is the capital of Canada, so the bare word 'Capital' defines it by example rather than by synonym."
+     "surface": "Austin, the capital of Texas, offers thanks to Washington.",
+     "walkthrough": "'Capital of Texas' reads as one phrase meaning Austin, but 'Capital' alone is the definition. TA is an informal British thank-you.",
+     "definitionFit": "Ottawa is the capital city of Canada, so it is one example of a national capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
     }
    }
   },
@@ -519,37 +524,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PROCESSOR",
-     "indicators": [
-      {
-       "text": "scrambling",
-       "note": "scrambled eggs are beaten out of shape, so the word beside it comes out in another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "for",
+       "at": 5,
+       "gives": "PRO",
+       "note": "pro is Latin for for, as in being pro or for something"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scrambling",
+         "at": 9,
+         "note": "scrambling means mixing up, so the letters of scores are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "for",
-         "gives": "PRO",
-         "note": "to be pro something is to be for it"
-        },
-        {
-         "words": "scrambling scores",
-         "gives": "CESSOR",
-         "note": "the six letters of the last word, reshuffled"
+         "words": "scores",
+         "at": 20,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gadget sold as a chip that jumbles up whatever scores you feed it.",
-     "walkthrough": "'for' looks like a link word holding two halves together and is the first piece of the wordplay, which is why 'Chip' on its own has to be the definition.",
-     "definitionFit": "The processor is the chip a computer thinks with, so 'Chip' is the everyday name for the component itself."
+     "surface": "A chip used for scrambling results, as if in a rigged computer game.",
+     "walkthrough": "'Scrambling' rearranges SCORES into CESSOR, after PRO.",
+     "definitionFit": "A processor is the central microchip that executes a computer's instructions, often called simply a chip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chip"
     }
    }
   },
@@ -616,42 +626,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORINOCO",
-     "indicators": [
-      {
-       "text": "roughly treated",
-       "note": "handle something roughly and it comes back out of shape, so those letters will not keep the order they were given in"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Gold",
+       "at": 0,
+       "gives": "OR",
+       "note": "OR is the heraldic word for gold"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly treated",
+         "at": 10,
+         "note": "something roughly treated is knocked about, so the letters of icon are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Gold",
-         "gives": "OR",
-         "note": "OR is gold in heraldry, the standard crossword shorthand"
-        },
-        {
-         "words": "icon roughly treated",
-         "gives": "INOC",
-         "note": "the four letters of the image, knocked into a different order"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the standard abbreviation for old"
+         "words": "icon",
+         "at": 5,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "old",
+       "at": 29,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "An old gold icon that has been handled badly by somebody on the recycling crew.",
-     "walkthrough": "'Gold icon' looks like one treasure and is two separate pieces, the first of them heraldry's gold; the same name belongs to a South American river.",
-     "definitionFit": "Orinoco is one of the Wombles, the burrowing creatures of British children's television who collect litter — a recycling team member before the phrase existed."
+     "surface": "A golden icon damaged by an old member of a recycling team.",
+     "walkthrough": "'Roughly treated' rearranges ICON into INOC, between OR and O. The Wombles are furry characters from a British children's series who collect and recycle litter; Orinoco is one of them.",
+     "definitionFit": "Orinoco is one of the Wombles, the litter-collecting creatures of Wimbledon Common who reuse what people throw away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "recycling"
     }
    }
   },
@@ -718,36 +733,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OCCASIONED",
-     "indicators": [
-      {
-       "text": "to shed skin",
-       "note": "a snake sheds the skin on its outside, so the word beside it gives up its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "pit viper",
-       "gives": "MOCCASIN",
-       "note": "the water moccasin, or cottonmouth, is a North American pit viper"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to shed skin",
+         "at": 17,
+         "note": "a snake that sheds its skin loses its outside, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pit viper",
+         "at": 7,
+         "gives": "MOCCASIN",
+         "note": "the water moccasin is an American pit viper"
+        }
+       ]
       },
       {
        "words": "one",
-       "note": "the word itself, written straight in"
+       "at": 30,
+       "gives": "ONE",
+       "note": "taken as written"
       },
       {
        "words": "day",
-       "gives": "D",
-       "note": "D is the standard abbreviation for day"
+       "at": 34,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A pit viper sloughing its skin on one particular day.",
-     "walkthrough": "'shed skin' is an instruction rather than part of the picture, and the snake has to be recognised by its species name before anything can be stripped off it.",
-     "definitionFit": "To occasion something is to bring it about, so the past tense is a plain synonym for 'Caused' — the verb sense of a word better known as a noun."
+     "surface": "A snake caused trouble when it moulted one day.",
+     "walkthrough": "'To shed skin' strips the first and last letters from MOCCASIN, leaving OCCASI, and ONE and D follow.",
+     "definitionFit": "To occasion something is to bring it about, so occasioned is a synonym for caused in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skin"
     }
    }
   },
@@ -899,40 +926,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "State of mind",
-      "at": 0,
-      "note": "'State of mind' is a noun phrase where the answer is an adjective; the setter is naming the condition by describing the state a person is in rather than by offering a substitute word."
+      "text": "State of mind about the boy",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "at": 50,
+       "note": "ultimately points to the final letter of each of the words from, Ella and Fitzgerald"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means at the very end, so each word beside it is worth nothing but its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "from Ella Fitzgerald",
-         "note": "the last letter of each of those three words, taken in the order they stand"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "about the boy",
-       "note": "pure surface: it completes the song title the singer put on an album, and hands over no letters"
+       "words": "from Ella Fitzgerald",
+       "at": 29,
+       "note": "last letters M, A and D"
       }
      ]
     },
     "explanation": {
-     "surface": "Ella Fitzgerald's feelings about a boy, borrowed from the title of one of her records.",
-     "walkthrough": "'from' looks like a link word and is the first piece of the fodder instead. Ella Fitzgerald released an album called Mad About the Boy, which is the picture the surface is selling.",
-     "definitionFit": "Mad covers both states of mind the clue plays with: out of one's wits, and helplessly infatuated with somebody."
+     "surface": "A frame of mind about a boy, as sung by the jazz singer Ella Fitzgerald.",
+     "walkthrough": "The definition plays on the song title 'Mad About the Boy', so Ella Fitzgerald looks like the singer, but her name only supplies final letters.",
+     "definitionFit": "Being mad about someone is being infatuated with them, a state of mind captured in Noel Coward's song title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fitzgerald"
     }
    }
   },
@@ -964,42 +988,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "DREDGEUP",
+     "spelt": "DREDGEUP",
      "indicators": [
       {
        "text": "must be broadcast",
-       "note": "broadcast means put out on air to be heard, so what counts is how the words sound and not how they are spelt"
+       "at": 32,
+       "note": "broadcast means spoken on air, so the words are heard rather than read"
       }
      ],
      "parts": [
       {
-       "words": "great fear",
-       "gives": "DREAD",
-       "note": "dread is fear of the largest size"
-      },
-      {
-       "words": "comedian Miles",
-       "gives": "JUPP",
-       "note": "Miles Jupp is a British comedian and radio presenter"
-      },
-      {
-       "op": "homophone",
-       "spelt": "DREDGEUP",
-       "parts": [
-        {
-         "words": "great fear comedian Miles",
-         "gives": "DREADJUPP",
-         "note": "run those two words together out loud and the join between them turns into a soft g"
-        }
-       ]
+       "words": "great fear comedian Miles",
+       "at": 6,
+       "gives": "DREADJUPP",
+       "note": "great fear is dread, and Miles Jupp is a British comedian"
       }
      ]
     },
     "explanation": {
-     "surface": "A demand that a nervous comedian's spot be put out on the air.",
-     "walkthrough": "British listeners know Miles Jupp from Radio 4, and the sound runs straight across the gap between the two words, so the join produces a letter neither of them owns.",
-     "definitionFit": "To dredge something up is to raise it from the bottom, whether that is silt from a riverbed or an old grievance from memory."
+     "surface": "A comedian named Miles is terrified, yet must still be put on air.",
+     "walkthrough": "DREAD followed by JUPP, said aloud, gives DREDGE UP. Miles Jupp is a British comedian and presenter.",
+     "definitionFit": "To dredge up is to bring something to the surface, literally from a riverbed or figuratively from memory, so it means raise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
     }
    }
   },
@@ -1388,36 +1403,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BEGINNING",
      "indicators": [
       {
-       "text": "swap",
-       "note": "a swap puts one thing where the other was, so the new letters take up exactly the space the old one leaves"
+       "text": "to swap",
+       "at": 15,
+       "note": "to swap is to exchange, so one piece is traded out of the word"
+      },
+      {
+       "text": "for",
+       "at": 27,
+       "note": "for marks what goes out in exchange for the pub"
       }
      ],
      "parts": [
       {
        "words": "pleading",
+       "at": 6,
        "gives": "BEGGING",
-       "note": "to plead with someone is to beg them"
-      },
-      {
-       "words": "pub",
-       "gives": "INN",
-       "note": "an inn is a pub, three letters moving in"
+       "note": "pleading means begging"
       },
       {
        "words": "one grand",
+       "at": 31,
        "gives": "G",
-       "note": "G stands for grand, and just one of the pair of them makes way"
+       "note": "G is the abbreviation for a grand, a thousand pounds"
+      },
+      {
+       "words": "pub",
+       "at": 23,
+       "gives": "INN",
+       "note": "an inn is a pub"
       }
      ]
     },
     "explanation": {
-     "surface": "A landlord pleading to trade his pub for a thousand pounds.",
-     "walkthrough": "'one grand' is money on the surface and an instruction underneath: a single G, not both of them, gives up its place to the pub.",
-     "definitionFit": "A beginning is the point where a thing starts, so it answers 'Start' in that word's noun sense rather than its verb sense."
+     "surface": "Someone starts begging to trade a pub for a thousand pounds.",
+     "walkthrough": "'To swap pub for one grand' puts INN in place of one of the two Gs in BEGGING. A grand is slang for a thousand pounds or dollars.",
+     "definitionFit": "A beginning is the point where something starts, so the noun is a synonym for start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
     }
    }
   },
@@ -1497,40 +1524,32 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "GEED",
      "indicators": [
       {
-       "text": "to split",
-       "note": "splitting the name breaks it into two halves before anything else is done to it"
-      },
-      {
-       "text": "join up with New Order",
-       "note": "joining up again in a new order puts the two halves back together the other way round"
+       "text": "to split and join up with New Order",
+       "at": 26,
+       "note": "the word is split in two and the halves join up again in a new order, front half to the back"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "U2's guitarist",
-         "gives": "GE",
-         "note": "the Irish band's guitarist goes by The Edge, and this is the back half of that name, now leading"
-        },
-        {
-         "words": "U2's guitarist",
-         "gives": "ED",
-         "note": "the front half of the same name, following on behind after the split"
-        }
-       ]
+       "words": "U2's guitarist",
+       "at": 11,
+       "gives": "EDGE",
+       "note": "The Edge is the guitarist of the band U2"
       }
      ]
     },
     "explanation": {
-     "surface": "U2's guitarist walking out of the band to sign up with New Order.",
-     "walkthrough": "Both bands in the surface are real, and the instruction is hiding inside the sentence about them: the front half of the guitarist's name moves round to the back.",
-     "definitionFit": "To gee someone up is to urge them on, from the driver's call to a horse, so 'Encouraged' is the past tense of that."
+     "surface": "U2's guitarist is urged to leave his band and team up with the group New Order.",
+     "walkthrough": "New Order looks like the Manchester band but means the order of the halves changes: ED and GE swap places.",
+     "definitionFit": "To gee someone up is to urge them on, so geed is a synonym for encouraged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Order"
     }
    }
   },

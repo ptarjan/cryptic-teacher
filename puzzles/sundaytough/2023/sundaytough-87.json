@@ -264,12 +264,16 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IRIS",
      "indicators": [
       {
        "text": "Lopped at top",
-       "note": "lopping cuts something off, and at the top means the first letter goes"
+       "at": 0,
+       "note": "lopping the top of a tree cuts off its highest part, here the first letter"
+      },
+      {
+       "text": "shorter",
+       "at": 26,
+       "note": "shorter confirms the run of letters loses something, made a letter shorter"
       }
      ],
      "parts": [
@@ -278,21 +282,25 @@
        "parts": [
         {
          "words": "conifer",
-         "gives": "IR",
-         "note": "a fir without its first letter"
+         "at": 15,
+         "gives": "FIR",
+         "note": "a fir is a conifer"
         },
         {
          "words": "is",
-         "note": "taken as written"
+         "at": 23
         }
        ]
+      },
+      {
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A tree that has had its crown cut off ends up shorter.",
-     "walkthrough": "FIR loses its F; 'shorter' merely reinforces that the tree is cut down before IS is added.",
-     "definitionFit": "The iris is a flowering garden perennial, so plant is a general class containing it."
+     "surface": "A gardening note: once the conifer has its top cut off, it is shorter.",
+     "walkthrough": "FIR followed by IS gives FIRIS; 'lopped at top' and 'shorter' cut off the first letter F.",
+     "definitionFit": "The iris is a flowering garden plant with sword-shaped leaves, so it is an example of a plant."
     },
     "features": {
      "answerInScene": true,
@@ -511,47 +519,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MACKEREL",
-     "indicators": [
-      {
-       "text": "skinned",
-       "note": "removing the skin strips the outside, so first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Scottish son of",
+       "at": 0,
+       "gives": "MAC",
+       "note": "Mac in Scottish surnames means son of"
+      },
+      {
+       "words": "king",
+       "at": 16,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "skinned",
+         "at": 28,
+         "note": "skinned means the outer letters, the skin, of the word are removed"
+        }
+       ],
        "parts": [
         {
-         "words": "Scottish son of",
-         "gives": "MAC",
-         "note": "Mac in Scottish surnames means son of"
-        },
-        {
-         "words": "king",
-         "gives": "K",
-         "note": "K is the chess abbreviation for king"
-        },
-        {
          "words": "simply",
-         "gives": "EREL",
-         "note": "merely without its outer letters"
+         "at": 21,
+         "gives": "MERELY",
+         "note": "simply means merely"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Scottish prince prepares fish by just skinning it.",
-     "walkthrough": "Simply is MERELY; skinned leaves EREL.",
-     "definitionFit": "The mackerel is a common oily sea fish caught in British waters, an example of the category."
+     "surface": "A recipe note: the Scottish laird's son simply skinned the fish.",
+     "walkthrough": "'Skinned' strips the first and last letters from MERELY, leaving EREL.",
+     "definitionFit": "Mackerel is a common oily sea fish with striped blue-green skin, so it is an example of a fish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "simply"
+     "misdirectedWord": "skinned"
     }
    }
   },
@@ -583,43 +593,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HEADWAITER",
      "indicators": [
       {
        "text": "so Spooner said",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so initial sounds trade places"
+       "at": 31,
+       "note": "Reverend Spooner was famous for swapping the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "words": "married",
-       "gives": "WED",
-       "note": "to be married is to have wed"
+       "op": "homophone",
+       "spelt": "WEAD",
+       "parts": [
+        {
+         "words": "married",
+         "at": 16,
+         "gives": "WED",
+         "note": "married means wed"
+        }
+       ]
       },
       {
-       "words": "enemy",
-       "gives": "HATER",
-       "note": "a hater is one who is hostile"
-      },
-      {
-       "unchecked": true,
-       "words": "married enemy",
-       "gives": "HEADWAITER",
-       "soundsLike": "WED HATER",
-       "note": "swapping W and H sounds"
+       "op": "homophone",
+       "spelt": "HAITER",
+       "parts": [
+        {
+         "words": "enemy",
+         "at": 24,
+         "gives": "HATER",
+         "note": "an enemy is a hater"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A senior servant has married their foe, according to Spooner.",
-     "walkthrough": "Swap the opening sounds of WED HATER.",
-     "definitionFit": "A head waiter is the chief of the waiting staff in a restaurant, the one attending the diners."
+     "surface": "A tale of a head attendant who married their enemy, told in the style of Spooner.",
+     "walkthrough": "'So Spooner said' swaps the opening sounds of WED HATER, giving HED WATER, which is said like HEAD WAITER.",
+     "definitionFit": "A head waiter is in charge of the waiting staff in a restaurant, the senior serving attendant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd"
+     "joke": "absurd",
+     "misdirectedWord": "married"
     }
    }
   },
