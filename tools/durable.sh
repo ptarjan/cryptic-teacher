@@ -248,7 +248,9 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
   while kill -0 "$_durable_child" 2>/dev/null; do
     sleep 2 &
     wait $!
-    if [ $((SECONDS - last)) -ge "$DURABLE_EVERY" ]; then
+    # DURABLE_NOW: a flag file the job touches (the edition queue, as the desktop starts a game) to
+    # have what it filed committed at once, not at the next DURABLE_EVERY.
+    if [ $((SECONDS - last)) -ge "$DURABLE_EVERY" ] || { [ -n "${DURABLE_NOW:-}" ] && [ -e "$DURABLE_NOW" ] && rm -f "$DURABLE_NOW"; }; then
       durable_checkpoint "$what" || echo "durable: checkpoint failed for $what"
       # A job that starts its work as fresh processes (tools/edition_queue.py)
       # runs master's code from the next one on, without a restart. Tried

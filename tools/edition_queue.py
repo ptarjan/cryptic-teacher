@@ -427,6 +427,14 @@ PLAN_WAIT_MAX = 1800
 FRESH_POLL = 30
 #: How long a stop waits for the units it TERMed before it KILLs them.
 STOP_GRACE = 30
+
+
+def yield_grace():
+    """Seconds the running units get to finish once the desktop yields (CT_YIELD_GRACE, 50: the game-guard drains the VLM for 60)."""
+    try:
+        return float(os.environ.get("CT_YIELD_GRACE", "50"))
+    except ValueError:
+        return 50.0
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
 EXITS = edition_commit.EXITS
 
@@ -1196,6 +1204,54 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     def units_running():
         return list(running.items()) + list(adopted.items())
 
+    # Opt-in (CT_YIELD_HOSTS set): when a game starts, no new unit starts, the running ones get
+    # CT_YIELD_GRACE seconds to finish, then are TERMed (STOP_GRACE, then KILLed) and left deferred.
+    yield_since = [None]  # when this yield began
+    yield_termed = set()  # pids stopped for it
+    yield_termed_at = [None]  # when the first TERM went
+    yield_killed = [False]
+    yield_held = set()  # scans that ended deferred (desktop busy) during a yield: not retried until it ends
+
+    def yield_stop(yielding):
+        if not yielding:
+            yield_held.clear()
+        if not (yielding and os.environ.get("CT_YIELD_HOSTS", "").split()):
+            yield_since[0] = yield_termed_at[0] = None
+            yield_killed[0] = False
+            return
+        now = time.monotonic()
+        if yield_since[0] is None:
+            yield_since[0] = now
+            flag = os.environ.get("DURABLE_NOW")  # durable.sh commits what is filed now, before units stop
+            if flag:
+                try:
+                    Path(flag).touch()
+                except OSError:
+                    pass
+            log(f"yield: {yielding}; no read starts, the {len([1 for _, (u, _) in units_running() if u['kind'] == 'read'])} "
+                f"running get {yield_grace()}s to finish, then are stopped and left for after the game")
+        if now - yield_since[0] < yield_grace():
+            return
+        fresh_pids = [pid for pid, (u, _) in units_running() if u["kind"] == "read" and pid not in yield_termed]
+        if fresh_pids:
+            if yield_termed_at[0] is None:
+                yield_termed_at[0] = now
+                log(f"yield: grace over, TERM to {len(fresh_pids)} unit(s), up to {STOP_GRACE}s")
+            for pid in fresh_pids:
+                yield_termed.add(pid)
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+        if yield_termed_at[0] is not None and not yield_killed[0] and now - yield_termed_at[0] >= STOP_GRACE:
+            yield_killed[0] = True
+            for pid in list(yield_termed):
+                if pid in running or pid in adopted:
+                    try:
+                        os.killpg(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+
     fetch_made = {}  # source: (when its plan was made, its units)
     # The queue's units with their key and slot, made once per plan (the lists' (id, len)
     # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
@@ -1305,6 +1361,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             unit, t0 = running.pop(pid) if pid in running else adopted.pop(pid)
             ended(unit, t0)
             rc = os.waitstatus_to_exitcode(status)
+            # TERMed or KILLed for a game (yield_stop): left for the next run, never a failure.
+            parked = pid in yield_termed and rc in (-signal.SIGTERM, -signal.SIGKILL, 128 + signal.SIGTERM)
+            yield_termed.discard(pid)
+            if parked:
+                tried.discard(key_of(unit))
+                outcomes["deferred"] = outcomes.get("deferred", 0) + 1
+                log(f"end {unit['kind']} {unit['rel']}: deferred (stopped for a game) in {time.monotonic() - t0:.0f}s")
+                continue
             if rc == EXITS["lost"]:
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
             if rc == EXITS["vlm"]:
@@ -1312,6 +1376,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 vlm_lost_at[0] = time.monotonic()
             if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
                 tried.discard(key_of(unit))  # started again once the desktop is idle, or the VLM answers
+                if desktop_bound and unit["kind"] == "scan":
+                    yield_held.add(key_of(unit))
             else:
                 finished[key_of(unit)] = time.monotonic()
             if unit["kind"] == "scan" and rc == 0:
@@ -1341,6 +1407,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if not alive(pid):
                 del adopted[pid]
                 ended(unit, t0)
+                if pid in yield_termed:  # stopped for a game: left for the next run
+                    yield_termed.discard(pid)
+                    tried.discard(key_of(unit))
+                    log(f"end {unit['kind']} {unit['rel']}: deferred (stopped for a game, taken over) in {time.monotonic() - t0:.0f}s")
+                    continue
                 finished[key_of(unit)] = time.monotonic()
                 log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
 
@@ -1499,6 +1570,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             log(f"desktop-bound: desktop yielding ({yielding}); only fetches start until it is idle "
                 f"({len(running) + len(adopted)} running are left alone)")
         desktop_bound = bool(yielding)
+        yield_stop(yielding)
+        yield_opt_in = bool(os.environ.get("CT_YIELD_HOSTS", "").split())  # scans go on during a game only then
         desk_mem = desktop_free() if not yielding else None
         opened[:] = [s for s in opened if s > time.time() - 3600]
         closed[:] = [c for c in closed if c[1] > time.time() - 3600]
@@ -1637,7 +1710,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if (u["paper"], u["rel"]) in unscanned and (u["paper"], u["rel"]) in scan_failed:
                     tried.add(ukey)
                 continue
-            if starved or (yielding and u["kind"] != "fetch"):
+            # A game stops the VLM: no read starts (nor a scan its desktop deferred) while it yields;
+            # scans and fetches go on (CPU work).
+            if starved or (yielding and (u["kind"] == "read" or ukey in yield_held
+                                         or (u["kind"] == "scan" and not yield_opt_in))):
                 continue
             if vlm_waits(u):
                 vlm_deferred += 1

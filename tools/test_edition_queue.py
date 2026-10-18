@@ -1171,6 +1171,66 @@ fake(outcome={}, default=0.1)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
 check("mirror: once the desktop is idle it starts again", 1, log.read_text().count("start"))
+# Paul 10-17: a game stops the running units gracefully, opt-in by CT_YIELD_HOSTS: after
+# CT_YIELD_GRACE they are TERMed and ended deferred (not failed), durable.sh is told to commit, and
+# they start again once the game is over. Without CT_YIELD_HOSTS (the Mac) they are left alone.
+def yield_run(hosts, game_for=None):
+    flag = T / "durable-now"
+    flag.unlink(missing_ok=True)
+    os.environ["DURABLE_NOW"] = str(flag)
+    os.environ["CT_YIELD_GRACE"] = "0.5"
+    if hosts:
+        os.environ["CT_YIELD_HOSTS"] = hosts
+    else:
+        os.environ.pop("CT_YIELD_HOSTS", None)
+    t_game = [None]
+    def gate():
+        if not log.exists():
+            return None
+        t_game[0] = t_game[0] or time.monotonic()
+        return "a game is running" if game_for is None or time.monotonic() - t_game[0] < game_for else None
+    eq.desktop_gate_reader = gate
+    fake(sleep={"g0": 8, "g1": 8}, default=0.1)
+    log.unlink(missing_ok=True)
+    eq.plan = units([], [("g0", []), ("g1", [])])
+    err, out = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+        t0 = time.monotonic()
+        eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=6, replan=0.5)
+        took = time.monotonic() - t0
+    os.environ.pop("DURABLE_NOW")
+    os.environ.pop("CT_YIELD_GRACE")
+    os.environ.pop("CT_YIELD_HOSTS", None)
+    return err.getvalue(), out.getvalue(), flag.exists(), took
+msg, out, flagged, took = yield_run("micro@192.168.1.198")
+check("a game stops the running units after the grace: TERMed, deferred, not failed, left for the next run",
+      (2, False, True, True, True),
+      (msg.count("deferred (stopped for a game)"), "failed" in msg, "TERM to 2" in msg, "left for the next run" in out, took < 7))
+check("and durable.sh is told to commit at the start of the yield", True, flagged)
+msg, out, flagged, took = yield_run("micro@192.168.1.198", game_for=1.2)
+
+check("the units stopped for a game start again once it is over", (2, 4), (msg.count("deferred (stopped for a game)"), log.read_text().count("start")))
+msg, out, flagged, took = yield_run(None)
+check("mirror: without CT_YIELD_HOSTS running units are left alone (no TERM, no flag)", (0, False, False),
+      (msg.count("stopped for a game"), "TERM" in msg, flagged))
+def game_on(hosts):
+    if hosts:
+        os.environ["CT_YIELD_HOSTS"] = hosts
+    eq.desktop_gate_reader = lambda: "a game is running"
+    fake(outcome={}, default=0.1)
+    log.unlink(missing_ok=True)
+    eq.plan = units(["s9"], [("g0", ["s9"])])
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2, replan=0.5)
+    os.environ.pop("CT_YIELD_HOSTS", None)
+    return log.read_text() if log.exists() else ""
+got = game_on("micro@192.168.1.198")
+check("during a game (opt-in) a scan starts, a read does not", (True, False), ("s9" in got, "g0" in got))
+got = game_on(None)
+check("mirror: without CT_YIELD_HOSTS neither starts while it yields", (False, False), ("s9" in got, "g0" in got))
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
 # The VLM down (Paul 10-13: "just go onto the next scan and do it when it is
 # back"): an edition's read is not started, its scan and a fetch-free scan
 # are, and it says so; a read that is started (not needs_vlm) and ends

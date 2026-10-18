@@ -249,9 +249,13 @@ def vlm_guard(what):
 
 
 def vlm_down(e):
-    """Whether `e` is vlm_reader.Down: a read that must wait for the VLM, never a verdict."""
+    """Whether `e` is vlm_reader.Down: a read that must wait for the VLM, never a verdict.
+    Also any error in a queue's read (DEFER_ENV) that had lost the VLM mid-read (an ask failed:
+    ConnectionResetError when the game guard stops llama-swap): that read defers, it did not fail."""
     vlm = sys.modules.get("vlm_reader")
-    return vlm is not None and isinstance(e, vlm.Down)
+    if vlm is None:
+        return False
+    return isinstance(e, vlm.Down) or bool(os.environ.get(vlm.DEFER_ENV) and vlm.missed())
 
 
 def compact(ledger, key):

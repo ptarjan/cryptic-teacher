@@ -124,6 +124,11 @@ publish() {  # publish <what>: commit and push the puzzles filed so far
 # its start and its write loses nothing; one that leaves a tracked file
 # changed makes the move fail, and it is tried again (resync).
 HANDOFF="$(git rev-parse --git-dir)/edition-queue-handoff.json"
+# The queue touches this as the desktop starts a game (CT_YIELD_HOSTS), and durable_run commits
+# what is filed within seconds, before the units are stopped.
+DURABLE_NOW="$(git rev-parse --absolute-git-dir)/durable-now"
+export DURABLE_NOW
+rm -f "$DURABLE_NOW"
 # A re-exec (below) keeps what the slice before it handed over.
 [ -n "${CT_FULL_PASS_REEXEC:-}" ] || rm -f "$HANDOFF"
 unset CT_FULL_PASS_REEXEC
