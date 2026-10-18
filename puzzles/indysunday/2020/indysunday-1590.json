@@ -245,41 +245,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTHECLEAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of means nearly all, so the last letter of line is dropped"
+       "text": "prepared",
+       "at": 21,
+       "note": "prepared means made ready, worked up, so the pooled letters are put into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "prepared",
-         "note": "prepared means worked up or made ready, so these letters are rearranged into new form"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means the word line loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "line",
-         "gives": "LIN",
-         "note": "line without its final letter"
+         "at": 8,
+         "note": "taken as written before its last letter goes"
         },
         {
-         "words": "teacher",
-         "note": "taken as written"
+         "gives": "E",
+         "note": "the last letter of line, dropped"
         }
        ]
+      },
+      {
+       "words": "teacher",
+       "at": 13
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher's carefully prepared lesson plan keeps them out of difficulty.",
-     "definitionFit": "The idiom means no longer under suspicion or in danger, safely out of a difficult situation."
+     "surface": "A teacher drafting most of a line, then declaring everything is fine.",
+     "walkthrough": "'Most of' trims line to LIN; with TEACHER those letters are 'prepared', rearranged.",
+     "definitionFit": "To be in the clear is an idiom for being out of danger or no longer under suspicion."
     },
     "features": {
      "answerInScene": false,
@@ -913,60 +918,51 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GETAMOVEON",
      "indicators": [
       {
        "text": "playing",
-       "note": "playing suggests the letters are at play, moving freely into a new arrangement"
+       "at": 9,
+       "note": "playing suggests the letters are played about with, put into a fresh order"
       }
      ],
      "parts": [
       {
+       "words": "game on TV",
+       "at": 22
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "GETAMOVEON",
        "indicators": [
         {
          "text": "lacking",
-         "note": "lacking means without, so the letter standing for name is removed"
+         "at": 38,
+         "note": "lacking means the word one goes without the letter for name"
         }
        ],
        "parts": [
         {
-         "words": "game",
-         "note": "taken as written"
-        },
-        {
-         "words": "on",
-         "note": "taken as written"
-        },
-        {
-         "words": "TV",
-         "note": "taken as written"
-        },
-        {
          "words": "one",
-         "note": "taken as written"
+         "at": 34,
+         "note": "taken as written before N goes"
         },
         {
          "words": "name",
-         "gives": "N",
-         "note": "N is the abbreviation for name"
+         "at": 46,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is urged to get going while a nameless figure plays a televised game.",
-     "walkthrough": "One N is dropped from the eleven letters of game on TV one before the rest are rearranged.",
-     "definitionFit": "The informal command urges someone to be quicker, the same as telling them to hurry."
+     "surface": "Someone urging haste while fiddling with a televised match, a contestant short of a name.",
+     "walkthrough": "'lacking' name takes N from one, leaving OE; with GAME ON TV those letters are 'playing', rearranged, and 'with' just links.",
+     "definitionFit": "Get a move on is an everyday idiom urging someone to go faster."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "playing"
+     "misdirectedWord": "game"
     }
    }
   },

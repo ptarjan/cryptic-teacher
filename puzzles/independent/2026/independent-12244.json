@@ -535,24 +535,29 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 41,
+       "note": "over places the oil after the reversed cross word, as the answer runs"
+      }
+     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "HY",
        "indicators": [
         {
          "text": "emptied",
-         "note": "an emptied word has lost its contents, so only its outside letters remain"
+         "at": 18,
+         "note": "emptied means the inside letters are taken out, leaving only the outer pair"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "sanctified",
-         "gives": "HY",
-         "select": "outer",
-         "note": "holy is sanctified; keep its first and last letters"
+         "at": 26,
+         "gives": "HOLY",
+         "note": "holy means sanctified, made sacred"
         }
        ]
       },
@@ -561,12 +566,14 @@
        "indicators": [
         {
          "text": "inverted",
-         "note": "turning something upside down flips its order, so the letters run backwards"
+         "at": 46,
+         "note": "inverted means turned upside down, so the cross word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Cross",
+         "at": 55,
          "gives": "FORD",
          "note": "to ford a river is to cross it"
         }
@@ -574,14 +581,14 @@
       },
       {
        "words": "oil",
-       "note": "taken as written"
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "A church scene: raising a vessel and pouring out holy oil over an upside-down cross.",
-     "walkthrough": "The religious words all mislead: 'Cross' is a verb, as in crossing a river on foot at a shallow point, and 'sanctified' is holy with its insides removed.",
-     "definitionFit": "A hydrofoil is a boat whose hull lifts clear of the water on underwater wings as it gains speed."
+     "surface": "A religious rite: a hollow vessel and blessed oil poured over an upturned crucifix.",
+     "walkthrough": "'emptied' strips HOLY to HY; FORD is 'inverted' to DROF, and OIL comes after. 'Cross' looks like a crucifix, but it is the verb meaning to wade over.",
+     "definitionFit": "A hydrofoil is a boat whose hull is lifted clear of the water on underwater wings as it speeds up."
     },
     "features": {
      "answerInScene": false,
@@ -668,35 +675,38 @@
      "parts": [
       {
        "words": "Closed",
+       "at": 0,
        "gives": "TO",
-       "note": "a door that is to is shut"
+       "note": "a door pushed to is closed"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "SCA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "middle of",
-         "note": "the middle of a word is its central part, so only its core letters are kept"
+         "at": 7,
+         "note": "middle of means only the central part of the opera house's name is kept, its outer pairs shed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Milan opera house",
-         "gives": "SCA",
-         "select": "middle",
-         "note": "La Scala is Milan's opera house; its central three letters"
+         "at": 17,
+         "gives": "LASCALA",
+         "note": "La Scala is the opera house in Milan"
+        },
+        {
+         "gives": "LALA",
+         "note": "the opening LA and closing LA of La Scala, trimmed away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A notice that La Scala in Milan has shut its doors to an opera.",
-     "walkthrough": "'Middle of Milan' tempts you to take the centre of Milan; the middle belongs to La Scala, the opera house.",
-     "definitionFit": "Tosca is Puccini's famous Italian opera about a singer, a painter and a police chief in Rome."
+     "surface": "The heart of Milan's opera house shut down for a production.",
+     "walkthrough": "'Closed' gives TO, as in a door pushed to. The 'middle of' La Scala is SCA, its central letters.",
+     "definitionFit": "Tosca is Puccini's opera about the singer Floria Tosca, first staged in Rome in 1900."
     },
     "features": {
      "answerInScene": true,
@@ -1041,46 +1051,51 @@
      "indicators": [
       {
        "text": "supports",
-       "note": "in a down clue a support sits underneath, so the following pieces come after the one above"
+       "at": 24,
+       "note": "in a down clue, supports means these letters sit beneath the President's name"
       }
      ],
      "parts": [
       {
        "words": "old President's",
+       "at": 33,
        "gives": "ABE",
-       "note": "Abe is Abraham Lincoln, the sixteenth US President"
+       "note": "Abe is Abraham Lincoln, a former US President; the 's just reads as 'is' in the surface"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "YAN",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of a word keeps only one side of it, so the other letters are discarded"
+         "at": 0,
+         "note": "half of means only the first three of the six letters of the American word are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "American",
-         "gives": "YAN",
-         "select": "first",
-         "note": "Yankee is an American; keep its first three of six letters"
+         "at": 8,
+         "gives": "YANKEE",
+         "note": "a Yankee is an American"
+        },
+        {
+         "gives": "KEE",
+         "note": "the second half of Yankee, dropped"
         }
        ]
       },
       {
        "words": "church",
+       "at": 17,
        "gives": "CE",
        "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "Part of an American congregation backs a former President who has been suspended.",
-     "walkthrough": "American must first become the nickname Yankee before it is halved. In a down clue, things that support sit below, so the later pieces follow the President.",
-     "definitionFit": "A matter in abeyance is temporarily set aside or on hold, the state of being suspended."
+     "surface": "Part of an American church propping up a former President.",
+     "walkthrough": "'Half of' trims Yankee to YAN; with CE it sits under ABE, as 'supports' says in a down answer.",
+     "definitionFit": "Abeyance is a state of temporary suspension, where a matter is held over undecided."
     },
     "features": {
      "answerInScene": false,
@@ -1567,49 +1582,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BIGMAC",
      "indicators": [
       {
        "text": "penning",
-       "note": "to pen is to shut in an enclosure, so one piece goes inside another"
+       "at": 7,
+       "note": "penning means enclosing, so the writer word holds the journal letters inside it"
       }
      ],
      "parts": [
       {
+       "words": "Writer",
+       "at": 0,
+       "gives": "BIC",
+       "note": "a Bic is a brand of ballpoint pen"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "BIGMAC",
        "indicators": [
         {
          "text": "cycling",
-         "note": "a cycle goes round and round, so a letter moves from one end to the other"
+         "at": 15,
+         "note": "cycling means the letters rotate, the last moving round to the front"
         }
        ],
        "parts": [
         {
-         "words": "Writer",
-         "gives": "BIC",
-         "note": "a Bic is a ballpoint pen"
-        },
-        {
          "words": "journal",
+         "at": 23,
          "gives": "MAG",
-         "note": "mag is short for magazine"
+         "note": "a mag, short for magazine, is a journal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer covers a cycling magazine's piece on hearty meals.",
-     "walkthrough": "'Cycling' seems to be about bikes; it means moving the last letter of a word round to the front. Writer is a brand of ballpoint pen.",
-     "definitionFit": "The Big Mac is McDonald's best-known beefburger, a filling serving of meat in a bun."
+     "surface": "An author in a cycling magazine writing about a hearty meal.",
+     "walkthrough": "'cycling' turns MAG into GMA by moving its last letter to the front; 'penning' puts that inside BIC, a ballpoint pen brand.",
+     "definitionFit": "The Big Mac is McDonald's signature hamburger, a substantial meal of beef patties."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -1974,46 +1988,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHAINMAIL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "slashed",
-       "note": "a slashed word is cut short, so its final letter is removed"
+       "text": "struggling",
+       "at": 45,
+       "note": "struggling suggests the letters thrashing about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "struggling",
-         "note": "struggling suggests thrashing about in disorder, so the letters are mixed up"
+         "text": "slashed",
+         "at": 37,
+         "note": "slashed means cut, so the word Hill loses one of its letters"
         }
        ],
        "parts": [
         {
          "words": "Hill",
-         "gives": "HIL",
-         "note": "Hill with its last letter cut"
+         "at": 31,
+         "note": "taken as written before the cut"
         },
         {
-         "words": "maniac",
-         "note": "taken as written"
+         "gives": "L",
+         "note": "one L of Hill, cut"
         }
        ]
+      },
+      {
+       "words": "maniac",
+       "at": 61
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Norman Hill is slashed while struggling with a maniac, and armour might have saved him.",
-     "walkthrough": "'Norman Hill' looks like a person's name, but Norman belongs to the definition (a Norman soldier) and Hill to the wordplay.",
-     "definitionFit": "Norman soldiers at Hastings wore armour of interlinked iron rings over their bodies."
+     "surface": "A man called Norman Hill being slashed while grappling with a madman.",
+     "walkthrough": "Norman Hill reads as a name, but Norman is the medieval knight; 'slashed' cuts Hill to HIL, which with MANIAC is 'struggling', rearranged.",
+     "definitionFit": "Chain mail is armour of linked iron rings, worn by soldiers such as the Norman knights of 1066."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Norman"
     }
    }
