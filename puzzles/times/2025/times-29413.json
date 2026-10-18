@@ -589,53 +589,59 @@
      "op": "container",
      "indicators": [
       {
-       "text": "put up",
-       "note": "in a down clue, putting something up raises it bottom to top"
+       "text": "in",
+       "at": 42,
+       "note": "in tells us the next pieces go inside the word for flat"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
+       "words": "flat",
+       "at": 45,
+       "gives": "PLAIN",
+       "note": "plain means flat, as flat country"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "flat",
-         "gives": "PLAIN",
-         "note": "a plain is flat land"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "put up",
+           "at": 29,
+           "note": "in a down clue, put up means the phrase is read from bottom to top, so backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "definitely not",
+           "at": 14,
+           "gives": "NOSIR",
+           "note": "'No sir!' is an emphatic refusal"
+          }
+         ]
         },
         {
          "words": "bloke",
+         "at": 36,
          "gives": "CHAP",
-         "note": "a chap is a bloke"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "words": "definitely not",
-         "gives": "NOSIR",
-         "note": "'No sir!' is an emphatic refusal"
+         "note": "chap is a synonym for bloke"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Might a vicar refuse to give a lodger a room in his flat?",
-     "walkthrough": "'Can' opens the clue like a question, but it is slang for prison, and 'put up' pretends to mean giving someone a bed. 'No sir!' is a forceful refusal.",
-     "definitionFit": "Slang in the definition: can is prison, so a can clergyman is the chaplain who ministers in a jail."
+     "surface": "Asking whether a clergyman can refuse to accommodate a man in his apartment.",
+     "walkthrough": "'Can' looks like a modal verb opening a question, but it is slang for prison, so the definition is a jail's clergyman.",
+     "definitionFit": "A prison chaplain is a minister serving in a jail, and 'can' is slang for jail."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Can"
+     "misdirectedWord": "flat"
     }
    }
   },
@@ -1445,36 +1451,39 @@
      "indicators": [
       {
        "text": "stopping",
-       "note": "a stopper plugs a bottle's opening"
+       "at": 33,
+       "note": "stopping as in stopping a gap: the pieces plug the middle of the soup"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "liquid lunch",
-         "gives": "SOUP",
-         "note": "soup is a lunch you drink"
-        },
-        {
-         "words": "live",
-         "gives": "BE",
-         "note": "to be is to live, exist"
-        }
-       ]
+       "words": "liquid lunch",
+       "at": 42,
+       "gives": "SOUP",
+       "note": "soup is a lunch you drink"
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R = right"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "live",
+         "at": 21,
+         "gives": "BE",
+         "note": "to be is to live or exist"
+        },
+        {
+         "words": "right",
+         "at": 26,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to a drinker: live properly and quit the boozy lunches.",
-     "walkthrough": "A liquid lunch usually means a lunch of alcohol, which fits the drinking theme; here it is soup.",
-     "definitionFit": "A verb phrase for a verb phrase: to sober up is to become less drunk."
+     "surface": "Advice to a drinker: live properly and stop having boozy lunches to sober up.",
+     "walkthrough": "'Liquid lunch' reads as a boozy meal, but it is soup; BE and R go inside it.",
+     "definitionFit": "To sober up is to recover from drinking, which lowers one's intoxication."
     },
     "features": {
      "answerInScene": true,
@@ -1666,54 +1675,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "with no",
-       "note": "a case with no C means ACTION without that letter"
-      }
-     ],
      "parts": [
       {
        "words": "Notice",
+       "at": 0,
        "gives": "AD",
-       "note": "an ad is a notice"
+       "note": "an ad is a notice advertising something"
       },
       {
-       "op": "last",
+       "words": "you",
+       "at": 7,
+       "gives": "U",
+       "note": "U is text-speak for you"
+      },
+      {
+       "words": "left",
+       "at": 11,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "end of",
-         "note": "the end of a word is its final letter, so enthusiastic gives C"
+         "text": "with no",
+         "at": 21,
+         "note": "with no means the following letter is removed from the word for case"
         }
        ],
        "parts": [
         {
-         "words": "you",
-         "note": "U, text-speak for you"
+         "words": "case",
+         "at": 16,
+         "gives": "ACTION",
+         "note": "an action is a legal case"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 29,
+           "note": "end of picks out the last letter of enthusiastic"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enthusiastic",
+           "at": 36,
+           "gives": "C"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L = left"
-      },
-      {
-       "words": "case with no end of enthusiastic",
-       "gives": "ATION",
-       "note": "a court case is an action; remove the C that ends enthusiastic"
       }
      ]
     },
     "explanation": {
-     "surface": "A notice saying you abandoned a case, unmoved by any glowing praise.",
-     "walkthrough": "'Enthusiastic praise' reads as the definition, but 'enthusiastic' only supplies its final C.",
-     "definitionFit": "A near synonym: adulation is praise pushed to excess."
+     "surface": "An ad tells you you've left a case without enthusiasm.",
+     "walkthrough": "'Case' is the legal sense, a lawsuit, not a container; 'end of enthusiastic' names the one letter it loses.",
+     "definitionFit": "Adulation is extravagant admiration, a stronger form of praise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "enthusiastic"
+     "misdirectedWord": "case"
     }
    }
   },

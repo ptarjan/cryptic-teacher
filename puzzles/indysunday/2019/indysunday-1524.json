@@ -210,40 +210,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "entering",
-       "note": "entering means coming in through the door at the end, so the daughter follows the word for about"
+       "at": 9,
+       "note": "entering means the letter for daughter goes inside the run of other letters"
       }
      ],
      "parts": [
       {
-       "words": "about",
-       "gives": "RE",
-       "note": "re means about or concerning"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 18,
+         "gives": "RE",
+         "note": "re means about, concerning"
+        },
+        {
+         "words": "to steal",
+         "at": 24,
+         "gives": "CABBAGE",
+         "note": "to cabbage is old slang for to pilfer, especially a tailor keeping cloth"
+        }
+       ]
       },
       {
        "words": "Daughter",
-       "gives": "D",
-       "note": "the standard abbreviation for daughter"
-      },
-      {
-       "words": "to steal",
-       "gives": "CABBAGE",
-       "note": "cabbage is old British slang for pilfering, originally a tailor stealing leftover cloth"
+       "at": 0,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl walks in just as someone is about to commit a theft.",
-     "walkthrough": "D enters right after RE, coming in at its end to make RED; cabbage meaning steal is a dictionary sense many solvers will not know.",
-     "definitionFit": "Red cabbage is a purple-leaved vegetable, often pickled or braised, so it is edible food."
+     "surface": "A daughter coming in about to pinch some food.",
+     "walkthrough": "'Cabbage' as a verb is old tailors' slang for keeping offcuts of a customer's cloth, so stealing.",
+     "definitionFit": "Red cabbage is a purple-leaved vegetable, so it is food."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "entering"
+     "joke": "pun",
+     "misdirectedWord": "steal"
     }
    }
   },
@@ -1750,58 +1759,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "admitted by",
-       "note": "being admitted means let in, so that letter goes inside the next word"
+       "text": "in",
+       "at": 47,
+       "note": "in tells us the result goes inside the word for time"
       }
      ],
      "parts": [
       {
+       "words": "time",
+       "at": 50,
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the second word inside the word for time"
+         "text": "admitted by",
+         "at": 29,
+         "note": "admitted by means let inside, so the middle letter goes into the word for chief"
         }
        ],
        "parts": [
-        {
-         "words": "time",
-         "gives": "AGE",
-         "note": "an age is a period of time"
-        },
         {
          "words": "chief",
+         "at": 41,
          "gives": "GREAT",
-         "note": "great can mean principal or chief, as in the great hall"
-        }
-       ]
-      },
-      {
-       "op": "middle",
-       "indicators": [
+         "note": "great means principal or chief, as in the great hall"
+        },
         {
-         "text": "essentially",
-         "note": "the essence of a word is its core, so the central letter is taken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "anger",
-         "note": "the centre of a five-letter word"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 17,
+           "note": "essentially picks the heart, the central letter, of anger"
+          }
+         ],
+         "parts": [
+          {
+           "words": "anger",
+           "at": 11,
+           "gives": "G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group's fury is acknowledged by the leader in due course.",
-     "walkthrough": "Two containers nest here: the core of anger goes inside the word for chief, and that goes inside the word for time.",
-     "definitionFit": "Aggregate means combined or total, formed by gathering separate parts into a single whole."
+     "surface": "Pent-up collective anger let out by a leader in due course.",
+     "walkthrough": "Two containers nest here: the heart of 'anger' goes into the word for chief, and that result into the word for time.",
+     "definitionFit": "Aggregate means formed by combining many parts, a whole taken together, so collective."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "chief"
+     "misdirectedWord": "anger"
     }
    }
   },

@@ -542,38 +542,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "nervously",
-       "note": "acting nervously means fidgeting and jumbled, so the next word's letters are jittered out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "murmur",
+       "at": 10,
+       "gives": "HUM",
+       "note": "a hum is a low murmur"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nervously",
+         "at": 17,
+         "note": "nervously suggests jittery movement, so the letters of near are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "murmur",
-         "gives": "HUM",
-         "note": "to hum is to make a low murmur"
-        },
-        {
          "words": "near",
-         "note": "the four letters of this word, rearranged"
-        },
-        {
-         "words": "informants",
-         "gives": "SOURCES",
-         "note": "a journalist's informants are their sources"
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "informants",
+       "at": 32,
+       "gives": "SOURCES",
+       "note": "sources are people who supply information"
       }
      ]
     },
     "explanation": {
-     "surface": "Office staff muttering anxiously close to the company snitches.",
-     "definitionFit": "Human resources is the department, and by extension the staff, that a company employs; personnel is the older name for it."
+     "surface": "Staff murmuring anxiously near the office informers.",
+     "walkthrough": "HUM, then NEAR rearranged as ANRE, then SOURCES.",
+     "definitionFit": "Human resources is the department managing staff, also called personnel."
     },
     "features": {
      "answerInScene": true,
@@ -707,41 +711,43 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "the first object sits outside, wrapping round the words that follow it"
+       "at": 16,
+       "note": "outside means the tapering object surrounds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tapering object",
-         "gives": "CONE",
-         "note": "a cone narrows to a point"
-        },
-        {
-         "words": "study",
-         "gives": "DEN",
-         "note": "a den is a private room for work or study"
-        }
-       ]
+       "words": "Tapering object",
+       "at": 0,
+       "gives": "CONE",
+       "note": "a cone tapers to a point"
       },
       {
-       "words": "small",
-       "gives": "S",
-       "note": "S is the abbreviation for small, as on clothing labels"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "study",
+         "at": 24,
+         "gives": "DEN",
+         "note": "a den is a private study room"
+        },
+        {
+         "words": "small",
+         "at": 31,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list of things on an astronomer's desk: a pointed object, a study, a little telescope.",
-     "walkthrough": "'telescope' looks like the noun of the surface, but here it is the verb: to shorten by sliding sections together.",
-     "definitionFit": "To telescope a story or schedule is to compress it into less space or time, which is what condensing does."
+     "surface": "A conical object outside a study, beside a small telescope.",
+     "walkthrough": "'Telescope' looks like a noun, but here it is the verb, meaning to shorten or compress.",
+     "definitionFit": "To telescope a text is to compress it, so to condense or shorten it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "telescope"
     }
    }

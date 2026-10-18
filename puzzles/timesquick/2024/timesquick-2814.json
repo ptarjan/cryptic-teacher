@@ -392,36 +392,39 @@
      "indicators": [
       {
        "text": "broken by",
-       "note": "something broken into is split open so another piece can sit inside it"
+       "at": 5,
+       "note": "broken by means split open by, so the other pieces go into the word for rule"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Rule",
-         "gives": "DOMINATION",
-         "note": "domination is rule or control"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "Rule",
+       "at": 0,
+       "gives": "DOMINATION",
+       "note": "domination is rule or control"
       },
       {
-       "words": "knight",
-       "gives": "N",
-       "note": "N is the chess notation for a knight"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 15,
+         "gives": "E"
+        },
+        {
+         "words": "knight",
+         "at": 23,
+         "gives": "N",
+         "note": "N is the chess notation for knight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English knight defies the rules of his church.",
-     "walkthrough": "In chess notation K is the king, so the knight is N.",
-     "definitionFit": "A denomination is a distinct religious body within Christianity, such as Methodists or Baptists, a branch of the wider church."
+     "surface": "A rule defied by an English knight within a church branch.",
+     "walkthrough": "E and N go inside DOMINATION after the D.",
+     "definitionFit": "A denomination is a distinct religious body, such as Methodists within Christianity."
     },
     "features": {
      "answerInScene": true,
@@ -527,60 +530,58 @@
      "indicators": [
       {
        "text": "held in",
-       "note": "something held in is kept inside, so these letters sit within another word"
+       "at": 37,
+       "note": "held in means these pieces are inside the word for shelter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "shelter",
+       "at": 45,
+       "gives": "TENT",
+       "note": "a tent is a shelter"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "shelter",
-           "gives": "TENT",
-           "note": "a tent is a simple shelter"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "a",
+         "at": 9
         },
         {
          "words": "northern",
-         "gives": "N",
-         "note": "N is the abbreviation for northern"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+         "at": 11,
+         "gives": "N"
+        },
         {
-         "text": "originally",
-         "note": "originally means at the start, so only the opening letter is taken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "group",
-         "note": "the first letter of group"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 26,
+           "note": "originally takes the first letter of group"
+          }
+         ],
+         "parts": [
+          {
+           "words": "group",
+           "at": 20,
+           "gives": "G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gathering of northern people sheltering together.",
-     "walkthrough": "Function looks like an event or a purpose, but it is the mathematical sense.",
-     "definitionFit": "Tangent is one of the trigonometric functions, alongside sine and cosine, so it is a mathematical example."
+     "surface": "A northern group gathering in a tent for a function.",
+     "walkthrough": "A, N and G go inside TENT after the T. 'Function' is the maths sense, not a party.",
+     "definitionFit": "Tangent is a trigonometric function, the ratio of the opposite side to the adjacent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Function"
     }
    }

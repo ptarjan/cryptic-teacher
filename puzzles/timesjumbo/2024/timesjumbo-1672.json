@@ -1167,50 +1167,54 @@
      "indicators": [
       {
        "text": "garnered by",
-       "note": "what is garnered is gathered in, so it goes inside"
+       "at": 26,
+       "note": "garnered by means gathered up inside, so these pieces are held within the letters from elite"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "regular",
        "indicators": [
         {
          "text": "regularly",
-         "note": "take letters at regular intervals, here every second one"
+         "at": 44,
+         "note": "regularly takes every other letter of elite"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "parts": [
-          {
-           "words": "elite",
-           "note": "the 2nd and 4th letters of eLiTe"
-          }
-         ]
-        },
-        {
-         "words": "of",
-         "note": "as printed"
+         "words": "elite",
+         "at": 38,
+         "gives": "LT"
         }
        ]
       },
       {
-       "words": "connections",
-       "gives": "TIES",
-       "note": "ties = connections"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "of",
+         "at": 11
+        },
+        {
+         "words": "connections",
+         "at": 14,
+         "gives": "TIES",
+         "note": "ties are links or connections"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elite gathers in its noblest connections.",
-     "walkthrough": "'Most noble of connections' reads as one phrase, but the definition stops at 'noble'.",
-     "definitionFit": "Lofty means exalted or noble in character, so the loftiest is the most noble."
+     "surface": "Describing the grandest of an elite's social links.",
+     "walkthrough": "Every other letter of ELITE gives LT, which holds OF and TIES.",
+     "definitionFit": "Loftiest means highest in rank or spirit, the superlative of lofty, so most noble."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "of"
+     "misdirectedWord": "connections"
     }
    }
   },
@@ -1916,50 +1920,62 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "eating"
+       "text": "eating",
+       "at": 28,
+       "note": "eating means the two-word phrase before it swallows the letter for grand, taking it into its middle"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "MORNING",
-       "indicators": [
-        {
-         "text": "Reportedly",
-         "note": "what is reported is heard, so take the sound rather than the spelling"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "lamenting",
-         "gives": "MOURNING",
-         "note": "mourning = lamenting"
+         "op": "homophone",
+         "spelt": "MORNING",
+         "indicators": [
+          {
+           "text": "Reportedly",
+           "at": 0,
+           "note": "reportedly means what follows is heard, giving a word that sounds like the one for lamenting"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lamenting",
+           "at": 11,
+           "gives": "MOURNING",
+           "note": "mourning means lamenting a loss"
+          }
+         ]
+        },
+        {
+         "words": "parrot",
+         "at": 21,
+         "gives": "LORY",
+         "note": "a lory is a kind of small parrot"
         }
        ]
       },
       {
        "words": "grand",
+       "at": 35,
        "gives": "G",
-       "note": "G = grand, a thousand"
-      },
-      {
-       "words": "parrot",
-       "gives": "LORY",
-       "note": "a lory is a brightly coloured parrot"
+       "note": "G is short for grand, a thousand pounds"
       }
      ]
     },
     "explanation": {
-     "surface": "A grieving parrot tucks into some expensive plant.",
-     "walkthrough": "LORY is a crossword parrot worth knowing.",
-     "definitionFit": "Ipomoea is the botanical genus of the morning glory, a twining plant whose flowers open in the morning."
+     "surface": "A grieving parrot eating a plant, apparently.",
+     "walkthrough": "It is the whole 'lamenting parrot' that does the eating, so the grand lands between its two words; a lory is an Australasian parrot.",
+     "definitionFit": "Ipomoea is the botanical genus of the morning glory, a climbing plant with trumpet flowers."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "parrot"
     }
    }
   },
@@ -3228,47 +3244,71 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "what is found in something sits inside it"
+       "at": 17,
+       "note": "found in tells us these pieces sit inside the shortened car"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "with never an end",
-         "note": "none of the three words keeps its last letter"
+         "at": 30,
+         "note": "never an end means each of the words road, Tim and car loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "car",
-         "gives": "CA",
-         "note": "car without its end, holding ROA and TI"
+         "at": 26,
+         "gives": "CAR"
         },
         {
-         "words": "Tim",
-         "gives": "TI",
-         "note": "Tim without its end"
+         "gives": "R"
         }
        ]
       },
       {
-       "words": "road",
-       "gives": "ROA",
-       "note": "road without its end"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "road",
+           "at": 8
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Tim",
+           "at": 13
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tim is found on a country road in a car that never stops.",
-     "walkthrough": "'With never an end' applies to all three words, not only the car.",
-     "definitionFit": "Definition by example: Croatia is a country on the Adriatic."
+     "surface": "Tim, on a country road, is in a car that keeps on going.",
+     "walkthrough": "The one phrase 'with never an end' acts on all three words, road, Tim and car, each losing its last letter.",
+     "definitionFit": "Croatia is a nation on the Adriatic coast of the Balkans."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Tim"
+     "misdirectedWord": "Country"
     }
    }
   },

@@ -1185,41 +1185,46 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of RIPE, losing its last letter"
+       "text": "bananas",
+       "at": 23,
+       "note": "bananas means crazy, so the letters go wild into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "eats",
+       "at": 6
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "bananas",
-         "note": "gone bananas, crazy, so the letters are jumbled"
+         "text": "mostly",
+         "at": 11,
+         "note": "mostly means all but the last letter of ripe"
         }
        ],
        "parts": [
         {
-         "words": "eats",
-         "note": "anagram fodder"
+         "words": "ripe",
+         "at": 18
         },
         {
-         "words": "ripe",
-         "gives": "RIP",
-         "note": "RIPE without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vagrant eats nearly-ripe bananas.",
-     "walkthrough": "'Tramp' is a vagrant in the surface and a verb in the answer; 'bananas' is not fruit but the anagram signal.",
-     "definitionFit": "A plain synonym for the verb: both mean trudging heavily and wearily from place to place."
+     "surface": "A vagrant eating overripe fruit.",
+     "walkthrough": "'Bananas' looks like the fruit, but it is the signal: EATS and RIP (most of RIPE) are rearranged.",
+     "definitionFit": "To traipse is to trudge wearily, so to tramp."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bananas"
     }
    }
@@ -1600,50 +1605,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the moved-over-there words inside the case of tide"
+       "at": 25,
+       "note": "in tells us these pieces sit inside the outer letters of tide"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "case of",
-         "note": "the case of 'tide' is its outer letters"
+         "at": 28,
+         "note": "case of means the outside letters, first and last, of tide"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "tide",
-           "note": "outer letters"
-          }
-         ]
-        },
-        {
-         "words": "moved",
-         "gives": "WENT",
-         "note": "moved = went"
+         "words": "tide",
+         "at": 36,
+         "gives": "TE"
         }
        ]
       },
       {
-       "words": "over there",
-       "gives": "YON",
-       "note": "yon is an old word for over there"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "moved",
+         "at": 8,
+         "gives": "WENT",
+         "note": "went means moved"
+        },
+        {
+         "words": "over there",
+         "at": 14,
+         "gives": "YON",
+         "note": "yon means over there, archaic"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A floating pontoon is shifted over there in case the tide comes in.",
-     "walkthrough": "'Pontoon' looks like a floating jetty; it is the British name for the card game blackjack.",
-     "definitionFit": "Pontoon, or twenty-one, is the card game where you aim for 21."
+     "surface": "A floating pontoon shifted over in the tide.",
+     "walkthrough": "Pontoon suggests a floating platform, but it is the British card game also called blackjack; yon is an old word for over there.",
+     "definitionFit": "Pontoon is the British name for the card game twenty-one, scoring closest to 21."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Pontoon"
     }
    }

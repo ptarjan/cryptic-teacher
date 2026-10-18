@@ -449,49 +449,56 @@
      "indicators": [
       {
        "text": "to catch",
-       "note": "a word that catches something holds it inside itself"
+       "at": 13,
+       "note": "to catch means the word for managed holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "managed",
-         "gives": "RAN",
-         "note": "ran means managed, as in ran a business"
-        },
-        {
-         "words": "five",
-         "gives": "V",
-         "note": "V is the Roman numeral for five"
-        }
-       ]
+       "words": "managed",
+       "at": 5,
+       "gives": "RAN",
+       "note": "ran means managed, as in ran a business"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately points to the very last letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "mice",
-         "note": "final letter of mice"
+         "words": "five",
+         "at": 22,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 32,
+           "note": "ultimately takes the last letter of mice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mice",
+           "at": 27,
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird of prey succeeds in seizing five mice in the end.",
+     "surface": "A bird of prey managing to seize five mice.",
+     "walkthrough": "RAN goes around V and E.",
      "definitionFit": "The raven is a large black bird of the crow family."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "managed"
     }
    }
   },
@@ -1060,39 +1067,43 @@
      "indicators": [
       {
        "text": "to cross",
-       "note": "the word for able stretches across, spanning the words that follow"
+       "at": 13,
+       "note": "to cross means the word for is able spans over the other pieces, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "is able",
+       "at": 5,
+       "gives": "CAN",
+       "note": "can means is able"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "able",
-         "gives": "CAN",
-         "note": "can means is able to"
+         "words": "West Country river",
+         "at": 24,
+         "gives": "TAMAR",
+         "note": "the Tamar is a river dividing Devon and Cornwall"
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 22
         }
        ]
-      },
-      {
-       "words": "West Country river",
-       "gives": "TAMAR",
-       "note": "the Tamar forms the boundary between Devon and Cornwall"
       }
      ]
     },
     "explanation": {
-     "surface": "A vessel capable of crossing a river in south-west England.",
-     "walkthrough": "The West Country is south-west England; the Tamar separates Devon from Cornwall.",
-     "definitionFit": "A catamaran is a boat with two parallel hulls."
+     "surface": "A boat capable of crossing a river in south-west England.",
+     "walkthrough": "The West Country is south-west England; its river Tamar forms most of the border between Devon and Cornwall.",
+     "definitionFit": "A catamaran is a vessel with twin parallel hulls."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
     }
    }
   },
