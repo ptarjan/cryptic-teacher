@@ -99,43 +99,51 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 18,
+       "note": "in a down clue, over puts the first piece above the second"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "UNI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half of a word means keeping only one of its two halves, here the front three of six letters"
+         "at": 6,
+         "note": "half keeps only the first three of the six letters of united"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "united",
-         "gives": "UNI",
-         "select": "first",
-         "note": "the first half of this six-letter word"
+         "at": 11,
+         "note": "taken as written before half of it goes"
+        },
+        {
+         "gives": "TED"
         }
        ]
       },
       {
        "words": "poetry",
+       "at": 23,
        "gives": "VERSE",
-       "note": "verse is another word for poetry"
+       "note": "verse is poetry"
       }
      ]
     },
     "explanation": {
-     "surface": "A grand claim that half the world was brought together by poetry.",
-     "walkthrough": "In a down clue 'over' means placed above, so the first piece sits on top of the second.",
-     "definitionFit": "The universe is all of existence, and 'world' is used loosely for everything there is."
+     "surface": "Half the world comes together over a love of poems.",
+     "walkthrough": "'half' keeps UNI of UNITED, and in this down clue 'over' stacks it on top of VERSE.",
+     "definitionFit": "The universe is all of existence, and world is sometimes used loosely for everything there is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "united"
     }
    }
   },
@@ -506,57 +514,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ILLICIT",
-     "indicators": [
-      {
-       "text": "mainly",
-       "note": "mainly means most but not all, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One will",
+       "at": 0,
+       "gives": "ILL",
+       "note": "I'll is the contraction of I will, one being I"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at beginning",
+         "at": 16,
+         "note": "at beginning picks out only the opening letter of insist"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
+         "words": "insist",
+         "at": 9,
+         "note": "its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "will",
-         "gives": "LL",
-         "note": "the contracted form, as in I'll"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at beginning",
-           "note": "the beginning of a word is its first letter, so only that letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "insist",
-           "note": "the first letter of the word"
-          }
-         ]
-        },
+         "text": "mainly",
+         "at": 34,
+         "note": "mainly means most of, so the word loses its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "city",
-         "gives": "CIT",
-         "note": "the word without its last letter"
+         "at": 29,
+         "gives": "CITY",
+         "note": "taken as written before its last letter goes"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone declares from the start that the city is mostly in the wrong.",
-     "walkthrough": "'One will' reads as a phrase but gives I and 'LL, the clipped form of will, making I'LL.",
-     "definitionFit": "Something illicit is forbidden by law or custom, so it is improper or not right."
+     "surface": "Someone vows to press the case that the city is largely in the wrong.",
+     "walkthrough": "'at beginning' gives the I of INSIST, and 'mainly' trims CITY to CIT.",
+     "definitionFit": "Something illicit is forbidden by law or custom, so it is wrong in the sense of not allowed."
     },
     "features": {
      "answerInScene": false,
@@ -961,37 +970,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRUANT",
-     "indicators": [
-      {
-       "text": "Not entirely",
-       "note": "not entirely means falling short of whole, so the word is cut by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 0,
+         "note": "not entirely means not the whole thing, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "loyal",
-         "gives": "TRU",
-         "note": "true, meaning loyal, minus its final letter"
+         "at": 13,
+         "gives": "TRUE",
+         "note": "true means loyal"
         },
         {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "the worker ant is the crossword's stock worker"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "worker",
+       "at": 19,
+       "gives": "ANT",
+       "note": "a worker is a classic crossword term for an ant, from the worker caste of ants"
       }
      ]
     },
     "explanation": {
-     "surface": "An employee whose loyalty is partial, so perhaps he skips work.",
-     "walkthrough": "The question mark ends the first half; the second sentence is the definition.",
-     "definitionFit": "A truant stays away from school or work without permission, so is someone absent when expected."
+     "surface": "A worker of doubtful loyalty is the one who never shows up.",
+     "walkthrough": "'Not entirely' trims TRUE (loyal) to TRU. The question mark leaves 'worker' looking like the person in the definition.",
+     "definitionFit": "A truant is a pupil who stays away from school without permission, someone who fails to appear."
     },
     "features": {
      "answerInScene": true,
@@ -1097,29 +1110,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TALC",
      "indicators": [
       {
        "text": "is given new ending",
-       "note": "a new ending replaces the old last letter with a different one"
+       "at": 13,
+       "note": "a new ending means the final letter is swapped for a different one"
       }
      ],
      "parts": [
       {
        "words": "story",
+       "at": 7,
        "gives": "TALE",
        "note": "a tale is a story"
+      },
+      {
+       "gives": "E"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A story about powder gets a fresh conclusion.",
-     "walkthrough": "The clue says only that the last letter changes, not which letter replaces it; the crossing letter from 22 Across supplies the C.",
-     "definitionFit": "Talc is a soft mineral ground into a fine powder used on skin."
+     "surface": "A novelist reworks the finale of a story about powder.",
+     "walkthrough": "'is given new ending' swaps the last letter of TALE (story); the clue does not name the new letter, so the crossing letters or the definition must supply the C.",
+     "definitionFit": "Talc is a soft mineral ground into a fine powder used on the skin, as in talcum powder."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ending"
     }
