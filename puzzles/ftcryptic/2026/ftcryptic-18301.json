@@ -1221,26 +1221,41 @@
       {
        "text": "outside",
        "at": 32,
-       "note": "outside says the first piece goes round the other one"
+       "note": "outside says the kept half of banner sits around the other word"
       }
      ],
      "parts": [
       {
-       "words": "bottom half of banner",
-       "at": 10,
-       "gives": "NER",
-       "note": "the second half of the six letters of banner is NER"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bottom half of",
+         "at": 10,
+         "note": "only the bottom half of the six-letter word is kept, so its first three letters are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "banner",
+         "at": 25,
+         "note": "the second half of banner is NER"
+        },
+        {
+         "gives": "BAN"
+        }
+       ]
       },
       {
        "words": "the",
-       "at": 6
+       "at": 6,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to lower the bottom half of a banner hanging outside.",
-     "walkthrough": "'The' sits whole inside NER, the bottom half of 'banner', with 'outside' wrapping it round.",
-     "definitionFit": "Nether is an old adjective meaning lower or under, as in the nether regions."
+     "surface": "An instruction to lower a flag, with only its bottom half showing outside.",
+     "walkthrough": "'Bottom half of' banner keeps NER; that goes 'outside' THE, splitting as NE-THE-R.",
+     "definitionFit": "Nether is an old-fashioned adjective for lower or under, as in the nether regions."
     },
     "features": {
      "answerInScene": false,
