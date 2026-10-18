@@ -537,6 +537,68 @@ def spells_words(counts, letters):
     return i == len(letters)
 
 
+#: The word breaks other puzzles print for an answer (tools/repair_fetched.py's
+#: --write-breaks): {"breaks": {ANSWER: "5,3,2,5"}, "mixed": [ANSWER]}, the
+#: second the answers printed both ways with neither settled.
+BREAKS = ROOT / "tools" / "data" / "answer_breaks.json"
+
+
+@functools.lru_cache(maxsize=None)
+def answer_breaks():
+    """(the BREAKS file's {answer: enumeration}, its mixed answers as a set);
+    both empty without the file."""
+    try:
+        data = json.loads(BREAKS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}, frozenset()
+    return data.get("breaks") or {}, frozenset(data.get("mixed") or ())
+
+
+def settled_breaks(printed):
+    """The enumeration with word breaks that `printed` ({enumeration: how many
+    puzzles print it}, of one answer's letters) settles, or None.
+
+    The same letters are the same phrase: LAUGHOUTOFCOURT is "(5,3,2,5)" in
+    every puzzle that clues it. Settled when the most printed broken
+    enumeration is printed at least as often as the bare count, twice as often
+    as the next broken one, and (against a bare count at all) at least twice.
+    Measured on the 148 bare counts a re-read of an OCR'd Times gave their
+    breaks: 129 are settled, 113 with the very marks the re-read read and 16
+    with its counts but another mark (a hyphen for a comma), none wrong; a
+    lexicon cut of the letters instead cut half the real one-word answers
+    the lexicon lacks, and was dropped."""
+    broken = sorted(((n, e) for e, n in printed.items() if not re.fullmatch(r"\d+", e)), reverse=True)
+    if not broken:
+        return None
+    bare = sum(n for e, n in printed.items() if re.fullmatch(r"\d+", e))
+    top, second = broken[0][0], broken[1][0] if len(broken) > 1 else 0
+    if top < bare or top < 2 * second or (bare and top < 2):
+        return None
+    return broken[0][1]
+
+
+def lost_word_breaks(puzzle, known=None):
+    """{light id: enumeration or None} for each light whose clue prints one
+    bare count over an answer other puzzles print with word breaks: the
+    enumeration they settle on (a repair to make), None where they print it
+    both ways and settle on neither (a read of the print). `known` is
+    answer_breaks()'s pair. A light of a linked answer, or with no answer or a
+    count that is not its answer's length, is left out."""
+    breaks, mixed = known or answer_breaks()
+    out = {}
+    for e in puzzle.get("entries") or ():
+        clue, solution = e.get("clue") or {}, e.get("solution")
+        if len(e.get("group") or ()) > 1 or not solution or clue.get("missing"):
+            continue
+        if not re.fullmatch(r"\d+", clue.get("enumeration") or "") or int(clue["enumeration"]) != len(solution):
+            continue
+        if solution in breaks:
+            out[entry_id(e)] = breaks[solution]
+        elif solution in mixed:
+            out[entry_id(e)] = None
+    return out
+
+
 def group_orders(puzzle):
     """{leader id: the order its lights belong in} for each linked answer whose
     group lists them in another.
