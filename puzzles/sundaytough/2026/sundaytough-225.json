@@ -994,34 +994,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "protecting",
-       "note": "the party wraps around the next piece"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "revolutionary",
-         "note": "turned round, so written backwards"
+         "text": "protecting",
+         "at": 6,
+         "note": "the party wraps round, protecting, the other letters"
         }
        ],
        "parts": [
         {
          "words": "Party",
+         "at": 0,
          "gives": "BASH",
-         "note": "a bash is a party, BA…SH around the next piece"
+         "note": "a bash is a party"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "revolutionary",
+           "at": 25,
+           "note": "revolutionary means turned round, read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "popular",
+           "at": 17,
            "gives": "IN",
-           "note": "in = popular, turned round to NI"
+           "note": "in means popular, fashionable"
           }
          ]
         }
@@ -1029,35 +1033,38 @@
       },
       {
        "words": "fellows",
+       "at": 39,
        "gives": "MEN",
-       "note": "fellows = men"
+       "note": "men are fellows"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so the word's end: its last letter"
+         "at": 47,
+         "note": "ultimately takes the last letter"
         }
        ],
        "parts": [
         {
          "words": "against",
-         "note": "last letter of against"
+         "at": 58,
+         "note": "its last letter gives T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political party sheltering a well-liked radical and his comrades, in the end opposed to deportation.",
-     "walkthrough": "'Popular revolutionary' reads as a folk hero, but 'revolutionary' just reverses IN. BA(NI)SH + MEN + T.",
-     "definitionFit": "Exile and banishment are both forced removal from one's country."
+     "surface": "A political party sheltering a well-liked radical has its members opposed to banishment.",
+     "walkthrough": "'revolutionary' turns IN into NI, which BASH holds; then MEN and the T ending 'against'.",
+     "definitionFit": "Banishment is the act of expelling someone from their country, which is what exile is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "revolutionary"
+     "misdirectedWord": "Party"
     }
    }
   },
@@ -1794,52 +1801,55 @@
      "indicators": [
       {
        "text": "gathering",
-       "note": "collecting the next pieces inside"
+       "at": 10,
+       "note": "the employees gather the other letters into their middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Employees",
-         "gives": "WORKERS",
-         "note": "workers = employees, WORK…ERS around the rest"
-        },
-        {
-         "words": "got",
-         "gives": "WON",
-         "note": "won = got, gained"
-        }
-       ]
+       "words": "Employees",
+       "at": 0,
+       "gives": "WORKERS",
+       "note": "workers are employees"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader to",
-         "note": "the leading, so first, letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "leader to definitively",
-         "gives": "DEFINITIVELY",
-         "note": "first letter of definitively"
+         "words": "got",
+         "at": 20,
+         "gives": "WON",
+         "note": "won means got, gained"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader to",
+           "at": 24,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "definitively",
+           "at": 34,
+           "note": "its first letter gives D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Staff rallying behind a boss who makes things better once and for all.",
-     "walkthrough": "'Leader' suggests a boss; it gives only the first letter of 'definitively'. WORK(WON + D)ERS.",
-     "definitionFit": "An idiom: working wonders means achieving remarkable results, usually making something much better."
+     "surface": "Staff at a meeting persuaded the boss to make firm improvements.",
+     "definitionFit": "To work wonders is an idiom for achieving remarkable results, producing great improvement."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "gathering"
     }
    }
   }

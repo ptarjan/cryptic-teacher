@@ -734,35 +734,38 @@
      "indicators": [
       {
        "text": "cuddles",
-       "note": "wraps around, so the cat goes inside"
+       "at": 8,
+       "note": "to cuddle is to hold close, so these letters wrap round the cat"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "returning",
-         "note": "going back, so written backwards"
-        }
-       ],
        "parts": [
         {
          "words": "In",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T = time"
+         "at": 3,
+         "gives": "T"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 22,
+         "note": "returning means the cat word is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "moggy",
+         "at": 16,
          "gives": "CAT",
          "note": "moggy is British slang for a cat"
         }
@@ -771,12 +774,12 @@
      ]
     },
     "explanation": {
-     "surface": "A cat comes home safe and gets a cuddle just in time.",
-     "walkthrough": "IN and T together hold the reversed cat between them.",
-     "definitionFit": "A plain synonym: something intact is unharmed, whole, with nothing broken."
+     "surface": "Just in time, someone hugs a cat coming home safe and sound.",
+     "walkthrough": "A moggy is an everyday British word for a cat; 'returning' turns it into TAC.",
+     "definitionFit": "Something intact is whole and undamaged, which is what being unhurt amounts to."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cuddles"
     }
@@ -926,30 +929,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short falls short of its full length, so TOUR loses its last letter"
-      },
-      {
-       "text": "at the end of"
+       "text": "at the end of",
+       "at": 8,
+       "note": "the bad egg is placed after the shortened trip"
       }
      ],
      "parts": [
       {
-       "words": "trip",
-       "gives": "TOU",
-       "note": "TOUR, a trip, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 22,
+         "note": "short means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trip",
+         "at": 28,
+         "gives": "TOUR",
+         "note": "a tour is a trip"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "Bad egg",
+       "at": 0,
        "gives": "LOUSE",
-       "note": "a louse is a contemptible person"
+       "note": "a louse is a contemptible person, a bad egg"
       }
      ]
     },
     "explanation": {
-     "surface": "A rotten egg eaten at the end of a short holiday in France.",
-     "walkthrough": "'Bad egg' sounds like food poisoning abroad; it is old slang for a rotter, a louse.",
-     "definitionFit": "Definition by example: Toulouse is a city in south-west France, one of many places there."
+     "surface": "A rotten egg spoils the end of a brief holiday somewhere in France.",
+     "walkthrough": "A 'bad egg' is a rotter, a LOUSE; 'short' trims TOUR to TOU.",
+     "definitionFit": "Toulouse is a city in south-west France, so it is one place in that country."
     },
     "features": {
      "answerInScene": true,

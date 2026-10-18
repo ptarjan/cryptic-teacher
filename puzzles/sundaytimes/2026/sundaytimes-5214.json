@@ -1109,49 +1109,52 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first pieces go inside the vehicle"
+       "at": 26,
+       "note": "these letters go in the reversed vehicle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "reversing",
-         "note": "a reversing vehicle goes backwards, so its letters read right to left"
+         "at": 29,
+         "note": "reversing means the vehicle word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "parts": [
-          {
-           "words": "snow vehicle",
-           "gives": "SLED",
-           "note": "a sled travels on snow"
-          }
-         ]
-        },
-        {
-         "words": "is",
-         "note": "is as itself"
+         "words": "snow vehicle",
+         "at": 39,
+         "gives": "SLED",
+         "note": "a sled is a vehicle for snow"
         }
        ]
       },
       {
-       "words": "parking",
-       "gives": "P",
-       "note": "P = parking, as on road signs"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "at": 15
+        },
+        {
+         "words": "parking",
+         "at": 18,
+         "gives": "P",
+         "note": "P is the road-sign abbreviation for parking"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver either leaves or parks a backing snowmobile.",
-     "walkthrough": "'Drives' looks like motoring, matching the vehicle, but the definition means chases off. The reversal happens first, then the insertion.",
-     "definitionFit": "To dispel doubts is to drive them away."
+     "surface": "Someone drives off, or parks in a sledge that is backing up.",
+     "definitionFit": "To dispel is to drive off or scatter, as wind dispels fog."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Drives"
     }
