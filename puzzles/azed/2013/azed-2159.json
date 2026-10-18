@@ -290,41 +290,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOTEL",
-     "indicators": [
-      {
-       "text": "at intervals removed from",
-       "note": "removing letters at intervals takes out scattered, non-adjacent letters from the word that follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Maggot",
+       "at": 0,
        "gives": "BOT",
-       "note": "a bot is the larva of a botfly"
+       "note": "a bot is the maggot-like larva of the botfly"
       },
       {
-       "words": "ma",
-       "note": "taken as written, the letters to remove"
-      },
-      {
-       "words": "food",
-       "gives": "MEAL",
-       "note": "a meal is food"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "at intervals removed from",
+         "at": 10,
+         "note": "the letters of ma come out of the word for food one at a time, not side by side, so they are removed at intervals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "food",
+         "at": 36,
+         "gives": "MEAL",
+         "note": "a meal is food, a serving of it"
+        },
+        {
+         "words": "ma",
+         "at": 7,
+         "gives": "MA",
+         "note": "the word ma, whose two letters are taken out"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grub and mother are thrown out of the dinner at a riverside pub.",
-     "walkthrough": "M and A are separated in MEAL, so removing them leaves EL.",
-     "definitionFit": "A botel is a hotel for people travelling by boat, built at the water's edge; the question mark admits it is loosely an inn."
+     "surface": "Mum, spotting a maggot, takes it out of the dinner bit by bit.",
+     "walkthrough": "'Maggot' looks like part of the meal's horror story, but it is the botfly larva. A botel is a hotel for boat-borne travellers, hence 'waterside inn?'.",
+     "definitionFit": "A botel is a hotel that caters for people travelling by boat, often moored or built at the water's edge."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "ma"
+     "aptDefinition": true,
+     "misdirectedWord": "Maggot"
     }
    }
   },
@@ -1559,49 +1567,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PUREE",
-     "indicators": [
-      {
-       "text": "contents of",
-       "note": "the contents exclude the outer shell, so the first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially points to the first letter of the word it follows"
+         "at": 6,
+         "note": "initially means at the start, so only the opening letter of pulped is taken"
         }
        ],
        "parts": [
         {
          "words": "pulped",
-         "note": "first letter"
+         "at": 16,
+         "note": "the first letter of pulped"
         }
        ]
       },
       {
-       "words": "what it's served in",
-       "gives": "TUREEN",
-       "note": "soups are served from a tureen"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "contents of",
+         "at": 23,
+         "note": "the contents of a word are its inside letters, so the first and last are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "what it's served in",
+         "at": 35,
+         "gives": "TUREEN",
+         "note": "soup and purées are served from a tureen, a deep lidded dish"
+        }
+       ]
       }
      ]
     },
     "spelling": "PURÉE",
     "andLit": true,
     "explanation": {
-     "surface": "Something mashed is the soupy stuff found in a serving dish.",
-     "walkthrough": "The whole clue defines it as well as giving the wordplay.",
-     "definitionFit": "A purée is food pulped to a smooth mass, the sort of thing ladled from a tureen."
+     "surface": "A dish that is first mashed to a pulp and then fills the bowl it is served in.",
+     "walkthrough": "The whole clue does double duty: it describes the dish and builds it, taking P from 'pulped' and UREE, the inside of TUREEN.",
+     "definitionFit": "A purée is food pulped to a smooth mash, typically served from a dish such as a tureen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "One's"
+     "misdirectedWord": "contents"
     }
    }
   },
