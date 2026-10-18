@@ -658,8 +658,8 @@ def by_urgency(units):
     the most puzzles predicted to file whole (fa.likely_gain), then the
     newest edition first ("date") across papers, rank 0 (saved by hand) in
     its plans' order, then the paper's place and plan's order. With
-    CT_NEWEST_FIRST set (newest_first), the units of those papers come right
-    after rank 0, strictly newest edition first whatever their rank and
+    CT_NEWEST_FIRST set (newest_first), the units of those papers come first,
+    ahead of rank 0 (hand-saved pages) too, strictly newest edition first whatever their rank and
     fa.likely_gain (scans and reads alike: a read's scan is its edition's
     date too), the paper's place and plan's order breaking a tie; the rest
     keep the order above after them."""
@@ -667,10 +667,10 @@ def by_urgency(units):
     units.sort(key=lambda t: "" if t[0] == 0 else t[3].get("date", ""), reverse=True)
     units.sort(key=lambda t: (t[0], -fa.likely_gain(t[3])))
     if newest_first_papers():
-        zero = [t for t in units if t[0] == 0]
-        newest = [t for t in units if t[0] != 0 and newest_first(t[3])]
+        named = newest_first_papers()
+        newest = [t for t in units if t[3].get("paper") in named]
         newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
-        units = zero + newest + [t for t in units if t[0] != 0 and not newest_first(t[3])]
+        units = newest + [t for t in units if t[3].get("paper") not in named]
     return [u for *_, u in units]
 
 
