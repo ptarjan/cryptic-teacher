@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -113,34 +114,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "UNION",
      "indicators": [
       {
-       "text": "changed high up",
-       "note": "In a down entry the letter highest up is the first one, and 'changed' says that letter is swapped for another."
+       "text": "changed high up by",
+       "at": 5,
+       "note": "in this down entry the letter at the top is swapped for the next piece"
       }
      ],
      "parts": [
       {
        "words": "Bulb",
+       "at": 0,
        "gives": "ONION",
-       "note": "an onion is a bulb, the sort you plant rather than screw in"
+       "note": "an onion is a bulb"
+      },
+      {
+       "gives": "O"
       },
       {
        "words": "you",
+       "at": 24,
        "gives": "U",
-       "note": "u does duty for 'you' in a text message"
+       "note": "U is text-speak for you"
       }
      ]
     },
     "explanation": {
-     "surface": "You changing a light bulb high overhead in readiness for a wedding.",
-     "walkthrough": "The bulb is the kitchen kind, not the ceiling kind. Down entries let a setter talk about position — high up, from below — and mean the top or bottom of the answer.",
-     "definitionFit": "A marriage joins two people into one, so the wedding that makes them one is their union."
+     "surface": "A light bulb high up on the ceiling gets changed for you before a wedding.",
+     "walkthrough": "'Bulb' suggests a light, but it is the onion; 'changed high up' swaps its top letter O for U. 'for' is a link word.",
+     "definitionFit": "A union is a marriage, the joining of two people that a wedding celebrates."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Bulb"
     }
@@ -167,38 +172,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cracked",
-       "note": "Something cracked has broken up, and letters broken up go back together in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Victorian philosopher",
+       "at": 0,
+       "gives": "MILL",
+       "note": "John Stuart Mill was the Victorian philosopher of utilitarianism and liberty"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cracked",
+         "at": 22,
+         "note": "codes that are cracked are broken, so their letters are broken up and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Victorian philosopher",
-         "gives": "MILL",
-         "note": "John Stuart Mill, the Victorian utilitarian"
+         "words": "codes",
+         "at": 30,
+         "note": "taken as written"
         },
         {
-         "words": "codes in",
-         "note": "the seven letters of CODES IN put back in another order"
+         "words": "in",
+         "at": 36,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Victorian thinker breaking codes in next to no time.",
-     "walkthrough": "'Cracked codes' reads as codebreaking and is an instruction to jumble letters. The small word 'in' belongs to those letters rather than joining the two halves of the clue.",
-     "definitionFit": "A millisecond is a thousandth of a second, about as little time as ordinary speech bothers to name."
+     "surface": "A nineteenth-century thinker broke secret codes in no time at all.",
+     "walkthrough": "'in' looks like a link to the definition, but it belongs to the anagram: 'cracked' works on CODES and IN together to give ISECOND.",
+     "definitionFit": "A millisecond is a thousandth of a second, a tiny amount of time."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "cracked"
     }
    }
@@ -837,60 +850,65 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ILLBECOME",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 7,
+       "note": "the arrive word is placed after the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
          "text": "cycled",
-         "note": "A cycled word has its letters wheeled round one place, the first of them going to the end."
-        },
-        {
-         "text": "after",
-         "note": "In a down entry 'after' means further down, so the arriving word is added at the bottom of what has been built."
+         "at": 18,
+         "note": "cycled means the letters go round, the front one moving to the back"
         }
        ],
        "parts": [
         {
          "words": "Bill",
-         "gives": "ILLB",
-         "note": "BILL wheeled round one place, its B leaving the front for the end"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back from",
-           "note": "The back of a word is its final letter, and that is what is taken from it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "late",
-           "note": "the last letter of LATE"
-          }
-         ]
-        },
-        {
-         "words": "Arrive",
-         "gives": "COME",
-         "note": "to come is to arrive"
+         "at": 13,
+         "note": "Bill with its first letter moved round to the end"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back from",
+         "at": 25,
+         "note": "the back of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "at": 35,
+         "note": "the last letter of late"
+        }
+       ]
+      },
+      {
+       "words": "Arrive",
+       "at": 0,
+       "gives": "COME",
+       "note": "come means arrive"
       }
      ]
     },
     "explanation": {
-     "surface": "Bill pedalling home from an evening show as the daylight fails.",
-     "walkthrough": "'Cycled' does letter work rather than bicycle work. 'In bad light' reads as dusk on the ride home and belongs to the definition instead.",
-     "definitionFit": "If something ill becomes you it suits you badly and leaves you looking worse, which is to show you in a bad light."
+     "surface": "Bill rides his bike home from a late show in poor light.",
+     "walkthrough": "'cycled' turns BILL into ILLB, and 'back from late' gives E; COME goes 'after' them. 'It ill becomes you' means it shows you in a bad light.",
+     "definitionFit": "Ill become means to be unbecoming to or reflect badly on someone, as in 'it ill becomes a minister'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "cycled"
     }
    }
@@ -1340,42 +1358,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANTEROOM",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "upfront",
-       "note": "Upfront means at the very head of things, so the letter named leaves its place and goes to the front."
+       "text": "with area upfront",
+       "at": 9,
+       "note": "the letter A, standing for area, is moved from the middle of the café word to the very front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "a = area"
-        },
-        {
-         "words": "New",
-         "gives": "N",
-         "note": "n = new"
-        },
-        {
-         "words": "café",
-         "gives": "TEROOM",
-         "note": "a café is a TEAROOM, left with six letters once its A has gone to the front"
-        }
-       ]
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "words": "café",
+       "at": 4,
+       "gives": "TEAROOM",
+       "note": "a tearoom is a café"
       }
      ]
     },
     "explanation": {
-     "surface": "A new café whose front area is where the waiters stand.",
-     "walkthrough": "The waiters are people waiting, not staff carrying plates, and that is the whole joke. The café is a tearoom, which is where all but one of the letters come from.",
-     "definitionFit": "An anteroom is the small room you are left in before being shown through, so everyone in it is waiting."
+     "surface": "A newly opened café with a front room where the waiting staff gather.",
+     "walkthrough": "N plus TEAROOM, with its A (area) taken to the front, gives A-N-TEROOM. The definition is a pun: waiters are people waiting, not serving staff.",
+     "definitionFit": "An anteroom is a small room leading to a larger one, where visitors wait to be seen."
     },
     "features": {
      "answerInScene": false,
@@ -1610,45 +1618,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DRESDENCHINA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "at": 32,
+       "note": "the rearranged letters go round the actress, sandwiching her"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "ordered",
-         "note": "To order a thing is to arrange it, and these letters are arranged anew."
-        },
-        {
-         "text": "sandwiches",
-         "note": "To sandwich something is to put it between two others, so the letters split and close round it."
+         "at": 16,
+         "note": "put in order, so the letters are arranged afresh"
         }
        ],
        "parts": [
         {
          "words": "sardine",
-         "gives": "DRESINA",
-         "note": "the seven letters of SARDINE in another order, splitting after the fourth"
-        },
-        {
-         "words": "Theatrical dame",
-         "gives": "DENCH",
-         "note": "Dame Judi Dench, the stage and screen actress"
+         "at": 24,
+         "note": "the fodder, taken as written"
         }
        ]
+      },
+      {
+       "words": "Theatrical dame",
+       "at": 0,
+       "gives": "DENCH",
+       "note": "Dame Judi Dench is the famous stage and screen actress"
       }
      ]
     },
     "explanation": {
-     "surface": "A theatrical dame ordering sardine sandwiches and costly plates of food.",
-     "walkthrough": "The dame is the honour rather than the pantomime part, which points at Judi Dench. 'Dishes' reads as courses arriving from the kitchen and means the crockery they arrive on.",
-     "definitionFit": "Dresden china is the fine porcelain made in the Saxon city, sold as costly tableware."
+     "surface": "A grand actress orders a sardine sandwich served on costly plates.",
+     "walkthrough": "'ordered' rearranges SARDINE into DRESINA, which 'sandwiches' DENCH.",
+     "definitionFit": "Dresden china is fine porcelain from Meissen near Dresden, prized and costly tableware."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "sandwiches"
     }
    }
