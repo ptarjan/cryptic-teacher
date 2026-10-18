@@ -137,5 +137,39 @@ check("a hidden block derives its note", blk({"op": "hidden", "parts": [{"words"
 check("the article A derives its note", blk({"words": "An", "gives": "A"}).get("note") == "the indefinite article, A")
 check("a synonym leaf still needs a note", "note" not in blk({"words": "beneath", "gives": "UNDER"}))
 
+# First-check classes made mechanical: a vacuous sound() under a plain spoon, a sounded charade,
+# a repeated bare piece, and letters named in an indicator note.
+vac = {"op": "spoonerism", "parts": [{"op": "homophone", "spelt": "HAIR", "parts": [
+    {"words": "head", "at": 0, "gives": "HAIR"}]}, {"words": "lice", "at": 5, "gives": "BUGS"}]}
+A.drop_vacuous_sound(vac)
+check("spoon(sound(x, x), b) drops the vacuous sound", vac["parts"][0].get("words") == "head", vac)
+three = {"op": "spoonerism", "spelt": "BEARHUGS", "parts": [{"op": "homophone", "spelt": "HAIR", "parts": [
+    {"words": "head", "at": 0, "gives": "HAIR"}]}, {"words": "lice", "at": 5, "gives": "BUGS"}]}
+A.drop_vacuous_sound(three)
+check("spoon(.., SPELT) keeps its sound", three["parts"][0].get("op") == "homophone")
+check("a plain spoonerism needs no soundsLike", V.plain_spoonerism({"type": ["spoonerism"], "wordplay": {"op": "spoonerism", "parts": []}}))
+check("a spoonerism with SPELT does", not V.plain_spoonerism({"type": ["spoonerism"], "wordplay": three}))
+errs, warns = [], []
+V.check_sound_names_its_source("1A", {"type": ["spoonerism"], "answer": "FORECAST", "wordplay": vac["parts"][0] and {"op": "spoonerism", "parts": []},
+                                      "blocks": [{"clueFragment": "heart", "gives": "CORE"}]}, errs, warns)
+check("a plain spoonerism passes the sound check", errs == [], errs)
+clue = "Richard King Edward we hear one in charge"
+ch = {"op": "homophone", "spelt": "DICTATOR", "parts": [{"op": "charade", "parts": [
+    {"words": "Richard", "at": 0, "gives": "DICK"}, {"words": "King Edward", "at": 8, "gives": "TATER", "note": "a spud"}]}]}
+A.merge_sounded_charade(ch, clue)
+leaf = ch["parts"][0]
+check("a sounded charade of adjacent leaves merges", (leaf.get("words"), leaf.get("gives")) == ("Richard King Edward", "DICKTATER"), leaf)
+apart = {"op": "homophone", "spelt": "X", "parts": [{"op": "charade", "parts": [
+    {"words": "Richard", "at": 0, "gives": "DICK"}, {"words": "edward", "at": 30, "gives": "TATER"}]}]}
+A.merge_sounded_charade(apart, clue)
+check("leaves apart in the clue stay a charade", apart["parts"][0].get("op") == "charade")
+rep = A.name_repeated_pieces([{"clueFragment": "new", "gives": "N"}, {"gives": "N"}, {"gives": "Q"}])
+check("a repeated bare piece takes the first one's words", rep[1].get("clueFragment") == "new" and rep[1].get("note"), rep)
+check("a new bare piece is left alone", not rep[2].get("clueFragment"), rep)
+vw = {"answer": "FOO", "blocks": [{"clueFragment": "hospital", "gives": "H"}],
+      "indicators": [{"text": "outside", "note": "the letters go outside, around, the H"}]}
+A.name_clue_words_in_indicator_notes(vw)
+check("an indicator note names the clue words, not the letters", "“hospital”" in vw["indicators"][0]["note"], vw)
+
 print("abbreviation notes:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)
