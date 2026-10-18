@@ -516,50 +516,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to enter",
-       "note": "to enter a place is to go inside it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "at the outset",
-         "note": "only the first letter of room is used"
+         "text": "to enter",
+         "at": 18,
+         "note": "the refusal goes into the staff, entering it"
         }
        ],
        "parts": [
         {
          "words": "staff",
+         "at": 27,
          "gives": "CANE",
          "note": "a cane is a walking staff"
         },
         {
          "words": "refusal",
+         "at": 10,
          "gives": "NOPE",
-         "note": "nope = a refusal"
+         "note": "nope is an informal refusal"
         }
        ]
       },
       {
-       "words": "room",
-       "gives": "R",
-       "note": "first letter of room"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the outset",
+         "at": 38,
+         "note": "at the outset takes just the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "room",
+         "at": 33,
+         "gives": "R",
+         "note": "first letter of room"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Management refusing staff entry to their room from the start.",
-     "walkthrough": "'Staff room' is one place in the surface, but staff is a stick and room gives only its first letter.",
-     "definitionFit": "A definition by example: the tool for getting into tins is one of the most ordinary kitchen implements."
+     "surface": "Someone refuses to let staff into a room at the start of the day.",
+     "walkthrough": "'Implement' looks like a verb, but it is a noun, a tool.",
+     "definitionFit": "A can opener is a kitchen tool or utensil for removing the lids of tins."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "staff"
+     "misdirectedWord": "Implement"
     }
    }
   },
@@ -643,42 +653,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTRA",
-     "indicators": [
-      {
-       "text": "without",
-       "note": "to be without something is to lack it, so EXIT goes on lacking its I"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 10,
+         "note": "without means lacking, so that letter is taken away"
+        }
+       ],
        "parts": [
         {
          "words": "quit",
-         "gives": "EXT",
-         "note": "EXIT (quit) without I (one)"
+         "at": 5,
+         "gives": "EXIT",
+         "note": "to exit is to quit"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R = right"
-        },
-        {
-         "words": "answer",
-         "gives": "A",
-         "note": "A = answer"
+         "words": "one",
+         "at": 18,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 22,
+       "gives": "R"
+      },
+      {
+       "words": "answer",
+       "at": 28,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Quiz advice: more people give up without getting one answer right.",
-     "walkthrough": "'One' is the numeral I, removed from EXIT.",
-     "definitionFit": "A plain synonym, as in 'extra time' or 'more time' added on."
+     "surface": "A quiz contestant demands more after quitting with only one correct answer.",
+     "definitionFit": "Extra means additional, as in an extra helping, so further or added."
     },
     "features": {
      "answerInScene": false,
@@ -813,41 +828,66 @@
      "indicators": [
       {
        "text": "overwhelmed",
-       "note": "to be overwhelmed is to be engulfed"
+       "at": 29,
+       "note": "something overwhelmed is engulfed, so it ends up surrounded"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "start to",
-         "note": "only the first letter of panic is used"
+         "text": "unfinished",
+         "at": 16,
+         "note": "unfinished drops the final letter"
         }
        ],
        "parts": [
         {
-         "words": "interior unfinished",
-         "gives": "INSID",
-         "note": "INSIDE (interior) without its end"
+         "words": "interior",
+         "at": 7,
+         "gives": "INSIDE",
+         "note": "the inside is the interior"
         },
         {
-         "words": "I",
-         "note": "taken as it stands"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "panic",
-       "gives": "P",
-       "note": "first letter of panic"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 42,
+         "gives": "I"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 44,
+           "note": "the start of the next word, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "panic",
+           "at": 53,
+           "gives": "P",
+           "note": "first letter of panic"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone inside a half-finished flat, overwhelmed and beginning to panic.",
-     "walkthrough": "'Flat' reads as an apartment but is the adjective, dull or tasteless; the 's is just 'is'.",
-     "definitionFit": "Insipid means flat, lacking flavour or interest."
+     "surface": "Someone engulfed by the inside of an unfinished flat starts to panic.",
+     "walkthrough": "'Flat' looks like an apartment from the surface, but it is an adjective meaning dull; 'unfinished' trims INSIDE to INSID.",
+     "definitionFit": "Insipid means lacking flavour or interest, and flat describes something dull and lifeless."
     },
     "features": {
      "answerInScene": false,
@@ -938,36 +978,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to cross"
+       "text": "to cross",
+       "at": 8,
+       "note": "the able word goes across the river, straddling it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Is able",
-         "gives": "CAN",
-         "note": "can = is able"
-        },
-        {
-         "words": "a",
-         "note": "taken as it stands"
-        }
-       ]
+       "words": "Is able",
+       "at": 0,
+       "gives": "CAN",
+       "note": "can means is able"
       },
       {
-       "words": "river",
-       "gives": "TAMAR",
-       "note": "the Tamar, dividing Devon from Cornwall"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "river",
+         "at": 19,
+         "gives": "TAMAR",
+         "note": "the Tamar is a river in south-west England, between Devon and Cornwall"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asking which boat will get you over a river.",
-     "walkthrough": "The whole clue is both wordplay and definition: a catamaran is just the vessel to cross a river in.",
-     "definitionFit": "A catamaran is a twin-hulled boat you could cross a river in."
+     "surface": "A question about whether a certain boat can get across a river.",
+     "walkthrough": "The Tamar is the river dividing Devon from Cornwall. Read whole, the clue also describes the boat: you can cross a river in a catamaran.",
+     "definitionFit": "A catamaran is a twin-hulled boat, so a vessel in which one could indeed cross a river."
     },
     "features": {
      "answerInScene": true,
@@ -1069,18 +1114,16 @@
        "indicators": [
         {
          "text": "evacuated",
-         "note": "CALMLY is emptied, keeping only its outside letters"
-        },
-        {
-         "text": "primarily",
-         "note": "only the first letter of danger is used"
+         "at": 7,
+         "note": "evacuated means emptied, so only the outer letters remain"
         }
        ],
        "parts": [
         {
-         "words": "Calmly evacuated",
-         "gives": "CALMLY",
-         "note": "outer letters of calmly"
+         "words": "Calmly",
+         "at": 0,
+         "gives": "CY",
+         "note": "Calmly emptied of its middle"
         }
        ]
       },
@@ -1089,31 +1132,45 @@
        "indicators": [
         {
          "text": "lies within",
-         "note": "something that lies within another is contained by it"
+         "at": 43,
+         "note": "the danger letter lies within the ship"
         }
        ],
        "parts": [
         {
          "words": "ship",
+         "at": 17,
          "gives": "LINER",
-         "note": "a liner is a ship"
+         "note": "a liner is a passenger ship"
         },
         {
-         "words": "danger, primarily",
-         "gives": "D",
-         "note": "first letter of danger"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 32,
+           "note": "primarily takes the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "danger",
+           "at": 24,
+           "gives": "D",
+           "note": "first letter of danger"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ship calmly abandoned while danger lurks in the engine room.",
-     "walkthrough": "'Evacuated' reads as passengers leaving; it means emptying CALMLY of its middle.",
-     "definitionFit": "A cylinder is the chamber in an engine where a piston moves."
+     "surface": "Passengers calmly leave a ship in peril, with danger lurking in the engine room.",
+     "definitionFit": "A cylinder is the chamber in an engine in which a piston moves."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "evacuated"
     }
@@ -1278,36 +1335,49 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "outside",
-       "note": "one thing outside another surrounds it"
-      },
-      {
-       "text": "back of",
-       "note": "only the last letter of queue is used"
+       "text": "behind",
+       "at": 35,
+       "note": "behind places the next piece after that one"
       }
      ],
      "parts": [
       {
-       "words": "queue",
-       "gives": "E",
-       "note": "last letter of queue"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 42,
+         "note": "back of takes the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "queue",
+         "at": 50,
+         "gives": "E",
+         "note": "last letter of queue"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "behind",
-         "note": "what stands behind comes later in line"
+         "text": "outside",
+         "at": 27,
+         "note": "the directed word goes outside the front word, enclosing it"
         }
        ],
        "parts": [
         {
          "words": "directed",
+         "at": 18,
          "gives": "LED",
-         "note": "led = directed"
+         "note": "led means directed"
         },
         {
          "words": "front",
+         "at": 10,
          "gives": "BOW",
          "note": "the bow is the front of a ship"
         }
@@ -1316,9 +1386,8 @@
      ]
     },
     "explanation": {
-     "surface": "Someone pushed in at the front of a queue.",
-     "walkthrough": "'Barged in front' reads as one queue-jumping phrase; only 'Barged' is the definition.",
-     "definitionFit": "To elbow is to push your way through, to barge."
+     "surface": "Someone pushed to the front of a queue, having been told to stand at the back.",
+     "definitionFit": "To elbow is to push your way through, which is what someone who barged did."
     },
     "features": {
      "answerInScene": true,
@@ -1572,48 +1641,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "circling",
-       "note": "to circle something is to ring it round"
+       "text": "south of",
+       "at": 33,
+       "note": "in a down entry, south of means placed below, so after the island letter"
       }
      ],
      "parts": [
       {
        "words": "Island",
-       "gives": "I",
-       "note": "I = island"
+       "at": 42,
+       "gives": "I"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "south of",
-         "note": "in a down clue, CEUP comes below I"
+         "text": "circling",
+         "at": 18,
+         "note": "the vessel circles the point, holding it inside"
         }
        ],
        "parts": [
         {
          "words": "vessel",
+         "at": 11,
          "gives": "CUP",
          "note": "a cup is a drinking vessel"
         },
         {
          "words": "point",
+         "at": 27,
          "gives": "E",
-         "note": "E, a compass point"
+         "note": "E is a compass point, east"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Frost forming over a ship sailing round the southern point of an island.",
-     "walkthrough": "'Over' belongs with 'Frost' in the definition, not with the wordplay; 'vessel' is a cup, not a boat.",
-     "definitionFit": "A phrasal-verb synonym: windscreens and aircraft wings frost over when a layer of ice forms on them."
+     "surface": "A cup left outside on an island ices over.",
+     "definitionFit": "To ice up is to become covered with ice, the same as to frost over."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "vessel"
+     "misdirectedWord": "point"
     }
    }
   },
@@ -1687,34 +1759,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "In",
-       "note": "HE goes between the two As"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "about",
-         "note": "'about' as in 'about turn', a turning back"
+         "text": "In",
+         "at": 0,
+         "note": "in puts the turned word in between the two area letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "two areas",
+         "at": 3,
+         "gives": "AA",
+         "note": "A is the abbreviation for area, twice"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 19,
+           "note": "about turns the word round"
+          }
+         ],
          "parts": [
           {
-           "words": "two areas",
-           "gives": "AA",
-           "note": "A = area, twice"
-          },
-          {
            "words": "what",
+           "at": 14,
            "gives": "EH",
-           "note": "'Eh?' = 'What?'"
+           "note": "eh? is an exclamation meaning what?"
           }
          ]
         }
@@ -1722,18 +1798,17 @@
       },
       {
        "words": "Democrat",
-       "gives": "D",
-       "note": "D = Democrat"
+       "at": 25,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking about a Democrat leading in two districts.",
-     "walkthrough": "'What' is the questioning 'Eh?', not a relative pronoun.",
-     "definitionFit": "A plain synonym: a candidate out in front in the polls is ahead."
+     "surface": "A political question about a Democrat leading in two districts.",
+     "definitionFit": "Ahead means in the lead or further forward, as when a candidate leads a poll."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "what"
     }
@@ -1764,42 +1839,51 @@
      "indicators": [
       {
        "text": "around",
-       "note": "what goes around something surrounds it"
+       "at": 14,
+       "note": "the clock word goes around the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "head for",
-         "note": "only the first letter of station is used"
-        }
-       ],
-       "parts": [
-        {
-         "words": "clock",
-         "gives": "SEE",
-         "note": "to clock something is to see it"
-        },
-        {
-         "words": "noon",
-         "gives": "N",
-         "note": "N = noon"
-        }
-       ]
+       "words": "clock",
+       "at": 8,
+       "gives": "SEE",
+       "note": "to clock is informal for to see or notice"
       },
       {
-       "words": "station",
-       "gives": "S",
-       "note": "first letter of station"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "noon",
+         "at": 21,
+         "gives": "N"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head for",
+           "at": 30,
+           "note": "head for takes the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "station",
+           "at": 39,
+           "gives": "S",
+           "note": "first letter of station"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Collecting a clock at midday and making for the railway station.",
-     "walkthrough": "'Clock' is British slang for notice, not a timepiece; 'Pick up' is the definition, not a collection.",
-     "definitionFit": "A phrasal-verb synonym: you pick up a mood or a signal when you detect it."
+     "surface": "Instructions to collect a clock around midday and go to the station.",
+     "walkthrough": "'Pick up' is a verb meaning detect, not collect.",
+     "definitionFit": "To sense something is to detect or perceive it, as one might pick up a signal or a mood."
     },
     "features": {
      "answerInScene": false,

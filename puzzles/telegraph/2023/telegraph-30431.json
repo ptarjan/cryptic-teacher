@@ -1143,55 +1143,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ODDITY",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "the song loses its heart, its central letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "ODDITY",
        "indicators": [
         {
          "text": "revolutionary",
-         "note": "revolving turns the party word round"
+         "at": 17,
+         "note": "something revolutionary turns round, so the letters run backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "revolutionary party",
-           "gives": "OD",
-           "note": "a do is a party, turned round"
-          },
-          {
-           "words": "heartless song",
-           "gives": "DITY",
-           "note": "a ditty is a short song; drop a middle T"
-          }
-         ]
+         "words": "party",
+         "at": 31,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 42,
+         "note": "heartless removes the middle of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "song",
+         "at": 52,
+         "gives": "DITTY",
+         "note": "a ditty is a short simple song"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange thing: a radical political party with a cold-hearted anthem.",
-     "walkthrough": "Revolutionary suggests politics but only turns DO round; DITTY has six letters, so its heart is the pair of Ts, and one goes.",
-     "definitionFit": "An oddity is a curiosity or anomaly, an unusual object or person."
+     "surface": "A radical political party with a soulless anthem seems a strange business.",
+     "walkthrough": "DITTY has six letters, so its heart is the TT; removing one T leaves DITY.",
+     "definitionFit": "An oddity is something strange or unusual, an odd item or curiosity."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "revolutionary"
+     "misdirectedWord": "party"
     }
    }
   },

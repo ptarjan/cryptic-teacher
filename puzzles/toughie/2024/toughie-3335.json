@@ -336,48 +336,53 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "UNEVEN",
      "indicators": [
       {
        "text": "Revolutionary",
-       "note": "a revolution turns things right over, so the whole string is read backwards"
+       "at": 0,
+       "note": "something revolutionary turns right round, so the whole assembled string is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "UNEVEN",
-       "indicators": [
-        {
-         "text": "cycling",
-         "note": "cycling means letters are moved round from one end to the other while keeping their order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "at": 14,
+         "gives": "N"
         },
         {
-         "words": "arena maybe",
-         "gives": "VENUE",
-         "note": "an arena is an example of a venue"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "at": 18,
+           "note": "cycling moves a letter round from one end of the word to the other"
+          }
+         ],
+         "parts": [
+          {
+           "words": "arena maybe",
+           "at": 26,
+           "gives": "VENUE",
+           "note": "an arena is an example of a venue"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A radical new cycling arena with an uneven track.",
-     "walkthrough": "Cycle VENUE to EVENU (the V moves to the end), put N in front to make NEVENU, then reverse it all. 'Cycling arena' looks like a velodrome, but cycling is the device.",
-     "definitionFit": "Something lopsided has one side heavier or higher, so it is not level or even."
+     "surface": "A radical new velodrome turns out to be crooked.",
+     "walkthrough": "'cycling' moves the final E of VENUE to the front, giving EVENU; N plus EVENU is NEVENU, which 'Revolutionary' reads backwards.",
+     "definitionFit": "Something uneven is not level or balanced, which is what lopsided means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }

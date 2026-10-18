@@ -537,36 +537,50 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 18,
+       "note": "with means the next piece is added alongside the rest"
+      }
+     ],
      "parts": [
       {
        "words": "Say",
+       "at": 0,
        "gives": "STATE",
        "note": "to state is to say"
       },
       {
        "words": "actor's words",
+       "at": 4,
        "gives": "LINES",
        "note": "an actor learns lines"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
+       "indicators": [
+        {
+         "text": "capital",
+         "at": 37,
+         "note": "a capital letter is the one at the start, so only the opening letter of the next word is taken"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "with Shakespeare's capital",
+         "words": "Shakespeare's",
+         "at": 23,
          "gives": "S",
-         "select": "first",
-         "note": "the capital, or first letter, of Shakespeare"
+         "note": "first letter of Shakespeare's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Delivering a Shakespearean actor's speech with regal grandeur.",
-     "definitionFit": "Majesty in the sense of impressive dignity is stateliness."
+     "surface": "A director urges an actor to deliver Shakespeare's lines with grandeur.",
+     "walkthrough": "'Capital' looks like a city or an adjective for excellent, but here it means the first letter, S.",
+     "definitionFit": "Stateliness is dignified grandeur, which is what majesty describes."
     },
     "features": {
      "answerInScene": true,

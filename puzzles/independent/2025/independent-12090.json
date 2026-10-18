@@ -49,47 +49,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HUGHGRANT",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "'X for Y' means one letter stands in the place of another, swapping in a new letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Enormous",
-       "gives": "HUGE",
-       "note": "enormous means huge"
-      },
-      {
-       "words": "hard",
-       "gives": "H",
-       "note": "H is the pencil-grade abbreviation for hard"
-      },
-      {
-       "words": "English",
-       "gives": "E",
-       "note": "E is the abbreviation for English; it is the letter swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 23,
+         "note": "hard for English means the H stands in for the E"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Enormous",
+         "at": 0,
+         "gives": "HUGE",
+         "note": "huge means enormous"
+        },
+        {
+         "words": "English",
+         "at": 27,
+         "gives": "E"
+        },
+        {
+         "words": "hard",
+         "at": 18,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
       },
       {
        "words": "donation",
+       "at": 9,
        "gives": "GRANT",
        "note": "a grant is a donation of money"
       }
      ]
     },
     "explanation": {
-     "surface": "A huge gift is made to an English film star.",
-     "walkthrough": "'X for Y' swaps letters: here the H for hard replaces the E for English at the end of the first word.",
-     "definitionFit": "Hugh Grant is a well-known English film star, so he is an example of an actor."
+     "surface": "A large gift is made to an English actor.",
+     "walkthrough": "Hugh Grant is an English film actor; 'English' looks like his description but is the letter E.",
+     "definitionFit": "Hugh Grant is a British film star, an example of a performer in films."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hard"
+     "misdirectedWord": "English"
     }
    }
   },
@@ -1022,41 +1029,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BIRDTABLE",
      "indicators": [
       {
        "text": "to stop",
-       "note": "a stopper sits inside a bottle's neck, so these letters plug the middle of another word"
+       "at": 12,
+       "note": "to stop means to plug, so the letters fill a gap in the other word"
       }
      ],
      "parts": [
+      {
+       "words": "authority",
+       "at": 20,
+       "gives": "BIBLE",
+       "note": "a bible is an authoritative book on a subject"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "around",
-         "note": "letters moved around are jumbled into a different order"
+         "at": 5,
+         "note": "around here means jumbled about, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Dart",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "authority",
-         "gives": "BIBLE",
-         "note": "a bible is an authoritative reference work"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Moving a dart to block an official creates an airport lounge for regular travellers.",
-     "walkthrough": "The jumbled letters go inside BI-BLE. 'Frequent flyers' suggests airline passengers, but the flyers are garden birds.",
-     "definitionFit": "A bird table is a raised platform in a garden where wild birds stop to feed, so a resting place for avian visitors."
+     "surface": "Like an airline lounge for regular passengers, flown around in a dart.",
+     "walkthrough": "A bible is any authoritative reference work, and the frequent flyers are garden birds.",
+     "definitionFit": "A bird table is a garden platform for food where birds, the frequent flyers, stop and feed."
     },
     "features": {
      "answerInScene": false,
@@ -1163,70 +1171,85 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EVOLUTION",
+     "op": "charade",
      "indicators": [
       {
-       "text": "rising",
-       "note": "in a down entry, rising means read upwards, so the word runs backwards"
+       "text": "leading to",
+       "at": 33,
+       "note": "leading to places this piece before the next"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "EVOLUTION",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for first",
-         "note": "'X for first Y' means one letter takes the place of the earliest occurrence of another"
+         "text": "rising",
+         "at": 15,
+         "note": "in a down entry, rising means read upwards, so backwards"
         }
        ],
        "parts": [
         {
          "words": "affection",
+         "at": 22,
          "gives": "LOVE",
-         "note": "affection is love"
-        },
+         "note": "love is affection"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for first",
+         "at": 59,
+         "note": "the time letter takes the place of the first occurrence of the named letter"
+        }
+       ],
+       "parts": [
         {
          "words": "marriage",
+         "at": 44,
          "gives": "UNION",
-         "note": "a marriage is a union"
-        },
-        {
-         "words": "Time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "note": "a union is a marriage"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "at last",
-           "note": "'at last' points to the final letter of the word just before it"
+           "at": 76,
+           "note": "at last takes the final letter"
           }
          ],
          "parts": [
           {
            "words": "bairn",
-           "note": "the last letter of bairn, which T replaces where it first appears"
+           "at": 69,
+           "gives": "N",
+           "note": "last letter of bairn, a Scots word for child"
           }
          ]
+        },
+        {
+         "words": "Time",
+         "at": 54,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A romance blossoms into marriage, and then it is time for the first baby.",
-     "walkthrough": "LOVE read upwards, then UNION with its first N changed to T. A bairn is a Scottish word for a child.",
-     "definitionFit": "Evolution is gradual change and growth over time, which is what development means."
+     "surface": "A romance growing into marriage, with a baby on the way.",
+     "walkthrough": "UNION has two Ns; T replaces the first one (the last letter of bairn), giving UTION.",
+     "definitionFit": "Evolution is gradual development or change over time, as of species."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bairn"
+     "misdirectedWord": "Development"
     }
    }
   },
@@ -1584,28 +1607,31 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HEATPUMP",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "naming Reverend Spooner means the opening sounds of two words are swapped"
+       "at": 0,
+       "note": "Spooner swapped the starts of words, so the opening letters trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "solid fuel projection",
-       "gives": "HEATPUMP",
-       "soundsLike": "PEAT HUMP",
-       "note": "peat is dried turf burned as solid fuel and a hump is a rounded projection; swap their opening sounds"
+       "words": "solid fuel",
+       "at": 10,
+       "gives": "PEAT",
+       "note": "peat is dried turf burned as solid fuel"
+      },
+      {
+       "words": "projection",
+       "at": 21,
+       "gives": "HUMP",
+       "note": "a hump is a projection or bulge"
       }
      ]
     },
     "explanation": {
-     "surface": "A lump of solid fuel described as a way to save energy.",
-     "walkthrough": "Swapping the opening sounds of PEAT HUMP gives the answer.",
-     "definitionFit": "A heat pump moves warmth from air or ground into a building efficiently, so may cut energy use."
+     "surface": "A lump of solid fuel sticking out is praised as an economy measure.",
+     "definitionFit": "A heat pump moves heat efficiently from outside into a building, which can cut energy bills."
     },
     "features": {
      "answerInScene": true,
