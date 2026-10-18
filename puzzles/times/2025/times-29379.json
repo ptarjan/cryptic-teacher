@@ -219,7 +219,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Bond kind",
+      "text": "Bond kind of",
       "at": 0
      }
     ],
@@ -227,42 +227,41 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "offing",
-       "note": "to off something is to get rid of it, so the letter is removed"
+       "text": "after offing",
+       "at": 23,
+       "note": "offing means killing off, so once the letter is removed the rest remains"
       }
      ],
      "parts": [
       {
        "words": "sarcastic",
+       "at": 13,
        "gives": "IRONIC",
-       "note": "ironic = sarcastic"
+       "note": "ironic remarks are sarcastic ones"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "finally",
-         "note": "takes the last letter of Goldfinger"
+         "at": 48,
+         "note": "finally points to the last letter of Goldfinger"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Goldfinger, finally",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of Goldfinger, taken out of IRONIC"
+         "words": "Goldfinger",
+         "at": 36,
+         "note": "the last letter of Goldfinger"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A James Bond film question: does Bond turn sarcastic after killing Goldfinger?",
-     "walkthrough": "Bond and Goldfinger shout 007, but this bond is chemical: an ionic bond joins atoms by electric charge.",
-     "definitionFit": "In chemistry, one kind of bond forms when charged atoms attract each other, and this word names that kind."
+     "surface": "A Bond film fan wonders whether a quip after Goldfinger's death was sarcastic, as in the 1964 James Bond film.",
+     "walkthrough": "'finally' gives R, the last letter of Goldfinger, and 'after offing' takes it out of IRONIC. Bond is the chemical link, not James Bond.",
+     "definitionFit": "An ionic bond is a chemical link formed by attraction between charged atoms, so ionic is a kind of bond."
     },
     "features": {
      "answerInScene": false,
@@ -637,43 +636,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FRIES",
+     "op": "container",
      "indicators": [
       {
-       "text": "returns",
-       "note": "comes back, so the word runs backwards"
+       "text": "carrying",
+       "at": 22,
+       "note": "carrying means holding, so the reversed worker has the numeral inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "holds the other piece inside it"
+         "text": "returns",
+         "at": 14,
+         "note": "returns means goes back, so the worker's letters are read in the opposite direction"
         }
        ],
        "parts": [
         {
-         "words": "Menial worker returns",
-         "gives": "FRES",
-         "note": "a serf is a lowly labourer; SERF comes back as FRES"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral for one, carried inside after FR"
+         "words": "Menial worker",
+         "at": 0,
+         "gives": "SERF",
+         "note": "a serf was a feudal labourer bound to the land, a menial worker"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen hand comes back bringing a side order.",
-     "walkthrough": "The picture is a restaurant, which makes the side dish feel like part of the scene rather than the definition.",
-     "definitionFit": "Chips, the thin fried potato sticks, are a standard side dish."
+     "surface": "A kitchen hand comes back to the table bearing a single side order.",
+     "walkthrough": "'returns' turns SERF into FRES, which is 'carrying' I. 'returns' looks like the worker coming back with the dish, but it is a reversal signal.",
+     "definitionFit": "Fries, chips in Britain, are commonly served as an accompaniment to a main course."
     },
     "features": {
      "answerInScene": true,
@@ -774,47 +775,38 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "RELIC",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 26,
+       "note": "back means the hidden letters are read in reverse"
+      }
+     ],
      "parts": [
       {
        "op": "hidden",
-       "unchecked": true,
-       "gives": "RELIC",
+       "indicators": [
+        {
+         "text": "holds",
+         "at": 20,
+         "note": "holds means contains, so the answer's letters are found inside these words"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "holds",
-           "note": "the words hold the answer inside them"
-          },
-          {
-           "text": "back",
-           "note": "the held letters read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Council erroneously",
-           "note": "the letters CIL ER run across the join of counCIL ERroneously"
-          },
-          {
-           "words": "back",
-           "gives": "RELIC",
-           "note": "CILER read backwards"
-          }
-         ]
+         "words": "Council erroneously",
+         "at": 0,
+         "gives": "CILER",
+         "note": "the letters CILER run across these two words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A council wrongly withholds an ancient object.",
-     "walkthrough": "'Holds back' reads as one phrase meaning withholds; split it, and each word does its own job.",
-     "definitionFit": "A relic is an object surviving from the past, an artefact."
+     "surface": "A local council has wrongly kept hold of a historical object.",
+     "walkthrough": "'holds' points to CILER inside Council erroneously, and 'back' reverses it. 'holds back' reads as withholds, but each word has its own job.",
+     "definitionFit": "A relic is an object surviving from an earlier time, a piece of history like an artefact."
     },
     "features": {
      "answerInScene": true,
@@ -1540,37 +1532,27 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "CASTE",
+     "spelt": "CASTE",
      "indicators": [
       {
        "text": "in a podcast",
-       "note": "a podcast is heard, not read, so the word is taken by its sound"
+       "at": 17,
+       "note": "a podcast is listened to, so the word is heard rather than read and the spelling changes"
       }
      ],
      "parts": [
       {
        "words": "given role",
+       "at": 6,
        "gives": "CAST",
-       "note": "an actor given a role is cast"
-      },
-      {
-       "op": "homophone",
-       "spelt": "CASTE",
-       "parts": [
-        {
-         "words": "in a podcast",
-         "gives": "CAST",
-         "note": "a podcast is heard, so this is a word for a class that sounds just like it"
-        }
-       ]
+       "note": "an actor given a role has been cast"
       }
      ]
     },
     "explanation": {
-     "surface": "A class of students each get a part in a podcast.",
-     "walkthrough": "'Podcast' also contains CAST, which is a nice distraction; its job is to say the word is heard.",
-     "definitionFit": "A hereditary social rank, as in the traditional Hindu system, is a class."
+     "surface": "Someone of a particular social standing is given a part in an audio show.",
+     "walkthrough": "'in a podcast' looks like the location of the role, but it signals that CAST is spoken, giving a word that sounds the same.",
+     "definitionFit": "A caste is a hereditary social class, especially in the Hindu system, so a rank in society."
     },
     "features": {
      "answerInScene": false,
@@ -1744,61 +1726,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROEDEER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 29,
+       "note": "eating means taking in, so the rearranged letters hold the selected ones inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "unfortunately",
-         "note": "the letters have been unlucky and end up rearranged"
-        },
-        {
-         "text": "periodically",
-         "note": "at regular intervals, taking every other letter"
+         "at": 9,
+         "note": "unfortunately suggests things going wrong, so the letters of erred are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "unfortunately erred",
-         "gives": "RDEER",
-         "note": "ERRED rearranged; it opens after the R to take in the next piece"
-        },
+         "words": "erred",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "OE",
-         "indicators": [
-          {
-           "text": "eating",
-           "note": "swallows the other piece, so it goes inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "honey periodically",
-           "gives": "OE",
-           "select": "alternate",
-           "note": "second and fourth letters of hOnEy"
-          }
-         ]
+         "text": "periodically",
+         "at": 42,
+         "note": "periodically means at regular intervals, so every other letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "honey",
+         "at": 36,
+         "note": "the second and fourth letters of honey"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal went wrong while eating honey now and then.",
-     "walkthrough": "A bear would fit this honey-eating picture better; the answer is a small deer.",
-     "definitionFit": "A small reddish European deer is a creature."
+     "surface": "An animal made a mistake by eating some honey now and then.",
+     "walkthrough": "'unfortunately' rearranges erred into RDEER, and 'periodically' takes OE from honey, which RDEER is 'eating' after its first letter.",
+     "definitionFit": "The roe deer is a small Eurasian deer, an animal and so a creature."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "honey"
+     "misdirectedWord": "erred"
     }
    }
   }

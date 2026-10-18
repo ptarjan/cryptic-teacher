@@ -349,41 +349,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PODIATRIST",
+     "op": "composite",
      "indicators": [
       {
+       "text": "treated",
+       "at": 56,
+       "note": "treated suggests something worked on and reshaped, so the pooled letters come out in a new order"
+      },
+      {
        "text": "dislocated",
-       "note": "dislocated means put out of place, so that opening letter is removed"
+       "at": 20,
+       "note": "dislocated means put out of place, so the named letter is knocked out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I tap",
+         "at": 32
+        },
+        {
+         "words": "prod",
+         "at": 42
+        },
+        {
+         "words": "it's",
+         "at": 51
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "treated",
-         "note": "treated means worked on, so all the letters are reshaped into a new order"
+         "text": "top of",
+         "at": 5,
+         "note": "the top of a word in a down clue is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
-         "words": "tap",
-         "gives": "TA",
-         "note": "tap without its top letter, the p that also heads patella"
-        },
-        {
-         "words": "prod",
-         "note": "taken as written"
-        },
-        {
-         "words": "it's",
-         "note": "taken as written"
+         "words": "patella",
+         "at": 12,
+         "note": "the first letter of patella"
         }
        ]
       }
@@ -391,14 +401,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A patient's knee is examined, prodded and tapped by a specialist.",
-     "walkthrough": "The whole clue is the definition, with the question mark admitting that a foot doctor handles feet rather than knees.",
-     "definitionFit": "A podiatrist is a specialist who examines and treats feet and lower-limb ailments."
+     "surface": "A foot specialist describes prodding and tapping at a knee injury to treat it.",
+     "walkthrough": "'top of' gives P, which 'dislocated' takes out of the letters of I tap, prod and it's; 'treated' rearranges what is left. The whole clue also describes the specialist at work, though a podiatrist treats feet, hence the question mark.",
+     "definitionFit": "A podiatrist is a specialist who examines and treats the feet, the person doing the tapping and prodding."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "patella"
+     "misdirectedWord": "dislocated"
     }
    }
   },
