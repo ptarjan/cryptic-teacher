@@ -618,12 +618,16 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PLATO",
      "indicators": [
       {
        "text": "inserting",
-       "note": "inserting means putting something inside, so the line letter goes into the page word chain"
+       "at": 12,
+       "note": "inserting says the line is put into the letters that follow"
+      },
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places the line inside the page and the odd letters"
       }
      ],
      "parts": [
@@ -632,47 +636,44 @@
        "parts": [
         {
          "words": "page",
-         "gives": "P",
-         "note": "p is the abbreviation for page"
-        },
-        {
-         "words": "line",
-         "gives": "L",
-         "note": "L is the abbreviation for line"
+         "at": 30,
+         "gives": "P"
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "ATO",
          "indicators": [
           {
            "text": "odd selection for",
-           "note": "the odd selection means taking the first, third and fifth letters of the following word"
+           "at": 36,
+           "note": "odd selection means the first, third and fifth letters of author are taken"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "author",
-           "gives": "ATO",
-           "select": "alternate",
-           "note": "the odd-numbered letters of author"
+           "at": 54,
+           "note": "the first, third and fifth letters of author"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 22,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A philosopher-author's text is being edited, a line added to a page.",
-     "walkthrough": "Page plus the odd letters of 'author' give P and ATO, and the line letter is inserted between them.",
-     "definitionFit": "Plato was the ancient Greek philosopher who wrote the Republic and taught Aristotle."
+     "surface": "A philosopher slips a line into a page while choosing quotes from a writer.",
+     "walkthrough": "'Odd selection for author' gives ATO; after P that is PATO, and 'inserting line in' puts L after the P.",
+     "definitionFit": "Plato was the ancient Greek thinker, pupil of Socrates and author of the Republic."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "author"
+     "misdirectedWord": "odd"
     }
    }
   },

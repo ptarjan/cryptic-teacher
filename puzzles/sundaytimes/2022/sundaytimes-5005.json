@@ -47,58 +47,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORGY",
+     "op": "container",
      "indicators": [
       {
-       "text": "leader being axed",
-       "note": "a leader comes first, so axing it chops off the opening letter"
+       "text": "in",
+       "at": 24,
+       "note": "in means the letter goes inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing being in another means it sits inside it"
+         "text": "leader being axed",
+         "at": 40,
+         "note": "leader being axed means the first letter is chopped off"
         }
        ],
        "parts": [
         {
          "words": "Conservative",
-         "gives": "ORY",
-         "note": "TORY, a Conservative, losing its first letter"
+         "at": 27,
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ending",
-           "note": "the ending of a word is its final letter, so only that letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "drinking",
-           "note": "the final letter of the word"
-          }
-         ]
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 17,
+         "note": "ending means the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drinking",
+         "at": 6,
+         "note": "the final letter of drinking"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party drinking spree ends with the Tory leader sacked.",
-     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party; behead it and drop the last letter of drinking inside.",
-     "definitionFit": "A wild bout of excessive indulgence, especially drinking or partying, is an orgy, so binge is a close synonym."
+     "surface": "A Conservative leader is sacked after a drinking binge.",
+     "walkthrough": "'Leader being axed' cuts TORY to ORY, and 'in' puts the G from the end of drinking inside it.",
+     "definitionFit": "An orgy is a bout of wild excess, so a binge of indulgence."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "axed"
     }
    }
   },
@@ -473,58 +479,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GALLIPOLI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "with",
+       "at": 32,
+       "note": "with joins the two pieces in order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 25,
+         "note": "raised, in a down clue, means the shortened word is written upwards, so reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "raised",
-           "note": "in a down entry, raising letters makes them read bottom to top"
+           "text": "mostly",
+           "at": 18,
+           "note": "mostly means the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "loot",
-           "gives": "PILLAG",
-           "note": "PILLAGE, to loot, without its final letter"
+           "at": 13,
+           "gives": "PILLAGE",
+           "note": "to loot is to pillage"
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "crude",
-           "note": "crude means unrefined, so the letters are left in a rough jumbled form"
-          }
-         ],
-         "parts": [
-          {
-           "words": "oil",
-           "note": "taken as written"
-          }
-         ]
+         "text": "crude",
+         "at": 37,
+         "note": "crude means unrefined, so the letters of oil are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "oil",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A military campaign where plunder was carried off along with crude oil.",
-     "walkthrough": "Crude oil reads as a commodity, but crude is the signal to mix the three letters.",
-     "definitionFit": "Gallipoli was the disastrous 1915-16 Allied campaign against Turkey in the First World War."
+     "surface": "An army plunders crude oil during a war campaign.",
+     "walkthrough": "'Mostly' trims PILLAGE to PILLAG, 'raised' turns it into GALLIP, and 'crude' rearranges OIL as OLI.",
+     "definitionFit": "Gallipoli was the disastrous Allied campaign of 1915–16 against the Ottoman Empire in the First World War."
     },
     "features": {
      "answerInScene": true,
@@ -1418,26 +1436,29 @@
      "indicators": [
       {
        "text": "going up and down",
-       "note": "a word that reads identically whichever way you travel through it in a column"
+       "at": 8,
+       "note": "in a down clue, going up and down says the word reads the same upward and downward"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "going up and down",
-       "note": "the answer reads the same upward and downward in the grid"
+       "words": "Figures",
+       "at": 0,
+       "gives": "STATS",
+       "note": "figures, as numbers, are statistics"
       }
      ]
     },
     "explanation": {
-     "surface": "Statistics that keep rising and falling.",
-     "walkthrough": "The phrase reads as fluctuating numbers, but it says the entry is the same read either way.",
-     "definitionFit": "Stats is short for statistics, which are numerical figures collected about something."
+     "surface": "Statistics show prices rising and falling.",
+     "walkthrough": "The clue reads as rising and falling data, but in a down clue 'going up and down' says the word for figures reads the same either way; the one word does double duty.",
+     "definitionFit": "Stats is short for statistics, which are numerical figures."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "going"
     }
    }
   },

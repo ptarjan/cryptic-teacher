@@ -632,53 +632,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ALCOPOP",
+     "op": "charade",
      "indicators": [
       {
-       "text": "bottling",
-       "note": "to bottle something is to shut it inside, so the firm holds the size letter"
+       "text": "after",
+       "at": 3,
+       "note": "after places this piece behind the others"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "after",
-         "note": "the word for 'go' is placed after the rest, putting it at the end"
+         "text": "bottling",
+         "at": 26,
+         "note": "bottling means holding the next letter inside, as a bottle holds liquid"
         }
        ],
        "parts": [
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "American",
+           "at": 9,
+           "gives": "A"
+          },
+          {
+           "words": "company",
+           "at": 18,
+           "gives": "CO"
+          }
+         ]
         },
         {
          "words": "large",
+         "at": 35,
          "gives": "L",
-         "note": "L = large, as on clothing labels"
-        },
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "Co. = company"
-        },
-        {
-         "words": "Go",
-         "gives": "POP",
-         "note": "to pop somewhere is to go there briefly"
+         "note": "L is the clothing-size abbreviation for large"
         }
        ]
+      },
+      {
+       "words": "Go",
+       "at": 0,
+       "gives": "POP",
+       "note": "to go pop is to burst, so pop can mean go, as in a balloon going"
       }
      ]
     },
     "explanation": {
-     "surface": "A US firm chasing the market for bottled beverages.",
-     "walkthrough": "'Go' opens the clue as a verb of pursuit; it is POP, as in popping to the shops. An alcopop is a sweet fizzy alcoholic drink sold in bottles.",
-     "definitionFit": "An alcopop is a ready-mixed, fruit-flavoured alcoholic beverage, so it is one kind of drink, defined here by category."
+     "surface": "A US drinks firm turns to bottling a big-selling beverage.",
+     "walkthrough": "'Go after' reads as 'pursue', but it splits: go pop means burst, so the go is the last piece. 'Bottling' puts L inside the American company, making ALCO.",
+     "definitionFit": "An alcopop is a sweet fizzy alcoholic drink sold ready-mixed in a bottle."
     },
     "features": {
      "answerInScene": true,
@@ -1587,50 +1594,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Work secretly?",
+      "text": "Work secretly",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MOONLIGHT",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Reverend Spooner swapped the starts of words, so the phrase for 'idiot may' has its initial sounds exchanged"
+       "at": 26,
+       "note": "for Spooner means the opening sounds of the two words are swapped, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Idiot",
+       "at": 15,
+       "gives": "LOON",
+       "note": "a loon is a foolish person, an idiot"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MIGHT",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Idiot",
-         "gives": "MOON",
-         "soundsLike": "LOON",
-         "note": "a loon is a fool; its opening L swaps with the M of the next word"
-        },
-        {
-         "unchecked": true,
          "words": "may",
-         "gives": "LIGHT",
-         "soundsLike": "MIGHT",
-         "note": "may = might; its opening M swaps with the L of the first word"
+         "at": 21,
+         "gives": "MITE",
+         "note": "might is the past form of the verb may, said aloud with the sound of mite; a Spoonerism swaps sounds, not spellings"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone foolish might take a covert second job.",
-     "walkthrough": "The question mark flags that the definition is a cheeky description: moonlighting is working secretly on the side.",
-     "definitionFit": "To moonlight is to hold a second job in secret, typically at night and undeclared, so it fits work on the quiet."
+     "surface": "A puzzled reader is asked what an idiot is allowed to do on the quiet.",
+     "walkthrough": "'For Spooner' swaps the opening sounds of LOON MIGHT, giving MOON LIGHT, run together.",
+     "definitionFit": "To moonlight is to hold a second job on the side, usually undeclared, so to work in secret."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "may"
     }
    }

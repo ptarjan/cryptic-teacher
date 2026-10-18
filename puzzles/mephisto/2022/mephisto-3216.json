@@ -108,53 +108,70 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TEACUPFUL",
-     "indicators": [
-      {
-       "text": "frightful",
-       "note": "frightful suggests a mess, so the letters of the phrase after it are thrown into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TEACUPFUL",
        "indicators": [
         {
          "text": "All but",
-         "note": "all but means everything except the final letter is kept"
-        },
-        {
-         "text": "no",
-         "note": "no zippo says a nought is to be taken out of the letters"
+         "at": 0,
+         "note": "all but means every letter except the last"
         }
        ],
        "parts": [
         {
          "words": "show",
+         "at": 8,
          "gives": "TEACH",
-         "note": "to teach someone is to show them how"
+         "note": "to show someone how is to teach them"
         },
         {
-         "words": "foul up",
-         "note": "taken as written"
-        },
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "zippo",
-         "gives": "O",
-         "note": "zippo is slang for nothing, a zero, shaped like O"
+         "text": "frightful",
+         "at": 13,
+         "note": "frightful means the letters are in a dreadful mess, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "no",
+           "at": 32,
+           "note": "no means the letter for zippo is dropped from the fodder"
+          }
+         ],
+         "parts": [
+          {
+           "words": "foul up",
+           "at": 23,
+           "note": "the fodder letters, taken as written"
+          },
+          {
+           "words": "zippo",
+           "at": 35,
+           "gives": "O",
+           "note": "zippo is slang for nothing, zero, which looks like the letter O"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful mess-up described as a measure of something rosy.",
-     "walkthrough": "Rosy Lee is Cockney rhyming slang for tea, so a measure of it is a cupful.",
-     "definitionFit": "Rosy (Lee) means tea in rhyming slang, and a cupful of tea is the standard serving by which it is measured."
+     "surface": "Someone complains about a frightful foul-up in measuring out something rosy.",
+     "walkthrough": "Rosy Lee is cockney rhyming slang for tea, so a measure of Rosy is a quantity of tea. 'All but' cuts TEACH to TEAC; 'no zippo' drops the O from FOUL UP, and 'frightful' rearranges the rest.",
+     "definitionFit": "A teacupful is the amount a teacup holds, a standard measure, and here the drink measured is tea."
     },
     "features": {
      "answerInScene": false,
@@ -1324,31 +1341,44 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ELUENT",
      "indicators": [
       {
-       "text": "if female opened it",
-       "note": "the clue imagines a different opening letter, so the answer's first letter is the one swapped out"
+       "text": "would be",
+       "at": 14,
+       "note": "would be says the answer is what the following word becomes after a change"
+      },
+      {
+       "text": "if",
+       "at": 31,
+       "note": "if sets the condition under which the answer turns into the word for flowing"
+      },
+      {
+       "text": "opened it",
+       "at": 41,
+       "note": "opened it means the letter goes at the start of the answer, in place of its opening letter"
       }
      ],
      "parts": [
       {
        "words": "flowing",
+       "at": 23,
        "gives": "FLUENT",
        "note": "fluent means flowing, as in fluent speech"
       },
       {
        "words": "female",
-       "gives": "F",
-       "note": "F is the abbreviation for female"
+       "at": 34,
+       "gives": "F"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A liquid that would run freely if a woman opened it.",
-     "walkthrough": "This works backwards: put F at the front of the answer in place of its E and you get a word for flowing.",
-     "definitionFit": "In chemistry an eluent is the solvent used to wash substances through a chromatography column."
+     "surface": "A chemist notes a solvent would only run if a woman unstopped it.",
+     "walkthrough": "The clue works backwards: put F at the front of the answer in place of its first letter and it reads FLUENT. So the answer is FLUENT with that F swapped for E.",
+     "definitionFit": "An eluent is the solvent used in chromatography to wash substances through a column."
     },
     "features": {
      "answerInScene": true,
