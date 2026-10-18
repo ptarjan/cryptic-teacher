@@ -808,6 +808,8 @@ LAYOUT = [
     ("annotating", "tools/queue_unchecked.py", "queue every clue that still carries an `unchecked` wordplay step for the burn's redo"),
     ("annotating", "tools/run_clear_full.sh", "the full clear_unchecked --write sweep, resumable and published as it goes"),
     ("annotating", "tools/test_refetch_curly_apostrophe.py", "a re-fetch serving curly apostrophes must not strip the annotations of the"),
+    ("annotating", "tools/requeue_drift.py", "queue what a rule change or a lexicon rebuild newly flags, instead of letting it turn CI red"),
+    ("annotating", "tools/test_requeue_drift.py", "tools/requeue_drift.py: a puzzle past its allowance gets its flagged clues queued once"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
