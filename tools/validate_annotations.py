@@ -3750,8 +3750,20 @@ def arity_other(tree):
 
 
 def del_single(tree):
-    """Unchecked deletions with one part: the letters taken out are not stated."""
-    return sum(len(n.get("parts") or []) == 1 for n in _unchecked_ops(tree) if n["op"] == "deletion")
+    """Unchecked deletions with one part: the letters taken out are not stated.
+
+    Not counted: a deletion whose only part is a single leaf and which carries an
+    indicator ("lifting both ends of" barbells > WEIGHTS > EIGHT, "short" leg >
+    STAGE > STAG): the indicator says what comes off the leaf's `gives`, a
+    correct parse (sample of 13, 5 of them this shape). A composite part (a
+    charade wrapped as one deletion, cryptic-22711 31d GON+AD) is still counted:
+    the indicator applies to one piece, not to the joined result."""
+    def lone_leaf(n):
+        parts = n.get("parts") or []
+        return (n.get("indicators") and isinstance(parts[0], dict) and "op" not in parts[0]
+                and parts[0].get("gives") and parts[0].get("words"))
+    return sum(len(n.get("parts") or []) == 1 and not lone_leaf(n)
+               for n in _unchecked_ops(tree) if n["op"] == "deletion")
 
 
 def ind_in_leaf(tree, clue=None):
@@ -3763,17 +3775,23 @@ def ind_in_leaf(tree, clue=None):
     inside a leaf once, so it is flagged only when the leaves and indicators
     use it more times than the clue has it. Without the clue any repeat fires."""
     nodes = list(_walk(tree))
-    leaf_words = [[wordplay.letters(x) for x in n["words"].split()] for n in nodes
-                  if "op" not in n and n.get("words")]
-    words = [ws for ws in leaf_words if len(ws) > 1]
+    leaves = [n for n in nodes if "op" not in n and n.get("words")]
+    leaf_words = [[wordplay.letters(x) for x in n["words"].split()] for n in leaves]
     said = collections.Counter(wordplay.letters(x) for x in (clue or "").split())
     used = collections.Counter(wordplay.letters(i.get("text")) for node in nodes
                                for i in node.get("indicators") or [])
     n = 0
     for node in nodes:
+        # The repeat is cosmetic when the leaf is the op's own direct part and the op
+        # evaluates (checked: azed-1928 8d) or is a selection (its leaf names the word
+        # it picks from: times-29067 1d). A leaf under another op is a misfiled
+        # indicator (timesjumbo-1742 10d, times-29198 24a) and still counts.
+        own = node.get("op") in wordplay.SELECT or not node.get("unchecked")
+        direct = {id(p) for p in node.get("parts") or [] if isinstance(p, dict)} if own else set()
+        mine = [ws for ws, leaf in zip(leaf_words, leaves) if id(leaf) not in direct and len(ws) > 1]
         for i in node.get("indicators") or []:
             t = wordplay.letters(i.get("text"))
-            if len(t) >= 3 and any(t in ws and ws != [t] for ws in words):
+            if len(t) >= 3 and any(t in ws and ws != [t] for ws in mine):
                 if clue and said[t] >= used[t] + sum(ws.count(t) for ws in leaf_words):
                     continue  # the clue says the word often enough for each use
                 n += 1
@@ -3913,6 +3931,17 @@ NESTED_CONTAINER = "container whose holder is itself a container"
 #: the wrong op. Needs a 50-use lexicon entry for the other op and none for this one.
 MISPLACED_INDICATOR = "indicator filed on an op it does not signal"
 MISPLACED_MIN_USES = 200
+#: Plain ordering / juxtaposition words that setters put on a charade as often as on
+#: the op the lexicon knows them for ("at first", "opening", "off", "taking",
+#: "backing": 5 of 10 sampled flags were correct charades, 10-18). Not flagged; the
+#: rule keeps container, reversal and anagram verbs ("eating", "to secure", "around").
+ORDERING_INDICATORS = frozenset(
+    "at first|opening|off|taking|backing|after|before|following|behind|ahead of|beside|next to|"
+    "by|with|and|then|leading|heading|first|starting|beginning|at the start|at the front|"
+    "in front of|going before|preceding|followed by|supporting|on|to|for|from|getting|"
+    "having|bringing|giving|making|showing|catching|joining|meeting|alongside|against|"
+    "early|late|last|finally|at last|at the end|"
+    "to follow|coming after|going after|in pursuit of|pursuing".split("|"))
 
 
 def nested_containers(tree):
@@ -3962,7 +3991,7 @@ def misplaced_indicators(tree):
         own = "charade"
         for i in node.get("indicators") or []:
             key = " ".join(w for w in (wordplay.letters(x) for x in str(i.get("text") or "").split()) if w)
-            if not key or lex.get(own, {}).get(key, 0):
+            if not key or lex.get(own, {}).get(key, 0) or key.lower() in ORDERING_INDICATORS:
                 continue
             n += any(c >= MISPLACED_MIN_USES for t, d in lex.items() if t != own
                      for c in [d.get(key, 0)])

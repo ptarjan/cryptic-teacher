@@ -125,8 +125,19 @@ check("a deletion with three parts is not (the evaluator takes several pieces)",
 check("a deletion with ten parts is counted", 1, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{}] * 10}))
 check("a deletion with one part is counted", 1, v.del_single({"op": "deletion", "unchecked": True, "parts": [{"words": "a"}]}))
 check("and is not an arityOther", 0, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{"words": "a"}]}))
+one = lambda part, ind=True: {"op": "deletion", "unchecked": True, "gives": "STAG",
+                              **({"indicators": [{"text": "short"}]} if ind else {}), "parts": [part]}
+check("a lone leaf under an indicated deletion is not (STAGE short > STAG)", 0, v.del_single(one({"words": "leg", "gives": "STAGE"})))
+check("a lone leaf with no indicator is", 1, v.del_single(one({"words": "leg", "gives": "STAGE"}, ind=False)))
+check("a lone composite (GON+AD as one deletion) is", 1, v.del_single(one(
+    {"op": "charade", "parts": [{"words": "a", "gives": "GON"}, {"words": "b", "gives": "AD"}]})))
 leaf = {"words": "nearly obtains", "gives": "HA"}
-check("an indicator inside a leaf is counted", 1, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [leaf, {"words": "x"}]}))
+check("an indicator inside a leaf is counted", 1, v.ind_in_leaf({"op": "deletion", "unchecked": True, "indicators": [{"text": "nearly"}], "parts": [leaf, {"words": "x"}]}))
+check("on a checked op it is cosmetic (azed-1928 8d)", 0, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [leaf, {"words": "x"}]}))
+check("a leaf under another op is a misfiled indicator, even on a checked op (times-29198 24a)", 1, v.ind_in_leaf(
+    {"op": "container", "indicators": [{"text": "regularly"}], "parts": [{"words": "x", "gives": "X"},
+     {"op": "alternate", "unchecked": True, "parts": [{"words": "roubles regularly", "gives": "OUE"}]}]}))
+check("under a selection op it is cosmetic (times-29067 1d)", 0, v.ind_in_leaf({"op": "outer", "unchecked": True, "indicators": [{"text": "peeled"}], "parts": [{"words": "peeled fruit", "gives": "ANG"}]}))
 check("a whole-leaf indicator is not", 0, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [{"words": "nearly"}]}))
 
 sl = lambda w, g: v.scrambled_leaves({"op": "charade", "parts": [{"words": w, "gives": g}]})
@@ -162,6 +173,12 @@ check("a reversal indicator on a charade is misplaced", 1, v.misplaced_indicator
     {"op": "charade", "indicators": [{"text": "returned"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
 check("a charade indicator on a charade is not", 0, v.misplaced_indicators(
     {"op": "charade", "indicators": [{"text": "after"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+for w in ("at first", "opening", "off", "taking", "backing"):
+    check(f"ordering word '{w}' on a charade is not misplaced", 0, v.misplaced_indicators(
+        {"op": "charade", "indicators": [{"text": w}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+for w in ("eating", "to secure", "around"):
+    check(f"container verb '{w}' on a charade is misplaced", 1, v.misplaced_indicators(
+        {"op": "charade", "indicators": [{"text": w}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
 import shape_queue
 check("the redo gate names the nested container", True, any(
     f.startswith("nestedContainer") for f in shape_queue.findings(

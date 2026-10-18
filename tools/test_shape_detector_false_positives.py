@@ -41,7 +41,7 @@ check("select leaf giving letters not in its words still is", ["unchecked_leaf"]
 
 # 3. cryptic-30041#17a: "without" said twice, indicator once and in a leaf once
 def jog(clue):
-    return {"op": "container", "indicators": [{"text": "without"}],
+    return {"op": "container", "unchecked": True, "indicators": [{"text": "without"}],
             "parts": [{"words": "without clothes", "gives": "NUDE"}, {"words": "much money", "gives": "G"}]}
 check("a word the clue says twice is not flagged", 0, V.ind_in_leaf(jog(""), "Jog without clothes, without much money"))
 check("a word the clue says once still is", 1, V.ind_in_leaf(jog(""), "Jog without clothes, much money"))
