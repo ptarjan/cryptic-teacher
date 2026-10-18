@@ -685,59 +685,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EARTHCHESTNUT",
      "indicators": [
       {
        "text": "ingested by",
-       "note": "something ingested is swallowed, so it goes inside the body parts that follow"
+       "at": 34,
+       "note": "ingested by means swallowed, so the half word goes inside the body parts"
       }
      ],
      "parts": [
       {
+       "words": "three body parts",
+       "at": 46,
+       "gives": "EARCHESTNUT",
+       "note": "ear, chest and nut (slang for head) are three parts of the body"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EARTHCHESTNUT",
        "indicators": [
         {
          "text": "half",
-         "note": "only half of the word that is kept, the other half dropped"
+         "at": 29,
+         "note": "half means only part of that remains, its first two letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "three body parts",
-           "gives": "EAR",
-           "note": "first body part: the ear"
-          },
-          {
-           "words": "that",
-           "gives": "TH",
-           "note": "the first half of the word"
-          },
-          {
-           "words": "three body parts",
-           "gives": "CHEST",
-           "note": "second body part: the chest"
-          },
-          {
-           "words": "three body parts",
-           "gives": "NUT",
-           "note": "third body part: nut, slang for the head"
-          }
-         ]
+         "words": "that's",
+         "at": 22,
+         "gives": "THAT",
+         "note": "the word that, with 's as the verb is"
+        },
+        {
+         "gives": "AT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note on where peanut oil comes from, oddly connected with being eaten by the body.",
-     "walkthrough": "The half word sits between the first and second body parts, giving EARTH CHESTNUT; nut for head is common slang.",
-     "definitionFit": "Arachis is the peanut genus, and earth chestnut is an old name for the peanut or groundnut, whose seeds yield the oil."
+     "surface": "Peanut oil comes from something partly eaten by organs.",
+     "walkthrough": "Arachis oil is peanut oil; earth chestnut is a name for the peanut or groundnut.",
+     "definitionFit": "The peanut, or groundnut, ripens underground, hence earth chestnut; arachis oil is pressed from it."
     },
     "features": {
      "answerInScene": true,
@@ -1250,34 +1238,38 @@
      "indicators": [
       {
        "text": "including",
-       "note": "including means holding within, so the mark word takes the others inside"
+       "at": 15,
+       "note": "including means holding within, so the mark contains the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "mark",
-         "gives": "SCAR",
-         "note": "a scar is a mark left on the skin"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "mark",
+       "at": 10,
+       "gives": "SCAR",
+       "note": "a scar is a mark left on the skin"
       },
       {
-       "words": "50",
-       "gives": "L",
-       "note": "L is the Roman numeral for 50"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "words": "50",
+         "at": 27,
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grade written as a number includes a score of fifty.",
-     "definitionFit": "A scalar quantity is one with magnitude only, represented by a single number."
+     "surface": "A numerical grade includes a fifty.",
+     "definitionFit": "A scalar quantity is a pure number with magnitude but no direction."
     },
     "features": {
      "answerInScene": true,

@@ -427,41 +427,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELSEWHERE",
-     "indicators": [
-      {
-       "text": "Changed",
-       "note": "the letters of wheels are changed around"
-      },
-      {
-       "text": "before",
-       "note": "the rearranged wheels come ahead of the second piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Changed",
+         "at": 0,
+         "note": "changed means altered in form, so the letters of wheels are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Changed wheels",
-         "gives": "ELSEWH",
-         "note": "anagram of WHEELS"
-        },
-        {
-         "words": "before",
-         "gives": "ERE",
-         "note": "ere is an old word for before"
+         "words": "wheels",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "before",
+       "at": 15,
+       "gives": "ERE",
+       "note": "ere is an old word for before"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver swaps the wheels before setting off for somewhere new.",
-     "walkthrough": "\"before\" does double duty in feel but only once in fact: it is the fodder for ERE, and the order is simply left to right.",
-     "definitionFit": "A plain adverb of direction: heading somewhere other than here is going to another place."
+     "surface": "Someone swaps their tyres before heading off somewhere new.",
+     "definitionFit": "Elsewhere is an adverb for somewhere different, to a different location."
     },
     "features": {
      "answerInScene": true,
@@ -1028,45 +1022,49 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "start to",
-       "note": "take the first letter of stagger"
+       "text": "after",
+       "at": 21,
+       "note": "after puts the you and stagger pieces behind the word for immediately"
       }
      ],
      "parts": [
       {
        "words": "immediately",
+       "at": 27,
        "gives": "STAT",
-       "note": "stat, from Latin statim, is medical shorthand for at once"
+       "note": "stat, from Latin statim, is medical shorthand for immediately"
       },
       {
        "words": "You",
+       "at": 0,
        "gives": "U",
-       "note": "text-speak spelling of you"
+       "note": "U is text-speak for you"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "after"
+         "text": "start to",
+         "at": 4,
+         "note": "start to means the opening letter of stagger"
         }
        ],
        "parts": [
         {
-         "words": "start to stagger",
-         "note": "first letter of stagger"
+         "words": "stagger",
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Having got to your feet at once, you begin to totter.",
-     "walkthrough": "Standing means rank here, not being upright, though the surface is all about getting up.",
-     "definitionFit": "Status is one's standing or position in society."
+     "surface": "Someone stands up suddenly and begins to wobble.",
+     "definitionFit": "Status is a person's rank or position in society, their standing."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "standing"
     }
    }
@@ -1343,46 +1341,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "cried is knocked out of shape"
+       "text": "to be covered in",
+       "at": 16,
+       "note": "to be covered in means sitting inside, so the scrambled letters go within the word for fudge"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fudge",
+       "at": 33,
+       "gives": "FAKE",
+       "note": "to fudge something is to fake it"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to be covered in",
-         "note": "the rearranged letters sit inside fudge"
+         "text": "out",
+         "at": 12,
+         "note": "out means wrong or disordered, so the letters of cried are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "cried out",
-         "gives": "RIEDC",
-         "note": "anagram of CRIED"
-        },
-        {
-         "words": "fudge",
-         "gives": "FAKE",
-         "note": "to fudge is to fake"
+         "words": "cried",
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doughnut wails at being smothered in fudge.",
-     "walkthrough": "Fudge sits naturally with a donut as a topping; it is the verb, to fake. A friedcake is American for a doughnut.",
-     "definitionFit": "A friedcake is a small cake fried in fat, such as a doughnut."
+     "surface": "A doughnut weeps at being smothered in chocolate fudge.",
+     "walkthrough": "'Fudge' looks like a confection in the cake picture but means to fake.",
+     "definitionFit": "A fried cake is an American term for a doughnut, dough cooked in hot oil."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "fudge"
     }
    }
@@ -1411,13 +1410,15 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "take the first letter of berries"
+       "text": "found beneath",
+       "at": 23,
+       "note": "in a down entry, found beneath puts the berry letter below the tree"
       }
      ],
      "parts": [
       {
        "words": "tree",
+       "at": 37,
        "gives": "ACER",
        "note": "acer is the maple genus"
       },
@@ -1425,26 +1426,28 @@
        "op": "first",
        "indicators": [
         {
-         "text": "found beneath"
+         "text": "primarily",
+         "at": 13,
+         "note": "primarily means first of all, so only the opening letter of berries"
         }
        ],
        "parts": [
         {
-         "words": "berries primarily",
-         "note": "first letter of berries"
+         "words": "berries",
+         "at": 5
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bitter berries lie on the ground below a tree.",
-     "walkthrough": "Acerb is a rare form of acerbic.",
-     "definitionFit": "Acerb means sour or bitter in taste."
+     "surface": "Tart fruit turns up lying under a tree.",
+     "definitionFit": "Acerb is a rare adjective meaning bitter or sharp-tasting, like acerbic."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
     }
    }
   },
@@ -1532,40 +1535,41 @@
      "parts": [
       {
        "words": "had",
+       "at": 14,
        "gives": "ATE",
-       "note": "had a meal, ate"
+       "note": "to have a meal is to eat, so had gives ate"
+      },
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "at the outset",
-         "note": "take the first letter of mare"
+         "at": 25,
+         "note": "at the outset means at the start, so the opening letter of mare"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "used as it stands"
+         "words": "mare",
+         "at": 20
         }
        ]
-      },
-      {
-       "words": "mare at the outset",
-       "gives": "M",
-       "note": "first letter of mare"
       }
      ]
     },
     "explanation": {
-     "surface": "The top squad had a nightmare right from the start.",
-     "walkthrough": "\"had a mare\" is British slang for having a disastrous time, which suits a sports team; split it as ATE + A + M.",
-     "definitionFit": "A sporting idiom: a club's first-choice side, its best players."
+     "surface": "The top players had a nightmare from the very beginning of the game.",
+     "walkthrough": "'Had a mare' is British slang for performing disastrously.",
+     "definitionFit": "A team's first-choice squad is called its A-team, the strongest group."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "had"
     }
    }

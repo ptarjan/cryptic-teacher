@@ -1128,61 +1128,53 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "finally",
-       "note": "the final letter of dinner"
+       "text": "cooked",
+       "at": 30,
+       "note": "cooked means prepared or doctored, so the collected letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Eat",
+       "at": 0
+      },
+      {
+       "words": "very",
+       "at": 4,
+       "gives": "V"
+      },
+      {
+       "words": "small",
+       "at": 9,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooked as in cooked books, so the letters are fiddled into a new order"
+         "text": "finally",
+         "at": 22,
+         "note": "finally means the last letter of dinner"
         }
        ],
        "parts": [
         {
-         "words": "Eat",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "v = very"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "s = small, as on clothing labels"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "dinner finally",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of dinner"
-          }
-         ]
+         "words": "dinner",
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A choice between a tiny cooked dinner and going without.",
-     "walkthrough": "'Eat' looks like the definition at the front, but it is fodder; the definition is the opposite, at the end.",
-     "definitionFit": "Descriptive: to starve is to go without food, taking nothing to eat."
+     "surface": "Someone eats a tiny cooked dinner, or goes without food entirely.",
+     "definitionFit": "To starve is to go without food, eating none at all."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Eat"
+     "misdirectedWord": "cooked"
     }
    }
   },
@@ -1260,45 +1252,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "set up",
-       "note": "in a down clue, set up means written upwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "most of",
-         "note": "most of a word is all but its last letter"
+         "text": "set up",
+         "at": 25,
+         "note": "set up in a down entry means raised, so the word is read upwards"
         }
        ],
        "parts": [
         {
          "words": "Scientific establishment",
+         "at": 0,
          "gives": "LAB",
-         "note": "a lab(oratory)"
+         "note": "a lab, or laboratory, is a scientific establishment"
         }
        ]
       },
       {
-       "words": "most of tool",
-       "gives": "SA",
-       "note": "SAW without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 32,
+         "note": "most of means dropping the last letter of the tool"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tool for cutting",
+         "at": 40,
+         "gives": "SAW",
+         "note": "a saw is a cutting tool"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A laboratory setting up equipment to cut timber.",
-     "walkthrough": "'For cutting wood' reads as a description of the saw; the tool itself is SAW, and 'wood' alone is the definition.",
-     "definitionFit": "Definition by example: balsa is a tropical timber, famously light and used for models."
+     "surface": "A laboratory sets up most of a tool for cutting timber.",
+     "definitionFit": "Balsa is a very light timber from a tropical American tree."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tool"
+     "misdirectedWord": "establishment"
     }
    }
   },
@@ -1418,61 +1421,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LEINSTER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inhibiting",
+       "at": 22,
+       "note": "inhibiting means holding back, so the pair of letters surround the genius"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the start, so take the first letter of each word"
-        },
-        {
-         "text": "abandoning",
-         "note": "the genius abandons, or leaves out, the letters for popular"
+         "at": 12,
+         "note": "initially means the first letters of local and rules"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "LR",
-         "indicators": [
-          {
-           "text": "inhibiting",
-           "note": "to inhibit is to hem in, so the two letters restrain what follows between them"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Local rules initially",
-           "gives": "LR",
-           "select": "first",
-           "note": "first letters of Local and rules"
-          }
-         ]
+         "words": "Local rules",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "at": 40,
+         "note": "abandoning means leaving out the popular letters from the genius"
+        }
+       ],
+       "parts": [
+        {
+         "words": "genius",
+         "at": 33,
+         "gives": "EINSTEIN",
+         "note": "Einstein is the archetypal genius"
         },
         {
-         "words": "genius abandoning popular",
-         "gives": "EINSTE",
-         "note": "EINSTEIN, the proverbial genius, loses IN (popular)"
+         "words": "popular",
+         "at": 51,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Local bylaws holding back a talented person who has left a popular region.",
-     "walkthrough": "IN = popular is a crossword staple, and it is the final IN of EINSTEIN that goes.",
-     "definitionFit": "Definition by example: Leinster is one of Ireland's four historic provinces, the one containing Dublin."
+     "surface": "Local regulations at first restrain a genius who abandons popularity.",
+     "definitionFit": "Leinster is one of the four traditional provinces of Ireland, covering the east."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "popular"
+     "misdirectedWord": "genius"
     }
    }
   },
@@ -1553,37 +1560,40 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "lets in",
-       "note": "the club lets the reserve in, taking it inside"
+       "text": "turning",
+       "at": 38,
+       "note": "turning means the whole construction is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "turning",
-         "note": "turning round, so the whole assembly is read backwards"
-        }
-       ],
        "parts": [
         {
          "words": "English",
-         "gives": "E",
-         "note": "e = English"
+         "at": 0,
+         "gives": "E"
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "lets in",
+           "at": 22,
+           "note": "lets in means admits, so the club contains the reserve"
+          }
+         ],
          "parts": [
           {
            "words": "football club",
+           "at": 8,
            "gives": "MANU",
-           "note": "Man U, short for Manchester United"
+           "note": "Man U is Manchester United"
           },
           {
            "words": "reserve",
-           "gives": "RES",
-           "note": "res = reserve, the abbreviation; goes inside MANU after MAN"
+           "at": 30,
+           "gives": "RES"
           }
          ]
         }
@@ -1592,9 +1602,8 @@
      ]
     },
     "explanation": {
-     "surface": "An English football club bringing in a reserve player and turning to a new manager.",
-     "walkthrough": "'Handle' is slang for a name, and the question mark flags that access here means logging in to a computer.",
-     "definitionFit": "Slang sense: a handle is a name or nickname, and a username is the name you log in with."
+     "surface": "An English football club brings in a reserve player, swinging round to get in.",
+     "definitionFit": "Handle is slang for a name; a username is the name you log in with to gain access."
     },
     "features": {
      "answerInScene": false,
