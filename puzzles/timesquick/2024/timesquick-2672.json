@@ -333,49 +333,58 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LURID",
      "indicators": [
       {
-       "text": "getting run for",
-       "note": "getting one thing for another means a swap is made, one letter taking another's place"
+       "text": "getting",
+       "at": 23,
+       "note": "the clear word getting something means it receives a new letter, the first half of the swap instruction"
+      },
+      {
+       "text": "for",
+       "at": 35,
+       "note": "one thing put in for another takes its place, so the run letter replaces the party's initial"
       }
      ],
      "parts": [
       {
        "words": "clear",
+       "at": 16,
        "gives": "LUCID",
-       "note": "lucid means clear"
-      },
-      {
-       "words": "run",
-       "gives": "R",
-       "note": "R is the cricket abbreviation for run"
+       "note": "lucid means clear and easy to understand"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "leader",
-         "note": "'leader' keeps only the first letter of 'Conservative'"
+         "at": 52,
+         "note": "a leader comes at the front, so only the opening letter of the word is taken"
         }
        ],
        "parts": [
         {
          "words": "Conservative",
-         "note": "the leading letter of Conservative"
+         "at": 39,
+         "gives": "C",
+         "note": "the word whose opening letter is wanted"
         }
        ]
+      },
+      {
+       "words": "run",
+       "at": 31,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for a run"
       }
      ]
     },
     "explanation": {
-     "surface": "A political story about the Tory leader being challenged is sensational yet clear.",
-     "walkthrough": "In LUCID the C is replaced by R.",
-     "definitionFit": "Lurid describes something shocking and vivid, presented to sensationalise, like lurid headlines."
+     "surface": "A political report: a sensational, clear-cut story about a Tory leader being sacked for a run of failures.",
+     "walkthrough": "'getting run for Conservative leader' tells you the clear word gets R in place of C, the leader (first letter) of Conservative.",
+     "definitionFit": "Lurid describes something shocking and luridly vivid, as in a sensational tabloid headline."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "run"
     }

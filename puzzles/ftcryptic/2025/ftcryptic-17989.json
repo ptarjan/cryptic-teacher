@@ -639,45 +639,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MALAYAN",
      "indicators": [
       {
-       "text": "split in two places by",
-       "note": "the word is broken open at two points and something is placed in each gap"
+       "text": "split",
+       "at": 12,
+       "note": "split means broken apart, so the jumbled letters are opened up to take the extra letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "pants",
-         "note": "pants as a verb is British slang for rubbish, so the letters of Manly are treated as poor and rearranged"
+         "text": "in two places by",
+         "at": 18,
+         "note": "the letter a goes in at two separate points, so it is used twice"
         }
        ],
        "parts": [
         {
-         "words": "Manly",
-         "note": "taken as written, then rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "pants",
+           "at": 6,
+           "note": "pants is British slang for rubbish, so the letters of manly are made a mess of"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Manly",
+           "at": 0,
+           "note": "the word whose letters are rearranged"
+          }
+         ]
         },
         {
          "words": "a",
-         "gives": "AA",
-         "note": "taken as written and used twice, once to fill each split"
+         "at": 35,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's manly trousers have ripped in two places, thanks to a foreigner.",
-     "walkthrough": "Manly is also a Sydney beach suburb, which helps hide that it is just letters; the single 'a' is used once in each split.",
-     "definitionFit": "A Malayan is a native of Malaya, so a foreigner from a British point of view."
+     "surface": "A macho pair of trousers is torn in two places by somebody from abroad.",
+     "walkthrough": "'pants' reads as trousers that get split, but it is British slang for rubbish and rearranges MANLY into MLYAN; 'split in two places by a' then sends the clue's A in twice, giving MLAYAN and then the answer.",
+     "definitionFit": "A Malayan is a native of Malaya, so to a British setter a foreigner; a specific nationality standing for the general word."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "pants"
     }
    }

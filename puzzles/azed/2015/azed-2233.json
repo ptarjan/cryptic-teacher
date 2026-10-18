@@ -1398,77 +1398,82 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ECZEMA",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "round means surrounding, so the remaining letters go about the zone letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "ECZEMA",
+       "op": "first",
        "indicators": [
         {
-         "text": "applied",
-         "note": "a cream once applied is spread about, so its letters are reworked"
+         "text": "bit of",
+         "at": 16,
+         "note": "a bit of the word is just its first letter here"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ECZEMA",
+         "words": "effective",
+         "at": 23,
+         "note": "the word whose opening letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 65,
+         "note": "the reworked cream letters go round the zone letter, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "gets rid of",
-           "note": "getting rid of something removes it, so the letter for right is dropped"
+           "text": "applied",
+           "at": 39,
+           "note": "cream once applied is worked into the skin, so the remaining letters are worked into a new order"
           }
          ],
          "parts": [
           {
-           "op": "first",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "bit of",
-             "note": "a bit of a word is a small part of it, here just its opening letter"
+             "text": "gets rid of",
+             "at": 47,
+             "note": "getting rid of something drops it, so the right letter leaves the cream word"
             }
            ],
            "parts": [
             {
-             "words": "effective",
-             "note": "the first letter of effective"
+             "words": "cream",
+             "at": 33,
+             "note": "taken as written, the word that loses a letter"
+            },
+            {
+             "words": "right",
+             "at": 59,
+             "gives": "R"
             }
            ]
-          },
-          {
-           "words": "cream",
-           "note": "taken as written"
-          },
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
-          },
-          {
-           "words": "zone",
-           "gives": "Z",
-           "note": "Z is the abbreviation for zone"
           }
          ]
+        },
+        {
+         "words": "zone",
+         "at": 71,
+         "gives": "Z"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An itchy condition is cleared from a zone by an effective cream.",
-     "walkthrough": "Cream without its R is reworked and placed round Z, all after E.",
-     "definitionFit": "Eczema is a skin inflammation marked by itching, redness and scaly patches."
+     "surface": "Advice on using an effective cream to clear an itchy rash from around an area of skin.",
+     "walkthrough": "'bit of' takes E from 'effective'; 'gets rid of' drops R from cream, and 'applied', an unusual anagram signal, works CEAM into CEMA, which goes 'round' Z to make CZEMA.",
+     "definitionFit": "Eczema is a skin inflammation marked by itching and redness, so it is an itchy condition."
     },
     "features": {
      "answerInScene": true,
@@ -1983,58 +1988,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SLAMMERS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the wine word loses its last letter"
+       "text": "made from",
+       "at": 10,
+       "note": "a cocktail is made from mixed ingredients, so these letters are mixed into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "made from",
-         "note": "the answer is made from these letters, built into a new order"
+         "text": "mostly",
+         "at": 29,
+         "note": "mostly means most but not all, so the last letter goes"
         }
        ],
        "parts": [
         {
          "words": "malmsey",
-         "gives": "MALMSE",
-         "note": "malmsey without its last letter"
+         "at": 20,
+         "note": "malmsey is a sweet fortified Madeira wine, taken here as letters"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "RS",
-         "indicators": [
-          {
-           "text": "dashes of",
-           "note": "a dash is a small amount, so only the first letter of each drink is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "rum and soda",
-           "gives": "RS",
-           "select": "first",
-           "note": "the first letters of rum and soda"
-          }
-         ]
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "dashes of rum and soda",
+       "at": 42,
+       "gives": "RS",
+       "note": "a dash is a tiny splash, so only the first letter of rum and of soda goes in"
       }
      ]
     },
     "explanation": {
-     "surface": "A bartender's recipe: cocktails made mostly from malmsey with dashes of rum and soda.",
-     "walkthrough": "Malmsey is a sweet fortified Madeira wine.",
-     "definitionFit": "A slammer is a cocktail, such as tequila slammer, mixed with fizz and banged on the bar before drinking."
+     "surface": "A bartender's recipe: cocktails mixed from most of a bottle of Madeira with splashes of rum and soda.",
+     "walkthrough": "'mostly' drops the last letter of malmsey to leave MALMSE; 'dashes of' takes R and S; 'made from' then mixes all eight letters, as a cocktail is mixed.",
+     "definitionFit": "A slammer is a cocktail of spirit and a fizzy mixer, slammed on the bar before drinking, as in a tequila slammer."
     },
     "features": {
      "answerInScene": true,

@@ -1489,31 +1489,45 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "ANIMA",
+     "op": "deletion",
      "indicators": [
       {
        "text": "found in",
-       "note": "found in means the answer is sitting inside the words that follow"
+       "at": 5,
+       "note": "found in means the answer sits inside the two words, so the letters outside it at either end are set aside"
       }
      ],
      "parts": [
       {
-       "words": "Jungian 3",
-       "gives": "ANIMA",
-       "note": "3 stands for the answer to 3-down, so read the letters running through Jungian image"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Jungian",
+         "at": 14,
+         "note": "taken as written, the first of the two words the answer sits across"
+        },
+        {
+         "words": "3",
+         "at": 22,
+         "gives": "IMAGE",
+         "note": "a cross-reference: the answer to 3 down is IMAGE, which stands in for the number"
+        }
+       ]
+      },
+      {
+       "gives": "JUNGIGE"
       }
      ]
     },
     "explanation": {
-     "surface": "A soul revealed through a Jungian picture of the psyche.",
-     "walkthrough": "The cross-reference turns '3' into IMAGE; the answer straddles the two words jungiAN IMAge.",
-     "definitionFit": "In Jungian psychology the anima is the inner soul or feminine part of a man's psyche."
+     "surface": "A soul is discovered in a Jungian image, a nod to Jung's psychology of the inner self.",
+     "walkthrough": "First put the answer to 3 down in place of the number, making 'Jungian image'; the answer then runs across the join of the two words. The anima is also a Jungian term, so the surface is apt.",
+     "definitionFit": "Anima is Latin for soul or life force, and in Jung's psychology the inner self or soul-image."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Jungian"
     }
    }
   },

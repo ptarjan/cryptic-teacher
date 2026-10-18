@@ -810,33 +810,32 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ACHE",
      "indicators": [
       {
        "text": "contents of",
-       "note": "the contents of a container are what lies inside, so only the inner letters are kept"
+       "at": 7,
+       "note": "the contents are what lies inside, so the outer letters of the packet word are dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "sugar container",
-       "gives": "ACHE",
-       "select": "middle",
-       "note": "a sachet holds a portion of sugar; drop its first and last letters"
+       "at": 19,
+       "gives": "SACHET",
+       "note": "a sachet is a small sealed packet, the kind sugar comes in at a café"
       }
      ]
     },
     "explanation": {
-     "surface": "Craving whatever is in the sugar bowl.",
-     "walkthrough": "The sugar container is a SACHET, and its inside is ACHE.",
-     "definitionFit": "To ache for something is to long for or yearn for it intensely."
+     "surface": "A riddle asking what you find inside a sugar packet.",
+     "walkthrough": "The question mark flags that the sugar container is a SACHET, not a bowl, and its contents are its inner letters.",
+     "definitionFit": "To ache for something is to long for it, so ache is a verb of desire."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "container"
+     "joke": "pun",
+     "misdirectedWord": "contents"
     }
    }
   },
@@ -1577,60 +1576,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CRAVAT",
      "indicators": [
       {
-       "text": "holds",
-       "note": "a word that holds another has it inside, so the artist encloses the bible"
-      },
-      {
        "text": "in",
-       "note": "in places the preceding pieces inside the court abbreviation"
+       "at": 19,
+       "note": "in means placed inside, so the artist-and-bible pair goes within the court letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "court",
+       "at": 22,
+       "gives": "CT"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holds",
+         "at": 7,
+         "note": "the artist's letters hold the bible abbreviation between them, as a hand holds a book"
+        }
+       ],
        "parts": [
         {
-         "words": "court",
-         "gives": "C",
-         "note": "CT, the abbreviation for court, splits around the rest; its first letter"
-        },
-        {
          "words": "Artist",
-         "gives": "R",
-         "note": "RA, Royal Academician, splits around the bible; its first letter"
+         "at": 0,
+         "gives": "RA",
+         "note": "RA, Royal Academician, is the usual crossword artist"
         },
         {
          "words": "bible",
+         "at": 13,
          "gives": "AV",
-         "note": "AV, the Authorised Version of the Bible"
-        },
-        {
-         "words": "Artist",
-         "gives": "A",
-         "note": "second letter of RA"
-        },
-        {
-         "words": "court",
-         "gives": "T",
-         "note": "second letter of CT"
+         "note": "AV is the Authorized Version of the Bible"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painter carries a bible into court at the Ascot races.",
-     "walkthrough": "RA holds AV to make RAVA, which goes inside CT. An ascot is a broad neck scarf; the question mark marks it as an example.",
-     "definitionFit": "An ascot is a wide formal neckerchief, a kind of cravat, named after the racecourse."
+     "surface": "A painter in a courtroom, clutching a Bible to swear on.",
+     "walkthrough": "'Ascot' looks like the racecourse, but it is the wide neck scarf named after it; the question mark warns it is one example. 'holds' nests the Bible inside the artist, making RAVA.",
+     "definitionFit": "An ascot is a broad formal neckerchief, which is one kind of cravat, hence the question mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Ascot"
     }
    }

@@ -97,38 +97,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FINK",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "up",
+       "at": 13,
+       "note": "in a down clue, up means the letters are read from the bottom upwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, going up means reading the letters from bottom to top"
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all, so the word stops one letter short of its end"
         }
        ],
        "parts": [
         {
          "words": "slice",
-         "gives": "KNIF",
-         "note": "a knife slices; almost all of the word is kept"
+         "at": 7,
+         "gives": "KNIFE",
+         "note": "to knife something is to slice it"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for nearly cutting up a rodent.",
-     "walkthrough": "'Slice' is the tool that slices, KNIFE, with its last letter removed and then turned upwards.",
-     "definitionFit": "A fink is American slang for an informer, just as a rat is someone who betrays associates to the authorities."
+     "surface": "Someone nearly cuts up a rat.",
+     "walkthrough": "'rat' looks like the animal being sliced, but it is the definition, in its sense of an informer; 'Almost' trims KNIFE to KNIF before 'up' turns it.",
+     "definitionFit": "Fink is American slang for an informer or strikebreaker, someone who rats on others."
     },
     "features": {
      "answerInScene": false,
@@ -258,54 +262,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ICESCULPTURES",
+     "op": "composite",
      "indicators": [
       {
        "text": "crude",
-       "note": "something crude is rough and unrefined, so the letters are put into a raw new order"
+       "at": 25,
+       "note": "crude means rough and unrefined, so the remaining letters are worked into a new order"
+      },
+      {
+       "text": "cropped from",
+       "at": 12,
+       "note": "cropping trims a picture, so those edge letters are cut out of the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ICESCULPTURES",
+       "words": "close-up pictures",
+       "at": 31,
+       "note": "the letters to be rearranged, before the two photo letters are taken away"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "cropped from",
-         "note": "cropping trims material away, so these letters are taken out"
+         "text": "edges",
+         "at": 6,
+         "note": "the edges of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "edges",
-           "note": "the edges of a word are its outermost letters, first and last"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Photo",
-           "note": "the first and last letters of the word"
-          }
-         ]
-        },
-        {
-         "words": "close-up pictures",
-         "note": "taken as written"
+         "words": "Photo",
+         "at": 0,
+         "note": "the word whose outer letters are removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about badly framed close-up photos of short-lived artworks.",
-     "walkthrough": "Remove one P and the O from the fifteen letters of 'close-up pictures', then rearrange the remaining thirteen.",
-     "definitionFit": "Carved ice melts away within hours or days, so these sculptures are a textbook example of art that does not last."
+     "surface": "Instructions for trimming the borders of a rough close-up photograph.",
+     "walkthrough": "Take P and O, the edges of 'Photo', out of the letters of CLOSE-UP PICTURES and rearrange what is left; 'crude' and 'cropped' both sound like photo editing.",
+     "definitionFit": "Carvings in ice melt away within hours or days, so they are a short-lived art form."
     },
     "features": {
      "answerInScene": true,
