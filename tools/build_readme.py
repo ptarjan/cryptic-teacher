@@ -560,6 +560,8 @@ LAYOUT = [
     ("fetching", "tools/measure_archive_org_ocr.py", "measure how many clue words and marks file_archive_org_puzzles.py misreads, against the hand transcriptions in tools/data/archive_org_ocr_gold.json"),
     ("fetching", "tools/data/archive_org_ocr_gold.json", "Times, Listener, Jumbo, FT, Guardian and Telegraph clues transcribed by hand off archive.org's scans, each edition marked tune or held out (heldout, ft-heldout, ...); the misread rate is reported on the held-out ones and never gates filing"),
     ("fetching", "tools/build_clue_compounds.py", "count how the corpus's clues print two-word compounds: hyphenated or closed"),
+    ("fetching", "tools/data/answer_breaks.json", "the word breaks other puzzles print for each answer, and the answers printed both ways with neither settled; fetch_puzzle.py restores lost breaks from it (repair_fetched.py --write-breaks)"),
+    ("fetching", "tools/data/word_break_flags.json", "archive.org puzzles whose word breaks the repair could not settle, left for a read of the print; the archive.org queue never skips an edition holding one (repair_fetched.py)"),
     ("fetching", "tools/data/clue_compounds.tsv", "how often the corpus's clues print each two-word compound hyphenated and closed (build_clue_compounds.py)"),
     ("fetching", "tools/build_clue_lm.py", "count the words and word pairs of every clue in the corpus, and its answers"),
     ("fetching", "tools/data/clue_lm.tsv.gz", "how often the corpus's clues print each word and word pair, and its answers each word; settles OCR readings that differ (build_clue_lm.py)"),

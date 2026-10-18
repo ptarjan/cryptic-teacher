@@ -1977,6 +1977,14 @@ tools/data/archive_org_ocr_gold.json           Times, Listener, Jumbo, FT, Guard
                                                gates filing
 tools/build_clue_compounds.py                  count how the corpus's clues print two-word
                                                compounds: hyphenated or closed
+tools/data/answer_breaks.json                  the word breaks other puzzles print for each
+                                               answer, and the answers printed both ways with
+                                               neither settled; fetch_puzzle.py restores lost
+                                               breaks from it (repair_fetched.py --write-breaks)
+tools/data/word_break_flags.json               archive.org puzzles whose word breaks the repair
+                                               could not settle, left for a read of the print;
+                                               the archive.org queue never skips an edition
+                                               holding one (repair_fetched.py)
 tools/data/clue_compounds.tsv                  how often the corpus's clues print each two-word
                                                compound hyphenated and closed
                                                (build_clue_compounds.py)
