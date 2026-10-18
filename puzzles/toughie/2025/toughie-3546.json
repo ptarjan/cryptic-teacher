@@ -1630,7 +1630,8 @@
      "indicators": [
       {
        "text": "dismissing",
-       "note": "dismissing means sending away, so the number's letters are removed"
+       "at": 27,
+       "note": "dismissing means sending away, so the number is taken out"
       }
      ],
      "parts": [
@@ -1639,48 +1640,53 @@
        "indicators": [
         {
          "text": "accepts",
-         "note": "to accept is to take in, so the army holds the next pieces"
+         "at": 5,
+         "note": "accepts means taking in, so the army word holds the hard and soldiers pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Army",
-           "gives": "LEGION",
-           "note": "a legion is a large army unit"
-          },
-          {
-           "words": "hard",
-           "gives": "H",
-           "note": "H is the pencil-grade abbreviation for hard"
-          }
-         ]
+         "words": "Army",
+         "at": 0,
+         "gives": "LEGION",
+         "note": "a legion is a large army unit"
         },
         {
-         "words": "soldiers",
-         "gives": "OR",
-         "note": "OR stands for other ranks, ordinary soldiers"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "hard",
+           "at": 13,
+           "gives": "H",
+           "note": "H is the pencil-grade abbreviation for hard"
+          },
+          {
+           "words": "soldiers",
+           "at": 18,
+           "gives": "OR",
+           "note": "OR, other ranks, are ordinary soldiers"
+          }
+         ]
         }
        ]
       },
       {
        "words": "number",
+       "at": 38,
        "gives": "IO",
-       "note": "IO reads as the digits one and zero, so ten"
+       "note": "IO looks like the number ten, 1 and 0"
       }
      ]
     },
     "explanation": {
-     "surface": "A legion takes in tough troops but chickens out on the count.",
-     "walkthrough": "LEGION takes in H and OR, then loses IO, the letters standing in for ten.",
-     "definitionFit": "The Leghorn is a breed of domestic fowl named after the Italian port Livorno."
+     "surface": "A military unit welcomes tough troops but dismisses a numbered one, calling him chicken.",
+     "walkthrough": "'accepts' puts H and OR into LEGION to give LEGHORION; 'dismissing' then removes IO, which reads as the figure 10.",
+     "definitionFit": "A leghorn is a breed of domestic fowl named after the Italian port of Livorno."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "number"
+     "misdirectedWord": "chicken"
     }
    }
   },
