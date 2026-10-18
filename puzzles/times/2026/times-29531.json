@@ -369,39 +369,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "affected",
-       "note": "the letters of LEAK are affected, altered in their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "affected",
+         "at": 17,
+         "note": "affected means altered or acted upon, so the letters of leak are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "leak",
-         "note": "LEAK rearranged"
-        },
-        {
-         "words": "tenancy",
-         "gives": "LET",
-         "note": "a let is a tenancy, as in a short let"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "tenancy",
+       "at": 26,
+       "gives": "LET",
+       "note": "a let is a tenancy, a period of renting a property"
       }
      ]
     },
     "explanation": {
-     "surface": "A small leak of water damaging a tenancy, a landlord's complaint.",
-     "walkthrough": "'Minor water' reads as a small leak in the surface, but it is the definition: a little lake.",
-     "definitionFit": "A lakelet is a small lake, a minor body of water."
+     "surface": "A water leak has had consequences for the tenants' lease.",
+     "definitionFit": "A lakelet is a small lake, so it is a minor body of water."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Minor"
+     "misdirectedWord": "affected"
     }
    }
   },
@@ -1207,53 +1208,69 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "on board"
+       "text": "going from",
+       "at": 31,
+       "note": "going from, with to, frames the middle part between one island and another"
+      },
+      {
+       "text": "to",
+       "at": 49,
+       "note": "to completes going from, putting the second island at the far end"
       }
      ],
      "parts": [
       {
-       "words": "island",
-       "gives": "I",
-       "note": "I = island, a map abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island",
+         "at": 42,
+         "gives": "I",
+         "note": "I is the map abbreviation for island"
+        },
+        {
+         "words": "island",
+         "at": 52,
+         "gives": "I",
+         "note": "I again for island"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "going from island to island",
-         "note": "the result runs from one I to another I"
+         "text": "on board",
+         "at": 15,
+         "note": "on board means inside a vessel, so M is taken aboard the word for cruise"
         }
        ],
        "parts": [
         {
          "words": "cruise",
+         "at": 24,
          "gives": "SAIL",
          "note": "to cruise is to sail"
         },
         {
          "words": "married",
-         "gives": "M",
-         "note": "m = married, as on forms"
+         "at": 7,
+         "gives": "M"
         }
        ]
-      },
-      {
-       "words": "island",
-       "gives": "I",
-       "note": "I = island again"
       }
      ]
     },
     "explanation": {
-     "surface": "A married Muslim taking a cruise that hops between islands.",
-     "walkthrough": "The Ismailis are a branch of Shia Islam, led by the Aga Khan.",
-     "definitionFit": "An Ismaili is a member of a Shia Muslim sect."
+     "surface": "A newly married couple take a cruise, hopping from one island to the next.",
+     "walkthrough": "M goes inside SAIL to give SMAIL, which then sits between two Is.",
+     "definitionFit": "The Ismailis are a branch of Shia Islam, so an Ismaili is a member of a Muslim community."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cruise"
     }
