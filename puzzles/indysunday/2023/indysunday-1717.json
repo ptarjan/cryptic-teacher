@@ -156,40 +156,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOCUM",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "a cut word has been trimmed, so its final letter is lopped off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 20,
+         "note": "cut means trimmed, so the last letter is removed"
+        }
+       ],
        "parts": [
         {
          "words": "crazy American",
-         "gives": "LOC",
-         "note": "LOCO is American slang for crazy; trimmed of its last letter"
+         "at": 5,
+         "gives": "LOCO",
+         "note": "loco is American slang for crazy"
         },
         {
-         "words": "I don't know what to say!",
-         "gives": "UM",
-         "note": "the hesitant noise of someone lost for words"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "I don't know what to say!",
+       "at": 25,
+       "gives": "UM",
+       "note": "um is the noise of someone lost for words"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is lost for words about a mad American temporary worker who has been sacked.",
-     "walkthrough": "'Cut' looks like a sacking in the story but only trims a letter. LOCO is American slang, hence 'American'.",
-     "definitionFit": "A locum is a doctor or professional standing in for an absent colleague, a stand-in worker on short contract."
+     "surface": "Someone is lost for words about a mad American temporary worker being sacked.",
+     "walkthrough": "'cut' docks LOCO to LOC. 'Temp' looks like temperature or an agency worker; here it is a stand-in doctor.",
+     "definitionFit": "A locum is a doctor or cleric standing in temporarily for another, a temp in a professional post."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cut"
     }
@@ -270,12 +274,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THEPAST",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece is put within another"
+       "at": 8,
+       "note": "in says the old man goes inside the letters that follow"
       }
      ],
      "parts": [
@@ -284,53 +287,53 @@
        "indicators": [
         {
          "text": "on",
-         "note": "in a down clue one piece sitting on another is placed above it"
+         "at": 19,
+         "note": "in a down clue, on means placed above, so the article sits over the next letters"
         }
        ],
        "parts": [
         {
          "words": "article",
+         "at": 11,
          "gives": "THE",
-         "note": "the definite article"
-        },
-        {
-         "words": "Old man",
-         "gives": "PA",
-         "note": "pa is an informal word for father"
+         "note": "the is the definite article"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "ST",
          "indicators": [
           {
            "text": "leaders'",
-           "note": "leaders go at the front, so only the opening letters of the words are kept"
+           "at": 35,
+           "note": "leaders means the first letters of the words several and Tory"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "several Tory",
-           "gives": "ST",
-           "select": "first",
-           "note": "first letters of the two words"
+           "at": 22,
+           "note": "the first letters of several and Tory are S and T"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Old man",
+       "at": 0,
+       "gives": "PA",
+       "note": "pa is an informal word for father, one's old man"
       }
      ]
     },
     "explanation": {
-     "surface": "A dad writes a piece on the history of several Conservative leaders.",
-     "walkthrough": "In a down light the article sits on top of the initials, and the father slots in between. The question mark flags that history is only one way to describe it.",
-     "definitionFit": "Bygone times collectively are what history studies, so the phrase is a fair if loose equivalent."
+     "surface": "A father appears in a newspaper piece about the record of several Conservative leaders.",
+     "walkthrough": "THE stacked 'on' ST, from the 'leaders' of 'several Tory', takes PA 'in' the middle. The question mark marks the past as a playful stand-in for history.",
+     "definitionFit": "The past is everything that has already happened, which is what history records."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaders'"
+     "misdirectedWord": "article"
     }
    }
   },
@@ -826,41 +829,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APPOINT",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 4,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "infused with",
+         "at": 12,
+         "note": "infused with means having something soaked into it, so the drink takes the other letters inside"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "drink",
+         "at": 6,
+         "gives": "PINT",
+         "note": "a pint is a drink, a pint of beer"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "infused with",
-           "note": "what is infused is steeped inside, so one piece goes within another"
+           "text": "mostly",
+           "at": 29,
+           "note": "mostly means most of the word, so its last letter goes"
           }
          ],
          "parts": [
           {
-           "words": "drink",
-           "gives": "PINT",
-           "note": "a pint of beer"
+           "words": "pop",
+           "at": 25,
+           "gives": "POP",
+           "note": "pop is the word taken as written before trimming"
           },
           {
-           "words": "pop",
-           "gives": "PO",
-           "note": "the word trimmed of its last letter"
+           "gives": "P"
           }
          ]
         }
@@ -869,9 +878,9 @@
      ]
     },
     "explanation": {
-     "surface": "Mix a drink with a splash of fizzy soda.",
-     "walkthrough": "'Fix a drink' looks like bartending, but 'Fix' alone is the definition, and the drink is a glass of beer.",
-     "definitionFit": "To fix a date or time is to settle or set it, which is one sense of appoint."
+     "surface": "A beer laced with fizzy soda, almost.",
+     "walkthrough": "'infused with' has the drink take the trimmed pop inside it. 'Fix' looks like a noun for a dose; it is the verb, to settle on.",
+     "definitionFit": "To appoint a time or place is to settle or fix it; appoint is also to name someone to a post."
     },
     "features": {
      "answerInScene": false,
