@@ -394,35 +394,52 @@
      "indicators": [
       {
        "text": "featured in",
-       "note": "a feature appears within a show, so these letters appear within the performances"
+       "at": 17,
+       "note": "the pieces are placed inside the performances word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "performances",
+       "at": 29,
+       "gives": "ACTS",
+       "note": "acts are performances"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "performances",
-         "gives": "ACTS",
-         "note": "acts = performances; it wraps round the two chunks above, split AC…TS"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Most of",
+           "at": 0,
+           "note": "most of a word drops its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "group",
+           "at": 8,
+           "gives": "COMPANY",
+           "note": "a company is a group of people"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         },
         {
          "words": "is",
-         "note": "used as it stands, after the shortened group"
+         "at": 14
         }
        ]
-      },
-      {
-       "words": "Most of group",
-       "gives": "COMPAN",
-       "note": "COMPANY without its last letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A music group's line-up mostly appears in the concerts, and the clue cheers them as musicians.",
-     "walkthrough": "The definition sits at the end after the dash; 'they're musicians' describes the people, so the plural answer fits.",
-     "definitionFit": "Players who support a soloist or singer, typically at the piano, are a kind of performer of music."
+     "surface": "An excited note that much of the band appears in the shows.",
+     "definitionFit": "Accompanists are players who support a soloist or singer."
     },
     "features": {
      "answerInScene": true,
@@ -872,45 +889,41 @@
      "indicators": [
       {
        "text": "prepared",
-       "note": "a dish is prepared by working its ingredients, and these letters are worked into a new order"
+       "at": 18,
+       "note": "prepared like a dish in a kitchen, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "crab",
+       "at": 8
+      },
+      {
+       "words": "dish",
+       "at": 13
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "in the middle",
-         "note": "only the letter in the middle of 'thyme' goes in"
+         "at": 38,
+         "note": "the central letter of the herb is taken"
         }
        ],
        "parts": [
         {
-         "words": "crab dish",
-         "note": "eight letters to rearrange"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "Y",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "thyme in the middle",
-           "gives": "Y",
-           "select": "middle",
-           "note": "the middle letter of THYME"
-          }
-         ]
+         "words": "thyme",
+         "at": 32,
+         "note": "its middle letter is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: crab cooked with thyme, and the result is monstrous.",
-     "walkthrough": "The cooking surface hides a Greek myth: the answer is the whirlpool facing Scylla across the strait Odysseus sailed.",
-     "definitionFit": "In Greek myth she is a sea creature who swallows the water three times a day, making a deadly whirlpool."
+     "surface": "A recipe for crab with thyme in the centre.",
+     "definitionFit": "Charybdis was the whirlpool monster of Greek myth facing Scylla."
     },
     "features": {
      "answerInScene": false,
@@ -1168,45 +1181,43 @@
      "indicators": [
       {
        "text": "following",
-       "note": "the wrongdoing comes after, following, the initials"
+       "at": 19,
+       "note": "sin comes after the initial letters"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "VOTE",
        "indicators": [
         {
          "text": "at first",
-         "note": "only what comes first in each word, its initial letter, is taken"
+         "at": 61,
+         "note": "the first letters of the four words are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "various other terrible examples at first",
-         "gives": "VOTE",
-         "select": "first",
-         "note": "first letters of Various Other Terrible Examples"
+         "words": "various other terrible examples",
+         "at": 29
         }
        ]
       },
       {
        "words": "to do wrong",
+       "at": 7,
        "gives": "SIN",
-       "note": "to sin = to do wrong"
+       "note": "to sin is to do wrong"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that a ballot went wrong, following a string of other bad cases.",
-     "walkthrough": "'Following' puts SIN after the initials even though the clue gives it first.",
-     "definitionFit": "A plain synonym: to choose someone for office by ballot."
+     "surface": "Choosing to misbehave after seeing many bad examples.",
+     "definitionFit": "To vote in is to choose someone for office by ballot."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terrible"
     }
    }
   },
@@ -2516,38 +2527,39 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "the old car stands outside, around, the pieces that follow"
+       "at": 28,
+       "note": "the old car goes outside, enclosing the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "old car",
-         "gives": "CRATE",
-         "note": "a crate is slang for a decrepit old car; it opens after its C"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
-        }
-       ]
+       "words": "old car",
+       "at": 20,
+       "gives": "CRATE",
+       "note": "a crate is slang for a battered old car"
       },
       {
-       "words": "library",
-       "gives": "LIB",
-       "note": "lib. is an abbreviation for library"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 36
+        },
+        {
+         "words": "library",
+         "at": 38,
+         "gives": "LIB"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tinker with a banger parked outside a library.",
-     "walkthrough": "An old crate is slang for a worn-out car.",
-     "definitionFit": "To set an instrument against a standard and correct its readings is to fine-tune it."
+     "surface": "Tinkering with a banger parked outside a library.",
+     "definitionFit": "To calibrate is to adjust an instrument so its readings are accurate."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "car"
     }
@@ -2776,40 +2788,36 @@
      "parts": [
       {
        "words": "formal",
+       "at": 6,
        "gives": "PRIM",
-       "note": "prim = stiffly formal"
+       "note": "prim means stiffly formal and proper"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "AL",
        "indicators": [
         {
          "text": "at the front",
-         "note": "only what stands at the front of each word, its first letter, is used"
+         "at": 26,
+         "note": "the front letters of the two words are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "attire, lacy at the front",
-         "gives": "AL",
-         "select": "first",
-         "note": "first letters of Attire and Lacy"
+         "words": "attire, lacy",
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plain, formal outfit with lace at the front.",
-     "walkthrough": "'Formal attire' wants to be one phrase, evening wear; 'formal' is PRIM and 'attire' gives only its A.",
-     "definitionFit": "A plain synonym: primary, fundamental, as in a primal instinct."
+     "surface": "A dress code note about formal wear with lace at the front.",
+     "definitionFit": "Primal means fundamental or primary, at the most elemental level."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "attire"
+     "misdirectedWord": "formal"
     }
    }
   },
@@ -3105,56 +3113,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "screened",
-       "note": "to screen is to shield, so the surgeon and the other fodder enclose the body letters"
+       "text": "randomly",
+       "at": 35,
+       "note": "the letters are put in a random new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Surgeon",
+       "at": 0
+      },
+      {
+       "words": "screened",
+       "at": 8
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
          "text": "odd parts of",
-         "note": "the odd-numbered letters of the word are taken"
+         "at": 17,
+         "note": "the odd-numbered letters, first and third, are taken"
         }
        ],
        "parts": [
         {
-         "words": "Surgeon",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "BD",
-         "indicators": [
-          {
-           "text": "randomly",
-           "note": "at random, so the letters come out in no set order"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "odd parts of body",
-           "gives": "BD",
-           "select": "alternate",
-           "note": "the odd letters of BoDy"
-          }
-         ]
-        },
-        {
-         "words": "screened",
-         "note": "anagram fodder too"
+         "words": "body",
+         "at": 30,
+         "note": "its odd letters are B and D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A surgeon scans some strange areas of a patient's body looking for skin injuries.",
-     "walkthrough": "'Screened' serves twice: in the surface it is a medical scan, in the wordplay both letters and a hint that the B and D sit among them.",
-     "definitionFit": "Burns of this grade go through the outer layer into the dermis, so they are injuries to the skin."
+     "surface": "A surgeon carrying out random screening of a patient's body.",
+     "definitionFit": "Second-degree burns are injuries that damage the outer and underlying layers of skin."
     },
     "features": {
      "answerInScene": true,

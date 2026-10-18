@@ -778,34 +778,37 @@
      "indicators": [
       {
        "text": "to take in",
-       "note": "taking something in means holding it inside"
+       "at": 6,
+       "note": "the quick word takes the other letters into its middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Quick",
-         "gives": "FLEET",
-         "note": "fleet of foot means quick"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Quick",
+       "at": 0,
+       "gives": "FLEET",
+       "note": "fleet means swift or quick"
       },
       {
-       "words": "bit of old cash",
-       "gives": "MARK",
-       "note": "the mark was the German currency before the euro"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17
+        },
+        {
+         "words": "bit of old cash",
+         "at": 19,
+         "gives": "MARK",
+         "note": "the mark was the German currency before the euro"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Hurrying to grab some old coins at a jumble sale.",
-     "definitionFit": "A street market of stalls selling second-hand goods, notably cheap used garments."
+     "definitionFit": "A flea market is a street market selling second-hand goods such as used clothing."
     },
     "features": {
      "answerInScene": true,
@@ -997,31 +1000,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BANNERAD",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first letters are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "conducted a terrible",
-       "gives": "BANNERAD",
-       "soundsLike": "BAN A RAD",
-       "note": "conducted is ran and terrible is bad: ran a bad, with the opening sounds swapped"
+       "op": "homophone",
+       "spelt": "RANNE",
+       "parts": [
+        {
+         "words": "conducted a",
+         "at": 22,
+         "gives": "RANA",
+         "note": "to run something is to conduct it, so ran a, which said quickly is heard as one word spelt RANNE"
+        }
+       ]
+      },
+      {
+       "words": "terrible",
+       "at": 34,
+       "gives": "BAD",
+       "note": "bad means terrible"
       }
      ]
     },
     "explanation": {
-     "surface": "A political campaign that was badly run.",
-     "definitionFit": "An online advertisement strip across a web page is a common tool of marketing and political campaigns."
+     "surface": "Someone ran a dreadful campaign.",
+     "walkthrough": "RAN A BAD with the opening sounds swapped becomes BAN A RAD, which is said just like the answer.",
+     "definitionFit": "A banner ad is an advertisement strip across a web page, used in campaigns."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "conducted"
     }
    }
