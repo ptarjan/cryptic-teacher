@@ -885,56 +885,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Having consumed",
+       "at": 0,
+       "note": "having consumed means swallowing something, so one piece is put inside the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Having consumed",
-         "note": "the jumbled word swallows the letter"
-        },
-        {
          "text": "drunk",
-         "note": "a drunk's letters stagger into a new order"
+         "at": 37,
+         "note": "drunk suggests letters staggering out of order, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "the drunk",
-         "gives": "HTE",
-         "note": "THE jumbled"
-        },
+         "words": "the",
+         "at": 33,
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "last of",
-           "note": "the last of anything is its final part, here the closing letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "last of sangria",
-           "gives": "A",
-           "select": "last",
-           "note": "final letter of sangria, inside H…TE"
-          }
-         ]
+         "text": "last of",
+         "at": 16,
+         "note": "last of picks out only the final letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sangria",
+         "at": 24,
+         "note": "only its final letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk, having downed the last of the sangria, is unable to stay upright.",
-     "walkthrough": "'The drunk can't stand' is a complete picture of someone legless; 'can't stand' really means detest.",
-     "definitionFit": "An idiom: saying you cannot stand someone means you loathe or detest them."
+     "surface": "A drunk who has finished off the sangria can no longer stay on their feet.",
+     "walkthrough": "'drunk' mixes THE into HTE, and 'Having consumed' puts A, the last letter of sangria, inside it. 'can't stand' reads as unable to stay upright, but it means to loathe.",
+     "definitionFit": "If you can't stand something you detest it, so the verb for strong dislike fits."
     },
     "features": {
      "answerInScene": false,
@@ -1118,49 +1117,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "METHANE",
+     "op": "container",
      "indicators": [
       {
-       "text": "explosive",
-       "note": "something explosive blows apart, scattering the letters of the word before it"
+       "text": "parted by",
+       "at": 5,
+       "note": "parted by means split apart with something placed in the gap, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Hair",
+       "at": 0,
+       "gives": "MANE",
+       "note": "a mane is a long growth of hair, as on a horse or lion"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "parted by",
-         "note": "the first word is split open by the second going into it"
+         "text": "explosive",
+         "at": 19,
+         "note": "explosive suggests letters blown apart and scattered, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Hair",
-         "gives": "MANE",
-         "note": "a mane is a head of hair"
-        },
-        {
-         "words": "the explosive",
-         "gives": "ETH",
-         "note": "THE blown apart, placed after the first letter of MANE"
+         "words": "the",
+         "at": 15,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hair blown apart by an explosive gas.",
-     "walkthrough": "'Explosive gas' reads as one phrase and a natural definition, but 'explosive' is working on 'the'; the definition is 'gas' alone.",
-     "definitionFit": "A definition by category: the odourless fuel of natural gas and coal-mine firedamp is a gas."
+     "surface": "A dramatic warning that someone's hair is parted by an explosive gas.",
+     "walkthrough": "'explosive' turns THE into ETH, and MANE is 'parted by' it. 'explosive gas' looks like one phrase, but 'explosive' belongs to the wordplay.",
+     "definitionFit": "Methane is a flammable natural gas, the main component of the fuel piped to homes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "parted"
+     "misdirectedWord": "explosive"
     }
    }
   },
@@ -1552,43 +1551,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPECULATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "cryptic",
-       "note": "the word is disguised, its letters jumbled"
+       "text": "to pen",
+       "at": 15,
+       "note": "to pen is to enclose, as animals in a pen, so one piece is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "rush",
+       "at": 10,
+       "gives": "SPATE",
+       "note": "a spate is a sudden rush or flood"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to pen",
-         "note": "to pen animals is to shut them in an enclosure, so one word surrounds another"
+         "text": "cryptic",
+         "at": 22,
+         "note": "cryptic means puzzling or obscure, signalling the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "rush",
-         "gives": "SPATE",
-         "note": "a spate is a rush or flood"
-        },
-        {
-         "words": "cryptic clue",
-         "gives": "ECUL",
-         "note": "CLUE jumbled, inside SP…ATE"
+         "words": "clue",
+         "at": 30,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setter taking a chance by dashing off a cryptic clue.",
-     "walkthrough": "'Pen' looks like writing; it means enclose.",
-     "definitionFit": "A plain synonym from finance: risking money on shares or property in hope of profit is a bet."
+     "surface": "A crossword setter in a hurry gambles on dashing off a cryptic clue.",
+     "walkthrough": "'cryptic' rearranges CLUE into ECUL, and SPATE (a rush) is made 'to pen' it. 'pen' looks like writing the clue; it means enclose.",
+     "definitionFit": "To speculate is to make a risky investment in the hope of profit, a form of gambling."
     },
     "features": {
      "answerInScene": false,
@@ -1623,45 +1623,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first piece goes inside the second"
+       "at": 17,
+       "note": "in means placed inside the letters that follow"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "PO",
        "indicators": [
         {
          "text": "centre of",
-         "note": "the centre of a word is its middle, here the two innermost letters"
+         "at": 20,
+         "note": "centre of asks for the two middle letters of the six-letter place name"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of Napoli",
-         "gives": "PO",
-         "select": "middle",
-         "note": "middle two letters of Napoli"
+         "words": "Napoli",
+         "at": 30,
+         "note": "the Italian name for Naples; only its two middle letters are used"
         }
        ]
       },
       {
        "words": "sweltering",
+       "at": 6,
        "gives": "HOT",
-       "note": "hot, inside P…O"
+       "note": "sweltering weather is very hot"
       }
      ]
     },
     "explanation": {
-     "surface": "It is still baking hot in the middle of Naples.",
-     "walkthrough": "'Still' reads as an adverb, as in still hot; it is the noun, a still photograph.",
-     "definitionFit": "A still is a single photograph, often from a film."
+     "surface": "It is still sweltering in the heart of Naples.",
+     "walkthrough": "'centre of' gives PO from NAPOLI, and HOT goes 'in' it. 'Still' looks like an adverb meaning yet; it is a noun for a single photograph.",
+     "definitionFit": "A still is a single static photograph, especially one taken from a film."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Still"
     }
    }

@@ -821,31 +821,34 @@
      "indicators": [
       {
        "text": "leaves",
-       "note": "whatever leaves goes away, so those letters are taken out"
+       "at": 7,
+       "note": "leaves means goes away from, so these letters are taken out of the place name"
       }
      ],
      "parts": [
       {
        "words": "northwest London neighbourhood",
+       "at": 14,
        "gives": "PINNER",
-       "note": "Pinner is a suburb in the London Borough of Harrow"
+       "note": "Pinner is a suburb in the London Borough of Harrow, in northwest London"
       },
       {
        "words": "Person",
+       "at": 0,
        "gives": "PER",
-       "note": "per, as in so much per head, stands for each person"
+       "note": "per. is a dictionary abbreviation for person (as in grammar)"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone moving out of a London suburb, and a pub nearby.",
-     "walkthrough": "Pinner is a residential district in northwest London; take P, E and R from it. 'Leaves' looks like a noun or a departure, but it is the removal signal.",
-     "definitionFit": "An inn is a traditional tavern offering drink and often lodging, so it is a kind of public house."
+     "surface": "Someone moves out of a northwest London suburb, and the clue ends with a local pub.",
+     "walkthrough": "'leaves' takes P, E and R out of PINNER, in order but not side by side, leaving the middle letters. Pinner is a suburb of northwest London.",
+     "definitionFit": "An inn is a public house offering drink and often lodging, the same thing as a pub."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "Person"
     }
    }
   },
@@ -1081,32 +1084,30 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ARC",
      "indicators": [
       {
        "text": "Centre of",
-       "note": "the centre of a word is its middle, so its outer letters are discarded"
+       "at": 0,
+       "note": "centre of asks for the middle of the word, dropping its first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "demonstration",
-       "gives": "ARC",
-       "select": "middle",
-       "note": "a march is a street demonstration, and its middle three letters are kept"
+       "at": 10,
+       "gives": "MARCH",
+       "note": "a march is a protest demonstration through the streets"
       }
      ]
     },
     "explanation": {
-     "surface": "The heart of a protest rally in Bow, a district of east London.",
-     "walkthrough": "Bow looks like the east London district, but it is the definition: a curved shape. The demonstration must first become a five-letter word for a protest march.",
-     "definitionFit": "A bow is a curved shape, like the curve of a drawn archery weapon, which is exactly an arc."
+     "surface": "Something at the heart of a protest in Bow, the East London district.",
+     "walkthrough": "Bow reads as the East London district, but it is the definition: a curve. The middle of MARCH, without its outer letters, gives the answer.",
+     "definitionFit": "A bow is a curved shape, like an archer's bow, and an arc is a curved line."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Bow"
     }
    }
@@ -1831,51 +1832,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Rutland Water?",
+      "text": "Rutland Water",
       "at": 42
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESERVOIR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "After heading off",
-       "note": "with its head gone, a word loses its first letter"
+       "text": "to swim",
+       "at": 31,
+       "note": "swimming letters move about freely, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "swim",
-         "note": "things that swim move about freely, so the letters drift into a new order"
+         "text": "After heading off",
+         "at": 0,
+         "note": "with its heading off, the word arrive loses its first letter"
         }
        ],
        "parts": [
         {
          "words": "arrive",
-         "gives": "RRIVE",
-         "note": "the word without its first letter"
+         "at": 19,
+         "note": "taken as written before losing its first letter"
         },
         {
-         "words": "sore",
-         "note": "taken as written"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "sore",
+       "at": 26,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A tired walker arriving with aching feet, going for a dip in an English lake.",
-     "walkthrough": "Rutland Water is one of England's largest artificial lakes, in the small county of Rutland in the East Midlands.",
-     "definitionFit": "Rutland Water is a man-made lake holding a water supply, an example of the general term, hence the question mark."
+     "surface": "Someone gets to Rutland Water aching and goes for a swim.",
+     "walkthrough": "'After heading off' cuts the A from ARRIVE to leave RRIVE; 'to swim' mixes RRIVE with SORE. Rutland Water is a large man-made lake in the English East Midlands.",
+     "definitionFit": "Rutland Water is a large man-made lake storing water for supply, an example of a reservoir, hence the question mark."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "swim"
     }
    }

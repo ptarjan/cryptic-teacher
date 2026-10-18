@@ -233,41 +233,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NARRATIVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the middle letters are taken out, leaving only the ends"
+       "text": "cracking",
+       "at": 21,
+       "note": "cracking means breaking into, so these letters are put inside the word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "cracking",
-         "note": "to crack something is to break into it, so one piece goes inside the other"
-        }
-       ],
+       "words": "national",
+       "at": 30,
+       "gives": "NATIVE",
+       "note": "a native of a country is one of its nationals"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "national",
-         "gives": "NATIVE",
-         "note": "a national of a country is a native of it"
+         "words": "A",
+         "at": 0
         },
         {
-         "op": "charade",
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "heartless",
+           "at": 2,
+           "note": "heartless means the inner letters are removed, keeping only the two ends of the word"
+          }
+         ],
          "parts": [
           {
-           "words": "A",
-           "note": "taken as written"
-          },
-          {
            "words": "reporter",
-           "gives": "RR",
-           "note": "the word with all its middle letters removed"
+           "at": 12,
+           "note": "only its first and last letters are kept"
           }
          ]
         }
@@ -276,12 +277,12 @@
      ]
     },
     "explanation": {
-     "surface": "An unfeeling journalist breaks into a citizen's bank account.",
-     "walkthrough": "'Account' suggests a bank, but it means a story. The 's is read as 'is', linking wordplay to definition.",
-     "definitionFit": "A narrative is a story or report of events, the same sense as giving an account of something."
+     "surface": "A callous journalist breaks open a citizen's story.",
+     "walkthrough": "A plus the outside of 'reporter' (RR, as 'heartless' says) gives ARR, which goes 'cracking' NATIVE after its N.",
+     "definitionFit": "A narrative is a spoken or written account of connected events, a story."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "account"
     }
@@ -515,12 +516,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NONSENSE",
      "indicators": [
       {
-       "text": "eating",
-       "note": "to eat something is to take it inside, so one piece swallows another"
+       "text": "eating it",
+       "at": 38,
+       "note": "eating means swallowing, and it points back to the side, which goes inside"
       }
      ],
      "parts": [
@@ -532,38 +532,43 @@
          "indicators": [
           {
            "text": "bit of",
-           "note": "a bit of a word is a small part of it, here its opening letter"
+           "at": 14,
+           "note": "bit of takes just a small piece of the word, its opening letter"
           }
          ],
          "parts": [
           {
            "words": "nauseous",
-           "note": "the opening letter of the word"
+           "at": 21,
+           "note": "only its first letter is used"
           }
          ]
         },
         {
-         "words": "side",
-         "gives": "ON",
-         "note": "the on side is one half of a cricket field; 'it' later points back to this"
-        },
-        {
          "words": "feeling",
+         "at": 30,
          "gives": "SENSE",
          "note": "a sense is a feeling, as in a sense of dread"
         }
        ]
+      },
+      {
+       "words": "side",
+       "at": 8,
+       "gives": "ON",
+       "note": "on is the leg side in cricket, one of the two sides of the field"
       }
      ]
     },
     "explanation": {
-     "surface": "A side dish of rhubarb brings on a slightly queasy feeling in the diner.",
-     "walkthrough": "'Rhubarb' looks like the vegetable, but it is British slang for rubbish talk. N joined to SENSE eats 'it', meaning the side already named.",
-     "definitionFit": "In British slang rhubarb means meaningless talk or rubbish, from the word actors mutter to fake crowd noise."
+     "surface": "A side dish of rhubarb brings on a twinge of nausea once eaten.",
+     "walkthrough": "N and SENSE are eating 'it', the ON from 'side'. On is the leg side in cricket. 'Rhubarb' looks like the vegetable; it is slang for nonsense.",
+     "definitionFit": "Rhubarb is British slang for nonsense or meaningless talk, from the word actors murmur to fake crowd noise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Rhubarb"
     }
    }

@@ -1346,31 +1346,32 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TAMPS",
+     "op": "cycling",
      "indicators": [
       {
        "text": "first to last",
-       "note": "first to last tells you to move the opening letter to the end"
+       "at": 36,
+       "note": "first to last tells the solver to move the opening letter of the word to the end"
       }
      ],
      "parts": [
       {
-       "words": "make an impression",
+       "words": "to make an impression",
+       "at": 13,
        "gives": "STAMP",
-       "note": "to stamp is to make an impression"
+       "note": "to stamp is to make an impression, as with a seal or die"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone presses down hard to leave a mark.",
-     "walkthrough": "The S of STAMP moves to the back.",
-     "definitionFit": "To tamp is to pack something down firmly, as with tobacco in a pipe."
+     "surface": "Someone presses down firmly to leave a mark, working from start to finish.",
+     "walkthrough": "'first to last' moves the S at the front of STAMP to the back. 'first to last' reads like 'from beginning to end'; it is an instruction to move a letter.",
+     "definitionFit": "To tamp is to pack something down with light blows, as tobacco in a pipe or earth round a post."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
     }
    }
   },
@@ -1642,52 +1643,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALDOSE",
+     "op": "composite",
      "indicators": [
       {
        "text": "bad",
-       "note": "bad suggests something gone wrong, so the remaining letters are jumbled"
+       "at": 20,
+       "note": "bad lemonade has gone off, a hint that its letters are spoiled and rearranged"
+      },
+      {
+       "text": "putting off",
+       "at": 25,
+       "note": "putting off means setting aside, so these letters are removed from the pool"
+      },
+      {
+       "text": "somehow",
+       "at": 41,
+       "note": "somehow says the remaining letters fall into some new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALDOSE",
-       "indicators": [
-        {
-         "text": "putting off",
-         "note": "putting off means sending away, so some letters are removed from the drink"
-        },
-        {
-         "text": "somehow",
-         "note": "somehow warns that the removed letters are not together but scattered through the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "lemonade's",
-         "note": "taken as written"
-        },
-        {
-         "words": "men",
-         "note": "taken as written"
-        }
-       ]
+       "words": "lemonade's",
+       "at": 9,
+       "note": "taken as written, the letters of the whole word including the S"
+      },
+      {
+       "words": "men",
+       "at": 37,
+       "note": "taken as written, the letters taken away from the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "Sugar in the lemonade has gone off, discouraging the men somehow.",
-     "walkthrough": "Take M, E and N out of LEMONADES to leave LOADES, then rearrange.",
-     "definitionFit": "An aldose is a monosaccharide containing an aldehyde group, such as glucose, so a kind of sugar."
+     "surface": "A complaint that the sugar in some lemonade has made it bad enough to put men off it.",
+     "walkthrough": "Take the letters of LEMONADES, remove M, E and N as 'putting off men' says, and rearrange the remaining LOADES; both 'bad' and the closing adverb mark the anagram.",
+     "definitionFit": "An aldose is a monosaccharide whose molecule contains an aldehyde group, such as glucose, so it is a kind of sugar."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "putting"
+     "misdirectedWord": "bad"
     }
    }
   },
