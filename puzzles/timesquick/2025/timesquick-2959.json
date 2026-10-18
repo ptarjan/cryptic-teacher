@@ -47,56 +47,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOCTRINE",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the final letter of the word is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Popular medic",
+       "at": 0,
+       "gives": "DOC",
+       "note": "doc is the popular, informal word for a doctor"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to take in",
+         "at": 33,
+         "note": "to take in is to hold something inside, so the shortened word surrounds the letter for new"
+        }
+       ],
        "parts": [
         {
-         "words": "Popular medic",
-         "gives": "DOC",
-         "note": "doc is the familiar, everyday word for a doctor"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "to take in",
-           "note": "taking something in means holding it inside, so one piece goes within another"
+           "text": "endlessly",
+           "at": 23,
+           "note": "endlessly means the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "attempts",
-           "gives": "TRIE",
-           "note": "TRIES, meaning attempts, with its last letter dropped"
+           "at": 14,
+           "gives": "TRIES",
+           "note": "tries are attempts"
           },
           {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the standard abbreviation for new"
+           "gives": "S"
           }
          ]
+        },
+        {
+         "words": "new",
+         "at": 44,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-liked GP keeps trying to learn about some novel form of education.",
-     "walkthrough": "'Popular' is not praise here: it marks the informal, everyday name for a doctor, and 'endlessly' trims only the word it follows.",
-     "definitionFit": "A doctrine is a body of principles taught and held by a church, party or school of thought."
+     "surface": "A well-liked doctor keeps trying to absorb a fresh medical teaching.",
+     "walkthrough": "'endlessly' cuts TRIES to TRIE, and 'to take in' puts N inside it to make TRINE after DOC.",
+     "definitionFit": "A doctrine is a body of principles taught and held, so it is a teaching in the sense of a tenet."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Popular"
     }
@@ -302,26 +307,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SCAM",
      "indicators": [
       {
        "text": "failing to complete",
-       "note": "not completing a word means stopping short, so its final letter is lost"
+       "at": 13,
+       "note": "not finishing the word, so its last letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "Young rascal",
-       "gives": "SCAM",
-       "note": "SCAMP, a mischievous youngster, missing its last letter"
+       "at": 0,
+       "gives": "SCAMP",
+       "note": "a scamp is a mischievous child"
+      },
+      {
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky youngster tries a con trick but can't pull it off.",
-     "walkthrough": "Drop the final P from SCAMP.",
-     "definitionFit": "A scam is a dishonest scheme to cheat people out of money, a fraud or con."
+     "surface": "A cheeky kid's con that never quite comes off.",
+     "walkthrough": "'failing to complete' drops the last letter of SCAMP.",
+     "definitionFit": "A scam is a dishonest scheme, a fraud or con, which is what a swindle is."
     },
     "features": {
      "answerInScene": true,

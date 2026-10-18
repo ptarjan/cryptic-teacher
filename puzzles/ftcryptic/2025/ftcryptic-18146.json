@@ -1468,34 +1468,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ESCAPE",
      "indicators": [
       {
        "text": "completely unlimited",
-       "note": "with all limits removed, both words lose their outer letters at each end"
+       "at": 10,
+       "note": "with no limits at all, each word loses both its edges, first and last letters"
       }
      ],
      "parts": [
       {
-       "words": "Tesco",
-       "note": "Tesco is a big British supermarket chain; its first and last letters go"
+       "words": "Tesco paper",
+       "at": 31,
+       "note": "the two words as written, before their edges are trimmed"
       },
       {
-       "words": "paper",
-       "note": "taken as written; its first and last letters go"
+       "gives": "TOPR"
       }
      ]
     },
     "explanation": {
-     "surface": "An advert offering a supermarket's newspaper totally free of charge.",
-     "walkthrough": "'Get free' looks like a shopping offer but is the definition; Tesco is a large UK supermarket chain.",
-     "definitionFit": "To escape is to break loose or gain liberty from confinement."
+     "surface": "An offer to grab a supermarket newspaper for nothing, with no restrictions.",
+     "walkthrough": "'completely unlimited' sounds like a shopping deal, but it trims both ends of each word: tESCo and pAPEr.",
+     "definitionFit": "To escape is to break loose from confinement, which is getting free."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "free"
+     "misdirectedWord": "unlimited"
     }
    }
   },
@@ -1576,66 +1575,73 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CAFEAULAIT",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "loaded in",
-       "note": "cargo loaded in a port is put inside it, so these pieces go within the port's name"
+       "text": "for",
+       "at": 43,
+       "note": "for means in place of, so one letter swaps in where the other was"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "CAFEAULAIT",
+       "op": "container",
        "indicators": [
         {
-         "text": "time for small",
-         "note": "one letter stands in for another, the abbreviation for time replacing the one for small"
+         "text": "loaded in",
+         "at": 14,
+         "note": "loaded in means packed inside, as cargo is"
         }
        ],
        "parts": [
         {
-         "words": "Iron",
-         "gives": "FE",
-         "note": "Fe is the chemical symbol for iron"
-        },
-        {
-         "words": "gold",
-         "gives": "AU",
-         "note": "Au is the chemical symbol for gold"
-        },
-        {
          "words": "French port",
+         "at": 24,
          "gives": "CALAIS",
-         "note": "Calais is a French Channel port"
+         "note": "Calais is the ferry port in northern France"
         },
         {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the abbreviation for small, as on clothing labels"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Iron",
+           "at": 0,
+           "gives": "FE",
+           "note": "Fe is the chemical symbol for iron"
+          },
+          {
+           "words": "gold",
+           "at": 9,
+           "gives": "AU",
+           "note": "Au is the chemical symbol for gold"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 47,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing sizes"
+      },
+      {
+       "words": "time",
+       "at": 38,
+       "gives": "T"
       }
      ]
     },
     "spelling": "CAFÉ AU LAIT",
     "explanation": {
-     "surface": "Metal cargo is loaded at a French port, then it's time for a quick coffee.",
-     "walkthrough": "'There' ties the drink to France, so the definition is a French beverage; 'small' is not describing the drink but is the letter that gets replaced.",
-     "definitionFit": "Café au lait is French for coffee with milk, a drink served in France."
+     "surface": "Metals shipped through Calais, with a pause there for a quick drink.",
+     "walkthrough": "'there' points back to France: the drink is named in French. 'loaded in' puts FE AU into CALAIS, and 'for' swaps its S to T.",
+     "definitionFit": "Café au lait is French for coffee with milk, a drink as served in France."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Iron"
+     "aptDefinition": true,
+     "misdirectedWord": "small"
     }
    }
   },
