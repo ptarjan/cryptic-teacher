@@ -62,7 +62,7 @@ FIELDS = {
     "wordplay.fakeParts": lambda ann: V.fake_parts(ann.get("wordplay")),
     "wordplay.paddingLeaf": lambda ann: V.padding_leaves(ann.get("wordplay")),
     "wordplay.nestedContainer": lambda ann: V.nested_containers(ann.get("wordplay")),
-    "wordplay.anagramSynonym": lambda ann: V.anagram_synonyms(ann.get("wordplay")),
+    "wordplay.anagramSynonym": lambda ann, clue=None: V.anagram_synonyms(ann.get("wordplay"), ann, clue),
     "wordplay.misplacedIndicator": lambda ann: V.misplaced_indicators(ann.get("wordplay")),
     "wordplay.bareInitial": lambda ann: V.bare_initials(ann.get("wordplay")),
     "wordplay.deletionScope": lambda ann: V.deletion_scope(ann.get("wordplay")),
@@ -70,7 +70,7 @@ FIELDS = {
     "wordplay.deletionInside": lambda ann, clue=None: V.deletion_inside_component(ann.get("wordplay"), clue),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
-NEEDS_CLUE = {"wordplay.deletionInside"}
+NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym"}
 
 
 def _inner(p):

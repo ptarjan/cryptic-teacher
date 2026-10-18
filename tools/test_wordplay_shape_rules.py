@@ -175,6 +175,27 @@ check("a lone synonym scrambled (indirect anagram) is not", 0, v.anagram_synonym
     {"op": "anagram", "parts": [{"words": "arbitrator", "gives": "UMPIRE"}]}))
 check("a one-letter abbreviation beside fodder is not", 0, v.anagram_synonyms(
     {"op": "anagram", "parts": [{"op": "charade", "parts": [{"words": "lido"}, {"words": "southern", "gives": "S"}]}]}))
+check("a word given twice over is a literal doubling, not a synonym (IDENTITY ITIT)", 0, v.anagram_synonyms(
+    {"op": "anagram", "parts": [{"words": "deny"}, {"words": "it - twice", "gives": "ITIT"}]}))
+heard = {"op": "charade", "parts": [{"words": "detective", "gives": "DI"}, {"op": "anagram", "parts": [
+    {"words": "caught", "gives": "HEARD"}]}]}
+check("a lone synonym scrambled with a clue word left over is counted (DIEHARD)", 1, v.anagram_synonyms(
+    heard, {"wordplay": heard, "definitions": [{"text": "Reactionary"}]}, "Reactionary detective caught dropping heroin"))
+check("a lone synonym scrambled with every word claimed is not", 0, v.anagram_synonyms(
+    heard, {"wordplay": heard, "definitions": [{"text": "Reactionary"}]}, "Reactionary detective caught"))
+mean = {"op": "charade", "parts": [{"words": "Everyman", "gives": "ME"}, {"op": "regular", "indicators": [{"text": "not until the fourth"}],
+        "parts": [{"words": "a", "gives": "A"}]}, {"words": "round", "gives": "N"}]}
+check("a selection with an indicator over a one-letter word is counted (MEAN)", 1, v.wrong_role_indicators(mean))
+check("a selection over a longer word is not", 0, v.wrong_role_indicators(
+    {"op": "first", "indicators": [{"text": "primarily"}], "parts": [{"words": "Guard", "gives": "G"}]}))
+subst = {"op": "substitution", "unchecked": True, "gives": "GULES", "parts": [
+    {"words": "Guard", "gives": "G"}, {"words": "holds sway", "gives": "RULES"}]}
+check("an unchecked substitution of one end letter the pieces compute is verified", 0, len(v.unverified_unchecked(subst)))
+swap = {"op": "substitution", "unchecked": True, "gives": "WELLNESS", "parts": [
+    {"words": "points", "gives": "SW"}, {"words": "what paper shops do", "gives": "SELLNEWS"}]}
+check("an unchecked swap of two letters the pieces compute is verified", 0, len(v.unverified_unchecked(swap)))
+check("one whose result the pieces do not compute stays unchecked", 1, len(v.unverified_unchecked(
+    {**swap, "gives": "WELLNESX"})))
 check("a reversal indicator on a charade is misplaced", 1, v.misplaced_indicators(
     {"op": "charade", "indicators": [{"text": "returned"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
 check("a charade indicator on a charade is not", 0, v.misplaced_indicators(
@@ -254,8 +275,17 @@ check("a heart word taking the whole's own centre is not", 0,
       v.deletion_inside_component(del_one("heartless", "E", "AB", "CED"), "x heartless y"))
 check("half-cut over FAVE+LAGS taking GS, at the whole's end, is counted (sundaytimes-4834 21d)", 1,
       v.deletion_inside_component(del_one("half-cut", "GS", "FAVE", "LAGS"), "best-loved by half-cut lags"))
-check("a non-half indicator taking the whole's end is not", 0,
-      v.deletion_inside_component(del_one("losing", "GS", "FAVE", "LAGS"), "best-loved losing lags"))
+check("letters taken from the end of the last piece are counted too (round 6: FATAL, ODOROUS)", 1,
+      v.deletion_inside_component(del_one("finished early", "E", "FAT", "ALE"), "porter finished early after extra baggage"))
+check("letters that are one piece, the charade's end, are counted", 1,
+      v.deletion_inside_component(del_one("losing", "S", "FAVE", "LAGS", "S"), "best-loved lags losing s"))
+check("letters spread over two pieces are not", 0,
+      v.deletion_inside_component(del_one("losing", "EL", "FAVE", "LAGS"), "best-loved losing lags"))
+ach = {"op": "deletion", "indicators": [{"text": "disposing of"}], "parts": [
+    {"op": "charade", "parts": [{"words": "a", "gives": "A"}, {"words": "system", "gives": "CHING"}, {"words": "one", "gives": "I"}]},
+    {"gives": "I"}]}
+check("a piece added then removed is counted though its letter also sits in another piece (ACHING)", 1,
+      v.deletion_inside_component(ach, "A system of divination disposing of one longing"))
 check("letters that are a whole piece are counted: a piece added to be removed", 1, v.deletion_inside_component(
     {**arch, "parts": [arch["parts"][0], {"gives": "IDEA"}]}, clue=arch_clue))
 
