@@ -870,51 +870,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "his Frogs like this",
-      "at": 39
+      "text": "Frogs like this",
+      "at": 43,
+      "note": "Rana is the Latin word for frog and the name of the frog genus"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RANA",
+     "op": "composite",
      "indicators": [
       {
-       "text": "played about with",
-       "note": "playing about with something means messing it around, so these letters are shuffled"
+       "text": "played about",
+       "at": 21,
+       "note": "played about suggests letters toyed with and rearranged, here the playwright's name with some letters taken out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RANA",
+       "words": "Aristophanes",
+       "at": 0,
+       "note": "the Greek comic playwright, taken as written as the pool of letters"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 34,
+         "note": "with joins HIS to POETS as a second set of letters to take out of the pool"
+        }
+       ],
        "parts": [
         {
-         "words": "Aristophanes?",
-         "note": "the full set of letters, which the anagram must yield"
-        },
-        {
          "words": "Poet's",
-         "note": "letters that join the answer in the anagram"
+         "at": 14,
+         "note": "the letters of POETS are removed from the pool"
         },
         {
          "words": "his",
-         "note": "more letters joining the answer in the anagram"
+         "at": 39,
+         "note": "the letters of HIS are removed from the pool too"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the Greek playwright fooling with his comedy The Frogs.",
-     "walkthrough": "A compound anagram: POETS plus HIS plus the answer shuffle to ARISTOPHANES, so taking POETS and HIS out of that name leaves the answer. 'Like this' points at the missing piece.",
-     "definitionFit": "Rana is the Latin for frog and the name of the common frog genus, so the frogs in Aristophanes' play are of this kind."
+     "surface": "A literary question about Aristophanes, whose comedy The Frogs might have been toyed with by a poet.",
+     "walkthrough": "Take POET'S 'with' HIS out of ARISTOPHANES and the four letters left, rearranged as 'played about' signals, give the answer; the Frogs is Aristophanes' play, so the clue hangs together.",
+     "definitionFit": "Rana is the zoological genus of typical frogs, so frogs of that kind are Rana frogs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "played"
+     "joke": "pun",
+     "misdirectedWord": "Frogs"
     }
    }
   },
@@ -1006,103 +1015,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DJEBEL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "round",
-       "note": "round means surrounding, so these letter pairs go about the next piece"
+       "text": "after",
+       "at": 56,
+       "note": "after places the rest of the answer following the letter from flood"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
-         "text": "after",
-         "note": "after means following, so the animal letters come behind the flood letter"
+         "text": "end",
+         "at": 70,
+         "note": "end picks out the final letter of flood, the word before it"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "pairs of",
-           "note": "a pair is two, so just the first two letters of each animal's name are taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "flood's",
-           "gives": "FLOOD",
-           "note": "the last letter of flood"
-          }
-         ]
-        },
+         "words": "flood",
+         "at": 62,
+         "note": "the last letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "JE",
-         "indicators": [
-          {
-           "text": "bow of",
-           "note": "the bow is the front of a boat, so the opening letter is kept"
-          }
-         ],
+         "text": "round",
+         "at": 38,
+         "note": "round means the two pairs of letters go around the letter from boat"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "jerboa",
+           "words": "pairs of jerboa",
+           "at": 12,
            "gives": "JE",
-           "select": "first",
-           "note": "the first two letters of jerboa"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "indicators": [
+           "note": "the first pair of letters of jerboa"
+          },
           {
-           "text": "end",
-           "note": "the end of a word is its last letter, so only that is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "boat",
-           "note": "the first letter of boat"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "EL",
-         "parts": [
-          {
-           "unchecked": true,
            "words": "eland",
+           "at": 32,
            "gives": "EL",
-           "select": "first",
-           "note": "the first two letters of eland"
+           "note": "the first pair of letters of eland, 'pairs of' applying to both animals"
           }
          ]
+        },
+        {
+         "words": "bow of boat",
+         "at": 44,
+         "gives": "B",
+         "note": "the bow is the front, so the first letter of boat"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Noah's ark: animals boarding two by two, beached on Mount Ararat once the flood subsides.",
-     "walkthrough": "'Pairs' suggests animals entering two by two, but it selects two letters from each name. JE and EL surround B, and D goes first.",
-     "definitionFit": "A djebel is a hill or mountain in North Africa and the Middle East, and Ararat is a famous mountain, an example given with a question mark."
+     "surface": "Noah's ark lands on Ararat after the Flood, with the animals in pairs, a jerboa and an eland among them.",
+     "walkthrough": "The two pairs go 'round' the bow letter to give JEBEL, which comes 'after' the end of flood. The question mark marks Ararat as an example: a djebel is a hill or mountain in North Africa or the Middle East.",
+     "definitionFit": "Djebel is an Arabic word for a hill or mountain, and Mount Ararat is a famous instance of one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "pairs"
+     "misdirectedWord": "flood's"
     }
    }
   },
@@ -1199,44 +1183,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "out means disordered or wrong, so these letters are rearranged"
+       "text": "clutching",
+       "at": 24,
+       "note": "clutching means the rearranged letters hold the muscle inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "clutching",
-         "note": "to clutch something is to hold it tight, so one piece goes inside"
+         "text": "out",
+         "at": 20,
+         "note": "out signals the letters of hangs are put out of their order"
         }
        ],
        "parts": [
         {
          "words": "hangs",
-         "note": "the letters to be rearranged"
-        },
-        {
-         "words": "muscle",
-         "gives": "AB",
-         "note": "ab is short for an abdominal muscle"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "muscle",
+       "at": 34,
+       "gives": "AB",
+       "note": "an ab is an abdominal muscle"
       }
      ]
     },
     "explanation": {
-     "surface": "Gossip hangs about, holding on to some strength.",
-     "definitionFit": "Clishmaclaver and gabnash are both Scots words for idle chatter or gossip, so they are synonyms."
+     "surface": "Someone hangs about outside, gripping a muscle.",
+     "walkthrough": "'out' turns HANGS into GNASH, which goes 'clutching' AB. Clishmaclaver is a Scots word for idle talk or gossip, as is gabnash; both are in Chambers.",
+     "definitionFit": "Both are Scottish dialect words for chatter or gossip, so one stands as a synonym for the other."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hangs"
+     "misdirectedWord": "out"
     }
    }
   },
@@ -1632,31 +1620,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "SHANG",
      "indicators": [
       {
        "text": "back to front",
-       "note": "the back letter is brought round to the front, a rotation of the word"
+       "at": 39,
+       "note": "back to front means the back letter is moved round to the front"
       }
      ],
      "parts": [
       {
        "words": "has been put up",
+       "at": 23,
        "gives": "HANGS",
-       "note": "a picture that hangs has been put up on the wall"
+       "note": "a picture that hangs has been put up on a wall"
       }
      ]
     },
     "explanation": {
-     "surface": "A Chinese painting has been hung upside down.",
-     "walkthrough": "The final S of HANGS moves to the front.",
-     "definitionFit": "The Shang dynasty of ancient China is famous for its bronzes, so Shang describes art from that era."
+     "surface": "A piece of Chinese art has been hung on the wall but the wrong way round.",
+     "walkthrough": "'back to front' here moves only the last letter of HANGS to the front, rather than reversing the whole word. The Shang dynasty ruled China in the second millennium BC and is famous for its bronzes.",
+     "definitionFit": "Shang describes art from the ancient Chinese dynasty of that name, noted for ritual bronze vessels."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "front"
     }
    }
   },
@@ -1681,27 +1669,27 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "HAOMA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "portions to be exchanged",
-       "note": "the word's two parts swap places, so its letters rotate"
+       "text": "to be exchanged",
+       "at": 29,
+       "note": "to be exchanged means the letters swap places, giving a new order"
       }
      ],
      "parts": [
       {
-       "words": "state",
-       "gives": "OMAHA",
-       "note": "Omaha is in fact a city in Nebraska, not a state, which looks like a slip"
+       "words": "state portions",
+       "at": 14,
+       "gives": "AHOMA",
+       "note": "a portion of the US state Oklahoma: its last five letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A ceremonial drink where the state's shares are swapped.",
-     "walkthrough": "OMA and HA change places. Omaha is a city, so 'state' is loose; bloggers suggested a slip, or OKLAHOMA as a stretch.",
-     "definitionFit": "Haoma is the sacred drink of Zoroastrian ritual, the counterpart of the Vedic soma."
+     "surface": "Ritual drink is something the state hands out in shares to be swapped.",
+     "walkthrough": "The end portion of OKLAHOMA is AHOMA, whose letters are 'to be exchanged'. Fifteensquared suspected Azed meant OMAHA, a city in Nebraska rather than a state, with its parts swapped.",
+     "definitionFit": "Haoma is the sacred drink pressed from a plant in Zoroastrian ritual, the counterpart of Vedic soma."
     },
     "features": {
      "answerInScene": false,
@@ -2162,45 +2150,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PENETRANCE",
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so the jumbled letters go within the next piece"
+       "at": 51,
+       "note": "in places the rearranged letters inside the word for a lively gait"
       }
      ],
      "parts": [
+      {
+       "words": "lively gait",
+       "at": 54,
+       "gives": "PRANCE",
+       "note": "to prance is to move with a lively, springing step"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "jump about",
-         "note": "letters that jump about are scattered, so they are rearranged"
+         "at": 40,
+         "note": "letters that jump about land out of their order, so teen is rearranged"
         }
        ],
        "parts": [
         {
          "words": "teen",
-         "note": "the letters to be rearranged"
-        },
-        {
-         "words": "lively gait",
-         "gives": "PRANCE",
-         "note": "a prance is a springy, high-stepping walk"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A study of genes makes a teenager bounce around energetically.",
-     "definitionFit": "Penetrance is the proportion of individuals with a gene who actually show its trait, a measure of how active it is."
+     "surface": "A teenager is made to leap around with a bouncy step.",
+     "definitionFit": "In genetics, penetrance is the proportion of carriers of a gene who actually show its trait."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "activity"
+     "misdirectedWord": "jump"
     }
    }
   }

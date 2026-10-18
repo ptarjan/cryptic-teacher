@@ -549,61 +549,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a country",
-      "at": 50
+      "text": "country",
+      "at": 52
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESTONIA",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "In France, is",
+       "at": 0,
+       "gives": "EST",
+       "note": "est is French for is"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 18,
+         "note": "almost means nearly all of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "In France, is",
-         "gives": "EST",
-         "note": "est is French for 'is'"
-        },
-        {
          "words": "one",
-         "gives": "ON",
-         "note": "the word with its last letter dropped"
+         "at": 14
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning",
-           "note": "the beginning of a word is its first letter, which alone is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "investigate",
-           "note": "the first letter of the word"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 25,
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "investigate",
+         "at": 38,
+         "note": "only its first letter is used"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 50,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled question about whether someone in France is starting to look into a country.",
-     "walkthrough": "'In France' signals a French word: est is the French for 'is'. The final 'a' is used twice, as a letter and inside the definition.",
-     "definitionFit": "This Baltic state, bordering Russia and Latvia, is an independent nation, so it qualifies as one example of a country."
+     "surface": "A puzzled question about whether someone in France is close to starting an inquiry into a nation.",
+     "walkthrough": "'In France' looks like a location, but it turns 'is' into its French form. 'a' is just the letter, and 'country' alone defines.",
+     "definitionFit": "Estonia is a Baltic state on the Gulf of Finland, so it is a country."
     },
     "features": {
      "answerInScene": false,
@@ -882,46 +887,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Most squiffy",
+      "text": "Most squiffy?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TIPSIEST",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something cut short loses its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Advice",
+       "at": 14,
+       "gives": "TIP",
+       "note": "a tip is a piece of practical advice"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 22,
+         "note": "short means cut off at the end, so the last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Advice",
-         "gives": "TIP",
-         "note": "a tip is a helpful piece of advice"
+         "words": "nap",
+         "at": 28,
+         "gives": "SIESTA",
+         "note": "a siesta is an afternoon nap"
         },
         {
-         "words": "nap",
-         "gives": "SIEST",
-         "note": "a siesta is an afternoon nap, here without its final letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice for whoever is the drunkest: have a quick lie-down.",
-     "walkthrough": "Squiffy is British slang for slightly drunk.",
-     "definitionFit": "Tipsy means slightly drunk, so the superlative describes the person who has had the most to drink."
+     "surface": "A piece of advice: take a brief snooze.",
+     "walkthrough": "Squiffy is informal British for slightly drunk, so the most squiffy is the most tipsy.",
+     "definitionFit": "Squiffy and tipsy are both informal words for slightly drunk, so the superlatives match."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nap"
     }
    }
   },

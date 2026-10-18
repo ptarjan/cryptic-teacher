@@ -753,29 +753,37 @@
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "EERIE",
-     "indicators": [
-      {
-       "text": "by all conclusions",
-       "note": "conclusions are endings, so take the final letter of each word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "the peace, louder hi-fi console",
-       "gives": "EERIE",
-       "select": "last",
-       "note": "final letters of the five words"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "by all conclusions",
+         "at": 43,
+         "note": "the conclusion of each word is its final letter, and all of them are taken in turn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the peace, louder",
+         "at": 11,
+         "note": "the final letters of the, peace and louder"
+        }
+       ]
+      },
+      {
+       "words": "hi-fi console",
+       "at": 29,
+       "gives": "IE",
+       "note": "the final letters of the hyphenated word hi-fi and of console, the same conclusions continuing"
       }
      ]
     },
     "explanation": {
-     "surface": "A noisy stereo cabinet breaks the neighbourhood's quiet.",
-     "walkthrough": "'Disturbing the peace' looks like one phrase, but only 'Disturbing' is the definition.",
-     "definitionFit": "Something eerie is strange and unsettling, so it is disturbing."
+     "surface": "A neighbour's loud stereo is disrupting the quiet.",
+     "walkthrough": "'Disturbing the peace' reads as one phrase about noise, but only 'Disturbing' is the definition; 'by all conclusions' takes the final letter of each following word, counting hi-fi as one word.",
+     "definitionFit": "Something eerie is unsettling or uncanny, and disturbing is a near synonym for that strange, uneasy feeling."
     },
     "features": {
      "answerInScene": false,
