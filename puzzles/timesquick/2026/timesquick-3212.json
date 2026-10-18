@@ -103,43 +103,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRONCO",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "seen around",
+       "at": 25,
+       "note": "seen around means the first piece is placed around the second"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "seen around",
-         "note": "to be seen around something is to surround it, so one part wraps the other"
+         "text": "mostly",
+         "at": 18,
+         "note": "mostly means all but the last letter is kept"
         }
        ],
        "parts": [
         {
          "words": "breed",
-         "gives": "BROO",
-         "note": "to brood is to breed or hatch young; its last letter goes"
+         "at": 12,
+         "gives": "BROOD",
+         "note": "a brood is a family of young, a breed or line of offspring"
         },
         {
-         "words": "North Carolina",
-         "gives": "NC",
-         "note": "NC is the US postal code for the state, its two initials"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "North Carolina",
+       "at": 37,
+       "gives": "NC",
+       "note": "NC is the postal abbreviation for the US state of North Carolina"
       }
      ]
     },
     "explanation": {
-     "surface": "A wild horse being bred on a ranch in North Carolina.",
-     "walkthrough": "'Breed' must be read as a verb for its synonym brood; 'mostly' trims that synonym before the state goes inside.",
-     "definitionFit": "A bronco is an untamed or half-broken horse of the American West, famous from rodeo riding."
+     "surface": "A wild horse whose breed is mostly found in the Carolinas.",
+     "walkthrough": "BROOD 'mostly' loses its D, and BROO is 'seen around' NC.",
+     "definitionFit": "A bronco is an untamed or half-tamed horse of the western United States."
     },
     "features": {
      "answerInScene": true,
@@ -1179,37 +1184,33 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OPAL",
+     "op": "charade",
      "indicators": [
       {
        "text": "carried by",
-       "note": "what is carried is held inside the carrier"
+       "at": 14,
+       "note": "in a down clue, a piece carried by another sits on top of it, so it comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "ring",
-         "gives": "O",
-         "note": "a ring is round, shaped like the letter O"
-        },
-        {
-         "words": "friend",
-         "gives": "PAL",
-         "note": "a pal is a friend"
-        }
-       ]
+       "words": "ring",
+       "at": 9,
+       "gives": "O",
+       "note": "a ring is round, the shape of the letter O"
+      },
+      {
+       "words": "friend",
+       "at": 25,
+       "gives": "PAL",
+       "note": "pal is an informal word for a friend"
       }
      ]
     },
     "explanation": {
-     "surface": "A jewelled ring being brought along by a friend.",
-     "walkthrough": "The ring sits at the very front of PAL, a container with nothing before it.",
-     "definitionFit": "Opal is a precious stone known for its shifting play of colours."
+     "surface": "A friend wearing a gemstone ring.",
+     "walkthrough": "In a down answer, O is 'carried by' PAL, sitting above it.",
+     "definitionFit": "An opal is a precious stone prized for its shifting play of colours."
     },
     "features": {
      "answerInScene": true,
