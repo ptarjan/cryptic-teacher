@@ -1158,50 +1158,55 @@
      "indicators": [
       {
        "text": "invading",
-       "note": "invaders enter territory, so these letters go inside the others"
+       "at": 53,
+       "note": "the following letters invade the word for problem, going inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Problem",
-         "gives": "SUM",
-         "note": "a sum is an arithmetic problem"
-        },
-        {
-         "words": "politicians — not ours",
-         "gives": "ANC",
-         "note": "the African National Congress is South Africa's ruling party, foreign to a British solver"
-        }
-       ]
+       "words": "Problem",
+       "at": 0,
+       "gives": "SUM",
+       "note": "a sum is an arithmetic problem"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "principally",
-         "note": "principally means chiefly, and the chief letter of a word is its first"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Trump",
-         "note": "the first letter of Trump"
+         "words": "politicians — not ours",
+         "at": 9,
+         "gives": "ANC",
+         "note": "the ANC, South Africa's African National Congress, are politicians but not British ones"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "principally",
+           "at": 39,
+           "note": "principally points to the first letter of the word Trump"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Trump",
+           "at": 33,
+           "note": "first letter taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news complaint: foreign politicians, Trump above all, are intruding on protected spaces.",
-     "walkthrough": "'Not ours' marks the politicians as a foreign party, here South Africa's. 'Problem' is not the definition but a maths sum.",
-     "definitionFit": "A sanctum is a private, sacred or inviolable place where a person is free from intrusion, a refuge."
+     "surface": "A political grumble about foreign parties, led by Trump, intruding on someone's safe space.",
+     "walkthrough": "'not ours' is there to point abroad: the politicians wanted are South Africa's African National Congress rather than a British party.",
+     "definitionFit": "A sanctum is a private, sacred retreat where one cannot be disturbed, a refuge or safe space."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "Problem"
     }
    }

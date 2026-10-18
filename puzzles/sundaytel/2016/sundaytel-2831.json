@@ -721,50 +721,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "as arranged",
-       "note": "arranged means put in order, so the preceding letters are reordered"
+       "text": "After",
+       "at": 0,
+       "note": "after says the managed word and the rest come after the short time letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "short time",
+       "at": 6,
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "managed",
+       "at": 17,
+       "gives": "RAN",
+       "note": "ran means managed, as in ran a business"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "After",
-         "note": "after places the remaining pieces behind the first, fixing their order"
+         "text": "arranged",
+         "at": 34,
+         "note": "the words visit and as are arranged into a new order"
         }
        ],
        "parts": [
         {
-         "words": "short time",
-         "gives": "T",
-         "note": "T abbreviates time"
+         "words": "visit",
+         "at": 25,
+         "note": "taken as written"
         },
         {
-         "words": "managed",
-         "gives": "RAN",
-         "note": "ran, as in managed a business"
-        },
-        {
-         "words": "visit as",
-         "note": "the letters of visit and as, rearranged"
+         "words": "as",
+         "at": 31,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Quickly organised trip through a country, as planned.",
-     "walkthrough": "The definition is a description: the document that lets one pass through a country without staying.",
-     "definitionFit": "A transit visa permits a traveller to pass through a country en route to another destination."
+     "surface": "After a quick stay, a planned visit comes off as arranged.",
+     "definitionFit": "A transit visa is the travel document that permits a traveller to pass through a nation without staying."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "visit"
+     "aptDefinition": true,
+     "misdirectedWord": "arranged"
     }
    }
   },
@@ -1188,41 +1197,45 @@
      "indicators": [
       {
        "text": "including",
-       "note": "including means holding within, so the section wraps round the next two pieces"
+       "at": 8,
+       "note": "the word for section includes the next letters within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Section",
-         "gives": "PART",
-         "note": "a part is a section"
-        },
-        {
-         "words": "rook",
-         "gives": "R",
-         "note": "R is the chess notation for rook"
-        }
-       ]
+       "words": "Section",
+       "at": 0,
+       "gives": "PART",
+       "note": "a part is a section"
       },
       {
-       "words": "duck",
-       "gives": "O",
-       "note": "a duck in cricket is a score of nothing, so it is O"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rook",
+         "at": 18,
+         "gives": "R",
+         "note": "R is the chess abbreviation for rook"
+        },
+        {
+         "words": "duck",
+         "at": 24,
+         "gives": "O",
+         "note": "a duck is a score of nothing in cricket, so O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A section of an aviary holds a rook, a duck and one more bird.",
-     "walkthrough": "Rook and duck look like birds, which feeds 'another bird', but they are a chess piece and a cricket zero.",
-     "definitionFit": "A parrot is a tropical bird; 'another' follows rook and duck, which look like birds on the surface."
+     "surface": "Part of an aviary holding a rook, a duck and one more species.",
+     "walkthrough": "Rook and duck look like birds in the list, but they give the chess R and the cricket nought O.",
+     "definitionFit": "A parrot is a bird, following the rook and duck of the surface."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rook"
+     "misdirectedWord": "duck"
     }
    }
   },
