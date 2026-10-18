@@ -200,31 +200,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "WALLED",
      "indicators": [
       {
        "text": "exchanging hands",
-       "note": "the hands are right and left, so each right-hand letter is swapped for its left-hand one"
+       "at": 30,
+       "note": "right and left are the two hands, so each R is swapped for an L"
       }
      ],
      "parts": [
       {
-       "words": "conflict",
-       "gives": "WAR",
-       "note": "war is armed conflict"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 15,
+         "note": "the wine comes after the conflict"
+        }
+       ],
+       "parts": [
+        {
+         "words": "conflict",
+         "at": 21,
+         "gives": "WAR",
+         "note": "war is armed conflict"
+        },
+        {
+         "words": "wine",
+         "at": 10,
+         "gives": "RED",
+         "note": "red is a wine"
+        }
+       ]
       },
       {
-       "words": "wine",
-       "gives": "RED",
-       "note": "red is a kind of wine"
+       "gives": "RR"
+      },
+      {
+       "gives": "LL"
       }
      ]
     },
     "explanation": {
-     "surface": "Strong wine drunk after a war, changing hands as spoils.",
-     "walkthrough": "The hands are right and left, R and L: every R in the joined pieces becomes L. 'Fortified wine' looks like port or sherry, but 'Fortified' stands alone as the definition.",
-     "definitionFit": "A town that is fortified is protected by defensive walls built around it."
+     "surface": "Fortified wine drunk after a war as people swap hands.",
+     "walkthrough": "R (right) and L (left) are the hands: both Rs in WARRED become Ls.",
+     "definitionFit": "A walled town is fortified, defended by surrounding walls."
     },
     "features": {
      "answerInScene": false,

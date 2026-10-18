@@ -859,33 +859,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WHOCANTELL",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Spooner was famous for swapping the opening sounds of words, so the starts of two words are exchanged"
+       "at": 50,
+       "note": "the Reverend Spooner swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "a terrible place for tropical birds",
-       "gives": "WHOCANTELL",
-       "soundsLike": "TOUCAN HELL",
-       "note": "a bad place for big-billed tropical birds is a toucan hell"
+       "op": "homophone",
+       "spelt": "TOCAN",
+       "parts": [
+        {
+         "words": "for tropical birds",
+         "at": 30,
+         "gives": "TOUCAN",
+         "note": "toucans are tropical birds; the word is said too-can, written here as it sounds"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WHELL",
+       "parts": [
+        {
+         "words": "a terrible place",
+         "at": 13,
+         "gives": "HELL",
+         "note": "hell is a terrible place; its opening h-sound is written WH, as in who"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nobody can say what horrible fate awaits rainforest birds.",
-     "walkthrough": "Swap the T of toucan and the H of hell and you hear a three-word question.",
-     "definitionFit": "The rhetorical question means it is impossible to say, nobody has any idea."
+     "surface": "Nobody can say what a dreadful home for tropical birds would be like.",
+     "walkthrough": "Say TOUCAN HELL and swap the opening sounds: the h-sound moves to the front, giving who-can tell.",
+     "definitionFit": "Who can tell? is an idiom meaning that nobody can know the answer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "terrible"
     }
    }
@@ -1317,50 +1333,55 @@
      "indicators": [
       {
        "text": "involves",
-       "note": "to involve is to include, so the scheme holds the other pieces inside"
+       "at": 7,
+       "note": "involving means including within, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Scheme",
+       "at": 0,
+       "gives": "PLAN",
+       "note": "a plan is a scheme"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Scheme",
-         "gives": "PLAN",
-         "note": "a scheme is a plan"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "close to",
-           "note": "the close of a word is its end, so its final letter is kept"
+           "at": 16,
+           "note": "the close of a word is its last letter"
           }
          ],
          "parts": [
           {
            "words": "twenty",
-           "note": "the final letter of twenty"
+           "at": 25,
+           "note": "only its last letter is used"
           }
          ]
+        },
+        {
+         "words": "exercises",
+         "at": 32,
+         "gives": "PE",
+         "note": "PE is physical education, exercises"
         }
        ]
-      },
-      {
-       "words": "exercises",
-       "gives": "PE",
-       "note": "PE is physical education, school exercises"
       }
      ]
     },
     "explanation": {
-     "surface": "A fitness programme puts youngsters through twenty exercises while they mess about.",
-     "definitionFit": "A playpen is a portable enclosure where a baby or toddler is placed to play safely."
+     "surface": "A plan that includes about twenty exercises for a children's play area.",
+     "definitionFit": "A playpen is a portable enclosure where babies and toddlers are safely put to play."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "exercises"
+     "misdirectedWord": "Scheme"
     }
    }
   },

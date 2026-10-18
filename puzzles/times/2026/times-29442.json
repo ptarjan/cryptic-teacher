@@ -560,40 +560,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "married and mother go inside the apartment"
+       "at": 23,
+       "note": "these letters go inside the apartment"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "New York apartment",
-         "gives": "CONDO",
-         "note": "a condo, American for an owned flat; the rest goes inside CO…NDO"
-        },
-        {
-         "words": "married",
-         "gives": "M",
-         "note": "M = married"
-        }
-       ]
+       "words": "New York apartment",
+       "at": 26,
+       "gives": "CONDO",
+       "note": "a condo, short for condominium, is an apartment in American usage"
       },
       {
-       "words": "mother",
-       "gives": "MA",
-       "note": "ma = mother"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "married",
+         "at": 8,
+         "gives": "M"
+        },
+        {
+         "words": "mother",
+         "at": 16,
+         "gives": "MA",
+         "note": "ma is mother"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier who married, with his mother living in a New York flat.",
-     "walkthrough": "'New York' points to the American word CONDO rather than flat.",
-     "definitionFit": "A soldier from a unit trained for raids, such as the Royal Marines commandos."
+     "surface": "A soldier marries his mother in a Manhattan flat.",
+     "definitionFit": "A commando is a soldier in an elite unit trained for raids."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "married"
     }
    }
   },
@@ -1191,46 +1194,33 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the office comes after the two letters"
+       "at": 40,
+       "note": "the office comes after the pair"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first pair of crosswords",
+       "at": 46,
        "gives": "CR",
-       "indicators": [
-        {
-         "text": "first pair of",
-         "note": "the first two letters of crosswords"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "first pair of crosswords",
-         "gives": "CR",
-         "select": "first",
-         "note": "the first two letters of crosswords"
-        }
-       ]
+       "note": "the first two letters of crosswords"
       },
       {
        "words": "Times office",
+       "at": 27,
        "gives": "EDITOR",
-       "note": "the editor, a post at the Times"
+       "note": "the editor runs the newspaper's office, as at The Times"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone at the Times crossword desk waiting to be paid for a couple of puzzles.",
-     "walkthrough": "An 'office' here is a post someone holds, not a room: the editorship.",
-     "definitionFit": "A creditor is owed money and expects to be paid."
+     "surface": "Someone owed money by The Times office after the first couple of crosswords.",
+     "definitionFit": "A creditor is someone to whom money is owed, who awaits repayment."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "office"
+     "misdirectedWord": "Times"
     }
    }
   },

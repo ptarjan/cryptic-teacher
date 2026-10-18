@@ -926,50 +926,55 @@
      "indicators": [
       {
        "text": "aboard",
-       "note": "aboard means within a vessel, so these pieces go inside"
+       "at": 31,
+       "note": "being aboard means being inside the ship, so these letters go within"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "ship",
-         "gives": "SS",
-         "note": "SS stands for steamship"
-        },
-        {
-         "words": "fish",
-         "gives": "TENCH",
-         "note": "the tench is a freshwater fish"
-        }
-       ]
+       "words": "ship",
+       "at": 38,
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "start to",
-         "note": "the start of a word is its opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "escape",
-         "note": "opening letter of the word"
+         "words": "fish",
+         "at": 10,
+         "gives": "TENCH",
+         "note": "the tench is a freshwater fish"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 15,
+           "note": "the start of the word escape is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "escape",
+           "at": 24,
+           "note": "only its first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Smells of fish begin to leak out on a boat.",
-     "definitionFit": "Stenches are strong, foul smells; a whiff is a smell too, usually unpleasant."
+     "surface": "Smells from fish as something begins to get loose on a ship.",
+     "definitionFit": "Stenches are strong unpleasant smells, and a whiff is a smell, often a bad one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fish"
+     "misdirectedWord": "start"
     }
    }
   },

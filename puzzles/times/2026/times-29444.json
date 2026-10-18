@@ -552,55 +552,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "breaks"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "tin",
-       "gives": "INT",
-       "note": "TIN rearranged"
-      },
-      {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "new",
-         "note": "the letters are made new, rearranged"
+         "text": "breaks",
+         "at": 11,
+         "note": "breaking into something means getting inside it"
         }
        ],
        "parts": [
         {
-         "words": "son",
-         "gives": "S",
-         "note": "S = son"
-        },
-        {
          "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 18,
+           "note": "new signals the letters are made over in a fresh order"
+          }
+         ],
          "parts": [
           {
-           "words": "soldier",
-           "gives": "ANT",
-           "note": "a soldier ant"
+           "words": "tin",
+           "at": 22,
+           "note": "taken as written for the anagram"
           }
          ]
+        },
+        {
+         "words": "son",
+         "at": 7,
+         "gives": "S",
+         "note": "S is the genealogical abbreviation for son"
         }
        ]
+      },
+      {
+       "words": "soldier",
+       "at": 26,
+       "gives": "ANT",
+       "note": "a soldier ant is a worker caste of ant"
       }
      ]
     },
     "explanation": {
-     "surface": "A younger son snaps his brother's new tin soldier.",
-     "walkthrough": "'Second son' reads as one phrase, but 'Second' is the definition, a moment. Soldier = ANT is a crossword staple, from soldier ants.",
-     "definitionFit": "An instant is a second, a very short moment."
+     "surface": "A second boy smashes a brand-new toy tin soldier.",
+     "walkthrough": "'new' rearranges TIN to INT, which S 'breaks' into: INST, then ANT.",
+     "definitionFit": "An instant is a very brief moment, just as a second can mean a short time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Second"
+     "misdirectedWord": "soldier"
     }
    }
   },
@@ -1197,59 +1202,69 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "around"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "middle of",
-         "note": "the middle of a word is what is left when both ends are trimmed away"
+         "text": "around",
+         "at": 5,
+         "note": "the stopping word goes around the central letters"
         }
        ],
        "parts": [
         {
          "words": "Stop",
+         "at": 0,
          "gives": "HALT",
-         "note": "halt = stop"
+         "note": "to halt is to stop"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "ERB",
          "indicators": [
           {
-           "text": "mainly",
-           "note": "most of the word, so drop its last letter"
+           "text": "middle of",
+           "at": 12,
+           "note": "the middle of Derby is everything between its first and last letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "middle of Derby",
-           "gives": "ERB",
-           "select": "middle",
-           "note": "the central letters of dERBy"
+           "words": "Derby",
+           "at": 22,
+           "note": "only its middle letters are used"
           }
          ]
         }
        ]
       },
       {
-       "words": "to have food",
-       "gives": "EA",
-       "note": "EAT, a word for having food, cut short by 'mainly'"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 29,
+         "note": "mainly means most of it, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to have food",
+         "at": 36,
+         "gives": "EAT",
+         "note": "to eat is to have food"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pit stop at the Derby, the famous horse race, mostly for a bite and a drink.",
-     "walkthrough": "'Food and drink' reads as one pair, but 'food' belongs to the wordplay (EAT) and 'drink' alone is the definition.",
-     "definitionFit": "Herbal tea is a drink infused from herbs rather than tea leaves."
+     "surface": "Pausing near the centre of Derby for something to eat and drink.",
+     "walkthrough": "Derby is an English city and a horse race, but here only its letters count; mainly means most of the word.",
+     "definitionFit": "Herbal tea is an infusion of herbs such as mint or camomile, a hot beverage."
     },
     "features": {
      "answerInScene": true,
@@ -1629,56 +1644,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENCLOSURE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "plastic",
-         "note": "plastic = mouldable, so the letters are reshaped"
+         "text": "retaining",
+         "at": 19,
+         "note": "retaining means holding something inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "retaining"
+           "text": "plastic",
+           "at": 5,
+           "note": "plastic means mouldable, so the letters are reshaped"
           }
          ],
          "parts": [
           {
            "words": "once",
-           "note": "ONCE reshaped"
-          },
-          {
-           "words": "length",
-           "gives": "L",
-           "note": "L = length"
+           "at": 13,
+           "note": "taken as written for the anagram"
           }
          ]
         },
         {
-         "words": "of course",
-         "gives": "SURE",
-         "note": "sure! = of course"
+         "words": "length",
+         "at": 29,
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "of course",
+       "at": 36,
+       "gives": "SURE",
+       "note": "sure is an informal of course, certainly"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for folding a plastic sheet once while keeping the length of a course.",
-     "walkthrough": "'Fold' looks like a verb for creasing plastic, but it is the noun: a sheep fold.",
-     "definitionFit": "A farming sense: a fold is a fenced pen where sheep are kept, the root of 'sheepfold'."
+     "surface": "Plastic was once used to fold things up, keeping a course's length in place.",
+     "walkthrough": "plastic is the signal to rearrange, not the material; a fold is a sheep pen.",
+     "definitionFit": "A fold is a pen for sheep, a walled or fenced enclosure for animals."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Fold"
+     "misdirectedWord": "plastic"
     }
    }
   },
@@ -2016,35 +2034,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "knocked back"
+       "text": "aboard",
+       "at": 24,
+       "note": "being aboard means being inside, so these letters go within"
       }
      ],
      "parts": [
       {
        "words": "physician's",
+       "at": 31,
        "gives": "DR",
-       "note": "DR = doctor"
+       "note": "DR is the abbreviation for doctor"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "aboard"
-        }
-       ],
        "parts": [
         {
          "words": "Wine",
+         "at": 0,
          "gives": "RED",
-         "note": "red wine"
+         "note": "red is a wine"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "knocked back",
+           "at": 11,
+           "note": "knocked back suggests being turned the other way, so the letters are read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "say",
+           "at": 6,
            "gives": "EG",
-           "note": "eg = for example, say"
+           "note": "e.g. means for example, as say does"
           }
          ]
         }
@@ -2053,12 +2078,12 @@
      ]
     },
     "explanation": {
-     "surface": "Wine downed on board a doctor's yacht.",
-     "walkthrough": "'Knocked back' sounds like drinking the wine, but it reverses only EG. A dredger is a boat that scoops mud from riverbeds.",
-     "definitionFit": "A dredger is a boat fitted to dredge silt from waterways."
+     "surface": "Wine being drunk down on a doctor's vessel.",
+     "walkthrough": "'knocked back' turns EG into GE; RED + GE go 'aboard' DR.",
+     "definitionFit": "A dredger is a vessel that scoops mud and silt from the bottom of waterways."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "knocked"
