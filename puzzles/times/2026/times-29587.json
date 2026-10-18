@@ -658,47 +658,57 @@
      "indicators": [
       {
        "text": "around",
-       "note": "'Around' means encircling, so the word for while wraps round the letters that follow."
+       "at": 6,
+       "note": "around places the while word round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "retiring",
-         "note": "going back, so I MET reverses"
-        }
-       ],
-       "parts": [
-        {
-         "words": "While",
-         "gives": "AS",
-         "note": "as = while"
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R = river"
-        }
-       ]
+       "words": "While",
+       "at": 0,
+       "gives": "AS",
+       "note": "as means while, as in as I spoke"
       },
       {
-       "op": "reversal",
+       "op": "charade",
        "parts": [
         {
-         "words": "one encountered",
-         "gives": "IMET",
-         "note": "I = one, MET = encountered"
+         "words": "river",
+         "at": 13,
+         "gives": "R"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "retiring",
+           "at": 36,
+           "note": "retiring means drawing back, so the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "encountered",
+           "at": 24,
+           "gives": "MET",
+           "note": "to meet someone is to encounter them, so met"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "I",
+         "note": "one is I in Roman numerals"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy goddess met by someone on the way round a river.",
-     "walkthrough": "'Retiring' looks like a shy description of the goddess; it turns I MET round to TEMI.",
-     "definitionFit": "A definition by example: she is the Greek huntress, twin of Apollo."
+     "surface": "Near a river, someone met a shy goddess.",
+     "walkthrough": "'retiring' looks like shy, but it reverses MET to TEM.",
+     "definitionFit": "Artemis is the Greek goddess of the hunt and the moon."
     },
     "features": {
      "answerInScene": true,
@@ -1513,42 +1523,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "followed by"
-      },
-      {
-       "text": "between"
+       "text": "followed by",
+       "at": 14,
+       "note": "followed by places the turn first with the rest after it"
       }
      ],
      "parts": [
       {
-       "words": "turn",
+       "words": "in turn",
+       "at": 6,
        "gives": "GO",
-       "note": "a go = a turn"
+       "note": "a go is a turn, as in your go"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D = daughter"
-      },
-      {
-       "words": "rows",
-       "gives": "LINES",
-       "note": "lines = rows"
-      },
-      {
-       "words": "son",
-       "gives": "S",
-       "note": "S = son"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "between",
+         "at": 31,
+         "note": "between places the rows inside, with daughter on one side and son on the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "daughter",
+           "at": 39,
+           "gives": "D"
+          },
+          {
+           "words": "son",
+           "at": 52,
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "words": "rows",
+         "at": 26,
+         "gives": "LINES",
+         "note": "lines are rows"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Churchgoers taking turns, the family seated in rows between daughter and son.",
-     "walkthrough": "'Rows' sounds like arguments between the children; it means lines.",
-     "definitionFit": "A plain synonym: devoutness, living as God would wish."
+     "surface": "Devoutness shown by taking turns, with rows breaking out between daughter and son.",
+     "walkthrough": "'rows' suggests quarrels, but it means lines.",
+     "definitionFit": "Godliness is devoutness and holiness of life, which is piety."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rows"
     }

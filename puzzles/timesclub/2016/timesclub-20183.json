@@ -50,7 +50,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about here means turned round, so the whole combination is read from the far end"
+       "at": 50,
+       "note": "about here means turned round, so the whole assembly is read backwards"
       }
      ],
      "parts": [
@@ -59,38 +60,40 @@
        "indicators": [
         {
          "text": "inputting",
-         "note": "to input is to feed something inside, so the app's name takes the other letters within it"
+         "at": 20,
+         "note": "the app is inputting, or taking in, the question and answer letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Voice-activated app",
-           "gives": "SIRI",
-           "note": "Siri is Apple's voice assistant"
-          },
-          {
-           "words": "question",
-           "gives": "Q",
-           "note": "Q is the standard abbreviation for question"
-          }
-         ]
+         "words": "Voice-activated app",
+         "at": 0,
+         "gives": "SIRI",
+         "note": "Siri is Apple's voice-activated assistant app"
         },
         {
-         "words": "answer",
-         "gives": "A",
-         "note": "A is the standard abbreviation for answer"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "question",
+           "at": 30,
+           "gives": "Q"
+          },
+          {
+           "words": "answer",
+           "at": 43,
+           "gives": "A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smartphone assistant is asked questions about people from the Middle East.",
-     "walkthrough": "Q and A go into the middle of SIRI to make SIQARI, and that whole string read backwards gives IRAQIS.",
-     "definitionFit": "Iraqis are citizens of Iraq, a country in the Middle East, so they are a Middle Eastern people."
+     "surface": "A voice assistant fielding a quiz question and its answer about a Middle Eastern nation.",
+     "walkthrough": "SIRI taking in Q and A gives SIQARI; 'about' turns that whole string round.",
+     "definitionFit": "Iraqis are the citizens of Iraq, a country in the Middle East."
     },
     "features": {
      "answerInScene": true,

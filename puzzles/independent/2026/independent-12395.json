@@ -293,33 +293,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "flying",
-       "note": "an insect on the wing goes wherever it likes, and letters sent flying land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flying",
+         "at": 7,
+         "note": "flying suggests the hornet's letters are whirled about in the air"
+        }
+       ],
        "parts": [
         {
          "words": "Hornet",
-         "note": "the insect's six letters, resettled"
-        },
-        {
-         "words": "force",
-         "gives": "RN",
-         "note": "RN is the Royal Navy, one of Britain's armed forces"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "force",
+       "at": 19,
+       "gives": "RN",
+       "note": "RN, the Royal Navy, is an armed force"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A hornet flying with force is a vivid picture and a complete red herring. The only Scottish word in the clue is the city, and that is the definition.",
-     "definitionFit": "from Inverness? -> NORTHERN: Inverness is a city in the far north of Scotland, so anything from there is northern, one example standing for the adjective."
+     "surface": "A hornet buzzing about with strength in the Scottish Highlands.",
+     "walkthrough": "Inverness is a city in the far north of Scotland, so the question mark marks a definition by example.",
+     "definitionFit": "Inverness lies in northern Scotland, so something from there is northern, a definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "force"
     }
    }
   },
@@ -598,7 +606,8 @@
      "indicators": [
       {
        "text": "On reflection",
-       "note": "a reflection shows everything the other way round, and in an across answer that means reading from the right back to the left"
+       "at": 0,
+       "note": "a reflection shows things backwards, so the finished string is read in reverse"
       }
      ],
      "parts": [
@@ -606,38 +615,47 @@
        "op": "container",
        "indicators": [
         {
-         "text": "transfixed by",
-         "note": "to transfix is to pierce right through, so whatever does it ends up buried in the middle"
+         "text": "being transfixed by",
+         "at": 22,
+         "note": "transfixed means pierced through, so the regret word has the others run into it"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "regret",
-           "gives": "RUE",
-           "note": "to rue something is to regret it, and this word is pierced before its last letter"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "o is the standard abbreviation for old"
-          }
-         ]
+         "words": "regret",
+         "at": 15,
+         "gives": "RUE",
+         "note": "to rue is to regret"
         },
         {
-         "words": "guy",
-         "gives": "MAN",
-         "note": "a guy is a man"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 42,
+           "gives": "O"
+          },
+          {
+           "words": "guy",
+           "at": 46,
+           "gives": "MAN",
+           "note": "a guy is a man"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'On reflection' opens the clue as though someone is thinking better of an old regret, and it is not part of that picture at all: it is the instruction.",
-     "definitionFit": "charm -> ENAMOUR: the verb sense of charming someone into affection, not a lucky trinket or a person's manner."
+     "surface": "Looking back, someone regrets being captivated by an elderly fellow's charm.",
+     "walkthrough": "RUE pierced by OMAN gives RUOMANE, which 'On reflection' turns round.",
+     "definitionFit": "To enamour is to fill with love, to captivate or bewitch, which is to charm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transfixed"
     }
    }
   },
@@ -663,32 +681,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "a word left unfinished stops before its last letter, one short of the end"
-      },
-      {
-       "text": "docked",
-       "note": "a docked tail has been cut short, so the vessel loses the letter it ends on"
-      }
-     ],
      "parts": [
       {
-       "words": "grim",
-       "gives": "DOU",
-       "note": "DOUR means grim, and it stops before its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 19,
+         "note": "unfinished means the last letter of dour is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grim",
+         "at": 13,
+         "gives": "DOUR",
+         "note": "dour means grim and stern"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
-       "words": "vessel",
-       "gives": "GLAS",
-       "note": "a GLASS is a drinking vessel, with its tail cut off"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "docked",
+         "at": 37,
+         "note": "docked means cut short, as a tail is, so the glass loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "at": 30,
+         "gives": "GLASS",
+         "note": "a glass is a drinking vessel"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Man' is crossword shorthand for the Isle of Man, which is why a three-word definition can point at a town without naming a country.",
-     "definitionFit": "Man has this -> DOUGLAS: Douglas is the capital town of the Isle of Man, the island crosswords shorten to Man."
+     "surface": "A man owns this gloomy, half-built ship now sitting in dock.",
+     "walkthrough": "'Man' looks like a person, but it is the Isle of Man, whose capital is Douglas.",
+     "definitionFit": "Douglas is the capital town of the Isle of Man, so the island has it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
     }
    }
   },
@@ -1311,34 +1358,54 @@
      "indicators": [
       {
        "text": "over",
-       "note": "in a down clue a piece placed over another is written above it, so this letter heads the column"
-      },
-      {
-       "text": "unfinished",
-       "note": "a word left unfinished stops one letter short of its end"
+       "at": 5,
+       "note": "in a down clue over means placed above, so A comes first"
       }
      ],
      "parts": [
       {
        "words": "Area",
-       "gives": "A",
-       "note": "a is the standard abbreviation for area"
+       "at": 0,
+       "gives": "A"
       },
       {
-       "words": "main",
-       "gives": "CHIE",
-       "note": "the main thing is the CHIEF one, without its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 10,
+         "note": "unfinished means the last letter of chief is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "main",
+         "at": 21,
+         "gives": "CHIEF",
+         "note": "main means chief, principal"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       },
       {
        "words": "road",
+       "at": 26,
        "gives": "ST",
-       "note": "st is street, the everyday road abbreviation"
+       "note": "ST is the abbreviation for street, a road"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Unfinished main road' is one phrase in the surface and two separate pieces in the wordplay, and the join between them is where the clue does its hiding.",
-     "definitionFit": "suffering most -> ACHIEST: the superlative of achy, so the one aching more than any other, a single word standing in for the phrase."
+     "surface": "A district above a half-built trunk road where people suffer the most.",
+     "walkthrough": "'main road' reads as one phrase, a highway, but the two words do separate jobs.",
+     "definitionFit": "Achiest is the superlative of achy, meaning in the greatest pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
     }
    }
   },
