@@ -188,52 +188,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "in half portions",
+       "at": 31,
+       "note": "each word is served only as a half portion: the second half of mother and of catering"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "HER",
-       "indicators": [
-        {
-         "text": "in half portions",
-         "note": "serving half portions means only half of each word is dished up, here the back half"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "mother",
-         "gives": "HER",
-         "select": "last",
-         "note": "the second half of this six-letter word"
+         "at": 15
+        },
+        {
+         "words": "catering",
+         "at": 22
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "RING",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "catering",
-         "gives": "RING",
-         "select": "last",
-         "note": "the second half of this eight-letter word"
-        }
-       ]
+       "gives": "MOTCATE"
       }
      ]
     },
     "explanation": {
-     "surface": "A mother dishes up small helpings of fish when catering.",
-     "definitionFit": "The herring is a silvery North Atlantic food fish, eaten smoked as kippers or pickled."
+     "surface": "A mother catering for a family serves fish in half portions.",
+     "walkthrough": "'in half portions' keeps the back half of each word: HER from MOTHER and RING from CATERING.",
+     "definitionFit": "The herring is a common North Atlantic food fish, often smoked as a kipper."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "catering"
+     "misdirectedWord": "portions"
     }
    }
   },
@@ -312,43 +302,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "IMPROVISE",
      "indicators": [
       {
        "text": "novel",
-       "note": "novel means new and different, so the letters take a new order"
+       "at": 50,
+       "note": "novel means new, so the remaining letters are made into a new arrangement"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "IMPROVISE",
        "indicators": [
         {
-         "text": "taking line from",
-         "note": "taking something from a word removes it, here the abbreviation for line"
+         "text": "taking",
+         "at": 20,
+         "note": "taking something from a word removes it, together with 'from'"
+        },
+        {
+         "text": "from",
+         "at": 32,
+         "note": "with 'taking', says which words the line is taken from"
         }
        ],
        "parts": [
         {
-         "words": "line",
-         "gives": "L",
-         "note": "L is the abbreviation for line"
+         "words": "Primo Levi's",
+         "at": 37
         },
         {
-         "words": "Primo Levi's",
-         "note": "the Italian author's name with its possessive s"
+         "words": "line",
+         "at": 27,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ad-libbing with a line borrowed from one of Primo Levi's novels.",
-     "walkthrough": "Primo Levi was an Italian writer; 'novel' looks like one of his books but signals the rearrangement.",
-     "definitionFit": "To improvise is to perform or talk without preparation, making it up on the spot."
+     "surface": "A speaker ad-libs, borrowing a line from a novel by the Italian writer Primo Levi.",
+     "walkthrough": "'taking line from' removes L from PRIMO LEVI'S to leave PRIMOEVIS, and 'novel' rearranges it. 'novel' looks like Levi's book but is the anagram signal.",
+     "definitionFit": "To improvise is to speak or perform without preparation, which is what speaking off the cuff means."
     },
     "features": {
      "answerInScene": true,
@@ -637,38 +630,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "divorce",
-      "at": 35,
-      "note": "a noun for the splitting of a couple; the answer is the looser word for it"
+      "text": "divorce?",
+      "at": 35
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SEPARATION",
      "indicators": [
       {
        "text": "Starting afresh",
-       "note": "a fresh start means the first letter is swapped for a new one"
+       "at": 0,
+       "note": "the compensation word gets a fresh start: its first letter is swapped for S, the start of 'Starting' itself"
       }
      ],
      "parts": [
       {
        "words": "compensation",
+       "at": 18,
        "gives": "REPARATION",
        "note": "reparation is compensation paid for a wrong"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a divorce settlement lets a person start life over.",
-     "walkthrough": "REPARATION gets a new first letter, S in place of R. The question mark admits the loose fit of a separation for a divorce.",
-     "definitionFit": "A separation is a couple living apart, a formal step that often comes before or stands in for divorce."
+     "surface": "After a divorce, someone starts life anew with a compensation payment.",
+     "walkthrough": "Give REPARATION a fresh start by swapping its initial R for S. The question mark warns that the answer is a step short of divorce rather than the same thing.",
+     "definitionFit": "A separation is a formal parting of a married couple, often a stage before or instead of a divorce."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "afresh"
+     "misdirectedWord": "compensation"
     }
    }
   },
@@ -755,12 +753,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NASSAU",
      "indicators": [
       {
        "text": "around",
-       "note": "around means going about the outside, so the cycled name encloses the continent's abbreviation"
+       "at": 14,
+       "note": "the cycled name goes around the South American letters"
       }
      ],
      "parts": [
@@ -769,32 +766,29 @@
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling moves the first letter of the name round to the end"
+         "at": 6,
+         "note": "cycling moves a letter round from the front of Una's to the back"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Una's",
-           "note": "the name with its possessive s"
-          },
-          {
-           "words": "South American",
-           "gives": "SA",
-           "note": "SA is the abbreviation for South America"
-          }
-         ]
+         "words": "Una's",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "South American",
+       "at": 21,
+       "gives": "SA",
+       "note": "SA is the abbreviation for South American or South America"
       }
      ]
     },
     "explanation": {
-     "surface": "Una is on a bike tour round a South American capital city.",
-     "walkthrough": "The surface wants a capital in South America, but the answer is in the Bahamas; South American only supplies two letters.",
-     "definitionFit": "Nassau is the capital city of the Bahamas, on the island of New Providence."
+     "surface": "A woman called Una is out on her bicycle round a South American capital.",
+     "walkthrough": "'South American' looks like part of the definition, but it supplies letters: Nassau is the capital of the Bahamas, not of a South American country. 'around' tells you the cycled name wraps those letters.",
+     "definitionFit": "Nassau is a capital city: the capital of the Bahamas, in the Caribbean."
     },
     "features": {
      "answerInScene": false,
@@ -867,12 +861,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AWESTRUCK",
      "indicators": [
       {
-       "text": "goes in",
-       "note": "going in means entering, so this part is placed inside the other"
+       "text": "in",
+       "at": 18,
+       "note": "the westward word is put in between the other pieces"
       }
      ],
      "parts": [
@@ -881,29 +874,31 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "Where setter goes",
-         "gives": "WEST",
-         "note": "the setting sun goes down in the west"
+         "at": 21
         },
         {
          "words": "Rugby gathering",
+         "at": 23,
          "gives": "RUCK",
-         "note": "a ruck is a loose scrum of players over the ball in rugby"
+         "note": "a ruck is a loose gathering of players over the ball in rugby"
         }
        ]
+      },
+      {
+       "words": "Where setter goes",
+       "at": 0,
+       "gives": "WEST",
+       "note": "the setting sun goes down in the west"
       }
      ]
     },
     "explanation": {
-     "surface": "The crossword setter piles into a rugby ruck and is left dazed.",
-     "walkthrough": "'Setter' seems to be Bobcat, the compiler; it is the sun, which sets in the west.",
-     "definitionFit": "Being awestruck means being overwhelmed with wonder, so astonished as to be stunned."
+     "surface": "The setter of this puzzle wonders where to go in a rugby scrum to be stunned.",
+     "walkthrough": "'setter' looks like the crossword's compiler, but it is the setting sun, and the sun sets in the west; 'in' puts that direction between the article and the rugby gathering.",
+     "definitionFit": "Awestruck means overwhelmed with wonder, so stunned into silence."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "setter"
@@ -1137,46 +1132,44 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "REPEATEDLY",
      "indicators": [
       {
        "text": "Cook",
-       "note": "to cook something is to doctor or falsify it, so the letters are rearranged"
+       "at": 0,
+       "note": "to cook the books is to fiddle them, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "REPEATEDLY",
        "indicators": [
         {
          "text": "short of",
-         "note": "being short of something means lacking it, so one letter goes"
+         "at": 17,
+         "note": "being short of something means lacking it, so the word desperately loses a letter"
         }
        ],
        "parts": [
         {
          "words": "desperately",
-         "note": "taken as written"
+         "at": 5
         },
         {
          "words": "seconds",
-         "gives": "S",
-         "note": "s is the abbreviation for seconds"
+         "at": 26,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook frantically short of time, over and over.",
-     "walkthrough": "'Cook' looks like the person in the kitchen; it is the signal to rearrange 'desperately' once its S is gone.",
-     "definitionFit": "Doing something repeatedly is doing it over and over, many times in succession."
+     "surface": "A chef keeps going without second helpings, over and over.",
+     "walkthrough": "'short of seconds' removes S from DESPERATELY to give DEPERATELY, and 'Cook' rearranges those letters.",
+     "definitionFit": "Repeatedly means over and over, many times, which is what time and again means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Cook"
     }

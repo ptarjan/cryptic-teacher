@@ -405,46 +405,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRAPEZIUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "for fiddling",
-       "note": "fiddling means tampering with, so the letters are messed about into a new order"
+       "text": "accepting",
+       "at": 12,
+       "note": "the belly word takes the rearranged letters in, holding them inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Corporation",
+       "at": 0,
+       "gives": "TUM",
+       "note": "corporation is an old jocular word for a pot belly, i.e. a tum"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "accepting",
-         "note": "accepting means taking in, so one piece is held inside the other"
+         "text": "for fiddling",
+         "at": 30,
+         "note": "the letters of 'a prize' are there to be fiddled with, i.e. rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Corporation",
-         "gives": "TUM",
-         "note": "a corporation is an old jocular word for a pot belly, a tum"
+         "words": "a",
+         "at": 22
         },
         {
-         "words": "a prize",
-         "note": "these letters rearranged"
+         "words": "prize",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company is accused of taking an award for cooking the books.",
-     "walkthrough": "'Corporation' suggests a business, but it is the dated slang for a big belly.",
-     "definitionFit": "A trapezium is a four-sided geometric shape, and a geometric shape is a figure."
+     "surface": "A company is suspected of rigging a prize competition.",
+     "walkthrough": "'Corporation' looks like a company but is the old slang for a paunch. 'for fiddling' tells you to jumble 'a prize', and the jumble goes inside the belly word.",
+     "definitionFit": "A trapezium is a geometric figure: a four-sided shape with one pair of parallel sides."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Corporation"
     }
    }
@@ -917,30 +923,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EAR",
      "indicators": [
       {
        "text": "trimmed at the edges",
-       "note": "trimming at both edges cuts away the first and last letters"
+       "at": 14,
+       "note": "the word for the facial growth loses its first and last letters, as if clipped at both ends"
       }
      ],
      "parts": [
       {
        "words": "Facial growth",
+       "at": 0,
        "gives": "BEARD",
-       "note": "a beard grows on the face"
+       "note": "a beard is hair grown on the face"
+      },
+      {
+       "gives": "BD"
       }
      ]
     },
     "explanation": {
-     "surface": "A tidied beard and someone listening.",
-     "definitionFit": "The ear is the organ of hearing, so it is the one that hears."
+     "surface": "A man's beard has been neatly trimmed, and someone overhears.",
+     "walkthrough": "'trimmed at the edges' takes the B and D off BEARD. 'one hears' reads like a link but is the definition: something that hears.",
+     "definitionFit": "The ear is the organ of hearing, so it is literally a thing that hears."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "edges"
+     "joke": "pun",
+     "misdirectedWord": "trimmed"
     }
    }
   },
@@ -1136,36 +1147,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORIGAMI",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "uncovered means stripped of its outer layer, so the first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Boris",
-       "note": "taken as written before trimming"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 6,
+         "note": "with its covering stripped away, the name Boris loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boris",
+         "at": 0
+        },
+        {
+         "gives": "BS"
+        }
+       ]
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
+       "at": 16,
+       "gives": "G"
       },
       {
        "words": "mate in Paris",
+       "at": 21,
        "gives": "AMI",
-       "note": "ami is French for friend"
+       "note": "ami is French for friend or mate"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper story: Boris exposed alongside a friend in France.",
-     "walkthrough": "The definition is loose: origami is the craft, not the activity.",
-     "definitionFit": "Origami is the Japanese art of folding paper into shapes, a craft done with paper."
+     "surface": "Boris has been exposed with a good friend in Paris.",
+     "walkthrough": "'uncovered' strips B and S off BORIS to leave ORI; G for good; AMI is French for friend.",
+     "definitionFit": "Origami is the Japanese craft of folding paper into figures and shapes."
     },
     "features": {
      "answerInScene": false,
@@ -1202,28 +1221,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NAMETAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the Oxford don famous for swapping the opening sounds of words"
+       "at": 3,
+       "note": "Spooner swaps the opening sounds of two words, so the sounds of the two words here change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "broken mustang",
-       "gives": "NAMETAG",
-       "soundsLike": "TAME NAG",
-       "note": "a broken horse has been tamed, and a nag is a horse"
+       "op": "homophone",
+       "spelt": "TAME",
+       "parts": [
+        {
+         "words": "broken",
+         "at": 13,
+         "gives": "TAYM",
+         "note": "a horse that has been broken in is tame, said aloud as 'taym'"
+        }
+       ]
+      },
+      {
+       "words": "mustang",
+       "at": 20,
+       "gives": "NAG",
+       "note": "a mustang is a horse, and a nag is a horse too"
       }
      ]
     },
     "explanation": {
-     "surface": "An identity check for an untamed wild horse.",
-     "walkthrough": "A horse that is broken has been trained to accept a rider; swap the opening sounds of the two words.",
-     "definitionFit": "A name tag is a label worn to show who you are, a form of identification."
+     "surface": "An identity document is wanted for a horse that has been broken in.",
+     "walkthrough": "'Spooner's' tells you to swap the starting sounds: a broken mustang is a TAME NAG, which becomes NAME TAG. Dr Spooner was an Oxford don known for swapping word sounds.",
+     "definitionFit": "A name tag is a label worn to identify someone, so it serves as ID."
     },
     "features": {
      "answerInScene": false,
@@ -1562,34 +1591,41 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARTIEST",
      "indicators": [
       {
        "text": "without any limits",
-       "note": "with no limits means both ends are cut from each word"
+       "at": 27,
+       "note": "both words lose their limits, their first and last letters"
       }
      ],
      "parts": [
       {
-       "words": "party",
-       "note": "taken as written before trimming"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "party",
+         "at": 14
+        },
+        {
+         "words": "fiesta",
+         "at": 20
+        }
+       ]
       },
       {
-       "words": "fiesta",
-       "note": "taken as written before trimming"
+       "gives": "PYFA"
       }
      ]
     },
     "explanation": {
-     "surface": "The most theatrical person at an endless celebration.",
-     "walkthrough": "A luvvy is British slang for a gushing, affected actor.",
-     "definitionFit": "Arty means affectedly artistic, and the superlative fits the showy pretension of a theatrical luvvy."
+     "surface": "The most theatrical guest at a party or fiesta has no limits.",
+     "walkthrough": "'without any limits' takes the outer letters off PARTY and FIESTA, leaving ART and IEST. A luvvy is British slang for an affected, gushing actor.",
+     "definitionFit": "Arty means showily artistic or pretentious, like a theatrical type; its superlative fits most luvvyish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "party"
+     "misdirectedWord": "limits"
     }
    }
   },

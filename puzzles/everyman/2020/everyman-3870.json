@@ -827,40 +827,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "'New",
-       "note": "making something new means remaking it, so the letters come out in a fresh order"
+       "text": "New",
+       "at": 1,
+       "note": "the first 'New' signals that the letters after it are made new, i.e. rearranged"
       }
      ],
      "parts": [
       {
-       "words": "New Labour'",
-       "note": "taken as written"
+       "words": "New",
+       "at": 5
+      },
+      {
+       "words": "Labour",
+       "at": 9
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "leader",
-         "note": "the leader is the one at the front, so only the opening letter is kept"
+         "at": 25,
+         "note": "the leader of Keir's is its first letter"
         }
        ],
        "parts": [
         {
          "words": "Keir's",
-         "note": "the opening letter of the name"
+         "at": 18,
+         "note": "the name Keir, whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe: a fresh rebrand of Blair's party under Keir Starmer is dismissed as dreamy idealism.",
-     "walkthrough": "New Labour was Tony Blair's rebrand of the UK Labour Party; Keir Starmer later led it. The doubled 'New' hides the signal in the slogan.",
-     "definitionFit": "A visionary scheme is idealistic and impractical, and the question mark admits this is an extended sense of the word."
+     "surface": "A political slogan revives New Labour under Keir Starmer's leadership as a grand vision.",
+     "walkthrough": "The first 'New' is the anagram signal and the second is fodder: NEW, LABOUR and K (Keir's leader) are rearranged. Keir Starmer leads the UK Labour Party; 'New Labour' was Tony Blair's branding.",
+     "definitionFit": "Visionary can mean idealistic and impractical, describing a scheme that cannot be carried out in practice."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "New"
     }
    }
@@ -948,38 +956,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SERBIAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not capital",
-       "note": "the capital letter of a proper name is its big initial, and 'not' drops it"
+       "text": "confused",
+       "at": 25,
+       "note": "confused means mixed up, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "confused",
-         "note": "something confused is muddled up, so the letters are jumbled"
+         "text": "not capital",
+         "at": 10,
+         "note": "without its capital, i.e. its initial upper-case letter, so the city name loses its first letter"
         }
        ],
        "parts": [
         {
          "words": "Brisbane",
-         "gives": "RISBANE",
-         "note": "the city name without its upper-case opening letter"
+         "at": 1
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled foreigner asks whether Brisbane is really not Australia's capital.",
-     "walkthrough": "The surface invites the geography quiz (Canberra is the capital), but 'capital' means the capital letter of the name.",
-     "definitionFit": "A person from Serbia, in the Balkans, is a national of a country on that continent."
+     "surface": "A puzzled European asks whether Brisbane is the capital of Australia.",
+     "walkthrough": "'not capital' looks like the point that Brisbane is not Australia's capital, but it drops the capital letter B, and 'confused' rearranges RISBANE.",
+     "definitionFit": "A Serbian is a person from Serbia, a country in the Balkans of south-east Europe."
     },
     "features": {
      "answerInScene": false,
@@ -1112,66 +1122,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAMPARI",
+     "op": "container",
      "indicators": [
       {
-       "text": "Skipping starter of",
-       "note": "to skip the starter is to miss out the opening, so the first letter goes"
+       "text": "getting in",
+       "at": 29,
+       "note": "the two following pieces get into the shortened seafood word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "getting in",
-         "note": "getting in means entering, so one piece goes inside another"
+         "text": "Skipping starter of",
+         "at": 0,
+         "note": "the seafood word skips its starter, its first letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "seafood",
-           "gives": "CAMPI",
-           "note": "scampi, langoustine tails, without its opening letter"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "seafood",
+         "at": 20,
+         "gives": "SCAMPI",
+         "note": "scampi are breaded langoustines, a seafood dish"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "little",
-           "note": "a little of a word is a small taste of it, just its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "red",
-           "note": "the opening letter of the colour"
-          }
-         ]
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 40
+        },
+        {
+         "words": "little red",
+         "at": 42,
+         "gives": "R",
+         "note": "a little of the word red is its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner skips the seafood starter and has a small red aperitif instead.",
-     "walkthrough": "'Starter' looks like a menu course; it is the first letter of the seafood word.",
-     "definitionFit": "Campari is a bitter bright-red Italian liqueur traditionally drunk before a meal to stimulate the appetite."
+     "surface": "A diner forgoes the seafood starter and has a little red wine before dinner.",
+     "walkthrough": "'Skipping starter of' takes S off SCAMPI to leave CAMPI, and 'getting in' puts A plus R (a little red) inside it.",
+     "definitionFit": "Campari is a bitter red Italian liqueur traditionally drunk before a meal to stimulate appetite."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "starter"
     }
    }
@@ -1504,41 +1510,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TAWNYEAGLE",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "to behead is to cut off the head, so the opening letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Sandy",
+       "at": 0,
+       "gives": "TAWNY",
+       "note": "tawny is a sandy, yellowish-brown colour"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 14,
+         "note": "with its head taken off, the dog word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Sandy",
-         "gives": "TAWNY",
-         "note": "tawny is a sandy, orange-brown colour"
+         "words": "a dog",
+         "at": 7,
+         "gives": "BEAGLE",
+         "note": "a beagle is a breed of dog"
         },
         {
-         "words": "a dog",
-         "gives": "EAGLE",
-         "note": "a beagle, the hunting hound, without its opening letter"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog named Sandy kills a bird by biting its head off.",
-     "walkthrough": "Sandy looks like the dog's name; it is the colour word. The beheading falls on the dog, not the bird.",
-     "definitionFit": "The tawny eagle is a large brown bird of prey of Africa and Asia, so it is one avian species."
+     "surface": "Sandy, a dog, has killed a bird by biting its head off.",
+     "walkthrough": "'Sandy' looks like the dog's name but gives TAWNY; 'beheaded' takes the first letter off BEAGLE.",
+     "definitionFit": "The tawny eagle is a large brown bird of prey found across Africa and southern Asia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "Sandy"
     }
    }

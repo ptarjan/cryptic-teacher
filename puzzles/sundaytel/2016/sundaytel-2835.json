@@ -412,41 +412,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AUSSIES",
+     "op": "container",
      "indicators": [
       {
-       "text": "bizarre",
-       "note": "something bizarre is weird and out of order, so these letters are scrambled"
+       "text": "divided by",
+       "at": 28,
+       "note": "the word 'as' is split apart with something placed between its two letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "as",
+       "at": 25
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "divided by",
-         "note": "a word divided by something is split open with it placed in the gap"
+         "text": "bizarre",
+         "at": 39,
+         "note": "something bizarre is strange and out of order, so the letters of 'issue' are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "as",
-         "note": "taken as written"
-        },
-        {
          "words": "issue",
-         "note": "the five letters rearranged"
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People of the Victorian era, split over a strange question.",
-     "walkthrough": "'Victorians' suggests 19th-century Britons, but they are people from Victoria, a state of Australia.",
-     "definitionFit": "Residents of the state of Victoria are Australians, informally called by this nickname."
+     "surface": "People from Victoria are split over a strange matter.",
+     "walkthrough": "'bizarre' jumbles 'issue', and 'divided by' means the word 'as' is split by that jumble. Victoria is a state of Australia, so 'Victorians' look like Britons of the 1800s but are Australians.",
+     "definitionFit": "People from the Australian state of Victoria are examples of Australians, colloquially called Aussies."
     },
     "features": {
      "answerInScene": false,
@@ -1176,31 +1176,45 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "FESTIVE",
      "indicators": [
       {
        "text": "after openers dismissed",
-       "note": "once the openers are dismissed, the first letter of each word is gone"
+       "at": 35,
+       "note": "what is left after the openers are out: in cricket terms the openers are the first batsmen, so here the first letter of each of 'of', 'test' and 'live' is sent away"
       }
      ],
      "parts": [
       {
-       "words": "of test, live",
-       "note": "three words, each losing its first letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "of",
+         "at": 20
+        },
+        {
+         "words": "test",
+         "at": 23
+        },
+        {
+         "words": "live",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "gives": "OTL"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket broadcast: a joyful live Test match, once the opening batsmen are out.",
-     "walkthrough": "In cricket the openers are the first two batsmen and a Test is an international match, so the surface is a cricket scene.",
-     "definitionFit": "Festive describes the mood of a celebration, joyful and merry."
+     "surface": "A cricket Test broadcast live is joyful even after the opening batsmen are out.",
+     "walkthrough": "'showing of' looks like a link phrase, but 'of' is itself fodder: drop the opening letters of OF, TEST and LIVE to leave F, EST and IVE.",
+     "definitionFit": "Festive and celebratory are synonyms, both describing a joyful party mood."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "openers"
+     "misdirectedWord": "of"
     }
    }
   },
