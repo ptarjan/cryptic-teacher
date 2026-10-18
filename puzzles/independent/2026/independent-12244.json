@@ -1901,39 +1901,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "flips",
-       "note": "flipping something turns it over, so the letters run backwards"
+       "text": "about",
+       "at": 15,
+       "note": "the turned word goes around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so the outer piece goes round the inner letters"
+         "text": "flips",
+         "at": 9,
+         "note": "flips means the word for drunkard is turned over and read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Drunkard",
-           "gives": "SOT",
-           "note": "a sot is a habitual drinker"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Drunkard",
+         "at": 0,
+         "gives": "SOT",
+         "note": "a sot is a drunkard"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
         },
         {
          "words": "hundred",
+         "at": 23,
          "gives": "C",
          "note": "C is the Roman numeral for a hundred"
         }
@@ -1942,13 +1947,13 @@
      ]
     },
     "explanation": {
-     "surface": "A drunk tosses about a hundred pancakes.",
-     "walkthrough": "'Flips' suits pancakes in the surface, but it turns the drunkard round.",
-     "definitionFit": "Tacos are folded corn or flour tortillas, flat breads loosely compared to a thin pancake."
+     "surface": "A drunk somersaults over about a hundred pancakes.",
+     "definitionFit": "Tacos are Mexican folded tortillas, flat corn or wheat breads loosely likened to pancakes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "flips"
     }
    }

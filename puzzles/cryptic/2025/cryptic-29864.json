@@ -156,50 +156,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "moving into",
-       "note": "the son moves inside the other pieces"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "on",
+       "at": 7,
+       "gives": "RE",
+       "note": "re means on, concerning"
+      },
+      {
        "op": "container",
+       "indicators": [
+        {
+         "text": "moving into",
+         "at": 14,
+         "note": "the letter goes into the middle of the following pair"
+        }
+       ],
        "parts": [
         {
          "op": "charade",
          "parts": [
           {
-           "words": "on",
-           "gives": "RE",
-           "note": "re = on, concerning"
+           "words": "stylish",
+           "at": 26,
+           "gives": "IN",
+           "note": "in means fashionable, stylish"
           },
           {
-           "words": "stylish",
+           "words": "home",
+           "at": 34,
            "gives": "IN",
-           "note": "in = fashionable"
+           "note": "in means at home"
           }
          ]
         },
         {
          "words": "son",
-         "gives": "S",
-         "note": "s = son"
+         "at": 10,
+         "gives": "S"
         }
        ]
-      },
-      {
-       "words": "home",
-       "gives": "IN",
-       "note": "in = at home"
       }
      ]
     },
     "explanation": {
-     "surface": "An estate agent's note: running checks on a son who is moving into a smart house.",
-     "walkthrough": "The house-moving picture hides that 'stylish' and 'home' give the same two letters; 'moving into' puts the son between them.",
-     "definitionFit": "To rein in is to hold back or restrain, as a rider checks a horse."
+     "surface": "Checking on a son who is moving into a smart house.",
+     "definitionFit": "To rein in is to restrain or curb something, as a rider restrains a horse."
     },
     "features": {
      "answerInScene": false,
@@ -459,46 +462,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IWOJIMA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "shot",
+       "at": 24,
+       "note": "shot means wrecked, so the letters are broken up and rearranged"
+      },
+      {
+       "text": "having lost",
+       "at": 29,
+       "note": "having lost means the letters of the next word are taken out of the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IWOJIMA",
-       "indicators": [
-        {
-         "text": "shot",
-         "note": "something shot is broken to pieces, so the letters are rearranged"
-        },
-        {
-         "text": "having lost",
-         "note": "the listed letters are taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "WWII: a major",
-         "note": "the letters before the loss"
-        },
-        {
-         "words": "war",
-         "note": "W, A and R are removed, leaving WIIMAJO"
-        }
-       ]
+       "words": "WWII: a major",
+       "at": 10,
+       "note": "the letters taken as written"
+      },
+      {
+       "words": "war",
+       "at": 41,
+       "note": "the letters removed from the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "A military note: a major was shot in a WWII battle, and the war was lost.",
-     "walkthrough": "'WWII' reads as a date for the battle, but it is fodder: its letters, with A MAJOR, lose W, A, R before being rearranged.",
-     "definitionFit": "Iwo Jima was a 1945 battle between US and Japanese forces in the Pacific."
+     "surface": "A major in the Second World War is shot and the war lost.",
+     "walkthrough": "Remove W, A and R from WWIIAMAJOR and rearrange the rest.",
+     "definitionFit": "Iwo Jima was a 1945 Pacific island campaign between American and Japanese forces."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "WWII"
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -578,43 +576,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "altering",
-       "note": "the letters of the word are changed around"
+       "text": "after",
+       "at": 26,
+       "note": "the soldiers and uniform come after the changed letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "altering",
+         "at": 32,
+         "note": "altering means changing the order of the letters"
+        }
+       ],
        "parts": [
         {
          "words": "size",
-         "note": "SIZE rearranged"
-        },
-        {
-         "words": "uniform",
-         "gives": "U",
-         "note": "U is uniform in the phonetic alphabet"
-        },
-        {
-         "words": "soldiers",
-         "gives": "RE",
-         "note": "RE, the Royal Engineers"
+         "at": 41,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "uniform",
+       "at": 18,
+       "gives": "U",
+       "note": "U is uniform in the NATO alphabet"
+      },
+      {
+       "words": "soldiers",
+       "at": 4,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, soldiers"
       }
      ]
     },
     "explanation": {
-     "surface": "Kitting out troops: fitting soldiers with uniforms once the sizes are altered.",
-     "walkthrough": "'Fit' reads as a verb about tailoring; it is the noun, a convulsion.",
-     "definitionFit": "A seizure is a fit, a sudden convulsive attack."
+     "surface": "Soldiers' uniforms refitted after a change of size.",
+     "walkthrough": "'Fit' looks like a well-fitting uniform but it is a convulsion.",
+     "definitionFit": "A seizure is a sudden attack or convulsion, a medical fit."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Fit"
     }
@@ -944,42 +953,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "welcoming",
-       "note": "taking a guest in, so the word goes inside"
+       "text": "after",
+       "at": 42,
+       "note": "the next pieces come after the conclusion of prayers"
       }
      ],
      "parts": [
       {
        "words": "conclusion of prayers",
+       "at": 48,
        "gives": "AMEN",
-       "note": "amen ends a prayer"
+       "note": "amen is said at the end of prayers"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "after",
-         "note": "the first piece comes before the rest"
+         "text": "welcoming",
+         "at": 25,
+         "note": "the word is takes the next piece in"
         }
        ],
        "parts": [
         {
          "words": "is",
+         "at": 22,
+         "gives": "IS",
          "note": "taken as written"
         },
         {
          "words": "couple",
+         "at": 35,
          "gives": "TIE",
-         "note": "to couple is to tie, to join"
+         "note": "to tie is to couple or join"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church notice: the service welcomes a couple once the prayers are over.",
-     "walkthrough": "The church setting makes 'couple' a pair at a wedding and 'services' church services; couple is the verb, to tie.",
-     "definitionFit": "Amenities are useful facilities and services provided in a place."
+     "surface": "A church service that welcomes a married couple once prayers end.",
+     "definitionFit": "Amenities are useful facilities such as shops and pools that a place provides."
     },
     "features": {
      "answerInScene": false,
@@ -1342,42 +1356,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESTONIA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "going out",
+       "at": 18,
+       "note": "going out suggests the letters are thrown out of order"
+      },
+      {
+       "text": "having dumped",
+       "at": 28,
+       "note": "dumped means the named letter is removed from the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ESTONIA",
-       "indicators": [
-        {
-         "text": "going out",
-         "note": "going out and about, so the letters are rearranged"
-        },
-        {
-         "text": "having dumped",
-         "note": "one letter is thrown away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Señorita",
-         "note": "the letters before the loss"
-        },
-        {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "R is Romeo in the phonetic alphabet; removed"
-        }
-       ]
+       "words": "Señorita",
+       "at": 9,
+       "note": "the letters taken as written"
+      },
+      {
+       "words": "Romeo",
+       "at": 42,
+       "gives": "R",
+       "note": "R is Romeo in the NATO alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A romantic drama: the señorita goes out on the town having dumped her Romeo.",
-     "walkthrough": "'Romeo' reads as the lover; it is only the letter R.",
-     "definitionFit": "A definition by example: the Baltic republic between Latvia and Finland is a sovereign country."
+     "surface": "A young Spanish woman's dating news: she has dumped her Romeo.",
+     "definitionFit": "Estonia is a Baltic country, a sovereign nation in northern Europe."
     },
     "features": {
      "answerInScene": false,

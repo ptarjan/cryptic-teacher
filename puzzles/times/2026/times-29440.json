@@ -734,49 +734,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "cut the last letter off Waikiki"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "flying",
-         "note": "the letters fly about, so rearrange them"
+         "text": "in",
+         "at": 20,
+         "note": "the teetotal letters go in among the jumbled letters"
         }
        ],
        "parts": [
         {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "flying",
+           "at": 40,
+           "note": "flying suggests letters scattered into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "shortly",
+             "at": 32,
+             "note": "shortly means the word is cut short by its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Waikiki",
+             "at": 23,
+             "note": "a beach area of Honolulu in Hawaii"
+            },
+            {
+             "gives": "I"
+            }
+           ]
+          }
+         ]
+        },
+        {
          "words": "not drinking",
+         "at": 7,
          "gives": "TT",
-         "note": "TT = teetotal"
-        },
-        {
-         "words": "Waikiki",
-         "gives": "WAIKIK",
-         "note": "shortened by its last letter"
-        },
-        {
-         "words": "East",
-         "gives": "E",
-         "note": "E = East"
+         "note": "TT means teetotal, not drinking alcohol"
         }
        ]
+      },
+      {
+       "words": "East",
+       "at": 47,
+       "gives": "E",
+       "note": "E is the compass abbreviation for East"
       }
      ]
     },
     "explanation": {
-     "surface": "A teetotal traveller in Hawaii is soon flying home eastwards.",
-     "walkthrough": "Waikiki is the famous beach in Honolulu, Hawaii.",
-     "definitionFit": "A definition by category: the kittiwake is a small sea gull of northern coasts, one bird among many."
+     "surface": "A seabird that stays sober in Hawaii flies off east.",
+     "walkthrough": "Waikiki is a beach in Honolulu, Hawaii; teetotal drinkers are TT, for total abstinence.",
+     "definitionFit": "The kittiwake is a small gull of the North Atlantic, named after its call."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "flying"
     }
@@ -1719,58 +1743,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "the letters are made new, so rearrange them"
-      }
-     ],
      "parts": [
       {
        "words": "you shouldn't have",
+       "at": 7,
        "gives": "TA",
-       "note": "'Oh, you shouldn't have!' is what you say for thanks: TA"
+       "note": "said in thanks for a present, so it is ta, British slang for thank you"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "nurses"
+         "text": "nurses",
+         "at": 36,
+         "note": "the jumbled letters hold the next pieces as a nurse holds a baby"
         }
        ],
        "parts": [
         {
          "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 32,
+           "note": "new means the word is made into a fresh arrangement"
+          }
+         ],
          "parts": [
           {
            "words": "asked",
-           "note": "rearranged, holding RE and A before its D"
-          },
-          {
-           "words": "about",
-           "gives": "RE",
-           "note": "re = about"
+           "at": 26,
+           "note": "taken as written"
           }
          ]
         },
         {
-         "words": "blood group",
-         "gives": "A",
-         "note": "A is a blood group"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "about",
+           "at": 43,
+           "gives": "RE",
+           "note": "re means about, concerning"
+          },
+          {
+           "words": "blood group",
+           "at": 49,
+           "gives": "A",
+           "note": "A is a blood group"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient who asked new nurses about their blood group is told they should not have.",
-     "walkthrough": "'You shouldn't have' is what you say on receiving a gift, which makes it a roundabout TA, British slang for thanks.",
-     "definitionFit": "To take something as read is to assume it without needing it said."
+     "surface": "A grumble that a new question bothered the nurses about someone's blood type.",
+     "walkthrough": "TA is British slang for thank you, which is what 'you shouldn't have' says on receiving a gift.",
+     "definitionFit": "To take something as read is to accept it without checking, presuming it true."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "have"
+     "misdirectedWord": "nurses"
     }
    }
   }
