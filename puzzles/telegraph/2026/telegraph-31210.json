@@ -196,28 +196,25 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "TONIC",
      "indicators": [
       {
-       "text": "Starts",
-       "note": "the starts of words are their opening letters, so each word gives up its first one"
+       "text": "Starts to",
+       "at": 0,
+       "note": "the starts of the following words, their first letters, are taken in turn"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to turn off noisy industrial cement",
-       "gives": "TONIC",
-       "select": "first",
-       "note": "first letter of each of the five words"
+       "words": "turn off noisy industrial cement",
+       "at": 10,
+       "note": "the five words whose initial letters are read"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to switch off a loud cement mixer on a building site.",
-     "walkthrough": "'cement mixer' looks like one machine, but 'mixer' alone is the definition, in its bar sense.",
-     "definitionFit": "Tonic water is a soft drink added to spirits such as gin, which is what a bar calls a mixer."
+     "surface": "Instructions for switching off a loud industrial cement mixer.",
+     "walkthrough": "'cement mixer' reads as one machine, but 'mixer' alone is the definition: a drink added to spirits.",
+     "definitionFit": "Tonic water is a classic mixer, the soft drink topped up into gin and other spirits."
     },
     "features": {
      "answerInScene": false,
@@ -582,47 +579,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOOKSEE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "curtailed",
-       "note": "to curtail is literally to dock the tail, so the final letter goes"
+       "text": "damaged",
+       "at": 20,
+       "note": "damaged letters are knocked out of shape, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "keel",
+       "at": 28,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "damaged",
-         "note": "damaged things are knocked out of shape, so the letters are jumbled"
+         "text": "curtailed",
+         "at": 38,
+         "note": "curtailed means cut short, so the last letter of soon is cut off"
         }
        ],
        "parts": [
         {
-         "words": "keel",
-         "note": "taken as written"
+         "words": "soon",
+         "at": 33,
+         "note": "the word that loses its tail"
         },
         {
-         "words": "soon",
-         "gives": "SOO",
-         "note": "the word without its last letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat owner will shortly get a quick check of a broken keel.",
-     "walkthrough": "'soon curtailed' looks like a time phrase about the inspection, but it supplies SOO to mix with KEEL.",
-     "definitionFit": "A look-see is informal slang for a quick glance or survey, a short visual check of something."
+     "surface": "A boat's damaged keel will soon be cut short.",
+     "walkthrough": "'curtailed' drops the N of SOON, leaving SOO; 'damaged' then mixes KEEL with SOO.",
+     "definitionFit": "A look-see is an informal, quick look at something, a brief survey or inspection."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "damaged"
+     "misdirectedWord": "keel"
     }
    }
   },
@@ -759,53 +760,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOHICAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "extremely deficient",
-       "note": "lacking its extremes means the word loses its first and last letters"
+       "text": "about",
+       "at": 9,
+       "note": "the complaining word goes about, around, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "about means around, so one group of letters wraps the others"
-        }
-       ],
+       "words": "Complain",
+       "at": 0,
+       "gives": "MOAN",
+       "note": "to moan is to complain"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Complain",
-         "gives": "MOAN",
-         "note": "to moan is to grumble"
-        },
-        {
-         "op": "charade",
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "extremely deficient",
+           "at": 20,
+           "note": "the word this lacks its extremes, its first and last letters"
+          }
+         ],
          "parts": [
           {
            "words": "this",
-           "gives": "HI",
-           "note": "the word without its outer letters"
-          },
-          {
-           "words": "Conservative",
-           "gives": "C",
-           "note": "C is the abbreviation for Conservative"
+           "at": 15,
+           "note": "the word whose ends are dropped"
           }
          ]
+        },
+        {
+         "words": "Conservative",
+         "at": 40,
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone grumbles about a Tory politician's bad haircut.",
-     "walkthrough": "'extremely deficient' looks like an insult aimed at the Conservative, but it trims the word before it.",
-     "definitionFit": "A Mohican is a haircut with the sides shaved and a central strip standing up, named after the Native American people."
+     "surface": "Someone grumbles about a Tory's very poor haircut.",
+     "walkthrough": "'extremely deficient' strips THIS to HI; add C for Conservative, and MOAN goes 'about' them.",
+     "definitionFit": "A Mohican is a haircut with the sides shaved and a central strip of hair left standing up."
     },
     "features": {
      "answerInScene": true,
@@ -836,44 +838,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EXPRESS",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is swapped in to take its place"
+       "at": 5,
+       "note": "the kiss letter stands for, replaces, the male letter"
       },
       {
        "text": "aboard",
-       "note": "on board means inside, telling us the letter being replaced is within the word"
+       "at": 14,
+       "note": "the male letter being replaced is on board, inside, the royal title"
       }
      ],
      "parts": [
       {
        "words": "perhaps Victoria",
+       "at": 21,
        "gives": "EMPRESS",
-       "note": "Queen Victoria was also Empress of India; 'perhaps' marks her as an example"
-      },
-      {
-       "words": "Kiss",
-       "gives": "X",
-       "note": "X is the kiss at the end of a letter"
+       "note": "Queen Victoria was Empress of India, so she is an example of an empress"
       },
       {
        "words": "male",
-       "gives": "M",
-       "note": "M is the abbreviation for male"
+       "at": 9,
+       "gives": "M"
+      },
+      {
+       "words": "Kiss",
+       "at": 0,
+       "gives": "X",
+       "note": "X is the conventional symbol for a kiss"
       }
      ]
     },
     "explanation": {
-     "surface": "A man kisses someone on a train out of London's Victoria station.",
-     "walkthrough": "'Victoria' looks like the London railway terminus, which fits 'train', but it is the queen-empress; X replaces M inside her title.",
-     "definitionFit": "An express is a fast train that makes few stops on its route."
+     "surface": "A kiss for a man on board a train, perhaps at London's Victoria station.",
+     "walkthrough": "'perhaps Victoria' points to the London station, but it is EMPRESS (Victoria was Empress of India). 'for' swaps in X for the M 'aboard' it.",
+     "definitionFit": "An express is a fast train that stops at few stations."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Victoria"
     }
    }
@@ -1543,31 +1548,29 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ACTOR",
      "indicators": [
       {
        "text": "naked",
-       "note": "something naked has nothing on, so the word is stripped of its outer letters"
+       "at": 16,
+       "note": "naked means stripped of its covering, so the outer letters of the works word are removed"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "works",
-       "gives": "ACTOR",
-       "select": "middle",
-       "note": "works means a factory; drop its first and last letters"
+       "at": 10,
+       "gives": "FACTORY",
+       "note": "a works is a factory or industrial plant"
       }
      ]
     },
     "explanation": {
-     "surface": "An entertainer performs in the nude.",
-     "walkthrough": "'works' looks like a verb, but it is the noun meaning factory, which is then stripped.",
-     "definitionFit": "An actor is someone who performs roles on stage or screen, so is a type of performer."
+     "surface": "A performer works without clothes.",
+     "walkthrough": "'works' looks like a verb, but it is the noun meaning a factory, which 'naked' strips of F and Y. A performer working naked is the misleading picture.",
+     "definitionFit": "An actor is someone who performs roles on stage or screen."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "works"
