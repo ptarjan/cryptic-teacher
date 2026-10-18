@@ -99,53 +99,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNHOOK",
-     "indicators": [
-      {
-       "text": "clipped",
-       "note": "something clipped has had its end trimmed off, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "barking",
+         "at": 23,
+         "note": "barking is British slang for mad, so the letters are scrambled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "barking",
-           "note": "barking is British slang for mad, so the letters go crazy and rearrange"
+           "text": "clipped",
+           "at": 8,
+           "note": "clipped means cut short, so hound loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "hound",
-           "gives": "HOUN",
-           "note": "the dog with its last letter cut"
+           "at": 16,
+           "note": "taken as written, before clipping"
+          },
+          {
+           "gives": "D"
           }
          ]
-        },
-        {
-         "words": "satisfactorily",
-         "gives": "OK",
-         "note": "OK means all right, done satisfactorily"
         }
        ]
+      },
+      {
+       "words": "satisfactorily",
+       "at": 31,
+       "gives": "OK",
+       "note": "OK means satisfactorily, all right"
       }
      ]
     },
     "explanation": {
-     "surface": "A dog owner lets a trimmed hound off its leash, and it barks happily.",
-     "walkthrough": "'Barking' looks like what the hound is doing, but in British slang it means mad and signals the anagram.",
-     "definitionFit": "To unhook something is to free it from a hook or catch, a common synonym for letting go."
+     "surface": "A dog owner frees a trimmed hound that is barking contentedly.",
+     "walkthrough": "'Clipped' cuts the last letter from hound, and 'barking' (British slang for crazy, not the dog's noise) rearranges what is left. 'Satisfactorily' supplies the two-letter word for all right.",
+     "definitionFit": "To unhook something is to free it from a hook, so it means to let go."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "barking"
     }
    }
@@ -761,49 +764,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEWEALD",
-     "indicators": [
-      {
-       "text": "Most of",
-       "note": "most but not all means the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means all but the last letter of them"
+        }
+       ],
        "parts": [
         {
          "words": "them",
-         "gives": "THE",
-         "note": "the word without its last letter"
+         "at": 8,
+         "gives": "THEM",
+         "note": "taken as written before trimming"
         },
         {
-         "op": "homophone",
-         "spelt": "WEALD",
-         "indicators": [
-          {
-           "text": "reportedly",
-           "note": "reportedly means as people say it, so it is spoken rather than spelt"
-          }
-         ],
-         "parts": [
-          {
-           "words": "circled",
-           "gives": "WHEELED",
-           "note": "to wheel is to turn in a circle"
-          }
-         ]
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WEALD",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 13,
+         "note": "reportedly means as it is said aloud, so a word that sounds like circled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "circled",
+         "at": 24,
+         "gives": "WHEELED",
+         "note": "wheeled means circled, turning round in the air"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Most of a group is said to have circled an area of English woodland.",
-     "walkthrough": "The Weald is an area of south-east England, across Kent, Sussex and Surrey, once heavily forested.",
-     "definitionFit": "Weald is an old word for forest, and the named region was once a great forest in southern England."
+     "surface": "Most of a flock of birds wheeled over an English woodland.",
+     "walkthrough": "'Most of' cuts them to THE, and 'reportedly' turns wheeled, meaning circled, into its sound-alike. The Weald is an area of south-east England, once heavily wooded, across Kent and Sussex.",
+     "definitionFit": "The Weald is a former forest region of south-east England, so a stretch of English woodland."
     },
     "features": {
      "answerInScene": true,
@@ -833,53 +841,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JEOPARDY",
+     "op": "container",
      "indicators": [
       {
-       "text": "heading off",
-       "note": "with its head off, a word loses its first letter"
+       "text": "traps",
+       "at": 20,
+       "note": "traps means holds inside, so the trimmed cat goes between the outer letters of the name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "traps",
-         "note": "to trap is to hold inside, so one piece encloses the other"
+         "text": "peripherally",
+         "at": 7,
+         "note": "peripherally means at the edges, so only the first and last letters of Jeremy"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "peripherally",
-           "note": "the periphery is the outer edge, so only the end letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Jeremy",
-           "note": "first and last letters"
-          }
-         ]
-        },
+         "words": "Jeremy",
+         "at": 0,
+         "note": "outer letters of Jeremy"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 36,
+         "note": "heading off means the first letter, the head, is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "wild cat",
-         "gives": "EOPARD",
-         "note": "a leopard, a wild cat, without its first letter"
+         "at": 26,
+         "gives": "LEOPARD",
+         "note": "a leopard is a big wild cat"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Jeremy catches a wild cat and so avoids danger.",
-     "walkthrough": "'Heading off danger' looks like a single phrase meaning averting a threat, but 'heading off' acts on the cat and 'danger' is the definition.",
-     "definitionFit": "To be in jeopardy is to be at risk of loss or harm, so the noun means peril."
+     "surface": "A man called Jeremy catches a wild cat that is running off, a risky business.",
+     "walkthrough": "'Peripherally' keeps only the two edge letters of Jeremy, 'heading off' removes the first letter of the big spotted cat, and 'traps' puts the cat between the two edge letters.",
+     "definitionFit": "Jeopardy means peril or risk of harm, so a state of danger."
     },
     "features": {
      "answerInScene": true,
@@ -1132,42 +1146,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "URAL",
-     "indicators": [
-      {
-       "text": "each fifty per cent off",
-       "note": "half of every word is removed, keeping only the other half"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "fifty per cent off",
+         "at": 33,
+         "note": "fifty per cent off means half the letters are removed, here the first half of tour"
+        }
+       ],
        "parts": [
         {
          "words": "tour",
-         "gives": "UR",
-         "note": "the second half of the word"
+         "at": 12,
+         "gives": "TOUR",
+         "note": "taken as written before halving"
         },
         {
+         "gives": "TO"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "each",
+         "at": 28,
+         "note": "each says the same halving applies to meal, its first half removed too"
+        }
+       ],
+       "parts": [
+        {
          "words": "meal",
-         "gives": "AL",
-         "note": "the second half of the word"
+         "at": 21,
+         "gives": "MEAL",
+         "note": "taken as written before halving"
+        },
+        {
+         "gives": "ME"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A river cruise with dinner is advertised at half price each.",
-     "walkthrough": "'Fifty per cent off' sounds like a sale, but it means cutting away half the letters of each word.",
-     "definitionFit": "The Ural flows south from the Ural Mountains into the Caspian Sea, partly through Asian territory."
+     "surface": "A holiday tour and dinner are both being sold at half price.",
+     "walkthrough": "'Fifty per cent off' removes the front half of tour, and 'each' does the same to meal, leaving UR and AL.",
+     "definitionFit": "The Ural is a river flowing from the Ural Mountains through Russia and Kazakhstan, partly in Asia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "off"
     }
    }

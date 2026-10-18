@@ -117,45 +117,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "MULMUL",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "Pair of",
-       "note": "a pair means two copies of the shortened word set side by side"
+       "text": "trimmed",
+       "at": 22,
+       "note": "trimmed means each slipper loses its last letter, cut back at the tail"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MULMUL",
-       "indicators": [
-        {
-         "text": "trimmed",
-         "note": "something trimmed has had its end cut off, so the last letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "soft slippers",
-         "gives": "MULE",
-         "note": "mules are soft backless slippers"
-        }
-       ]
+       "words": "Pair of soft slippers",
+       "at": 0,
+       "gives": "MULEMULE",
+       "note": "mules are soft backless slippers, and a pair means two of them"
+      },
+      {
+       "gives": "EE"
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper describes two slippers edged with a soft material.",
-     "walkthrough": "Each MULE loses its last letter and two copies sit together.",
-     "definitionFit": "Mulmul is a fine, soft muslin cloth originally woven in India."
+     "surface": "Two soft slippers have been trimmed with a delicate cloth.",
+     "walkthrough": "Two MULEs side by side each lose the final E to 'trimmed'.",
+     "definitionFit": "Mulmul is a fine, thin muslin cloth originally from India."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Pair"
+     "misdirectedWord": "trimmed"
     }
    }
   },
@@ -786,59 +776,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "A term associated with places ploughed",
+      "text": "A term associated with places ploughed, expending energy",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CAMPESTRAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "ploughed",
-       "note": "ploughing turns over and breaks up the earth, so these letters are churned into a new order"
+       "at": 30,
+       "note": "ploughing turns the soil over, so the letters are turned over into a new order"
+      },
+      {
+       "text": "expending",
+       "at": 40,
+       "note": "expending means spending, using up, so one letter leaves the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CAMPESTRAL",
-       "indicators": [
-        {
-         "text": "expending",
-         "note": "expending means using up and losing, so one letter is spent and removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "A term",
+         "words": "A",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "term",
+         "at": 2,
          "note": "taken as written"
         },
         {
          "words": "places",
+         "at": 23,
          "note": "taken as written"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the symbol for energy"
         }
        ]
+      },
+      {
+       "words": "energy",
+       "at": 50,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A word describing ploughed land, defined as if in a glossary.",
-     "walkthrough": "One E is dropped from A TERM PLACES before the letters are shuffled; the clue's opening also describes the answer itself.",
-     "definitionFit": "Campestral means relating to fields or open country, the places a farmer ploughs."
+     "surface": "A word describing land that has been ploughed, where effort has gone into the work.",
+     "walkthrough": "'Ploughed' rearranges A, TERM and PLACES once 'expending' has taken one E out. Read as a whole the clue also defines the word: a term for ploughed fields.",
+     "definitionFit": "Campestral means relating to fields or open country, so it is a word for land under the plough."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "ploughed"
+     "misdirectedWord": "energy"
     }
    }
   },

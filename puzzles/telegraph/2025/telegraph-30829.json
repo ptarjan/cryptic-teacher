@@ -269,63 +269,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "make a quick exit!",
+      "text": "make a quick exit",
       "at": 44
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DISAPPEAR",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down answer, upset means turned upside down, so the letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 4,
+         "note": "upset in a down clue means turned upside down, so the letters run in reverse"
+        }
+       ],
        "parts": [
         {
          "words": "I'd",
-         "gives": "DI",
-         "note": "I'd read upwards"
+         "at": 0,
+         "gives": "ID",
+         "note": "the contraction I'd, read as its letters"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "guarding",
+         "at": 28,
+         "note": "guarding means surrounding something to protect it, so the engineer goes round the area letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "military engineer",
+         "at": 10,
+         "gives": "SAPPER",
+         "note": "a sapper is a military engineer, one who digs saps or trenches"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "guarding",
-           "note": "guarding means surrounding protectively, so one piece encloses another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "military engineer",
-           "gives": "SAPPER",
-           "note": "a sapper is a military engineer"
-          },
-          {
-           "words": "area",
-           "gives": "A",
-           "note": "A is the abbreviation for area"
-          }
-         ]
+         "words": "area",
+         "at": 37,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unsettled soldier guarding a zone is told to leave fast.",
-     "walkthrough": "The A sits inside SAPPER before its final R.",
-     "definitionFit": "To disappear is to vanish, which is what someone making a quick exit does."
+     "surface": "Someone is upset that a soldier is guarding an area, and decides to leave quickly.",
+     "walkthrough": "In a down entry 'upset' flips the contraction upside down. 'Military engineer' is the British army term sapper, a soldier who builds and digs; 'guarding' wraps that word round the area letter.",
+     "definitionFit": "To disappear is to vanish from sight, which is what a hasty exit achieves."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "guarding"
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -747,38 +749,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEWSPAPER",
-     "indicators": [
-      {
-       "text": "bizarre",
-       "note": "bizarre means strange or out of order, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NEWSPAPER",
+       "words": "Novel",
+       "at": 0,
+       "gives": "NEW",
+       "note": "novel as an adjective means new"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "bizarre",
+         "at": 14,
+         "note": "bizarre means weird and twisted, so the remaining letters are rearranged"
+        },
+        {
          "text": "but not",
-         "note": "but not means excluding, so a letter is taken out of the word"
+         "at": 22,
+         "note": "but not says a letter is left out of the pool"
         }
        ],
        "parts": [
         {
-         "words": "Novel",
-         "gives": "NEW",
-         "note": "novel as an adjective means new"
-        },
-        {
          "words": "perhaps",
-         "note": "taken as written"
+         "at": 6,
+         "note": "the anagram fodder, taken as written"
         },
         {
          "words": "hard",
+         "at": 30,
          "gives": "H",
          "note": "H is the abbreviation for hard, as on pencils"
         }
@@ -787,9 +788,9 @@
      ]
     },
     "explanation": {
-     "surface": "A novel might be a strange, easy-going sort of book to read.",
-     "walkthrough": "'Novel' looks like the book itself but is the adjective meaning new; H leaves PERHAPS and the rest is jumbled.",
-     "definitionFit": "A newspaper is a daily publication people read, so it is a loose example of a thing to read."
+     "surface": "A strange novel, perhaps, but not a difficult book to read.",
+     "walkthrough": "'Novel' is the adjective here, not a book. 'But not' takes H out of PERHAPS, and 'bizarre' rearranges PERAPS.",
+     "definitionFit": "A newspaper is a daily publication meant to be read, hence a thing to read."
     },
     "features": {
      "answerInScene": true,

@@ -503,38 +503,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MIRO",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the final letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means not quite all, so the last letter of the word for mud is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "mud",
-         "gives": "MIR",
-         "note": "mire is mud, shortened by its last letter"
+         "at": 13,
+         "gives": "MIRE",
+         "note": "mire is deep mud"
         },
         {
-         "words": "egg",
-         "gives": "O",
-         "note": "an egg is round like the letter O, which is also a duck (nought) in cricket"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "egg",
+       "at": 28,
+       "gives": "O",
+       "note": "O looks like an egg, a common crossword equivalence"
       }
      ]
     },
     "spelling": "MIRÓ",
     "explanation": {
-     "surface": "A painter working with mud and egg, as in tempera.",
-     "walkthrough": "Egg tempera is a real painting medium, which makes the surface plausible.",
-     "definitionFit": "Joan Miró was a Spanish surrealist painter and sculptor of the twentieth century."
+     "surface": "An artist works with clay-like mud and egg, perhaps in tempera painting.",
+     "walkthrough": "'Mostly' drops the last letter of MIRE, then O (an egg shape) is added. The painter's name carries an accent: Miró.",
+     "definitionFit": "Joan Miró was a Spanish surrealist painter, so he is an example of an artist."
     },
     "features": {
      "answerInScene": true,
@@ -1119,43 +1123,59 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "TAKECARE",
      "indicators": [
       {
        "text": "cycling",
-       "note": "cycling moves letters round from the front to the back, like a wheel turning"
+       "at": 41,
+       "note": "cycling here means letters are moved round from the front of the word to the back"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TAKECARE",
        "indicators": [
         {
-         "text": "Ignoring article",
-         "note": "ignoring a word for 'the' means the title loses its opening definite article"
-        },
-        {
          "text": "without end",
-         "note": "without its end the word loses its final letter"
+         "at": 49,
+         "note": "without end means the final letter of the play's remaining title is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Pinter play",
-         "gives": "THECARETAKER",
-         "note": "The Caretaker is a 1960 play by Harold Pinter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Ignoring",
+           "at": 11,
+           "note": "ignoring means the article at the front of the title is left out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Pinter play",
+           "at": 29,
+           "gives": "THECARETAKER",
+           "note": "The Caretaker is a 1960 play by Harold Pinter"
+          },
+          {
+           "words": "article",
+           "at": 20,
+           "gives": "THE",
+           "note": "the is the definite article"
+          }
+         ]
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warning shouted during a revival of a Pinter play.",
-     "walkthrough": "Drop THE and the final R to leave CARETAKE, then move CARE from the front to the back to get TAKE CARE.",
-     "definitionFit": "Take care is a warning phrase urging caution, just like watch out."
+     "surface": "A warning cry, followed by talk of a Pinter play going round and round without finishing.",
+     "walkthrough": "'Ignoring' the article leaves CARETAKER; 'without end' drops the R to give CARETAKE; 'cycling' moves CARE from the front to the back.",
+     "definitionFit": "Both are idiomatic warnings urging caution, telling someone to be careful."
     },
     "features": {
      "answerInScene": false,
