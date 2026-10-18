@@ -401,26 +401,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Consumed E",
-      "at": 0,
-      "meaning": "first meaning: took drugs such as ecstasy"
-     },
-     {
-      "text": "supplies circulating somewhat",
-      "at": 11,
-      "meaning": "second meaning: second-hand, as goods that have already been through other hands"
+      "text": "Consumed E supplies circulating somewhat?",
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "circulating",
+       "at": 20,
+       "note": "circulating means going round, so the run is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "at": 32,
+         "note": "somewhat means only part of these words supplies the letters, a run sitting within them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Consumed E supplies",
+         "at": 0,
+         "gives": "DESU",
+         "note": "the letters sit across the end of consumed, the E and the start of supplies"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
-     "surface": "Someone took ecstasy while stocks were doing the rounds.",
-     "walkthrough": "E is the usual slang for ecstasy; the question mark flags the loose second meaning of goods that have had previous owners.",
-     "definitionFit": "Drug-taking is called using, and second-hand goods such as a used car have already passed around a little."
+     "surface": "A question about whether spent ecstasy is still doing the rounds.",
+     "walkthrough": "'Consumed' is the real definition, but the setter lets the run DESU, spanning 'consumED E SUpplies' and read backwards via 'circulating', overlap it, so the whole clue serves both jobs.",
+     "definitionFit": "Used and consumed are synonyms, both meaning eaten up or spent."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "E"
+     "aptDefinition": false,
+     "misdirectedWord": "supplies"
     }
    }
   },
@@ -871,8 +895,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Thief",
-      "at": 0
+      "text": "Thief's",
+      "at": 0,
+      "note": "the 's stands for 'is', joining the definition to the wordplay"
      }
     ],
     "wordplay": {
@@ -880,35 +905,34 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ICE",
        "indicators": [
         {
          "text": "uncovered",
-         "note": "with the cover stripped off, only the inner letters of the word remain"
+         "at": 13,
+         "note": "uncovered means the word loses its covering, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "sins",
-         "gives": "ICE",
-         "select": "middle",
-         "note": "sins are vices; drop the outside letters"
+         "at": 8,
+         "gives": "VICES",
+         "note": "vices are sins or moral failings"
         }
        ]
       },
       {
        "words": "where Douglas is found",
+       "at": 23,
        "gives": "MAN",
        "note": "Douglas is the capital of the Isle of Man"
       }
      ]
     },
     "explanation": {
-     "surface": "A thief's wrongdoings exposed in the place where Douglas lives.",
-     "walkthrough": "Ice is slang for diamonds, so an iceman is a jewel thief.",
-     "definitionFit": "Iceman is underworld slang for a jewel thief, since diamonds are known as ice."
+     "surface": "A thief's wrongdoing laid bare where Douglas lives.",
+     "walkthrough": "'Douglas' looks like a person, but it is the capital town of the Isle of Man, a self-governing island in the Irish Sea; VICES stripped of V and S gives ICE.",
+     "definitionFit": "An iceman is slang for a jewel thief, since ice is underworld slang for diamonds."
     },
     "features": {
      "answerInScene": false,

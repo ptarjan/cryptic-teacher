@@ -445,46 +445,40 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ALLALONGTHELINE",
      "indicators": [
       {
        "text": "ground",
-       "note": "ground material is crushed and broken up, so the letters are reduced and reformed"
+       "at": 55,
+       "note": "ground, as in coffee, means crushed and broken up, so the remaining letters are mixed"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ALLALONGTHELINE",
        "indicators": [
         {
          "text": "ultimately stripped",
-         "note": "'ultimately' points to a final letter, and stripping it out wherever it appears removes it entirely"
+         "at": 35,
+         "note": "ultimately points to the final letter of ants, and stripped says that letter is taken out every time it occurs"
         }
        ],
        "parts": [
         {
-         "words": "Los Angeles",
-         "note": "taken as written"
+         "words": "Los Angeles hills, ants",
+         "at": 11,
+         "note": "the words are taken letter for letter as the fodder"
         },
         {
-         "words": "hills",
-         "note": "taken as written"
-        },
-        {
-         "words": "ants",
-         "note": "taken as written; its last letter is the one stripped out everywhere"
+         "gives": "SSSS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "All over the hills of Los Angeles, the ants have stripped the earth bare.",
-     "walkthrough": "The last letter of 'ants' is S; remove every S from 'Los Angeles hills ants' and the fifteen letters left rearrange into the phrase.",
-     "definitionFit": "The idiom means at every point or in every respect, so it is a phrasal equivalent of throughout."
+     "surface": "Insects crawling over the hills of Los Angeles have stripped the soil bare.",
+     "walkthrough": "'Ground' looks like the soil the ants strip, but it is the anagram signal. The last letter of 'ants' is S, and every S is removed, leaving LOANGELEHILLANT to be rearranged.",
+     "definitionFit": "All along the line is an idiom meaning at every stage or point, so from start to finish."
     },
     "features": {
      "answerInScene": false,
@@ -1107,46 +1101,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NATURAL",
-     "indicators": [
-      {
-       "text": "discovered",
-       "note": "dis-covered means having its covering removed, so the outer letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Note",
-       "gives": "N",
-       "note": "N is the abbreviation for note"
+       "at": 0,
+       "gives": "N"
       },
       {
-       "words": "planet",
-       "gives": "SATURN",
-       "note": "the ringed sixth planet"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 12,
+         "note": "discovered means uncovered, so the planet's name loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "planet",
+         "at": 5,
+         "gives": "SATURN",
+         "note": "Saturn is the sixth planet from the sun"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 26,
+       "gives": "A"
       },
       {
        "words": "student",
+       "at": 28,
        "gives": "L",
-       "note": "L is a learner, as on a learner driver's plate"
+       "note": "L, for learner, is the usual crossword letter for a student, from the L-plates on a learner driver's car"
       }
      ]
     },
     "explanation": {
-     "surface": "A record that a student found a new planet, still pristine.",
-     "walkthrough": "'Discovered' suggests finding the planet, but it means stripping off its first and last letters.",
-     "definitionFit": "Natural things exist in nature without manufacture or human interference, so they are untouched by people."
+     "surface": "An astronomy note: a student found a planet no one had ever handled.",
+     "walkthrough": "'Discovered' reads as finding a new planet, but it means removing the cover, the first and last letters, from SATURN.",
+     "definitionFit": "Something natural is in its original state, made by nature and not shaped or processed by people."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "discovered"
     }
    }

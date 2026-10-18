@@ -354,47 +354,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIDALGO",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly means not quite complete, so the last letter of the following word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "concealed",
+       "at": 10,
+       "gives": "HID",
+       "note": "hid is the past tense of hide, so concealed"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 20,
+         "note": "nearly means the word all falls just short, missing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "concealed",
-         "gives": "HID",
-         "note": "past tense of hide"
-        },
-        {
          "words": "all",
-         "gives": "AL",
-         "note": "the word with its final letter cut off"
+         "at": 27
         },
         {
-         "words": "work",
-         "gives": "GO",
-         "note": "to go is to work or function"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "work",
+       "at": 31,
+       "gives": "GO",
+       "note": "to go is to work or function, as in 'the engine won't go'"
       }
      ]
     },
     "explanation": {
-     "surface": "A gentleman who kept almost all of his labour out of sight.",
-     "walkthrough": "'Concealed' looks like an adjective describing the gentleman but supplies a past tense.",
-     "definitionFit": "A hidalgo is a member of the lower Spanish nobility, a gentleman by birth."
+     "surface": "A gentleman who hid almost all his labour.",
+     "walkthrough": "'Nearly' cuts the last L from ALL, leaving AL between HID and GO.",
+     "definitionFit": "A hidalgo is a member of the lower nobility in Spain, a gentleman by birth."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "concealed"
+     "misdirectedWord": "work"
     }
    }
   },
@@ -995,31 +998,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LASH",
      "indicators": [
       {
        "text": "topless",
-       "note": "topless means missing its top, so the opening letter of the word for fight is removed"
+       "at": 11,
+       "note": "topless means the word loses its top, its first letter"
       }
      ],
      "parts": [
       {
        "words": "fight",
-       "gives": "LASH",
-       "note": "a clash is a fight; its first letter goes"
+       "at": 4,
+       "gives": "CLASH",
+       "note": "a clash is a fight or skirmish"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A catfight in which someone has lost their top.",
-     "walkthrough": "'Cat fight' reads as one phrase, but 'Cat' is the definition: the cat-o'-nine-tails whip.",
-     "definitionFit": "The cat is a whip, and a lash is a stroke of a whip or the whip itself."
+     "surface": "Two cats squaring up, one with its upper half bare.",
+     "walkthrough": "'Cat' looks like the animal in a fight but is the cat-o'-nine-tails, a whip.",
+     "definitionFit": "The cat-o'-nine-tails, a many-thonged whip, was used to flog sailors; a lash is a whip or a stroke from one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Cat"
     }
    }
