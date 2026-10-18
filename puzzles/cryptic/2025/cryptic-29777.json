@@ -365,47 +365,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORKNEYS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of something is all but a part, so the final letter is dropped"
+       "text": "scattered",
+       "at": 19,
+       "note": "scattered means thrown about, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "scattered",
-         "note": "scattered things are thrown about, so the letters land in a different order"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of the word new is kept, so its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "New",
-         "gives": "NE",
-         "note": "the word with its last letter cut"
+         "at": 8
         },
         {
-         "words": "York's",
-         "note": "taken as written, apostrophe ignored"
+         "gives": "W"
         }
        ]
+      },
+      {
+       "words": "York's",
+       "at": 12,
+       "gives": "YORKS",
+       "note": "taken as written, with the S of the possessive"
       }
      ]
     },
     "explanation": {
-     "surface": "Islands far from New York whose own people would never use the name in the clue.",
-     "walkthrough": "Islanders say 'Orkney', never 'the Orkneys', so the definition fairly flags a name only outsiders use. Orkney is an island group off the north coast of Scotland.",
-     "definitionFit": "The plural form is a common outsider's label for the Scottish archipelago, which residents themselves always call simply Orkney."
+     "surface": "Islanders bristle at a scattered archipelago being named after most of New York.",
+     "walkthrough": "'Most of' trims NEW to NE; with YORKS that gives seven letters for 'scattered' to rearrange. Locals say Orkney, never the Orkneys.",
+     "definitionFit": "Orkney is a Scottish archipelago; outsiders often say the Orkneys, a plural form the islanders themselves dislike and never use."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "York's"
+     "misdirectedWord": "scattered"
     }
    }
   },
@@ -1599,42 +1603,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "as judgment day?",
-      "at": 34
+      "text": "judgment day?",
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ESCHATOLOGICAL",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "covers",
-       "note": "to cover is to wrap round, so one piece goes outside part of another"
+       "text": "as",
+       "at": 34,
+       "note": "as means in the role of: the wrapped pair serves in place of the original opening of the 10-down word"
       }
      ],
      "parts": [
       {
-       "words": "What",
-       "gives": "EH",
-       "note": "eh? is a way of saying what?"
+       "words": "10",
+       "at": 31,
+       "gives": "SCATOLOGICAL",
+       "note": "the answer to clue 10 down, an adjective for lavatory humour"
       },
       {
-       "words": "10",
-       "gives": "SCATOLOGICAL",
-       "note": "the answer to clue 10 down"
+       "gives": "SC"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covers",
+         "at": 5,
+         "note": "the two letters of the interjection go round the others, one on each side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What",
+         "at": 0,
+         "gives": "EH",
+         "note": "eh? is a way of asking what"
+        },
+        {
+         "words": "the 1st and 2nd of",
+         "at": 12,
+         "gives": "SC",
+         "note": "the opening two letters of the answer to 10 down, an S and a C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled question about what links the start of another clue to the end of the world.",
-     "walkthrough": "EH wraps only the first two letters of the 10 down answer, the rest following on. The question mark flags a definition by example.",
-     "definitionFit": "Eschatology is the theology of last things, such as death and the final judgment, so judgment day is its subject."
+     "surface": "A puzzled question about which part of the toilet-humour answer stands for the Last Judgment.",
+     "walkthrough": "Take SCATOLOGICAL from 10 down; 'covers' wraps EH round its first two letters to make ESCH, and 'as' has that stand in for them. The question mark marks judgment day as one topic of the subject.",
+     "definitionFit": "Eschatological describes theology concerned with the end of the world, death and the Last Judgment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "What"
+     "joke": "pun",
+     "misdirectedWord": "covers"
     }
    }
   }

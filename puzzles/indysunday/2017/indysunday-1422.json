@@ -318,57 +318,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEEP",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "at first",
-         "note": "what comes at first in a word is its opening letter, so only that is kept"
+         "at": 20,
+         "note": "only the opening letter of sophistication is taken"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "topless",
-           "note": "in a down answer the top is the first letter, so it comes off"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "sophistication at first",
-           "gives": "S",
-           "select": "first",
-           "note": "the first letter of sophistication"
-          }
-         ]
+         "words": "sophistication",
+         "at": 5,
+         "note": "its first letter is S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 50,
+         "note": "the word for carrying on loses its top, which is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "continue going",
+         "at": 35,
+         "gives": "KEEP",
+         "note": "to keep going is to continue, so keep means continue going"
         },
         {
-         "words": "continue going topless",
-         "gives": "EEP",
-         "note": "KEEP (continue going) without its top letter K"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to exude class at first, and then carry on without a top.",
-     "walkthrough": "'Keep going' means continue, so 'continue going' is KEEP, and losing its top leaves EEP.",
-     "definitionFit": "A plain synonym: liquid that oozes trickles slowly through, exactly as it seeps."
+     "surface": "A suave seducer is told to keep stripping off.",
+     "walkthrough": "'topless' removes the K from KEEP, leaving EEP, which follows S.",
+     "definitionFit": "To seep is to leak slowly through small openings, which is what liquid does when it oozes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "topless"
     }
    }
@@ -449,43 +448,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "TRY is cut short by its last letter"
+       "text": "'s stolen",
+       "at": 34,
+       "note": "has stolen: the letters on the outside have taken the gold into their keeping"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "'s stolen",
-         "note": "the old lady has stolen the gold, so it is taken inside"
-        }
-       ],
        "parts": [
         {
-         "words": "hear short",
-         "gives": "TR",
-         "note": "to hear a case in court is to TRY it; short, it loses the Y"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 20,
+           "note": "the word is cut short, losing its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hear",
+           "at": 15,
+           "gives": "TRY",
+           "note": "a judge will try, or hear, a case in court"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         },
         {
          "words": "old lady",
+         "at": 26,
          "gives": "MA",
-         "note": "one's old lady = mother, MA"
+         "note": "MA is an informal word for mother, one's old lady"
         }
        ]
       },
       {
        "words": "gold",
+       "at": 44,
        "gives": "AU",
-       "note": "Au is the chemical symbol for gold"
+       "note": "AU is the chemical symbol for gold"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is shaken to learn that a little old woman has robbed some gold.",
-     "walkthrough": "'Hear' is a judge's word here, not a listener's: a judge hears, or tries, a case. The old lady is Mum, and ''s' stands for 'has'.",
-     "definitionFit": "A plain synonym in the psychological sense: an event so distressing it leaves lasting harm, which 'Great' signals."
+     "surface": "A court hears that an elderly woman's theft of gold came as a great blow.",
+     "walkthrough": "'short' trims TRY to TR; with MA after it, 'has stolen' puts AU between them.",
+     "definitionFit": "Trauma is a severe emotional or physical shock, a synonym in the psychological sense."
     },
     "features": {
      "answerInScene": true,
@@ -569,47 +581,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ACTOR",
-     "indicators": [
-      {
-       "text": "given up",
-       "note": "in a down answer, sent up means turned to read bottom to top"
-      },
-      {
-       "text": "Flipping",
-       "note": "flipped over, so read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "given up",
+         "at": 13,
+         "note": "in a down clue, up means the letters are read from the bottom, so this word runs backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "about given up",
-         "gives": "AC",
-         "note": "CA (circa, about) turned upwards"
-        },
+         "words": "about",
+         "at": 7,
+         "gives": "CA",
+         "note": "CA, short for circa, means about"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "Flipping nonsense",
-         "gives": "TOR",
-         "note": "ROT (nonsense) turned over"
+         "text": "Flipping",
+         "at": 23,
+         "note": "flipping something over turns it the other way, so these letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nonsense",
+         "at": 32,
+         "gives": "ROT",
+         "note": "rot is nonsense"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer who has quit is dismissed as a load of nonsense.",
-     "walkthrough": "'Flipping' reads as a mild British swear word, like 'blooming', but it is the second reversal instruction.",
-     "definitionFit": "An older theatrical sense: Shakespeare's 'all the men and women merely players' means performers on a stage."
+     "surface": "A sportsman scorns the idea that he has been given up on: what nonsense!",
+     "walkthrough": "'given up' turns CA into AC, and 'Flipping' turns ROT into TOR.",
+     "definitionFit": "A player is someone who acts a part on stage, the theatrical sense of an actor."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Flipping"
+     "misdirectedWord": "Player"
     }
    }
   },
@@ -695,57 +715,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ABOUT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "filled"
+         "text": "filled",
+         "at": 7,
+         "note": "the turned bath is filled with the zero, which sits inside it"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "A as itself"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
            "text": "turned over",
-           "note": "turned upside down, so read backwards"
+           "at": 19,
+           "note": "the bath is turned upside down, so its letters run backwards"
           }
          ],
          "parts": [
           {
            "words": "bath",
-           "gives": "BUT",
-           "note": "TUB, turned over"
-          },
-          {
-           "words": "duck",
-           "gives": "O",
-           "note": "a duck is a score of nought in cricket, O"
+           "at": 14,
+           "gives": "TUB",
+           "note": "a tub is a bath"
           }
          ]
+        },
+        {
+         "words": "duck",
+         "at": 2,
+         "gives": "O",
+         "note": "a duck is a score of nothing in cricket, so the letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bath with a duck in it has been knocked over carelessly.",
-     "walkthrough": "The rubber duck in the bath is really a cricket duck, a score of zero, so O. BUT holds it after the B.",
-     "definitionFit": "A plain synonym for an approximate figure: 'roughly ten' and 'around ten' say the same thing."
+     "surface": "A bathtub full of rubber ducks has been upended.",
+     "walkthrough": "'turned over' makes TUB into BUT, which 'filled' fills with O, giving BOUT after A. In cricket a duck is a batsman's score of zero.",
+     "definitionFit": "About and roughly both mean approximately when used before a number, so they are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "duck-filled"
+     "misdirectedWord": "duck"
     }
    }
   },
@@ -1013,28 +1035,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ADAM",
      "indicators": [
       {
        "text": "stripped",
-       "note": "stripped of its outer layer, so its first and last letters"
+       "at": 10,
+       "note": "stripped of its outer layer, the word loses its first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Nice lady stripped",
-       "gives": "ADAM",
-       "select": "middle",
-       "note": "MADAME, a lady in Nice, France, without its outer letters"
+       "words": "Nice lady",
+       "at": 0,
+       "gives": "MADAME",
+       "note": "in Nice, a French city, a lady is called madame"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman on the Riviera undresses for the first man who happens by.",
-     "walkthrough": "'Nice' is the French city, so its lady is a MADAME. 'The first guy to come along' reads as any passer-by, but Adam was literally the first man.",
-     "definitionFit": "In Genesis, Adam is the first man to exist."
+     "surface": "A woman on the Riviera undresses for the first man who happens along.",
+     "walkthrough": "Nice is the French city, not the adjective, which is why its lady is MADAME; 'stripped' leaves the middle.",
+     "definitionFit": "In the Bible, Adam was the first man God created, so he is literally the first guy."
     },
     "features": {
      "answerInScene": true,
@@ -1388,43 +1408,45 @@
      "parts": [
       {
        "words": "business",
+       "at": 6,
        "gives": "CO",
-       "note": "Co. = company, a business"
+       "note": "CO is the abbreviation for company, a business"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "M",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "half of the word is cut away"
+         "at": 20,
+         "note": "half of the two-letter word is cut away, leaving its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "half-cut Hoskins",
-         "gives": "M",
-         "select": "first",
-         "note": "the setter Hoskins calls himself ME, and half of it is M"
+         "words": "Hoskins",
+         "at": 29,
+         "gives": "ME",
+         "note": "Hoskins is the setter, who refers to himself as ME"
+        },
+        {
+         "gives": "E"
         }
        ]
       },
       {
        "words": "in charge",
-       "gives": "IC",
-       "note": "i/c = in charge"
+       "at": 37,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "The setter, a bit drunk, is running some comedy.",
-     "walkthrough": "The setter's pseudonym stands for ME. 'Half-cut' is British slang for tipsy, and here it cuts ME in half.",
-     "definitionFit": "A plain synonym as an adjective: a comic turn or scene is one meant to be funny."
+     "surface": "A firm run by a tipsy setter is a laugh.",
+     "walkthrough": "Hoskins is the setter's own name, so it stands for ME, and 'half-cut' keeps only M. Half-cut is also British slang for drunk.",
+     "definitionFit": "Comic as an adjective means causing laughter, the same as funny."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "half-cut"
@@ -1631,52 +1653,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MIAMI",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "upset",
-         "note": "in an across answer, overturned means read backwards"
+         "at": 10,
+         "note": "upset here means turned up the other way, so the letters run backwards"
         }
        ],
        "parts": [
         {
          "words": "goal",
-         "gives": "MIA",
-         "note": "AIM, turned round"
-        },
+         "at": 5,
+         "gives": "AIM",
+         "note": "an aim is a goal"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "MI",
-         "indicators": [
-          {
-           "text": "gutted",
-           "note": "the insides are removed, so only the outer letters stay"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Messi, he's gutted",
-           "gives": "MI",
-           "select": "outer",
-           "note": "the outer letters of Messi"
-          }
-         ]
+         "text": "he's gutted",
+         "at": 23,
+         "note": "the footballer is gutted, and a gutted word has lost its insides, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Messi",
+         "at": 16,
+         "note": "Lionel Messi, the Argentine footballer; only M and I are left"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football team concedes against Lionel Messi's side and he is devastated.",
-     "walkthrough": "'Gutted' is British for bitterly disappointed, and in wordplay it empties a word. Messi played for Inter Miami, which makes the scene apt.",
-     "definitionFit": "A definition by example: the Florida city is one of many cities, and here the surface's football club is its clue."
+     "surface": "Lionel Messi is devastated after a goal is disallowed.",
+     "walkthrough": "'upset' turns AIM into MIA, and 'gutted' empties MESSI to MI. 'gutted' looks like football slang for gloomy, but it is the removal signal.",
+     "definitionFit": "Miami is a large city in Florida, so it is an example of a city; Messi has played for its football club."
     },
     "features": {
      "answerInScene": true,

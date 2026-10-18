@@ -1070,35 +1070,47 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RELATION",
      "indicators": [
       {
        "text": "ignoring",
-       "note": "to ignore something is to leave it out of account, so those letters vanish"
-      },
-      {
-       "text": "topless",
-       "note": "without a top means the first letter of the lady's name goes"
+       "at": 27,
+       "note": "ignoring means leaving out, so the shortened lady is dropped from the disclosure"
       }
      ],
      "parts": [
       {
        "words": "disclosure",
+       "at": 16,
        "gives": "REVELATION",
-       "note": "a disclosure is a revelation"
+       "note": "a revelation is a disclosure of something hidden"
       },
       {
-       "words": "lady",
-       "gives": "EVE",
-       "note": "Eve, the first lady"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 36,
+         "note": "the name loses its top, which is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "at": 44,
+         "gives": "EVE",
+         "note": "Eve, the first woman in the Bible"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A relative's secret comes out, overlooking a woman who has stripped to the waist.",
-     "walkthrough": "EVE loses its top to become VE; REVELATION is R+EVE+LATION, so dropping VE leaves RELATION.",
-     "definitionFit": "A relation is a kinsman or kinswoman, someone connected by blood or marriage."
+     "surface": "A relative's confession pointedly overlooks a woman without her top on.",
+     "walkthrough": "'topless' cuts EVE to VE, and 'ignoring' takes those two letters out of REVELATION.",
+     "definitionFit": "A relation is a relative, someone connected to you by blood or marriage, such as a cousin or aunt."
     },
     "features": {
      "answerInScene": true,

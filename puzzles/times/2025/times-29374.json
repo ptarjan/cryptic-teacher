@@ -558,31 +558,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RUB",
      "indicators": [
       {
        "text": "with discount",
-       "note": "a discount takes something off, here the last letter"
+       "at": 21,
+       "note": "a discount knocks something off, so the gem's last letter is taken away"
       }
      ],
      "parts": [
       {
        "words": "gem",
-       "gives": "RUB",
-       "note": "RUBY with its Y knocked off"
+       "at": 17,
+       "gives": "RUBY",
+       "note": "a ruby is a red gemstone"
+      },
+      {
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hopes to buy a sparkling jewel at a reduced price.",
-     "walkthrough": "'Shiny gem' reads as one phrase; 'shiny' belongs to the definition, and the gem is simply a ruby.",
-     "definitionFit": "Rubbing something is an attempt to polish it until it shines."
+     "surface": "Someone tries to buy a sparkling jewel at a reduced price.",
+     "walkthrough": "'with discount' knocks the Y off RUBY. 'shiny' looks like part of the jewel picture, but the whole phrase 'Try to get shiny' is the definition: you polish something to brighten it.",
+     "definitionFit": "To rub something is to polish it with friction, which is how you try to make metal or glass gleam."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "shiny"
+     "misdirectedWord": "discount"
     }
    }
   },
@@ -1208,76 +1211,25 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "indicators": [
-      {
-       "text": "sides",
-       "note": "the sides of NET are its outer letters, N and T"
-      }
-     ],
+     "op": "rebus",
+     "reading": "E and N T in alternation",
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "middle",
-         "note": "the middle of a word, like the middle of a row, is its central letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "net's middle",
-         "gives": "NET",
-         "note": "middle letter of NET"
-        }
-       ]
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "NT",
-       "indicators": [
-        {
-         "text": "given alternating pattern",
-         "note": "the two pieces take turns"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "sides",
-         "gives": "NT",
-         "select": "outer",
-         "note": "outer letters of NET"
-        }
-       ]
-      },
-      {
-       "words": "net's middle",
-       "gives": "E",
-       "note": "the middle again, alternating"
-      },
-      {
-       "words": "sides",
-       "gives": "NT",
-       "note": "the sides again"
-      },
-      {
-       "words": "net's middle",
-       "gives": "E",
-       "note": "the pattern ends as it began"
+       "words": "net's middle and sides given alternating pattern",
+       "at": 13,
+       "note": "the middle of net is E and its sides are N and T; laying E and NT alternately, starting and ending with E, spells the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "A tidy folding net whose centre and edges are woven in a chequered design.",
-     "walkthrough": "'Easy compact' sounds like something handy to pack; a compact is an agreement, and an entente is an easy, informal one.",
-     "definitionFit": "An entente is a friendly understanding between states, less formal than a treaty."
+     "surface": "A description of a fishing net's weave, with its centre and edges set in an alternating pattern.",
+     "walkthrough": "Take the middle letter of NET, E, and its two sides, N and T, and alternate them: E, NT, E, NT, E.",
+     "definitionFit": "An entente is an informal friendly understanding between nations, a relaxed agreement rather than a binding treaty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "compact"
+     "misdirectedWord": "Easy"
     }
    }
   },

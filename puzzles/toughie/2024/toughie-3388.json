@@ -43,49 +43,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCHEME",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turned out",
-       "note": "a thing turned out has had its insides emptied, so only the shell of the word stays"
+       "text": "By",
+       "at": 0,
+       "note": "standing by something means sitting next to it, so the last piece is placed beside the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "school",
+       "at": 16,
+       "gives": "SCH"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "By",
-         "note": "standing by something means sitting next to it, so one piece is placed beside the other"
+         "text": "turned out",
+         "at": 23,
+         "note": "a thing turned out, like a pocket, has had its insides emptied, so only the outer letters of exam stay"
         }
        ],
        "parts": [
         {
-         "words": "school",
-         "gives": "SCH",
-         "note": "SCH is the standard abbreviation for school"
-        },
-        {
          "words": "exam",
-         "gives": "EM",
-         "note": "the word emptied of its middle two letters, keeping only the outside"
-        },
+         "at": 34,
+         "note": "only its first and last letters, E and M, survive"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter, so only that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "June",
-           "note": "the final letter of the month"
-          }
-         ]
+         "text": "end of",
+         "at": 3,
+         "note": "the end of a word is its final letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "June",
+         "at": 10,
+         "note": "its final letter is E"
         }
        ]
       }
@@ -93,7 +95,7 @@
     },
     "explanation": {
      "surface": "A school's timetable for the summer exams is published at the end of June.",
-     "walkthrough": "'Turned out' reads as a school letting pupils go, but here it means gutted, like a pocket turned out, so only the word's outer letters survive.",
+     "walkthrough": "'turned out' reads as a school letting pupils go, but here it means gutted, so EXAM gives EM; 'By' sets the E from 'end of June' beside SCH and EM.",
      "definitionFit": "A scheme is a systematic programme of action, a straightforward synonym for a plan or design."
     },
     "features": {
@@ -212,32 +214,35 @@
      "indicators": [
       {
        "text": "in",
+       "at": 13,
        "note": "one thing being in another means it sits inside it"
       }
      ],
      "parts": [
       {
        "words": "poor",
+       "at": 16,
        "gives": "HUNGRY",
-       "note": "poor in the sense of going without food"
+       "note": "poor in the sense of going without food, so hungry"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "JU",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half a",
+         "at": 0,
          "note": "half a word keeps just one of its halves, here the opening pair of letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "month",
-         "gives": "JU",
-         "select": "first",
-         "note": "the first half of JUNE or JULY, which both begin the same way"
+         "at": 7,
+         "gives": "JUNE",
+         "note": "June, though July would serve as well since both begin the same way"
+        },
+        {
+         "gives": "NE"
         }
        ]
       }
@@ -245,7 +250,7 @@
     },
     "explanation": {
      "surface": "For two weeks of the month a hard-up committee can't reach a decision.",
-     "walkthrough": "June and July begin with the same two letters, so it does not matter which month is meant. 'Poor' here means short of food rather than money.",
+     "walkthrough": "'Half a' cuts JUNE (or JULY) to JU, which goes 'in' HUNGRY between HUNG and RY. 'poor' here means short of food rather than money.",
      "definitionFit": "A hung jury is a panel of jurors unable to reach a verdict, so it is literally a body that fails to agree."
     },
     "features": {
@@ -1989,27 +1994,26 @@
      "op": "container",
      "parts": [
       {
-       "words": "sleeping?",
+       "words": "sleeping",
+       "at": 18,
        "gives": "BED",
-       "note": "a sleeper is in bed"
+       "note": "sleeping means in bed, which gives both the bed and the instruction to put the stripped puppy inside it"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "HEL",
        "indicators": [
         {
          "text": "barely",
-         "note": "bare means stripped, so the outside letters are taken off and only the inside kept"
+         "at": 11,
+         "note": "bare means stripped, so the outside letters of the puppy are taken off and only its inside kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "puppy",
-         "gives": "HEL",
-         "select": "middle",
-         "note": "a whelp is a puppy; its inner letters are kept"
+         "at": 4,
+         "gives": "WHELP",
+         "note": "a whelp is a puppy"
         }
        ]
       }
@@ -2017,7 +2021,7 @@
     },
     "explanation": {
      "surface": "Someone spotted a young dog that was scarcely asleep.",
-     "walkthrough": "'Saw' could be the tool, but it is the past tense of see. A whelp is a puppy; 'barely' strips its ends, and the question mark flags 'sleeping' as a definition by example.",
+     "walkthrough": "'Saw' could be the tool, but it is the past tense of see. 'barely' strips WHELP to HEL, and 'sleeping', read as in bed, puts it inside BED; the question mark flags that double duty.",
      "definitionFit": "Beheld is the past tense of behold, an old word meaning looked at or saw."
     },
     "features": {
