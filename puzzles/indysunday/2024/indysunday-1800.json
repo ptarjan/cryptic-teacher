@@ -298,43 +298,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PUZZLES",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "P",
        "indicators": [
         {
          "text": "primarily",
-         "note": "primarily means first of all"
+         "note": "primarily means first of all, so only the first letter of 'Pig' is used"
         }
        ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "Pig",
          "gives": "P",
-         "indicators": [
-          {
-           "text": "uprooting",
-           "note": "uprooting pulls something out, so the N comes out of NUZZLES"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Pig primarily",
-           "gives": "P",
-           "select": "first",
-           "note": "first letter of 'Pig'"
-          }
-         ]
+         "select": "first",
+         "note": "first letter of 'Pig'"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uprooting",
+         "note": "uprooting pulls something out, so the N comes out of NUZZLES"
+        }
+       ],
+       "parts": [
+        {
+         "words": "investigates with nose",
+         "gives": "NUZZLES",
+         "note": "to nuzzle is to investigate with the nose"
         },
         {
-         "words": "investigates with nose, uprooting new",
-         "gives": "UZZLES",
-         "note": "NUZZLES without N (new)"
+         "words": "new",
+         "gives": "N"
         }
        ]
       }
@@ -382,37 +384,32 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "ultimately means in the end, so only the last letter of 'serial' is used"
+       "text": "broadcast",
+       "note": "broadcast seed is scattered, so the letters are scattered and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "One Piece",
+       "note": "anagram fodder"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "L",
        "indicators": [
         {
-         "text": "broadcast",
-         "note": "broadcast seed is scattered, so the letters are scattered and rearranged"
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the last letter of 'serial' is used"
         }
        ],
        "parts": [
         {
-         "words": "One Piece",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
          "unchecked": true,
+         "words": "serial",
          "gives": "L",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "serial ultimately",
-           "gives": "L",
-           "select": "last",
-           "note": "last letter of 'serial'"
-          }
-         ]
+         "select": "last",
+         "note": "last letter of 'serial'"
         }
        ]
       }
@@ -451,27 +448,25 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ZOMBIES",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Up-and-coming",
+       "note": "in a down answer, 'up' means read from the bottom, so everything is reversed"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "Up-and-coming",
-         "note": "in a down answer, 'up' means read from the bottom, so everything is reversed"
+         "text": "in",
+         "note": "the company sits in the middle of the southeast-and-Australia pair"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the company sits in the middle of the southeast-and-Australia pair"
-          }
-         ],
          "parts": [
           {
            "words": "southeast",
@@ -479,16 +474,16 @@
            "note": "SE = southeast, a compass point"
           },
           {
-           "words": "tech company",
-           "gives": "IBM",
-           "note": "IBM, the computer company"
-          },
-          {
            "words": "Australia",
            "gives": "OZ",
            "note": "Oz = Australia, informally"
           }
          ]
+        },
+        {
+         "words": "tech company",
+         "gives": "IBM",
+         "note": "IBM, the computer company"
         }
        ]
       }
@@ -576,17 +571,29 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Gutted",
-       "note": "gutting removes the insides, leaving only the first and last letters of 'sergeant'"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
        "unchecked": true,
        "gives": "ST",
+       "indicators": [
+        {
+         "text": "Gutted",
+         "note": "gutting removes the insides, leaving only the first and last letters of 'sergeant'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "sergeant",
+         "gives": "ST",
+         "select": "outer",
+         "note": "outer letters of 'sergeant'"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "to be stripped of hat",
@@ -595,18 +602,14 @@
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Gutted sergeant",
-         "gives": "ST",
-         "select": "outer",
-         "note": "outer letters of 'sergeant'"
+         "words": "prepared",
+         "gives": "READY",
+         "note": "ready means prepared"
+        },
+        {
+         "gives": "R"
         }
        ]
-      },
-      {
-       "words": "prepared to be stripped of hat",
-       "gives": "EADY",
-       "note": "READY without its first letter"
       }
      ]
     },
