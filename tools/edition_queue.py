@@ -64,6 +64,14 @@ it runs), it hands its running units to its own new image (--resume, or
 --handoff when it has one) and re-execs itself, same pid, same --seconds
 end, so no run outlives the code it started on by more than a REPLAN.
 
+SIGHUP reloads the queue (tools/hot_reload.py): no unit starts, the units
+running are handed over to the next image (--handoff; without it they get
+CT_RELOAD_GRACE seconds, then are TERMed and left deferred) and the run exits
+75, which tools/ocr_full_pass.sh takes as "move the tree to origin/master and
+start again at once". The queue asks for that itself when a fetch of
+origin/master (every CT_RELOAD_POLL, 180s) shows tools/ code changed, not
+puzzles; CT_AUTO_RELOAD=0 opts out.
+
 With CT_YIELD_HOSTS set (space-separated ssh hosts, e.g. "micro@192.168.1.198";
 unset by default) the queue yields to those hosts too, even with OCR_REMOTE
 empty (scans and reads OCR here, on a machine Paul also games on): while
@@ -379,6 +387,7 @@ import fetch_trove
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_listener
+import hot_reload
 import media_manifest
 import mem_gate
 import ocr_remote
@@ -1215,7 +1224,7 @@ def desktop_room(reading, opened, closed=()):
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
-             resume=None, fetch_replan=None, upkeep=None, plan_reuse=None):
+             resume=None, fetch_replan=None, upkeep=None, plan_reuse=None, watch=True):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
     FETCHERS whose units run too, in pools of their own. With `handoff` (a
@@ -1233,9 +1242,15 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     stop = []
     signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
     signal.signal(signal.SIGINT, lambda *_: stop.append(signal.SIGINT))
+    # SIGHUP (or the watcher: origin/master's tools/ code moved) reloads: see reload_check.
+    reload = []  # why a reload was asked, once
+    reload_since = [None]  # when this run began to wind down for it
+    reload_termed_at = [None]  # when the first TERM went at the end of the grace
+    signal.signal(signal.SIGHUP, lambda *_: reload.append("SIGHUP"))
     # A re-exec blocks these across it (reexec); the handlers are in place now.
-    signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT})
+    signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
     code = code_files()
+    watcher = hot_reload.Watcher(TOOLS.parent).start() if hot_reload.enabled() and watch else None
     begun = code_checked = time.monotonic()
     running = {}  # pid: (unit, started)
     tried = set()
@@ -1438,7 +1453,48 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         return sc, rd, [u for src in live for u in fetch_made[src][1]]
 
     def may_start():
-        return not stop and (seconds is None or time.monotonic() - begun < seconds)
+        return not stop and not reload and (seconds is None or time.monotonic() - begun < seconds)
+
+    def reload_check():
+        """A reload asked (SIGHUP, or the watcher saw code change on origin/master):
+        say so once and, at once, have what is filed committed (the wrapper's
+        move to origin/master follows). With a handoff the main loop then hands
+        the running units over and ends; without one they are waited for, and
+        after CT_RELOAD_GRACE TERMed and left deferred, as a game does."""
+        if watcher is not None and watcher.hit and not reload:
+            reload.append(f"origin/master changed {hot_reload.summary(watcher.hit)}")
+        if not reload:
+            return
+        now = time.monotonic()
+        if reload_since[0] is None:
+            reload_since[0] = now
+            flag = os.environ.get("DURABLE_NOW")
+            if flag:
+                try:
+                    Path(flag).touch()
+                except OSError:
+                    pass
+            log(f"reload: {reload[0]}; no unit starts, {len(running) + len(adopted)} running "
+                + ("are handed to the next run" if handoff else f"get {hot_reload.grace_seconds():.0f}s to finish, then are stopped and left deferred"))
+        if handoff or now - reload_since[0] < hot_reload.grace_seconds():
+            return
+        for pid, (unit, _) in units_running():
+            if pid not in yield_termed:
+                yield_termed.add(pid)
+                log(f"reload: grace over, TERM to {unit['kind']} {unit['rel']}")
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+        if reload_termed_at[0] is None:
+            reload_termed_at[0] = now
+        elif now - reload_termed_at[0] >= STOP_GRACE:
+            for pid in list(yield_termed):
+                if pid in running or pid in adopted:
+                    try:
+                        os.killpg(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
 
     spec = {"cache": str(cache), "puzzles": puzzles and str(puzzles), "reread": reread and reread.isoformat()}
 
@@ -1614,7 +1670,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             f"re-exec, {len(running) + len(adopted)} running unit(s) kept")
         sys.stdout.flush()
         sys.stderr.flush()
-        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT})
+        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
         os.environ[REEXEC_ENV] = "1"
         os.execv(argv[0], argv)
 
@@ -1631,6 +1687,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         reap()
         reap_adopted()
         overdue()
+        reload_check()
         for b in beside:
             b.poll(may_start() and not game_now[0], None if seconds is None else seconds - (time.monotonic() - begun))
         # A plan stats every edition and article (minutes on the media
@@ -2042,6 +2099,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         print(f"  VLM down: {vlm_pending[0]} scans deferred")
     if left:
         print(f"  {left:5d}  left for the next run")
+    if reload:
+        print(f"reload: {reload[0]}; exiting {hot_reload.RELOAD_RC} for the wrapper to move the tree and start again")
+        return hot_reload.RELOAD_RC
     return 0
 
 

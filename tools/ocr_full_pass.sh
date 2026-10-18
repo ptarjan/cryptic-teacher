@@ -179,8 +179,19 @@ resync() {  # move the tree to origin/master, again while a handed-over unit kee
   echo "the tree stays where it is until the next slice's end"
 }
 
+RELOAD_RC=75  # tools/hot_reload.py's RELOAD_RC: the queue ended to be reloaded
+reload_resync() {  # the move, three tries, without the long wait resync gives up after
+  local n
+  for n in 1 2 3; do
+    durable_checkpoint "OCR" || echo "durable: checkpoint failed before the move"
+    durable_resync && return 0
+    sleep 5
+  done
+  return 1
+}
+
 slices() {  # slices <what> <filer command...>: run the filer until nothing is left
-  local what="$1" out rc pids
+  local what="$1" out rc pids before
   shift
   while :; do
     echo "=== $what: slice from $(date '+%F %T') ==="
@@ -203,6 +214,24 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
         done
       ) &
       tail -c "+$(($(stat -c %s "$out") + 1))" -f --pid=$! "$out" &
+    fi
+    if [ "$rc" -eq "$RELOAD_RC" ]; then
+      # A reload (kill -HUP the queue's python, or origin/master's tools/ code
+      # moved; tools/hot_reload.py): the units running were handed over, so
+      # move the tree to origin/master now, before the next slice, which then
+      # starts the new code at once instead of after the cycle's end. A move
+      # that did not happen (a tracked file changed, code.lock busy) is not
+      # started over at once: the queue would ask again within seconds.
+      echo "=== $what: reload asked; moving the tree to origin/master ==="
+      before=$(git rev-parse HEAD)
+      durable_wait
+      reload_resync
+      if [ "$(git rev-parse HEAD)" = "$before" ] && ! git merge-base --is-ancestor origin/master HEAD; then
+        echo "the tree did not move; the next slice starts in 60s"
+        sleep 60
+      fi
+      reexec_if_moved
+      continue
     fi
     if [ "$rc" -ne 0 ] || ! grep -q "left for the next run" "$out"; then
       resync
