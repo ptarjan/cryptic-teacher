@@ -1117,61 +1117,63 @@
      "indicators": [
       {
        "text": "about",
-       "note": "going about something means surrounding it, so the shortened poetry goes round 'international'"
+       "at": 16,
+       "note": "about means the shortened poetry word goes around the other pieces"
+      },
+      {
+       "text": "in",
+       "at": 41,
+       "note": "in also signals that the name letter sits inside the shortened poetry word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "'name' is put in the result, landing between the two halves"
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of a word, but not all of it, so its final letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "A lot of",
-           "note": "a lot of means most but not all, so the word for poetry loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "poetry",
-           "gives": "VERSE",
-           "note": "verse is poetry"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "poetry",
+         "at": 9,
+         "gives": "VERSE",
+         "note": "poetry is verse"
         },
         {
-         "words": "international",
-         "gives": "INT",
-         "note": "INT is a standard abbreviation for international"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "name",
-       "gives": "N",
-       "note": "N = name"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "international",
+         "at": 22,
+         "gives": "INT"
+        },
+        {
+         "words": "name",
+         "at": 36,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plenty of verse has been written about a famous global brand of alcohol sellers.",
-     "walkthrough": "VERS goes round INT to make VINTERS, then N goes in after the T.",
-     "definitionFit": "Vintners are wine merchants, the traders who sell bottles of wine to the public."
+     "surface": "A rhymer's bad verse about a world-famous name, written in a wine merchant's shop.",
+     "walkthrough": "Phi uses INT, the usual short form of international; the drink is wine, so these are merchants rather than pubs.",
+     "definitionFit": "Vintners are wine merchants, people who sell wine to customers."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "name"
+     "misdirectedWord": "poetry"
     }
    }
   },
