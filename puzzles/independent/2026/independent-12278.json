@@ -1012,42 +1012,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SILENCE",
-     "indicators": [
-      {
-       "text": "75% of",
-       "note": "three quarters means keeping three letters of four and dropping the last"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "small",
+       "at": 7,
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as on clothing labels"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "receiving",
+         "at": 21,
+         "note": "receiving means the reserve word takes the next piece inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "standard abbreviation for small"
+         "words": "reserve",
+         "at": 13,
+         "gives": "ICE",
+         "note": "ice is coolness or reserve of manner, as in 'break the ice'"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "receiving",
-           "note": "to receive is to take in, so one piece is held inside"
+           "text": "75% of",
+           "at": 31,
+           "note": "75% of a four-letter word keeps three of its four letters, dropping the last"
           }
          ],
          "parts": [
           {
-           "words": "reserve",
-           "gives": "ICE",
-           "note": "ice is coolness or reserve of manner"
+           "words": "grant",
+           "at": 38,
+           "gives": "LEND",
+           "note": "to grant is to lend, as in 'lend support'"
           },
           {
-           "words": "grant",
-           "gives": "LEN",
-           "note": "to lend is to grant; three of its four letters"
+           "gives": "D"
           }
          ]
         }
@@ -1056,9 +1062,9 @@
      ]
     },
     "explanation": {
-     "surface": "A small nature reserve gets most of the funding it asked for, and keeps quiet about it.",
-     "walkthrough": "'Reserve' suggests a park, but it means coolness of manner; 75% of a four-letter word keeps three letters.",
-     "definitionFit": "Quiet as a noun means the absence of sound, which is exactly what silence names."
+     "surface": "A quiet person, a little reserved, is handed most of a grant.",
+     "walkthrough": "'75% of' trims LEND to LEN; ICE 'receiving' it gives ILENCE, with S in front.",
+     "definitionFit": "Silence is the noun for an absence of sound, the same sense as 'quiet' used as a noun."
     },
     "features": {
      "answerInScene": false,
@@ -1339,68 +1345,74 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRACTAL",
-     "indicators": [
-      {
-       "text": "A lot of",
-       "note": "a lot but not all, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 43,
+         "note": "about means the shortened uproar word goes around the next piece"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means around, so one piece goes round another"
+           "text": "A lot of",
+           "at": 27,
+           "note": "a lot of, not all, means the uproar word loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "uproar",
-           "gives": "FRACA",
-           "note": "a fracas is a noisy brawl; shorn of its tail"
+           "at": 36,
+           "gives": "FRACAS",
+           "note": "a fracas is a noisy quarrel or uproar"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "source of",
-             "note": "a source is where something starts, so take the first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "this",
-             "note": "the opening letter of this word"
-            }
-           ]
+           "gives": "S"
           }
          ]
         },
         {
-         "words": "line",
-         "gives": "L",
-         "note": "standard abbreviation for line"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "at": 49,
+           "note": "the source of a word is its first letter, here of 'this'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "this",
+           "at": 59,
+           "note": "T is the first letter of 'this'"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 64,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A fuss breaks out over where some line in a looping graphic came from.",
-     "walkthrough": "FRACA goes round T, and L follows on the end.",
-     "definitionFit": "A fractal is a self-similar pattern repeating at every scale, often rendered as striking computer graphics."
+     "surface": "Someone grumbles that a computer graphic causes a fuss over one line of code.",
+     "walkthrough": "'A lot of' trims FRACAS to FRACA, which goes 'about' T, the 'source of' 'this', giving FRACTA; L for line ends it.",
+     "definitionFit": "A fractal is a self-similar pattern repeating at every scale, often generated and displayed by computers; the question mark flags it as an example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "source"
+     "misdirectedWord": "uproar"
     }
    }
   },

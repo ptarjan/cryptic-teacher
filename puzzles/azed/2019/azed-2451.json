@@ -383,41 +383,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEGO",
+     "op": "composite",
      "indicators": [
       {
        "text": "wild",
-       "note": "running wild means moving without order, so the letters are scrambled"
+       "at": 29,
+       "note": "wild means the letters of 'rose garden' are jumbled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SEGO",
+       "words": "rose garden",
+       "at": 37
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "rose garden",
-         "note": "taken as written"
-        },
-        {
          "words": "red",
-         "note": "taken as written; these letters belong to the shuffle along with the answer"
+         "at": 17,
+         "note": "taken as written: these letters are part of the jumble alongside the answer"
         },
         {
          "words": "ran",
-         "note": "taken as written; these letters also belong to the shuffle"
+         "at": 25,
+         "note": "taken as written: these letters are part of the jumble alongside the answer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener points out a showy red plant that has spread wildly through the rose garden.",
-     "walkthrough": "A compound anagram: the answer plus RED and RAN, all jumbled, make ROSE GARDEN; 'one' stands for the answer.",
-     "definitionFit": "The sego lily is a showy-flowered North American bulb plant, the state flower of Utah."
+     "surface": "A gardener sees red as one flower runs riot in the rose garden.",
+     "walkthrough": "A composite anagram: the answer plus RED and RAN, rearranged, gives ROSE GARDEN. 'see' and 'one' tell you the answer is the one that, with red, ran wild.",
+     "definitionFit": "The sego lily is a North American bulb with large showy white or lilac flowers."
     },
     "features": {
      "answerInScene": true,
@@ -675,50 +674,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so one piece wraps round the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half",
-         "note": "half a word keeps the first part of its letters only"
+         "at": 0,
+         "note": "half means only one of the two halves of the crazy word is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "crazy",
-         "gives": "GA",
-         "select": "first",
-         "note": "gaga means crazy; '(exactly!)' stresses that precisely half is taken"
+         "at": 5,
+         "gives": "GAGA",
+         "note": "gaga means crazy or senile"
+        },
+        {
+         "gives": "GA"
         }
        ]
       },
       {
-       "words": "aged",
-       "gives": "AE",
-       "note": "ae. abbreviates Latin aetatis, 'aged', on memorials"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 22,
+         "note": "about here means the aged abbreviation is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aged",
+         "at": 28,
+         "gives": "AE",
+         "note": "AE is the abbreviation of Latin aetatis, 'aged', used on memorials"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aged goddess is half crazy, exactly so.",
-     "walkthrough": "Crazy is gaga, and '(exactly!)' insists on precisely half of it; 'aged' is the memorial-stone abbreviation, not old.",
+     "surface": "Someone half mad, they insist, fusses over an elderly goddess.",
+     "walkthrough": "'(exactly!)' stresses that precisely half is taken, giving GA; 'about' turns AE round to EA. AE, for aetatis, appears on tombstones before the age at death.",
      "definitionFit": "Gaea, or Gaia, is the Greek earth goddess, mother of the Titans."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "exactly"
+     "misdirectedWord": "aged"
     }
    }
   },
@@ -897,39 +904,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCENA",
+     "op": "composite",
      "indicators": [
       {
        "text": "fantastic",
-       "note": "something fantastic is wildly fanciful, so the letters are freely rearranged"
+       "at": 34,
+       "note": "fantastic means the letters of 'Tosca, new' are rearranged wildly"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCENA",
+       "op": "charade",
        "parts": [
         {
-         "words": "Tosca, new",
-         "note": "taken as written"
+         "words": "Tosca",
+         "at": 14
         },
         {
-         "words": "2",
-         "gives": "TWO",
-         "note": "the figure spelt out"
+         "words": "new",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "2",
+       "at": 29,
+       "gives": "TWO",
+       "note": "the figure 2 is the word TWO, whose letters are taken out of the jumble"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "An opera-goer raves about a new staging of Tosca, scene two especially.",
-     "walkthrough": "The answer fills the gap: the answer plus TWO, jumbled, gives TOSCA NEW. The '2' is not a cross-reference to 2 down.",
-     "definitionFit": "A scena is a scene in an opera, often a dramatic solo, exactly what a production of Tosca contains."
+     "surface": "An opera fan raves that a new staging of Tosca is a triumph.",
+     "walkthrough": "The dash means minus: TOSCA NEW less TWO leaves five letters, which 'fantastic' rearranges. The whole clue also hints at the answer, a showpiece in a production of an opera like Tosca.",
+     "definitionFit": "A scena is an elaborate dramatic solo scene in opera, the kind of fantastic set piece a Tosca production showcases."
     },
     "features": {
      "answerInScene": true,

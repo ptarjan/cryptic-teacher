@@ -918,31 +918,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBELISKS",
-     "indicators": [
-      {
-       "text": "removing exterior",
-       "note": "taking away the outside means the first and last letters are shed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Prize-winner",
-       "gives": "NOBELIST",
-       "note": "a winner of a Nobel Prize"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "removing exterior",
+         "at": 13,
+         "note": "removing the exterior means stripping off the first and last letters of the prize-winner word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prize-winner",
+         "at": 0,
+         "gives": "NOBELIST",
+         "note": "a Nobelist is a winner of a Nobel Prize"
+        }
+       ]
       },
       {
        "words": "Kansas",
+       "at": 31,
        "gives": "KS",
-       "note": "KS is the postal abbreviation for Kansas"
+       "note": "KS is the US postal abbreviation for Kansas"
       }
      ]
     },
     "explanation": {
-     "surface": "A laureate removes the façade of some Kansas columns.",
-     "definitionFit": "Obelisks are tall four-sided stone columns tapering to a pyramid point, a kind of monument."
+     "surface": "A laureate takes the cladding off some columns in Kansas.",
+     "walkthrough": "'removing exterior' strips N and T from NOBELIST, leaving OBELIS, before KS.",
+     "definitionFit": "Obelisks are tall four-sided tapering stone columns, monumental pillars like Cleopatra's Needle."
     },
     "features": {
      "answerInScene": false,
@@ -1528,39 +1535,39 @@
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 12,
+       "gives": "A"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "R",
+       "op": "substitution",
        "indicators": [
         {
          "text": "multi-headed",
-         "note": "having more than one head means the leading letter appears an extra time"
+         "at": 14,
+         "note": "multi-headed means the quarrel word grows more than one head, so its first letter is repeated"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "quarrel?",
-         "gives": "R",
-         "select": "first",
-         "note": "the extra head of the second quarrel word's synonym"
+         "words": "quarrel",
+         "at": 27,
+         "gives": "ROW",
+         "note": "a row is a noisy quarrel"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "RR"
         }
        ]
-      },
-      {
-       "words": "quarrel",
-       "gives": "ROW",
-       "note": "a row is an argument"
       }
      ]
     },
     "explanation": {
-     "surface": "A riddle asks whether a row is one argument or a many-headed dispute.",
-     "walkthrough": "The first Quarrel is the crossbow bolt; the second is the argument, ROW, given a second R at its head after A.",
-     "definitionFit": "A quarrel is the square-headed bolt shot from a crossbow, a kind of projectile."
+     "surface": "Two people wonder whether a dispute counts as a many-sided argument.",
+     "walkthrough": "The first 'Quarrel' is not a dispute but a crossbow bolt. 'multi-headed' doubles the R at the head of ROW to give RROW, after A.",
+     "definitionFit": "A quarrel is the short square-headed bolt shot from a crossbow, a kind of arrow."
     },
     "features": {
      "answerInScene": false,

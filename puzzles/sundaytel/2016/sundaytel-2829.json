@@ -700,46 +700,48 @@
      "indicators": [
       {
        "text": "planted in",
-       "note": "things planted in soil are set inside it, so one piece goes inside another"
+       "at": 6,
+       "note": "planted in means the trees word is set inside the next piece"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ATT",
+       "op": "deletion",
        "indicators": [
         {
          "text": "middle of",
-         "note": "the middle of a word is its central portion, so only the inner letters of the city name are kept"
+         "at": 17,
+         "note": "middle of takes the central letters of 'Seattle', dropping its outer pairs"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Seattle",
-         "gives": "ATT",
-         "select": "middle",
-         "note": "the central three letters of the seven-letter city name"
+         "at": 27,
+         "note": "the middle three letters of 'Seattle' are used"
+        },
+        {
+         "gives": "SELE"
         }
        ]
       },
       {
        "words": "Trees",
+       "at": 0,
        "gives": "FIRS",
-       "note": "firs are a kind of tree"
+       "note": "firs are evergreen conifer trees"
       }
      ]
     },
     "explanation": {
-     "surface": "Seattle's first trees were planted in the city centre.",
-     "walkthrough": "'Trees planted in middle of Seattle' reads like a news item about urban greening; the comma separates the definition.",
-     "definitionFit": "At first is an adverbial phrase meaning at the beginning, which is what initially means."
+     "surface": "Conifers were planted downtown in Seattle in the beginning.",
+     "walkthrough": "'middle of' takes ATT, the three central letters of the city's name, not just one; the trees are 'planted in' that trio after its second letter.",
+     "definitionFit": "At first is an adverbial phrase meaning in the beginning, at the outset."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "planted"
+     "misdirectedWord": "initially"
     }
    }
   },

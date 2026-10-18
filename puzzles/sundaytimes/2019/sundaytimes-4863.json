@@ -657,59 +657,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HIGHMINDEDLY",
      "indicators": [
       {
        "text": "to stop",
-       "note": "a stopper plugs a gap, so one piece goes into the middle of the others"
+       "at": 15,
+       "note": "to stop means to plug a gap, so the inclined word is put inside what follows"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "heartless",
-         "note": "without a heart, the central letters of the word are removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "exalted",
-           "gives": "HIGH",
-           "note": "exalted means lofty or high"
-          },
-          {
-           "words": "inclined",
-           "gives": "MINDED",
-           "note": "minded to do something means inclined to do it"
-          },
-          {
-           "words": "lady",
-           "note": "taken as written before losing its heart"
-          }
-         ]
+         "words": "exalted",
+         "at": 23,
+         "gives": "HIGH",
+         "note": "high means exalted, raised in rank"
         },
         {
-         "gives": "AD"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "being heartless",
+           "at": 36,
+           "note": "being heartless means the central letters of 'lady' are removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lady",
+           "at": 31,
+           "note": "taken as written before its heart goes"
+          },
+          {
+           "gives": "AD"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "inclined",
+       "at": 6,
+       "gives": "MINDED",
+       "note": "minded means inclined, as in 'minded to agree'"
       }
      ]
     },
     "explanation": {
-     "surface": "A noble woman is inclined to stop a haughty lady from being cruel.",
-     "walkthrough": "The heart of a four-letter word is its middle two letters; once they go, the inclined piece plugs the gap between the other two parts.",
-     "definitionFit": "Acting high-mindedly means behaving with lofty moral principles, the manner of an honourable person."
+     "surface": "A noble person is keen to keep a haughty woman from being cruel.",
+     "walkthrough": "'being heartless' strips AD from LADY to leave LY, so HIGH and LY make HIGHLY; MINDED goes in 'to stop' the gap after HIGH.",
+     "definitionFit": "High-mindedly means with lofty principles and moral purpose, which is acting nobly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heartless"
+     "misdirectedWord": "stop"
     }
    }
   },
