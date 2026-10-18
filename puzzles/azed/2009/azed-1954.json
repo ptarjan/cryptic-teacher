@@ -930,45 +930,31 @@
    "annotation": {
     "definitions": [
      {
-      "text": "He's nautical? As playing with this rope, etc?",
-      "at": 0
+      "text": "this rope",
+      "at": 31
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "playing",
+       "text": "playing with",
        "at": 18,
-       "note": "playing suggests the letters of He's nautical are rearranged"
+       "note": "playing with letters means moving them around, so the fodder is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "with",
-         "at": 26,
-         "note": "the clue says the words As and etc go with this answer to make up the jumble, so they are taken away"
-        }
-       ],
+       "words": "He's nautical",
+       "at": 0
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "He's nautical",
-           "at": 0,
-           "gives": "ASHUNLAIETC",
-           "note": "taken as written; its eleven letters are the letters of As, this answer and etc together"
-          },
-          {
-           "words": "As",
-           "at": 15,
-           "note": "taken as written"
-          }
-         ]
+         "words": "As",
+         "at": 15,
+         "note": "taken as written"
         },
         {
          "words": "etc",
@@ -979,16 +965,15 @@
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A sailor is described, and a rope is offered for him to play with.",
-     "walkthrough": "A composite anagram: the letters of HE'S NAUTICAL equal AS + the answer + ETC. An inhaul is a rope for hauling in a sail or spar, so the nautical theme is the definition too.",
-     "definitionFit": "An inhaul is a line on a boat used to pull a sail or boom inwards, a piece of rigging."
+     "surface": "A sailor is described as nautical, with a rope and other gear.",
+     "walkthrough": "The letters of HE'S NAUTICAL are those of the answer plus AS and ETC, so remove those and rearrange what is left.",
+     "definitionFit": "An inhaul is a nautical line used for hauling in a sail or spar, a type of rope."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "playing"
+     "aptDefinition": false,
+     "misdirectedWord": "He's"
     }
    }
   },

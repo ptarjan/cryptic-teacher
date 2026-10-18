@@ -689,50 +689,61 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FATCHANCE",
-     "indicators": [
-      {
-       "text": "taking",
-       "note": "taking something in means holding it inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "FATCHANCE",
        "indicators": [
         {
          "text": "undergoing gender reassignment",
-         "note": "changing gender swaps the male abbreviation for the female one"
+         "at": 27,
+         "note": "the letter for male is changed to the letter for female"
         }
        ],
        "parts": [
         {
          "words": "peer",
+         "at": 22,
          "gives": "MATCH",
-         "note": "a peer is an equal, a match"
+         "note": "a match is an equal, a peer"
         },
         {
+         "gives": "M"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 69,
+         "note": "the word for expert takes the other letter in, holding it"
+        }
+       ],
+       "parts": [
+        {
          "words": "expert's",
+         "at": 60,
          "gives": "ACE",
-         "note": "an ace is an expert"
+         "note": "an ace is an expert; the 's is 'is'"
         },
         {
          "words": "note",
-         "gives": "N",
-         "note": "N is the abbreviation for note"
+         "at": 76,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A member of the House of Lords transitions, with a specialist's medical note.",
-     "walkthrough": "'Peer' suggests a lord, but it means an equal; M for male becomes F for female. N goes inside ACE after its first letter.",
-     "definitionFit": "Fat chance is a sarcastic idiom meaning very little or no likelihood of something happening."
+     "surface": "A lord who changes sex is unlikely; an expert takes note.",
+     "walkthrough": "'peer' is an equal, not a lord; the male letter becomes the female one.",
+     "definitionFit": "Fat chance is an ironic idiom meaning very little likelihood at all."
     },
     "features": {
      "answerInScene": false,
@@ -951,45 +962,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "wobbly",
-       "note": "something wobbly is unsteady and out of true, so the letters are jumbled"
+       "text": "over",
+       "at": 15,
+       "note": "the scrambled letters are placed over the other piece, covering it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "over",
-         "note": "over in the sense of covering, with the jumbled letters wrapped around the next piece"
+         "text": "wobbly",
+         "at": 8,
+         "note": "wobbly means unsteady, so the letters are shaken into a new order"
         }
        ],
        "parts": [
         {
          "words": "Threw a",
-         "note": "the letters of these words rearranged"
-        },
-        {
-         "words": "classical",
-         "gives": "OLD",
-         "note": "classical in the sense of ancient"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "classical",
+       "at": 20,
+       "gives": "OLD",
+       "note": "classical things are old"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone threw a tantrum over a piece of classical music.",
-     "walkthrough": "'Threw a wobbly' is British slang for having a tantrum, but here it is fodder plus anagram signal. OLD goes after the H.",
-     "definitionFit": "An argument that holds water is sound and convincing; it works, in the sense of being valid."
+     "surface": "Someone had a tantrum about a piece of classical music.",
+     "walkthrough": "'wobbly' rearranges THREW A into HWATER, and OLD goes in after H.",
+     "definitionFit": "An argument that holds water is sound and effective, so the phrase means to work."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "wobbly"
+     "aptDefinition": true,
+     "misdirectedWord": "work"
     }
    }
   },
@@ -1362,33 +1376,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LAWNMOWER",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "the Reverend Spooner swapped the opening sounds of pairs of words"
+       "at": 55,
+       "note": "the Reverend Spooner swapped the initial sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "keen cow",
-       "gives": "LAWNMOWER",
-       "soundsLike": "LORN MOWER",
-       "note": "to keen is to MOURN and a cow is a LOWER; swap their first sounds"
+       "op": "homophone",
+       "spelt": "MAWN",
+       "parts": [
+        {
+         "words": "keen",
+         "at": 45,
+         "gives": "MOURN",
+         "note": "to keen is to wail in grief, to mourn, which in British speech sounds like mawn"
+        }
+       ]
+      },
+      {
+       "words": "cow",
+       "at": 50,
+       "gives": "LOWER",
+       "note": "a lower is one that lows, as a cow does"
       }
      ]
     },
     "explanation": {
-     "surface": "Garden advice: with a keen cow around, the grass stays short.",
-     "walkthrough": "'Keen' looks like eager, but it is the verb meaning to wail. In a non-rhotic British accent the swapped words come out sounding like the answer.",
-     "definitionFit": "A mower keeps a lawn cut short, so owning one stops the grass from getting long."
+     "surface": "Your lawn stays short if you keep a hungry cow.",
+     "walkthrough": "In non-rhotic British speech mourn is said like mawn, so swapping the first sounds gives the garden machine.",
+     "definitionFit": "A lawnmower cuts grass, so owning one keeps the lawn from becoming overgrown."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "keen"
     }
    }

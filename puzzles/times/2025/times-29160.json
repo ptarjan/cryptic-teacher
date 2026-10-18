@@ -178,41 +178,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THIEF",
      "indicators": [
       {
        "text": "replacing",
-       "note": "To replace something is to take its place."
+       "at": 19,
+       "note": "replacing says one letter takes the place of another in the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T = time"
-        },
-        {
-         "words": "constant aspect of leader",
-         "gives": "HIEF",
-         "note": "CHIEF, a leader, with its C (the symbol for a constant, as in the speed of light) taken out"
-        }
-       ]
+       "words": "aspect of leader",
+       "at": 38,
+       "gives": "CHIEF",
+       "note": "being chief is an aspect of leading: a chief is a leader"
+      },
+      {
+       "words": "constant",
+       "at": 29,
+       "gives": "C",
+       "note": "c is the symbol for a constant, such as the speed of light"
+      },
+      {
+       "words": "time",
+       "at": 14,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone patient enough to change one steady trait of the boss.",
-     "walkthrough": "C is the standard symbol for a constant, especially the speed of light; 'aspect of leader' marks it as a part of the word for leader.",
-     "definitionFit": "A thief takes what is not theirs; the definition is a playful description rather than a dictionary synonym."
+     "surface": "A sentence about a boss who keeps changing their policy over time.",
+     "walkthrough": "c is the physics symbol for the speed of light, a constant.",
+     "definitionFit": "A thief steals, taking what belongs to others."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "takes"
     }
    }
@@ -719,42 +719,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OPERATED",
-     "indicators": [
-      {
-       "text": "appalling",
-       "note": "Something appalling is dreadful, a mess, so the letters are scrambled."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "over",
+       "at": 6,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for over"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "appalling",
+         "at": 11,
+         "note": "appalling means terrible, so the letters are in a terrible state and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "over",
-         "gives": "O",
-         "note": "O = over, in cricket scoring"
-        },
-        {
-         "words": "appalling red tape",
-         "gives": "PERATED",
-         "note": "RED TAPE rearranged"
+         "words": "red tape",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone took action about some dreadful bureaucracy.",
-     "walkthrough": "O for over comes from cricket scorecards, an over being a set of six balls; 'over' looks like 'about' here but is a letter.",
-     "definitionFit": "Operated and acted are both past tenses meaning functioned or worked, as a machine or an agent does."
+     "surface": "Someone took action over dreadful bureaucracy.",
+     "walkthrough": "'appalling' rearranges RED TAPE into PERATED, after O.",
+     "definitionFit": "To operate is to work or function, so operated is a synonym for acted in the sense of performed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "appalling"
+     "misdirectedWord": "Acted"
     }
    }
   },
@@ -838,49 +837,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "To go round is to turn back on yourself, so I and the nip are read in reverse."
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "endless",
-         "note": "Endless means without an end, so the last letter goes."
+         "text": "round",
+         "at": 6,
+         "note": "turning a word round reads it backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "I",
-           "note": "as printed"
-          },
-          {
-           "words": "nip",
-           "gives": "DRAM",
-           "note": "a nip and a dram are both small measures of spirits"
-          }
-         ]
+         "words": "nip",
+         "at": 2,
+         "gives": "DRAM",
+         "note": "a dram is a nip, a small drink of spirits"
         }
        ]
       },
       {
-       "words": "endless dope",
-       "gives": "GRAS",
-       "note": "GRASS, slang for cannabis, without its last letter"
+       "words": "I",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 17,
+         "note": "endless means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dope",
+         "at": 25,
+         "gives": "GRASS",
+         "note": "grass is slang for cannabis, dope"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who sneaks a crafty drink and a smoke at a festival.",
-     "walkthrough": "'Nip round' suggests popping out on an errand; nip is the drink. 'Dope' is slang for cannabis, which is also called grass.",
-     "definitionFit": "Mardi Gras, French for Fat Tuesday, is the carnival before Lent, famous in New Orleans and Rio: a festival by name."
+     "surface": "Someone pops out for some cannabis to take to a festival.",
+     "walkthrough": "A dram is a small measure of whisky.",
+     "definitionFit": "Mardi Gras is the carnival held on Shrove Tuesday, famously in New Orleans and Rio."
     },
     "features": {
      "answerInScene": true,
@@ -1091,8 +1097,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "topless",
-       "note": "Topless means without a top, so the first letter goes."
+       "text": "behind",
+       "at": 24,
+       "note": "the second piece goes behind the first, coming after it"
       }
      ],
      "parts": [
@@ -1100,18 +1107,20 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "ebbing",
-         "note": "An ebbing tide flows back, so the sea is read backwards."
+         "text": "topless",
+         "at": 31,
+         "note": "topless means the first letter is removed"
         }
        ],
        "parts": [
         {
-         "words": "topless couples",
-         "gives": "AIRS",
-         "note": "PAIRS without its first letter"
+         "words": "couples",
+         "at": 39,
+         "gives": "PAIRS",
+         "note": "pairs are couples"
         },
         {
-         "gives": "S"
+         "gives": "P"
         }
        ]
       },
@@ -1119,29 +1128,31 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "behind",
-         "note": "Behind means following, so the sea comes after the couples."
+         "text": "ebbing",
+         "at": 13,
+         "note": "an ebbing tide goes back, so the word reads backwards"
         }
        ],
        "parts": [
         {
          "words": "sea",
-         "gives": "DEEPS",
-         "note": "'the deep' is a poetic name for the sea"
+         "at": 20,
+         "gives": "DEEP",
+         "note": "the deep is a poetic name for the sea"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Waves retreating behind a pair of sunbathers without tops.",
-     "walkthrough": "The sea is 'the deep' in poetry, here as plural DEEPS; 'High pace' sounds like hurry, but the height is literal.",
-     "definitionFit": "Airspeed is an aircraft's speed relative to the air, a pace measured high up, hence the cryptic hint of 'high'."
+     "surface": "A seaside scene: the tide going out behind sunbathing couples.",
+     "walkthrough": "'the deep' is a poetic name for the sea.",
+     "definitionFit": "Airspeed is an aircraft's velocity through the air, a high pace at altitude."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "topless"
     }
    }

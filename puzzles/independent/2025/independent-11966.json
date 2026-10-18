@@ -176,51 +176,57 @@
      "indicators": [
       {
        "text": "circling",
-       "note": "circling something goes all round it, so one word encloses the others"
+       "at": 16,
+       "note": "the outer word goes round the other pieces, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Timid character",
-         "gives": "MOUSE",
-         "note": "a mouse is a timid person"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Timid character",
+       "at": 0,
+       "gives": "MOUSE",
+       "note": "a mouse is a proverbially timid person"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "dropped",
-         "note": "dropped means let fall away, so a letter is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "point",
-         "gives": "NORTH",
-         "note": "north is a compass point"
+         "words": "a",
+         "at": 25,
+         "gives": "A"
         },
         {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dropped",
+           "at": 53,
+           "note": "where a letter has been dropped it is left out of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "point",
+           "at": 27,
+           "gives": "NORTH",
+           "note": "north is one of the cardinal points of the compass"
+          },
+          {
+           "words": "temperature's",
+           "at": 39,
+           "gives": "T",
+           "note": "T is the abbreviation for temperature"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy person walks round a cold spot in a big house.",
-     "walkthrough": "'Point' is a compass point here, not a sharp tip; the timid creature wraps round everything else.",
-     "definitionFit": "A manor house is the large main house of a country estate."
+     "surface": "A shy person walks round a spot in a big building where it has suddenly turned cold.",
+     "walkthrough": "'point' means a compass point, and the temperature abbreviation drops out of it.",
+     "definitionFit": "A manor house is the large main residence of a country estate."
     },
     "features": {
      "answerInScene": true,
@@ -901,50 +907,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "not means without, so a letter is taken out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 18,
+         "note": "only half of the word is kept, its second half being thrown away"
+        }
+       ],
        "parts": [
         {
-         "words": "half of them",
-         "gives": "TH",
-         "note": "the first two of the four letters of them"
+         "words": "them",
+         "at": 26
         },
         {
-         "words": "watch",
-         "gives": "EYE",
-         "note": "to eye is to watch"
-        },
-        {
-         "words": "French star",
-         "gives": "BARDOT",
-         "note": "Brigitte Bardot, the French film star"
+         "gives": "EM"
         }
        ]
       },
       {
-       "words": "British",
-       "gives": "B",
-       "note": "B is the abbreviation for British"
+       "words": "watch",
+       "at": 31,
+       "gives": "EYE",
+       "note": "to eye something is to watch it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 50,
+         "note": "not means the letter for British is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French star",
+         "at": 37,
+         "gives": "BARDOT",
+         "note": "Brigitte Bardot is a French film star"
+        },
+        {
+         "words": "British",
+         "at": 54,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "From the start, half of them look on as a French celebrity snubs Britain.",
-     "walkthrough": "'French star' suggests the word for a star in French; it is the actress Bardot.",
-     "definitionFit": "The year dot is an informal British phrase for a very long time ago, the very start of things."
+     "surface": "At the start, half of the audience watch a French film star, but no British ones.",
+     "walkthrough": "Brigitte Bardot was the French screen star of the 1950s and 60s; the British abbreviation is taken away from her surname.",
+     "definitionFit": "From the year dot is an idiom meaning from the very earliest times."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "star"
+     "misdirectedWord": "beginning"
     }
    }
   },
