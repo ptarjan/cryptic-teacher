@@ -981,41 +981,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "OVERTURE",
-     "indicators": [
-      {
-       "text": "to replace",
-       "note": "one letter goes in where another stood, taking its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Having finished",
+       "at": 0,
        "gives": "OVER",
-       "note": "something finished is over"
+       "note": "having finished means over, as in the game is over"
       },
       {
-       "words": "tune",
-       "note": "taken as written"
-      },
-      {
-       "words": "runs",
-       "gives": "R",
-       "note": "r is the cricket abbreviation for runs"
-      },
-      {
-       "words": "new",
-       "gives": "N",
-       "note": "n for new; this letter is swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to replace",
+         "at": 27,
+         "note": "runs to replace new means the runs letter takes the place of the new one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tune",
+         "at": 16,
+         "gives": "TUNE",
+         "note": "taken as written"
+        },
+        {
+         "words": "new",
+         "at": 38,
+         "gives": "N"
+        },
+        {
+         "words": "runs",
+         "at": 22,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musician finishes one tune and runs off to start another piece.",
-     "walkthrough": "In TUNE, the N is swapped for R, giving TURE.",
-     "definitionFit": "An overture is an orchestral piece played as an introduction to an opera or ballet."
+     "surface": "A musician who has finished a tune runs off to swap in a new piece.",
+     "walkthrough": "'runs' looks like a verb of hurrying, but it is R, the cricket scorer's abbreviation, standing in for the N of 'new'.",
+     "definitionFit": "An overture is an orchestral piece played as the introduction to an opera or other work."
     },
     "features": {
      "answerInScene": true,
@@ -1223,43 +1231,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "raging",
-       "note": "something raging is wild and out of control, so the letters are thrown about"
+       "text": "around",
+       "at": 25,
+       "note": "around it means the jumbled letters go around the word for with, the 'it' of the clue"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "going around something encloses it"
+         "text": "raging",
+         "at": 18,
+         "note": "raging, as in wild and violent, signals the letters are thrown about"
         }
        ],
        "parts": [
         {
          "words": "war",
-         "note": "the letters rearranged"
-        },
-        {
-         "words": "with",
-         "gives": "AND",
-         "note": "and means with or together with"
+         "at": 14,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "with",
+       "at": 9,
+       "gives": "AND",
+       "note": "and means with, as in fish and chips"
       }
      ]
     },
     "explanation": {
-     "surface": "A country is engulfed by a raging war, recalling Rwanda's real history.",
-     "definitionFit": "Rwanda is an East African country whose official name is the Republic of Rwanda."
+     "surface": "A country with war raging all about it.",
+     "walkthrough": "'with' looks like a link word, but it is the piece the jumbled war goes 'around'; 'it' points back to it. The surface recalls the country's 1994 civil war.",
+     "definitionFit": "Rwanda is a landlocked country in central Africa, a presidential republic."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "with"
     }
    }
   },

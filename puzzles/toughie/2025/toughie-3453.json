@@ -105,37 +105,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARROWS",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "without an end means the word's final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 4,
+         "note": "endless means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Are",
-         "gives": "AR",
-         "note": "the word with its last letter removed"
+         "at": 0,
+         "gives": "ARE",
+         "note": "taken as written, then cut short"
         },
         {
-         "words": "tiffs",
-         "gives": "ROWS",
-         "note": "rows are quarrels or tiffs"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "tiffs",
+       "at": 12,
+       "gives": "ROWS",
+       "note": "tiffs are rows, petty quarrels"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether petty squabbles count as proper fights.",
-     "walkthrough": "'Quarrels' wants to mean arguments, echoing 'tiffs', but here it is the archery sense: a quarrel is a crossbow bolt.",
-     "definitionFit": "A quarrel is a short square-headed bolt shot from a crossbow, a kind of projectile like those fired from a bow."
+     "surface": "A question: do endless squabbles count as real quarrels?",
+     "walkthrough": "'quarrels' looks like a synonym of 'tiffs', but here it is the archery sense: a quarrel is a crossbow bolt, so the plural means the answer.",
+     "definitionFit": "A quarrel is a short heavy bolt fired from a crossbow, a kind of arrow."
     },
     "features": {
      "answerInScene": false,
@@ -718,54 +722,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WINTRINESS",
-     "indicators": [
-      {
-       "text": "relaxing",
-       "note": "relaxing loosens things up, so the letters fall into a new arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "WINTRINESS",
+       "words": "with",
+       "at": 6,
+       "gives": "W"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
          "text": "not admitting",
-         "note": "not admitting something means refusing to let it in, so those letters are left out"
+         "at": 37,
+         "note": "not admitting means the thank-you letters are kept out of the mix"
+        },
+        {
+         "text": "when relaxing",
+         "at": 64,
+         "note": "when relaxing, as in loosening up, signals the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "with",
-         "gives": "W",
-         "note": "w is the abbreviation for with"
-        },
-        {
-         "words": "international",
-         "gives": "I",
-         "note": "i is an abbreviation for international"
-        },
-        {
-         "words": "tennis star",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "international",
+           "at": 11,
+           "gives": "I"
+          },
+          {
+           "words": "tennis star",
+           "at": 25,
+           "note": "taken as written"
+          }
+         ]
         },
         {
          "words": "I'm grateful",
+         "at": 51,
          "gives": "TA",
-         "note": "ta is British informal thanks"
+         "note": "ta is an informal British way of saying thank you"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An international tennis star feels a chill while unwinding but won't admit to gratitude.",
-     "walkthrough": "Ta, British slang for thank you, is removed from the tennis star letters before everything is rearranged.",
-     "definitionFit": "Wintriness is the quality of being wintry, a coldness or chill in the air."
+     "surface": "A tennis star from abroad chills out, too relaxed to say thank you.",
+     "walkthrough": "'not admitting' strikes T and A (ta, British for thanks) from I plus TENNIS STAR, and 'when relaxing' rearranges ITENNISSR into INTRINESS, after W.",
+     "definitionFit": "Wintriness is the state of being wintry, a cold bleak quality like a winter chill."
     },
     "features": {
      "answerInScene": false,

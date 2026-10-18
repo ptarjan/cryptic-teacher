@@ -474,51 +474,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WRECKAGE",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "drinking",
+       "at": 22,
+       "note": "drinking means the shortened word takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "drinking",
-         "note": "whoever drinks takes something inside, so one piece goes within another"
+         "text": "mostly",
+         "at": 14,
+         "note": "mostly means most of the word is used, all but its final letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "drunk",
-           "gives": "WRECKE",
-           "note": "wrecked is slang for drunk, losing its last letter"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "drunk",
+         "at": 8,
+         "gives": "WRECKED",
+         "note": "wrecked is slang for very drunk"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "a drop of",
-           "note": "a drop is the smallest amount, so only an initial letter is taken"
+           "text": "drop of",
+           "at": 33,
+           "note": "drop of picks just a single first drop, the opening letter, of the word grappa"
           }
          ],
          "parts": [
           {
            "words": "grappa",
-           "note": "the first letter of the Italian brandy"
+           "at": 41,
+           "note": "the Italian brandy, taken as written for its first letter"
           }
          ]
         }
@@ -527,14 +534,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone who is nearly paralytic stays on for one more sip of grappa.",
-     "walkthrough": "'Remains' looks like a verb about staying drunk, but it is the noun for what is left after destruction.",
-     "definitionFit": "Wreckage is the debris left after a crash or ruin, so it is what survives of something broken."
+     "surface": "Someone so drunk they are mostly gone still knocks back a drop of grappa.",
+     "walkthrough": "'mostly' trims WRECKED to WRECKE, and 'drinking' puts A plus G (the first 'drop of' grappa) inside it, between K and E.",
+     "definitionFit": "Wreckage is the remains of something that has been wrecked, such as a crashed car or ship."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Remains"
+     "misdirectedWord": "drinking"
     }
    }
   },

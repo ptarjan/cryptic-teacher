@@ -631,48 +631,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARBROATH",
+     "op": "composite",
      "indicators": [
       {
+       "text": "away from",
+       "at": 5,
+       "note": "away from says that letter is taken out of the phrase that follows"
+      },
+      {
        "text": "new",
-       "note": "making something new reshapes it, so the remaining letters are rearranged"
+       "at": 15,
+       "note": "new signals the remaining letters are made into a fresh arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ARBROATH",
-       "indicators": [
-        {
-         "text": "away from",
-         "note": "going away from something leaves it behind, so a letter is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Turn",
-         "gives": "U",
-         "note": "a U-turn is a turn shaped like the letter"
-        },
-        {
-         "words": "harbour",
-         "note": "taken as written"
-        },
-        {
-         "words": "at",
-         "note": "taken as written"
-        }
-       ]
+       "words": "harbour at",
+       "at": 19,
+       "note": "taken as written, the letters to work from"
+      },
+      {
+       "words": "Turn",
+       "at": 0,
+       "gives": "U",
+       "note": "a U-turn, so Turn stands for the letter U"
       }
      ]
     },
     "explanation": {
-     "surface": "A ship turns away from a new harbour at a Scottish port.",
-     "walkthrough": "'Turn' looks like the ship's manoeuvre but is a U-turn, so the letter U goes before rearranging; note the anagram uses the British spelling of harbour.",
-     "definitionFit": "Arbroath is a fishing town and harbour on the Angus coast of eastern Scotland, famous for smokies."
+     "surface": "A ship's captain steers clear of a new harbour when arriving at a Scottish port.",
+     "walkthrough": "'Turn' gives U, as in a U-turn; 'away from' strikes it from HARBOUR AT, and 'new' reorders HARBRAT into the answer.",
+     "definitionFit": "Arbroath is a fishing town on the east coast of Scotland, famous for its smoked haddock."
     },
     "features": {
      "answerInScene": true,
@@ -906,45 +895,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRIEVANCE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Not entirely",
-       "note": "something not wholly there is incomplete, so its last letter is lost"
+       "text": "about",
+       "at": 25,
+       "note": "about signals the letters are turned around into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "turned about suggests moved around, so these letters are rearranged"
+         "text": "Not entirely",
+         "at": 0,
+         "note": "not entirely means the word even is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "even",
-         "gives": "EVE",
-         "note": "the word without its final letter"
+         "at": 13,
+         "gives": "EVEN",
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "caring",
-         "note": "taken as written"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "caring",
+       "at": 18,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone not entirely even-handed in caring about a complaint.",
-     "walkthrough": "'About' looks like 'concerning' but signals a rearrangement of EVE plus CARING.",
-     "definitionFit": "A grievance is a cause for protest or a formal objection about unfair treatment."
+     "surface": "Someone who isn't wholly even-handed in caring for others draws a complaint.",
+     "walkthrough": "'Not entirely' trims EVEN to EVE; with CARING that gives EVECARING, which 'about' rearranges into the answer.",
+     "definitionFit": "A grievance is a cause for complaint, a wrong someone feels they have suffered."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "about"
     }
