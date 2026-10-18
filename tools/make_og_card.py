@@ -562,6 +562,9 @@ def check_prose_stays_in_family(prose_html, family, types):
     # the words the card puts around them are ours to be judged on.
     mine = re.sub(r'<mark\b[^>]*>.*?</mark>|<span class="fodder">.*?</span>',
                   " ", prose_html, flags=re.S)
+    # Curly-quoted words are clue words too ("“hidden” gives SECRET" in a
+    # compound anagram's tail, azed-2475): quoted, not the card's own wording.
+    mine = re.sub(r"“[^”]*”", " ", mine)
     mine = html.unescape(re.sub(r"<[^>]+>", " ", mine)).lower()
     for name, signals in FAMILY_SIGNALS.items():
         if name in mine_families:

@@ -2966,5 +2966,7 @@ tools/test_shape_detector_false_positives.py   the shape detectors (shape_suspec
 tools/test_validator_gap_rules.py              tests for the validator-gap rules: folded
                                                indicators, fake substitution parts, padding
                                                leaves and the redo regression gate
+tools/test_og_prose_family.py                  does the og card's own-prose family check ignore
+                                               words quoted from the clue?
 ```
 <!-- LAYOUT-END -->
