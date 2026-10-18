@@ -349,47 +349,61 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "northwards",
-       "note": "in a down clue north is upward"
-      },
-      {
-       "text": "mostly",
-       "note": "most but not all, so 'equal' loses its last letter"
+       "text": "following",
+       "at": 19,
+       "note": "the reversed piece comes after, following the first"
       }
      ],
      "parts": [
       {
-       "words": "uniform",
-       "gives": "EQUA",
-       "note": "EQUAL, uniform, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 29,
+         "note": "mostly means not quite all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "uniform",
+         "at": 36,
+         "gives": "EQUAL",
+         "note": "equal means uniform, the same throughout"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "following",
-         "note": "to follow is to come after, so the reversed word is placed after the shortened one"
+         "text": "northwards",
+         "at": 7,
+         "note": "in a down answer, going northwards means read from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "Go off",
+         "at": 0,
          "gives": "ROT",
-         "note": "to rot is to go off, as food does; turned up to TOR"
+         "note": "to go off, as food does, is to rot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Food going off somewhere north of a vaguely even imaginary line.",
-     "walkthrough": "The geography of 'northwards' and 'line' looks like part of the definition, but northwards is only the instruction to turn a word upside down.",
-     "definitionFit": "The equator is imaginary: a line drawn on maps and globes that exists nowhere on the ground, hence notional."
+     "surface": "Instructions to set off north, following a nearly uniform imaginary line.",
+     "definitionFit": "The equator is an imaginary circle round the Earth halfway between the poles, not a physical line."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "northwards"
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
     }
    }
   },

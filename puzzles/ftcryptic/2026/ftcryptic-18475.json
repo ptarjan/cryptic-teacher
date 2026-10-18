@@ -592,59 +592,80 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "compiled",
-       "note": "things compiled are gathered and arranged into a new whole, so the letters are reordered"
+       "text": "in",
+       "at": 40,
+       "note": "the pieces go in the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "opener",
-         "note": "an opener is the first, so only the start of England is used"
+         "text": "compiled",
+         "at": 52,
+         "note": "compiled means put together, so these letters are assembled in a new order"
         }
        ],
        "parts": [
         {
          "words": "day",
-         "gives": "D",
-         "note": "D is the abbreviation for day"
+         "at": 8,
+         "gives": "D"
         },
         {
-         "words": "England's",
-         "gives": "E",
-         "note": "the opening letter of England"
+         "words": "Hobart's",
+         "at": 43,
+         "note": "taken as written, ignoring the apostrophe"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opener",
+           "at": 23,
+           "note": "the opener of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "England's",
+           "at": 13
+          }
+         ]
         },
         {
          "words": "on",
+         "at": 30,
          "gives": "LEG",
          "note": "in cricket the on side is also called the leg side"
         },
         {
          "words": "strike",
+         "at": 33,
          "gives": "RAP",
-         "note": "to rap is to hit"
-        },
-        {
-         "words": "Hobart's",
-         "note": "taken as written"
+         "note": "a rap is a sharp strike"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket report: England's opening batsman on strike in Hobart, Tasmania, as a day's play is taken.",
-     "walkthrough": "The cricket words are wordplay: 'on' is the leg side and 'strike' is a verb. 'Seizing' and 'in' only gather the pieces before the whole lot is reordered.",
-     "definitionFit": "Telegraph boards are large manual scoreboards at sports grounds, where cricket and other scores are displayed."
+     "surface": "England's opening batsman takes strike in Hobart, a Tasmanian Test venue, as the day's scores mount up.",
+     "walkthrough": "'Seizing' only says the anagram holds the day letter. On is the leg side in cricket, and Hobart in Tasmania hosts Test matches.",
+     "definitionFit": "Telegraph boards are big cricket scoreboards showing runs and wickets, so a match's scores are displayed there."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "strike"
     }
    }

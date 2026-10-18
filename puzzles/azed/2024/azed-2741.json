@@ -1196,40 +1196,44 @@
      "indicators": [
       {
        "text": "coming round",
-       "note": "coming round means going around, so the word for soon encloses the rest"
+       "at": 43,
+       "note": "coming round something means enclosing it, so the word for soon goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "soon",
-         "gives": "ANON",
-         "note": "anon means soon"
-        },
-        {
-         "words": "end bit",
-         "gives": "TIP",
-         "note": "a tip is an end bit"
-        }
-       ]
+       "words": "soon",
+       "at": 38,
+       "gives": "ANON",
+       "note": "anon is an old word for soon"
       },
       {
-       "words": "hard",
-       "gives": "H",
-       "note": "h is the pencil abbreviation for hard"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "end bit",
+         "at": 23,
+         "gives": "TIP",
+         "note": "a tip is the end bit of something"
+        },
+        {
+         "words": "hard",
+         "at": 32,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A choir piece with a hard final bit, coming round again shortly.",
-     "definitionFit": "An antiphon is a short chant sung responsively in church services, a piece of church music."
+     "surface": "A list of musical and practical items, as though describing a hymn being prepared.",
+     "definitionFit": "An antiphon is a short chant sung before or after a psalm in church liturgy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "soon"
+     "misdirectedWord": "end"
     }
    }
   },
@@ -1766,36 +1770,40 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means wrapping up, so the description of the sin takes in the next letters"
+       "at": 13,
+       "note": "involving means taking in, so the other pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "What's this",
-         "gives": "AVICE",
-         "note": "the answer is a vice, one of the deadly sins"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "What's this",
+       "at": 0,
+       "gives": "AVICE",
+       "note": "the answer is a vice, so the question is answered by the phrase a vice"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "a bit of",
-         "note": "a bit of keeps just the opening letter of the greedy word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rapacity",
-         "note": "the first letter of rapacity"
+         "words": "a",
+         "at": 23,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 25,
+           "note": "a bit of a word is its first letter here"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rapacity",
+           "at": 32
+          }
+         ]
         }
        ]
       }
@@ -1803,9 +1811,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A riddle asking what sin involves a touch of greed.",
-     "walkthrough": "A VICE takes in A and R after its V; the whole clue also describes greed itself.",
-     "definitionFit": "Avarice is extreme greed for wealth, a vice that involves rapacity by its nature."
+     "surface": "A riddle asking what greed is, hinting at its rapacious nature.",
+     "walkthrough": "The answer is one of the seven deadly sins, so 'What's this' gives A VICE, which takes in A and R.",
+     "definitionFit": "Avarice is extreme greed for wealth, and rapacity is an aggressively grasping greed."
     },
     "features": {
      "answerInScene": true,

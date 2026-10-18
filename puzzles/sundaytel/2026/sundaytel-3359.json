@@ -45,36 +45,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "'ultimately' means in the end, so take the final letter of 'widget'"
-      },
-      {
        "text": "below",
-       "note": "in a down answer, what lies below comes later"
+       "at": 13,
+       "note": "in a down answer, the wheel goes below the letter from widget"
       }
      ],
      "parts": [
       {
-       "words": "widget",
-       "gives": "T",
-       "note": "last letter of widget"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 26,
+         "note": "ultimately means in the end, so take the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "widget",
+         "at": 19
+        }
+       ]
       },
       {
        "words": "Spiked wheel",
+       "at": 0,
        "gives": "ROWEL",
-       "note": "a rowel is the spiked wheel on a rider's spur"
+       "note": "a rowel is the spiked revolving wheel on a spur"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describing a gadget with a spiked wheel fitted under a widget, sold as a hand tool.",
-     "walkthrough": "The spiked wheel is written first but 'below' puts it second in a down answer.",
-     "definitionFit": "A trowel is a small bladed tool held in one hand for digging or spreading mortar, so the definition describes it by its class."
+     "surface": "A spiked wheel underneath a gadget ends up as a gardening tool.",
+     "definitionFit": "A trowel is a small handled tool for digging or spreading plaster, held in one hand."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "below"
+     "misdirectedWord": "widget"
     }
    }
   },
@@ -525,46 +533,56 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "returning",
-       "note": "going back the way it came, so ON + AGE is written backwards"
-      },
-      {
-       "text": "sooner"
+       "text": "sooner",
+       "at": 38,
+       "note": "sooner means earlier, so this piece comes first"
       }
      ],
      "parts": [
       {
        "words": "else",
+       "at": 33,
        "gives": "OR",
-       "note": "'this or else that'"
+       "note": "or else; or means otherwise"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "after",
-         "note": "the reversed piece is placed after the other one"
+         "text": "after returning",
+         "at": 16,
+         "note": "after returning means coming back the other way, so these words are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "on time",
-         "gives": "ONAGE",
-         "note": "ON + AGE, an age being a long time; reversed it gives EGANO"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "on",
+           "at": 8,
+           "gives": "ON"
+          },
+          {
+           "words": "time",
+           "at": 11,
+           "gives": "AGE",
+           "note": "an age is a period of time"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook deciding whether a herb goes in late, after the dish is back, or early.",
-     "walkthrough": "The clue lists the second piece first and then says 'else sooner' to put OR in front of it.",
-     "definitionFit": "Oregano is a Mediterranean herb used in cooking, so 'herb' defines it by its class."
+     "surface": "Herbs arrive on time after returning, or else sooner.",
+     "definitionFit": "Oregano is a Mediterranean aromatic plant whose leaves are used in cooking, a culinary herb."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "returning"
+     "misdirectedWord": "sooner"
     }
    }
   },
@@ -592,8 +610,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "'about' means around, so the question word goes around the composition"
+       "text": "and",
+       "at": 27,
+       "note": "and here means plus, adding the application word on at the end"
       }
      ],
      "parts": [
@@ -601,39 +620,42 @@
        "op": "container",
        "indicators": [
         {
-         "text": "and",
-         "note": "'and' simply adds the next piece on the end"
+         "text": "about",
+         "at": 9,
+         "note": "about means surrounding, so the question word goes round the poem"
         }
        ],
        "parts": [
         {
          "words": "Question",
+         "at": 0,
          "gives": "WHO",
-         "note": "a question word, split around ODE"
+         "note": "who is a question word"
         },
         {
          "words": "composition",
+         "at": 15,
          "gives": "ODE",
-         "note": "an ode is a poem"
+         "note": "an ode is a poetic composition"
         }
        ]
       },
       {
        "words": "application",
+       "at": 31,
        "gives": "USE",
-       "note": "application = use"
+       "note": "use means application, as in putting something to use"
       }
      ]
     },
     "explanation": {
-     "surface": "An exam question on essay writing and applying it, set for an author.",
-     "walkthrough": "P. G. Wodehouse was the English comic novelist behind Jeeves and Wooster.",
-     "definitionFit": "P. G. Wodehouse wrote the Jeeves novels, so 'writer' defines him by his profession, a definition by example."
+     "surface": "A query about an essay and a job application for a writer.",
+     "definitionFit": "P G Wodehouse was an English comic novelist, creator of Jeeves and Wooster."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "composition"
+     "misdirectedWord": "application"
     }
    }
   },
