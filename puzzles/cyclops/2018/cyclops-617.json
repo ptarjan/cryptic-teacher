@@ -1379,40 +1379,44 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "MARG",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Left side",
-         "note": "the left side of a word is its first half, read from the start"
+         "at": 11,
+         "note": "the left side of a written word is its first half, so only the opening four letters stay"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Thatcher's",
-         "gives": "MARG",
-         "select": "first",
-         "note": "the first half of Margaret, Mrs Thatcher's first name"
+         "at": 0,
+         "gives": "MARGARET",
+         "note": "Margaret was the first name of Thatcher, British prime minister 1979 to 1990"
+        },
+        {
+         "gives": "ARET",
+         "note": "the right-hand half of the eight-letter first name"
         }
        ]
       },
       {
        "words": "accepted",
+       "at": 21,
        "gives": "IN",
-       "note": "in means fashionable or accepted"
+       "note": "an idea that is in is fashionable and accepted"
       }
      ]
     },
     "explanation": {
-     "surface": "Thatcher's leftist wing tolerated some leeway.",
-     "walkthrough": "'Left side' sounds political, and a margin is a left side of a page, but here it takes the first half of Margaret.",
-     "definitionFit": "Margin and latitude both mean freedom or leeway to act, as in a margin for error."
+     "surface": "Thatcher's left wing gave her some room to manoeuvre.",
+     "walkthrough": "'Left side' reads as politics, but it means the left half of MARGARET as written, MARG. Thatcher was a Conservative, so a 'left side' is the joke.",
+     "definitionFit": "Margin means leeway or room for manoeuvre, as in a margin for error, which is latitude."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Left"
     }
    }

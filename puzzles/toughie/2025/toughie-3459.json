@@ -421,46 +421,48 @@
     "definitions": [
      {
       "text": "breakfast?",
-      "at": 30,
-      "note": "breakfast here means a breakfast food, an example"
+      "at": 30
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MUESLI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word is all but a bit of it, so its final letter goes"
+       "text": "Stupidly",
+       "at": 0,
+       "note": "stupidly suggests something done wrongly, so the gathered letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "use",
+       "at": 9
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Stupidly",
-         "note": "done stupidly means done without sense, so the letters end up in a muddled order"
+         "text": "most of",
+         "at": 13,
+         "note": "most of means all but the last letter of milk is used"
         }
        ],
        "parts": [
         {
-         "words": "use",
-         "note": "taken as written"
+         "words": "milk",
+         "at": 21
         },
         {
-         "words": "milk",
-         "gives": "MIL",
-         "note": "the word minus its last letter"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Foolishly using up nearly all the milk for the morning meal.",
-     "definitionFit": "Muesli is a cereal of oats, nuts and dried fruit eaten in the morning, an example of a breakfast."
+     "surface": "Someone foolishly pours nearly all the milk over their cereal.",
+     "walkthrough": "'most of' trims MILK to MIL, which joins USE before 'Stupidly' mixes all six letters. The question mark shows the definition is by example.",
+     "definitionFit": "Muesli is a cereal mix of oats, nuts and dried fruit, typically eaten in the morning."
     },
     "features": {
      "answerInScene": true,
@@ -922,41 +924,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TENDRIL",
-     "indicators": [
-      {
-       "text": "that's sawn-off",
-       "note": "a sawn-off shotgun has its barrel cut short, so the word loses its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "10",
+       "at": 12,
+       "gives": "TEN",
+       "note": "the number 10 written as a word"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "that's sawn-off",
+         "at": 20,
+         "note": "a bore that's sawn-off has been cut short at the end, so its last letter is lost"
+        }
+       ],
        "parts": [
         {
-         "words": "10",
-         "gives": "TEN",
-         "note": "the number written as a word, not a reference to entry 10"
+         "words": "bore",
+         "at": 15,
+         "gives": "DRILL",
+         "note": "to drill a hole is to bore one, so a drill is a bore"
         },
         {
-         "words": "bore",
-         "gives": "DRIL",
-         "note": "drill, a boring tool, minus its last letter"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fire a 10-bore sawn-off shotgun.",
-     "walkthrough": "The '10' looks like a cross-reference to 10 across, but it is just the number ten. Gun words (shoot, bore, sawn-off) all misdirect.",
-     "definitionFit": "A tendril is a slender climbing growth from a plant stem, and shoot is a general word for new plant growth."
+     "surface": "A gunman fires using a sawn-off ten-bore shotgun.",
+     "walkthrough": "The surface is all guns: 'Shoot', 'bore', 'sawn-off'. But 'Shoot' is a plant's growth, and 'sawn-off' trims DRILL.",
+     "definitionFit": "A tendril is a slender twining shoot by which a climbing plant attaches itself."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Shoot"
     }
@@ -1340,42 +1346,52 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ANGELIC",
-     "indicators": [
-      {
-       "text": "elevating",
-       "note": "elevating means raising up, so in a down answer the article is lifted to the top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Northern",
-       "gives": "N",
-       "note": "standard abbreviation"
-      },
-      {
-       "words": "Irish language",
-       "gives": "GAELIC",
-       "note": "Irish Gaelic"
-      },
-      {
        "words": "article",
+       "at": 39,
        "gives": "A",
-       "note": "the indefinite article, already present in the language word"
+       "note": "a is the indefinite article"
+      },
+      {
+       "words": "Northern",
+       "at": 5,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "elevating",
+         "at": 29,
+         "note": "elevating in a down clue lifts the article out of its place in the language and up to the top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish language",
+         "at": 14,
+         "gives": "GAELIC",
+         "note": "Gaelic is the Celtic language of Ireland"
+        },
+        {
+         "gives": "A",
+         "note": "the article inside the language word, which is moved to the front"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pure form of the Irish language in Northern Ireland that raises a point of grammar.",
-     "walkthrough": "Write N then GAELIC, then lift its A up to the very top: A-N-GELIC. 'Northern Irish' reads as one phrase but splits into N and the Irish language.",
-     "definitionFit": "Angelic means like an angel, innocent and free of sin, which is to be pure."
+     "surface": "Speaking Irish in Northern Ireland is praised for raising the tone.",
+     "walkthrough": "N comes before GAELIC, and 'elevating' moves the A already in GAELIC to the top of this down answer.",
+     "definitionFit": "Angelic means like an angel, innocent and virtuous, so it describes someone pure."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Northern"
+     "misdirectedWord": "elevating"
     }
    }
   },
@@ -1810,43 +1826,36 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 28,
+       "note": "initially says the pair of tap letters comes at the start, before the eating word"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "both taps",
+       "at": 18,
        "gives": "CH",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letters, the first of each word"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "both taps",
-         "gives": "CH",
-         "select": "first",
-         "note": "a pair of taps are cold and hot, and their first letters are taken"
-        }
-       ]
+       "note": "the two taps on a basin are labelled C for cold and H for hot"
       },
       {
        "words": "polish off",
+       "at": 7,
        "gives": "EAT",
        "note": "to polish off food is to eat it all up"
       }
      ]
     },
     "explanation": {
-     "surface": "Use a carpenter's tool and finish smoothing the woodwork round the sink.",
-     "walkthrough": "'Both taps' are the hot and cold taps of a basin, so C and H; the clue's own word order puts the eating first but the taps come first in the answer.",
-     "definitionFit": "To chisel someone is informal slang for swindling or cheating them out of something."
+     "surface": "Instructions to buff up both taps first.",
+     "walkthrough": "'Chisel' is not the tool but the slang verb to swindle. Taps are marked C and H, for cold and hot, and 'initially' puts them before EAT.",
+     "definitionFit": "To chisel someone is informal for cheating or swindling them out of something."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Chisel"
     }
    }

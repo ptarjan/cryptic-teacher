@@ -171,53 +171,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TIMPANI",
+     "op": "container",
      "indicators": [
       {
-       "text": "Endlessly",
-       "note": "without an end, so the last letter of the next word is dropped"
+       "text": "about that",
+       "at": 37,
+       "note": "about that means surrounding the thing just mentioned, so the shortened nervous word goes round the upset sleep"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about that",
-         "note": "the shortened word goes about, around, the previous piece"
+         "text": "Endlessly",
+         "at": 19,
+         "note": "endlessly says the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "nervous",
-         "gives": "TIMI",
-         "note": "timid without its final letter"
+         "at": 29,
+         "gives": "TIMID",
+         "note": "timid means nervous or easily frightened"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "upset",
-           "note": "in a down clue upset means turned upside down, so the word reads from bottom up"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sleep",
-           "gives": "NAP",
-           "note": "a nap is a short sleep"
-          }
-         ]
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 6,
+         "note": "upset in a down clue means turned upside down, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sleep",
+         "at": 12,
+         "gives": "NAP",
+         "note": "a nap is a short sleep"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The drummer is so jittery he cannot sleep.",
-     "definitionFit": "Timpani are kettledrums, the large tuned drums of an orchestra."
+     "surface": "Someone's sleep is disturbed by drums, leaving them on edge.",
+     "walkthrough": "'Endlessly' cuts TIMID to TIMI; 'upset' turns NAP into PAN; TIMI goes 'about that', round PAN.",
+     "definitionFit": "Timpani are the kettledrums of an orchestra, so the plural answer matches the plural noun."
     },
     "features": {
      "answerInScene": true,
@@ -1664,56 +1671,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STRIDENT",
      "indicators": [
       {
        "text": "outside",
-       "note": "one piece goes outside, wrapping round the rest"
+       "at": 61,
+       "note": "outside says the word for told to go wraps round the rest"
       }
      ],
      "parts": [
       {
+       "words": "told to go",
+       "at": 50,
+       "gives": "SENT",
+       "note": "someone told to go has been sent away"
+      },
+      {
        "op": "charade",
-       "parts": [
+       "indicators": [
         {
-         "words": "told to go",
-         "gives": "S",
-         "note": "sent away, the first letter of the outer word"
-        },
+         "text": "after",
+         "at": 16,
+         "note": "after says the clearing word comes behind the letter from appointment"
+        }
+       ],
+       "parts": [
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
-           "note": "the end is the final letter, so only that letter of the next word is kept"
+           "at": 22,
+           "note": "end of picks out the final letter of appointment"
           }
          ],
          "parts": [
           {
            "words": "appointment",
-           "note": "the final letter of the word"
+           "at": 29,
+           "note": "an appointment is a booked meeting; only its last letter is used"
           }
          ]
         },
         {
          "words": "clear",
+         "at": 9,
          "gives": "RID",
-         "note": "to clear is to rid"
-        },
-        {
-         "words": "told to go",
-         "gives": "ENT",
-         "note": "the rest of the outer word for being sent away"
+         "note": "to clear something is to rid it, as in rid the house of mice"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "After a meeting, someone is told loudly and clearly to get out.",
-     "walkthrough": "'Loud and clear' looks like one phrase, but only 'Loud' defines; 'clear' after the end of appointment gives T then RID, and SENT (told to go) goes around them.",
-     "definitionFit": "A strident voice or sound is harsh and grating, forcing itself on the ear by its volume."
+     "surface": "At the close of a meeting someone is ordered out, loudly and plainly.",
+     "walkthrough": "'Loud and clear' reads as one phrase but splits: 'Loud' is the definition and 'clear' gives RID, placed 'after' T, the 'end of' appointment. SENT goes 'outside' TRID.",
+     "definitionFit": "A strident voice or noise is harsh and loud, grating on the listener."
     },
     "features": {
      "answerInScene": true,

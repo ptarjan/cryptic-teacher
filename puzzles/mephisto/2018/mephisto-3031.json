@@ -112,45 +112,56 @@
      "indicators": [
       {
        "text": "gathering",
-       "note": "something gathering other things collects them inside itself"
+       "at": 18,
+       "note": "gathering means collecting in, so the insect's letters close round the doubled letter"
       }
      ],
      "parts": [
       {
        "words": "insect",
+       "at": 11,
        "gives": "BEE",
-       "note": "a bee is an insect; it is split around the inner letters"
+       "note": "a bee is an insect, and one that gathers nectar"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "NN",
-       "indicators": [
-        {
-         "text": "prime bit of",
-         "note": "the prime bit of a word is its opening letter, the first one written"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "nectar repeatedly",
-         "gives": "NN",
-         "select": "first",
-         "note": "the first letter of nectar, taken twice"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "prime bit of",
+           "at": 28,
+           "note": "the prime bit of a word is its first letter, here taken from nectar"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nectar",
+           "at": 41,
+           "note": "nectar is the sweet liquid bees collect; only its opening letter is used"
+          }
+         ]
+        },
+        {
+         "words": "repeatedly",
+         "at": 48,
+         "gives": "N",
+         "note": "repeatedly asks for that prime bit of nectar again, so the same letter comes a second time"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plant visited by a bee that keeps sipping its nectar.",
-     "definitionFit": "Benne is another name for sesame, an oil-seed plant, so it is an example of a plant."
+     "surface": "A bee visits a plant, collecting the best of its nectar again and again.",
+     "walkthrough": "'gathering' fits a bee foraging, but it is the insertion signal: BEE holds two Ns, the 'prime bit of' nectar taken 'repeatedly'.",
+     "definitionFit": "Benne is another name for sesame, the plant grown for its oily seeds."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "repeatedly"
+     "misdirectedWord": "gathering"
     }
    }
   },

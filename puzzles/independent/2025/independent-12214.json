@@ -356,30 +356,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RITE",
+     "op": "middle",
      "indicators": [
       {
        "text": "laid bare",
-       "note": "stripping something bare removes its outer covering, so the outermost letters go"
+       "at": 7,
+       "note": "laid bare means stripped of its outer covering, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "Author",
+       "at": 0,
        "gives": "WRITER",
-       "note": "an author is a writer"
+       "note": "a writer is an author"
       }
      ]
     },
     "explanation": {
-     "surface": "A novelist exposes the secrets of some religious ritual.",
-     "walkthrough": "Both ends of the word for author are peeled away to leave the inner four letters.",
-     "definitionFit": "A rite is a solemn ceremony or customary act performed in religious worship."
+     "surface": "A novelist exposes some sacred custom in print.",
+     "walkthrough": "'Author' is not the definition; it gives WRITER, which 'laid bare' strips to its inside.",
+     "definitionFit": "A rite is a ceremony or ritual act performed as part of worship."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "bare"
     }
@@ -699,43 +699,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STREAKS",
+     "op": "container",
      "indicators": [
       {
-       "text": "exposed",
-       "note": "exposing something strips off its covering, so the outer letters are removed"
+       "text": "around",
+       "at": 5,
+       "note": "around says the cuts of meat wrap round that single letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Cuts",
+       "at": 0,
+       "gives": "STEAKS",
+       "note": "steaks are cuts of meat"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "around",
-         "note": "going around means encircling, so one piece wraps the other"
+         "text": "exposed",
+         "at": 16,
+         "note": "exposed means the word arm loses its outer letters, leaving its centre"
         }
        ],
        "parts": [
         {
-         "words": "Cuts",
-         "gives": "STEAKS",
-         "note": "steaks are cuts of meat"
-        },
-        {
          "words": "arm",
-         "gives": "R",
-         "note": "the middle letter once both ends are stripped off"
+         "at": 12,
+         "note": "the limb word arm, of which only the middle letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gruesome image: cuts round a bared arm reveal the veins.",
-     "walkthrough": "'Exposed' seems to describe the veins, but it acts on the arm, leaving only its centre.",
-     "definitionFit": "Veins in marble or cheese are streaks of contrasting colour running through the material."
+     "surface": "Wounds around an uncovered arm leave the veins showing.",
+     "walkthrough": "'Cuts' sounds like wounds, but here it is the butcher's sense, STEAKS; 'exposed' strips ARM to R, which goes in. 'veins' is the noun: streaks of colour, as in marble.",
+     "definitionFit": "Veins in rock or marble are thin coloured lines, the same thing as streaks."
     },
     "features": {
      "answerInScene": false,
@@ -1695,12 +1696,16 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LAMENTED",
      "indicators": [
       {
        "text": "placing",
-       "note": "placing one thing in another puts it inside"
+       "at": 10,
+       "note": "placing one thing in another describes an insertion into the surrounding words"
+      },
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in says the trust's letters sit within the feeble journalist"
       }
      ],
      "parts": [
@@ -1709,30 +1714,33 @@
        "parts": [
         {
          "words": "feeble",
+         "at": 27,
          "gives": "LAME",
          "note": "a lame excuse is a feeble one"
         },
         {
-         "words": "trust",
-         "gives": "NT",
-         "note": "the National Trust, a British heritage charity, abbreviated NT"
-        },
-        {
          "words": "journalist",
+         "at": 34,
          "gives": "ED",
-         "note": "ED is short for editor"
+         "note": "ED is short for editor, the stock crossword journalist"
         }
        ]
+      },
+      {
+       "words": "trust",
+       "at": 18,
+       "gives": "NT",
+       "note": "NT stands for the National Trust, the British heritage charity"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rues having relied on a weak reporter.",
-     "walkthrough": "The National Trust is a British charity that looks after historic houses and countryside; 'trust' looks like confidence.",
-     "definitionFit": "To lament something is to express sorrow or regret over it, so lamented means regretted."
+     "surface": "Someone is sorry they ever relied on a weak reporter.",
+     "walkthrough": "'trust' is not the verb of the surface but the National Trust, a British heritage charity that owns stately homes. 'placing' it 'in' the feeble journalist does the rest.",
+     "definitionFit": "Lamented is the past tense of lament, to mourn or express sorrow over something."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "trust"
     }
