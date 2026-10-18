@@ -331,42 +331,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OPERATIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Off",
-       "note": "off means gone bad or wrong, so the word after it is rearranged"
+       "text": "about",
+       "at": 10,
+       "note": "about means around, so the rearranged letters go round the period"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going around, so the rearranged word wraps around the next piece"
+         "text": "Off",
+         "at": 0,
+         "note": "off in the sense of gone bad or out of order, so the letters of topic are rearranged"
         }
        ],
        "parts": [
         {
          "words": "topic",
-         "note": "the five letters of topic, rearranged"
-        },
-        {
-         "words": "period",
-         "gives": "ERA",
-         "note": "an era is a period of time"
+         "at": 4,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "period",
+       "at": 16,
+       "gives": "ERA",
+       "note": "an era is a period of history"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone straying from the subject of a historical period while discussing a famous work.",
-     "walkthrough": "Tosca is Puccini's opera, so the question mark flags a definition by example.",
-     "definitionFit": "Tosca is a Puccini opera, so anything relating to it is of the opera, as the adjective says."
+     "surface": "Someone straying off the subject at length about a period, while discussing Puccini's Tosca.",
+     "walkthrough": "'Off topic' reads as a single phrase meaning irrelevant, but 'Off' is the anagram signal working on topic alone.",
+     "definitionFit": "Tosca is an opera by Puccini, so a remark about it is one relating to opera; the question mark flags the definition by example."
     },
     "features": {
      "answerInScene": true,
@@ -1225,39 +1227,42 @@
      "indicators": [
       {
        "text": "exotic",
-       "note": "exotic means strange and foreign, so the letters are made unfamiliar by reordering"
+       "at": 26,
+       "note": "exotic means strange or foreign, so the letters are made over into a new order"
       }
      ],
      "parts": [
       {
        "words": "oeuvre",
-       "note": "taken as written"
+       "at": 33,
+       "note": "an artist's body of work, taken as written"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LAV",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half-finished",
-         "note": "half-finished means only the front half was done, so just the first half of that word stays"
+         "at": 49,
+         "note": "only half of lavish is finished, so its last three letters are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "lavish",
-         "gives": "LAV",
-         "select": "first",
-         "note": "first half of lavish"
+         "at": 41,
+         "note": "taken as written before it is cut"
+        },
+        {
+         "gives": "ISH"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rating too highly a lavish, exotic body of artistic work that was never completed.",
-     "definitionFit": "To think something worth more than it is, is to esteem it too highly, a verb phrase matching the clue."
+     "surface": "An admirer gushing over an exotic, lavish body of work that is only half complete.",
+     "walkthrough": "'half-finished' leaves LAV from lavish; 'exotic' then mixes LAV with OEUVRE.",
+     "definitionFit": "To overvalue something is to rate it higher than it deserves, giving it too much regard."
     },
     "features": {
      "answerInScene": true,
