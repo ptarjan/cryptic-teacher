@@ -1832,41 +1832,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "outlined by"
+       "text": "outlined by",
+       "at": 25,
+       "note": "'outlined by' means the pieces sit inside the royal abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "His Majesty",
-         "gives": "HM",
-         "note": "HM = His Majesty"
-        },
-        {
-         "words": "old",
-         "gives": "EX",
-         "note": "ex = former"
-        }
-       ]
+       "words": "His Majesty",
+       "at": 37,
+       "gives": "HM"
       },
       {
-       "words": "Indian city",
-       "gives": "AGRA",
-       "note": "home of the Taj Mahal"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 9,
+         "gives": "EX",
+         "note": "ex means former or old"
+        },
+        {
+         "words": "Indian city",
+         "at": 13,
+         "gives": "AGRA",
+         "note": "Agra is the Indian city of the Taj Mahal"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The king tracing the outline of an old Indian city.",
-     "walkthrough": "'Shape of old Indian city' reads as a single phrase about a city's layout; 'Shape' is the definition alone.",
-     "definitionFit": "A hexagram is a six-pointed star shape."
+     "surface": "An old Indian city's map is traced by the King.",
+     "definitionFit": "A hexagram is a six-pointed star figure, a geometric shape."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Shape"
+     "misdirectedWord": "outlined"
     }
    }
   },
@@ -2368,50 +2371,56 @@
      "parts": [
       {
        "words": "Company",
-       "gives": "CO",
-       "note": "Co = company"
+       "at": 0,
+       "gives": "CO"
       },
       {
        "words": "called",
+       "at": 8,
        "gives": "RANG",
-       "note": "rang = telephoned"
+       "note": "rang means telephoned, called"
       },
       {
        "words": "the French",
+       "at": 15,
        "gives": "LA",
-       "note": "la, French for the"
+       "note": "la is French for the (feminine)"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "IS",
-       "indicators": [
-        {
-         "text": "heads of",
-         "note": "a word's head is its front, so each word supplies its leading letter"
-        }
-       ],
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
-         "words": "heads of inventory and sales",
-         "gives": "IS",
-         "select": "first",
-         "note": "the first letters of Inventory and Sales"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heads of",
+           "at": 26,
+           "note": "'heads of' takes the first letter of inventory and of sales, skipping the joining and"
+          }
+         ],
+         "parts": [
+          {
+           "words": "inventory and sales",
+           "at": 35
+          }
+         ]
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company that phoned French department heads for an instrument.",
-     "walkthrough": "The surface sounds like business paperwork, but 'heads of' just picks initial letters. A cor anglais is the English horn.",
-     "definitionFit": "The cor anglais is a woodwind instrument of the oboe family."
+     "surface": "A company rang the French office about stock and sales figures.",
+     "walkthrough": "'heads of' covers both inventory and sales; the 'and' between them only joins them and gives no letter.",
+     "definitionFit": "The cor anglais is a woodwind instrument, a larger relative of the oboe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heads"
+     "misdirectedWord": "called"
     }
    }
   },
@@ -3537,43 +3546,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "what you eat goes inside you"
-      }
-     ],
      "parts": [
       {
        "words": "Earl",
-       "gives": "E",
-       "note": "E = earl"
+       "at": 0,
+       "gives": "E"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "every so often",
-         "note": "'every so often' means at intervals, so letters are picked at a regular every-other step"
+         "text": "eating",
+         "at": 19,
+         "note": "'eating' means the bad-tempered word takes the other letters inside it"
         }
        ],
        "parts": [
         {
          "words": "bad-tempered",
+         "at": 5,
          "gives": "SURLY",
-         "note": "surly = bad-tempered"
+         "note": "surly means bad-tempered"
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "IENT",
+         "indicators": [
+          {
+           "text": "every so often",
+           "at": 37,
+           "note": "'every so often' takes alternate letters of the words mixed nuts"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "mixed nuts every so often",
-           "gives": "IENT",
-           "select": "alternate",
-           "note": "the even letters of mIxEdNuTs"
+           "words": "mixed nuts",
+           "at": 26
           }
          ]
         }
@@ -3582,9 +3589,9 @@
      ]
     },
     "explanation": {
-     "surface": "A grumpy earl gobbling a bowl of mixed nuts now and then.",
-     "walkthrough": "'Mixed' looks like an anagram instruction but is fodder, from which alternate letters are taken.",
-     "definitionFit": "Esurient means hungry or greedy, so esuriently means greedily."
+     "surface": "An irritable earl eats a bowl of mixed nuts, gobbling them down.",
+     "walkthrough": "'mixed' looks like the anagram signal, but it is fodder: the even letters of MIXED NUTS give IENT.",
+     "definitionFit": "Esurient means hungry or greedy, so the adverb describes eating voraciously."
     },
     "features": {
      "answerInScene": true,
@@ -3617,45 +3624,43 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Bordering on",
-       "note": "the borders are the outer letters"
+       "text": "entering",
+       "at": 22,
+       "note": "'entering' means the edge letters go into the bar word"
       }
      ],
      "parts": [
       {
        "words": "bar",
+       "at": 31,
        "gives": "BUT",
-       "note": "bar = but, except, as in 'all bar one'"
+       "note": "but means except, as does bar"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "RS",
        "indicators": [
         {
-         "text": "entering",
-         "note": "someone entering a room goes inside it"
+         "text": "Bordering on",
+         "at": 0,
+         "note": "'Bordering on' takes the outer letters of raucous"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Bordering on raucous",
-         "gives": "RS",
-         "select": "outer",
-         "note": "the outer letters of RaucouS"
+         "words": "raucous",
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rowdy drinkers coming into a bar for a soft drink.",
-     "walkthrough": "'Bar' is set up as a pub, and 'pop' as a fizzy drink; bar means but, and pop is the verb.",
-     "definitionFit": "A plain synonym as verbs: a balloon pricked with a pin splits open with a bang."
+     "surface": "A noisy crowd almost bursts into a bar to buy fizzy drinks.",
+     "walkthrough": "'bar' and 'pop' suggest a pub and a soft drink; bar is BUT, as in 'all bar one'.",
+     "definitionFit": "To burst is to pop, as a balloon does."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "bar"
     }

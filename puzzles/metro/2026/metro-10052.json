@@ -1052,51 +1052,61 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "round",
-       "note": "Something that goes round another closes on both sides of it, so this word splits to let the letter in."
-      },
-      {
        "text": "after",
-       "note": "Whatever comes after something else is written behind it, so the piece named last in the clue is placed first in the answer."
+       "at": 36,
+       "note": "'after' means the rest comes after the caught letter"
       }
      ],
      "parts": [
       {
        "words": "caught",
+       "at": 42,
        "gives": "C",
-       "note": "c = caught, the cricket scorecard's mark for a catch"
+       "note": "C is the cricket abbreviation for caught"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "back of",
-         "note": "The back of a word is the letter at its end, and only that one is taken."
+         "text": "round",
+         "at": 15,
+         "note": "'round' means hid goes around the other letter"
         }
        ],
        "parts": [
         {
          "words": "hid",
-         "note": "the three letters are written out in the clue and open up after the second"
+         "at": 11,
+         "gives": "HID"
         },
         {
-         "words": "back of school",
-         "gives": "L",
-         "note": "the back of SCHOOL is its last letter"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back of",
+           "at": 21,
+           "note": "'back of' takes only the last letter of school"
+          }
+         ],
+         "parts": [
+          {
+           "words": "school",
+           "at": 29
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A youngster caught out, then hiding round the back of the school.",
-     "walkthrough": "'Round back of school' is a real place on the surface and three separate instructions underneath. C for caught comes off a cricket scorecard, where 'c Smith b Jones' records who took the catch.",
-     "definitionFit": "A little one is what parents and nurses call a small child — the age is what is meant, not the height."
+     "surface": "A small child hides behind the school after being caught.",
+     "definitionFit": "A child is a young person, often called a little one."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "caught"
+     "aptDefinition": false,
+     "misdirectedWord": "hid"
     }
    }
   },

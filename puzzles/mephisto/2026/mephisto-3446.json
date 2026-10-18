@@ -267,35 +267,38 @@
      "indicators": [
       {
        "text": "introduced by",
-       "note": "something introduced by another is brought into it, so it ends up enclosed"
+       "at": 7,
+       "note": "'introduced by' means the pieces are put inside the state abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Michigan",
-         "gives": "MI",
-         "note": "MI is the postal abbreviation for Michigan"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Michigan",
+       "at": 21,
+       "gives": "MI",
+       "note": "MI is the postal abbreviation for Michigan"
       },
       {
-       "words": "rule",
-       "gives": "LAW",
-       "note": "a law is a rule"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "rule",
+         "at": 2,
+         "gives": "LAW",
+         "note": "a law is a rule"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new regulation is brought in by the US state of Michigan.",
-     "walkthrough": "'Michigan state' reads as one phrase, but the state is the definition and Michigan is only its two-letter postal code.",
-     "definitionFit": "Malawi is an independent country in south-east Africa, and a country is a state in the political sense."
+     "surface": "A new regulation is brought in by the state of Michigan.",
+     "definitionFit": "Malawi is an independent country in southeast Africa, and a country is a state."
     },
     "features": {
      "answerInScene": false,
@@ -899,45 +902,46 @@
      "indicators": [
       {
        "text": "amid",
-       "note": "something amid another is surrounded by it, so it sits inside"
+       "at": 25,
+       "note": "'amid' means the pieces sit in the middle of the grass name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "meadow-grass",
+       "at": 30,
+       "gives": "POA",
+       "note": "Poa is the botanical genus of the meadow grasses"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "meadow-grass",
-           "gives": "POA",
-           "note": "Poa is the botanical genus of meadow-grass"
-          },
-          {
-           "words": "in",
-           "note": "taken as written"
-          }
-         ]
+         "words": "in",
+         "at": 5,
+         "gives": "IN",
+         "note": "the word in itself, taken as letters"
         },
         {
          "words": "Ivory Coast",
+         "at": 8,
          "gives": "CI",
-         "note": "CI is the international code for Côte d'Ivoire"
+         "note": "CI is the international code for Côte d'Ivoire, the Ivory Coast"
+        },
+        {
+         "words": "one",
+         "at": 21,
+         "gives": "AN",
+         "note": "an is the indefinite article, meaning one"
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "AN",
-       "note": "an means one"
       }
      ]
     },
     "explanation": {
-     "surface": "A tree stands alone in a grassy meadow in Ivory Coast.",
-     "walkthrough": "'In' looks like a link word but supplies its own letters; meadow-grass is the genus Poa, a name botanists use.",
-     "definitionFit": "The poinciana is a tropical flowering tree of the pea family, best known as the flamboyant or royal poinciana."
+     "surface": "A tree grows in the Ivory Coast, one standing in a grassy meadow.",
+     "walkthrough": "'in' is not a container signal here but two letters of the wordplay; 'amid' does the inserting.",
+     "definitionFit": "Poinciana is a genus of tropical flowering trees, including the flamboyant or royal poinciana."
     },
     "features": {
      "answerInScene": true,
@@ -1143,56 +1147,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "placed in something means put inside it"
+       "at": 41,
+       "note": "'in' puts the pieces inside the word for butter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "butter",
+       "at": 44,
+       "gives": "GHI",
+       "note": "ghi is a variant spelling of ghee, the clarified butter of Indian cooking"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "butter",
-           "gives": "GHI",
-           "note": "ghi, or ghee, is clarified butter used in Indian cooking"
-          },
-          {
-           "words": "not",
-           "gives": "NO",
-           "note": "no means not"
-          }
-         ]
+         "words": "not",
+         "at": 14,
+         "gives": "NO",
+         "note": "no can mean not, as in 'no better'"
         },
         {
          "words": "cold",
+         "at": 18,
          "gives": "C",
          "note": "C is the abbreviation for cold, as on taps"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+        },
         {
-         "text": "initially",
-         "note": "initially points to the first letter only"
-        }
-       ],
-       "parts": [
-        {
-         "words": "cooked",
-         "note": "the first letter of cooked"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 31,
+           "note": "'initially' takes only the first letter of cooked"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cooked",
+           "at": 24
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hot Italian dish, first cooked in butter.",
-     "walkthrough": "Butter is the Indian ghi, not the dairy spread, and it wraps NO, C and C.",
-     "definitionFit": "Gnocchi are small Italian dumplings made from potato, flour or semolina, usually served like pasta with a sauce."
+     "surface": "An Italian dish, served hot, is cooked first in butter.",
+     "definitionFit": "Gnocchi are small Italian dumplings made from potato or semolina, served as a pasta course."
     },
     "features": {
      "answerInScene": true,
@@ -2272,40 +2275,49 @@
      "op": "container",
      "indicators": [
       {
+       "text": "in",
+       "at": 41,
+       "note": "'in' puts the over-the-counter abbreviation inside the city"
+      },
+      {
        "text": "included in",
-       "note": "what is included in something sits within it"
+       "at": 62,
+       "note": "'included in that' puts the heroin letter inside the same city too"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "US city",
-         "gives": "NY",
-         "note": "NY is New York"
-        },
-        {
-         "words": "over-the-counter",
-         "gives": "OTC",
-         "note": "OTC abbreviates over-the-counter"
-        }
-       ]
+       "words": "US city",
+       "at": 44,
+       "gives": "NY",
+       "note": "NY is New York"
       },
       {
-       "words": "Heroin",
-       "gives": "H",
-       "note": "H is slang for heroin"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over-the-counter",
+         "at": 24,
+         "gives": "OTC",
+         "note": "OTC is the standard abbreviation for over-the-counter"
+        },
+        {
+         "words": "Heroin",
+         "at": 53,
+         "gives": "H",
+         "note": "H is slang for heroin"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An addict finds drugs hard to get legally from a pharmacy in a US city, since heroin is part of it.",
-     "walkthrough": "Gear looks like drug slang, but it is a car's gears; heroin goes into NY along with OTC.",
-     "definitionFit": "A notchy gearbox is stiff and jerky, so the driver feels each notch and the lever will not slip smoothly into each ratio."
+     "surface": "Buying drugs over the counter in New York is hard, especially with heroin involved.",
+     "walkthrough": "'gear' looks like drug slang in this surface, but the definition is about a gearbox.",
+     "definitionFit": "A notchy gearbox is stiff and jerky, so the driver changes from one ratio to the next only with difficulty."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "gear"

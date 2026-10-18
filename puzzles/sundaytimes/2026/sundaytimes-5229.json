@@ -637,41 +637,44 @@
      "indicators": [
       {
        "text": "will open",
-       "note": "the new letters open up the box word and sit inside it"
+       "at": 20,
+       "note": "'will open' means the pieces break into the middle of the box word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "box",
-         "gives": "SPAR",
-         "note": "to spar is to box"
-        },
-        {
-         "words": "A",
-         "gives": "ACE",
-         "note": "the ace is the A in a pack of cards"
-        }
-       ]
+       "words": "box",
+       "at": 30,
+       "gives": "SPAR",
+       "note": "to spar is to box"
       },
       {
-       "words": "B",
-       "note": "B stays as itself, following ACE inside SPAR"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 12,
+         "gives": "ACE",
+         "note": "ACE is a playing card marked A"
+        },
+        {
+         "words": "B",
+         "at": 18,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Keys labelled A and B are needed to unlock a box.",
-     "walkthrough": "The keys look like padlock keys opening a box; they are keyboard keys, and \"box\" is the verb.",
-     "definitionFit": "The space bar is the long key at the bottom of a keyboard, a definition by example."
+     "surface": "The keys A and B are used to open a box, like a combination.",
+     "walkthrough": "'box' is a verb here, a boxer's sparring, not a container.",
+     "definitionFit": "The space bar is the long key on a keyboard that types a space."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "keys"
+     "aptDefinition": true,
+     "misdirectedWord": "box"
     }
    }
   },
@@ -964,46 +967,45 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the three pieces sit inside the communist"
+       "at": 23,
+       "note": "'in' means the pieces are placed inside the communist word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "communist",
+       "at": 26,
+       "gives": "RED",
+       "note": "red is a common word for a communist"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "communist",
-           "gives": "RED",
-           "note": "a red is a communist"
-          },
-          {
-           "words": "Soldier",
-           "gives": "GI",
-           "note": "GI = an American soldier"
-          }
-         ]
+         "words": "Soldier",
+         "at": 0,
+         "gives": "GI",
+         "note": "GI is an American soldier"
         },
         {
          "words": "mad",
+         "at": 12,
          "gives": "MENTAL",
-         "note": "mental = mad, informally"
+         "note": "mental is slang for mad"
+        },
+        {
+         "words": "outlaw",
+         "at": 16,
+         "gives": "BAN",
+         "note": "to ban is to outlaw"
         }
        ]
-      },
-      {
-       "words": "outlaw",
-       "gives": "BAN",
-       "note": "to outlaw is to ban"
       }
      ]
     },
     "explanation": {
-     "surface": "A deranged soldier and a bandit hiding in a communist army unit.",
-     "walkthrough": "\"Outlaw\" poses as a bandit; it is the verb. \"Military group\" sounds like troops, but the group here plays music.",
-     "definitionFit": "A regimental band is the musical group attached to an army regiment."
+     "surface": "A soldier and a mad outlaw are among communist troops.",
+     "definitionFit": "A regimental band is the group of musicians attached to an army regiment."
     },
     "features": {
      "answerInScene": true,

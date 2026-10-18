@@ -1919,55 +1919,59 @@
      "indicators": [
       {
        "text": "to enter",
-       "note": "to enter is to go inside, so these pieces go within the outer word"
+       "at": 29,
+       "note": "'to enter' means the pieces go into the ice word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing opening",
+         "at": 48,
+         "note": "'missing opening' means the ice word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "missing opening",
-           "note": "the opening is the first letter, and missing means it is gone"
-          }
-         ],
-         "parts": [
-          {
-           "words": "icefield",
-           "gives": "FLOE",
-           "note": "a floe is a sheet of floating ice"
-          },
-          {
-           "gives": "F"
-          }
-         ]
+         "words": "icefield",
+         "at": 38,
+         "gives": "FLOE",
+         "note": "a floe is a sheet of floating ice"
         },
         {
-         "words": "allowed",
-         "gives": "LET",
-         "note": "let means allowed"
+         "gives": "F"
         }
        ]
       },
       {
-       "words": "vessel",
-       "gives": "CUP",
-       "note": "a cup is a drinking vessel"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "vessel",
+         "at": 14,
+         "gives": "CUP",
+         "note": "a cup is a drinking vessel"
+        },
+        {
+         "words": "allowed",
+         "at": 21,
+         "gives": "LET",
+         "note": "let means allowed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-stocked ship is permitted to sail into the ice through a gap.",
-     "walkthrough": "'Vessel' and 'icefield' make a polar voyage, but the vessel is a cup and 'missing opening' strips the floe, not the ship.",
-     "definitionFit": "Locuplete is a rare Latinate adjective from locuples, rich, meaning amply furnished, wealthy or richly stored."
+     "surface": "A ship is allowed into an icefield but cannot find a way in.",
+     "walkthrough": "'vessel' suggests a ship, but it is a cup.",
+     "definitionFit": "Locuplete is a rare Latinate word meaning wealthy or richly stocked."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "vessel"
     }
    }
