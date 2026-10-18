@@ -187,56 +187,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in it"
+       "text": "in it",
+       "at": 45,
+       "note": "the drug's letter goes inside the drink already doctored"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "bit of",
-         "note": "a 'bit of' a word is a small piece of it, here its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "drink",
-         "gives": "SUP",
-         "note": "to sup is to drink"
-        },
-        {
-         "words": "spiked",
-         "gives": "E",
-         "note": "E is ecstasy, the drug that spikes it"
-        }
-       ]
+       "words": "spiked drink",
+       "at": 10,
+       "gives": "SEUP",
+       "note": "a sup is a drink, and it is spiked with E, the slang letter for the drug ecstasy"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "spiked"
+         "text": "bit of",
+         "at": 28,
+         "note": "only a small part of the word, its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "bit of temazepam",
-         "gives": "T",
-         "select": "first",
-         "note": "first letter of temazepam"
+         "words": "temazepam",
+         "at": 35,
+         "note": "a sedative drug; its first letter is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes what happens after a drink laced with a sleeping pill.",
-     "walkthrough": "'Effect' is a verb here, as in to effect a change, not the noun the surface wants. Two drugs go into the drink: one implied by 'spiked', one named.",
-     "definitionFit": "A plain synonym as verbs: to effect a plan is to bring it into being, to establish it."
+     "surface": "A warning about what happens when someone's drink is spiked with a sedative.",
+     "walkthrough": "'Effect' is a verb, meaning to bring about. The drink SUP is already spiked with E (ecstasy) to make SEUP, and T from temazepam goes 'in it'.",
+     "definitionFit": "To set up an arrangement is to bring it about or establish it, the sense of the verb effect."
     },
     "features": {
      "answerInScene": true,
@@ -373,53 +358,51 @@
     "definitions": [
      {
       "text": "Three Lions?",
-      "at": 25,
-      "note": "Three Lions is an example of the group, hence the question mark."
+      "at": 25
      }
     ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
-       "text": "intro of",
-       "note": "an intro is the opening of a song, so the intro of a word is its first letter"
+       "text": "on",
+       "at": 5,
+       "note": "the ride comes on, after, the opening letter"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across clue, one part put on another follows it"
+         "text": "intro of",
+         "at": 8,
+         "note": "the intro, or opening, of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "intro of Pure",
-         "gives": "P",
-         "select": "first",
-         "note": "first letter of Pure"
+         "words": "Pure",
+         "at": 17,
+         "note": "its first letter is P"
         }
        ]
       },
       {
        "words": "Turn",
+       "at": 0,
        "gives": "RIDE",
-       "note": "a turn is a short ride or outing that returns to its start"
+       "note": "a turn is a short ride or outing, as in a turn round the park"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the England football anthem Three Lions and a fairground ride.",
-     "walkthrough": "Three Lions is the England team's badge and anthem, but the question mark marks it as an example of a group of big cats.",
-     "definitionFit": "A definition by example: lions live in family groups with a special collective noun, and three could make a small one."
+     "surface": "It reads like a request to put on the start of a band's album or the England football anthem.",
+     "walkthrough": "'Three Lions' is the England football song, but here it means three of the big cats; the question mark warns that a group needs more than three.",
+     "definitionFit": "A pride is the collective noun for a group of lions, so three of them could make one."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Lions"
@@ -901,44 +884,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PLATTER",
      "indicators": [
       {
        "text": "making",
-       "note": "making one thing into another changes it"
-      },
-      {
-       "text": "close to",
-       "note": "the close of a word is its end, so its last letter is taken"
+       "at": 16,
+       "note": "the letter for love is made into, so replaced by, the closing letter of the brand name"
       }
      ],
      "parts": [
       {
        "words": "Cassius perhaps",
+       "at": 0,
        "gives": "PLOTTER",
-       "note": "Cassius plotted to murder Julius Caesar"
+       "note": "Cassius led the plot to kill Julius Caesar, so he is an example of a plotter"
       },
       {
        "words": "love",
+       "at": 23,
        "gives": "O",
-       "note": "O is love, zero in tennis; it goes out"
+       "note": "love is zero in tennis scoring, shaped like the letter O"
       },
       {
-       "words": "close to Nokia",
-       "gives": "A",
-       "note": "last letter of Nokia, which comes in"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 28,
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nokia",
+         "at": 37,
+         "note": "the Finnish phone maker; its last letter is A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The boxer Cassius Clay makes love near his Nokia phone charger.",
-     "walkthrough": "'Charger' belongs with Nokia as a phone lead, but it is a serving dish. Cassius is not the boxer but the Roman conspirator.",
-     "definitionFit": "An old-fashioned synonym: a charger is a large flat dish for serving meat."
+     "surface": "It sounds as if the boxer Cassius Clay were wooing a phone charger.",
+     "walkthrough": "A charger is an old word for a large flat dish, not a phone lead. In PLOTTER, O (love) is 'making' A, the 'close to' Nokia.",
+     "definitionFit": "A charger is a large serving dish, the same thing as a platter."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "charger"
     }
    }
@@ -1076,38 +1069,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "primarily means first of all, so the first letter of Libyans"
-      }
-     ],
      "parts": [
       {
        "words": "visit",
+       "at": 26,
        "gives": "TRIP",
-       "note": "a trip is a visit"
+       "note": "a trip is a short visit"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "seen in",
-         "note": "something seen in a place is inside it"
+         "at": 18,
+         "note": "the leading letter is seen inside the call for attention"
         }
        ],
        "parts": [
         {
-         "words": "over here!",
+         "words": "over here",
+         "at": 32,
          "gives": "OI",
-         "note": "a shout to get attention"
+         "note": "oi is a shout to get attention, like calling 'over here!'"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 8,
+           "note": "first of all, so the first letter of the word"
+          }
+         ],
          "parts": [
           {
-           "words": "Libyans primarily",
-           "note": "first letter of Libyans"
+           "words": "Libyans",
+           "at": 0,
+           "note": "its first letter is L"
           }
          ]
         }
@@ -1117,9 +1115,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "An invitation to visit a place full of Libyans.",
-     "walkthrough": "The whole clue reads straight as an invitation to the Libyan capital while doubling as the wordplay. 'Oi!' is a British shout for attention, much like 'over here!'.",
-     "definitionFit": "The whole clue reads straight: the capital of Libya is where a visitor would first meet Libyans."
+     "surface": "A tour guide calls out to visitors to come and see the Libyans first.",
+     "walkthrough": "The whole clue is both the wordplay and an invitation to visit the place where Libyans are mostly seen. 'Oi!' is a British shout for attention.",
+     "definitionFit": "Tripoli is the capital and largest city of Libya, where most Libyans would be seen on a visit."
     },
     "features": {
      "answerInScene": true,
@@ -1323,40 +1321,36 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OLDAGEPENSION",
      "indicators": [
       {
        "text": "playing",
-       "note": "a pianist playing moves across the keys, and the letters of 'piano legends' are moved about"
+       "at": 35,
+       "note": "the letters play about and are rearranged into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "O is Oscar in the NATO alphabet"
-        },
-        {
-         "words": "piano legends",
-         "gives": "LDAGEPENSION",
-         "note": "anagram fodder, 12 letters"
-        }
-       ]
+       "words": "Oscar",
+       "at": 0,
+       "gives": "O",
+       "note": "Oscar is O in the NATO phonetic alphabet"
+      },
+      {
+       "words": "piano legends",
+       "at": 21,
+       "note": "the letters of these two words, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An Oscar winner appears alongside famous pianists at a charity concert.",
-     "walkthrough": "Oscar suggests the film award; here it is the NATO code word for its letter. 'Benefit' looks like a charity gig; it is a state payment.",
-     "definitionFit": "A definition by class: the state payment to the retired is a British welfare benefit."
+     "surface": "A star is billed to perform alongside great pianists at a charity benefit concert.",
+     "walkthrough": "'benefit' suggests a fundraising concert, fitting the musicians, but it is a state payment.",
+     "definitionFit": "The old age pension is the UK state payment made to retired people, a welfare benefit."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "benefit"
     }
    }
@@ -1386,41 +1380,59 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue, one part on another sits below it"
-      },
-      {
-       "text": "striking",
-       "note": "striking something out deletes it, so G for grand goes"
+       "at": 5,
+       "note": "in a down clue the second piece is set on, below, the first"
       }
      ],
      "parts": [
       {
        "words": "Toff",
+       "at": 0,
        "gives": "NOB",
-       "note": "a nob is a toff, an upper-class person"
+       "note": "a nob is a toff, a posh upper-class person"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "revolving",
-         "note": "something revolving turns round, so the letters are turned back to front"
+         "at": 8,
+         "note": "turning round, so the shortened word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "stage striking grand",
-         "gives": "LE",
-         "note": "a leg is a stage of a journey; minus G for grand"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "striking",
+           "at": 24,
+           "note": "striking out, so the letter is removed from the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "stage",
+           "at": 18,
+           "gives": "LEG",
+           "note": "a leg is a stage of a journey or race"
+          },
+          {
+           "words": "grand's",
+           "at": 33,
+           "gives": "G",
+           "note": "G is slang shorthand for a grand, a thousand pounds"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A posh man on a revolving stage is a sensational performer.",
-     "walkthrough": "'Dynamite dude' reads as slang praise; literally it is the man who invented dynamite. 'Toff' and 'nob' are British for a posh person; G is grand, a thousand.",
-     "definitionFit": "A cryptic description: the Swedish chemist who invented dynamite and founded the prizes."
+     "surface": "A posh man on a revolving stage hits the piano keys of a grand, playing a dynamite act.",
+     "walkthrough": "LEG (stage) 'striking' its G (grand) leaves LE, which 'revolving' turns into EL, set 'on' NOB. Alfred Nobel invented dynamite, hence the punning definition.",
+     "definitionFit": "Alfred Nobel, the Swedish chemist who founded the Nobel Prizes, invented dynamite in 1867."
     },
     "features": {
      "answerInScene": false,

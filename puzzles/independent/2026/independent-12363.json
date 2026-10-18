@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -99,54 +100,37 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "sides in garnish",
+       "at": 7,
        "gives": "GANDH",
-       "indicators": [
-        {
-         "text": "sides in",
-         "note": "The sides of a word are the letters at its two edges, and those are all this takes from the word after it."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "sides in garnish",
-         "gives": "GANDH",
-         "select": "last",
-         "note": "garnish has G at one side and H at the other, and G AND H written out in a row is five letters"
-        }
-       ]
+       "note": "the two sides of the word garnish are its outer letters G and H, so the phrase reads literally as 'G and H'"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "I",
+       "op": "last",
        "indicators": [
         {
          "text": "finish off",
-         "note": "A word's finish is the letter it ends on, and 'off' lifts that letter away by itself."
+         "at": 24,
+         "note": "the finish of a word is its last letter, so this picks the end of tandoori"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "finish off tandoori",
-         "gives": "I",
-         "select": "outer",
-         "note": "the letter tandoori finishes on"
+         "words": "tandoori",
+         "at": 35,
+         "note": "its final letter is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An order in an Indian restaurant: side dishes, a garnish and the last of the tandoori.",
-     "walkthrough": "The little word joining the two edge letters is taken at face value and spelt out, which is where three of the six letters come from. 'Sides' reads as side dishes and means edges.",
-     "definitionFit": "Gandhi is the Indian the rest of the world knows by name, the lawyer who led India to independence, so the definition names him by example."
+     "surface": "A cook is told to garnish the side dishes and finish off the tandoori for an Indian meal.",
+     "walkthrough": "The sides of 'garnish' are G and H, and the clue wants the full phrase 'G and H' spelt out as letters; 'finish off' then adds the last letter of tandoori.",
+     "definitionFit": "Mahatma Gandhi, leader of the independence movement, is the most famous Indian figure of the twentieth century."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "sides"
     }
@@ -281,46 +265,46 @@
     "definitions": [
      {
       "text": "it might snap",
-      "at": 16,
-      "note": "The definition describes the answer instead of replacing it: 'it' stands for the creature, and what it might do is how the setter names it."
+      "at": 16
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GATOR",
-     "indicators": [
-      {
-       "text": "Fix up",
-       "note": "To fix something up is to mount it upward, and in a down entry a word mounted that way is written climbing the grid."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Fix up",
+         "at": 0,
+         "note": "in a down clue, 'up' says the word fixed on is written from the bottom upwards, so label's synonym is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "label",
-         "gives": "GAT",
-         "note": "to label a thing is to tag it, that word set the other way up"
-        },
-        {
-         "words": "or",
-         "note": "the conjunction is used exactly as it is spelt"
+         "at": 7,
+         "gives": "TAG",
+         "note": "a label is a tag"
         }
        ]
+      },
+      {
+       "words": "or",
+       "at": 13,
+       "gives": "OR",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning to secure the label properly before it comes adrift.",
-     "walkthrough": "'It might snap' sounds like the label giving way and is the definition, pointing at the animal in the swamp. Gator is what Americans call the alligator when they are not being formal.",
-     "definitionFit": "An alligator snaps its jaws shut on whatever comes near, and the clipped form is the everyday American name for it."
+     "surface": "Advice to stick a label on something, with a warning that it might snap shut.",
+     "walkthrough": "'Fix up' writes TAG, the word for label, upwards in this down clue to give GAT, then OR follows.",
+     "definitionFit": "A gator, short for alligator, is a reptile whose powerful jaws snap shut on prey."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "snap"
     }
    }
@@ -501,37 +485,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOLESKIN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "a lot of",
-       "note": "A lot of a word is most of it and not the whole, so the final letter is left behind."
+       "text": "holding up",
+       "at": 9,
+       "note": "in a down clue the first piece sits above the second and holds it up"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Piers",
+       "at": 20,
+       "gives": "MOLES",
+       "note": "a mole is a pier or breakwater, so piers are moles"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 27,
+         "note": "most of the word, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "holding up Piers",
-         "gives": "MOLES",
-         "note": "a mole is the massive stone breakwater a harbour's pier is built out along, so moles hold piers up"
+         "words": "type",
+         "at": 36,
+         "gives": "KIND",
+         "note": "a type is a kind"
         },
         {
-         "words": "type",
-         "gives": "KIN",
-         "note": "a type is a kind, docked of its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hard-wearing cloth keeping a man called Piers upright.",
-     "walkthrough": "Piers keeps its capital to pass as a first name, and the word wanted is the plural of the harbour wall. Moleskin is the heavy brushed cotton of workmen's trousers, not the animal's coat.",
-     "definitionFit": "Moleskin is a thick brushed cotton woven for hard wear, so the answer is a material in the draper's sense."
+     "surface": "A cloth that holds up harbour piers, or a sort of type in printing.",
+     "walkthrough": "A mole is a stone breakwater; 'a lot of' trims KIND (type) to KIN, and 'holding up' puts MOLES above it in this down entry.",
+     "definitionFit": "Moleskin is a heavy cotton fabric with a soft brushed surface, used for trousers and jackets."
     },
     "features": {
      "answerInScene": false,
@@ -561,37 +556,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SINISTER",
-     "indicators": [
-      {
-       "text": "rejecting leader",
-       "note": "A word's leader is the letter at its front, and rejecting it throws that letter out."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejecting leader",
+         "at": 19,
+         "note": "the politician loses the first letter of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "Second",
-         "gives": "S",
-         "note": "s is the standard short form of second"
+         "words": "politician",
+         "at": 7,
+         "gives": "MINISTER",
+         "note": "a minister is a politician in government"
         },
         {
-         "words": "politician",
-         "gives": "INISTER",
-         "note": "a politician is a minister, with the M at its head thrown away"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A second politician walking out after refusing to back the leader.",
-     "walkthrough": "'Left' is the departure in the sentence and the heraldic direction in the answer: on a shield the sinister side is the left one, from the Latin word for left, and the shifty sense came afterwards.",
-     "definitionFit": "Sinister is Latin for left and keeps that meaning in heraldry, where the sinister side of a shield is the bearer's left."
+     "surface": "A deputy politician refuses to follow the party leader and quits to the left.",
+     "walkthrough": "'rejecting leader' removes the first letter M from MINISTER, leaving INISTER after S.",
+     "definitionFit": "Sinister is the heraldic and Latin term for the left-hand side."
     },
     "features": {
      "answerInScene": false,
@@ -1071,47 +1069,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLIPPANT",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly means all of it bar the last bit, so the word gives up its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "female's",
+       "at": 10,
+       "gives": "F",
+       "note": "F is the usual abbreviation for female"
+      },
+      {
+       "words": "backchat",
+       "at": 19,
+       "gives": "LIP",
+       "note": "lip is cheeky talk or backchat"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 28,
+         "note": "most of the word is used, its last letter dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "female",
-         "gives": "F",
-         "note": "f is the standard short form of female"
-        },
-        {
-         "words": "backchat",
-         "gives": "LIP",
-         "note": "lip is the cheek given back to someone"
-        },
-        {
          "words": "rubbish",
-         "gives": "PANT",
-         "note": "pants is British slang for rubbish, cut short of its s"
+         "at": 35,
+         "gives": "PANTS",
+         "note": "pants is British slang for rubbish, something poor"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman's cheeky backchat dismissed as mostly rubbish.",
-     "walkthrough": "'Pants' is the British verdict on anything useless - a film can be pants - and the word is docked before its last letter. The apostrophe-s only holds the sentence together.",
-     "definitionFit": "To be flippant is to treat a serious thing lightly, the same not-quite-serious tone facetious names."
+     "surface": "A woman's cheeky answers are dismissed as mostly nonsense.",
+     "walkthrough": "In British slang 'pants' means rubbish; 'mostly' cuts it to PANT.",
+     "definitionFit": "Flippant describes speech lacking proper seriousness, which is what a facetious remark shows."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "rubbish"
+     "aptDefinition": false
     }
    }
   },
@@ -1427,30 +1429,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETTIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "completely shorn",
-       "note": "Shorn means clipped, and clipped completely a word loses a letter at each end rather than only one."
+       "at": 22,
+       "note": "shorn at both ends, so the first and last letters of the word are cut off"
       }
      ],
      "parts": [
       {
        "words": "going down",
+       "at": 6,
        "gives": "SETTING",
-       "note": "the sun going down is setting, and the s and the g at its two ends are clipped away"
+       "note": "the setting of the sun is its going down"
       }
      ]
     },
     "explanation": {
-     "surface": "A giant brought low the moment all his hair comes off.",
-     "walkthrough": "Samson is the picture: hair off, strength gone. An ettin is the giant of English and Scots folklore, often two-headed, and the old word survives mostly in fairy tales and games.",
-     "definitionFit": "An ettin is a giant of northern folklore, the word Old English used for the man-eating monsters in its stories."
+     "surface": "A giant goes down after being shaved bald.",
+     "walkthrough": "SETTING (going down, as the sun does) is 'completely shorn' of S and G at its ends. An ettin is a two-headed giant of folklore and fantasy games.",
+     "definitionFit": "An ettin is a giant in English folklore, often pictured with two heads."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "shorn"
     }
@@ -1608,44 +1610,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DONOR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "charges",
+       "at": 23,
+       "note": "to charge is to load or fill, so the reversed word is filled with the letter for new"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "Turned about, the word named is written the other way along the row, last letter first."
-        },
-        {
-         "text": "charges",
-         "note": "To charge is to rush straight at something, so the letter named drives into the middle of the word in front."
+         "at": 13,
+         "note": "turned about, so the word for cross is read backwards"
         }
        ],
        "parts": [
         {
          "words": "cross",
-         "gives": "DOOR",
-         "note": "a rood is the great cross standing over a church's chancel arch, here written backwards"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "n is the standard short form of new"
+         "at": 7,
+         "gives": "ROOD",
+         "note": "a rood is a cross or crucifix"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 19,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "An angry benefactor facing fresh accusations.",
-     "walkthrough": "'Cross' is the church rood rather than the temper the sentence offers, and 'charges' reads as the accusations while doing the pushing-in. Rood survives in rood screen, the carved partition below it.",
-     "definitionFit": "A donor is the one who hands over the money, which is what a patron does for a gallery, a hospital or a choir."
+     "surface": "A patron grows cross about new fees.",
+     "walkthrough": "ROOD, a crucifix, turned 'about' gives DOOR; N for new 'charges' it, loading itself inside.",
+     "definitionFit": "A donor gives money to support a cause, which is what a patron does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cross"
     }
@@ -1730,52 +1735,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NONSTOP",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "regular",
        "indicators": [
         {
          "text": "regularly",
-         "note": "Taken regularly means taken at a fixed interval, so every second letter is picked out and the rest left."
+         "at": 20,
+         "note": "taking every other letter at a steady interval, here the second, fourth and sixth"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "NON",
-         "indicators": [
-          {
-           "text": "returning",
-           "note": "Something returning is coming back the way it went, so the word is written in reverse."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "inbound",
-           "gives": "NON",
-           "select": "alternate",
-           "note": "every second letter of iNbOuNd"
-          }
-         ]
-        },
+         "words": "inbound",
+         "at": 11,
+         "note": "its even letters are N, O, N"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 30,
+         "note": "coming back, so the word is read in reverse"
+        }
+       ],
+       "parts": [
         {
          "words": "vessels",
-         "gives": "STOP",
-         "note": "pots are vessels, turned back the way they came"
+         "at": 40,
+         "gives": "POTS",
+         "note": "pots are vessels"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ships coming into harbour all day long.",
-     "walkthrough": "'Inbound' and 'vessels' both belong to the harbour and neither means what it seems: the first is a letter supply, the second the pot on the stove.",
-     "definitionFit": "A non-stop service runs without a break, and that is the adverb's sense too: something done non-stop is done constantly."
+     "surface": "Ships are forever heading in and coming back to port.",
+     "walkthrough": "'regularly' takes the 2nd, 4th and 6th letters of inbound, NON; 'returning' turns POTS (vessels) round to STOP.",
+     "definitionFit": "Nonstop as an adverb means without pausing, so continuously."
     },
     "features": {
      "answerInScene": false,

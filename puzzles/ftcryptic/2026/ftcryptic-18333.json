@@ -112,53 +112,70 @@
        "indicators": [
         {
          "text": "covering",
-         "note": "something that covers wraps around and encloses what it covers"
+         "at": 16,
+         "note": "the word for mucilage goes round, covering, the letter for left"
         }
        ],
        "parts": [
         {
          "words": "mucilage",
+         "at": 7,
          "gives": "GUM",
-         "note": "mucilage is a sticky gum or glue"
+         "note": "mucilage is a sticky gum"
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "L is the standard abbreviation for left"
+         "at": 25,
+         "gives": "L"
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "LY",
        "indicators": [
         {
-         "text": "central parts of",
-         "note": "the central part of a word is its middle letter, taken from each word that follows"
+         "text": "central",
+         "at": 34,
+         "note": "the centre of the first of the two words is taken, its middle letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "false eye",
-         "gives": "LY",
-         "select": "middle",
-         "note": "the middle letter of each of the two words"
+         "words": "false",
+         "at": 51,
+         "note": "its middle letter is L"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "parts of",
+         "at": 42,
+         "note": "with 'central', parts of the second word too, its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eye",
+         "at": 57,
+         "note": "a three-letter word whose middle, its second letter, is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy report about glue smeared over a glass eye in a workshop.",
-     "walkthrough": "'Left' looks like a past tense alongside 'covering', but it is just the letter L. Mucilage is a plant gum, used as a glue.",
-     "definitionFit": "Both words are adverbs describing behaviour done in a dejected, unhappy, downcast manner."
+     "surface": "Someone gloomily glues a false eye in place with mucilage.",
+     "walkthrough": "'central parts of' applies to both words, taking the middle letter of false and of eye. GUM 'covering' L gives GLUM before them.",
+     "definitionFit": "Glumly means in a dejected, downcast way, which is how someone acts when they feel sad."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "eye"
     }
    }
   },
@@ -183,59 +200,84 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADORNS",
+     "op": "container",
      "indicators": [
       {
-       "text": "after walls repeatedly stripped",
-       "note": "removing the outer walls twice peels away two layers of letters from each end"
+       "text": "in",
+       "at": 17,
+       "note": "the reversed bar sits inside the trimmed city name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one piece placed inside another is held within it"
+         "text": "repeatedly",
+         "at": 40,
+         "note": "the stripping happens again, now taking two letters off the other end"
         }
        ],
        "parts": [
         {
-         "words": "Swansea",
-         "gives": "ANS",
-         "note": "the Welsh city name with its first and last letters removed, then removed again"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "up",
-           "note": "in a down entry, going up means reading from bottom to top, so letters run backwards"
+           "text": "after walls",
+           "at": 28,
+           "note": "the walls of a word are its outer letters, and what is left once they go is wanted"
+          },
+          {
+           "text": "stripped",
+           "at": 51,
+           "note": "the walls are stripped away, two letters off the front of the city name here"
           }
          ],
          "parts": [
           {
-           "words": "bar",
-           "gives": "ROD",
-           "note": "a rod is a bar of metal or wood"
+           "words": "Swansea",
+           "at": 20,
+           "note": "a city in South Wales; its walls are its outer letters"
+          },
+          {
+           "gives": "SW"
           }
          ]
+        },
+        {
+         "gives": "EA"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 14,
+         "note": "in a down clue the word for bar is written upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 10,
+         "gives": "ROD",
+         "note": "a rod is a bar"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Welsh pub being redecorated once its walls have been stripped back again and again.",
-     "walkthrough": "'Bar' suggests a pub, but it is a metal pole. Swansea is a Welsh city; stripping its walls once leaves WANSE, and a second time leaves the three letters needed.",
-     "definitionFit": "To adorn is to make something more attractive by adding ornament, a straightforward synonym for embellishing."
+     "surface": "Someone decorates a bar in Swansea after its walls have been stripped bare more than once.",
+     "walkthrough": "The walls of a word are its outer letters; 'after walls repeatedly stripped' peels them off twice, SWANSEA to WANSE to ANS. ROD (bar) written 'up' gives DOR, which goes 'in' between A and NS.",
+     "definitionFit": "To adorn something is to make it more attractive with ornaments, so adorns is a synonym of decorates."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bar"
+     "misdirectedWord": "walls"
     }
    }
   },
@@ -1190,42 +1232,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESCHALOT",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means nearly but not quite, so the word falls one letter short of complete"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "key",
+       "at": 17,
+       "gives": "ESC",
+       "note": "Esc is the escape key on a computer keyboard"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wraps",
+         "at": 43,
+         "note": "the word for spicy goes round the shortened word"
+        }
+       ],
        "parts": [
         {
-         "words": "key",
-         "gives": "ESC",
-         "note": "Esc is the escape key on a computer keyboard"
+         "words": "spicy",
+         "at": 37,
+         "gives": "HOT",
+         "note": "hot means spicy"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "wraps",
-           "note": "a wrapping encloses whatever is wrapped inside it"
+           "text": "almost",
+           "at": 26,
+           "note": "the word loses its final letter"
           }
          ],
          "parts": [
           {
-           "words": "spicy",
-           "gives": "HOT",
-           "note": "spicy food is hot"
+           "words": "all",
+           "at": 33,
+           "gives": "ALL",
+           "note": "taken as written before trimming"
           },
           {
-           "words": "all",
-           "gives": "AL",
-           "note": "a deletion: the final letter is removed from the word"
+           "gives": "L"
           }
          ]
         }
@@ -1234,9 +1282,9 @@
      ]
     },
     "explanation": {
-     "surface": "A key ingredient in nearly every spicy wrap is a certain vegetable.",
-     "walkthrough": "'Key' reads as important, and 'wraps' as tortillas; they are the escape key and the containment signal.",
-     "definitionFit": "An eschalot is an old name for a shallot, a small mild onion used in cooking."
+     "surface": "A vegetable dish in which nearly everything is wrapped in spicy stuff is the key ingredient.",
+     "walkthrough": "'almost' trims ALL to AL, which HOT (spicy) 'wraps' to make HALOT, after ESC, the keyboard's escape key.",
+     "definitionFit": "An eschalot is another name for a shallot, a small onion-like vegetable."
     },
     "features": {
      "answerInScene": true,
@@ -1519,69 +1567,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THRIFT",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it"
+       "at": 29,
+       "note": "the central letters go inside the combination of the shortened word and the newspaper abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "THRIFT",
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 32,
+           "note": "the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 40,
+           "gives": "THE",
+           "note": "taken as written before trimming"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "Financial Times",
+         "at": 44,
+         "gives": "FT",
+         "note": "FT is the usual abbreviation for the Financial Times newspaper"
+        }
+       ]
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "most of",
-         "note": "most but not all means the last letter is dropped"
+         "text": "essentially",
+         "at": 10,
+         "note": "taking the essence, the central letters, of the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "the",
-           "gives": "TH",
-           "note": "the word cut short by one letter"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "RI",
-           "indicators": [
-            {
-             "text": "essentially",
-             "note": "the essence of a word lies at its core, so only the central letters are kept"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "buried",
-             "gives": "RI",
-             "select": "middle",
-             "note": "the two central letters of the word"
-            }
-           ]
-          },
-          {
-           "words": "Financial Times",
-           "gives": "FT",
-           "note": "FT is the familiar abbreviation of the newspaper's name"
-          }
-         ]
+         "words": "buried",
+         "at": 22,
+         "note": "its two middle letters are R and I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Penny-pinching is at the heart of most of the Financial Times, the setter's own paper.",
-     "walkthrough": "'Frugality essentially' looks like one phrase, but 'essentially' belongs to 'buried'; the definition is the first word alone.",
-     "definitionFit": "Thrift is careful, economical use of money and resources, a plain synonym for being sparing."
+     "surface": "A self-referential boast that thrift lies at the heart of the newspaper you are reading.",
+     "walkthrough": "'essentially' takes RI from the middle of buried; 'most of' trims THE to TH, and RI goes 'in' between TH and FT.",
+     "definitionFit": "Thrift is careful, economical use of money, and frugality is that same quality of avoiding waste."
     },
     "features": {
      "answerInScene": true,
