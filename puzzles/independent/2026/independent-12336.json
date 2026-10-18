@@ -338,48 +338,51 @@
        "indicators": [
         {
          "text": "final character in",
-         "note": "take the last letter of the word"
+         "at": 8,
+         "note": "the final character of a word is its last letter, here of Breakfast"
         }
        ],
        "parts": [
         {
-         "words": "final character in Breakfast",
-         "gives": "BREAKFAST",
-         "note": "last letter of breakfasT"
+         "words": "Breakfast",
+         "at": 27,
+         "note": "its last letter, T"
         }
        ]
+      },
+      {
+       "words": "at",
+       "at": 37
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "eviscerated",
-         "note": "with its insides removed, only the outer letters remain"
+         "at": 50,
+         "note": "with its insides removed, the name keeps only its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "at",
-         "note": "used as it stands"
+         "words": "Tiffany's",
+         "at": 40,
+         "gives": "TIFFANY",
+         "note": "the name Tiffany, from the film title Breakfast at Tiffany's"
         }
        ]
-      },
-      {
-       "words": "Tiffany's eviscerated",
-       "gives": "TY",
-       "note": "TIFFANY has been gutted ('s = has), leaving T…Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A grubby ending to the famous film, as if someone has torn out its heart.",
-     "walkthrough": "The film title is not a unit: each word does its own job, and the 's is 'has', so Tiffany has been eviscerated.",
-     "definitionFit": "Tatty means shabby and worn, scruffy."
+     "surface": "A film buff complains that a copy of Breakfast at Tiffany's has been gutted and looks worn out.",
+     "walkthrough": "The film title is spread across the wordplay: 'final character in' takes T from Breakfast, 'at' is itself, and 'eviscerated' guts TIFFANY to TY.",
+     "definitionFit": "Tatty means shabby and worn out, so something tatty looks untidy and neglected."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Tiffany's"
+     "misdirectedWord": "Breakfast"
     }
    }
   },
@@ -670,47 +673,47 @@
        "indicators": [
         {
          "text": "first of",
-         "note": "'first of' picks out what comes first of the word, its opening letter"
+         "at": 14,
+         "note": "first of points to the opening letter of youthful"
         }
        ],
        "parts": [
         {
-         "words": "first of youthful",
-         "gives": "YOUTHFUL",
-         "note": "first letter of Youthful"
+         "words": "youthful",
+         "at": 23,
+         "note": "its first letter, Y"
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ORKER",
        "indicators": [
         {
          "text": "unwrapped",
-         "note": "the wrapping, the outer letters, is taken off"
+         "at": 42,
+         "note": "unwrapped means with its outer covering removed, so the word for employees loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "employees unwrapped",
-         "gives": "ORKER",
-         "select": "middle",
-         "note": "WORKERS without its outer letters"
+         "words": "employees",
+         "at": 32,
+         "gives": "WORKERS",
+         "note": "workers are employees"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Young staff turn up to open a parcel.",
-     "walkthrough": "In cricket a yorker is a ball bowled to land right at the batsman's feet; 'delivery' is the usual cricketing word for a bowled ball, not a parcel.",
-     "definitionFit": "A cricket sense: every ball bowled is a delivery, and the yorker is one kind, aimed at the batsman's toes."
+     "surface": "A parcel arrives for the youngest staff member and is opened.",
+     "walkthrough": "'Delivery' suggests a parcel, but it is a cricket ball: a yorker is bowled to land right at the batsman's feet. 'unwrapped' strips WORKERS to ORKER.",
+     "definitionFit": "In cricket a bowler's ball is called a delivery, and a yorker is one kind, pitched at the batsman's toes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Delivery"
     }
    }
@@ -899,59 +902,62 @@
      "op": "container",
      "indicators": [
       {
-       "text": "enthralled by",
-       "note": "held captive inside the rearranged letters"
+       "text": "in",
+       "at": 40,
+       "note": "in puts all of that inside the abbreviation for street"
       }
      ],
      "parts": [
       {
        "words": "street",
-       "gives": "ST",
-       "note": "St = street; it wraps round everything else"
+       "at": 43,
+       "gives": "ST"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "exotic",
-         "note": "the letters are made strange, rearranged"
+         "text": "enthralled by",
+         "at": 12,
+         "note": "someone enthralled is held captive, so the numeral is held inside the rearranged insect"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "the whole goes inside the abbreviation for street"
+           "text": "exotic",
+           "at": 26,
+           "note": "exotic means strange or foreign, so the letters of insect take an unusual order"
           }
          ],
          "parts": [
           {
-           "words": "exotic insect",
-           "gives": "CIENTS",
-           "note": "INSECT rearranged"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one, the Roman numeral; it sits inside CIENT_S"
+           "words": "insect",
+           "at": 33
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 8,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A researcher gripped by a strange bug crawling along the road.",
-     "walkthrough": "Two layers of packing: I goes inside the rearranged INSECT to make CIENTIS, and that goes inside S…T.",
-     "definitionFit": "Boffin is British slang for a scientist or technical expert."
+     "surface": "A boffin is spellbound by a strange bug spotted in the road.",
+     "walkthrough": "Two containers nest here: 'exotic' gives CENTIS, which is 'enthralled by' one, giving CIENTIS, and that goes 'in' street. Boffin is British slang for a scientist or expert.",
+     "definitionFit": "Boffin is informal British slang for a scientist or technical expert, especially one doing research."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "enthralled"
+     "misdirectedWord": "exotic"
     }
    }
   },
@@ -1497,33 +1503,30 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "END",
      "indicators": [
       {
        "text": "when naked",
-       "note": "stripped of its outer layer, the first and last letters"
+       "at": 20,
+       "note": "when naked means once stripped of covering, so the word for flexible loses its outer letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "flexible",
-       "gives": "END",
-       "select": "middle",
-       "note": "bENDy without its outer letters"
+       "at": 11,
+       "gives": "BENDY",
+       "note": "bendy means flexible, easily bent"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to a yoga class: no more stretching in the nude.",
-     "walkthrough": "The word to strip is BENDY, meaning flexible; 'naked' removes its clothes at both ends.",
-     "definitionFit": "A plain synonym as verbs: to end something is to stop it, as in 'end the meeting'."
+     "surface": "A yoga teacher tells someone to stop stretching once they are undressed.",
+     "walkthrough": "'when naked' strips BENDY of its first and last letters; 'being' only links definition to wordplay.",
+     "definitionFit": "To end something is to bring it to a close or halt, so end and stop are synonyms as verbs."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "naked"
     }
    }

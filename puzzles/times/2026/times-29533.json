@@ -1108,50 +1108,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ETIQUETTE",
      "indicators": [
       {
        "text": "cryptic",
-       "note": "cryptic means obscure, so QUIET is scrambled"
+       "at": 19,
+       "note": "cryptic means puzzling or obscure, so the letters are to be reworked into a hidden arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "quiet",
+       "at": 13
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 34,
+         "note": "with its cover stripped off, the word setter loses its outer letters"
+        }
+       ],
        "parts": [
         {
-         "words": "quiet",
-         "note": "QUIET rearranged"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "ETTE",
-         "indicators": [
-          {
-           "text": "uncovered",
-           "note": "setter loses its covering, the first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "setter",
-           "gives": "ETTE",
-           "select": "outer",
-           "note": "sETTEr without its outer letters"
-          }
-         ]
+         "words": "setter",
+         "at": 27,
+         "note": "the word setter, keeping only its inner letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter lets slip a secret code, keeping things quiet and cryptic.",
-     "walkthrough": "'Cryptic setter' reads as a crossword compiler; 'cryptic' belongs with 'quiet' as its anagram indicator, and the setter is merely stripped.",
-     "definitionFit": "Etiquette is a certain code, the accepted rules of polite behaviour."
+     "surface": "A puzzle-maker's quiet, enigmatic way of working is presented as a kind of rulebook.",
+     "walkthrough": "'uncovered' strips the ends from SETTER to leave ETTE; 'cryptic' then rearranges QUIET plus ETTE.",
+     "definitionFit": "Etiquette is a set of conventional rules of polite behaviour, a social code that is fixed and established."
     },
     "features": {
      "answerInScene": false,
@@ -1228,41 +1219,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARROT",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "got loses its head, the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "one of Henry's wives",
+       "at": 9,
+       "gives": "PARR",
+       "note": "Catherine Parr was the sixth wife of King Henry VIII"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 34,
+         "note": "losing its head, the word got drops its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "one of Henry's wives",
-         "gives": "PARR",
-         "note": "Catherine Parr, sixth wife of Henry VIII"
+         "words": "got",
+         "at": 30,
+         "note": "the word got, minus its front"
         },
         {
-         "words": "got",
-         "gives": "OT",
-         "note": "gOT without its first letter"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A historical claim that one of Henry VIII's wives was beheaded, repeated.",
-     "walkthrough": "The surface trades on Henry VIII beheading two wives, but 'beheaded' applies only to 'got'; Catherine Parr in fact outlived him.",
-     "definitionFit": "A verb from the bird that mimics speech: it means echoing words without thought."
+     "surface": "A grim history lesson: one of Henry VIII's wives lost her head, and the story bears telling again.",
+     "walkthrough": "Catherine Parr in fact outlived Henry; the beheaded wives were Anne Boleyn and Catherine Howard, so the surface is a deliberate false trail.",
+     "definitionFit": "To parrot is to echo someone's words mechanically, imitating them without understanding, as the bird does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "beheaded"
     }
    }
@@ -1518,46 +1513,46 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "take the last letter of gymnast"
+       "text": "leaving",
+       "at": 19,
+       "note": "something leaving goes away, so the named letter is taken out of the word for the exploit"
       }
      ],
      "parts": [
       {
        "words": "risky exploit",
+       "at": 27,
        "gives": "STUNT",
-       "note": "a stunt is a daring feat"
+       "note": "a stunt is a daring or dangerous feat"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "leaving",
-         "note": "a letter leaving the exploit departs from it, so it is deleted"
+         "text": "ultimately",
+         "at": 8,
+         "note": "ultimately points to the final letter of the word Gymnast"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Gymnast ultimately",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of gymnast, removed from STUNT"
+         "words": "Gymnast",
+         "at": 0,
+         "note": "its last letter, T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gymnast finally drops a dangerous move from the floor routine.",
-     "walkthrough": "'Floor' looks like the gymnastics apparatus; it is the verb meaning to knock flat or astonish.",
-     "definitionFit": "To floor someone is to stun them, literally or with surprise."
+     "surface": "A gymnast abandons a dangerous trick and settles for a floor routine.",
+     "walkthrough": "'floor' looks like the gymnastics apparatus, but it is the verb meaning to knock flat or astound.",
+     "definitionFit": "To floor someone is to shock or bewilder them so they cannot respond, which is what stunning does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "floor"
     }
    }
