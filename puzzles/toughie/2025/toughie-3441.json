@@ -126,38 +126,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APRICOT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "nearly all of",
-       "note": "nearly all means everything except the final letter of the word that follows"
+       "text": "Process",
+       "at": 0,
+       "note": "process means to treat or work on, so the remaining letters are reworked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Process",
-         "note": "to process material is to work it over into a new form, so the letters are rearranged"
+         "text": "nearly all of",
+         "at": 8,
+         "note": "nearly all of means the word loses only its final letter"
         }
        ],
        "parts": [
         {
          "words": "tropical",
-         "gives": "TROPICA",
-         "note": "the word tropical with its last letter dropped"
+         "at": 22,
+         "note": "taken as written, as anagram fodder once shortened"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to put most of a tropical fruit through a machine.",
-     "walkthrough": "'Tropical fruit' reads as a single phrase, but tropical is the anagram fodder and fruit alone is the definition.",
-     "definitionFit": "An apricot is a stone fruit, an example of the general category named."
+     "surface": "An instruction to process nearly all of some tropical fruit.",
+     "walkthrough": "'tropical fruit' reads as one phrase, but the definition is just 'fruit'; 'tropical' is the fodder, cut to TROPICA by 'nearly all of' before 'Process' rearranges it.",
+     "definitionFit": "An apricot is a small orange stone fruit related to the peach and plum."
     },
     "features": {
      "answerInScene": true,
@@ -930,46 +933,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KEDGEREES",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a word that is cut is trimmed short, losing its last letter"
+       "text": "diced",
+       "at": 20,
+       "note": "diced means chopped up, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Greek",
+       "at": 0,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "diced",
-         "note": "dicing chops food into pieces, so the letters are chopped and mixed"
+         "text": "cut",
+         "at": 12,
+         "note": "cut means the word is trimmed by its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Greek",
-         "note": "taken as written"
+         "words": "seeds",
+         "at": 6,
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "seeds",
-         "gives": "SEED",
-         "note": "seeds with its last letter removed"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe in which Greek seeds are chopped and diced into rice dishes.",
-     "definitionFit": "Kedgeree is a dish of rice, flaked smoked fish and egg, a British breakfast of Anglo-Indian origin."
+     "surface": "A recipe step: Greek seeds are cut and diced for rice dishes.",
+     "walkthrough": "'cut' trims SEEDS to SEED, and 'diced' rearranges GREEK SEED. Kedgeree is a British dish of rice, flaked smoked fish and eggs.",
+     "definitionFit": "Kedgeree is an Anglo-Indian dish of rice with smoked fish and boiled eggs, so kedgerees are rice-based meals."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "diced"
+     "misdirectedWord": "Greek"
     }
    }
   },

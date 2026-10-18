@@ -373,48 +373,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MAGICAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "not finished",
-       "note": "something not finished lacks its ending, so the final letter is dropped"
+       "text": "chasing",
+       "at": 36,
+       "note": "chasing means coming after, so the soldier and the rest follow mum"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "mum",
+       "at": 44,
+       "gives": "MA",
+       "note": "ma is an informal word for mother"
+      },
+      {
+       "words": "soldier",
+       "at": 9,
+       "gives": "GI",
+       "note": "GI is an American soldier"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "chasing",
-         "note": "to chase is to run behind, so the following pieces come after the one being chased"
+         "text": "not finished",
+         "at": 23,
+         "note": "not finished means the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "mum",
-         "gives": "MA",
-         "note": "an everyday word for mother"
-        },
-        {
-         "words": "soldier",
-         "gives": "GI",
-         "note": "GI is an American private soldier"
-        },
-        {
          "words": "still",
-         "gives": "CAL",
-         "note": "calm, meaning still, without its last letter"
+         "at": 17,
+         "gives": "CALM",
+         "note": "calm means still, as of water"
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A charming soldier is still chasing after his mother.",
-     "walkthrough": "'Still' is an adjective meaning calm, not the adverb; cut it short and it follows the soldier, both trailing behind mum.",
-     "definitionFit": "Magical describes something enchanting or delightful, as if under a spell, the same sense as charming."
+     "surface": "A charming soldier, still a bit rough round the edges, follows his mother about.",
+     "walkthrough": "The surface reads 'still' as an adverb, but it is the adjective calm; 'chasing' is the order signal, putting the soldier after mum.",
+     "definitionFit": "Magical can mean enchanting or delightful, the same sense as charming, from charms as spells."
     },
     "features": {
      "answerInScene": false,
@@ -613,37 +619,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALIBABA",
-     "indicators": [
-      {
-       "text": "unlimited",
-       "note": "without limits means without boundaries, so the first and last letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 24,
+         "note": "unlimited means the word has no limits, its first and last letters, left on"
+        }
+       ],
        "parts": [
         {
          "words": "legal",
-         "gives": "ALI",
-         "note": "valid means legal; strip its outer letters"
-        },
-        {
-         "words": "degrees",
-         "gives": "BABA",
-         "note": "two Bachelor of Arts degrees"
+         "at": 34,
+         "gives": "VALID",
+         "note": "valid means legally binding, as a valid contract"
         }
        ]
+      },
+      {
+       "words": "degrees",
+       "at": 40,
+       "gives": "BABA",
+       "note": "BA, Bachelor of Arts, is a degree; two of them make degrees"
       }
      ]
     },
     "explanation": {
-     "surface": "A Chinese website selling dodgy unlimited law degrees.",
-     "walkthrough": "'Unlimited' seems to describe the degrees on sale, but it works on the word before it.",
-     "definitionFit": "Alibaba is the giant Chinese e-commerce platform, an online marketplace where goods are bought."
+     "surface": "A Chinese website advertises legal degrees with no restrictions, like a diploma mill.",
+     "walkthrough": "'unlimited' strips VALID to ALI. Alibaba is the Chinese e-commerce giant.",
+     "definitionFit": "Alibaba is a large Chinese online marketplace where traders list goods for sale."
     },
     "features": {
      "answerInScene": true,
@@ -869,68 +876,74 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MUSICHALL",
-     "indicators": [
-      {
-       "text": "unopened",
-       "note": "something unopened has lost its opening, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 18,
+         "note": "into means the turned letters are placed inside the word for great"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "great",
+         "at": 23,
+         "gives": "MUCH",
+         "note": "much means great, as in a great deal"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "into",
-           "note": "going into something puts it inside, so this piece is enclosed by another"
+           "text": "turned",
+           "at": 11,
+           "note": "turned means the word is is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "great",
-           "gives": "MUCH",
-           "note": "much means great in amount, as in 'much rejoicing'"
-          },
-          {
-           "op": "reversal",
-           "indicators": [
-            {
-             "text": "turned",
-             "note": "turned round means facing the other way, so the letters run backwards"
-            }
-           ],
-           "parts": [
-            {
-             "words": "is",
-             "note": "taken as written"
-            }
-           ]
+           "words": "is",
+           "at": 8
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 29,
+         "note": "unopened means the shopping centre loses its opening letter"
+        }
+       ],
+       "parts": [
         {
          "words": "shopping centre",
-         "gives": "ALL",
-         "note": "a mall, its first letter removed"
+         "at": 38,
+         "gives": "MALL",
+         "note": "a mall is a shopping centre"
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theatre is being converted into a large shopping centre that has not yet opened.",
-     "walkthrough": "'Unopened' attaches to the shopping centre, not the great one; 'shopping centre' is not the centre of the word 'shopping' but a mall.",
-     "definitionFit": "A music hall was a theatre staging popular variety entertainment, especially in Victorian Britain."
+     "surface": "A theatre has been converted into a huge shopping centre that never opened.",
+     "walkthrough": "'turned' gives SI, which goes 'into' MUCH to make MUSICH; 'unopened' drops the M of MALL to leave ALL. A music hall is a variety theatre.",
+     "definitionFit": "A music hall was a venue for popular variety entertainment, a type of playhouse with songs and comedy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "centre"
+     "misdirectedWord": "great"
     }
    }
   },

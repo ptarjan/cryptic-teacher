@@ -112,35 +112,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASSASSIN",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without a top means each word loses its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "girls",
-       "gives": "LASSLASS",
-       "note": "two girls, each a lass"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 10,
+         "note": "topless means each lass loses its first letter, its top in a down clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girls",
+         "at": 18,
+         "gives": "LASSLASS",
+         "note": "two girls are a lass and a lass, LASS twice"
+        },
+        {
+         "gives": "LL"
+        }
+       ]
       },
       {
        "words": "home",
+       "at": 32,
        "gives": "IN",
-       "note": "being in means being at home"
+       "note": "in means at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A sensational headline about a murderer of topless girls who has gone home.",
-     "walkthrough": "The plural 'girls' supplies two lasses, each losing its L: ASS + ASS + IN.",
-     "definitionFit": "An assassin is a murderer, specifically one who kills a prominent person for political reasons or for pay."
+     "surface": "A lurid headline about someone who murders topless women and then heads home.",
+     "walkthrough": "'girls' is read as two lasses; 'topless' beheads each one, leaving ASS and ASS, and 'getting' adds IN for home.",
+     "definitionFit": "An assassin is a murderer, especially one who kills a prominent person for political motives or pay."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "topless"
     }
