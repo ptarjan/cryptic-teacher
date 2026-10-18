@@ -265,26 +265,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "TALKS",
      "indicators": [
       {
        "text": "first to last",
-       "note": "the opening letter is moved round to the end of the word"
+       "at": 30,
+       "note": "the first letter moves to the end, so the opening letter of the word goes to the back"
       }
      ],
      "parts": [
       {
        "words": "to follow carefully",
+       "at": 9,
        "gives": "STALK",
-       "note": "to stalk is to follow stealthily"
+       "note": "to stalk prey or a person is to follow them stealthily and carefully"
       }
      ]
     },
     "explanation": {
-     "surface": "Lectures one ought to follow closely, from beginning to end.",
-     "walkthrough": "Moving the S of STALK to the back gives the answer.",
-     "definitionFit": "Talks given to an audience are lectures, so the plural nouns match."
+     "surface": "Instructions for listening to lectures: pay close attention from start to finish.",
+     "walkthrough": "'first to last' moves the S at the front of STALK to the end. 'first to last' looks like 'from beginning to end', but it is the instruction to move one letter.",
+     "definitionFit": "Talks are lectures in the sense of formal addresses given to an audience on a subject."
     },
     "features": {
      "answerInScene": true,
@@ -1094,49 +1094,59 @@
    "annotation": {
     "definitions": [
      {
-      "text": "they're piercing in the theatre?",
+      "text": "they're piercing in the theatre",
       "at": 36
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TROCARS",
      "indicators": [
       {
        "text": "terribly",
-       "note": "done terribly, so the letters come out badly arranged"
+       "at": 10,
+       "note": "terribly suggests something badly done or out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TROCARS",
        "indicators": [
         {
-         "text": "not one",
-         "note": "without one, so a single-letter word is dropped"
+         "text": "not",
+         "at": 20,
+         "note": "not means without, so the letter standing for one is taken out"
         }
        ],
        "parts": [
         {
-         "words": "Cast roar",
-         "note": "anagram fodder"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Cast",
+           "at": 0,
+           "note": "the word cast, taken as written"
+          },
+          {
+           "words": "roar",
+           "at": 5,
+           "note": "the word roar, taken as written"
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 24,
          "gives": "A",
-         "note": "a means one, and is removed"
+         "note": "A means one, as in 'a pound' for one pound"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actor roars badly while a stage show's critics are cutting.",
-     "walkthrough": "'Theatre' is the operating theatre, not the stage.",
-     "definitionFit": "Trocars are sharp-pointed surgical instruments used to pierce body cavities, so surgeons use them in operating rooms."
+     "surface": "A theatre cast roars badly, with not one of them really acting.",
+     "walkthrough": "'not one' removes an A from CAST ROAR, leaving CASTROR, and 'terribly' rearranges that. 'theatre' is the operating theatre, not the stage, so 'acting' only colours the surface.",
+     "definitionFit": "A trocar is a sharp, pointed surgical instrument used to pierce body cavities, often inside a tube."
     },
     "features": {
      "answerInScene": false,
