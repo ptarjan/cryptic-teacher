@@ -996,43 +996,59 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ARRAIGN",
      "indicators": [
       {
        "text": "spread",
-       "note": "spreading something moves it about, so these letters are rearranged"
+       "at": 40,
+       "note": "spread here means scattered or laid out differently, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ARRAIGN",
        "indicators": [
         {
          "text": "unwrapping",
-         "note": "taking the wrapper off removes the outside, so the first and last letters go"
+         "at": 19,
+         "note": "unwrapping strips off the outer layer, so the first and last letters of margarine are taken away"
         }
        ],
        "parts": [
         {
-         "words": "margarine",
-         "note": "taken as written before its outer letters go"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "after",
+           "at": 13,
+           "note": "read with unwrapping: what is left after the wrapper comes off, here starting with the opening letter of margarine"
+          }
+         ],
+         "parts": [
+          {
+           "words": "margarine",
+           "at": 30,
+           "note": "the word margarine, which loses its two end letters"
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is taken to court after opening a tub of margarine and spreading it.",
-     "walkthrough": "'Spread' is what you do with margarine, but here it is the verb shuffling the stripped letters.",
-     "definitionFit": "To arraign someone is to call them before a court to answer a criminal charge, formally putting them on trial."
+     "surface": "Something is put on trial once the margarine has been unwrapped and spread on bread.",
+     "walkthrough": "'after unwrapping' removes the M and E around margarine, leaving ARGARIN; 'spread' then rearranges those letters. 'Spread' reads as the margarine's own description, but it is the anagram signal.",
+     "definitionFit": "To arraign someone is to call them before a court to answer a criminal charge."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "spread"
     }
    }
