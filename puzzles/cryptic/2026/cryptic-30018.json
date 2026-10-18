@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -257,62 +258,67 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "starting to",
-       "note": "A word that is only starting has not got past its opening letter, and that letter is the one you take."
+       "text": "unfortunately",
+       "at": 44,
+       "note": "unfortunately suggests things have gone wrong, so the collected letters are put out of order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "Something that has gone unfortunately has gone wrong, and letters that have gone wrong are letters out of their proper order."
+         "text": "oddly",
+         "at": 10,
+         "note": "oddly means taking the odd-numbered letters, the first and third"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "Taken oddly means taken at the odd positions — first, third and so on — so only half the word's letters are handed over."
-          }
-         ],
-         "parts": [
-          {
-           "words": "rash oddly",
-           "gives": "RASH",
-           "note": "the odd letters of R-a-S-h"
-          }
-         ]
-        },
+         "words": "rash",
+         "at": 5,
+         "note": "its first and third letters are taken"
+        }
+       ]
+      },
+      {
+       "words": "deep",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "words": "I'm",
+       "at": 22,
+       "note": "taken as written, without the apostrophe"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "deep, I'm",
-         "note": "these six letters as they stand, apostrophe ignored"
-        },
+         "text": "starting to",
+         "at": 26,
+         "note": "starting to points to the first letter of the next word"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "starting to itch",
-           "gives": "I",
-           "select": "first",
-           "note": "the first letter of itch"
-          }
-         ]
+         "words": "itch",
+         "at": 38,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's deep rash has begun to itch, and it is not going well.",
-     "walkthrough": "'Skin rash' wants to be the definition and only the first word is. Three separate scraps of wordplay then feed the shuffle, which is why the letter count matters more than the reading.",
-     "definitionFit": "Skin is the everyday word for the body's outer covering, and the answer is the anatomist's name for that same outermost layer."
+     "surface": "A patient complains of a deep rash on their skin that is beginning to itch.",
+     "walkthrough": "'Oddly' gives RS from 'rash' and 'starting to' gives I from 'itch'; with DEEP and IM these nine letters are rearranged, as 'unfortunately' signals.",
+     "definitionFit": "The epidermis is the outer layer of the skin, so it can stand for skin itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rash"
     }
    }
   },
@@ -888,37 +894,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MASTERFUL",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly means all but the last bit, so the word it governs turns up with its final letter left off."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "ship's captain",
+       "at": 7,
+       "gives": "MASTER",
+       "note": "the master is the captain of a merchant ship"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means most of the word, so its last letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "ship's captain",
-         "gives": "MASTER",
-         "note": "the master of a ship is her captain"
+         "words": "occupied",
+         "at": 29,
+         "gives": "FULL",
+         "note": "a full room or seat is one that is occupied"
         },
         {
-         "words": "occupied",
-         "gives": "FUL",
-         "note": "FULL means occupied, and it arrives a letter short"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ship's captain who is busy most of the time.",
-     "walkthrough": "'Mostly' sits in front of the word it cuts rather than behind it, so it reads as part of the captain's timetable instead of as an instruction to trim.",
-     "definitionFit": "'Expert' is an adjective here — skilled, in command of the craft — and the answer is the adjective for doing a thing with complete authority."
+     "surface": "A skilled ship's captain who is busy most of the time.",
+     "walkthrough": "'Expert' looks like it could describe the captain, but it is the definition, used as an adjective; the master of a merchant vessel is its captain.",
+     "definitionFit": "Masterful means showing great skill, as an expert does, so the two are synonyms in that sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "occupied"
     }
    }
   },
@@ -1244,54 +1259,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "Lacking",
-       "note": "To lack something is to be without it, so the named letter is simply missing from the word that lacks it."
+       "text": "embraces",
+       "at": 33,
+       "note": "embraces means holds within, so the philosophy wraps around the shouting"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "embraces",
-         "note": "An embrace closes round a person, so the word doing the embracing wraps itself round the other one."
+         "text": "Lacking",
+         "at": 0,
+         "note": "lacking means going without, so the letter for love is removed from the philosophy"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Chinese philosophy",
-           "gives": "TAOISM",
-           "note": "Taoism is the Chinese philosophy of the Way"
-          },
-          {
-           "gives": "O"
-          }
-         ]
+         "words": "Chinese philosophy",
+         "at": 14,
+         "gives": "TAOISM",
+         "note": "Taoism is the Chinese philosophy founded on the teachings of Laozi"
         },
         {
-         "words": "yelling",
-         "gives": "RANT",
-         "note": "a rant is sustained yelling"
+         "words": "love",
+         "at": 8,
+         "gives": "O",
+         "note": "O is love, a zero score in tennis"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "love",
-       "note": "love is nothing in tennis, so the letter taken out is the O"
+       "words": "yelling",
+       "at": 42,
+       "gives": "RANT",
+       "note": "a rant is yelling or a loud tirade"
       }
      ]
     },
     "explanation": {
-     "surface": "A loveless Chinese philosophy taking in a good deal of yelling and wild dancing.",
-     "walkthrough": "Tarantism was the dancing mania of southern Italy, blamed on the tarantula's bite and treated by dancing it out of the system. The tarantella comes from the same story.",
-     "definitionFit": "The answer names that epidemic dancing mania, so 'uncontrolled dancing' describes the condition itself rather than standing in as a synonym."
+     "surface": "A school of Chinese thought, with no love left, takes up shouting and wild dancing.",
+     "walkthrough": "'Lacking love' removes the O from TAOISM to leave TAISM, which 'embraces' RANT. Tarantism was a dancing mania once blamed on a tarantula bite.",
+     "definitionFit": "Tarantism was a hysterical urge to dance found in southern Italy, thought to come from a spider bite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
     }
    }
   },
