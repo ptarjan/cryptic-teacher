@@ -2447,40 +2447,60 @@
      "indicators": [
       {
        "text": "stopping",
-       "note": "the pieces stop up the firewood, sitting inside it"
+       "at": 19,
+       "note": "stopping means plugging a gap, so these pieces sit inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "firewood",
-         "gives": "LOGS",
-         "note": "logs are firewood"
-        },
-        {
-         "words": "One",
-         "gives": "I",
-         "note": "I = one"
-        }
-       ]
+       "words": "firewood",
+       "at": 28,
+       "gives": "LOGS",
+       "note": "logs are cut wood for burning"
       },
       {
-       "words": "shortened twig",
-       "gives": "STIC",
-       "note": "STICK without its last letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortened",
+           "at": 4,
+           "note": "shortened means cut short, so the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "twig",
+           "at": 14,
+           "gives": "STICK",
+           "note": "a stick is a twig"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trimmed twig jamming the delivery of a load of firewood.",
-     "walkthrough": "'Delivery' in the surface belongs to the firewood; it is really part of the definition at the end.",
-     "definitionFit": "Originally military supply planning, now any organising of transport, storage and shipping of goods."
+     "surface": "A short twig blocks the delivery of a load of firewood.",
+     "walkthrough": "'shortened' cuts STICK to STIC; with I it plugs the gap in LOGS.",
+     "definitionFit": "Logistics is the planning and organising of moving goods, the business of getting deliveries made."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
     }
    }
   },
@@ -3116,38 +3136,32 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the plant goes in the middle letters"
+       "at": 19,
+       "note": "in places the plant within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "midwinter",
+       "at": 22,
        "gives": "INTE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "midwinter",
-         "gives": "INTE",
-         "select": "middle",
-         "note": "'mid' takes the middle four letters of wINTEr"
-        }
-       ]
+       "note": "the middle letters of winter, without its first and last"
       },
       {
        "words": "plant",
+       "at": 13,
        "gives": "VIOLA",
-       "note": "the viola is a flower, the pansy family"
+       "note": "a viola is a plant of the violet family"
       }
      ]
     },
     "explanation": {
-     "surface": "A flower left untouched by the depths of winter.",
-     "walkthrough": "'Midwinter' reads as one word for the season; here it means the middle of the word winter.",
-     "definitionFit": "From Latin for not violated: kept pure, unharmed and never broken into."
+     "surface": "A flower lies untouched in the depths of winter.",
+     "walkthrough": "'midwinter' means the inside of the word winter: drop W and R and you have INTE.",
+     "definitionFit": "Something inviolate has not been violated, broken or harmed, so it remains intact."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "midwinter"
     }
