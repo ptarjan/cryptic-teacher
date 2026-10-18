@@ -567,44 +567,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCOUR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Briefly",
-       "note": "said briefly, a word is cut short, so its final letter is lost"
+       "text": "vigorously",
+       "at": 28,
+       "note": "done vigorously, the letters are thrown about and come out in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "vigorously",
-         "note": "something done vigorously is shaken about, so the letters are jumbled"
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means cut short, so the last letter of scrub is dropped"
         }
        ],
        "parts": [
         {
          "words": "scrub",
-         "gives": "SCRU",
-         "note": "the word cut short"
+         "at": 8
         },
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the middle of a word is its central letter, which is all that is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pot",
-           "note": "the central letter of the three"
-          }
-         ]
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 14,
+         "note": "the middle of a three-letter word is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pot",
+         "at": 24,
+         "note": "the word whose central letter is taken"
         }
        ]
       }
@@ -612,14 +616,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Instructions for a quick but energetic scrubbing of the inside of a pan.",
-     "walkthrough": "The whole clue is both wordplay and definition: to scrub vigorously is exactly what the answer means, with the question mark flagging the double reading.",
-     "definitionFit": "Scouring a pan means rubbing it hard with something abrasive to remove burnt-on dirt."
+     "surface": "An instruction to give the inside of a cooking pot a quick, hard scrub.",
+     "walkthrough": "The whole clue is both definition and wordplay: SCRU (scrub cut 'Briefly') plus O (the 'middle of' pot) is then shaken up 'vigorously'.",
+     "definitionFit": "To scour is to clean a surface by rubbing hard, exactly what scrubbing the inside of a pot involves."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "vigorously"
+     "misdirectedWord": "Briefly"
     }
    }
   },
@@ -644,42 +648,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COMPONENT",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "a short form is an abbreviation, so the long word is cut down to its first letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "quiz, perhaps",
-         "gives": "COMP",
-         "note": "a quiz is an example of a competition, cut to its common shortening"
-        },
-        {
-         "words": "about",
-         "gives": "ON",
-         "note": "about in the sense of on a subject"
-        },
-        {
-         "words": "medical speciality",
-         "gives": "ENT",
-         "note": "ENT is ear, nose and throat medicine"
-        }
-       ]
+       "words": "short quiz, perhaps",
+       "at": 8,
+       "gives": "COMP",
+       "note": "comp is the short form of competition, and a quiz is one kind of competition"
+      },
+      {
+       "words": "about",
+       "at": 28,
+       "gives": "ON",
+       "note": "on means about, as in a talk on a subject"
+      },
+      {
+       "words": "medical speciality",
+       "at": 34,
+       "gives": "ENT",
+       "note": "ENT is ear, nose and throat medicine"
       }
      ]
     },
     "explanation": {
-     "surface": "A section of a brief quiz might be on a medical topic.",
-     "walkthrough": "Comp is a familiar British shortening of competition; 'perhaps' signals that a quiz is just one kind.",
-     "definitionFit": "A component is one constituent element of a larger whole, as a part is."
+     "surface": "Describing one round of a brief quiz that concerns some branch of medicine.",
+     "walkthrough": "'perhaps' marks a quiz as an example of a competition, shortened to COMP. ENT is ear, nose and throat, a hospital department.",
+     "definitionFit": "A component is one element or piece of a larger whole, so it is a part."
     },
     "features": {
      "answerInScene": false,
@@ -1080,42 +1074,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THREADS",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "something unfinished lacks its end, so the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 17,
+         "note": "unfinished means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "the word missing its end"
+         "at": 13
         },
         {
-         "words": "books",
-         "gives": "READS",
-         "note": "a good book is a read, so books are reads"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "books",
+       "at": 28,
+       "gives": "READS",
+       "note": "reads, as a noun, are books: 'a good read' is a book"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone works their way through the books that were left uncompleted.",
-     "walkthrough": "'Books' is a noun here: a read is informal for a book, as in 'a gripping read'.",
-     "definitionFit": "Threading a needle or one's way through a crowd means passing carefully along and through it."
+     "surface": "Someone working through a pile of half-read books.",
+     "walkthrough": "'books' looks like a plural noun for volumes read, and it is: 'reads' as in 'holiday reads'. The answer is a verb: one threads through a crowd.",
+     "definitionFit": "To thread is to make one's way carefully through something, such as a crowd or narrow passage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "books"
+     "misdirectedWord": "Goes"
     }
    }
   },
@@ -1200,47 +1196,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "AGEISM",
      "indicators": [
       {
        "text": "Kinky",
-       "note": "kinky means twisted, so the letters are bent into a new order"
+       "at": 0,
+       "note": "kinky means twisted, so these letters are rearranged"
       }
      ],
      "parts": [
       {
+       "words": "male",
+       "at": 6,
+       "gives": "M"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "AGEISM",
        "indicators": [
         {
          "text": "not",
-         "note": "not means without, so that letter is removed"
+         "at": 18,
+         "note": "not tells us a letter is taken away from geisha"
         }
        ],
        "parts": [
         {
-         "words": "male",
-         "gives": "M",
-         "note": "M is the abbreviation for male"
-        },
-        {
          "words": "geisha",
-         "note": "taken as written"
+         "at": 11,
+         "note": "the word losing a letter"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "at first",
-           "note": "at first points to the very start of a word, its opening letter"
+           "at": 28,
+           "note": "at first picks the opening letter of happy"
           }
          ],
          "parts": [
           {
            "words": "happy",
-           "note": "the opening letter"
+           "at": 22,
+           "note": "the word whose first letter is removed"
           }
          ]
         }
@@ -1249,9 +1246,9 @@
      ]
     },
     "explanation": {
-     "surface": "A kinky man and an unhappy geisha lead to prejudice.",
-     "walkthrough": "'Male' supplies just M; the geisha loses the H that begins 'happy', then everything is mixed.",
-     "definitionFit": "Ageism is prejudice against people because of how old they are, one particular kind of unfair treatment."
+     "surface": "A racy scene of a man and an unhappy geisha that leads to prejudice.",
+     "walkthrough": "Remove the H of 'happy' ('not ... at first') from GEISHA to leave GEISA, add M (male), and rearrange ('Kinky').",
+     "definitionFit": "Ageism is prejudice or unfair treatment of people because of how old they are."
     },
     "features": {
      "answerInScene": false,
@@ -1281,42 +1278,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLACIER",
-     "indicators": [
-      {
-       "text": "after opening shed",
-       "note": "once its opening is shed, a word has lost its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "German",
+       "at": 20,
+       "gives": "G"
+      },
+      {
+       "words": "city",
+       "at": 27,
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after opening shed",
+         "at": 39,
+         "note": "once its opening letter is shed, the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "German",
-         "gives": "G",
-         "note": "G is the abbreviation for German"
-        },
-        {
-         "words": "city",
-         "gives": "LA",
-         "note": "LA is Los Angeles"
-        },
-        {
          "words": "colder",
-         "gives": "CIER",
+         "at": 32,
+         "gives": "ICIER",
          "note": "icier means colder"
+        },
+        {
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snake slithers into a German city that is getting colder after its doors open.",
-     "walkthrough": "'German city' looks like one place; it splits into G and the American city LA.",
-     "definitionFit": "A glacier is a slow-moving mass of ice, so it is a slippery thing that moves at a crawl."
+     "surface": "An icy climbing plant found in a German city on a cold day.",
+     "walkthrough": "'Slippery creeper' sounds like a plant, but a glacier is ice that creeps slowly downhill. LA, the city, is Los Angeles.",
+     "definitionFit": "A glacier is a slow-moving mass of ice, so it creeps along and its surface is slippery."
     },
     "features": {
      "answerInScene": false,
