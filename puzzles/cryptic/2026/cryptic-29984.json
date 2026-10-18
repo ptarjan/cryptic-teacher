@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -133,43 +134,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BELSHAZZAR",
+     "op": "container",
      "indicators": [
       {
-       "text": "brew",
-       "note": "Brewing stirs everything together until nothing sits where it started, and letters treated that way lose their order."
+       "text": "interrupted by",
+       "at": 39,
+       "note": "the rearranged letters are broken into by the nap letters, which go inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "interrupted by",
-         "note": "An interruption arrives in the middle of something already under way, so the next piece lands inside the letters just made."
+         "text": "brew",
+         "at": 33,
+         "note": "a brew is something mixed and stewed, so these letters are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "words": "a small herbal brew",
-         "gives": "BELSHAAR",
-         "note": "'a', plus S for small, plus the six of HERBAL — eight letters stirred into a new order"
+         "words": "a",
+         "at": 18
         },
         {
-         "words": "short nap?",
-         "gives": "ZZ",
-         "note": "a sleeper in the comic strips gives off Zs, and a nap cut short is a couple of them"
+         "words": "small",
+         "at": 20,
+         "gives": "S"
+        },
+        {
+         "words": "herbal",
+         "at": 26
         }
        ]
+      },
+      {
+       "words": "short nap",
+       "at": 54,
+       "gives": "ZZ",
+       "note": "zzz stands for sleep in cartoons, and a short one loses a Z"
       }
      ]
     },
     "explanation": {
-     "surface": "A king breaks off from his feast for a herbal drink and a quick doze.",
-     "walkthrough": "Belshazzar is the Babylonian king of the Book of Daniel, the one whose feast was interrupted by writing appearing on the wall — so the surface's interruption is the story's too.",
-     "definitionFit": "Belshazzar is remembered for one thing, the great feast at which the writing appeared on the wall, so 'feasting king' names him by it."
+     "surface": "A king at a banquet sips a little herbal tea, then dozes off briefly.",
+     "walkthrough": "'brew' looks like the tea, but it is the anagram signal for A, S and HERBAL, giving BELSHAAR, which ZZ splits. Belshazzar's feast, in the Book of Daniel, saw the writing on the wall.",
+     "definitionFit": "Belshazzar was the Babylonian king whose great feast is described in the Book of Daniel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "brew"
     }
    }
   },
@@ -285,47 +300,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Opportunity coming round",
-      "at": 0
+      "text": "Opportunity",
+      "at": 0,
+      "meaning": "first meaning: a chance that comes in rotation, as in 'your turn'"
      },
      {
-      "text": "change colour",
-      "at": 28
+      "text": "coming round",
+      "at": 12,
+      "meaning": "second meaning: a rotation, as in a turn of the wheel"
+     },
+     {
+      "text": "to change colour",
+      "at": 25,
+      "meaning": "third meaning: as leaves turn in autumn"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "has no",
+       "at": 50,
+       "note": "the artist goes without the hesitation, so those letters are removed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "has no",
-         "note": "Having none of a thing means it is absent, so the two letters spelling that noise never make it into the painter's name."
-        }
-       ],
-       "parts": [
-        {
-         "words": "artist",
-         "gives": "TURNER",
-         "note": "JMW Turner, the English painter of light, steam and storms"
-        },
-        {
-         "gives": "ER"
-        }
-       ]
+       "words": "artist",
+       "at": 43,
+       "gives": "TURNER",
+       "note": "J M W Turner was the English landscape painter"
       },
       {
-       "unchecked": true,
        "words": "hesitation",
-       "note": "er is the noise people make while hesitating, and those two letters come off the end"
+       "at": 57,
+       "gives": "ER",
+       "note": "er is the sound of hesitating"
       }
      ]
     },
     "explanation": {
-     "surface": "A chance to change colour comes round, and the painter takes it without pausing.",
-     "walkthrough": "Milk turns, leaves turn, and your turn comes round: three senses are stacked up before the wordplay even starts, and then Turner loses his er.",
-     "definitionFit": "A turn is the opportunity that comes round to you, and milk or leaves that turn have changed colour — two everyday senses of one short word."
+     "surface": "A painter gets a chance to switch palettes without pausing.",
+     "walkthrough": "The clue packs in three definitions before the wordplay: 'has no' removes ER, the hesitation sound, from TURNER, the English landscape painter.",
+     "definitionFit": "Turn covers a chance in sequence, a rotation, and a shift of hue, as milk or leaves turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "colour"
     }
    }
   },
@@ -403,37 +425,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "swimmer",
-      "at": 30
+      "text": "this swimmer",
+      "at": 25
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORFE",
+     "op": "composite",
      "indicators": [
       {
+       "text": "would be",
+       "at": 8,
+       "note": "states what the remainder becomes once the swimmer is gone: the word that follows"
+      },
+      {
        "text": "knocked out",
-       "note": "Knocking something out removes it altogether, so the run of letters named is lifted clean out of the longer word."
+       "at": 38,
+       "note": "the swimmer's letters are knocked out of the penalty word, and what remains spells the word fit"
       }
      ],
      "parts": [
       {
        "words": "Penalty",
+       "at": 0,
        "gives": "FORFEIT",
-       "note": "the penalty you pay for breaking a rule is a forfeit"
+       "note": "a forfeit is a penalty paid for a fault"
       },
       {
-       "words": "would be fit",
-       "gives": "FIT",
-       "note": "what is left of that seven-letter word once four consecutive letters are taken out of it"
+       "words": "fit",
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "The punishment would suit, if a certain swimmer were knocked out of the contest.",
-     "walkthrough": "Nothing is built up here, it is taken away: knock ORFE out of FORFEIT and FIT is all that is left. An orfe is a golden pond fish, the crossword's handiest small swimmer.",
-     "definitionFit": "An orfe is a freshwater fish kept in ponds, and 'swimmer' is the setter's usual way of asking for a fish without naming one."
+     "surface": "A conditional rule says a penalty would be justified if a fish were knocked out.",
+     "walkthrough": "'knocked out' takes the fish out of FORFEIT, and what is left, F and IT, 'would be' FIT; the clue states the result rather than the starting point.",
+     "definitionFit": "The orfe is a freshwater fish of the carp family, often kept in ornamental ponds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
     }
    }
   },
@@ -788,53 +819,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PENICILLIN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "covering",
-         "note": "To cover a thing is to lie over it and hide it, so the letter that follows is taken inside the writer's word."
+         "at": 7,
+         "note": "the writing tool wraps around the India letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "Turning about is facing the other way, and the little word here is written in the reverse of the order it comes in."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Writer",
-           "gives": "PENCIL",
-           "note": "a writer can be the implement rather than the person holding it"
-          },
-          {
-           "words": "India",
-           "gives": "I",
-           "note": "I is India in the radio alphabet, alongside Hotel and Juliet"
-          }
-         ]
+         "words": "Writer",
+         "at": 0,
+         "gives": "PENCIL",
+         "note": "a pencil is a writing tool"
         },
         {
+         "words": "India",
+         "at": 16,
+         "gives": "I",
+         "note": "India is the NATO phonetic alphabet word for I"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 35,
+         "note": "turned about, the nothing word is read backwards"
+        }
+       ],
+       "parts": [
+        {
          "words": "nothing",
-         "gives": "LIN",
-         "note": "nothing is nil, and here it is written back to front"
+         "at": 27,
+         "gives": "NIL",
+         "note": "nil means nothing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reporter out in India has nothing to say about how infections get treated.",
-     "walkthrough": "'Covering' is the journalist's word in the surface and the container's instruction in the wordplay, which is why the sentence reads so smoothly past it.",
-     "definitionFit": "Penicillin is the mould-derived antibiotic given to fight bacterial infection, so the definition describes it by what doctors use it for."
+     "surface": "A writer covering India returns empty-handed and needs treatment for a bug.",
+     "walkthrough": "'Writer' is a pencil, not an author; it covers I, and NIL turned 'about' gives LIN.",
+     "definitionFit": "Penicillin was the first widely used antibiotic, a treatment for bacterial infection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
     }
    }
   },
@@ -1027,42 +1066,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COOLIDGE",
-     "indicators": [
-      {
-       "text": "halved",
-       "note": "Halving a word keeps just one half of it, and it is the front half that is wanted here."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "business",
+       "at": 9,
+       "gives": "CO",
+       "note": "CO is short for company, a business"
+      },
+      {
+       "words": "giving off bad smell",
+       "at": 18,
+       "gives": "OLID",
+       "note": "olid is a rare word meaning foul-smelling"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 44,
+         "note": "the word is cut in half, keeping only its first two letters"
+        }
+       ],
        "parts": [
         {
-         "words": "business",
-         "gives": "CO",
-         "note": "a business is a company, shortened to Co in any firm's name"
-        },
-        {
-         "words": "giving off bad smell",
-         "gives": "OLID",
-         "note": "olid is the dictionary's word for foul-smelling, from the Latin for stinking"
-        },
-        {
          "words": "gets",
-         "gives": "GE",
-         "note": "the first half of that four-letter word"
+         "at": 39
+        },
+        {
+         "gives": "TS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calvin's firm stinks, and now it has shrunk to half the size.",
-     "walkthrough": "Calvin Coolidge was the American president of the 1920s, famous for saying as little as possible. 'Giving off bad smell' is olid, a word that lives mostly in dictionaries and grids.",
-     "definitionFit": "Calvin was the first name of President Coolidge, so the clue defines the surname by the other half of the man's name."
+     "surface": "Calvin's company is halved after it starts to stink.",
+     "walkthrough": "Calvin Coolidge was the 30th US president. OLID, meaning fetid, is uncommon, and 'halved' leaves GE from GETS.",
+     "definitionFit": "Calvin Coolidge was President of the United States from 1923 to 1929, so the surname is the famous Calvin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
     }
    }
   },
@@ -1088,31 +1135,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NEWEL",
      "indicators": [
       {
        "text": "Changing hands",
-       "note": "Changing hands swaps one for the other, and the two letters that stand for right and left do the swapping."
+       "at": 0,
+       "note": "right and left are the two hands, so the right letter is changed to the left letter"
       }
      ],
      "parts": [
       {
        "words": "more recent",
+       "at": 16,
        "gives": "NEWER",
-       "note": "the comparative of new"
+       "note": "newer means more recent"
       },
       {
-       "words": "hands",
-       "gives": "L",
-       "note": "the R that ends that word is right, and the hand it changes to is left"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A more up-to-date job that has just passed to somebody else.",
-     "walkthrough": "A newel is the post at the foot or the turn of a staircase, the one the handrail is bolted to. R and L are right and left throughout crosswords, which is what makes a hand a letter.",
-     "definitionFit": "A newel is the upright post carrying a staircase handrail, so 'post' names it by the everyday word for that upright."
+     "surface": "A newer job has gone to someone else.",
+     "walkthrough": "'Changing hands' sounds like a sale; here R, for right, becomes L, for left. 'post' is a staircase post, not a job.",
+     "definitionFit": "A newel is the central post of a spiral staircase or the post at the end of a banister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "post"
     }
    }
   },
@@ -1184,35 +1238,39 @@
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "RE",
        "indicators": [
         {
-         "text": "Regularly",
-         "note": "Doing a thing regularly means at even intervals, so every second letter is picked up and the ones between are left."
+         "text": "Regularly take",
+         "at": 0,
+         "note": "take letters at regular intervals, here the second and fourth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Regularly take free",
-         "gives": "RE",
-         "select": "alternate",
-         "note": "the second and fourth letters of the four-letter word, taken at every other step"
+         "words": "free",
+         "at": 15,
+         "note": "the second and fourth letters of free"
         }
        ]
       },
       {
        "words": "measures of wood cut",
+       "at": 20,
        "gives": "CORDS",
-       "note": "a cord is a stacked measure of cut firewood, 128 cubic feet of it"
+       "note": "a cord is a measure of cut firewood, 128 cubic feet"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody regularly helping themselves to free timber and sawing it into logs.",
-     "walkthrough": "Both halves of the clue are standing in the same woodpile, so nothing marks where the wordplay stops. To log an event is to record it, which is the sense wanted.",
-     "definitionFit": "A ship's log is its written record and to log something is to write it down, so logs and records are the same plural noun."
+     "surface": "Collect cut firewood for nothing to burn as logs.",
+     "walkthrough": "'Regularly take' picks alternate letters of FREE, giving RE. A cord is a stacked measure of cut timber. 'logs' is the verb sense here: records.",
+     "definitionFit": "Logs, as a noun, are written records of events, such as a ship's log."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "logs"
     }
    }
   },
@@ -1251,48 +1309,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAGSTORICHES",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 15,
+       "note": "sung out of order, the letters are rearranged"
+      },
+      {
+       "text": "missing",
+       "at": 20,
+       "note": "the note letter is missing, taken from the pool of letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "out",
-         "note": "Sing out and the sound goes everywhere at once; letters sent out the same way do not come back in the order they left."
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "missing",
-           "note": "What is missing is simply not there, so the letter named is taken out of the material before anything is rearranged."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Chorister sang",
-           "gives": "CHORISTERSAG",
-           "note": "thirteen letters of raw material with one struck out, leaving twelve to rearrange"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "note",
-         "note": "n. is the abbreviation for note, and that is the letter taken away"
-        }
-       ]
+       "words": "Chorister sang",
+       "at": 0
+      },
+      {
+       "words": "note",
+       "at": 28,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A choirboy belted it out and fluffed a note, somewhere in the Cinderella story.",
-     "walkthrough": "Cinderella goes from the ashes to the ball, so the definition can point at the whole tale rather than a word in it. The answer runs on into 23 down.",
-     "definitionFit": "Cinderella starts in cinders and ends with the prince, which is the rags-to-riches story in its purest form."
+     "surface": "A choirboy sang badly, missing a note in a pantomime.",
+     "walkthrough": "CHORISTER SANG has thirteen letters; 'missing note' takes away N, and 'out' rearranges the other twelve.",
+     "definitionFit": "Cinderella rises from servant to princess, the classic tale of going from poverty to wealth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "note"
     }
    }
   },
@@ -1431,37 +1481,44 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "GOYA",
+     "indicators": [
+      {
+       "text": "backwards",
+       "at": 37,
+       "note": "the result is then read in reverse"
+      }
+     ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "GOYA",
        "indicators": [
         {
          "text": "cycling",
-         "note": "Cycling sends the letters round a loop, the one at the front going to the back with the rest keeping their order."
-        },
-        {
-         "text": "backwards",
-         "note": "Backwards has a word read from its far end first, in the opposite order to the one it was given in."
+         "at": 29,
+         "note": "the letters cycle round, the last one moving to the front"
         }
        ],
        "parts": [
         {
          "words": "ascetic discipline",
+         "at": 9,
          "gives": "YOGA",
-         "note": "the Hindu discipline of posture and breathing, austere in its origins if not in its gyms"
+         "note": "yoga is a Hindu discipline of self-control"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An artist keeps up a strict daily practice, and rides a bike in reverse.",
-     "walkthrough": "Read the discipline backwards to get AGOY, then send its first letter round to the end and the Spanish painter appears. Two instructions are riding in one three-word phrase.",
-     "definitionFit": "Goya was the Spanish court painter of the Napoleonic years, so 'artist' defines him as one instance of the trade."
+     "surface": "An artist's strict spiritual practice is reversed on a bike.",
+     "walkthrough": "'cycling' moves YOGA's final A to the front to make AYOG, and 'backwards' reverses that. Goya was the Spanish painter.",
+     "definitionFit": "Francisco Goya was a celebrated Spanish painter and printmaker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycling"
     }
    }
   },

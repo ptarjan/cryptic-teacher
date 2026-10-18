@@ -1166,30 +1166,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TOLSTOY",
      "indicators": [
       {
-       "text": "omitting every fourth character",
-       "note": "omitting means leaving out, and every fourth character picks which letters are dropped"
+       "text": "every fourth character",
+       "at": 28,
+       "note": "counting along the two words, the letters dropped are those in positions four and eight"
       }
      ],
      "parts": [
       {
-       "words": "told story",
-       "note": "taken as written"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "omitting",
+         "at": 19,
+         "note": "omitting means leaving out, so letters are dropped from the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "told story",
+         "at": 7
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An author narrated a tale but skipped some of the characters in it.",
-     "walkthrough": "The fourth and eighth letters, D and R, go from TOLDSTORY to leave TOLSTOY; 'character' teases a person in a story.",
+     "surface": "An author recounted a tale but kept skipping bits.",
+     "walkthrough": "'omitting every fourth character' works on TOLDSTORY: the fourth letter is D and the eighth is R, and dropping both leaves the Russian novelist. 'character' means a letter, not a person in the story.",
      "definitionFit": "Leo Tolstoy was the Russian novelist who wrote War and Peace and Anna Karenina."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "character"
     }
    }

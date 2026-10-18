@@ -150,55 +150,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FIVE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 23,
+       "note": "in a down answer one piece sits on top of the next, so the forage letter comes before the river letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "first to",
-         "note": "the first letter of 'forage'"
-        },
-        {
-         "text": "on"
+         "at": 7,
+         "note": "only the first letter of the following word is taken"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "F",
-         "indicators": [
-          {
-           "text": "with its banks cleared",
-           "note": "a river's banks are its edges, so the outer letters of RIVER go"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "first to forage",
-           "gives": "F",
-           "select": "first",
-           "note": "first letter of forage"
-          }
-         ]
-        },
+         "words": "forage",
+         "at": 16,
+         "note": "the first letter of forage"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "river with its banks cleared",
-         "gives": "IVE",
-         "note": "RIVER without its outer R and R"
+         "text": "with its banks cleared",
+         "at": 32,
+         "note": "a river's banks are its edges, so the word loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 26,
+         "note": "river without its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal goes foraging along a river whose banks have been stripped bare.",
-     "walkthrough": "A river's banks are its two sides, and a word's sides are its first and last letters, so clearing them leaves IVE.",
-     "definitionFit": "Five is a plain example of a number, so the definition is a category the answer belongs to."
+     "surface": "An animal is first to forage along a river whose banks have been cleared.",
+     "walkthrough": "'banks' are the two ends of RIVER, so clearing them leaves IVE, which follows the F of forage.",
+     "definitionFit": "Five is a whole number, the one after four."
     },
     "features": {
      "answerInScene": false,
@@ -336,41 +336,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "penetrating"
+       "text": "penetrating",
+       "at": 25,
+       "note": "the uphill letters go inside the outer letters of Dundee"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "outskirts of",
-         "note": "a town's outskirts are its edges, so the first and last letters of Dundee"
+         "at": 37,
+         "note": "the outskirts of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "outskirts of Dundee",
-         "gives": "DE",
-         "select": "outer",
-         "note": "first and last letters of Dundee"
+         "words": "Dundee",
+         "at": 50,
+         "note": "the first and last letters of Dundee"
         }
        ]
       },
       {
        "words": "on to higher ground",
+       "at": 5,
        "gives": "UP",
-       "note": "heading up, to higher ground"
+       "note": "up means on towards higher ground"
       }
      ]
     },
     "explanation": {
-     "surface": "A weather report: snow falling on the hills around Dundee.",
-     "walkthrough": "'Snow' is the weather in the surface, but as a verb it means to deceive with flattering talk. Dundee is a Scottish city.",
-     "definitionFit": "To snow someone is to fool them with a smooth line, which is to dupe them."
+     "surface": "Snow is falling on the hills around the edges of Dundee.",
+     "walkthrough": "'Snow' is the verb here, to fool or deceive, not the weather.",
+     "definitionFit": "To snow someone is informal for deceiving them with flattery, and to dupe is to trick."
     },
     "features": {
      "answerInScene": false,
@@ -400,52 +400,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NAIROBI",
-     "indicators": [
-      {
-       "text": "Dreadful",
-       "note": "RAIN is made dreadful, so its letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Dreadful",
+         "at": 0,
+         "note": "something dreadful is in a bad state, so these letters are knocked into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "rain",
-         "gives": "NAIR",
-         "note": "anagram of RAIN"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "O = over, the cricket abbreviation"
-        },
-        {
-         "words": "British",
-         "gives": "B",
-         "note": "B = British"
-        },
-        {
-         "words": "Island",
-         "gives": "I",
-         "note": "I = island, as on maps"
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 14,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for an over"
+      },
+      {
+       "words": "British",
+       "at": 19,
+       "gives": "B"
+      },
+      {
+       "words": "Island",
+       "at": 27,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Awful weather sweeps over the capital of a British island.",
-     "walkthrough": "The surface points to London or somewhere rainy in the British Isles, but the city is in Kenya.",
-     "definitionFit": "The definition is a bare category: Nairobi, Kenya's capital, is one city of that kind."
+     "surface": "Terrible rain falls over a British island's capital.",
+     "walkthrough": "'over' is the cricket abbreviation O, not a position. Nairobi is the capital of Kenya.",
+     "definitionFit": "Nairobi is the capital city of Kenya."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "British"
+     "misdirectedWord": "over"
     }
    }
   },
@@ -569,59 +568,75 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "UNCIVIL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraces",
+       "at": 29,
+       "note": "the university and lecturer letters hold the other letters inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
+       "op": "charade",
+       "parts": [
         {
-         "text": "embraces"
+         "words": "university",
+         "at": 9,
+         "gives": "UNI",
+         "note": "uni is the informal short form of university"
         },
         {
-         "text": "twisted"
+         "words": "lecturer",
+         "at": 20,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "twisted",
+         "at": 46,
+         "note": "twisted round, the shortened word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
            "text": "endless",
-           "note": "VICE loses its last letter"
+           "at": 38,
+           "note": "without its end, the word loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "university",
-           "gives": "UNI",
-           "note": "uni = university"
+           "words": "debauchery",
+           "at": 54,
+           "gives": "VICE",
+           "note": "vice is wicked, debauched behaviour"
           },
           {
-           "words": "lecturer",
-           "gives": "L",
-           "note": "L = lecturer"
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "endless twisted debauchery",
-         "gives": "CIV",
-         "note": "VICE without its end is VIC, reversed to CIV, which goes in after UN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rude academic caught up in some unending, perverse vice.",
-     "walkthrough": "Uni is short for university. 'Debauchery' tempts you towards a longer word, but it is only VICE, trimmed and turned.",
-     "definitionFit": "Uncivil means lacking manners, which is how someone badly brought up, ill-bred, behaves."
+     "surface": "A rude academic gets caught up in endless warped vice.",
+     "walkthrough": "'endless' cuts VICE to VIC and 'twisted' turns that to CIV, which goes into UNI before the L.",
+     "definitionFit": "Uncivil means discourteous or rude, the manners of someone poorly brought up."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "lecturer"
     }
    }
   },
@@ -796,59 +811,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TONG",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "at": 33,
+       "note": "the shortened clothes word holds the centre letter inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "brief",
-         "note": "TOGS cut short loses its last letter"
-        },
-        {
-         "text": "centre of",
-         "note": "the middle letter of 'attention'"
+         "at": 18,
+         "note": "cut short, the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "brief clothing",
-         "gives": "TOG",
-         "note": "TOGS = clothes, shortened"
+         "words": "clothing",
+         "at": 24,
+         "gives": "TOGS",
+         "note": "togs is informal for clothes"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "capturing",
-           "note": "to capture is to take prisoner and hold"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "centre of attention",
-           "gives": "N",
-           "select": "middle",
-           "note": "middle letter of attention"
-          }
-         ]
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 43,
+         "note": "the centre of the word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attention",
+         "at": 53,
+         "note": "the middle letter of attention, the fifth of nine"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Chinese society's skimpy outfits draw all eyes.",
-     "walkthrough": "Togs is an informal word for clothes. 'Brief clothing' looks like a skimpy outfit, but it means the word TOGS cut short.",
-     "definitionFit": "A tong is a Chinese secret society, especially one in a Chinese community abroad."
+     "surface": "A Chinese group's skimpy outfits grab everyone's attention.",
+     "walkthrough": "'brief clothing' suggests skimpy garments; 'brief' cuts TOGS to TOG, which holds N, the middle letter of attention.",
+     "definitionFit": "A tong is a Chinese secret society or guild, especially one formed among emigrant communities."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "brief"
     }
@@ -876,54 +894,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TWEAK",
      "indicators": [
       {
-       "text": "ending",
-       "note": "the last letter of 'vulgar'"
+       "text": "succumbs to",
+       "at": 34,
+       "note": "the last letter of vulgar gives way to the letter A, which takes its place"
       }
      ],
      "parts": [
       {
        "words": "Provocative dance",
+       "at": 0,
        "gives": "TWERK",
        "note": "twerking is a sexually provocative dance"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "succumbs to"
+         "text": "ending",
+         "at": 27,
+         "note": "the ending of the word is its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "vulgar ending",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of vulgar, removed from TWERK"
+         "words": "vulgar",
+         "at": 20,
+         "note": "the last letter of vulgar"
         }
        ]
       },
       {
        "words": "a",
-       "note": "the letter A, which takes the place of R"
+       "at": 46,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A racy dance loses its crude finish after a small change to the choreography.",
-     "walkthrough": "'Vulgar ending' looks like a description of the dance's finale, but it is just the R at the end of 'vulgar'.",
-     "definitionFit": "Tweak began as a sharp pinch or twist and now means any small fine-tuning, a minor adjustment."
+     "surface": "A raunchy dance loses its crude finish and becomes a small tweak.",
+     "walkthrough": "'vulgar ending' is the R of vulgar, which yields its place in TWERK to A.",
+     "definitionFit": "A tweak is a small adjustment made to fine-tune something."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "vulgar"
+     "misdirectedWord": "succumbs"
     }
    }
   },
@@ -1178,39 +1195,44 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "initially",
-       "note": "the first letter of 'Lothario'"
+       "text": "avoiding",
+       "at": 21,
+       "note": "the flirting word steers clear of, drops, that first letter"
       }
      ],
      "parts": [
       {
        "words": "flirting",
+       "at": 30,
        "gives": "DABBLING",
-       "note": "dabbling = flirting with an interest without committing; L is then removed"
+       "note": "dabbling means toying or flirting with something without commitment"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "avoiding"
+         "text": "initially",
+         "at": 9,
+         "note": "only the first letter of the word is used"
         }
        ],
        "parts": [
         {
-         "words": "Lothario initially",
-         "note": "first letter of Lothario"
+         "words": "Lothario",
+         "at": 0,
+         "note": "the first letter of Lothario"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A womaniser is, for once, keeping his hands to himself.",
-     "walkthrough": "'Flirting' suggests the Lothario's romancing, but it means dabbling, as in flirting with an idea.",
-     "definitionFit": "To dab is to press lightly and briefly, as with a cloth on a stain, so dabbing is a light touching."
+     "surface": "A womaniser steers clear of flirtation and physical contact.",
+     "walkthrough": "'flirting' is dabbling, as in flirting with an idea; dropping the L of Lothario leaves the answer.",
+     "definitionFit": "Dabbing means touching lightly and repeatedly, as with a cloth or a brush."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "flirting"
     }
@@ -1448,46 +1470,69 @@
      "op": "container",
      "indicators": [
       {
-       "text": "probing"
+       "text": "probing",
+       "at": 16,
+       "note": "the books letters probe between, go inside, the two middle letters"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ES",
-       "indicators": [
-        {
-         "text": "core elements of",
-         "note": "the middle letters of 'Einsteinian' and 'physics'"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "core elements of Einsteinian physics",
-         "gives": "ES",
-         "select": "middle",
-         "note": "middle letters: E from Einsteinian, S from physics"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "core",
+           "at": 24,
+           "note": "the core of a word is its middle, here the sixth of eleven letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Einsteinian",
+           "at": 41,
+           "note": "the middle letter of Einsteinian, its sixth of eleven"
+          }
+         ]
+        },
+        {
+         "op": "nth",
+         "n": 4,
+         "indicators": [
+          {
+           "text": "elements of",
+           "at": 29,
+           "note": "with 'core' it asks for the core element of the second word too, its middle letter, the fourth of seven"
+          }
+         ],
+         "parts": [
+          {
+           "words": "physics",
+           "at": 53,
+           "note": "the middle letter of physics, its fourth of seven"
+          }
+         ]
         }
        ]
       },
       {
        "words": "books",
+       "at": 10,
        "gives": "BB",
-       "note": "B = book, doubled for the plural"
+       "note": "BB is the abbreviation for books"
       }
      ]
     },
     "explanation": {
-     "surface": "A library recalls the books that dig into relativity.",
-     "walkthrough": "'Core elements of Einsteinian physics' sounds like relativity theory, but it asks for the centre letter of each word.",
-     "definitionFit": "Ebb is the tide going out, and by extension anything that recedes or withdraws."
+     "surface": "A scientist pulls back from books exploring the basics of relativity.",
+     "walkthrough": "'core elements of' covers both words: the middle letters of EINSTEINIAN and PHYSICS are E and S, and 'probing' puts BB between them.",
+     "definitionFit": "To ebb is to recede or retreat, as the tide withdraws from the shore."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "core"
+     "misdirectedWord": "probing"
     }
    }
   },

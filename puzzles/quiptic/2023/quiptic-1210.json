@@ -800,43 +800,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INFLUENCED",
      "indicators": [
       {
        "text": "including",
-       "note": "to include is to hold inside, so one piece sits within another"
+       "at": 25,
+       "note": "the home and education letters take the shortened word inside them"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "home",
+         "at": 9,
+         "gives": "IN",
+         "note": "in means at home"
+        },
+        {
+         "words": "education",
+         "at": 14,
+         "gives": "ED"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "detailed",
-         "note": "de-tailed means with the tail cut off, so the last letter goes"
+         "at": 35,
+         "note": "de-tailed, with its tail cut off, the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "home",
-           "gives": "IN",
-           "note": "to be in is to be at home"
-          },
-          {
-           "words": "command of language",
-           "gives": "FLUENCY",
-           "note": "fluency is easy mastery of a language"
-          },
-          {
-           "words": "education",
-           "gives": "ED",
-           "note": "ED is the abbreviation for education"
-          }
-         ]
+         "words": "command of language",
+         "at": 44,
+         "gives": "FLUENCY",
+         "note": "fluency is an easy command of a language"
         },
         {
          "gives": "Y"
@@ -846,9 +848,9 @@
      ]
     },
     "explanation": {
-     "surface": "Home-schooling shaped someone's precise mastery of a language.",
-     "walkthrough": "'Detailed' reads as 'precise' but means 'tail removed'; IN and ED take in the shortened word.",
-     "definitionFit": "To be influenced is to have been swayed or changed by something, which is one sense of the past participle."
+     "surface": "A home-schooled child's mastery of a language was shaped by their upbringing.",
+     "walkthrough": "'detailed' reads as thorough, but it means de-tailed: FLUENCY loses its last letter to give FLUENC, which IN and ED wrap around.",
+     "definitionFit": "To be influenced is to have been affected or swayed by something."
     },
     "features": {
      "answerInScene": false,
