@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -123,45 +124,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PIRANDELLO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 38,
+       "note": "about means around, so the shortened plot goes round the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "A word wanted mostly is a word wanted bar its finish, so the term for a storyline turns up a letter light."
-        },
-        {
-         "text": "about",
-         "note": "To put one thing about another is to wrap it round, so the trimmed word opens up and the rest of the letters sit inside it."
-        },
-        {
-         "text": "oddly",
-         "note": "Here the sense is peculiarly, not every-other-letter: a country delivered peculiarly is its letters out of their proper order."
+         "at": 31,
+         "note": "mostly means most but not all of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "storyline",
-         "gives": "PLO",
-         "note": "a plot is a storyline, docked of its final letter and then split to make room"
+         "at": 21,
+         "gives": "PLOT",
+         "note": "a storyline is a plot"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 53,
+         "note": "oddly means in a strange way, so the letters of Ireland are rearranged"
+        }
+       ],
+       "parts": [
+        {
          "words": "Ireland",
-         "gives": "IRANDEL",
-         "note": "the seven letters of the country, resettled"
+         "at": 44,
+         "note": "taken as written, as the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A programme note on an Italian dramatist who borrowed his plot loosely from Ireland.",
-     "walkthrough": "'Oddly' is the trap: taken as an instruction to read alternate letters it would hand you four letters of Ireland and no way forward. He wrote Six Characters in Search of an Author, which is what the rest of this grid is doing.",
-     "definitionFit": "Luigi Pirandello was Italy's great modernist dramatist and a Nobel laureate, so the definition names him by nationality and trade."
+     "surface": "A drama critic notes that a playwright's plots lean on Ireland in strange ways.",
+     "walkthrough": "'oddly' could mean taking odd letters, but here it is the anagram signal: IRELAND becomes IRANDEL, and PLO (PLOT 'mostly') goes 'about' it.",
+     "definitionFit": "Luigi Pirandello was the Nobel-winning Sicilian dramatist behind Six Characters in Search of an Author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
     }
    }
   },
@@ -223,46 +243,62 @@
    "annotation": {
     "definitions": [
      {
-      "text": "usual",
-      "at": 34
+      "text": "as usual",
+      "at": 31
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORTHODOX",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "largely",
-         "note": "A name taken largely is a name taken not quite in full, so its final letter never reaches the fodder."
-        },
-        {
          "text": "wrong",
-         "note": "A wrong steer is bad directions, and letters handed over wrongly are letters standing in places that are not theirs."
+         "at": 18,
+         "note": "wrong suggests being put out of order, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Dorothy",
-         "gives": "ORTHOD",
-         "note": "the name bar its last letter, its six survivors put in new places"
-        },
-        {
-         "words": "steer",
-         "gives": "OX",
-         "note": "a steer is a young ox, the beast rather than the direction"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "largely",
+           "at": 10,
+           "note": "largely means for the most part, so the name loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dorothy",
+           "at": 0,
+           "note": "the name as written, before trimming"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "steer",
+       "at": 24,
+       "gives": "OX",
+       "note": "a steer is a young castrated bull, an ox"
       }
      ]
     },
     "explanation": {
-     "surface": "Dorothy giving directions again and getting them wrong, exactly as she always does.",
-     "walkthrough": "'Wrong steer' reads as one phrase meaning bad advice, which is where the surface wants you to stop; the steer is the animal in the field and supplies two letters of its own.",
-     "definitionFit": "Orthodox opinion is the established, accepted line, so 'usual' means standard practice here rather than merely frequent."
+     "surface": "Dorothy has been given bad directions, it seems, as is often the case.",
+     "walkthrough": "'steer' looks like a verb about directions but is the animal. Dorothy 'largely' is DOROTH, which 'wrong' turns into ORTHOD.",
+     "definitionFit": "Orthodox means following what is conventional or customary, which is what is done as usual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steer"
     }
    }
   },
@@ -432,41 +468,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GLADIATOR",
-     "indicators": [
-      {
-       "text": "reversed",
-       "note": "The word after it runs the other way, right to left along this across entry, so the timetable arrives from its last letter first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "happy",
+       "at": 12,
+       "gives": "GLAD",
+       "note": "happy means glad"
+      },
+      {
+       "words": "I",
+       "at": 18
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversed",
+         "at": 20,
+         "note": "reversed says the word for schedule is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "happy",
-         "gives": "GLAD",
-         "note": "glad is the plain synonym for happy"
-        },
-        {
-         "words": "I",
-         "note": "the clue's own I, handed over as one letter"
-        },
-        {
          "words": "schedule",
-         "gives": "ATOR",
-         "note": "a rota is the schedule of who works when, turned round here"
+         "at": 29,
+         "gives": "ROTA",
+         "note": "a rota is a schedule of duties"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ageing boxer pleased that somebody has turned his training timetable round.",
-     "walkthrough": "A rota is the British word for a duty roster, the list of who is on when, and 'schedule' names it exactly — the only piece of the wordplay the surface is not hiding.",
-     "definitionFit": "A gladiator fought in the Roman arena, so 'Old fighter' puts the fighting in antiquity rather than naming a veteran boxer."
+     "surface": "Someone cheerfully announces they have turned their timetable upside down.",
+     "walkthrough": "A rota, a list of who does which duty when, is 'reversed' to give ATOR after GLAD and I.",
+     "definitionFit": "A gladiator was a combatant who fought in the arenas of ancient Rome, so a fighter from long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversed"
     }
    }
   },
@@ -1142,47 +1184,67 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ARABIAN",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 34,
+       "note": "the jumbled word with its article sits after the first article"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "article",
+       "at": 26,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "Befuddled",
-         "note": "A befuddled head is a muddled one, and letters described as muddled will not stay in the order they are given."
+         "text": "taking in",
+         "at": 16,
+         "note": "taking in means containing, so the second article goes inside the jumbled letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "taking in",
-           "note": "To take something in is to admit it inside, so the two little words are swallowed by the letters around them."
+           "text": "Befuddled",
+           "at": 0,
+           "note": "befuddled means confused, so the letters of brain are rearranged"
           }
          ],
          "parts": [
           {
            "words": "brain",
-           "note": "five letters handed over as they stand, for resettling"
-          },
-          {
-           "words": "article after article",
-           "gives": "AA",
-           "note": "a is the indefinite article, and the clue asks for it twice over"
+           "at": 10,
+           "note": "taken as written, as the letters to be rearranged"
           }
          ]
+        },
+        {
+         "words": "article",
+         "at": 40,
+         "gives": "A",
+         "note": "a again, the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled head trying to take in one newspaper article after another.",
-     "walkthrough": "Both articles are the word 'a', which is easy to walk past while the surface has you reading journalism; the muddled head supplies everything else.",
-     "definitionFit": "Arabia is the great peninsula of south-west Asia, and the answer is the adjective for anything coming from it."
+     "surface": "A muddled mind absorbs grammar lessons, one article after another.",
+     "walkthrough": "'Befuddled' turns BRAIN into RABIN, which is 'taking in' an A to give RABIAN; that comes 'after' another A.",
+     "definitionFit": "Arabian describes something belonging to Arabia, the peninsula in south-west Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Befuddled"
     }
    }
   },
