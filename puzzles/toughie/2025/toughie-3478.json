@@ -706,46 +706,65 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "PALINDROME",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "cycling moves letters round in a loop, the last one coming to the front"
+       "text": "in",
+       "at": 31,
+       "note": "in means the cycled name sits inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "west side of",
-         "note": "the west side of a word written across is its leftmost, first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Panama",
-         "note": "first letter of Panama"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "west side of",
+           "at": 34,
+           "note": "on a map the west side is the left, so the first letter of Panama"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Panama",
+           "at": 47,
+           "note": "the first letter of Panama"
+          }
+         ]
+        },
+        {
+         "words": "City",
+         "at": 54,
+         "gives": "ROME",
+         "note": "Rome is the Eternal City and capital of Italy"
         }
        ]
       },
       {
-       "words": "Linda",
-       "note": "taken as written"
-      },
-      {
-       "words": "City",
-       "gives": "ROME",
-       "note": "Rome is a capital city"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 23,
+         "note": "cycling sends a letter round from one end of the name to the other, here the final A to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Linda",
+         "at": 17
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two women ride bikes around the western edge of Panama City.",
-     "walkthrough": "Panama City is the capital of Panama, but the clue splits it: Panama gives one letter, City another word. Linda's last letter goes to the front.",
-     "definitionFit": "Hannah reads the same backwards as forwards, making it an example of a palindrome."
+     "surface": "Two women, Hannah and Linda, go cycling through Panama City.",
+     "walkthrough": "'Panama City' reads as one place but splits in two: only the west side of Panama is used, and City alone is the Eternal City. Hannah is not a second rider but the example the definition offers.",
+     "definitionFit": "Hannah reads the same forwards and backwards, so it is an example of a word that is symmetrical in spelling."
     },
     "features": {
      "answerInScene": false,
@@ -1266,51 +1285,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GETTOSLEEP",
+     "op": "composite",
      "indicators": [
       {
        "text": "drunk",
-       "note": "drunk suggests staggering about, so the letters are scrambled"
+       "at": 9,
+       "note": "drunk means the letters stagger out of order, so they are rearranged"
+      },
+      {
+       "text": "must keep away from",
+       "at": 34,
+       "note": "must keep away from says the letter I is left out of the jumbled pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GETTOSLEEP",
-       "indicators": [
-        {
-         "text": "must keep away from",
-         "note": "keeping away means being absent, so that letter is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "poet",
-         "note": "taken as written"
+         "at": 15
         },
         {
          "words": "elegist",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy poet and a writer of laments: I must avoid them to nod off.",
-     "definitionFit": "To drop off is an idiom for falling asleep, which is what getting to sleep means."
+     "surface": "A tipsy poet and a writer of elegies, whom someone is avoiding.",
+     "walkthrough": "The fodder is POET and ELEGIST only, with 'and' a link; take one I from those eleven letters and rearrange the rest.",
+     "definitionFit": "To drop off is to fall asleep, the everyday idiom for nodding off."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Drop"
+     "misdirectedWord": "drunk"
     }
    }
   },

@@ -677,48 +677,45 @@
     "definitions": [
      {
       "text": "emergency?",
-      "at": 42,
-      "note": "a definition by example: an alert is issued in an emergency"
+      "at": 42
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "ALERT",
+     "op": "substitution",
      "indicators": [
       {
+       "text": "What's central to",
+       "at": 0,
+       "note": "what's central to a five-letter word is its third letter, the one this instruction moves"
+      },
+      {
        "text": "is moving to end",
-       "note": "the letter taken out is moved along to sit after the rest of the word"
+       "at": 25,
+       "note": "is moving to end means that central letter leaves its place and goes to the back of the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALERT",
-       "indicators": [
-        {
-         "text": "What's central to",
-         "note": "the central letter of the word that follows is picked out and taken from its place"
-        }
-       ],
-       "parts": [
-        {
-         "words": "change",
-         "gives": "ALTER",
-         "note": "to change is to alter"
-        }
-       ]
+       "words": "change",
+       "at": 18,
+       "gives": "ALTER",
+       "note": "to alter is to change"
+      },
+      {
+       "gives": "TER"
+      },
+      {
+       "gives": "ERT"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about what lies at the heart of changing an emergency.",
-     "walkthrough": "The middle letter of ALTER, a T, goes to the end: AL + ER + T gives ALERT.",
-     "definitionFit": "An alert is a warning state declared when danger looms, which is the situation of an emergency, hence the question mark."
+     "surface": "A puzzled question about what lies at the heart of change, and whether an emergency is ending.",
+     "walkthrough": "'What's central to' picks the middle letter of the word for change, and 'is moving to end' sends it to the back. The question mark marks the definition as loose: an alert is the warning of an emergency.",
+     "definitionFit": "An alert is a state of readiness or warning called in a crisis, as in a red alert, so it stands loosely for an emergency."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "change"
     }
@@ -1490,57 +1487,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SLIDESHOW",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without its end, the last letter of the word is dropped"
+       "text": "diverted",
+       "at": 43,
+       "note": "diverted means turned aside from its course, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "we'd",
+       "at": 24
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "diverted",
-         "note": "diverted means turned from the original course, so the letters take a new order"
+         "text": "endlessly",
+         "at": 33,
+         "note": "endlessly means the word sit loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "we'd",
-         "note": "taken as written, apostrophe ignored"
+         "words": "sit",
+         "at": 29
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "SI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "sit",
-           "gives": "SI",
-           "select": "first",
-           "note": "the word without its last letter"
-          }
-         ]
-        },
-        {
-         "words": "hols",
-         "note": "taken as written; hols is British slang for holidays"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "hols",
+       "at": 57
       }
      ]
     },
     "spelling": "SLIDE SHOW",
     "andLit": true,
     "explanation": {
-     "surface": "Where you sit, endlessly entertained or bored, by friends' holiday pictures.",
-     "walkthrough": "The whole clue is also the definition: guests sitting endlessly through someone's holiday photographs is the classic slide show. Hols is British for holidays.",
-     "definitionFit": "A slide show projects photographs one after another, the traditional way of showing off holiday snaps to visitors."
+     "surface": "Friends sit through a show of someone's holiday snaps, amused or not.",
+     "walkthrough": "The whole clue is both wordplay and definition: a show of holiday slides is exactly where guests sit being diverted, in the entertained sense, by someone's hols.",
+     "definitionFit": "A slideshow is a sequence of projected photographs, the traditional way to show friends pictures of a holiday."
     },
     "features": {
      "answerInScene": true,
@@ -1658,54 +1648,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETYMA",
-     "indicators": [
-      {
-       "text": "cored",
-       "note": "with its core taken out, the middle letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cored",
+         "at": 4,
+         "note": "cored means the middle is taken out, as with an apple, so the central letter of eat goes"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "Eat",
-           "note": "the word without its middle letter"
-          }
-         ]
+         "words": "Eat",
+         "at": 0
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "mashed",
-           "note": "mashed food is pulped into a new shape, so the letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "yam",
-           "note": "taken as written"
-          }
-         ]
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mashed",
+         "at": 14,
+         "note": "mashed means crushed to a pulp, so the letters of yam are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yam",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen instruction: eat cored and mashed yam roots.",
-     "walkthrough": "'roots' looks like part of the recipe, the yams themselves, but it is the definition, in the sense of word origins.",
-     "definitionFit": "Etyma is the plural of etymon, the original form from which a word derives, its linguistic root."
+     "surface": "A cook's instruction to remove the core and then mash a yam before eating it.",
+     "walkthrough": "Yams are roots, which makes 'roots' look like part of the recipe. 'cored' leaves ET from EAT, and 'mashed' turns YAM into YMA.",
+     "definitionFit": "Etyma is the plural of etymon, the original word or root from which a later word is derived."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "roots"
