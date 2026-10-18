@@ -197,5 +197,28 @@ check "holding both puzzle files" "2" "$(git show --name-only --format= HEAD -- 
 check "and both rows" "2" "$(git show -U0 HEAD -- $D | grep -c "^+.*\"\($A\|$B\)/98-across")"
 check "each puzzle is settled once" "2" "$(wc -l <"$ALERTS.settle" | tr -d ' ')"
 
+# worker_commit itself, with both puzzles' rows in the shared table's working
+# tree: it used to commit `-- <paths>`, the working-tree content, so B's row
+# rode in A's commit. Now the commit is the index, which own_rows staged for A.
+python3 - "$A" "$B" <<'PY'
+import json, sys
+sys.path.insert(0, "tools")
+from json_merge import dump_lines
+from pathlib import Path
+p = Path("tools/data/source_clue_wrong.json")
+rows = json.loads(p.read_text())
+for pid in sys.argv[1:]:
+    rows[f"{pid}/97-across"] = ["Served", "Printed", "simulated"]
+p.write_text(dump_lines(rows))
+PY
+for id in "$A" "$B"; do printf '\n' >>"puzzles/times/1984/$id.json"; done
+stage_puzzle "$A" && worker_commit "Annotate $A (shared table)" "puzzles/times/1984/$A.json" $(python3 tools/own_rows.py paths)
+check "worker_commit: A's commit carries A's row" "1" "$(shown HEAD "$A" | head -1)"
+check "worker_commit: and none of B's" "0" "$(git show HEAD -U0 -- $D | grep -c "^+.*\"$B/97-across")"
+check "worker_commit: B's row waits in the tree" "1" "$(git diff -U0 -- $D | grep -c "^+.*\"$B/97-across")"
+stage_puzzle "$B" && worker_commit "Annotate $B (shared table)" "puzzles/times/1984/$B.json" $(python3 tools/own_rows.py paths)
+check "worker_commit: B's later commit carries B's row" "1" "$(git show HEAD -U0 -- $D | grep -c "^+.*\"$B/97-across")"
+check "worker_commit: and not A's again" "0" "$(git show HEAD -U0 -- $D | grep -c "^+.*\"$A/97-across")"
+
 [ "$fails" = 0 ] && echo "own_rows: all checks passed" || echo "own_rows: $fails FAILED"
 exit $((fails > 0))
