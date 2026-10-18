@@ -427,54 +427,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TIRESOMELY",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "in a down answer, raising a word makes it read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 3,
+         "note": "in a down clue, raising a word turns it to read from the bottom up"
+        }
+       ],
        "parts": [
         {
          "words": "It",
-         "gives": "TI",
-         "note": "the word it, turned upward"
+         "at": 0,
+         "gives": "IT",
+         "note": "taken as written before it is turned"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "one piece goes inside the word for bank"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 27,
+         "gives": "RELY",
+         "note": "to bank on is to rely on"
         },
         {
-         "op": "container",
+         "op": "homophone",
+         "spelt": "SOME",
          "indicators": [
           {
-           "text": "in",
-           "note": "one piece goes inside another word, placed within it"
+           "text": "we hear",
+           "at": 15,
+           "note": "flags that the word is taken for its sound, not its spelling"
           }
          ],
          "parts": [
           {
-           "words": "bank",
-           "gives": "RELY",
-           "note": "to bank on is to rely on"
-          },
-          {
-           "op": "homophone",
-           "spelt": "SOME",
-           "indicators": [
-            {
-             "text": "we hear",
-             "note": "what we hear is a word spoken, standing for a different spelling with the same sound"
-            }
-           ],
-           "parts": [
-            {
-             "words": "sum",
-             "gives": "SUM",
-             "note": "said aloud, sum is identical to some"
-            }
-           ]
+           "words": "sum",
+           "at": 10,
+           "gives": "SUM",
+           "note": "sounds the same as some"
           }
          ]
         }
@@ -483,9 +487,9 @@
      ]
     },
     "explanation": {
-     "surface": "A financial tale of money raised and deposited, told in a tedious way.",
-     "walkthrough": "TI then RE(SOME)LY: 'bank' is the verb, as in banking on someone.",
-     "definitionFit": "The adverb describes doing something in a wearisome, annoying manner."
+     "surface": "Someone has raised a sum of money and lodged it at the bank, which annoys the speaker.",
+     "walkthrough": "'bank' suggests money with the sum, but here it is the verb in to bank on, meaning rely.",
+     "definitionFit": "Tiresomely means in a wearisome, annoying manner, so it describes acting in an irritating way."
     },
     "features": {
      "answerInScene": false,
@@ -566,25 +570,27 @@
      "parts": [
       {
        "words": "It's said to eliminate noise",
+       "at": 0,
        "gives": "SH",
-       "note": "sh is uttered to silence people"
+       "note": "sh is what people say to silence a noisy room"
       },
       {
        "words": "say",
+       "at": 30,
        "gives": "UTTER",
        "note": "to utter is to say"
       }
      ]
     },
     "explanation": {
-     "surface": "A camera part that supposedly cuts out sound.",
-     "walkthrough": "'It's said' looks like a sound-alike signal, but it describes the hushing sound.",
-     "definitionFit": "The device in a camera that opens and closes to expose the film or sensor to light."
+     "surface": "Something claimed to cut out noise in a camera, perhaps the click.",
+     "walkthrough": "'It's said' and 'say' hint at a soundalike, but neither is one: SH is the hushing sound itself and UTTER simply means say.",
+     "definitionFit": "A shutter is the mechanism in a camera that opens briefly to let light reach the film or sensor."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "said"
+     "misdirectedWord": "noise"
     }
    }
   },

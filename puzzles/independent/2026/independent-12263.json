@@ -702,42 +702,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SKELETON",
-     "indicators": [
-      {
-       "text": "Half of",
-       "note": "taking only half means the rest of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "only the first half of the word is kept, three of its six letters"
+        }
+       ],
        "parts": [
         {
          "words": "drawing",
-         "gives": "SKE",
-         "note": "a sketch is a drawing; its first half is kept"
+         "at": 8,
+         "gives": "SKETCH",
+         "note": "a sketch is a drawing"
         },
         {
-         "words": "revealed secret",
-         "gives": "LETON",
-         "note": "to let on is to reveal a secret"
+         "gives": "TCH"
         }
        ]
+      },
+      {
+       "words": "revealed secret",
+       "at": 16,
+       "gives": "LETON",
+       "note": "to let on is to reveal a secret"
       }
      ]
     },
     "explanation": {
-     "surface": "A half-finished drawing that gave away hidden bones, like an X-ray.",
-     "walkthrough": "'Revealed secret' is a single phrasal verb, let on, not an adjective and noun.",
-     "definitionFit": "The whole framework of bones in a body is the meaning of this anatomical noun."
+     "surface": "Part of a sketch gave away something hidden.",
+     "walkthrough": "'bones' sits at the end like a slang word for secrets, but it is the definition: the skeleton.",
+     "definitionFit": "A skeleton is the framework of bones supporting a body, so it is the bones collectively."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "secret"
+     "misdirectedWord": "drawing"
     }
    }
   },
@@ -1011,47 +1015,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STONER",
+     "op": "container",
      "indicators": [
       {
-       "text": "skinned",
-       "note": "skinning removes the outer layer, so the outside letters go"
-      },
-      {
-       "text": "brief",
-       "note": "brief means cut short, so the last letter goes"
+       "text": "in",
+       "at": 21,
+       "note": "the skinned knee goes inside the shortened rage"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one piece placed in another sits inside it"
+         "text": "brief",
+         "at": 24,
+         "note": "cut short, so the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "rage",
-         "gives": "STOR",
-         "note": "a storm is a rage, here cut short"
+         "at": 30,
+         "gives": "STORM",
+         "note": "to storm is to rage"
         },
         {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "skinned",
+         "at": 8,
+         "note": "with its skin, the outer letters, removed, only the middle of the word is left"
+        }
+       ],
+       "parts": [
+        {
          "words": "knee",
-         "gives": "NE",
-         "note": "the word with its outer letters peeled off"
+         "at": 16,
+         "note": "the word knee, whose outer letters are stripped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cannabis user who grazed a knee in a short-lived tantrum.",
-     "walkthrough": "Two clipped words: the inner part of one sits inside the other.",
-     "definitionFit": "Both are slang for someone who habitually smokes cannabis."
+     "surface": "A cannabis user grazes a knee in a short fit of temper.",
+     "walkthrough": "'skinned' fits the grazed knee of the surface, but here it means peeling off the word's first and last letters.",
+     "definitionFit": "Stoner is slang for a habitual cannabis user, exactly what a pothead is."
     },
     "features": {
      "answerInScene": true,

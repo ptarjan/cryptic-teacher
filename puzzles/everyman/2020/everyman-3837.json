@@ -1118,38 +1118,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TAGLIATELLE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "endlessly means without its end, so the final letter of the last word is dropped"
+       "text": "voraciously",
+       "at": 27,
+       "note": "eating voraciously suggests wolfing things down in a jumble, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "I'll eat",
+       "at": 0,
+       "note": "taken as written, apostrophe ignored"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "voraciously",
-         "note": "eating voraciously means wolfing things down chaotically, so the letters are jumbled"
+         "text": "endlessly",
+         "at": 16,
+         "note": "without its end, the word gelato loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "I'll eat gelato",
-         "gives": "ILLEATGELAT",
-         "note": "the words as written, with the last letter of gelato removed"
+         "words": "gelato",
+         "at": 9,
+         "note": "taken as written before its last letter goes"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A greedy diner promises to gobble up the ice cream at an Italian restaurant.",
-     "walkthrough": "The trailing O of gelato goes before the scramble.",
-     "definitionFit": "Tagliatelle is a ribbon-shaped pasta from northern Italy, a classic dish of that country's cooking."
+     "surface": "Someone vows to gobble ice cream without stopping, in an Italian restaurant.",
+     "walkthrough": "'endlessly' trims gelato to GELAT; with ILLEAT that gives eleven letters, which 'voraciously' rearranges.",
+     "definitionFit": "Tagliatelle is a ribbon pasta, a staple dish of Italian cooking."
     },
     "features": {
      "answerInScene": true,
@@ -1279,57 +1287,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LUTHER",
+     "op": "container",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "suppressing",
+       "at": 23,
+       "note": "holding down something underneath, so the word the is held inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "suppressing",
-         "note": "suppressing means holding down or keeping in, so one piece is held inside the other"
+         "text": "regressive",
+         "at": 7,
+         "note": "going backwards, so the shortened word is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "regressive",
-           "note": "regressive means going backwards, so the word reads from right to left"
+           "text": "Mostly",
+           "at": 0,
+           "note": "most of the word rule, so its final letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "rule",
-           "gives": "RUL",
-           "note": "the word without its final letter, then turned round"
+           "at": 18,
+           "note": "taken as written before trimming"
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "the",
-         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "the",
+       "at": 35,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A repressive regime silences a religious scholar.",
-     "definitionFit": "Martin Luther was the German monk and scholar of divinity whose writings launched the Protestant Reformation."
+     "surface": "A complaint that some backward-looking regime is stifling a religious thinker.",
+     "walkthrough": "'Mostly' cuts rule to RUL, 'regressive' turns that to LUR, and THE goes inside it.",
+     "definitionFit": "Martin Luther was the German monk and theologian who launched the Protestant Reformation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "regressive"
+     "misdirectedWord": "suppressing"
     }
    }
   },

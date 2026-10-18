@@ -314,42 +314,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHERPA",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all of the word, so its final letter goes"
+       "text": "seen in",
+       "at": 18,
+       "note": "something seen in a place is inside it, so the shortened idol sits within the club"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "health club",
+       "at": 26,
+       "gives": "SPA",
+       "note": "a spa is a health resort or club"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "seen in",
-         "note": "seen in places the shortened word inside the following one"
+         "text": "mostly",
+         "at": 11,
+         "note": "most of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "health club",
-         "gives": "SPA",
-         "note": "a spa is a health resort or club"
+         "words": "idol",
+         "at": 6,
+         "gives": "HERO",
+         "note": "a hero is someone idolised"
         },
         {
-         "words": "idol",
-         "gives": "HER",
-         "note": "HERO, an idol, without its last letter"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity from Asia is spotted at the gym.",
-     "definitionFit": "Sherpas are a people of the Nepalese Himalaya, so a Sherpa is an Asian by origin."
+     "surface": "A celebrity spotted working out at the local gym.",
+     "walkthrough": "'Asian' is a broad definition: Sherpas are a Himalayan people of Nepal, not only mountain guides.",
+     "definitionFit": "The Sherpas are a people of the Nepalese Himalayas, so a Sherpa is an Asian by origin."
     },
     "features": {
      "answerInScene": false,
@@ -470,48 +476,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIRCRAFTCARRIER",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "with its heading off, the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Utter",
+       "at": 0,
+       "gives": "AIR",
+       "note": "to air a view is to utter it"
+      },
+      {
+       "words": "skill",
+       "at": 6,
+       "gives": "CRAFT",
+       "note": "craft means skill"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 24,
+         "note": "the first letter of the word courage is taken"
+        }
+       ],
        "parts": [
         {
-         "words": "Utter",
-         "gives": "AIR",
-         "note": "to air a view is to utter it"
-        },
+         "words": "courage",
+         "at": 16,
+         "note": "the word courage, whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "skill",
-         "gives": "CRAFT",
-         "note": "craft is skill"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the opening letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "courage",
-           "note": "first letter of courage"
-          }
-         ]
-        },
+         "text": "heading off",
+         "at": 54,
+         "note": "the head of the word, its first letter, comes off"
+        }
+       ],
+       "parts": [
         {
          "words": "jet",
-         "gives": "ARRIER",
-         "note": "the Harrier jump jet without its first letter"
+         "at": 50,
+         "gives": "HARRIER",
+         "note": "the Harrier is a British jump jet"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
@@ -519,9 +532,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "It takes nerve and skill for a jet to get airborne from a ship's deck.",
-     "walkthrough": "The Harrier is a British jump-jet; the whole clue also describes the ship it flies from.",
-     "definitionFit": "Jets take off from an aircraft carrier, a warship with a flight deck."
+     "surface": "Getting a jet airborne demands real skill and nerve, and the question asks where it is taking off from.",
+     "walkthrough": "The Harrier jump jet loses its H to give ARRIER. Read whole, the clue also describes the vessel: real skill and courage are needed to launch a jet from its deck.",
+     "definitionFit": "An aircraft carrier is a warship with a flight deck from which jets take off and land."
     },
     "features": {
      "answerInScene": true,
@@ -1181,51 +1194,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HISTRIONIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its last letter"
+       "text": "badly",
+       "at": 38,
+       "note": "doing something badly scrambles it, so the combined letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "choir",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "badly",
-         "note": "doing something badly leaves it in a mess, so the letters are jumbled"
+         "text": "briefly",
+         "at": 22,
+         "note": "cut short, so sing loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "choir",
-         "note": "taken as written"
-        },
-        {
          "words": "sing",
-         "gives": "SIN",
-         "note": "sing cut short by one letter"
+         "at": 30,
+         "note": "taken as written before trimming"
         },
         {
-         "words": "it",
-         "note": "taken as written"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 35,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A choir making a theatrical mess of a song.",
-     "walkthrough": "'Briefly' looks as if it trims choir, but it shortens the word after it.",
-     "definitionFit": "Histrionic behaviour is theatrical and exaggerated, which is what overly dramatic means."
+     "surface": "A choir is urged to perform the piece poorly, in a theatrical way.",
+     "walkthrough": "SING shortened is SIN; CHOIR, SIN and IT together make ten letters for 'badly' to rearrange.",
+     "definitionFit": "Histrionic behaviour is theatrical and exaggerated, putting on a show of emotion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "misdirectedWord": "badly"
     }
    }
   },

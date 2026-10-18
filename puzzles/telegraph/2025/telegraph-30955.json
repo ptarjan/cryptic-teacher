@@ -484,39 +484,52 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AUSTRIA",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all, so the last letter goes"
-      },
-      {
        "text": "leaving",
-       "note": "leaving means departing, so those letters are taken out of the next word"
+       "at": 16,
+       "note": "the shortened word for everyone departs from the country's name"
       }
      ],
      "parts": [
       {
-       "words": "everyone",
-       "gives": "ALL",
-       "note": "everyone is all"
+       "words": "country",
+       "at": 24,
+       "gives": "AUSTRALIA",
+       "note": "Australia is the country meant"
       },
       {
-       "words": "country",
-       "gives": "AUSTRALIA",
-       "note": "a nation whose name holds the shortened word for everyone"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost all of the word, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everyone",
+         "at": 7,
+         "gives": "ALL",
+         "note": "all means everyone"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly the whole population emigrates from one nation to another.",
-     "walkthrough": "Country looks like the definition, but it is the starting word; another one, meaning another country, is the definition.",
-     "definitionFit": "Another one stands for another nation, and Austria is a nation in central Europe."
+     "surface": "Nearly the whole population emigrates from one nation to a different one.",
+     "walkthrough": "ALL cut short is AL, which comes out of AUSTRALIA. 'another one' points back to 'country' for its sense.",
+     "definitionFit": "Austria is a separate central European nation, so it is another country besides Australia."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "everyone"
     }
    }
   },
@@ -669,43 +682,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEPOSIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "knocked back",
-       "note": "knocked back means turned backwards, so the little word runs right to left"
+       "text": "in",
+       "at": 22,
+       "note": "the reversed letters go inside the word for warehouse"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "warehouse",
+       "at": 25,
+       "gives": "DEPOT",
+       "note": "a depot is a storehouse or warehouse"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the preceding letters inside the following word"
+         "text": "knocked back",
+         "at": 9,
+         "note": "knocking something back sends it backwards, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "warehouse",
-         "gives": "DEPOT",
-         "note": "a depot is a storage warehouse"
-        },
-        {
          "words": "is",
-         "gives": "SI",
-         "note": "the word is written backwards"
+         "at": 6,
+         "note": "taken as written before reversal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cheap wine gets drunk in a warehouse, since plonk is knocked back.",
-     "walkthrough": "Plonk and knocked back suggest cheap wine being drunk; plonk is really the verb to put down heavily.",
-     "definitionFit": "To deposit is to set something down, just as to plonk is to put it down heavily."
+     "surface": "Cheap wine is being downed in a storage building.",
+     "walkthrough": "'Plonk' and 'knocked back' suggest cheap wine and drinking it, but plonk is the verb here, meaning to set down.",
+     "definitionFit": "To plonk something is to put it down heavily, which is to deposit it."
     },
     "features": {
      "answerInScene": false,
