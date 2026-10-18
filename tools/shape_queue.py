@@ -158,8 +158,9 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "wrongRole": "an indicator is filed on an op of another type (a reversal word on the container, "
                     "a container word on the anagram, a selection word on the container): put each "
                     "indicator on the op it signals",
-       "deletionInside": "a deletion over a charade has its indicator among the pieces and takes letters "
-                         "from one piece: it acts on the piece before it, so delete inside the charade"}
+       "deletionInside": "a deletion over a charade takes letters from one piece (or takes a whole piece "
+                         "the charade added): the indicator acts on that piece alone, so delete inside "
+                         "the charade, del(piece, letters), and add no piece only to remove it"}
 
 
 def _validator_rules():
