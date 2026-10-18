@@ -1344,15 +1344,22 @@ def right_columns(img, grid, span=RIGHT_SPAN):
     return x1, bottom
 
 
-def right_or_over(img, grid):
+#: The first year of the Times pages whose clue columns lie right of the grid.
+RIGHT_FROM = "2014"
+#: The first year of the three clue columns under the grid (overhang()); the
+#: adverts beside the 1960s grids are inked like a third column.
+OVER_FROM = "2006"
+
+
+def right_or_over(img, grid, right_ok=True, over_ok=True):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
     that soon under the grid has no room for three columns, and the
     "Yesterday's solution" box under its grid is inked like a third column's
     text: overhang() alone read it as one (the Feb to May 2014 Times, whose
     clues were then cropped from under the grid and found no lists)."""
-    right = right_columns(img, grid)
-    return right, (None if right else overhang(img, grid))
+    right = right_columns(img, grid) if right_ok else None
+    return right, (None if right or not over_ok else overhang(img, grid))
 
 
 def right_gutter(lines, grid, right):
@@ -3513,7 +3520,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T06:35:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T23:32:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3690,8 +3697,12 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     # three columns, and the "Yesterday's solution" box under its grid is
     # inked like the third column's text (overhang() read it as one, and the
     # Feb to May 2014 pages were cropped under the grid: no clue lists).
-    right, over = right_or_over(img, gbox) if side == "below" and top is None and not column \
-        and not paper.four and not third else (None, None)
+    # Only from 2014 on: before it the strip right of a grid near the page's
+    # foot is an advert (the 1961 Times page 1.15 grids' widths from its foot
+    # was read for clue columns, and every page of the year was refused "no
+    # reading parses"); the clue column stands left of such a grid (lead).
+    right, over = right_or_over(img, gbox, d.name[:4] >= RIGHT_FROM, d.name[:4] >= OVER_FROM) if side == "below" and top is None \
+        and not column and not paper.four and not third else (None, None)
     # The 2005 Times: the same, the grid left of its title (side "left").
     if side == "left" and paper.key in ("times", "gale") and not paper.four and not third:
         right = right_columns(img, gbox, RIGHT_SPAN_LEFT)
