@@ -977,41 +977,45 @@
      "indicators": [
       {
        "text": "collecting",
-       "note": "collecting means gathering in, so the benefit letters take the other pieces inside them"
+       "at": 30,
+       "note": "collecting means the letters gather the following pieces inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "income support",
-         "gives": "IS",
-         "note": "IS is the abbreviation for Income Support, a British state benefit"
-        },
-        {
-         "words": "well",
-         "gives": "SO",
-         "note": "well and so are both words for opening a remark"
-        }
-       ]
+       "words": "income support",
+       "at": 9,
+       "gives": "IS",
+       "note": "IS is short for Income Support, a British state benefit"
       },
       {
-       "words": "behind time",
-       "gives": "LATE",
-       "note": "behind time means late"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "well",
+         "at": 41,
+         "gives": "SO",
+         "note": "so is a filler word like well, as in 'so, what next?'"
+        },
+        {
+         "words": "behind time",
+         "at": 46,
+         "gives": "LATE",
+         "note": "late means behind time"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Welfare payments are stopped when the claimant collects them far too late.",
-     "walkthrough": "'Well behind time' reads as one phrase meaning very late; it splits into the conversational filler and the overdue word, both held inside the benefit letters.",
-     "definitionFit": "To isolate is to separate or cut off from others, so isolates means cuts off."
+     "surface": "Benefits are stopped when a claimant collects them late.",
+     "walkthrough": "Income Support is a British welfare benefit, giving IS.",
+     "definitionFit": "To isolate something is to separate it from others, cutting it off."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "well"
+     "misdirectedWord": "collecting"
     }
    }
   },

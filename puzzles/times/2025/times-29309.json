@@ -545,64 +545,69 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the time goes into the turned-round letters"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "going up",
-         "note": "in a down clue, going up means reading upward"
+         "text": "in",
+         "at": 10,
+         "note": "in means the letter for time goes inside the reversed letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "going up",
+           "at": 30,
+           "note": "going up in a down clue means the letters are read upwards, backwards"
+          }
+         ],
          "parts": [
           {
-           "words": "LA",
-           "note": "LA taken as it stands"
-          },
-          {
-           "op": "container",
+           "op": "charade",
            "parts": [
             {
-             "words": "clubs perhaps",
-             "gives": "SUIT",
-             "note": "clubs are one suit in cards"
+             "words": "LA",
+             "at": 13,
+             "note": "LA is Los Angeles, taken as its letters"
             },
             {
-             "words": "time",
-             "gives": "T",
-             "note": "T = time"
+             "words": "clubs perhaps",
+             "at": 16,
+             "gives": "SUIT",
+             "note": "clubs is one suit in a pack of cards, hence perhaps"
             }
            ]
           }
          ]
+        },
+        {
+         "words": "time",
+         "at": 5,
+         "gives": "T"
         }
        ]
       },
       {
        "words": "together",
+       "at": 39,
        "gives": "ONE",
-       "note": "together = as one"
+       "note": "to be one is to be united, together"
       }
      ]
     },
     "explanation": {
-     "surface": "A note that a booking was made while card clubs in Los Angeles were rising together.",
-     "walkthrough": "Titus Alone is the third Gormenghast novel by Mervyn Peake. 'Book' first suggests reserving; it is a volume. 'Together' gives ONE through the phrase 'as one'.",
-     "definitionFit": "A definition by example: the answer is a novel, the third in Mervyn Peake's Gormenghast series."
+     "surface": "Time spent in Los Angeles nightclubs, maybe rising up together.",
+     "walkthrough": "'Book' is the whole definition: Titus Alone is the third Gormenghast novel by Mervyn Peake.",
+     "definitionFit": "Titus Alone is a novel by Mervyn Peake, so it is a book title."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Book"
+     "misdirectedWord": "clubs"
     }
    }
   },
@@ -852,56 +857,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "ebbing",
-       "note": "an ebbing tide flows back"
+       "text": "in",
+       "at": 31,
+       "note": "in means the following letters go inside the river's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the turned letters go in the river"
-        }
-       ],
+       "words": "river",
+       "at": 34,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "river",
-           "gives": "EXE",
-           "note": "the Exe is a river in Devon"
-          },
-          {
-           "words": "softly",
-           "gives": "P",
-           "note": "p = piano, softly in music"
-          }
-         ]
+         "words": "softly",
+         "at": 17,
+         "gives": "P",
+         "note": "P is piano, the musical direction for softly"
         },
         {
-         "words": "current",
-         "gives": "TIDE",
-         "note": "a tide is a current"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "ebbing",
+           "at": 24,
+           "note": "ebbing means flowing back, so the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "current",
+           "at": 9,
+           "gives": "TIDE",
+           "note": "a tide is a current of water"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boatman urged to hurry as the stream quietly falls away on the river.",
-     "walkthrough": "'Ebbing' fits the tidal surface so well that it hides its job as the reversal signal.",
-     "definitionFit": "A plain synonym, from the Latin for freeing the feet: to hasten a process."
+     "surface": "A tidal flow quietly recedes along a river.",
+     "walkthrough": "The Exe is a river in Devon, a crossword favourite.",
+     "definitionFit": "To expedite a process is to hasten it, making it go faster."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ebbing"
+     "misdirectedWord": "current"
     }
    }
   },

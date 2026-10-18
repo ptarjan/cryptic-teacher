@@ -1174,40 +1174,43 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one item goes round the others, standing on either side of them"
+       "at": 9,
+       "note": "about means the call goes round the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Be quiet",
-         "gives": "SH",
-         "note": "the hush interjection"
-        },
-        {
-         "words": "meal",
-         "gives": "TEA",
-         "note": "tea is an evening meal in parts of Britain"
-        }
-       ]
+       "words": "Be quiet",
+       "at": 0,
+       "gives": "SH",
+       "note": "sh is the call to be quiet"
       },
       {
-       "words": "lieutenant",
-       "gives": "LT",
-       "note": "standard abbreviation for lieutenant"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "meal",
+         "at": 15,
+         "gives": "TEA",
+         "note": "tea is an evening meal in British usage"
+        },
+        {
+         "words": "lieutenant",
+         "at": 25,
+         "gives": "LT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Keeping hush about dining with an officer, all done covertly.",
-     "walkthrough": "In Britain tea can mean the main evening meal, not just a drink.",
-     "definitionFit": "Stealth is the quality of acting quietly and furtively so as to avoid being noticed."
+     "surface": "An officer is told to keep his voice down about a secret dinner.",
+     "definitionFit": "Stealth is acting covertly so as not to be noticed, the quality of secrecy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },
