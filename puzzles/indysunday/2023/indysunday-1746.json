@@ -208,42 +208,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MURRAIN",
-     "indicators": [
-      {
-       "text": "finally obliterated",
-       "note": "the final part is wiped out, so the last letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally obliterated",
+         "at": 6,
+         "note": "the final letter is wiped out, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Gloom",
-         "gives": "MUR",
-         "note": "murk is gloom, here losing its last letter"
+         "at": 0,
+         "gives": "MURK",
+         "note": "murk is darkness or gloom"
         },
         {
-         "words": "downpour",
-         "gives": "RAIN",
-         "note": "a downpour is heavy rain"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "downpour",
+       "at": 29,
+       "gives": "RAIN",
+       "note": "a downpour is heavy rain"
       }
      ]
     },
     "explanation": {
-     "surface": "A dreary day ends with a cloudburst so bad it feels like a biblical plague.",
-     "walkthrough": "MURK loses its K and is followed by RAIN. 'Finally' looks like it picks out the last letter of gloom (M), but here it removes one instead.",
-     "definitionFit": "Murrain is an old word for an infectious disease of cattle, and more loosely for any pestilence, as in 'a murrain on you'."
+     "surface": "Gloom is finally swept away by a downpour, though a plague follows.",
+     "walkthrough": "Murrain is an old word for an infectious disease of cattle, and a plague in general; the surface's weather report hides a medical answer.",
+     "definitionFit": "Murrain is an archaic term for a pestilence, especially a cattle disease, so it is a kind of plague."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "finally"
+     "misdirectedWord": "obliterated"
     }
    }
   },
@@ -268,40 +272,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOFFEE",
-     "indicators": [
-      {
-       "text": "never finished",
-       "note": "a thing never finished stops short of its end, so each word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never",
+         "at": 21,
+         "note": "'never finished' does duty for both words; its first half marks tofu as left unfinished, without its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "soy curd",
-         "gives": "TOF",
-         "note": "tofu is soy bean curd, cut short"
+         "at": 6,
+         "gives": "TOFU",
+         "note": "tofu is bean curd made from soya milk"
         },
         {
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finished",
+         "at": 27,
+         "note": "the second half of 'never finished' applies to feed in the same way, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
          "words": "meal",
-         "gives": "FEE",
-         "note": "a feed is a meal, cut short"
+         "at": 16,
+         "gives": "FEED",
+         "note": "feed is an informal word for a meal"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vegan dessert of sweetened tofu, left half-eaten.",
-     "walkthrough": "TOFU and FEED each drop their last letter; the one deletion signal serves both words.",
-     "definitionFit": "Toffee is a chewy confection of boiled sugar and butter, so it counts as a sweet or candy."
+     "surface": "A dessert menu: sweet soy curd, but the meal never gets finished.",
+     "walkthrough": "The one phrase 'never finished' does duty for both words before it, so the parse splits it across the two cuts. 'Sweet' looks like it describes the curd, but it is the definition.",
+     "definitionFit": "Toffee is a chewy confection of boiled sugar and butter, so it is a sweet in the British sense of a candy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Sweet"
     }
@@ -632,26 +655,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AIR",
      "indicators": [
       {
        "text": "cut",
-       "note": "cutting something shortens it, so the last letter goes"
+       "at": 8,
+       "note": "a word that is cut has been docked at the end, so its last letter goes"
       }
      ],
      "parts": [
       {
        "words": "flower",
-       "gives": "AIR",
-       "note": "a flower is something that flows, a river: the Aire in Yorkshire, cut short"
+       "at": 12,
+       "gives": "AIRE",
+       "note": "the Aire is a Yorkshire river, a flower in the sense of something that flows"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A florist puts cut flowers on show.",
-     "walkthrough": "'Flower' means a river, one that flows; the Aire runs through Leeds in Yorkshire, and losing its E it leaves the answer.",
-     "definitionFit": "To air views or clothes is to put them out in public, so the verb means show or exhibit."
+     "surface": "An instruction to a florist to display a cut flower.",
+     "walkthrough": "'flower' is a crossword trick: read it as flow-er, something that flows, so a river; the Aire runs through Leeds in northern England.",
+     "definitionFit": "To air an opinion or a garment is to show it publicly, so air is a verb synonym of display."
     },
     "features": {
      "answerInScene": false,
@@ -747,43 +773,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TRADEOFF",
+     "spelt": "TRADEOFF",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+       "at": 0,
+       "note": "Spooner's marks a Spoonerism, so the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
        "words": "24-hour",
-       "gives": "ADAY",
+       "at": 10,
+       "gives": "DAY",
        "note": "a day lasts twenty-four hours"
       },
       {
-       "words": "low period",
-       "gives": "TROUGH",
-       "note": "a trough is a low point in a cycle"
-      },
-      {
-       "unchecked": true,
-       "words": "24-hour low period",
-       "gives": "TRADEOFF",
-       "soundsLike": "A DAY TROUGH",
-       "note": "swap the start sounds: the TR of the second word moves to the front of the first"
+       "op": "homophone",
+       "spelt": "TROFF",
+       "parts": [
+        {
+         "words": "low period",
+         "at": 18,
+         "gives": "TROUGH",
+         "note": "a trough is a low point, as in an economic cycle; it is said troff"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daily slump in trading on the stock exchange.",
-     "walkthrough": "A DAY TROUGH becomes TRA-DAY OFF when the TR sound moves to the front and the first word's empty start goes to the back. Exchange looks like the Stock Exchange, but it is the definition.",
-     "definitionFit": "A trade-off is a compromise in which one benefit is given up to gain another, a swap or bargain."
+     "surface": "A cryptic request for a day spent in a slump, in exchange.",
+     "walkthrough": "Say 'day trough' and swap its opening sounds: the D and the TR change places, giving 'tray doff', which sounds like the answer. The Reverend Spooner was an Oxford don famed for such slips.",
+     "definitionFit": "A trade-off is a compromise in which one thing is given up for another, so it is an exchange."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Exchange"
+     "misdirectedWord": "low"
     }
    }
   },
@@ -808,41 +835,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVENUE",
-     "indicators": [
-      {
-       "text": "finally snuffed-out",
-       "note": "the final light is snuffed out, so the last letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 11
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally snuffed-out",
+         "at": 13,
+         "note": "with its final letter snuffed out, the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "Planet",
-         "gives": "VENU",
-         "note": "Venus the planet, without its last letter"
+         "at": 33,
+         "gives": "VENUS",
+         "note": "Venus is the second planet from the Sun"
         },
         {
-         "words": "Earth",
-         "gives": "E",
-         "note": "E is the abbreviation for Earth"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "Earth",
+       "at": 40,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "An escape route away from an extinguished, dying Earth.",
-     "walkthrough": "Planet Earth reads as one phrase, but the two words split: one is Venus shortened, the other its standard letter.",
-     "definitionFit": "An avenue is a broad road or a way of approach, so it serves as a synonym for a route."
+     "surface": "A sci-fi picture of a planet finally snuffed out, alongside Earth.",
+     "walkthrough": "'Planet Earth' looks like one name, but it splits into two pieces: the planet is Venus, and Earth gives only its abbreviation.",
+     "definitionFit": "An avenue is a broad street or a way of approach, so it is a route."
     },
     "features": {
      "answerInScene": false,
@@ -1699,31 +1729,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "MOO",
      "indicators": [
       {
        "text": "waning",
-       "note": "waning means shrinking, so the word gets shorter by its final letter"
+       "at": 4,
+       "note": "a waning moon shrinks, so the word shrinks by losing its last letter"
       }
      ],
      "parts": [
       {
        "words": "moon",
-       "gives": "MOO",
-       "note": "the satellite's name loses its final N"
+       "at": 11,
+       "gives": "MOON"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A thin crescent moon sits low in the sky.",
-     "walkthrough": "Low looks like an adjective for the moon's position, but it is a noun: the sound cattle make.",
-     "definitionFit": "A cow lows, and its lowing is the sound written as a moo, so the noun is the call of cattle."
+     "surface": "A sad, low moon on the wane.",
+     "walkthrough": "'Low' looks like an adjective describing the moon; it is the verb for a cow's call.",
+     "definitionFit": "To low is to make the deep call of cattle, which is what a moo is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Low"
     }
    }
@@ -1803,55 +1834,64 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CULTISTS",
      "indicators": [
       {
        "text": "dropping",
-       "note": "dropping one thing for another means swapping it out for a replacement"
+       "at": 8,
+       "note": "dropping means one letter is let go from the word, to make way for others"
+      },
+      {
+       "text": "for",
+       "at": 30,
+       "note": "for means in place of, so the new letters stand where the old one was"
       }
      ],
      "parts": [
       {
        "words": "Artists",
+       "at": 0,
        "gives": "CUBISTS",
-       "note": "Cubists were painters such as Picasso and Braque"
+       "note": "Cubists, such as Picasso and Braque, are artists of an early twentieth-century school"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the start, so the first letters are taken"
+         "at": 20,
+         "note": "initially means the first letter of the word is taken"
         }
        ],
        "parts": [
         {
          "words": "by",
-         "note": "the first letter of by, which comes out"
+         "at": 17,
+         "note": "only the first letter of by is used"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LT",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "long time",
-         "gives": "LT",
-         "select": "first",
-         "note": "the first letters of long and time, which go in"
+         "words": "long",
+         "at": 34,
+         "gives": "L",
+         "note": "L stands for longitude, written long. for short"
+        },
+        {
+         "words": "time",
+         "at": 39,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Painters who give up popping by, having been loyal followers for years.",
-     "walkthrough": "In CUBISTS the B is swapped for LT. 'Initially' serves both 'by' and 'long time'.",
-     "definitionFit": "Cultists are members of a cult, fervent followers of a person or creed, hence devotees."
+     "surface": "Artists stop dropping by, after a long time devotees of the place.",
+     "walkthrough": "'Artists' are not anyone generic but the Cubists. 'dropping' lets go the B that 'by initially' gives, and 'for' puts LT (long, time) in its place.",
+     "definitionFit": "Cultists are devoted members of a cult, so they are devotees."
     },
     "features": {
      "answerInScene": false,

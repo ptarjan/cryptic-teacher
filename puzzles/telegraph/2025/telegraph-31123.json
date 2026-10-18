@@ -43,43 +43,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "APPEARANCE",
      "indicators": [
       {
        "text": "cook",
-       "note": "to cook something up is to concoct it, so the letters are mixed into a new order"
+       "at": 5,
+       "note": "to cook the books is to falsify them, so these letters are doctored into a new order"
       }
      ],
      "parts": [
       {
+       "words": "a",
+       "at": 10
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "APPEARANCE",
        "indicators": [
         {
          "text": "scratched",
-         "note": "a runner scratched from a race is withdrawn, so this letter is taken out"
+         "at": 32,
+         "note": "a horse scratched from a race is withdrawn, so this letter is taken out"
         }
        ],
        "parts": [
         {
-         "words": "a cheaper pan",
-         "note": "the eleven letters of the phrase, taken as written"
+         "words": "cheaper pan",
+         "at": 12,
+         "gives": "CHEAPERPAN",
+         "note": "taken as written, before the H is removed"
         },
         {
          "words": "husband",
-         "gives": "H",
-         "note": "H is the standard abbreviation for husband"
+         "at": 24,
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe instruction: cook with a bargain pan, the husband having scratched it.",
-     "walkthrough": "Remove the H first, then rearrange the remaining ten letters.",
-     "definitionFit": "A show of something is an outward display or semblance, as in putting on a show of concern."
+     "surface": "A kitchen instruction: make the meal in a cheap pan, the husband having pulled out.",
+     "walkthrough": "'scratched' takes H (husband) out of CHEAPERPAN; 'cook' then rearranges A plus CEAPERPAN, that is ACEAPERPAN. 'cook' reads as the verb of the recipe but is the anagram signal.",
+     "definitionFit": "To put in an appearance is to show up, so the noun matches show in the sense of a turning up or display."
     },
     "features": {
      "answerInScene": false,
@@ -1516,31 +1520,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SELES",
+     "op": "middle",
      "indicators": [
       {
        "text": "missing both sides",
-       "note": "missing both sides means without the two edges, so the first and last letters go"
+       "at": 25,
+       "note": "a word missing both its sides has lost its first and last letters, keeping only the inside"
       }
      ],
      "parts": [
       {
        "words": "useless",
-       "note": "taken as written"
+       "at": 16,
+       "note": "only the inner five letters of useless are kept"
       }
      ]
     },
     "explanation": {
-     "surface": "A dismissive verdict on a hopeless player who misses on both flanks.",
-     "walkthrough": "The 's stands for 'is', linking definition and wordplay.",
-     "definitionFit": "Monica Seles was a world number one who won nine Grand Slam singles titles, an example of a famous player."
+     "surface": "A harsh verdict on a tennis player's game.",
+     "walkthrough": "'missing both sides' strips U and S from the ends of USELESS. Monica Seles was a world number one in women's tennis in the 1990s.",
+     "definitionFit": "Monica Seles won nine Grand Slam singles titles, making her a famous professional on the tennis circuit."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sides"
+     "misdirectedWord": "useless"
     }
    }
   },

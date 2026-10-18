@@ -674,45 +674,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LARGE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not all of it, so the final letter is cut off"
+       "text": "damaged",
+       "at": 10,
+       "note": "something damaged is knocked out of shape, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "leg",
+       "at": 18
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "damaged",
-         "note": "something damaged is knocked out of shape, so the letters are rearranged"
+         "text": "mostly",
+         "at": 30,
+         "note": "mostly means most of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "leg",
-         "note": "taken as written"
+         "words": "arm",
+         "at": 26,
+         "gives": "ARM",
+         "note": "the word arm, cut short to its first two letters"
         },
         {
-         "words": "arm",
-         "gives": "AR",
-         "note": "the word without its last letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strapping athlete has an injured leg and arm.",
-     "definitionFit": "Strapping means big and sturdily built, a near synonym for large."
+     "surface": "An injury report: someone has hurt a leg and most of an arm.",
+     "walkthrough": "'mostly' trims arm to AR; 'damaged' then rearranges LEG with AR. 'Strapping' suggests bandages for the injury, but it is the definition.",
+     "definitionFit": "A strapping person is big and sturdily built, so the adjective is a synonym of large."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "Strapping"
     }
    }
