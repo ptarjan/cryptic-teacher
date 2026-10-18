@@ -892,54 +892,59 @@
      "indicators": [
       {
        "text": "carried by",
-       "note": "what is carried is held within, so these letters go inside"
+       "at": 29,
+       "note": "what is carried by something is held inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 49,
+         "note": "mostly means all but the last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not all of the word, so its last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "express",
-           "gives": "VOICE",
-           "note": "to voice an opinion is to express it"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "express",
+         "at": 40,
+         "gives": "VOICE",
+         "note": "to express a view is to voice it"
         },
         {
-         "words": "container",
-         "gives": "CAN",
-         "note": "a can is a container"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "large",
-       "gives": "L",
-       "note": "L is the clothing-size abbreviation for large"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 13,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "container",
+         "at": 19,
+         "gives": "CAN",
+         "note": "a can is a container"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dangerous charge packed in a big crate is sent by express delivery.",
-     "walkthrough": "'Express' looks like fast delivery but is the verb, to put into words.",
-     "definitionFit": "Volcanic describes something violently eruptive, like a temper, hence explosive."
+     "surface": "Something explosive is inside a large container sent by express delivery.",
+     "walkthrough": "VOIC (most of VOICE) holds L and CAN.",
+     "definitionFit": "Volcanic describes something like a volcano: violently eruptive, as of a temper, hence explosive."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "express"
     }
    }
@@ -1275,61 +1280,67 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the earlier pieces are placed inside the final word"
+       "at": 52,
+       "note": "the other pieces go in the word for final"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "final",
+       "at": 55,
+       "gives": "LAST",
+       "note": "last means final"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "final",
-         "gives": "LAST",
-         "note": "last means final"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finish from",
+           "at": 9,
+           "note": "the finish, last letter, from the word scorer"
+          }
+         ],
+         "parts": [
+          {
+           "words": "scorer",
+           "at": 21,
+           "note": "the word whose last letter is used"
+          }
+         ]
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "coming up",
-           "note": "in a down entry, coming up means reading from bottom to top"
+           "at": 42,
+           "note": "in a down entry coming up means the letters are read from the bottom, reversed"
           }
          ],
          "parts": [
           {
            "words": "for example",
-           "gives": "EG",
-           "note": "e.g. abbreviates for example"
+           "at": 29,
+           "gives": "EG"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finish from",
-         "note": "the finish of a word is its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "scorer",
-         "note": "the last letter of scorer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The greatest finish from a goalscorer, say, arrives in the cup final.",
-     "definitionFit": "Largest is the superlative of large, biggest in size, which greatest also expresses."
+     "surface": "A striker's greatest finish comes in a final.",
+     "walkthrough": "'Finish from scorer' reads like a striker's shot, but it only takes the word's last letter; 'coming up' works because this is a down entry.",
+     "definitionFit": "Largest means biggest of all, and greatest can mean the same in size."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "scorer"
+     "misdirectedWord": "finish"
     }
    }
   },

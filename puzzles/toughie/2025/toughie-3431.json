@@ -1532,48 +1532,53 @@
      "indicators": [
       {
        "text": "around",
-       "note": "what goes around another piece encloses it"
+       "at": 16,
+       "note": "the shortened word for damage goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of a word, not all of it, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "A lot of",
-           "note": "a lot of something is most but not all of it, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "damage",
-           "gives": "RUIN",
-           "note": "to ruin is to damage"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "damage",
+         "at": 9,
+         "gives": "RUIN",
+         "note": "to ruin is to damage"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "depression",
-       "gives": "PAN",
-       "note": "a pan is a hollow or depression in the ground, as in a salt pan"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 23
+        },
+        {
+         "words": "depression",
+         "at": 25,
+         "gives": "PAN",
+         "note": "a pan is a hollow or depression in the ground, as in a salt pan"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Widespread destruction surrounds a low-pressure system over an ocean island.",
-     "definitionFit": "Rapa Nui is the Polynesian name for Easter Island, in the south-eastern Pacific Ocean."
+     "surface": "Heavy damage around a hollow on an island in the Pacific.",
+     "walkthrough": "'A lot of' could start the anagram-free charade, but it trims the damage word; 'depression' is a hollow, not low spirits. Rapa Nui is the native name of Easter Island.",
+     "definitionFit": "Rapa Nui is the Polynesian name for Easter Island, which lies in the south-eastern Pacific Ocean."
     },
     "features": {
      "answerInScene": true,

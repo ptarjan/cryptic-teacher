@@ -100,35 +100,39 @@
      "indicators": [
       {
        "text": "clothing",
-       "note": "clothing something means wrapping it, so one word dresses the other"
+       "at": 8,
+       "note": "to clothe something is to wrap around it, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Stylish",
-         "gives": "CLASSY",
-         "note": "classy means stylish"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral one"
-        }
-       ]
+       "words": "Stylish",
+       "at": 0,
+       "gives": "CLASSY",
+       "note": "classy means stylish"
       },
       {
-       "words": "female",
-       "gives": "F",
-       "note": "F is the abbreviation for female"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "female's",
+         "at": 21,
+         "gives": "F",
+         "note": "F is the abbreviation for female"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashionable outfit that a woman has to put together.",
-     "definitionFit": "To classify is to sort into categories, a way of organising."
+     "surface": "A stylish woman's clothes need organising.",
+     "definitionFit": "To classify is to arrange things into classes, which is a way to organise them."
     },
     "features": {
      "answerInScene": false,
@@ -967,49 +971,46 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "initially says those words come at the start, ahead of the rearranged letters"
-      }
-     ],
      "parts": [
       {
        "words": "fashionable",
+       "at": 11,
        "gives": "IN",
        "note": "in means fashionable"
+      },
+      {
+       "words": "journalist initially",
+       "at": 23,
+       "gives": "ED",
+       "note": "ED, the abbreviation for editor, a journalist, placed initially along with the fashionable word, before the rest"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "about",
-         "note": "about here means round and about, so the letters are scattered and rearranged"
+         "at": 5,
+         "note": "about signals the word bile is turned around into a new order"
         }
        ],
        "parts": [
         {
-         "words": "journalist",
-         "gives": "ED",
-         "note": "an ed, or editor, is a journalist"
-        },
-        {
          "words": "Bile",
-         "note": "taken as written"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trendy writer's spiteful ranting is hard to swallow.",
-     "walkthrough": "'Initially' looks like it takes a first letter, but it puts IN and ED at the front.",
-     "definitionFit": "Inedible food cannot be eaten, so it is hard to swallow and digest."
+     "surface": "A trendy journalist's bitterness is hard to swallow.",
+     "definitionFit": "Inedible food cannot be eaten, so it is hard to take in, literally hard to swallow."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "initially"
+     "joke": "pun",
+     "misdirectedWord": "Bile"
     }
    }
   },

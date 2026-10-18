@@ -360,42 +360,46 @@
      "indicators": [
       {
        "text": "taking in",
-       "note": "taking in means admitting inside, so the other pieces sit within the first"
+       "at": 8,
+       "note": "a support that takes in something holds it within, so the other pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Support",
-         "gives": "TEE",
-         "note": "a golf tee supports the ball"
-        },
-        {
-         "words": "jolly",
-         "gives": "RM",
-         "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
-        }
-       ]
+       "words": "Support",
+       "at": 0,
+       "gives": "TEE",
+       "note": "a tee supports a golf ball"
       },
       {
-       "words": "relations",
-       "gives": "IT",
-       "note": "it is a coy term for sex, sexual relations"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "jolly",
+         "at": 18,
+         "gives": "RM",
+         "note": "a Jolly is slang for a Royal Marine, abbreviated RM"
+        },
+        {
+         "words": "relations",
+         "at": 24,
+         "gives": "IT",
+         "note": "relations in the sense of sex, which crosswords render as 'it'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful set of family relations is propped up by someone found in a forest.",
-     "walkthrough": "Jolly looks like an adjective for the relations; it is the old naval slang word for a marine.",
-     "definitionFit": "Termites are insects that bore into and eat timber, so they live inside wood."
+     "surface": "Someone offers backing while drawing in cheerful family members.",
+     "walkthrough": "'Jolly' looks like an adjective for the relations, but a Jolly is an old naval nickname for a Royal Marine.",
+     "definitionFit": "Termites are insects that live in and eat timber, hence the question mark on a definition by example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "jolly"
+     "misdirectedWord": "relations"
     }
    }
   },
@@ -951,7 +955,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "announcement",
+      "text": "announcement?",
       "at": 32
      }
     ],
@@ -959,66 +963,65 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in",
-       "note": "in shows the moved letters are put back inside the word"
+       "text": "demoting",
+       "at": 5,
+       "note": "demoting moves something lower, so in this down entry the two letters drop further down the word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "demoting",
-           "note": "demoting sends something lower, so letters are taken from the top of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Will",
-           "gives": "TESTAMENT",
-           "note": "a will is a last testament"
-          },
-          {
-           "gives": "TE"
-          }
-         ]
+         "words": "Will",
+         "at": 0,
+         "gives": "TESTAMENT",
+         "note": "a will is a testament"
         },
         {
-         "words": "Town",
-         "gives": "T",
-         "note": "T is the abbreviation for town"
+         "gives": "TE"
         }
        ]
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "end",
-         "note": "the end of a word is its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "irate",
-         "note": "the last letter of irate"
+         "words": "Town",
+         "at": 14,
+         "gives": "T",
+         "note": "T is a standard abbreviation for town"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end in",
+           "at": 19,
+           "note": "the end letter in the word irate is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "irate",
+           "at": 26,
+           "note": "the word whose last letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A will relegating Town is announced at the end, to anger.",
-     "walkthrough": "The opening T and E of the word for a will drop down two places, behind the S, T and A.",
-     "definitionFit": "A statement is a formal declaration, an announcement."
+     "surface": "Someone wonders whether relegating a town will end in an angry announcement.",
+     "walkthrough": "The word for will already holds the town letter and the end of irate at its head; 'demoting' moves that pair further down the word rather than adding new letters.",
+     "definitionFit": "A statement is a formal declaration made public, which is what an announcement is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Town"
+     "misdirectedWord": "demoting"
     }
    }
   },
