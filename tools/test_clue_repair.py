@@ -71,4 +71,56 @@ for name, line in (("ch", "composer (3,6.5)."), ("en5", "composer (3.6.5).")):
     check(f"{name}: filed with its word breaks", ("3,6,5", [3, 9]),
           (filed.get("enumeration"), [s["at"] for s in filed.get("separators", [])]))
 
+# One clue's own slips (clue_repair.mend_text). Cases are the filed texts the
+# Times 1998 "Update times-" rereads of 16-18 Oct 2026 changed (times-20866,
+# -20976, -21009, -21013, -21210, -21262, -21069, -21007 ...): the text as
+# first filed, and what the vision reread settled. Each must come out as the
+# reread has it, and the reread (or a clue that was right) must not change.
+for what, text, enum, want in (
+        ("the count left after the words", "Mostly smart English group indulging in idle gossip 9.", "9",
+         "Mostly smart English group indulging in idle gossip"),
+        ("a neighbour's count and number in front",
+         "Not all bound over can be set free (4) 101 Described the beautiful French diamonds", "8",
+         "Described the beautiful French diamonds"),
+        ("a neighbour's count and number in front, a count in parts",
+         "Spirit that's characteristic of those moving East (5) 131 I can produce PR cons, and do it to order",
+         "4,6", "I can produce PR cons, and do it to order"),
+        ("a bar read as I before a capital", "I Gratuitous flattering", "13", "Gratuitous flattering"),
+        ("a bar read as I before a capital, again", "I Long pair of shorts?", "6", "Long pair of shorts?"),
+        ("a drop capital printed twice", "S Sound judgment to lift fuel to 'Berlin, say", "5",
+         "Sound judgment to lift fuel to 'Berlin, say"),
+        ("a word broken by a space", "Inspire learner to abandon de pressed profession?", "9",
+         "Inspire learner to abandon depressed profession?"),
+        ("a stop on its own between words", "Fodder for the right variety of grey . donkey", "6",
+         "Fodder for the right variety of grey donkey"),
+        ("a middle dot", "Broadcasts most of · Aida in specified amounts", "9",
+         "Broadcasts most of Aida in specified amounts"),
+        ("a stop after a lone a", "Fighter thrown in jail for a. short stretch", "8",
+         "Fighter thrown in jail for a short stretch"),
+        ("a letter swapped in a word nobody prints", "Erect after firm stfoke", "5", "Erect after firm stroke"),
+        # What is left alone.
+        ("a reference to a number", "Numbers will include zero and 5", "5", "Numbers will include zero and 5"),
+        ("a count that is not the light's", "Sound lad with energy 7", "5", "Sound lad with energy 7"),
+        ("a clue that is right", "Gratuitous flattering", "13", "Gratuitous flattering"),
+        ("I as a word", "I dial a dept. about waste", "8", "I dial a dept. about waste"),
+        ("a name after I", "I Claudius perhaps", "8", "I Claudius perhaps"),
+        ("initials and their stops", "Mutant battles L.A. in The Gastropod Killer", "6",
+         "Mutant battles L.A. in The Gastropod Killer"),
+        ("a leader's two stops stand mid-clue", "Verse delivered in church office .. ahead of time", "5",
+         "Verse delivered in church office .. ahead of time"),
+        ("a trailer's two stops become an ellipsis", "Eccentric applies rum to testicle, ..", "5",
+         "Eccentric applies rum to testicle, …")):
+    check(f"mend_text: {what}", want, clue_repair.mend_text(text, enum))
+
+# A count left in the text is named by fetch_puzzle.clue_leftovers, and only then.
+import fetch_puzzle
+leftovers = fetch_puzzle.clue_leftovers([
+    {"number": 9, "direction": "across", "clue": {"text": "idle gossip 9.", "enumeration": "9"}},
+    {"number": 10, "direction": "across", "clue": {"text": "Numbers include zero and 5", "enumeration": "5"}},
+    {"number": 1, "direction": "down", "clue": {"text": "Next (4) 101 Our clue words", "enumeration": "8"}},
+    {"number": 2, "direction": "down", "clue": {"text": "Plain clue", "enumeration": "5"}}])
+check("clue_leftovers names the count and the neighbour, not a reference",
+      {"9-across": "the clue's count left in its text",
+       "1-down": "another clue's count and number run into it"}, leftovers)
+
 sys.exit(1 if fails else 0)

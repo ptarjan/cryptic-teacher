@@ -2068,6 +2068,28 @@ def duplicated_clues(entries, one_list=False):
     return [ids for ids in seen.values() if len(ids) > 1]
 
 
+def clue_leftovers(entries):
+    """{entry id: why} of lights whose clue text still holds the printed count
+    that belongs to its `enumeration` or another clue's count and number, a
+    scan's slip the vote files: the clue ends in its own count's figures
+    ("idle gossip 9." for (9)) or has a neighbour's "(4) 101 Next clue" run
+    into it. Judged by the enumeration against the text alone (the same
+    tests clue_repair.mend_text mends by), so a reference ("see 9") or a
+    number the clue is about ("zero and 5") is never named."""
+    import clue_repair  # lazy: it imports ocr_clues' lexicon on use
+    out = {}
+    for e in entries:
+        clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
+        text, enum = clue.get("text") or "", clue.get("enumeration")
+        if not text or not enum:
+            continue
+        if clue_repair.trailing_count(text, enum) != text:
+            out[entry_id(e)] = "the clue's count left in its text"
+        elif clue_repair.bled_count(text, enum) != text:
+            out[entry_id(e)] = "another clue's count and number run into it"
+    return out
+
+
 # The lights the SOURCE placed wrong: a light whose position, length,
 # enumeration or answer the page serves in a way its own grid refutes. Keyed
 # by puzzle and entry like SOURCE_ANSWER_WRONG, holding the served and the

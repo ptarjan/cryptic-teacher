@@ -3553,7 +3553,11 @@ def weak_lights(read, laid, blank, lengths):
             weak.add(lid)
             continue
         mine = words_of(text)
-        agreeing = sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse) if words_of(t) == mine)
+        # Each reading as filed clues are: its own slips mended first, so
+        # a count or a drop capital left in one reading is no disagreement.
+        enum = laid[lid][1]
+        agreeing = sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse)
+                       if words_of(clue_repair.mend_text(t, enum)) == mine)
         if agreeing < OCR_CONFIRM:
             weak.add(lid)
     return weak
@@ -3892,6 +3896,9 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     # A clue read in ahead of another's, its count and all, is cut off it;
     # one no laid clue prints is left for bled() to refuse.
     laid = ocr_clues.runs_in_cut(laid)
+    # The slips one clue's own text shows (its count left after its words,
+    # a drop capital, a word broken by a space): tools/clue_repair.mend_text.
+    laid = {lid: (clue_repair.mend_text(t, e) if t else t, e, g) for lid, (t, e, g) in laid.items()}
     laid = book_marked(laid, book_clues(reprints))
     # A word no lexicon knows, or a bracket never shut, that the readings
     # print alike is the print's own ("ignis"): filed as its asPrinted.
