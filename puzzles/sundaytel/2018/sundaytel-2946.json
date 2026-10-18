@@ -204,42 +204,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "FALSE",
      "indicators": [
       {
        "text": "Almost",
-       "note": "almost means not quite, so the word loses its last letter"
+       "at": 0,
+       "note": "almost means nearly all, so the word for too loses its last letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "bound",
-         "note": "bound means tied round, so iron surrounds the shortened word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ironbound",
-         "gives": "FE",
-         "note": "Fe is the chemical symbol for iron; the bound part of this word is the wrapping signal"
-        },
-        {
-         "words": "too",
-         "gives": "ALS",
-         "note": "too means also, cut short here"
-        }
-       ]
+       "words": "too ironbound",
+       "at": 7,
+       "gives": "FALSOE",
+       "note": "too is ALSO, and ironbound puts it inside FE, the chemical symbol for iron, as if bound by iron"
+      },
+      {
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A query about something nearly too tightly clad in metal, judged incorrect.",
-     "walkthrough": "'ironbound' looks like one word but splits into iron and bound.",
-     "definitionFit": "False means untrue or incorrect, so it is a synonym of wrong as an adjective."
+     "surface": "Someone asks whether a thing is nearly too firmly bound in iron, then declares it a mistake.",
+     "walkthrough": "'ironbound' reads as a single adjective, but split it: iron is FE, and bound means wrapped around ALSO (too), whose final O 'Almost' removes.",
+     "definitionFit": "False means incorrect or untrue, which is what wrong means here."
     },
     "features": {
      "answerInScene": false,
@@ -910,48 +897,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BARRISTER",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "taking",
+       "at": 9,
+       "note": "the advocate is described as taking the shortened word in, one more sign it is held inside"
+      },
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in places the shortened word inside the trading word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "exchange for something else",
+       "at": 36,
+       "gives": "BARTER",
+       "note": "to barter is to exchange goods for other goods"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "taking",
-         "note": "taking means accepting inside, so one piece goes within the other"
+         "text": "mostly",
+         "at": 26,
+         "note": "mostly means most of it, so the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "in exchange for something else",
-         "gives": "BARTER",
-         "note": "to barter is to trade goods for other goods"
+         "words": "increase",
+         "at": 16,
+         "gives": "RISE",
+         "note": "a rise is an increase"
         },
         {
-         "words": "increase",
-         "gives": "RIS",
-         "note": "a rise is an increase, here without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer accepts a pay rise as part of some trade-off.",
-     "walkthrough": "The barter frame holds the shortened rise after its first three letters.",
-     "definitionFit": "A barrister is a courtroom lawyer in Britain, one who pleads cases as an advocate."
+     "surface": "A lawyer accepts a pay rise, mostly as part of a trade-off.",
+     "walkthrough": "'exchange' looks like the action of the advocate taking the rise, but the whole phrase 'exchange for something else' is the trading word that holds it.",
+     "definitionFit": "A barrister is a lawyer who argues cases in the higher courts, a courtroom advocate."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Advocate"
+     "misdirectedWord": "increase"
     }
    }
   },

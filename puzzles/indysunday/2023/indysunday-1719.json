@@ -291,40 +291,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ISAAC",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short is missing its end, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "is",
+       "at": 16
+      },
+      {
+       "words": "a",
+       "at": 19
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 21,
+         "note": "flipping means turning over, so the shortened word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "flipping",
-           "note": "to flip something is to turn it over, so the letters run backwards"
+           "text": "short",
+           "at": 30,
+           "note": "short means lacking its end, so the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "cad",
-           "gives": "CA",
-           "note": "the word for a rotter with its final letter cut"
+           "at": 36,
+           "gives": "CAD",
+           "note": "taken as written before it is cut"
+          },
+          {
+           "gives": "D"
           }
          ]
         }
@@ -333,13 +337,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone grumbles that an Old Testament character is a bloody little rotter.",
-     "walkthrough": "'flipping' reads as a mild British swearword, but it turns round the shortened cad.",
-     "definitionFit": "Abraham's son, nearly sacrificed and father of Jacob and Esau, is a patriarch in the Old Testament story of Genesis."
+     "surface": "Someone grumbles that a Biblical character is a damned short scoundrel.",
+     "walkthrough": "'flipping' looks like a mild British swear word in the surface, but it reverses CA, what 'short' leaves of CAD, to give AC.",
+     "definitionFit": "Isaac is the son of Abraham and Sarah in the Book of Genesis, a figure from the Bible."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "flipping"
     }
    }
@@ -668,43 +673,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PASSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "half-cut",
-       "note": "cut in half means only one half is kept"
+       "text": "snorted by",
+       "at": 17,
+       "note": "a drug snorted by someone goes up inside their nose, so this word is placed within the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "snorted by",
-         "note": "what is snorted goes up inside the nose, so one piece ends up inside another"
+         "text": "half-cut",
+         "at": 28,
+         "note": "half-cut, British slang for drunk, here cuts half of the name away"
         }
        ],
        "parts": [
         {
          "words": "Pete",
-         "gives": "PE",
-         "note": "half of the four-letter name"
+         "at": 37,
+         "gives": "PETE",
+         "note": "taken as written before it is halved"
         },
         {
-         "words": "dope",
-         "gives": "ASS",
-         "note": "a dope is an idiot"
+         "gives": "TE"
         }
        ]
+      },
+      {
+       "words": "dope",
+       "at": 12,
+       "gives": "ASS",
+       "note": "an ass is a dope, a fool"
       }
      ]
     },
+    "spelling": "PASSÉ",
     "explanation": {
-     "surface": "A drunk man called Pete sniffs some old stale drugs.",
-     "walkthrough": "'dope' and 'snorted' paint drugs, and 'half-cut' is British slang for drunk; here dope is a fool and half-cut halves the name.",
-     "definitionFit": "The French borrowing means no longer fashionable, behind the times, which is a synonym for old hat."
+     "surface": "Drunken Pete snorting drugs is a habit that has gone out of fashion.",
+     "walkthrough": "'dope' looks like a drug, but it is a fool. 'half-cut' is British slang for tipsy, but here it literally cuts Pete's name in half.",
+     "definitionFit": "Passé, borrowed from French, describes something no longer fashionable, behind the times."
     },
     "features": {
      "answerInScene": false,

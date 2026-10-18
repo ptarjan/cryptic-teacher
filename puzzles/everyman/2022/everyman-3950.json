@@ -370,42 +370,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "NORTHPOLE",
-     "indicators": [
-      {
-       "text": "replaced by",
-       "note": "replacing swaps one thing out, so a part is exchanged for something else of the same kind"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Norway",
+       "at": 11,
+       "gives": "NOR",
+       "note": "NOR is the standard abbreviation for Norway"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replaced by",
+         "at": 34,
+         "note": "replaced by says one letter in the word gives way to another word in the same spot"
+        }
+       ],
        "parts": [
         {
-         "words": "Norway",
-         "gives": "NORTH",
-         "note": "the country's name comes from 'north way', and it is the northern land"
+         "words": "the",
+         "at": 19,
+         "gives": "THE"
+        },
+        {
+         "words": "European",
+         "at": 23,
+         "gives": "E"
         },
         {
          "words": "another",
+         "at": 46,
          "gives": "POLE",
-         "note": "another European: a native of Poland, swapped in for the Norwegian"
-        },
-        {
-         "unchecked": true,
-         "words": "the European",
-         "note": "the Norwegian, the person from that country, who is the part swapped out"
+         "note": "a Pole is another European, from Poland"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A frosty Norwegian location where one European is swapped for another.",
-     "walkthrough": "Think of Norway as 'north' plus a Norwegian; replace the Norwegian with a different European, a Pole, and the two parts join up.",
-     "definitionFit": "The northernmost point on Earth sits amid permanent Arctic ice, making it about the coldest place anyone could name."
+     "surface": "A traveller to a frozen region in Norway finds one European has been swapped for someone else.",
+     "walkthrough": "'the European' reads as one person, but 'the' is the word worked on and 'European' its letter E; 'another' is a second European, someone from Poland.",
+     "definitionFit": "The North Pole, at the top of the Earth's axis in the Arctic, is one of the coldest places on the planet."
     },
     "features": {
      "answerInScene": true,
@@ -1116,37 +1122,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCOVER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half of",
-       "note": "half means only part is kept and the rest is dropped"
+       "text": "having",
+       "at": 28,
+       "note": "having means possessing as well, so the word for left is added on after the first part"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 5,
+         "note": "half of keeps only the first three of the six letters, dropping the other half"
+        }
+       ],
        "parts": [
         {
          "words": "mum's brothers",
-         "gives": "UNC",
-         "note": "uncles, cut to the first three of six letters"
+         "at": 13,
+         "gives": "UNCLES",
+         "note": "your mother's brothers are your uncles"
         },
         {
-         "words": "having left",
-         "gives": "OVER",
-         "note": "what is left is left over"
+         "gives": "LES"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 35,
+       "gives": "OVER",
+       "note": "left over means remaining, so over can stand for left"
       }
      ]
     },
     "explanation": {
-     "surface": "Mum's brothers, half of whom have already gone home from a family show.",
-     "walkthrough": "'Left' looks like departed; here it is 'left over', remaining.",
-     "definitionFit": "To reveal something by taking away what hides it is to display it, so the verbs are synonyms."
+     "surface": "A child explains that half of their mother's brothers have gone away.",
+     "walkthrough": "'half of' keeps UNC from UNCLES, and 'having' adds the next piece. 'left' is not the departure of the surface but OVER, as in food left over.",
+     "definitionFit": "To uncover something is to reveal it, which is to show it."
     },
     "features": {
      "answerInScene": false,
@@ -1367,47 +1384,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOBGOBLINS",
+     "op": "container",
      "indicators": [
       {
-       "text": "finally disappeared",
-       "note": "the final one has disappeared, so the last letter is removed"
+       "text": "inside",
+       "at": 39,
+       "note": "inside says the run of letters goes within the word for cookers"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "inside",
-         "note": "inside means within, so one part goes into the middle of another"
-        }
-       ],
+       "words": "cookers",
+       "at": 46,
+       "gives": "HOBS",
+       "note": "hobs are the cooking rings on top of a stove"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "cookers",
-         "gives": "HOBS",
-         "note": "a hob is a cooktop, the British word for a stove top"
+         "words": "Good",
+         "at": 0,
+         "gives": "G"
         },
         {
-         "op": "charade",
+         "words": "old",
+         "at": 5,
+         "gives": "O"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "finally disappeared",
+           "at": 19,
+           "note": "the final letter has disappeared, so the word loses its last letter"
+          }
+         ],
          "parts": [
           {
-           "words": "Good",
-           "gives": "G",
-           "note": "G is the abbreviation for good"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O is the abbreviation for old"
-          },
-          {
            "words": "pancakes",
-           "gives": "BLIN",
-           "note": "blini are small Russian pancakes, with the last letter dropped"
+           "at": 9,
+           "gives": "BLINI",
+           "note": "blini are small Russian buckwheat pancakes"
+          },
+          {
+           "gives": "I"
           }
          ]
         }
@@ -1416,14 +1438,14 @@
      ]
     },
     "explanation": {
-     "surface": "Old-fashioned pancakes vanishing into the ovens, as if spirited away by ghosts.",
-     "walkthrough": "'Good old' looks like a fond phrase but is two separate abbreviations; together with the shortened pancakes they go inside the cookers.",
-     "definitionFit": "These mischievous goblin-like creatures of folklore are frightening spirits, so scary phantoms is a fair description."
+     "surface": "Good old pancakes vanished into the ovens, scared off by spooky spirits.",
+     "walkthrough": "'cookers' here are not ovens but hobs, the rings on top of a stove; blini are Russian pancakes, which lose their end when 'finally disappeared' acts.",
+     "definitionFit": "Hobgoblins are mischievous goblins or bogeys of folklore, things that frighten people."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Good"
+     "misdirectedWord": "cookers"
     }
    }
   },
