@@ -34,7 +34,7 @@ alert() { echo "ALERT: $*"; }
 main="$t/main"
 mkdir -p "$main/tools/data" "$main/puzzles/s/2026" "$main/clues_only/s"
 printf 'SOURCE_LIGHT_WRONG = {\n}\n' >"$main/tools/fetch_puzzle.py"
-cp "$REPO/tools/own_rows.py" "$REPO/tools/json_merge.py" "$REPO/tools/puzzle_schema.py" "$main/tools/"
+cp "$REPO/tools/own_rows.py" "$REPO/tools/json_merge.py" "$REPO/tools/puzzle_schema.py" "$REPO/tools/shape_queue.py" "$main/tools/"
 cp "$REPO/tools/data/puzzle.schema.json" "$main/tools/data/"
 # Every table own_rows.py owns rows of, named by it, so a table added there is
 # in this repo too.
@@ -43,8 +43,13 @@ for rel in $(cd "$REPO/tools" && python3 -c 'import own_rows; print(*own_rows.DA
 done
 cat >"$main/tools/puzzle_paths.py" <<'PY'
 import glob, sys
-for pid in sys.argv[1:]:
-    print((glob.glob(f"puzzles/*/*/{pid}.json") or [f"puzzles/s/2026/{pid}.json"])[0])
+from pathlib import Path
+def find(pid):
+    hit = glob.glob(f"puzzles/*/*/{pid}.json")
+    return Path(hit[0]) if hit else None
+if __name__ == "__main__":
+    for pid in sys.argv[1:]:
+        print((glob.glob(f"puzzles/*/*/{pid}.json") or [f"puzzles/s/2026/{pid}.json"])[0])
 PY
 printf 'import glob, sys\nsys.exit("BROKEN" in open(glob.glob(f"puzzles/*/*/{sys.argv[1]}.json")[0]).read())\n' \
   >"$main/tools/validate_annotations.py"
