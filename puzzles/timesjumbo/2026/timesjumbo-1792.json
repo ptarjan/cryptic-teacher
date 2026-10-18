@@ -349,42 +349,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANGOLA",
-     "indicators": [
-      {
-       "text": "losing heads",
-       "note": "both words lose their first letter, their head"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 20,
+         "note": "losing heads means giving up first letters, and the band word gives up its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "band",
-         "gives": "ANG",
-         "note": "GANG, a band, without its first letter"
+         "at": 8,
+         "gives": "GANG",
+         "note": "a band of people is a gang"
         },
         {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heads",
+         "at": 27,
+         "note": "heads is plural, so the drink word also loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "drink",
-         "gives": "OLA",
-         "note": "COLA, a drink, without its first letter"
+         "at": 13,
+         "gives": "COLA",
+         "note": "cola is a fizzy soft drink"
+        },
+        {
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country-music band drinking until they are out of their heads.",
-     "walkthrough": "'Country band' reads as a single idea, a group playing country music; the definition is 'Country' alone.",
-     "definitionFit": "A definition by example: one of the nations of southern Africa."
+     "surface": "A country-music band calling for a drink, though the members are a bit headless.",
+     "walkthrough": "'Country band' reads as country music; 'Country' is the definition. 'losing heads' takes the first letter off both GANG and COLA, leaving ANG and OLA.",
+     "definitionFit": "Angola is a nation in south-west Africa, so it is an example of a country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "band"
+     "misdirectedWord": "Country"
     }
    }
   },
@@ -1383,42 +1402,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FIGWORT",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite, so WORTH falls one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fruit",
+       "at": 0,
+       "gives": "FIG",
+       "note": "the fig is a fruit"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 6,
+         "note": "almost means the word is not quite complete, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Fruit",
-         "gives": "FIG",
-         "note": "a fig is a fruit"
+         "words": "deserving of",
+         "at": 13,
+         "gives": "WORTH",
+         "note": "worth something means deserving of it"
         },
         {
-         "words": "deserving",
-         "gives": "WORT",
-         "note": "WORTH, deserving, without its last letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit that is nearly worthy of the plant it grows on.",
-     "walkthrough": "'Deserving of' reads as a phrase; 'of' is only the link to the definition.",
-     "definitionFit": "A definition by example: a flowering plant of the genus Scrophularia."
+     "surface": "A fruit described as almost worthy of being called a plant.",
+     "walkthrough": "'Almost' cuts the last letter from WORTH, leaving WORT, an old word for a plant itself.",
+     "definitionFit": "Figwort is a herbaceous plant of the genus Scrophularia, once used medicinally."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "deserving"
+     "aptDefinition": false
     }
    }
   },
@@ -1819,42 +1841,68 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CRYONESEYESOUT",
-     "indicators": [
-      {
-       "text": "repeatedly taking"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Witch",
-       "gives": "CRONE",
-       "note": "a crone is an old witch"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 33,
+         "note": "taking means holding something inside, so the year goes into the witch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Witch",
+         "at": 0,
+         "gives": "CRONE",
+         "note": "a crone is an ugly old woman, a witch"
+        },
+        {
+         "words": "years",
+         "at": 40,
+         "gives": "Y",
+         "note": "Y is the standard abbreviation for year"
+        }
+       ]
       },
       {
-       "words": "endures through",
-       "gives": "SEESOUT",
-       "note": "to see out a storm is to endure through it"
-      },
-      {
-       "words": "years",
-       "gives": "YY",
-       "note": "Y = year, used twice"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "through",
+         "at": 14,
+         "note": "through means passing into the middle, so the second year goes into the endures word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "endures",
+         "at": 6,
+         "gives": "SEESOUT",
+         "note": "to see something out is to endure it to the end"
+        },
+        {
+         "words": "repeatedly",
+         "at": 22,
+         "gives": "Y",
+         "note": "repeatedly says the year is taken a second time, here into the second piece"
+        }
+       ]
       }
      ]
     },
     "spelling": "CRY ONE'S EYES OUT",
     "explanation": {
-     "surface": "An old witch who has lived through many years of hardship and grief.",
-     "walkthrough": "'Repeatedly' is the key: the letter for years is used twice, inserted into each of the two parts.",
-     "definitionFit": "An idiom: weeping uncontrollably is how the phrase shows grief."
+     "surface": "A witch lives on and on, years passing, until finally showing grief.",
+     "walkthrough": "'taking years' puts Y into CRONE to give CRYONE; 'repeatedly' supplies a second Y, which goes 'through' SEES OUT to give SEYESOUT.",
+     "definitionFit": "To cry one's eyes out is an idiom for weeping hard, a vivid display of sorrow."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "repeatedly"
+     "misdirectedWord": "Witch"
     }
    }
   },
@@ -2056,42 +2104,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHIVAL",
-     "indicators": [
-      {
-       "text": "surrendering first",
-       "note": "to surrender is to give up, so RIVAL gives up its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Main",
+       "at": 0,
+       "gives": "ARCH",
+       "note": "main as an adjective means chief, which is arch as in archenemy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "surrendering first",
+         "at": 14,
+         "note": "giving up the first letter, so the opening letter is lost"
+        }
+       ],
        "parts": [
         {
-         "words": "Main",
-         "gives": "ARCH",
-         "note": "arch = chief, main, as in arch-enemy"
+         "words": "opponent",
+         "at": 5,
+         "gives": "RIVAL",
+         "note": "a rival is an opponent"
         },
         {
-         "words": "opponent",
-         "gives": "IVAL",
-         "note": "RIVAL, an opponent, without its first letter"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chief rival giving up the first of several records.",
-     "walkthrough": "'Main opponent' suggests ARCH-RIVAL whole, and 'first of records' seems to remove an R; but 'of records' is the definition and 'surrendering first' works on 'opponent'.",
-     "definitionFit": "A plain gloss: archives are stores of records, so the adjective means relating to them."
+     "surface": "A chief opponent giving up first place in the record books.",
+     "walkthrough": "'Main opponent' suggests ARCHRIVAL whole; only RIVAL surrenders its first letter, giving IVAL.",
+     "definitionFit": "Archival means relating to archives, the stored historical documents and registers of an institution."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "records"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -2340,46 +2392,46 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "what is eaten goes inside the eater"
+       "at": 10,
+       "note": "eating puts one piece inside another, as food goes into a mouth"
       }
      ],
      "parts": [
       {
        "words": "yak",
+       "at": 6,
        "gives": "GAB",
-       "note": "to yak is to chatter, gab"
+       "note": "to yak is to chatter, which is gab"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "tail",
+         "at": 27,
          "note": "the tail of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "another's tail",
-         "gives": "R",
-         "select": "last",
-         "note": "the last letter of ANOTHER"
+         "words": "another's",
+         "at": 17,
+         "gives": "ANOTHER",
+         "note": "the possessive points to the word another, whose tail is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A yak caught chewing the tail of another animal.",
-     "walkthrough": "'Yak' reads as the shaggy ox; it is the verb for chatting.",
-     "definitionFit": "A plain synonym: to seize something suddenly is to catch it."
+     "surface": "A yak chewing on another animal's tail, which might be a catch.",
+     "walkthrough": "'Yak' looks like the animal but is the verb to chatter; GAB swallows R, the end of 'another'.",
+     "definitionFit": "To grab is to seize hold of, the same action as to catch something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "yak"
     }
    }
@@ -2725,42 +2777,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPANGLE",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word is all but its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "to cover",
+       "at": 17,
+       "gives": "SPAN",
+       "note": "to span is to extend across, to cover"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 26,
+         "note": "most of means the word without its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "to cover",
-         "gives": "SPAN",
-         "note": "to span a distance is to cover it"
+         "words": "valley",
+         "at": 34,
+         "gives": "GLEN",
+         "note": "a glen is a narrow valley, especially in Scotland"
         },
         {
-         "words": "valley",
-         "gives": "GLE",
-         "note": "GLEN, a valley, without its last letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Glitter spread over most of a valley.",
-     "walkthrough": "A glen is a Scottish word for a narrow valley.",
-     "definitionFit": "A plain gloss: a small glittering disc sewn onto clothing is a shiny decoration."
+     "surface": "Some shiny decoration put down to cover most of a valley.",
+     "definitionFit": "A spangle is a small sparkling piece of metal sewn on clothing as ornament, a sequin."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "cover"
+     "aptDefinition": false
     }
    }
   },
@@ -3178,44 +3232,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THEKINGANDI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "assuming",
+       "at": 15,
+       "note": "assuming means taking on, so the word is taken inside the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "assuming"
-        },
-        {
          "text": "broadcast",
-         "note": "the letters of AGENT HID are scattered"
+         "at": 34,
+         "note": "broadcast means scattered widely, so these letters are scattered into a new order"
         }
        ],
        "parts": [
         {
-         "words": "agent hid",
-         "note": "AGENT HID rearranged"
+         "words": "agent",
+         "at": 24
         },
         {
-         "words": "family",
-         "gives": "KIN",
-         "note": "kin = family"
+         "words": "hid",
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "family",
+       "at": 8,
+       "gives": "KIN",
+       "note": "kin are one's family"
       }
      ]
     },
     "explanation": {
-     "surface": "A family taking in a secret agent who had hidden from the airwaves.",
-     "walkthrough": "'Musical' reads as describing the family; it is the definition, a stage show.",
-     "definitionFit": "A definition by example: the Rodgers and Hammerstein show about the King of Siam is a musical."
+     "surface": "A musical family taking in a secret agent whose hiding place has been broadcast.",
+     "walkthrough": "'agent hid' looks like spy talk; 'broadcast' means those letters are scattered, and 'assuming' has the result take in the family.",
+     "definitionFit": "The King and I is the Rodgers and Hammerstein stage show set in Siam, a famous musical."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Musical"
+     "misdirectedWord": "broadcast"
     }
    }
   },
@@ -3246,42 +3308,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOTTINGHILL",
-     "indicators": [
-      {
-       "text": "bar opening",
-       "note": "bar = except, so everything except the opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bar opening",
+         "at": 12,
+         "note": "bar means except, so the word goes without its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "tying up",
-         "gives": "NOTTING",
-         "note": "KNOTTING, tying up, without its first letter"
+         "at": 25,
+         "gives": "KNOTTING",
+         "note": "knotting is tying up with a knot"
         },
         {
-         "words": "hotel",
-         "gives": "H",
-         "note": "H is hotel in the NATO alphabet"
-        },
-        {
-         "words": "badly",
-         "gives": "ILL",
-         "note": "ill = badly, as in ill-treated"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "hotel",
+       "at": 34,
+       "gives": "H",
+       "note": "H is Hotel in the NATO phonetic alphabet"
+      },
+      {
+       "words": "badly",
+       "at": 40,
+       "gives": "ILL",
+       "note": "ill can mean badly, as in ill-treated"
       }
      ]
     },
     "explanation": {
-     "surface": "Tying up a bar near a badly run hotel in west London.",
-     "walkthrough": "'Bar opening' reads as a pub opening its doors; 'bar' means except, so the opening letter goes.",
-     "definitionFit": "A definition by example: a district of west London famous for its carnival."
+     "surface": "A London district where a bar's opening is botched, with a hotel being badly tied up.",
+     "walkthrough": "'bar opening' looks like a pub opening its doors; here 'bar' means except, so KNOTTING loses its silent K to give NOTTING.",
+     "definitionFit": "Notting Hill is a district of west London known for its carnival and Portobello Road market."
     },
     "features": {
      "answerInScene": true,
@@ -3314,47 +3381,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "case of",
-       "note": "the case of a word is its outside, its first and last letters"
+       "text": "on",
+       "at": 25,
+       "note": "on means placed after, so the case of negligence comes after company register"
       }
      ],
      "parts": [
       {
        "words": "company",
-       "gives": "CO",
-       "note": "Co. = company"
+       "at": 28,
+       "gives": "CO"
       },
       {
        "words": "register",
+       "at": 36,
        "gives": "LOG",
-       "note": "a log is a register or record"
+       "note": "a log is a written register or record"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "NE",
        "indicators": [
         {
-         "text": "on",
-         "note": "on means placed after in an across answer"
+         "text": "case of",
+         "at": 6,
+         "note": "the case of a word is its outside, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case of negligence",
-         "gives": "NE",
-         "select": "outer",
-         "note": "the outer letters of NEGLIGENCE"
+         "words": "negligence",
+         "at": 14,
+         "note": "its first and last letters are the case taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company register records a case of negligence involving perfume.",
-     "walkthrough": "'Case of negligence' reads as a legal claim; 'case' asks only for the outside letters.",
-     "definitionFit": "A plain gloss: toilet water named after the German city became the general word for a light scent."
+     "surface": "A firm accused of negligence over a scent, the case logged on its register.",
+     "definitionFit": "Cologne, or eau de Cologne, is a light perfume, so it is a scent."
     },
     "features": {
      "answerInScene": false,
@@ -3431,42 +3496,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEREMIN",
-     "indicators": [
-      {
-       "text": "just short of",
-       "note": "just short means only one letter short, so MINE loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in that place",
+       "at": 11,
+       "gives": "THERE",
+       "note": "there means in that place"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "just short of",
+         "at": 25,
+         "note": "just short means one letter shy, so the final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "in that place",
-         "gives": "THERE",
-         "note": "there = in that place"
+         "words": "pit",
+         "at": 39,
+         "gives": "MINE",
+         "note": "a pit is a coal mine"
         },
         {
-         "words": "pit",
-         "gives": "MIN",
-         "note": "MINE, a pit, without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tool left in some spot just before the pit.",
-     "walkthrough": "'Instrument' reads as a tool; it is an electronic musical instrument played without touching it.",
-     "definitionFit": "A definition by example: the electronic instrument played by moving hands near its aerials is a musical instrument."
+     "surface": "An instrument kept over there, just short of the pit.",
+     "definitionFit": "The theremin is an electronic musical device played by moving the hands near two antennae without touching it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "pit"
+     "aptDefinition": false
     }
    }
   }
