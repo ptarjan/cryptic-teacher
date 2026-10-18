@@ -214,50 +214,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a pony",
-      "at": 26
+      "text": "pony",
+      "at": 28
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "said briefly, cut short, so CONNED loses its last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "had",
-       "gives": "CONNE",
-       "note": "had = conned (tricked), cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly says the word is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had",
+         "at": 8,
+         "gives": "CONNED",
+         "note": "to be had is to be conned, tricked"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "rearing",
-         "note": "a rearing animal rises up on its hind legs; in a down clue that turns the word bottom to top"
+         "at": 18,
+         "note": "rearing means rising up, which in a down clue reads the word upwards"
         }
        ],
        "parts": [
         {
          "words": "sheep",
+         "at": 12,
          "gives": "RAM",
-         "note": "a ram is a male sheep, turned upward"
+         "note": "a ram is a male sheep"
         }
        ]
       },
       {
        "words": "a",
-       "note": "as printed"
+       "at": 26,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone briefly kept sheep that raised a pony.",
-     "walkthrough": "\"Had\" as in 'I've been had' means tricked. The \"a\" is used in the wordplay and reappears in the definition, a common Times economy.",
-     "definitionFit": "A definition by class: the Connemara is a hardy pony breed from the west of Ireland."
+     "surface": "A short note on a pony that once bred sheep.",
+     "walkthrough": "In a down clue 'rearing' turns RAM upwards into MAR.",
+     "definitionFit": "The Connemara is a hardy breed of pony from the west of Ireland."
     },
     "features": {
      "answerInScene": true,
@@ -554,40 +567,43 @@
      "indicators": [
       {
        "text": "broken by",
-       "note": "something broken is split open"
+       "at": 6,
+       "note": "broken by says the other word is split open by these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "is fixed",
-         "gives": "SET",
-         "note": "set = fixed"
-        },
-        {
-         "words": "penny",
-         "gives": "P",
-         "note": "p = penny"
-        }
-       ]
+       "words": "is fixed",
+       "at": 28,
+       "gives": "SET",
+       "note": "is set means is fixed, the verb phrase read as set"
       },
       {
-       "words": "sweet",
-       "gives": "ROCK",
-       "note": "rock is a hard stick of candy sold at British seaside resorts"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "penny",
+         "at": 16,
+         "gives": "P"
+        },
+        {
+         "words": "sweet",
+         "at": 22,
+         "gives": "ROCK",
+         "note": "rock is a hard stick-shaped sweet sold at British seaside resorts"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tooth snaps on a hard penny sweet and has to be fixed.",
-     "walkthrough": "The dentist story makes \"Tooth\" a molar; it is a tooth on a cog wheel.",
-     "definitionFit": "A mechanical sense: each of the projections on a wheel that engage a chain is a tooth."
+     "surface": "A dentist's tale: a tooth cracked on a cheap sweet has been repaired.",
+     "definitionFit": "A sprocket is a projecting tooth on a wheel that engages a chain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Tooth"
     }
    }
@@ -863,55 +879,58 @@
      "indicators": [
       {
        "text": "to secure",
-       "note": "to secure something is to hold it fast"
+       "at": 9,
+       "note": "to secure means to hold fast, so the race goes around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "occupied by",
-         "note": "an occupied place has someone living in it"
-        }
-       ],
+       "words": "race",
+       "at": 4,
+       "gives": "SPEED",
+       "note": "to race is to speed"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "race",
-         "gives": "SPEED",
-         "note": "speed = race"
-        },
-        {
          "op": "container",
+         "indicators": [
+          {
+           "text": "occupied by",
+           "at": 26,
+           "note": "occupied by says the region holds the husband"
+          }
+         ],
          "parts": [
           {
            "words": "region",
+           "at": 19,
            "gives": "AREA",
-           "note": "area = region"
+           "note": "an area is a region"
           },
           {
            "words": "husband",
-           "gives": "H",
-           "note": "h = husband"
+           "at": 38,
+           "gives": "H"
           }
          ]
+        },
+        {
+         "words": "daughter",
+         "at": 50,
+         "gives": "D"
         }
        ]
-      },
-      {
-       "words": "daughter",
-       "gives": "D",
-       "note": "d = daughter, placed after the region"
       }
      ]
     },
     "explanation": {
-     "surface": "A man led the race to capture a territory his husband and daughter had moved into.",
-     "walkthrough": "The containers are loose: the husband goes inside the region, but the daughter simply follows it, both still within the race.",
-     "definitionFit": "A figurative synonym: to spearhead a campaign is to go at its front, to lead it."
+     "surface": "A runner led a race to take hold of land where a family has settled.",
+     "definitionFit": "To spearhead something is to lead it from the front, so spearheaded means directed."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "race"
     }

@@ -780,45 +780,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "a mix of",
-       "note": "mix the letters that follow"
+       "at": 28,
+       "note": "a mix of says the letters of the words are jumbled together"
+      },
+      {
+       "text": "not",
+       "at": 57,
+       "note": "not says one letter is to be left out of the mixture"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "not right",
-         "note": "'not' tells you to leave something out, and 'right' abbreviates to R, so R leaves greed"
-        }
-       ],
        "parts": [
         {
          "words": "conceit",
-         "note": "anagram fodder, 7 letters"
+         "at": 37
         },
         {
          "words": "greed",
-         "gives": "GEED",
-         "note": "GREED without R; anagram fodder, 4 letters"
+         "at": 49
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 61,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A moralist grumbles that human nature is vanity and greed, both wrong.",
-     "walkthrough": "The surface pretends to be a sermon on innate vice; 'not right' looks like moral disapproval but only drops the letter R.",
-     "definitionFit": "The genetic code is the set of instructions written into every person's DNA."
+     "surface": "A moral warning that human nature is a blend of vanity and avarice.",
+     "walkthrough": "Remove R from the letters of CONCEIT and GREED and rearrange the rest.",
+     "definitionFit": "The genetic code is the DNA instruction set present in every person's cells."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "right"
+     "misdirectedWord": "blueprinted"
     }
    }
   },
@@ -898,53 +902,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "take the first letters of 'done some'"
-      }
-     ],
      "parts": [
       {
        "words": "Bar",
+       "at": 0,
        "gives": "BAN",
-       "note": "to bar is to ban"
+       "note": "to ban is to bar"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cooking",
-         "note": "the letters are cooked up into a new order"
+         "at": 34,
+         "note": "cooking suggests ingredients being worked into something new, so these letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "manager's",
-         "note": "anagram fodder"
+         "at": 4
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 14,
+           "note": "initially takes the first letter of each of done and some"
+          }
+         ],
          "parts": [
           {
            "words": "done some",
-           "note": "first letters, added to the fodder"
+           "at": 24
           }
          ]
         },
         {
          "words": "hot",
+         "at": 44,
          "gives": "H",
-         "note": "H = hot, as on taps; added to the fodder"
+         "note": "H is the abbreviation for hot, as on taps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub landlord has knocked up some hot food, the usual pub fare.",
-     "walkthrough": "'Bar manager' is one phrase in the surface but splits: Bar gives BAN, manager's is fodder. Bangers and mash is sausages with mashed potato; a banger is a sausage.",
-     "definitionFit": "Sausage and mash is a classic British pub meal."
+     "surface": "A landlord has prepared some warm food for the bar menu.",
+     "walkthrough": "MANAGERS with D, S and H rearranges to GERSANDMASH. Bangers and mash is sausages with mashed potato, a British pub staple.",
+     "definitionFit": "Sausages with mashed potato is a classic example of hearty food served in British pubs."
     },
     "features": {
      "answerInScene": true,
@@ -1669,48 +1677,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLEASTER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 24,
+       "note": "first says the jumbled Leo comes before the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Brutally",
-         "note": "the letters are roughly rearranged"
-        },
-        {
          "text": "mad",
-         "note": "mad means deranged, and a deranged word has its letters out of order"
-        },
-        {
-         "text": "first",
-         "note": "first says the mad Leo comes in front of the taser, fixing the order of the two pieces"
+         "at": 15,
+         "note": "mad suggests disorder, so the letters of Leo are scrambled"
         }
        ],
        "parts": [
         {
          "words": "Leo",
-         "note": "anagram of Leo, placed first"
-        },
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Brutally",
+         "at": 0,
+         "note": "brutally suggests violent rough handling, so the letters of taser are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "taser",
-         "note": "anagram of taser"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brutal scene: someone tasers an angry man called Leo and a wild woman called Olive.",
-     "walkthrough": "Olive's capital letter disguises her as a woman; she is the tree.",
-     "definitionFit": "The name comes from Latin olea, olive, plus -aster meaning a wild or inferior kind."
+     "surface": "A violent scene: Leo, gone crazy, is tasered before someone called Olive runs riot.",
+     "definitionFit": "The oleaster is a shrub also called Russian olive, a wild relative of the cultivated olive tree."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
      "misdirectedWord": "Olive"
     }
    }
@@ -1745,43 +1761,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "meets",
-       "note": "meeting puts two pieces side by side, Virginia next to Brunel"
+       "text": "in",
+       "at": 22,
+       "note": "in places these letters inside the pub"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "pub",
+       "at": 25,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "in",
-         "note": "the pieces go inside the pub"
+         "text": "meets",
+         "at": 7,
+         "note": "meets says the two people come together side by side, the state first"
         }
        ],
        "parts": [
         {
-         "words": "pub",
-         "gives": "INN",
-         "note": "an inn is a pub; VA and I go in after IN"
+         "words": "Virginia",
+         "at": 13,
+         "gives": "VA",
+         "note": "VA is the postal abbreviation for the US state of Virginia"
         },
         {
-         "words": "Virginia",
-         "gives": "VA",
-         "note": "the US state abbreviation"
+         "words": "Brunel",
+         "at": 0,
+         "gives": "I",
+         "note": "Brunel is the setter, who refers to themself as I"
         }
        ]
-      },
-      {
-       "words": "Brunel",
-       "gives": "I",
-       "note": "Brunel is the setter, who calls himself I"
       }
      ]
     },
     "explanation": {
-     "surface": "Brunel waits for a woman in the pub, but his date comes to nothing.",
-     "walkthrough": "Brunel is the name of this puzzle's setter, so he is 'I'; he meets Virginia by standing next to her.",
-     "definitionFit": "In vain means without success, fruitlessly."
+     "surface": "The setter has a drink with a woman named Virginia, but nothing comes of it.",
+     "definitionFit": "In vain is an idiom meaning without success, so it means fruitlessly."
     },
     "features": {
      "answerInScene": false,
