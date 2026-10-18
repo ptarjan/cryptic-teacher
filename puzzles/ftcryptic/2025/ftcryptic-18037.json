@@ -617,47 +617,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STEAMSHIP",
+     "op": "container",
      "indicators": [
       {
-       "text": "at sea",
-       "note": "at sea means confused and all over the place, so these letters are jumbled"
+       "text": "aboard",
+       "at": 16,
+       "note": "'aboard' puts the jumbled letters on board, inside the special abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "special",
+       "at": 23,
+       "gives": "SP"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "aboard",
-         "note": "aboard means on board, held inside the other piece"
+         "text": "at sea",
+         "at": 9,
+         "note": "at sea means confused or all over the place, so these letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "special",
-         "gives": "SP",
-         "note": "sp is an abbreviation of special"
+         "words": "Has",
+         "at": 0
         },
         {
-         "words": "Has time",
-         "note": "the letters of has time rearranged"
+         "words": "time",
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spends time at sea aboard a special boat.",
-     "walkthrough": "The rearranged letters go inside SP: S-TEAMSHI-P.",
-     "definitionFit": "A steamship is a ship driven by steam engines, a kind of vessel."
+     "surface": "Someone spends time on the ocean aboard a particular ship.",
+     "walkthrough": "'at sea' looks like part of the nautical picture, but it is the jumble signal, and 'aboard' puts the result on board the special abbreviation.",
+     "definitionFit": "A steamship is a ship driven by steam power, a kind of seagoing craft."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "aboard"
+     "misdirectedWord": "sea"
     }
    }
   },
@@ -1153,46 +1157,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TAURINE",
+     "op": "container",
      "indicators": [
       {
-       "text": "wild",
-       "note": "wild means untamed and disordered, so the letters run loose"
+       "text": "enthralled by",
+       "at": 7,
+       "note": "'enthralled by' has the writer letter held captive inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "enthralled by",
-         "note": "enthralled by means held captive by, so one piece sits inside the other"
+         "text": "wild",
+         "at": 21,
+         "note": "wild means uncontrolled, so these letters run loose into a new order"
         }
        ],
        "parts": [
         {
          "words": "nature",
-         "note": "the letters of nature rearranged"
-        },
-        {
-         "words": "Writer",
-         "gives": "I",
-         "note": "the setter refers to themself as I"
+         "at": 26
         }
        ]
+      },
+      {
+       "words": "Writer",
+       "at": 0,
+       "gives": "I",
+       "note": "the writer of the clue refers to themselves as I"
       }
      ]
     },
     "explanation": {
-     "surface": "An author captivated by the wild nature of bulls.",
-     "walkthrough": "I goes inside the rearranged letters: TAUR-I-NE.",
-     "definitionFit": "Taurine is an adjective meaning relating to bulls, from Latin taurus, a bull."
+     "surface": "An author captivated by untamed nature writes about bulls.",
+     "walkthrough": "'wild' turns NATURE into TAURNE, and 'enthralled by' holds the writer's I inside it.",
+     "definitionFit": "Taurine is an adjective from the Latin taurus, a bull, meaning relating to or resembling bulls."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
     }
    }
   },

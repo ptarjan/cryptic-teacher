@@ -46,44 +46,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NARCISSI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found among",
+       "at": 24,
+       "note": "'found among' places the word is within the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is found among",
-         "note": "'found among' means sitting in the middle of something, so IS goes inside the other letters"
-        },
-        {
          "text": "rocky",
-         "note": "rocky means unsteady and wobbling, so the letters of CAIRNS will not stay in their order"
+         "at": 36,
+         "note": "rocky means unsteady, so the letters of cairns totter into a new order"
         }
        ],
        "parts": [
         {
          "words": "cairns",
-         "note": "CAIRNS rearranged, split around the insert"
-        },
-        {
-         "words": "is",
-         "note": "used as itself, placed after NARC"
+         "at": 42
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "surface": "A walker spots a daffodil growing between the stones of a rugged cairn.",
-     "walkthrough": "The surface uses 'is' as a plain verb, which hides that it supplies two letters. Flowers growing among hillside cairns makes the scene fit the answer.",
-     "definitionFit": "A plural: narcissus is a flower genus including daffodils, and this is its Latin-style plural."
+     "surface": "A plural flower is growing between piles of stones on a hillside.",
+     "walkthrough": "'rocky' fits the picture of stone cairns on a hill, which hides its job as the jumble signal; 'found among' then sets the two-letter word inside the result.",
+     "definitionFit": "Narcissi is the plural of narcissus, the genus of flowers that includes daffodils."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "rocky"
     }
    }
   },
@@ -177,39 +179,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RUN",
      "indicators": [
       {
        "text": "will avoid",
-       "note": "to avoid something is to stay out of its way, so the I stays out of the word"
+       "at": 2,
+       "note": "'will avoid' has the letter I steer clear of the disaster word, so it is removed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "I",
-         "note": "the letter I, which must be removed"
-        },
-        {
-         "words": "disaster",
-         "gives": "RUN",
-         "note": "RUIN = disaster; the I between U and N is taken out"
-        }
-       ]
+       "words": "disaster",
+       "at": 13,
+       "gives": "RUIN",
+       "note": "ruin is a disaster"
+      },
+      {
+       "words": "I",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "An actor hopes to avoid a flop during a theatre season.",
-     "walkthrough": "The surface is a nervous performer; the 'I' is not a speaker at all but a letter to be removed.",
-     "definitionFit": "A plain theatre sense: the stretch of consecutive performances a show gets is called its run."
+     "surface": "Someone vows to steer clear of calamity during a stage show's season.",
+     "walkthrough": "'I' looks like the speaker, but it is the letter taken out of RUIN.",
+     "definitionFit": "A run is a continuous series of performances of a play or show."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "I"
     }
@@ -404,43 +400,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to drop",
+       "at": 20,
+       "note": "'to drop' lets the temperature letter fall away from the care word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "care",
+       "at": 15,
+       "gives": "TRUST",
+       "note": "trust means care or custody, as in a child left in someone's trust"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "to drop initial",
-         "note": "an initial is a word's first letter, and dropping it means leaving it off"
+         "text": "initial",
+         "at": 28,
+         "note": "the initial of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "care",
-         "gives": "TRUST",
-         "note": "trust = care, as in 'left in my trust'"
-        },
-        {
-         "gives": "T"
+         "words": "temperature",
+         "at": 36,
+         "note": "the word temperature, whose first letter is wanted"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "temperature",
-       "note": "T = temperature, the first letter, which goes"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recovering from a flood wonders whether to be less careful about the heating at first.",
-     "walkthrough": "'Initial temperature' reads like a thermostat setting, but it names the letter to lose: the T at the front.",
-     "definitionFit": "A cause-and-effect definition: the corrosion iron suffers when water and air get at it."
+     "surface": "A worried note about flood damage and whether lowering the heat would help.",
+     "walkthrough": "'initial temperature' is T, which drops out of TRUST. 'Water damage' is a loose definition: rust is what water does to iron.",
+     "definitionFit": "Rust is the corrosion iron suffers through exposure to moisture, so it is damage caused by water."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "temperature"
+     "misdirectedWord": "care"
     }
    }
   },
@@ -1220,46 +1222,49 @@
      "indicators": [
       {
        "text": "evident in",
-       "note": "something evident in a thing can be seen within it, so these letters sit inside"
+       "at": 10,
+       "note": "'evident in' says the volume letter and the word is are to be seen inside the turned row word"
       }
      ],
      "parts": [
-      {
-       "op": "container",
-       "parts": [
-        {
-         "words": "rising row",
-         "gives": "REIT",
-         "note": "a tier = a row; rising, it runs backward"
-        },
-        {
-         "words": "Volume",
-         "gives": "V",
-         "note": "V = volume"
-        }
-       ]
-      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "rising",
-         "note": "in a down entry, rising means reading from the bottom up"
+         "at": 21,
+         "note": "in a down clue rising reads a word upwards, so it is reversed"
         }
        ],
        "parts": [
         {
+         "words": "row",
+         "at": 28,
+         "gives": "TIER",
+         "note": "a tier is a row, as of seats"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Volume",
+         "at": 0,
+         "gives": "V"
+        },
+        {
          "words": "is",
-         "note": "used as itself; V and IS sit after RE"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A noise complaint asks whether a rowdy tier of spectators should be looked at again.",
-     "walkthrough": "The row is a tier, as in stadium seating, not an argument, and 'volume' is not loudness but an abbreviation.",
-     "definitionFit": "A figurative sense: to revisit an idea is to go back to it and think it over."
+     "surface": "Is the loudness obvious in a rising argument? Think again.",
+     "walkthrough": "'row' looks like a quarrel, matching 'Volume', but it is a tier; 'rising' turns that to REIT, and V plus IS goes 'in' after its first two letters.",
+     "definitionFit": "To revisit an idea is to think about it once more, reconsider it."
     },
     "features": {
      "answerInScene": false,
@@ -1468,62 +1473,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TROPHYROOM",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "going back means running in the opposite direction, so the word reads backward"
-        },
-        {
-         "text": "rotating",
-         "note": "a rotating thing turns around, so the word is turned end to end"
+         "at": 5,
+         "note": "'back' sends the left word backwards"
         }
        ],
        "parts": [
         {
-         "words": "Left back",
-         "gives": "TROP",
-         "note": "port = left, on a ship; turned back"
-        },
+         "words": "Left",
+         "at": 0,
+         "gives": "PORT",
+         "note": "port is the left side of a ship"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "gutted",
-           "note": "gutting removes the insides, leaving only the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hardly gutted",
-           "gives": "HARDLY",
-           "note": "HARDLY emptied of its middle"
-          }
-         ]
-        },
+         "text": "gutted",
+         "at": 17,
+         "note": "a gutted word loses its insides, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
         {
-         "words": "to secure rotating",
-         "gives": "ROOM",
-         "note": "to moor = to secure a boat; turned around"
+         "words": "hardly",
+         "at": 10,
+         "note": "the word hardly, whose outer letters are wanted"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rotating",
+         "at": 34,
+         "note": "'rotating' turns the securing word round to read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to secure",
+         "at": 24,
+         "gives": "MOOR",
+         "note": "to moor a boat is to secure it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football left back, barely disappointed, wins a place in the club's trophy cabinet.",
-     "walkthrough": "The surface is football: a left back is a defender, and 'gutted' is British slang for bitterly disappointed. Port is the left side of a ship.",
-     "definitionFit": "A descriptive definition: a room set aside for displaying trophies is a space for awards."
+     "surface": "A footballer playing left back is barely upset about securing a spinning trophy cabinet.",
+     "walkthrough": "'Left back' reads as a football position, but 'back' turns the nautical word for left; 'to secure' is the verb used for tying up a boat, and 'rotating' turns that round too.",
+     "definitionFit": "A trophy room is a room where cups, medals and other prizes are displayed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gutted"
+     "misdirectedWord": "back"
     }
    }
   },
@@ -1732,43 +1747,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "kept away",
+       "at": 33,
+       "note": "'kept away' means the second letter is held off and removed from the slow word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "kept away",
-         "note": "something kept away is not allowed in, so the letter is left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "barely moving",
-         "gives": "SLOW",
-         "note": "slow = barely moving"
-        },
-        {
-         "gives": "S"
-        }
-       ]
+       "words": "barely moving",
+       "at": 6,
+       "gives": "SLOW",
+       "note": "slow means barely moving"
       },
       {
-       "unchecked": true,
        "words": "second",
-       "note": "S = second, the letter removed from the front"
+       "at": 26,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone feeling down barely moves, with a helper kept away.",
-     "walkthrough": "'Second' could be a helper in a duel or boxing, but it is only the abbreviation S.",
-     "definitionFit": "A mood synonym: feeling low and feeling down both mean dispirited."
+     "surface": "Feeling down and hardly moving, with a moment kept at bay.",
+     "walkthrough": "'Down' looks like a direction, but it is the mood sense, depressed.",
+     "definitionFit": "Feeling low means feeling depressed or dispirited, a synonym for down."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "second"
+     "misdirectedWord": "Down"
     }
    }
   },

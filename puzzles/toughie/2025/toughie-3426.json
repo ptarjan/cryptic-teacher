@@ -309,42 +309,50 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "GASTRICBALLOON",
-     "indicators": [
-      {
-       "text": "making energy expand",
-       "note": "the energy letter is swapped for a word meaning to swell up, so one letter is replaced by a longer piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "fuel",
+       "at": 35,
        "gives": "GAS",
-       "note": "gas is a fuel, and American petrol"
+       "note": "gas is a fuel, and in the US also petrol"
       },
       {
-       "words": "shake",
-       "gives": "TRICE",
-       "note": "in two shakes means in a trice, a moment"
-      },
-      {
-       "words": "energy",
-       "gives": "E",
-       "note": "E is the physics symbol for energy"
-      },
-      {
-       "words": "expand",
-       "gives": "BALLOON",
-       "note": "to balloon is to swell or expand"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "making",
+         "at": 48,
+         "note": "'making' has the energy letter turn into the word for expand, a swap of one piece for another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shake",
+         "at": 42,
+         "gives": "TRICE",
+         "note": "'in two shakes' means in a trice, so a shake is a trice, a moment"
+        },
+        {
+         "words": "energy",
+         "at": 55,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "words": "expand",
+         "at": 62,
+         "gives": "BALLOON",
+         "note": "to balloon is to expand rapidly"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fuel-laden milkshake that bloats you with energy so you feel full.",
-     "walkthrough": "The E of TRICE is replaced by BALLOON. A gastric balloon is an inflatable device placed in the stomach to help weight loss.",
-     "definitionFit": "A gastric balloon fills part of the stomach so the patient feels sated after eating less."
+     "surface": "A dieter's aid that bloats you with gas, a jolt making energy swell.",
+     "walkthrough": "A shake is a trice, from the idiom 'in two shakes'; 'making' turns that word's energy letter into the word for expand, giving TRICBALLOON, and the fuel goes in front.",
+     "definitionFit": "A gastric balloon is inflated inside the stomach to give a feeling of fullness and so help weight loss."
     },
     "features": {
      "answerInScene": true,
@@ -935,51 +943,68 @@
    "annotation": {
     "definitions": [
      {
-      "text": "covers",
+      "text": "covers?",
       "at": 43
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TARPAULINS",
-     "indicators": [
-      {
-       "text": "discovered",
-       "note": "dis-covered means with the covering removed, so the outside letters come off"
-      },
-      {
-       "text": "half-cut",
-       "note": "half-cut means cut in half, so only the first half of the word is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Ringo",
-       "gives": "STARR",
-       "note": "Ringo Starr, the Beatles' drummer"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 6,
+         "note": "to be discovered here is to lose one's cover, so the surname is stripped of its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ringo",
+         "at": 0,
+         "gives": "STARR",
+         "note": "Ringo Starr, the Beatles' drummer"
+        }
+       ]
       },
       {
        "words": "McCartney",
+       "at": 17,
        "gives": "PAUL",
-       "note": "Paul McCartney, his bandmate"
+       "note": "Paul McCartney, another Beatle"
       },
       {
-       "words": "inside",
-       "note": "taken as written before it is halved"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 27,
+         "note": "half of the word inside is cut away, leaving its first half; half-cut is also slang for drunk"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inside",
+         "at": 36
+        },
+        {
+         "gives": "IDE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ringo found Paul McCartney drunk ('half-cut') hiding under the covers.",
-     "walkthrough": "Ringo's surname loses its outer letters and the word inside is cut to its first half. Half-cut is British slang for tipsy.",
-     "definitionFit": "Tarpaulins are heavy waterproof sheets used to protect things, so they are covers."
+     "surface": "Ringo finds Paul McCartney drunk inside, a Beatles anecdote.",
+     "walkthrough": "'Half-cut' looks like British slang for tipsy describing McCartney, but it halves the word 'inside'; 'discovered' takes the cover, the outer letters, off Ringo's surname.",
+     "definitionFit": "Tarpaulins are waterproof sheets used to protect things outdoors; the question mark flags the noun sense hidden by the plural verb-like reading."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "discovered"
+     "misdirectedWord": "half-cut"
     }
    }
   },

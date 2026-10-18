@@ -1367,39 +1367,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BLOATED",
      "indicators": [
       {
-       "text": "to retire",
-       "note": "to retire is to go to bed, so the shortened word is put inside the word for bed"
+       "text": "to",
+       "at": 39,
+       "note": "'to' works as 'into' here, sending the shortened reluctant word into the retire word"
       }
      ],
      "parts": [
       {
+       "words": "retire",
+       "at": 42,
+       "gives": "BED",
+       "note": "to retire for the night is to go to bed, so retire gives the word bed"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "BLOATED",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost means not quite all, so the word loses its final letter"
+         "at": 22,
+         "note": "'almost' drops the final letter of the word"
         }
        ],
        "parts": [
         {
          "words": "reluctant",
+         "at": 29,
          "gives": "LOATH",
-         "note": "loath means reluctant; its last letter is dropped"
+         "note": "loath means reluctant"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tired of their job but not quite ready for retirement.",
-     "walkthrough": "'Fed up' suggests weariness, but the definition means over-full: more than fed. Retiring means going to bed, so the word for reluctant, cut short, is put in BED.",
-     "definitionFit": "Bloated means swollen from overeating, so someone bloated has had more than enough to eat."
+     "surface": "Someone sick of it all and not quite ready to quit work.",
+     "walkthrough": "'retire' looks like leaving work, but it means going to bed; 'almost' cuts LOATH to LOAT, which goes 'to' (into) BED. 'Fed up' reads as weary, but the definition means overfull.",
+     "definitionFit": "Being bloated means being swollen with food, going beyond merely full."
     },
     "features": {
      "answerInScene": false,
@@ -1609,39 +1617,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SLIMEBALL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "stomach-turning",
-       "note": "the stomach is the middle, so turning it means the inner letters of the word for grin are flipped round"
+       "text": "with",
+       "at": 8,
+       "note": "'with' joins the party word onto the turned word, which comes first"
       }
      ],
      "parts": [
       {
-       "words": "grin",
-       "gives": "SMILE",
-       "note": "a grin is a smile"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "stomach-turning",
+         "at": 13,
+         "note": "the stomach of a word is its middle, so its three middle letters are turned round to read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grin",
+         "at": 29,
+         "gives": "SMILE",
+         "note": "a grin is a smile"
+        },
+        {
+         "gives": "MIL"
+        },
+        {
+         "gives": "LIM"
+        }
+       ]
       },
       {
        "words": "party",
+       "at": 2,
        "gives": "BALL",
-       "note": "a ball is a formal dance party"
+       "note": "a ball is a formal dancing party"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A guest at a party wears a nauseating grin.",
-     "walkthrough": "Party here also means a person, as in the guilty party, which makes the whole clue a description of the answer.",
-     "definitionFit": "A slimeball is a repellent, oily person, someone whose sickly grin turns your stomach."
+     "surface": "Someone at a do wearing a nauseating leer.",
+     "walkthrough": "'stomach-turning' turns only the middle MIL of SMILE, giving SLIME, and 'with' adds BALL; the whole clue also describes the answer, a 'party' being a person.",
+     "definitionFit": "A slimeball is a repulsive, oily person, the kind whose ingratiating smile makes you queasy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "party"
+     "misdirectedWord": "stomach-turning"
     }
    }
   },

@@ -163,56 +163,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROBOTIC",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 7,
+         "note": "'into' sends the bishop letter inside the root word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "into",
-           "note": "this preposition means entering, so one piece is placed within another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "something radical",
-           "gives": "ROOT",
-           "note": "a root is the radical source of something; radical comes from Latin for root"
-          },
-          {
-           "words": "Bishop",
-           "gives": "B",
-           "note": "B is the chess notation for bishop"
-          }
-         ]
+         "words": "something radical",
+         "at": 12,
+         "gives": "ROOT",
+         "note": "radical comes from the Latin for root, so something radical is a root"
         },
         {
+         "words": "Bishop",
+         "at": 0,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 31,
+         "note": "'mostly' keeps most of the word, dropping its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "very cold",
-         "gives": "IC",
-         "note": "ICY with its last letter removed"
+         "at": 38,
+         "gives": "ICY",
+         "note": "icy means very cold"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A churchman caught up in some radical scheme, chilly and lacking humanity.",
-     "walkthrough": "A word meaning very cold loses its final letter to give IC.",
-     "definitionFit": "Something robotic behaves mechanically, without human feeling or warmth, like a machine."
+     "surface": "A churchman joins an extremist movement, mostly frosty and lacking in humanity.",
+     "walkthrough": "'something radical' looks like an extremist, but radical originally means relating to roots.",
+     "definitionFit": "Robotic behaviour is mechanical and lacking human warmth or feeling."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "radical"
     }
@@ -311,36 +317,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TOURNEY",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is swapped in to replace it"
+       "at": 24,
+       "note": "'time for Jack' means the time letter stands in place of the jack letter"
       }
      ],
      "parts": [
       {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "words": "travel",
+       "at": 36,
+       "gives": "JOURNEY",
+       "note": "to journey is to travel"
       },
       {
        "words": "Jack",
+       "at": 28,
        "gives": "J",
-       "note": "J is the abbreviation for jack in cards"
+       "note": "J is the card abbreviation for jack"
       },
       {
-       "words": "travel",
-       "gives": "JOURNEY",
-       "note": "to journey is to travel"
+       "words": "time",
+       "at": 19,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports fixture where it is time for a player called Jack to set off.",
-     "walkthrough": "JOURNEY has its J replaced by T.",
-     "definitionFit": "A tourney is a tournament, originally a medieval jousting competition between knights."
+     "surface": "It's time for Jack to set off for the sporting competition.",
+     "walkthrough": "'time for Jack' looks like a phrase about someone called Jack, but it is a swap: T in place of J.",
+     "definitionFit": "A tourney is a tournament, originally a medieval jousting competition and now any series of games."
     },
     "features": {
      "answerInScene": true,
@@ -1357,48 +1364,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECLUSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "half a",
-       "note": "taking only half of something means the rest is cut away"
+       "text": "to eat",
+       "at": 25,
+       "note": "'to eat' has the plan word swallow the cake piece, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "cunning plan",
+       "at": 12,
+       "gives": "RUSE",
+       "note": "a ruse is a cunning plan or trick"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to eat",
-         "note": "what is eaten goes inside the eater"
+         "text": "half",
+         "at": 32,
+         "note": "'half' keeps only the first three of the cake's six letters"
         }
        ],
        "parts": [
         {
-         "words": "cunning plan",
-         "gives": "RUSE",
-         "note": "a ruse is a cunning trick"
+         "words": "a cake",
+         "at": 37,
+         "gives": "ECLAIR",
+         "note": "an eclair is a cake"
         },
         {
-         "words": "cake",
-         "gives": "ECL",
-         "note": "the first half of eclair, a cream cake"
+         "gives": "AIR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hermit scheming to get his hands on part of a cake.",
-     "walkthrough": "The cake has to be one with an even number of letters to halve: the six-letter eclair.",
-     "definitionFit": "A recluse lives in seclusion, avoiding other people, just as a hermit withdraws from society."
+     "surface": "A recluse with a crafty scheme for scoffing half a pastry.",
+     "definitionFit": "A recluse lives apart from society, as a hermit does."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "eat"
     }
    }
