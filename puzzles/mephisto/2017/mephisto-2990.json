@@ -884,57 +884,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOTRODDER",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "into",
+       "at": 21,
+       "note": "into says the walking word goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "into",
-         "note": "one word goes into another, landing inside it"
+         "text": "drunk",
+         "at": 40,
+         "note": "drunk means reeling, so the remaining letters are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "drunk",
-           "note": "drunk means reeling, so the letters stagger into a new order"
+           "text": "almost",
+           "at": 33,
+           "note": "almost means not quite all, so the name loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "Rhodes",
-           "gives": "RHODE",
-           "note": "the island name without its final letter"
+           "at": 26,
+           "note": "the island's name, shortened"
+          },
+          {
+           "gives": "S"
           }
          ]
-        },
-        {
-         "words": "stepped",
-         "gives": "TROD",
-         "note": "trod is the past of tread, to step"
         }
        ]
+      },
+      {
+       "words": "stepped",
+       "at": 13,
+       "gives": "TROD",
+       "note": "trod is the past tense of tread, to step"
       }
      ]
     },
     "explanation": {
-     "surface": "A young tearaway wandered drunkenly onto a Greek island.",
-     "definitionFit": "A hot-rodder drives a souped-up car fast, typically a reckless young man."
+     "surface": "A tearaway youth on holiday stumbles into the Greek island of Rhodes, nearly paralytic.",
+     "walkthrough": "'Rhodes almost' gives RHODE, which is 'drunk' to HO...DER, with TROD going 'into' it.",
+     "definitionFit": "A hot-rodder drives a souped-up car fast and dangerously, the stereotype of a reckless young man."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "stepped"
     }
    }
   },

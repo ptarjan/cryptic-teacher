@@ -277,36 +277,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETHIC",
-     "indicators": [
-      {
-       "text": "laid bare",
-       "note": "laying something bare strips its covering, so the outside letters of the word are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Spielberg film",
+       "at": 0,
        "gives": "ET",
-       "note": "E.T. the Extra-Terrestrial was directed by Steven Spielberg"
+       "note": "E.T. the Extra-Terrestrial is Steven Spielberg's 1982 film"
       },
       {
-       "words": "which",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "laid bare",
+         "at": 21,
+         "note": "laid bare means stripped of its covering, so the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "which",
+         "at": 15,
+         "note": "the word with its outer letters stripped"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Spielberg movie that exposed someone's moral convictions.",
-     "walkthrough": "'which' looks like a relative pronoun but is the word to strip of its outer letters.",
-     "definitionFit": "An ethic is a principle of right conduct, a moral belief someone holds."
+     "surface": "A Spielberg film that exposed somebody's moral principles.",
+     "walkthrough": "'Which laid bare' strips W and H from the outside of the word, leaving HIC.",
+     "definitionFit": "An ethic is a principle of right conduct, a moral standard someone holds."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "which"
+     "misdirectedWord": "bare"
     }
    }
   },
@@ -1655,51 +1661,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DOYENNE",
      "indicators": [
       {
        "text": "doctor",
-       "note": "to doctor something is to tamper with it, so the letters are rearranged"
+       "at": 14,
+       "note": "to doctor is to tamper with, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DOYENNE",
        "indicators": [
         {
          "text": "denied",
-         "note": "being denied means being refused, so this letter is withheld from the word"
+         "at": 30,
+         "note": "denied means refused, so that letter is taken away from the word"
         }
        ],
        "parts": [
         {
          "words": "annoyed",
-         "note": "taken as written"
+         "at": 21,
+         "note": "the word as written, minus one letter"
         },
         {
          "words": "advanced",
+         "at": 37,
          "gives": "A",
-         "note": "A is short for advanced, as in A-level"
-        },
-        {
-         "words": "drug",
-         "gives": "E",
-         "note": "E is slang for the drug ecstasy"
+         "note": "A is a common abbreviation for advanced, as in A level"
         }
        ]
+      },
+      {
+       "words": "drug",
+       "at": 46,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "An irritated senior woman doctor refused an experimental drug.",
-     "walkthrough": "'doctor' looks like part of 'female doctor' but is the anagram signal; ANNOYED without A, plus E, is rearranged.",
-     "definitionFit": "A doyenne is the most respected or longest-serving woman in a field, so a senior female."
+     "surface": "A cross physician refused a new medicine.",
+     "walkthrough": "'Doctor' looks like a person, but here it is the verb to tamper with. Remove A from ANNOYED, add E, then rearrange.",
+     "definitionFit": "A doyenne is the most respected or senior woman in a particular field."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "doctor"
     }

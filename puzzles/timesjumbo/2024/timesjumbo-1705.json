@@ -2860,51 +2860,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "METEOR",
+     "indicators": [
+      {
+       "text": "full of",
+       "at": 26,
+       "note": "full of says the jumbled letters hold the next pieces inside them"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "disastrous",
-         "note": "a disaster wrecks the order of the letters"
+         "at": 14,
+         "note": "disastrous means ruinous, so the letters are thrown into disorder"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "full of",
-           "note": "the rearranged letters hold the others inside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "more",
-           "note": "anagram of MORE"
-          },
-          {
-           "words": "energy",
-           "gives": "E",
-           "note": "E = energy"
-          },
-          {
-           "words": "temperature",
-           "gives": "T",
-           "note": "T = temperature"
-          }
-         ]
+         "words": "more",
+         "at": 9,
+         "note": "the word as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "energy",
+         "at": 34,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "words": "temperature",
+         "at": 45,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fireball grows more destructive as it heats with energy.",
-     "walkthrough": "A meteor streaking through the sky is a fireball.",
-     "definitionFit": "A meteor burning up in the atmosphere is seen as a fireball."
+     "surface": "A fireball even more catastrophic, packed with heat and energy.",
+     "walkthrough": "MORE rearranged ('disastrous') gives M...EOR, 'full of' E and T.",
+     "definitionFit": "A meteor is a space rock burning up as it enters the atmosphere, seen as a streak of fire."
     },
     "features": {
      "answerInScene": true,
@@ -3074,41 +3076,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "originally",
-       "note": "take the first letter of oak"
+       "text": "in",
+       "at": 29,
+       "note": "in says that letter goes inside the avenue"
       }
      ],
      "parts": [
       {
        "words": "tree-lined avenue",
+       "at": 32,
        "gives": "GROVE",
-       "note": "a grove is a tree-lined walk or road"
+       "note": "grove appears in street names for an avenue lined with trees"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "in",
-         "note": "that letter goes in the avenue"
+         "text": "originally",
+         "at": 18,
+         "note": "originally means at the start, so only the first letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "oak originally",
-         "note": "first letter of oak"
+         "words": "oak",
+         "at": 14,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Climbing down from an oak on a leafy avenue.",
-     "walkthrough": "Get down means to dance, not to climb out of the tree.",
-     "definitionFit": "To groove and to get down both mean to dance with enjoyment."
+     "surface": "Climbing down from an oak tree on a leafy avenue.",
+     "walkthrough": "'Get down' looks like climbing out of the oak, but it is slang for dancing.",
+     "definitionFit": "To groove and to get down are both slang for dancing enthusiastically to music."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "down"
     }
    }
