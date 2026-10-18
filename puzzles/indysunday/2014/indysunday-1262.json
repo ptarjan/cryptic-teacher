@@ -1096,41 +1096,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRASCATI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "spilt",
+       "at": 28,
+       "note": "spilt wine is splashed about, so these letters are scattered into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "spilt",
-         "note": "spilt liquid scatters everywhere, so the letters are scattered too"
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means most of the word is kept, so the final letter of carafe is dropped"
         }
        ],
        "parts": [
         {
          "words": "carafe",
-         "gives": "CARAF",
-         "note": "the word with its final letter cut"
+         "at": 8,
+         "note": "taken as written, before its last letter goes"
         },
         {
-         "words": "It's",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "It's",
+       "at": 23,
+       "gives": "ITS",
+       "note": "the letters of it's, ignoring the apostrophe"
       }
      ]
     },
     "explanation": {
-     "surface": "Wine poured into a jug, most of it slopped out.",
-     "definitionFit": "Frascati is a white wine from the hills near Rome, an example of a wine."
+     "surface": "Someone has knocked over a carafe and most of the wine has gone everywhere.",
+     "walkthrough": "'mostly' trims carafe to CARAF; with ITS that gives CARAFITS, which 'spilt' rearranges.",
+     "definitionFit": "Frascati is a white wine made in the hills near Rome, named after the town there."
     },
     "features": {
      "answerInScene": true,

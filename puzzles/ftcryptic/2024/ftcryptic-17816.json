@@ -1216,51 +1216,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SELLERS",
      "indicators": [
       {
        "text": "contain",
-       "note": "one item that contains another holds it within"
+       "at": 20,
+       "note": "contain means the see-and-racks letters close around the plates"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SELLERS",
-       "indicators": [
-        {
-         "text": "empty",
-         "note": "an empty word has had its inside taken out, leaving only its outer letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Realise",
+         "at": 0,
          "gives": "SEE",
-         "note": "to realise something is to see it"
+         "note": "to see something is to realise it"
         },
         {
-         "words": "plates",
-         "gives": "LL",
-         "note": "L-plates, the learner plates on a British car"
-        },
-        {
-         "words": "racks",
-         "note": "taken as written"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "at": 8,
+           "note": "empty means the inside letters of racks are removed, leaving its outer pair"
+          }
+         ],
+         "parts": [
+          {
+           "words": "racks",
+           "at": 14,
+           "note": "taken as written, for its first and last letters"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "plates",
+       "at": 28,
+       "gives": "LL",
+       "note": "L-plates are the learner plates on a British car, so two of them give two Ls"
       }
      ]
     },
     "explanation": {
-     "surface": "Discovering that empty dish racks hold plates and jugs.",
-     "walkthrough": "SEE holds LL, and RACKS emptied leaves RS. L-plates are the red L signs a British learner driver must display.",
-     "definitionFit": "A salesman makes a pitch, so sellers are those who pitch goods to buyers."
+     "surface": "Someone noticing empty dish racks holding plates and jugs in a kitchen.",
+     "walkthrough": "L-plates are the red-on-white plates showing a British driver is a learner, so plates are Ls. 'pitchers' looks like jugs to go with the plates, but means salespeople.",
+     "definitionFit": "A pitch is a sales talk, so salespeople making one are pitchers in the trade sense of the word."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "pitchers"

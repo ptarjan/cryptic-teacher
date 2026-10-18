@@ -911,64 +911,73 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "APARTMENTAL",
      "indicators": [
       {
        "text": "used in",
-       "note": "used in places the earlier words inside the later ones"
+       "at": 25,
+       "note": "used in means the some-and-fellows letters are placed inside the a-and-story letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "note": "short means cut off, so the story loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "some",
-           "gives": "PART",
-           "note": "some of something is part of it"
-          },
-          {
-           "words": "fellows",
-           "gives": "MEN",
-           "note": "fellows are men"
-          },
-          {
-           "words": "story",
-           "gives": "TALE",
-           "note": "a tale is a story"
-          }
-         ]
+         "words": "a",
+         "at": 33,
+         "gives": "A"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 35,
+           "note": "short means the story word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "story",
+           "at": 41,
+           "gives": "TALE",
+           "note": "a tale is a story"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "some",
+         "at": 12,
+         "gives": "PART",
+         "note": "part means some, as in part of the cake"
+        },
+        {
+         "words": "fellows",
+         "at": 17,
+         "gives": "MEN",
+         "note": "men are fellows"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short story features some men and a description of a flat.",
-     "walkthrough": "'Used in' sends the middle words inside the outer pair formed by the opening article and the clipped story.",
-     "definitionFit": "Apartmental is a rare adjective meaning relating to an apartment, which in Britain is a flat."
+     "surface": "A short story in which some men share a flat.",
+     "walkthrough": "A and TAL (tale cut short) hold PART and MEN.",
+     "definitionFit": "Apartmental is an adjective formed from apartment, the American word for a flat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "flat"
+     "misdirectedWord": "fellows"
     }
    }
   },
@@ -2861,53 +2870,59 @@
      "indicators": [
       {
        "text": "visiting",
-       "note": "a visitor goes inside, so these letters sit within the army"
+       "at": 24,
+       "note": "visiting means the a-and-writer letters go inside the army letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "army",
-         "gives": "TA",
-         "note": "the TA is the Territorial Army, Britain's volunteer reserve"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "army",
+       "at": 33,
+       "gives": "TA",
+       "note": "TA is the Territorial Army, Britain's volunteer reserve"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "briefly",
-         "note": "briefly means shortened, so the last letter of the writer goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "French writer",
-         "gives": "VERNE",
-         "note": "Jules Verne was a French novelist"
+         "words": "A",
+         "at": 0,
+         "gives": "A"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 16,
+           "note": "briefly means the writer's name is cut short by its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "French writer",
+           "at": 2,
+           "gives": "VERNE",
+           "note": "Jules Verne, the French novelist"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French novelist pays a short visit to a military restaurant.",
-     "definitionFit": "A taverna is a small Greek restaurant or café."
+     "surface": "A French author on a short visit to some army unit.",
+     "walkthrough": "The French writer is Jules Verne. TA, the Territorial Army, is Britain's volunteer army reserve.",
+     "definitionFit": "A taverna is a small Greek restaurant or café, so it is a place for eating out."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "visiting"
+     "misdirectedWord": "writer"
     }
    }
   },

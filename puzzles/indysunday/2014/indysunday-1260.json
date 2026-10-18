@@ -105,55 +105,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "mistaken",
-       "note": "something mistaken is wrong, so these letters are wrongly ordered"
+       "text": "about",
+       "at": 15,
+       "note": "about means the rearranged letters go round the border letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the rearranged letters surround the next piece"
+         "text": "mistaken",
+         "at": 6,
+         "note": "mistaken means the letters are set down wrongly, so they are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Isn't",
-         "note": "the four letters of isn't rearranged, apostrophe dropped"
-        },
+         "at": 0,
+         "gives": "ISNT",
+         "note": "the letters of isn't, ignoring the apostrophe"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "the borders of",
-           "note": "the borders of a word are its outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "France",
-           "note": "first and last letters"
-          }
-         ]
+         "text": "the borders of",
+         "at": 21,
+         "note": "the borders are the outside letters of France, its first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "France",
+         "at": 36,
+         "note": "taken as written, for its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A denial that France's frontiers are being overrun.",
-     "walkthrough": "The definition is the verb overrun, with being as a joining word.",
-     "definitionFit": "To infest is to swarm over a place in harmful numbers, as vermin overrun a building."
+     "surface": "Someone denying that France's frontiers are being overrun by invaders.",
+     "walkthrough": "'mistaken' turns ISNT into INST, which goes 'about' FE, the edges of France.",
+     "definitionFit": "Pests that infest a place swarm all over it, so to infest is to overrun in large numbers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mistaken"
+     "misdirectedWord": "borders"
     }
    }
   },
@@ -860,45 +866,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "flying",
-       "note": "letters sent flying are scattered and land in a new order"
+       "text": "to",
+       "at": 47,
+       "note": "to means the Iran letters are added on next, after the tea"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to",
-         "note": "added to means the abbreviation is placed on the end"
+         "text": "flying",
+         "at": 36,
+         "note": "flying means the letters scatter in all directions into a new order"
         }
        ],
        "parts": [
         {
          "words": "Danes",
-         "note": "the five letters rearranged"
-        },
-        {
-         "words": "tea",
-         "gives": "CHA",
-         "note": "cha is slang for tea"
-        },
-        {
-         "words": "Iran",
-         "gives": "IR",
-         "note": "IR is the abbreviation for Iran"
+         "at": 30,
+         "note": "taken as written, as anagram material"
         }
        ]
+      },
+      {
+       "words": "tea",
+       "at": 43,
+       "gives": "CHA",
+       "note": "cha is slang for tea"
+      },
+      {
+       "words": "Iran",
+       "at": 50,
+       "gives": "IR",
+       "note": "IR is the international vehicle code for Iran"
       }
      ]
     },
     "explanation": {
-     "surface": "An airline employing Polish and Danish crew flying tea to Iran.",
-     "walkthrough": "'Poles' with its capital looks like people from Poland; here the poles are the wooden shafts the bearers carry.",
-     "definitionFit": "A sedan chair is an enclosed seat carried on two horizontal poles by bearers, so it is a carrier relying on poles."
+     "surface": "An airline staffed by Polish and Danish crew, flying tea to Iran.",
+     "walkthrough": "'Poles' looks like nationality to go with 'Danes', but it belongs to the definition: the long poles by which bearers carry the seat.",
+     "definitionFit": "A sedan chair is an enclosed seat carried on two poles by bearers, once used to transport people."
     },
     "features": {
      "answerInScene": false,
