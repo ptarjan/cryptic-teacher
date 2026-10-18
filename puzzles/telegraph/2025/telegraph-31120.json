@@ -94,40 +94,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FINE",
      "indicators": [
       {
        "text": "making",
-       "note": "making one thing into another tells us to swap the named letter for a new one"
+       "at": 21,
+       "note": "making the wife loud: the letter for wife is turned into the letter for loud"
       }
      ],
      "parts": [
       {
        "words": "sherry perhaps",
+       "at": 6,
        "gives": "WINE",
-       "note": "sherry is one example of a fortified wine"
+       "note": "sherry is an example of wine, hence perhaps"
       },
       {
        "words": "wife",
-       "gives": "W",
-       "note": "W is the standard abbreviation for wife"
+       "at": 28,
+       "gives": "W"
       },
       {
        "words": "loud",
+       "at": 33,
        "gives": "F",
-       "note": "f, forte, is the musical marking for loud"
+       "note": "F stands for forte, the musical direction meaning loud"
       }
      ]
     },
     "explanation": {
-     "surface": "A pale fino sherry seems to make someone's wife noisy.",
-     "walkthrough": "WINE has its W changed to F, giving FINE. 'Light sherry' reads as one phrase, but 'Light' is the definition and 'sherry perhaps' the wordplay.",
-     "definitionFit": "Fine and light both describe something delicate, thin or slender in texture, like fine rain or light fabric."
+     "surface": "A light sherry seems to have made someone's wife rather noisy.",
+     "walkthrough": "'Light sherry' reads as one phrase, but 'Light' is the definition and 'sherry perhaps' is WINE; 'making' wife loud turns its W into F.",
+     "definitionFit": "Fine means delicate or slight, as in fine thread or a fine mist, which is the sense of light."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "Light"
     }
    }
@@ -1408,28 +1410,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PREFIX",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner famously swapped the opening sounds of words, so the initial sounds are exchanged"
+       "at": 10,
+       "note": "Spooner, the Oxford don famed for swapping the opening sounds of words, signals the swap here"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "complimentary photos",
-       "gives": "PREFIX",
-       "soundsLike": "PREE FIX",
-       "note": "complimentary photos are free pics; swap the opening sounds of those two words"
+       "op": "homophone",
+       "spelt": "FRE",
+       "parts": [
+        {
+         "words": "complimentary",
+         "at": 20,
+         "gives": "FREE",
+         "note": "complimentary means free, given at no cost"
+        }
+       ]
+      },
+      {
+       "words": "photos",
+       "at": 34,
+       "gives": "PIX",
+       "note": "pix is informal for pictures, photos"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to present a famous don's flattering snapshots.",
-     "walkthrough": "Complimentary here means given free, not flattering, which is what the surface suggests.",
-     "definitionFit": "To prefix something is to put it at the front or before, introducing it ahead of the rest."
+     "surface": "A short instruction: introduce the free photos.",
+     "walkthrough": "Say 'free pix' with the opening sounds swapped, the way Spooner reportedly mixed up his words: it comes out as 'pree fix'.",
+     "definitionFit": "To prefix something is to put it before something else, to introduce it at the start."
     },
     "features": {
      "answerInScene": false,

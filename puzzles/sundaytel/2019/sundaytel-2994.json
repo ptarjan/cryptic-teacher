@@ -520,42 +520,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SPEARMINT",
      "indicators": [
       {
        "text": "remarkably",
-       "note": "something done remarkably is done in an unusual way, so the remaining letters are rearranged"
+       "at": 33,
+       "note": "remarkably suggests something out of the ordinary, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPEARMINT",
+       "op": "alternate",
        "indicators": [
         {
          "text": "Odd pieces cut out",
-         "note": "odd pieces are stray leftovers, and cutting them out removes the spare letters from the fodder"
+         "at": 0,
+         "note": "the first and third letters of spam, its odd-numbered pieces, are removed, keeping only the even ones"
         }
        ],
        "parts": [
         {
          "words": "spam",
-         "note": "taken as written"
-        },
-        {
-         "words": "retains",
-         "note": "taken as written"
+         "at": 20,
+         "note": "even letters of spam"
         }
        ]
+      },
+      {
+       "words": "retains",
+       "at": 25,
+       "note": "taken as written as part of the fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook trims bits off some spam and finds it surprisingly fresh-tasting.",
-     "walkthrough": "SPAM RETAINS has two letters too many; the stray A and S are the odd pieces cut out, and the other nine letters are rearranged.",
-     "definitionFit": "Spearmint is a mint plant used to give a cool, fresh taste to gum and sweets."
+     "surface": "Junk email is cut to pieces yet keeps a remarkably fresh flavour, like a tinned meat with mint.",
+     "walkthrough": "'retains' looks like a container signal, but it is part of the fodder, which 'remarkably' then rearranges together with what is left of spam.",
+     "definitionFit": "Spearmint is a common garden mint whose cool, refreshing taste is used in chewing gum and toothpaste."
     },
     "features": {
      "answerInScene": false,
@@ -1129,49 +1129,40 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one part placed in another sits inside it"
+       "at": 25,
+       "note": "the preceding letters go in among the central letters"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "middle of monologue",
+       "at": 28,
        "gives": "OLO",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately points to what comes at the very end, the final letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "monologue",
-         "gives": "OLO",
-         "select": "middle",
-         "note": "the three central letters of the nine"
-        }
-       ]
+       "note": "the very centre of the nine-letter word monologue, its middle three letters with three trimmed from each end"
       },
       {
        "op": "charade",
        "parts": [
         {
          "words": "the",
+         "at": 5,
+         "gives": "THE",
          "note": "taken as written"
         },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "middle of",
-           "note": "the middle of a word is its central few letters"
+           "text": "ultimately",
+           "at": 14,
+           "note": "only the last letter of fool is used"
           }
          ],
          "parts": [
           {
            "words": "fool",
-           "note": "the final letter of the word"
+           "at": 9,
+           "note": "last letter of fool"
           }
          ]
         }
@@ -1180,13 +1171,14 @@
      ]
     },
     "explanation": {
-     "surface": "An actor plays the fool at the climax of a monologue.",
-     "definitionFit": "Othello is Shakespeare's tragedy, an example of a play."
+     "surface": "An instruction for an actor: the play's fool should appear at last in the middle of a long speech.",
+     "walkthrough": "'middle of' here takes the central three letters of the nine-letter word rather than a single one; 'ultimately' gives the last letter of fool, and 'in' sets the pieces inside that centre.",
+     "definitionFit": "Othello is Shakespeare's tragedy of the Moor of Venice, a play."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Play"
+     "misdirectedWord": "fool"
     }
    }
   },

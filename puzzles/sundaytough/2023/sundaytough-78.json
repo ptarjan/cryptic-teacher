@@ -102,26 +102,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "OUSEL",
      "indicators": [
       {
        "text": "bringing down large",
-       "note": "in a down entry, bringing the large-size letter down moves it from the top of the word to the bottom"
+       "at": 9,
+       "note": "in a down clue, the letter for large is brought down from the top of the word to the bottom"
       }
      ],
      "parts": [
       {
        "words": "Parasite",
+       "at": 0,
        "gives": "LOUSE",
-       "note": "a louse is a small parasitic insect"
+       "note": "a louse is a parasitic insect"
       }
      ]
     },
     "explanation": {
-     "surface": "A parasite brings down a big bird, as if lice could fell an eagle.",
-     "walkthrough": "The L at the head of LOUSE is the 'large' that is brought down to the foot, giving OUSEL.",
-     "definitionFit": "An ousel (or ouzel) is an old name for the blackbird and related thrushes, so it is a kind of bird."
+     "surface": "A parasite is responsible for bringing down a large bird.",
+     "walkthrough": "L is the clothing-size abbreviation for large; 'bringing down large' moves it from the top of the parasite word to the foot of this down entry.",
+     "definitionFit": "The ousel, or ouzel, is an old name for the blackbird, and the ring ouzel is a thrush of upland Britain."
     },
     "features": {
      "answerInScene": true,
@@ -812,37 +812,46 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FELTTIPPEN",
-     "indicators": [
-      {
-       "text": "gets expended by",
-       "note": "read as 'ex-pended', the ex is ended or dropped and a replacement takes its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Seemed",
+       "at": 0,
        "gives": "FELT",
-       "note": "it felt cold means it seemed cold"
+       "note": "felt means seemed, as in it felt odd"
       },
       {
-       "words": "correction fluid",
-       "gives": "TIPPEX",
-       "note": "Tipp-Ex is a British brand of white correction fluid, like Wite-Out"
-      },
-      {
-       "words": "new",
-       "gives": "N",
-       "note": "N is the abbreviation for new"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "gets expended by",
+         "at": 24,
+         "note": "read as ex-pended: the word's end, its last letter, is swapped out for the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "correction fluid",
+         "at": 7,
+         "gives": "TIPPEX",
+         "note": "Tipp-Ex is a British brand of white correction fluid for covering typing mistakes"
+        },
+        {
+         "gives": "X"
+        },
+        {
+         "words": "new",
+         "at": 41,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "It seemed the correction fluid had run out, so a new pen was used.",
-     "walkthrough": "The X at the end of the brand name is swapped for N, turning the fluid into the pen.",
-     "definitionFit": "A writer here is anything that writes, and a felt-tip pen is a pen with a felt nib."
+     "surface": "It seemed the correction fluid had been used up by a new writer.",
+     "walkthrough": "'gets expended by' splits expended as ex-pended: the fluid's brand name loses its end letter X and takes N for new. Tipp-Ex is a British brand of correction fluid.",
+     "definitionFit": "A felt-tip pen is a pen with a porous felt nib, a writing implement, so a writer in the sense of a thing that writes."
     },
     "features": {
      "answerInScene": true,
@@ -1180,48 +1189,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHIC",
+     "op": "composite",
      "indicators": [
       {
        "text": "flawed",
-       "note": "a flawed thing is imperfect, so the letters are out of their proper order"
+       "at": 23,
+       "note": "flawed means faulty, so the letters of star, I and am are not in their written order where they appear"
+      },
+      {
+       "text": "to leave",
+       "at": 40,
+       "note": "the jumbled letters are to leave the longer word, dropping out of it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CHIC",
-       "indicators": [
-        {
-         "text": "to leave",
-         "note": "letters that leave a word are removed from it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "charismatic",
-         "note": "taken letter for letter"
-        },
-        {
-         "words": "star I am",
-         "note": "taken letter for letter, to be rearranged and then removed"
-        }
-       ]
+       "words": "charismatic",
+       "at": 10
+      },
+      {
+       "words": "star I am",
+       "at": 30,
+       "note": "taken as written; these letters, jumbled, are what leaves the longer word"
       }
      ]
     },
     "explanation": {
-     "surface": "A self-regarding celebrity, smart and magnetic but flawed, announces their exit.",
-     "walkthrough": "The seven letters of 'star I am' are all found scattered through 'charismatic'; taking them out leaves CHIC.",
-     "definitionFit": "Chic means stylish and elegant, the sense of smart that applies to clothes and appearance."
+     "surface": "A smart, charismatic person admits to being a flawed star and announces their departure.",
+     "walkthrough": "'charismatic' looks like part of the definition, but it is the word that loses letters: the 'flawed' mix of star, I and am sits inside it as ARISMAT, and 'to leave' removes that run.",
+     "definitionFit": "Chic means stylish and elegant, which is the fashionable sense of smart."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "star"
+     "misdirectedWord": "charismatic"
     }
    }
   },
