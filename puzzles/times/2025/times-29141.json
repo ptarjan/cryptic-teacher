@@ -375,41 +375,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SORETHROAT",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "turned about, so the letters are rearranged"
-      },
-      {
-       "text": "revised",
-       "note": "changed, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 25,
+         "note": "turned about, the letters of others are moved into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "others about",
-         "gives": "SORETH",
-         "note": "OTHERS rearranged"
-        },
+         "words": "others",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "revised rota",
-         "gives": "ROAT",
-         "note": "ROTA rearranged"
+         "text": "revised",
+         "at": 31,
+         "note": "a revised rota has been reworked, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rota",
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grievance raised by colleagues about the changed work rota.",
-     "walkthrough": "\"Complaint\" suggests a grumble about the rota; it is an ailment. Each half is scrambled on its own and the two results are joined.",
-     "definitionFit": "A complaint can be a minor illness, and a sore throat is a common one."
+     "surface": "Someone grumbles because colleagues have changed the work schedule.",
+     "walkthrough": "'about' rearranges OTHERS into SORETH and 'revised' rearranges ROTA into ROAT. 'Complaint' here is the medical sense, an ailment.",
+     "definitionFit": "A complaint can be a minor illness, and a sore throat is a common example of such an ailment."
     },
     "features": {
      "answerInScene": false,
@@ -678,44 +683,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "exceptional",
-       "note": "out of the ordinary, so the letters are rearranged"
+       "text": "involving",
+       "at": 25,
+       "note": "the mine word wraps around the other letters, so involving signals that one piece holds another"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "mine",
+       "at": 20,
+       "gives": "PIT",
+       "note": "a pit is a coal mine"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "involving",
-         "note": "the mine takes the other letters inside it"
+         "text": "exceptional",
+         "at": 35,
+         "note": "something exceptional is out of the ordinary, so reach's letters are put out of their usual order"
         }
        ],
        "parts": [
         {
-         "words": "exceptional reach",
-         "gives": "ECHAR",
-         "note": "REACH rearranged"
-        },
-        {
-         "words": "mine",
-         "gives": "PIT",
-         "note": "a pit is a coal mine"
+         "words": "reach",
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chart showing how far a mining operation extends.",
-     "walkthrough": "\"Data visualisation\" and \"mine\" pull toward data mining; the mine here is a coal pit.",
-     "definitionFit": "A pie chart presents data as slices of a circle."
+     "surface": "A graph shows a mine with remarkable reach.",
+     "walkthrough": "'exceptional' rearranges REACH into ECHAR, and PIT is 'involving' it.",
+     "definitionFit": "A pie chart is a circular graph split into slices, a common way of displaying data visually."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "mine"
     }
@@ -837,27 +844,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UGLI",
+     "op": "middle",
      "indicators": [
       {
        "text": "peeled",
-       "note": "the skin, the outer letters, comes off"
+       "at": 26,
+       "note": "a peeled fruit loses its outer skin, so the first and last letters are taken off"
       }
      ],
      "parts": [
       {
-       "words": "Italian region peeled",
-       "gives": "UGLI",
-       "note": "pUGLIa, Puglia, without its first and last letters"
+       "words": "Italian region",
+       "at": 11,
+       "gives": "PUGLIA",
+       "note": "Puglia (Apulia) is the region forming the heel of Italy"
       }
      ]
     },
     "explanation": {
-     "surface": "Produce grown in a southern Italian region, with its skin taken off.",
-     "walkthrough": "Puglia (Apulia) is the heel of Italy. \"Peeled\" suits the fruit in the surface but works on the region's name.",
-     "definitionFit": "The ugli is a Jamaican citrus fruit, a cross of grapefruit and tangerine."
+     "surface": "A fruit, from a region of Italy, with its skin removed.",
+     "walkthrough": "'peeled' strips the outer letters of PUGLIA, the region in the heel of Italy.",
+     "definitionFit": "The ugli is a Jamaican citrus fruit, a hybrid of grapefruit and tangerine with knobbly skin."
     },
     "features": {
      "answerInScene": true,
@@ -1020,42 +1027,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "extremely",
-       "note": "take the extremes, the first and last letters"
+       "text": "punches",
+       "at": 28,
+       "note": "one piece punches its way into the other, so the extreme letters go inside the word for surviving"
       }
      ],
      "parts": [
       {
        "words": "Surviving",
+       "at": 0,
        "gives": "EXTANT",
-       "note": "extant means still existing"
+       "note": "extant means still existing or surviving"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "UL",
        "indicators": [
         {
-         "text": "punches",
-         "note": "strikes into, so the letters go inside"
+         "text": "extremely",
+         "at": 10,
+         "note": "only the extremes of unusual are used, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely unusual",
-         "gives": "UL",
-         "select": "outer",
-         "note": "first and last letters of UnusuaL"
+         "words": "unusual",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boxer who survived some unusual punches and is jubilant after winning.",
-     "walkthrough": "The surface is a boxing match; \"punches\" is the instruction to insert UL into EXTANT.",
-     "definitionFit": "Exultant means triumphantly joyful, as after a victory."
+     "surface": "A boxer who survives some unusually hard punches is triumphant after the win.",
+     "walkthrough": "'extremely' gives UL, the ends of unusual, and that 'punches' into EXTANT.",
+     "definitionFit": "Exultant means triumphantly joyful, exactly the elated feeling of someone celebrating a win."
     },
     "features": {
      "answerInScene": true,
@@ -1423,46 +1428,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "knocked over, so the letters are rearranged"
+       "text": "about",
+       "at": 31,
+       "note": "the scrambled letters go round the rubbish word, so 'about' marks one piece enclosing another"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "goes around the next part"
+         "text": "upset",
+         "at": 25,
+         "note": "an upset arrangement has been knocked over and disordered, so Prussia is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "a load of rubbish",
-         "gives": "TIP",
-         "note": "a tip is a rubbish dump"
-        },
-        {
-         "words": "Prussia upset",
-         "gives": "ARISPUS",
-         "note": "PRUSSIA rearranged"
+         "words": "Prussia",
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "a load of rubbish",
+       "at": 37,
+       "gives": "TIP",
+       "note": "a tip is a rubbish dump, a place full of refuse"
       }
      ]
     },
     "explanation": {
-     "surface": "A philosopher from Prussia annoyed by some nonsense.",
-     "walkthrough": "Prussia suggests a German thinker like Kant; Aristippus was Greek, founder of the Cyrenaic school. In Britain a tip is a rubbish dump.",
-     "definitionFit": "Aristippus of Cyrene was a pupil of Socrates who taught that pleasure is the highest good."
+     "surface": "Someone from Prussia is cross about some nonsense.",
+     "walkthrough": "'upset' rearranges PRUSSIA into ARISPUS, which goes 'about' TIP; a tip is the British word for a rubbish dump.",
+     "definitionFit": "Aristippus of Cyrene was a pupil of Socrates and the founder of the Cyrenaic school of hedonism."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Prussia"
+     "misdirectedWord": "rubbish"
     }
    }
   },

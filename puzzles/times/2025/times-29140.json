@@ -47,26 +47,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COMET",
      "indicators": [
       {
        "text": "Shortly",
-       "note": "cut short: the phrase loses its last letter"
+       "at": 0,
+       "note": "shortly means the phrase is cut short by its final letter"
       }
      ],
      "parts": [
       {
-       "words": "Shortly wake",
-       "gives": "COMET",
-       "note": "to wake is to come to, regain consciousness; 'Shortly' docks the final O of that two-word phrase"
+       "words": "wake",
+       "at": 8,
+       "gives": "COMETO",
+       "note": "to come to is to wake up after being unconscious"
+      },
+      {
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told to wake briefly for a visitor who rarely calls.",
-     "walkthrough": "'Wake' is a verb here, and the two-word phrase COME TO is what gets docked, not a single word.",
-     "definitionFit": "A comet returns to our skies only now and then, a visitor seen at long intervals."
+     "surface": "Someone will soon rouse a guest who only drops in now and then.",
+     "walkthrough": "'Shortly' cuts COME TO by its last letter.",
+     "definitionFit": "Comets return to the inner solar system at long intervals, so one is a celestial visitor that appears only periodically."
     },
     "features": {
      "answerInScene": false,
@@ -414,35 +417,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the book, a and volume, within the temper, so those letters sit inside the word for it"
+       "at": 26,
+       "note": "the two pieces are placed in the temper word, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "foul temper",
-         "gives": "RAGE",
-         "note": "rage = a foul temper"
-        },
-        {
-         "words": "a",
-         "note": "a = A"
-        }
-       ]
+       "words": "foul temper",
+       "at": 29,
+       "gives": "RAGE",
+       "note": "rage is a foul temper"
       },
       {
-       "words": "volume",
-       "gives": "V",
-       "note": "V = volume"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "volume",
+         "at": 19,
+         "gives": "V"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in a foul temper does real harm to a book.",
-     "walkthrough": "A and V sit inside RAGE: R-A-V-AGE.",
-     "definitionFit": "A plain synonym: armies and storms ravage a land, leaving it wrecked, which is damage of the serious kind."
+     "surface": "Someone in a fury wrecks a book.",
+     "walkthrough": "A and V go 'in' RAGE.",
+     "definitionFit": "To ravage is to devastate or wreak havoc on something, so it means to do it great harm."
     },
     "features": {
      "answerInScene": true,
@@ -770,32 +776,36 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "round",
-       "note": "'round' means surrounding, so the scrap man's letters wrap around the ring"
+       "text": "following",
+       "at": 19,
+       "note": "the rag-and-bone man's piece follows the daughter's letter, so it comes after"
       }
      ],
      "parts": [
       {
        "words": "daughter",
-       "gives": "D",
-       "note": "D = daughter"
+       "at": 29,
+       "gives": "D"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "following",
-         "note": "'following' means coming after, so the whole group is placed behind the daughter's letter"
+         "text": "round",
+         "at": 7,
+         "note": "the totter goes round the ring, enclosing it"
         }
        ],
        "parts": [
         {
          "words": "Totter",
+         "at": 0,
          "gives": "RAGMAN",
-         "note": "a totter is British slang for a rag-and-bone man, a ragman"
+         "note": "a totter is British slang for a rag-and-bone man, or ragman, who collects junk"
         },
         {
          "words": "ring",
+         "at": 13,
          "gives": "O",
          "note": "O is ring-shaped"
         }
@@ -804,9 +814,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone staggers around a ring behind a daughter who shows the way.",
-     "walkthrough": "'Totter' looks like a verb, to wobble; it is a noun, a scrap collector who goes 'totting'. RAG-O-MAN after D.",
-     "definitionFit": "A dragoman is an interpreter and guide in Arabic- or Turkish-speaking countries."
+     "surface": "Someone staggers round a boxing ring after their daughter, to serve as her guide.",
+     "walkthrough": "'Totter' looks like a verb but is the noun: in Britain a totter is a rag-and-bone man, a ragman, who goes 'round' O.",
+     "definitionFit": "A dragoman was an interpreter and guide in Arabic, Turkish or Persian speaking countries."
     },
     "features": {
      "answerInScene": false,
@@ -1322,41 +1332,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUFFRAGE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "leaving",
-         "note": "a letter goes out of the word"
-        },
-        {
-         "text": "initially",
-         "note": "the first E is the one that goes"
+         "at": 9,
+         "note": "the initial letter leaves the word for tolerate, so it is taken out"
         }
        ],
        "parts": [
         {
-         "words": "Tolerate leaving Europe initially",
-         "gives": "SUFFR",
-         "note": "SUFFER (tolerate) with its first E (Europe) removed"
+         "words": "Tolerate",
+         "at": 0,
+         "gives": "SUFFER",
+         "note": "to suffer is to tolerate or put up with"
         },
         {
-         "words": "get on",
-         "gives": "AGE",
-         "note": "to get on is to grow old, age"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 24,
+           "note": "initially picks the first letter of Europe"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Europe",
+           "at": 17
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "get on",
+       "at": 40,
+       "gives": "AGE",
+       "note": "to get on is to grow older, to age"
       }
      ]
     },
     "explanation": {
-     "surface": "Put up with the exit from Europe, then move on and cast a ballot.",
-     "walkthrough": "The Brexit surface hides the mechanics: SUFFER loses its first E, then AGE.",
-     "definitionFit": "A plain synonym: the word means the franchise, the right to cast a vote, and in older use a single vote itself."
+     "surface": "Someone puts up with leaving Europe at first, then gets on and casts a ballot.",
+     "walkthrough": "'initially' takes E from Europe, which is 'leaving' SUFFER to make SUFFR.",
+     "definitionFit": "Suffrage is the right to vote in elections, so in that sense it is the vote itself."
     },
     "features": {
      "answerInScene": true,

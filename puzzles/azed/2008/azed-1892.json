@@ -1207,55 +1207,63 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ASTROCYTOMA",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "to go round something is to enclose it, so one piece wraps the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "ASTROCYTOMA",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "chaotic",
-         "note": "something chaotic is in disorder, so the letters are jumbled"
+         "text": "round",
+         "at": 14,
+         "note": "the fungal mass goes round the other letters, enclosing them"
         }
        ],
        "parts": [
         {
-         "op": "substitution",
-         "unchecked": true,
-         "gives": "ASTROCYTOMA",
+         "words": "fungal mass",
+         "at": 2,
+         "gives": "STROMA",
+         "note": "a stroma is a mass of fungal tissue that bears spore-producing bodies"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "I replaced with",
-           "note": "says plainly that one letter is swapped out and another put in its place"
+           "text": "chaotic",
+           "at": 20,
+           "note": "chaotic letters are in disorder, so they are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "A",
-           "note": "taken as written"
-          },
-          {
-           "words": "fungal mass",
-           "gives": "STROMA",
-           "note": "a stroma is a compact mass of fungal tissue bearing spore cases"
-          },
-          {
-           "words": "city",
-           "note": "taken as written, before its I is changed"
-          },
-          {
-           "words": "ordinary",
-           "gives": "O",
-           "note": "O is the abbreviation for ordinary, as in O level"
+           "op": "substitution",
+           "indicators": [
+            {
+             "text": "replaced with",
+             "at": 35,
+             "note": "the letter I is swapped out and the other letter takes its place"
+            }
+           ],
+           "parts": [
+            {
+             "words": "city",
+             "at": 28
+            },
+            {
+             "words": "I",
+             "at": 33
+            },
+            {
+             "words": "ordinary",
+             "at": 49,
+             "gives": "O",
+             "note": "O is an abbreviation for ordinary, as in O level"
+            }
+           ]
           }
          ]
         }
@@ -1264,14 +1272,14 @@
      ]
     },
     "explanation": {
-     "surface": "A fungus overrunning a disordered city, displacing ordinary growth.",
-     "walkthrough": "'Growth' at the end is the definition, a medical one, though the surface makes it sound like more fungus.",
-     "definitionFit": "An astrocytoma is a tumour arising from star-shaped glial cells in the brain, and a tumour is an abnormal growth."
+     "surface": "A clump of fungus surrounds a messy city where something has been swapped for an ordinary lump.",
+     "walkthrough": "The substitution comes first, giving CTYO, and only then is that shuffled; the fungal sense of stroma is a botanical term most solvers will need Chambers for.",
+     "definitionFit": "An astrocytoma is a tumour arising from star-shaped brain cells, so it is a kind of growth."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "growth"
+     "misdirectedWord": "fungal"
     }
    }
   },
@@ -2072,47 +2080,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "about means around, so the article is wrapped around what follows"
+       "text": "about introduction to",
+       "at": 8,
+       "note": "the article goes about the pieces as they are introduced into it, so they are placed inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Article",
-         "gives": "THE",
-         "note": "the definite article"
-        },
-        {
-         "words": "alternative",
-         "gives": "OR",
-         "note": "or introduces an alternative"
-        }
-       ]
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "the is the definite article"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader of",
-         "note": "a leader comes first, so only the opening letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "party",
-         "note": "first letter of party"
+         "words": "alternative",
+         "at": 30,
+         "gives": "OR",
+         "note": "or introduces an alternative"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 42,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "party",
+           "at": 52
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper piece introducing a rival party leader, with a picture of the man.",
-     "walkthrough": "Jeremy Thorpe led the Liberal Party, a British alternative to the two main parties, so 'him' is such a leader of party.",
-     "definitionFit": "The question mark marks a definition by example: Jeremy Thorpe was one such leader of the Liberals in the 1970s."
+     "surface": "A piece of writing about how an alternative party leader was introduced, with a question about him.",
+     "walkthrough": "'him' points back to the clue's alternative party leader: Jeremy Thorpe led the Liberals, Britain's third party, from 1967 to 1976.",
+     "definitionFit": "Jeremy Thorpe led the Liberal Party, the alternative to the two main British parties, so he is such a leader."
     },
     "features": {
      "answerInScene": true,
