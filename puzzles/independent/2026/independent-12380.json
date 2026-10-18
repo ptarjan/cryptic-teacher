@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -220,42 +221,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GILGAMESH",
-     "indicators": [
-      {
-       "text": "half-cut",
-       "note": "cut in half, with the surface's tipsiness as the joke; the word keeps only half its letters, and it is the back half that joins on here"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 12,
+         "note": "half-cut, read literally, says half of the poet's name is cut away, leaving its second half"
+        }
+       ],
        "parts": [
         {
          "words": "Roman poet",
-         "gives": "GIL",
-         "note": "VIRGIL, who wrote the Aeneid, keeps only his second half"
+         "at": 0,
+         "gives": "VIRGIL",
+         "note": "Virgil was the Roman poet who wrote the Aeneid"
         },
         {
-         "words": "gambles",
-         "gives": "GAMES",
-         "note": "to game is to gamble, so the gambles are games"
-        },
-        {
-         "words": "hard",
-         "gives": "H",
-         "note": "the H stamped on a hard pencil"
+         "gives": "VIR"
         }
        ]
+      },
+      {
+       "words": "gambles",
+       "at": 22,
+       "gives": "GAMES",
+       "note": "games of chance are gambles"
+      },
+      {
+       "words": "hard",
+       "at": 33,
+       "gives": "H",
+       "note": "H is the pencil-grade abbreviation for hard"
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy Roman poet having a flutter on something difficult.",
-     "walkthrough": "Half-cut is British for tipsy, which is what makes the surface work while the instruction just wants half the letters. Gilgamesh rules Uruk in the Babylonian epic, the oldest story we have.",
-     "definitionFit": "legendary king -> GILGAMESH: the king of Uruk in the Mesopotamian epic, a monarch known only from legend."
+     "surface": "A tipsy Roman poet bets heavily, as in some tale about an ancient ruler.",
+     "walkthrough": "'half-cut' looks like British slang for drunk, but it means VIRGIL loses its first half to leave GIL. In a down clue 'on' puts the gambles above H.",
+     "definitionFit": "Gilgamesh was a Sumerian ruler of Uruk, hero of the ancient Mesopotamian Epic of Gilgamesh."
     },
     "features": {
      "answerInScene": false,
@@ -601,41 +607,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHEATLEY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "about means around, so the question word goes round the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Question",
+       "at": 0,
+       "gives": "WHY",
+       "note": "why is a question word"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "about",
-         "note": "to go about something is to go round it, so this piece wraps itself round the letters named next"
-        },
-        {
-         "text": "weird",
-         "note": "something weird is out of its natural order, so these letters will not be staying in theirs"
+         "text": "by",
+         "at": 26,
+         "note": "by means beside, so the English letter is set next to the jumbled tale, after it"
         }
        ],
        "parts": [
         {
-         "words": "Question",
-         "gives": "WHY",
-         "note": "the question word itself, spelt out"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "weird",
+           "at": 15,
+           "note": "weird means strange or out of the ordinary, so the letters of tale are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tale",
+           "at": 21
+          }
+         ]
         },
         {
-         "words": "tale by English",
-         "gives": "EATLE",
-         "note": "the four letters of TALE with the E of English joined on, shuffled"
+         "words": "English",
+         "at": 29,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A query raised about a strange story from an English writer of horror.",
-     "walkthrough": "Dennis Wheatley sold millions of black-magic thrillers in the mid-twentieth century, The Devil Rides Out among them. 'Question' is the word WHY rather than a synonym for query.",
-     "definitionFit": "horror writer -> WHEATLEY: Dennis Wheatley, the British novelist whose occult thrillers made him the best-selling name in the genre in his day."
+     "surface": "Someone queries a strange story by an English author of spooky fiction.",
+     "walkthrough": "The surface's 'by' suggests authorship but here just means next to; 'about' has the question word enclose everything else, so its W-H and Y end up at the two ends.",
+     "definitionFit": "Dennis Wheatley was a bestselling English novelist known for occult thrillers such as The Devil Rides Out."
     },
     "features": {
      "answerInScene": true,
@@ -1452,37 +1477,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BAYOU",
-     "indicators": [
-      {
-       "text": "not wholly",
-       "note": "not the whole of the word, so its last letter is left behind"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "inlet",
+       "at": 22,
+       "gives": "BAY",
+       "note": "a bay is an inlet of the sea"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not wholly",
+         "at": 28,
+         "note": "not wholly means the word is cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "inlet",
-         "gives": "BAY",
-         "note": "a bay is an inlet of the sea"
+         "words": "dismissed",
+         "at": 39,
+         "gives": "OUT",
+         "note": "a batsman who is dismissed in cricket is out"
         },
         {
-         "words": "dismissed",
-         "gives": "OU",
-         "note": "a batter dismissed is OUT, and the word does not arrive whole"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swampy American spot in a bay, not entirely written off.",
-     "walkthrough": "'Dismissed' is the cricket scoreboard's out, the umpire's verdict on a batter. Bayous are the slow, weed-choked creeks of Louisiana and the delta country.",
-     "definitionFit": "In US, marshy spot -> BAYOU: the sluggish, swampy creek of the Mississippi delta, a word used in the American South and nowhere else."
+     "surface": "A spot of American wetland lies in a creek that has not been completely cleared.",
+     "walkthrough": "'dismissed' is the cricket sense, OUT, which 'not wholly' trims to OU.",
+     "definitionFit": "A bayou is a slow, swampy creek or wetland, typical of the American South such as Louisiana."
     },
     "features": {
      "answerInScene": true,

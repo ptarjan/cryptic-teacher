@@ -1161,63 +1161,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "SWEARBY",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "after places the first piece before the second in the answer"
-      }
-     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "after cycling",
+         "at": 26,
+         "note": "after cycling means the word has had its letters rotated, its last letter moving round to the front"
+        }
+       ],
        "parts": [
         {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "cycling means going round, so the end letter moves round to the front"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sports",
-           "gives": "WEARS",
-           "note": "to sport clothes is to wear them"
-          }
-         ]
-        },
+         "words": "sports",
+         "at": 19,
+         "gives": "WEARS",
+         "note": "to sport clothes is to wear them, so sports means wears"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BY",
+       "indicators": [
         {
-         "op": "homophone",
-         "spelt": "BY",
-         "indicators": [
-          {
-           "text": "picked up",
-           "note": "picking up a sound means hearing it, as a microphone picks up speech"
-          }
-         ],
-         "parts": [
-          {
-           "words": "purchase",
-           "gives": "BUY",
-           "note": "to purchase is to buy, which has the same sound as the preposition"
-          }
-         ]
+         "text": "picked up",
+         "at": 49,
+         "note": "picked up means heard, so the word is entered as it sounds rather than as spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "purchase",
+         "at": 40,
+         "gives": "BUY",
+         "note": "to buy is to purchase"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "After taking up cycling, someone trusts in sport and the bike they bought.",
-     "walkthrough": "Cycling looks like the sport, but it is the instruction to move the last letter to the front.",
-     "definitionFit": "If you swear by a remedy you trust in it completely, so the phrasal verb means to have confidence in."
+     "surface": "A fan trusts in sport after buying a bicycle.",
+     "walkthrough": "'cycling' looks like one of the sports, but 'after cycling' is the instruction to rotate the letters, and 'picked up' means heard, not bought.",
+     "definitionFit": "To swear by something is to have complete confidence in it, which is to trust in it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -1746,50 +1738,54 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BYSTANDERS",
      "indicators": [
       {
        "text": "dances",
-       "note": "letters that dance move around each other into new positions"
+       "at": 47,
+       "note": "dances means moves about, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "BYSTANDERS",
        "indicators": [
         {
          "text": "avoiding",
-         "note": "avoiding something means keeping it out, so a letter is dropped"
+         "at": 30,
+         "note": "avoiding means steering clear of, so the student's letter is left out of the words"
         }
        ],
        "parts": [
         {
-         "words": "baldness",
-         "note": "taken as written"
-        },
-        {
-         "words": "try",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "baldness",
+           "at": 17
+          },
+          {
+           "words": "try",
+           "at": 26
+          }
+         ]
         },
         {
          "words": "student",
+         "at": 39,
          "gives": "L",
-         "note": "L is for learner, a student, from British learner-driver plates"
+         "note": "L is the learner-driver plate letter, the usual crossword student"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Onlookers at a bald man trying to avoid student dances.",
-     "walkthrough": "'Those looking on baldness' seems to run on as one phrase; the definition stops before 'baldness'.",
-     "definitionFit": "Bystanders are people present at an event who watch without taking part, that is, onlookers."
+     "surface": "Onlookers watch a bald man trying to dodge student dance events.",
+     "walkthrough": "'dances' looks like a noun but is a verb, the anagram signal: without L, BALDNESS TRY becomes BADNESSTRY to rearrange.",
+     "definitionFit": "Bystanders are people present at an event who watch without taking part."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "dances"
     }

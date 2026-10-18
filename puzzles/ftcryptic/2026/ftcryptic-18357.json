@@ -617,34 +617,22 @@
        "indicators": [
         {
          "text": "squeezing",
-         "note": "to squeeze something is to hold it tight inside, so the word for sharp wraps around the juice letters"
+         "at": 11,
+         "note": "squeezing means holding tightly inside, so the sharp word wraps round the juice"
         }
        ],
        "parts": [
         {
          "words": "sharp",
+         "at": 5,
          "gives": "SOUR",
-         "note": "a sharp taste is a sour one"
+         "note": "sour means sharp in taste"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "JO",
-         "indicators": [
-          {
-           "text": "of",
-           "note": "the heads of 'juice' and 'orange' are taken, read as 'the J of juice, the O of orange'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "juice of orange",
-           "gives": "JO",
-           "select": "first",
-           "note": "first letters of juice and orange"
-          }
-         ]
+         "words": "juice of orange",
+         "at": 21,
+         "gives": "OJ",
+         "note": "OJ is the American shorthand for orange juice"
         }
        ]
       },
@@ -653,27 +641,29 @@
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the very end of the citrus word before it, keeping one letter"
+         "at": 48,
+         "note": "finally takes just the closing letter of lemon"
         }
        ],
        "parts": [
         {
          "words": "lemon",
-         "note": "the last letter of lemon"
+         "at": 41,
+         "note": "last letter of lemon"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook keeps a drink tart by pressing citrus into it.",
-     "walkthrough": "'Stay sharp' reads as an instruction to be alert; 'Stay' is the definition alone and 'sharp' starts the wordplay.",
-     "definitionFit": "A sojourn is a temporary period of residence somewhere, the noun sense of a visit or stopover."
+     "surface": "A recipe instruction: keep the mixture tart by pressing in orange juice and a final squeeze of lemon.",
+     "walkthrough": "'juice of orange' is OJ, the American abbreviation, which SOUR holds as SOJOUR; 'finally' then adds the N of lemon.",
+     "definitionFit": "A sojourn is a temporary stay somewhere, so the noun means a stay or visit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sharp"
+     "misdirectedWord": "squeezing"
     }
    }
   },
@@ -1235,46 +1225,62 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PHYSIO",
      "indicators": [
       {
        "text": "gathered",
-       "note": "things gathered up are bundled together in no set order, so the remaining letters are rearranged"
+       "at": 46,
+       "note": "gathered means collected together in a heap, so the remaining letters are reassembled in a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PHYSIO",
        "indicators": [
         {
          "text": "having skipped",
-         "note": "to skip something is to leave it out, so 'a' and 'page' drop from the letters that follow"
+         "at": 11,
+         "note": "having skipped means passing over, so these letters are left out of the phrase"
         }
        ],
        "parts": [
         {
-         "words": "so happy, I",
-         "note": "the letters before removal"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "so happy",
+           "at": 34
+          },
+          {
+           "words": "I",
+           "at": 44
+          }
+         ]
         },
         {
-         "words": "a page",
-         "gives": "AP",
-         "note": "'a' as it stands and P for page, both taken away"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 26
+          },
+          {
+           "words": "page",
+           "at": 28,
+           "gives": "P"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient notes that the therapist, missing a page of notes, was cheerful.",
-     "walkthrough": "'I gathered' pretends to mean 'I understood'; 'gathered' is the anagram signal.",
-     "definitionFit": "Physio is the British short form of physiotherapist, a clinician who treats injuries through exercise and massage."
+     "surface": "A physio, missing a page of notes, is cheerful about it, or so the speaker understood.",
+     "walkthrough": "'I gathered' reads as 'I understood' but 'gathered' is the anagram signal: 'having skipped' removes A and P from SO HAPPY I, leaving SOHPYI to rearrange.",
+     "definitionFit": "Physio is the everyday British short form of physiotherapist, a therapist who treats injuries with exercise and massage."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "gathered"
     }

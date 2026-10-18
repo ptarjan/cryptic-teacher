@@ -633,37 +633,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "nuts",
-       "note": "nuts means crazy, and crazy letters do not stay in order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Prohibit",
+       "at": 0,
+       "gives": "BAR",
+       "note": "to bar something is to prohibit it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 16,
+         "note": "nuts means crazy, so the letters of canned are scrambled"
+        }
+       ],
        "parts": [
         {
-         "words": "Prohibit",
-         "gives": "BAR",
-         "note": "to bar = to prohibit"
-        },
-        {
          "words": "canned",
-         "note": "anagram of CANNED"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ban on tinned nuts at a country show.",
-     "walkthrough": "'Canned nuts' reads as tinned food, but 'nuts' is the anagram indicator acting on 'canned'.",
-     "definitionFit": "Definition by example: a social evening of folk or square dancing, originally held in a barn."
+     "surface": "Organisers of a rural gathering ban tinned nuts from the food stalls.",
+     "walkthrough": "'nuts' looks like food in a can but it is the signal to rearrange CANNED into NDANCE.",
+     "definitionFit": "A barn dance is a social gathering with folk or square dancing, traditionally held in the countryside."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "nuts"
     }
@@ -1541,29 +1543,59 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ETNA",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "in prime locations",
-       "note": "prime here is the number sense, so read the letters at positions 2, 3, 5 and 7"
+       "text": "locations",
+       "at": 41,
+       "note": "locations completes the instruction: only prime-numbered places count, so the sixth letter is dropped as well"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "petunia",
-       "gives": "ETNA",
-       "select": "prime",
-       "note": "pETuNiA: letters 2, 3, 5 and 7"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "prime",
+         "at": 35,
+         "note": "prime, read as a number word, keeps positions 2, 3, 5 and 7, so the fourth letter is not wanted"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 32,
+           "note": "with 'prime locations', in says we keep only what sits at certain positions inside the word, so the first letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "petunia",
+           "at": 24,
+           "note": "the word whose 2nd, 3rd, 5th and 7th letters are taken"
+          },
+          {
+           "gives": "P"
+          }
+         ]
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A Sicilian dignitary wants petunias in the best spots.",
-     "walkthrough": "'Prime locations' sounds like estate-agent talk; it means prime-numbered positions, an unusual but exact instruction.",
-     "definitionFit": "A plain synonym: an eminence is a high point of land, and the volcano is Sicily's highest."
+     "surface": "A Sicilian dignitary seems to want flowers placed in the best spots.",
+     "walkthrough": "'prime locations' means prime-numbered positions: in PETUNIA these are the 2nd, 3rd, 5th and 7th letters, E, T, N and A. 'Eminence' is a high point, not a cardinal.",
+     "definitionFit": "Etna is the active volcano dominating eastern Sicily, so it is the island's great high point."
     },
     "features": {
      "answerInScene": false,

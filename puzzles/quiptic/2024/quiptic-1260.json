@@ -368,57 +368,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STRESSED",
      "indicators": [
       {
        "text": "welcomes",
-       "note": "to welcome someone is to take them in, so one part goes inside the other"
+       "at": 23,
+       "note": "welcomes means takes in, so the way-plus-editor pair holds the shortened journalists inside it"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "way",
+         "at": 12,
+         "gives": "ST",
+         "note": "ST is the usual abbreviation for street, a way"
+        },
+        {
+         "words": "editor",
+         "at": 16,
+         "gives": "ED"
+        }
+       ]
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "STRESSED",
        "indicators": [
         {
          "text": "leaderless",
-         "note": "without a leader means the front letter is dropped"
+         "at": 32,
+         "note": "leaderless means the word for journalists loses its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "way",
-           "gives": "ST",
-           "note": "ST is short for street, a way"
-          },
-          {
-           "words": "journalists",
-           "gives": "RESS",
-           "note": "the press, collectively journalists, without its first letter"
-          },
-          {
-           "words": "editor",
-           "gives": "ED",
-           "note": "the usual abbreviation for editor"
-          }
-         ]
+         "words": "journalists",
+         "at": 43,
+         "gives": "PRESS",
+         "note": "the press is a collective name for journalists"
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper editor greets reporters who have lost their boss on a well-marked route.",
-     "walkthrough": "ST and ED together make STED, which takes in PRESS minus its P.",
-     "definitionFit": "To highlight a point is to emphasise it, and emphasis on a word or idea is what this adjective describes."
+     "surface": "A newspaper editor makes a point of greeting reporters who have no boss.",
+     "walkthrough": "The container is the way and the editor taken as one unit, split around what is welcomed; 'leaderless' only beheads the journalists.",
+     "definitionFit": "To stress a word or point is to emphasise it, so stressed can mean highlighted."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Highlighted"
     }
