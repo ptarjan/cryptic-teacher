@@ -3912,11 +3912,11 @@ CONNECTIVE_WORDS = frozenset(
 
 
 def _accounted_words(ann, leaves=True):
-    """The clue words an annotation accounts for: wordplay leaves (when `leaves`),
-    indicators on any op or definition, definitions, and declared link words."""
+    """The clue words an annotation accounts for: wordplay leaves (when `leaves`;
+    "real" skips junk leaves, unchecked with no `gives`), indicators on any op or definition, definitions, and declared link words."""
     got = set()
     for n in _walk(ann.get("wordplay")):
-        if leaves and "op" not in n:
+        if leaves and "op" not in n and (leaves != "real" or n.get("gives") or not n.get("unchecked")):
             got |= _clue_words(n.get("words"))
         for i in n.get("indicators") or []:
             got |= _clue_words(i.get("text") if isinstance(i, dict) else i)
@@ -3957,7 +3957,7 @@ def redo_regressions(old, new, clue):
         # A connective only a leaf of the old tree held (an unchecked "with" leaf
         # the re-annotation exists to remove) may go; as an indicator, definition
         # or link word it still has to stay.
-        lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves=False)
+        lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves="real")
         if lost:
             out.append("dropped_words: " + ", ".join(sorted(lost)) + " were in the old wordplay "
                        "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now")
