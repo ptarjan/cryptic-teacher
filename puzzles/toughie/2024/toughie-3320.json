@@ -94,40 +94,43 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "welcoming a guest means taking them in, so the bed holds the following letters"
+       "at": 4,
+       "note": "the bed welcomes the other letters in, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Bed",
-         "gives": "COT",
-         "note": "a cot is a small bed"
-        },
-        {
-         "words": "maiden",
-         "gives": "M",
-         "note": "M is the cricket scorecard abbreviation for a maiden over"
-        }
-       ]
+       "words": "Bed",
+       "at": 0,
+       "gives": "COT",
+       "note": "a cot is a small bed"
       },
       {
-       "words": "for",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "maiden",
+         "at": 14,
+         "gives": "M",
+         "note": "M is the cricket abbreviation for a maiden over"
+        },
+        {
+         "words": "for",
+         "at": 21
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bed that takes in a young woman as an act of kindness.",
-     "walkthrough": "'For' looks like the link word but is part of the wordplay. DUTCH COMFORT is the themed phrase: 'it could have been worse'.",
-     "definitionFit": "Comfort is relief from pain or distress, the easing of a burden."
+     "surface": "A bed welcoming a young woman gives relief.",
+     "walkthrough": "A maiden in cricket is an over in which no runs are scored, written M on scorecards.",
+     "definitionFit": "Comfort is the easing of pain or distress, the same thing as relief."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "maiden"
     }
    }
   },
@@ -923,51 +926,66 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TRIVIALLY",
      "indicators": [
       {
        "text": "rather than",
-       "note": "putting one thing rather than another means swapping it in where the other was"
+       "at": 46,
+       "note": "rather than says the new pieces are used in place of the letter named"
       }
      ],
      "parts": [
       {
        "words": "constantly",
+       "at": 16,
        "gives": "TRULY",
-       "note": "constant means faithful, and so does true; constantly is truly"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
-      },
-      {
-       "words": "bottle",
-       "gives": "VIAL",
-       "note": "a vial is a small bottle"
+       "note": "truly can mean faithfully or constantly, as in 'yours truly'"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head to",
-         "note": "the head of a word is its first letter, which is the one kept"
+         "at": 58,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "university",
-         "note": "the first letter of this word"
+         "at": 66
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "goes on",
+         "at": 31,
+         "note": "in a down clue, going on puts the one letter on top of the bottle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "I",
+         "note": "the Roman numeral for one is I"
+        },
+        {
+         "words": "bottle",
+         "at": 39,
+         "gives": "VIAL",
+         "note": "a vial is a small bottle"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A person who drinks frivolously instead of going to university.",
-     "walkthrough": "In TRULY, the U is replaced by I and VIAL together; 'goes on' just joins one to bottle.",
-     "definitionFit": "Trivially means in a trifling, unserious way, which is how something done with frivolity is done."
+     "surface": "A drinker: whenever he goes on the bottle, he skips university and lives frivolously.",
+     "walkthrough": "In TRULY (constantly, faithfully) the U, the head of 'university', is replaced by I on VIAL.",
+     "definitionFit": "Doing something trivially is doing it lightly and without seriousness, which is with frivolity."
     },
     "features": {
      "answerInScene": false,
@@ -1605,47 +1623,39 @@
    "annotation": {
     "definitions": [
      {
-      "text": "member of the family",
-      "at": 5
+      "text": "This member of the family",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNCLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "versatile",
-       "note": "something versatile can take many forms, so the letters can be arranged another way"
+       "at": 29,
+       "note": "versatile means able to turn to many uses, so the letters are turned into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNCLE",
-       "parts": [
-        {
-         "words": "in clues",
-         "note": "taken as written"
-        },
-        {
-         "words": "is",
-         "note": "taken as written, the letters that join the answer in the anagram"
-        }
-       ]
+       "words": "in clues",
+       "at": 39
+      },
+      {
+       "words": "is",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "A family member who is good at solving crossword clues.",
-     "walkthrough": "A compound anagram: the answer plus IS can be rearranged as IN CLUES; remove IS from those letters and the rest form the answer. A DUTCH UNCLE gives stern advice.",
-     "definitionFit": "An uncle is a parent's brother, a member of one's family."
+     "surface": "A relative who is a dab hand at crossword clues.",
+     "walkthrough": "Take the I and S of 'is' out of IN CLUES and rearrange the rest; 'is' looks like a link word but it is the letters to remove.",
+     "definitionFit": "An uncle is a relative, the brother of a parent."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "versatile"
+     "misdirectedWord": "is"
     }
    }
   },

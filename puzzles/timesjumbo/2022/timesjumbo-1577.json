@@ -519,39 +519,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "carrying",
-       "note": "in a down entry, a thing carrying another bears it on top, so the carried part is written first"
-      }
-     ],
      "parts": [
       {
-       "words": "a Parisian",
-       "gives": "UN",
-       "note": "the French for 'a' (masculine)"
-      },
-      {
-       "words": "requests",
-       "gives": "PLEAS",
-       "note": "pleas are earnest requests"
-      },
-      {
-       "words": "worker",
-       "gives": "ANT",
-       "note": "the worker ant is a crossword staple"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 45,
+         "note": "the worker and the Parisian article together hold the requests between them, as a carrier holds a load"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a Parisian",
+           "at": 27,
+           "gives": "UN",
+           "note": "the French for 'a' is un"
+          },
+          {
+           "words": "worker",
+           "at": 38,
+           "gives": "ANT",
+           "note": "the ant is the crossword's stock worker"
+          }
+         ]
+        },
+        {
+         "words": "requests",
+         "at": 54,
+         "gives": "PLEAS",
+         "note": "pleas are requests"
+        }
+       ]
       },
       {
        "words": "head",
+       "at": 69,
        "gives": "NESS",
-       "note": "a ness is a headland, as in Loch Ness's neighbours on maps"
+       "note": "a ness is a headland, a head of land jutting into the sea"
       }
      ]
     },
     "explanation": {
-     "surface": "A row breaks out when a French worker bringing demands confronts the boss.",
-     "walkthrough": "'Head' looks like the boss, but it is a headland. NESS turns up in place names such as Dungeness for a promontory.",
-     "definitionFit": "An unpleasantness is a euphemism for a quarrel or nasty episode between people."
+     "surface": "A French labourer laden with demands comes up against the boss, and a nasty scene follows.",
+     "walkthrough": "'Head' is not a boss here but a headland, the sense found in coastal place names such as Sheerness, and 'a Parisian' is the French article.",
+     "definitionFit": "Unpleasantness is a polite word for a quarrel or nasty episode, the kind of disagreeable incident people prefer not to mention."
     },
     "features": {
      "answerInScene": true,
@@ -2320,51 +2335,54 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "being outside means wrapping around, so one piece surrounds the rest"
+       "at": 4,
+       "note": "the gap word goes round the other pieces, standing outside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Gap",
-         "gives": "DISTANCE",
-         "note": "a gap is a distance between things"
-        },
-        {
-         "words": "old city",
-         "gives": "UR",
-         "note": "Ur was an ancient city of Mesopotamia"
-        }
-       ]
+       "words": "Gap",
+       "at": 0,
+       "gives": "DISTANCE",
+       "note": "a distance is a gap between two points"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "source of",
-         "note": "the source of something is where it starts, so the first letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "bloody",
-         "note": "first letter of the word"
+         "words": "old city",
+         "at": 12,
+         "gives": "UR",
+         "note": "Ur is the ancient Mesopotamian city, the crossword's favourite old city"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "at": 22,
+           "note": "the source of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bloody",
+           "at": 32
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gap around an old city becomes the starting point of a violent uprising.",
-     "walkthrough": "'Old city' is nearly always UR, the Sumerian city of Abraham.",
-     "definitionFit": "A disturbance is a breach of public peace, which in its violent form is a riot."
+     "surface": "A news report: beyond the ancient walls, something sets off a violent uprising.",
+     "definitionFit": "A disturbance is a breach of public order, so a riot is a typical example of one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "source"
+     "misdirectedWord": "Gap"
     }
    }
   },
