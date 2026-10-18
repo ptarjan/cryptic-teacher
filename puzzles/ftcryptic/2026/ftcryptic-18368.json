@@ -1165,48 +1165,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SIGHT",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of something is all but a little, so the last letter is dropped"
+       "text": "retreating",
+       "at": 27,
+       "note": "retreating means going back, so the whole string is read in the opposite direction"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "retreating",
-         "note": "retreating means going backwards, so the letters run the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 6,
+           "note": "most of a word means all but its last letter, so the final letter of 'the' goes"
+          }
+         ],
          "parts": [
           {
            "words": "the",
-           "gives": "TH",
-           "note": "the word without its final letter"
+           "at": 14,
+           "gives": "THE",
+           "note": "the word itself, cut short"
           },
           {
-           "words": "soldiers",
-           "gives": "GIS",
-           "note": "GIs are American soldiers"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "soldiers",
+         "at": 18,
+         "gives": "GIS",
+         "note": "GIs are American soldiers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Common sense tells most of the army to fall back.",
-     "walkthrough": "'Most of' applies only to the word 'the', not to the soldiers.",
-     "definitionFit": "Sight is one of the five human senses, the faculty of seeing with the eyes."
+     "surface": "A sense that most of the troops are pulling back from the front.",
+     "walkthrough": "'Most of' trims 'the' to TH; add GIS for soldiers to get THGIS, and 'retreating' turns that round.",
+     "definitionFit": "Sight is one of the five senses, alongside hearing, touch, taste and smell."
     },
     "features": {
      "answerInScene": false,
@@ -1530,38 +1535,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UTENSIL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "without repeat",
-       "note": "doing without the repeat means dropping the letter that occurs twice, keeping only one copy"
+       "text": "plays",
+       "at": 20,
+       "note": "plays suggests the letters perform in a new arrangement, signalling a reshuffle"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "plays",
-         "note": "plays suggests letters at play, so they are moved around freely"
+         "text": "without repeat",
+         "at": 26,
+         "note": "the word lutenist has one letter twice; 'without repeat' drops the duplicate copy"
         }
        ],
        "parts": [
         {
          "words": "lutenist",
-         "gives": "LUTENIS",
-         "note": "the word with one of its two Ts removed"
+         "at": 11,
+         "note": "the fodder, taken as written"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lute player performs a piece without taking the repeat.",
-     "walkthrough": "'Instrument' suggests a lute, but it is a tool; 'repeat' is the letter T, which appears twice in the player's title.",
-     "definitionFit": "A utensil is a tool or implement, especially for the kitchen, and instrument also means a tool."
+     "surface": "A musical instrument that a lute player performs on without playing anything twice.",
+     "walkthrough": "LUTENIST has two Ts; 'without repeat' removes one, leaving LUENIST, and 'plays' rearranges those letters.",
+     "definitionFit": "A utensil is a tool or implement, so an instrument in the sense of a device used for a task."
     },
     "features": {
      "answerInScene": false,
@@ -1631,51 +1639,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLOTHESHORSE",
+     "op": "composite",
      "indicators": [
       {
        "text": "Modelling",
-       "note": "modelling means shaping, so the letters are moulded into a new form"
+       "at": 0,
+       "note": "modelling means shaping into a new form, so the letters are reworked"
+      },
+      {
+       "text": "striking",
+       "at": 29,
+       "note": "striking means crossing out, so the named letters are removed from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CLOTHESHORSE",
-       "indicators": [
-        {
-         "text": "striking",
-         "note": "to strike something out is to cross it off, so those letters are removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cool threads, he's",
-         "note": "fourteen letters taken as written"
+         "words": "cool threads",
+         "at": 10,
+         "note": "fodder taken as written"
         },
         {
-         "words": "advertisement",
-         "gives": "AD",
-         "note": "an ad is an advertisement; these letters are struck out"
+         "words": "he's",
+         "at": 24,
+         "note": "fodder taken as written, ignoring the apostrophe"
         }
        ]
+      },
+      {
+       "words": "advertisement",
+       "at": 38,
+       "gives": "AD"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A male model showing off trendy clothes, a striking walking advert.",
-     "walkthrough": "Strike AD from the fodder, then reshape the rest. Read whole, the clue also describes the answer: a man who models fashion is a walking advert for it.",
-     "definitionFit": "A clothes horse is a drying frame for laundry, and figuratively a person who loves showing off fashionable dress."
+     "surface": "A man showing off stylish clothes makes a striking walking advert for them.",
+     "walkthrough": "'Striking' AD out of COOL THREADS HE'S leaves COOLTHRESHES, and 'Modelling' rearranges those twelve letters. The whole clue also describes the answer.",
+     "definitionFit": "A clothes horse is a person who loves showing off fashionable outfits, effectively parading as a living advert."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Modelling"
+     "misdirectedWord": "striking"
     }
    }
   }
