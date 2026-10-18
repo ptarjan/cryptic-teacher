@@ -603,6 +603,25 @@ check("the two columns right of the grid read in order, the solution's heading e
       [["Across", "25 Drag performer by bar getting big"], ["build-up? (5,5)", "Down", "1 Man in the street (3,6)"]],
       [[l[4] for l in col] for col in rcols])
 check("a line headed Yesterday's solution stops a column", True, f.stops("Yesterday's solution 25,732"))
+# The Feb to May 2014 pages: the solution box under the grid is inked like a third column.
+ImageDraw.Draw(page).rectangle((1000, 2400, 1100, 2700), fill=0)
+check("that box alone reads as a third column under the grid", True, f.overhang(page, (196, 1598, 916, 2316)) is not None)
+check("clues right of the grid win over a third column read from that box", ((1675, 2531), None),
+      f.right_or_over(page, (196, 1598, 916, 2316)))
+
+# A reader cache a killed read left empty is read again, not fatal; a write leaves no half file.
+import tempfile
+from pathlib import Path
+with tempfile.TemporaryDirectory() as tmpd:
+    cp = Path(tmpd) / "sub" / "x.json"
+    check("a missing cache reads as None", None, f.read_cache(cp))
+    f.write_cache(cp, {"box": [1, 2, 3, 4], "words": []})
+    check("a written cache reads back", {"box": [1, 2, 3, 4], "words": []}, f.read_cache(cp))
+    check("no temporary file is left", ["x.json"], [p.name for p in cp.parent.iterdir()])
+    cp.write_text("")
+    check("an empty cache reads as None", None, f.read_cache(cp))
+    cp.write_text('{"box": [1, 2')
+    check("a half-written cache reads as None", None, f.read_cache(cp))
 
 # The 2006-13 Times (Gale): a grid mid-page with three clue columns under it,
 # the third overhanging the grid's right edge (2007-03-14, No 23,548).
@@ -617,6 +636,7 @@ speck = Image.new("L", (3296, 2955), 255)
 ImageDraw.Draw(speck).rectangle((2000, 2100, 2010, 2110), fill=0)
 check("a speck in the margin is no third column", None, f.overhang(speck, ogrid))
 check("a grid with no room under it has no third column", None, f.overhang(opage, (1150, 2500, 1870, 3200)))
+check("a page with room under the grid keeps its third column", (None, oend), f.right_or_over(opage, ogrid))
 owords = [[(1110, 2050, 1420, 2072, "1 Nag CAMRA to move into")], [(1110, 2080, 1420, 2102, "stronger drink (8)")],
           [(1480, 2050, 1780, 2072, "23 Tough punishment suspending")], [(1480, 2080, 1780, 2102, "paratrooper (4,4)")],
           [(1805, 2050, 2105, 2072, "7 Sweet air must flow over one")], [(1805, 2080, 2105, 2102, "(8)")]]
