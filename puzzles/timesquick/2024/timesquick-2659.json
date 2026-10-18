@@ -47,44 +47,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARICATURIST",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "a thing without its heart has lost its middle portion, so the central letters go"
-      },
-      {
-       "text": "losing ring",
-       "note": "a ring is round, the shape of the letter that looks like zero, and losing it means dropping that letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Costa",
-       "note": "taken as written; its middle three letters will be removed"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 19,
+         "note": "heartless means the middle letters are removed, leaving only the two ends of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Costa",
+         "at": 29,
+         "note": "the word Costa supplies its first and last letters once its heart is gone"
+        }
+       ]
       },
       {
        "words": "Rica",
+       "at": 35,
        "note": "taken as written"
       },
       {
-       "words": "sightseer",
-       "gives": "TOURIST",
-       "note": "a sightseer is a tourist; it will lose its O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 50,
+         "note": "losing means a letter is dropped from the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sightseer",
+         "at": 40,
+         "gives": "TOURIST",
+         "note": "a tourist is a sightseer"
+        },
+        {
+         "words": "ring",
+         "at": 57,
+         "gives": "O",
+         "note": "a ring is round, like the letter O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sightseer in Costa Rica loses a ring, and someone mocks them heartlessly.",
-     "walkthrough": "The country's name is split in two: only its first word is cut, and a ring stands for the letter O because of its shape.",
-     "definitionFit": "A caricaturist draws exaggerated portraits, a form of mockery, so this is a person who might ridicule others."
+     "surface": "A holidaymaker in Central America loses a ring, and someone might mock the whole sorry trip.",
+     "walkthrough": "'heartless' strips Costa to CA, which with RICA gives CARICA; 'losing ring' takes the O out of TOURIST to leave TURIST.",
+     "definitionFit": "A caricaturist draws exaggerated portraits that poke fun at their subjects, so mockery is the trade."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "heartless"
+     "misdirectedWord": "Costa"
     }
    }
   },

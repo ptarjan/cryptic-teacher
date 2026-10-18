@@ -96,47 +96,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "intermittently",
-       "note": "something done intermittently happens at intervals, so take every other letter"
+       "text": "followed by",
+       "at": 25,
+       "note": "followed by sends the next piece after the first"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "NURS",
        "indicators": [
         {
-         "text": "followed by",
-         "note": "puts the next piece after the first"
+         "text": "intermittently",
+         "at": 10,
+         "note": "intermittently means on and off, so every other letter is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Inquiry's intermittently",
-         "gives": "NURS",
-         "select": "alternate",
-         "note": "the even letters of INQUIRYS: N, U, R, S"
+         "words": "Inquiry's",
+         "at": 0,
+         "note": "taken as written, with the S of the possessive counted"
         }
        ]
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "at": 37,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "An inquiry into the health service that keeps pausing and calling an English nurse.",
-     "walkthrough": "The apostrophe-S counts: the letters are taken from INQUIRY'S, which supplies the final S.",
-     "definitionFit": "A definition by category: ward staff who care for patients are the most familiar healthcare workers after doctors."
+     "surface": "An official investigation is shadowed by an Englishman working in the health service.",
+     "walkthrough": "'intermittently' takes the even letters of Inquiry's, so the apostrophe's S counts.",
+     "definitionFit": "A nurse cares for the sick in hospitals and clinics, a front-line medical role."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Inquiry"
+     "misdirectedWord": "Inquiry's"
     }
    }
   },
@@ -330,29 +328,27 @@
      }
     ],
     "wordplay": {
-     "op": "outer",
-     "unchecked": true,
-     "gives": "AXE",
+     "op": "middle",
      "indicators": [
       {
        "text": "Unrestricted",
-       "note": "with its limits removed: the first and last letters go"
+       "at": 0,
+       "note": "unrestricted means freed of its limits, so the letters at both ends are dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Unrestricted payments to government",
-       "gives": "AXE",
-       "select": "outer",
-       "note": "TAXES with its outer T and S removed"
+       "words": "payments to government",
+       "at": 13,
+       "gives": "TAXES",
+       "note": "taxes are payments made to the government"
       }
      ]
     },
     "explanation": {
-     "surface": "Taxes paid without limit to the state are then cut.",
-     "walkthrough": "'Unrestricted' reads as describing generous payments; it means strip off the boundaries of TAXES.",
-     "definitionFit": "A plain synonym, mostly in its journalistic sense: budgets and jobs are axed when they are cut."
+     "surface": "A call for unlimited tax receipts gets slashed.",
+     "walkthrough": "'Unrestricted' looks like an adjective on the payments, but it is the instruction to take off the outer T and S.",
+     "definitionFit": "To axe something is to cut it, as when spending or jobs are axed."
     },
     "features": {
      "answerInScene": true,
@@ -858,43 +854,54 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word, so its last letter goes"
+       "text": "getting cooked",
+       "at": 23,
+       "note": "something getting cooked is being worked over and transformed, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Chef",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "liked",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "getting cooked",
-         "note": "cooked as in mixed up, so the letters are rearranged"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means all but the last letter is used"
         }
        ],
        "parts": [
         {
-         "words": "Chef liked",
-         "note": "anagram fodder"
+         "words": "you",
+         "at": 11,
+         "note": "taken as written"
         },
         {
-         "words": "you, mostly",
-         "gives": "YO",
-         "note": "YOU without its last letter"
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chef's fondness for someone, who is now being cooked, in a game.",
-     "walkthrough": "'From the US' qualifies the name: Americans need the extra word for what Britons simply call hockey.",
-     "definitionFit": "A regional use: Americans say field hockey to separate the grass game from ice hockey."
+     "surface": "A chef who took a shine to you finds you being roasted.",
+     "walkthrough": "'mostly' cuts you to YO, and 'getting cooked' rearranges CHEF, LIKED and YO together. Americans say field hockey for what Britons simply call hockey.",
+     "definitionFit": "Field hockey is the American name for the stick-and-ball team sport played on grass, distinguishing it from ice hockey."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "cooked"
+     "joke": "pun",
+     "misdirectedWord": "game"
     }
    }
   },
@@ -1796,45 +1803,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "withdrawn",
-       "note": "drawn back, so the letters run the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "withdrawn",
+         "at": 15,
+         "note": "withdrawn means drawn back, so the letters run in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "complain",
-         "gives": "PRAC",
-         "note": "to carp is to complain"
-        },
-        {
-         "words": "I",
-         "gives": "I",
-         "note": "the word itself"
-        },
-        {
-         "words": "fine withdrawn",
+         "words": "fine",
+         "at": 10,
          "gives": "OK",
-         "note": "OK = fine, reversed"
+         "note": "OK means fine, all right"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 26,
+       "note": "taken as written"
+      },
+      {
+       "words": "complain",
+       "at": 28,
+       "gives": "CARP",
+       "note": "to carp is to complain or find fault"
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer grumbles that their penalty has been cancelled.",
-     "walkthrough": "'Fine' is not a penalty but OK, and 'withdrawn' turns it round.",
-     "definitionFit": "A cryptic-style definition by function: any fish is a swimmer, and this is the ornamental pond fish."
+     "surface": "A swimmer is told her fine has been cancelled, and she still grumbles.",
+     "walkthrough": "The 's is 'is', a link. A koi carp is an ornamental fish, so 'Swimmer' is a fish, not a person.",
+     "definitionFit": "Koi carp are ornamental fish kept in ponds; any fish counts as a swimmer in crosswords."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "fine"
+     "misdirectedWord": "Swimmer's"
     }
    }
   },
@@ -1908,37 +1918,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LAYPERSON",
-     "indicators": [
-      {
-       "text": "moving",
-       "note": "the letter changes position within the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "actors",
-       "gives": "PLAYERS",
-       "note": "players = actors"
-      },
-      {
-       "words": "quietly",
-       "gives": "P",
-       "note": "p = piano, quietly; it moves from the front to after LAY"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "moving quietly",
+         "at": 15,
+         "note": "quietly is P, the musical piano, and moving says that letter shifts to a new place in the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "actors",
+         "at": 8,
+         "gives": "PLAYERS",
+         "note": "actors are players"
+        },
+        {
+         "gives": "PLAY"
+        },
+        {
+         "gives": "LAYP"
+        }
+       ]
       },
       {
        "words": "about",
+       "at": 30,
        "gives": "ON",
-       "note": "on = about, as in a talk on a topic"
+       "note": "on means about, as in a talk on a subject"
       }
      ]
     },
     "explanation": {
-     "surface": "Amateur actors creeping silently around the stage.",
-     "walkthrough": "'Moving quietly' reads as tiptoeing; it is an instruction to shift the letter for quietly to a new place in the word.",
-     "definitionFit": "A plain synonym: someone without professional training is an amateur."
+     "surface": "Amateur actors tiptoeing around a stage.",
+     "walkthrough": "'moving quietly' shifts the P (piano, quiet in music) of PLAYERS back three places, giving LAYPERS, and ON for 'about' completes it.",
+     "definitionFit": "A layperson is a non-expert, someone without professional knowledge of a subject, as an amateur is."
     },
     "features": {
      "answerInScene": true,

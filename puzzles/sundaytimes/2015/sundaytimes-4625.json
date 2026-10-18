@@ -666,48 +666,58 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "INSCRUTABLE",
      "indicators": [
       {
        "text": "Drunk",
-       "note": "someone drunk staggers about, so the remaining letters reel into a new order"
+       "at": 0,
+       "note": "drunk means reeling and disordered, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INSCRUTABLE",
        "indicators": [
         {
          "text": "losing",
-         "note": "losing tells us letters are taken away from the phrase"
+         "at": 21,
+         "note": "losing means that letter is dropped from the letters in hand"
         }
        ],
        "parts": [
         {
-         "words": "public servant",
-         "note": "the anagram fodder before the deletions"
-        },
-        {
-         "words": "head",
-         "gives": "P",
-         "note": "the head, or first letter, of public"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 28,
+           "note": "the head of a phrase is its first letter, which goes here"
+          }
+         ],
+         "parts": [
+          {
+           "words": "public servant",
+           "at": 6,
+           "note": "taken as written"
+          },
+          {
+           "gives": "P"
+          }
+         ]
         },
         {
          "words": "very",
+         "at": 38,
          "gives": "V",
-         "note": "V is the abbreviation for very"
+         "note": "V is the standard abbreviation for very, as in v. good"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An official on a bender, nursing a headache, is impossible to follow.",
-     "walkthrough": "Remove P (the head of public) and V (very) from PUBLIC SERVANT, then rearrange the rest.",
-     "definitionFit": "Inscrutable describes something or someone impossible to read or fathom, mysterious."
+     "surface": "A tipsy official who has lost his wits is very hard to make sense of.",
+     "walkthrough": "'losing head' drops the P of public, and 'losing' also takes V (very) out of servant; 'Drunk' then rearranges UBLICSERANT.",
+     "definitionFit": "Inscrutable describes someone or something whose meaning or mood cannot be read or worked out."
     },
     "features": {
      "answerInScene": true,
@@ -1144,56 +1154,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BASTILLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the final letter goes"
+       "text": "conceals",
+       "at": 19,
+       "note": "conceals means hides inside, so the shortened bed wraps round what follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "conceals",
-         "note": "to conceal is to hold inside, hiding from view"
+         "text": "briefly",
+         "at": 11,
+         "note": "briefly means cut short, so the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "bed",
-           "gives": "BE",
-           "note": "the word for a bed without its last letter"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "bed",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
         },
         {
          "words": "source of booze",
+         "at": 30,
          "gives": "STILL",
-         "note": "a still distils spirits"
+         "note": "a still is the apparatus that distils spirits"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner hides a moonshine kit under his bunk.",
-     "definitionFit": "The Bastille was the Paris fortress prison stormed in 1789, and the word is used for any prison."
+     "surface": "An inmate hides a home-made distillery under the bunk.",
+     "walkthrough": "The Bastille was the Paris fortress-prison stormed in 1789; 'source of booze' is the distilling apparatus, not a pub.",
+     "definitionFit": "The Bastille was a state prison in Paris, and the word is also used generally for a prison or fortress."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "source"
+     "misdirectedWord": "bed"
     }
    }
   },

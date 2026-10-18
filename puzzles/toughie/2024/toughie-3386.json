@@ -731,49 +731,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GRIZZLED",
      "indicators": [
       {
        "text": "around",
-       "note": "around places the frame word on both sides of the rest"
+       "at": 10,
+       "note": "around means the frame word encloses what follows"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "GRIZZLED",
+       "words": "Set frame",
+       "at": 0,
+       "gives": "GRID",
+       "note": "a grid is a set frame of crossing bars, like the framework of a crossword"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "back",
-         "note": "back tells us to read the following short word in the opposite direction"
+         "text": "failed",
+         "at": 36,
+         "note": "failed means those letters are lost from the word they sit in"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "GRIZZLED",
+         "words": "crossword",
+         "at": 17,
+         "gives": "PUZZLE",
+         "note": "a crossword is a puzzle"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "failed",
-           "note": "what has failed is gone, so those letters drop out of the word"
+           "text": "back",
+           "at": 28,
+           "note": "back here means turned backwards, so the little word up is read in reverse"
           }
          ],
          "parts": [
           {
-           "words": "Set frame",
-           "gives": "GRID",
-           "note": "the grid is the frame a crossword setter fills"
-          },
-          {
-           "words": "crossword",
-           "gives": "PUZZLE",
-           "note": "a crossword is a puzzle"
-          },
-          {
            "words": "up",
+           "at": 33,
+           "gives": "UP",
            "note": "taken as written"
           }
          ]
@@ -783,14 +784,14 @@
      ]
     },
     "explanation": {
-     "surface": "A setter's grid fails around a crossword and the backup is lost, so they sulk.",
-     "walkthrough": "'Back up failed' reads like a computer backup crashing; it says the reversed word comes out of the crossword. Grizzle is mainly British for whining.",
-     "definitionFit": "To grizzle is to whine or fret in a peevish way, like a sulking child."
+     "surface": "A setter fails to fix a crossword's grid and goes off in a huff.",
+     "walkthrough": "The little word 'up' is itself the thing turned 'back' and lost from the puzzle, not a direction. Grizzle is mainly British.",
+     "definitionFit": "To grizzle is British informal for whining or complaining fretfully, much like sulking."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "Set"
     }
    }
   },
@@ -1073,38 +1074,37 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "NINEVEH",
      "indicators": [
       {
        "text": "retrospective",
-       "note": "a retrospective looks back, so the word is read from end to start"
+       "at": 10,
+       "note": "retrospective means looking back, so the word is read from end to start"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NINEVEH",
+       "op": "middle",
        "indicators": [
         {
          "text": "uncovered",
-         "note": "uncovered means stripped of its outer covering, so the end letters go"
+         "at": 24,
+         "note": "uncovered means its outer letters, the cover, are stripped off"
         }
        ],
        "parts": [
         {
          "words": "Chevening",
-         "note": "taken as written"
+         "at": 0,
+         "note": "taken as written; Chevening is the Foreign Secretary's country house in Kent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A look back at Chevening reveals a ruined city.",
-     "walkthrough": "Chevening is a country house in Kent used by the UK Foreign Secretary.",
-     "definitionFit": "Nineveh was the great capital of ancient Assyria, now in ruins near Mosul in Iraq."
+     "surface": "A country house mounts a retrospective show about an archaeological site.",
+     "walkthrough": "'uncovered' strips the first and last letters of Chevening, leaving HEVENIN, and 'retrospective' reads that from end to start.",
+     "definitionFit": "Nineveh was the great Assyrian capital on the Tigris, destroyed in 612 BC and left as ruins."
     },
     "features": {
      "answerInScene": false,
