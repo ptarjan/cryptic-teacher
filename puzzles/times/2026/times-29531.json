@@ -317,31 +317,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SLOT",
      "indicators": [
       {
        "text": "fails to finish",
-       "note": "the word stops short of its last letter"
+       "at": 11,
+       "note": "the word does not reach its end, so its final letter is dropped"
       }
      ],
      "parts": [
       {
-       "words": "Slow mover fails to finish",
-       "gives": "SLOT",
-       "note": "a slow mover is a SLOTH, minus its last letter H"
+       "words": "Slow mover",
+       "at": 0,
+       "gives": "SLOTH",
+       "note": "the sloth is a famously slow-moving animal"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A slowcoach who does not finish in the allotted time.",
-     "walkthrough": "The surface sounds like a race result; the sloth is the slow mover and it is the word, not the animal, that fails to finish.",
-     "definitionFit": "A plain synonym, from broadcasting and booking: the period set aside for something in a timetable."
+     "surface": "A slow mover never gets to the end of the course.",
+     "walkthrough": "The slow mover is a SLOTH; 'fails to finish' drops its last letter, H.",
+     "definitionFit": "A slot is an allotted place in a timetable or schedule, such as a broadcasting slot."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "finish"
+     "misdirectedWord": "mover"
     }
    }
   },
@@ -832,35 +835,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "FET",
        "indicators": [
         {
          "text": "leads to",
-         "note": "the leads of the words are their first letters"
+         "at": 10,
+         "note": "the leads of words are their opening letters, so the first letter of each of the next three words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leads to feelings evoking trauma",
-         "gives": "FET",
-         "select": "first",
-         "note": "first letters of Feelings Evoking Trauma"
+         "words": "feelings evoking trauma",
+         "at": 19,
+         "note": "the first letters of feelings, evoking and trauma are F, E and T"
         }
        ]
       },
       {
        "words": "somewhat",
+       "at": 43,
        "gives": "ISH",
-       "note": "-ish = somewhat, as in 'tallish'"
+       "note": "the suffix -ish means somewhat, as in 'greenish'"
       }
      ]
     },
     "explanation": {
-     "surface": "A psychologist's note that an obsession brings on feelings that echo a trauma.",
-     "walkthrough": "'Leads to' reads as 'causes' in the surface; here it picks out the leading letters.",
-     "definitionFit": "A plain synonym in the psychological sense: a fixation on one object or practice that crowds out everything else."
+     "surface": "A psychologist's note that obsession grows from feelings that bring back trauma, more or less.",
+     "walkthrough": "'leads to' reads as 'results in', but it means the leading letters of 'feelings evoking trauma', giving FET; 'somewhat' adds ISH.",
+     "definitionFit": "A fetish is an excessive, irrational fixation on one thing, much like an obsession."
     },
     "features": {
      "answerInScene": true,
@@ -1141,40 +1142,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COWBELL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "the rearranged letters go inside the room word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "locked room",
+       "at": 33,
+       "gives": "CELL",
+       "note": "a prison cell is a locked room"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "dicky",
-         "note": "dicky = unsound, faulty, so the letters are out of order"
-        },
-        {
-         "text": "in",
-         "note": "the letters go in the room"
+         "at": 19,
+         "note": "dicky is British slang for shaky or unsound, so the letters of bow are disordered"
         }
        ],
        "parts": [
         {
-         "words": "locked room",
-         "gives": "CELL",
-         "note": "a cell is a locked room"
-        },
-        {
          "words": "bow",
-         "note": "BOW rearranged"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hunting for a neck accessory, a dicky bow, in a locked room.",
-     "walkthrough": "A dicky bow is British slang for a bow tie, and the surface wants it as the neckwear; 'dicky' is the instruction. The definition is cryptic: a bell on a cow's neck lets the herder locate it.",
-     "definitionFit": "A cowbell hangs round a cow's neck so its owner can locate it by the sound."
+     "surface": "A dandy's bow tie looks out of place in a locked room.",
+     "walkthrough": "'dicky bow' looks like the British name for a bow tie, but 'dicky' (shaky, unsound) rearranges BOW to OWB, which goes 'in' CELL. 'neckwear' wants to be the definition alone; it needs 'Locating'.",
+     "definitionFit": "A cowbell hangs round a cow's neck so that the herder can find the animal by its sound."
     },
     "features": {
      "answerInScene": false,
