@@ -43,41 +43,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LILY",
-     "indicators": [
-      {
-       "text": "naked",
-       "note": "something naked has had its outer covering stripped, so the word loses its first and last letters"
-      },
-      {
-       "text": "having a day out",
-       "note": "a day out means a letter for day goes missing, along with the article that comes with it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 11,
+         "note": "stripped bare, so the word slim loses its outer letters, its first and last"
+        }
+       ],
        "parts": [
         {
          "words": "slim",
-         "gives": "LI",
-         "note": "the word without its outside letters"
+         "at": 6,
+         "note": "the word taken as written before its ends are stripped"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 22,
+         "note": "together with 'out', having something out means it is taken away from the word lady"
         },
         {
+         "text": "out",
+         "at": 35,
+         "note": "completes 'having ... out': the named letters are removed from the word lady"
+        }
+       ],
+       "parts": [
+        {
          "words": "lady",
-         "gives": "LY",
-         "note": "the word with A and D (day) taken out"
+         "at": 17,
+         "note": "the word taken as written before letters are removed"
+        },
+        {
+         "words": "a day",
+         "at": 29,
+         "gives": "AD",
+         "note": "A as written plus D, the usual abbreviation for day"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pale, thin woman strips off and takes a day trip.",
-     "walkthrough": "'A day' is read as A plus D, both removed. LILY as an adjective means pale or white, as in lily-white.",
-     "definitionFit": "The flower's whiteness gives the word an adjectival sense of pallor, as in a lily-white complexion."
+     "surface": "A description of a thin, nude woman looking wan on her day off.",
+     "walkthrough": "Strip SLIM of its ends to get LI; take A and D (day) out of LADY to leave LY.",
+     "definitionFit": "Lily is used as an adjective meaning white or pallid, after the flower's colour, as in lily-white."
     },
     "features": {
      "answerInScene": false,
@@ -943,32 +961,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LAYREADER",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the initial sounds trade places"
+       "at": 10,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "21 chief",
-       "gives": "LAYREADER",
-       "soundsLike": "RAY LEADER",
-       "note": "21 across is a fish and a chief is a leader; say the pair with their opening sounds swapped"
+       "words": "21",
+       "at": 0,
+       "gives": "RAY",
+       "note": "the answer to 21 across, a ray being a flat fish"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LEADER",
+       "parts": [
+        {
+         "words": "chief",
+         "at": 3,
+         "gives": "LEEDER",
+         "note": "a chief is a leader"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fish boss, in Spooner's words, is someone licensed by a bishop.",
-     "walkthrough": "Swap the R and L sounds of RAY LEADER. A lay reader is a non-ordained person licensed in the Church of England to lead services.",
-     "definitionFit": "Anglican bishops license unordained members of the congregation to conduct certain services and preach."
+     "surface": "A cross-reference clue that reads as a fish-boss being authorised by a churchman.",
+     "walkthrough": "21 across is RAY; chief is LEADER. Swap their first sounds and RAY LEADER becomes LAY READER.",
+     "definitionFit": "A lay reader is a layperson licensed by a bishop to conduct some church services."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "absurd"
     }
    }
   },

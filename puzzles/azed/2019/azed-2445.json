@@ -161,31 +161,37 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RELIC",
      "indicators": [
       {
-       "text": "left, divided",
-       "note": "left in the sense of departed, and divided because the two departing letters leave from separate places"
+       "text": "left",
+       "at": 10,
+       "note": "pa has left the word for copy, so its letters are taken out of it"
+      },
+      {
+       "text": "divided",
+       "at": 16,
+       "note": "the two letters being removed are not together but split apart inside the copy word"
       }
      ],
      "parts": [
       {
        "words": "Copy",
+       "at": 0,
        "gives": "REPLICA",
        "note": "a replica is a copy"
       },
       {
        "words": "pa's",
+       "at": 5,
        "gives": "PA",
-       "note": "taken as written; these two letters go"
+       "note": "the word pa, the 's reading as 'has': pa has left"
       }
      ]
     },
     "explanation": {
-     "surface": "A copy of father's will, split up among the family, kept in his memory.",
-     "walkthrough": "The two letters of pa are not together in REPLICA, so 'divided' tells you to remove them separately, leaving RELIC.",
-     "definitionFit": "A relic is something kept in remembrance of a person or past event, a memento."
+     "surface": "Someone duplicating what their father left them, split up, as a keepsake.",
+     "walkthrough": "Copy is REPLICA; 'left' takes P and A out of it, and 'divided' warns that those two letters sit apart (REP-LIC-A), leaving RELIC.",
+     "definitionFit": "A relic is something kept in remembrance, so it serves as a memorial of a person or event."
     },
     "features": {
      "answerInScene": true,
@@ -388,52 +394,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPACECADET",
+     "op": "composite",
      "indicators": [
       {
        "text": "Wild",
-       "note": "wild means out of control, so the letters run riot into a new order"
+       "at": 0,
+       "note": "wild suggests the letters running out of control into a new order"
+      },
+      {
+       "text": "giving away",
+       "at": 19,
+       "note": "the letters of a are given away from the mixed pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPACECADET",
-       "indicators": [
-        {
-         "text": "giving away",
-         "note": "giving away something means losing it, so the single letter a is surrendered"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "escapade",
-         "note": "taken as written"
+         "at": 5,
+         "note": "taken as written into the anagram pool"
         },
         {
          "words": "act",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written; this letter is discarded"
+         "at": 15,
+         "note": "taken as written into the anagram pool"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 31
       }
      ]
     },
     "explanation": {
-     "surface": "A reckless stunt reveals someone as a regular drug user.",
-     "walkthrough": "Remove one A from the eleven letters of escapade and act, then rearrange the remaining ten.",
-     "definitionFit": "A space cadet is slang for someone who is spaced out, especially a regular user of drugs."
+     "surface": "A reckless prank and a performance are put down to someone hooked on drugs.",
+     "walkthrough": "'Wild' mixes the letters of ESCAPADE and ACT; 'giving away a' removes one A from that pool, and the remaining ten letters make SPACE CADET.",
+     "definitionFit": "Space cadet is slang for someone who seems permanently spaced out, originally a habitual drug user."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "giving"
+     "misdirectedWord": "act"
     }
    }
   },
@@ -674,53 +678,67 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AEOLIPILE",
      "indicators": [
       {
        "text": "in",
-       "note": "in sets energy and the oil letters inside a tall building with its article"
+       "at": 44,
+       "note": "the energy and oil letters are placed in between the a and the tall building"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "driven",
-         "note": "driven as in pushed about, so the letters of oil are forced out of order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "a",
+         "at": 47,
          "note": "taken as written"
         },
         {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the symbol for energy"
-        },
-        {
-         "words": "oil",
-         "note": "the letters to rearrange"
-        },
-        {
          "words": "tall building",
+         "at": 49,
          "gives": "PILE",
-         "note": "a pile is a large imposing building"
+         "note": "a pile is a large tall building"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "energy",
+         "at": 24,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "driven",
+           "at": 36,
+           "note": "oil driven about means its letters are moved into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "at": 32,
+           "note": "taken as written as anagram fodder"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A steam engine powering a tower block, run on oil.",
-     "walkthrough": "The energy and the rearranged oil sit inside 'a pile', between its A and its PILE.",
-     "definitionFit": "The aeolipile is Hero of Alexandria's spinning steam-jet sphere, an early reaction turbine."
+     "surface": "Describes an engine run on oil, housed in a tower block.",
+     "walkthrough": "'driven' rearranges OIL to OLI; that and E for energy go 'in' A + PILE, giving A-EOLI-PILE.",
+     "definitionFit": "The aeolipile, Hero of Alexandria's spinning sphere driven by jets of steam, is the earliest known steam turbine."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "driven"
     }
@@ -751,45 +769,34 @@
      "indicators": [
       {
        "text": "cutting",
-       "note": "cutting into something means slicing through its middle, so the pair sits inside the entreaty"
+       "at": 35,
+       "note": "the pair of letters cuts into the entreaty word, splitting it"
       }
      ],
      "parts": [
       {
        "words": "Entreaty",
+       "at": 0,
        "gives": "PLEA",
-       "note": "a plea is an entreaty"
+       "note": "a plea is an earnest entreaty"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "early pair in urgency",
+       "at": 13,
        "gives": "UR",
-       "indicators": [
-        {
-         "text": "early pair in",
-         "note": "the early pair of a word means its opening two letters only"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "urgency",
-         "gives": "UR",
-         "select": "first",
-         "note": "the first two letters of this word"
-        }
-       ]
+       "note": "the first two letters of urgency"
       }
      ]
     },
     "explanation": {
-     "surface": "An urgent appeal on behalf of a fragile membrane.",
-     "definitionFit": "The pleura is the thin serous membrane lining the chest and covering the lungs."
+     "surface": "A desperate plea, made with a sense of urgency, about a fine tissue.",
+     "walkthrough": "'has' is only a link here; 'early pair' means the opening two letters, not a couple of early risers.",
+     "definitionFit": "The pleura is the thin double membrane that lines the chest cavity and covers each lung."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Entreaty"
+     "misdirectedWord": "cutting"
     }
    }
   },
@@ -1606,27 +1613,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLEDE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "fourth from",
-       "note": "the fourth letter is taken from the word for shelf before it is relocated"
+       "text": "moved to the top",
+       "at": 24,
+       "note": "in a down clue the top is the start, so the removed letter is placed before the rest"
       }
      ],
      "parts": [
       {
-       "words": "shelf",
-       "gives": "LEDGE",
-       "note": "a ledge is a shelf"
+       "words": "fourth",
+       "at": 6,
+       "gives": "G",
+       "note": "the fourth letter of the shelf word, ledge"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from",
+         "at": 13,
+         "note": "the fourth letter is taken from the shelf word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shelf",
+         "at": 18,
+         "gives": "LEDGE",
+         "note": "a ledge is a narrow shelf"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kite whose perch is the fourth ledge up.",
-     "walkthrough": "The fourth letter of the word for shelf leaves its place and goes to the start, the top in a down entry.",
-     "definitionFit": "Glede, or gled, is an old name for the red kite, a bird of prey."
+     "surface": "Instructions for shifting a toy kite up from the fourth shelf.",
+     "walkthrough": "Shelf is LEDGE; take its fourth letter, G, 'from' it and move it 'to the top', giving G + LEDE.",
+     "definitionFit": "Glede is an old and dialect name for the red kite, the bird of prey."
     },
     "features": {
      "answerInScene": false,

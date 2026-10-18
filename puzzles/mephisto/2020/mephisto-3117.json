@@ -195,35 +195,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AFTERNOON",
-     "indicators": [
-      {
-       "text": "turned out",
-       "note": "turned out means expelled, so the two letters spelling it are thrown out of the word notion"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "more behind",
+       "at": 6,
        "gives": "AFTER",
-       "note": "the comparative of aft, a sailor's word for behind"
+       "note": "aft means behind, so after can be read as 'more aft', further behind"
       },
       {
-       "words": "notion",
-       "note": "taken as written"
-      },
-      {
-       "words": "it",
-       "note": "taken as written; these letters are removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 46,
+         "note": "the reversed it is put out of the word notion, leaving the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "notion",
+         "at": 29,
+         "note": "the word taken as written"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 39,
+           "note": "it turned round reads backwards before it is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 36,
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Prime Minister lagging further behind because of an idea that proved mistaken.",
-     "walkthrough": "PM looks like the Prime Minister but is the time of day. Taking I and T out of NOTION leaves NOON.",
-     "definitionFit": "PM, post meridiem, denotes the hours after midday, which is the afternoon."
+     "surface": "A prime minister who is further behind, exploiting an idea that proved a flop.",
+     "walkthrough": "'PM' looks like a prime minister but means post meridiem; 'exploiting' only joins the two halves.",
+     "definitionFit": "PM, from post meridiem, is the abbreviation for the hours after midday, the afternoon."
     },
     "features": {
      "answerInScene": false,
@@ -1065,17 +1084,17 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SITTER",
      "indicators": [
       {
-       "text": "I'll stand for",
-       "note": "standing for something means taking its place, so the letter I replaces another inside the compiler word"
+       "text": "stand for",
+       "at": 5,
+       "note": "to stand for is to substitute for, so the I replaces the named letter"
       }
      ],
      "parts": [
       {
        "words": "compiler",
+       "at": 32,
        "gives": "SETTER",
        "note": "a crossword compiler is a setter"
       },
@@ -1084,31 +1103,35 @@
        "indicators": [
         {
          "text": "last of",
-         "note": "last of picks out only the final letter of the following word"
+         "at": 15,
+         "note": "the final letter of the word these"
         }
        ],
        "parts": [
         {
          "words": "these",
-         "note": "final letter of these, which is swapped out"
+         "at": 23,
+         "note": "the word taken as written"
         }
        ]
       },
       {
-       "words": "I",
-       "note": "taken as written, the replacement letter"
+       "words": "I'll",
+       "at": 0,
+       "gives": "I",
+       "note": "I as written, the 'll being 'will': I will stand for"
       }
      ]
     },
     "explanation": {
-     "surface": "The setter boasts of a clue so simple no solver could miss it.",
-     "walkthrough": "SETTER has I put in place of an E, giving SITTER.",
-     "definitionFit": "A sitter is an easy chance, like a sitting target, something one could hardly fail at."
+     "surface": "A setter vowing to take the place of these words in a puzzle that cannot go wrong.",
+     "walkthrough": "The E at the end of 'these' is the letter swapped: put I in place of one E of SETTER.",
+     "definitionFit": "A sitter is an easy chance or catch, a thing so simple that it would be difficult to fluff."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "stand"
+     "misdirectedWord": "compiler"
     }
    }
   },
@@ -1663,57 +1686,40 @@
      {
       "text": "Migrant",
       "at": 0
-     },
-     {
-      "text": "spare",
-      "at": 13
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appearing in",
+       "at": 25,
+       "note": "the money word appears inside the street abbreviation"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Migrant",
-       "note": "first meaning: a small migratory sandpiper"
+       "words": "street",
+       "at": 38,
+       "gives": "ST"
       },
       {
-       "unchecked": true,
-       "words": "spare",
-       "note": "second meaning: to be sparing, to restrict"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "appearing in",
-         "note": "appearing in means showing up inside, so the money word goes inside the abbreviation for street"
-        }
-       ],
-       "parts": [
-        {
-         "words": "street",
-         "gives": "ST",
-         "note": "ST is the abbreviation for street"
-        },
-        {
-         "words": "brass",
-         "gives": "TIN",
-         "note": "brass and tin are both slang for money"
-        }
-       ]
+       "words": "spare brass",
+       "at": 13,
+       "gives": "TIN",
+       "note": "brass and tin are both slang for money, here cash to spare"
       }
      ]
     },
     "explanation": {
-     "surface": "A newcomer with spare cash turning up on the street.",
-     "walkthrough": "Brass is northern British slang for money, as is tin.",
-     "definitionFit": "A stint is a small wading bird that migrates, and to stint is to spare or use frugally."
+     "surface": "A traveller with some loose change turning up on the road.",
+     "walkthrough": "'Migrant' looks like a person, but the stint is a bird, a small sandpiper that migrates.",
+     "definitionFit": "The stint is a small wading bird of the sandpiper family, known as a long-distance migrant."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "brass"
+     "aptDefinition": true,
+     "misdirectedWord": "Migrant"
     }
    }
   },
