@@ -91,6 +91,9 @@ OK = [
     ("JOHN PAUL JONES", "JOHNPAUL + [addiction]JONES"),
     # A deletion may take out scattered letters, each given, in order (quiptic-834 4d).
     ("EQUAL", "del<going out>([Equably], [by]BY)"),
+    # A deletion may name several pieces, taken out one after another (cyclops-583 17a).
+    ("BADASS", "ana(del<minus>([bastards]BASTARDS, [T]T, [R]R))"),
+    ("ASADS", "del<minus>([bastards]BASTARDS, [B]B, [T]T, [R]R)"),
     # A reversal turns round only the stretch its indicators name (azed-1806 25d).
     ("KARST", "rev<last pair of>([mini vehicles]KARTS)"),
     ("TSAR", "rev<turns head>([top of bill]STAR)"),
@@ -462,7 +465,8 @@ def refused(tree, answer):
 leaf = lambda x, g=None: {"words": x, "gives": g or x.upper()}
 for name, tree in [
     ("a container with one part", {"op": "container", "parts": [leaf("ab")]}),
-    ("a deletion with three parts", {"op": "deletion", "parts": [leaf("ab"), leaf("a"), leaf("b")]}),
+    ("a deletion with ten parts", {"op": "deletion", "parts": [leaf("ab")] + [leaf("a")] * 9}),
+    ("a deletion with one part", {"op": "deletion", "parts": [leaf("ab")]}),
     ("a substitution with two parts", {"op": "substitution", "parts": [leaf("ab"), leaf("a")]}),
     ("a reversal with none", {"op": "reversal"}),
     ("a first with two", {"op": "first", "parts": [leaf("ab"), leaf("cd")]}),

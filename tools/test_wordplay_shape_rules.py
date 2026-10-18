@@ -121,7 +121,8 @@ check("an anagram of a container is counted", 1, v.anagram_of_container(
 check("a container with one part is counted", 1, v.arity_ins({"op": "container", "unchecked": True, "parts": [{"words": "a"}]}))
 check("a checked one is the arity rule's, not this", 0, v.arity_ins({"op": "container", "parts": [{"words": "a"}]}))
 check("a substitution with two parts is counted", 1, v.arity_other({"op": "substitution", "unchecked": True, "parts": [{"words": "a"}, {"words": "b"}]}))
-check("a deletion with three parts is counted", 1, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{}, {}, {}]}))
+check("a deletion with three parts is not (the evaluator takes several pieces)", 0, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{}, {}, {}]}))
+check("a deletion with ten parts is counted", 1, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{}] * 10}))
 check("a deletion with one part is counted", 1, v.del_single({"op": "deletion", "unchecked": True, "parts": [{"words": "a"}]}))
 check("and is not an arityOther", 0, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{"words": "a"}]}))
 leaf = {"words": "nearly obtains", "gives": "HA"}

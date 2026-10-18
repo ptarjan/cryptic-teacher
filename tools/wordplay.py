@@ -94,6 +94,7 @@ anagram's container is the outer step, ins(outer, ana(x)), not ana(ins(...)).
 import argparse
 import collections
 import functools
+import itertools
 import json
 import re
 import sys
@@ -110,7 +111,7 @@ NAMES = {v: k for k, v in OPS.items()}
 SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 # How many parts each op takes: (fewest, most).
 # ana() takes one argument; a charade written there becomes its parts (_fodder_parts).
-ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 2),
+ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 9),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (2, 3),
          "substitution": (3, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
          "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2),
@@ -244,7 +245,7 @@ class _Parser:
         lo, hi = ARITY[op]
         if not lo <= len(args) <= hi:
             want = {"homophone": "sound(x, SPELT)", "spoonerism": "spoon(a, b) or spoon(a, b, SPELT)",
-                    "container": "ins(outer, inner)", "deletion": "del(from, removed)",
+                    "container": "ins(outer, inner)", "deletion": "del(from, removed, ...)",
                     "substitution": "sub(x, OLD, NEW)",
                     "rebus": 'rebus([words], "reading")',
                     "composite": "comp(fodder, taken out)",
@@ -518,6 +519,14 @@ def _onset(s):
     return m.group() if m.group() != s else s[:1]
 
 
+def _removals_all(f, rs):
+    """Letters of each piece of `rs` taken out of `f` in turn (BASTARDS minus T, minus R)."""
+    out = {f}
+    for r in rs:
+        out = set().union(*(_removals(x, r) for x in out)) if out else out
+    return out
+
+
 def _removals(f, r):
     """Every string left when the letters of `r` are taken out of `f`, each once, in
     order: one run (STING from NESTING), or scattered letters (B, Y from EQUABLY)."""
@@ -609,8 +618,8 @@ def values(node):
     if op == "deletion":
         out = set()
         for f in values(parts[0]):
-            for r in values(parts[1]):
-                out |= _removals(f, r)
+            for rs in itertools.product(*(sorted(values(p)) for p in parts[1:])):
+                out |= _removals_all(f, rs)
         return out
     if op == "hidden":
         leaf = parts[0]
@@ -757,10 +766,11 @@ def match(node, want, got=None):
     elif op == "deletion":
         ok = False
         for f in sorted(values(parts_of(node)[0])):
-            for r in sorted(values(parts_of(node)[1])):
-                if want in _removals(f, r):
+            for rs in itertools.product(*(sorted(values(p)) for p in parts_of(node)[1:])):
+                if want in _removals_all(f, rs):
                     match(parts_of(node)[0], f, got)
-                    match(parts_of(node)[1], r, got)
+                    for p, r in zip(parts_of(node)[1:], rs):
+                        match(p, r, got)
                     ok = True
                     break
             if ok:

@@ -3743,7 +3743,7 @@ def arity_other(tree):
     n = 0
     for node in _unchecked_ops(tree):
         op, k = node["op"], len(node.get("parts") or [])
-        n += ((op == "deletion" and k >= 3) or (op == "substitution" and k != 3)
+        n += ((op == "deletion" and k > 9) or (op == "substitution" and k != 3)
               or (op == "homophone" and k >= 3)
               or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1))
     return n

@@ -71,7 +71,7 @@ def d_arity_other(r):
     can file it as a three-part sub."""
     for n in nodes(r["wp"]):
         op, k = n.get("op"), len(n.get("parts") or [])
-        if (op == "deletion" and k >= 3) or (op == "substitution" and k not in (1, 2, 3)) or (op == "homophone" and k >= 3) \
+        if (op == "deletion" and k > 9) or (op == "substitution" and k not in (1, 2, 3)) or (op == "homophone" and k >= 3) \
                 or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1):
             return f"{cs.SHORT.get(op, op)} has {k} parts"
 
