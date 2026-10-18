@@ -384,52 +384,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LYONNAISE",
-     "indicators": [
-      {
-       "text": "cooking",
-       "note": "letters being cooked are mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 8,
+         "note": "the back of a word is its final letter, here taken from smell"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "the back of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Smell's back",
-           "gives": "SMELL",
-           "note": "last letter of smelL"
-          }
-         ]
-        },
+         "words": "Smell's",
+         "at": 0,
+         "gives": "SMELL",
+         "note": "the word smell, whose last letter is taken; the 's joins it to back"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooking",
+         "at": 24,
+         "note": "cooking means the letters are being worked into a new mix"
+        }
+       ],
+       "parts": [
         {
          "words": "is anyone",
-         "gives": "YONNAISE",
-         "note": "IS ANYONE rearranged"
+         "at": 14,
+         "note": "taken as written as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sniffs the air and asks whether anybody is frying onions.",
-     "walkthrough": "The definition hides at the end as a phrase, 'with onions', rather than a noun: lyonnaise describes a dish cooked that way.",
-     "definitionFit": "Lyonnaise, in the style of Lyon, is the menu term for food cooked with onions."
+     "surface": "A cook sniffs the kitchen air and asks whether anyone is making something.",
+     "walkthrough": "'Smell's back' gives L, the final letter of smell; 'cooking' rearranges IS ANYONE into YONNAISE.",
+     "definitionFit": "Lyonnaise is a culinary term for a dish prepared in the Lyon style, cooked with sliced onions."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "cooking"
     }
    }
@@ -1036,40 +1037,42 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "PL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Leading couple in",
-         "note": "the first two letters of the word"
+         "at": 0,
+         "note": "the leading couple of letters in a word are its first two"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Leading couple in play",
-         "gives": "PL",
-         "select": "first",
-         "note": "first two letters of PLay"
+         "words": "play",
+         "at": 18,
+         "note": "only its leading couple of letters stay, the rest AY dropped"
+        },
+        {
+         "gives": "AY"
         }
        ]
       },
       {
        "words": "moderate",
+       "at": 29,
        "gives": "EASE",
-       "note": "to ease is to moderate"
+       "note": "to ease is to moderate or lessen"
       }
      ]
     },
     "explanation": {
-     "surface": "The lead actors in a play get only lukewarm applause.",
-     "walkthrough": "'Leading couple' sounds like the stars of the play, but it takes the first two letters. 'Cheer' is a verb meaning gladden.",
-     "definitionFit": "A plain synonym: both verbs mean making someone glad."
+     "surface": "A theatrical pairing of stars at the head of a play gets restrained applause.",
+     "walkthrough": "'Leading couple' suggests the stars of a show, but it means the first two letters of play, PL.",
+     "definitionFit": "To please someone is to cheer them up, giving them pleasure or delight."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "couple"
     }
    }
@@ -1580,42 +1583,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "After halfway, swim",
-       "gives": "IM",
-       "note": "second half of swIM"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "AGO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "After halfway",
-         "note": "take only what comes after the midpoint of the word"
+         "at": 0,
+         "note": "after halfway means only the second half of the word is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "back",
-         "gives": "AGO",
-         "select": "last",
-         "note": "back = ago, as in 'years back'"
+         "words": "swim",
+         "at": 15,
+         "note": "the second half of swim, its first half SW dropped"
+        },
+        {
+         "gives": "SW"
         }
        ]
+      },
+      {
+       "words": "back",
+       "at": 20,
+       "gives": "AGO",
+       "note": "back, as in years back, means ago"
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer turning halfway through a butterfly race.",
-     "walkthrough": "'Butterfly' looks like the swimming stroke, but it is the insect; the question mark flags it as an example of an imago.",
-     "definitionFit": "An imago is the adult stage of an insect, and a butterfly is one example."
+     "surface": "A swimmer, past the midpoint of a length, turns back doing butterfly stroke.",
+     "walkthrough": "'butterfly' looks like the swimming stroke, but it is the insect; 'back' is not a reversal but means AGO, as in 'years back'.",
+     "definitionFit": "An imago is the final adult stage of an insect, so a butterfly is an example, hence the question mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "butterfly"
+     "misdirectedWord": "butterfly?"
     }
    }
   },

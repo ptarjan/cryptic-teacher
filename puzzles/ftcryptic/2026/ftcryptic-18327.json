@@ -161,32 +161,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LEONORA",
      "indicators": [
       {
        "text": "with a change of finale",
-       "note": "altering the finale means swapping out the closing letter for a different one"
+       "at": 13,
+       "note": "a change of finale means the closing letter of the name is swapped for another"
       }
      ],
      "parts": [
       {
        "words": "could play Fidelio",
+       "at": 37,
        "gives": "LEONORE",
-       "note": "in Beethoven's opera the heroine Leonore disguises herself as a young man called Fidelio"
+       "note": "in Beethoven's opera Fidelio the heroine Leonore disguises herself as the young man Fidelio"
+      },
+      {
+       "gives": "E",
+       "note": "the final letter of the Beethoven heroine, swapped out"
+      },
+      {
+       "gives": "A",
+       "note": "the new final letter"
       }
      ]
     },
     "explanation": {
-     "surface": "An opera singer who stars in Verdi might also take on Beethoven's Fidelio.",
-     "walkthrough": "Leonore is Beethoven's heroine who plays the part of Fidelio; change her final E to A to get Verdi's heroine LEONORA.",
-     "definitionFit": "Leonora is the leading soprano role in Verdi's Il Trovatore and also in La Forza del Destino."
+     "surface": "An opera singer, a Verdi star, might take the lead in Beethoven's Fidelio with a different ending.",
+     "walkthrough": "'Fidelio' is not a role to define but points to Leonore, who disguises herself as Fidelio; 'with a change of finale' swaps her last letter to give the Verdi heroine.",
+     "definitionFit": "Leonora is the heroine of Verdi's Il trovatore and La forza del destino, so a leading role in his operas."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "play"
+     "misdirectedWord": "star"
     }
    }
   },
@@ -713,49 +720,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SLANG",
+     "op": "composite",
      "indicators": [
       {
        "text": "Poor",
-       "note": "poor means in bad shape, so the letters are left in a damaged order"
+       "at": 0,
+       "note": "poor suggests a damaged, mangled signal, so its letters are rearranged"
+      },
+      {
+       "text": "got cut off",
+       "at": 15,
+       "note": "the I got cut off means that letter is dropped from the jumble"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SLANG",
-       "indicators": [
-        {
-         "text": "got cut off",
-         "note": "something cut off is removed altogether, so it leaves the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "signal",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written, the letter to be removed"
-        }
-       ]
+       "words": "signal",
+       "at": 5,
+       "note": "taken as written, the anagram fodder"
+      },
+      {
+       "words": "I",
+       "at": 13,
+       "note": "taken as written, the letter removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A caller complains of bad reception: they were disconnected while on the phone.",
-     "walkthrough": "Dog and bone is Cockney rhyming slang for phone, so it is an example of the answer; the question mark flags the definition by example.",
-     "definitionFit": "Cockney rhyming slang swaps a word for a phrase that rhymes with it, here an informal expression for telephone."
+     "surface": "A caller complains of a weak signal and of being cut off on the phone.",
+     "walkthrough": "Rearrange SIGNAL with its I cut off. 'Dog and bone' is Cockney rhyming slang for phone, so the phrase is an example of the answer, hence the question mark.",
+     "definitionFit": "Dog and bone is a piece of Cockney rhyming slang, so the phrase itself is an instance of colloquial argot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "bone"
+     "misdirectedWord": "signal"
     }
    }
   },
@@ -959,56 +959,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BLACKTIE",
      "indicators": [
       {
        "text": "to enter",
-       "note": "entering means going inside, so one piece is placed within the others"
+       "at": 47,
+       "note": "to enter means to go inside, so the word for need goes into the string of initials"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start of",
+         "at": 0,
+         "note": "start of means the first letter of each of the following words"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Start of",
-           "note": "the start of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Baftas",
-           "note": "the opening letter"
-          }
-         ]
-        },
-        {
-         "words": "need",
-         "gives": "LACK",
-         "note": "to need something is to lack it"
-        },
-        {
-         "words": "important event",
-         "gives": "TIE",
-         "note": "a tie is a big match, as in a cup tie"
-        },
-        {
-         "unchecked": true,
-         "words": "tonight",
-         "note": "surface padding, setting the scene at the awards night"
+         "words": "Baftas tonight: important event",
+         "at": 9,
+         "note": "their first letters give BTIE"
         }
        ]
+      },
+      {
+       "words": "need",
+       "at": 42,
+       "gives": "LACK",
+       "note": "need means lack, as in being without something"
       }
      ]
     },
     "explanation": {
-     "surface": "The BAFTA film awards night is a grand occasion where guests must dress up.",
-     "walkthrough": "A cup tie is a British term for a knockout match in a football competition, hence an important event.",
-     "definitionFit": "Black tie is the dress code calling for dinner jackets and evening gowns, a standard formal attire."
+     "surface": "At the start of tonight's Baftas, an important occasion, guests need to arrive in evening dress.",
+     "walkthrough": "'Start of' applies to all four words from Baftas to event, not just the first; 'to enter' then puts the word for need inside. The Baftas are the British film and television awards.",
+     "definitionFit": "Black tie is the dress code for a dinner jacket and bow tie, the standard formal evening dress."
     },
     "features": {
      "answerInScene": true,
@@ -1086,38 +1073,28 @@
    "annotation": {
     "definitions": [
      {
-      "text": "It glows",
+      "text": "It glows and can be seen at the end of three months",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "EMBER",
-     "indicators": [
-      {
-       "text": "can be seen at the end of",
-       "note": "this points to the closing letters of each word, which they all share"
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "three months",
-       "gives": "EMBER",
-       "select": "last",
-       "note": "September, November and December all finish with the same five letters"
+       "words": "It glows and can be seen at the end of three months",
+       "at": 0,
+       "note": "a glowing coal from a fire, whose name is also the shared final five letters of the last three autumn and winter month names"
       }
      ]
     },
     "explanation": {
-     "surface": "A riddle about something glowing that turns up as the year closes.",
-     "walkthrough": "The three months are September, November and December, the last three of the year.",
-     "definitionFit": "An ember is a smouldering piece of coal or wood left in a fire, still glowing with heat."
+     "walkthrough": "The second half reads as a fact about a sky that glows at year's end, but it points to the last letters of three month names: SeptEMBER, NovEMBER and DecEMBER.",
+     "definitionFit": "An ember is a small piece of burning coal or wood left glowing in a dying fire."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "months"
     }
    }
@@ -1258,31 +1235,34 @@
      "indicators": [
       {
        "text": "after seeing",
-       "note": "one piece comes after another, so they are placed in sequence"
+       "at": 15,
+       "note": "after seeing places the word for restraint after the word for stuff"
       }
      ],
      "parts": [
       {
        "words": "stuff",
+       "at": 28,
        "gives": "RAM",
-       "note": "to stuff is to ram or cram"
+       "note": "to stuff is to ram, to cram or force in"
       },
       {
        "words": "restraint",
+       "at": 5,
        "gives": "SHACKLE",
-       "note": "a shackle is a restraining fetter"
+       "note": "a shackle is a restraint such as a fetter"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to hold back after witnessing something in a sorry state.",
-     "walkthrough": "'Show restraint' reads as a phrase meaning hold back; the restraint here is a physical one, an iron fetter.",
-     "definitionFit": "Ramshackle describes a building or vehicle that is badly made or falling apart, rickety and dilapidated."
+     "surface": "Advice to show self-control once you have seen something that is falling apart.",
+     "walkthrough": "'Show' at the front is only a link word; 'stuff' is the verb, as in stuffing a bag, giving RAM.",
+     "definitionFit": "Ramshackle describes a building or thing that is tumbledown, badly made and close to collapse."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "restraint"
+     "misdirectedWord": "stuff"
     }
    }
   },

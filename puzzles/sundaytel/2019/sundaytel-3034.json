@@ -1035,47 +1035,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CATERER",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter is dropped"
+       "text": "feeding",
+       "at": 17,
+       "note": "feeding means going into, so the shortened tea is put inside the word for guardian"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "guardian",
+       "at": 40,
+       "gives": "CARER",
+       "note": "a carer looks after someone, acting as their guardian"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "feeding",
-         "note": "feeding goes into something, so these letters go inside the other piece"
+         "text": "endless",
+         "at": 25,
+         "note": "endless means the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "guardian",
-         "gives": "CARER",
-         "note": "a carer looks after someone"
+         "words": "tea",
+         "at": 33,
+         "note": "taken as written, minus its last letter"
         },
         {
-         "words": "tea",
-         "gives": "TE",
-         "note": "the word with its last letter cut"
+         "gives": "A",
+         "note": "the last letter of tea, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook keeps feeding cups of tea to a care worker.",
-     "definitionFit": "A caterer supplies food and drink for events, a professional provider of meals."
+     "surface": "Someone serves a cup of tea, with the pot running dry, to a person's guardian.",
+     "walkthrough": "'endless' cuts tea to TE, and 'feeding' slips it inside CARER after the CA.",
+     "definitionFit": "A caterer is a business or person supplying meals for events, so one who provides food."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "guardian"
+     "misdirectedWord": "feeding"
     }
    }
   },

@@ -109,40 +109,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FEGS",
      "indicators": [
       {
        "text": "is replacing",
-       "note": "one item is put in place of another within a word, as a stand-in takes over a post"
+       "at": 28,
+       "note": "the abbreviation for say is replacing the letters US in the word for a fuss, so one pair swaps for the other"
+      },
+      {
+       "text": "for",
+       "at": 44,
+       "note": "for here means standing in place of, so the word before takes the position of the word after"
       }
      ],
      "parts": [
       {
-       "words": "for 'howdy-do'",
+       "words": "howdy-do",
+       "at": 49,
        "gives": "FUSS",
-       "note": "a howdy-do is a fuss or commotion"
-      },
-      {
-       "words": "say",
-       "gives": "EG",
-       "note": "say means for example, abbreviated eg"
+       "note": "a howdy-do is a commotion or to-do, a fuss"
       },
       {
        "words": "US",
+       "at": 41,
        "note": "taken as written, the letters to be swapped out"
+      },
+      {
+       "words": "say",
+       "at": 24,
+       "gives": "EG",
+       "note": "EG, short for exempli gratia, means for example, i.e. say"
       }
      ]
     },
     "explanation": {
-     "surface": "A dialect note on how locals say 'truly', using a US expression.",
-     "walkthrough": "Take FUSS and put EG where its US was, giving FEGS, a Scots exclamation.",
-     "definitionFit": "Fegs is a Scots and dialect interjection meaning in faith or truly, hence regional speech."
+     "surface": "A note on dialect: some word for 'truly' supposedly stands in for an American greeting.",
+     "walkthrough": "'howdy-do' looks like the greeting, but here it is a fuss or to-do; 'say' (EG) 'is replacing' US 'for' it. FEGS is a Scots dialect interjection, found in Chambers.",
+     "definitionFit": "Fegs is an old Scots exclamation meaning indeed or in faith, an affirming oath used in regional speech."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "say"
+     "misdirectedWord": "howdy-do"
     }
    }
   },
@@ -1581,55 +1588,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CAROLS",
+     "op": "composite",
      "indicators": [
       {
        "text": "scribbled",
-       "note": "scribbled writing is jumbled and hard to read, so the letters get mixed up"
+       "at": 8,
+       "note": "scribbled suggests letters dashed off in a jumble, so they are rearranged"
+      },
+      {
+       "text": "out",
+       "at": 31,
+       "note": "out tells you a letter is left out of the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CAROLS",
+       "words": "Scholar",
+       "at": 0,
+       "note": "taken as written, the anagram fodder"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "out",
-         "note": "out means removed, so the named letter is taken away"
+         "text": "bit of",
+         "at": 18,
+         "note": "a bit of a word here is its opening letter"
         }
        ],
        "parts": [
         {
-         "words": "Scholar",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "H",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "bit of Homer",
-           "gives": "H",
-           "select": "first",
-           "note": "the opening letter of the poet's name is to be removed"
-          }
-         ]
+         "words": "Homer",
+         "at": 25,
+         "note": "its first letter H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scholar in a cloister scrawled notes on Homer.",
-     "definitionFit": "A carol, also carrel, is a small enclosed study nook in a monastery cloister or library."
+     "surface": "A classicist dashes off notes on Homer while studying in a cloister.",
+     "walkthrough": "'scribbled' rearranges SCHOLAR with H, the 'bit of' Homer, left 'out'. CAROL is an old word for a carrel, a small study nook in a monastery cloister.",
+     "definitionFit": "Carols, in Chambers, are enclosed study desks or alcoves in a cloister, the same thing as carrels."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Homer"
     }
