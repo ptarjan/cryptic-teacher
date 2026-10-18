@@ -1110,9 +1110,13 @@ def write_puzzle_file(path, puzzle, generator=None):
     # Whatever changed a clue's text (the writer's re-read, an erratum, the
     # corroborated reading above), an annotation written for the old words
     # does not reach disk on the new ones.
-    puzzle = drop_stale_annotations(puzzle, *written)
-    # Clue text is stored with straight quotes, whoever served it curled.
+    # Clue text is stored with straight quotes, whoever served it curled, and
+    # that comes FIRST: a re-fetch serving "resident’s" for our stored
+    # "resident's" is the same clue, not a changed one, and judged curly it
+    # failed the quoted-phrase test below and lost the annotation of every clue
+    # with an apostrophe (cryptic-30140, stripped and re-annotated in a loop).
     puzzle = quotes.straighten(puzzle)
+    puzzle = drop_stale_annotations(puzzle, *written)
     # A puzzle built fresh from a page names only its url; the file's own
     # source says when it was acquired, and re-fetching it does not change
     # that. The old answers' origin is carried under whatever solutions the
