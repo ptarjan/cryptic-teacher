@@ -276,11 +276,11 @@ def unpad_charades(entry, puzzle):
             keep = [p for p, k in zip(parts, kinds) if k != "ok"]
             SKIPPED.update(k for k in kinds if k and k != "ok")
             # A charade of one piece with nothing else of its own is that piece.
-            # One with fields of its own, or whose piece is an unchecked step
-            # that would become the root (the validator then wants arity for
-            # it), needs a rewrite, not code: the leaf stays where it is.
+            # One with fields of its own, or whose piece is a bare leaf (the
+            # validator then wants singleLeaf) or an unchecked step (arity),
+            # needs a rewrite, not code: the leaf stays where it is.
             if len(keep) < len(parts) and len(keep) == 1 \
-                    and (set(node) > {"op", "parts"} or keep[0].get("unchecked") and "op" in keep[0]):
+                    and (set(node) > {"op", "parts"} or "op" not in keep[0] or keep[0].get("unchecked")):
                 SKIPPED["removal would leave a one-piece charade needing a rewrite"] += 1
             elif len(keep) < len(parts) and keep:
                 removed.extend(p["words"] for p, k in zip(parts, kinds) if k == "ok")
