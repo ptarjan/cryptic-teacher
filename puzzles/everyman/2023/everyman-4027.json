@@ -91,49 +91,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "VINDALOO",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "can be arranged for",
+       "at": 20,
+       "note": "the letters of the curry together with those of rice and can be put in a new order to spell the painter's name"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "can be arranged for",
-         "note": "the letters of rice, and and the answer can be rearranged to make the name"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "VINDALOO",
-         "parts": [
-          {
-           "words": "Leonardo da Vinci",
-           "note": "the full letter set: RICE + AND + the answer"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "Rice and",
-         "note": "the letters R, I, C, E, A, N, D are removed from the name's letter set; what remains is jumbled"
-        }
-       ]
+       "words": "Leonardo da Vinci",
+       "at": 40,
+       "note": "the Renaissance artist's full name, whose fifteen letters are the pool"
+      },
+      {
+       "words": "Rice and",
+       "at": 0,
+       "note": "taken as written: these seven letters are the ones added to the curry"
       }
      ]
     },
     "explanation": {
-     "surface": "A playful claim that a curry order can be rearranged into the great Renaissance artist.",
-     "walkthrough": "This is a composite anagram: RICE + AND + VINDALOO together rearrange to LEONARDO DA VINCI, so remove RICE and AND from the name and the remaining letters give the curry.",
-     "definitionFit": "Vindaloo is a hot curry, here pointed at by 'this'."
+     "surface": "A playful claim that rice and a curry can be served up as the great Renaissance painter.",
+     "walkthrough": "This is a composite anagram: 'can be arranged for' says the curry's eight letters plus R, I, C, E, A, N and D rearrange to make LEONARDO DA VINCI, so take RICEAND out of the name's letters and rearrange the rest.",
+     "definitionFit": "Vindaloo is a fiery curry of Goan origin, so it is the curry the clue points to."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "and"
+     "misdirectedWord": "Leonardo"
     }
    }
   },
@@ -787,54 +775,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Initially lacking",
-       "note": "drop the first letter of the next word"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
-         "text": "initially",
-         "note": "at the start, so only the opening letter of 'lacking' is used"
+         "text": "Initially",
+         "at": 0,
+         "note": "initially takes the first letter of the word lacking"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "(initially lacking)",
-         "gives": "L",
-         "select": "first",
-         "note": "first letter of lacking"
+         "words": "lacking",
+         "at": 10,
+         "note": "its first letter is L"
         }
        ]
       },
       {
-       "words": "punch",
-       "gives": "UNCH",
-       "note": "PUNCH without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially lacking",
+         "at": 25,
+         "note": "the bracketed instruction says punch is missing its initial letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "punch",
+         "at": 18,
+         "note": "taken as written; its first letter is P"
+        },
+        {
+         "gives": "P",
+         "note": "the initial letter of punch, the one that goes"
+        }
+       ]
       },
       {
        "words": "long time",
+       "at": 45,
        "gives": "EON",
-       "note": "an eon is an age"
+       "note": "an eon is an immeasurably long period of time"
       }
      ]
     },
     "explanation": {
-     "surface": "A weak drink and a long wait before the food arrives.",
-     "walkthrough": "The bracketed repeat looks like a typo; it is a second instruction, taking the L from 'lacking' itself.",
-     "definitionFit": "Luncheon is a formal word for lunch."
+     "surface": "A tongue-twisting recipe of initial letters and missing punch that adds up to a meal after a long wait.",
+     "walkthrough": "The phrase 'initially lacking' appears twice and does a different job each time: outside the brackets 'Initially' picks the first letter of 'lacking', while inside them the whole phrase tells you punch has lost its first letter.",
+     "definitionFit": "A luncheon is a formal word for a midday meal, which is certainly a thing to eat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "punch"
     }
    }
@@ -867,44 +862,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Not finishing",
-       "note": "the word stops short of its end, so its final letter is lost"
-      }
-     ],
      "parts": [
       {
-       "words": "various",
-       "gives": "SUNDR",
-       "note": "SUNDRY, various, without its last letter"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "IED",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "starters of",
-         "note": "take the first letter of each word"
+         "text": "Not finishing",
+         "at": 0,
+         "note": "the word is not allowed to finish, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "various",
+         "at": 14,
+         "gives": "SUNDRY",
+         "note": "sundry means various or assorted"
+        },
+        {
+         "gives": "Y",
+         "note": "the last letter of the word for various"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starters of",
+         "at": 22,
+         "note": "the starters of these words are their first letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "Italian endives, dressed",
-         "gives": "IED",
-         "select": "first",
-         "note": "I-talian, E-ndives, D-ressed"
+         "at": 34,
+         "note": "their first letters are I, E and D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unfinished Italian salad of assorted endives, dressed as tomatoes are.",
-     "walkthrough": "'Dressed' sounds like the salad dressing but is only there for its first letter.",
-     "definitionFit": "Describes a preparation: some tomatoes are left out in the heat until shrivelled, then kept in oil."
+     "surface": "A salad of assorted ingredients, Italian endives in a dressing, alongside some tomatoes.",
+     "walkthrough": "'Not finishing' cuts SUNDRY to SUNDR, and 'starters of' takes I, E and D from the next three words.",
+     "definitionFit": "Sun-dried tomatoes are ripened and then dehydrated in the sun, a familiar Italian preparation."
     },
     "features": {
      "answerInScene": true,
@@ -1014,46 +1017,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "REUBEN",
+     "indicators": [
+      {
+       "text": "prepared",
+       "at": 34,
+       "note": "the remaining letters are prepared, made up afresh in a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "REUBEN",
        "indicators": [
         {
          "text": "absent",
-         "note": "the teetotaller is not present, so those letters leave the fodder"
-        },
-        {
-         "text": "prepared",
-         "note": "made ready, so the letters are rearranged"
+         "at": 17,
+         "note": "with the teetotaller absent, those letters are taken out of brunette"
         }
        ],
        "parts": [
         {
          "words": "brunette",
-         "note": "anagram fodder before the deletion"
+         "at": 25,
+         "note": "taken as written"
         },
         {
          "words": "teetotaller",
+         "at": 5,
          "gives": "TT",
-         "note": "TT = teetotal; removed, leaving BRUNEE to rearrange"
+         "note": "TT is the standard abbreviation for teetotal or a teetotaller"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "With the non-drinker gone, a dark-haired woman made something with rye whiskey.",
-     "walkthrough": "Rye suggests whiskey, and the missing teetotaller supports it; here rye is the bread. A Reuben is an American deli sandwich of corned beef, sauerkraut and Swiss cheese on rye.",
-     "definitionFit": "A cryptic-leaning description: the sandwich is defined by the rye bread it comes on, not by its filling."
+     "surface": "A sober guest is missing, so a brunette makes a snack with rye bread herself.",
+     "walkthrough": "'Absent' removes TT from brunette to leave BRUNEE, and 'prepared' rearranges those six letters.",
+     "definitionFit": "A Reuben is an American sandwich of corned beef, sauerkraut and Swiss cheese served on rye bread."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "rye"
+     "misdirectedWord": "teetotaller"
     }
    }
   },

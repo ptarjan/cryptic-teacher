@@ -103,26 +103,30 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BAR",
      "indicators": [
       {
        "text": "almost",
-       "note": "almost means not quite all, so the final letter of the word is dropped"
+       "at": 6,
+       "note": "almost the whole word, so its final letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "empty",
-       "gives": "BAR",
-       "note": "BARE means empty; cutting its last letter leaves three letters"
+       "at": 13,
+       "gives": "BARE",
+       "note": "an empty room is bare"
+      },
+      {
+       "gives": "E",
+       "note": "the last letter of the word for empty"
       }
      ]
     },
     "explanation": {
-     "surface": "A tavern that is nearly deserted of customers.",
-     "walkthrough": "'Pub's almost empty' reads as a complaint about trade; the 's is just 'is', and BARE loses its E to give BAR.",
-     "definitionFit": "A bar is a place serving drinks, the everyday synonym for a public house or tavern."
+     "surface": "A grumble that the local pub is nearly deserted.",
+     "walkthrough": "'Almost' trims the last letter from BARE; the 's is a link meaning 'is'.",
+     "definitionFit": "A bar is a place serving drinks, the everyday name for a pub or its counter."
     },
     "features": {
      "answerInScene": true,
@@ -205,48 +209,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOTUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the last letter is cut"
+       "text": "eating",
+       "at": 27,
+       "note": "the parasite takes the tons letter inside itself, as if consuming it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "eating",
-         "note": "something eating takes food inside it, so one piece goes into the other"
+         "text": "mostly",
+         "at": 20,
+         "note": "most of the word, so its last letter goes"
         }
        ],
        "parts": [
         {
          "words": "parasite",
-         "gives": "LOUS",
-         "note": "a louse is a parasite; drop its final E"
+         "at": 11,
+         "gives": "LOUSE",
+         "note": "a louse is a small parasitic insect"
         },
         {
-         "words": "tons",
-         "gives": "T",
-         "note": "T is the abbreviation for tons"
+         "gives": "E",
+         "note": "the final letter of the parasite's name"
         }
        ]
+      },
+      {
+       "words": "tons",
+       "at": 34,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A pest infesting a pond plant and devouring huge amounts.",
-     "walkthrough": "LOUS(E), with its tail cut, swallows T to make LO-T-US.",
-     "definitionFit": "The lotus is an aquatic flowering plant, commonly grouped with or called a kind of water lily."
+     "surface": "A parasite on a water lily devours tons of the plant.",
+     "walkthrough": "'Mostly' cuts LOUSE to LOUS, and 'eating' puts T inside it, before the S.",
+     "definitionFit": "The lotus is an aquatic plant with large floating leaves and showy flowers, a kind of water lily."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tons"
+     "misdirectedWord": "eating"
     }
    }
   },
@@ -688,39 +697,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SMOKER",
      "indicators": [
       {
        "text": "where there's",
-       "note": "putting something where another thing is means it takes that place, one letter swapped for another"
+       "at": 47,
+       "note": "the millions letter goes in the place where the time letter now stands, replacing it"
       }
      ],
      "parts": [
       {
        "words": "person feeding fire",
+       "at": 13,
        "gives": "STOKER",
-       "note": "a stoker tends a furnace, feeding it fuel"
-      },
-      {
-       "words": "millions",
-       "gives": "M",
-       "note": "M is the abbreviation for million"
+       "note": "a stoker tends a furnace or boiler, shovelling fuel onto the fire"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "at": 61,
+       "gives": "T"
+      },
+      {
+       "words": "millions",
+       "at": 38,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone burning garden weeds, a fire-tender, money and time all jumbled into one scene.",
-     "walkthrough": "In STOKER the T for time is replaced by M for millions. 'Weed' is slang for tobacco.",
-     "definitionFit": "Weed is a slang term for tobacco, so someone who lights and burns it is a smoker."
+     "surface": "Someone tending a fire to burn off weeds, at enormous cost over time.",
+     "walkthrough": "'Weed burner' sounds like a garden flame gun, but weed is slang for tobacco or cannabis; 'where there's' swaps T in STOKER for M.",
+     "definitionFit": "A smoker burns tobacco, and weed is the slang term for that or for cannabis."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Weed"

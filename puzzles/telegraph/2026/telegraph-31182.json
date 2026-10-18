@@ -249,30 +249,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENNOBLES",
-     "indicators": [
-      {
-       "text": "to ignore all outsiders",
-       "note": "ignoring every outsider means dropping the first and last letter of each word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Lennon",
-       "note": "the name as written, before trimming"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to ignore all outsiders",
+         "at": 31,
+         "note": "each word's outside letters, its first and last, are to be ignored, leaving only the inner letters of Lennon and of ablest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lennon",
+         "at": 16,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "ablest",
-       "note": "the word as written, before trimming"
+       "at": 24,
+       "gives": "BLES",
+       "note": "ablest loses its outside letters too, A and T, under the same instruction"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is knighting John Lennon, the ablest of the Beatles, while snubbing the rest.",
-     "walkthrough": "Both words lose their outer letters, and the two trimmed cores run together.",
-     "definitionFit": "To ennoble is to raise someone to the nobility or to dignify them, which honours that person."
+     "surface": "Someone is told to honour John Lennon while ignoring the most able outsiders.",
+     "walkthrough": "'To ignore all outsiders' strips the first and last letters from both words: Lennon gives ENNO and ablest gives BLES, and together they make ENNOBLES.",
+     "definitionFit": "To ennoble someone is to raise them to the nobility, conferring a title as an honour."
     },
     "features": {
      "answerInScene": true,
@@ -1337,36 +1344,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUDGE",
-     "indicators": [
-      {
-       "text": "extremists to abandon",
-       "note": "the extremes of a word are its ends, and abandoning them strips both off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "northern",
-       "gives": "N",
-       "note": "N is the abbreviation for northern"
+       "at": 7,
+       "gives": "N"
       },
       {
-       "words": "budget",
-       "note": "the word as written, before trimming"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "extremists to abandon",
+         "at": 16,
+         "note": "the extreme letters, first and last, are told to leave the word budget, so only its inner letters remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "budget",
+         "at": 38,
+         "note": "budget without its first and last letters B and T gives UDGE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Radicals from the north are urged to give up on the budget.",
-     "walkthrough": "'Extremists' sounds political, but it means the outer letters of the next word.",
-     "definitionFit": "A nudge is a gentle push or reminder, and as a verb to prompt someone is to nudge them."
+     "surface": "A call for northern hardliners to give up on the budget.",
+     "walkthrough": "'Extremists to abandon' reads as hardliners walking out, but it means the end letters of budget, B and T, go; that leaves UDGE after N.",
+     "definitionFit": "To prompt someone is to give them a gentle push or reminder, which is what a nudge is as a verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "extremists"
     }
    }
