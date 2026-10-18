@@ -796,6 +796,7 @@ LAYOUT = [
     ("annotating", "tools/test_validator_gap_rules.py", "tests for the validator-gap rules: folded indicators, fake substitution parts, padding leaves and the redo regression gate"),
     ("annotating", "tools/test_og_prose_family.py", "does the og card's own-prose family check ignore words quoted from the clue?"),
     ("annotating", "tools/test_repair_padding.py", "tests that repair_fetched takes link words out of the wordplay, and only those"),
+    ("annotating", "tools/test_ci_cache_partial.js", "a cold result cache must be able to refill over several runs"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

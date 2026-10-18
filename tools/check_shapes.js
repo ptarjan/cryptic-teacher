@@ -21,6 +21,17 @@ if (!of || reports.some((r) => r.of !== of)) fail.push("slice reports disagree o
 for (let i = 0; i < of; i++) if (!got.has(i)) fail.push(`slice ${i}/${of} never reported its shapes`);
 const union = {};
 for (const r of reports) for (const [k, v] of Object.entries(r.shapes)) union[k] = union[k] || v;
+// A report from the result cache while some puzzles still wait for their first
+// pass under this code (ci_cache.js capUncached) holds only the shapes of the
+// puzzles checked so far, so a shape it lacks may sit in one not yet checked.
+// That is said, not failed; the run that completes the cache asserts it.
+const partial = reports.some((r) => r.partial);
+if (partial) {
+  const lacking = Object.keys(union).filter((k) => !union[k]);
+  console.log(`partial cache: ${Object.keys(union).length - lacking.length} of ${Object.keys(union).length} `
+    + `corpus shapes seen so far${lacking.length ? "; not yet: " + lacking.join("; ") : ""}`);
+  process.exit(fail.length ? (console.error("FAIL: " + fail.join("\n  ")), 1) : 0);
+}
 for (const [k, v] of Object.entries(union)) if (!v) fail.push(`no slice found ${k}`);
 if (!Object.keys(union).length) fail.push("no shapes were registered at all");
 if (fail.length) {
