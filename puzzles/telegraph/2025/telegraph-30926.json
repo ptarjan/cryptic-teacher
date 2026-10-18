@@ -1007,21 +1007,22 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "changes",
-       "note": "changes tells us the preceding letters are altered into a new order"
+       "text": "slipping",
+       "at": 12,
+       "note": "letters that are slipping move out of place, so they are rearranged"
       }
      ],
      "parts": [
       {
        "words": "Mo changes",
-       "note": "the name together with the indicator word supplies the letters"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "Mo changes outfits, slipping into an eastern-style dress.",
-     "walkthrough": "The word changes is both part of the letters and the signal that they move.",
-     "definitionFit": "A cheongsam is a close-fitting Chinese dress with a high collar."
+     "surface": "Someone called Mo changes clothes, slipping into a dress from the East.",
+     "walkthrough": "'changes' looks like the anagram signal, but it is part of the letters; 'slipping' does the rearranging.",
+     "definitionFit": "A cheongsam is a close-fitting Chinese dress with a high collar and side slit, a garment from the Far East."
     },
     "features": {
      "answerInScene": true,
@@ -1431,42 +1432,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARLEQUIN",
-     "indicators": [
-      {
-       "text": "undressed",
-       "note": "undressed means stripped of its outer layer, so first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "king",
-       "gives": "CHARLES",
-       "note": "Charles is a king's name"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "undressed",
+         "at": 13,
+         "note": "undressed means stripped of its outer layer, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "king",
+         "at": 8,
+         "gives": "CHARLES",
+         "note": "Charles is a king, the current British monarch"
+        }
+       ]
       },
       {
        "words": "queen",
-       "gives": "QU",
-       "note": "QU is a recognised abbreviation for queen"
+       "at": 23,
+       "gives": "QU"
       },
       {
        "words": "at home",
+       "at": 29,
        "gives": "IN",
-       "note": "to be in is to be at home"
+       "note": "someone in is at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A clownish king strips off in front of his queen while at home.",
-     "walkthrough": "King must be expanded to a particular king, Charles, before undressing it.",
-     "definitionFit": "Harlequin is the comic servant of the commedia dell'arte, hence a clown or buffoon."
+     "surface": "A clownish king strips off the queen's clothes in their home.",
+     "walkthrough": "'undressed' strips CHARLES to HARLE, which is followed by QU and IN.",
+     "definitionFit": "Harlequin is the comic servant of the commedia dell'arte, so a clown or buffoon."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "undressed"
     }
    }

@@ -517,40 +517,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AUTHORITARIAN",
-     "indicators": [
-      {
-       "text": "changing sides",
-       "note": "the two sides are left and right, so one side's letter is swapped for the other's"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "writer",
+       "at": 12,
        "gives": "AUTHOR",
-       "note": "a writer is an author"
+       "note": "an author is a writer"
       },
       {
-       "words": "Italy",
-       "gives": "ITALIAN",
-       "note": "someone or something from Italy is Italian"
-      },
-      {
-       "words": "sides",
-       "gives": "R",
-       "note": "L for left becomes R for right"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing sides",
+         "at": 30,
+         "note": "the sides are left and right, so the L in the word is swapped for an R"
+        }
+       ],
+       "parts": [
+        {
+         "words": "from Italy",
+         "at": 19,
+         "gives": "ITALIAN",
+         "note": "something from Italy is Italian"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bossy Italian novelist defects to the other political camp.",
-     "walkthrough": "'From Italy' gives ITALIAN; changing sides turns its L (left) into R (right), giving ITARIAN.",
-     "definitionFit": "An authoritarian demands strict obedience and rules without consent, which is what a dictatorial person does."
+     "surface": "An Italian author has defected to the other political side and become a despot.",
+     "walkthrough": "'changing sides' suggests political defection, but here L (left) gives way to R (right) inside ITALIAN.",
+     "definitionFit": "Authoritarian describes rule that demands strict obedience and allows no dissent, which is what dictatorial means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "sides"
     }

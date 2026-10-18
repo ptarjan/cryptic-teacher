@@ -804,51 +804,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HACK",
-     "indicators": [
-      {
-       "text": "retired",
-       "note": "retired means drawn back, so the abbreviation goes backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 12,
+         "note": "initially means take only the first letter of the next word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the start of the next word, so only its opening letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hires",
-           "note": "the first letter of hires"
-          }
-         ]
-        },
+         "words": "hires",
+         "at": 22,
+         "note": "first letter of hires"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
+         "text": "retired",
+         "at": 30,
+         "note": "retired here means withdrawn or drawn back, so the letters are read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "barrister",
-         "gives": "CK",
-         "note": "KC, King's Counsel, a senior barrister, written backwards"
+         "at": 38,
+         "gives": "KC",
+         "note": "a KC (King's Counsel) is a senior barrister in Britain"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A struggling author takes on a lawyer who has stopped practising.",
-     "walkthrough": "KC is King's Counsel, the title of a senior British barrister.",
-     "definitionFit": "A hack is a writer who churns out dull work for money, a low-grade journalist."
+     "surface": "A struggling author takes on a barrister who has left practice.",
+     "walkthrough": "'retired' turns KC round to CK; KC stands for King's Counsel, the senior rank of British barrister.",
+     "definitionFit": "A hack is a writer who churns out dull, low-quality work for pay."
     },
     "features": {
      "answerInScene": true,

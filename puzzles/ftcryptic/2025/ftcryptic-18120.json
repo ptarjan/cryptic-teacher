@@ -1078,38 +1078,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ESPLANADE",
      "indicators": [
       {
        "text": "checking",
-       "note": "to check is to hold back or restrain, so the stripped word holds the other pieces"
+       "at": 23,
+       "note": "checking means holding back or containing, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ESPLANADE",
+       "op": "middle",
        "indicators": [
         {
          "text": "barely",
-         "note": "bare means stripped, so the word loses its outer letters"
+         "at": 16,
+         "note": "barely means stripped bare, so the outer letters come off"
         }
        ],
        "parts": [
         {
          "words": "Senior academic",
+         "at": 0,
          "gives": "READER",
-         "note": "a reader is a senior university lecturer in the UK"
-        },
+         "note": "a reader is a senior university teacher, the rank below professor in Britain"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "small",
-         "gives": "S",
-         "note": "the usual abbreviation"
+         "at": 32,
+         "gives": "S"
         },
         {
          "words": "map",
+         "at": 38,
          "gives": "PLAN",
          "note": "a plan is a map or diagram"
         }
@@ -1118,14 +1123,13 @@
      ]
     },
     "explanation": {
-     "surface": "A professor in skimpy clothes consults a little map to find the promenade.",
-     "walkthrough": "Reader is a British academic rank just below professor; stripped of its outer letters, it wraps the small map.",
-     "definitionFit": "An esplanade is a long open level promenade, typically along a seafront."
+     "surface": "A senior lecturer looks at a small map and discovers a seaside promenade.",
+     "walkthrough": "'barely' trims READER to EADE, which is 'checking' (holding) S and PLAN. Reader is a British academic rank below professor.",
+     "definitionFit": "An esplanade is a long open level stretch for walking, typically along a seafront."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "barely"
     }
    }

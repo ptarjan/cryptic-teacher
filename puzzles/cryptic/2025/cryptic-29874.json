@@ -929,46 +929,33 @@
      "indicators": [
       {
        "text": "damaged",
-       "note": "something damaged is knocked out of shape, so the letters are rearranged"
+       "at": 38,
+       "note": "damaged letters are knocked out of shape, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "Repeatedly aiming at the sides",
+       "at": 0,
        "gives": "AGAG",
-       "indicators": [
-        {
-         "text": "at the sides",
-         "note": "the sides of a word are its two ends, so only first and last letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Repeatedly aiming",
-         "gives": "AGAG",
-         "select": "outer",
-         "note": "the ends of the word, taken twice because of 'repeatedly'"
-        }
-       ]
+       "note": "the sides of aiming are its outer letters, A and G, taken twice because of Repeatedly"
       },
       {
        "words": "urine",
-       "note": "the letters as printed"
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps missing the pot and has wrecked some measuring equipment.",
-     "walkthrough": "The ends of 'aiming' give AG, doubled to AGAG; with URINE these are rearranged to give the answer.",
-     "definitionFit": "A rain gauge collects falling rain so the amount of precipitation can be read off, so it measures a volume."
+     "surface": "A vandal relieving themselves keeps missing the target and breaks some measuring kit.",
+     "walkthrough": "'Repeatedly' doubles the outside letters of 'aiming' to AGAG; those four join URINE, and 'damaged' shuffles the lot.",
+     "definitionFit": "A rain gauge collects rainfall so its volume, read as depth, can be measured."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "urine"
+     "misdirectedWord": "aiming"
     }
    }
   },
@@ -1117,69 +1104,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AQUARIA",
-     "indicators": [
-      {
-       "text": "checked by",
-       "note": "something checked is halted partway, so a letter breaks into the run"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 9,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "checked by",
+         "at": 31,
+         "note": "checked means held back or contained, so the union sits inside the initials"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at the very least",
-           "note": "the very least of a word is a single letter, taken here from the front"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Qatar",
-           "note": "first letter of the country"
+           "op": "first",
+           "indicators": [
+            {
+             "text": "at the very least",
+             "at": 43,
+             "note": "the very least of each name is its first letter, the smallest part of it"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Qatar, Iraq",
+             "at": 62,
+             "note": "first letters of Qatar and Iraq"
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "Afghanistan",
+             "at": 78,
+             "note": "first letter of Afghanistan"
+            }
+           ]
           }
          ]
         },
         {
          "words": "former Arabic union",
+         "at": 11,
          "gives": "UAR",
-         "note": "the United Arab Republic, the 1958 union of Egypt and Syria"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Iraq",
-           "note": "first letter of the country"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Afghanistan",
-           "note": "first letter of the country"
-          }
-         ]
+         "note": "the UAR, United Arab Republic, was the 1958-61 union of Egypt and Syria"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Military tanks in a defunct Arab alliance are inspected in three Middle Eastern war zones.",
-     "walkthrough": "The Q interrupts A UAR, and the initials of Iraq and Afghanistan finish it. 'Tanks' suggests armour but means fish tanks.",
-     "definitionFit": "Aquaria is the Latin plural of aquarium, the glass containers for keeping fish, which are also called tanks."
+     "surface": "Military tanks feature in a story about an old Arab alliance being kept in line by three Middle Eastern states.",
+     "walkthrough": "'Tanks' suggests armour but means fish tanks. 'at the very least' takes the initials Q, I, A, which are 'checked by' (holding) the UAR, all after A.",
+     "definitionFit": "Aquaria is a plural of aquarium, a glass tank for keeping fish and water creatures."
     },
     "features": {
      "answerInScene": false,
