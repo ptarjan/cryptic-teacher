@@ -206,44 +206,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "the letters of I LEARN MUCH are moved about"
-      }
-     ],
      "parts": [
       {
        "words": "Mountain",
+       "at": 0,
        "gives": "ALP",
-       "note": "an alp is a mountain"
+       "note": "an alp is a high mountain"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
          "text": "crossing",
-         "note": "the jumbled letters cross, or take in, the A for area"
+         "at": 28,
+         "note": "the rearranged letters straddle the area letter, holding it"
         }
        ],
        "parts": [
         {
-         "words": "I learn much",
-         "note": "anagram fodder"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 22,
+           "note": "I learn much turned about gives its letters in a fresh order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "I learn much",
+           "at": 9
+          }
+         ]
         },
         {
          "words": "area",
-         "gives": "A",
-         "note": "a is short for area"
+         "at": 37,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A climber learning a lot as they cross terrain on the world's second-highest peak.",
-     "walkthrough": "The surface is all mountaineering, so K2 reads as the peak; the definition wants it as a label made of a letter and a number.",
-     "definitionFit": "K2 mixes a letter and a digit, which is what alphanumerical means."
+     "surface": "A mountaineer reflects on lessons learnt crossing country on the way to K2.",
+     "walkthrough": "K2 looks like the mountain, which suits the surface, but the definition is about its name: a letter followed by a digit.",
+     "definitionFit": "K2 mixes a letter and a number, which is what alphanumerical describes."
     },
     "features": {
      "answerInScene": false,
@@ -506,41 +514,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "read as placed within: the words for always and cold end up inside the word for office"
+       "at": 12,
+       "note": "the always and cold letters go inside the office word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "office",
-         "gives": "STATION",
-         "note": "a station is a post or office one holds"
-        },
-        {
-         "words": "Always",
-         "gives": "AY",
-         "note": "ay is an old word for always"
-        }
-       ]
+       "words": "office",
+       "at": 15,
+       "gives": "STATION",
+       "note": "a station is a post or position, an office held"
       },
       {
-       "words": "cold",
-       "gives": "C",
-       "note": "c is short for cold"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Always",
+         "at": 0,
+         "gives": "AY",
+         "note": "ay is an old word meaning always, as in for ay"
+        },
+        {
+         "words": "cold",
+         "at": 7,
+         "gives": "C",
+         "note": "C is the abbreviation for cold on taps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chilly office where it is always cold, so staff might as well stay home.",
-     "walkthrough": "\"Leave\" looks like an instruction to go, but it is the noun: time off work, spent at home.",
-     "definitionFit": "A staycation is a holiday taken at home rather than away."
+     "surface": "Someone stuck in a chilly office every day longs for some time off.",
+     "definitionFit": "A staycation is a holiday spent at home or in one's own country rather than travelling abroad."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Leave"
+     "misdirectedWord": "office"
     }
    }
   },

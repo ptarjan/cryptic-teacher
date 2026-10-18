@@ -946,62 +946,72 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "caught",
-       "note": "To catch something is to hold it fast, so the letters either side close around whatever they have caught."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "drawn in",
-         "note": "Drawn in means pulled inside, saying a second time that the middle piece sits within the outer ones."
+         "text": "drawn in by",
+         "at": 39,
+         "note": "the students are drawn in by the letters around them"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "homophone",
+         "spelt": "UU",
          "indicators": [
           {
-           "text": "unframed",
-           "note": "A frame goes round the outside of a picture, so taking it off strips the first and last letters."
+           "text": "caught",
+           "at": 14,
+           "note": "caught means heard, so the word is taken by its sound"
           }
          ],
          "parts": [
           {
            "words": "you twice",
-           "gives": "U",
-           "note": "the second of the pair, closing the trap behind them"
-          },
-          {
-           "words": "Dali",
-           "gives": "AL",
-           "note": "the painter's name with its outer letters taken away"
+           "at": 4,
+           "gives": "YOUYOU",
+           "note": "you heard twice is the letter U twice"
           }
          ]
         },
         {
          "words": "group of students",
+         "at": 21,
          "gives": "NUS",
-         "note": "The NUS is Britain's National Union of Students, the body college student unions belong to."
+         "note": "NUS is the National Union of Students, the UK student body"
         }
        ]
       },
       {
-       "words": "you twice",
-       "gives": "U",
-       "note": "the letter whose name is 'you', and this is the first of the two"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unframed",
+         "at": 51,
+         "note": "Dali without its frame loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dali",
+         "at": 60
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Dali canvas out of its frame, with a crowd of students pulled towards it.",
-     "walkthrough": "'Drawn' is the painter's word doing an insertion's job and 'unframed' is his word for a deletion, which is how the art-gallery surface hides two instructions.",
-     "definitionFit": "Unusual and odd both mean out of the ordinary, and either adjective slots into the same sentence without a change of grammar."
+     "surface": "A strange picture: students hauled into a Dali painting with no frame.",
+     "walkthrough": "'caught' looks like a container signal, but it means heard: two Us. NUS goes inside them.",
+     "definitionFit": "Odd and unusual both mean out of the ordinary, strange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
     }
    }
   },
@@ -1619,8 +1629,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "back",
-       "note": "Back means turned round, so the two letters of that piece land in the opposite order."
+       "text": "after",
+       "at": 19,
+       "note": "the turned way comes after the rest"
       }
      ],
      "parts": [
@@ -1629,7 +1640,8 @@
        "indicators": [
         {
          "text": "travelling west",
-         "note": "West is leftwards on a map and on the grid, so this run of letters is read from its far end."
+         "at": 39,
+         "note": "in an across answer travelling west is reading right to left"
         }
        ],
        "parts": [
@@ -1638,18 +1650,34 @@
          "parts": [
           {
            "words": "about",
+           "at": 25,
            "gives": "RE",
-           "note": "re = about, the word at the head of a memo"
+           "note": "re means about, concerning"
           },
           {
            "words": "5",
+           "at": 31,
            "gives": "V",
-           "note": "the Roman numeral for five"
+           "note": "V is the Roman numeral five"
           },
           {
-           "words": "½ days",
-           "gives": "DA",
-           "note": "half of the word 'days', the first two of its four letters"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "½",
+             "at": 32,
+             "note": "half of days is its first two letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "days",
+             "at": 34
+            },
+            {
+             "gives": "YS"
+            }
+           ]
           }
          ]
         }
@@ -1657,20 +1685,33 @@
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 13,
+         "note": "the way is to be read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "way",
+         "at": 9,
          "gives": "ST",
-         "note": "a street is a way, and ST is how it is written on an envelope"
+         "note": "ST is short for street, a way"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A convoy of caravans heading west after five and a half days on the road.",
-     "walkthrough": "'Trailers' are cinema previews in the definition and caravans in the surface, and halving a written word to take its first two letters is a device worth knowing.",
-     "definitionFit": "A trailer is the short film a cinema runs to advertise a coming release, so the two plurals name the same thing in different trades."
+     "surface": "Film trailers that ran some time ago, after five and a half days on the road westward.",
+     "walkthrough": "'5½ days' is V plus DA, half of days; with RE they are turned to give ADVER.",
+     "definitionFit": "Trailers are advertisements for forthcoming films or programmes, so adverts in the plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trailers"
     }
    }
   }
