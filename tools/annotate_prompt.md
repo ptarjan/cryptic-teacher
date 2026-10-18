@@ -269,9 +269,14 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           indicator on the charade
     ana(x)                anagram of x's letters (the answer slice decides order);
                           ana(x + y + z) shuffles several pieces as one pool
-    rev(x)                x backwards
+    rev(x)                x backwards; when its indicator names a stretch (last pair
+                          of, turning tail, first three, half) only that stretch
+                          of 2+ letters, at that end and that size, is turned:
+                          rev<last pair of>([mini vehicles]KARTS) for KARST
     ins(outer, inner)     inner put inside outer (the answer decides where)
-    del(from, removed)    removed taken out of from (the answer decides where)
+    del(from, removed)    removed taken out of from (the answer decides where):
+                          one run, or the letters scattered but in the same order
+                          (del([Equably], [by]BY) for EQUAL)
     hid(x)                letters hidden in x's words: hid([say no before]YNOBE),
                           or hid([say no before]) to let the answer pick them
     sound(x, SPELT)       x sounds like SPELT, the letters entered
