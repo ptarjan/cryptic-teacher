@@ -45,33 +45,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "A piece put about another is wrapped round it, so the letters in hand open up to take what is named next."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "latest in",
-         "note": "The latest letter in a word is the one furthest along it, so only the closing letter of sportswear is wanted."
+         "text": "about",
+         "at": 8,
+         "note": "the chatter goes around the next letter"
         }
        ],
        "parts": [
         {
          "words": "Chatter",
+         "at": 0,
          "gives": "GAS",
-         "note": "gas is idle talk, the chatter of someone who will not stop"
+         "note": "gas is idle talk"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "latest in",
+           "at": 14,
+           "note": "takes the final letter of the word that follows"
+          }
+         ],
          "parts": [
           {
-           "words": "latest in sportswear",
-           "note": "the final letter of sportswear"
+           "words": "sportswear",
+           "at": 24,
+           "note": "its last letter is R"
           }
          ]
         }
@@ -79,19 +83,21 @@
       },
       {
        "words": "purchaser",
+       "at": 40,
        "gives": "SHOPPER",
-       "note": "a purchaser in a shop is a shopper"
+       "note": "a shopper buys things"
       }
      ]
     },
     "explanation": {
-     "surface": "Gossip about the newest thing in sports kit, exchanged with a customer.",
-     "walkthrough": "'Chatter' is the noun gas, idle talk, rather than a person who chatters. 'Chirpy type' wants to be a cheerful sort and is an insect that sings by rubbing its legs.",
-     "definitionFit": "A grasshopper chirps all summer by scraping its hind legs against its wings, so the definition names it by its noise."
+     "surface": "Gossip about trends in sportswear with a buyer.",
+     "walkthrough": "'Chirpy' seems to mean cheerful; it is the insect's chirping.",
+     "definitionFit": "A grasshopper makes a chirping noise by rubbing its legs on its wings."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "chirpy"
     }
    }
@@ -906,50 +912,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "agitated",
-       "note": "A caterer who is agitated has been thoroughly shaken up, and the letters of the word come out in another order."
+       "text": "before",
+       "at": 32,
+       "note": "the first part comes ahead of the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "end of",
-         "note": "The end of a word is its final letter, and that single letter is all that is taken from it."
+         "text": "agitated",
+         "at": 23,
+         "note": "agitated means stirred up, so the letters are mixed"
         }
        ],
        "parts": [
         {
          "words": "caterer",
-         "note": "seven letters of fodder"
-        },
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "before",
-           "note": "What comes before a thing is placed in front of it, so the reordered letters lead and the single letter follows."
-          }
-         ],
-         "parts": [
-          {
-           "words": "end of dance",
-           "note": "the last letter of dance"
-          }
-         ]
+         "text": "end of",
+         "at": 39,
+         "note": "takes only the final letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dance",
+         "at": 46,
+         "note": "its last letter is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Winding the caterer up just as the dancing comes to a close.",
-     "walkthrough": "Only the opening words are free of instructions: 'once more make' is the definition, read as a verb. The dance gives up nothing but its final letter, and that letter goes on the end.",
-     "definitionFit": "To recreate something is to make it once more, putting it together again as it was the first time."
+     "surface": "A caterer gets flustered before a dance finishes.",
+     "walkthrough": "CATERER rearranges to RECREAT, ahead of E.",
+     "definitionFit": "To recreate is to create again, make once more."
     },
     "features": {
      "answerInScene": false,

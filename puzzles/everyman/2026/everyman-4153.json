@@ -791,38 +791,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "wanting",
-       "note": "A word wanting something is short of it, so the letter named never appears in the answer."
-      }
-     ],
      "parts": [
       {
        "words": "the Spanish",
+       "at": 30,
        "gives": "EL",
-       "note": "el is Spanish for 'the', the masculine form of the definite article"
+       "note": "el is Spanish for the"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "bit of",
-         "note": "A bit of a word is the smallest slice you can take from it, which by convention is the letter it starts with."
+         "text": "wanting",
+         "at": 49,
+         "note": "wanting means lacking, so a letter is taken out"
         }
        ],
        "parts": [
         {
          "words": "muscle",
+         "at": 42,
          "gives": "PECTORAL",
-         "note": "the pectoral is the chest muscle, the pec of the gym"
+         "note": "the pectoral is a chest muscle"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 57,
+           "note": "a small piece, the first letter, of the word that follows"
+          }
+         ],
          "parts": [
           {
            "words": "protection",
-           "note": "the first letter of the word, the bit taken off it"
+           "at": 64,
+           "note": "its first letter is P"
           }
          ]
         }
@@ -831,8 +836,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'The Spanish' is the standard crossword way of asking for EL, the definite article of that language rather than anything about Spain; French and Italian articles are clued the same way.",
-     "definitionFit": "Electoral means having to do with elections, and an election is the political process by which representatives get chosen."
+     "surface": "A Spanish bodybuilder skips the armour.",
+     "walkthrough": "PECTORAL loses its P to give ECTORAL.",
+     "definitionFit": "Electoral relates to elections, the process of choosing representatives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protection"
     }
    }
   },

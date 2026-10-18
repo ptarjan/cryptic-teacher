@@ -1138,46 +1138,51 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "a party that accepts others takes them in, holding them inside"
+       "at": 21,
+       "note": "the party takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "party",
+       "at": 15,
+       "gives": "DUP",
+       "note": "the DUP is the Democratic Unionist Party of Northern Ireland"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "party",
-         "gives": "DUP",
-         "note": "the Democratic Unionist Party of Northern Ireland"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "first of",
-           "note": "first of points to the opening letter of the word that follows"
+           "at": 31,
+           "note": "takes only the opening letter of what follows"
           }
          ],
          "parts": [
           {
            "words": "right-wing",
-           "note": "the opening letter of right"
+           "at": 40,
+           "note": "its first letter is R"
           }
          ]
+        },
+        {
+         "words": "characters",
+         "at": 51,
+         "gives": "ESSES",
+         "note": "esses are the letters S written out"
         }
        ]
-      },
-      {
-       "words": "characters",
-       "gives": "ESSES",
-       "note": "the letter S written out, as several characters"
       }
      ]
     },
     "explanation": {
-     "surface": "A spin doctor tidies up a party that has welcomed some right-wing figures.",
-     "walkthrough": "The DUP is Northern Ireland's Democratic Unionist Party, itself right-wing, which helps the surface. It holds R and ESSES, the S letters.",
-     "definitionFit": "To dress something up is to present it more attractively than it deserves, which is putting a spin on it."
+     "surface": "A political party admits right-wingers and puts a spin on things.",
+     "walkthrough": "The party is Northern Ireland's Democratic Unionist Party; 'characters' are letters spelt out as words.",
+     "definitionFit": "To dress something up is to present it in a more appealing light, a form of spin."
     },
     "features": {
      "answerInScene": true,
@@ -1807,49 +1812,53 @@
      "indicators": [
       {
        "text": "hosting",
-       "note": "a host has guests inside, so one piece goes into the other"
+       "at": 23,
+       "note": "the expert takes the other letters in, as a host takes guests"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "expert",
-         "gives": "ACE",
-         "note": "an ace is an expert"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "expert",
+       "at": 16,
+       "gives": "ACE",
+       "note": "an ace is an expert"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "briefly",
-         "note": "briefly means cut short, losing a final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "show",
-         "gives": "DEMO",
-         "note": "a demo is a demonstration, a show"
+         "words": "a",
+         "at": 31
         },
         {
-         "gives": "O"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 38,
+           "note": "cut short, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "show",
+           "at": 33,
+           "gives": "DEMO",
+           "note": "a demo is a demonstration, a show of how something works"
+          },
+          {
+           "gives": "O"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A professor who is a top expert briefly hosts a television show.",
-     "walkthrough": "'Show briefly' looks like a short appearance, but it means a shortened word for a demonstration.",
-     "definitionFit": "Academe is the world of scholarship and universities, the academic environment as a whole."
+     "surface": "An expert hosts a short demonstration about campus life.",
+     "walkthrough": "ADEM goes between AC and E.",
+     "definitionFit": "Academe is the world of universities and scholarship."
     },
     "features": {
      "answerInScene": true,
