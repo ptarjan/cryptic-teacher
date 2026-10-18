@@ -63,7 +63,11 @@ def drop_wordless(tree):
         keep = [p for p in node["parts"] if not _wordless(p)]
         if len(keep) == len(node["parts"]):
             continue
-        if keep:
+        if len(keep) == 1 and node["op"] == "charade" and not node.get("indicators") and isinstance(keep[0], dict):
+            # a join of one piece is that piece: what is left after the letterless words go
+            node.clear()
+            node.update(keep[0])
+        elif keep:
             node["parts"] = keep
         elif node["op"] == "palindrome":
             node.pop("parts")  # pal() alone: the answer is the wordplay

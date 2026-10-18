@@ -175,7 +175,7 @@ def _walkthrough_gap(entry, ann):
     import validate_annotations as V
     import wordplay
     walk = (ann.get("explanation") or {}).get("walkthrough")
-    if not walk:
+    if not walk or not ann.get("fromBlog"):  # the rung lists the tree's steps itself (follow_warnings)
         return False
     try:
         return bool(V.walkthrough_gaps(ann["wordplay"], _answer(entry), walk))
