@@ -438,48 +438,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RHETORIC",
      "indicators": [
       {
        "text": "represented",
-       "note": "to represent is to present again in a different form, so the letters are rearranged"
+       "at": 25,
+       "note": "represented means presented in a new form, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RHETORIC",
        "indicators": [
         {
          "text": "ignoring",
-         "note": "to ignore something is to leave it out of account, so a letter is dropped"
+         "at": 10,
+         "note": "ignoring means leaving out, so the saint is dropped from the singer word"
         }
        ],
        "parts": [
         {
          "words": "Chorister",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "saint",
+         "at": 19,
          "gives": "S",
-         "note": "S is the abbreviation for saint"
+         "note": "S is the abbreviation for saint, as in S Peter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A choirboy who has left out a saint is depicted in a place of prayer.",
-     "walkthrough": "'Oratory' looks like a chapel, fitting the chorister, but here it means public speaking.",
-     "definitionFit": "Rhetoric is the art of persuasive speaking, which is what oratory also names."
+     "surface": "A choirboy, minus a saint, appears in a sacred musical work.",
+     "walkthrough": "'ignoring' drops the S (saint) from CHORISTER to leave CHORITER, which 'represented' rearranges. Oratory looks like a chapel or an oratorio beside the chorister, but here it is the art of public speaking.",
+     "definitionFit": "Rhetoric is the art of persuasive speaking, and oratory is eloquent public speech, so the two are synonyms."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "oratory"
     }
    }
@@ -505,57 +503,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MINSTREL",
+     "op": "container",
      "indicators": [
       {
-       "text": "with no adult present",
-       "note": "the stated letter must be absent everywhere, so every copy of it is struck out"
+       "text": "in",
+       "at": 36,
+       "note": "in places the gutted singer's name inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing placed in another sits inside it, so these letters go into the middle"
+         "text": "with no adult present",
+         "at": 54,
+         "note": "adult is abbreviated to its usual certificate letter, and none of those may remain anywhere in the three words"
         }
        ],
        "parts": [
         {
-         "words": "main area, LA,",
-         "gives": "MINREL",
-         "note": "MAIN AREA LA with every A (adult, the film-rating letter) removed"
+         "words": "main area, LA",
+         "at": 39,
+         "note": "the three words taken as written, before the adult letters are dropped"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "eviscerated",
-           "note": "to eviscerate is to remove the innards, so only the two outside letters survive"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Swift",
-           "note": "the first and last letters of Swift"
-          }
-         ]
+         "gives": "AINAREALA"
+        },
+        {
+         "gives": "INREL"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "eviscerated",
+         "at": 24,
+         "note": "eviscerated means gutted, with the insides removed, so only the outer letters of Swift remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Swift",
+         "at": 18,
+         "note": "the first and last letters of Swift, with its middle removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news-style line about Taylor Swift being savaged at a big Los Angeles venue with no grown-ups there.",
-     "walkthrough": "Taylor Swift makes 'Singer-songwriter' look like a description of her, but it is the definition; strip all three As from MAIN AREA LA and put Swift's outer letters inside.",
-     "definitionFit": "A minstrel was a medieval travelling musician who composed and performed his own songs."
+     "surface": "Taylor Swift appears in a big Los Angeles venue with no grown-ups there.",
+     "walkthrough": "A is the film-certificate letter for adult, and 'with no adult present' strikes out every A from MAIN AREA LA, not just one. Taylor Swift makes 'Singer-songwriter' look like her description, but it defines a medieval performer.",
+     "definitionFit": "A minstrel was a medieval travelling musician who composed and performed his own songs, an early singer-songwriter."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Swift"
     }
    }
@@ -983,59 +989,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "topping off",
-       "note": "taking the top off removes what sits first, so the opening letter is lost"
+       "text": "topping",
+       "at": 20,
+       "note": "topping means sitting above the next piece, which in a down clue puts it first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half",
+         "at": 0,
+         "note": "half means only one of the two halves of the name is kept, here its second five letters"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "THEUS",
-         "indicators": [
-          {
-           "text": "Half",
-           "note": "half of a word is one of its two equal parts, so only the closing five letters stay"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Prometheus",
-           "gives": "THEUS",
-           "select": "last",
-           "note": "the second half of the ten-letter name, its last five letters"
-          }
-         ]
+         "words": "Prometheus",
+         "at": 9
         },
         {
-         "words": "double",
-         "gives": "DUAL",
-         "note": "double means dual, twofold"
+         "gives": "PROME"
         }
        ]
       },
       {
-       "gives": "D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 28,
+         "note": "off means the first letter of the double word is taken off, the one at its top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "double",
+         "at": 32,
+         "gives": "DUAL",
+         "note": "dual means double, twofold"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barman sets aside half a pint for Prometheus while topping up his double.",
-     "walkthrough": "The question mark marks a definition by example: a regular's standing drink order is 'the usual'.",
-     "definitionFit": "A regular who orders 'the usual' at a bar gets his habitual drink without naming it."
+     "surface": "A mythical Titan orders a large measure, as is his habit.",
+     "walkthrough": "'Half' takes the back half of Prometheus, THEUS, 'topping' UAL, which is DUAL with its D taken 'off'. The definition is what a regular asks a barman for: his normal drink.",
+     "definitionFit": "A regular at a pub orders his customary drink by asking for it by this phrase, meaning the usual order."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "double"
+     "misdirectedWord": "Prometheus"
     }
    }
   },
@@ -1060,32 +1074,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DRAWBACK",
+     "op": "substitution",
      "indicators": [
       {
        "text": "flipped at the centre",
-       "note": "a flip turns things over, and this one happens only in the middle, swapping the two central letters"
+       "at": 23,
+       "note": "the two letters in the middle of the joined words swap places"
       }
      ],
      "parts": [
       {
-       "words": "dull",
-       "gives": "DRAB",
-       "note": "drab means dull and colourless"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dull",
+         "at": 6,
+         "gives": "DRAB",
+         "note": "drab means dull and colourless"
+        },
+        {
+         "words": "Scouse mate",
+         "at": 11,
+         "gives": "WACK",
+         "note": "wack is Liverpool slang for a friend or mate; Scouse is the Liverpool dialect"
+        }
+       ]
       },
       {
-       "words": "Scouse mate",
-       "gives": "WACK",
-       "note": "wack is Liverpool (Scouse) slang for a friend or mate"
+       "gives": "BW"
+      },
+      {
+       "gives": "WB"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull Liverpudlian friend of a con man turned somersaults in the middle of things.",
-     "walkthrough": "In DRABWACK the middle pair BW turns round to WB. 'Con' is a disadvantage, as in pros and cons, not a swindle.",
-     "definitionFit": "A drawback is a disadvantage, one of the cons weighed against the pros of a plan."
+     "surface": "A conman's grey Liverpool friend turns himself around halfway.",
+     "walkthrough": "Join DRAB and WACK, then the two middle letters are 'flipped at the centre', so BW becomes WB. Con here is the noun, as in pros and cons, not a swindler.",
+     "definitionFit": "A con is a disadvantage, the opposite of a pro, and a drawback is a disadvantage or downside."
     },
     "features": {
      "answerInScene": false,
