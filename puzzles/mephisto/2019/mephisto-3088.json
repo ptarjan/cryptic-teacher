@@ -499,47 +499,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps the other"
+       "at": 25,
+       "note": "about means the excited word goes around the reversed pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "excited",
+       "at": 17,
+       "gives": "ANIMATED",
+       "note": "animated means lively, excited"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 49,
+         "note": "in a down clue, turning up reads the pieces backwards from the bottom"
+        }
+       ],
        "parts": [
         {
-         "words": "excited",
-         "gives": "ANIMATED",
-         "note": "excited means animated"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "turning up",
-           "note": "in a down entry, turning up means reading from the bottom upwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "minister",
+           "at": 31,
            "gives": "REV",
-           "note": "short for reverend"
+           "note": "Rev is short for Reverend, a minister"
+          },
+          {
+           "words": "duke",
+           "at": 44,
+           "gives": "D"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "duke",
-       "gives": "D",
-       "note": "abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone took notice, stirred up as a clergyman and nobleman appeared.",
-     "walkthrough": "In a down entry 'turning up' reverses the minister-and-duke pair, which then splits the word for excited in two.",
-     "definitionFit": "To animadvert is to turn the mind to something, to remark on or criticise it."
+     "surface": "Someone noticed, getting worked up as a clergyman and a nobleman arrive.",
+     "definitionFit": "To animadvert is to pay attention to or comment critically on something, to take notice of it."
     },
     "features": {
      "answerInScene": false,
@@ -677,55 +680,59 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the eggs and number inside the other word"
+       "at": 17,
+       "note": "in places the eggs and number inside the shortened store word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 26,
+         "note": "mostly drops the last letter of the store word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the final letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "store",
-           "gives": "PACK",
-           "note": "to pack away is to store"
-          },
-          {
-           "gives": "K"
-          }
-         ]
+         "words": "store",
+         "at": 20,
+         "gives": "PACK",
+         "note": "to pack is to store away"
         },
         {
-         "words": "Eggs",
-         "gives": "OO",
-         "note": "O, an egg shape, twice"
+         "gives": "K"
         }
        ]
       },
       {
-       "words": "any number",
-       "gives": "N",
-       "note": "N is the mathematical symbol for an unspecified number"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Eggs",
+         "at": 0,
+         "gives": "OO",
+         "note": "OO looks like two eggs"
+        },
+        {
+         "words": "any number",
+         "at": 6,
+         "gives": "N",
+         "note": "N stands for any number in mathematics"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Eggs in quantity from the larder go into baking a cake.",
-     "walkthrough": "O stands for an egg by its shape; the eggs and number go inside the shortened word for store.",
-     "definitionFit": "Poonac is coconut oil-cake, the residue pressed from coconut kernels and used as cattle feed."
+     "surface": "Eggs and a quantity from the larder are used in baking a cake.",
+     "definitionFit": "Poonac is coconut oil-cake, the pressed residue left after extracting coconut oil, used as feed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Eggs"
+     "misdirectedWord": "cake"
     }
    }
   },

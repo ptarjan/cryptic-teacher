@@ -793,49 +793,58 @@
      "indicators": [
       {
        "text": "having",
-       "note": "to have something is to hold it, so one piece holds the other inside"
+       "at": 20,
+       "note": "having means holding, so the advantage word holds the following pieces"
+      },
+      {
+       "text": "over",
+       "at": 37,
+       "note": "over means the advantage word arches over the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "advantage",
-         "gives": "PLUS",
-         "note": "a plus is a benefit or advantage"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "advantage",
+       "at": 27,
+       "gives": "PLUS",
+       "note": "a plus is an advantage"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "tailless",
-         "note": "without a tail, the word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "species",
-         "gives": "TYPE",
-         "note": "a species is a type or kind"
+         "words": "a",
+         "at": 42,
+         "gives": "A"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 44,
+           "note": "tailless drops the final letter of the species word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "species",
+           "at": 53,
+           "gives": "TYPE",
+           "note": "a type is a kind or species"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Australian animal is said to have the edge over another species.",
-     "walkthrough": "TYPE loses its tail to TYP; PLUS then holds A and TYP.",
-     "definitionFit": "The platypus is a duck-billed egg-laying mammal native to eastern Australia."
+     "surface": "An Australian animal has an edge over a species that lacks a tail.",
+     "definitionFit": "The platypus is an egg-laying mammal native to eastern Australia."
     },
     "features": {
      "answerInScene": true,

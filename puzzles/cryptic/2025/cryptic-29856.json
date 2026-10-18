@@ -94,41 +94,43 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold something is to keep it inside, so one piece sits within another"
+       "at": 15,
+       "note": "the second holding means the prison word goes around the next two pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Holding areas",
-         "gives": "CELLS",
-         "note": "cells are where prisoners are held"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
-        }
-       ]
+       "words": "Holding areas",
+       "at": 0,
+       "gives": "CELLS",
+       "note": "cells are areas where prisoners are held"
       },
       {
-       "words": "royal",
-       "gives": "R",
-       "note": "R stands for royal, as in RN or RAF"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "area",
+         "at": 23,
+         "gives": "A"
+        },
+        {
+         "words": "royal",
+         "at": 32,
+         "gives": "R",
+         "note": "R is the abbreviation for royal, as in RN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a secure building: places for detainees, with a royal crypt beneath.",
-     "walkthrough": "The first 'holding' is part of a definition-like phrase for cells; the second 'holding' is the container signal, so CELLS takes in A and R.",
-     "definitionFit": "Vaults are underground storage rooms, typically for wine, which is exactly what cellars are."
+     "surface": "A list of places where things are stored, including royal ones.",
+     "definitionFit": "Cellars are underground rooms, and vaults are arched underground storerooms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "holding"
+     "misdirectedWord": "Holding"
     }
    }
   },
