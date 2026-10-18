@@ -938,7 +938,8 @@
      "indicators": [
       {
        "text": "going up",
-       "note": "in a down entry, going up means reading from the bottom of the grid towards the top, so the letters arrive back to front"
+       "at": 7,
+       "note": "going up in a down clue means the letters are read from bottom to top"
       }
      ],
      "parts": [
@@ -947,43 +948,45 @@
        "indicators": [
         {
          "text": "inside",
-         "note": "what is inside a word sits between its letters, so these pieces are posted into the one named last"
+         "at": 29,
+         "note": "inside means these letters go into the school name"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "school",
-           "gives": "ETON",
-           "note": "Eton is the boarding school by the Thames, and crosswords' first choice for school"
-          },
-          {
-           "words": "built",
-           "gives": "MADE",
-           "note": "a thing built is a thing made"
-          }
-         ]
+         "words": "school",
+         "at": 36,
+         "gives": "ETON",
+         "note": "Eton is the famous English public school"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "r is the standing short form for right"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "built",
+           "at": 17,
+           "gives": "MADE",
+           "note": "built means made"
+          },
+          {
+           "words": "right",
+           "at": 23,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church going up, built right in the middle of a school.",
-     "walkthrough": "Two separate pieces are posted into the school one after the other, and only then is the whole string read upwards. 'Going up' can mean a turn at all because this entry runs down the grid.",
-     "definitionFit": "Notre-Dame is the cathedral on the Île de la Cité in Paris, so the definition is by example: one church standing for the class."
+     "surface": "A church being built, with a school just inside.",
+     "walkthrough": "In a down clue 'going up' reads the whole build from the bottom, so it ends with the school's name backwards. Eton is a famous English boarding school.",
+     "definitionFit": "Notre-Dame is the famous Gothic cathedral in Paris, so it names a specific church."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "up"
+     "aptDefinition": false
     }
    }
   },
@@ -1073,55 +1076,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "what is in a thing is set between its letters rather than beside them"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "recalled",
-         "note": "to recall something is to call it back, so its letters come back the other way about"
+         "text": "in",
+         "at": 5,
+         "note": "in means the king letter goes inside the reversed word"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "recalled",
+           "at": 15,
+           "note": "recalled means called back, so the word for utopia is read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "utopia",
+           "at": 8,
            "gives": "IDEAL",
-           "note": "an ideal is a utopia, the perfect state nobody has reached"
-          },
-          {
-           "words": "King",
-           "gives": "K",
-           "note": "k is the standing short form for king, as on a chessboard"
+           "note": "a utopia is an ideal place"
           }
          ]
+        },
+        {
+         "words": "King",
+         "at": 0,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
         }
        ]
       },
       {
        "words": "unforgiving",
+       "at": 24,
        "gives": "STRICT",
-       "note": "a strict parent is unforgiving of slips"
+       "note": "an unforgiving rule is strict"
       }
      ]
     },
     "explanation": {
-     "surface": "A king living in utopia casts his mind back to a harsh mountain country.",
-     "walkthrough": "The king goes in after the turn, not before: utopia is reversed first and he is posted into what is left. 'Recalled' does duty twice, as the surface's act of memory and as the instruction.",
-     "definitionFit": "The Lake District is the mountainous corner of north-west England, Scafell Pike and Helvellyn included, and 'country' is the walker's sense of a tract of land rather than a nation."
+     "surface": "A king in his dream state remembers being harsh.",
+     "walkthrough": "IDEAL reversed by 'recalled' is LAEDI, and K goes in it to make LAKEDI. The Lake District is a hilly region of north-west England.",
+     "definitionFit": "The Lake District is a region of fells and lakes in Cumbria, England, hence hilly terrain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "recalled"
+     "misdirectedWord": "country"
     }
    }
   },

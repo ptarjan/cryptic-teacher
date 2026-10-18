@@ -1296,51 +1296,52 @@
      "indicators": [
       {
        "text": "accepts",
-       "note": "to accept is to take in, so one piece takes the others inside"
+       "at": 12,
+       "note": "accepts means taking in, so these letters go inside the word for party"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "party",
-         "gives": "SECT",
-         "note": "a sect is a faction or party"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "US is the abbreviation for American"
-        }
-       ]
+       "words": "party",
+       "at": 6,
+       "gives": "SECT",
+       "note": "a sect is a faction or party"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "a leader goes first, so only the opening letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "poll's",
-         "note": "the opening letter of poll"
+         "words": "American",
+         "at": 20,
+         "gives": "US"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 36,
+           "note": "leader means take the first letter of poll"
+          }
+         ],
+         "parts": [
+          {
+           "words": "poll's",
+           "at": 29
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Questions raised as a party embraces the frontrunner in an American election.",
-     "walkthrough": "'Doubt' is a verb here, and SUSPECT works as the verb too: I suspect it.",
-     "definitionFit": "To suspect something is to be inclined to doubt or mistrust it without proof."
+     "surface": "A political faction questions an American opinion poll's front-runner.",
+     "definitionFit": "To suspect something is to have doubts about whether it is true, a verb synonym."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "party"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

@@ -829,8 +829,7 @@
     "definitions": [
      {
       "text": "Scotch perhaps",
-      "at": 36,
-      "note": "'Scotch' is a label: the Scots word for perhaps"
+      "at": 36
      }
     ],
     "wordplay": {
@@ -838,39 +837,43 @@
      "indicators": [
       {
        "text": "imbibing",
-       "note": "to imbibe is to take in, so the word for when takes the other pieces inside"
+       "at": 5,
+       "note": "imbibing means drinking in, so these letters go inside the word for when"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "When",
-         "gives": "AS",
-         "note": "as means when, as in 'as I left'"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        }
-       ]
+       "words": "When",
+       "at": 0,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as he arrived'"
       },
       {
-       "words": "desist from vintage",
-       "gives": "BLIN",
-       "note": "blin is an old Spenserian word for to cease or desist"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 14
+        },
+        {
+         "words": "desist from vintage",
+         "at": 16,
+         "gives": "BLIN",
+         "note": "blin is an old word meaning to desist or cease, vintage marking it as obsolete"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sipping wine wonders whether to give up the vintage, maybe for whisky.",
-     "walkthrough": "'Vintage' marks an archaic word, and 'Scotch' looks like whisky but labels the definition as Scots.",
-     "definitionFit": "Aiblins (also ablins) is the Scots word for perhaps or possibly."
+     "surface": "Someone stops drinking vintage Scotch whisky.",
+     "walkthrough": "'Scotch' suggests whisky, but it marks the answer as a Scots word for perhaps.",
+     "definitionFit": "Aiblins is a Scots adverb meaning possibly or maybe."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Scotch"
     }
    }
@@ -1067,54 +1070,55 @@
      "indicators": [
       {
        "text": "includes",
-       "note": "to include something is to hold it within, so the shortened word surrounds the drink"
+       "at": 29,
+       "note": "includes means these letters go inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means drop the last letter of this"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the final letter of the word is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "This",
-           "note": "taken as written, then cut short"
-          },
-          {
-           "gives": "S"
-          }
-         ]
+         "words": "This",
+         "at": 17
         },
         {
-         "words": "an",
-         "gives": "A",
-         "note": "an is the indefinite article, A"
+         "gives": "S"
         }
        ]
       },
       {
-       "words": "aniseed liquor",
-       "gives": "RAKI",
-       "note": "raki is an aniseed-flavoured spirit from Turkey and the Balkans"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "at": 38,
+         "gives": "A"
+        },
+        {
+         "words": "aniseed liquor",
+         "at": 41,
+         "gives": "RAKI",
+         "note": "raki is an aniseed-flavoured spirit from Turkey and the Balkans"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about Maori food, answered by a dish laced with an aniseed spirit.",
-     "walkthrough": "The question mark flags a definition by example: this fish is one food Maoris eat.",
-     "definitionFit": "The tarakihi is a New Zealand sea fish with a Maori name, a traditional catch and food."
+     "surface": "A question about Maori cuisine that seems to involve an aniseed drink.",
+     "definitionFit": "The tarakihi is a New Zealand sea fish eaten as food, with a Maori name."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Food"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

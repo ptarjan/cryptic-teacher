@@ -368,7 +368,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Man, say",
+      "text": "Man, say,",
       "at": 0
      }
     ],
@@ -377,41 +377,49 @@
      "indicators": [
       {
        "text": "placing",
-       "note": "It is an instruction about position rather than meaning — something is being put somewhere."
+       "at": 10,
+       "note": "placing signals putting some letters into position, here inside the others"
+      },
+      {
+       "text": "between",
+       "at": 27,
+       "note": "between the sheets means set inside the word for bed"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "between",
-         "note": "Between fixes that position exactly: the letters go in the middle of the word, not in front of it or after it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "the sheets",
-         "gives": "BED",
-         "note": "to be between the sheets is to be in bed, and the word opens after its first letter"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        }
-       ]
+       "words": "the sheets",
+       "at": 35,
+       "gives": "BED",
+       "note": "the sheets stand for bed, where sheets are found"
       },
       {
-       "words": "page",
-       "gives": "P",
-       "note": "p is the usual abbreviation for page"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 18,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        },
+        {
+         "words": "page",
+         "at": 22,
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Say' is the marker that the definition is only an example: a man is one kind of two-legged creature and far from the only one. The surface suggests something else entirely.",
-     "definitionFit": "Man, say → BIPED: humans walk on two legs, so 'man' is offered as one instance of the class rather than as a synonym for it."
+     "surface": "A cheeky picture of a man putting a page into bed, or of something risqué between the sheets.",
+     "definitionFit": "A man walks on two legs, so humans are an example of a two-footed animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sheets"
     }
    }
   },
@@ -478,34 +486,61 @@
      "indicators": [
       {
        "text": "in",
-       "note": "It marks the insertion: everything assembled so far goes inside the word that follows."
+       "at": 32,
+       "note": "in means the letters go inside the word for school"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "school",
-         "gives": "POD",
-         "note": "a school of whales is a pod, and it opens between its second and third letters"
-        },
-        {
-         "words": "I",
-         "note": "the pronoun taken exactly as it stands, one letter"
-        }
-       ]
+       "words": "school",
+       "at": 35,
+       "gives": "POD",
+       "note": "a school of whales or dolphins is a pod"
       },
       {
-       "words": "observe, nothing to lose",
-       "gives": "NTE",
-       "note": "to observe is to note, and 'nothing' is the O that goes"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to lose",
+         "at": 24,
+         "note": "to lose means the letter for nothing drops out of I plus the word for observe"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "at": 5
+          },
+          {
+           "words": "observe",
+           "at": 7,
+           "gives": "NOTE",
+           "note": "to observe is to note"
+          }
+         ]
+        },
+        {
+         "words": "nothing",
+         "at": 16,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Nothing to lose' reads as a gambler's shrug and is really naming the letter O. The school is a gathering of whales, not a building full of children.",
-     "definitionFit": "Keen → POINTED: a keen blade and a pointed one are both sharp, and both words transfer to a remark meant to cut."
+     "surface": "A keen pupil watching carefully but with nothing to lose at school.",
+     "walkthrough": "I plus NOTE, with the O for 'nothing' removed by 'to lose', gives INTE, which goes 'in' POD.",
+     "definitionFit": "A keen blade or remark is sharp, and pointed is a synonym for sharp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
     }
    }
   },
