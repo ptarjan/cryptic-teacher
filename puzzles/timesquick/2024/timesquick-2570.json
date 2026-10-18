@@ -713,45 +713,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "cooked",
-       "note": "cooking transforms ingredients, so the letters are mixed up"
+       "text": "in",
+       "at": 36,
+       "note": "in says the rearranged letters go inside the pot"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "pot",
+       "at": 39,
+       "gives": "PAN",
+       "note": "a pan is a cooking pot"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one thing inside another"
+         "text": "cooked",
+         "at": 29,
+         "note": "cooked suggests the letters are messed about with, rearranged"
         }
        ],
        "parts": [
         {
-         "words": "pot",
-         "gives": "PAN",
-         "note": "a pan is a cooking pot"
+         "words": "One",
+         "at": 21
         },
         {
-         "words": "One bit",
-         "note": "the letters of one bit, scrambled"
+         "words": "bit",
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A morsel of a Mexican dish, a single piece stewed in a pot.",
-     "walkthrough": "The question mark shows the definition is by example: one ingredient of a Mexican dish.",
-     "definitionFit": "Pinto beans are speckled beans used widely in Mexican cooking, for instance in refried beans."
+     "surface": "A kitchen scene: a piece of something cooked in a pot for a Mexican dish.",
+     "walkthrough": "The second 'bit' is not a morsel but letters for 'cooked' to rearrange, along with 'One'; 'pot' is the cooking vessel they go 'in'.",
+     "definitionFit": "Pinto beans are mottled beans used in refried beans, burritos and other Mexican dishes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "cooked"
+     "misdirectedWord": "pot"
     }
    }
   },
@@ -850,12 +857,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MIGRANT",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one letter inside the rest"
+       "at": 27,
+       "note": "in says that letter goes inside the rearranged place name"
       }
      ],
      "parts": [
@@ -864,37 +870,39 @@
        "indicators": [
         {
          "text": "possibly",
-         "note": "possibly suggests the place name is one of several arrangements"
+         "at": 38,
+         "note": "possibly says the letters of Antrim could be arranged another way"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the last letter of the preceding word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "settling",
-           "note": "last letter of settling"
-          }
-         ]
-        },
-        {
          "words": "Antrim",
-         "note": "the letters of Antrim rearranged"
+         "at": 30
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 19,
+         "note": "finally picks out the last letter of settling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "settling",
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newcomer who has eventually settled in County Antrim, perhaps.",
-     "walkthrough": "Antrim is a county in Northern Ireland.",
-     "definitionFit": "A migrant is a person who moves from one place to another, a traveller."
+     "surface": "Someone from abroad comes to live in a Northern Irish county at last.",
+     "walkthrough": "Antrim is a county of Northern Ireland; 'possibly' rearranges it around G, the last letter of settling.",
+     "definitionFit": "A migrant is a person who moves from place to place, often for work, so a traveller."
     },
     "features": {
      "answerInScene": true,
@@ -1053,53 +1061,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "changes",
-       "note": "changes means the letters are altered in order"
+       "text": "in",
+       "at": 15,
+       "note": "in says the rearranged letters sit between those two outer letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one set of letters inside another"
+         "text": "extremely",
+         "at": 18,
+         "note": "extremely means at the extremes, the first and last letters of recognisable"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "extremely means at the extremes, so only the end letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "recognisable",
-           "note": "outer letters of recognisable"
-          }
-         ]
-        },
+         "words": "recognisable",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 7,
+         "note": "changes says the letters of noting are altered in order"
+        }
+       ],
+       "parts": [
         {
          "words": "Noting",
-         "note": "the letters of noting rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Noticing alterations in a very familiar call sign.",
-     "definitionFit": "A ringtone is the sound a phone makes to signal an incoming call."
+     "surface": "A remark that something alters within a very familiar phone call.",
+     "walkthrough": "'changes' shuffles NOTING into INGTON, which goes 'in' RE, the extremes of recognisable.",
+     "definitionFit": "A ringtone is the sound a mobile phone plays to signal an incoming call."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Noting"
     }
    }
@@ -1219,12 +1231,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HASTE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one letter inside the others"
+       "at": 25,
+       "note": "in says that letter goes inside the rearranged letters"
       }
      ],
      "parts": [
@@ -1233,41 +1244,44 @@
        "indicators": [
         {
          "text": "dreadful",
-         "note": "dreadful suggests something badly mangled, so the letters are jumbled"
+         "at": 28,
+         "note": "dreadful says the letters of heat are in a terrible mess, jumbled"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally picks out the last letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fails",
-           "note": "last letter of fails"
-          }
-         ]
-        },
-        {
          "words": "heat",
-         "note": "the letters of heat rearranged"
+         "at": 37
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 17,
+         "note": "finally picks out the last letter of fails"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fails",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trek eventually collapses in terrible heat.",
-     "walkthrough": "'Expedition' suggests a journey, but here it means speed.",
-     "definitionFit": "Expedition can mean promptness or speed of action, the same sense as haste."
+     "surface": "A trek collapses at last in terrible heat.",
+     "walkthrough": "'Expedition' looks like a journey, but here it means speed. 'dreadful' rearranges HEAT around S, the last letter of fails.",
+     "definitionFit": "Expedition can mean promptness or speed in doing something, the same as haste."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Expedition"
     }
    }

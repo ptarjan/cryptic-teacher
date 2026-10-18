@@ -1026,33 +1026,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEDSOCKS",
+     "spelt": "BEDSOCKS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so two sounds trade places"
+       "at": 0,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "announced",
-       "gives": "SAID",
-       "soundsLike": "SED",
-       "note": "to announce is to say"
+       "op": "homophone",
+       "spelt": "SED",
+       "parts": [
+        {
+         "words": "announced",
+         "at": 10,
+         "gives": "SAID",
+         "note": "announced means said, which is pronounced to rhyme with bed"
+        }
+       ]
       },
       {
        "words": "fight",
+       "at": 20,
        "gives": "BOX",
-       "note": "to box is to fight with fists"
+       "note": "to box is to fight with the fists"
       }
      ]
     },
     "explanation": {
-     "surface": "An announcement that a fight is coming, delivered in bedtime clothing.",
-     "walkthrough": "Swapping the opening sounds of SAID BOX gives BED SOX, spelt BEDSOCKS.",
-     "definitionFit": "Bedsocks are warm socks worn in bed at night, so they are an item of nightwear."
+     "surface": "A pyjama-clad brawl is declared, in the manner of the muddled Reverend Spooner.",
+     "walkthrough": "Swapping the opening sounds of SAID (said as 'sed') and BOX ('Spooner's') gives 'bed sox', which is how the answer sounds.",
+     "definitionFit": "Bedsocks are soft socks worn in bed to keep the feet warm at night, part of a sleeper's outfit."
     },
     "features": {
      "answerInScene": false,
@@ -1602,46 +1608,49 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SOCIALIST",
      "indicators": [
       {
        "text": "awful",
-       "note": "something awful is a mess, so the letters are thrown into disorder"
+       "at": 24,
+       "note": "awful suggests the letters are in a terrible state, jumbled up"
       }
      ],
      "parts": [
       {
+       "words": "silica's",
+       "at": 4,
+       "gives": "SILICAS",
+       "note": "the word silica's taken letter for letter, apostrophe dropped"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SOCIALIST",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost means not quite all, so the last letter of the word after it is dropped"
+         "at": 13,
+         "note": "almost means the word stops one letter short of its full length"
         }
        ],
        "parts": [
         {
-         "words": "silica",
-         "note": "taken as written"
+         "words": "too",
+         "at": 20
         },
         {
-         "words": "too",
-         "note": "taken as written"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Red sand is said to be practically too dreadful.",
-     "walkthrough": "The S of 'silica's' joins the fodder, then TOO loses its last letter: SILICAS plus TO.",
-     "definitionFit": "Red is long-standing slang for a left-winger, a socialist or communist."
+     "surface": "Someone complains that a red mineral is overly dreadful.",
+     "walkthrough": "'almost' trims too to TO; 'awful' then rearranges SILICAS with TO. 'Red' looks like a colour describing the silica, but it is the definition.",
+     "definitionFit": "Red is a common informal label for a left-winger, from the red flag of socialism and communism."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Red"
     }
    }

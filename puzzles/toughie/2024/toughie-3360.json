@@ -961,31 +961,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESTRANGE",
+     "op": "middle",
      "indicators": [
       {
        "text": "clothing from",
-       "note": "clothing is what covers the outside, and it is taken away from the phrase that follows"
+       "at": 7,
+       "note": "taking the clothing from something strips off its outer layer, so its first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "Yellowstone's Officer of the Year",
+       "at": 21,
        "gives": "BESTRANGER",
-       "note": "Yellowstone National Park is staffed by park rangers, and its top one might be named best ranger"
+       "note": "a park ranger works at Yellowstone, and the officer of the year is the best one there"
       }
      ]
     },
     "explanation": {
-     "surface": "Stripping the uniform off an award-winning park officer.",
-     "walkthrough": "Strip the outer letters B and R from BEST RANGER. 'Remove' serves as definition while also driving the stripping.",
-     "definitionFit": "To estrange someone is to alienate them, setting them at a distance, so it means to remove."
+     "surface": "An instruction to strip the uniform from a national park's prize-winning ranger.",
+     "walkthrough": "Yellowstone is the US national park staffed by rangers. 'clothing from' strips the outside letters B and R off BEST RANGER.",
+     "definitionFit": "To estrange is to alienate or set apart, so it can mean remove someone from a former closeness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "clothing"
     }
    }
@@ -1252,51 +1253,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PARISHREGISTER",
      "indicators": [
       {
        "text": "breaking",
-       "note": "breaking into something means forcing a way inside, so one piece goes into the middle of another"
+       "at": 62,
+       "note": "breaking says the car model splits the joined names apart"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "sharing a cell",
-         "note": "two words sharing a cell overlap, so one letter does duty for the end of the first and the start of the second"
-        }
-       ],
        "parts": [
         {
          "words": "Hector's brother",
+         "at": 0,
          "gives": "PARIS",
-         "note": "in the Iliad Paris and Hector are sons of King Priam of Troy"
+         "note": "in Homer's Iliad, Paris is the brother of the Trojan hero Hector"
         },
         {
-         "words": "with 1990-1 model",
-         "gives": "HREG",
-         "note": "British number plates from August 1990 to July 1991 carried the letter H, so such a car was an H reg model"
-        },
-        {
-         "words": "sister",
-         "gives": "ISTER",
-         "note": "sister, whose opening S is the cell it shares with the brother's name, so it is not written twice"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "sharing a cell with",
+           "at": 28,
+           "note": "sharing a cell means the two names share one letter, the S that ends one and starts the other, so one copy goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sister",
+           "at": 21,
+           "gives": "SISTER",
+           "note": "the word sister is used in full"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "1990-1 model",
+       "at": 48,
+       "gives": "HREG",
+       "note": "a British car first licensed between August 1990 and July 1991 carried the year letter H on its plate, so it is an H-reg"
       }
      ]
     },
     "explanation": {
-     "surface": "A family drama: siblings share a prison cell with a fashion model while a local record is broken.",
-     "walkthrough": "Sharing a cell is the crossword grid's language: the brother's last letter and the sister's first occupy one square. UK registration letters dated a car by year.",
-     "definitionFit": "A parish register is the church's book of local baptisms, marriages and burials, a record kept for one parish."
+     "surface": "A tale of Trojan siblings, a prison cell and an early-nineties car, with a broken record for good measure.",
+     "walkthrough": "'sharing a cell with' lets the two siblings' names share one S, leaving ISTER after the brother. British number plates once carried a year letter, H for 1990-1.",
+     "definitionFit": "A parish register is the book in which a local church records baptisms, marriages and burials."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "cell"
     }
    }

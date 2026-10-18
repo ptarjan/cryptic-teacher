@@ -210,40 +210,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "perhaps",
-       "note": "perhaps says 'to stir' is only an example, and what it exemplifies is a part of speech"
+       "text": "in",
+       "at": 37,
+       "note": "in says the part of speech sits inside the circle and grease together"
       }
      ],
      "parts": [
       {
-       "words": "round",
-       "gives": "O",
-       "note": "O is round in shape"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "round",
+         "at": 31,
+         "gives": "O",
+         "note": "a round shape is the letter O"
+        },
+        {
+         "words": "grease",
+         "at": 40,
+         "gives": "OIL",
+         "note": "oil is grease or lubricant"
+        }
+       ]
       },
       {
-       "words": "to stir",
+       "words": "perhaps to stir",
+       "at": 15,
        "gives": "VERB",
-       "note": "'to stir' is one example of a verb"
-      },
-      {
-       "words": "grease",
-       "gives": "OIL",
-       "note": "oil = grease, lubricant"
+       "note": "'to stir' is an example of a verb, which perhaps signals"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook frying things round and round in fat and overdoing it.",
-     "walkthrough": "'To stir' reads as a kitchen instruction; here it is a grammatical example, a word of doing.",
-     "definitionFit": "A plain synonym: to boil something for too long is to cook it too much."
+     "surface": "A cooking tip: maybe stir something round in fat, or it will spoil.",
+     "walkthrough": "'to stir' is not an instruction but a word of grammar, a verb, which 'in' puts between O and OIL.",
+     "definitionFit": "To overboil is to boil food for too long, a way of overcooking it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "stir"
     }
    }
@@ -1153,61 +1161,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down clue a word that rises reads from bottom to top, so it is reversed"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "Putting",
-         "note": "putting carbon in means placing its symbol inside another word"
+         "at": 0,
+         "note": "putting signals placing the element somewhere, with in telling where"
+        },
+        {
+         "text": "in",
+         "at": 15,
+         "note": "in says the carbon goes inside the turned-up word"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "in says where carbon is put: inside the reversed word for added"
+           "text": "rising",
+           "at": 27,
+           "note": "in a down answer, rising means the word is written upwards, so backwards"
           }
          ],
          "parts": [
           {
            "words": "added",
+           "at": 18,
            "gives": "PLUS",
-           "note": "plus = added; read upwards it is SULP"
-          },
-          {
-           "words": "carbon",
-           "gives": "C",
-           "note": "C is carbon's symbol; S(C)ULP"
+           "note": "plus means added, as in two plus two"
           }
          ]
+        },
+        {
+         "words": "carbon",
+         "at": 8,
+         "gives": "C",
+         "note": "C is the chemical symbol for carbon"
         }
        ]
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T = time"
+       "at": 34,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A potter at work adding bits and firing clay.",
-     "walkthrough": "'Added to' looks like a link joining parts; 'added' itself is a word to be flipped, with 'to' joining the time on.",
-     "definitionFit": "A definition by example: shaping clay into a figure is one way to carve or model a sculpture."
+     "surface": "Someone mixes carbon into a material over time to make modelling clay.",
+     "walkthrough": "'rising' reverses PLUS to SULP, and 'Putting carbon in' places C after its first letter.",
+     "definitionFit": "To sculpt is to carve or shape a figure, as a sculptor models clay into form."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "added"
+     "misdirectedWord": "carbon"
     }
    }
   },
@@ -1232,54 +1243,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "breaking down",
-       "note": "something breaking down falls to pieces, and the pieces re-form in a new order"
+       "text": "around",
+       "at": 36,
+       "note": "around says the rearranged letters surround the single letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "the jumbled letters go around the extra letter, so it joins the mix"
+         "text": "breaking down",
+         "at": 22,
+         "note": "breaking down says the letters of circled it fall apart and are reassembled"
         }
        ],
        "parts": [
         {
          "words": "circled it",
-         "note": "anagram fodder, 9 letters"
-        },
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "end of anode",
-           "note": "last letter of anode, joins the fodder"
-          }
-         ]
+         "text": "end of",
+         "at": 43,
+         "note": "end of picks the last letter of anode"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anode",
+         "at": 50
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An electrical insulator failing after a current circled it.",
-     "walkthrough": "The electrical surface fits the answer: breakdown is a real way for an insulator to fail.",
-     "definitionFit": "A technical synonym: a material that does not conduct electricity but can hold a charge is an insulator."
+     "surface": "An electrical fault report: something ringed the component and broke down near an electrode.",
+     "walkthrough": "'breaking down' rearranges CIRCLED IT to wrap 'around' E, the last letter of anode.",
+     "definitionFit": "A dielectric is a material that does not conduct electricity, used to insulate, as in a capacitor."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "circled"
     }
    }
   },
@@ -1355,46 +1370,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OKAPI",
-     "indicators": [
-      {
-       "text": "tailless",
-       "note": "a word's tail is its last letter, so tailless drops it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "certainly",
+       "at": 12,
+       "gives": "OK",
+       "note": "OK is an informal agreement, meaning certainly"
+      },
+      {
+       "words": "a",
+       "at": 22
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 24,
+         "note": "tailless means the last letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "certainly",
-         "gives": "OK",
-         "note": "OK = certainly, yes"
-        },
-        {
-         "words": "a",
-         "note": "taken as it stands"
-        },
-        {
          "words": "suid",
-         "gives": "PI",
-         "note": "a suid is a member of the pig family; PIG loses its G"
+         "at": 33,
+         "gives": "PIG",
+         "note": "a suid is a member of the pig family"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Assurance that some creature is surely a pig with no tail.",
-     "walkthrough": "Suid is the zoological term for anything in the pig family.",
-     "definitionFit": "A definition by category: this African forest animal, related to the giraffe, is a creature."
+     "surface": "A zoological remark that an animal is definitely a pig without a tail.",
+     "walkthrough": "'suid' is the zoologists' word for a pig, here losing its final letter; the answer is not a pig but a giraffe relative.",
+     "definitionFit": "The okapi is a forest animal of central Africa, a striped relative of the giraffe."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "suid"
     }
    }
