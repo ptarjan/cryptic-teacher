@@ -180,38 +180,43 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 4,
+       "note": "in a down answer, the first piece sits on top of the second"
+      },
+      {
+       "text": "and",
+       "at": 27,
+       "note": "and joins the second top letter on after the first, so both tops are taken"
+      }
+     ],
      "parts": [
       {
        "words": "Try",
+       "at": 0,
        "gives": "HEAR",
-       "note": "a judge hears, or tries, a case"
+       "note": "to hear a case is to try it in court"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TS",
-       "indicators": [
-        {
-         "text": "tops",
-         "note": "the top of a word written downwards is its opening letter, so each word gives its first"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Tiffany's and single-breasted",
-         "gives": "TS",
-         "select": "first",
-         "note": "the first letters of these two words"
-        }
-       ]
+       "words": "tops from Tiffany's",
+       "at": 7,
+       "gives": "T",
+       "note": "the top of a word in a down clue is its first letter: here the first letter of Tiffany's"
+      },
+      {
+       "words": "single-breasted",
+       "at": 31,
+       "gives": "S",
+       "note": "the top, or first letter, of single-breasted, the second word the tops are taken from"
       }
      ]
     },
     "explanation": {
-     "surface": "Trying on clothes, perhaps jewellery from Tiffany's and a single-breasted suit.",
-     "walkthrough": "'Suit' looks like tailoring, but it is a suit of playing cards.",
-     "definitionFit": "Hearts is one of the four suits in a standard pack of playing cards."
+     "surface": "Someone tries on a jacket from the New York jewellers Tiffany's.",
+     "walkthrough": "'suit' looks like clothing in the surface, but it is a suit of playing cards. 'tops from' takes the first letters of Tiffany's and single-breasted, T and S; HEAR goes 'on' them.",
+     "definitionFit": "Hearts is one of the four suits in a pack of playing cards."
     },
     "features": {
      "answerInScene": false,
@@ -420,41 +425,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AREA",
+     "op": "container",
      "indicators": [
       {
-       "text": "leaving",
-       "note": "something leaving goes away, so that letter is dropped out"
-      },
-      {
        "text": "filled with",
-       "note": "the gap left behind is filled, so a new letter takes the vacant place"
+       "at": 25,
+       "note": "the shortened song takes the drug letter into its middle"
       }
      ],
      "parts": [
       {
-       "words": "song",
-       "gives": "ARIA",
-       "note": "an aria is a solo song in opera"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral for one"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 13,
+         "note": "the numeral leaves the word for song"
+        }
+       ],
+       "parts": [
+        {
+         "words": "song",
+         "at": 8,
+         "gives": "ARIA",
+         "note": "an aria is a solo song in an opera"
+        },
+        {
+         "words": "one",
+         "at": 21,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       },
       {
        "words": "ecstasy",
+       "at": 37,
        "gives": "E",
        "note": "E is slang for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A section of a song where the singer is overwhelmed with joy.",
-     "walkthrough": "'Part of song' looks like the definition, but only 'Part' is; ARIA swaps its I for E.",
-     "definitionFit": "An area is a region or section of something, so it can stand for a part."
+     "surface": "A section of a song leaves a listener overflowing with joy.",
+     "walkthrough": "'Part of song' reads as one phrase, but 'Part' alone is the definition. 'leaving' takes I from ARIA, leaving ARA, which is 'filled with' E.",
+     "definitionFit": "An area is a region or section of something, a part of a larger whole."
     },
     "features": {
      "answerInScene": false,
@@ -1270,32 +1285,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROOTBEER",
      "indicators": [
       {
        "text": "Spooner is telling you",
-       "note": "William Spooner was famed for swapping the opening sounds of words, so the first sounds trade places"
+       "at": 11,
+       "note": "Reverend Spooner swapped the opening sounds of words, so the first consonants of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Kick back",
-       "gives": "ROOTBEER",
-       "soundsLike": "BOOT REAR",
-       "note": "a kick is a boot and the back is the rear; swap their first sounds"
+       "words": "Kick",
+       "at": 0,
+       "gives": "BOOT",
+       "note": "to boot something is to kick it"
+      },
+      {
+       "op": "homophone",
+       "spelt": "REER",
+       "parts": [
+        {
+         "words": "back",
+         "at": 5,
+         "gives": "REAR",
+         "note": "the rear is the back of something; this is the word said aloud, rhyming with beer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An invitation to relax and have a drink.",
-     "walkthrough": "'Kick back' reads as the phrase meaning relax, but it is two separate words, kick and back.",
-     "definitionFit": "Root beer is a sweet fizzy soft drink flavoured with sassafras or other roots, popular in North America."
+     "surface": "An instruction to relax and enjoy a drink.",
+     "walkthrough": "'Kick back' looks like an idiom for relaxing, but it is BOOT REAR, with REAR heard as REER; 'Spooner is telling you' swaps their opening sounds to give ROOT and BEER.",
+     "definitionFit": "Root beer is a sweet fizzy soft drink flavoured with sassafras root, popular in North America."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Kick"
     }
    }
