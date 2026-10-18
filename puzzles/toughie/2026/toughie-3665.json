@@ -680,48 +680,56 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ROMANNUMERAL",
      "indicators": [
       {
        "text": "translated",
-       "note": "translating turns words into a new form, so these letters are rearranged"
+       "at": 15,
+       "note": "translated means turned into another form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "ROMANNUMERAL",
        "indicators": [
         {
-         "text": "after I left",
-         "note": "once one letter has departed, another arrives in its place"
+         "text": "after",
+         "at": 40,
+         "note": "after I left means once the I has gone, the letter for university takes its place"
+        },
+        {
+         "text": "left",
+         "at": 48,
+         "note": "left means departed, so the letter I goes out of the author's name"
         }
        ],
        "parts": [
         {
          "words": "Norman Mailer",
-         "note": "the American novelist's name, taken as letters"
+         "at": 26
+        },
+        {
+         "words": "I",
+         "at": 46
         },
         {
          "words": "university",
-         "gives": "U",
-         "note": "U is the standard abbreviation for university"
+         "at": 53,
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student translated Norman Mailer's novels after leaving university.",
-     "walkthrough": "The 'I' of the surface is a letter: take the I out of NORMAN MAILER, put U in, and rearrange. The definition's 'I' is the numeral one.",
-     "definitionFit": "The letter I represents the number one in the Roman system, so it is one instance of the category named."
+     "surface": "A note on a foreign edition: the setter's own copy of Norman Mailer, translated once they had left college.",
+     "walkthrough": "'after I left university' swaps the I in NORMAN MAILER for U (university), and 'translated' rearranges the lot. The 'I' in the definition is the numeral one, not the first person.",
+     "definitionFit": "I is how the Romans wrote one, so it is an example of their numbering system."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "I"
+     "joke": "pun",
+     "misdirectedWord": "translated"
     }
    }
   },
@@ -1400,37 +1408,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INKJET",
-     "indicators": [
-      {
-       "text": "wasting",
-       "note": "to waste something is to lose it, so these letters are thrown out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "degenerate",
-       "gives": "SINK",
-       "note": "to sink is to decline or degenerate"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wasting",
+         "at": 30,
+         "note": "wasting means losing, so each word sheds one of the two seconds named"
+        }
+       ],
+       "parts": [
+        {
+         "words": "degenerate",
+         "at": 13,
+         "gives": "SINK",
+         "note": "to degenerate is to sink to a lower state"
+        },
+        {
+         "words": "seconds",
+         "at": 50,
+         "gives": "S",
+         "note": "S is the standard abbreviation for second, here one of the seconds wasted"
+        }
+       ]
       },
       {
-       "words": "joke",
-       "gives": "JEST",
-       "note": "a jest is a joke"
-      },
-      {
-       "words": "a couple of seconds",
-       "gives": "SS",
-       "note": "S is the abbreviation for second; two of them are removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a couple of",
+         "at": 38,
+         "note": "a couple of seconds means two are lost, so the word for joke gives up a second of its own as well"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joke",
+         "at": 24,
+         "gives": "JEST",
+         "note": "a jest is a joke"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on how to publish a filthy joke, after losing a few seconds.",
-     "walkthrough": "'Degenerate joke' looks like a dirty joke but splits into a verb and a noun, and each word sheds a single S.",
-     "definitionFit": "Inkjet printing sprays tiny droplets onto paper, one of the common methods home printers use."
+     "surface": "A complaint about a crude joke being told, slightly too slowly.",
+     "walkthrough": "'degenerate' is a verb here (to sink), not an adjective on the joke. 'wasting a couple of seconds' takes an S (second) from each of SINK and JEST, leaving INK and JET.",
+     "definitionFit": "Inkjet printing sprays tiny droplets of ink onto paper, one common method of putting text on a page."
     },
     "features": {
      "answerInScene": false,
