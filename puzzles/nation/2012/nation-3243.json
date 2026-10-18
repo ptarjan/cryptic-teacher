@@ -168,24 +168,38 @@
      "parts": [
       {
        "words": "lip",
-       "note": "taken as written"
+       "at": 4,
+       "gives": "LIP"
       },
       {
        "words": "one",
+       "at": 9,
        "gives": "I",
-       "note": "I is the Roman numeral one"
+       "note": "the Roman numeral I is one"
       },
       {
-       "words": "delivered",
-       "gives": "D",
-       "note": "d. is a commercial abbreviation for delivered"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "on the face",
+         "at": 23,
+         "note": "the face of a word is its front, so only its first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delivered",
+         "at": 13,
+         "note": "D is the first letter, the face, of delivered"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swollen lip, the kind you get from a punch landed on your face.",
-     "walkthrough": "'Fat lip' reads as one phrase, but 'Fat' alone is the definition.",
-     "definitionFit": "Lipids are the class of biological compounds that includes fats and oils."
+     "surface": "A boxing picture: a fat lip from a single punch landed on the face.",
+     "walkthrough": "'Fat lip' reads as one swollen injury, but 'Fat' is the definition and 'lip' is taken as written. 'on the face' takes the first letter of 'delivered'.",
+     "definitionFit": "Lipids are the class of biological molecules that includes fats and oils."
     },
     "features": {
      "answerInScene": false,
@@ -744,45 +758,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NETIQUETTE",
+     "op": "homophone",
+     "spelt": "NETIQUETTE",
      "indicators": [
       {
+       "text": "When mentioning",
+       "at": 0,
+       "note": "saying the name aloud gives the sound of the entry rather than its spelling"
+      },
+      {
        "text": "don't pronounce the first syllable",
-       "note": "leaving the first syllable unspoken cuts the opening sound off the state's name"
+       "at": 34,
+       "note": "the opening syllable of the state name is left unspoken, so only the rest is heard"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "NETIQUETTE",
-       "indicators": [
-        {
-         "text": "When mentioning",
-         "note": "mentioning is speaking, so what counts is how the remaining word sounds"
-        }
-       ],
-       "parts": [
-        {
-         "words": "the Nutmeg State",
-         "gives": "NECTICUT",
-         "note": "the Nutmeg State is the nickname of Connecticut, said here without its opening 'Con'"
-        }
-       ]
+       "words": "the Nutmeg State",
+       "at": 16,
+       "gives": "NECTICUT",
+       "note": "the Nutmeg State is the nickname of Connecticut; said without its opening syllable con it is necticut"
       }
      ]
     },
     "explanation": {
-     "surface": "A style guide's instructions on saying a state's name, ending with a reminder not to use capitals.",
-     "walkthrough": "Connecticut minus its first syllable sounds like NETIQUETTE. Writing in all capitals online reads as shouting, so 'don't shout like this' is a classic example of the online etiquette rule.",
-     "definitionFit": "Netiquette is the set of polite conventions for online communication, such as avoiding all-caps text."
+     "surface": "Advice on saying a state's name, ending with an all-capitals warning against shouting.",
+     "walkthrough": "'When mentioning' Connecticut, 'don't pronounce the first syllable' CON: 'necticut' sounds like the answer. The capitals in the clue are the example: typing in capitals online reads as shouting.",
+     "definitionFit": "Netiquette, the etiquette of online communication, includes the rule against typing in capitals, which counts as shouting."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Nutmeg"
+     "misdirectedWord": "SHOUT"
     }
    }
   },

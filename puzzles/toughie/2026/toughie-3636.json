@@ -96,53 +96,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENSCHEDE",
+     "op": "container",
      "indicators": [
       {
-       "text": "removing perimeter",
-       "note": "taking away the perimeter strips off the outside edge, so the first and last letters go"
+       "text": "within",
+       "at": 23,
+       "note": "the abbreviations sit within the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "within",
-         "note": "within means inside, so one group of letters is put inside another"
+         "text": "removing perimeter",
+         "at": 38,
+         "note": "the perimeter of a word is its outside edge, so first and last letters are dropped"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "feeder",
-           "gives": "EEDE",
-           "note": "the word with its outer letters removed"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the standard abbreviation for new"
-          }
-         ]
-        },
-        {
-         "words": "school",
-         "gives": "SCH",
-         "note": "SCH is the abbreviation for school"
+         "words": "feeder",
+         "at": 30,
+         "note": "taken as written before its edge letters go"
         }
        ]
+      },
+      {
+       "words": "new school",
+       "at": 12,
+       "gives": "NSCH",
+       "note": "N is the standard abbreviation for new, and SCH the usual abbreviation for school"
       }
      ]
     },
     "explanation": {
-     "surface": "A Dutch town gets a new school placed inside a feeder area, with its boundary taken away.",
-     "walkthrough": "Feeder suggests a feeder school, which fits the surface; here it is just a word to be trimmed.",
-     "definitionFit": "Enschede is a city in the east of the Netherlands, near the German border, so it is a location in Holland."
+     "surface": "A new school opens in a feeder area of a Dutch town, its boundary removed.",
+     "walkthrough": "'feeder' looks like a feeder school in the surface, but it is just letters to trim. Enschede is a city in the eastern Netherlands, near the German border.",
+     "definitionFit": "Enschede is a city in the province of Overijssel, near the Netherlands' border with Germany."
     },
     "features": {
      "answerInScene": true,
@@ -1042,43 +1033,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OCCASION",
+     "op": "container",
      "indicators": [
       {
-       "text": "Defaced",
-       "note": "to deface is literally to remove the face, the front, so the first letter goes"
+       "text": "crossing",
+       "at": 13,
+       "note": "the shoe's letters cross over, straddle, the other letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "crossing",
-         "note": "crossing means straddling, so one piece spans the other"
+         "text": "Defaced",
+         "at": 0,
+         "note": "the face of a word is its front, so its first letter is removed"
         }
        ],
        "parts": [
         {
          "words": "shoe",
-         "gives": "OCCASIN",
-         "note": "a moccasin, without its first letter"
+         "at": 8,
+         "gives": "MOCCASIN",
+         "note": "a moccasin is a soft leather shoe"
         },
         {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the cricket abbreviation for over"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 22,
+       "gives": "O",
+       "note": "O is the cricket scorecard abbreviation for over"
       }
      ]
     },
     "explanation": {
-     "surface": "A spoilt shoe is dropped as someone crosses over the grounds.",
-     "walkthrough": "MOCCASIN loses its M, and the O goes in before the last letter.",
-     "definitionFit": "An occasion can mean a reason or cause, as in 'no occasion to complain', so it matches grounds in that sense."
+     "surface": "A scuffed shoe trudges across some sports grounds.",
+     "walkthrough": "'grounds' looks like a playing field in the surface, but it means reasons. MOCCASIN 'Defaced' loses its M, and its letters are 'crossing' O.",
+     "definitionFit": "Occasion in the sense of reason or cause, as in 'no occasion for alarm', means grounds."
     },
     "features": {
      "answerInScene": false,

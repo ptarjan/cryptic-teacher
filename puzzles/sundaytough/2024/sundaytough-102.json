@@ -44,31 +44,30 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "STATIC",
      "indicators": [
       {
        "text": "shows",
-       "note": "to show something is to put it on display, so the clue words display a run of letters inside them"
+       "at": 25,
+       "note": "the run of letters is on display inside the words that follow"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "guest at iconic",
-       "note": "the letters run consecutively across the end of the first word, all of the second and the start of the third"
+       "at": 9,
+       "note": "the letters run from the last two of guest, through at, into the first two of iconic"
       }
      ]
     },
     "explanation": {
-     "surface": "A regular visitor turns up at every famous show.",
-     "walkthrough": "'Constant guest' reads as one phrase about a frequent visitor, but 'Constant' alone is the definition and the guest is only part of the hiding place: gueST AT IConic.",
-     "definitionFit": "Static describes something unchanging or fixed, which is what constant means as an adjective."
+     "surface": "A regular visitor turns up at shows that have become iconic.",
+     "walkthrough": "'shows' looks like the noun for performances, but it is the verb: the phrase guest at iconic shows the answer, from the last two letters of 'guest'.",
+     "definitionFit": "Static means unchanging, remaining constant rather than moving or varying."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Constant"
+     "misdirectedWord": "shows"
     }
    }
   },
@@ -142,64 +141,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "this galaxy",
-      "at": 23
+      "text": "Alien finally invading this galaxy could be Armageddon",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANDROMEDA",
+     "op": "composite",
      "indicators": [
       {
-       "text": "Alien",
-       "note": "something alien is strange and unfamiliar, so the letters appear in an unfamiliar order"
+       "text": "could be",
+       "at": 35,
+       "note": "the letters of the word that follows could be rearranged into something else"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANDROMEDA",
+       "words": "Armageddon",
+       "at": 44
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "could be",
-         "note": "the clue sets up an equation: the answer plus one letter could be the last word, so that letter must be taken away from it"
+         "text": "finally",
+         "at": 6,
+         "note": "only the last letter of the word that precedes it is taken"
         }
        ],
        "parts": [
         {
-         "words": "Armageddon",
-         "note": "the last word of the clue, taken as written"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the closing letter of the word it sits beside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "invading",
-           "note": "the final letter of this word"
-          }
-         ]
+         "words": "invading",
+         "at": 14,
+         "note": "its last letter is the alien invader"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "If an alien invaded our neighbouring galaxy it might mean the end of the world.",
-     "walkthrough": "A composite clue with the definition in the middle: the galaxy with G added could become Armageddon, so take G from ARMAGEDDON and rearrange the rest. Read as a whole, the sentence also describes an alien invasion.",
-     "definitionFit": "Andromeda is the large spiral galaxy nearest our Milky Way, so it is named here as a particular galaxy."
+     "surface": "A doom-laden prediction: an alien invasion of this galaxy could be the end of the world.",
+     "walkthrough": "The G from 'invading' 'finally' is the alien: put it inside the galaxy's name and the letters 'could be' rearranged as Armageddon. So the answer is Armageddon's letters with that G removed and the rest reordered.",
+     "definitionFit": "Andromeda is the nearest large spiral galaxy to our own, the natural home of science-fiction invaders."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Alien"
+     "aptDefinition": true,
+     "misdirectedWord": "invading"
     }
    }
   },
@@ -1084,45 +1072,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CHARLESDICKENS",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "William Spooner swapped the opening sounds of words, so two sounds change places here"
+       "at": 0,
+       "note": "the opening sounds of the two words are exchanged, as Reverend Spooner famously did by accident"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "DARLES",
        "parts": [
         {
-         "unchecked": true,
          "words": "Roald",
-         "gives": "CHARLES",
-         "soundsLike": "DAHLS",
-         "note": "Roald Dahl wrote Charlie and the Chocolate Factory; his chickens would be Dahl's, and the D swaps for a CH sound"
-        },
-        {
-         "unchecked": true,
-         "words": "source of eggs",
-         "gives": "DICKENS",
-         "soundsLike": "CHICKENS",
-         "note": "chickens lay eggs; the CH sound swaps for D"
+         "at": 41,
+         "gives": "DAHLS",
+         "note": "Roald Dahl the author, so chickens for Roald are Dahl's; said aloud it rhymes with the novelist's first name"
         }
        ]
+      },
+      {
+       "words": "source of eggs",
+       "at": 22,
+       "gives": "CHICKENS",
+       "note": "hens, chickens, are where eggs come from"
       }
      ]
     },
     "explanation": {
-     "surface": "Where the children's author Roald Dahl got his eggs.",
-     "walkthrough": "Say 'Dahl's chickens' and swap the opening D and CH sounds to hear Charles Dickens.",
-     "definitionFit": "Charles Dickens is the Victorian author of Oliver Twist and Great Expectations, an example of a writer of fiction."
+     "surface": "Spooner fetches some egg-layers for the children's author Roald Dahl, all for a novelist.",
+     "walkthrough": "Roald's chickens are Dahl's chickens, and Dahl's is said like 'Darles'. 'According to Spooner' swaps their opening sounds, and 'Darles chickens' becomes the novelist's name.",
+     "definitionFit": "Charles Dickens was the Victorian author of Oliver Twist and Great Expectations, a novelist."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Roald"
     }
    }
@@ -1384,32 +1370,31 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SALEM",
+     "op": "anagram",
      "indicators": [
       {
        "text": "swapping tips",
-       "note": "a word's tips are its two ends, and swapping them puts each in the other's place"
+       "at": 4,
+       "note": "the two end letters change places, which reorders the word"
       }
      ],
      "parts": [
       {
        "words": "Men",
+       "at": 0,
        "gives": "MALES",
-       "note": "men are males"
+       "note": "males are men"
       }
      ]
     },
     "explanation": {
-     "surface": "Waiters trading gratuities in a US town.",
-     "walkthrough": "'Tips' suggests gratuities, but it means the two end letters, which trade places.",
-     "definitionFit": "Salem is a city in Massachusetts, famous for its witch trials, and also the capital of Oregon, so a place in the United States."
+     "surface": "Men trading advice somewhere in the United States.",
+     "walkthrough": "'swapping tips' looks like trading advice, but tips are the word's ends: swap the first and last letters of MALES. Salem is a city in Massachusetts and the capital of Oregon.",
+     "definitionFit": "Salem is a place in the United States, notably the Massachusetts town of the 1692 witch trials."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tips"
     }
    }

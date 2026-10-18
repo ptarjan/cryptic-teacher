@@ -183,49 +183,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SHIFT",
      "indicators": [
       {
-       "text": "changing"
+       "text": "changing",
+       "at": 11,
+       "note": "one letter of the beam is changed for another"
       },
       {
-       "text": "primarily",
-       "note": "takes just the first letter of 'ironwork'"
+       "text": "for",
+       "at": 28,
+       "note": "the article is exchanged for the other letter, which takes its place"
       }
      ],
      "parts": [
       {
        "words": "beam",
+       "at": 5,
        "gives": "SHAFT",
        "note": "a shaft of light is a beam"
+      },
+      {
+       "words": "article",
+       "at": 20,
+       "gives": "A",
+       "note": "A is the indefinite article"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "for",
-         "note": "marks what the article is exchanged for"
+         "text": "primarily",
+         "at": 42,
+         "note": "primarily means at first, so the first letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "article",
-         "note": "the indefinite article 'a', taken out"
+         "words": "ironwork",
+         "at": 32,
+         "note": "its first letter is the replacement"
         }
        ]
-      },
-      {
-       "words": "ironwork",
-       "gives": "I",
-       "note": "first letter of ironwork, put in where A was"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction on a building site: move the beam and swap one fitting for some ironwork.",
-     "walkthrough": "The builder's picture makes 'beam' a girder, but it is a shaft of light.",
-     "definitionFit": "A plain synonym: to shift a thing is to change its position."
+     "surface": "A builder moves a girder, swapping a piece for some ironwork.",
+     "walkthrough": "'beam' looks like a girder in the ironwork surface, but it is SHAFT, as in a beam of light. 'changing' A 'for' I (ironwork 'primarily') turns it into the answer.",
+     "definitionFit": "To shift something is to move it from one place to another, a plain synonym."
     },
     "features": {
      "answerInScene": false,
@@ -874,41 +879,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PATRIOTIC",
-     "indicators": [
-      {
-       "text": "nakedly"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Each year",
+       "at": 0,
        "gives": "PA",
-       "note": "p.a. = per annum"
+       "note": "PA, per annum, is Latin for each year"
       },
       {
        "words": "small group",
+       "at": 10,
        "gives": "TRIO",
        "note": "a trio is a group of three"
       },
       {
-       "words": "abuse",
-       "gives": "STICK",
-       "note": "to give stick is to criticise; stripped to TIC"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "nakedly",
+         "at": 22,
+         "note": "naked means stripped of its covering, so the outer letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "abuse",
+         "at": 30,
+         "gives": "STICK",
+         "note": "to give someone stick is to abuse or criticise them"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An annual gathering of a few people who strip off and hurl abuse at a nationalist.",
-     "walkthrough": "'Stick' in the sense of abuse or harsh criticism is British idiom ('take a lot of stick').",
-     "definitionFit": "Here nationalist is the adjective: devoted to one's country."
+     "surface": "Every year a small band of nationalists strip off and hurl abuse.",
+     "walkthrough": "PA is the abbreviation for per annum; 'stick' in British English is criticism or abuse, and taken 'nakedly' it loses S and K.",
+     "definitionFit": "Patriotic and nationalist both describe strong devotion to one's country, near synonyms as adjectives."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "nakedly"
     }
    }
@@ -1088,50 +1100,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SEEINGTHAT",
+     "indicators": [
+      {
+       "text": "stopping",
+       "at": 15,
+       "note": "the jumbled word stops a gap, plugging it from inside"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "SEEINGTHAT",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Dreadful"
-          },
-          {
-           "text": "stopping"
-          }
-         ],
-         "parts": [
-          {
-           "words": "witness",
-           "gives": "SEE",
-           "note": "to witness is to see"
-          },
-          {
-           "words": "thing",
-           "gives": "INGTH",
-           "note": "letters of THING rearranged"
-          },
-          {
-           "words": "attending",
-           "gives": "AT",
-           "note": "at = present at, attending"
-          }
-         ]
+         "words": "witness",
+         "at": 24,
+         "gives": "SEE",
+         "note": "to witness is to see"
+        },
+        {
+         "words": "attending",
+         "at": 32,
+         "gives": "AT",
+         "note": "to be at an event is to attend it"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Dreadful",
+         "at": 0,
+         "note": "a dreadful version of the word is a badly mangled one, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thing",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something awful prevented a witness from coming to court.",
-     "walkthrough": "The definition hides as the last word, a humble conjunction.",
-     "definitionFit": "'Seeing that' and 'since' both mean 'because'."
+     "surface": "Something dreadful prevents a witness from attending court.",
+     "walkthrough": "The surface reads 'stopping' as preventing a witness from attending; in the wordplay it means plugging a gap, with the jumbled thing sitting between the two other pieces.",
+     "definitionFit": "Seeing that is a conjunction meaning because or given that, as since is in 'since you ask'."
     },
     "features": {
      "answerInScene": false,

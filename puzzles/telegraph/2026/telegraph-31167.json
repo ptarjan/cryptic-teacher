@@ -110,40 +110,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LIVELY",
      "indicators": [
       {
        "text": "with",
-       "note": "with here means bringing one letter in, taking the place of the one the clue says is not wanted"
+       "at": 14,
+       "note": "the length comes in alongside the costume, as the replacement letter"
       },
       {
-       "text": "not right",
-       "note": "the right letter is the one dropped from the costume word to make room"
+       "text": "not",
+       "at": 26,
+       "note": "the right is not there any more, swapped out for the length"
       }
      ],
      "parts": [
       {
        "words": "costume",
+       "at": 6,
        "gives": "LIVERY",
-       "note": "livery is the uniform costume worn by servants or a company's staff"
-      },
-      {
-       "words": "length",
-       "gives": "L",
-       "note": "L is the standard abbreviation for length"
+       "note": "livery is a distinctive uniform or costume, as worn by servants"
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "at": 30,
+       "gives": "R"
+      },
+      {
+       "words": "length",
+       "at": 19,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone eyes a bright outfit and wonders whether its length is wrong.",
-     "walkthrough": "Swap the R of LIVERY for an L and LIVELY appears.",
-     "definitionFit": "A vivid description or colour is full of energy and brightness, which is what a lively one has."
+     "surface": "A query whether a bright outfit, too long, is right.",
+     "walkthrough": "'with' L (length), 'not' R (right): in LIVERY the R gives way to an L.",
+     "definitionFit": "Lively colours or descriptions are vivid ones, full of energy and brightness."
     },
     "features": {
      "answerInScene": false,
@@ -173,43 +174,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNWORRIED",
+     "op": "container",
      "indicators": [
       {
-       "text": "when undressed",
-       "note": "undressed means stripped of its outer covering, so the first and last letters go"
+       "text": "holding",
+       "at": 21,
+       "note": "the single word wraps round the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "single",
+       "at": 13,
+       "gives": "UNWED",
+       "note": "unwed means single, not married"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "holding",
-         "note": "holding means one word wraps around the other, gripping it in the middle"
+         "text": "up",
+         "at": 36,
+         "note": "in a down clue, going up means reading the letters bottom to top, in reverse"
         }
        ],
        "parts": [
         {
-         "words": "single",
-         "gives": "UNWED",
-         "note": "a single person is not married"
-        },
-        {
-         "op": "reversal",
+         "op": "middle",
          "indicators": [
           {
-           "text": "up",
-           "note": "in a down entry, going up means the letters are read from bottom to top"
+           "text": "when undressed",
+           "at": 39,
+           "note": "undressed means stripped of its outer layer, so its first and last letters go"
           }
          ],
          "parts": [
           {
            "words": "mirror",
-           "gives": "IRRO",
-           "note": "mirror with its outer M and R stripped away"
+           "at": 29,
+           "note": "taken as written before it is stripped"
           }
          ]
         }
@@ -218,9 +221,9 @@
      ]
     },
     "explanation": {
-     "surface": "A carefree single person holds a mirror up while undressed, admiring themselves.",
-     "walkthrough": "'Undressed' looks like part of the scene, but it strips the mirror word of its outer letters.",
-     "definitionFit": "Someone carefree has no anxieties, so they are free of concern and not troubled at all."
+     "surface": "A carefree single person holds a mirror up while naked.",
+     "walkthrough": "'mirror' 'when undressed' loses its ends to give IRRO, and 'up' reverses that to ORRI, which UNWED is 'holding'.",
+     "definitionFit": "Unworried describes someone free of anxiety, which is what carefree means."
     },
     "features": {
      "answerInScene": false,
@@ -557,42 +560,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEAPOLITAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not all of it, so the final letter of the name is dropped"
+       "text": "Cook",
+       "at": 0,
+       "note": "to cook something is to doctor or falsify it, so the letters are worked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Cook",
-         "note": "to cook something can mean to falsify or doctor it, so the letters are rearranged"
+         "text": "mostly",
+         "at": 14,
+         "note": "most of the name is kept, only its final letter dropped"
         }
        ],
        "parts": [
         {
          "words": "Antonio",
-         "gives": "ANTONI",
-         "note": "the name without its last letter"
+         "at": 5,
+         "note": "taken as written, less its last letter"
         },
         {
-         "words": "pale",
-         "note": "taken as written"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "pale",
+       "at": 21,
+       "note": "taken as written as part of the mixture"
       }
      ]
     },
     "explanation": {
-     "surface": "A pale Antonio from the south of Italy is busy cooking.",
-     "walkthrough": "'Cook' looks like Antonio's job, but it is the instruction to rearrange the letters.",
-     "definitionFit": "A Neapolitan is someone from Naples, the largest city of southern Italy."
+     "surface": "A pale Italian chef named Antonio, mostly an introduction.",
+     "walkthrough": "'Cook' looks like a chef's job, with Antonio as the chef, but it signals rearrangement. Antonio 'mostly' loses an O, and what is left joins PALE to be mixed.",
+     "definitionFit": "A Neapolitan is a person from Naples, the chief city of southern Italy."
     },
     "features": {
      "answerInScene": true,
@@ -752,48 +759,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CARYGRANT",
+     "op": "container",
      "indicators": [
       {
-       "text": "awfully",
-       "note": "awfully means badly done, so the letters are in a mess and need sorting"
+       "text": "boarding",
+       "at": 10,
+       "note": "the jumbled letters board, get inside, the vehicle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vehicle",
+       "at": 19,
+       "gives": "CART",
+       "note": "a cart is a simple vehicle"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "boarding",
-         "note": "boarding means getting on board, so the letters go inside the vehicle"
+         "text": "awfully",
+         "at": 28,
+         "note": "done awfully, badly, so the letters come out in a disordered form"
         }
        ],
        "parts": [
         {
-         "words": "vehicle",
-         "gives": "CART",
-         "note": "a cart is a simple vehicle"
-        },
-        {
          "words": "angry",
-         "gives": "YGRAN",
-         "note": "the letters of angry rearranged"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film star climbs into a car in a furious temper.",
-     "walkthrough": "The anagram goes inside the vehicle rather than after it, so the vehicle is split around it.",
-     "definitionFit": "Cary Grant was a leading Hollywood actor of the 1930s to 1960s, star of North by Northwest."
+     "surface": "A movie star climbs into a car in a very angry mood.",
+     "walkthrough": "ANGRY 'awfully' gives YGRAN, 'boarding' CART. Cary Grant was the Hollywood leading man of North by Northwest.",
+     "definitionFit": "Cary Grant was a leading Hollywood actor of the 1930s to 1960s, a film star."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "boarding"
+     "misdirectedWord": "vehicle"
     }
    }
   },
@@ -1111,53 +1118,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROUNDERS",
+     "op": "composite",
      "indicators": [
       {
        "text": "playing",
-       "note": "playing means moving about, so the letters are set in a new arrangement"
+       "at": 26,
+       "note": "playing about with the letters puts them in a new order"
+      },
+      {
+       "text": "Denied",
+       "at": 0,
+       "note": "the named letter is refused a place, taken out of the mixture"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ROUNDERS",
-       "indicators": [
-        {
-         "text": "Denied",
-         "note": "denied means refused or kept from, so the named letter is withheld"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Charlie",
-         "gives": "C",
-         "note": "C is Charlie in the NATO phonetic alphabet"
-        },
-        {
-         "words": "scored",
-         "note": "taken as written"
-        },
-        {
-         "words": "run",
-         "note": "taken as written"
-        }
-       ]
+       "words": "scored run",
+       "at": 15
+      },
+      {
+       "words": "Charlie",
+       "at": 7,
+       "gives": "C",
+       "note": "Charlie is C in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Charlie was denied when he scored a run during a match.",
-     "walkthrough": "SCORED loses C to leave SORED; with RUN, those letters become ROUNDERS, a British bat-and-ball game similar to baseball.",
-     "definitionFit": "Rounders is a school playground sport played with a bat and ball, scoring by running round bases."
+     "surface": "Charlie is cheated of a run he scored in a game.",
+     "walkthrough": "From SCORED RUN, the C is 'Denied', and 'playing' with the rest gives the game. Rounders is a bat-and-ball game played in British schools, like baseball.",
+     "definitionFit": "Rounders is a British bat-and-ball game, a forerunner of baseball."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "scored"
+     "misdirectedWord": "Charlie"
     }
    }
   },
@@ -1553,58 +1548,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RHAPSODY",
+     "op": "container",
      "indicators": [
       {
-       "text": "compose",
-       "note": "to compose is to put together afresh, so the letters are arranged anew"
+       "text": "During",
+       "at": 0,
+       "note": "the composed letters come during, inside, the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "During",
-         "note": "during means in the course of, so one set of letters sits within the other"
+         "text": "occasionally",
+         "at": 14,
+         "note": "only every other letter of the day turns up"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "RDY",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "occasionally means every so often, so only every other letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Friday",
-           "gives": "RDY",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters of Friday"
-          }
-         ]
-        },
+         "words": "Friday",
+         "at": 7,
+         "note": "the second, fourth and sixth letters of Friday"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "compose",
+         "at": 27,
+         "note": "to compose is to arrange, so the letters are put in a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "a posh",
-         "gives": "HAPSO",
-         "note": "the letters of a posh rearranged"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "On Friday afternoons a composer writes some refined music.",
-     "walkthrough": "'Compose' looks like the definition's verb for writing music, but it only signals the rearrangement.",
-     "definitionFit": "A rhapsody is a free-form, emotional musical composition, such as Gershwin's Rhapsody in Blue."
+     "surface": "On Friday now and then, someone writes a posh piece of music.",
+     "walkthrough": "Friday 'occasionally' gives RDY; 'compose' A POSH as HAPSO, set 'During' those letters.",
+     "definitionFit": "A rhapsody is a free-form, emotional piece of music, such as Liszt's Hungarian Rhapsodies."
     },
     "features": {
      "answerInScene": true,
@@ -1634,48 +1625,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONVALESCE",
+     "op": "composite",
      "indicators": [
       {
        "text": "mistakenly",
-       "note": "mistakenly means in error, so the letters are put in the wrong order and must be sorted"
+       "at": 22,
+       "note": "the letters are set in the wrong order, rearranged"
+      },
+      {
+       "text": "cast adrift",
+       "at": 35,
+       "note": "the named letter is pushed off and lost from the mixture, as a boat cut loose"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CONVALESCE",
-       "indicators": [
-        {
-         "text": "cast adrift",
-         "note": "casting something adrift sets it loose and away, so that letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Clive's canoe",
-         "note": "the letters to work on, apostrophe ignored"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Clive's canoe",
+       "at": 8
+      },
+      {
+       "words": "I",
+       "at": 33
       }
      ]
     },
     "explanation": {
-     "surface": "Clive's canoe capsized and the narrator was left drifting, needing time to recover.",
-     "walkthrough": "Take one I out of CLIVESCANOE and rearrange the ten letters left.",
-     "definitionFit": "To convalesce is to regain health and strength gradually after illness, which is recovering."
+     "surface": "Clive's canoe, I set loose by mistake, so he recovers.",
+     "walkthrough": "Take CLIVES CANOE, 'cast adrift' the I, and the rest 'mistakenly' arranged gives the answer.",
+     "definitionFit": "To convalesce is to recover health and strength after illness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "canoe"
+     "misdirectedWord": "adrift"
     }
    }
   },
