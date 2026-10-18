@@ -163,38 +163,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GENERIC",
+     "op": "composite",
      "indicators": [
       {
-       "text": "getting end away",
-       "note": "the end is sent away, so the final letter of the phrase is lost"
+       "text": "Perhaps",
+       "at": 0,
+       "note": "perhaps marks the letters as only one possible arrangement, so they are rearranged"
+      },
+      {
+       "text": "getting",
+       "at": 19,
+       "note": "getting introduces what is removed from the pool"
+      },
+      {
+       "text": "away",
+       "at": 31,
+       "note": "away means that letter is sent off, out of the rearranged pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Perhaps",
-         "note": "perhaps signals a possible version, so the remaining letters may be arranged differently"
-        }
-       ],
-       "parts": [
-        {
-         "words": "in Greece",
-         "gives": "INGREEC",
-         "note": "the two words as raw letters, losing the final E"
-        }
-       ]
+       "words": "in Greece",
+       "at": 8
+      },
+      {
+       "words": "end",
+       "at": 27,
+       "gives": "E",
+       "note": "the end of Greece, its final letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A smutty suggestion that getting one's end away (having sex) is common practice in Greece.",
-     "walkthrough": "'Getting one's end away' is British slang for having sex, but here it literally removes the end letter of 'in Greece' before the rearrangement.",
-     "definitionFit": "Generic describes a feature shared by every member of a genus or kind, rather than belonging to one specimen."
+     "surface": "A smutty aside about a Greek holiday fling, using the British slang 'getting one's end away' for having sex.",
+     "walkthrough": "Rearrange IN GREECE with one E sent 'away'. The surface hides the definition behind Private Eye's usual innuendo.",
+     "definitionFit": "Generic means characteristic of a whole group or class rather than of any single member."
     },
     "features": {
      "answerInScene": false,
@@ -535,53 +538,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXECUTIVETIME",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so a final letter is cut"
+       "text": "in",
+       "at": 34,
+       "note": "the middle pieces go into the word for to perform"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "these letters are placed in another word, held inside it"
-        }
-       ],
+       "words": "to perform",
+       "at": 37,
+       "gives": "EXECUTE",
+       "note": "to execute a task is to perform it"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "to perform",
-           "gives": "EXECUTE",
-           "note": "to execute a task is to perform it"
-          },
-          {
-           "words": "I have",
-           "gives": "IVE",
-           "note": "the contraction I've without its apostrophe"
-          }
-         ]
+         "words": "I have",
+         "at": 0,
+         "gives": "IVE",
+         "note": "I've is the contraction of I have"
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "brought back",
-           "note": "bringing something back returns it the way it came, so the letters run backwards"
+           "at": 21,
+           "note": "brought back means the shortened name is read in reverse"
           }
          ],
          "parts": [
           {
-           "words": "Romney",
-           "gives": "MIT",
-           "note": "Mitt Romney, US senator, with the last letter of his first name cut"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "almost",
+             "at": 14,
+             "note": "almost means the name lacks its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Romney",
+             "at": 7,
+             "gives": "MITT",
+             "note": "Mitt Romney, the US Republican senator and 2012 presidential candidate"
+            },
+            {
+             "gives": "T"
+            }
+           ]
           }
          ]
         }
@@ -590,13 +600,14 @@
      ]
     },
     "explanation": {
-     "surface": "A political jibe: Mitt Romney is roped in to do the work while Donald Trump idles.",
-     "walkthrough": "Romney is the US politician Mitt Romney, so his first name is what is trimmed and turned around before going inside.",
-     "definitionFit": "Executive time was the White House schedule euphemism for long unstructured blocks when President Trump watched television, tweeted and made calls."
+     "surface": "A swipe at Trump's idle hours, with his Republican rival Romney recalled to do the work.",
+     "walkthrough": "'almost' cuts MITT to MIT and 'brought back' reverses it to TIM; IVE and TIM go 'in' EXECUTE before its last letter. Executive time was the White House name for unstructured hours in Trump's schedule.",
+     "definitionFit": "Executive time was the label in Trump's leaked schedules for long unscheduled periods, reportedly spent watching television and tweeting."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "perform"
     }
    }

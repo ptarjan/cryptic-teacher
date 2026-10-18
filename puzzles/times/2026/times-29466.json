@@ -887,47 +887,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MAVERICKS",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "agitated",
+       "at": 12,
+       "note": "agitated letters are stirred up, so the two words are rearranged"
+      },
+      {
+       "text": "excluding",
+       "at": 21,
+       "note": "one letter is left out of the rearranged pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MAVERICKS",
-       "indicators": [
-        {
-         "text": "agitated",
-         "note": "stirred up, so the letters are rearranged"
-        },
-        {
-         "text": "excluding",
-         "note": "leave out the A for American"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Make vicars",
-         "note": "anagram fodder, less one A"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American, removed from the fodder"
-        }
-       ]
+       "words": "Make vicars",
+       "at": 0
+      },
+      {
+       "words": "American",
+       "at": 31,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Stirring up clergymen, but not the American ones, creates dissenters.",
-     "walkthrough": "'Nonconformists' sounds like the Nonconformist churches, a neat fit with the vicars, but it just means independent-minded people.",
-     "definitionFit": "Mavericks are unorthodox people who refuse to conform."
+     "surface": "Getting the clergy riled up, apart from the American ones, who are dissenters anyway.",
+     "walkthrough": "'Nonconformists' with a capital suggests the chapel denominations, which fits the vicars; here it just means independent-minded people. 'agitated' rearranges MAKE VICARS, 'excluding' one A.",
+     "definitionFit": "A maverick is an unorthodox person who refuses to conform to the views of the group."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Nonconformists"
     }
    }
@@ -1519,46 +1511,45 @@
      "indicators": [
       {
        "text": "losing",
-       "note": "the car maker loses something, so a letter drops out of its name"
+       "at": 17,
+       "note": "the car maker's name loses one letter"
       }
      ],
      "parts": [
       {
        "words": "Car manufacturer",
+       "at": 0,
        "gives": "NISSAN",
-       "note": "the Japanese car maker"
+       "note": "Nissan is the Japanese car manufacturer"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "the letter removed is the last one of 'sales'"
+         "at": 30,
+         "note": "ultimately points to the final letter of sales"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "sales ultimately",
-         "gives": "S",
-         "select": "last",
-         "note": "last letter of 'sales', removed"
+         "words": "sales",
+         "at": 24,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A carmaker has a slump in sales at the start of the year.",
-     "walkthrough": "'First month' looks like January; it is the first month of the Jewish religious calendar.",
-     "definitionFit": "Nisan is the first month of the Jewish ecclesiastical year."
+     "surface": "A car company drops sales at the very start of the year.",
+     "walkthrough": "'ultimately' picks S, the last letter of sales, and 'losing' takes one S out of NISSAN. Nisan is a month of the Jewish calendar.",
+     "definitionFit": "Nisan is the first month of the Jewish religious calendar, falling around March and April."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "first"
+     "aptDefinition": false,
+     "misdirectedWord": "sales"
     }
    }
   },

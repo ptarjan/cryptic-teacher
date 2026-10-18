@@ -1592,57 +1592,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INANIMATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "naked",
-       "note": "naked means stripped bare, so the outer letters come off"
+       "text": "conceals",
+       "at": 20,
+       "note": "the prisoner word hides the stripped letters within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "prisoner",
+       "at": 11,
+       "gives": "INMATE",
+       "note": "an inmate is a prisoner"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "conceals",
-         "note": "to conceal something is to hide it inside"
+         "text": "naked",
+         "at": 29,
+         "note": "stripped naked, the word panic loses its outer layer, its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "prisoner",
-         "gives": "INMATE",
-         "note": "a prisoner is an inmate"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "ANI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "panic",
-           "gives": "ANI",
-           "select": "middle",
-           "note": "the word with its first and last letters stripped"
-          }
-         ]
+         "words": "panic",
+         "at": 35,
+         "note": "the word whose outer letters are stripped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gasping convict hides his blind terror.",
-     "walkthrough": "'Breathless' suggests panting, but here it means without breath at all, and so lifeless.",
-     "definitionFit": "Something inanimate is not alive and so has no breath."
+     "surface": "A convict hides the fact that they are in blind panic.",
+     "walkthrough": "'naked' strips panic to ANI, and 'conceals' places that inside INMATE after its first two letters. Breathless here means lifeless, not out of breath.",
+     "definitionFit": "Something inanimate has no life, and having no breath is the old sign of lifelessness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Breathless"
+     "misdirectedWord": "naked"
     }
    }
   },

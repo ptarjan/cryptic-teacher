@@ -326,39 +326,40 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HALFDAYHOLIDAY",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the rearranged letters inside the word after it"
+       "at": 22,
+       "note": "the rearranged letters go inside the word hay"
       }
      ],
      "parts": [
+      {
+       "words": "hay",
+       "at": 25
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "relaxed",
-         "note": "relaxed suggests loosened up, so the preceding letters fall out of order"
+         "at": 14,
+         "note": "relaxed letters have loosened their order, so the three words are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Foal had idly",
-         "note": "these eleven letters rearranged"
-        },
-        {
-         "words": "hay",
-         "note": "taken as written"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young horse lazes about in the hay, taking a break.",
-     "definitionFit": "A half-day holiday is an afternoon or morning off work or school, a short period of leisure."
+     "surface": "A young horse lounged lazily in the hay during a break.",
+     "walkthrough": "'relaxed' rearranges FOAL HAD IDLY into ALFDAYHOLID, and 'in' puts that between the H and AY of hay.",
+     "definitionFit": "A half-day holiday is a break from work for the morning or afternoon, a short spell of leisure."
     },
     "features": {
      "answerInScene": true,
@@ -1467,52 +1468,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESTONIA",
+     "op": "composite",
      "indicators": [
       {
        "text": "Bananas",
-       "note": "bananas is slang for crazy, so the letters go wild"
+       "at": 19,
+       "note": "bananas is slang for crazy, so the letters go wild and are rearranged"
+      },
+      {
+       "text": "lacking",
+       "at": 27,
+       "note": "one letter is missing from the rearranged pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ESTONIA",
-       "indicators": [
-        {
-         "text": "lacking",
-         "note": "lacking means going without, so the named letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "song",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
-         "words": "Eat",
-         "note": "taken as written"
-        },
-        {
-         "words": "gravity",
-         "gives": "G",
-         "note": "g is the symbol for acceleration due to gravity"
-        }
-       ]
+       "words": "song I Eat",
+       "at": 8
+      },
+      {
+       "words": "gravity",
+       "at": 35,
+       "gives": "G",
+       "note": "G is the physics symbol for gravity, or the acceleration due to it"
       }
      ]
     },
     "explanation": {
-     "surface": "A national song with the silly title I Eat Bananas, which has no gravitas.",
-     "walkthrough": "Bananas looks like part of the song title, but it is the anagram signal.",
-     "definitionFit": "Estonia is a Baltic nation in northern Europe, with Tallinn as its capital."
+     "surface": "A national song titled 'I Eat Bananas' that lacks seriousness.",
+     "walkthrough": "'Bananas' looks like part of a song title but means crazy, the signal to rearrange SONG I EAT once 'lacking' has removed the G.",
+     "definitionFit": "Estonia is a Baltic state in northern Europe, bordering Latvia and Russia."
     },
     "features": {
      "answerInScene": false,
