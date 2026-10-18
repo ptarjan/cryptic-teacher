@@ -158,48 +158,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EDGES",
+     "op": "composite",
      "indicators": [
       {
        "text": "Migrant",
-       "note": "a migrant moves from place to place, so the remaining letters wander into a new order"
+       "at": 0,
+       "note": "a migrant moves about, so the remaining letters wander into a new order"
+      },
+      {
+       "text": "having cleared",
+       "at": 16,
+       "note": "having cleared something means having got rid of it, so those letters leave the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EDGES",
-       "indicators": [
-        {
-         "text": "having cleared",
-         "note": "clearing something out removes it, so certain letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "guessed",
-         "note": "taken as written"
-        },
-        {
-         "words": "US",
-         "note": "taken as written; these two letters are removed"
-        }
-       ]
+       "words": "guessed",
+       "at": 8,
+       "note": "the word's letters, used as written"
+      },
+      {
+       "words": "US",
+       "at": 31,
+       "note": "the two letters, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An immigrant reckoned they had made it through American border control.",
-     "walkthrough": "'US borders' looks like one phrase about frontiers, but US is the letters taken out of 'guessed' and 'borders' alone is the definition.",
-     "definitionFit": "Borders and edges are both the outer limits or margins of something, a plain plural noun synonym."
+     "surface": "A migrant guesses their way across the frontiers of the United States.",
+     "walkthrough": "'having cleared' takes U and S out of GUESSED, leaving GESED, and 'Migrant' rearranges those. 'US borders' looks like American frontiers, but 'borders' is the definition and US is just two letters.",
+     "definitionFit": "The edges of something are its outer limits or margins, so edges are borders."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Migrant"
+     "misdirectedWord": "US"
     }
    }
   },
@@ -585,7 +578,8 @@
      "indicators": [
       {
        "text": "collected by",
-       "note": "things collected by someone are gathered inside their hold, so one piece goes within another"
+       "at": 26,
+       "note": "letters collected by others are gathered up between them"
       }
      ],
      "parts": [
@@ -594,42 +588,41 @@
        "parts": [
         {
          "words": "mother",
+         "at": 39,
          "gives": "MA",
          "note": "ma is an informal word for mother"
         },
         {
          "words": "child",
+         "at": 50,
          "gives": "TEEN",
-         "note": "a teen is a young person, someone's child"
+         "note": "a teen is a young person, a child in the family sense"
         }
        ]
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "NGOS",
        "indicators": [
         {
          "text": "regularly",
-         "note": "at regular intervals means every other letter is kept"
+         "at": 16,
+         "note": "regularly means taking every other letter, here the second, fourth, sixth and eighth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Ann grows",
-         "gives": "NGOS",
-         "select": "alternate",
-         "note": "the second, fourth, sixth and eighth letters"
+         "at": 6,
+         "note": "the even letters of these two words are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ann's garden produce is gathered up by a mother and her youngster.",
-     "walkthrough": "'Grows' looks like a verb about gardening, but it only supplies letters; 'child' for a teenager is loose but fair, since a teen is still someone's offspring.",
-     "definitionFit": "The mangosteen is a tropical fruit from Southeast Asia with a purple rind and sweet white flesh."
+     "surface": "A woman named Ann cultivates fruit, helped by her mother and son.",
+     "walkthrough": "'regularly' works across both words as one run, skipping the A that starts Ann; 'collected by' has mother and child gathered round the result, one on each side.",
+     "definitionFit": "The mangosteen is a tropical fruit from South-East Asia with a thick purple rind and sweet white flesh."
     },
     "features": {
      "answerInScene": true,
@@ -1543,48 +1536,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOLUTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "missing initially",
-       "note": "missing at the start means the first letter is dropped"
+       "text": "in",
+       "at": 45,
+       "note": "one part sits inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fish",
+       "at": 48,
+       "gives": "SOLE",
+       "note": "the sole is a flatfish"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "being in something means sitting inside it"
+         "text": "missing initially",
+         "at": 27,
+         "note": "missing its first letter, so the word loses its opening"
         }
        ],
        "parts": [
         {
-         "words": "fish",
-         "gives": "SOLE",
-         "note": "the sole is a flatfish"
+         "words": "but",
+         "at": 23,
+         "gives": "BUT",
+         "note": "the word itself, before it loses a letter"
         },
         {
-         "words": "but",
-         "gives": "UT",
-         "note": "the word without its first letter"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fish swims in salty seawater but seems to be missing something.",
-     "walkthrough": "'Say' marks salt as just one example of the definition. The fish surface fits the sea theme neatly.",
-     "definitionFit": "A solute is a substance dissolved in a solvent, and salt dissolved in seawater is a classic example."
+     "surface": "A chemistry remark that salt in seawater is somehow absent at first in a fish.",
+     "walkthrough": "'missing initially' turns BUT into UT, which goes 'in' SOLE. 'Salt' looks like the seasoning, but here it is a chemist's example of a dissolved substance.",
+     "definitionFit": "A solute is a substance dissolved in a solvent; salt dissolved in seawater is a standard example."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "but"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fish"
     }
    }
   },
@@ -1610,43 +1608,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SAPPER",
      "indicators": [
       {
        "text": "confused",
-       "note": "confused means muddled, so the remaining letters are jumbled"
+       "at": 26,
+       "note": "confused means mixed up, so the remaining letters are scrambled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SAPPER",
        "indicators": [
         {
          "text": "leaving",
-         "note": "something leaving goes away, so a letter is taken out"
+         "at": 35,
+         "note": "a letter leaving the word is taken away from it"
         }
        ],
        "parts": [
         {
          "words": "perhaps",
-         "note": "taken as written"
+         "at": 18,
+         "note": "the word's letters, used as written"
         },
         {
          "words": "hospital",
+         "at": 43,
          "gives": "H",
-         "note": "H is the abbreviation for hospital; this letter is removed"
+         "note": "H is the map and road-sign abbreviation for hospital"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disoriented army engineer is discharged from hospital.",
-     "walkthrough": "'Perhaps' looks like a hedge on the definition but supplies the letters to rearrange.",
-     "definitionFit": "A sapper is a soldier of the Royal Engineers who builds fortifications, bridges and trenches."
+     "surface": "A soldier is unsure and muddled as they are discharged from hospital.",
+     "walkthrough": "'leaving' takes H out of PERHAPS to leave PERAPS, and 'confused' rearranges them. 'perhaps' looks like a link word but is the fodder.",
+     "definitionFit": "A sapper is a soldier in the engineers, originally one who dug saps, the trenches used in sieges."
     },
     "features": {
      "answerInScene": true,

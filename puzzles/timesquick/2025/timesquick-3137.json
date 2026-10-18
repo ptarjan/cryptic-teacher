@@ -208,50 +208,35 @@
        "indicators": [
         {
          "text": "Finally",
-         "note": "finally points to the end of each word, so the closing letters are kept"
+         "at": 0,
+         "note": "finally points to the closing letter of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "words": "relapsed",
-         "note": "closing letter"
+         "words": "relapsed after",
+         "at": 8,
+         "note": "the last letter of each word is used"
         }
        ]
       },
       {
-       "op": "last",
-       "parts": [
-        {
-         "words": "after",
-         "note": "closing letter"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "unchecked": true,
+       "words": "years",
+       "at": 23,
        "gives": "Y",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "years",
-         "gives": "Y",
-         "select": "last",
-         "note": "closing letter"
-        }
-       ]
+       "note": "Y is the standard abbreviation for year or years"
       }
      ]
     },
     "explanation": {
-     "surface": "A sad recovery story: someone fell off the wagon after years of sobriety.",
-     "walkthrough": "'Finally' seems to belong to the relapse story but governs all three following words.",
-     "definitionFit": "A dry person or place abstains from alcohol, as in a dry January or a dry county."
+     "surface": "A recovering drinker finally slipped back after years on the wagon.",
+     "walkthrough": "'Finally' takes the last letters of 'relapsed' and 'after', and Y for years follows. The surface makes 'after years' sound like a time phrase; it is the next two pieces.",
+     "definitionFit": "Dry describes a person who has given up alcohol, or a place where it is banned, so it means teetotal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Finally"
+     "misdirectedWord": "after"
     }
    }
   },
@@ -280,7 +265,8 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means encircling, so one group of letters wraps another"
+       "at": 19,
+       "note": "around means surrounding, so the rearranged letters enclose the other piece"
       }
      ],
      "parts": [
@@ -289,45 +275,48 @@
        "indicators": [
         {
          "text": "new",
-         "note": "something new has been remade, so the letters take a fresh form"
+         "at": 8,
+         "note": "new means remade, so the letters are given a fresh order"
         }
        ],
        "parts": [
         {
          "words": "urinal",
-         "note": "taken as written"
+         "at": 12,
+         "note": "the word's letters, used as written"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "AUG",
+       "op": "deletion",
        "indicators": [
         {
          "text": "first half of",
-         "note": "only the front half of the word is kept"
+         "at": 26,
+         "note": "only the first half of the word is kept, so its last three letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "month",
-         "gives": "AUG",
-         "select": "first",
-         "note": "the first half of AUGUST"
+         "at": 40,
+         "gives": "AUGUST",
+         "note": "August is a month"
+        },
+        {
+         "gives": "UST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ribbon-cutting for a brand-new public toilet sometime in the early part of the month.",
-     "walkthrough": "'Opening' looks like a noun for the ceremony but is the adjective definition.",
-     "definitionFit": "An inaugural event is the first one, marking a beginning, so it is an opening speech or match."
+     "surface": "A newly installed public toilet goes into service partway through the month.",
+     "walkthrough": "The rearranged urinal (INURAL) splits after its first two letters to go 'around' the three-letter calendar abbreviation; 'Opening' is the adjective, not the noun.",
+     "definitionFit": "An inaugural event is the first of its kind or marks a beginning, so it is an opening one."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "Opening"
