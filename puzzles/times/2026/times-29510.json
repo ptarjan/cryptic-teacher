@@ -391,55 +391,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CRYPT",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in means the letters are placed inside the outer pair"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "at first",
-         "note": "take the first letter of each of these words"
-        },
-        {
          "text": "skin of",
-         "note": "a word's skin is its outer letters"
+         "at": 34,
+         "note": "the skin of a word is its outside, its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the first letters go inside the other piece"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Croft",
-           "note": "first of the outer letters of Croft"
-          }
-         ]
-        },
+         "words": "Croft",
+         "at": 42,
+         "note": "the outside letters of Croft, its first and last"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 22,
+         "note": "at first takes the opening letter of each of these words"
+        }
+       ],
+       "parts": [
         {
          "words": "Raider: you play",
-         "gives": "RYP",
-         "note": "first letters of Raider, you, play"
-        },
-        {
-         "words": "Croft",
-         "gives": "T",
-         "note": "last of the outer letters of Croft"
+         "at": 5,
+         "note": "the first letters of Raider, you and play"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An invitation to play the video game Tomb Raider as its heroine, Lara Croft.",
-     "walkthrough": "The title Tomb Raider is split: 'Tomb' is the definition while 'Raider' gives only its first letter.",
-     "definitionFit": "A crypt is an underground tomb, often beneath a church."
+     "surface": "A video-game reference: in Tomb Raider, you play as Lara Croft.",
+     "walkthrough": "The game title runs across the definition and the wordplay: 'Tomb' alone is the definition, and 'Raider' starts the fodder.",
+     "definitionFit": "A crypt is an underground chamber beneath a church, used as a burial vault or tomb."
     },
     "features": {
      "answerInScene": true,
@@ -724,39 +723,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DELHI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "changing sides",
-       "note": "the letters at the two sides of the word swap places"
-      },
-      {
        "text": "before",
-       "note": "the first piece comes before the second"
+       "at": 25,
+       "note": "before puts this piece ahead of the next one"
       }
      ],
      "parts": [
       {
-       "words": "kept",
-       "gives": "HELD",
-       "note": "held = kept; H and D swap ends to make DELH"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changing sides",
+         "at": 10,
+         "note": "the letters at the two sides of the word swap places, a small rearrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kept",
+         "at": 5,
+         "gives": "HELD",
+         "note": "kept means held"
+        }
+       ]
       },
       {
        "words": "international",
-       "gives": "I",
-       "note": "i = international"
+       "at": 32,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A city that kept switching allegiance before going international.",
-     "walkthrough": "'Changing sides' sounds like defecting, but it swaps the outer letters: HELD becomes DELH.",
-     "definitionFit": "Delhi is a major city in India, containing the capital New Delhi."
+     "surface": "A city that held on but kept switching allegiance before going global.",
+     "walkthrough": "'changing sides' swaps the outer letters of HELD, H and D, to give DELH.",
+     "definitionFit": "Delhi is the major Indian city whose territory contains New Delhi, the national capital."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "sides"
     }
@@ -904,44 +911,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMMENTHAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 29,
+       "note": "around means the anagram is wrapped about the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "cast",
-         "note": "the letters are cast into a new arrangement"
-        },
-        {
-         "text": "around",
-         "note": "the rearranged letters go around the other piece"
+         "at": 17,
+         "note": "cast means thrown or moulded into a new shape, so the letters of Hamlet are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Hamlet",
-         "note": "HAMLET rearranged, split around MEN"
-        },
-        {
-         "words": "king and queen, say",
-         "gives": "MEN",
-         "note": "king and queen are chess men"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "king and queen, say",
+       "at": 36,
+       "gives": "MEN",
+       "note": "king and queen are examples of chess pieces, which are called men"
       }
      ]
     },
     "explanation": {
-     "surface": "A Swiss theatre production casting Hamlet alongside a king and queen.",
-     "walkthrough": "The Hamlet setting makes king and queen look like roles, but they are pieces, i.e. chessmen.",
-     "definitionFit": "Emmenthal is a cheese produced in Switzerland."
+     "surface": "A theatre production that cast Hamlet with a king and queen around him.",
+     "walkthrough": "Chess convention: king and queen are 'men'. The theatrical words hide that the Swiss production is a cheese.",
+     "definitionFit": "Emmenthal is a hard cheese with holes made in Switzerland, so a product of that country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "production"
     }
    }

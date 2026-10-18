@@ -62,12 +62,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FORTHEHELLOFIT",
      "indicators": [
       {
        "text": "during",
-       "note": "something happening during an event sits inside its span, so these letters go inside the other pair"
+       "at": 28,
+       "note": "during means the letters sit inside, in the middle of the others"
       }
      ],
      "parts": [
@@ -76,47 +75,57 @@
        "parts": [
         {
          "words": "away",
+         "at": 35,
          "gives": "FORTH",
-         "note": "to go forth is to go away"
+         "note": "forth means away, as in go forth"
         },
+        {
+         "words": "match",
+         "at": 40,
+         "gives": "FIT",
+         "note": "to fit is to match"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "last",
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately points to the final letter of the word before it"
+           "at": 9,
+           "note": "ultimately takes the last letter of Repartee"
           }
          ],
          "parts": [
           {
            "words": "Repartee",
-           "note": "last letter of Repartee"
+           "at": 0,
+           "note": "the last letter of Repartee"
           }
          ]
         },
         {
          "words": "welcome",
+         "at": 20,
          "gives": "HELLO",
-         "note": "a word of greeting"
-        },
-        {
-         "words": "match",
-         "gives": "FIT",
-         "note": "to match is to fit"
+         "note": "hello is a word of welcome"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sports report: banter is cheerfully exchanged at an away fixture, all in good fun.",
-     "walkthrough": "'Away match' reads as a fixture played on the other side's ground, but it is two separate words that wrap around the rest.",
-     "definitionFit": "The idiom describes doing something purely for amusement, with no serious reason behind it."
+     "surface": "Witty banter and a warm greeting at an away football game, all for fun.",
+     "walkthrough": "'ultimately' takes E from Repartee; the football surface hides that away and match are separate synonyms.",
+     "definitionFit": "Doing something for the hell of it means doing it purely for amusement, with no other reason."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "away"
+     "misdirectedWord": "match"
     }
    }
   },
@@ -708,51 +717,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RISIBLE",
      "indicators": [
       {
        "text": "making",
-       "note": "making one thing into another means a letter is changed into a different one"
+       "at": 12,
+       "note": "making means turning one letter into another, so one letter is swapped"
       }
      ],
      "parts": [
       {
        "words": "Can be seen",
+       "at": 0,
        "gives": "VISIBLE",
-       "note": "visible means able to be seen"
+       "note": "something that can be seen is visible"
       },
       {
        "words": "Victor",
+       "at": 19,
        "gives": "V",
-       "note": "Victor is V in the NATO phonetic alphabet"
+       "note": "V is Victor in the NATO phonetic alphabet"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "R",
+       "op": "nth",
+       "n": 3,
        "indicators": [
         {
          "text": "centrepiece",
+         "at": 34,
          "note": "the centrepiece of a word is its middle letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Borge",
-         "gives": "R",
-         "select": "middle",
-         "note": "middle letter of Borge"
+         "at": 26,
+         "note": "the third letter, the centre, of the five-letter name Borge"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The comic pianist Victor Borge's central routine is seen to be very funny.",
-     "walkthrough": "Victor Borge was a Danish-American musical comedian, so the name feels whole; Victor is V, replaced by R in VISIBLE.",
-     "definitionFit": "Risible means provoking laughter, often scornful, so something risible is laughable or hilarious."
+     "surface": "Victor Borge, the comic pianist, put on a hilarious visible show.",
+     "walkthrough": "'making Victor Borge's centrepiece' turns the V of VISIBLE into R, the middle letter of BORGE. Victor Borge was a Danish-American musical comedian.",
+     "definitionFit": "Risible means laughable, provoking laughter, which is what something hilarious does."
     },
     "features": {
      "answerInScene": true,
