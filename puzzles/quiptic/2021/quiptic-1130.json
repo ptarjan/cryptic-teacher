@@ -1227,7 +1227,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Speak with it!",
+      "text": "Speak with it",
       "at": 25
      }
     ],
@@ -1236,50 +1236,52 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "what is eaten ends up inside the eater, so one piece goes within another"
+       "at": 4,
+       "note": "eating means taking in, so the cat holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Cat",
-         "gives": "LYNX",
-         "note": "a lynx is a wild cat"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Cat",
+       "at": 0,
+       "gives": "LYNX",
+       "note": "a lynx is a wild cat"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "the head is the top or front, so only the opening letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rat's",
-         "note": "the opening letter of the rodent"
+         "words": "a",
+         "at": 11,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 19,
+           "note": "head means the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rat's",
+           "at": 13
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat is devouring a rat's head, and the clue dares you to talk with that.",
-     "walkthrough": "The definition is the whole exclamation: the thing you speak with. 'Head' looks like part of the rat's body being eaten, but it picks out one letter.",
-     "definitionFit": "The larynx, or voice box, holds the vocal cords that vibrate to produce speech."
+     "surface": "A wild cat devours the head of a rat, and the clue invites it to talk.",
+     "definitionFit": "The larynx is the voice box in the throat, the organ used for speaking."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "head"
     }
    }

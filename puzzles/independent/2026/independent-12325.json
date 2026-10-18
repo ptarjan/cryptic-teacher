@@ -694,65 +694,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "Lifted",
-       "note": "in a down clue, lifted means read upwards"
+       "text": "covering",
+       "at": 13,
+       "note": "covering tells us the reversed cloak wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "covering",
-         "note": "CLOAK wraps round the other letters"
+         "text": "Lifted",
+         "at": 0,
+         "note": "lifted in a down clue means raised up, so the word is read bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "cloak",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 40,
+         "gives": "IN"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
            "text": "with 50% off",
-           "note": "a 50% discount halves the price, and here it halves the word, so two of ITEM's four letters go"
+           "at": 27,
+           "note": "with 50% off removes half of the word's letters"
           }
          ],
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "cloak",
-             "note": "the outer word, before it is lifted"
-            },
-            {
-             "words": "in",
-             "note": "used as itself"
-            }
-           ]
+           "words": "item",
+           "at": 22
           },
           {
-           "words": "item",
-           "gives": "IT",
-           "note": "ITEM loses its back half"
+           "gives": "EM"
           }
          ]
         },
         {
          "words": "Institute",
-         "gives": "I",
-         "note": "I = Institute, as in RNLI"
+         "at": 43,
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An institute of clay studies keeps a cloak draped over a half-price item.",
-     "walkthrough": "CLOAK read upwards is KAOLC, which holds IN, IT and I: KAOL-INITI-C.",
-     "definitionFit": "Kaolinite is the main mineral of china clay, so kaolinitic means consisting of that clay."
+     "surface": "A stolen cloak covering a discounted item at a ceramics institute.",
+     "walkthrough": "CLOAK reversed is KAOLC; it covers IN, IT (half of item) and I.",
+     "definitionFit": "Kaolinitic means relating to or containing kaolinite, the mineral of china clay."
     },
     "features": {
      "answerInScene": false,
@@ -846,43 +852,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REVOLTS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 11,
+       "note": "after places the rearranged letters following the vicar"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "vicar",
+       "at": 17,
+       "gives": "REV",
+       "note": "Rev is short for Reverend, a vicar's title"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "upset",
-         "note": "upset knocks the letters out of order"
-        },
-        {
-         "text": "after",
-         "note": "the rearranged letters come after the vicar"
+         "at": 5,
+         "note": "upset suggests the letters are knocked into disorder"
         }
        ],
        "parts": [
         {
-         "words": "vicar",
-         "gives": "REV",
-         "note": "Rev, short for Reverend, a vicar's title"
-        },
-        {
          "words": "Lots",
-         "note": "LOTS rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Many parishioners, unhappy with the vicar, leave the church.",
-     "walkthrough": "The parish drama hides that 'Lots' is the fodder and the vicar is just REV.",
-     "definitionFit": "To revolt is to rise against, or renounce allegiance to, a ruler."
+     "surface": "Many people are upset following the vicar's actions.",
+     "walkthrough": "'Lots upset' reads as many people annoyed, but upset is the anagram signal.",
+     "definitionFit": "To revolt is to rebel, rejecting loyalty to a ruler or authority."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Lots"
     }
@@ -1038,20 +1047,22 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "novel",
-       "note": "novel = new, so the letters take a new form"
+       "text": "about",
+       "at": 37,
+       "note": "about means surrounding, so the rearranged letters go around the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "the rest wraps round international"
+         "text": "novel",
+         "at": 31,
+         "note": "novel means new, so the letters take a new order"
         }
        ],
        "parts": [
@@ -1061,38 +1072,38 @@
          "indicators": [
           {
            "text": "Third character in",
-           "note": "take the third letter of Enid"
+           "at": 0,
+           "note": "third character in takes the third letter of the name"
           }
          ],
          "parts": [
           {
-           "words": "Third character in Enid",
-           "note": "E-N-I-D"
+           "words": "Enid",
+           "at": 19
           }
          ]
         },
         {
          "words": "Blyton",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "international",
-         "gives": "I",
-         "note": "standard abbreviation"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "international",
+       "at": 43,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A literary study looks at the upper classes in an Enid Blyton book.",
-     "walkthrough": "Enid Blyton was a prolific British children's author; 'novel' looks like a book of hers but means new, so BLYTON is rearranged.",
-     "definitionFit": "A plain synonym: the nobility is the titled upper class, and aristocracy names the same class."
+     "surface": "A character from an Enid Blyton story about global high society.",
+     "walkthrough": "I (third letter of Enid) and BLYTON rearrange to NOBLITY, which goes about I for international.",
+     "definitionFit": "The nobility is the hereditary aristocratic class, the titled ruling families."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "novel"
     }
    }
@@ -1167,54 +1178,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "'about' as in turned about, facing the other way, so the knock is read backwards"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "words": "Knock",
+       "at": 0,
+       "gives": "PAT",
+       "note": "a pat is a light knock or tap"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
+         "text": "about",
+         "at": 6,
+         "note": "about means all around, suggesting the letters are scattered into a new order"
+        },
+        {
          "text": "playing",
-         "note": "the letters of niece play about"
+         "at": 23,
+         "note": "playing suggests the letters are frisking about into new order"
         }
        ],
        "parts": [
         {
-         "words": "Knock",
-         "gives": "TAP",
-         "note": "a tap is a light knock"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "niece",
-           "note": "NIECE rearranged"
-          }
-         ]
+         "words": "niece",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone passes the time knocking about with their niece over a game of cards.",
-     "walkthrough": "'Knock about with' reads as spending idle time together; 'about' actually belongs to the knock, not the company.",
-     "definitionFit": "Patience is the British name for solitaire, a one-player card game."
+     "surface": "Someone knocks around with a niece who is playing a game of cards.",
+     "walkthrough": "'about' and 'playing' both tell us the niece's letters are thrown around.",
+     "definitionFit": "Patience is a solitaire card game played by one person, known in America as solitaire."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Knock"
     }
    }
   },

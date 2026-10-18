@@ -493,36 +493,40 @@
      "indicators": [
       {
        "text": "nursing",
-       "note": "nursing means cradling, so the old lady holds the other pieces"
+       "at": 9,
+       "note": "nursing means holding something close, so the old lady holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Old lady",
-         "gives": "MAM",
-         "note": "mam is an informal word for mother"
-        },
-        {
-         "words": "sick",
-         "gives": "ILL",
-         "note": "ill means sick"
-        }
-       ]
+       "words": "Old lady",
+       "at": 0,
+       "gives": "MAM",
+       "note": "mam is a dialect word for mother, one's old lady"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is the abbreviation for daughter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sick",
+         "at": 17,
+         "gives": "ILL",
+         "note": "ill means sick"
+        },
+        {
+         "words": "daughter",
+         "at": 22,
+         "gives": "D",
+         "note": "D is the genealogical abbreviation for daughter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mother caring for her ill daughter shows restraint in America.",
-     "walkthrough": "'Across the pond' usually means in America; here it is literal, a barrier over a mill pond.",
-     "definitionFit": "A milldam is a dam built across a stream to form a millpond, so it restrains the water."
+     "surface": "A mother caring for an ill daughter shows self-control, as an American might say.",
+     "walkthrough": "'across the pond' sounds like America, but here it is literal: the dam holds back the water of a mill pond.",
+     "definitionFit": "A milldam is a barrier built across a stream to hold back water for a mill pond."
     },
     "features": {
      "answerInScene": false,
@@ -1640,8 +1644,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Boat mostly around source of African river such as this one",
-      "at": 0
+      "text": "such as this one",
+      "at": 43
      }
     ],
     "wordplay": {
@@ -1649,61 +1653,65 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around puts the shortened boat outside the other pieces"
+       "at": 12,
+       "note": "around tells us the shortened boat goes about the source letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means all but the last letter is kept"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not all of it, so the boat word loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Boat",
-           "gives": "SHIP",
-           "note": "a ship is a large boat"
-          },
-          {
-           "gives": "P"
-          }
-         ]
+         "words": "Boat",
+         "at": 0,
+         "gives": "SHIP",
+         "note": "a ship is a boat"
         },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "source of",
-           "note": "the source of a word is where it starts, its first letter"
+           "at": 19,
+           "note": "source of takes the opening letter of each of the following words"
           }
          ],
          "parts": [
           {
            "words": "African",
-           "note": "first letter of African"
+           "at": 29
           }
          ]
+        },
+        {
+         "words": "river",
+         "at": 37,
+         "gives": "R",
+         "note": "R is the map abbreviation for river"
         }
        ]
-      },
-      {
-       "words": "river",
-       "gives": "R",
-       "note": "R is the abbreviation for river"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A boat almost reaches the source of an African river.",
-     "walkthrough": "SHIP minus P wraps A and R. The whole clue also describes the answer: the Shari, or Chari, is an African river.",
-     "definitionFit": "The Shari, also spelt Chari, flows through Central Africa into Lake Chad, so it is an African river."
+     "surface": "A boat travels most of the way around the headwaters of an African river.",
+     "walkthrough": "'such as this one' refers back to the African river the clue mentions: the answer is itself one.",
+     "definitionFit": "The Shari, or Chari, is a river of central Africa flowing into Lake Chad."
     },
     "features": {
      "answerInScene": true,

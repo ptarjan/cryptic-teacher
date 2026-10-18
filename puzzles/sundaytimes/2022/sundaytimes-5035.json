@@ -592,40 +592,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "backed",
-       "note": "a backed word is written backwards"
-      }
-     ],
      "parts": [
       {
-       "words": "two-thirds of his",
-       "gives": "IS",
-       "note": "two of the three letters of HIS"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "two-thirds of",
+         "at": 15,
+         "note": "two-thirds of a three-letter word leaves two letters, the first being dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his",
+         "at": 29
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "two-thirds of",
-         "note": "keep two of the three letters"
+         "text": "backed",
+         "at": 5,
+         "note": "backed tells us the king's name is turned around"
         }
        ],
        "parts": [
         {
          "words": "King",
+         "at": 0,
          "gives": "LEAR",
-         "note": "King Lear, Shakespeare's king; backed, it reads RAEL"
+         "note": "Lear is Shakespeare's king"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch supported by most of his subjects.",
-     "walkthrough": "'By' only sets the two pieces side by side; IS comes first.",
-     "definitionFit": "A definition by category: Israel is a Middle Eastern state, and the clue just calls it a country."
+     "surface": "A monarch is supported by most of his own nation.",
+     "walkthrough": "The king is Shakespeare's Lear; two-thirds of 'his' keeps its last two letters.",
+     "definitionFit": "Israel is a nation in the Middle East, so it fits as a country."
     },
     "features": {
      "answerInScene": false,
@@ -1181,41 +1191,45 @@
      "indicators": [
       {
        "text": "trimmed with",
-       "note": "an edging of leather goes round the outside"
+       "at": 24,
+       "note": "trimmed with means edged by, so the leather surrounds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "leather",
-         "gives": "TAN",
-         "note": "to tan is to beat, leather someone; tan is also leather's colour; it wraps the rest"
-        },
-        {
-         "words": "uniform",
-         "gives": "U",
-         "note": "U = uniform in the NATO alphabet"
-        }
-       ]
+       "words": "leather",
+       "at": 37,
+       "gives": "TAN",
+       "note": "to tan is to make leather; tan is also tanned hide"
       },
       {
-       "words": "that is",
-       "gives": "SC",
-       "note": "sc. = scilicet, Latin for 'that is to say'"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "uniform",
+         "at": 8,
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
+        },
+        {
+         "words": "that is",
+         "at": 16,
+         "gives": "SC",
+         "note": "sc is scilicet, Latin for 'that is to say'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian uniform with leather trim.",
-     "walkthrough": "The surface is a smart Italian outfit; Tuscan is someone from Tuscany in Italy.",
-     "definitionFit": "A definition by example: people from Tuscany, the region round Florence, are one kind of Italian."
+     "surface": "An Italian outfit edged in leather.",
+     "walkthrough": "The abbreviation sc. stands for scilicet, Latin for 'namely', used in the sense of 'that is'.",
+     "definitionFit": "Tuscan describes something from Tuscany, a region of Italy, so it is an Italian adjective or person."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leather"
+     "misdirectedWord": "uniform"
     }
    }
   },
