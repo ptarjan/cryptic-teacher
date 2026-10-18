@@ -2396,6 +2396,49 @@ kept, dropped = f.screened({"djvu": good, "ch": good, "vlm": "ACROSS\n1 (5)\n6 (
 check("a reading with every clue blank is no reading", {"vlm": "no clue words"}, dropped)
 kept, dropped = f.screened({"djvu": good, "vlm": "\n".join(good.splitlines()[:3] + ["DOWN"])}, g5)
 check("a partial reading still votes: its clues lose to the others clue by clue", ({}, 2), (dropped, len(kept)))
+# OCR first: the VLM is asked only for the columns holding a clue the scan's
+# own readers leave blank or do not settle.
+lens = {"1-across": [1] * 5, "6-across": [1] * 5, "1-down": [1] * 5}
+filed_laid = {"1-across": ("Bird in a tree", "5", None), "6-across": ("Fish in the sea", "5", None),
+              "1-down": ("Cat on a mat", "5", None)}
+rd2 = {"djvu": good, "ch": good, "en5": good.replace("Fish in the", "Fisk in the")}
+check("clues read alike by two readers are settled, a blank one is weak", {"7-across"},
+      f.weak_lights(rd2, {**filed_laid, "7-across": ("", "5", None)}, {"7-across": "x"}, {**lens, "7-across": [1] * 5}))
+rd3 = {"djvu": good, "ch": good.replace("Fish in the sea", "Fisk in the sea")}
+check("a clue only one of two readings prints as filed is weak", {"6-across"},
+      f.weak_lights(rd3, filed_laid, {}, lens))
+colA = [(0, 10, 0, 50, "ACROSS"), (12, 22, 0, 50, "1 Bird in a tree (5)")]
+colB = [(0, 10, 60, 110, "6 Fish in the sea (5)"), (12, 22, 60, 110, "DOWN 1 Cat on a mat (5)")]
+colB = [(0, 10, 60, 110, "6 Fish in the sea (5)")]
+colC = [(0, 10, 120, 170, "DOWN"), (12, 22, 120, 170, "2 Cow in a field (5)")]
+check("the columns holding the weak lights' numbers are the ones read",
+      {1}, f.columns_with([[colA, colB, colC]], ["6-across"]))
+check("a number in no column's lines sends every column to the VLM", None,
+      f.columns_with([[colA, colB, colC]], ["9-down"]))
+asked = []
+def fake_page(d, found, hit, sols, vlm_for=False):
+    asked.append(vlm_for)
+    return ({"number": 1, "grid": "image", "_weak": set(PAGE_WEAK)} if vlm_for is False else {"number": 1, "grid": "image"}), {"id": "x"}
+real_page = f.read_page
+f.read_page = fake_page
+PAGE_WEAK = []
+v, p = f.read_puzzle(None, None, None, None)
+check("a page the scan's readers settle is filed with no VLM look", ([False], 0, "_weak" in v), (asked, v.get("vlmAsks"), "_weak" in v))
+asked.clear()
+PAGE_WEAK = ["6-across"]
+f.read_puzzle(None, None, None, None)
+check("a page with a weak clue is read again with the VLM on that clue's columns only", [False, ["6-across"]], asked)
+asked.clear()
+f.read_puzzle(None, None, None, None, ocr_first=False)
+check("ocr_first=False asks the VLM for every column, as before", [None], asked)
+def fake_refused(d, found, hit, sols, vlm_for=False):
+    asked.append(vlm_for)
+    return {"number": 1, "cause": "not-a-grid"}, None
+f.read_page = fake_refused
+asked.clear()
+f.read_puzzle(None, None, None, None)
+check("a refusal the VLM cannot mend ends the read with no ask", [False], asked)
+f.read_page = real_page
 got, _ = ocr_clues.reconcile({"21-across": ("Poet's", "6", None)},
                              ["21 Poet's uninteresting study (6)", "21 Poet's uninteresting study (6)"])
 check("words a partial reading lost are put back from the others", "Poet's uninteresting study", got["21-across"][0])
