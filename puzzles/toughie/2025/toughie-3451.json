@@ -778,32 +778,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DEADSEA",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so exchange them here"
+       "at": 0,
+       "note": "Spooner's means the opening sounds of the two words are swapped, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "asserted river",
-       "gives": "DEADSEA",
-       "soundsLike": "SED DEE",
-       "note": "asserted is said, pronounced 'sed', and the Dee is a British river; swap the opening sounds"
+       "op": "homophone",
+       "spelt": "SEAD",
+       "parts": [
+        {
+         "words": "asserted",
+         "at": 10,
+         "gives": "SAID",
+         "note": "said means stated, asserted; said aloud it rhymes with dead"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "DEA",
+       "parts": [
+        {
+         "words": "river",
+         "at": 19,
+         "gives": "DEE",
+         "note": "the Dee is a river in Wales, England and Scotland; said aloud it rhymes with sea"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner claims a river might provide salt for a lake.",
-     "walkthrough": "The Dee flows through Wales and England, and in Scotland too.",
-     "definitionFit": "The Dead Sea is a landlocked lake so salty that bathers float, a salt lake by definition."
+     "surface": "Someone claims a river could feed a salt lake.",
+     "walkthrough": "SAID DEE with the first sounds swapped is said DEAD SEE, which sounds like the Dead Sea.",
+     "definitionFit": "The Dead Sea, between Israel and Jordan, is a famously salty inland lake."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "supply"
     }
    }
