@@ -44,12 +44,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SIGNIFICANCE",
      "indicators": [
       {
        "text": "to pack it",
-       "note": "to pack something is to sit inside it, filling a gap in the middle"
+       "at": 61,
+       "note": "to pack it means to fit the phrase inside the notice on the emptied crate, as goods are packed in a box"
       }
      ],
      "parts": [
@@ -58,47 +57,52 @@
        "indicators": [
         {
          "text": "on",
-         "note": "one thing set on another simply comes next to it in the line"
+         "at": 14,
+         "note": "a notice is fixed on the crate, so the notice comes first, then the crate's letters"
         }
        ],
        "parts": [
         {
          "words": "notice",
+         "at": 7,
          "gives": "SIGN",
-         "note": "a sign is a posted notice"
-        },
-        {
-         "words": "should that be possible for me",
-         "gives": "IFICAN",
-         "note": "'if I can' is a way of saying 'should that be possible for me'"
+         "note": "a sign is a notice put up for people to read"
         },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "empty",
-           "note": "an emptied word has lost its insides, leaving only its outer letters"
+           "at": 17,
+           "note": "empty means hollowed out, keeping only the outside letters of crate"
           }
          ],
          "parts": [
           {
            "words": "crate",
-           "note": "the first and last letters of crate"
+           "at": 23,
+           "note": "with its inside emptied out, crate leaves just its first and last letters"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "should that be possible for me",
+       "at": 30,
+       "gives": "IFICAN",
+       "note": "if that should be possible for me, it means if I can, run together as one string"
       }
      ]
     },
     "explanation": {
-     "surface": "A customs officer wonders whether they could fit a notice inside an emptied packing crate.",
-     "walkthrough": "SIGN on CE makes SIGNCE, and IF I CAN is packed into the gap to give SIGNIFICANCE. 'Import' is not about trade here.",
-     "definitionFit": "Import as a noun means meaning or weight, so a matter of great import is one of great consequence."
+     "surface": "A label on an empty shipping crate about imported goods, with someone asking whether they can pack it.",
+     "walkthrough": "'Import' looks like goods coming into the country, matching the crate, but it means meaning or weight. 'should that be possible for me' is read as the words 'if I can', run together and packed between the notice placed 'on' the crate and the crate's two outer letters.",
+     "definitionFit": "Import in its sense of importance or meaning is a synonym for weight or consequence, as in a matter of great import."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Import"
     }
    }
