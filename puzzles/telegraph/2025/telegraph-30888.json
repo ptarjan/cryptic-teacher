@@ -1175,40 +1175,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TREASON",
-     "indicators": [
-      {
-       "text": "in Yorkshire",
-       "note": "a regional tag asks for the dialect form of a word rather than the standard spelling"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in Yorkshire",
+         "at": 11,
+         "note": "Yorkshire dialect clips the to t', dropping its last two letters"
+        }
+       ],
        "parts": [
         {
          "words": "The",
-         "gives": "T",
-         "note": "Yorkshire dialect clips this word to a bare t', as in 'down t' pit'"
+         "at": 0,
+         "gives": "THE",
+         "note": "taken as written"
         },
         {
-         "words": "motive",
-         "gives": "REASON",
-         "note": "a motive is a reason"
+         "gives": "HE"
         }
        ]
+      },
+      {
+       "words": "motive",
+       "at": 4,
+       "gives": "REASON",
+       "note": "a reason is a motive"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in Yorkshire explains why they turned traitor.",
-     "walkthrough": "Yorkshire speech famously shortens 'the' to a bare T, the so-called definite article reduction.",
-     "definitionFit": "Treason is the crime of betraying one's country, a form of betrayal."
+     "surface": "Someone asks what the Yorkshire motive for betrayal was.",
+     "walkthrough": "In Yorkshire speech 'the' is famously shortened to t', as in 'trouble at t' mill'.",
+     "definitionFit": "Treason is betrayal of one's country or sovereign."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Yorkshire"
     }
@@ -1663,37 +1667,26 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SURGEON",
-     "indicators": [
-      {
-       "text": "Quite the opposite",
-       "note": "tells us to swap a word for its antonym before building the answer"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "rush",
-         "gives": "SURGE",
-         "note": "to surge is to rush forward"
-        },
-        {
-         "words": "off",
-         "gives": "ON",
-         "note": "its opposite is used in place of the printed word"
-        }
-       ]
+       "words": "rush",
+       "at": 18,
+       "gives": "SURGE",
+       "note": "to surge is to rush forward"
+      },
+      {
+       "words": "off? Quite the opposite",
+       "at": 23,
+       "gives": "ON",
+       "note": "the opposite of off is on"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor eager to dash offstage, or rather the reverse.",
-     "walkthrough": "'Theatre' suggests the stage, but means an operating theatre in a hospital.",
-     "definitionFit": "A surgeon operates in an operating theatre, so is one found working in a theatre."
+     "surface": "An actor asks whether to dash off, and is told quite the reverse.",
+     "walkthrough": "The theatre is an operating theatre: rush on, not off, gives SURGE ON.",
+     "definitionFit": "A surgeon works in an operating theatre, the hospital room where surgery is done."
     },
     "features": {
      "answerInScene": false,
