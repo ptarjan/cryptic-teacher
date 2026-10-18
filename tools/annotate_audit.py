@@ -239,6 +239,28 @@ def _text(content):
     return "\n".join(c.get("text", "") for c in content or [] if isinstance(c, dict))
 
 
+BAG_PREFIX = "Annotate these crosswords"
+BAG_IDS = re.compile(r"^Annotate these crosswords[^:\n]*:\s*(.+?)\.(?:\s|$)", re.DOTALL)
+ENTRY_KEY = re.compile(r'^\s*"\d+-(?:across|down)"\s*:\s*\{', re.MULTILINE)
+
+
+def is_audited(first_user):
+    """An annotate run: solo, cold-solve handoff, or a bag of puzzles in one session."""
+    return is_annotate_session(first_user) or (first_user or "").strip().startswith(BAG_PREFIX)
+
+
+def bag_ids(first_user):
+    """The puzzle ids a bag session was handed; a solo or handoff run is one puzzle."""
+    m = BAG_IDS.match((first_user or "").strip())
+    return m.group(1).split() if m else []
+
+
+def clues_written(writes):
+    """Annotations in the session's annotation files: entry keys of the last Write to
+    each tools/_ann_*.json (a solo file's keys, or every puzzle's keys in a bag file)."""
+    return sum(len(ENTRY_KEY.findall(text)) for text in writes.values())
+
+
 def _cost(model, usage):
     p = PRICES.get(model)
     if not p:
@@ -254,7 +276,7 @@ def read_session(path, templates, retired=()):
     """One annotate transcript's numbers, or None if it is not an annotate run."""
     first_user, t0, t1, model = None, None, None, None
     turns = collections.OrderedDict()       # message id -> (usage, after first check)
-    calls, check_ids, check_outs = {}, set(), []
+    calls, check_ids, check_outs, writes = {}, set(), [], {}
     s = {"tool_errors": collections.Counter(), "memory": False, "validator_reads": 0, "max_tokens": 0}
     try:
         fh = open(path, encoding="utf-8", errors="replace")  # closed by `with fh` below
@@ -274,7 +296,7 @@ def read_session(path, templates, retired=()):
                 content = msg.get("content")
                 if first_user is None:
                     first_user = _text(content) if isinstance(content, (str, list)) else ""
-                    if not is_annotate_session(first_user):
+                    if not is_audited(first_user):
                         return None
                 for b in content if isinstance(content, list) else []:
                     if not isinstance(b, dict) or b.get("type") != "tool_result":
@@ -299,6 +321,8 @@ def read_session(path, templates, retired=()):
                     inp = b.get("input") or {}
                     cmd = inp.get("command") or inp.get("file_path") or ""
                     calls[b.get("id")] = (b.get("name"), cmd)
+                    if b.get("name") == "Write" and re.search(r"/_ann_[^/]*\.json$", cmd):
+                        writes[cmd] = str(inp.get("content") or "")
                     blob = json.dumps(inp)
                     if "/memory/" in blob or "MEMORY.md" in blob:
                         s["memory"] = True
@@ -314,6 +338,7 @@ def read_session(path, templates, retired=()):
     s.update(
         start=datetime.datetime.fromisoformat(t0.replace("Z", "+00:00")),
         model=model, turns=len(turns),
+        puzzles=len(bag_ids(first_user)) or 1, clues=clues_written(writes),
         wall_min=(datetime.datetime.fromisoformat(t1.replace("Z", "+00:00"))
                   - datetime.datetime.fromisoformat(t0.replace("Z", "+00:00"))).total_seconds() / 60,
         cost=None if any(c is None for c, _ in costs) else sum(c for c, _ in costs),
@@ -357,11 +382,24 @@ def med(xs):
     return statistics.median(xs) if xs else None
 
 
+def pooled(rows, field, per):
+    """Sum of `field` over the sum of `per` across the rows that have both: a bag of 11
+    redo puzzles and a solo run of one full puzzle weigh by the work they did, not 1 each."""
+    use = [r for r in rows if r.get(field) is not None and r.get(per)]
+    d = sum(r[per] for r in use)
+    return sum(r[field] for r in use) / d if d else None
+
+
 def summarise(rows):
     checked = [r for r in rows if r["first_fail"] is not None]
     total = sum(r["cost"] or 0 for r in rows)
     return {
         "n": len(rows),
+        "puzzles": sum(r.get("puzzles", 1) for r in rows),
+        "clues": sum(r.get("clues", 0) for r in rows),
+        "cost_per_puzzle": pooled(rows, "cost", "puzzles"),
+        "cost_per_clue": pooled(rows, "cost", "clues"),
+        "turns_per_clue": pooled(rows, "turns", "clues"),
         "turns": med(r["turns"] for r in rows),
         "cost": med(r["cost"] for r in rows),
         "wall_min": med(r["wall_min"] for r in rows),
@@ -419,13 +457,16 @@ def trend_items(cur, prev):
     out = []
     if cur["n"] < MIN_SESSIONS or prev["n"] < MIN_SESSIONS:
         return out
-    for field, label, fmt in (("cost", "median cost per puzzle", "${:.2f}"),
-                              ("turns", "median turns per puzzle", "{:.0f}")):
+    # Per clue is the fair figure: a bag's redo puzzles have ~3 clues, a fresh one ~27.
+    for field, label, fmt in (("cost_per_clue", "cost per clue", "${:.3f}"),
+                              ("turns_per_clue", "turns per clue", "{:.2f}")):
         a, b = cur[field], prev[field]
         if a is not None and b and a >= b * (1 + REGRESSION):
             out.append({"key": f"trend:{field}", "title": f"{label} regressed", "share": 1.0, "value": a,
                             "detail": f"{fmt.format(a)} over {cur['n']} sessions vs "
-                                   f"{fmt.format(b)} over {prev['n']} ({a / b - 1:+.0%})"})
+                                   f"{fmt.format(b)} over {prev['n']} ({a / b - 1:+.0%}); "
+                                   f"{cur['puzzles']} puzzles, {cur['clues']} clues vs "
+                                   f"{prev['puzzles']} puzzles, {prev['clues']} clues"})
     return out
 
 
@@ -505,10 +546,13 @@ def report(cur, prev, ranked, trends, hours, n_prev_note):
         if b is not None and prev["n"] >= MIN_SESSIONS and cur["n"] >= MIN_SESSIONS:
             s += f" (was {fmt.format(b)})"
         return s
-    lines = [(f"annotate audit: {cur['n']} sessions in the last {hours}h, "
-             f"{prev['n']} in the {hours}h before{n_prev_note}"),
-             (f"  median {delta('turns', '{:.0f}')} turns, {delta('cost', '${:.2f}')} a puzzle, "
-             f"{delta('wall_min', '{:.1f}')} min, {delta('checks', '{:.0f}')} annotate_check runs")]
+    lines = [(f"annotate audit: {cur['n']} sessions ({cur['puzzles']} puzzles, {cur['clues']} clues) in the "
+              f"last {hours}h, {prev['n']} ({prev['puzzles']} puzzles, {prev['clues']} clues) in the "
+              f"{hours}h before{n_prev_note}"),
+             (f"  per session, median {delta('turns', '{:.0f}')} turns, {delta('cost', '${:.2f}')}, "
+              f"{delta('wall_min', '{:.1f}')} min, {delta('checks', '{:.0f}')} annotate_check runs"),
+             (f"  normalised: {delta('cost_per_puzzle', '${:.2f}')} a puzzle, "
+              f"{delta('cost_per_clue', '${:.3f}')} a clue, {delta('turns_per_clue', '{:.2f}')} turns a clue")]
     if cur["first_fail"] is not None:
         lines.append(f"  first check fails {delta('first_fail', '{:.0%}')} (median "
                      f"{cur['first_errors'] or 0:.0f} error lines); after it: "
@@ -527,7 +571,7 @@ def report(cur, prev, ranked, trends, hours, n_prev_note):
 def wake_text(item, why, cur):
     return "\n".join([
         (f"annotate audit ({cur['n']} runs, median {cur['turns'] or 0:.0f} turns, "
-         f"{fmt_money(cur['cost'])}/puzzle, first check fails {cur['first_fail'] or 0:.0%}). "
+         f"{fmt_money(cur.get('cost_per_puzzle'))}/puzzle, first check fails {cur['first_fail'] or 0:.0%}). "
          f"Today's fix target [{why}]:"),
         f"{item['title']} ({share(item)}): {item['detail']}",
         ("Spawn a fix worker to land a fix for this today and push it. Prefer a tool, "
