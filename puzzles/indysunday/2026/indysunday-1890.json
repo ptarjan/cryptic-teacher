@@ -833,48 +833,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
        "text": "tails",
-       "note": "A car that tails another drives along behind it, so the letters named do the same and settle on the end."
+       "at": 18,
+       "note": "tails means follows behind, so company comes after"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "ignoring",
-         "note": "What is ignored is left out altogether, so the letter named after it never joins the word at all."
+         "at": 38,
+         "note": "ignoring means leaving out, so the Tesla symbol is dropped"
         }
        ],
        "parts": [
         {
          "words": "Italian cars",
-         "gives": "FIAS",
-         "note": "the Italian cars are FIATS, the marque from Turin, one letter lighter"
+         "at": 24,
+         "gives": "FIATS",
+         "note": "Fiats are cars made by the Italian firm Fiat"
         },
         {
          "words": "Tesla",
+         "at": 47,
          "gives": "T",
-         "note": "the tesla is the SI unit of magnetic flux density and its symbol is T"
-        },
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "CO is how a company abbreviates itself on a letterhead"
+         "note": "T is the SI symbol for the tesla, a unit of magnetic flux density"
         }
        ]
       },
       {
-       "gives": "T"
+       "words": "company",
+       "at": 10,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two makes of car and both are decoys: the American one is here as a unit of measurement, and 'breakdown' is a collapse of arrangements rather than of an engine.",
-     "definitionFit": "Breakdown → FIASCO: when arrangements break down completely and in public, the result is a fiasco — a total and faintly comic failure."
+     "surface": "A recovery firm follows Italian cars but leaves the Tesla behind.",
+     "walkthrough": "'Tesla' looks like the car brand, but here it is the unit whose symbol is T.",
+     "definitionFit": "A fiasco is a humiliating failure, the same sense as a breakdown of a plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tesla"
     }
    }
   },
@@ -1073,45 +1081,50 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "about",
-       "note": "One thing written about another goes round it, so what follows sits inside the word named before it."
+       "text": "upset",
+       "at": 40,
+       "note": "upset in a down clue means turned upside down, so the letters run backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "case of",
-         "note": "A case is what encloses something, so the case of a word is the pair of letters on its outside."
-        }
-       ],
        "parts": [
         {
          "words": "Dealing with",
+         "at": 0,
          "gives": "RE",
-         "note": "RE heads a memo and means on the subject of, which is dealing with something"
+         "note": "RE means regarding or dealing with"
         },
         {
          "op": "container",
          "indicators": [
           {
-           "text": "upset",
-           "note": "Upset means overturned, and in a down entry an overturned assembly is read from the bottom of the light upwards."
+           "text": "about",
+           "at": 19,
+           "note": "about means surrounding, so story goes round the case letters"
           }
          ],
          "parts": [
           {
            "words": "story",
+           "at": 13,
            "gives": "LIE",
-           "note": "a story told to deceive is a lie, the small three-letter kind"
+           "note": "a lie is a made-up story"
           },
           {
            "op": "outer",
+           "indicators": [
+            {
+             "text": "case of",
+             "at": 25,
+             "note": "case of means the outer letters of ageism"
+            }
+           ],
            "parts": [
             {
              "words": "ageism",
-             "note": "the two letters on the outside of the word, the ones its case is made of"
+             "at": 33
             }
            ]
           }
@@ -1122,8 +1135,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Dealing with' wants to be the definition, since correspondents deal with letters; it is really the two letters at the head of a memo, and the whole assembly is then read upwards.",
-     "definitionFit": "correspondent → EMAILER: a correspondent is simply somebody who writes to you, and these days that writing arrives electronically rather than by post."
+     "surface": "Someone is upset by a story about ageism.",
+     "walkthrough": "LIE round AM (the outside of ageism) gives LIAME; RE before it gives RELIAME, which reads upwards as the answer.",
+     "definitionFit": "Someone who sends email is a correspondent in the modern sense of a letter-writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
     }
    }
   },

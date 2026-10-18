@@ -1020,35 +1020,38 @@
      "indicators": [
       {
        "text": "grabbing",
-       "note": "to grab is to seize and hold"
+       "at": 6,
+       "note": "grabbing means seizing, so the drunk word holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Drunk",
-         "gives": "TIGHT",
-         "note": "tight = drunk, the outer piece"
-        },
-        {
-         "words": "a",
-         "note": "the word itself"
-        }
-       ]
+       "words": "Drunk",
+       "at": 0,
+       "gives": "TIGHT",
+       "note": "tight is slang for drunk"
       },
       {
-       "words": "harmful",
-       "gives": "ILL",
-       "note": "ill as in ill effects"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "words": "harmful",
+         "at": 17,
+         "gives": "ILL",
+         "note": "ill means harmful, as in ill effects"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk is snatching a dangerous part off a car.",
-     "walkthrough": "'Drunk' leads the clue like a noun, the person doing the grabbing; it is the adjective TIGHT.",
-     "definitionFit": "Part for whole: a tail-light is the red lamp on the back of a car."
+     "surface": "A drunk driver grabs a damaging part of a car.",
+     "definitionFit": "A tail-light is the red lamp at the back of a vehicle, one component of it."
     },
     "features": {
      "answerInScene": true,
@@ -1145,41 +1148,43 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 31,
+       "note": "in means the pieces go inside the court letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "CT is the abbreviation for court, the outer piece"
-        },
-        {
-         "words": "working",
-         "gives": "ON",
-         "note": "a machine that is on is working"
-        }
-       ]
+       "words": "court",
+       "at": 34,
+       "gives": "CT"
       },
       {
-       "words": "sovereign",
-       "gives": "SULTAN",
-       "note": "a sultan is a sovereign ruler"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "working",
+         "at": 8,
+         "gives": "ON",
+         "note": "on means working, functioning"
+        },
+        {
+         "words": "sovereign",
+         "at": 21,
+         "gives": "SULTAN",
+         "note": "a sultan is a Muslim sovereign ruler"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An advisor works alongside the monarch at the royal court.",
-     "walkthrough": "The royal court fits the sovereign so well that 'court' reads as the scene rather than the abbreviation CT.",
-     "definitionFit": "Plain synonym: a consultant is a paid professional advisor."
+     "surface": "An advisor works with a monarch at court.",
+     "definitionFit": "A consultant is an expert who gives professional advice."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "court"
+     "aptDefinition": false
     }
    }
   },
@@ -1595,8 +1600,7 @@
     "definitions": [
      {
       "text": "heist?",
-      "at": 36,
-      "note": "the question mark marks a heist as one example of a crime"
+      "at": 36
      }
     ],
     "wordplay": {
@@ -1604,41 +1608,57 @@
      "indicators": [
       {
        "text": "securing",
-       "note": "to secure loot is to hold on to it"
+       "at": 12,
+       "note": "securing means holding, so the shortened gang word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 5,
+         "note": "almost means the gang word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Gang almost",
-         "gives": "CRE",
-         "note": "CREW, a gang, minus W"
+         "words": "Gang",
+         "at": 0,
+         "gives": "CREW",
+         "note": "a crew is a gang"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
+         "gives": "W"
         }
        ]
       },
       {
-       "words": "million",
-       "gives": "M",
-       "note": "M = million"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 21,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "million",
+         "at": 25,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A gang nearly bags a million in a robbery.",
-     "walkthrough": "The whole clue reads as the heist itself; the question mark shows a heist is just one kind of crime.",
-     "definitionFit": "Definition by example: a heist, a big robbery, is one kind of crime."
+     "definitionFit": "A heist is a robbery, one example of an offence, hence the question mark."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "securing"
+     "aptDefinition": false
     }
    }
   },
