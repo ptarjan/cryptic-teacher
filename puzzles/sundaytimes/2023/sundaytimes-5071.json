@@ -57,49 +57,54 @@
      "parts": [
       {
        "words": "Fix",
+       "at": 0,
        "gives": "PIN",
-       "note": "to pin = to fix in place"
+       "note": "to pin something is to fix it in place"
+      },
+      {
+       "words": "a",
+       "at": 4,
+       "gives": "A"
+      },
+      {
+       "words": "soft drink",
+       "at": 6,
+       "gives": "COLA",
+       "note": "cola is a fizzy soft drink"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "first",
-         "note": "the first of a word is its opening letter"
+         "text": "first to",
+         "at": 17,
+         "note": "the first to come in a word is its opening letter, so only that of dilute is wanted"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "kept as it is"
+         "words": "dilute",
+         "at": 26,
+         "note": "the word whose initial letter is used"
         }
        ]
       },
       {
-       "words": "soft drink",
-       "gives": "COLA",
-       "note": "a fizzy soft drink"
-      },
-      {
-       "words": "first to dilute",
-       "gives": "D",
-       "note": "first letter of 'dilute'"
-      },
-      {
        "words": "a",
-       "note": "kept as it is"
+       "at": 33,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A barman watering down a cocktail by pouring in a soft drink first.",
-     "walkthrough": "The surface asks you to read 'dilute' as a verb; it only gives up its first letter.",
-     "definitionFit": "Definition by name: a rum, pineapple and coconut drink is one of the best-known cocktails."
+     "surface": "Instructions for mixing a drink: add a fizzy soft drink, then water it down to make a cocktail.",
+     "walkthrough": "The recipe reading makes 'first to dilute' sound like an order of steps; really 'first' takes just the opening letter of 'dilute', followed by the clue's second A.",
+     "definitionFit": "A pina colada is a mixed drink of rum, coconut cream and pineapple juice, a classic tropical cocktail."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "dilute"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -647,48 +652,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "regularly",
-       "note": "at regular intervals, so every other letter of 'star' is taken"
-      },
-      {
-       "text": "but not starter",
-       "note": "a starter is what comes first, so LUNCHEON loses its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TR",
        "indicators": [
         {
-         "text": "skipped",
-         "note": "the letters jumped over, S and A, are left out"
+         "text": "regularly skipped",
+         "at": 10,
+         "note": "skipping letters at regular intervals leaves every other one of star, its second and fourth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "star regularly skipped",
-         "gives": "TR",
-         "select": "alternate",
-         "note": "second and fourth letters of 'star'"
+         "words": "star",
+         "at": 5,
+         "note": "the word whose alternate letters are kept"
         }
        ]
       },
       {
-       "words": "meal",
-       "gives": "UNCHEON",
-       "note": "LUNCHEON without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not starter",
+         "at": 34,
+         "note": "the starter is the first letter, which is left off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "at": 28,
+         "gives": "LUNCHEON",
+         "note": "luncheon is a formal word for a midday meal"
+        },
+        {
+         "gives": "L",
+         "note": "the opening letter of luncheon, removed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A club's star player who skipped the starter at a meal.",
-     "walkthrough": "'Starter' pretends to be a first course; here it is the first letter. 'Club' is a weapon, not the team.",
-     "definitionFit": "Definition by type: a short heavy stick carried by British police, one kind of club."
+     "surface": "A celebrity at a club missed lunch, or at least did not bother with the first course.",
+     "walkthrough": "'starter' looks like a first course to go with 'meal', but it means the first letter of the word for the meal.",
+     "definitionFit": "A truncheon is a short thick stick carried as a weapon, the sort of club British police officers once carried."
     },
     "features": {
      "answerInScene": false,
@@ -1113,38 +1122,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INCOMER",
-     "indicators": [
-      {
-       "text": "after migrating",
-       "note": "things that migrate move somewhere else, so ROME's letters move into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
+      },
+      {
+       "words": "new",
+       "at": 4,
+       "gives": "N"
+      },
+      {
+       "words": "around",
+       "at": 8,
+       "gives": "C",
+       "note": "C is short for circa, Latin for around"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "migrating",
+         "at": 26,
+         "note": "letters that migrate move about, so Rome is rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "n = new"
-        },
-        {
-         "words": "around",
-         "gives": "C",
-         "note": "c = circa, around"
-        },
-        {
          "words": "Rome",
-         "gives": "OMER",
-         "note": "anagram of ROME"
+         "at": 15
         }
        ]
       }
@@ -1152,9 +1161,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A newcomer settling in Rome after moving there.",
-     "walkthrough": "The whole clue is the definition too. 'Around' is C, circa, not a container.",
-     "definitionFit": "The &lit reads straight: someone newly arrived around Rome after migrating is one who has come in."
+     "surface": "A newcomer is seen around Rome after moving there from abroad.",
+     "walkthrough": "Every word does double duty: read whole, the clue describes someone newly arrived in Rome, which is just what the answer is; 'after' is a link word in the parse.",
+     "definitionFit": "An incomer is a person who has settled in a place from elsewhere, a newcomer or immigrant to the community."
     },
     "features": {
      "answerInScene": true,
@@ -1301,34 +1310,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out as in out of order, so the letters of HERO SINGS are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "music",
+       "at": 20,
+       "gives": "ROCK",
+       "note": "rock is a genre of popular music"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 37,
+         "note": "out suggests the letters are knocked out of shape and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "music",
-         "gives": "ROCK",
-         "note": "rock music"
+         "words": "hero",
+         "at": 26
         },
         {
-         "words": "hero sings",
-         "note": "anagram of HERO SINGS"
+         "words": "sings",
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A music hero belting out songs at a fairground ride.",
-     "walkthrough": "'Music hero' looks like a single idea, a rock star; split it after 'music'. 'Sings out' seems to be one verb.",
-     "definitionFit": "A playful description: toy horses a child mounts and rocks for fun."
+     "surface": "A star singer belts out songs from atop a stage while fans ride along.",
+     "walkthrough": "'sings out' reads as singing loudly, but 'out' is the anagram signal, working on the two words before it as one pool of letters.",
+     "definitionFit": "Rocking horses are toy horses on curved rockers that children ride for fun, so they are mounts used for amusement."
     },
     "features": {
      "answerInScene": false,
@@ -1572,36 +1587,56 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EARL",
      "indicators": [
       {
-       "text": "In",
-       "note": "the answer would sit in N and Y, so taking those outer letters away from the result leaves it"
+       "text": "this would be",
+       "at": 12,
+       "note": "this would be points to what is left of the longer word once its New York letters are removed"
       }
      ],
      "parts": [
       {
-       "words": "almost",
-       "gives": "NEARLY",
-       "note": "nearly = almost"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "In",
+         "at": 0,
+         "note": "in says the wanted word sits inside the New York letters, so they are its outside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "almost",
+         "at": 26,
+         "gives": "NEARLY",
+         "note": "nearly means almost"
+        },
+        {
+         "words": "New",
+         "at": 3,
+         "gives": "N",
+         "note": "N, the first half of NY, the standard abbreviation for New York"
+        }
+       ]
       },
       {
-       "words": "New York",
-       "gives": "NY",
-       "note": "the standard abbreviation; these outer letters are removed"
+       "words": "York",
+       "at": 7,
+       "gives": "Y",
+       "note": "Y, the second half of NY, the abbreviation for New York"
       }
      ]
     },
     "explanation": {
-     "surface": "An American aristocrat, or nearly one, in New York.",
-     "walkthrough": "The wordplay runs backwards: put the answer in NY and you get NEARLY, 'almost'.",
-     "definitionFit": "Definition by rank: a British noble title between viscount and marquess."
+     "surface": "It sounds like a remark on how an aristocrat would almost pass for one in Manhattan.",
+     "walkthrough": "The clue is told backwards: put the answer in N and Y and it would become a word for almost. So strip the N and Y off that word to recover it.",
+     "definitionFit": "An earl is a British nobleman ranking above a viscount and below a marquess."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "almost"
+     "joke": "pun",
+     "misdirectedWord": "York"
     }
    }
   },

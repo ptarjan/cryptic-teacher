@@ -244,35 +244,34 @@
      "parts": [
       {
        "words": "Nipper",
+       "at": 0,
        "gives": "CRAB",
-       "note": "a crab nips with its claws"
+       "note": "a crab nips with its claws, so it is a nipper"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "APPLE",
        "indicators": [
         {
          "text": "peeled",
-         "note": "peeling strips away the skin, so the outside letters are removed and only the core kept"
+         "at": 15,
+         "note": "peeling strips the skin off, so the outermost letter at each end is removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "spotted",
-         "gives": "APPLE",
-         "select": "middle",
-         "note": "spotted means dappled; drop its first and last letters"
+         "at": 7,
+         "gives": "DAPPLED",
+         "note": "dappled means spotted or mottled"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child is seen peeling a piece of fruit.",
-     "walkthrough": "'Nipper' suggests a small child, the British informal sense, but here it is a creature that nips. Spotted must first become its synonym dappled before being peeled.",
-     "definitionFit": "The crab apple is a small sour wild apple, a kind of tree fruit often used for jelly."
+     "surface": "A small child is seen with a piece of fruit that has had its skin removed.",
+     "walkthrough": "'Nipper' is British slang for a small child, which suits the surface, but here it is the creature that nips. 'peeled' strips the ends off DAPPLED.",
+     "definitionFit": "A crab apple is a small, sour wild apple, the fruit of the crab apple tree."
     },
     "features": {
      "answerInScene": true,
@@ -437,45 +436,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LOOSE",
      "indicators": [
       {
        "text": "leaving",
-       "note": "something leaving departs, so one letter goes out of the word"
+       "at": 16,
+       "note": "leaving says the motorway letter departs from the deer word"
       },
       {
        "text": "for",
-       "note": "'for' means in exchange, so a new letter takes the departed one's place"
+       "at": 33,
+       "note": "for says the lake letter stands in its place, a swap"
       }
      ],
      "parts": [
       {
        "words": "deer",
+       "at": 11,
        "gives": "MOOSE",
-       "note": "the moose is the largest deer"
+       "note": "a moose is the largest kind of deer"
       },
       {
        "words": "motorway",
+       "at": 24,
        "gives": "M",
-       "note": "M as in Britain's M1, M25 and so on"
+       "note": "M is the abbreviation for motorway, as in the M1"
       },
       {
        "words": "lake",
+       "at": 37,
        "gives": "L",
-       "note": "L is the standard abbreviation for lake"
+       "note": "L is the abbreviation for lake on maps"
       }
      ]
     },
     "explanation": {
-     "surface": "A deer that has broken free of its tether wanders off the motorway towards a lake.",
-     "walkthrough": "British motorways are named M plus a number, so M stands for motorway; here it is swapped out of the deer's name.",
-     "definitionFit": "An animal that is untethered has nothing tying it, so it is free or loose."
+     "surface": "A loose deer has wandered off a motorway towards a lake.",
+     "walkthrough": "In Britain motorways are numbered M1, M25 and so on, so M stands for motorway. 'leaving' and 'for' together swap that letter for the L of lake.",
+     "definitionFit": "An animal that is loose has got free of its rope or enclosure, so it is no longer tied up."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaving"
+     "misdirectedWord": "motorway"
     }
    }
   },
