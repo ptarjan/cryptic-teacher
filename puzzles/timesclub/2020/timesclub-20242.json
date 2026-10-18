@@ -958,66 +958,71 @@
      "indicators": [
       {
        "text": "within",
-       "note": "within puts the first ring inside the second"
+       "at": 5,
+       "note": "within says the ring letter goes inside the second ring word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "elsewhere",
+         "at": 34,
+         "note": "elsewhere says the last letter of the collar is moved to another place in the word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "elsewhere",
-           "note": "elsewhere says a letter leaves its usual place in the word and goes somewhere else"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ring,",
-           "gives": "COLLAR",
-           "note": "a collar is a ring round the neck"
-          },
-          {
-           "gives": "R"
-          }
-         ]
+         "words": "ring",
+         "at": 12,
+         "gives": "COLLAR",
+         "note": "a collar is a ring worn round the neck"
         },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "last",
          "indicators": [
           {
            "text": "close to",
-           "note": "close to means the final letter of the following word"
+           "at": 18,
+           "note": "the close of a word is its end, so its final letter is taken"
           }
          ],
          "parts": [
           {
            "words": "anther",
-           "note": "its final letter"
+           "at": 27
           }
          ]
+        },
+        {
+         "words": "Ring",
+         "at": 0,
+         "gives": "O",
+         "note": "the letter O is ring-shaped"
         }
        ]
-      },
-      {
-       "words": "Ring",
-       "gives": "O",
-       "note": "the letter shaped like a ring"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A botanist describing whorls of a flower, one ring inside another, near the pollen-bearing anther.",
-     "walkthrough": "The whole clue doubles as the definition: the petals form a ring inside the ring of sepals, next to the anthers. The closing letter of the neck ring shifts to a new spot.",
-     "definitionFit": "The corolla is the ring of petals in a flower, lying inside the ring of sepals and next to the stamens."
+     "surface": "A botanist's riddle about rings of floral parts, one inside another, near the pollen-bearing anther.",
+     "walkthrough": "The collar's own final letter is the same as the close of 'anther', so the clue simply relocates it next to the inserted ring.",
+     "definitionFit": "The corolla is the whorl of petals, a ring in the flower that surrounds the stamens and their anthers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Ring"
+     "misdirectedWord": "ring"
     }
    }
   },
@@ -1674,36 +1679,39 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means the word for shadowy goes around what follows"
+       "at": 24,
+       "note": "about means surrounding, so the word for shadowy goes round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "shadowy",
-         "gives": "DIM",
-         "note": "dim and shadowy both mean poorly lit"
-        },
-        {
-         "words": "tamper",
-         "gives": "RIG",
-         "note": "to rig is to tamper with"
-        }
-       ]
+       "words": "shadowy",
+       "at": 15,
+       "gives": "DIM",
+       "note": "dim means faint or shadowy"
       },
       {
-       "words": "lives",
-       "gives": "IS",
-       "note": "is, as in exists"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to tamper with",
+         "at": 30,
+         "gives": "RIG",
+         "note": "to rig something is to tamper with it"
+        },
+        {
+         "words": "lives",
+         "at": 45,
+         "gives": "IS",
+         "note": "lives as in exists, giving is"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shady state control is on the point of meddling with people's lives.",
-     "walkthrough": "'About to' reads as 'on the point of', but 'about' is the wrapping signal and 'to' just joins.",
-     "definitionFit": "Dirigism, from French dirigisme, is an economic doctrine in which the government directs industry and investment."
+     "surface": "A sinister government, operating in the shadows, meddling with people's lives.",
+     "definitionFit": "Dirigisme is the economic doctrine of central planning, where the government directs the economy."
     },
     "features": {
      "answerInScene": true,

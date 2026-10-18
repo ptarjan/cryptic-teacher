@@ -634,47 +634,65 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "never ending",
-       "note": "Something never ending loses its end, so I'LL and SEE each drop their last letter."
+       "text": "on reflection",
+       "at": 44,
+       "note": "a reflection shows things back to front, so the letters are read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "on reflection",
-         "note": "A reflection shows things back to front, so the letters are read in reverse."
-        }
-       ],
        "parts": [
         {
-         "words": "I'll",
-         "gives": "IL",
-         "note": "I'LL without its final L"
-        },
-        {
-         "words": "see",
-         "gives": "SE",
-         "note": "SEE without its final E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "never ending",
+           "at": 15,
+           "note": "never ending means the two words each lose their last letters"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "I'll",
+             "at": 29,
+             "gives": "ILL",
+             "note": "the letters of I'll, apostrophe ignored"
+            },
+            {
+             "words": "see",
+             "at": 34,
+             "gives": "SEE",
+             "note": "taken as written, before its last letter goes"
+            }
+           ]
+          },
+          {
+           "gives": "LE"
+          }
+         ]
         },
         {
          "words": "um",
-         "note": "as printed"
+         "at": 40,
+         "gives": "UM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hesitant diner at breakfast, stalling over the cereal choices.",
-     "walkthrough": "The hesitant ums and dots look like padding, but I'll, see and um all feed the answer.",
-     "definitionFit": "Muesli is a breakfast mix of oats, nuts and dried fruit."
+     "surface": "Someone hesitating over a breakfast cereal, muttering 'I'll see... um'.",
+     "walkthrough": "'never ending' trims I'LL to IL and SEE to SE; with UM that is ILSEUM, read backwards.",
+     "definitionFit": "Muesli is a breakfast mix of rolled oats, nuts and dried fruit."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "reflection"
+     "aptDefinition": false,
+     "misdirectedWord": "never"
     }
    }
   },

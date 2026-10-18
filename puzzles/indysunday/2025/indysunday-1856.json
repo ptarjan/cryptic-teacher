@@ -136,8 +136,7 @@
     "definitions": [
      {
       "text": "It'll help the farmer",
-      "at": 26,
-      "note": "The definition is a sentence about the answer rather than a synonym for it: 'it' stands in for the thing, so what the setter offers is a job description, not a substitutable noun."
+      "at": 26
      }
     ],
     "wordplay": {
@@ -145,36 +144,44 @@
      "indicators": [
       {
        "text": "feeding",
-       "note": "to feed something into a machine is to put it in, so what comes before this word goes inside what comes after"
+       "at": 13,
+       "note": "feeding means going into, so these letters enter the pig word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "pig",
-         "gives": "SOW",
-         "note": "a sow is a female pig, and it splits after its first letter"
-        },
-        {
-         "words": "Mind",
-         "gives": "CARE",
-         "note": "to mind about something is to care about it"
-        }
-       ]
+       "words": "pig",
+       "at": 21,
+       "gives": "SOW",
+       "note": "a sow is a female pig"
       },
       {
-       "words": "Charles",
-       "gives": "CR",
-       "note": "Carolus Rex, the king's cypher, with R for rex"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mind",
+         "at": 0,
+         "gives": "CARE",
+         "note": "to care is to mind"
+        },
+        {
+         "words": "Charles",
+         "at": 5,
+         "gives": "CR",
+         "note": "CR is Carolus Rex, King Charles"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warning to keep an eye on Charles while he feeds the pig.",
-     "walkthrough": "CR is the royal cypher — Carolus Rex, Charles the King — and it is the piece a solver has to be told about once. The farmhand the definition promises turns out to be stuffed with straw.",
-     "definitionFit": "A scarecrow works for the farmer by keeping birds off the crop, so the definition says what the thing does rather than naming it."
+     "surface": "Telling Charles to watch out while feeding the pig, a chore that aids the farm.",
+     "definitionFit": "A scarecrow frightens birds off crops, so it is a helper to anyone growing grain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mind"
     }
    }
   },
@@ -734,49 +741,60 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "a sandwich keeps its filling between two slices, so the word before this one splits and takes the rest inside"
+       "at": 4,
+       "note": "sandwiches means holds between its ends, so the jam word wraps the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "cut",
-         "note": "something cut is left shorter than it was, and here the trimming takes the final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Jam",
-         "note": "the clue's own word, splitting after two letters to take the filling"
-        },
-        {
-         "words": "mother",
-         "gives": "MA",
-         "note": "ma is mother"
-        }
-       ]
+       "words": "Jam",
+       "at": 0,
+       "gives": "JAM"
       },
       {
-       "op": "deletion",
+       "op": "charade",
        "parts": [
         {
-         "words": "son taking flight",
-         "gives": "ICARUS",
-         "note": "Icarus, the son who flew on wax wings until the sun got at them"
+         "words": "mother",
+         "at": 15,
+         "gives": "MA",
+         "note": "ma is mother"
         },
         {
-         "gives": "S"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 44,
+           "note": "cut means the last letter is chopped off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "son taking flight",
+           "at": 26,
+           "gives": "ICARUS",
+           "note": "Icarus, son of Daedalus, flew too near the sun"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mother and son making a run for it, with jam sandwiches packed for the journey.",
-     "walkthrough": "'Jam' and 'WI' together summon the Women's Institute and its jam stall, and the WI wanted here is the West Indies. Icarus arrives one letter short.",
-     "definitionFit": "WI is the West Indies, and rum from Jamaica is the islands' best-known export — a product named for where it is made."
+     "surface": "A Women's Institute jam stall, with sandwiches and a mother and son hurrying off.",
+     "walkthrough": "WI looks like the Women's Institute, famous for jam, but here it is the West Indies.",
+     "definitionFit": "Jamaica rum is a spirit made in Jamaica, an island of the West Indies, so it is a Caribbean product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "WI"
     }
    }
   },
@@ -1467,36 +1485,58 @@
      "indicators": [
       {
        "text": "divides",
-       "note": "to divide a thing is to come between its parts, so what precedes this word splits the word that follows"
+       "at": 27,
+       "note": "divides means splits apart, so these letters go inside the wealth word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 35,
+         "note": "half of means only the first three of six letters are kept"
+        }
+       ],
        "parts": [
         {
-         "words": "half of wealth",
-         "gives": "RIC",
-         "note": "the front half of RICHES, split again to take the insert"
+         "words": "wealth",
+         "at": 43,
+         "gives": "RICHES",
+         "note": "riches are wealth"
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "e = English, the standard abbreviation"
+         "gives": "HES"
         }
        ]
       },
       {
-       "words": "celebrity",
-       "gives": "ALIST",
-       "note": "an A-lister is a celebrity of the top rank"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 9,
+         "gives": "E"
+        },
+        {
+         "words": "celebrity",
+         "at": 17,
+         "gives": "ALIST",
+         "note": "A-list describes top celebrities"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-known Englishman splitting a fortune down the middle.",
-     "walkthrough": "'Divides' is the surface's word for splitting money and the wordplay's word for splitting a word. A-list for celebrity is modern crossword shorthand worth having ready.",
-     "definitionFit": "Being realistic is taking a sober view of what can actually happen, which is what we mean by calling a person sensible."
+     "surface": "A down-to-earth English star dividing up a fortune.",
+     "definitionFit": "A realistic person is practical and sensible, seeing things as they are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "divides"
     }
    }
   },
