@@ -21,7 +21,8 @@
   "previousOrigin": "model"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -347,38 +348,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "turned",
+       "at": 27,
+       "note": "the word named next is turned round where it sits inside the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "SNOG",
-       "indicators": [
-        {
-         "text": "turned",
-         "note": "Turning a piece where it stands spins those two letters so they come out the other way about."
-        }
-       ],
-       "parts": [
-        {
-         "words": "What follows wine, women",
-         "gives": "SONG",
-         "note": "the old trio is wine, women and song, so the word that comes next is SONG"
-        }
-       ]
+       "words": "What follows wine, women",
+       "at": 0,
+       "gives": "SONG",
+       "note": "the saying is 'wine, women and song', so song comes after those two"
       },
       {
-       "unchecked": true,
        "words": "on",
-       "note": "no new letters: it names the two already sitting in the middle, the ones that get spun"
+       "at": 34,
+       "gives": "ON",
+       "note": "the clue's own word, taken as written"
+      },
+      {
+       "gives": "NO"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "The end of a familiar list of vices, with somebody hinting at how the evening finished.",
-     "walkthrough": "Both readings of 'turned on' are live at once: the surface wants aroused, the wordplay wants a two-letter word spun round where it stands.",
-     "definitionFit": "Read straight, the clue asks what comes after the wine and the women once everyone is aroused, and a long kiss answers it."
+     "surface": "After the drink and company, aroused, what comes next?",
+     "walkthrough": "Complete the saying 'wine, women and song', then 'turned' reverses the ON inside SONG to NO. Read whole, the clue also says what happens once people are turned on after wine.",
+     "definitionFit": "A snog is British slang for a long passionate kiss, the natural next step for an aroused couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turned"
     }
    }
   },
@@ -500,68 +506,87 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ZOROASTRIANISM",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to stop",
+       "at": 12,
+       "note": "the letter plugs a gap in the run of pieces, as a stopper does"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "ZOROASTRIANISM",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Cross",
+         "at": 20,
+         "gives": "ZO",
+         "note": "a zo (also dzo or zho) is a cross between a yak and a cow"
+        },
+        {
+         "words": "Cook",
+         "at": 30,
+         "gives": "ROAST",
+         "note": "to roast is to cook"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "climbing",
-           "note": "This is a down entry, so a piece said to be climbing is read from the bottom upwards and arrives backwards."
-          },
-          {
-           "text": "peak of",
-           "note": "The peak of a word written downwards is its top, which is the letter it begins with."
+           "at": 35,
+           "note": "in a down clue climbing means read upwards, so these letters are reversed"
           }
          ],
          "parts": [
           {
-           "words": "Cross",
-           "gives": "ZO",
-           "note": "a zo is the Tibetan cross between a yak and a cow"
-          },
-          {
-           "words": "Cook",
-           "gives": "ROAST",
-           "note": "to roast is one way to cook"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "to stop",
-             "note": "To stop a gap is to plug it, so this letter is pushed into a join rather than added at either end."
-            }
-           ],
+           "op": "charade",
            "parts": [
             {
-             "words": "right",
-             "note": "R is the standard short form for right"
+             "op": "first",
+             "indicators": [
+              {
+               "text": "peak of",
+               "at": 44,
+               "note": "the peak is the top, so only the first letter is taken"
+              }
+             ],
+             "parts": [
+              {
+               "words": "Mount",
+               "at": 52,
+               "note": "its first letter is used"
+              }
+             ]
+            },
+            {
+             "words": "Sinai",
+             "at": 58,
+             "note": "taken as written"
             }
            ]
-          },
-          {
-           "words": "Mount Sinai",
-           "gives": "IANISM",
-           "note": "the top letter of Mount with SINAI running on after it, the six of them read from the bottom up"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 6,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Two climbers named Cross and Cook are stopped just short of the summit of Mount Sinai.",
-     "walkthrough": "Cross and Cook read as climbers' surnames, capitals and all, and both are ordinary words here — one of them a Himalayan hybrid animal.",
-     "definitionFit": "The ancient Persian religion of Zoroaster's followers is a faith in the plainest sense, a named religion with fire temples and scripture."
+     "surface": "A religion, with references to the cross, cooking and the mountain where Moses received the law.",
+     "walkthrough": "A zo is a yak-cow hybrid, a crossword favourite. 'peak of' Mount is M; 'climbing' reverses M plus SINAI to IANISM, and 'to stop' puts R between ROAST and that.",
+     "definitionFit": "Zoroastrianism is the ancient Persian religion founded by Zoroaster, still practised by the Parsis, so it is a faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
     }
    }
   },
@@ -1110,57 +1135,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TSAMBA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Wanting",
+       "at": 0,
+       "note": "wanting means lacking, so a letter is missing from the rice before it is rearranged"
+      },
+      {
+       "text": "cook",
+       "at": 23,
+       "note": "to cook something is to work it into a new form, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TSAMBA",
+       "words": "basmati",
+       "at": 28,
+       "note": "the rice's letters are the fodder"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "Wanting",
-         "note": "To be wanting something is to be without it, so the fodder is short of that letter before anything else happens."
-        },
-        {
-         "text": "cook",
-         "note": "Cooking a rice dish stirs the grains about the pan, and these letters are stirred the same way."
+         "text": "a taste of",
+         "at": 8,
+         "note": "a taste is only a small first bit, so the first letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "basmati",
-         "note": "the long-grain rice, seven letters of fodder before anything is taken away"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "a taste of",
-           "note": "A taste is the first small bit you get of a thing, and for a word that is its opening letter."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "25",
-           "gives": "I",
-           "select": "first",
-           "note": "25 across is a country, and the letter it opens with is the one taken"
-          }
-         ]
+         "words": "25",
+         "at": 19,
+         "gives": "INDIA",
+         "note": "the answer to 25 across, INDIA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook told to leave one flavour out of the rice and make something else of it.",
-     "walkthrough": "The '25' points at another entry in the grid, so that one has to fall first; the dish itself is Himalayan, roasted barley eaten across Tibet.",
-     "definitionFit": "Tsamba is the Tibetan staple of roasted barley flour, kneaded with butter tea and eaten as a dish in its own right."
+     "surface": "Without a hint of Indian spice, prepare a rice dish.",
+     "walkthrough": "'a taste of 25' is I, the first letter of INDIA (25 across). 'Wanting' takes it out of BASMATI, and 'cook' rearranges the rest.",
+     "definitionFit": "Tsamba is a Tibetan staple of roasted barley flour, so it is a dish of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "basmati"
     }
    }
   },
@@ -1249,40 +1271,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PLAYBOY",
+     "spelt": "PLAYBOY",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "The Reverend Spooner was famous for swapping the opening sounds of two words, so those two openings change places here."
+       "at": 45,
+       "note": "Spooner, the Oxford don famed for swapping word beginnings, signals an exchange of the two words' opening sounds"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "car park space",
+       "at": 30,
+       "gives": "BAY",
+       "note": "a bay is a marked parking space"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PLOI",
        "parts": [
         {
-         "unchecked": true,
-         "words": "car park space",
-         "gives": "PLAY",
-         "soundsLike": "BAY",
-         "note": "a bay is a marked-out parking space, and it keeps its AY while borrowing the other word's opening"
-        },
-        {
-         "unchecked": true,
          "words": "tactic",
-         "gives": "BOY",
-         "soundsLike": "PLOY",
-         "note": "a ploy is a tactic, and it keeps its OY under the B that has swapped in"
+         "at": 10,
+         "gives": "PLOY",
+         "note": "a ploy is a cunning tactic; Spooner swaps sounds, not spellings, so it is the spoken 'ploi' whose vowel sound goes to make 'boy'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver's trick for landing a parking space, told in Spooner's usual muddle.",
-     "walkthrough": "The way in is to solve the plain phrase first — the scheme for getting a parking space — and only then trade the two opening sounds.",
-     "definitionFit": "A playboy is the moneyed idler who lives for pleasure, which is what a libertine is once the moralising is stripped out."
+     "surface": "A womaniser's trick for getting a parking spot.",
+     "walkthrough": "'for Spooner' asks for the opening sounds swapped: a BAY PLOY (a tactic to find a parking bay) said with B and PL exchanged comes out as PLAY BOY.",
+     "definitionFit": "A playboy is a wealthy man devoted to pleasure and affairs, so he is a libertine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Libertine"
     }
    }
   },
@@ -1545,47 +1572,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NANOMETRE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to Bury",
+       "at": 23,
+       "note": "the rearranged letters bury, so surround, the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NANOMETRE",
+       "op": "anagram",
        "indicators": [
         {
          "text": "moving",
-         "note": "Things that are moving are no longer where they were, and neither are these letters."
-        },
-        {
-         "text": "not including",
-         "note": "What is not included is left out, so that letter never reaches the grid."
+         "at": 11,
+         "note": "moving the letters around rearranges them"
         }
        ],
        "parts": [
         {
-         "words": "near to",
-         "note": "six letters lifted straight out of the clue"
-        },
+         "words": "near",
+         "at": 18,
+         "note": "its letters are the fodder"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "words": "Bury",
-         "gives": "MINE",
-         "note": "to mine a road is to bury explosives under it"
+         "text": "including",
+         "at": 35,
+         "note": "the word wraps round the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 31,
+         "note": "taken as written"
         },
         {
          "words": "this person",
-         "gives": "I",
-         "note": "the setter speaking of himself is I, and that is the letter left out"
+         "at": 45,
+         "gives": "ME",
+         "note": "me is the setter speaking of themselves"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Moving house to somewhere near Bury, with one person left off the list.",
-     "walkthrough": "Bury is a town in Greater Manchester, which is what the capital letter wants you to see; the verb hiding under it is the one about laying explosives.",
-     "definitionFit": "A nanometre is a billionth of a metre, the scale on which atoms and wavelengths are measured, so the definition is literal."
+     "surface": "A little army unit relocating close to the town of Bury, without me.",
+     "walkthrough": "A nest of containers: 'moving' rearranges NEAR to NARE, and 'to Bury' puts inside it NOT 'including' ME. Bury is a town near Manchester, so it looks like a place.",
+     "definitionFit": "A nanometre is a billionth of a metre, a tiny measure of length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
     }
    }
   }

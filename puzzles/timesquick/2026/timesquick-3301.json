@@ -519,62 +519,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "take letters at regular intervals, every second one"
+       "text": "hosting",
+       "at": 18,
+       "note": "the kept letters hold the next piece inside them, as a host holds a guest"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "AAI",
        "indicators": [
         {
-         "text": "hosting",
-         "note": "a host holds a guest inside"
+         "text": "regularly",
+         "at": 8,
+         "note": "taking letters at regular intervals means every other letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Fanatic regularly",
-         "gives": "AAI",
-         "select": "alternate",
-         "note": "second, fourth and sixth letters of FANATIC"
+         "words": "Fanatic",
+         "at": 0,
+         "note": "its second, fourth and sixth letters are kept"
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
          "text": "introduction to",
-         "note": "the introduction to a word is its opening letter"
+         "at": 26,
+         "note": "an introduction is the opening, so only the first letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "introduction to Chuck",
-         "gives": "C",
-         "select": "first",
-         "note": "first letter of CHUCK, placed after the first A"
+         "words": "Chuck",
+         "at": 42,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A devoted fan has Chuck Berry, the rock-and-roll star, over as a guest.",
-     "walkthrough": "Chuck Berry looks like a single name, but the clue splits it: Chuck feeds the wordplay and Berry is the definition.",
-     "definitionFit": "Acai is a small purple berry from a South American palm."
+     "surface": "A rock and roll fan plays host to the guitarist Chuck Berry.",
+     "walkthrough": "'regularly' picks AAI from Fanatic, and 'hosting' puts C ('introduction to Chuck') inside. 'Chuck Berry' looks like one name; Berry alone is the definition.",
+     "definitionFit": "Acai is the small purple fruit of a South American palm, sold as a superfood berry."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Berry"
     }
    }
@@ -704,47 +698,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ERRONEOUS",
+     "op": "charade",
      "indicators": [
       {
        "text": "shunning all outsiders",
-       "note": "every word loses its first and last letters"
+       "at": 22,
+       "note": "to shun is to avoid, and the outsiders are each word's first and last letters, so every one of the four words keeps only its inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Terry",
-         "gives": "ERR",
-         "note": "TERRY without T and Y"
-        },
-        {
-         "words": "Jones",
-         "gives": "ONE",
-         "note": "JONES without J and S"
-        },
-        {
-         "words": "too",
-         "gives": "O",
-         "note": "TOO without its outer Ts and O"
-        },
-        {
-         "words": "busy",
-         "gives": "US",
-         "note": "BUSY without B and Y"
-        }
-       ]
+       "words": "Terry",
+       "at": 0,
+       "gives": "ERR",
+       "note": "Terry without its outer letters T and Y"
+      },
+      {
+       "words": "Jones",
+       "at": 6,
+       "gives": "ONE",
+       "note": "Jones without its outer letters J and S"
+      },
+      {
+       "words": "too",
+       "at": 12,
+       "gives": "O",
+       "note": "too without its outer letters T and O"
+      },
+      {
+       "words": "busy",
+       "at": 16,
+       "gives": "US",
+       "note": "busy without its outer letters B and Y"
       }
      ]
     },
     "explanation": {
-     "surface": "Terry Jones of Monty Python, too busy to mix with outsiders, is told he has got it wrong.",
-     "walkthrough": "Terry Jones was a member of Monty Python. 'Outsiders' reads as people; here it means the outside letters of each word.",
-     "definitionFit": "A plain synonym: anything erroneous contains an error, so it is incorrect."
+     "surface": "The Monty Python member Terry Jones is too busy and avoids strangers.",
+     "walkthrough": "'shunning all outsiders' strips the first and last letter from each word, leaving ERR, ONE, O and US. Terry Jones was a member of Monty Python.",
+     "definitionFit": "Erroneous means mistaken or incorrect, so it is a formal word for wrong."
     },
     "features": {
      "answerInScene": false,
@@ -822,46 +814,54 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 24,
+       "note": "the following pieces come after the news agency's letters"
+      }
+     ],
      "parts": [
+      {
+       "words": "Associated Press",
+       "at": 30,
+       "gives": "AP",
+       "note": "AP is the abbreviation of the news agency Associated Press"
+      },
       {
        "op": "first",
        "indicators": [
         {
          "text": "Initially",
-         "note": "at the start, so take the opening letter"
-        },
-        {
-         "text": "after"
+         "at": 0,
+         "note": "initially means at the start, so only the first letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "Associated Press",
-         "note": "AP is the Associated Press news agency"
+         "words": "pay",
+         "at": 10,
+         "note": "its first letter is used"
         }
        ]
       },
       {
-       "words": "Initially pay",
-       "gives": "P",
-       "note": "first letter of PAY"
-      },
-      {
        "words": "attention",
+       "at": 14,
        "gives": "EAR",
-       "note": "to give ear is to pay attention"
+       "note": "to give ear is to pay attention, so ear means attention"
       }
      ]
     },
     "explanation": {
-     "surface": "A reporter urging people to listen once the news agency arrives.",
-     "walkthrough": "'Pay attention' looks like one phrase; it is split, with 'pay' giving P and 'attention' giving EAR.",
-     "definitionFit": "A plain synonym: when guests appear they arrive or show themselves."
+     "surface": "Take note once the news agency arrives.",
+     "walkthrough": "'Initially' takes P from pay; EAR is attention, as in 'lend an ear'.",
+     "definitionFit": "To appear is to arrive or show up, the sense of turning up somewhere."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "pay"
+     "misdirectedWord": "turn"
     }
    }
   },

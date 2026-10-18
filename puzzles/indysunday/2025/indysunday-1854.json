@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -257,39 +258,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "Upset means tipped over, and letters tipped over in a down entry come back up in the opposite order."
-      },
-      {
        "text": "supports",
-       "note": "A support sits underneath whatever it holds up, so in a down entry the charity's letters take the bottom cells."
+       "at": 8,
+       "note": "in a down clue the charity holds up, so sits beneath, the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 29,
+         "note": "in a down clue, upset turns the word over so it reads from the bottom up"
+        }
+       ],
        "parts": [
         {
-         "words": "Charity",
-         "gives": "DIA",
-         "note": "charity is aid, relief given to those who need it"
-        },
-        {
-         "words": "US criminal upset",
+         "words": "US criminal",
+         "at": 17,
          "gives": "PERP",
-         "note": "American police slang for the perpetrator of a crime is a perp, here written the other way round"
+         "note": "perp is American slang for the perpetrator of a crime"
         }
        ]
+      },
+      {
+       "words": "Charity",
+       "at": 0,
+       "gives": "AID",
+       "note": "aid is help given to those in need, a charity"
       }
      ]
     },
     "explanation": {
-     "surface": "A charity standing behind an American crook who is aggrieved about the charges brought against him.",
-     "walkthrough": "'Upset' looks like the criminal's mood and is the instruction to turn his letters round, while 'charges' plays on criminal charges rather than fees.",
-     "definitionFit": "with charges met earlier -> PREPAID: a prepaid item is one whose cost has already been settled before it is used or sent."
+     "surface": "A charity backs an American offender whose fees were already settled.",
+     "walkthrough": "'upset' turns PERP over to give PREP; 'supports' puts AID underneath it in the down entry.",
+     "definitionFit": "A prepaid item is one whose costs were settled in advance, before it was used or delivered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
     }
    }
   },
@@ -314,37 +326,43 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "IPPON",
-     "indicators": [
-      {
-       "text": "one put up",
-       "note": "The letter that stands for one is I, and putting it up in a down entry lifts it to the front of the letters it was sitting among."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "one put up",
+         "at": 14,
+         "note": "in a down clue the single letter i (one) is lifted to the top of the seed word, moving the rest below it"
+        }
+       ],
        "parts": [
         {
          "words": "seed",
-         "gives": "IPP",
-         "note": "a seed is a pip, and with its I lifted to the front the three letters read in this order"
-        },
-        {
-         "words": "playing",
-         "gives": "ON",
-         "note": "a match or a show that is on is playing"
+         "at": 29,
+         "gives": "PIP",
+         "note": "a pip is a fruit seed"
         }
        ]
+      },
+      {
+       "words": "playing",
+       "at": 34,
+       "gives": "ON",
+       "note": "something playing, like a show, is on"
       }
      ]
     },
     "explanation": {
-     "surface": "A scoreline from a match: a point put up while the seeded player was on.",
-     "walkthrough": "In judo an ippon ends the contest outright, so 'winning score' is exact rather than loose. Nothing is shuffled here — only the I climbs, and the two Ps stay put.",
-     "definitionFit": "Winning score -> IPPON: judo's full point, awarded for a clean throw and enough on its own to win the bout."
+     "surface": "A tournament seed's game produces the score that wins the match.",
+     "walkthrough": "'one put up' means the I of PIP is moved to the top in the down entry, giving IPP; then ON follows.",
+     "definitionFit": "In judo an ippon is the full point that ends the bout immediately in victory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seed"
     }
    }
   },
@@ -514,42 +532,47 @@
     "definitions": [
      {
       "text": "Sent",
-      "at": 0,
-      "note": "'Sent' is a past participle where the answer is an adjective; the setter means it in the sense 'sent by post', which is what the adjective describes."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "POSTAL",
-     "indicators": [
-      {
-       "text": "in retreat",
-       "note": "An army in retreat goes back the way it came, so the French word's letters are written in the opposite order along this across entry."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "after",
+       "at": 5,
+       "gives": "POST",
+       "note": "post- is the Latin prefix meaning after, as in postwar"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in retreat",
+         "at": 22,
+         "note": "retreating means going backwards, so the French word is read from right to left"
+        }
+       ],
        "parts": [
         {
-         "words": "after",
-         "gives": "POST",
-         "note": "post means after, as in post-war or post-match"
-        },
-        {
-         "words": "the French in retreat",
-         "gives": "AL",
-         "note": "the French for 'the' is la, here written backwards"
+         "words": "the French",
+         "at": 11,
+         "gives": "LA",
+         "note": "la is the French feminine word for the"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody sent in pursuit of the French as they fall back.",
-     "walkthrough": "'The French' is crossword shorthand for the French word for 'the' — LE, LA or LES — and the surface is banking on you picturing actual Frenchmen.",
-     "definitionFit": "Sent -> POSTAL: a postal vote or postal order is one sent through the post, which is the sense 'sent' is pointing at."
+     "surface": "Someone sent after French troops pulled back.",
+     "walkthrough": "'in retreat' turns LA round to AL, which follows POST.",
+     "definitionFit": "Postal describes things conveyed by mail, so mail that has been sent through the post is postal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
     }
    }
   },
@@ -574,41 +597,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ASIA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 29,
+       "note": "the service's letters wrap around the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "breakdown service",
+       "at": 11,
+       "gives": "AA",
+       "note": "the AA (Automobile Association) is the British roadside breakdown service"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "covers",
-         "note": "To cover a thing is to lie over it from both sides, so the service's two letters part and take the rest between them."
-        },
-        {
          "text": "subject to review",
-         "note": "A review goes back over what has been done, and letters gone back over come out in the opposite order."
+         "at": 44,
+         "note": "to review is to look back, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "breakdown service",
-         "gives": "AA",
-         "note": "the AA is the Automobile Association, the British motoring club that rescues broken-down cars"
-        },
-        {
          "words": "remains",
-         "gives": "SI",
-         "note": "what remains still is, and those two letters are turned round"
+         "at": 36,
+         "gives": "IS",
+         "note": "is can stand for remains, as in 'it is/remains so'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insurance question: whether the roadside rescue policy covers wreckage still under investigation.",
-     "walkthrough": "'Covers' does two jobs at once — insurance cover in the picture, enclosure in the wordplay — and 'remains' is the verb, not the noun for what is left behind.",
-     "definitionFit": "Large area -> ASIA: the biggest of the continents, so the definition points at it by size and kind rather than by synonym."
+     "surface": "A wide region's breakdown service is protecting something that still awaits review.",
+     "walkthrough": "The AA is Britain's Automobile Association. 'subject to review' reverses IS to SI, which the AA 'covers'.",
+     "definitionFit": "The continent is by far the largest landmass on Earth, a huge region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breakdown"
     }
    }
   },
@@ -629,46 +661,49 @@
     "definitions": [
      {
       "text": "mental activity",
-      "at": 53,
-      "note": "The answer is plural and 'mental activity' a mass noun; the electrical traffic in a head is always counted in the plural, so the mass noun covers it."
+      "at": 53
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BRAINWAVES",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner's trademark slip traded the opening sounds of two words, so say the phrase aloud and swap the noises at the front."
+       "at": 0,
+       "note": "Spooner, the Oxford don famed for swapping word beginnings, signals an exchange of initial sounds"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "WAIN",
        "parts": [
         {
-         "unchecked": true,
          "words": "someone who played Cowboys",
-         "gives": "BRAIN",
-         "soundsLike": "WAYNE",
-         "note": "John Wayne spent a career in the saddle, and his name said aloud hands its opening sound to the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "Indians",
-         "gives": "WAVES",
-         "soundsLike": "BRAVES",
-         "note": "braves are Indian warriors, and this word passes its opening sound forward in the exchange"
+         "at": 10,
+         "gives": "WAYNE",
+         "note": "John Wayne, star of countless westerns, played cowboys; his name sounds like wain"
         }
        ]
+      },
+      {
+       "words": "Indians",
+       "at": 41,
+       "gives": "BRAVES",
+       "note": "braves are Native American warriors"
       }
      ]
     },
     "explanation": {
-     "surface": "Remembering somebody who used to play Cowboys and Indians in the back garden.",
-     "walkthrough": "John Wayne made his name in westerns and 'braves' is the old word for Indian warriors, so the children's game hides two very different things. Only the noises at the front move; the vowels stay where they are.",
-     "definitionFit": "mental activity -> BRAINWAVES: the rhythms an EEG traces are the brain's electrical activity, and the singular also means a bright idea."
+     "surface": "A Western star and warriors linked to someone's thinking.",
+     "walkthrough": "'Spooner's' asks for the opening sounds swapped: say WAYNE (heard as WAIN) BRAVES, swap W and BR, and you get BRAIN WAVES.",
+     "definitionFit": "Brainwaves are the electrical impulses of the brain, so they are its mental activity; the word also means sudden clever ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cowboys"
     }
    }
   },
@@ -747,42 +782,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEBONAIR",
-     "indicators": [
-      {
-       "text": "switched",
-       "note": "Switched means turned about, so the two letters it applies to change places and are written the other way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "director",
+       "at": 7,
+       "gives": "D"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "switched",
+         "at": 16,
+         "note": "the two letters swap places, which reverses them"
+        }
+       ],
        "parts": [
         {
-         "words": "director",
-         "gives": "D",
-         "note": "D = director, as on a company letterhead"
-        },
-        {
          "words": "live",
-         "gives": "EB",
-         "note": "to live is to be, and those two letters are written the other way round"
-        },
-        {
-         "words": "broadcast",
-         "gives": "ONAIR",
-         "note": "a programme being broadcast is on air"
+         "at": 25,
+         "gives": "BE",
+         "note": "to live is to be, to exist"
         }
        ]
+      },
+      {
+       "words": "broadcast",
+       "at": 30,
+       "gives": "ONAIR",
+       "note": "on air means being broadcast"
       }
      ]
     },
     "explanation": {
-     "surface": "A carefree director changing the live broadcast at the last minute.",
-     "walkthrough": "'Live broadcast' looks like one phrase and is two separate pieces of wordplay, while 'Blithe' defines from the very front, where a solver expects the wordplay to begin.",
-     "definitionFit": "Blithe -> DEBONAIR: both name an easy, carefree cheerfulness, with debonair adding a suggestion of style along with it."
+     "surface": "A cheerful director changed over to a live transmission.",
+     "walkthrough": "'switched' swaps the two letters of BE to give EB, between D and ON AIR.",
+     "definitionFit": "Debonair means carefree and charming, and blithe is a synonym for cheerfully unconcerned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
     }
    }
   },
@@ -807,43 +848,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOOMERANG",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shot",
-       "note": "Something shot to pieces has its parts scattered, so the six letters beside this word are re-laid in a new order."
+       "text": "overhead",
+       "at": 40,
+       "note": "in a down clue the noise sits above, so before, the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "shocking noise",
+       "at": 25,
+       "gives": "BOO",
+       "note": "boo is the noise made to startle someone"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "overhead",
-         "note": "Overhead means above, and in a down entry what is above is written first, so the noise takes the top cells."
+         "text": "shot",
+         "at": 15,
+         "note": "something shot is ruined or wrecked, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "shocking noise",
-         "gives": "BOO",
-         "note": "the noise you make to startle somebody is boo"
-        },
-        {
-         "words": "German shot",
-         "gives": "MERANG",
-         "note": "the six letters of GERMAN scattered into a different order"
+         "words": "German",
+         "at": 8,
+         "note": "the word's letters are taken as written for the rearrangement"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A German rocket coming over with a terrifying bang above the rooftops.",
-     "walkthrough": "'Missile' is fair for anything thrown at a target, not just a rocket, which is what the wartime surface wants you to picture instead.",
-     "definitionFit": "Missile -> BOOMERANG: a missile is any object hurled as a weapon, and this is the throwing stick that returns to the thrower."
+     "surface": "A German fires a projectile with a startling bang above.",
+     "walkthrough": "'shot' rearranges GERMAN to MERANG; 'overhead' puts BOO on top in the down entry.",
+     "definitionFit": "A boomerang is a curved throwing weapon used by Aboriginal Australians, so it is a missile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -966,53 +1013,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CHIANTI",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "Turned means turned over, so the vermouth's two letters come out the other way up in this down entry."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filling",
+         "at": 9,
+         "note": "the letter goes into the middle of the other word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "filling",
-           "note": "A filling goes into the middle of whatever it fills, so the American letter drops inside the punch."
-          }
-         ],
-         "parts": [
-          {
-           "words": "punch",
-           "gives": "CHIN",
-           "note": "to punch someone is to chin them, and these four letters part after the third"
-          },
-          {
-           "words": "American",
-           "gives": "A",
-           "note": "A = American, the single-letter shorthand"
-          }
-         ]
+         "words": "punch",
+         "at": 17,
+         "gives": "CHIN",
+         "note": "to chin someone is British slang for punching them on the chin"
         },
         {
-         "words": "vermouth turned",
-         "gives": "TI",
-         "note": "Italian vermouth is IT, from the bar order 'gin and It', written here the other way up"
+         "words": "American",
+         "at": 0,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 37,
+         "note": "the word is turned round so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vermouth",
+         "at": 28,
+         "gives": "IT",
+         "note": "It, short for Italian, is the vermouth in a gin and It"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American mixing fruit punch with vermouth until the drink goes red.",
-     "walkthrough": "'Punch' is a drink in the picture and a blow in the wordplay, and IT for Italian vermouth is worth keeping — it comes from the old bar call 'gin and It'.",
-     "definitionFit": "red -> CHIANTI: a red is a red wine, and Chianti is the Tuscan one, so the definition names it by example."
+     "surface": "An American pours vermouth into the punch bowl, which turned it red.",
+     "walkthrough": "A 'filling' CHIN gives CHIAN; 'turned' reverses IT to TI. Gin and It is a British cocktail of gin and Italian vermouth.",
+     "definitionFit": "Chianti is a Tuscan wine, nearly always red, so red names the wine by its colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punch"
     }
    }
   },
@@ -1323,13 +1377,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOAHSARK",
+     "op": "container",
      "indicators": [
       {
-       "text": "Flipping",
-       "note": "Flipping a thing turns it over, so the reckless letters go in back to front; it doubles as the mild swear the surface wants."
+       "text": "cutting",
+       "at": 18,
+       "note": "the reversed word cuts into the middle of the other letters"
       }
      ],
      "parts": [
@@ -1338,29 +1391,32 @@
        "parts": [
         {
          "words": "new",
-         "gives": "N",
-         "note": "n = new, the standard single letter"
+         "at": 26,
+         "gives": "N"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "cutting",
-           "note": "Cutting into something opens a gap and the cutter sits in it, so the turned letters land inside the tree."
-          }
-         ],
-         "parts": [
-          {
-           "words": "tree",
-           "gives": "OAK",
-           "note": "the oak is the tree, and its three letters part before the last"
-          },
-          {
-           "words": "Flipping reckless",
-           "gives": "HSAR",
-           "note": "reckless is rash, and those four letters are written back to front"
-          }
-         ]
+         "words": "tree",
+         "at": 30,
+         "gives": "OAK",
+         "note": "the oak is a tree"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Flipping",
+         "at": 0,
+         "note": "flipped over, the word reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reckless",
+         "at": 9,
+         "gives": "RASH",
+         "note": "rash means reckless"
         }
        ]
       }
@@ -1368,9 +1424,15 @@
     },
     "spelling": "NOAH'S ARK",
     "explanation": {
-     "surface": "An exasperated home builder hacking into a new tree to get something finished before the storm arrives.",
-     "walkthrough": "The definition is a joke rather than a synonym: the ark was the original home build, started once its owner had the flood forecast. 'Flipping' reads as exasperation and works as the turn.",
-     "definitionFit": "DIY project after storm warning -> NOAH'S ARK: Noah built the boat himself once he had been warned the flood was coming."
+     "surface": "A rash recruit chops a fresh tree to build something themselves after a gale alert.",
+     "walkthrough": "'Flipping' turns RASH into HSAR, which goes 'cutting' into N plus OAK.",
+     "definitionFit": "In Genesis, Noah built his vessel himself after God warned him of the coming flood, a home-built job prompted by a storm forecast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "storm"
     }
    }
   },
@@ -1401,47 +1463,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "WASTINGASSET",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "In drops one piece inside another, so the fuel is written between the can and the word meaning confirmed."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Is no more",
+       "at": 0,
+       "gives": "WAS",
+       "note": "was is the past of is, so what was is no more"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "the fuel goes inside, between the other two pieces"
+        }
+       ],
        "parts": [
         {
-         "words": "Is no more",
-         "gives": "WAS",
-         "note": "whatever is no more once was, so the past tense of 'is' supplies three letters"
-        },
-        {
-         "words": "can",
-         "gives": "TIN",
-         "note": "a can is a tin"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "can",
+           "at": 19,
+           "gives": "TIN",
+           "note": "a tin is a can"
+          },
+          {
+           "words": "confirmed",
+           "at": 23,
+           "gives": "SET",
+           "note": "set means fixed or confirmed, as with a date"
+          }
+         ]
         },
         {
          "words": "fuel",
+         "at": 11,
          "gives": "GAS",
-         "note": "gas is fuel, and in America the fuel that goes in a car"
-        },
-        {
-         "words": "confirmed",
-         "gives": "SET",
-         "note": "a date or a plan that is confirmed is set"
+         "note": "gas is a fuel"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Checking whether the last of the fuel in the can has really run out.",
-     "walkthrough": "'Is no more' looks like the euphemism for dead and is doing plain grammar — the past tense of 'is' — and the definition is the whole closing phrase, not just its final word.",
-     "definitionFit": "a non-renewable resource -> WASTING ASSET: in accounting a wasting asset is one used up and never replaced, which is what such a resource is."
+     "surface": "Someone checks whether the fuel can is really empty.",
+     "walkthrough": "GAS goes 'in' between TIN and SET, making TINGASSET, after WAS.",
+     "definitionFit": "In accounting a wasting asset is one, like a mine or lease, that loses value and cannot be replenished."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confirmed"
     }
    }
   }
