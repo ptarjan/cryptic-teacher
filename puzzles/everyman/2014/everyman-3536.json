@@ -654,36 +654,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGREE",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the last letter of the next word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 2,
+         "note": "nearly means not quite all, so the word for new loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "new",
+         "at": 9,
+         "gives": "GREEN",
+         "note": "green means new or inexperienced, as a green recruit"
         },
         {
-         "words": "new",
-         "gives": "GREE",
-         "note": "green means new or inexperienced, cut short by one letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tailor's customer is offered a suit that is almost brand new.",
-     "walkthrough": "'Suit' looks like a noun for clothing, but it is the verb, as in 'that suits me'.",
-     "definitionFit": "Food that does not agree with you does not suit you, so the two verbs share a sense."
+     "surface": "A tailor describes a suit that is almost brand new.",
+     "walkthrough": "'new suit' reads as clothing, but 'new' gives GREEN and 'nearly' cuts its last letter to GREE; 'suit' is a verb, as in 'whatever times agree with you'.",
+     "definitionFit": "To agree with someone can mean to suit them, as when food or a climate agrees with a person."
     },
     "features": {
      "answerInScene": false,

@@ -389,60 +389,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRUTHFUL",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within another"
+       "at": 12,
+       "note": "in places the girl's name inside the other letters, between time and the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "very nearly",
-         "note": "very nearly means just short of complete, so the last letter is lost"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the standard abbreviation for time"
-          },
-          {
-           "words": "girl",
-           "gives": "RUTH",
-           "note": "a girl's name"
-          },
-          {
-           "words": "packed",
-           "gives": "FULL",
-           "note": "a packed venue is full; its final letter is dropped"
-          }
-         ]
+         "words": "time",
+         "at": 15,
+         "gives": "T"
         },
         {
-         "gives": "L"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "very nearly",
+           "at": 25,
+           "note": "very nearly means all but a whisker, so just the last letter of the word for packed goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "packed",
+           "at": 37,
+           "gives": "FULL",
+           "note": "a packed room is full"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "girl",
+       "at": 7,
+       "gives": "RUTH",
+       "note": "Ruth is a girl's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl turns up on time to find the place almost packed out.",
-     "walkthrough": "The girl's name is fitting: ruth is also an old word for pity, and 'truth' sits inside the answer.",
-     "definitionFit": "A person who tells no lies and is sincere in speech is straightforward and honest."
+     "surface": "A frank remark about a girl who, arriving on time, finds the place almost full.",
+     "walkthrough": "'girl in time' tempts you to put the girl inside T alone, but a single letter cannot hold her: she sits between time and the nearly packed word, once 'very nearly' has taken its last letter off.",
+     "definitionFit": "Truthful means telling the truth, which is what an honest person does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "girl"
+     "misdirectedWord": "packed"
     }
    }
   },
@@ -757,35 +759,37 @@
     "definitions": [
      {
       "text": "Songbird's",
-      "at": 0
+      "at": 0,
+      "note": "the bird's name, with 's standing for is to link the definition"
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "SHRIKE",
      "indicators": [
       {
        "text": "its tail is twisted",
-       "note": "the end of the word is twisted round, so its final pair swaps order"
+       "at": 32,
+       "note": "only the tail of the word, its last two letters, is twisted round, the rest left in place"
       }
      ],
      "parts": [
       {
        "words": "piercing scream",
+       "at": 11,
        "gives": "SHRIEK",
-       "note": "a shriek is a shrill scream; its last two letters are its tail"
+       "note": "a shriek is a shrill, piercing scream"
       }
      ]
     },
     "explanation": {
-     "surface": "A bird screeches when its tail feathers are tweaked.",
-     "walkthrough": "'Its tail' is the last two letters of the scream, which swap places. The 's is read as 'is'.",
-     "definitionFit": "The shrike, or butcher-bird, is a perching songbird known for impaling prey on thorns."
+     "surface": "A bird's cry is so shrill that its tail feathers ruffle.",
+     "walkthrough": "'its tail is twisted' turns round only the last two letters of SHRIEK, EK becoming KE. 'Songbird's' is the definition plus 's for 'is'.",
+     "definitionFit": "The shrike or butcher-bird is a perching songbird known for impaling its prey on thorns."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "tail"
     }
    }

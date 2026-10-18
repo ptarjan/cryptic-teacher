@@ -44,40 +44,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VAINGLORIOUS",
      "indicators": [
       {
        "text": "to stop",
-       "note": "to stop something is to plug its middle, so one group goes inside the other"
+       "at": 19,
+       "note": "to stop a gap is to plug it, so the rearranged letters go inside the word for many"
       }
      ],
      "parts": [
+      {
+       "words": "many",
+       "at": 27,
+       "gives": "VARIOUS",
+       "note": "various can mean many, as in for various reasons"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "desperately",
-         "note": "acting desperately means acting wildly, so the letters are thrown into a new order"
+         "at": 7,
+         "note": "doing something desperately is doing it wildly, so the letters of I long are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "I long",
-         "note": "the five letters of I and long, rearranged"
-        },
-        {
-         "words": "many",
-         "gives": "VARIOUS",
-         "note": "various means many different ones"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone longs to silence a crowd of braggarts.",
-     "definitionFit": "Vainglorious describes excessive pride and showy self-praise, a close synonym of boastful."
+     "surface": "Someone yearns to silence the crowd of braggarts around them.",
+     "walkthrough": "'I long' looks like the speaker's yearning, but those two words are just fodder for 'desperately'; 'to stop' means to plug, as you stop a hole.",
+     "definitionFit": "Vainglorious describes excessive pride and vanity, a person given to bragging about their achievements."
     },
     "features": {
      "answerInScene": true,
@@ -558,49 +560,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MAGNITUDE",
      "indicators": [
       {
        "text": "inspiring",
-       "note": "to inspire is literally to breathe in, so the outer word takes the others inside"
+       "at": 22,
+       "note": "to inspire is literally to breathe in, so the sorcerer takes the other letters inside him"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "MAGNITUDE",
+       "words": "sorcerer",
+       "at": 13,
+       "gives": "MAGE",
+       "note": "a mage is a magician or sorcerer"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling rotates the word, moving its first letter round to the end"
+         "text": "after",
+         "at": 41,
+         "note": "after places the daughter's letter behind the cycled ace"
         }
        ],
        "parts": [
         {
-         "words": "sorcerer",
-         "gives": "MAGE",
-         "note": "a mage is a magician"
-        },
-        {
-         "words": "ace",
-         "gives": "UNIT",
-         "note": "an ace is a one, a single unit"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "at": 47,
+           "note": "cycling moves the first letter of the word round to the end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ace",
+           "at": 55,
+           "gives": "UNIT",
+           "note": "an ace counts as one, a unit"
+          }
+         ]
         },
         {
          "words": "daughter",
+         "at": 32,
          "gives": "D",
-         "note": "D is the genealogical abbreviation for daughter"
+         "note": "D is the standard abbreviation for daughter in family trees"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wizard's grandeur rubs off on his daughter after an expert cyclist's win.",
-     "walkthrough": "'Cycling' looks like the sport; it is the instruction to rotate. An ace in cards counts as one, hence a single unit.",
-     "definitionFit": "Magnitude means great size or importance, so it is a synonym of greatness."
+     "surface": "A tribute to a great wizard who stirs his daughter after a champion cyclist rides past.",
+     "walkthrough": "'cycling' suggests a bike ride but means rotating the letters of the word for ace; 'after' puts the daughter behind them, and 'inspiring' (breathing in) sets the lot inside the sorcerer.",
+     "definitionFit": "Magnitude means great size or importance, so it serves as a synonym of greatness."
     },
     "features": {
      "answerInScene": false,
@@ -1491,12 +1506,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HUSTLE",
      "indicators": [
       {
        "text": "tackles",
-       "note": "to tackle someone is to wrap around them, so the outer letters enclose the rest"
+       "at": 43,
+       "note": "to tackle is to take hold of, so husband and the trimmed Alec grip the other letters between them"
       }
      ],
      "parts": [
@@ -1505,47 +1519,56 @@
        "parts": [
         {
          "words": "husband",
-         "gives": "H",
-         "note": "H is the abbreviation for husband"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "the United States"
-        },
-        {
-         "words": "tango",
-         "gives": "T",
-         "note": "T in the NATO alphabet"
+         "at": 23,
+         "gives": "H"
         },
         {
          "op": "middle",
          "indicators": [
           {
            "text": "barely",
-           "note": "barely means stripped bare, so the outer letters are removed and the middle kept"
+           "at": 36,
+           "note": "barely suggests stripped bare, so Alec loses his outer letters"
           }
          ],
          "parts": [
           {
            "words": "Alec",
-           "note": "Alec without its outer letters"
+           "at": 31,
+           "note": "the name taken as written, before its outer letters are stripped"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 7,
+         "gives": "US",
+         "note": "US is short for American, as in the US"
+        },
+        {
+         "words": "tango",
+         "at": 16,
+         "gives": "T",
+         "note": "T is tango in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American dances the tango as her husband Alec barely keeps up.",
-     "walkthrough": "The husband's letter and the stripped name together form the outside; the country and the NATO letter sit inside.",
-     "definitionFit": "The hustle is a disco dance that was popular in the 1970s."
+     "surface": "An American woman dances the tango while her husband Alec barely manages to keep up.",
+     "walkthrough": "'barely' leaves only the middle of Alec, and 'tackles' has husband and that middle wrap around the American tango from either side.",
+     "definitionFit": "The hustle is a disco dance that was popular in the 1970s, so it is one example of a dance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tango"
+     "misdirectedWord": "tackles"
     }
    }
   },

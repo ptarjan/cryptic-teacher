@@ -136,60 +136,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "letters that are out are disordered, not in their usual places"
+       "text": "taking in",
+       "at": 15,
+       "note": "taking in means admitting inside, so the shuffled letters gain one more within them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "taking in",
-         "note": "the rearranged letters take in one more letter"
+         "text": "out",
+         "at": 11,
+         "note": "out here means put out of order, so the letters of family day are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Family day",
-         "note": "anagram fodder, 9 letters"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "latest",
-           "note": "the latest letter of a word is its last"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Lerner's latest",
-           "gives": "R",
-           "select": "last",
-           "note": "the last letter of Lerner"
-          }
-         ]
+         "text": "latest",
+         "at": 34,
+         "note": "the latest letter of a word is its last one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lerner's",
+         "at": 25,
+         "gives": "LERNER",
+         "note": "the surname Lerner, the possessive only tying it to latest; Alan Jay Lerner wrote the show's lyrics"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family's day out includes a trip to see Lerner's newest show.",
-     "walkthrough": "Alan Jay Lerner wrote the words to My Fair Lady, so the surface points straight at the answer while the wordplay builds it from the family outing.",
-     "definitionFit": "My Fair Lady is the Lerner and Loewe stage musical based on Shaw's Pygmalion."
+     "surface": "A family's day trip includes the newest show by Lerner, its lyricist.",
+     "walkthrough": "'out' asks for FAMILY DAY to be rearranged, and 'taking in' adds R, the latest letter of Lerner's, to that mix. Lerner and Loewe wrote the musical, so the surface fits.",
+     "definitionFit": "My Fair Lady is the Lerner and Loewe stage musical based on Shaw's Pygmalion, so it is an example of a musical."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "latest"
+     "misdirectedWord": "out"
     }
    }
   },
@@ -215,31 +215,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DUN",
      "indicators": [
       {
        "text": "endless",
-       "note": "the word loses its end, its final letter"
+       "at": 7,
+       "note": "endless means without its final letter, so the novel's title is cut short"
       }
      ],
      "parts": [
       {
        "words": "Herbert novel",
-       "gives": "DUN",
-       "note": "Dune, Frank Herbert's science-fiction novel, without its last letter E"
+       "at": 15,
+       "gives": "DUNE",
+       "note": "Dune is the 1965 science-fiction novel by Frank Herbert"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A review calling one of Herbert's novels dull and interminable.",
-     "walkthrough": "'Endless' reads as a complaint that the book goes on forever; it is an instruction to cut the final letter.",
-     "definitionFit": "Dun is a dull greyish-brown colour, so dingy fits it."
+     "surface": "A reader complains that a novel by Herbert is drab and goes on forever.",
+     "walkthrough": "'endless' looks like a complaint about length, but it takes the last letter off DUNE.",
+     "definitionFit": "Dun is a dull greyish-brown colour, so it describes something drab or dingy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "endless"
     }
    }

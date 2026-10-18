@@ -221,53 +221,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "YOURSSINCERELY",
-     "indicators": [
-      {
-       "text": "misguided",
-       "note": "misguided letters have been sent the wrong way, so what remains is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "YOURSSINCERELY",
+       "op": "composite",
        "indicators": [
         {
          "text": "out of",
-         "note": "out of here means the letters of etc are taken away from the longer word"
+         "at": 20,
+         "note": "out of says the word is made from part of the shuffled letters, the rest being the named ones"
+        },
+        {
+         "text": "misguided",
+         "at": 27,
+         "note": "misguided means sent the wrong way, so the letters of courtesy are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "etc",
-         "note": "these three letters are removed"
-        },
-        {
          "words": "courtesy",
-         "note": "taken as written before the removal"
+         "at": 37
         },
         {
-         "words": "past",
-         "gives": "SINCE",
-         "note": "since can mean ago or in the past"
-        },
-        {
-         "words": "bank",
-         "gives": "RELY",
-         "note": "to bank on someone is to rely on them"
+         "words": "etc",
+         "at": 46,
+         "note": "these three letters are what is left over from courtesy once the first word is made"
         }
        ]
+      },
+      {
+       "words": "past",
+       "at": 51,
+       "gives": "SINCE",
+       "note": "since can mean in the past, as in 'long since'"
+      },
+      {
+       "words": "bank",
+       "at": 56,
+       "gives": "RELY",
+       "note": "to bank on someone is to rely on them"
       }
      ]
     },
     "explanation": {
      "surface": "Someone leaves a gathering out of mistaken politeness, walking past a riverbank.",
-     "walkthrough": "COURTESY minus C, E and T leaves OURSY, rearranged to YOURS; SINCE plus RELY completes the phrase.",
-     "definitionFit": "The phrase is the formal sign-off of a letter, the writer's way of taking leave at the end."
+     "walkthrough": "A composite anagram: 'misguided' rearranges COURTESY, and taking ETC out of it leaves the letters of YOURS. 'past' and 'bank' then supply the second word in two pieces.",
+     "definitionFit": "The phrase is the formal sign-off of a letter, the writer's polite way of taking leave at the end."
     },
     "features": {
      "answerInScene": true,
