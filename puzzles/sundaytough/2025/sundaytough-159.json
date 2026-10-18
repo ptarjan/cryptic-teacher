@@ -475,47 +475,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SKELETON",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as on clothing labels"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 10,
+         "note": "almost means nearly all, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "S is the abbreviation for small, as on clothes labels"
-        },
-        {
          "words": "key",
-         "gives": "KE",
-         "note": "key without its last letter"
+         "at": 6,
+         "gives": "KEY",
+         "note": "taken as written before its last letter goes"
         },
         {
-         "words": "revealed",
-         "gives": "LETON",
-         "note": "to let on is to reveal a secret"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "revealed",
+       "at": 17,
+       "gives": "LETON",
+       "note": "to let on is to reveal a secret"
       }
      ]
     },
     "explanation": {
-     "surface": "A minor but crucial clue nearly revealed which kind of key it was.",
-     "walkthrough": "The first 'key' is wordplay, the second part of the definition. LET ON is a phrasal verb, so 'revealed' gives two words run together.",
+     "surface": "A little key nearly gave away what kind of key it was.",
+     "walkthrough": "'almost' trims KEY to KE. The clue's two keys play different roles: the second sits inside the definition.",
      "definitionFit": "A skeleton key is a master key filed down so that it opens many different locks."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Small"
+     "misdirectedWord": "revealed"
     }
    }
   },
@@ -541,26 +546,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DAIS",
      "indicators": [
       {
-       "text": "changing ends",
-       "note": "changing ends means the first and last letters swap places with each other"
+       "text": "changing",
+       "at": 16,
+       "note": "changing here means swapping over, so the letter at each end moves to the other"
       }
      ],
      "parts": [
       {
-       "words": "declared",
-       "gives": "SAID",
-       "note": "to declare something is to say it"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "ends",
+         "at": 25,
+         "note": "the ends are the first and last letters, the pair exchanged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "declared",
+         "at": 6,
+         "gives": "SAID",
+         "note": "said means declared"
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "gives": "D"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes a firm position, then switches sides.",
-     "walkthrough": "Swapping the S at the front with the D at the back turns SAID into DAIS.",
-     "definitionFit": "A dais is a raised platform for a speaker, and a stand is a similar raised structure."
+     "surface": "Someone takes a stand, announces it, then switches sides.",
+     "walkthrough": "'changing ends' swaps the outer letters of SAID (declared): the leading S becomes D, giving DAID, then the final D becomes S.",
+     "definitionFit": "A dais is a raised platform on which a speaker or dignitary stands."
     },
     "features": {
      "answerInScene": false,
@@ -1214,37 +1243,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABELE",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "something cut is shortened, so its final letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "President famously honest",
+       "at": 0,
+       "gives": "ABE",
+       "note": "Abraham Lincoln was nicknamed Honest Abe"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 29,
+         "note": "cut means shortened, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "President famously honest",
-         "gives": "ABE",
-         "note": "Abraham Lincoln was nicknamed Honest Abe"
+         "words": "on",
+         "at": 26,
+         "gives": "LEG",
+         "note": "in cricket the on side is also called the leg side, so on gives leg"
         },
         {
-         "words": "on",
-         "gives": "LE",
-         "note": "in cricket the on side is the leg side, so on is LEG, shortened"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lincoln, known for honesty, chopping down a tree, like Washington in the cherry-tree story.",
-     "walkthrough": "'Cut tree' tempts as one image; 'cut' acts on LEG. The on side and leg side are the same half of a cricket field.",
-     "definitionFit": "The abele is the white poplar, a tree with leaves silvery-white underneath."
+     "surface": "A tree is chopped down by the famously truthful president.",
+     "walkthrough": "'cut' shortens LEG to LE. In cricket the half of the field behind a right-handed batsman's legs is the on or leg side.",
+     "definitionFit": "The abele is the white poplar, a tree with leaves silvery on their undersides."
     },
     "features": {
      "answerInScene": true,
