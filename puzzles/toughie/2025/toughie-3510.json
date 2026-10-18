@@ -468,42 +468,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "contrived",
-       "note": "something contrived is artificially arranged, so these letters are rearranged"
+       "text": "below",
+       "at": 6,
+       "note": "in a down clue, below puts the second piece under the first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "below",
-         "note": "in a down clue below means placed underneath, so after the other part"
+         "text": "contrived",
+         "at": 18,
+         "note": "contrived means artificially arranged, so the letters of posh are rearranged"
         }
        ],
        "parts": [
         {
          "words": "posh",
-         "note": "these four letters rearranged"
-        },
-        {
-         "words": "Level",
-         "gives": "FLOOR",
-         "note": "a floor is a level of a building"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "Level",
+       "at": 0,
+       "gives": "FLOOR",
+       "note": "a level of a building is a floor"
       }
      ]
     },
     "explanation": {
-     "surface": "Class commentary: one level beneath the upper crust, an artificial spot for workers.",
-     "definitionFit": "The shop floor is the production area of a factory where the manual workers are, so it is where the workforce labours."
+     "surface": "A sneer at a posh setting contrived as somewhere for the working classes.",
+     "walkthrough": "'posh' seems to describe the place, but it is only the letters to rearrange; the question mark flags a playful definition.",
+     "definitionFit": "The factory floor is where manual workers labour, as opposed to management offices, hence a home for the proletariat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "posh"
     }
@@ -831,40 +835,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "like this?",
-       "note": "the answer itself is the instruction: its second word says to set the first word's letters loose, which turns them into the clue's words"
-      }
-     ],
+     "op": "reverse",
+     "reading": "PENSION + OFF",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "nose pin",
-         "note": "these eight letters rearranged"
-        },
-        {
-         "words": "like this?",
-         "gives": "OFF",
-         "note": "the answer's second word is the signal that, applied to its first word, produces the clue's words"
-        }
-       ]
+       "words": "nose pin, like this",
+       "at": 10,
+       "note": "read the answer as wordplay: the first word rearranged ('off' as an anagram signal) gives exactly these two words"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told to yank out a nose stud, demonstrated by example.",
-     "walkthrough": "This is a reverse clue: read the answer as an instruction, PENSION with OFF as an anagram signal, and you get the letters of 'nose pin'.",
-     "definitionFit": "To pension someone off is to make them retire, usually against their wishes, so it means removing them from their job."
+     "surface": "An odd instruction about a piece of facial jewellery.",
+     "walkthrough": "This is a reverse clue: 'like this?' invites you to treat the answer as wordplay. OFF, read as an anagram signal applied to PENSION, produces NOSEPIN.",
+     "definitionFit": "To pension someone off is to retire them, often against their will, so it means to force out of a job."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Force"
+     "misdirectedWord": "pin"
     }
    }
   },
@@ -1293,32 +1283,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BURDEN",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Rev Spooner famously swapped the opening sounds of words, so the initial sounds here are exchanged"
+       "at": 23,
+       "note": "Dr Spooner swapped the opening sounds of words, so the city's two syllables swap initial consonants"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "African city",
-       "gives": "BURDEN",
-       "soundsLike": "BURBAN",
-       "note": "Durban, the South African port, with its two initial consonants swapped"
+       "words": "African",
+       "at": 10,
+       "gives": "DUR",
+       "note": "together 'African city' is Durban, a South African port; this is its first syllable"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BEN",
+       "parts": [
+        {
+         "words": "city",
+         "at": 18,
+         "gives": "BAN",
+         "note": "the second syllable of Durban, said lightly so it sounds like the -den of garden"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trouble in a city in Africa, as the Reverend Spooner would put it.",
-     "walkthrough": "Swap the D and B of DURBAN and you hear the answer, the unstressed vowel blurring the spelling.",
-     "definitionFit": "To burden someone is to trouble or put upon them, which is what bothering them does."
+     "surface": "Someone is troubled in an African city, in Spooner's fashion.",
+     "walkthrough": "Swap the D of DUR and the B of BAN in DURBAN to get BURDAN, which is said the same as the answer.",
+     "definitionFit": "To burden someone is to trouble or load them with a worry, so as a verb it matches bother."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Bother"
     }
    }

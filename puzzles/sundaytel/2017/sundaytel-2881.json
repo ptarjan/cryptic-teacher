@@ -880,32 +880,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "strange",
-       "note": "a strange version is an unusual one, so the letters are shuffled out of the familiar order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "at": 20,
+         "note": "strange means odd, so the letters of dialect are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "dialect",
-         "note": "the letters of this word rearranged"
-        },
-        {
-         "words": "where some Germans live",
-         "gives": "ESSEN",
-         "note": "Essen is a city in the Ruhr, western Germany"
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "where some Germans live",
+       "at": 36,
+       "gives": "ESSEN",
+       "note": "Essen is a city in Germany"
       }
      ]
     },
     "explanation": {
-     "surface": "A food shop in a German city where the staff speak an odd local tongue.",
+     "surface": "A food shop uses an odd dialect in a German city.",
      "definitionFit": "A delicatessen is a shop selling prepared foods such as cooked meats and cheeses."
     },
     "features": {
@@ -993,49 +995,53 @@
      "indicators": [
       {
        "text": "hugging",
-       "note": "something hugging another wraps around it"
+       "at": 24,
+       "note": "hugging means holding close, so the place word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "in that position",
-         "gives": "THERE",
-         "note": "at that place"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "in that position",
+       "at": 6,
+       "gives": "THERE",
+       "note": "there means in that place"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter only"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "touchline",
-         "note": "the opening letter of the word"
+         "words": "a",
+         "at": 32,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 44,
+           "note": "initially means the first letter of touchline"
+          }
+         ],
+         "parts": [
+          {
+           "words": "touchline",
+           "at": 34
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer performs in a spot right next to the touchline.",
-     "walkthrough": "'Plays' wants to be a verb; it is a noun for dramas, collectively.",
-     "definitionFit": "Theatre means drama as an art form, the writing and staging of plays."
+     "surface": "A footballer plays out there, hugging the touchline.",
+     "walkthrough": "'Plays' looks like a verb about a player; it is the noun, drama as an art.",
+     "definitionFit": "Theatre means drama collectively, as in a collection of stage works by one writer."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Plays"
     }
    }

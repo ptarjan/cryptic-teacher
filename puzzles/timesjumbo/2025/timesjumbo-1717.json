@@ -148,33 +148,39 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beginning to",
-       "note": "only the beginning of the next word is taken"
-      }
-     ],
      "parts": [
       {
        "words": "Rare medicine",
+       "at": 0,
        "gives": "PHYSIC",
-       "note": "physic is an old word for medicine, rarely used now"
+       "note": "physic is an old, now rarely used, word for medicine"
       },
       {
        "words": "is",
-       "note": "used as written"
+       "at": 14,
+       "gives": "IS"
       },
       {
-       "words": "beginning to treat",
-       "gives": "T",
-       "note": "first letter of TREAT"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 17,
+         "note": "beginning to treat means its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "treat",
+         "at": 30
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor turns to an unusual drug to treat a researcher.",
-     "walkthrough": "'Rare' is not about scarcity of the drug but about the word: physic survives mostly in older writing.",
-     "definitionFit": "A definition by class: a physicist is one kind of scientist, working on matter and energy."
+     "surface": "An unusual remedy is starting to treat a scientist.",
+     "definitionFit": "A physicist is a scientist who studies matter, energy and their interactions."
     },
     "features": {
      "answerInScene": false,
@@ -1156,43 +1162,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "source of",
-       "note": "a word's source is its first letter"
+       "text": "around",
+       "at": 27,
+       "note": "around means the other pieces surround the numeral"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "the first part goes around the next"
-        }
-       ],
        "parts": [
         {
          "words": "Substantial",
+         "at": 0,
          "gives": "FAT",
-         "note": "fat = substantial, as in a fat cheque"
+         "note": "substantial, as in a large amount, can mean fat"
         },
         {
-         "words": "source of hope",
-         "gives": "H",
-         "note": "first letter of HOPE"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "at": 12,
+           "note": "the source of hope is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hope",
+           "at": 22
+          }
+         ]
         }
        ]
       },
       {
        "words": "one",
+       "at": 34,
        "gives": "I",
-       "note": "one = I, the Roman numeral, placed inside FA…TH"
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Religion as a great source of hope for everyone.",
-     "walkthrough": "'Source of hope' sits comfortably beside religion in the surface, which hides that it gives only H.",
-     "definitionFit": "A plain synonym, as in 'people of all faiths', meaning of all religions."
+     "surface": "A big source of hope surrounds a single religion.",
+     "definitionFit": "A faith is a system of religious belief, such as the Christian or Muslim faith."
     },
     "features": {
      "answerInScene": true,
@@ -1396,40 +1409,43 @@
      "indicators": [
       {
        "text": "to tuck into",
-       "note": "the first pieces are tucked inside the next"
+       "at": 17,
+       "note": "tuck into means go inside, so these letters sit within the cabbage"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cabbage",
-         "gives": "COLE",
-         "note": "cole is cabbage, as in coleslaw"
-        },
-        {
-         "words": "a",
-         "note": "used as written"
-        }
-       ]
+       "words": "cabbage",
+       "at": 30,
+       "gives": "COLE",
+       "note": "cole is an old word for cabbage"
       },
       {
-       "words": "Judge",
-       "gives": "J",
-       "note": "j = judge; A and J go inside C…OLE"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 9,
+         "gives": "A"
+        },
+        {
+         "words": "Judge",
+         "at": 11,
+         "gives": "J"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone coaxes a judge into eating his greens.",
-     "walkthrough": "'Tuck into' suggests eating, which fits the cabbage; here it means go inside.",
-     "definitionFit": "A near synonym: to cajole is to persuade by coaxing and flattery rather than force."
+     "surface": "Someone coaxes a judge into eating cabbage.",
+     "walkthrough": "'tuck into' suggests eating, but it means placing letters inside.",
+     "definitionFit": "To cajole is to coax someone into doing something by flattery or wheedling."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "tuck"
     }
    }
@@ -1603,40 +1619,59 @@
      "indicators": [
       {
        "text": "skewering",
-       "note": "to skewer is to run through, so the first piece sits inside the second"
+       "at": 24,
+       "note": "skewering means piercing, so these letters pass into the shortened victim"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 42,
+         "note": "not entirely means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "victim? Not entirely",
-         "gives": "MARTY",
-         "note": "MARTYR without its last letter; OR I goes inside M…ARTY"
+         "words": "victim",
+         "at": 34,
+         "gives": "MARTYR",
+         "note": "a martyr is a victim of persecution"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "one = I"
+         "gives": "R"
         }
        ]
       },
       {
-       "words": "or",
-       "note": "used as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "or",
+         "at": 17,
+         "gives": "OR",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal mastermind or a killer stabbing a victim, only half described.",
-     "walkthrough": "Professor Moriarty is Sherlock Holmes's arch-enemy, the Napoleon of crime.",
-     "definitionFit": "Conan Doyle called Moriarty the master criminal behind half of London's crimes."
+     "surface": "A master criminal, or someone piercing a victim, but not quite.",
+     "definitionFit": "Professor Moriarty is Sherlock Holmes's arch-enemy, called the Napoleon of crime."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "skewering"
+     "misdirectedWord": "victim"
     }
    }
   },
@@ -1969,35 +2004,38 @@
      "indicators": [
       {
        "text": "enthralled by",
-       "note": "held captive inside the next word"
+       "at": 29,
+       "note": "enthralled by means held captive inside, so the fight surrounds these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fight",
-         "gives": "BRAWL",
-         "note": "a brawl is a fight"
-        },
-        {
-         "words": "a",
-         "note": "used as written"
-        }
-       ]
+       "words": "fight",
+       "at": 43,
+       "gives": "BRAWL",
+       "note": "a brawl is a fight"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "d = daughter; A D goes inside BR…AWL"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        },
+        {
+         "words": "daughter",
+         "at": 20,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tedious girl gets absorbed in watching a fight.",
-     "walkthrough": "'Something to bore' suggests a dull person; it is a tool that bores holes.",
-     "definitionFit": "A bradawl is a small pointed tool for making holes in wood."
+     "surface": "A daughter is gripped by a dull fight.",
+     "walkthrough": "'bore' looks like tedium; it means drill a hole.",
+     "definitionFit": "A bradawl is a small hand tool for making holes in wood."
     },
     "features": {
      "answerInScene": false,
@@ -3177,36 +3215,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces go in the town's name"
+       "at": 43,
+       "note": "in places these letters within the town"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Berkshire town",
-         "gives": "SLOUGH",
-         "note": "Slough is a town in Berkshire, west of London"
-        },
-        {
-         "words": "currently",
-         "gives": "NOW",
-         "note": "now = currently"
-        }
-       ]
+       "words": "Berkshire town",
+       "at": 46,
+       "gives": "SLOUGH",
+       "note": "Slough is a town in the English county of Berkshire"
       },
       {
-       "words": "parking",
-       "gives": "P",
-       "note": "p = parking; NOW P goes inside S…LOUGH"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "currently",
+         "at": 25,
+         "gives": "NOW",
+         "note": "currently means now"
+        },
+        {
+         "words": "parking",
+         "at": 35,
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A council gritting lorry is now parked in a Berkshire town.",
-     "walkthrough": "P for parking is the letter on British car-park signs.",
-     "definitionFit": "A snowplough clears snow from roads, keeping them usable."
+     "surface": "A council vehicle is parked in a Berkshire town at present.",
+     "definitionFit": "A snowplough clears snow from roads in winter so they stay usable."
     },
     "features": {
      "answerInScene": true,

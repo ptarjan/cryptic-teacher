@@ -1479,49 +1479,52 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "keeping means holding, so the friend wraps around what follows"
+       "at": 7,
+       "note": "keeping means holding, so the friend's letters go around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Friend",
-         "gives": "PAL",
-         "note": "a pal is a friend"
-        },
-        {
-         "words": "slowing",
-         "gives": "RALL",
-         "note": "rall. is the musical abbreviation of rallentando, meaning slowing down"
-        }
-       ]
+       "words": "Friend",
+       "at": 0,
+       "gives": "PAL",
+       "note": "a pal is a friend"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately points to the final letter only"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "vehicle",
-         "note": "the final letter of the word"
+         "words": "slowing",
+         "at": 15,
+         "gives": "RALL",
+         "note": "rall., rallentando, is the musical direction for slowing down"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 32,
+           "note": "ultimately means the last letter of vehicle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vehicle",
+           "at": 24
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend keeps slowing down, the car eventually running next to them.",
-     "walkthrough": "Rall., short for rallentando, is the musical direction to slow down gradually.",
-     "definitionFit": "Parallel lines or roads run side by side, always at the same distance apart."
+     "surface": "A friend holds back while the vehicle eventually runs beside them.",
+     "definitionFit": "Parallel lines or paths run side by side at a constant distance."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "slowing"
     }
