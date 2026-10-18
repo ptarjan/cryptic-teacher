@@ -1201,49 +1201,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BASTION",
-     "indicators": [
-      {
-       "text": "moving",
-       "note": "moving letters around shifts them out of their original order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "BASTION",
        "indicators": [
         {
          "text": "Most of",
-         "note": "most of a word means all but its final letter is kept"
+         "at": 0,
+         "note": "most of the camp word is kept, its last letter dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "camp",
-           "gives": "BAS",
-           "note": "a base camp, shorn of its last letter"
-          },
-          {
-           "words": "into",
-           "note": "these four letters rearranged"
-          }
-         ]
+         "words": "camp",
+         "at": 8,
+         "gives": "BASE",
+         "note": "a base is a camp, as in a military base"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 13,
+         "note": "the letters of the word into are moved about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "into",
+         "at": 20,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Troops shift most of their camp inside a fort.",
-     "walkthrough": "'Into' looks like a link word, but it is the anagram fodder.",
-     "definitionFit": "A bastion is a projecting part of a fortification, and by extension a stronghold."
+     "surface": "Troops shifting most of their camp inside the walls of a fort.",
+     "walkthrough": "'Most of' trims BASE to BAS; 'moving' shuffles INTO into TION. 'into' looks like a link word but is the anagram fodder.",
+     "definitionFit": "A bastion is a projecting part of a fortification, and by extension any stronghold."
     },
     "features": {
      "answerInScene": true,

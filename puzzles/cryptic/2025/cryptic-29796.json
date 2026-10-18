@@ -162,47 +162,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "YOURCALLISIMPORTANTTOUSPLEASEHOLDTHELINE",
+     "op": "composite",
      "indicators": [
       {
        "text": "Awful",
-       "note": "something awful is a mess, so the letters that follow are thrown into disorder"
+       "at": 0,
+       "note": "something awful is a mess, so the letters of the phrases around it are thrown into disorder"
+      },
+      {
+       "text": "cut off",
+       "at": 77,
+       "note": "to cut something off is to remove it, so the named letter is struck out of the jumbled pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "YOURCALLISIMPORTANTTOUSPLEASEHOLDTHELINE",
-       "indicators": [
-        {
-         "text": "cut off",
-         "note": "to cut something off is to remove it, so the letter named is struck out of the mix"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "pity a lout",
+         "at": 6,
          "note": "taken as written, as anagram material"
         },
         {
          "words": "misanthrope couldn't care less",
+         "at": 22,
          "note": "taken as written, as anagram material"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "customer",
-           "note": "the opening letter, which is removed from the material"
-          }
-         ]
-        },
-        {
          "words": "Hello? I",
+         "at": 88,
          "note": "taken as written, the final scraps of anagram material"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 67,
+         "note": "only the initial letter of customer is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "customer",
+         "at": 58,
+         "note": "only its first letter is used, and that letter is removed from the pool"
         }
        ]
       }
@@ -210,13 +217,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A furious, abandoned caller on a telephone queue rants at the uncaring company before the line goes dead mid-sentence.",
-     "walkthrough": "One C is removed from the forty-one letters and the rest rearranged into YOUR CALL IS IMPORTANT TO US, PLEASE HOLD THE LINE. The whole clue doubles as the scenario in which that recorded message plays.",
+     "surface": "A furious caller left on a telephone queue rants at the uncaring company before the line goes dead mid-sentence.",
+     "walkthrough": "A composite anagram: the forty-one letters of the three phrases, with one C taken out ('cut off' applied to 'customer' 'initially'), are rearranged ('Awful') into the ten-word message. 'and' and 'when' only join. The whole clue doubles as the scene where the recording plays.",
      "definitionFit": "This is the recorded message heard by callers left waiting in a company's telephone queue, exactly the situation the clue describes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "absurd",
      "misdirectedWord": "Awful"
     }
    }
@@ -952,43 +960,56 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SPRUCES",
      "indicators": [
       {
        "text": "new",
-       "note": "something new is remade, so the letters are rearranged"
+       "at": 57,
+       "note": "something new is remade, so the letters left over are put together in a fresh order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SPRUCES",
        "indicators": [
         {
          "text": "away from",
-         "note": "whatever is away from a place is absent from it, so these letters go missing"
+         "at": 6,
+         "note": "the yards letter goes away from the cypress, so it is taken out"
         }
        ],
        "parts": [
         {
          "words": "cypress",
+         "at": 16,
+         "note": "taken as written, minus its Y"
+        },
+        {
+         "words": "Yards",
+         "at": 0,
+         "gives": "Y",
+         "note": "Y is the standard abbreviation for yards"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removed from",
+         "at": 36,
+         "note": "the letters of the shorter tree are taken out of the longer word, leaving one letter behind"
+        }
+       ],
+       "parts": [
+        {
+         "words": "popular",
+         "at": 49,
          "note": "taken as written"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Yards",
-           "note": "the opening letter of the word, which is then taken out"
-          }
-         ]
-        },
-        {
-         "words": "poplar removed from popular",
-         "gives": "U",
-         "note": "taking the letters of the shorter tree out of the longer word leaves a single letter"
+         "words": "poplar",
+         "at": 29,
+         "note": "taken as written; its letters are the ones removed"
         }
        ]
       }
@@ -996,7 +1017,7 @@
     },
     "explanation": {
      "surface": "A gardener clears out the cypress and poplar to plant fashionable new trees.",
-     "walkthrough": "CYPRESS without Y gives CPRESS; POPULAR without POPLAR leaves U. The seven letters are then rearranged.",
+     "walkthrough": "'away from' leaves CPRESS; 'poplar removed from popular' leaves just U, since the two words differ by one letter. 'new' mixes the seven letters.",
      "definitionFit": "Spruces are evergreen conifers, so they are a kind of tree, defined here by the general class."
     },
     "features": {

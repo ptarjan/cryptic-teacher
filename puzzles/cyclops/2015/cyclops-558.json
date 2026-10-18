@@ -682,57 +682,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Not right",
-       "note": "not right means the letter for right is removed from the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not right",
+         "at": 0,
+         "note": "the word for always goes without its R, the abbreviation for right"
+        }
+       ],
        "parts": [
         {
          "words": "always",
+         "at": 11,
          "gives": "EVER",
-         "note": "ever means always"
+         "note": "ever means always, as in 'ever hopeful'"
         },
         {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "YN",
-         "indicators": [
-          {
-           "text": "right wing pair",
-           "note": "the right wing of a word is its end, and a pair is two letters from there"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "8's",
-           "gives": "YN",
-           "select": "last",
-           "note": "8-down is CORBYN, and its last two letters are kept"
-          }
-         ]
+         "gives": "R"
         }
        ]
       },
       {
-       "gives": "R"
+       "words": "left",
+       "at": 18,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "right wing pair",
+         "at": 28,
+         "note": "only the two letters on the right-hand wing of the name are kept, the rest dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "8's",
+         "at": 24,
+         "gives": "CORBYN",
+         "note": "8-down's answer is CORBYN, Labour leader at the time"
+        },
+        {
+         "gives": "CORB"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe that someone is never right but always left, like Corbyn's wing of Labour.",
-     "definitionFit": "Evelyn is a given name, borne by figures such as the novelist Evelyn Waugh."
+     "surface": "A jibe at Corbyn: never right, always on the left, with only a token pair of right-wingers.",
+     "walkthrough": "'Not right' strips R from EVER to give EVE; the 'right wing pair' of CORBYN is its last two letters, YN. Here right wing means the right-hand end, not politics.",
+     "definitionFit": "Evelyn is a given name, used for both men and women, so it is one example of a name."
     },
     "features": {
      "answerInScene": false,

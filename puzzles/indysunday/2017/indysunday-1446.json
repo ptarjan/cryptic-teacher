@@ -458,42 +458,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRACKISH",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut twice",
-       "note": "cutting the word two times trims off its last two letters"
+       "text": "is full of",
+       "at": 23,
+       "note": "the shortened bishop is filled with the anguish word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "is full of",
-         "note": "being full of something means holding it inside, so one piece is placed within the other"
+         "text": "cut twice",
+         "at": 13,
+         "note": "the word bishop is docked twice, losing one letter from its end each time"
         }
        ],
        "parts": [
         {
          "words": "bishop",
-         "gives": "BISH",
-         "note": "the word bishop with its final two letters cut away"
+         "at": 6,
+         "note": "taken as written, minus its last two letters"
         },
         {
-         "words": "anguish",
-         "gives": "RACK",
-         "note": "the rack is torment, as in being on the rack"
+         "gives": "OP"
         }
        ]
+      },
+      {
+       "words": "anguish",
+       "at": 34,
+       "gives": "RACK",
+       "note": "rack means torment or anguish, as in being on the rack"
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman with a sharp tongue, hurt by being trimmed back, is in torment.",
-     "definitionFit": "Brackish water is slightly salty, as where river water mixes with the sea."
+     "surface": "A bishop, twice wounded and full of pain, turns salty in temper.",
+     "walkthrough": "'cut twice' takes O and P off BISHOP, leaving BISH, which 'is full of' RACK. 'Salty' suggests a bad-tempered bishop, but it describes water.",
+     "definitionFit": "Brackish water is slightly salty, like the mix of river and sea water in an estuary."
     },
     "features": {
      "answerInScene": false,
@@ -1337,46 +1342,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCORED",
-     "indicators": [
-      {
-       "text": "lacking in love",
-       "note": "lacking love means without the zero-shaped letter that stands for love in tennis"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking in love",
+         "at": 3,
+         "note": "love is zero, the letter O, which the word So goes without"
+        }
+       ],
        "parts": [
         {
          "words": "So",
-         "gives": "S",
-         "note": "the word so without its O"
+         "at": 0,
+         "note": "taken as written, minus its O"
         },
         {
-         "words": "my",
-         "gives": "COR",
-         "note": "cor is a British exclamation of surprise, like my!"
-        },
-        {
-         "words": "editor",
-         "gives": "ED",
-         "note": "ed is short for editor"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "my",
+       "at": 20,
+       "gives": "COR",
+       "note": "cor and my are both exclamations of surprise"
+      },
+      {
+       "words": "editor",
+       "at": 23,
+       "gives": "ED"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper editor with no love left bought illegal substances.",
-     "walkthrough": "My is an exclamation here, not a possessive; love is O, as in a tennis score of nil.",
-     "definitionFit": "To score is slang for obtaining illegal drugs, so it can replace bought drugs."
+     "surface": "A newspaper editor, so unloved, turns to buying drugs.",
+     "walkthrough": "'lacking in love' turns SO into S, love being O as in tennis scores. 'my' is an exclamation here, like cor.",
+     "definitionFit": "To score is slang for obtaining illegal drugs, so scored means bought them."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "my"
     }
    }
@@ -1449,32 +1457,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ATTIC",
-     "indicators": [
-      {
-       "text": "half-upset",
-       "note": "upset means knocked over, and only half of the phrase is overturned to run the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "In flagrante",
-       "gives": "ATIT",
-       "note": "caught in flagrante, in the act, is caught at it"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "half-upset",
+         "at": 18,
+         "note": "only half of the phrase, its last two letters, is turned over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In flagrante",
+         "at": 0,
+         "gives": "ATIT",
+         "note": "in flagrante means caught in the act, that is at it"
+        },
+        {
+         "gives": "IT"
+        },
+        {
+         "gives": "TI"
+        }
+       ]
       },
       {
        "words": "cold",
+       "at": 30,
        "gives": "C",
-       "note": "C is the abbreviation for cold on taps"
+       "note": "C is the standard abbreviation for cold, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "Lovers caught in the act are somewhat flustered in a chilly bedroom.",
-     "walkthrough": "In flagrante delicto is Latin for caught red-handed, often meaning caught having sex.",
-     "definitionFit": "An attic is a room in the roof space at the top of a house."
+     "surface": "Caught in the act, a couple are partly upset by a chilly room.",
+     "walkthrough": "'In flagrante' means caught at it; 'half-upset' flips the second half of AT IT, giving ATTI, then C for cold follows.",
+     "definitionFit": "An attic is the space or room directly under the roof of a house, a loft."
     },
     "features": {
      "answerInScene": true,

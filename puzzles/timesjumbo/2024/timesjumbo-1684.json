@@ -819,41 +819,41 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "under"
+       "text": "under",
+       "at": 12,
+       "note": "in a down answer the second piece sits under the first"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DY",
        "indicators": [
         {
          "text": "empty",
-         "note": "diary with its inside removed leaves D…Y"
+         "at": 18,
+         "note": "an empty diary has nothing inside, leaving only its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "empty diary",
-         "gives": "DY",
-         "select": "outer",
-         "note": "DiarY emptied of its middle"
+         "words": "diary",
+         "at": 24,
+         "note": "only its outer letters are used"
         }
        ]
       },
       {
        "words": "not pleasant",
+       "at": 31,
        "gives": "NASTY",
-       "note": "nasty = not pleasant"
+       "note": "nasty means not pleasant"
       }
      ]
     },
     "explanation": {
-     "surface": "An unpleasant rule of drawing a line beneath an empty diary.",
-     "walkthrough": "'Ruling line' looks like a ruled line under the diary; it is a succession of rulers.",
-     "definitionFit": "A plain synonym: a succession of monarchs from one family, passing power down the generations."
+     "surface": "A ruled line beneath an empty, unpleasant diary page.",
+     "walkthrough": "'empty' hollows DIARY to DY; 'under' puts NASTY below it. 'Ruling line' looks like ruled paper, matching the diary, but it is a line of rulers.",
+     "definitionFit": "A dynasty is a succession of monarchs from one family, so a line of rulers."
     },
     "features": {
      "answerInScene": false,
@@ -1225,40 +1225,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THANKLESS",
      "indicators": [
       {
        "text": "for",
-       "note": "ANKLES stands in for the I of THIS"
+       "at": 36,
+       "note": "one thing stands for another, so the joint and succeeded go in where the one was"
       }
      ],
      "parts": [
       {
        "words": "This",
+       "at": 14,
        "note": "taken as written"
       },
       {
-       "words": "joint",
-       "gives": "ANKLE",
-       "note": "the ankle is a joint"
-      },
-      {
-       "words": "succeeded",
-       "gives": "S",
-       "note": "s. = succeeded, in genealogy"
-      },
-      {
        "words": "one",
+       "at": 40,
        "gives": "I",
-       "note": "I = one, the letter it replaces"
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "joint",
+         "at": 19,
+         "gives": "ANKLE",
+         "note": "the ankle is the joint between leg and foot"
+        },
+        {
+         "words": "succeeded",
+         "at": 25,
+         "gives": "S",
+         "note": "S is the abbreviation for succeeded, as in family trees"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asks whether a joint venture that succeeded could still be unprofitable.",
-     "walkthrough": "'For one' looks like 'for example'; it means 'in place of I'. So THIS swaps its I for ANKLE + S.",
-     "definitionFit": "A thankless task earns no reward, so it is unprofitable."
+     "surface": "Wondering whether a business venture was worth it, with this joint judged a success.",
+     "walkthrough": "In THIS, the I is replaced ('for one') by ANKLE and S, giving TH-ANKLES-S. 'joint' looks like a business but is a body part.",
+     "definitionFit": "A thankless task brings no reward or gratitude, so it is unrewarding, not worth the effort."
     },
     "features": {
      "answerInScene": false,
@@ -1745,55 +1753,59 @@
    "annotation": {
     "definitions": [
      {
-      "text": "did one sleep on it?",
-      "at": 37,
-      "note": "the definition is a question about the answer: a waterbed is the thing one sleeps on"
+      "text": "did one sleep on it",
+      "at": 37
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "only the first letter of When"
-      }
-     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
-         "text": "cropped",
-         "note": "Debrett loses its last letter"
+         "text": "initially",
+         "at": 5,
+         "note": "only the initial letter of When is used"
         }
        ],
        "parts": [
         {
-         "words": "When initially",
-         "note": "the first letter of When"
+         "words": "When",
+         "at": 0,
+         "note": "only its first letter is taken"
         }
        ]
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 15
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, the letters read upwards"
+         "at": 33,
+         "note": "in a down answer, something up reads from bottom to top, so the peerage word is reversed"
         }
        ],
        "parts": [
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "cropped",
+           "at": 25,
+           "note": "cropped means cut short, so the peerage word loses its last letter"
+          }
+         ],
          "parts": [
           {
            "words": "peerage",
+           "at": 17,
            "gives": "DEBRETT",
-           "note": "Debrett's Peerage is the guide to the British aristocracy; its end T goes"
+           "note": "Debrett's Peerage is the standard British guide to the aristocracy, often just called Debrett"
           },
           {
            "gives": "T"
@@ -1805,9 +1817,9 @@
      ]
     },
     "explanation": {
-     "surface": "Wondering whether someone who suddenly got a peerage stayed awake over it.",
-     "walkthrough": "'Peerage' names the reference book, Debrett's, which lists Britain's titled families. 'Sleep on it' also means to delay a decision, the surface's reading.",
-     "definitionFit": "A waterbed is a bed with a water-filled mattress, something one sleeps on."
+     "surface": "Someone surprised by a peerage ponders whether they slept on the decision.",
+     "walkthrough": "'peerage' is not a title but the book: Debrett's is the British reference guide to the titled classes. 'initially', 'cropped' and 'up' each act on a different piece.",
+     "definitionFit": "A waterbed is a mattress filled with water, so the question asks if someone slept on such a bed."
     },
     "features": {
      "answerInScene": false,

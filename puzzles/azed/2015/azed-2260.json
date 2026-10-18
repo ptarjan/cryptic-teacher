@@ -831,46 +831,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHARN",
+     "op": "composite",
      "indicators": [
       {
        "text": "disfigured",
-       "note": "something disfigured has its shape spoiled and rearranged"
+       "at": 17,
+       "note": "something disfigured has its shape spoiled, so the letters of has and green are put out of order"
+      },
+      {
+       "text": "not involved",
+       "at": 39,
+       "note": "the letters of gee play no part, so they are taken out of the jumbled pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SHARN",
-       "indicators": [
-        {
-         "text": "not involved",
-         "note": "letters not involved are left out of the word they sat in"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "has",
+         "at": 13,
          "note": "taken as written"
         },
         {
          "words": "green",
+         "at": 28,
          "note": "taken as written"
-        },
-        {
-         "words": "gee",
-         "note": "the letters to remove: one G and two Es"
         }
        ]
+      },
+      {
+       "words": "gee",
+       "at": 35,
+       "note": "taken as written: one G and two Es to remove"
       }
      ]
     },
     "explanation": {
      "surface": "A cowpat has spoiled the village green, though the horse (gee-gee) had no part in it.",
-     "walkthrough": "Strip G, E and E out of green to leave R and N, then rearrange those with has.",
+     "walkthrough": "Take G, E and E from HAS plus GREEN, leaving HASRN, and 'disfigured' shuffles those five letters.",
      "definitionFit": "Sharn is a dialect word for cow dung, of which a cowpat is one example."
     },
     "features": {
@@ -1182,41 +1181,33 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FIREAWAY",
      "indicators": [
       {
        "text": "as Rev. Spooner might have it",
-       "note": "Dr Spooner was famous for swapping the opening sounds of neighbouring words"
+       "at": 36,
+       "note": "the Reverend Spooner was known for swapping the opening sounds of words, so the first letters change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "contact",
-         "gives": "FIRE",
-         "soundsLike": "WIRE",
-         "note": "to wire someone is to contact them by telegram; its opening sound is traded"
-        },
-        {
-         "unchecked": true,
-         "words": "a spiritual being",
-         "gives": "AWAY",
-         "soundsLike": "A FAY",
-         "note": "a fay is a fairy; its opening sound is traded"
-        }
-       ]
+       "words": "contact a",
+       "at": 9,
+       "gives": "WIREA",
+       "note": "to wire someone is to contact them by telegram; the a rides along unchanged"
+      },
+      {
+       "words": "spiritual being",
+       "at": 19,
+       "gives": "FAY",
+       "note": "a fay is a fairy, a spiritual being of folklore"
       }
      ]
     },
     "spelling": "FIRE AWAY",
     "explanation": {
-     "surface": "Starting a séance, trying to get in touch with a spirit.",
-     "walkthrough": "Swap the W and F of WIRE A FAY to get the answer.",
-     "definitionFit": "Fire away is an idiom inviting someone to begin speaking or asking questions."
+     "surface": "A medium trying to reach a spirit, put in Spooner's tangled words.",
+     "walkthrough": "WIRE A FAY, with W and F exchanged, gives the two-word answer. 'Begin' is the encouragement to start talking or shooting.",
+     "definitionFit": "Fire away is an idiom inviting someone to start, especially to start asking questions."
     },
     "features": {
      "answerInScene": false,
@@ -1638,39 +1629,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ISTLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "weaves",
-       "note": "weaving interlaces strands, mixing them into a new arrangement"
+       "at": 19,
+       "note": "weaving interlaces strands, so the letters of in filaments are worked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ISTLE",
-       "indicators": [
-        {
-         "text": "Most of",
-         "note": "most of means all but the last letter is kept"
-        }
-       ],
+       "words": "in filaments",
+       "at": 28,
+       "note": "taken as written: the pool the answer and the named letters come from"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "in filaments",
-         "note": "taken as written: the whole mixed together"
-        },
-        {
-         "words": "fine",
-         "gives": "FIN",
-         "note": "taken as written, losing its last letter; removed from the whole"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Most of",
+           "at": 0,
+           "note": "most of the word fine is kept, its last letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fine",
+           "at": 8,
+           "note": "taken as written, minus its final E"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "man",
-         "note": "taken as written; also removed from the whole"
+         "at": 15,
+         "note": "taken as written; these letters also come out of the pool"
         }
        ]
       }
@@ -1678,8 +1677,8 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Weaving fine fibres into thread, the way a craftsman would.",
-     "walkthrough": "A composite anagram: the answer plus FIN and MAN, mixed, spells IN FILAMENTS, so remove those letters and rearrange the rest.",
+     "surface": "A craftsman weaving fine fibres, as one does with plant filaments.",
+     "walkthrough": "A composite anagram: the answer plus FIN ('Most of' fine) and MAN, mixed by 'weaves', spells IN FILAMENTS. The whole clue also describes how the fibre is used.",
      "definitionFit": "Istle is a strong plant fibre from agave and yucca, woven into cord, nets and brushes."
     },
     "features": {
