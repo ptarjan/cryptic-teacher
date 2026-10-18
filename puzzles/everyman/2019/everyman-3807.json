@@ -833,60 +833,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANASTASIA",
-     "indicators": [
-      {
-       "text": "Perhaps",
-       "note": "perhaps hints at a possible arrangement of the letters, signalling that they be reordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANASTASIA",
+       "words": "a",
+       "at": 8
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "missing",
-         "note": "missing says a letter is absent from the fodder and must be taken out"
+         "text": "Perhaps",
+         "at": 0,
+         "note": "perhaps means maybe, so the letters that follow are only one possible order and get rearranged"
         }
        ],
        "parts": [
         {
-         "words": "a … a tsarina's",
-         "note": "the two single letters plus the possessive word, taken as written"
-        },
-        {
-         "op": "last",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in the end",
-           "note": "the end of a word is its final letter, so only that one is taken"
+           "text": "missing",
+           "at": 24,
+           "note": "missing means lacking, so a letter is dropped from the tsarina's letters"
           }
          ],
          "parts": [
           {
-           "words": "daughter",
-           "note": "final letter of this word, the one to remove"
+           "words": "tsarina's",
+           "at": 14
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "in the end",
+             "at": 41,
+             "note": "in the end points to the final letter of daughter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "daughter",
+             "at": 32,
+             "note": "the last letter of daughter"
+            }
+           ]
           }
          ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 12
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Wonders whether a Russian empress's daughter went missing at the end.",
-     "walkthrough": "Remove R from A A TSARINAS and rearrange; read whole, the clue also describes the Romanov daughter rumoured to have survived.",
-     "definitionFit": "Grand Duchess Anastasia, youngest daughter of the last Romanovs, was long rumoured to have survived and vanished."
+     "surface": "A wistful question about the Romanov tsarina's lost daughter, the one rumoured to have escaped.",
+     "walkthrough": "'missing' takes R (the end of daughter) from TSARINAS, leaving TSAINAS for 'Perhaps' to rearrange between the two A's. The whole clue is also the definition: Grand Duchess Anastasia was long rumoured to have survived her family's execution.",
+     "definitionFit": "Anastasia Romanov was the youngest daughter of the last tsar and tsarina; claims that she survived made her famously missing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Perhaps"
+     "misdirectedWord": "missing"
     }
    }
   },
@@ -911,42 +924,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACETYLENE",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without its top, the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Extraordinary",
+       "at": 0,
+       "gives": "ACE",
+       "note": "ace means outstanding, extraordinarily good"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 16,
+         "note": "topless means losing the top, so the first letter of the word for a way of dressing goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Extraordinary",
-         "gives": "ACE",
-         "note": "ace means outstanding or excellent"
-        },
-        {
          "words": "way of dressing",
-         "gives": "TYLE",
-         "note": "style is a manner of dress; drop its first letter"
+         "at": 24,
+         "gives": "STYLE",
+         "note": "style is a manner of dressing"
         },
         {
-         "words": "Tyneside",
-         "gives": "NE",
-         "note": "Tyneside, around Newcastle, is in the North East of England"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "Tyneside",
+       "at": 43,
+       "gives": "NE",
+       "note": "Tyneside, around Newcastle, lies in the North East of England, abbreviated NE"
       }
      ]
     },
     "explanation": {
-     "surface": "Topless dressing on Tyneside is remarkable, and a laugh.",
-     "walkthrough": "Geordies on Tyneside famously go out coatless in winter; 'a gas' looks like 'a laugh' but is the literal definition.",
-     "definitionFit": "Acetylene is the flammable hydrocarbon gas used in welding torches."
+     "surface": "Going topless on Tyneside is called an extraordinary fashion, and a real laugh.",
+     "walkthrough": "'is a gas' reads as slang for great fun, but the definition is literal: a gas.",
+     "definitionFit": "Acetylene is a colourless flammable hydrocarbon gas, burnt in oxy-acetylene welding torches."
     },
     "features": {
      "answerInScene": false,

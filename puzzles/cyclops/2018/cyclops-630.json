@@ -269,62 +269,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPRESARIO",
-     "indicators": [
-      {
-       "text": "All but",
-       "note": "everything except a little, so the final letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "All but",
+         "at": 0,
+         "note": "all but means nearly all, so the last letter of the word for strike is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "strike",
-         "gives": "IMPRES",
-         "note": "to impress is to strike or stamp a mark; its last letter goes"
+         "at": 8,
+         "gives": "IMPRESS",
+         "note": "to strike someone, as an idea does, is to impress them"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "aggravated",
-           "note": "something aggravated is stirred up and disturbed, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "air",
-           "note": "taken as written before rearranging"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "at the start, so only the opening letter of the next word counts"
-            }
-           ],
-           "parts": [
-            {
-             "words": "obnoxious",
-             "note": "the first letter of the word"
-            }
-           ]
-          }
-         ]
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "aggravated",
+         "at": 21,
+         "note": "aggravated means stirred up or worsened, so the letters of air are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "air",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 37,
+         "note": "initially points to the first letter of obnoxious"
+        }
+       ],
+       "parts": [
+        {
+         "words": "obnoxious",
+         "at": 47,
+         "note": "the first letter of obnoxious"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bullying showbiz producer, all strikes and bad temper, is described in passing.",
-     "walkthrough": "'Strike' here is the verb impress, as in stamping a coin, not a walkout; dropping its last S leaves the front of the answer.",
-     "definitionFit": "An impresario organises and finances concerts, plays or operas, which is what a theatrical producer does."
+     "surface": "A showbusiness boss threatens a strike in an irritable, obnoxious manner.",
+     "walkthrough": "'strike' suggests industrial action, but it means to impress, as in being struck by an idea.",
+     "definitionFit": "An impresario organises and finances theatrical or musical productions, the role of a stage producer."
     },
     "features": {
      "answerInScene": true,
