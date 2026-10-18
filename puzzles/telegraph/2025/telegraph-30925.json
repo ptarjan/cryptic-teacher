@@ -1732,43 +1732,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "DODO",
-     "indicators": [
-      {
-       "text": "Repeatedly",
-       "note": "repeatedly says the same shortened piece is used twice in a row"
-      }
-     ],
      "parts": [
       {
+       "words": "Repeatedly",
+       "at": 0,
+       "gives": "DO",
+       "note": "'Repeatedly' asks for a second copy of the shortened word for follow, set in front of the first"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DODO",
        "indicators": [
         {
          "text": "tailless",
-         "note": "without a tail, the word loses its last letter"
+         "at": 18,
+         "note": "'tailless' says the word for follow loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "follow",
+         "at": 11,
          "gives": "DOG",
          "note": "to dog someone is to follow them closely"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old bird keeps trailing someone with no tail.",
-     "definitionFit": "The dodo is an extinct flightless bird of Mauritius, so a bird of old."
+     "surface": "An instruction to keep trailing an old bird that has lost its tail.",
+     "walkthrough": "DOG loses its tail to give DO, and 'Repeatedly' doubles it. 'old' belongs with 'bird' in the definition, the extinct dodo.",
+     "definitionFit": "The dodo is an extinct flightless bird of Mauritius, so it is literally a bird of the past."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tailless"
+     "misdirectedWord": "follow"
     }
    }
   },

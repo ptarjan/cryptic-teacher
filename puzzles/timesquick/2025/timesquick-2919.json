@@ -184,47 +184,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGGRO",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "content of",
+         "at": 18,
+         "note": "'content of' asks for what is inside the word bags, its letters without the outer ones"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "content of",
-           "note": "the content of a container is what sits inside it, so only the inner letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bags",
-           "note": "the inside of the word without its outer letters"
-          }
-         ]
-        },
+         "words": "bags",
+         "at": 29,
+         "note": "the inside letters of bags, without the B and S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 43,
+         "note": "'endlessly' cuts the final letter from the word for increase"
+        }
+       ],
+       "parts": [
         {
          "words": "increase",
-         "gives": "GRO",
-         "note": "to increase is to grow, and the word loses its last letter"
+         "at": 34,
+         "gives": "GROW",
+         "note": "to grow is to increase"
+        },
+        {
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trouble arises when the contents of one's bags keep swelling without limit.",
-     "walkthrough": "AGGRO is British slang, short for aggravation: hassle, bother or aggressive trouble.",
-     "definitionFit": "Aggro is informal British slang for trouble, hassle or aggressive behaviour, fitting a plural word for problems loosely."
+     "surface": "Someone's bags keep getting fuller, which causes trouble.",
+     "walkthrough": "AGGRO is British slang, short for aggravation, for trouble or hassle.",
+     "definitionFit": "Aggro means aggravation, trouble or hostile hassle, so in the plural sense of difficulties it fits loosely."
     },
     "features": {
      "answerInScene": false,
@@ -399,12 +404,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ENAMELLER",
      "indicators": [
       {
        "text": "always missing first three letters",
-       "note": "every word here loses its opening three letters, since 'always' applies the cut to each one"
+       "at": 34,
+       "note": "'always' says every one of the three words that follow loses its opening three letters, not just the first"
       }
      ],
      "parts": [
@@ -413,32 +417,35 @@
        "parts": [
         {
          "words": "forename",
-         "gives": "ENAME",
-         "note": "the word without its first three letters"
+         "at": 10,
+         "note": "forename without its first three letters"
         },
         {
          "words": "you'll",
-         "gives": "LL",
-         "note": "the contraction without its first three letters"
+         "at": 20,
+         "note": "you'll without its first three letters, ignoring the apostrophe"
         },
         {
          "words": "infer",
-         "gives": "ER",
-         "note": "the word without its first three letters"
+         "at": 27,
+         "note": "infer without its first three letters"
         }
        ]
+      },
+      {
+       "gives": "FORYOUINF"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about guessing an artist's first name from scraps of letters.",
-     "walkthrough": "The 's means 'is', joining definition to wordplay. Here 'always' is not a synonym to find; it tells you to trim every word.",
-     "definitionFit": "An enameller applies coloured enamel to metal or ceramics, decorative work akin to painting."
+     "surface": "An instruction about how a painter's first name might be deduced.",
+     "walkthrough": "The 's after Painter is 'is', a link. The surface reads like a puzzle about names; in fact each of the three words just sheds its opening trio.",
+     "definitionFit": "An enameller applies enamel, a glossy paint or glaze, so is a kind of painter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "always"
+     "misdirectedWord": "infer"
     }
    }
   },
@@ -500,58 +507,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THORAX",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "said briefly, a word is cut short and loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stores",
+         "at": 19,
+         "note": "'stores' has the shortened word keep the gold inside it"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "stores",
-           "note": "to store something is to keep it inside, so one piece goes within another"
+           "text": "briefly",
+           "at": 11,
+           "note": "'briefly' cuts the last letter off the word that"
           }
          ],
          "parts": [
           {
            "words": "that",
-           "gives": "THA",
-           "note": "a deletion: the word cut short, losing its last letter"
+           "at": 6,
+           "gives": "THAT"
           },
           {
-           "words": "gold",
-           "gives": "OR",
-           "note": "or is gold in heraldry"
+           "gives": "T"
           }
          ]
         },
         {
-         "words": "unknown quantity",
-         "gives": "X",
-         "note": "x is the classic unknown in algebra"
+         "words": "gold",
+         "at": 26,
+         "gives": "OR",
+         "note": "OR is gold in heraldry"
         }
        ]
+      },
+      {
+       "words": "unknown quantity",
+       "at": 32,
+       "gives": "X",
+       "note": "X is the algebraic symbol for an unknown"
       }
      ]
     },
     "explanation": {
-     "surface": "A treasure chest holding gold of uncertain amount.",
-     "walkthrough": "'Chest' suggests a strongbox, which suits the gold, but it is the body part. OR sits between the H and the A of the shortened word.",
-     "definitionFit": "The thorax is the anatomical name for the chest, the part of the body between neck and abdomen."
+     "surface": "A treasure chest holding gold, its contents an unknown amount.",
+     "walkthrough": "'Chest' looks like the treasure box of the surface, but it is the body part.",
+     "definitionFit": "The thorax is the part of the body between neck and abdomen, the chest."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Chest"
     }
    }

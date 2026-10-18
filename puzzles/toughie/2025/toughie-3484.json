@@ -213,50 +213,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNESTABLISHED",
      "indicators": [
       {
        "text": "within",
-       "note": "within means placed inside the outer pair of words that follow"
+       "at": 26,
+       "note": "'within' sets the jumbled letters inside the pair of pieces that follow"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "university",
+         "at": 33,
+         "gives": "U"
+        },
+        {
+         "words": "outhouse",
+         "at": 44,
+         "gives": "SHED",
+         "note": "a shed is a small outbuilding, an outhouse"
+        }
+       ]
+      },
+      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "set up",
-         "note": "set up here means arranged afresh, so the letters before it are reorganised"
+         "text": "up",
+         "at": 23,
+         "note": "'up' here means in disorder, as in things being all churned up"
         }
        ],
        "parts": [
         {
-         "words": "university",
-         "gives": "U",
-         "note": "U is the usual abbreviation for university"
-        },
-        {
-         "words": "in lab",
-         "note": "taken as written, part of the letters to rework"
-        },
-        {
-         "words": "set",
-         "note": "taken as written, completing the letters to rework"
-        },
-        {
-         "words": "outhouse",
-         "gives": "SHED",
-         "note": "a shed is an outbuilding"
+         "words": "in lab set",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A research project not yet established sits in a lab built inside a college shed.",
-     "walkthrough": "'Set up' looks like part of the picture of building a lab, but it reworks the letters of 'in lab set', which then sit between U and SHED.",
-     "definitionFit": "Unestablished means not yet fixed or settled in place or position."
+     "surface": "An unfinished lab has been put up inside a university's outbuilding.",
+     "walkthrough": "'set up' looks like the anagram indicator, but 'set' is needed in the fodder: IN LAB SET is shuffled into NESTABLI, which goes between U and SHED.",
+     "definitionFit": "Unestablished describes something not yet fixed or secured, hence not settled."
     },
     "features": {
      "answerInScene": false,
@@ -400,27 +402,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTI",
+     "op": "middle",
      "indicators": [
       {
        "text": "unlimited",
-       "note": "unlimited means without limits, so both edges of the word are removed"
+       "at": 6,
+       "note": "'unlimited' strips off the limits, the outer letters, of the second drink"
       }
      ],
      "parts": [
       {
        "words": "drink",
+       "at": 16,
        "gives": "PASTIS",
-       "note": "pastis is an aniseed-flavoured French spirit"
+       "note": "pastis is an aniseed-flavoured French aperitif"
       }
      ]
     },
     "explanation": {
-     "surface": "A call for a drink with no restrictions on how much.",
-     "walkthrough": "The same word serves as definition and as the source; PASTIS loses its first and last letters.",
-     "definitionFit": "Asti is a sparkling Italian wine from Piedmont, so a drink."
+     "surface": "A call for a drink with no limit on how much.",
+     "walkthrough": "The second 'drink' stands for PASTIS, which loses its first and last letters.",
+     "definitionFit": "Asti is a sparkling Italian wine from Piedmont, so it is an alcoholic beverage."
     },
     "features": {
      "answerInScene": true,
@@ -754,50 +756,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ENTERTAINMENT",
-     "indicators": [
-      {
-       "text": "hosts",
-       "note": "hosts means takes in as a guest, so the shelter word holds the next piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "ENTERTAINMENT",
+       "words": "Key",
+       "at": 0,
+       "gives": "ENTER",
+       "note": "to key in data is to enter it"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling means going round, so the first letter moves to the end"
+         "text": "hosts",
+         "at": 12,
+         "note": "'hosts' says the shelter takes the rotated word inside it"
         }
        ],
        "parts": [
         {
-         "words": "Key",
-         "gives": "ENTER",
-         "note": "Enter is a key on a computer keyboard"
-        },
-        {
          "words": "shelter",
+         "at": 4,
          "gives": "TENT",
-         "note": "a tent is a shelter"
+         "note": "a tent is a portable shelter"
         },
         {
-         "words": "principal",
-         "gives": "MAIN",
-         "note": "main means principal or chief"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "at": 28,
+           "note": "'cycling' moves the first letter of the word for principal round to the end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "principal",
+           "at": 18,
+           "gives": "MAIN",
+           "note": "main means principal, chief"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crucial refuge welcomes a head teacher doing laps for a spectacle.",
-     "walkthrough": "The cycled word goes in after the first letter of the shelter, not dead centre; Enter is the keyboard key.",
-     "definitionFit": "A show is an example of entertainment, a public performance; the question mark flags the example."
+     "surface": "A vital shelter puts on a show featuring the headline act on bicycles.",
+     "walkthrough": "MAIN 'cycling' becomes AINM, and TENT 'hosts' it. The question mark flags that entertainment is a broader word than show.",
+     "definitionFit": "An entertainment is a performance put on for an audience, a show of some kind."
     },
     "features": {
      "answerInScene": false,
