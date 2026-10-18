@@ -339,61 +339,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TROTYL",
+     "op": "container",
      "indicators": [
       {
-       "text": "mishandled",
-       "note": "something mishandled is jumbled about, so the letters are rearranged"
+       "text": "In",
+       "at": 0,
+       "note": "the shuffled tyro is placed in the middle of the core letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "In",
-         "note": "in places the reworked letters inside the central pair"
+         "text": "core of",
+         "at": 3,
+         "note": "the core of a word is its central part, here the two middle letters of battlers"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "TL",
-         "indicators": [
-          {
-           "text": "core of",
-           "note": "the core is the very centre, so only the middle pair of letters of the word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "battlers",
-           "gives": "TL",
-           "select": "middle",
-           "note": "the central two of its eight letters"
-          }
-         ]
-        },
+         "words": "battlers",
+         "at": 11,
+         "note": "its central two letters are used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mishandled",
+         "at": 25,
+         "note": "something mishandled is treated roughly and jumbled, so the letters of tyro are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "tyro",
-         "note": "tyro's letters reshuffled"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Among the hard core of fighters, a novice has bungled the explosives.",
+     "surface": "A novice soldier fumbles with a bomb in the thick of the fighting.",
+     "walkthrough": "'In' looks like a link to the core, but it puts the jumbled tyro inside the core letters.",
      "definitionFit": "Trotyl is another name for TNT (trinitrotoluene), a high explosive."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "core"
+     "misdirectedWord": "battlers"
     }
    }
   },
@@ -784,38 +782,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "unusually",
-       "note": "unusually means in an uncommon way, so the letters take an uncommon order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "at": 15,
+         "note": "done unusually means done in an odd way, so the letters of chary are arranged out of their usual order"
+        }
+       ],
        "parts": [
         {
          "words": "chary",
-         "note": "chary rearranged"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "O abbreviates over in cricket scoring"
-        },
-        {
-         "words": "conception",
-         "gives": "IDEA",
-         "note": "an idea is a conception"
+         "at": 25,
+         "note": "the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 31,
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over"
+      },
+      {
+       "words": "conception",
+       "at": 36,
+       "gives": "IDEA",
+       "note": "a conception is a notion or idea"
       }
      ]
     },
     "explanation": {
-     "surface": "Cliff-dwellers are oddly wary about having children.",
-     "definitionFit": "Hyracoidea is the zoological order of hyraxes, small mammals such as rock hyraxes that live among rocks."
+     "surface": "Someone is oddly wary of the very notion of something.",
+     "walkthrough": "'unusually' rearranges CHARY into HYRAC. The rock dwellers are hyraxes, small mammals of rocky African terrain.",
+     "definitionFit": "Hyracoidea is the zoological order of hyraxes, animals called rock rabbits or dassies that live among rocks."
     },
     "features": {
      "answerInScene": false,
@@ -1375,50 +1378,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the earlier pieces inside the creatures of the run"
+       "at": 44,
+       "note": "the pair of pieces goes in the word for the birds in the run"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "the run?",
-         "gives": "HENS",
-         "note": "those in a chicken run are hens; split after the first letter"
-        },
-        {
-         "words": "when",
-         "gives": "AS",
-         "note": "as means when"
-        }
-       ]
+       "words": "the run",
+       "at": 47,
+       "gives": "HENS",
+       "note": "hens are what live in a chicken run"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leading character of",
-         "note": "the leading character is the first letter of the word that follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "those",
-         "note": "its first letter"
+         "words": "when",
+         "at": 12,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leading character of",
+           "at": 17,
+           "note": "the leading character of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "those",
+           "at": 38,
+           "note": "its first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A runner speeds up when leading those in the race.",
-     "walkthrough": "'The run' looks like a race; it is a chicken run, and the question mark flags that its occupants are meant.",
-     "definitionFit": "Hastens means speeds up or hurries, the same as accelerates."
+     "surface": "A question about what the front-runner in a race does.",
+     "walkthrough": "The 'run' sounds like a race, but it is a chicken run, so the clue means its occupants.",
+     "definitionFit": "To hasten is to hurry or speed up, the same as accelerating."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "run"
     }
    }

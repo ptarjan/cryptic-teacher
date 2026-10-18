@@ -2008,40 +2008,44 @@
      "indicators": [
       {
        "text": "to protect",
-       "note": "a protector wraps around what it guards"
+       "at": 5,
+       "note": "the work word surrounds and shields the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Work",
-         "gives": "TOIL",
-         "note": "toil is work"
-        },
-        {
-         "words": "old city",
-         "gives": "UR",
-         "note": "Ur is the ancient Mesopotamian city"
-        }
-       ]
+       "words": "Work",
+       "at": 0,
+       "gives": "TOIL",
+       "note": "toil is hard work"
       },
       {
-       "words": "millions",
-       "gives": "M",
-       "note": "M = millions"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old city",
+         "at": 16,
+         "gives": "UR",
+         "note": "Ur was an ancient city of Mesopotamia"
+        },
+        {
+         "words": "millions",
+         "at": 30,
+         "gives": "M",
+         "note": "M is the abbreviation for million"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Efforts to defend an ancient city with a fortune fail in chaos.",
-     "walkthrough": "Ur, in ancient Mesopotamia, is the crossword's standard old city.",
-     "definitionFit": "A state of great disturbance and confusion, trouble in its widest sense."
+     "surface": "Labour to defend an ancient city full of people in a crisis.",
+     "definitionFit": "Turmoil is a state of great disturbance or confusion, a kind of trouble."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "protect"
     }
    }
   },
@@ -2387,41 +2391,59 @@
      "indicators": [
       {
        "text": "to break",
-       "note": "to break something is to split it open"
+       "at": 21,
+       "note": "the pieces break into the glass word, splitting it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "glass",
-         "gives": "TUMBLER",
-         "note": "a tumbler is a drinking glass"
-        },
-        {
-         "words": "Doctor",
-         "gives": "DR",
-         "note": "DR = doctor"
-        }
-       ]
+       "words": "glass",
+       "at": 30,
+       "gives": "TUMBLER",
+       "note": "a tumbler is a drinking glass"
       },
       {
-       "words": "nearly agreed",
-       "gives": "YE",
-       "note": "YES, agreed, nearly complete"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Doctor",
+         "at": 0,
+         "gives": "DR"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 7,
+           "note": "nearly means all but the final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "agreed",
+           "at": 14,
+           "gives": "YES",
+           "note": "yes is the word of agreement"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor almost consented to smashing a glass.",
-     "walkthrough": "'Glass appliance' looks like a unit; glass is the wordplay and appliance alone the definition.",
-     "definitionFit": "A household machine that dries laundry in a heated rotating drum."
+     "surface": "A doctor almost agrees to smash a glass.",
+     "walkthrough": "DR and YE (all but the last letter of YES) break TUMBLER just before its final R.",
+     "definitionFit": "A tumble dryer is a household machine that dries laundry in a rotating drum."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Doctor"
+     "misdirectedWord": "glass"
     }
    }
   },
