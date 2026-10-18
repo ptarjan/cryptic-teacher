@@ -1311,25 +1311,39 @@
      "indicators": [
       {
        "text": "ground",
-       "note": "ground up, so the letters are broken and rearranged"
-      },
-      {
-       "text": "not",
-       "note": "'not hard' asks for EARTHIER without the letter H, since hard is H on pencil grades"
+       "at": 7,
+       "note": "ground is the past participle of grind, so the letters are milled into a new order"
       }
      ],
      "parts": [
       {
-       "words": "earthier — not hard",
-       "gives": "EARTIER",
-       "note": "EARTHIER without H, hard, as on pencils"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 27,
+         "note": "not here means without, so the letter for hard is dropped from the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "earthier",
+         "at": 16
+        },
+        {
+         "words": "hard",
+         "at": 31,
+         "gives": "H",
+         "note": "H is the pencil-grade abbreviation for hard"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list about soil: land, ground, something earthier but softer.",
-     "walkthrough": "'Land' and 'ground' look like a pair of synonyms, but only 'Land' defines; 'ground' is the anagram signal.",
-     "definitionFit": "A country on the Red Sea coast in the Horn of Africa."
+     "surface": "A list of words about soil: land, ground, earthier, as if describing a field that is not firm.",
+     "walkthrough": "'ground' looks like another soil word but is the anagram signal; 'not hard' takes H out of EARTHIER to leave EARTIER, which is what gets rearranged.",
+     "definitionFit": "Eritrea is a country in the Horn of Africa, and a country is a land."
     },
     "features": {
      "answerInScene": false,
@@ -1362,45 +1376,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Vacantly",
-       "note": "a word emptied of its middle leaves only its outer letters"
+       "text": "in",
+       "at": 16,
+       "note": "in places the emptied word inside the word for vehicles"
       }
      ],
      "parts": [
       {
        "words": "vehicles",
+       "at": 19,
        "gives": "CARS",
-       "note": "cars are vehicles; the other piece goes between C and ARS"
+       "note": "cars are vehicles"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "IG",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' places one piece inside another, as someone sits in a vehicle"
+         "text": "Vacantly",
+         "at": 0,
+         "note": "vacantly means with the inside emptied out, leaving only the first and last letters of idling"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Vacantly idling",
-         "gives": "IG",
-         "select": "outer",
-         "note": "IDLING emptied leaves I and G"
+         "words": "idling",
+         "at": 9,
+         "note": "idling with its inside emptied leaves just its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cars sitting with engines idling pump out exhaust.",
-     "walkthrough": "The surface makes the smoke come from the idling engines; the definition points elsewhere.",
-     "definitionFit": "Rolled tobacco leaves, lit and puffed, give off smoke."
+     "surface": "Engines idling in parked vehicles, belching exhaust fumes.",
+     "walkthrough": "'Vacantly idling' seems to describe the drivers, but 'Vacantly' empties the word, and 'in' puts what is left inside the vehicles.",
+     "definitionFit": "Cigars are rolled tobacco that smokers light and puff, so they produce smoke."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Vacantly"
     }

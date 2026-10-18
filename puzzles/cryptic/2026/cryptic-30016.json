@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -636,48 +637,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "frisky",
-       "note": "A frisky animal will not stand still, and letters that will not stand still do not stay in the order they were handed over."
+       "text": "in",
+       "at": 40,
+       "note": "in puts the picked letters inside the rearranged a and toad"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "PT",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "tips",
-         "note": "A tip is the point at the front of a thing, so each of the two words before it surrenders its leading letter only."
+         "text": "frisky",
+         "at": 45,
+         "note": "a frisky toad is a lively, jumping one, so its letters with a are jumbled"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "poison tentacle tips",
-         "gives": "PT",
-         "select": "first",
-         "note": "the leading letter of each of these two words"
+         "words": "a",
+         "at": 43
+        },
+        {
+         "words": "toad",
+         "at": 52
         }
        ]
       },
       {
-       "words": "a",
-       "note": "the article is taken as a letter and joins the shuffle"
-      },
-      {
-       "words": "toad",
-       "note": "anagram fodder, four letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tips",
+         "at": 35,
+         "note": "tips are the ends, here the first letters of poison and tentacle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poison tentacle",
+         "at": 19,
+         "note": "the first letters of poison and tentacle"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Getting ready for the poison at the tips of a lively toad's tentacles.",
-     "walkthrough": "Toads have no tentacles, and that impossibility is the tell that the words are here for their letters rather than their picture. The definition is three words long, all of them before the wordplay starts.",
-     "definitionFit": "'Make provision for' is arranging yourself in advance to cope with something, and the answer is the everyday verb phrase for fitting yourself to a new circumstance."
+     "surface": "A lively toad being fitted with venomous tentacles, a nightmare amphibian.",
+     "walkthrough": "'a frisky toad' reads as a description, but frisky is the signal to jumble A and TOAD, and the tips of the two nouns sit inside the jumble.",
+     "definitionFit": "To adapt to something is to adjust and allow for it, so to make provision for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "frisky"
     }
    }
   },
@@ -1194,39 +1211,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Half",
-       "note": "'Half' asks for a portion of the word rather than all of it, and the word here is short enough that half of it is two letters."
-      },
-      {
-       "text": "always turning round",
-       "note": "'Always' is what makes this apply twice: every piece is read the other way about, not just the one standing next to the instruction."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "always",
+         "at": 31,
+         "note": "always says the turning happens every time, so the first piece is read backwards as well as the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Half excited",
+         "at": 13,
+         "gives": "GA",
+         "note": "excited can be gaga (going gaga over someone), and half of that word is the first two letters"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning round",
+         "at": 38,
+         "note": "turning round means facing the other way, so the word for try is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Try",
+         "at": 27,
          "gives": "GO",
-         "note": "a try is a go, and it is written the other way about too"
-        },
-        {
-         "words": "Half excited",
-         "gives": "GA",
-         "note": "someone wildly keen on something has gone gaga; take half of that word and turn it round"
+         "note": "a try is a go, as in have a go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A restless spectator being asked how keen they are and told to keep turning round.",
-     "walkthrough": "'Always' is the load-bearing word: without it the reversal would only reach the piece beside it. Gaga for wildly enthusiastic — going gaga over someone — is the sense being halved.",
-     "definitionFit": "'In suspense?' is the state of eager waiting, keyed up for something about to happen, which is exactly what the answer describes."
+     "surface": "Someone asked whether they are in suspense and half excited, then told to keep spinning round.",
+     "walkthrough": "'always' is what makes the turning reach both pieces, not just the one beside it. Excited here is gaga, as in going gaga over someone.",
+     "definitionFit": "Agog means eagerly waiting to hear what happens next, keyed up with anticipation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "always"
     }
    }
   },
@@ -1256,39 +1289,39 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Morally flawed protagonist",
+      "text": "Morally flawed protagonist' for 28",
       "at": 1
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "messed up",
+       "at": 49,
+       "note": "messed up means jumbled, so the letters of another and I are scrambled"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "for 28",
-       "note": "no letters here: it points at the theme, the answer being a song title as well as a kind of character"
+       "words": "another",
+       "at": 39
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "messed up",
-         "note": "Something messed up has been left in disarray, and letters in disarray are not in the order they were handed over."
-        }
-       ],
-       "parts": [
-        {
-         "words": "another I",
-         "note": "anagram fodder, eight letters"
-        }
-       ]
+       "words": "I",
+       "at": 47
       }
      ]
     },
     "explanation": {
-     "surface": "A reviewer grumbling that yet another morally flawed lead has been badly written.",
-     "walkthrough": "Quotation marks flag a definition, not an instruction. The cross-reference is the theme: as well as naming a type of character, this is one of the star's biggest singles.",
-     "definitionFit": "A 'morally flawed protagonist' is the lead character you cannot quite admire, and the answer is the standard critical label for that figure."
+     "surface": "A fan describing a song's character as just another flawed lead they have got wrong.",
+     "walkthrough": "'messed up' scrambles ANOTHER and I. 'for 28' points to the theme: Anti-Hero is a Taylor Swift song, and 28 is SWIFTIES, her fans.",
+     "definitionFit": "An antihero is a central character lacking conventional heroic virtues, so a protagonist with moral flaws; Swift's song has that title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "another"
     }
    }
   },
