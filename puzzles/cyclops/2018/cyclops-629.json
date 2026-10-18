@@ -1315,59 +1315,55 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 46,
+       "note": "after means the following parts come after the opening letter in the answer"
+      }
+     ],
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
-         "text": "leaders",
-         "note": "leaders are those at the front, so only the opening letters of each word are kept"
+         "text": "last",
+         "at": 60,
+         "note": "last means take the final letter of the name Trump"
         }
        ],
        "parts": [
         {
          "words": "Trump's",
+         "at": 52,
          "gives": "TRUMP",
-         "note": "the final letter of the president's name"
+         "note": "the name Trump, taken as written"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Republican and eminent leaders",
+       "at": 0,
        "gives": "RE",
-       "indicators": [
-        {
-         "text": "last",
-         "note": "last points to the closing letter of the name, so only its end is kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Republican and eminent",
-         "gives": "RE",
-         "select": "first",
-         "note": "the first letters of these two words"
-        }
-       ]
+       "note": "the leading letters of Republican and eminent, R and E"
       },
       {
        "words": "speech",
+       "at": 39,
        "gives": "DICTION",
-       "note": "diction is the manner of speaking"
+       "note": "diction is a manner of speech"
       }
      ]
     },
     "explanation": {
-     "surface": "Senior Republicans waiting for a speech from the outgoing Trump about the future.",
-     "walkthrough": "'after' is placement, so the letter from Trump comes first even though it is named last.",
-     "definitionFit": "A prediction forecasts what will happen, which is what a prophecy does, so they are synonyms."
+     "surface": "A political forecast about Republican grandees needing Trump to speak.",
+     "walkthrough": "Trump's last means the final letter of the name, not of the possessive.",
+     "definitionFit": "A prediction is a statement of what will happen, which is what a prophecy foretells."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "last"
+     "misdirectedWord": "speech"
     }
    }
   },

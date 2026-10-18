@@ -141,45 +141,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "changes",
-       "note": "changes means the letters are altered into a new order"
+       "text": "Under",
+       "at": 0,
+       "note": "in a down clue, what follows sits under the P, so P comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "pressure",
+       "at": 6,
+       "gives": "P",
+       "note": "P is the symbol for pressure"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "Under",
-         "note": "in a down entry, the rest sits under the first letter, so the pieces stack in order"
+         "text": "in",
+         "at": 30,
+         "note": "in places the rearranged letters inside the goal"
         }
        ],
        "parts": [
         {
-         "words": "pressure",
-         "gives": "P",
-         "note": "P is the symbol for pressure"
-        },
-        {
-         "words": "infer",
-         "note": "the letters of this word, shuffled"
-        },
-        {
          "words": "goal",
+         "at": 33,
          "gives": "END",
          "note": "an end is a goal or aim"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "changes",
+           "at": 22,
+           "note": "changes signals the letters of infer are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "infer",
+           "at": 16,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A goalkeeper under pressure draws conclusions about a reporter abroad.",
-     "walkthrough": "'Foreign correspondent' suggests a journalist overseas; the question mark signals a letter-writer in another country.",
-     "definitionFit": "A pen pal writes letters to someone, often in another country, so is literally a correspondent from abroad."
+     "surface": "Under strain, someone shifts their conclusions about their aim of reporting from abroad.",
+     "walkthrough": "'Foreign correspondent' looks like a journalist abroad; the question mark signals a playful sense.",
+     "definitionFit": "A pen friend writes letters to someone, often in another country, so is literally a correspondent from overseas."
     },
     "features": {
      "answerInScene": false,
@@ -326,63 +343,63 @@
      "indicators": [
       {
        "text": "within",
-       "note": "within puts the pieces inside another word"
+       "at": 26,
+       "note": "within means the other pieces go inside the word for existing"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "existing",
+       "at": 33,
+       "gives": "ALIVE",
+       "note": "to be alive is to exist"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "Adjusted",
-         "note": "adjusted means altered, so the letters are rearranged"
+         "text": "over",
+         "at": 14,
+         "note": "in a down clue, one piece over another comes before it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "over",
-           "note": "in a down entry, a piece over another simply comes first"
+           "text": "Adjusted",
+           "at": 0,
+           "note": "adjusted means the letters of rent are altered in order"
           }
          ],
          "parts": [
           {
-           "words": "existing",
-           "gives": "ALIVE",
-           "note": "something alive is existing"
-          },
-          {
            "words": "rent",
-           "note": "the letters of this word, shuffled"
+           "at": 9,
+           "note": "taken as written"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "charade",
-       "parts": [
+        },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 19
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "at": 21,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A landlord's revised rent is offered as the current choice.",
-     "definitionFit": "An alternative is another possibility to choose, an option."
+     "surface": "A landlord altering the rent for a period as one possible choice.",
+     "definitionFit": "An alternative is another possible choice, which is an option open to you."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "existing"
     }
@@ -912,55 +929,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "ringing",
-       "note": "ringing means encircling another piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "ringing",
+         "at": 25,
+         "note": "ringing means the repeated example letters surround the king"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "repeatedly",
-           "note": "repeatedly tells you to use the same short piece twice in a row"
-          }
-         ],
-         "parts": [
-          {
-           "words": "For instance",
-           "gives": "EG",
-           "note": "the same abbreviation again, as told"
-          },
-          {
-           "words": "evidence of debts",
-           "gives": "IOUS",
-           "note": "IOUs are written acknowledgements of debts"
-          }
-         ]
+         "words": "For instance, repeatedly",
+         "at": 0,
+         "gives": "EGEG",
+         "note": "EG is the abbreviation for for instance, written twice"
         },
         {
          "words": "king",
+         "at": 33,
          "gives": "R",
-         "note": "R, rex, is Latin for king"
+         "note": "R is short for rex, Latin for king"
         }
        ]
       },
       {
-       "words": "For instance",
-       "gives": "EG",
-       "note": "e.g. is the abbreviation for 'for example'"
+       "words": "evidence of debts",
+       "at": 43,
+       "gives": "IOUS",
+       "note": "IOUs are written notes acknowledging money owed"
       }
      ]
     },
     "explanation": {
-     "surface": "A king's repeated debts are scandalous.",
-     "definitionFit": "Egregious means outstandingly bad, shocking in its awfulness."
+     "surface": "A tale of a monarch with mounting IOUs being shocking.",
+     "definitionFit": "Egregious means outstandingly bad, the kind of behaviour that shocks people."
     },
     "features": {
      "answerInScene": true,

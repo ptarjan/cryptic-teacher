@@ -870,58 +870,43 @@
      "indicators": [
       {
        "text": "parts",
-       "note": "to part something is to split it"
+       "at": 11,
+       "note": "parts means the new letter splits the shortened name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 23,
+         "note": "cut means the last letter is chopped off the name"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "cut",
-           "note": "a cut name is cut short, losing its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cut",
-           "gives": "EVELY",
-           "note": "the first name without its last letter"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "Waugh",
+         "at": 17,
+         "gives": "EVELYN",
+         "note": "Evelyn Waugh was an English novelist"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N = new"
+         "gives": "N"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Waugh",
-         "gives": "EVELYN",
-         "note": "Evelyn Waugh, the English novelist, stands for his first name"
-        },
-        {
-         "gives": "VELYN"
-        }
-       ]
+       "words": "new",
+       "at": 7,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether Waugh's new book was cut fairly.",
-     "walkthrough": "'Waugh' stands for his first name, not the surname, which is the step most solvers miss.",
-     "definitionFit": "A plain synonym: to share evenly is to share fairly, with equal portions."
+     "surface": "A query whether new sections of Waugh's prose were edited fairly.",
+     "walkthrough": "Evelyn Waugh was the English novelist of Brideshead Revisited; his first name, not his surname, is used.",
+     "definitionFit": "To share evenly is to share fairly, in equal and balanced portions."
     },
     "features": {
      "answerInScene": false,
@@ -1101,8 +1086,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "to turn about is to face the other way, so the exclamation is read backwards"
+       "text": "behind",
+       "at": 25,
+       "note": "behind means the people come after the earlier parts"
       }
      ],
      "parts": [
@@ -1110,39 +1096,44 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "behind",
-         "note": "the people stand behind, after, the other pieces"
+         "text": "about",
+         "at": 12,
+         "note": "about means the exclamation is turned round to read backwards"
         }
        ],
        "parts": [
         {
          "words": "I'm annoyed",
+         "at": 0,
          "gives": "GODDAM",
-         "note": "a curse someone utters when irritated"
+         "note": "goddam is an exclamation of annoyance"
         }
        ]
       },
       {
        "words": "Polish",
+       "at": 32,
        "gives": "SAND",
-       "note": "to sand a surface is to polish it"
+       "note": "to sand is to polish"
       },
       {
        "words": "national",
+       "at": 39,
        "gives": "ENGLISH",
        "note": "English is a nationality"
       },
       {
        "words": "people",
+       "at": 18,
        "gives": "MEN",
-       "note": "men = people"
+       "note": "men are people"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone irritated by people standing behind a Polish national anthem.",
-     "walkthrough": "'Polish national song' reads as an anthem; the capital P hides the plain verb polish.",
-     "definitionFit": "A definition by genus: this is Noël Coward's comic song about the English going out in the midday sun."
+     "surface": "An irritated speaker on folk who follow a Polish anthem.",
+     "walkthrough": "'Polish' looks like the nationality, but it is the verb to sand. The answer is Noël Coward's comic song.",
+     "definitionFit": "Mad Dogs and Englishmen is a famous Noël Coward song about going out in the midday sun."
     },
     "features": {
      "answerInScene": false,
@@ -1865,74 +1856,67 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a classic perhaps",
+      "text": "a classic perhaps?",
       "at": 46
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "at first",
-       "note": "at first points to the opening letter"
+       "text": "novel",
+       "at": 38,
+       "note": "novel means new, so the letters are rearranged into something fresh"
+      },
+      {
+       "text": "avoided",
+       "at": 17,
+       "note": "avoided means the opening letter of fiction is left out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "reaches",
+         "at": 26,
+         "note": "taken as written"
+        },
+        {
+         "words": "for",
+         "at": 34,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "avoided",
-         "note": "an avoided letter is kept out, so it is removed from 'for'"
+         "text": "at first",
+         "at": 8,
+         "note": "at first means take the opening letter of fiction"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "novel",
-           "note": "novel means new, so the letters are made into something new"
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "Fiction",
-             "note": "the opening letter, which is the one to avoid"
-            }
-           ]
-          },
-          {
-           "words": "reaches",
-           "note": "used as is"
-          },
-          {
-           "words": "for",
-           "gives": "OR",
-           "note": "the word without its F"
-          }
-         ]
-        },
-        {
-         "gives": "F"
+         "words": "Fiction",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone skipping fiction and reaching for a novel instead, perhaps a classic.",
-     "walkthrough": "'Novel' and 'classic' both suggest books; the Classics are the five great British flat races, such as the Derby.",
-     "definitionFit": "A definition by example with 'perhaps' to show it: each of the five Classics is one kind of horse race."
+     "surface": "A reader avoids fiction initially, then reaches for a classic novel.",
+     "walkthrough": "Drop the first letter of fiction from reaches for, then rearrange. 'Novel' and 'classic' pretend to be about books. The Classics are five major British flat horse races, such as the Derby.",
+     "definitionFit": "The Classics are Britain's premier flat races, so a Classic is an example of a horse race."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "classic"
+     "misdirectedWord": "novel"
     }
    }
   },
@@ -2113,24 +2097,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "a turned word faces the other way, so the hose is read backwards"
-      }
-     ],
      "parts": [
       {
        "words": "Woman",
+       "at": 0,
        "gives": "SHE",
-       "note": "she = a woman"
+       "note": "she refers to a woman"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "around",
-         "note": "the reversed hose goes around the letter that follows"
+         "text": "turned",
+         "at": 6,
+         "note": "turned means the result is read backwards"
         }
        ],
        "parts": [
@@ -2138,22 +2118,31 @@
          "op": "container",
          "indicators": [
           {
-           "text": "opening of",
-           "note": "the opening of a word is its first letter"
+           "text": "around",
+           "at": 18,
+           "note": "around means the hose wraps round the letter"
           }
          ],
          "parts": [
           {
            "words": "hose",
+           "at": 13,
            "gives": "PIPE",
            "note": "a hose is a pipe"
           },
           {
            "op": "first",
+           "indicators": [
+            {
+             "text": "opening of",
+             "at": 25,
+             "note": "opening of means take the first letter of dirty"
+            }
+           ],
            "parts": [
             {
              "words": "dirty",
-             "note": "the first letter of dirty"
+             "at": 36
             }
            ]
           }
@@ -2164,9 +2153,8 @@
      ]
     },
     "explanation": {
-     "surface": "A farmer's wife turning a hose on a filthy trough to wash livestock.",
-     "walkthrough": "The farmyard picture is apt, but the hose is not sprayed: it is a word that gets flipped and wrapped round a letter.",
-     "definitionFit": "A description: a sheep-dip is a bath of insecticide that sheep are plunged through to clean their fleece."
+     "surface": "A woman points a hose around a filthy trough used to wash livestock.",
+     "definitionFit": "A sheep dip is a tank of insecticide solution through which sheep are driven to clean them."
     },
     "features": {
      "answerInScene": true,
@@ -2243,13 +2231,15 @@
      "op": "container",
      "indicators": [
       {
-       "text": "on",
-       "note": "in a down clue, one piece on another sits directly above it, so the tread comes before the rogue"
+       "text": "in",
+       "at": 15,
+       "note": "in means the tread and rogue go inside the group"
       }
      ],
      "parts": [
       {
        "words": "group",
+       "at": 18,
        "gives": "SET",
        "note": "a set is a group"
       },
@@ -2257,29 +2247,31 @@
        "op": "charade",
        "indicators": [
         {
-         "text": "in",
-         "note": "the pair goes in, inside, the group"
+         "text": "on",
+         "at": 6,
+         "note": "in a down clue, one piece on another sits above it, so comes first"
         }
        ],
        "parts": [
         {
          "words": "Tread",
+         "at": 0,
          "gives": "PACE",
          "note": "to pace is to tread"
         },
         {
          "words": "rogue",
+         "at": 9,
          "gives": "CAD",
-         "note": "a cad is a scoundrel"
+         "note": "a cad is a rogue"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stepping on a scoundrel in a gang of dreamers.",
-     "walkthrough": "'Tread on' looks like one phrasal verb, to step on; split it, and 'on' just places one piece above the next.",
-     "definitionFit": "A slang synonym: a space cadet is someone with their head in the clouds, out of touch with reality."
+     "surface": "A daydreamer is stepping on a scoundrel in a gang.",
+     "definitionFit": "A space cadet is slang for a dreamy, out-of-touch person living in a fantasy world."
     },
     "features": {
      "answerInScene": false,
@@ -3338,41 +3330,46 @@
      "indicators": [
       {
        "text": "having introduced",
-       "note": "to introduce something is to bring it in, so OK takes the girls and wine inside"
+       "at": 12,
+       "note": "having introduced means the girls and wine are brought inside the word for OK"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "endless",
-         "note": "an endless word has had its end, its last letter, removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "OK",
-         "gives": "FINE",
-         "note": "fine = OK"
-        },
-        {
-         "words": "girls",
-         "gives": "GALS",
-         "note": "gals = girls"
-        }
-       ]
+       "words": "OK",
+       "at": 9,
+       "gives": "FINE",
+       "note": "fine means OK"
       },
       {
-       "op": "deletion",
+       "op": "charade",
        "parts": [
         {
-         "words": "wine",
-         "gives": "CAVA",
-         "note": "cava is Spanish sparkling wine"
+         "words": "girls",
+         "at": 30,
+         "gives": "GALS",
+         "note": "gals are girls"
         },
         {
-         "gives": "A"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 39,
+           "note": "endless means the last letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wine",
+           "at": 47,
+           "gives": "CAVA",
+           "note": "cava is a Spanish sparkling wine"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
       }
@@ -3380,9 +3377,9 @@
     },
     "spelling": "FINGAL'S CAVE",
     "explanation": {
-     "surface": "An overture approved because it brought some girls to an unlimited supply of wine.",
-     "walkthrough": "The grid has no room for an apostrophe, so the title is entered without one.",
-     "definitionFit": "A definition by example: Fingal's Cave is Mendelssohn's concert overture, also called The Hebrides."
+     "surface": "A satisfactory start to an evening where girls are plied with wine.",
+     "walkthrough": "Fingal's Cave is the popular name of Mendelssohn's Hebrides overture.",
+     "definitionFit": "Mendelssohn's concert piece The Hebrides is popularly known as Fingal's Cave, an overture."
     },
     "features": {
      "answerInScene": false,
