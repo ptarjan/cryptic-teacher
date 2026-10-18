@@ -606,41 +606,64 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "RIGHTFACE",
-     "indicators": [
-      {
-       "text": "Leaders muddled",
-       "note": "the first letters of the two words get swapped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Leaders",
+         "at": 0,
+         "note": "the leaders of the two words are their opening letters, the ones that change places"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "battle",
-         "gives": "RIGHT",
-         "soundsLike": "FIGHT",
-         "note": "fight = battle; it takes the R from the second word"
+         "at": 19,
+         "gives": "FIGHT",
+         "note": "a fight is a battle"
         },
         {
-         "unchecked": true,
+         "gives": "F",
+         "note": "the opening letter of the word for battle, which moves to the second word"
+        },
+        {
+         "gives": "R",
+         "note": "the opening letter of the word for rush, which moves to the first word"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "muddled",
+         "at": 8,
+         "note": "muddling the leaders mixes them up between the words, so each word takes the other's opening letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "rush",
-         "gives": "FACE",
-         "soundsLike": "RACE",
-         "note": "race = rush; it takes the F from the first word"
+         "at": 26,
+         "gives": "RACE",
+         "note": "to race is to rush"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Confused officers rushing into battle and barking orders to turn the troops.",
-     "walkthrough": "'Leaders' looks like army commanders; it means the front letters of the words.",
-     "definitionFit": "'Right face!' is the drill command to turn ninety degrees to the right."
+     "surface": "Soldiers' commanders get confused during a charge in battle and shout a new direction.",
+     "walkthrough": "'Leaders muddled' swaps the first letters of FIGHT RACE, giving RIGHT FACE. 'Leaders' looks like the officers of the surface, but it means the words' first letters.",
+     "definitionFit": "Right face is a drill command telling soldiers to turn ninety degrees to the right, changing the direction they face."
     },
     "features": {
      "answerInScene": true,
@@ -724,43 +747,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "drops",
-         "note": "the citrus fruit lets go of a letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "citrus",
-         "gives": "ORANGE",
-         "note": "an orange is a citrus fruit"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "text": "left of",
+       "at": 8,
+       "note": "the letter is on the left of the fruit's name, its start"
       },
       {
-       "unchecked": true,
-       "words": "Nothing left",
-       "note": "O (nothing) at the left end is removed"
+       "text": "drops",
+       "at": 23,
+       "note": "the letter drops out of the fruit's name, leaving the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "citrus",
+       "at": 16,
+       "gives": "ORANGE",
+       "note": "an orange is a citrus fruit"
+      },
+      {
+       "words": "Nothing",
+       "at": 0,
+       "gives": "O",
+       "note": "O is the figure for nothing, zero"
       }
      ]
     },
     "explanation": {
-     "surface": "A market stall down to its last citrus fruit after selling out.",
-     "walkthrough": "'Citrus drops' sounds like boiled sweets; it is the orange losing its O.",
-     "definitionFit": "A shop's range is its whole selection of goods for sale."
+     "surface": "Fruit falls from the trees, and the whole crop has been sold.",
+     "walkthrough": "'Nothing left of citrus' reads as all the fruit gone, but it means the O on the left of ORANGE, and 'drops' takes it away.",
+     "definitionFit": "A shop's range is the full set of goods it offers, all the products it sells."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drops"
+     "misdirectedWord": "Nothing"
     }
    }
   },
@@ -975,49 +998,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TOLERABLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within compass of",
+       "at": 20,
+       "note": "the compass of a thing is its bounds, so the reversed word goes inside the shortened bell-ringer"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "rounds",
-         "note": "turns round, so BARE runs backwards"
-        },
-        {
-         "text": "within compass of",
-         "note": "inside the bounds of the next word"
-        },
-        {
          "text": "nearly",
-         "note": "the last letter is dropped"
+         "at": 51,
+         "note": "nearly all the word, so its last letter is cut"
         }
        ],
        "parts": [
         {
-         "words": "bell-ringer, nearly",
-         "gives": "TOLLE",
-         "note": "TOLLER, one who tolls a bell, without its last letter"
+         "words": "bell-ringer",
+         "at": 38,
+         "gives": "TOLLER",
+         "note": "a toller is one who tolls a bell"
         },
         {
-         "words": "plain rounds",
-         "gives": "ERAB",
-         "note": "bare = plain, turned round"
+         "gives": "R",
+         "note": "the last letter of the word for bell-ringer"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rounds",
+         "at": 13,
+         "note": "the word turns round, so its letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plain",
+         "at": 7,
+         "gives": "BARE",
+         "note": "bare means plain, unadorned"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A modest description of the plain rounds that bell-ringers chime.",
-     "walkthrough": "'Plain' and 'rounds' are both change-ringing terms, which is the disguise: plain here is simply bare, and rounds tells you to turn it round.",
-     "definitionFit": "Tolerable means acceptable, decent enough."
+     "surface": "A decent, unadorned peal of rounds is heard within range of the bell-ringer.",
+     "walkthrough": "'rounds' is a bell-ringing term, the bells rung in order down the scale, so the surface stays in the belfry; here it turns the word for plain backwards.",
+     "definitionFit": "Tolerable means fairly good or acceptable, which is what decent means in 'a decent effort'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "rounds"
     }
    }
@@ -1283,38 +1323,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "saving",
+       "at": 18,
+       "note": "saving means except, so the a is taken out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "saving",
-         "note": "save = except, so A is left out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Famous printmaker",
-         "gives": "STARETCHER",
-         "note": "a star etcher"
+         "words": "Famous",
+         "at": 0,
+         "gives": "STAR",
+         "note": "star means famous, as in a star player"
         },
         {
-         "gives": "A"
+         "words": "printmaker",
+         "at": 7,
+         "gives": "ETCHER",
+         "note": "an etcher makes prints from etched plates"
         }
        ]
       },
       {
-       "unchecked": true,
        "words": "a",
-       "note": "removed"
+       "at": 25,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrated engraver keeping a frame for a painting.",
-     "walkthrough": "'Saving' seems to mean keeping; it means except, as in 'all save one'.",
-     "definitionFit": "A stretcher is the wooden frame a painting's canvas is stretched over."
+     "surface": "A celebrated engraver rescues a picture frame.",
+     "walkthrough": "'saving' looks like rescue, but it means except: STAR ETCHER without A. A stretcher is the wooden frame a canvas is stretched over.",
+     "definitionFit": "A stretcher is the wooden framework over which an artist's canvas is pulled taut before painting."
     },
     "features": {
      "answerInScene": true,
@@ -1392,54 +1437,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VAGUE",
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "after cycling",
+       "at": 29,
+       "note": "the letters are cycled, the first moving round to the end"
+      }
+     ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "VAGUE",
+       "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "giving something back returns it the way it came, so gave is read in reverse"
-        },
-        {
-         "text": "after cycling",
-         "note": "then letters move round from the front to the back"
+         "at": 24,
+         "note": "the letters are given back, read in reverse order"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally means at the end, so only the closing letter of you is used"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "you finally",
-           "gives": "YOU",
-           "note": "last letter of you"
+           "op": "last",
+           "indicators": [
+            {
+             "text": "finally",
+             "at": 11,
+             "note": "finally points to the end of the word you, so only its last letter is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "you",
+             "at": 7,
+             "note": "last letter of you"
+            }
+           ]
+          },
+          {
+           "words": "gave",
+           "at": 19,
+           "note": "taken as written"
           }
          ]
-        },
-        {
-         "words": "gave back",
-         "gives": "EVAG",
-         "note": "reversed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that after a bike ride you handed back something woolly.",
-     "walkthrough": "U plus EVAG makes UEVAG; move the first two letters to the end and it becomes VAGUE.",
-     "definitionFit": "Woolly is an idiom for fuzzy, muddled thinking that lacks a clear outline."
+     "surface": "Someone vaguely says you returned something after a bike ride.",
+     "walkthrough": "'you finally' is U, placed before GAVE; 'back' reverses UGAVE to EVAGU, and 'after cycling' moves the E to the end.",
+     "definitionFit": "Woolly thinking is confused and imprecise, the same as vague."
     },
     "features": {
      "answerInScene": false,
@@ -1470,44 +1521,52 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "beneath",
+       "at": 22,
+       "note": "in a down clue the room sits beneath the letter for grand"
+      }
+     ],
      "parts": [
+      {
+       "words": "Grand",
+       "at": 30,
+       "gives": "G",
+       "note": "G is the abbreviation for grand, a thousand"
+      },
+      {
+       "words": "room with throne",
+       "at": 5,
+       "gives": "LOO",
+       "note": "the loo is jokingly the room with the throne, the toilet"
+      },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "beneath"
-        },
-        {
          "text": "crown",
-         "note": "the top, so the first letter"
+         "at": 45,
+         "note": "the crown of a word is its top, here its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Grand",
-         "note": "G = grand, a thousand"
+         "words": "Mughal's",
+         "at": 36,
+         "note": "first letter of Mughal"
         }
        ]
-      },
-      {
-       "words": "room with throne",
-       "gives": "LOO",
-       "note": "the throne is a jokey word for the toilet"
-      },
-      {
-       "words": "Mughal's crown",
-       "gives": "M",
-       "note": "first letter of Mughal"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy chamber housing the throne of a great Mughal emperor.",
-     "walkthrough": "'Dark room' looks like a photographer's darkroom; the definition is just 'Dark', and the room with a throne is a toilet.",
-     "definitionFit": "Dark as a noun, the absence of light; the answer is partial darkness."
+     "surface": "A dim chamber sits under a grand emperor's crown and throne.",
+     "walkthrough": "'Dark room' reads as a photographer's darkroom, but 'Dark' alone is the definition. The 'throne' is slang for a lavatory, so the room is the LOO.",
+     "definitionFit": "Gloom is darkness or partial darkness, so it stands for dark as a noun, as in 'peering into the dark'."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "throne"
@@ -1583,54 +1642,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MILLSTONE",
+     "indicators": [
+      {
+       "text": "going around",
+       "at": 41,
+       "note": "the two letters go around the other pieces, holding them between"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "indicators": [
         {
-         "text": "on"
-        },
-        {
-         "text": "going around",
-         "note": "to go around something is to encircle it"
+         "text": "on",
+         "at": 29,
+         "note": "in an across clue the European letter comes on after the motorway"
         }
        ],
        "parts": [
         {
          "words": "motorway",
+         "at": 32,
          "gives": "M",
-         "note": "M, as in the M1"
-        },
-        {
-         "words": "troubles",
-         "gives": "ILLS",
-         "note": "ills = troubles"
-        },
-        {
-         "words": "100 mph",
-         "gives": "TON",
-         "note": "doing a ton is driving at 100 mph"
+         "note": "M is the British abbreviation for motorway, as in the M1"
         },
         {
          "words": "European",
-         "gives": "E",
-         "note": "E = European"
+         "at": 20,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "troubles",
+         "at": 11,
+         "gives": "ILLS",
+         "note": "ills are troubles"
+        },
+        {
+         "words": "100 mph",
+         "at": 54,
+         "gives": "TON",
+         "note": "a ton is British slang for a hundred miles an hour"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heavy lorry in trouble as a European driver speeds down the motorway at 100 mph.",
-     "walkthrough": "British motorways are numbered M1, M25 and so on, hence M; a ton is slang for 100 mph.",
-     "definitionFit": "A millstone round your neck is a heavy burden."
+     "surface": "A European driver on a motorway doing a hundred miles an hour is heading for trouble.",
+     "walkthrough": "'going around' has M and E, motorway then European, enclose the rest. A ton is British slang for a speed of a hundred miles an hour.",
+     "definitionFit": "A millstone round one's neck is a heavy burden, from the huge grinding stone of a mill."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "load"
+     "misdirectedWord": "troubles"
     }
    }
   },
@@ -1779,51 +1849,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "making",
+       "at": 11,
+       "note": "the word late in the model is made into a different letter, replacing it"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "TEMPO",
+       "words": "model",
+       "at": 5,
+       "gives": "TEMPLATE",
+       "note": "a template is a model to copy"
+      },
+      {
+       "words": "late",
+       "at": 18,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "making",
-         "note": "late is exchanged for another letter"
-        },
-        {
          "text": "start in",
-         "note": "the first letter of occupation"
+         "at": 23,
+         "note": "the start of a word is its first letter, here of occupation"
         }
        ],
        "parts": [
         {
-         "words": "model",
-         "gives": "TEMPLATE",
-         "note": "a template is a model to copy"
-        },
-        {
-         "words": "start in occupation",
-         "gives": "O",
-         "note": "first letter of occupation, put in LATE's place"
+         "words": "occupation",
+         "at": 32,
+         "note": "first letter of occupation"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "late",
-       "note": "LATE is taken out"
       }
      ]
     },
     "explanation": {
-     "surface": "A price quoted for a model who is late starting a job.",
-     "walkthrough": "'Making late start' looks like a tardy beginning; LATE in TEMPLATE is replaced by O.",
-     "definitionFit": "Tempo is rate or speed, especially of music."
+     "surface": "A fashion model turns up late for the first day of a new job.",
+     "walkthrough": "'model' gives TEMPLATE, and 'making late start in occupation' turns its LATE into O, the first letter of occupation.",
+     "definitionFit": "Tempo is the speed at which music is played, its rate, and more generally the pace of anything."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "late"
+     "misdirectedWord": "model"
     }
    }
   }
