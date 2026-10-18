@@ -49,59 +49,77 @@
      "op": "container",
      "indicators": [
       {
-       "text": "fudge",
-       "note": "to fudge is to fiddle or botch, so OUT is messed about"
+       "text": "sandwiches",
+       "at": 49,
+       "note": "sandwiches says the shortened word holds the other pieces between its letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
          "text": "endless",
-         "note": "AND loses its last letter"
+         "at": 41,
+         "note": "endless means the word and loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "sandwiches"
-          }
-         ],
-         "parts": [
-          {
-           "words": "and",
-           "gives": "AN",
-           "note": "AND without its end"
-          },
-          {
-           "words": "out with fudge",
-           "gives": "UTO",
-           "note": "OUT rearranged"
-          }
-         ]
+         "words": "and",
+         "at": 37
+        },
+        {
+         "gives": "D"
         }
        ]
       },
       {
-       "words": "ugh!",
-       "gives": "BAH",
-       "note": "bah = an exclamation of disgust, like ugh"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 17,
+         "note": "with means the exclamation is joined straight on after the jumbled letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "fudge",
+           "at": 22,
+           "note": "to fudge is to fiddle or fake, so the letters of out are fiddled into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "out",
+           "at": 13
+          }
+         ]
+        },
+        {
+         "words": "ugh",
+         "at": 30,
+         "gives": "BAH",
+         "note": "bah is an exclamation of disgust, like ugh"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slimmer confesses to a fudge binge, complete with a groan and a pile of sandwiches.",
-     "walkthrough": "Dieter is a German first name, not a slimmer, so his way is a German motorway. 'Way out' looks like a phrase, but the definition stops at 'way'.",
-     "definitionFit": "An autobahn is a German motorway, a road a German called Dieter might drive on."
+     "surface": "A slimmer's way to cut out sweets: no fudge, ugh, and no endless sandwiches.",
+     "walkthrough": "Dieter is a German name, not a slimmer. AN (from 'and', 'endless') holds UTO (OUT shuffled by 'fudge') and BAH.",
+     "definitionFit": "An autobahn is a German motorway, so the road a German such as Dieter would drive on."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Dieter"
+     "misdirectedWord": "Dieter's"
     }
    }
   },
@@ -633,54 +651,62 @@
     "definitions": [
      {
       "text": "Conditions here isolated",
-      "at": 0,
-      "note": "the definition reads 'conditions (in a place) isolated from those around'"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "pursuing"
+       "text": "in",
+       "at": 79,
+       "note": "in places the first container inside the word for one"
       }
      ],
      "parts": [
       {
        "words": "one",
+       "at": 82,
        "gives": "ME",
-       "note": "one = me, the speaker"
+       "note": "one, speaking of oneself, is me"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "swallowed by",
-         "note": "what is swallowed ends up inside the swallower, so the reptile-plus-Lima string goes inside IT"
+         "at": 63,
+         "note": "swallowed by says the reptile and the letter-word go inside the word it"
         }
        ],
        "parts": [
         {
          "words": "it",
-         "note": "the word as printed"
+         "at": 76,
+         "gives": "IT",
+         "note": "taken as written"
         },
         {
          "op": "charade",
          "indicators": [
           {
-           "text": "in",
-           "note": "in = placed within, so IT goes inside the word for one"
+           "text": "pursuing",
+           "at": 44,
+           "note": "pursuing means the letter-word follows behind the reptile"
           }
          ],
          "parts": [
           {
            "words": "reptile",
+           "at": 53,
            "gives": "CROC",
-           "note": "short for crocodile"
+           "note": "croc is short for crocodile"
           },
           {
            "words": "Mike's predecessor",
+           "at": 25,
            "gives": "LIMA",
-           "note": "Lima comes just before Mike in the NATO alphabet"
+           "note": "in the NATO phonetic alphabet Lima comes just before Mike"
           }
          ]
         }
@@ -689,14 +715,14 @@
      ]
     },
     "explanation": {
-     "surface": "A zoo report: a reptile has swallowed something, conditions in its isolated enclosure explained.",
-     "walkthrough": "The layers nest like Russian dolls, three deep. Mike is the NATO code word for M, so its predecessor is the code word for L; 'one' here means the speaker, me.",
-     "definitionFit": "A microclimate is the local climate of a small area that differs from its surroundings."
+     "surface": "A tangled scene of an isolated reptile followed by something, then swallowed whole.",
+     "walkthrough": "Mike's predecessor uses the NATO phonetic alphabet, where Lima comes just before Mike; 'one' is taken as the speaker's self.",
+     "definitionFit": "A microclimate is the weather pattern of a small, distinct area, so local conditions in one secluded spot."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Mike"
+     "aptDefinition": true,
+     "misdirectedWord": "Mike's"
     }
    }
   },
@@ -1164,46 +1190,49 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ATREST",
+     "indicators": [
+      {
+       "text": "in a spin",
+       "at": 32,
+       "note": "in a spin says the remaining letters rotate, one moving from front to back"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ATREST",
        "indicators": [
         {
-         "text": "leaves"
-        },
-        {
-         "text": "in a spin",
-         "note": "the letters rotate, the first going round to the end"
+         "text": "leaves",
+         "at": 15,
+         "note": "leaves means the male pronoun departs from the word for audiences"
         }
        ],
        "parts": [
         {
          "words": "audiences",
+         "at": 22,
          "gives": "THEATRES",
-         "note": "a theatre can mean the audience in it, as in 'the whole theatre laughed'"
+         "note": "a theatre can mean its audience, as in the whole theatre applauded"
         },
         {
          "words": "this man",
+         "at": 6,
          "gives": "HE",
-         "note": "a man referred to"
+         "note": "this man is a pronoun for a male, he"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actor stands motionless while the crowds swirl out around him.",
-     "walkthrough": "After removing HE you have TATRES, not a word; spinning it round by one letter gives the answer.",
-     "definitionFit": "A plain synonym: something at rest is motionless, still in the sense of not moving rather than 'yet'."
+     "surface": "A man who stays still while audiences around him are thrown into a whirl.",
+     "walkthrough": "THEATRES without HE leaves TATRES; 'in a spin' moves the front T to the end.",
+     "definitionFit": "At rest means motionless and not moving, the same as an adverb or adjective for still."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "audiences"
+     "misdirectedWord": "Still"
     }
    }
   },
@@ -1228,44 +1257,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "bad",
-       "note": "SET is spoilt, its letters rearranged"
+       "text": "breaks",
+       "at": 8,
+       "note": "breaks says the jumbled letters split the word for for"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "for",
+       "at": 15,
+       "gives": "PRO",
+       "note": "pro means in favour of, for"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "breaks"
+         "text": "bad",
+         "at": 4,
+         "note": "bad says the letters of set have gone wrong and are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Set bad",
-         "gives": "EST",
-         "note": "SET rearranged"
-        },
-        {
-         "words": "for",
-         "gives": "PRO",
-         "note": "pro = for, in favour of"
+         "words": "Set",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis report: a poor set breaks up a burst of fast play.",
-     "walkthrough": "'For' is not a link here; it supplies the outer letters, since pro means in favour of.",
-     "definitionFit": "Presto is a very fast tempo, and a movement played at that speed."
+     "surface": "A bad set of something breaks, prompting a quick move.",
+     "walkthrough": "'movement' suggests motion, but it is a section of a symphony marked by its tempo.",
+     "definitionFit": "Presto is the musical direction for a very fast tempo, and a piece or movement played that way."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "movement"
     }
    }
@@ -1478,32 +1510,31 @@
      "op": "container",
      "indicators": [
       {
-       "text": "adopting"
+       "text": "adopting",
+       "at": 11,
+       "note": "adopting says the rider takes the letter inside him"
       }
      ],
      "parts": [
       {
        "words": "Cavalryman",
+       "at": 0,
        "gives": "RIDER",
-       "note": "a mounted soldier rides"
+       "note": "a cavalryman is a horse rider"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "prominent position in",
-         "note": "the front, most prominent position of ATTACK is its A"
+         "at": 20,
+         "note": "the most prominent position in a word is its front, so take the first letter of attack"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "prominent position in attack",
-         "gives": "A",
-         "select": "first",
-         "note": "first letter of attack"
+         "words": "attack",
+         "at": 42
         }
        ]
       }
@@ -1511,9 +1542,8 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A horseman taking the lead position in a charge.",
-     "walkthrough": "The whole clue is both definition and wordplay: a rider at the front of an attack is a raider. The question mark flags the loose fit.",
-     "definitionFit": "A raider is one who attacks, as a mounted soldier leading a charge might."
+     "surface": "A horse soldier taking up a forward post in a charge.",
+     "definitionFit": "A raider is someone who makes a sudden attack, historically often a mounted soldier on a raid."
     },
     "features": {
      "answerInScene": true,
@@ -1544,50 +1574,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HARMLESS",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 38,
+       "note": "in places the shortened rewards inside the school letters"
+      }
+     ],
      "parts": [
       {
+       "words": "high school",
+       "at": 41,
+       "gives": "HS"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HARMLESS",
        "indicators": [
         {
          "text": "abandoning",
-         "note": "to abandon is to leave behind"
-        },
-        {
-         "text": "in"
+         "at": 3,
+         "note": "abandoning says the two letters leave the rewards word"
         }
        ],
        "parts": [
         {
-         "words": "high school",
-         "gives": "HS",
-         "note": "the abbreviation"
-        },
-        {
          "words": "rewards for high-fliers",
+         "at": 14,
          "gives": "AIRMILES",
-         "note": "loyalty points earned by frequent flyers"
+         "note": "air miles are points rewarding frequent flyers, high-fliers in a literal sense"
         },
         {
          "words": "Is",
+         "at": 0,
          "gives": "II",
-         "note": "read as the plural of I: two I's"
+         "note": "Is read as the plural of the letter I, so two Is"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question whether a school's scrapping of frequent-flyer perks is offensive, answered no.",
-     "walkthrough": "'Is' is not the verb but the plural of the letter I, so both I's of AIRMILES go. The definition 'offensive? No' means not offensive.",
-     "definitionFit": "'Offensive? No' asks whether it offends and answers no; harmless things give no offence."
+     "surface": "Is abandoning prizes for high achievers at a high school offensive? The answer comes back: no.",
+     "walkthrough": "'Is' is not the verb: it is two letter Is, which leave AIRMILES to give ARMLES.",
+     "definitionFit": "Something harmless gives no offence or injury, so it is the opposite of offensive."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Is"
     }
    }
@@ -1614,41 +1648,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ENGINE",
+     "indicators": [
+      {
+       "text": "unravels",
+       "at": 8,
+       "note": "unravels says the remaining letters come apart and are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ENGINE",
        "indicators": [
         {
-         "text": "unravels",
-         "note": "the remaining letters come apart and re-form"
-        },
-        {
          "text": "goes",
-         "note": "goes = departs, so Victor's letter leaves EVENING"
+         "at": 30,
+         "note": "goes means the letter for Victor departs from evening"
         }
        ],
        "parts": [
         {
          "words": "Evening",
-         "note": "as printed"
+         "at": 0
         },
         {
          "words": "Victor",
+         "at": 23,
          "gives": "V",
-         "note": "V in the NATO alphabet"
+         "note": "Victor is V in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An evening falls apart after someone called Victor loses his mind.",
-     "walkthrough": "'Loco' looks like the slang for crazy; here it is short for locomotive.",
-     "definitionFit": "A loco, short for locomotive, is a railway engine."
+     "surface": "An evening falls apart once Victor goes crazy.",
+     "walkthrough": "'loco' looks like 'crazy' with 'goes' as 'becomes'; it is short for locomotive. EVENING without V gives EENING to be rearranged.",
+     "definitionFit": "Loco is a short form of locomotive, the engine that pulls a train."
     },
     "features": {
      "answerInScene": false,
@@ -1674,57 +1709,81 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Who",
+      "text": "Who's paid for curiosity ahead of Romeo's exchange with Tybalt, finally",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MERCUTIO",
      "indicators": [
       {
-       "text": "ahead of"
-      },
-      {
-       "text": "exchange"
-      },
-      {
-       "text": "finally"
+       "text": "exchange with",
+       "at": 42,
+       "note": "exchange with says one letter is swapped out for another"
       }
      ],
      "parts": [
       {
-       "words": "paid for",
-       "gives": "MET",
-       "note": "to meet a bill is to pay it"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 11,
+         "note": "for here means in place of, so the paid fighter stands in for the opening letter of the curiosity"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curiosity",
+         "at": 15,
+         "gives": "CURIO",
+         "note": "a curio is a curiosity, an odd collectible"
+        },
+        {
+         "gives": "C"
+        },
+        {
+         "words": "Who's paid",
+         "at": 0,
+         "gives": "MERC",
+         "note": "a merc, short for mercenary, is one who is paid to fight"
+        }
+       ]
       },
       {
-       "words": "curiosity",
-       "gives": "CURIO",
-       "note": "an odd collectable object"
-      },
-      {
-       "words": "Romeo",
+       "words": "Romeo's",
+       "at": 34,
        "gives": "R",
-       "note": "R in the NATO alphabet"
+       "note": "Romeo is R in the NATO phonetic alphabet"
       },
       {
-       "words": "Tybalt, finally",
-       "gives": "T",
-       "note": "last letter of Tybalt"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 64,
+         "note": "finally asks for the last letter of Tybalt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tybalt",
+         "at": 56
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A Romeo and Juliet summary: someone paid for being curious before Romeo's fight with Tybalt.",
-     "walkthrough": "Mercutio is Romeo's friend in Romeo and Juliet, killed by Tybalt. The swap trades T in MET for R in CURIO.",
-     "definitionFit": "Mercutio is a person in the play, so 'who' points to a character."
+     "surface": "Someone pays with his life for meddling, ahead of Romeo's fight with Tybalt.",
+     "walkthrough": "Mercutio dies in Romeo and Juliet for butting into the quarrel, before Romeo and Tybalt fight.",
+     "definitionFit": "Mercutio is Romeo's friend in Shakespeare's play, killed by Tybalt for his meddling before Romeo's own duel."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "exchange"
+     "aptDefinition": true,
+     "misdirectedWord": "paid"
     }
    }
   }

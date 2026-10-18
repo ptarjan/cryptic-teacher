@@ -598,51 +598,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 39,
+       "note": "about says the reversed letters go around the former partner"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going around, so one piece encircles the other"
+         "text": "upset",
+         "at": 33,
+         "note": "upset in a down clue means the letters are turned over, read bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "relative",
-         "gives": "SIS",
-         "note": "short for sister; reversing it changes nothing"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "upset",
-           "note": "in a down entry upset turns something upside down, so it reads from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "former partner",
-           "gives": "XE",
-           "note": "an ex is a former partner"
+           "words": "male",
+           "at": 19,
+           "gives": "M"
+          },
+          {
+           "words": "relative",
+           "at": 24,
+           "gives": "SIS",
+           "note": "sis, short for sister, is a relative"
           }
          ]
         }
        ]
       },
       {
-       "words": "male",
-       "gives": "M",
-       "note": "M is the abbreviation for male"
+       "words": "former partner",
+       "at": 45,
+       "gives": "EX",
+       "note": "an ex is a former partner"
       }
      ]
     },
     "explanation": {
-     "surface": "A man's sister is upset by bigotry from her ex.",
-     "walkthrough": "The short word for sister reads the same both ways, so the reversal changes nothing visible.",
-     "definitionFit": "Sexism is prejudice or discrimination based on a person's sex."
+     "surface": "A man's relative is upset about his ex, and prejudice shows.",
+     "walkthrough": "'relative upset' reads as an emotional relation; it is a sister's short name turned over, with the male letter.",
+     "definitionFit": "Sexism is discrimination on grounds of sex, one particular kind of bias."
     },
     "features": {
      "answerInScene": true,
@@ -686,46 +690,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STINGINTHETAIL",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "Mostly means all but the last letter of the word for bitter"
+        }
+       ],
        "parts": [
         {
          "words": "bitter",
-         "gives": "STINGIN",
-         "note": "stinging means bitter or sharp, here lacking its final letter"
+         "at": 7,
+         "gives": "STINGING",
+         "note": "stinging means sharp and bitter, as in stinging criticism"
         },
         {
-         "words": "article",
-         "gives": "THE",
-         "note": "the definite article"
-        },
-        {
-         "words": "behind",
-         "gives": "TAIL",
-         "note": "a tail is a behind or rear end"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "article",
+       "at": 14,
+       "gives": "THE",
+       "note": "the is the definite article"
+      },
+      {
+       "words": "behind",
+       "at": 22,
+       "gives": "TAIL",
+       "note": "tail means the rear part, the behind"
       }
      ]
     },
     "explanation": {
-     "surface": "A sour news story about a rear end, ending unexpectedly harshly.",
-     "walkthrough": "'Behind' looks like a word of position, but it is a noun for the rear.",
-     "definitionFit": "A sting in the tail is an unpleasant surprise at the end of something, like a scorpion's sting."
+     "surface": "A sour remark about something trailing behind before an unexpectedly hard ending.",
+     "walkthrough": "'Mostly' trims STINGING to STINGIN.",
+     "definitionFit": "A sting in the tail is an unpleasant surprise at the end of something otherwise pleasant."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "behind"
     }
    }

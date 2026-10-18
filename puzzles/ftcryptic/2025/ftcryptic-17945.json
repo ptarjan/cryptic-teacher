@@ -885,39 +885,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "turned around means moved about, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Animal",
+       "at": 0,
+       "gives": "CAT",
+       "note": "a cat is an animal"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 13,
+         "note": "around says the letters of heard are moved about into another order"
+        }
+       ],
        "parts": [
         {
-         "words": "Animal",
-         "gives": "CAT",
-         "note": "a cat is an animal"
-        },
-        {
          "words": "heard",
-         "note": "rearranged"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the clothing-size abbreviation for large"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "large",
+       "at": 20,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
       }
      ]
     },
     "explanation": {
-     "surface": "An animal heard making noise near a big church.",
-     "walkthrough": "'heard' tempts as a homophone signal, but it is the fodder; 'large church' looks like the definition, yet only 'church' is.",
-     "definitionFit": "A cathedral is the principal church of a diocese, seat of a bishop."
+     "surface": "An animal's cry is heard around a big church.",
+     "walkthrough": "'heard' looks like a homophone signal, but it is the anagram fodder; 'around' shuffles it to HEDRA.",
+     "definitionFit": "A cathedral is the principal church of a diocese, seat of its bishop."
     },
     "features": {
      "answerInScene": true,
