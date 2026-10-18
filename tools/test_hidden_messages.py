@@ -125,6 +125,9 @@ for text in ["Seven solutions, not defined, are linked.",
              # cryptic-26974: groups of letters left out of wordplay, read nowhere
              "In one case, these letters involve the beginning and end of the alphabet. These groups of "
              "three or four letters are to be included in the solution, but are omitted from the wordplay.",
+             # cyclops-743: a minor omission from a quoted extract, not a clue letter
+             "Running round the shaded squares is an extract (with a minor omission). The 55 letters "
+             "of this entry not crossing with normal solutions are: A B C",
              # near-misses of the two widenings: no clue, no reading together
              "A letter must be removed from each answer before entry.",
              "A letter must be removed from each clue before solving. Take care."]:

@@ -172,7 +172,7 @@ DEVICE_PATTERNS = {
               r"|\bdiscarded\s+letters\b|\bletter\s+too\s+many\b|\bone\s+letter\s+more\b"
               r"|\bwordplay\b[^.]{0,60}\b(an?|one)\s+(extra|additional)\b"
               r"|\bletter\s+must\s+be\s+(removed|deleted)\s+from\s+each\s+clue\b"),
-    "omitted": (r"\bomi(t|ts|tted)\s+(a|one|an?\s+\w+)\s+letter\b|\bletters?\s+omitted\b|\bomissions?\b"
+    "omitted": (r"\bomi(t|ts|tted)\s+(a|one|an?\s+\w+)\s+letter\b|\bletters?\s+omitted\b|(?<!minor )\bomissions?\b"
                 r"|\bmissing\s+letters?\b"
                 r"|\bletters?\s+(missing|short|lacking)\b|\bone\s+letter\s+(short|fewer)\b"
                 r"|\bwordplay\b[^.]{0,60}\b(lacks|leaves\s+out|excludes)\b"),
