@@ -280,40 +280,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "remarkably",
-       "note": "something done remarkably is done in an unusual way, so these letters take a new order"
+       "text": "saved by",
+       "at": 17,
+       "note": "saved by means the shuffled letters are kept inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "male or female",
+       "at": 26,
+       "gives": "GENDER",
+       "note": "male and female are the two traditional genders"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "saved by",
-         "note": "something saved by another is held safe inside it, so one piece goes within the other"
+         "text": "remarkably",
+         "at": 6,
+         "note": "remarkably suggests something out of the ordinary, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "male or female",
-         "gives": "GENDER",
-         "note": "male or female is a gender"
-        },
-        {
          "words": "A lot",
-         "note": "these letters rearranged"
+         "at": 0,
+         "note": "the letters of a lot are the fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A netminder, man or woman, has made a great many saves in a hockey game.",
-     "walkthrough": "'Saved' is apt in a hockey surface, but here it means kept inside: the shuffled letters sit within GENDER.",
-     "definitionFit": "In ice hockey the goaltender is the player who guards the net, the team's keeper."
+     "surface": "An ice hockey goalie, man or woman, stops a great many shots.",
+     "walkthrough": "'Saved' fits the ice hockey picture, but here it means the mixed letters of A LOT are held inside GENDER.",
+     "definitionFit": "A goaltender is the player who guards the net, mainly an American term for a goalkeeper in ice hockey."
     },
     "features": {
      "answerInScene": true,
@@ -848,40 +852,42 @@
      "indicators": [
       {
        "text": "collected by",
-       "note": "something collected by a person is gathered up and held by them, so it goes inside"
+       "at": 10,
+       "note": "collected by means the friend gathers the other pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "buddy",
-         "gives": "PAL",
-         "note": "a buddy is a pal"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "buddy",
+       "at": 23,
+       "gives": "PAL",
+       "note": "a pal is a buddy, a friend"
       },
       {
-       "words": "payment",
-       "gives": "RENT",
-       "note": "rent is a regular payment for property"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "payment",
+         "at": 2,
+         "gives": "RENT",
+         "note": "rent is a regular payment for property"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend of a couple of parents picks up a sum of money owed.",
-     "walkthrough": "'Buddy of mum and dad' reads as one phrase, but the definition starts at 'of'.",
-     "definitionFit": "Parental is the adjective for things belonging to or relating to a mother and father."
+     "surface": "A friend picks up a payment owed by a pal's parents.",
+     "definitionFit": "Parental describes anything relating to a child's parents, mother and father."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "buddy"
+     "misdirectedWord": "collected"
     }
    }
   },
@@ -1230,52 +1236,59 @@
      "indicators": [
       {
        "text": "thrown in",
-       "note": "something thrown in another lands inside it, so these pieces go within"
+       "at": 36,
+       "note": "thrown in means placed inside the shortened container"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 51,
+         "note": "shortly means cut short, so the last letter goes"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "shortly",
-           "note": "shortly means in brief, so the word is cut short by its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bin",
-           "note": "taken as written"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "bin",
+         "at": 46,
+         "gives": "BIN",
+         "note": "the word bin, which is cut short"
         },
         {
-         "words": "piece of lemon",
-         "gives": "RIND",
-         "note": "rind is the peel, a piece of a lemon"
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "piece of lemon",
+         "at": 18,
+         "gives": "RIND",
+         "note": "the rind is the skin, a piece of the lemon"
+        },
+        {
+         "words": "is",
+         "at": 33,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A port in Italy where a scrap of lemon gets tossed into the rubbish.",
-     "definitionFit": "Brindisi is a port city on the Adriatic coast of the Italian heel."
+     "surface": "Someone tosses lemon peel into the rubbish while visiting an Italian harbour.",
+     "walkthrough": "'Shortly' cuts BIN to BI, which then has RIND and IS thrown into it.",
+     "definitionFit": "Brindisi is a port city on the Adriatic coast in Apulia, in the heel of Italy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "misdirectedWord": "thrown"
     }
    }
   },

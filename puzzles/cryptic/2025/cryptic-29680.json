@@ -571,38 +571,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "'wonder' goes around the other pieces, sitting about them"
+       "at": 7,
+       "note": "about means going round, so the wonder word surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Wonder",
-         "gives": "AWE",
-         "note": "awe is a feeling of wonder"
-        },
-        {
-         "words": "a",
-         "note": "kept as written"
-        }
-       ]
+       "words": "Wonder",
+       "at": 0,
+       "gives": "AWE",
+       "note": "awe is wonder or amazement"
       },
       {
-       "words": "knight",
-       "gives": "K",
-       "note": "chess notation for the knight"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13
+        },
+        {
+         "words": "knight",
+         "at": 15,
+         "gives": "K",
+         "note": "K is the chess abbreviation for knight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone marvelling at how watchful a knight on guard is.",
-     "walkthrough": "K for knight is a standing crossword abbreviation, as in honours such as KBE; 'being alert' is the definition, 'being' only linking.",
-     "definitionFit": "Being awake means conscious and watchful, not asleep, the same as being on the alert."
+     "surface": "Amazed at a knight who stays watchful.",
+     "definitionFit": "Being awake means being conscious and watchful, so the word works as a synonym for vigilant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Wonder"
     }
@@ -919,31 +921,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEEKEEPER",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner swapped the opening sounds of words, so the start sounds of the phrase trade places"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "important alarm",
-       "gives": "BEEKEEPER",
-       "soundsLike": "KEY BEEPER",
-       "note": "important is key, and an alarm is a beeper; swap the K and B sounds"
+       "op": "homophone",
+       "spelt": "KEE",
+       "parts": [
+        {
+         "words": "important",
+         "at": 10,
+         "gives": "KEY",
+         "note": "a key issue is an important one"
+        }
+       ]
+      },
+      {
+       "words": "alarm",
+       "at": 20,
+       "gives": "BEEPER",
+       "note": "a beeper is a device that sounds an alarm"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on the crucial alarm clock for someone who keeps bees.",
-     "walkthrough": "KEY BEEPER with its first sounds exchanged becomes BEE KEEPER.",
-     "definitionFit": "An apiarist is someone who keeps bees in hives, from the Latin apis meaning bee."
+     "surface": "Spooner's version of a crucial warning signal turns out to describe a beekeeper.",
+     "walkthrough": "Key beeper, with its opening sounds swapped, comes out as bee keeper; the swap works on sound, so KEY is heard as KEE.",
+     "definitionFit": "An apiarist keeps hives of honeybees, from apiary, a place where bees are kept."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "alarm"

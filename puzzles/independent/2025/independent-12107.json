@@ -1271,40 +1271,47 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DOORSTEP",
      "indicators": [
       {
        "text": "says Spooner",
-       "note": "Spooner was famous for swapping the opening sounds of words, so these sounds trade places"
+       "at": 50,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "words": "collection",
-       "gives": "STORE",
-       "note": "a store is a collection kept for later"
+       "op": "homophone",
+       "spelt": "STOOR",
+       "parts": [
+        {
+         "words": "collection",
+         "at": 30,
+         "gives": "STORE",
+         "note": "a store is a stock or collection of things"
+        }
+       ]
       },
       {
-       "words": "Johnny",
-       "gives": "DEPP",
-       "note": "Johnny Depp, the film actor"
-      },
-      {
-       "unchecked": true,
-       "words": "collection, Johnny",
-       "gives": "DOORSTEP",
-       "soundsLike": "STORE DEPP",
-       "note": "swapping the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "DEP",
+       "parts": [
+        {
+         "words": "Johnny",
+         "at": 42,
+         "gives": "DEPP",
+         "note": "Johnny Depp is the American film actor"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A collection box placed right by the door, as the Reverend Spooner might phrase it.",
-     "definitionFit": "The step outside a house is the last thing you stand on before going through its front door."
+     "surface": "Someone calls out to Johnny about a collection, in Spooner's muddled way.",
+     "walkthrough": "Store Depp, with the opening sounds swapped, is heard as door step; the swap is by sound, so the spellings shift.",
+     "definitionFit": "A doorstep is the step immediately outside a front door, the last thing before going in."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Johnny"
