@@ -227,10 +227,13 @@ fi
 echo "$$" > "$LOCK/pid"
 # bash skips the EXIT trap when a signal kills it, which strands the lock; so a
 # signal is turned into an ordinary exit and the trap below runs for it too.
-trap 'exit 129' HUP
+# HUP is the hot reload (tools/hot_reload.py), not a stop: see reload_burn.
+RELOAD_ASKED=0
+WATCH_PID=""
+trap 'RELOAD_ASKED=1' HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
-trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+trap '[ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null; rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 # A resume note is written for a retry in the same process, about the tree as it
 # was then. A run this start finds still recorded in $RUNS was stopped by the
 # restart, and its note is written afresh at its launch (worker_put_back), about
@@ -622,11 +625,17 @@ pool_reap() {
     [ -n "$pid" ] && break
     # wait -n sees only this shell's children, so while an adopted run is in
     # flight the pool polls instead.
-    if [ ${#POOL_ADOPTED[@]} -gt 0 ]; then sleep "$POOL_POLL_SECS"; continue; fi
+    if [ ${#POOL_ADOPTED[@]} -gt 0 ]; then
+      sleep "$POOL_POLL_SECS"
+      reload_due && return
+      continue
+    fi
     wait -n -p pid "${!POOL_RUNS[@]}" 2>/dev/null
     rc=$?
     pid=${pid:-}
     [ -n "$pid" ] && break
+    # A HUP ends the wait with no pid: back to run_pool, which reloads (reload_burn).
+    reload_due && return
     # One finished between the scan and wait -n: the next scan finds it.
     sleep 1
   done
@@ -690,6 +699,7 @@ pool_replan() {
   local -A held=() pending=() placed=()
   local rest=()
   f=$(mktemp "${TMPDIR:-/tmp}/ct-prereset-plan.XXXXXX") || return
+  POOL_PLAN_BUSY=1  # a HUP waits (reload_due): an exec now would orphan the planner
   printf '%s\n' "${queue[@]:$at}" >"$f.in"
   : >"$f.new"
   t0=${EPOCHREALTIME/[.,]/}
@@ -770,6 +780,7 @@ pool_replan() {
     fi
   fi
   rm -f "$f" "$f.in" "$f.new" "$f.out" "$f.done" "$f.rc" "$f.secs"
+  POOL_PLAN_BUSY=""
 }
 # Why a re-plan's output cannot replace the queue, or nothing when it can:
 # the planner failed, or the ids out are not the ids in (each counted once).
@@ -914,6 +925,7 @@ run_pool() {
       sync_wave
       POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
     fi
+    [ "$stop" = 0 ] && [ "$RELOAD_ASKED" = 1 ] && reload_burn
     # A sync that brought new shell code, here or in after_wave's drain.
     [ "$stop" = 0 ] && [ "$(shell_sum)" != "$SHELL_SUM" ] && reexec_self
     while [ "$stop" = 0 ] && [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ]; do
@@ -979,13 +991,48 @@ reexec_self() {
   declare -p "${REEXEC_VARS[@]}" | sed 's/^declare -/declare -g -/' >"$state" || return 1
   echo "=== shell code moved: re-execing onto $(git rev-parse --short HEAD), adopting ${#POOL_RUNS[@]} runs in flight ==="
   export CT_PRERESET_STATE="$state"
+  [ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null  # the new shell starts its own
   shopt -s execfail
   exec "$BASH" -c '. "$0"' "$PRERESET_SELF"
   shopt -u execfail
   unset CT_PRERESET_STATE
   rm -f "$state"
+  reload_watch
   alert "the pre-reset backfill could not re-exec onto its new shell code, so it keeps running the old"
   SHELL_SUM=$(shell_sum)
+}
+# --- hot reload ----------------------------------------------------------------
+# Paul 10-18: "I hate wait queue cycles... kill hup them." Two triggers, as for
+# tools/edition_queue.py (tools/hot_reload.py): `kill -HUP` this shell (the pid
+# whose command line is `. "$0"`), or the watcher below, which every
+# CT_RELOAD_POLL (180s) sees origin/master's tools/ code differ from the tree's
+# and sends the same HUP. The burn does not wind down to be reloaded, because
+# nothing needs it to: a run is a fresh process off the tree, and the tree
+# reaches origin at once instead of at the next hourly sync_wave, and the shell
+# code re-execs onto it, adopting the runs in flight. So a reload never stops a
+# run, and never exits 75; a HUP during a nap or a re-plan waits for it to end.
+reload_due() {  # a HUP waits for run_pool, which is where the tree may move
+  [ "$RELOAD_ASKED" = 1 ] && [ "$POOL_HOLD" = 0 ] && [ -z "${POOL_PLAN_BUSY:-}" ]
+}
+reload_burn() {
+  RELOAD_ASKED=0
+  echo "=== reload asked: moving the tree to origin/master, ${#POOL_RUNS[@]} runs in flight stay ==="
+  sync_wave
+  POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+  reload_watch
+}
+reload_watch() {  # one watcher at a time, firing once; reload_burn starts the next
+  [ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null
+  WATCH_PID=""
+  [ "$DRY_RUN" = 1 ] && return 0
+  (
+    while sleep "${CT_RELOAD_POLL:-180}"; do
+      python3 "$REPO/tools/hot_reload.py" check "$REPO" >/dev/null 2>&1 || continue
+      kill -HUP $$
+      exit 0
+    done
+  ) 9>&- &  # not the tree's lease (fd 9): a sleep outliving the burn would hold it
+  WATCH_PID=$!
 }
 # In the new shell: the old one's state, every run in flight adopted.
 reexec_load() {
@@ -1356,6 +1403,7 @@ if [ -n "$REEXEC_STATE" ]; then
   reexec_load "$REEXEC_STATE" || { alert "the pre-reset backfill re-execed but could not read its state $REEXEC_STATE — stopping; the runs it had in flight resume at the next start."; exit 1; }
   echo "adopted ${#POOL_ADOPTED[@]} runs in flight: ${POOL_RUNS[*]}"
 fi
+reload_watch
 # The start's alone: a re-exec has runs in flight reading the index, and its
 # queue already.
 if [ -z "$REEXEC_STATE" ]; then

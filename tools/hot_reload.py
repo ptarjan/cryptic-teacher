@@ -120,3 +120,15 @@ class Watcher:
 def summary(files, limit=4):
     """Short text for a log line: the first few files and the count."""
     return ", ".join(files[:limit]) + (f" and {len(files) - limit} more" if len(files) > limit else "")
+
+
+if __name__ == "__main__":
+    # `hot_reload.py check [repo]`, for the shell loops (tools/prereset_backfill.sh):
+    # exit 0 and name the files when origin/master's code differs from the tree's
+    # HEAD, 1 when it does not, the repo cannot be read or CT_AUTO_RELOAD=0.
+    import sys
+
+    changed = Watcher(sys.argv[2] if len(sys.argv) > 2 else ".").check() if sys.argv[1:2] == ["check"] and enabled() else None
+    if changed:
+        print(summary(changed))
+    sys.exit(0 if changed else 1)

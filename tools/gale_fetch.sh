@@ -18,6 +18,7 @@
 # captcha, a wrong PDF, Gale refusing through every probe, or repeated
 # errors; the room was woken, and it must not be restarted until someone
 # has looked. Stopping it: kill the python3 child as well as this wrapper.
+# Reloading it onto new code: kill -HUP the python3 child (never this wrapper).
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
@@ -27,4 +28,14 @@ export PYTHONUNBUFFERED=1
 # desktop (gale_inbox.layout_there via tools/ocr_remote.py), here when it is
 # not answering: it was ~all this run's CPU on the host.
 export OCR_REMOTE="${OCR_REMOTE-$(python3 tools/desktop_hosts.py remote)}"
-exec python3 tools/gale_fetch.py "$@"
+# Hot reload (tools/hot_reload.py): `kill -HUP` the python3 child, or origin/master's
+# tools/ code moving, ends it between two downloads with rc 75. The tree moves
+# to origin/master and the script starts over on it (the same pid, the lease on
+# fd 9 kept); the run resumes off its log.
+python3 tools/gale_fetch.py "$@"
+rc=$?
+[ "$rc" -eq 75 ] || exit "$rc"
+echo "=== reload asked; moving the tree to origin/master ==="
+git fetch -q origin master && git reset -q --hard origin/master ||
+  { echo "the tree did not move; starting again in 60s"; sleep 60; }
+exec "$BASH" -c '. "$0"' "$PWD/tools/gale_fetch.sh" "$@"

@@ -140,6 +140,13 @@ gf.new_window(kw["limits"], clock() - 10 * 3600, 440)
 gf.run(limit=30, **kw)
 assert max(b - a for a, b in zip(starts, starts[1:])) < 3600
 assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 470
+# A reload asked (tools/hot_reload.py) ends the run between two downloads, never in one.
+clock, starts, stored, kw = harness()
+try:
+    gf.run(limit=30, reload=lambda: len(stored) >= 4, **kw)
+    raise AssertionError("the reload was not raised")
+except gf.Reload:
+    assert len(stored) == 4 == len(starts), (len(stored), len(starts))
 
 # 2. Stops at a captcha or a short PDF, having stored only before it.
 for bad, said in ((b"<html>Please complete the CAPTCHA</html>", "captcha"),

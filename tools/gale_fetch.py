@@ -71,8 +71,10 @@ import random
 import re
 import shlex
 import shutil
+import signal
 import subprocess
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -80,6 +82,7 @@ import urllib.request
 from pathlib import Path
 
 import gale_docs
+import hot_reload
 import media_manifest
 from gale_http import Chrome, click_headers, verifies
 
@@ -139,6 +142,13 @@ class Stop(Exception):
     def __init__(self, why, refused=False, status=None, head=b""):
         super().__init__(why)
         self.refused, self.status, self.head = refused, status, head
+
+
+class Reload(Exception):
+    """A reload was asked (SIGHUP, or origin/master's tools/ code moved:
+    tools/hot_reload.py). Raised between downloads and out of a wait, never in
+    one: the run ends RELOAD_RC and tools/gale_fetch.sh moves the tree and
+    starts it again, resuming off the log."""
 
 
 class Pacer:
@@ -492,12 +502,13 @@ def alert(text, quiet=False):
 
 
 def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None, got_of=None, log=print,
-        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, limits=LIMITS, tell=None):
+        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, limits=LIMITS, tell=None, reload=None):
     """Fetch until `limit` downloads, no row left, or a stop. The hooks
     (`fetch(url) -> body`, `store(body, prod, day, doc, entry)`, `plan_of(got)`,
     `got_of()`, `lookup_of(prod, day)`, `fetched`, `limits`, `tell(text)`) stand
     in for Gale, the Mac, the logs and the room in the test. Returns
-    (downloads, why it ended); raises Stop to stop."""
+    (downloads, why it ended); raises Stop to stop, and Reload between two
+    downloads when `reload()` says so."""
     pacer = pacer or Pacer()
     sessions = {}  # one per product: a session on one archive 500s on another's
 
@@ -593,6 +604,8 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     got_of = got_of or have_docs
     n, errors, idle = 0, 0, 0
     while limit is None or n < limit:
+        if reload and reload():
+            raise Reload("reload asked")
         got = got_of()
         todo = plan_of(got)[:REPLAN]
         if not todo:
@@ -606,6 +619,8 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
         for prod, day, e, *ask in todo:
             if limit is not None and n >= limit:
                 break
+            if reload and reload():
+                raise Reload("reload asked")
             if e is None:
                 if dry:
                     log(f"would look up {prod} {day}{' report' if ask[1:] == [True] else ''}, then fetch it")
@@ -681,8 +696,28 @@ def main(argv=None):
     print(f"=== Gale downloads from {datetime.datetime.now():%F %T}: gap {GAP[0]:.0f}-{GAP[1]:.0f}s, "
           f"<= {WINDOW_MAX}/{WINDOW:.0f}s, cap {cap} a {span / 3600:.1f} h window ({count} in the one since "
           f"{iso(start)}), next-up rows from {a.skip + 1} ===")
+    # SIGHUP (or the watcher: origin/master's tools/ code moved) reloads. Every
+    # wait is cut short by it, as a download in flight is not.
+    asked = threading.Event()
+    signal.signal(signal.SIGHUP, lambda *_: asked.set())
+    watcher = hot_reload.Watcher(Path(__file__).resolve().parent.parent).start() if hot_reload.enabled() else None
+
+    def reload():
+        return asked.is_set() or bool(watcher and watcher.hit)
+
+    def nap(seconds):
+        end = time.time() + seconds
+        while (left := end - time.time()) > 0:
+            if reload():
+                raise Reload("reload asked")
+            asked.wait(min(left, 5.0))
+
     try:
-        n, why = run(a.max, a.dry_run, skip=a.skip)
+        n, why = run(a.max, a.dry_run, pacer=Pacer(sleep=nap), skip=a.skip, reload=reload)
+    except Reload:
+        why = "SIGHUP" if asked.is_set() else f"origin/master changed {hot_reload.summary(watcher.hit)}"
+        print(f"reload: {why}; exiting {hot_reload.RELOAD_RC} for the wrapper to move the tree and start again", flush=True)
+        return hot_reload.RELOAD_RC
     except Stop as e:
         alert(f"{e}. Nothing more is fetched until it is restarted.")
         return 2
