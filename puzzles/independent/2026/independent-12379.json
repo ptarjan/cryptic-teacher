@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1095,46 +1096,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SNIFTER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "at": 11,
+       "note": "caught in means trapped inside, so those letters go within the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "caught in",
-         "note": "something caught in a thing is stuck inside it, so these letters go within the piece named next"
-        },
-        {
          "text": "flipping",
-         "note": "flipped over, a word is read the other way about, its last letter arriving first"
+         "at": 21,
+         "note": "flipping means turning over, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "straps",
-         "gives": "SNIER",
-         "note": "the straps a rider holds are REINS, set down here back to front"
-        },
-        {
-         "words": "feet",
-         "gives": "FT",
-         "note": "ft is the short form on any measurement given in them"
+         "at": 30,
+         "gives": "REINS",
+         "note": "reins are the straps used to control a horse"
         }
        ]
+      },
+      {
+       "words": "feet",
+       "at": 6,
+       "gives": "FT"
       }
      ]
     },
     "explanation": {
-     "surface": "A toddler with his feet tangled up in the wretched straps.",
-     "walkthrough": "'Flipping' is the British word for mild exasperation in the surface and an instruction to turn a word round in the wordplay. Reins are the straps setters reach for most.",
-     "definitionFit": "Tot -> SNIFTER: both are small measures of spirits, the quick one poured before dinner rather than a full glass."
+     "surface": "A toddler's feet get tangled in flailing straps.",
+     "walkthrough": "'Tot' looks like a small child, which the feet and straps support; it is a small drink.",
+     "definitionFit": "A tot is a small measure of spirits, and a snifter is likewise a small alcoholic drink."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "flipping"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tot's"
     }
    }
   },
@@ -1207,42 +1212,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CHERVIL",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "to turn about is to face the other way, so this piece is set down in the opposite direction"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Companion",
+       "at": 0,
+       "gives": "CH",
+       "note": "CH stands for Companion of Honour, a British order"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 27,
+         "note": "about means turned around, so the French word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Companion",
-         "gives": "CH",
-         "note": "CH after a name means Companion of Honour, a British order of about sixty living members"
-        },
-        {
          "words": "book from France",
-         "gives": "ERVIL",
-         "note": "a book in France is a livre, written here the other way round"
+         "at": 10,
+         "gives": "LIVRE",
+         "note": "livre is French for book"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend's French book on the subject of a kitchen herb.",
-     "walkthrough": "The definition is one thing, not a nationality plus a herb: chervil is the mild aniseed-flavoured leaf in a French fines herbes mix, and British greengrocers sell it as French parsley.",
-     "definitionFit": "French parsley -> CHERVIL: the lacy aniseed herb of French cooking, sold under that name here because the leaf looks like flat parsley."
+     "surface": "A travel companion brings a French book about the herbs of France.",
+     "walkthrough": "'About' reverses LIVRE (French for book) to give ERVIL. CH, Companion of Honour, is a British honour for distinguished service.",
+     "definitionFit": "Chervil is a delicate herb related to parsley and much used in French cooking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "French"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -1277,7 +1283,8 @@
      "indicators": [
       {
        "text": "Without",
-       "note": "without in its old sense of outside, as in a green hill without a city wall: the other pieces stand outside this one"
+       "at": 0,
+       "note": "without in its old sense means outside, so the other letters are placed around the help"
       }
      ],
      "parts": [
@@ -1286,27 +1293,29 @@
        "parts": [
         {
          "words": "left",
-         "gives": "L",
-         "note": "l. is the short form on any set of directions"
+         "at": 14,
+         "gives": "L"
         },
         {
          "words": "deeply",
+         "at": 19,
          "gives": "LOW",
-         "note": "a deep note is a low one, and a deep voice a low voice"
+         "note": "low means deeply, as in bowing low"
         }
        ]
       },
       {
        "words": "help",
+       "at": 8,
        "gives": "AID",
-       "note": "aid is help"
+       "note": "aid means help"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody with nobody to help them, badly floored by sickness.",
-     "walkthrough": "'Without' is the archaic sense, outside, rather than the everyday 'lacking' the surface wants, and that is what puts help in the middle of the answer rather than out of it.",
-     "definitionFit": "incapacitated by illness -> LAID LOW: to be laid low is to be knocked flat by a bug or a fever, off your feet until it lifts."
+     "surface": "Someone left alone without assistance, badly sick.",
+     "walkthrough": "'Without' reads as 'lacking', but it has its old sense 'outside', so the help sits inside the other pieces.",
+     "definitionFit": "To be laid low is to be confined to bed or made weak by a sickness."
     },
     "features": {
      "answerInScene": true,
@@ -1493,53 +1502,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HAMSTER",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "something broken has come apart and gone back together wrongly, so these letters change their order"
+       "text": "nursing",
+       "at": 13,
+       "note": "nursing means holding close, so one piece cradles the other"
       },
       {
        "text": "Quite the reverse",
-       "note": "the containing just described happens the other way about, and it is the piece named second that ends up inside"
+       "at": 35,
+       "note": "quite the reverse swaps the roles in the instruction, so the heart holds the woman instead"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "nursing",
-         "note": "a nurse keeps the patient in her care, so one of these pieces holds the other inside it"
+         "text": "broken",
+         "at": 21,
+         "note": "broken means smashed apart, so the letters are reassembled in a new order"
         }
        ],
        "parts": [
         {
-         "words": "broken heart",
-         "gives": "HATER",
-         "note": "the five letters of HEART put back together in another order"
-        },
-        {
-         "words": "Modern woman",
-         "gives": "MS",
-         "note": "Ms is the modern form of address, the one that says nothing about whether she is married"
+         "words": "heart",
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "Modern woman",
+       "at": 0,
+       "gives": "MS",
+       "note": "Ms is the modern title for a woman, regardless of marital status"
       }
      ]
     },
     "explanation": {
-     "surface": "A modern woman tending a broken heart, or rather the other way about.",
-     "walkthrough": "'Quite the reverse' is not an instruction to turn letters round: it swaps which piece does the holding, so the shuffled letters close over the woman. 'Pet' is the definition and also the northern English endearment the sentence signs off with.",
-     "definitionFit": "pet -> HAMSTER: the cage-kept rodent is one of the standard children's pets, an example doing duty for the general word."
+     "surface": "A woman caring for a broken heart, or the other way round, over a pet.",
+     "walkthrough": "Read literally, MS would hold the anagram; 'Quite the reverse' flips that, so HATER ('broken' heart) holds MS.",
+     "definitionFit": "A hamster is a small rodent commonly kept as a household animal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "pet"
+     "misdirectedWord": "nursing"
     }
    }
   },

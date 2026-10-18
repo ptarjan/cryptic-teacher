@@ -735,42 +735,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAMBRIDGE",
-     "indicators": [
-      {
-       "text": "Nearly",
-       "note": "nearly means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Nearly",
+         "at": 0,
+         "note": "nearly means not quite all, so the final letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "attended",
-         "gives": "CAM",
-         "note": "came, short of its final letter"
+         "at": 7,
+         "gives": "CAME",
+         "note": "came means attended, as in came to a meeting"
         },
         {
-         "words": "game",
-         "gives": "BRIDGE",
-         "note": "bridge is a card game"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "game",
+       "at": 16,
+       "gives": "BRIDGE",
+       "note": "bridge is a card game"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone almost went to a match against a city team.",
-     "walkthrough": "'Attended' in the sense of came along to an event; 'City' looks like a football club but is the definition.",
-     "definitionFit": "Cambridge is an English university city, an example of the class named by the definition."
+     "surface": "A spectator who nearly went to a match involving a city team.",
+     "walkthrough": "'Game' and 'City' suggest football, as in Manchester City, but the game is the card game and 'City' is the definition.",
+     "definitionFit": "Cambridge is a university city in eastern England, on the River Cam."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "City"
+     "misdirectedWord": "game"
     }
    }
   },
@@ -1082,53 +1086,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMBER",
+     "op": "composite",
      "indicators": [
       {
+       "text": "Repaired",
+       "at": 0,
+       "note": "repaired means put back together, so the letters are reassembled in a new order"
+      },
+      {
        "text": "cutting",
-       "note": "cutting something out removes it, so a letter is taken away"
+       "at": 17,
+       "note": "cutting means taking out, so a letter is removed from the pool"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Repaired",
-           "note": "a repaired object has been put back together, so the letters are reassembled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "marble",
-           "gives": "MARBE",
-           "note": "the word with its L cut out"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "line",
-         "note": "L is the abbreviation for line, the letter removed"
-        }
-       ]
+       "words": "marble",
+       "at": 9
+      },
+      {
+       "words": "line",
+       "at": 25,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A restorer fixes a marble statue, removing a line of resin filler.",
-     "walkthrough": "'Cutting' could suggest insertion; here it means the line is cut out of the fodder.",
-     "definitionFit": "Amber is fossilised tree resin, prized as a gemstone, so a specific kind of resin."
+     "surface": "A mason mending a marble piece, cutting along a line to use resin.",
+     "walkthrough": "'Cutting' takes L (line) out of MARBLE, leaving MARBE, and 'Repaired' rearranges those letters. Resin is a plausible repair material, which hides that it is the definition.",
+     "definitionFit": "This is fossilised tree resin, a yellowish material used in jewellery."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cutting"
+     "misdirectedWord": "Repaired"
     }
    }
   },

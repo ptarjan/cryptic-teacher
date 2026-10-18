@@ -192,36 +192,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ONION",
      "indicators": [
       {
        "text": "takes over from",
-       "note": "taking over from someone means replacing them in their post, so one letter swaps in for another"
+       "at": 19,
+       "note": "takes over from means steps into another's place, so one letter replaces another"
       }
      ],
      "parts": [
       {
        "words": "Joining",
+       "at": 0,
        "gives": "UNION",
        "note": "a union is a joining together"
       },
       {
-       "words": "Oscar",
-       "gives": "O",
-       "note": "O is Oscar in the NATO phonetic alphabet"
+       "words": "university",
+       "at": 35,
+       "gives": "U"
       },
       {
-       "words": "university",
-       "gives": "U",
-       "note": "U is the standard abbreviation for university"
+       "words": "Oscar",
+       "at": 13,
+       "gives": "O",
+       "note": "Oscar is O in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone named Oscar replaces the head of a university just as he joins the staff.",
-     "walkthrough": "'University head' looks like a single phrase, a vice-chancellor; in fact 'head' stands alone as the definition and 'university' is just U, which Oscar's O replaces in UNION.",
-     "definitionFit": "In British slang onion means the head, as in the idiom 'off your onion' for crazy or out of your mind."
+     "surface": "A boardroom story: Oscar succeeding a university head.",
+     "walkthrough": "In UNION (a joining), 'takes over from' puts O (Oscar) in place of U (university). 'Head' looks like part of 'university head'; it is the definition, slang as in 'off your onion'.",
+     "definitionFit": "In British slang the onion is the human skull or mind, as in the phrase 'off one's onion'."
     },
     "features": {
      "answerInScene": false,
@@ -329,32 +330,33 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "CHOP",
+     "op": "deletion",
      "indicators": [
       {
        "text": "40 per cent of",
-       "note": "a percentage of a word takes that fraction of its letters, here four of ten from the front"
+       "at": 0,
+       "note": "40 per cent of a ten-letter word is its first four letters, the rest being dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "simple keyboard piece",
-       "gives": "CHOP",
-       "select": "first",
-       "note": "Chopsticks is the famously simple piano waltz; its first four of ten letters"
+       "at": 15,
+       "gives": "CHOPSTICKS",
+       "note": "Chopsticks is a famously simple waltz played on the piano by beginners"
+      },
+      {
+       "gives": "STICKS"
       }
      ]
     },
     "explanation": {
-     "surface": "Only part of an easy piano piece gets played before it is cut short.",
-     "walkthrough": "Chopsticks is the two-finger waltz every beginner bashes out on the piano; it has ten letters, so 40 per cent is the first four.",
-     "definitionFit": "To chop is to cut with sharp strokes, so the verbs are synonyms in the sense of cutting wood or vegetables."
+     "surface": "A fragment of a beginner's piano tune, trimmed down.",
+     "walkthrough": "'40 per cent of' keeps four of the ten letters of CHOPSTICKS, the simple piano piece, and drops STICKS.",
+     "definitionFit": "To chop something is to cut it with a sharp blow, as with an axe or knife."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "piece"
     }
@@ -1385,52 +1387,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "SWIVEL",
      "indicators": [
       {
        "text": "ahead",
-       "note": "being ahead means coming in front, so one piece is placed first"
+       "at": 31,
+       "note": "ahead places the spouses' piece in front of the other letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 15,
+         "note": "cycling sends a letter round from one end of the word to the other"
+        }
+       ],
        "parts": [
         {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "cycling means going round in a loop, so a letter from one end comes round to the other"
-          }
-         ],
-         "parts": [
-          {
-           "words": "spouses",
-           "gives": "WIVES",
-           "note": "wives are spouses"
-          }
-         ]
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
+         "words": "spouses",
+         "at": 23,
+         "gives": "WIVES",
+         "note": "wives are spouses"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 5,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Some husbands and wives on bikes turn left together.",
-     "walkthrough": "'Cycling' looks like riding bikes; it moves the final S of the word round to the front.",
-     "definitionFit": "To swivel is to turn round on a pivot, so the verbs are synonyms when something rotates in place."
+     "surface": "Wives out on bicycles ahead turn left.",
+     "walkthrough": "'Spouses' looks like the subject of the surface's bike ride; it is the fodder, and 'cycling' is the instruction done to it.",
+     "definitionFit": "To swivel is to pivot or rotate on a point, as a chair does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -1841,34 +1838,44 @@
     "definitions": [
      {
       "text": "Ladies having a scrap",
-      "at": 0,
-      "note": "the clue describes the event, so the phrase stands for a noun"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CATFIGHT",
+     "spelt": "CATFIGHT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously muddled his words by swapping their opening sounds"
+       "at": 25,
+       "note": "Spooner's points to the Reverend Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "plump bird",
-       "gives": "CATFIGHT",
-       "soundsLike": "FAT KITE",
-       "note": "plump is fat and the kite is a bird of prey; swap their first sounds"
+       "words": "plump",
+       "at": 35,
+       "gives": "FAT",
+       "note": "plump means fat"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CITE",
+       "parts": [
+        {
+         "words": "bird",
+         "at": 41,
+         "gives": "KITE",
+         "note": "a kite is a bird of prey"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some women are squabbling over a portion of a fat bird.",
-     "walkthrough": "The swap works on sounds, not letters: the K sound of kite becomes the C of the first word.",
-     "definitionFit": "A catfight is a slang term for a vicious quarrel between women, featuring scratching and hair-pulling, so it fits a scrap among ladies."
+     "surface": "Two women quarrelling over a scrap of a well-fed bird.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of 'fat kite' to give 'cat fight'. 'Scrap' looks like a scrap of food; it is a fight.",
+     "definitionFit": "A brawl between women is called this, often with hair-pulling and scratching."
     },
     "features": {
      "answerInScene": false,

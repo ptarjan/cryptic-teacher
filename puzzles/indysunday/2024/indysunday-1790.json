@@ -134,52 +134,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACCUSES",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 27,
+       "note": "taking means the first piece takes on the second, which joins it after"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the start, so each word gives its first letter"
+         "at": 17,
+         "note": "initially asks for the opening letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "AC",
-         "indicators": [
-          {
-           "text": "to drop",
-           "note": "to drop is to let fall, so right, R, falls out of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "All complainants initially",
-           "gives": "AC",
-           "select": "first",
-           "note": "first letters of All and Complainants"
-          }
-         ]
+         "words": "All complainants",
+         "at": 0,
+         "note": "the opening letters of All and complainants"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to drop",
+         "at": 47,
+         "note": "to drop means to let go of a letter, removing it from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "oaths",
+         "at": 34,
+         "gives": "CURSES",
+         "note": "curses are oaths, swear words"
         },
         {
-         "words": "oaths, right to drop",
-         "gives": "CUSES",
-         "note": "oaths = CURSES, without R (right)"
+         "words": "right",
+         "at": 41,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In court, the plaintiffs are swearing furiously, and the prosecutor withdraws the charges.",
-     "walkthrough": "'Charges' looks like a noun at the end of a legal story, but it is the verb: she charges him = she accuses him.",
-     "definitionFit": "A plain synonym in the legal sense: to charge someone with a crime is to accuse them of it."
+     "surface": "Plaintiffs sworn in at court, then the right to bring charges is dropped.",
+     "walkthrough": "'Initially' gives AC from All Complainants; 'taking' adds CUSES, which is CURSES with 'to drop' removing R (right). 'Charges' looks like the legal end of the story; it is the verb, the definition.",
+     "definitionFit": "To charge someone with a crime is to formally blame them for it, so the two verbs are synonyms."
     },
     "features": {
      "answerInScene": true,
@@ -366,28 +375,27 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Pull up",
-       "note": "in a down entry, pulling up turns the word upward"
+       "text": "beneath",
+       "at": 13,
+       "note": "in a down answer, beneath puts the fish piece below the other one"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "FL",
        "indicators": [
         {
          "text": "banks",
-         "note": "the banks of a river are its edges, so the word gives its outside letters"
+         "at": 27,
+         "note": "a river's banks are its two edges, so only the outside letters of the name are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Fal's banks",
-         "gives": "FL",
-         "select": "outer",
-         "note": "outer letters of Fal"
+         "words": "Fal's",
+         "at": 21,
+         "gives": "FAL",
+         "note": "the Fal is a river in Cornwall, England"
         }
        ]
       },
@@ -395,24 +403,26 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "beneath",
-         "note": "in a down entry, the fish goes under the first piece"
+         "text": "Pull up",
+         "at": 0,
+         "note": "pull up, in a down clue, lifts the word so it reads from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "fish",
+         "at": 8,
          "gives": "DORY",
-         "note": "a dory is a sea fish; reversed upward"
+         "note": "a dory is a fish, as in John Dory"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angler hauls a fish out of the River Fal and wonders what tackle landed it.",
-     "walkthrough": "The Fal is a river in Cornwall. The question mark marks the definition as a hint rather than a synonym: the fish was caught using a fly rod.",
-     "definitionFit": "A fly rod is the fishing rod used for fly-fishing, so the fish might well be caught using this."
+     "surface": "An angler pulling a fish up from below the banks of a Cornish river.",
+     "walkthrough": "'Banks' keeps F and L, the edges of Fal, the Cornish river; 'Pull up' turns DORY into YROD, which goes 'beneath' them. The definition is the whole fishing picture: a fish caught with this.",
+     "definitionFit": "This rod is the light, long kind used in fly-fishing, where a fish is caught on an artificial fly."
     },
     "features": {
      "answerInScene": true,
@@ -1026,7 +1036,7 @@
      {
       "text": "6",
       "at": 43,
-      "note": "6 is a cross-reference to 6 down, SETS ASIDE, used as the verb 'reserves'"
+      "note": "6 refers to 6-down, the solution SETS ASIDE, meaning to reserve"
      }
     ],
     "wordplay": {
@@ -1037,47 +1047,46 @@
        "indicators": [
         {
          "text": "bagging",
-         "note": "to bag something is to put it in a bag, so the outer letters hold the A inside"
+         "at": 33,
+         "note": "bagging means pocketing, so the small word goes inside"
         }
        ],
        "parts": [
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "ER",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally means at the end, so each word gives its last letter"
+           "at": 17,
+           "note": "finally asks for the closing letter of each of the two words"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Yorkshire batter finally",
-           "gives": "ER",
-           "select": "last",
-           "note": "last letters of Yorkshire and batter; the outer piece"
+           "words": "Yorkshire batter",
+           "at": 0,
+           "note": "the closing letters of Yorkshire and batter"
           }
          ]
         },
         {
          "words": "a",
-         "note": "A as printed"
+         "at": 41
         }
        ]
       },
       {
        "words": "scores",
+       "at": 25,
        "gives": "MARKS",
-       "note": "scores = marks, as in a test"
+       "note": "marks are scores, as in a test"
       }
      ]
     },
     "explanation": {
-     "surface": "A Yorkshire cricketer finally gets off the mark, hitting a six.",
-     "walkthrough": "The cricket scene makes '6' look like a six hit over the boundary; it points to 6 down, whose answer SETS ASIDE is the definition.",
-     "definitionFit": "To earmark something is to set it aside for a particular purpose."
+     "surface": "A Yorkshire cricketer finally scoring, hitting a six.",
+     "walkthrough": "The cricket picture misleads: '6' looks like a hit for six, but it points to 6-down, SETS ASIDE, which is the definition.",
+     "definitionFit": "6-down is SETS ASIDE: to set aside money or time is to reserve it for a purpose, as earmarking does."
     },
     "features": {
      "answerInScene": false,
