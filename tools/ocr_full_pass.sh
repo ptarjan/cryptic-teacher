@@ -217,8 +217,12 @@ mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # Refresh the Times progress page before the pass
 # (tools/gale_inbox.py sync; tools/gale_fetch.py lays the Gale editions out
 # itself). The cryptic-gale-inbox plugin does the same every minute.
-python3 tools/gale_inbox.py sync ||
-  echo "gale_inbox sync failed (rc=$?); the progress page is not refreshed"
+# OCR_FULL_PASS_NO_SYNC=1 skips it on a host that cannot reach the Mac
+# folder (the desktop): the plugin there publishes the same page.
+if [ -z "${OCR_FULL_PASS_NO_SYNC:-}" ]; then
+  python3 tools/gale_inbox.py sync ||
+    echo "gale_inbox sync failed (rc=$?); the progress page is not refreshed"
+fi
 finish() {  # finish <rc>: say so and exit
   echo "=== full pass done $(date '+%F %T') (rc=$1) ==="
   exit "$1"
