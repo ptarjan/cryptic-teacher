@@ -836,53 +836,58 @@
      "indicators": [
       {
        "text": "included in",
-       "note": "included in puts the first two pieces inside the shortened case"
+       "at": 35,
+       "note": "included in means the next pieces go inside the cut-down court case"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "inconclusive",
+         "at": 47,
+         "note": "inconclusive means the word lacks its conclusion, its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "inconclusive",
-           "note": "inconclusive means lacking a conclusion, so the case word loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "case",
-           "gives": "TRIAL",
-           "note": "a court case is a trial"
-          },
-          {
-           "gives": "L"
-          }
-         ]
+         "words": "case",
+         "at": 60,
+         "gives": "TRIAL",
+         "note": "a court case is a trial"
         },
         {
-         "words": "very briefly",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "I",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 20,
+         "gives": "I"
+        },
+        {
+         "words": "very briefly",
+         "at": 22,
+         "gives": "V",
+         "note": "V is the short form of very"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Minor points briefly mentioned during a case that ends without a verdict.",
-     "definitionFit": "Trivia are trifling facts or matters of little consequence."
+     "surface": "A lawyer slips a few trivial points into a case that came to no verdict.",
+     "definitionFit": "Trivia are small facts of little consequence, minor points not worth much attention."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "inconclusive"
+     "misdirectedWord": "case"
     }
    }
   },

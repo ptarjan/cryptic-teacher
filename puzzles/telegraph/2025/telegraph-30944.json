@@ -1233,46 +1233,49 @@
      "indicators": [
       {
        "text": "collecting",
-       "note": "collecting things gathers them inside, so the first word encloses the rest"
+       "at": 21,
+       "note": "collecting means the French word holds the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "is in Calais",
-         "gives": "EST",
-         "note": "est is French for is"
-        },
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "is in Calais",
+       "at": 7,
+       "gives": "EST",
+       "note": "est is French for is, and Calais is a French port"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "at last",
-         "note": "only the final letter of the word before it is wanted"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "director",
-         "note": "final letter"
+         "words": "company",
+         "at": 32,
+         "gives": "CO"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 49,
+           "note": "at last means take the final letter of director"
+          }
+         ],
+         "parts": [
+          {
+           "words": "director",
+           "at": 40,
+           "note": "last letter of director"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bodyguard is in the French port, gathering up a firm's boss at the end.",
-     "walkthrough": "Calais is a French port, so 'is in Calais' asks for the French word.",
-     "definitionFit": "An escort accompanies and protects someone, just as a minder looks after a person as a bodyguard."
+     "surface": "A bodyguard is in the French port, picking up the boss of a firm.",
+     "definitionFit": "An escort accompanies someone to protect or guard them, as a minder does."
     },
     "features": {
      "answerInScene": true,

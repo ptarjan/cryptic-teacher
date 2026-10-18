@@ -301,50 +301,57 @@
      "indicators": [
       {
        "text": "and",
-       "note": "and joins the two finds so the second follows the first"
+       "at": 40,
+       "note": "and simply sets the two place names' letters side by side, one after the other"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "TAR",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "spotted in",
-         "note": "something spotted in a place is seen sitting inside it, so look within each place name for a short run of letters"
+         "text": "spotted",
+         "at": 19,
+         "note": "spotted means only part of each place name is seen, the rest of its letters dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Gibraltar",
-         "gives": "TAR",
-         "select": "last",
-         "note": "the closing three letters of the first place name"
+         "at": 30,
+         "note": "only the last three letters of Gibraltar are spotted in it"
+        },
+        {
+         "gives": "GIBRAL"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ZAN",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "in means only the letters seen inside the second place name are kept, its tail dropped"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Zanzibar",
-         "gives": "ZAN",
-         "select": "first",
-         "note": "the opening three letters of the second place name"
+         "at": 44,
+         "note": "only the first three letters of Zanzibar are spotted in it"
+        },
+        {
+         "gives": "ZIBAR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A British aristocrat has been sighted on a trip to Gibraltar and Zanzibar.",
-     "walkthrough": "The answer is not one continuous run of letters: a piece is found in each place and the two are joined.",
-     "definitionFit": "In Edgar Rice Burroughs's novels the ape-raised hero is by birth John Clayton, Viscount Greystoke, so the title identifies him."
+     "surface": "A British aristocrat has been seen on his travels in two exotic ports.",
+     "walkthrough": "'Spotted in' points at letters seen in each place name: the end of Gibraltar, then the start of Zanzibar; 'and' only joins them.",
+     "definitionFit": "In Edgar Rice Burroughs's novels the jungle hero is the heir to the title of Viscount Greystoke."
     },
     "features": {
      "answerInScene": false,
@@ -1270,33 +1277,31 @@
      "parts": [
       {
        "words": "Set off",
+       "at": 0,
        "gives": "TRIP",
-       "note": "to trip an alarm is to set it off"
+       "note": "to set off an alarm is to trip it"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ES",
        "indicators": [
         {
          "text": "starters of",
-         "note": "starters are what come first, so take each opening letter"
+         "at": 8,
+         "note": "starters are the opening letters of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "escargots and shallots",
-         "gives": "ES",
-         "select": "first",
-         "note": "the opening letters of the two foods"
+         "at": 20,
+         "note": "first letters of escargots and of shallots; and only joins the two"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A menu of snail and shallot starters is served with offal.",
+     "surface": "A French menu offers snails and shallots alongside offal.",
      "definitionFit": "Tripe is the edible lining of a cow's or sheep's stomach, here in the plural."
     },
     "features": {

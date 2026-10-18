@@ -795,52 +795,50 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "short of content",
-       "note": "both words lose their insides, keeping only the outer letters"
+       "text": "about",
+       "at": 45,
+       "note": "about means the whole string built from the preceding words is turned round"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "the whole string is turned round"
-        }
-       ],
        "parts": [
         {
          "words": "Learning",
+         "at": 0,
          "gives": "LORE",
-         "note": "lore = learning"
+         "note": "lore is learning or knowledge"
         },
         {
          "op": "outer",
+         "indicators": [
+          {
+           "text": "short of content",
+           "at": 28,
+           "note": "short of content means the words lose their insides, leaving only first and last letters"
+          }
+         ],
          "parts": [
           {
-           "words": "chemistry",
-           "note": "ChemistrY emptied"
+           "words": "chemistry, leaving",
+           "at": 9,
+           "note": "first and last letters of chemistry, then of leaving"
           }
          ]
-        },
-        {
-         "words": "leaving",
-         "gives": "LG",
-         "note": "LeavinG emptied"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student drops chemistry, wanting for content, and it concerns some compound.",
-     "walkthrough": "LORECYLG turned round reads GLYCEROL. 'Chemistry' and 'compound' sit in the surface to make the clue look like a science lesson.",
-     "definitionFit": "Glycerol (glycerine) is a chemical compound, a simple alcohol."
+     "surface": "A school-leaver gave up chemistry before learning about compounds.",
+     "definitionFit": "Glycerol is an organic chemical compound, a sweet alcohol also called glycerine."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaving"
+     "misdirectedWord": "content"
     }
    }
   },
@@ -921,48 +919,60 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Stunted",
-       "note": "TROLL is cut short, losing its last letter"
+       "text": "put into",
+       "at": 27,
+       "note": "put into means the next pieces go inside the word for standard"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "put into",
-         "note": "something put into a container ends up inside it"
-        }
-       ],
+       "words": "standard",
+       "at": 36,
+       "gives": "PAR",
+       "note": "par is the standard or normal level"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "standard",
-         "gives": "PAR",
-         "note": "par = standard, as in 'up to par'"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Stunted",
+           "at": 0,
+           "note": "stunted means cut short, losing its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cyberbully",
+           "at": 8,
+           "gives": "TROLL",
+           "note": "a troll is someone who harasses people online"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
          "words": "roughly",
+         "at": 19,
          "gives": "CA",
-         "note": "ca = circa, roughly"
+         "note": "CA, for circa, means roughly"
         }
        ]
-      },
-      {
-       "words": "cyberbully",
-       "gives": "TROL",
-       "note": "a troll is an online bully; stunted, it loses an L"
       }
      ]
     },
     "explanation": {
-     "surface": "A crude online bully gets locked in the back of a squad car.",
-     "walkthrough": "'Roughly' pretends to be an adverb for 'put'; it is CA, the abbreviation for circa. 'Standard' looks like an adjective for the vehicle.",
-     "definitionFit": "A plain synonym: the police send cars out on patrol, and 'patrol car' is the standard name for them."
+     "surface": "An online bully is roughly thrown into the back of a police car.",
+     "definitionFit": "A patrol car is a police car that cruises the streets on patrol."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "roughly"
+     "misdirectedWord": "Stunted"
     }
    }
   },
@@ -990,47 +1000,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "entering",
-       "note": "a thing entering a place goes inside it"
+       "text": "guards",
+       "at": 52,
+       "note": "guards means the word for with surrounds the rest"
       }
      ],
      "parts": [
       {
+       "words": "with",
+       "at": 47,
+       "gives": "USING",
+       "note": "using can mean with, as in eating using a fork"
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "guards"
+         "text": "entering",
+         "at": 25,
+         "note": "entering means the letter for king goes inside"
         }
        ],
        "parts": [
         {
-         "words": "with",
-         "gives": "USING",
-         "note": "using = with, as in 'with a spoon'"
+         "words": "on horseback",
+         "at": 34,
+         "gives": "UP",
+         "note": "a rider who is up is mounted on a horse"
         },
         {
-         "words": "on horseback",
-         "gives": "UP",
-         "note": "a jockey who is 'up' is riding"
+         "words": "king",
+         "at": 19,
+         "gives": "R",
+         "note": "R, for rex, is the abbreviation for king"
         }
        ]
-      },
-      {
-       "words": "king",
-       "gives": "R",
-       "note": "R = rex, king"
       }
      ]
     },
     "explanation": {
-     "surface": "A mounted guard party seizes a king by force.",
-     "walkthrough": "The king and guards picture a coup, which is exactly what usurping is. UP for riding is racing jargon: 'Dettori is up'.",
-     "definitionFit": "Usurping is seizing power or a throne by force."
+     "surface": "A mounted rebel bursts in on the king, surrounded by his guards.",
+     "definitionFit": "To usurp is to take a throne or power wrongfully by force."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "with"
+     "misdirectedWord": "guards"
     }
    }
   },
@@ -1386,47 +1401,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SNOWDROP",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Violent",
+       "at": 0,
+       "note": "violent suggests the letters are thrown about into a new order"
+      },
+      {
+       "text": "knocking out",
+       "at": 18,
+       "note": "knocking out means the letter for uranium is removed from the mix"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SNOWDROP",
-       "indicators": [
-        {
-         "text": "Violent",
-         "note": "the letters are thrown about violently"
-        },
-        {
-         "text": "knocking out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "downpours",
-         "note": "anagram fodder before the deletion"
-        },
-        {
-         "words": "uranium",
-         "gives": "U",
-         "note": "U is the chemical symbol for uranium; it comes out"
-        }
-       ]
+       "words": "downpours",
+       "at": 8
+      },
+      {
+       "words": "uranium",
+       "at": 31,
+       "gives": "U",
+       "note": "U is the chemical symbol for uranium"
       }
      ]
     },
     "explanation": {
-     "surface": "Torrential rain has wrecked a nuclear power plant.",
-     "walkthrough": "'Plant' pretends to be an industrial site, helped by 'uranium'; it is a flower.",
-     "definitionFit": "The snowdrop is a small white-flowered plant blooming in late winter."
+     "surface": "Heavy rain, minus radioactive fallout, has flattened a garden flower.",
+     "definitionFit": "The snowdrop is a small white-flowered bulb plant that blooms in late winter."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "plant"
+     "misdirectedWord": "Violent"
     }
    }
   },

@@ -145,39 +145,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "broken",
-       "note": "something broken has its parts out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 4,
+         "note": "broken signals that the letters of fire door are smashed into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Old",
-         "gives": "O",
-         "note": "O = old, a standard abbreviation"
-        },
-        {
          "words": "fire door",
-         "note": "anagram fodder, 8 letters"
-        },
-        {
-         "words": "unserviceable",
-         "gives": "US",
-         "note": "U/S = unserviceable, British forces shorthand for out of action"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "unserviceable",
+       "at": 21,
+       "gives": "US",
+       "note": "U/S is the abbreviation for unserviceable, out of action"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about a smelly old fire door in a run-down building.",
-     "walkthrough": "U/S for 'unserviceable' (useless, broken) is British slang that crosswords use often.",
-     "definitionFit": "Odoriferous means giving off a smell, usually an unpleasant one."
+     "surface": "An old, damaged fire door that no longer works is giving off a bad smell.",
+     "definitionFit": "Something odoriferous gives off an odour, usually an unpleasant one, so it causes a stink."
     },
     "features": {
      "answerInScene": true,
@@ -359,36 +360,39 @@
      "indicators": [
       {
        "text": "awash",
-       "note": "a word awash is sloshed about"
+       "at": 10,
+       "note": "awash suggests the letters of was are washed about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "was",
+       "at": 6
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Marsh",
+         "at": 0,
+         "note": "first letter of Marsh"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "take the first letters of Marsh and plants"
+         "at": 28,
+         "note": "initially means take the opening letters of the words Marsh and plants"
         }
        ],
        "parts": [
         {
-         "words": "was",
-         "note": "anagram fodder, 3 letters"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Marsh",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
          "words": "plants",
-         "gives": "P",
-         "note": "first letter"
+         "at": 21,
+         "note": "first letter of plants"
         }
        ]
       }
@@ -396,9 +400,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A wetland description: water everywhere and vegetation taking hold.",
-     "walkthrough": "Read whole, the clue also describes a swamp, so every word does double duty.",
-     "definitionFit": "A swamp is a marsh flooded with water and thick with plants."
+     "surface": "A wetland lay flooded and overgrown with vegetation.",
+     "walkthrough": "The whole clue both builds the word and describes it: a marsh flooded and full of plants is exactly this.",
+     "definitionFit": "A swamp is waterlogged ground thick with vegetation, the same thing as a marsh."
     },
     "features": {
      "answerInScene": true,
@@ -649,28 +653,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MOONRAKER",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "Spooner's means the opening sounds of the two words are swapped, as Rev Spooner did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "spelling individual",
-       "gives": "MOONRAKER",
-       "soundsLike": "RUNE MAKER",
-       "note": "a rune maker writes magic spells; swap R and M"
+       "op": "homophone",
+       "spelt": "ROON",
+       "parts": [
+        {
+         "words": "spelling",
+         "at": 10,
+         "gives": "RUNE",
+         "note": "a rune is a magic spell, so one who casts spells is a rune maker"
+        }
+       ]
+      },
+      {
+       "words": "individual",
+       "at": 19,
+       "gives": "MAKER",
+       "note": "a maker is the individual who produces something; the phrase spelling individual reads as rune maker"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd pairing of a champion speller with a West Country local.",
-     "walkthrough": "'Spelling' means casting spells, not writing words correctly. Moonrakers are Wiltshire folk, after smugglers who said they were raking a pond for the moon's reflection.",
-     "definitionFit": "Moonraker is a traditional nickname for someone from Wiltshire, an English county."
+     "surface": "Someone who writes words correctly lives in a county in south-west England.",
+     "walkthrough": "Spelling individual is a rune maker, a caster of spells; swap the opening sounds of rune and maker. Wiltshire is an English county whose people are nicknamed after the legend of locals raking the moon's reflection from a pond.",
+     "definitionFit": "The nickname is a traditional one for natives of Wiltshire, from the story of smugglers pretending to rake up the moon."
     },
     "features": {
      "answerInScene": false,
@@ -1368,8 +1382,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "back of",
-       "note": "the back of a word is its last letter"
+       "text": "to follow",
+       "at": 20,
+       "note": "to follow means the pieces after it come after the truck letter"
       }
      ],
      "parts": [
@@ -1377,33 +1392,36 @@
        "op": "last",
        "indicators": [
         {
-         "text": "to follow",
-         "note": "to follow is to come behind"
+         "text": "back of",
+         "at": 30,
+         "note": "the back of a word is its final letter, here of truck"
         }
        ],
        "parts": [
         {
          "words": "truck",
-         "note": "last letter"
+         "at": 38,
+         "note": "last letter of truck"
         }
        ]
       },
       {
        "words": "an",
+       "at": 14,
        "gives": "A",
-       "note": "an = a"
+       "note": "an gives the article A"
       },
       {
        "words": "ox",
+       "at": 17,
        "gives": "YAK",
-       "note": "a yak is a Himalayan ox"
+       "note": "a yak is a long-haired Tibetan ox"
       }
      ]
     },
     "explanation": {
-     "surface": "An ox trudging behind a truck.",
-     "walkthrough": "'Craft' looks like a skill; here it is a boat.",
-     "definitionFit": "A kayak is a small paddled boat, and craft means a vessel."
+     "surface": "A vessel is being towed behind a lorry by an ox.",
+     "definitionFit": "A kayak is a small, light canoe-like boat, a kind of craft."
     },
     "features": {
      "answerInScene": false,
@@ -1553,36 +1571,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around"
+       "text": "around",
+       "at": 14,
+       "note": "around means the word for route is placed round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "route",
-         "gives": "WAY",
-         "note": "way = route"
-        },
-        {
-         "words": "100",
-         "gives": "C",
-         "note": "C = 100 in Roman numerals"
-        }
-       ]
+       "words": "route",
+       "at": 6,
+       "gives": "WAY",
+       "note": "a way is a route"
       },
       {
-       "words": "kilometres",
-       "gives": "K",
-       "note": "K = kilometres"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "100",
+         "at": 21,
+         "gives": "C",
+         "note": "C is the Roman numeral for 100"
+        },
+        {
+         "words": "kilometres",
+         "at": 25,
+         "gives": "K",
+         "note": "K is short for kilometres"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A winding road about a hundred kilometres long.",
-     "walkthrough": "'Loopy' looks like a description of the winding route, but it is the definition: crazy.",
-     "definitionFit": "Loopy and wacky both mean crazy or eccentric."
+     "surface": "A winding road runs roughly a hundred kilometres.",
+     "definitionFit": "Loopy and wacky are both informal words for crazy or eccentric."
     },
     "features": {
      "answerInScene": false,
