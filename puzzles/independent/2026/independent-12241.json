@@ -58,31 +58,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TILLDEATHUSDOPART",
      "indicators": [
       {
        "text": "Unusual",
-       "note": "something unusual is out of the normal order, so these letters must be rearranged"
+       "at": 0,
+       "note": "unusual means out of the ordinary, so these letters are rearranged out of their usual order"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "oldish adult patter",
-       "note": "seventeen letters to rearrange, taken together"
+       "words": "oldish",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "words": "adult",
+       "at": 15,
+       "note": "taken as written"
+      },
+      {
+       "words": "patter",
+       "at": 21,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A comic old-timer delivers his unusual patter on a television show.",
-     "walkthrough": "Alf Garnett was the bigoted cockney star of the BBC sitcom Till Death Us Do Part; this puzzle also celebrates Alf Ramsey and the 1966 World Cup team.",
-     "definitionFit": "The sitcom was the starring showcase for the character Alf Garnett on British television, hence his vehicle on the box (TV)."
+     "surface": "An odd scene: a grown-up past his prime chattering away in a car belonging to a man called Alf.",
+     "walkthrough": "Alf Garnett, a loud-mouthed bigot, was the central character of the BBC television sitcom of the 1960s and 70s; 'on the box' means on television, and 'vehicle' is a show built around a performer.",
+     "definitionFit": "The sitcom Till Death Us Do Part starred Warren Mitchell as Alf Garnett, so it was his television showcase."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "patter"
+     "joke": "pun",
+     "misdirectedWord": "vehicle"
     }
    }
   },
@@ -1030,43 +1040,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRESCENDO",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "something unfinished lacks its ending, so the last letter is dropped"
+       "text": "must be included in",
+       "at": 24,
+       "note": "must be included in says the shortened scene goes inside the word for belief, which comes first in the clue"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Belief",
+       "at": 0,
+       "gives": "CREDO",
+       "note": "a credo is a statement of belief"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "must be included in",
-         "note": "being included in something means going inside it"
+         "text": "unfinished",
+         "at": 7,
+         "note": "unfinished means the word scene loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Belief",
-         "gives": "CREDO",
-         "note": "a credo is a statement of belief"
+         "words": "scene",
+         "at": 18,
+         "note": "the word shortened"
         },
         {
-         "words": "scene",
-         "gives": "SCEN",
-         "note": "the word without its final letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A director insists an incomplete scene of conviction must go into a work of art.",
-     "walkthrough": "'Artistic passage' is broad: here the art is music, and the passage is one marked to swell in volume.",
-     "definitionFit": "A crescendo is a musical passage that grows gradually louder, a stretch of an artistic work."
+     "surface": "A director insists a half-written scene stay in, out of conviction about a passage of the work.",
+     "walkthrough": "'in' belongs to the containment phrase, not to the definition; 'artistic passage' stretches a musical term to performance at large.",
+     "definitionFit": "A crescendo is a gradual increase in loudness in a piece of music, so a passage in performance art."
     },
     "features": {
      "answerInScene": false,
@@ -1351,52 +1365,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOREAS",
-     "indicators": [
-      {
-       "text": "not final",
-       "note": "read the word as a letter plus the word for final, and remove that word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 12,
+         "note": "not says the word for final is taken out of the word blast"
+        }
+       ],
        "parts": [
         {
          "words": "blast",
-         "gives": "B",
-         "note": "a deletion: split the word as B plus LAST and remove the LAST, leaving the first letter"
+         "at": 5,
+         "note": "the word taken as written, its tail removed"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "at sea",
-           "note": "being at sea means confused and adrift, so the letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "arose",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
+         "words": "final",
+         "at": 16,
+         "gives": "LAST",
+         "note": "last means final"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "at": 29,
+         "note": "at sea means confused and adrift, so the letters of arose are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arose",
+         "at": 23,
+         "note": "the fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gust of wind sprang up over the ocean.",
-     "walkthrough": "'Blast, not final' is a trick: blast is B plus LAST, and removing 'last' (final) leaves B.",
-     "definitionFit": "Boreas is the Greek god and personification of the cold north wind."
+     "surface": "A blast of wind whipped up waves at sea.",
+     "walkthrough": "'blast, not final' is read literally: B-LAST without LAST, leaving B. 'at sea' then rearranges AROSE into OREAS. Boreas is the Greek god of the north wind.",
+     "definitionFit": "Boreas is the north wind personified in Greek myth, and the name is used poetically for that wind."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "blast"
+     "joke": "pun",
+     "misdirectedWord": "final"
     }
    }
   },

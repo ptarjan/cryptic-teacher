@@ -1564,54 +1564,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ONMYWORD",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Silly",
-       "note": "silly means foolish and disordered, so the letters are jumbled"
+       "text": "on",
+       "at": 25,
+       "note": "on says the scrambled letters sit before the software name, as if placed upon it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ONMYWORD",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "spent",
-         "note": "something spent is used up and gone, so a letter is removed"
+         "text": "Silly",
+         "at": 0,
+         "note": "silly means scatty, so the remaining letters fall into a different order"
         }
        ],
        "parts": [
         {
-         "words": "money",
-         "note": "taken as written"
-        },
-        {
-         "words": "Europe",
-         "gives": "E",
-         "note": "E is the abbreviation for Europe"
-        },
-        {
-         "words": "Microsoft software",
-         "gives": "WORD",
-         "note": "Word is Microsoft's word-processing program"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "spent",
+           "at": 19,
+           "note": "spent means used up and gone, so the Europe letter is taken out of money"
+          }
+         ],
+         "parts": [
+          {
+           "words": "money",
+           "at": 6,
+           "note": "the fodder, minus one letter"
+          },
+          {
+           "words": "Europe",
+           "at": 12,
+           "gives": "E"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Microsoft software",
+       "at": 28,
+       "gives": "WORD",
+       "note": "Word is Microsoft's word-processing program"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is aghast at how much European cash was wasted on Microsoft programs.",
-     "walkthrough": "'Spent' reads as money being paid out, but it says the E for Europe is used up and gone.",
-     "definitionFit": "The phrase is an exclamation of surprise or a pledge of truthfulness, like saying honestly."
+     "surface": "A grumble that Europe frittered away silly sums on Microsoft products, honestly!",
+     "walkthrough": "'spent' takes E out of MONEY to leave MONY, which 'Silly' rearranges into ONMY; that goes 'on' WORD.",
+     "definitionFit": "On my word is an exclamation vouching for the truth of what is said, as honestly! does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Silly"
+     "misdirectedWord": "spent"
     }
    }
   }

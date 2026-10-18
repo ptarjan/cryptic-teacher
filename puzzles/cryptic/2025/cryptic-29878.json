@@ -603,53 +603,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHAMOIS",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is missing its end, so the last letter drops"
+       "text": "caught in",
+       "at": 21,
+       "note": "caught in means held inside, so the short pursuit wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "caught in",
-         "note": "whatever is caught sits trapped inside the thing that caught it"
+         "text": "short",
+         "at": 31,
+         "note": "short means the word for pursuit is cut, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "pursuit",
-           "gives": "CHAS",
-           "note": "a chase is a pursuit; cut short it loses its final E"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral"
-          }
-         ]
+         "words": "pursuit",
+         "at": 37,
+         "gives": "CHASE",
+         "note": "a chase is a pursuit"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "second",
+         "at": 10,
          "gives": "MO",
-         "note": "a mo is a moment, a short time"
+         "note": "a mo is a moment, a second, as in 'wait a mo'"
+        },
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hunter briefly chases an antelope and catches a second one.",
-     "walkthrough": "MO is informal British for a moment, so a 'second' is a mo; 'short' trims the pursuit word before it takes the other pieces inside.",
-     "definitionFit": "The chamois is a goat-antelope of European mountains, so it is a kind of antelope."
+     "surface": "A hunter catches an antelope a second into a brief chase.",
+     "walkthrough": "'short' trims CHASE to CHAS; MO and I are 'caught in' it.",
+     "definitionFit": "The chamois is an agile goat-antelope of European mountains such as the Alps."
     },
     "features": {
      "answerInScene": true,
