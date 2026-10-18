@@ -1789,8 +1789,17 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const hits = drainPicker();
   assert(hits.length >= seen[day],
     `searching "${full.toLowerCase()}" finds its ${seen[day]} row(s), got ${hits.length}`);
-  assert(hits.every((li) => rowDate(li).startsWith(day + " ")),
-    `and finds nothing else: ` + hits.map(rowDate).join(" | "));
+  // The search is over the row's whole text, so a title that NAMES the day is a
+  // legitimate hit with no weekday of its own: the book shelves ("Sunday
+  // Telegraph book 4 No 52", "Penguin Sunday Times book 1") carry a year, not a
+  // date. Those are exempt; anything else matching has to be dated that day.
+  // Only the offenders are named, capped, rather than all 3,700 hits.
+  const rowTitle = (li) => ((/<span class="p-num"[^>]*>([^<]*)</.exec(li.children[0].innerHTML) || [])[1] || "");
+  const strays = hits.filter((li) => !rowDate(li).startsWith(day + " ")
+    && !rowTitle(li).toLowerCase().includes(full.toLowerCase()));
+  assert(strays.length === 0,
+    `and finds nothing else: ${strays.length} stray hit(s): `
+    + strays.slice(0, 10).map((li) => `${rowTitle(li)} (${rowDate(li) || "no date"})`).join(" | "));
   typeInPicker("");
 }
 
