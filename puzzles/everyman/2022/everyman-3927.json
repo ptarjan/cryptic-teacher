@@ -469,43 +469,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ENCRYPTS",
      "indicators": [
       {
        "text": "Pathetic",
-       "note": "something pathetic is in a poor state, so the remaining letters are jumbled"
+       "at": 0,
+       "note": "something pathetic is in a sorry, broken-down state, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ENCRYPTS",
        "indicators": [
         {
          "text": "omitting",
-         "note": "omitting means leaving out, so some letters are dropped"
+         "at": 21,
+         "note": "leaving something out, so these letters are taken away from the word"
         }
        ],
        "parts": [
         {
          "words": "counterspy",
-         "note": "the word to be cut down and rearranged"
+         "at": 9
         },
         {
          "words": "two consecutive vowels",
+         "at": 30,
          "gives": "OU",
-         "note": "the vowel pair next to each other near the start of the word"
+         "note": "the vowels O and U sit side by side in counterspy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A feeble double agent sends a secret message while dropping letters from his writing.",
-     "walkthrough": "Remove O and U from COUNTERSPY to leave CNTERSPY, then rearrange those eight letters.",
-     "definitionFit": "To encrypt is to turn plain text into cipher, so someone doing so is producing a secret written communication."
+     "surface": "A spy-thriller scene: an inept double agent drops letters while writing a secret message.",
+     "walkthrough": "'omitting' removes the adjacent O and U from COUNTERSPY, leaving CNTERSPY, which 'Pathetic' rearranges.",
+     "definitionFit": "To encrypt is to convert text into a cipher, producing a secret, unreadable version."
     },
     "features": {
      "answerInScene": true,
@@ -715,42 +714,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Virtuous, perhaps",
+      "text": "Virtuous",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANGELIC",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 26,
+         "note": "without its end, so the last letter of the name is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Merkel",
-         "gives": "ANGEL",
-         "note": "Angela Merkel, former German chancellor, with her first name's last letter dropped"
+         "words": "perhaps, Merkel",
+         "at": 10,
+         "gives": "ANGELA",
+         "note": "Angela Merkel, the former German chancellor, gives her first name; perhaps marks it as one example of an Angela"
         },
         {
-         "words": "in charge",
-         "gives": "IC",
-         "note": "IC is the abbreviation for in charge"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "in charge",
+       "at": 36,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "A former German chancellor, still running things, is praised as a model of good conduct.",
-     "walkthrough": "The surname stands for her first name: Angela Merkel gives ANGELA, which loses its last letter.",
-     "definitionFit": "Saintly, heavenly goodness is one sense of the adjective, though it can also mean innocent-looking, hence 'perhaps'."
+     "surface": "A comment on a German chancellor's moral standing during her long time in power.",
+     "walkthrough": "'endlessly' trims ANGELA to ANGEL, using the first name of the former German chancellor.",
+     "definitionFit": "Angelic means saintly and pure, behaving like a heavenly being."
     },
     "features": {
      "answerInScene": false,
@@ -951,56 +953,48 @@
     "definitions": [
      {
       "text": "help with navigation",
-      "at": 40,
-      "note": "the answer is plural; the definition is a singular noun phrase"
+      "at": 40
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LODESTARS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner was famous for swapping the opening sounds of words"
+       "at": 0,
+       "note": "a nod to Reverend Spooner, who swapped the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "STODE",
        "parts": [
         {
-         "unchecked": true,
          "words": "put",
-         "gives": "LODE",
-         "soundsLike": "STOWED",
-         "note": "put on board a ship is stowed; swapping its opening sound gives the first half"
-        },
-        {
-         "unchecked": true,
-         "words": "Scandinavian",
-         "gives": "STARS",
-         "soundsLike": "LARS",
-         "note": "Lars is a common Scandinavian man's name"
-        },
-        {
-         "unchecked": true,
-         "words": "on board",
-         "note": "completes the phrase begun by 'put', together meaning stowed aboard ship"
+         "at": 10,
+         "gives": "STOWED",
+         "note": "put, completed by on board after the next word, means stowed, as cargo is stowed on a ship"
         }
        ]
+      },
+      {
+       "words": "Scandinavian on board",
+       "at": 14,
+       "gives": "LARS",
+       "note": "Lars is a common Scandinavian first name; on board closes the phrase put on board, which wraps round him"
       }
      ]
     },
     "explanation": {
-     "surface": "A Norwegian sailor is taken aboard to help steer the ship.",
-     "walkthrough": "STOWED LARS becomes LODE STARS when the opening sounds ST and L are swapped; 'on board' belongs with 'put'.",
-     "definitionFit": "Guiding stars such as Polaris were used by sailors to fix direction, so they serve as aids for finding one's way."
+     "surface": "A tip for sailors: bring a Nordic crewmate aboard to help steer.",
+     "walkthrough": "'put … on board' is split by the Scandinavian, Lars, it encloses. 'Spooner's' swaps the opening sounds of STOWED (said like STODE) and LARS, giving LOWED STARS, said the same as LODE STARS.",
+     "definitionFit": "Lodestars are guiding stars, such as Polaris, that sailors steer by."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Scandinavian"
+     "misdirectedWord": "board"
     }
    }
   },
