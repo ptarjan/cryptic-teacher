@@ -1087,37 +1087,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TUBULAR",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the final letter of the name is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Container",
+       "at": 0,
+       "gives": "TUB",
+       "note": "a tub is a container, as for ice cream or bathing"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misused",
+         "at": 26,
+         "note": "misused suggests the remaining letters are put to the wrong use and so jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Container",
-         "gives": "TUB",
-         "note": "a tub is a container"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "misused",
-           "note": "something misused is put to wrong order, so the letters are scrambled"
+           "text": "endlessly",
+           "at": 16,
+           "note": "endlessly means the name loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "Laura",
-           "gives": "LAUR",
-           "note": "the name without its last letter"
+           "at": 10,
+           "note": "the name taken as written"
+          },
+          {
+           "gives": "A"
           }
          ]
         }
@@ -1126,13 +1130,14 @@
      ]
     },
     "explanation": {
-     "surface": "Laura keeps mistreating a round tin.",
+     "surface": "Laura has been mishandling a container that happens to be round in shape.",
+     "walkthrough": "'Endlessly' cuts Laura to LAUR, which 'misused' rearranges as ULAR after TUB.",
      "definitionFit": "Tubular means shaped like a tube, which is a long cylinder."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Container"
+     "misdirectedWord": "misused"
     }
    }
   },

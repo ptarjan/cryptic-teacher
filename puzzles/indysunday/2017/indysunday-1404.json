@@ -198,55 +198,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DESPERADO",
-     "indicators": [
-      {
-       "text": "replaced by",
-       "note": "one piece is swapped out of the word and another put in its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "Head of",
-         "note": "the head of a word is its opening letter, so only that one is kept"
+         "at": 0,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "department",
-         "note": "first letter of department"
+         "words": "department's",
+         "at": 8,
+         "gives": "DEPARTMENT",
+         "note": "the department, whose possessive just links it to what follows; only its opening letter D is used"
         }
        ]
       },
       {
-       "words": "language",
-       "gives": "ESPERANTO",
-       "note": "the invented international language"
-      },
-      {
-       "words": "books",
-       "gives": "NT",
-       "note": "NT, the New Testament, is a set of books"
-      },
-      {
-       "words": "Dutch",
-       "gives": "D",
-       "note": "D is the abbreviation for Dutch"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replaced by",
+         "at": 36,
+         "note": "replaced by means the books are swapped out of the language and Dutch goes in their place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "language",
+         "at": 21,
+         "gives": "ESPERANTO",
+         "note": "Esperanto is the invented international language"
+        },
+        {
+         "words": "books",
+         "at": 30,
+         "gives": "NT",
+         "note": "NT, the New Testament, is a set of books of the Bible"
+        },
+        {
+         "words": "Dutch",
+         "at": 48,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A department head's language textbooks swapped for a Dutch crook.",
-     "walkthrough": "The language is the invented international one; the New Testament stands for books, and Dutch swaps in for them.",
-     "definitionFit": "A desperado is a reckless outlaw, typically a bandit of the American Wild West, so a criminal."
+     "surface": "A head of department sees the language textbooks swapped for Dutch ones.",
+     "walkthrough": "'Replaced by' swaps NT in ESPERANTO for D, giving ESPERADO, after the D from 'Head of department'.",
+     "definitionFit": "A desperado is a reckless outlaw, especially in the American Wild West."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "books"
     }

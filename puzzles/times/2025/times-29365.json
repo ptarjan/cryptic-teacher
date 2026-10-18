@@ -204,39 +204,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "climbing",
-       "note": "in a down entry, climbing means the word reads from the bottom up"
-      },
-      {
-       "text": "lacking base",
-       "note": "the base of a down entry is its last letter, which goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "at": 7,
+         "note": "in a down clue, climbing means the word for regret is read upwards, so backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "competition lacking base",
-         "gives": "EPO",
-         "note": "OPEN, a golf or tennis tournament, without its last letter N"
+         "words": "Regret",
+         "at": 0,
+         "gives": "RUE",
+         "note": "to rue something is to regret it"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking base",
+         "at": 28,
+         "note": "in a down clue the base is the bottom letter, so the last letter of the competition goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "competition",
+         "at": 16,
+         "gives": "OPEN",
+         "note": "an open is a tournament anyone may enter, as in golf's Open"
         },
         {
-         "words": "Regret climbing",
-         "gives": "RUE",
-         "note": "RUE = regret, written upwards"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is sorry that a mountaineering contest lost its base camp on some continent.",
-     "walkthrough": "'Climbing competition' looks like one phrase about mountaineering; 'climbing' belongs to 'Regret' before it.",
-     "definitionFit": "A definition by example: Europe is one of the seven continents usually counted."
+     "surface": "A sporting nation sorry to see its competitive ambitions crumble.",
+     "walkthrough": "'Climbing' turns RUE upwards to EUR; 'lacking base' takes the bottom letter N off OPEN, leaving OPE.",
+     "definitionFit": "Europe is one of the seven continents, the landmass west of Asia."
     },
     "features": {
      "answerInScene": false,
@@ -659,35 +673,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "URS",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially takes the first letter of each of the words before it"
+         "at": 17,
+         "note": "initially means take the opening letter of each of the words Unusual, red and star"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Unusual red star initially",
-         "gives": "URS",
-         "select": "first",
-         "note": "the first letters of Unusual Red Star"
+         "words": "Unusual red star",
+         "at": 0,
+         "note": "the three words whose first letters are taken, giving URS"
         }
        ]
       },
       {
        "words": "key",
+       "at": 27,
        "gives": "AMINOR",
        "note": "A minor is a musical key"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange red star is at first the key to a star pattern.",
-     "walkthrough": "'Unusual' looks like an anagram indicator, but only its first letter is used. 'Key' supplies a whole key signature, A MINOR.",
-     "definitionFit": "Ursa Minor, the Little Bear, is the constellation containing the Pole Star."
+     "surface": "An astronomer spots an odd red star that unlocks a whole constellation.",
+     "walkthrough": "'Unusual' looks like an anagram signal over 'red star', but 'initially' takes the first letters of all three words, URS.",
+     "definitionFit": "Ursa Minor, the Little Bear, is a northern constellation containing the Pole Star."
     },
     "features": {
      "answerInScene": true,
@@ -1460,49 +1472,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "catastrophe!",
+      "text": "catastrophe",
       "at": 41
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEGAQUAKE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "the shortened Friend comes after the rearranged game in the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "loses finale",
-         "note": "the last letter is dropped"
-        },
-        {
-         "text": "after"
-        },
-        {
          "text": "playing",
-         "note": "playing means the letters of 'game' are put into play"
+         "at": 26,
+         "note": "playing suggests the letters of game being moved about into a new order"
         }
        ],
        "parts": [
         {
-         "words": "playing game",
-         "gives": "MEGA",
-         "note": "GAME rearranged"
+         "words": "game",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loses finale",
+         "at": 7,
+         "note": "the word for a Friend drops its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Friend",
+         "at": 0,
+         "gives": "QUAKER",
+         "note": "a Quaker is a member of the Religious Society of Friends"
         },
         {
-         "words": "Friend loses finale",
-         "gives": "QUAKE",
-         "note": "a Quaker belongs to the Religious Society of Friends; drop the last letter R"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pal drops out of the final after a match, which is a disaster.",
-     "walkthrough": "'Friend' has a capital only because it starts the clue; it means a Quaker. 'Finale' suggests the end of a game, but it is the last letter.",
-     "definitionFit": "A megaquake is an enormous earthquake, a catastrophe; the exclamation mark adds drama."
+     "surface": "A pal storms off after losing the final round of a game, a disaster.",
+     "walkthrough": "'Playing' rearranges GAME into MEGA; 'loses finale' cuts QUAKER to QUAKE, which comes 'after' it. A Quaker belongs to the Society of Friends, hence capital-F Friend.",
+     "definitionFit": "A megaquake is an enormous earthquake, a natural disaster on the largest scale."
     },
     "features": {
      "answerInScene": false,
