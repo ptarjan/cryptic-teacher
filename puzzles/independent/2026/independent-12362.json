@@ -94,51 +94,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "culmination",
-       "note": "A culmination is the point a thing finally reaches, so only the last letter of the word before it is wanted."
+       "text": "in",
+       "at": 27,
+       "note": "the note and final letter go in the colour word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "What is in something sits inside it, so the two letters named are planted within the colour."
-        }
-       ],
-       "parts": [
-        {
-         "words": "pink colour",
-         "gives": "CORAL",
-         "note": "coral is a pink, named after the reef animal's skeleton"
-        },
-        {
-         "words": "Note",
-         "gives": "N",
-         "note": "n = note"
-        }
-       ]
+       "words": "pink colour",
+       "at": 30,
+       "gives": "CORAL",
+       "note": "coral is a pinkish-red colour"
       },
       {
-       "op": "last",
+       "op": "charade",
        "parts": [
         {
-         "words": "disease's",
-         "gives": "DISEASE",
-         "note": "the last letter of DISEASE"
+         "words": "Note",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "culmination",
+           "at": 15,
+           "note": "the culmination is the end, the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "disease's",
+           "at": 5,
+           "gives": "DISEASE",
+           "note": "the word disease, whose culmination is meant"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A written note on how an illness ended, set down in pink.",
-     "walkthrough": "'Note' is N from the dictionary abbreviation, not from the musical scale, which is where a solver looks first. The definition is adjectival: it describes something belonging to the eye's clear front layer rather than naming the layer.",
-     "definitionFit": "The answer is the adjective formed from the clear dome at the front of the eye, so it means belonging to that part of it."
+     "surface": "A medical remark that an eye condition ends in a pinkish flush.",
+     "walkthrough": "The culmination of disease is its final E; the possessive 's only links it to 'culmination'.",
+     "definitionFit": "Corneal is the adjective for the cornea, the transparent front layer of the eyeball."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Note"
     }
@@ -1129,45 +1133,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "found in",
-       "note": "Whatever is found in a thing was sitting inside it, so the chunk named goes between the other's two letters."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "almost",
-         "note": "Almost there is not quite there, so the word stops one letter short of its end."
+         "text": "found in",
+         "at": 36,
+         "note": "the not-so-much word is found inside the times word"
         }
        ],
        "parts": [
         {
          "words": "Times",
+         "at": 45,
          "gives": "BY",
-         "note": "three times four is three by four, so 'times' is BY"
+         "note": "by means times, as in multiplication: three by four"
         },
         {
          "words": "not so much",
+         "at": 24,
          "gives": "LESS",
-         "note": "less of a thing is not so much of it"
+         "note": "less means not so much"
         }
        ]
       },
       {
-       "words": "forbidden",
-       "gives": "OU",
-       "note": "something forbidden is OUT, docked of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 53,
+         "note": "the word for forbidden loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "forbidden",
+         "at": 60,
+         "gives": "OUT",
+         "note": "out means not allowed, forbidden"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thanks turning up less and less in the Times, and all but banned there.",
-     "walkthrough": "The italics push the newspaper at you, and the word is the multiplication sign, which in speech is 'by'. Saying something is out is how a rule gets announced without the word forbidden.",
-     "definitionFit": "'Bless you' is said in thanks for a kindness as readily as after a sneeze, a warm way of putting thank you."
+     "surface": "A newspaper's thank-you note is getting rarer and close to banned.",
+     "walkthrough": "LESS is 'found in' BY ('times', as in three by four); OUT ('forbidden') is cut short to OU by 'almost'.",
+     "definitionFit": "People say bless you to thank someone, a warm phrase of thanks as well as the response to a sneeze."
     },
     "features": {
      "answerInScene": false,
@@ -1420,51 +1437,55 @@
      "indicators": [
       {
        "text": "bringing in",
-       "note": "Bringing something in takes it inside, so the letters named open up to hold what comes next."
+       "at": 4,
+       "note": "the pub word brings in, takes inside, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "Finally points at the end, so only the last letter of the word before it is wanted."
-        }
-       ],
+       "words": "Pub",
+       "at": 0,
+       "gives": "BAR",
+       "note": "a bar is a pub"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Pub",
-         "gives": "BAR",
-         "note": "the bar is the pub"
-        },
-        {
          "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 21,
+           "note": "only the last letter of beer is used"
+          }
+         ],
          "parts": [
           {
            "words": "beer",
-           "note": "the last letter of BEER"
+           "at": 16
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 34,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "i = one, the Roman numeral"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub taking in the last of the beer along with a single pipe.",
-     "walkthrough": "The pipe here is turned from the hard root-burl of the tree heath that grows round the Mediterranean, and smokers name the pipe after that wood. 'Finally' is the standard call for a last letter.",
-     "definitionFit": "Pipes of this kind are cut from heath root, and the wood's name has become the everyday word for the pipe itself."
+     "surface": "A pub serves beer to someone smoking a pipe.",
+     "walkthrough": "BAR ('pub') is 'bringing in' R (beer 'finally') and I ('one').",
+     "definitionFit": "A briar is a tobacco pipe carved from the root of the tree heath."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "pipe"
     }
    }
   },

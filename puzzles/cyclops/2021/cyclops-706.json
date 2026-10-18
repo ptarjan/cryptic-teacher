@@ -1154,51 +1154,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts one part inside the other"
+       "at": 29,
+       "note": "the French article and final letter go in the action word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "action",
+       "at": 32,
+       "gives": "DEED",
+       "note": "a deed is an action"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "action",
-         "gives": "DEED",
-         "note": "a deed is an action"
+         "words": "The French",
+         "at": 0,
+         "gives": "LE",
+         "note": "le is French for the"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points to the final letter of a word"
+           "at": 21,
+           "note": "only the last letter of president is used"
           }
          ],
          "parts": [
           {
            "words": "president",
-           "note": "its final letter"
+           "at": 11
           }
          ]
         }
        ]
-      },
-      {
-       "words": "The French",
-       "gives": "LE",
-       "note": "le is French for the"
       }
      ]
     },
     "explanation": {
-     "surface": "The French president, at last in action, then ousted.",
-     "walkthrough": "'The French president' looks like Macron; it splits into the French article plus the president's last letter.",
-     "definitionFit": "Something deleted has been erased or struck out, taken away from the record."
+     "surface": "A French head of state finally acts, and is ousted.",
+     "walkthrough": "'The French' points to the French word for the, not to France itself.",
+     "definitionFit": "Deleted means erased or struck out, taken away from a text."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "president"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

@@ -906,7 +906,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "here?",
+      "text": "here",
       "at": 33
      }
     ],
@@ -915,7 +915,8 @@
      "indicators": [
       {
        "text": "around",
-       "note": "turning around means facing the other way, so the whole string is read backwards"
+       "at": 26,
+       "note": "the whole assembly is turned around, read backwards in the light"
       }
      ],
      "parts": [
@@ -924,60 +925,57 @@
        "indicators": [
         {
          "text": "boxing",
-         "note": "to box something is to put it in a box, so one piece encloses the rest"
+         "at": 6,
+         "note": "the idiot word boxes, encloses, the following pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Idiot",
+         "at": 0,
+         "gives": "MUG",
+         "note": "a mug is a gullible fool"
+        },
+        {
+         "op": "charade",
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "op": "container",
-             "parts": [
-              {
-               "words": "Idiot",
-               "gives": "MUG",
-               "note": "a mug is a fool"
-              },
-              {
-               "words": "is",
-               "note": "taken as written"
-              }
-             ]
-            },
-            {
-             "words": "a",
-             "note": "taken as written"
-            }
-           ]
+           "words": "is",
+           "at": 13,
+           "gives": "IS",
+           "note": "taken as written"
+          },
+          {
+           "words": "a",
+           "at": 16,
+           "gives": "A"
           },
           {
            "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
+           "at": 18,
+           "gives": "N"
+          },
+          {
+           "words": "boy",
+           "at": 22,
+           "gives": "MY",
+           "note": "'Boy!' and 'My!' are both exclamations of surprise"
           }
          ]
-        },
-        {
-         "words": "boy",
-         "gives": "MY",
-         "note": "'Boy!' and 'My!' are both exclamations of surprise"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asking whether the new lad who boxes like a fool is local.",
-     "walkthrough": "The fool wraps the other four pieces, then everything is turned round. 'Here' points to the place where the boxing in the surface would happen.",
-     "definitionFit": "The question mark makes 'here' a cryptic pointer: the hall where a boxing session takes place is a sports hall for exercise."
+     "surface": "A jibe that only a fool would put a newcomer in the boxing ring around these parts.",
+     "walkthrough": "MUG ('Idiot') 'boxing' IS A N MY gives MUISANMYG, and 'around' turns it backwards. 'Boy' stands for the exclamation 'my!'.",
+     "definitionFit": "The question mark marks a cryptic pointer: boxing and other exercise happen at a gym, so the place meant by 'here' is a sports hall."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "boxing"
     }
    }
