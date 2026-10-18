@@ -129,40 +129,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "moving up",
+       "at": 8,
+       "note": "moving up means in this down entry the southern letter climbs from the bottom into the middle of the word for vessels"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "moving up",
-         "note": "in a down answer, up means earlier, so the S climbs one place in the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Vessels",
-         "gives": "CUPS",
-         "note": "cups are drinking vessels"
-        }
-       ]
+       "words": "Vessels",
+       "at": 0,
+       "gives": "CUP",
+       "note": "a cup is a drinking vessel; the clue's plural ends with the southern letter, which then moves"
       },
       {
-       "unchecked": true,
        "words": "Southern",
-       "note": "S = Southern: names the letter that moves"
+       "at": 18,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Ships heading north past a southern headland.",
-     "walkthrough": "'Vessels' and 'Point' paint ships rounding a headland; the vessels are crockery, and only one letter shifts.",
-     "definitionFit": "A plain synonym from geometry and astronomy: a cusp is the sharp point where two curves meet, as at the horns of a crescent moon."
+     "surface": "A report of ships sailing north along the coast to a southern headland.",
+     "walkthrough": "Write CUPS for vessels; in a down entry 'moving up' shifts the final S higher, so it ends up inside CUP.",
+     "definitionFit": "A cusp is a pointed end where two curves meet, as on a tooth or the crescent moon."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Vessels"
     }
    }
@@ -485,43 +481,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not keeping",
+       "at": 17,
+       "note": "not keeping means failing to hold on to, so the time letter is dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "not keeping",
-         "note": "the cabinets do not keep hold of the time, so the T is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "cabinets",
-         "gives": "CHESTS",
-         "note": "chests = cabinets, as in a chest of drawers"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "words": "cabinets",
+       "at": 8,
+       "gives": "CHESTS",
+       "note": "chests are cabinets or storage boxes, as in a chest of drawers"
       },
       {
-       "unchecked": true,
        "words": "time",
-       "note": "T = time, removed"
+       "at": 29,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Musical furniture that won't keep time.",
-     "walkthrough": "'Musical' looks like an adjective describing the cabinets; it is the noun.",
-     "definitionFit": "Definition by example: Chess is a 1980s stage musical by Tim Rice and the ABBA songwriters, one musical among many."
+     "surface": "Display cabinets in a music shop that won't keep time.",
+     "walkthrough": "'Not keeping' drops the T from CHESTS. Chess is the 1980s stage musical with songs by Benny and Björn of ABBA.",
+     "definitionFit": "Chess is a stage show with lyrics by Tim Rice and music by members of ABBA, so it is a musical."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Musical"
     }
    }
@@ -1103,51 +1092,57 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "extremely",
-       "note": "at the extremes, so only the first and last letters"
-      },
-      {
        "text": "on",
-       "note": "in an across answer, placed after what it sits on"
+       "at": 30,
+       "note": "on means the extremes of ineffective are placed on, after, the stripped men in this across entry"
       }
      ],
      "parts": [
       {
-       "words": "naked men",
-       "gives": "NIGHT",
-       "note": "KNIGHTS are chessmen; stripped, they lose their first and last letters"
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "IE",
+       "op": "middle",
        "indicators": [
         {
          "text": "naked",
-         "note": "stripped of their covering, so the outer letters go"
+         "at": 33,
+         "note": "naked means stripped, so the word loses its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely ineffective",
-         "gives": "IE",
-         "select": "outer",
-         "note": "first and last letters of ineffective"
+         "words": "men",
+         "at": 39,
+         "gives": "KNIGHTS",
+         "note": "knights are men in chess, the pieces moved on the board"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 8,
+         "note": "extremely means taking the extremes of the word, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ineffective",
+         "at": 18,
+         "note": "only its outer letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An item of clothing does little to cover naked men.",
-     "walkthrough": "Men are chess pieces here, so a solver hunting for a word for 'men' should think of the board.",
-     "definitionFit": "Definition by class: a nightie is a nightdress, one garment among many, and apt for the naked men of the surface."
+     "surface": "A piece of clothing that is utterly useless on men with no clothes on.",
+     "walkthrough": "'Naked' strips KNIGHTS to NIGHT, and 'extremely' takes IE from 'ineffective', which goes 'on' it, at the end. Men as chess pieces is a crossword convention.",
+     "definitionFit": "A nightie is a nightdress, a loose garment worn in bed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "naked"
     }
    }
@@ -1473,46 +1468,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the place to go sits inside the centre letters"
+       "at": 17,
+       "note": "in means the toilet word sits inside the letters taken from Sleaford"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AF",
        "indicators": [
         {
          "text": "centre of",
-         "note": "the centre of an even-length word is its middle two letters"
+         "at": 20,
+         "note": "centre of points to the middle two letters of the eight-letter word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of Sleaford",
-         "gives": "AF",
-         "select": "middle",
-         "note": "the middle two of its eight letters"
+         "words": "Sleaford",
+         "at": 30,
+         "note": "its central letters are used"
         }
        ]
       },
       {
        "words": "place to go",
+       "at": 5,
        "gives": "LOO",
-       "note": "the loo is the toilet, British slang"
+       "note": "loo is British slang for a toilet, a place to go"
       }
      ]
     },
     "explanation": {
-     "surface": "Somewhere to go in the middle of Sleaford, a Lincolnshire town.",
-     "walkthrough": "'Cold' reads like weather for a day out; it describes a manner.",
-     "definitionFit": "A figurative sense: someone cold in manner is distant and unfriendly, which is what aloof means."
+     "surface": "A chilly spot to find a toilet in the middle of a Lincolnshire market town.",
+     "walkthrough": "'Centre of' takes AF from the middle of Sleaford, a town in Lincolnshire, and LOO goes 'in' it.",
+     "definitionFit": "Cold in the sense of a distant, unfriendly manner is a synonym for aloof, standoffish and reserved."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Cold"
     }
    }
@@ -1664,40 +1657,37 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "SC",
        "indicators": [
         {
          "text": "final parts of",
-         "note": "the final part of a word is its last letter, taken from each of the next two words"
+         "at": 7,
+         "note": "final parts of means the last letter of each of the two following words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "final parts of endless sadistic",
-         "gives": "SC",
-         "select": "last",
-         "note": "the last letters of endless and sadistic"
+         "words": "endless sadistic",
+         "at": 22,
+         "note": "the last letters of these two words are taken"
         }
        ]
       },
       {
        "words": "massage",
+       "at": 39,
        "gives": "RUB",
-       "note": "a rub = a massage"
+       "note": "to rub is to massage"
       }
      ]
     },
     "explanation": {
      "surface": "Calling off a cruel, never-ending massage.",
-     "walkthrough": "'Endless' tempts you to drop letters; here it is only a word whose last letter is used.",
-     "definitionFit": "Informal: to scrub a plan or a launch is to call it off, as a scrubbed rocket launch is cancelled."
+     "walkthrough": "'Endless' looks like an instruction to cut a letter, but it is just one of the two words whose final letters, S and C, are taken.",
+     "definitionFit": "To scrub a plan is informal for cancelling it, wiping it out as if cleaned away."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "endless"
     }
    }
