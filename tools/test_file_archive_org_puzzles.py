@@ -334,15 +334,6 @@ check("a refusal read before its cause's fix is due; after it, or another cause,
       [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v")])
-gale = lambda ed: {**refused("no-reading-parses", "2026-10-01T00:00:00+00:00"), "edition": ed}
-check("no-reading-parses on GaleTimes 2014-02..12 is not due; Jan 2014, 2013 and other papers are",
-      [None, None, "refused no-reading-parses before its fix", "refused no-reading-parses before its fix",
-       "refused no-reading-parses before its fix"],
-      [f.due_reason(gale("GaleTimes2014UKEnglish/2014-02-01"), "h", [], "v"),
-       f.due_reason(gale("GaleTimes2014UKEnglish/2014-12-31"), "h", [], "v"),
-       f.due_reason(gale("GaleTimes2014UKEnglish/2014-01-31"), "h", [], "v"),
-       f.due_reason(gale("GaleTimes2013UKEnglish/2013-06-05"), "h", [], "v"),
-       f.due_reason(gale("NewsUK2014UKEnglish/2014-05-05"), "h", [], "v")])
 part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
     {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
     **({"solutionKey": key} if key else {})}
@@ -575,6 +566,29 @@ cols = f.columns(words, grid, split=split)
 check("the gutter lies between the columns", True, 2569 < split < 2577)
 check("a right-hand clue left of the grid's middle stays in its column",
       ["1 Graduate teachers object to", "28 Take part of case for leisure"], [l[4] for l in cols[0]])
+
+# The 2014 Times (Gale): the grid at the page's foot, the two clue columns right
+# of it, "Yesterday's solution" under the first; the third column is not read.
+from PIL import Image, ImageDraw
+page = Image.new("L", (3296, 2849), 255)
+ImageDraw.Draw(page).rectangle((1000, 2000, 1500, 2400), fill=0)  # clue-column text, as ink
+check("clues right of a grid at the page's foot are found", (1675, 2531),
+      f.right_columns(page, (196, 1598, 916, 2316)))
+check("a grid with room under it for clues has none right of it", None, f.right_columns(page, (196, 500, 916, 1218)))
+check("a blank strip right of the grid holds no clues", None,
+      f.right_columns(Image.new("L", (3296, 2849), 255), (196, 1598, 916, 2316)))
+rwords = [[(960, 1620, 1250, 1645, "Across")], [(1330, 1620, 1620, 1645, "build-up? (5,5)")],
+          [(960, 1650, 1250, 1675, "25 Drag performer by bar getting big")],
+          [(960, 2330, 1250, 2355, "Yesterday's solution 25,732")],
+          [(1330, 1650, 1640, 1675, "Down")], [(1330, 1680, 1640, 1705, "1 Man in the street (3,6)")]]
+rgrid = (196, 1598, 916, 2316)
+right = f.right_gutter(rwords, rgrid, (1675, 2531))
+rcols = f.columns(rwords, rgrid, right=right)
+check("the gutter lies between the right-hand columns", True, 1250 < right[1] < 1330)
+check("the two columns right of the grid read in order, the solution's heading ending the first",
+      [["Across", "25 Drag performer by bar getting big"], ["build-up? (5,5)", "Down", "1 Man in the street (3,6)"]],
+      [[l[4] for l in col] for col in rcols])
+check("a line headed Yesterday's solution stops a column", True, f.stops("Yesterday's solution 25,732"))
 
 # fault(): what the filer refuses to file, and what the print really has.
 for text, enum, cells, want in [

@@ -435,7 +435,7 @@ PRIZE_UNDER = re.compile(r"^\W*prize\s+p\S{4,6}\W*$", re.IGNORECASE)
 
 
 #: A column line that ends the clues.
-STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
+STOP = re.compile(r"^\W*(solution|yesterday\W?s\s+solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
                   r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by"
                   r"|\S+\s+cr[o0]s+w[o0u]r?d\W+\w{2,5}\s+\d+)\b", re.I)
 #: A line opening on a lowercase word ("championship. possibly (4).") runs
@@ -829,7 +829,7 @@ def gutter(lines, grid, top, lo=None, hi=None):
 RIGHT_REACH = 30
 
 
-def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead=None):
+def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
     top is in it. The two columns under the grid, and with `third`, (width,
@@ -839,6 +839,9 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
     title's foot) down, comes first, and the column under the grid starts at
     `split` (lead_column(): the 1983-86 FT). The left
     column starts `margin` left of the grid (the Times outdents its numbers).
+    With `right`, (x1, gutter, bottom) (right_columns()), the two columns are
+    right of the grid, from RIGHT_RISE over its top down to `bottom`, split
+    at the gutter, the second ending at x1 (the 2014 Times).
     With `above`, (top, gutter, right[, x0]), the two columns are over the
     grid instead, from `top` down, split at the gutter, the right one ending
     at `right` (it may overhang the grid), the left starting at x0 (by
@@ -848,6 +851,9 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
     column (left_column()). Under the grid, the columns split at `split`
     (under_gutter()), by default the grid's middle."""
     gx0, gy0, gx1, gy1 = grid
+    if right:
+        x1, split, _ = right
+        return [(gx1 + 5, split, split, gy0 - RIGHT_RISE), (split, x1, x1, gy0 - RIGHT_RISE)]
     if left:
         x0, split, _ = left
         if split is None:
@@ -909,16 +915,16 @@ def split_across(ws, gutters, height=None):
     return out
 
 
-def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None):
+def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; with `lead`, first one left of
     it; see windows()): [[(y0, y1, x0,
     x1, text) per line] per column, left to right], each cut where the clues
     stop."""
     gx0, gy0, gx1, gy1 = grid
-    bottom = gy0 - 3 if above else left[2] if left else gy1 + 1.8 * (gx1 - gx0)
-    wins = windows(grid, third, margin, above, left, split, lead)
-    reach = gx1 + RIGHT_REACH if above is None and not left else None
+    bottom = gy0 - 3 if above else right[2] if right else left[2] if left else gy1 + 1.8 * (gx1 - gx0)
+    wins = windows(grid, third, margin, above, left, split, lead, right)
+    reach = gx1 + RIGHT_REACH if above is None and not left and not right else None
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
     height = heights[len(heights) // 2] if heights else None
@@ -1295,6 +1301,44 @@ def left_column(lines, grid, margin=60):
     return max(0, min(w[0] for w in heads) - margin), None, gy1 + COLUMN_DROP * gh
 
 
+#: The 2014 Times pages (Gale, from about 2014-02): the grid at the page's
+#: foot with the two clue columns right of it, the second ending
+#: RIGHT_SPAN of the grid's width from its right edge (a rule and the
+#: solution grid, or an advert box, start just past it), the columns' gutter
+#: between RIGHT_GUTTER of that span; the clues rise RIGHT_RISE over the
+#: grid's top (the headings) and run RIGHT_DROP of its height under its foot.
+RIGHT_SPAN, RIGHT_GUTTER, RIGHT_RISE, RIGHT_DROP = 1.055, (0.35, 0.65), 50, 0.3
+#: How much of that strip must be ink for it to hold clues.
+RIGHT_INK = 0.03
+
+
+def right_columns(img, grid):
+    """(x1, bottom) of the two clue columns right of `grid`, or None when the
+    clues are not there: they are only when the page ends too soon under the
+    grid for clues (1.8 grids' widths, the layout every other page has) and
+    the strip right of the grid, as wide as RIGHT_SPAN, is inked like text."""
+    gx0, gy0, gx1, gy1 = grid
+    gw = gx1 - gx0
+    x1 = int(gx1 + RIGHT_SPAN * gw)
+    if x1 > img.width or img.height - gy1 >= 1.2 * gw:
+        return None
+    bottom = int(gy1 + RIGHT_DROP * (gy1 - gy0))
+    strip = img.crop((gx1 + 5, gy0, x1, min(img.height, bottom))).convert("L")
+    hist = strip.histogram()
+    if sum(hist[:128]) < RIGHT_INK * strip.width * strip.height:
+        return None
+    return x1, bottom
+
+
+def right_gutter(lines, grid, right):
+    """`right` (right_columns()) with the x between its two columns: where
+    the fewest words (`lines`, every reading's) cross."""
+    gx0, gy0, gx1, _ = grid
+    x1, bottom = right
+    lo, hi = gx1 + RIGHT_GUTTER[0] * (x1 - gx1), gx1 + RIGHT_GUTTER[1] * (x1 - gx1)
+    return x1, gutter(lines, (lo, bottom, hi, bottom), gy0 - RIGHT_RISE, lo, hi), bottom
+
+
 def lead_column(title, grid, margin=40):
     """(x0, top) of the clue column under a title printed left of its grid
     (the 1983-86 FT: ACROSS and the first DOWN clues there, the rest in the
@@ -1332,7 +1376,8 @@ def lead_split(lines, grid, lead, margin=40):
     return lead + (gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 - margin, gx0 + 10),)
 
 
-def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None, lead=None, x0=None):
+def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None, lead=None, x0=None,
+                right=None):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON with the crop it read, so a reading of another
@@ -1351,6 +1396,8 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
         box = (max(0, int(left[0])), max(0, gy0 - LEFT_RISE), gx0, min(img.height, int(left[1])))
     if lead:
         box = (max(0, int(lead[0])), max(0, int(lead[1])), box[2], box[3])
+    if right:
+        box = (gx1 + 5, max(0, gy0 - RIGHT_RISE), right[0], min(img.height, right[1]))
     if cache_path.exists():
         cached = json.loads(cache_path.read_text())
         if isinstance(cached, list):
@@ -3322,7 +3369,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-16T19:44:41+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T03:45:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3365,10 +3412,14 @@ def read_puzzle(d, found, hit, solutions):
     # width wide (beside), or the one column left_column() finds.
     column = left_column(lines, gbox) if side == "below" and top is None and not paper.four else None
     crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
+    # The 2014 Times: the clue columns right of a grid at the page's foot.
+    right = right_columns(img, gbox) if side == "below" and top is None and not column and not paper.four \
+        and not third else None
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
-        indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not paper.four else None
+        indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not right \
+        and not paper.four else None
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
-                                crop, lead, x0) for which in READERS}
+                                crop, lead, x0, right) for which in READERS}
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
@@ -3407,13 +3458,15 @@ def read_puzzle(d, found, hit, solutions):
         left = column
     if lead:
         lead = lead_split(every, gbox, lead, m)
+    if right:
+        right = right_gutter(every, gbox, right)
     if not paper.four:
-        split = under_gutter(every, gbox) if above is None and left is None else None
-        cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead)}
+        split = under_gutter(every, gbox) if above is None and left is None and not right else None
+        cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right)}
         for which in READERS:
-            cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead)
+            cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right)
         texts = {k: column_text(c) for k, c in cols.items()}
-        wins = windows(gbox, third, m, above, left, split, lead)
+        wins = windows(gbox, third, m, above, left, split, lead, right)
     # The desktop's VLM, when it answers, is one more reading (the 1930
     # page's, vlm_four's above).
     if not paper.four and vlm.wanted():
@@ -4295,22 +4348,6 @@ def _linked(d, scan, held, paper=None):
 _LINKED = {}
 
 
-#: GaleTimes editions dated within this range (inclusive ISO dates) use a
-#: bottom-left grid with the clues in columns to its right, which the crop
-#: code cannot read yet: every read refuses "no-reading-parses", so a
-#: re-read only burns VLM time. TEMPORARY: remove this once the layout fix
-#: for those pages lands.
-GALE_UNREADABLE_LAYOUT = ("2014-02-01", "2014-12-31")
-
-
-def _gale_bottom_left(edition):
-    """True when the ledger `edition` ("GaleTimes2014UKEnglish/2014-03-05") is a
-    GaleTimes one in GALE_UNREADABLE_LAYOUT."""
-    m = re.search(r"\d{4}-\d{2}-\d{2}", edition)
-    return (edition.startswith("GaleTimes") and m is not None
-            and GALE_UNREADABLE_LAYOUT[0] <= m.group() <= GALE_UNREADABLE_LAYOUT[1])
-
-
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -4319,8 +4356,6 @@ def fix_reason(row):
     whole-corpus rank."""
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
-        if v.get("cause") == "no-reading-parses" and _gale_bottom_left(row.get("edition", "")):
-            continue
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
     if row.get("solutionKey") != solution_key():
