@@ -371,30 +371,31 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "VEHEMENCE",
      "indicators": [
       {
        "text": "shown by",
-       "note": "what is shown by some words is on display within them, so the letters sit in the text"
+       "at": 11,
+       "note": "shown by means displayed within, so the answer is on view inside the run of letters that follows"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "assertive he-men? Certainly",
-       "note": "the letters run across the end of the first word, the whole second word and the start of the third"
+       "at": 20,
+       "gives": "VEHEMENCE",
+       "note": "the run of letters from the last two of assertive to the first two of Certainly holds the answer, ignoring the hyphen and question mark"
       }
      ]
     },
     "explanation": {
-     "surface": "A macho man's pushy aggression, confirmed with a hearty 'Certainly!'",
-     "walkthrough": "The answer spans assertiVE HE-MEN CErtainly, ignoring the hyphen and punctuation.",
-     "definitionFit": "Vehemence is forceful, passionate intensity of feeling, which is close to ferocity or fierceness in manner."
+     "surface": "Someone asks whether macho, pushy men display ferocity, and answers that they certainly do.",
+     "walkthrough": "'shown by' signals letters on display: they run across assertiVE HE-MEN CErtainly, with the hyphen and question mark ignored.",
+     "definitionFit": "Vehemence is forceful intensity of feeling or expression, so it is a near synonym for fierceness."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "shown"
     }
    }
   },
@@ -488,46 +489,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACTOFGOD",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "losing tail",
-       "note": "an animal losing its tail is cut short at the rear, so the final letter goes"
+       "text": "affected",
+       "at": 9,
+       "note": "affected means disturbed or altered, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "cat",
+       "at": 18,
+       "note": "taken as written"
+      },
+      {
+       "words": "dog",
+       "at": 23,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "affected",
-         "note": "something affected has been altered, so these letters are changed in order"
+         "text": "losing tail",
+         "at": 35,
+         "note": "losing its tail means the word drops its last letter"
         }
        ],
        "parts": [
         {
-         "words": "cat",
-         "note": "taken as written"
-        },
-        {
-         "words": "dog",
-         "note": "taken as written"
-        },
-        {
          "words": "fox",
-         "gives": "FO",
-         "note": "the animal without its final letter"
+         "at": 31,
+         "note": "taken as written before its last letter goes"
+        },
+        {
+         "gives": "X"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A calamity that struck the family pets and a local fox.",
-     "walkthrough": "'Affected' looks like part of 'Disaster affected', but it works on the animals that follow.",
-     "definitionFit": "An act of God is a natural catastrophe such as a flood or earthquake that nobody could prevent."
+     "surface": "A natural catastrophe has hit a cat, a dog and a fox, which lost its tail.",
+     "walkthrough": "'losing tail' cuts FOX to FO; with CAT and DOG, 'affected' rearranges the pool.",
+     "definitionFit": "An act of God is a legal term for a natural catastrophe such as a flood or earthquake that no one could prevent."
     },
     "features": {
      "answerInScene": true,
