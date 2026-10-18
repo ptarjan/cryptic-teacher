@@ -2978,5 +2978,7 @@ tools/test_og_prose_family.py                  does the og card's own-prose fami
                                                words quoted from the clue?
 tools/test_repair_padding.py                   tests that repair_fetched takes link words out
                                                of the wordplay, and only those
+tools/test_ci_cache_partial.js                 a cold result cache must be able to refill over
+                                               several runs
 ```
 <!-- LAYOUT-END -->

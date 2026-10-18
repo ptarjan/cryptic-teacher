@@ -157,11 +157,27 @@ function uncached(cache, check, i, n) {
 }
 
 /* The results file a passing slice writes: the puzzles it checked, by id. */
-function resultsFor(check, ids, shapes) {
+function resultsFor(check, ids, shapes, deferred) {
   const byId = new Map([...puzzles()].map(([p, blob]) => [idOf(p), [p, blob]]));
   const pass = {};
   for (const id of ids) if (byId.has(id)) pass[byId.get(id)[0]] = byId.get(id)[1];
-  return { check, code: codeKey(check), pass, shapes };
+  const later = {};
+  for (const id of deferred || []) if (byId.has(id)) later[byId.get(id)[0]] = byId.get(id)[1];
+  return { check, code: codeKey(check), pass, shapes, deferred: later };
+}
+
+/* How many uncached puzzles one slice checks per run. A code change that
+   invalidates every result leaves ~1450 uncached puzzles in each of the 40
+   slices; checking them all at once outran the shard (its processes died with
+   no message after the load, run 39108321662), and a run that never passes
+   never saves a result, so the cache could not refill. A slice checks this
+   many, the rest are `deferred` (named in its results file, so merge does not
+   take them for a slice that never ran) and the following runs take the next
+   ones. CT_MAX_UNCACHED overrides it. */
+const MAX_UNCACHED = 300;
+function capUncached(ids) {
+  const max = +process.env.CT_MAX_UNCACHED || MAX_UNCACHED;
+  return { now: ids.slice(0, max), deferred: ids.slice(max) };
 }
 
 function merge(cacheFile, resultsDir, outFile, shapesDir) {
@@ -186,9 +202,17 @@ function merge(cacheFile, resultsDir, outFile, shapesDir) {
       for (const [k, v] of Object.entries(r.shapes || {})) entry.shapes[k] = entry.shapes[k] || v;
     }
     out[check] = entry;
-    const missing = [...all.keys()].filter((p) => !entry.pass[p]);
-    console.log(`${check}: ${all.size - missing.length} of ${all.size} puzzles pass `
-      + `(${fresh} newly passed in this run)`);
+    // A puzzle a passing slice deliberately left for a later run (capUncached)
+    // is owed, not failed; one no slice mentions is a slice that failed.
+    const deferred = new Set();
+    for (const r of results.filter((r) => r.check === check && r.code === code)) {
+      for (const [p, blob] of Object.entries(r.deferred || {})) if (all.get(p) === blob) deferred.add(p);
+    }
+    const unchecked = [...all.keys()].filter((p) => !entry.pass[p]);
+    const missing = unchecked.filter((p) => !deferred.has(p));
+    const owed = unchecked.length - missing.length;
+    console.log(`${check}: ${all.size - unchecked.length} of ${all.size} puzzles pass `
+      + `(${fresh} newly passed in this run, ${owed} deferred to later runs)`);
     if (missing.length) {
       bad++;
       console.error(`FAIL: ${check} has no passing result for ${missing.length} puzzle(s), e.g. `
@@ -197,14 +221,15 @@ function merge(cacheFile, resultsDir, outFile, shapesDir) {
     if (shapesDir) {
       fs.mkdirSync(shapesDir, { recursive: true });
       fs.writeFileSync(path.join(shapesDir, path.basename(check, ".js") + ".json"),
-        JSON.stringify({ slice: 0, of: 1, shapes: entry.shapes }));
+        JSON.stringify({ slice: 0, of: 1, shapes: entry.shapes, partial: owed > 0 }));
     }
   }
   fs.writeFileSync(outFile, JSON.stringify(out));
   return bad;
 }
 
-module.exports = { CHECKS, SMOKE_DEPS, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf };
+module.exports = { CHECKS, SMOKE_DEPS, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf,
+  capUncached, merge };
 
 if (require.main === module && process.argv[2] === "--drop-cached") {
   const cache = readCache(process.argv[3]);

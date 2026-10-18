@@ -486,9 +486,27 @@ const inSlice = (key) => ciCache.inSlice(key, SLICE.i, SLICE.n);
 // this code. A passing run writes what it checked to $CT_RESULTS_OUT (end of
 // this file) for the cache. The cache-free full sweep is the nightly's
 // (nightly-smoke.yml, CT_FULL=1).
-const CHANGED = new Set(process.env.CT_CACHE
-  ? ciCache.uncached(ciCache.readCache(process.env.CT_CACHE), "tools/smoke_test.js", SLICE.i, SLICE.n)
-  : []);
+// At most ci_cache.js's MAX_UNCACHED of them per run: after a change to the
+// code every puzzle is uncached, and a slice that took all ~1450 of them died
+// with no message. The rest are DEFERRED, named in the results file, and the
+// next runs take them.
+const UNCACHED = process.env.CT_CACHE
+  ? ciCache.capUncached(ciCache.uncached(ciCache.readCache(process.env.CT_CACHE), "tools/smoke_test.js", SLICE.i, SLICE.n))
+  : { now: [], deferred: [] };
+const CHANGED = new Set(UNCACHED.now);
+// A run that dies without a FAIL line (killed for memory, a runner torn down)
+// leaves nothing to read; this says how far it got and how much it held.
+const stage = { at: "booting" };
+const mb = () => Math.round(process.memoryUsage().rss / 1048576);
+for (const sig of ["SIGTERM", "SIGINT"]) {
+  process.on(sig, () => {
+    console.error(`FAIL: smoke slice ${process.env.CI_SLICE || "-"} got ${sig} while ${stage.at} (rss ${mb()} MB)`);
+    process.exit(1);
+  });
+}
+process.on("exit", (code) => {
+  if (code) console.error(`(smoke slice ${process.env.CI_SLICE || "-"} exits ${code} while ${stage.at}, rss ${mb()} MB)`);
+});
 function load(p) {
   if (global.window.CRYPTIC_PUZZLES[p.id]) return;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
@@ -531,11 +549,15 @@ const corpus = (() => {
     all.filter((p) => p.id === openId),
     all.filter((p) => CHANGED.has(p.id)));
 })();
+stage.at = `loading ${corpus.length} puzzles`;
 corpus.forEach(load);
+stage.at = "sweeping the corpus";
 assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= (FULL ? 25 : 5),
   "the corpus is loaded for the checks below");
 if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}, `
-  + `${CHANGED.size} of them uncached in slice ${SLICE.i}/${SLICE.n}; CT_FULL=1 sweeps all of them)`);
+  + `${CHANGED.size} of them uncached in slice ${SLICE.i}/${SLICE.n}`
+  + `${UNCACHED.deferred.length ? `, ${UNCACHED.deferred.length} more deferred to later runs` : ""}; `
+  + `CT_FULL=1 sweeps all of them; rss ${mb()} MB)`);
 // A floor under how much a sweep found is a statement about the CORPUS, and a
 // sample cannot make it. What the floor is really guarding against is a sweep
 // that quietly stopped finding anything — a filter that matches nothing passes
@@ -4654,7 +4676,7 @@ global.realSetTimeout(() => {
   // window.CRYPTIC_PUZZLES holds by now: the later boots replace window.
   if (process.env.CT_RESULTS_OUT && !failures) {
     fs.writeFileSync(process.env.CT_RESULTS_OUT, JSON.stringify(ciCache.resultsFor("tools/smoke_test.js",
-      corpus.map((p) => p.id), shapesSeen)));
+      corpus.map((p) => p.id), shapesSeen, UNCACHED.deferred)));
   }
   console.log(failures ? `\n${failures} FAILURE(S)` : "\nSMOKE TEST PASSED");
   process.exit(failures ? 1 : 0);
