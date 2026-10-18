@@ -684,50 +684,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ERICMORECAMBE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "before means the rearranged piece comes ahead of the town"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Before",
-         "note": "'before' means ahead of, so the rearranged crier comes in front of the town"
-        },
-        {
-         "text": "almost",
-         "note": "almost means not quite all, so crier loses its last letter"
-        },
-        {
          "text": "replaced",
-         "note": "to replace is to put back in a new place, so the remaining letters are reordered"
+         "at": 27,
+         "note": "replaced here means put back in a different place, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "crier almost replaced",
-         "gives": "ERIC",
-         "note": "CRIER minus its last R is CRIE, rearranged"
-        },
-        {
-         "words": "a town",
-         "gives": "MORECAMBE",
-         "note": "Morecambe, a seaside town in Lancashire"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 20,
+           "note": "almost means the last letter of crier is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "crier",
+           "at": 14
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a town",
+       "at": 7,
+       "gives": "MORECAMBE",
+       "note": "Morecambe is a seaside town in Lancashire, in north-west England"
       }
      ]
     },
     "explanation": {
-     "surface": "Before a town crier was replaced, a comedian nearly did the job.",
-     "walkthrough": "The comedian took his stage name from his home town in Lancashire, which is why 'a town' can stand for his surname.",
-     "definitionFit": "Definition by category: Eric Morecambe, of the double act Morecambe and Wise, was one of Britain's best-loved comedians."
+     "surface": "A town crier is nearly replaced, just before a comedian takes over.",
+     "walkthrough": "'almost' cuts CRIER to CRIE, which 'replaced' rearranges into ERIC; 'Before' puts that ahead of MORECAMBE, a Lancashire seaside resort the comedian took his stage name from.",
+     "definitionFit": "Eric Morecambe was the much-loved British comic of the double act Morecambe and Wise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "crier"
+     "misdirectedWord": "replaced"
     }
    }
   },
@@ -752,37 +765,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GEODESISTS",
-     "indicators": [
-      {
-       "text": "Sadly",
-       "note": "sadly can mean badly or deplorably, so ego is treated badly and its letters jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Sadly",
+         "at": 0,
+         "note": "sadly here means in a sorry state, so the letters of ego are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Sadly ego",
-         "gives": "GEO",
-         "note": "EGO rearranged"
-        },
-        {
-         "words": "stops",
-         "gives": "DESISTS",
-         "note": "desists = stops"
+         "words": "ego",
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "stops",
+       "at": 10,
+       "gives": "DESISTS",
+       "note": "desists means stops, ceases doing something"
       }
      ]
     },
     "explanation": {
-     "surface": "Regrettably, vanity halts researchers doing survey work.",
-     "walkthrough": "'Stops' looks like the verb acting on scientists; it is simply the second piece, tacked on after the rearranged ego.",
-     "definitionFit": "Descriptive definition: geodesy is the science of surveying and measuring the Earth's shape."
+     "surface": "Wounded pride regretfully calls a halt to the scientists' fieldwork.",
+     "walkthrough": "'stops' reads as a verb about ego but the wordplay wants its synonym DESISTS, after 'Sadly' turns EGO into GEO.",
+     "definitionFit": "Geodesists are scientists who measure the shape and size of the Earth, a branch of surveying."
     },
     "features": {
      "answerInScene": true,
@@ -1091,42 +1103,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally means at the end, so take the last letter of settled"
+       "text": "on",
+       "at": 31,
+       "note": "on means placed next to, so the letter follows the name"
       }
      ],
      "parts": [
       {
        "words": "Lincoln",
+       "at": 34,
        "gives": "ABE",
-       "note": "Abe Lincoln, US president"
+       "note": "Abe is the short name of Abraham Lincoln, the US president"
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across entry 'on' means placed after, so that letter follows Lincoln"
+         "text": "finally",
+         "at": 15,
+         "note": "finally means the last letter of settled is taken"
         }
        ],
        "parts": [
         {
-         "words": "finally settled",
-         "note": "last letter of settleD"
+         "words": "settled",
+         "at": 23,
+         "note": "the last letter of the word settled is the one taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "After retirement someone finally made a home in Lincoln.",
-     "walkthrough": "'Retiring' means going to bed, not leaving work; Lincoln is the president, not the English city.",
-     "definitionFit": "Idiom: to retire is to go to bed for the night, so afterwards you lie in bed."
+     "surface": "After going to bed, someone finally decides the matter of a Lincoln.",
+     "walkthrough": "'finally' takes D, the end of settled, which goes 'on' ABE. 'retiring' means going to bed, not leaving work.",
+     "definitionFit": "Abed means in bed, which is where someone is once they have turned in for the night."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "retiring"
     }
    }
@@ -1278,42 +1293,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARTSANDCRAFTS",
-     "indicators": [
-      {
-       "text": "bust",
-       "note": "something bust is broken, so the letters of darts can are smashed and reassembled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bust",
+         "at": 20,
+         "note": "bust means broken, so the letters of darts and can are smashed and reassembled"
+        }
+       ],
        "parts": [
         {
-         "words": "darts can bust",
-         "gives": "ARTSANDC",
-         "note": "DARTS CAN rearranged"
+         "words": "darts",
+         "at": 10
         },
         {
-         "words": "water vessels",
-         "gives": "RAFTS",
-         "note": "rafts are vessels on water"
+         "words": "can",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "water vessels",
+       "at": 25,
+       "gives": "RAFTS",
+       "note": "rafts are simple floating craft, vessels on water"
       }
      ]
     },
     "explanation": {
-     "surface": "Old-fashioned darts can smash water jugs.",
-     "walkthrough": "'Water vessels' suggests jugs; they are boats. The answer is the late-Victorian design movement led by William Morris.",
-     "definitionFit": "Historical sense: the name belongs to a nineteenth-century decorative style, so it is an old style."
+     "surface": "Old-fashioned darts can shatter water containers.",
+     "walkthrough": "'bust' rearranges DARTS CAN into ARTSANDC; 'water vessels' are not jugs but RAFTS.",
+     "definitionFit": "Arts and Crafts was a late nineteenth-century design movement championing handmade decorative work, a period style."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "vessels"
     }
    }

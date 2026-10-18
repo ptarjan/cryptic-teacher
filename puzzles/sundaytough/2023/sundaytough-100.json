@@ -50,59 +50,67 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PLASTERCAST",
      "indicators": [
       {
        "text": "suppressing",
-       "note": "to suppress is to hold something down and in, so one piece ends up held inside another"
+       "at": 28,
+       "note": "suppressing means holding something down out of sight, so the outer letters keep the other piece inside them"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "flowing",
-         "note": "liquid that is flowing moves and swirls, so the letters are set in motion into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "outer",
          "indicators": [
           {
            "text": "drained",
-           "note": "something drained has its contents emptied out, so only the outside letters of the word survive"
+           "at": 9,
+           "note": "drained means emptied of its contents, so only the first and last letters of pitiful remain"
           }
          ],
          "parts": [
           {
            "words": "Pitiful",
-           "note": "the first and last letters of the word"
+           "at": 0,
+           "note": "the word pitiful with all its inner letters gone keeps only its first and last"
           }
          ]
         },
         {
-         "words": "tears",
-         "note": "taken as written, to be rearranged"
-        },
-        {
          "words": "performers",
+         "at": 17,
          "gives": "CAST",
-         "note": "the cast is the set of performers in a show"
+         "note": "the cast is the set of performers in a play"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flowing",
+         "at": 40,
+         "note": "flowing means running freely, so the letters of tears move into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "at": 48
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Weeping actors, exhausted and pathetic, try to hold back their tears.",
-     "walkthrough": "The question mark ends the wordplay, and the final sentence is a playful definition: a 'break' here is a broken bone, not an interval.",
-     "definitionFit": "A rigid plaster casing is put around a fractured limb to hold the bone still while it mends."
+     "surface": "Sorry, exhausted actors hold back a flood of tears; the second sentence seems to offer some backstage comfort.",
+     "walkthrough": "'break' suggests an interval or holiday, but it is a broken bone. 'suppressing' has the two outer pieces hold the anagram of TEARS (from 'flowing') between them.",
+     "definitionFit": "A plaster cast is the rigid casing put on a broken limb, so it helps anyone with a fracture."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "break"
@@ -1440,43 +1448,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARROWHEAD",
-     "indicators": [
-      {
-       "text": "East End",
-       "note": "Cockneys of London's East End drop their aitches, so the word loses its initial H"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "East End",
+         "at": 0,
+         "note": "in London's East End the initial H of a word is traditionally dropped, so the school loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "school",
-         "gives": "ARROW",
-         "note": "Harrow, the English public school, without its first letter"
+         "at": 9,
+         "gives": "HARROW",
+         "note": "Harrow is a famous English public school in north-west London"
         },
         {
-         "words": "boss",
-         "gives": "HEAD",
-         "note": "a head is the person in charge"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "boss",
+       "at": 16,
+       "gives": "HEAD",
+       "note": "a head is the boss of an organisation, as a head teacher is of a school"
       }
      ]
     },
     "explanation": {
-     "surface": "A headteacher in London's East End offers advice for hitting the mark.",
-     "walkthrough": "Harrow is a famous English public school; Cockney speech drops the H. 'Tip' suggests advice, but it is a pointed end.",
-     "definitionFit": "The arrowhead is the pointed piece at the front of an arrow that strikes the archer's mark."
+     "surface": "A head teacher from a school in east London gives advice on hitting a target.",
+     "walkthrough": "'East End' reads as a place but signals Cockney speech, which drops the H of HARROW to give ARROW, before HEAD (boss).",
+     "definitionFit": "An arrowhead is the pointed tip of an arrow, the part that strikes the target."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "tip"
+     "misdirectedWord": "East"
     }
    }
   },

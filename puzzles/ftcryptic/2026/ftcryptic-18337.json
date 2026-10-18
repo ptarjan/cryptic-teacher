@@ -54,48 +54,51 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LIBDEM",
      "indicators": [
       {
        "text": "created",
-       "note": "something created is made up fresh, so the remaining letters are formed into a new order"
+       "at": 40,
+       "note": "created suggests the letters are made into something new, so they are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LIBDEM",
        "indicators": [
         {
          "text": "distanced from",
-         "note": "whatever is kept at a distance is taken out of the letters that follow"
+         "at": 13,
+         "note": "distanced from means the professional is taken out of the word problem"
         }
        ],
        "parts": [
         {
-         "words": "problem I'd",
-         "note": "taken as written"
+         "words": "problem",
+         "at": 28
         },
         {
          "words": "Professional",
+         "at": 0,
          "gives": "PRO",
-         "note": "PRO is the usual short form of professional"
+         "note": "pro is the short form of professional"
         }
        ]
+      },
+      {
+       "words": "I'd",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "An expert keeps clear of some trouble that was stirred up for a politician.",
-     "walkthrough": "Take PRO off the front of PROBLEMID and rearrange the six letters left. A Lib Dem is a member of the UK's Liberal Democrat party.",
-     "definitionFit": "A Liberal Democrat is a member of a British party, so the term names one kind of political figure."
+     "surface": "A professional steps back from a problem that some politician has caused.",
+     "walkthrough": "'distanced from' takes PRO out of PROBLEM, leaving BLEM; with I'D that gives BLEMID, which 'created' rearranges. A Lib Dem is a member of the UK's Liberal Democrat party.",
+     "definitionFit": "A Lib Dem is a member of the Liberal Democrats, a British political party, so a kind of politician."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Professional"
+     "misdirectedWord": "created"
     }
    }
   },
@@ -1088,42 +1091,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HYDRATED",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "something unfinished lacks its end, so the final letter is dropped"
+       "text": "ground",
+       "at": 27,
+       "note": "ground, as in crushed or milled, signals the letters are broken up and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ground",
-         "note": "ground means crushed or milled, so the letters are broken up and reformed"
+         "text": "unfinished",
+         "at": 4,
+         "note": "unfinished means the last letter of dam is cut off"
         }
        ],
        "parts": [
         {
          "words": "Dam",
-         "gives": "DA",
-         "note": "the word without its last letter"
+         "at": 0
         },
         {
-         "words": "the dry",
-         "note": "taken as written"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "the",
+       "at": 19
+      },
+      {
+       "words": "dry",
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "A half-built dam, and the parched land soaked through.",
-     "walkthrough": "'Ground' looks like the earth beside the dam; it is the past tense of grind.",
-     "definitionFit": "Something saturated has absorbed all the water it can hold, so it is thoroughly watered."
+     "surface": "A dam left half-built while the parched earth becomes waterlogged.",
+     "walkthrough": "'unfinished' trims DAM to DA; with THE and DRY that gives DATHEDRY, which 'ground' rearranges. 'ground' reads as earth but is the past tense of grind.",
+     "definitionFit": "Hydrated means combined with or soaked in water, so thoroughly saturated."
     },
     "features": {
      "answerInScene": true,
@@ -1561,45 +1570,62 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after in a down answer means placed below, so one piece follows the other"
+       "at": 13,
+       "note": "after means the word for second is placed following the two letters"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
-         "text": "first and second of",
-         "note": "naming the first and second positions keeps just the opening pair of letters"
+         "text": "first",
+         "at": 19,
+         "note": "first here means the opening letter of the month name is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "December",
-         "gives": "DE",
-         "select": "first",
-         "note": "the opening two letters of the month"
+         "at": 39,
+         "note": "the word December supplies its opening letter here"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second of",
+         "at": 29,
+         "note": "second of means the letter in second place of the month name is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "December",
+         "at": 39,
+         "note": "the same word December supplies its second letter here"
         }
        ]
       },
       {
        "words": "second",
+       "at": 6,
        "gives": "MO",
-       "note": "a mo is a moment, a second, as in 'wait a mo'"
+       "note": "mo is a short informal word for a moment or second, as in wait a mo"
       }
      ]
     },
     "explanation": {
-     "surface": "Calendar talk: March, February, December, all jumbled together.",
-     "walkthrough": "'March' and 'December' set up a calendar, but March here is the protest kind.",
-     "definitionFit": "A demo is short for demonstration, a public protest march through the streets."
+     "surface": "A calendar puzzle: a march held a second after the first two days of December.",
+     "walkthrough": "'first and second of December' gives D and E, and 'after' puts MO (second) behind them. 'March' looks like the month but is a protest walk.",
+     "definitionFit": "A demo is a demonstration, a protest in which people walk together through the streets."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "March"
     }
    }
@@ -1679,43 +1705,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVEREST",
+     "op": "charade",
      "indicators": [
       {
-       "text": "heading off",
-       "note": "a heading is the top, so taking it off removes the first letter"
+       "text": "before",
+       "at": 39,
+       "note": "before means the first piece is placed ahead of the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "always",
+       "at": 26,
+       "gives": "EVER",
+       "note": "ever means always, as in 'ever hopeful'"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "before",
-         "note": "one thing before another is placed ahead of it in the answer"
+         "text": "heading off",
+         "at": 46,
+         "note": "heading off means the first letter of the word for check is removed"
         }
        ],
        "parts": [
         {
-         "words": "always",
-         "gives": "EVER",
-         "note": "ever means always, as in 'ever hopeful'"
+         "words": "check",
+         "at": 33,
+         "gives": "TEST",
+         "note": "test means check, as in testing the brakes"
         },
         {
-         "words": "check",
-         "gives": "EST",
-         "note": "a test is a check; it loses its first letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Climbing advice: always inspect your kit before setting out.",
-     "walkthrough": "'Heading off' reads as setting off on the climb, but it beheads the word.",
-     "definitionFit": "Everest is the world's highest mountain, the ultimate target for climbers."
+     "surface": "A climber's note: always check your gear before setting off for the summit.",
+     "walkthrough": "'check' is a verb in the surface but the noun TEST here; 'heading off' drops its first letter to give EST, and 'before' puts EVER ahead of it.",
+     "definitionFit": "Mount Everest is the world's highest peak, the ultimate challenge for climbers."
     },
     "features": {
      "answerInScene": true,

@@ -116,43 +116,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PONIARD",
      "indicators": [
       {
        "text": "about",
-       "note": "about suggests letters turned around and moved, so they are rearranged"
+       "at": 34,
+       "note": "about here means moved around, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PONIARD",
        "indicators": [
         {
          "text": "withdrawn",
-         "note": "withdrawn means pulled out, so one letter is taken away from the word that follows"
+         "at": 14,
+         "note": "withdrawn means the letter for one amateur is taken out of paranoid"
         }
        ],
        "parts": [
         {
-         "words": "One amateur",
-         "gives": "A",
-         "note": "A is the abbreviation for amateur; just one is removed"
+         "words": "paranoid",
+         "at": 25
         },
         {
-         "words": "paranoid",
-         "note": "taken as written"
+         "words": "One amateur",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the abbreviation for amateur, and one amateur is a single A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A paranoid amateur backs out of something involving a small dagger.",
-     "walkthrough": "PARANOID has two As; removing one leaves seven letters to rearrange.",
-     "definitionFit": "A poniard is a slim stabbing knife, a kind of small dagger."
+     "surface": "An amateur pulls out, nervously fussing over a little knife.",
+     "walkthrough": "'withdrawn' takes one A out of PARANOID, leaving PARNOID, which 'about' then rearranges.",
+     "definitionFit": "A poniard is a slender stabbing knife, a small dagger of the sixteenth century."
     },
     "features": {
      "answerInScene": true,
@@ -183,36 +182,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AGIN",
      "indicators": [
       {
        "text": "for",
-       "note": "for means in place of, so one letter stands in where another was"
+       "at": 42,
+       "note": "for means one letter stands in place of another inside the word for discount"
       }
      ],
      "parts": [
       {
        "words": "discount",
+       "at": 14,
        "gives": "AGIO",
-       "note": "an agio is a money-changing premium or discount"
-      },
-      {
-       "words": "indefinite number",
-       "gives": "N",
-       "note": "N stands for an unspecified number in maths"
+       "note": "agio is a banking term for a premium or discount on exchanging currency"
       },
       {
        "words": "nothing",
+       "at": 46,
        "gives": "O",
-       "note": "O looks like zero"
+       "note": "O looks like zero, so it means nothing"
+      },
+      {
+       "words": "indefinite number",
+       "at": 24,
+       "gives": "N",
+       "note": "N is the mathematician's symbol for an indefinite number"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone opposed to discounts on principle.",
-     "walkthrough": "N replaces the O at the end of AGIO.",
-     "definitionFit": "Agin is a dialect form of against, so it describes being opposed to something."
+     "surface": "Someone against a discount argues that an unknown amount means nothing.",
+     "walkthrough": "'for' swaps N (indefinite number) in place of the O (nothing) in AGIO, a banking word for the charge or discount on currency exchange.",
+     "definitionFit": "Agin is a dialect form of against, used to mean opposed to something."
     },
     "features": {
      "answerInScene": false,
@@ -307,54 +308,82 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AXOLOTL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "catching",
-       "note": "catching means holding inside, so the pair of letters wraps around what follows"
+       "text": "after",
+       "at": 38,
+       "note": "after means the rest of the wordplay follows the letter A"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 44,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "catching",
+         "at": 11,
+         "note": "catching means the outer letters hold the inner ones inside them"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Cross",
+           "at": 0,
+           "gives": "X",
+           "note": "X is the shape of a cross"
+          },
+          {
+           "words": "lake",
+           "at": 6,
+           "gives": "L",
+           "note": "L is the map abbreviation for lake"
+          }
+         ]
         },
         {
-         "words": "Cross",
-         "gives": "X",
-         "note": "a cross is the letter X"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "O looks like zero"
-        },
-        {
-         "words": "chance",
-         "gives": "LOT",
-         "note": "drawing lots is leaving things to chance"
-        },
-        {
-         "words": "lake",
-         "gives": "L",
-         "note": "L is the map abbreviation for lake"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "by",
+           "at": 28,
+           "note": "by means next to, so the two pieces sit side by side"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nothing",
+           "at": 20,
+           "gives": "O",
+           "note": "O looks like zero, so it means nothing"
+          },
+          {
+           "words": "chance",
+           "at": 31,
+           "gives": "LOT",
+           "note": "lot means chance, as in drawing lots"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone crossing a lake happens upon a salamander.",
-     "walkthrough": "X and L hold O plus LOT, and the whole comes after A; 'by' simply places LOT next to O.",
+     "surface": "A cross figure crosses a lake, finding nothing to catch except by luck.",
+     "walkthrough": "'catching' puts O and LOT (nothing by chance) between X and L, giving XOLOTL, and 'after' puts that behind A.",
      "definitionFit": "The axolotl is a Mexican salamander that keeps its larval gills into adulthood."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Cross"
     }
@@ -949,47 +978,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INHALE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "exhausting marches",
-       "note": "marches are borders, and exhausting them empties out the outer letters"
+       "text": "poor",
+       "at": 18,
+       "note": "poor means in bad shape, so the letters are reworked"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "poor",
-         "note": "poor suggests something in bad shape, so the letters are rearranged"
+         "text": "exhausting marches",
+         "at": 38,
+         "note": "marches are borders, and exhausting them empties out the two border letters of Chileans"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "HILEAN",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Chileans",
-           "gives": "HILEAN",
-           "select": "middle",
-           "note": "the word without its first and last letters"
-          }
-         ]
+         "words": "Chileans",
+         "at": 23,
+         "note": "the word Chileans with its first and last letters stripped away leaves its inner six letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smell from impoverished Chileans after tiring protest marches.",
-     "walkthrough": "Marches means borders here, not walks; removing them strips the C and S from the ends.",
-     "definitionFit": "To whiff can mean to breathe in or sniff, which is to inhale."
+     "surface": "A faint smell given off by impoverished South Americans after tiring treks.",
+     "walkthrough": "'marches' looks like walks but means borders: 'exhausting marches' drops the outside letters C and S of CHILEANS, leaving HILEAN for 'poor' to rearrange.",
+     "definitionFit": "To whiff can mean to breathe in or sniff, taking air in through the nose."
     },
     "features": {
      "answerInScene": false,
@@ -1994,41 +2014,44 @@
      {
       "text": "Ventral plate's",
       "at": 0,
-      "note": "the answer is an adjective; the possessive stands for 'relating to a ventral plate'"
+      "note": "the definition is possessive while the answer is an adjective: belonging to the ventral plate"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STERNITIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cut means clipped short, so the final letter goes"
+       "text": "out",
+       "at": 31,
+       "note": "out here means disordered, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "out suggests disorder, so the remaining letters are rearranged"
+         "text": "cut",
+         "at": 27,
+         "note": "cut means the last letter of interstice is lopped off"
         }
        ],
        "parts": [
         {
          "words": "interstice",
-         "gives": "INTERSTIC",
-         "note": "the word without its final letter"
+         "at": 16
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An entomologist cuts out a gap in an insect's belly plate.",
-     "definitionFit": "A sternite is the ventral plate of an insect's body segment, and sternitic is its adjective."
+     "surface": "A gap in some animal's belly plate has been cut away.",
+     "walkthrough": "'cut' trims INTERSTICE to INTERSTIC, and 'out' rearranges it.",
+     "definitionFit": "Sternitic is the adjective from sternite, the hard ventral plate on each segment of an insect or other arthropod."
     },
     "features": {
      "answerInScene": true,
