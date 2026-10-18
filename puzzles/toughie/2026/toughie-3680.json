@@ -154,53 +154,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIRFLOW",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "made brief, a word is cut short by its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Elevation of",
+         "at": 0,
+         "note": "in a down clue, elevating a word raises it so it reads from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Elevation",
-           "note": "in a down clue, raising letters up makes them read from bottom to top"
+           "text": "briefly",
+           "at": 21,
+           "note": "briefly means cut short, so the final letter goes"
           }
          ],
          "parts": [
           {
            "words": "brother",
-           "gives": "FRIA",
-           "note": "a friar is a religious brother, cut short of its last letter"
+           "at": 13,
+           "gives": "FRIAR",
+           "note": "a friar is a brother in a religious order"
+          },
+          {
+           "gives": "R"
           }
          ]
-        },
-        {
-         "words": "depressed",
-         "gives": "LOW",
-         "note": "feeling low means feeling depressed"
         }
        ]
+      },
+      {
+       "words": "depressed",
+       "at": 29,
+       "gives": "LOW",
+       "note": "low means depressed, as in feeling low"
       }
      ]
     },
     "explanation": {
-     "surface": "A monk's promotion is upset by a gloomy weather front.",
-     "walkthrough": "'Elevation' looks like the start of the definition, but it is the turnaround signal for a down clue. The question mark shows that a jet stream is just one example of the definition.",
-     "definitionFit": "A jet stream is a fast current of moving air high in the atmosphere, so it is one kind of moving air."
+     "surface": "A monk's promotion, curtailed, left him low; the jet stream gets a mention.",
+     "walkthrough": "'briefly' cuts FRIAR to FRIA; 'Elevation of' reverses it upward to AIRF. The question mark flags that airflow from a jet engine is only one kind of jet stream.",
+     "definitionFit": "A jet of air is a stream of moving air, which is what airflow describes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Elevation"
+     "joke": "pun",
+     "misdirectedWord": "depressed"
     }
    }
   },
@@ -731,49 +737,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SOLFERINOS",
      "indicators": [
       {
        "text": "placing in",
-       "note": "placing one thing in another puts it inside"
+       "at": 25,
+       "note": "placing one thing in another puts the letters inside it"
       }
      ],
      "parts": [
       {
+       "words": "singles",
+       "at": 36,
+       "gives": "SOLOS",
+       "note": "solos are single performances, done alone"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "SOLFERINOS",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "going round in a cycle moves letters from the front to the back"
+         "text": "when cycling",
+         "at": 5,
+         "note": "cycling moves letters round from one end of the word to the other"
         }
        ],
        "parts": [
         {
          "words": "deduce",
+         "at": 18,
          "gives": "INFER",
-         "note": "to infer is to deduce"
-        },
-        {
-         "words": "singles",
-         "gives": "SOLOS",
-         "note": "solos are performances by a single person"
+         "note": "to infer is to deduce from evidence"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cyclists in red jerseys work out their places in the singles race.",
-     "walkthrough": "'Reds' and 'cycling' suggest a bike race, but cycling moves the first two letters of INFER to the end.",
-     "definitionFit": "Solferino is a purplish-red dye shade named after the 1859 battle, so the plural means shades of that color."
+     "surface": "Communist cyclists work out their finishing positions in the singles events.",
+     "walkthrough": "'Reds' looks political but means colours, and 'singles' are solo performances, not tennis matches; 'when cycling' and 'placing in' are the two instructions that follow.",
+     "definitionFit": "Solferino is a vivid purplish-red dye named after the 1859 battle, so solferinos are shades of red."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cycling"
+     "misdirectedWord": "Reds"
     }
    }
   },
@@ -1720,36 +1726,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SCRIBBLE",
      "indicators": [
       {
        "text": "overwriting",
-       "note": "writing over something replaces it with new writing"
+       "at": 5,
+       "note": "writing over something replaces it, so the new letters take the place of the old one"
       }
      ],
      "parts": [
       {
-       "words": "Copy",
-       "gives": "CRIB",
-       "note": "to crib is to copy someone else's work"
+       "words": "black",
+       "at": 28,
+       "gives": "SABLE",
+       "note": "sable is black in heraldry"
       },
       {
        "words": "article",
+       "at": 17,
        "gives": "A",
-       "note": "a is the indefinite article"
+       "note": "A is the indefinite article"
       },
       {
-       "words": "black",
-       "gives": "SABLE",
-       "note": "sable is the heraldic name for black"
+       "words": "Copy",
+       "at": 0,
+       "gives": "CRIB",
+       "note": "to crib is to copy someone else's work"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor's handwritten copy is scrawled over an article in black ink.",
-     "walkthrough": "The A in SABLE is replaced by CRIB. The question mark admits that doctors' handwriting is only famously illegible.",
-     "definitionFit": "Doctors are joked about for their careless, illegible handwriting, which is hurried scrawl."
+     "surface": "A clerk copies text over an item printed in black, mimicking a medic's handwriting.",
+     "walkthrough": "CRIB takes the place of the A in SABLE. The question mark flags that a doctor's notoriously illegible handwriting is only one example of a scrawl.",
+     "definitionFit": "Doctors are famous for illegible handwriting, so their writing is the classic example of a hasty scrawl."
     },
     "features": {
      "answerInScene": true,
@@ -1780,49 +1788,37 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "IDENT",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "6",
-       "note": "the answer to 6 Down means within, so a piece goes inside"
+       "text": "can't get",
+       "at": 12,
+       "note": "can't get a means the phrase must go without the letter a, so it is taken out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IDENT",
-       "indicators": [
-        {
-         "text": "can't get",
-         "note": "failing to get something means going without it, so it is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "churchman",
-         "gives": "DEAN",
-         "note": "a dean is a senior clergyman"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "6 churchman",
+       "at": 0,
+       "gives": "IDEANT",
+       "note": "6 down is IN IT, so the phrase reads as churchman in it: a dean, the senior clergyman, placed inside the word it"
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman complains that he cannot get a television signal.",
-     "walkthrough": "The 6 Down answer is read literally as 'in it', placing the clergyman inside IT; then the A goes. Dent is a station on the theme railway.",
-     "definitionFit": "An ident is the short visual sequence identifying a TV channel between programmes."
+     "surface": "A cleric fiddling with an old set cannot pick up a television channel.",
+     "walkthrough": "The cross-reference is the trick: 6 down must be read as two words, IN IT, so the clue says churchman in IT, giving IDEANT, and 'can't get a' removes the A.",
+     "definitionFit": "An ident is the short clip a television channel shows to identify itself between programmes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "signal"
+     "misdirectedWord": "6"
     }
    }
   },
@@ -1851,39 +1847,39 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "STOK",
        "indicators": [
         {
          "text": "in van",
-         "note": "the van is the front of an army, so only the leading letters are kept"
-        },
-        {
-         "text": "most commonly",
-         "note": "the most common letter is the one that appears most often in a word"
+         "at": 5,
+         "note": "in the van means at the front, so the leading letter of each word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "steam train operating 27",
-         "gives": "STOK",
-         "select": "first",
-         "note": "the leading letters of these words, where 27 is KIRK"
+         "words": "steam train operating",
+         "at": 13,
+         "note": "the words whose first letters are taken"
         }
        ]
       },
       {
-       "words": "Stephen",
+       "words": "27",
+       "at": 35,
+       "gives": "K",
+       "note": "27 down is the Star Trek captain's name, and the van rule takes its first letter too"
+      },
+      {
+       "words": "Stephen, most commonly",
+       "at": 41,
        "gives": "E",
-       "note": "the only letter that appears twice in Stephen"
+       "note": "E is the letter that appears most often in Stephen"
       }
      ]
     },
     "explanation": {
-     "surface": "A steam train serving Kirkby Stephen burns fuel in its van.",
-     "walkthrough": "'27 by Stephen' reads as Kirkby Stephen, a station on the theme railway, but the clue splits it: KIRK gives its first letter, and the letter Stephen uses most follows it.",
-     "definitionFit": "To stoke a fire or furnace is to feed it with coal, as a fireman does on a steam engine."
+     "surface": "Coal goes into a carriage of the steam train that Stephenson ran, as it commonly did.",
+     "walkthrough": "'in van' takes the front letters S, T, O and K from 'steam train operating 27', where 27 down is KIRK; E is the commonest letter in Stephen.",
+     "definitionFit": "To stoke a fire or furnace is to feed it with fuel, so fuel is used as a verb here."
     },
     "features": {
      "answerInScene": true,

@@ -116,47 +116,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADES",
+     "op": "composite",
      "indicators": [
       {
        "text": "Lost",
-       "note": "lost suggests the word has gone astray, its letters scattered into new places"
+       "at": 25,
+       "note": "lost means gone astray, so the letters of the word before it are scattered and some go missing"
+      },
+      {
+       "text": "Could be",
+       "at": 31,
+       "note": "could be hints that the letters may form something else once rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ADES",
-       "indicators": [
-        {
-         "text": "Could be",
-         "note": "the answer could be what remains once the paired word is taken out of the jumble"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Paradise",
-         "note": "taken as written for the anagram"
-        },
-        {
-         "words": "pair",
-         "note": "taken as written; these letters are removed"
-        }
-       ]
+       "words": "Paradise",
+       "at": 16,
+       "note": "the fodder word, taken as written"
+      },
+      {
+       "words": "pair",
+       "at": 40,
+       "note": "the letters that are taken out of the fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A query about which god appears in Milton's epic.",
-     "walkthrough": "A composite anagram: PARADISE rearranged is PAIR plus the answer. Milton spells Hades as Ades in Paradise Lost.",
-     "definitionFit": "Ades is Milton's form of Hades, god of the underworld, named in Paradise Lost alongside Orcus."
+     "surface": "A query about which deity appears in Milton's epic, and whether he could be partnered with another.",
+     "walkthrough": "The title Paradise Lost is itself the wordplay: lose the letters of 'pair' from PARADISE and rearrange the four that remain. Milton spells the underworld god without the H.",
+     "definitionFit": "Milton's Paradise Lost names the classical ruler of the underworld in this shortened spelling, an archaic form of Hades."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Lost"
     }
    }
@@ -1197,40 +1191,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "shows",
+       "at": 34,
+       "note": "shows means displays, so the answer is on view within these words"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "shows",
-         "note": "shows means displays, so the answer is on view within the words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "curmudgeonly to off",
-         "gives": "ONLYTOO",
-         "note": "the letters sit across these words"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "Broadway",
-       "note": "surface padding, completing the theatre picture"
+       "words": "curmudgeonly to off-Broadway",
+       "at": 5,
+       "note": "the run of words carrying the answer across their joins"
       }
      ]
     },
     "explanation": {
-     "surface": "A grumpy critic going to fringe theatre productions.",
-     "walkthrough": "'shows' reads as plays on stage, but it is the signal that the letters are on view.",
-     "definitionFit": "Only too is an intensifier meaning extremely, as in only too happy."
+     "surface": "A grumpy critic judges small New York theatre productions extremely harshly.",
+     "walkthrough": "'Very' is the definition, though it looks like an intensifier for 'curmudgeonly'.",
+     "definitionFit": "Only too is an idiom meaning extremely, as in only too happy to help."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "shows"
+     "misdirectedWord": "Very"
     }
    }
   },
@@ -1641,36 +1626,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OIDIA",
      "indicators": [
       {
-       "text": "found in",
-       "note": "something found in a place lies inside it"
+       "text": "found",
+       "at": 31,
+       "note": "found, read with the in that follows, says the second letter is also located within the room word"
       }
      ],
      "parts": [
       {
-       "words": "room at Topkapi",
-       "gives": "ODA",
-       "note": "an oda is a room in a Turkish harem; Topkapi is the Istanbul sultans' palace"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "in places the one inside the room word, as something sits in a room"
+        }
+       ],
+       "parts": [
+        {
+         "words": "room at Topkapi",
+         "at": 40,
+         "gives": "ODA",
+         "note": "an oda is a room in a harem, such as that of the Topkapi palace in Istanbul"
+        },
+        {
+         "words": "one",
+         "at": 16,
+         "gives": "I",
+         "note": "the Roman numeral I is one"
+        }
+       ]
       },
       {
-       "words": "one repeatedly",
-       "gives": "II",
-       "note": "I for one, used twice"
+       "words": "repeatedly",
+       "at": 20,
+       "gives": "I",
+       "note": "repeatedly says the one comes again, giving a second I"
       }
      ]
     },
     "explanation": {
-     "surface": "Mould spotted again and again in a palace chamber.",
-     "walkthrough": "The two single letters go into separate gaps of the room, not side by side.",
-     "definitionFit": "Oidia is the plural of oidium, a fungal spore or the mildew fungus producing it."
+     "surface": "A tourist spots mould in the same chamber again and again at the Istanbul palace.",
+     "walkthrough": "Topkapi is the Ottoman sultans' palace in Istanbul; its harem rooms were each an ODA. 'in' puts one I inside to make ODIA, and 'repeatedly' gives a second I, 'found' after the O.",
+     "definitionFit": "Oidia is the plural of oidium, a type of fungal spore or the powdery mildew fungus stage that produces it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "room"
+     "misdirectedWord": "Topkapi"
     }
    }
   },

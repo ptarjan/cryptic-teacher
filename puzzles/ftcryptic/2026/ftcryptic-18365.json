@@ -358,60 +358,71 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MEMORANDA",
-     "indicators": [
-      {
-       "text": "left",
-       "note": "something that has left has departed, so a letter goes out of the word"
-      },
-      {
-       "text": "for",
-       "note": "one thing for another means a swap, so a new letter takes the vacated place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "compiler",
+       "at": 11,
        "gives": "ME",
-       "note": "the crossword compiler refers to themself as ME"
+       "note": "the crossword compiler refers to themself as me"
       },
       {
-       "words": "Shakespearean heroine",
-       "gives": "MIRANDA",
-       "note": "Miranda is the heroine of The Tempest"
-      },
-      {
-       "words": "I",
-       "note": "the letter that goes"
-      },
-      {
-       "op": "first",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "lead on",
-         "note": "the lead of a word is its front, so only the opening letter is taken"
+         "text": "left",
+         "at": 23,
+         "note": "the letter departs from the heroine's name, making room for another"
+        },
+        {
+         "text": "for",
+         "at": 50,
+         "note": "the new letter comes in for, that is in exchange for, the one that left"
         }
        ],
        "parts": [
         {
-         "words": "Othello",
-         "note": "first letter of Othello"
+         "words": "Shakespearean heroine",
+         "at": 28,
+         "gives": "MIRANDA",
+         "note": "Miranda is Prospero's daughter in The Tempest"
+        },
+        {
+         "words": "I",
+         "at": 21,
+         "gives": "I",
+         "note": "the letter I itself, as written in the clue"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "lead on",
+           "at": 54,
+           "note": "the lead of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Othello",
+           "at": 62,
+           "note": "the word whose first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setter's jottings about dropping one Shakespeare heroine to give Othello's part a new lead.",
-     "walkthrough": "Othello tempts you toward Desdemona, but the heroine comes from The Tempest, and only Othello's first letter is used. The setter refers to themself as 'me'.",
-     "definitionFit": "Memoranda is the Latin plural of memorandum, written reminders or brief records, so they are notes in the everyday sense."
+     "surface": "A setter's jottings about swapping one Shakespeare heroine out for the lead in Othello.",
+     "walkthrough": "'lead on Othello' reads as the play's star actor, but it means only its opening letter, which takes the place of the I that 'left'.",
+     "definitionFit": "Memoranda, the Latin plural of memorandum, are written reminders or brief records, which is to say notes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Othello"
+     "misdirectedWord": "lead"
     }
    }
   },
@@ -905,54 +916,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOBGOBLIN",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "something off is out of order or wrong, so the remaining letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HOBGOBLIN",
+       "words": "Kitchen feature",
+       "at": 0,
+       "gives": "HOB",
+       "note": "a hob is the cooking surface on a kitchen stove"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "lacking",
-         "note": "lacking something means going without it, so a letter is removed"
+         "text": "off",
+         "at": 39,
+         "note": "off in the sense of gone bad or not right, so the remaining letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "Kitchen feature",
-         "gives": "HOB",
-         "note": "a hob is the cooking surface on a stove"
-        },
-        {
-         "words": "blowing",
-         "note": "the word to be trimmed and rearranged"
-        },
-        {
-         "words": "whisky",
-         "gives": "W",
-         "note": "whisky is W in the NATO phonetic alphabet"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lacking",
+           "at": 16,
+           "note": "lacking means going without, so the letter is taken out of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "blowing",
+           "at": 31,
+           "note": "the word that loses a letter"
+          },
+          {
+           "words": "whisky",
+           "at": 24,
+           "gives": "W",
+           "note": "Whisky is W in the NATO phonetic alphabet"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen without its whisky, with someone blowing off steam about it.",
-     "walkthrough": "'Blowing off' reads as a phrase, but 'off' signals the rearrangement of BLOING. A hob is the British word for a stovetop.",
-     "definitionFit": "A hobgoblin is a mischievous imp of folklore, a sprite who causes trouble around the household."
+     "surface": "A cooker's ring with the whisky burnt away in a fiery mishap, blamed on some mischief-maker.",
+     "walkthrough": "'blowing off' looks like one phrase about letting off steam; split it, and 'off' is the signal to rearrange what is left of 'blowing' into GOBLIN.",
+     "definitionFit": "A hobgoblin is a mischievous imp of folklore, a sprite known for causing trouble around the house."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "whisky"
+     "misdirectedWord": "blowing"
     }
    }
   },
@@ -1210,14 +1227,16 @@
        "indicators": [
         {
          "text": "Sounds like",
-         "note": "sounds like tells you to go by how a word is said, not how it is spelt"
+         "at": 0,
+         "note": "sounds like says a word spoken aloud matches another spelling"
         }
        ],
        "parts": [
         {
          "words": "their",
+         "at": 12,
          "gives": "THEIR",
-         "note": "their and there are pronounced the same"
+         "note": "their is said exactly like the place word there"
         }
        ]
       },
@@ -1226,34 +1245,36 @@
        "indicators": [
         {
          "text": "rejected",
-         "note": "something rejected is sent back, so the letters run the other way"
+         "at": 42,
+         "note": "something rejected is sent back, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
          "words": "genetic material",
+         "at": 18,
          "gives": "DNA",
-         "note": "DNA carries genetic information"
+         "note": "DNA is the genetic material in cells"
         }
        ]
       },
       {
-       "words": "been rejected",
+       "words": "been",
+       "at": 37,
        "gives": "BACK",
-       "note": "having been sent back, the genetic material is 'back'"
+       "note": "to have been somewhere is to have gone and come home again, so been stands for back"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that someone's DNA sample has been turned down at every turn.",
-     "walkthrough": "The rejection does double duty: DNA sent back becomes AND, and the clue tells you it is BACK.",
-     "definitionFit": "A journey there and back covers the outward trip and the return, so it goes in either direction."
+     "surface": "Someone's DNA has been turned down by two laboratories in turn.",
+     "walkthrough": "'Sounds like' turns 'their' into THERE; 'rejected' turns DNA into AND; 'been' is taken loosely as BACK, as in the postman has been.",
+     "definitionFit": "A trip there and back covers a route in both directions, outward and return."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "rejected"
+     "misdirectedWord": "genetic"
     }
    }
   },
