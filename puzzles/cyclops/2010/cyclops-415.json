@@ -308,59 +308,61 @@
      "indicators": [
       {
        "text": "hoarding",
-       "note": "something hoarding goods holds them inside, so the first word wraps around the rest"
+       "at": 14,
+       "note": "the outer word hoards the others inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "flush",
+       "at": 7,
+       "gives": "GLOW",
+       "note": "to glow is to flush or redden"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "flush",
-           "gives": "GLOW",
-           "note": "a flush of the cheeks is a glow"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "a",
+         "at": 23,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially points to the opening letter of the word it qualifies"
+           "at": 35,
+           "note": "the first letter of subprime"
           }
          ],
          "parts": [
           {
            "words": "subprime",
-           "note": "the first letter of the word"
+           "at": 25
           }
          ]
+        },
+        {
+         "words": "large amount of money",
+         "at": 45,
+         "gives": "G",
+         "note": "G is a grand, a thousand pounds"
         }
        ]
-      },
-      {
-       "words": "large amount of money",
-       "gives": "G",
-       "note": "G stands for grand, a thousand pounds"
       }
      ]
     },
     "explanation": {
-     "surface": "A city flush with cash after stockpiling dodgy subprime loans.",
+     "surface": "A banking satire: the City of London, rich and hoarding subprime debt along with a pile of cash.",
+     "walkthrough": "'City' looks like the London financial district, but it is the definition of a Scottish city.",
      "definitionFit": "Glasgow is Scotland's largest city, on the River Clyde."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "flush"
+     "joke": "pun",
+     "misdirectedWord": "City's"
     }
    }
   },
@@ -476,41 +478,43 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after places the washing spot behind the name's letters, so it is read second despite coming first"
+       "at": 20,
+       "note": "the washing place comes after the first letters"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ON",
+       "op": "deletion",
        "indicators": [
         {
          "text": "last pair",
-         "note": "the last pair means only the final two letters of the name are kept"
+         "at": 36,
+         "note": "only the final two letters are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Cameron's",
-         "gives": "ON",
-         "select": "last",
-         "note": "the final two letters of the name"
+         "at": 26,
+         "gives": "CAMERON",
+         "note": "David Cameron, the former Conservative prime minister"
+        },
+        {
+         "gives": "CAMER"
         }
        ]
       },
       {
        "words": "A place for washing",
+       "at": 0,
        "gives": "THELINE",
-       "note": "where laundry is pegged out to dry in the garden"
+       "note": "the line is where washing is hung out to dry"
       }
      ]
     },
     "explanation": {
-     "surface": "Laundry hung out behind David Cameron, hinting his position is in jeopardy.",
-     "walkthrough": "ON from Cameron comes first, then THE LINE, the washing line.",
-     "definitionFit": "To have something on the line is an idiom for having it at stake or in danger."
+     "surface": "The washing of a former prime minister's dirty laundry, hung out in public.",
+     "definitionFit": "Something on the line is at stake, exposed to the risk of being lost."
     },
     "features": {
      "answerInScene": false,
@@ -884,45 +888,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FULLBLOWN",
-     "indicators": [
-      {
-       "text": "having become",
-       "note": "having become means one letter turns into another in the surname"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "satisfied",
+       "at": 12,
        "gives": "FULL",
-       "note": "full after a meal means satisfied"
+       "note": "full means satisfied after eating"
       },
       {
-       "words": "Gordon",
-       "gives": "BROWN",
-       "note": "Gordon Brown, the former Prime Minister"
-      },
-      {
-       "words": "Right",
-       "gives": "R",
-       "note": "R is the abbreviation for right; it is swapped out"
-      },
-      {
-       "words": "Left",
-       "gives": "L",
-       "note": "L is the abbreviation for left; it goes in"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having become",
+         "at": 36,
+         "note": "one letter has turned into another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gordon",
+         "at": 22,
+         "gives": "BROWN",
+         "note": "Gordon Brown was a Labour UK prime minister"
+        },
+        {
+         "words": "Right",
+         "at": 30,
+         "gives": "R"
+        },
+        {
+         "words": "Left",
+         "at": 50,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A satisfied Gordon Brown drifting from right to left politically.",
-     "definitionFit": "Full-blown means complete or fully developed, the same as out-and-out."
+     "surface": "A contented Gordon Brown, his politics swinging from right to left.",
+     "walkthrough": "Gordon Brown was British prime minister 2007-10; changing his R to L gives BLOWN.",
+     "definitionFit": "Full-blown means fully developed, complete, utter: an out-and-out crisis is a full-blown one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Right"
     }
    }

@@ -876,47 +876,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STATUSQUOANTE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "largely",
-       "note": "largely means for the most part, so most of the word stays and its tail goes"
+       "text": "to be organised",
+       "at": 39,
+       "note": "the letters are organised into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "on a quest",
+       "at": 11
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to be organised",
-         "note": "organising means putting into a new arrangement, so the letters are reordered"
+         "text": "largely",
+         "at": 30,
+         "note": "most of the word, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "on a quest",
-         "note": "taken as written"
+         "words": "astute",
+         "at": 22
         },
         {
-         "words": "astute",
-         "gives": "ASTUT",
-         "note": "the word without its final E"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Questing adventurers, clever enough, are getting themselves organised.",
-     "walkthrough": "'As we were' is the old military order to return to the former position, which this Latin phrase translates.",
-     "definitionFit": "The Latin phrase means the state of affairs that existed before, so returning to it restores the earlier situation."
+     "surface": "An astute quest being organised, by those who were part of it.",
+     "walkthrough": "'largely' trims astute to ASTUT, which joins ON A QUEST for the rearrangement.",
+     "definitionFit": "Status quo ante is Latin for the state of affairs before, the way things previously stood."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "largely"
+     "misdirectedWord": "quest"
     }
    }
   },
@@ -2863,51 +2865,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALKALI",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means for the most part, so the word loses its last letter"
+       "text": "without",
+       "at": 24,
+       "note": "here without means outside, so the drunk surrounds the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "without",
-         "note": "without here means outside, so one piece wraps around another"
+         "text": "mostly",
+         "at": 17,
+         "note": "most of the word, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "drunk",
-           "gives": "ALKI",
-           "note": "alkie is slang for an alcoholic"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "drunk",
+         "at": 11,
+         "gives": "ALKIE",
+         "note": "an alkie is a slang word for a drunk"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 32,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "hint of",
-           "note": "a hint is a small first trace, so only the opening letter is taken"
+           "at": 34,
+           "note": "a hint is the merest trace, so just the opening letter of lemon"
           }
          ],
          "parts": [
           {
            "words": "lemon",
-           "note": "the first letter"
+           "at": 42
           }
          ]
         }
@@ -2916,13 +2924,14 @@
      ]
     },
     "explanation": {
-     "surface": "A lime cocktail, perhaps, drunk mostly without the lemon twist.",
-     "walkthrough": "'Without' looks like lacking, but it is the old sense of outside.",
-     "definitionFit": "Lime, calcium oxide, is a strongly basic substance, so it is one example of a base in chemistry."
+     "surface": "A lime cocktail, mostly drunk, made without lemon.",
+     "walkthrough": "'mostly' cuts ALKIE to ALKI; 'without' means outside, so ALKI goes around A and L.",
+     "definitionFit": "Lime (calcium oxide) is a strong base, an alkali; 'maybe' marks it as one example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Lime"
     }
    }
