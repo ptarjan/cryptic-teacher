@@ -250,65 +250,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GNOCCHI",
+     "op": "composite",
      "indicators": [
       {
        "text": "rocked",
-       "note": "shaken about, so the letters are jumbled into a new order"
+       "at": 14,
+       "note": "rocked means shaken up, so the letters are rearranged"
+      },
+      {
+       "text": "losing",
+       "at": 22,
+       "note": "losing says a letter is taken out of the shaken-up pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GNOCCHI",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "North",
+         "at": 0,
+         "gives": "N",
+         "note": "N is the compass abbreviation for north"
+        },
+        {
+         "words": "Chicago",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
-         "text": "losing",
-         "note": "the city's name has to give up a letter, which the next words identify"
+         "text": "second element of",
+         "at": 29,
+         "note": "second element of picks the second letter of the next word"
         }
        ],
        "parts": [
         {
-         "words": "North",
-         "gives": "N",
-         "note": "N is the compass abbreviation"
-        },
-        {
-         "words": "Chicago",
-         "note": "taken as written"
-        },
-        {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second element of",
-           "note": "the second letter of the following word is the one taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "satellite",
-           "note": "the word supplies only its second letter"
-          }
-         ]
+         "words": "satellite",
+         "at": 47,
+         "note": "the second letter of satellite is the one taken out"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Chicago's north side is shaken up and somebody's satellite dish is broken.",
-     "walkthrough": "'Satellite dish' looks like one object, but the split falls between them: 'dish' alone is the definition.",
-     "definitionFit": "Gnocchi are small Italian potato or semolina dumplings, served as a pasta course."
+     "surface": "Chicago shaken up after losing part of a satellite dish, a storm-damage news item.",
+     "walkthrough": "'Satellite dish' reads as one thing, but dish alone is the definition. N plus CHICAGO, shaken, minus A (second letter of satellite), rearranges to the answer.",
+     "definitionFit": "Gnocchi are small Italian potato or flour dumplings served as a dish."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "dish"
     }
    }
@@ -889,9 +887,9 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "left out",
-       "at": 20,
-       "note": "left out says the letter for left is dropped from the word"
+       "text": "out",
+       "at": 25,
+       "note": "out says the letter for left is taken away from the word"
       }
      ],
      "parts": [
@@ -899,7 +897,7 @@
        "words": "semis",
        "at": 14,
        "gives": "HALVES",
-       "note": "a semi is a half, so semis are halves"
+       "note": "semi- means half, so semis are halves"
       },
       {
        "words": "left",
@@ -909,13 +907,14 @@
      ]
     },
     "explanation": {
-     "surface": "Owners of semi-detached houses feel excluded from the property ladder.",
-     "walkthrough": "A semi is British for a semi-detached house, the surface's misdirection. The clue gives HAVES; the grid takes HAVE-NOTS, as in 'the haves and have-nots'.",
-     "definitionFit": "The haves are the people who own things, the wealthy, so they are possessors."
+     "surface": "Owners of semi-detached houses feel overlooked.",
+     "walkthrough": "'Semis' suggests houses, but here it means halves; taking out L leaves the word that then gets the theme's treatment in the grid.",
+     "definitionFit": "The haves are those who possess wealth, the well-off as opposed to the poor."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "semis"
     }
    }

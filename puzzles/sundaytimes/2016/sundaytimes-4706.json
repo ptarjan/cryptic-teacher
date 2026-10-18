@@ -778,43 +778,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Compound",
-       "note": "to compound is to mix together, so the following letters are combined in a new order"
+       "text": "before",
+       "at": 25,
+       "note": "before places the shuffled letters ahead of the last one in the answer"
       }
      ],
      "parts": [
       {
-       "words": "iodine",
-       "gives": "I",
-       "note": "I is the chemical symbol for iodine"
-      },
-      {
-       "words": "turns to",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Compound",
+         "at": 0,
+         "note": "to compound is to mix together, so these letters are blended into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "iodine",
+         "at": 9,
+         "gives": "I",
+         "note": "I is the chemical symbol for iodine"
+        },
+        {
+         "words": "turns",
+         "at": 16
+        },
+        {
+         "words": "to",
+         "at": 22
+        }
+       ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 32,
+         "note": "initially takes just the first letter of making"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "before initially",
-         "gives": "M",
-         "select": "first",
-         "note": "the first letter of the word after, making"
+         "words": "making",
+         "at": 42,
+         "note": "the first letter of making is M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chemistry lesson: compounded iodine turns into another element.",
-     "walkthrough": "Compound looks like a chemistry noun but is the verb mix. Before initially making means the first letter of making comes last in the fodder.",
-     "definitionFit": "Strontium is a metallic element, so it is another chemical alongside iodine."
+     "surface": "A chemistry lab note: an iodine compound turns into another chemical.",
+     "walkthrough": "'Compound' looks like a chemistry noun but is the anagram signal for I, TURNS and TO; 'initially' adds the M of making at the end. 'Another' points back to iodine being a chemical too.",
+     "definitionFit": "Strontium is a soft metallic element, symbol Sr, so a chemical in the periodic-table sense."
     },
     "features": {
      "answerInScene": true,

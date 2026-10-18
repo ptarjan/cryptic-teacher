@@ -638,56 +638,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GABRIELLA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 31,
+       "note": "eating means taking in, so the cheese goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "recalled"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Georgia",
+         "at": 5,
          "gives": "GA",
-         "note": "GA is the US postal abbreviation for Georgia"
+         "note": "GA is the postal abbreviation for the US state of Georgia"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "eating"
+           "text": "recalled",
+           "at": 22,
+           "note": "recalled means called back, so the word runs backwards"
           }
          ],
          "parts": [
           {
            "words": "everyone",
+           "at": 13,
            "gives": "ALL",
-           "note": "ALL = everyone"
-          },
-          {
-           "words": "cheese",
-           "gives": "BRIE",
-           "note": "a soft French cheese"
+           "note": "all means everyone"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "cheese",
+       "at": 38,
+       "gives": "BRIE",
+       "note": "Brie is a soft French cheese"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman from Georgia whom everyone remembers eating cheese.",
-     "walkthrough": "'Lady Georgia' reads as a titled woman, but 'Lady' alone is the definition, a woman's name.",
-     "definitionFit": "Gabriella is a woman's name; a lady is a woman."
+     "surface": "A woman from Georgia is reminded everyone was eating cheese.",
+     "walkthrough": "'Recalled' turns ALL into LLA; GA and LLA together are 'eating' BRIE.",
+     "definitionFit": "Gabriella is a woman's first name, so a lady's name in the crossword sense."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Georgia"
+     "misdirectedWord": "recalled"
     }
    }
   },
@@ -1405,31 +1410,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARES",
      "indicators": [
       {
        "text": "eliminating beginner",
-       "note": "the beginner of a word is its first letter, and eliminating it knocks that letter out"
+       "at": 20,
+       "note": "eliminating beginner removes the first letter of the word"
       }
      ],
      "parts": [
       {
        "words": "challenges",
-       "gives": "ARES",
-       "note": "DARES (challenges) without its first letter D"
+       "at": 9,
+       "gives": "DARES",
+       "note": "dares are challenges"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "An Olympic athlete knocking out a novice in a contest.",
-     "walkthrough": "'Olympian' suggests an athlete; here it is a god of Mount Olympus, Ares, the Greek god of war.",
-     "definitionFit": "Definition by category: the Olympians were the gods of Mount Olympus, and Ares, god of war, was one."
+     "surface": "An Olympic athlete takes on challenges and knocks out a novice.",
+     "walkthrough": "'Olympian' suggests an athlete, but here it means a god living on Mount Olympus.",
+     "definitionFit": "Ares, the Greek god of war, was one of the twelve gods dwelling on Mount Olympus."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Olympian"
     }
    }
@@ -1617,32 +1624,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LITHE",
+     "op": "middle",
      "indicators": [
       {
        "text": "sloughing skin",
-       "note": "snakes slough their skin; here the word sheds its outer letters"
+       "at": 27,
+       "note": "a snake sloughs its skin, shedding its outside, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "movement of snake",
-       "gives": "LITHE",
-       "note": "a snake's movement is to SLITHER; drop its outer letters S and R"
+       "at": 9,
+       "gives": "SLITHER",
+       "note": "to slither is how a snake moves"
       }
      ]
     },
     "explanation": {
-     "surface": "A snake moving supply as it sheds its old skin.",
-     "walkthrough": "'Flexible movement' looks like one phrase; the definition is just 'Flexible'. The snake image fits the indicator perfectly.",
-     "definitionFit": "A plain synonym: a lithe body bends easily and gracefully, like a snake's."
+     "surface": "A supple snake slides along while shedding its skin.",
+     "walkthrough": "SLITHER loses its outer letters when 'sloughing skin'.",
+     "definitionFit": "Lithe means supple and agile, bending easily."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "movement"
+     "misdirectedWord": "sloughing"
     }
    }
   }

@@ -98,53 +98,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUNKUM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "beheading",
-       "note": "removing the head of a word means dropping its first letter"
+       "text": "worn by",
+       "at": 7,
+       "note": "a hairdo worn by someone sits on top, so the hairdo comes before the king letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Hairdo",
+       "at": 0,
+       "gives": "BUN",
+       "note": "a bun is a hairstyle with the hair coiled at the back"
+      },
+      {
+       "words": "king",
+       "at": 15,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "worn by",
-         "note": "a hairdo worn by someone sits on top of them, so it comes first in the down entry"
+         "text": "beheading",
+         "at": 20,
+         "note": "beheading cuts off the first letter"
         }
        ],
        "parts": [
         {
-         "words": "Hairdo",
-         "gives": "BUN",
-         "note": "a bun is hair coiled into a knot"
-        },
-        {
-         "words": "king",
-         "gives": "K",
-         "note": "K is the chess abbreviation for king"
-        },
-        {
          "words": "mother",
-         "gives": "UM",
-         "note": "MUM with its first letter cut off"
+         "at": 30,
+         "gives": "MUM",
+         "note": "mum is mother"
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch with a fancy hairdo executes his mother and talks nonsense.",
-     "definitionFit": "Bunkum is nonsense, empty or insincere talk, so it fits meaningless speech as a synonym."
+     "surface": "A king with a bun on his head beheads his mother while making a speech.",
+     "walkthrough": "'Beheading' cuts MUM to UM, which follows BUN and K.",
+     "definitionFit": "Bunkum is nonsense, talk with no real meaning."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "beheading"
+     "misdirectedWord": "Hairdo"
     }
    }
   },
@@ -169,41 +176,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CANISTER",
-     "indicators": [
-      {
-       "text": "headless",
-       "note": "without a head means the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Preserve",
+       "at": 0,
+       "gives": "CAN",
+       "note": "to can food is to preserve it in tins"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 9,
+         "note": "headless takes away the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Preserve",
-         "gives": "CAN",
-         "note": "to can food is to preserve it in tins"
+         "words": "nun",
+         "at": 18,
+         "gives": "SISTER",
+         "note": "a nun is called Sister"
         },
         {
-         "words": "nun",
-         "gives": "ISTER",
-         "note": "a nun is a SISTER, here missing its first letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jam kept by a decapitated nun is put away in a box.",
-     "definitionFit": "A canister is a round container, typically metal, used for keeping things such as tea or film."
+     "surface": "A nun's jam ends up preserved in a storage box, headless.",
+     "walkthrough": "'Preserve' looks like a noun, jam, but is the verb to can.",
+     "definitionFit": "A canister is a round container used to keep things such as tea or film."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Preserve"
     }
    }
@@ -616,46 +627,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLIGARCH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Crude",
-       "note": "crude means unrefined, so the letters are left in a rough, rearranged state"
+       "text": "given to",
+       "at": 10,
+       "note": "given to places the government letter right after the rearranged oil"
+      },
+      {
+       "text": "by",
+       "at": 30,
+       "note": "by means next to, so the principal word follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "given to",
-         "note": "one thing given to another is attached to it, so the parts join in sequence"
+         "text": "Crude",
+         "at": 0,
+         "note": "crude means rough and unrefined, so the letters of oil are in a rough order"
         }
        ],
        "parts": [
         {
          "words": "oil",
-         "note": "the word oil rearranged"
-        },
-        {
-         "words": "government",
-         "gives": "G",
-         "note": "G is the abbreviation for government"
-        },
-        {
-         "words": "principal",
-         "gives": "ARCH",
-         "note": "arch as a prefix means chief or principal, as in archbishop"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "government",
+       "at": 19,
+       "gives": "G"
+      },
+      {
+       "words": "principal",
+       "at": 33,
+       "gives": "ARCH",
+       "note": "arch- means principal or chief, as in archenemy"
       }
      ]
     },
     "explanation": {
-     "surface": "Unrefined petroleum is handed to the state by a powerful tycoon.",
-     "walkthrough": "'principal' looks like part of the definition but supplies ARCH, the prefix meaning chief.",
+     "surface": "Crude oil handed over to the state by a leading tycoon of the ruling class.",
+     "walkthrough": "'Crude' looks like it describes the oil, but it rearranges OIL to OLI; 'given to' adds G and 'by' adds ARCH.",
      "definitionFit": "An oligarch is one of a small group holding power, often a very rich business magnate."
     },
     "features": {
@@ -889,42 +906,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOLERATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "engineering",
-       "note": "engineering is construction work, so the letters are rebuilt into a new shape"
+       "text": "in",
+       "at": 29,
+       "note": "in places the rearranged letters inside the gallery name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "gallery",
+       "at": 32,
+       "gives": "TATE",
+       "note": "the Tate is a group of London art galleries"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one part inside the other"
+         "text": "engineering",
+         "at": 12,
+         "note": "engineering means constructing or contriving, so the letters of role are rebuilt"
         }
        ],
        "parts": [
         {
-         "words": "gallery",
-         "gives": "TATE",
-         "note": "the Tate is a group of major British art galleries"
-        },
-        {
          "words": "role",
-         "note": "the word role rearranged"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone endures an engineering job at an art gallery.",
-     "walkthrough": "The anagram of ROLE goes after the first T of TATE, London's well-known gallery.",
-     "definitionFit": "To tolerate something is to endure or accept it, the same as to put up with it."
+     "surface": "A gallery employee puts up with an engineering job.",
+     "walkthrough": "'Engineering' gives OLER from ROLE, set 'in' TATE. The Tate is the famous art gallery in London.",
+     "definitionFit": "To tolerate something is to endure or put up with it without complaint."
     },
     "features": {
      "answerInScene": false,

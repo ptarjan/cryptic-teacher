@@ -53,46 +53,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DESKJOB",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "a word without its heart has lost its middle letter"
+       "text": "circulated",
+       "at": 21,
+       "note": "circulated means moved around, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "outer",
        "indicators": [
         {
-         "text": "circulated",
-         "note": "things circulated are passed around and mixed up, so the letters are rearranged"
+         "text": "heartless",
+         "at": 5,
+         "note": "heartless takes the middle letter out of bad, leaving only its outside pair"
         }
        ],
        "parts": [
         {
          "words": "Bad",
-         "gives": "BD",
-         "note": "the word bad with its middle letter removed"
-        },
-        {
-         "words": "jokes",
-         "note": "taken as written"
+         "at": 0,
+         "note": "bad with its heart removed leaves BD"
         }
        ]
+      },
+      {
+       "words": "jokes",
+       "at": 15
       }
      ]
     },
     "explanation": {
-     "surface": "Tasteless jokes are being passed round in an office posting.",
-     "definitionFit": "A desk job is employment done sitting at a desk, that is, a post in an office."
+     "surface": "Nasty jokes passed round the office post, a picture of workplace gossip.",
+     "walkthrough": "'Heartless' leaves BD from Bad; 'circulated' mixes BD with JOKES.",
+     "definitionFit": "A desk job is a position or post spent working at an office desk."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "post"
+     "misdirectedWord": "circulated"
     }
    }
   },
@@ -117,42 +118,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEFUSED",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word means all but its last letter"
+       "text": "during",
+       "at": 25,
+       "note": "during means within the time of, so one piece sits inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "act",
+       "at": 32,
+       "gives": "DEED",
+       "note": "an act is a deed"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "during",
-         "note": "during means within, so one word sits inside the other"
+         "text": "most of",
+         "at": 7,
+         "note": "most of drops the final letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "words": "act",
-         "gives": "DEED",
-         "note": "a deed is an act"
+         "words": "commotion",
+         "at": 15,
+         "gives": "FUSS",
+         "note": "a fuss is a commotion"
         },
         {
-         "words": "commotion",
-         "gives": "FUS",
-         "note": "fuss, a commotion, without its last letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ruckus during a stage act was mostly quietened.",
-     "definitionFit": "To defuse a situation is to reduce its tension, so defused means calmed."
+     "surface": "Someone soothed most of a disturbance while a play act was on.",
+     "walkthrough": "'Most of' trims FUSS to FUS, which goes inside DEED.",
+     "definitionFit": "Defused, as of a tense situation, means made less dangerous or heated, so calmed."
     },
     "features": {
      "answerInScene": false,
@@ -320,60 +327,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOBBLEHAT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "swimming",
-       "note": "swimming suggests the letters are moving about, so they are rearranged"
+       "text": "after",
+       "at": 42,
+       "note": "after puts the haircut piece before the rest in the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BOBBLEHAT",
+       "words": "haircut",
+       "at": 48,
+       "gives": "BOB",
+       "note": "a bob is a short haircut"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "briefly means cut short, so the word loses its last letter"
+         "text": "in",
+         "at": 25,
+         "note": "in places the shortened word inside the rearranged letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "after",
-           "note": "after shows the rest follows the haircut word"
+           "text": "swimming",
+           "at": 28,
+           "note": "swimming suggests the letters of bath are moving about"
           }
          ],
          "parts": [
           {
-           "words": "haircut",
-           "gives": "BOB",
-           "note": "a bob is a short haircut"
+           "words": "bath",
+           "at": 37
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 9,
+           "note": "briefly cuts off the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "allowed",
+           "at": 17,
+           "gives": "LET",
+           "note": "let means allowed"
           },
           {
-           "op": "container",
-           "indicators": [
-            {
-             "text": "in",
-             "note": "in places one piece inside the other"
-            }
-           ],
-           "parts": [
-            {
-             "words": "bath",
-             "note": "the letters of bath rearranged"
-            },
-            {
-             "words": "allowed",
-             "gives": "LE",
-             "note": "let, allowed, without its last letter"
-            }
-           ]
+           "gives": "T"
           }
          ]
         }
@@ -382,8 +394,9 @@
      ]
     },
     "explanation": {
-     "surface": "A swimming-pool rule: after your haircut, a hat is allowed in the bath for a while.",
-     "definitionFit": "A bobble hat is a knitted woolly hat topped with a pompom, a kind of headgear."
+     "surface": "A cap allowed for a short spell in the swimming baths after a trim.",
+     "walkthrough": "'Swimming' rearranges BATH to BHAT; LE ('allowed' briefly) goes in it, after BOB.",
+     "definitionFit": "A bobble hat is a knitted winter cap topped with a woolly pompom."
     },
     "features": {
      "answerInScene": true,
@@ -1871,36 +1884,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FEIGN",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing means one letter takes the place of another in the word"
+       "at": 19,
+       "note": "replacing means one letter takes another's place within the word"
       }
      ],
      "parts": [
       {
-       "words": "fine",
-       "gives": "F",
-       "note": "f abbreviates fine, as on pencil grades"
+       "words": "command",
+       "at": 37,
+       "gives": "REIGN",
+       "note": "to reign is to rule or hold command"
       },
       {
        "words": "king",
+       "at": 29,
        "gives": "R",
-       "note": "R is rex, Latin for king"
+       "note": "R is short for Rex, Latin for king"
       },
       {
-       "words": "command",
-       "gives": "REIGN",
-       "note": "to reign is to rule or hold command"
+       "words": "fine",
+       "at": 14,
+       "gives": "F",
+       "note": "F is the pencil-grade abbreviation for fine"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone pretends to be fine while a new monarch takes over.",
-     "walkthrough": "\"Pretend to be fine\" reads as one phrase, but the definition stops at Pretend.",
-     "definitionFit": "To feign is to simulate or put on a false show, which is to pretend."
+     "surface": "Someone pretends everything is fine when a monarch is replaced in charge.",
+     "walkthrough": "'Command' read as a verb gives REIGN; F swaps in for the R.",
+     "definitionFit": "To feign is to put on a false show, simulating something one does not feel."
     },
     "features": {
      "answerInScene": false,
