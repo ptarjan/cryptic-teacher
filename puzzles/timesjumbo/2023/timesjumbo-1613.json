@@ -157,35 +157,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "whatever goes between sits in the middle, flanked on either side"
+       "at": 23,
+       "note": "the area letter sits between the two cities, so the cities enclose it"
       }
      ],
      "parts": [
       {
        "words": "two US cities",
-       "gives": "NY",
-       "note": "NY is New York"
+       "at": 31,
+       "gives": "NYLA",
+       "note": "NY is New York and LA is Los Angeles, two standard US city abbreviations"
       },
       {
        "words": "area",
-       "gives": "A",
-       "note": "A is the standard abbreviation for area"
-      },
-      {
-       "words": "two US cities",
-       "gives": "LA",
-       "note": "LA is Los Angeles"
+       "at": 18,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "An African-born person is said to live somewhere between two American cities.",
-     "walkthrough": "The two cities are not named: their abbreviations sit either side of the area.",
-     "definitionFit": "The nyala is a spiral-horned antelope found in southern Africa, so it is an animal native there."
+     "surface": "A traveller describes an African-born person living somewhere between New York and Los Angeles.",
+     "definitionFit": "The nyala is a spiral-horned antelope native to southern Africa, so it is literally an African native animal."
     },
     "features": {
      "answerInScene": false,
@@ -1880,38 +1876,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "something placed about another surrounds it"
+       "at": 13,
+       "note": "the instruction letters go about, that is around, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Keep reading",
-         "gives": "PTO",
-         "note": "PTO is please turn over, telling you to keep reading"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Keep reading",
+       "at": 0,
+       "gives": "PTO",
+       "note": "PTO, please turn over, is the note telling a reader to keep reading on the next page"
       },
       {
-       "words": "quiet",
-       "gives": "SH",
-       "note": "sh is a call for quiet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "quiet",
+         "at": 21,
+         "gives": "SH",
+         "note": "SH is the call for quiet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quiet Afghan man keeps on with his book.",
-     "walkthrough": "'Afghan' looks like a person or a hound; it is a noun for the language.",
-     "definitionFit": "Pashto is one of the two official languages of Afghanistan, spoken by the Pashtun people."
+     "surface": "Someone is urged to keep reading a book about a silent man from Afghanistan.",
+     "walkthrough": "PTO (please turn over) is printed at the foot of a page to tell you to keep reading.",
+     "definitionFit": "Afghan can mean the main language of Afghanistan, the Pashto tongue spoken by the Pashtun people."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Afghan"
     }

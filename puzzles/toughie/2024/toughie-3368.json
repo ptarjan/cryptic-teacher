@@ -702,43 +702,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "QUINOA",
+     "op": "composite",
      "indicators": [
       {
        "text": "updated",
-       "note": "updated means reworked into a new version, so the letters are reordered"
+       "at": 3,
+       "note": "updated means revised, so the combined letters are reworked"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "QUINOA",
-       "parts": [
-        {
-         "words": "coq au vin",
-         "note": "the dish whose letters are the full set"
-        },
-        {
-         "words": "CV",
-         "note": "these two letters are taken out of the dish's letters, leaving those of the answer"
-        }
-       ]
+       "words": "coq au vin",
+       "at": 36,
+       "note": "the letters of the dish's name taken as written"
+      },
+      {
+       "words": "CV",
+       "at": 0,
+       "note": "the letters as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook asks what ingredient goes into coq au vin, while updating a CV.",
-     "walkthrough": "A composite anagram: CV plus the answer, rearranged, makes COQ AU VIN. So remove C and V from the dish and rearrange the rest.",
-     "definitionFit": "Quinoa is a grain-like seed used as a cooking ingredient, though it does not belong in a French chicken stew."
+     "surface": "A chef's CV is refreshed with a modern grain ingredient for a classic French dish.",
+     "walkthrough": "Mix the letters of CV with the answer and you get COQ AU VIN; the question mark flags that quinoa is not really in that recipe.",
+     "definitionFit": "Quinoa is a grain-like seed used as a food ingredient in salads and side dishes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "CV"
+     "misdirectedWord": "updated"
     }
    }
   },
