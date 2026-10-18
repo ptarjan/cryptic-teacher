@@ -341,30 +341,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "filling",
-       "note": "filling up to the final piece means the rearranged letters come right before it"
-      }
-     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "built",
-         "note": "something built is constructed from parts, so the letters that follow are assembled anew"
+         "text": "filling",
+         "at": 26,
+         "note": "filling means the area letter goes inside the rearranged letters, stuffing them"
         }
        ],
        "parts": [
         {
-         "words": "indoor",
-         "note": "taken as written, then rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "built",
+           "at": 8,
+           "note": "built means constructed, so the letters of indoor are assembled into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "indoor",
+           "at": 14
+          }
+         ]
         },
         {
          "words": "area",
-         "gives": "A",
-         "note": "A is the standard abbreviation for area"
+         "at": 21,
+         "gives": "A"
         }
        ]
       },
@@ -373,12 +380,14 @@
        "indicators": [
         {
          "text": "end of",
-         "note": "the end of a word is its final letter"
+         "at": 34,
+         "note": "end of asks for the closing letter of the word concourse"
         }
        ],
        "parts": [
         {
          "words": "concourse",
+         "at": 41,
          "note": "last letter of concourse"
         }
        ]
@@ -386,9 +395,9 @@
      ]
     },
     "explanation": {
-     "surface": "A railway station has been built with an indoor area at the far end of its concourse.",
-     "walkthrough": "Station suggests trains, but it is a broadcasting station: Radio One is a BBC pop-music radio channel.",
-     "definitionFit": "Radio One is a British national radio channel, so an example of a broadcasting station."
+     "surface": "A railway station constructed with an indoor space filling the end of the concourse.",
+     "walkthrough": "'Station' is a radio station, not a railway one.",
+     "definitionFit": "Radio One is the BBC's pop music radio station."
     },
     "features": {
      "answerInScene": false,

@@ -1570,7 +1570,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "woman's accessory",
+      "text": "woman's accessory!",
       "at": 44
      }
     ],
@@ -1579,51 +1579,56 @@
      "indicators": [
       {
        "text": "for holding",
-       "note": "holding something means keeping it within, so one piece goes inside the other"
+       "at": 7,
+       "note": "for holding means the thanks word holds the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Thanks",
-         "gives": "TA",
-         "note": "ta is British informal thanks"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        }
-       ]
+       "words": "Thanks",
+       "at": 0,
+       "gives": "TA",
+       "note": "ta is British informal for thanks"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "exhausted",
-         "note": "exhausted means emptied out, so only the outside letters of the word survive"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "altogether",
-         "note": "the first and last letters of altogether"
+         "words": "one",
+         "at": 19,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "exhausted",
+           "at": 34,
+           "note": "exhausted means emptied, so the inner letters of altogether are drained away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "altogether",
+           "at": 23,
+           "note": "the outside letters of altogether"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone thanks a friend for holding something, utterly worn out.",
-     "walkthrough": "'altogether exhausted' reads as completely tired, but it means the word altogether emptied of its middle; ta is British slang for thanks.",
-     "definitionFit": "A tiara is a jewelled ornamental band worn on the head, typically by women."
+     "surface": "Gratitude for keeping a single, utterly worn-out woman's piece of jewellery.",
+     "walkthrough": "'altogether exhausted' looks like 'completely tired', but it tells you to empty the word altogether, leaving AR.",
+     "definitionFit": "A tiara is a jewelled headband or small crown worn by women on formal occasions."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "altogether"
+     "misdirectedWord": "exhausted"
     }
    }
   },

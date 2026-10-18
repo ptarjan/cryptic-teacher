@@ -416,53 +416,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing placed in another sits inside it"
+       "at": 20,
+       "note": "in places the picked letters within the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "broadcast",
+       "at": 23,
+       "gives": "BEAM",
+       "note": "to beam a programme is to broadcast it"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "broadcast",
-         "gives": "BEAM",
-         "note": "to beam a programme is to broadcast it"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially means at the start, so only the opening letters are kept"
+           "at": 5,
+           "note": "initially asks for the opening letter of the word Days"
           }
          ],
          "parts": [
           {
            "words": "Days",
-           "note": "the first letter of the word"
+           "at": 0,
+           "note": "first letter of Days"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
+        },
         {
          "words": "lost",
-         "note": "the first letter of the word"
+         "at": 15,
+         "gives": "L",
+         "note": "L is the abbreviation for lost in sports league tables"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Days of a broadcast are lost amid a muddle at the station.",
-     "walkthrough": "'Initially' applies to both 'Days' and 'lost', not just the first word.",
-     "definitionFit": "Bedlam, from the old London asylum, is a scene of uproar and chaos, a noun synonym for a confused situation."
+     "surface": "A broadcaster muddles the schedule after losing some days of programming.",
+     "walkthrough": "'lost' is the league-table abbreviation, as in W, D, L for won, drawn, lost.",
+     "definitionFit": "Bedlam is a scene of uproar and chaos, a thoroughly disordered situation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "lost"
     }
@@ -1424,41 +1425,43 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "lying outside something means going around it, so one piece wraps another"
+       "at": 5,
+       "note": "outside means the jerk word wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Jerk",
-         "gives": "TIC",
-         "note": "a tic is a jerky involuntary twitch"
-        },
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "Jerk",
+       "at": 0,
+       "gives": "TIC",
+       "note": "a tic is an involuntary jerk or twitch"
       },
       {
-       "words": "adult",
-       "gives": "A",
-       "note": "A is the film certificate for adult"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "court",
+         "at": 13,
+         "gives": "CT"
+        },
+        {
+         "words": "adult",
+         "at": 24,
+         "gives": "A",
+         "note": "A is the film-rating abbreviation for adult"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fool outside a courtroom with a grown-up, gesturing naturally.",
-     "walkthrough": "'Of course' reads as 'naturally' but means at a racecourse.",
-     "definitionFit": "Tic-tac is the hand-signal code bookmakers once used at British racecourses to pass on changing odds."
+     "surface": "Someone twitching beside a tennis court with a grown-up, apparently sending signals.",
+     "walkthrough": "Tic-tac is the hand-signalling system bookmakers used at British racecourses; 'course' here means racecourse.",
+     "definitionFit": "Tic-tac is the semaphore-like code of arm movements bookies use to pass odds across a racecourse."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "course"
     }
    }

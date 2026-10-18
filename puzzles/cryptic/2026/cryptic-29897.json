@@ -950,59 +950,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "only half the word is kept"
-      }
-     ],
      "parts": [
       {
        "words": "Gold",
+       "at": 0,
        "gives": "AU",
-       "note": "Au is the chemical symbol for gold"
+       "note": "AU is the chemical symbol for gold"
       },
       {
-       "words": "disc",
-       "gives": "DI",
-       "note": "the first half of DISC"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "OT",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "oddly no",
-         "note": "no odd letters: the 1st and 3rd go, the even ones stay"
+         "text": "half",
+         "at": 10,
+         "note": "half means only half of the word disc is kept, the rest dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lost, oddly no",
-         "gives": "OT",
-         "select": "alternate",
-         "note": "l-O-s-T with no odd letters"
+         "words": "disc",
+         "at": 5,
+         "note": "the word disc"
+        },
+        {
+         "gives": "SC"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "oddly no",
+         "at": 21,
+         "note": "oddly no means no odd letters, so the first and third letters of lost are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lost",
+         "at": 15,
+         "note": "the word lost, losing its first and third letters"
+        },
+        {
+         "gives": "LS"
         }
        ]
       },
       {
        "words": "copy",
+       "at": 30,
        "gives": "APE",
        "note": "to ape is to copy"
       }
      ]
     },
     "explanation": {
-     "surface": "A gold disc has lost half its sales and no copies of the recording remain.",
-     "walkthrough": "'Gold disc' and 'half lost' look like a unit and a phrase; the split falls between them, 'disc half' and 'lost, oddly no'.",
-     "definitionFit": "An audiotape is a sound recording on magnetic tape."
+     "surface": "A gold record, half missing, strangely no copy of the recording.",
+     "walkthrough": "'oddly no' says to keep the even letters of 'lost', giving OT.",
+     "definitionFit": "Audiotape is magnetic tape for storing sound, and so a recording made on it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lost"
+     "misdirectedWord": "Gold"
     }
    }
   },

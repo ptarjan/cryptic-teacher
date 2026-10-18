@@ -298,38 +298,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "retired",
-       "note": "someone retired has withdrawn, gone back"
-      }
-     ],
      "parts": [
       {
        "words": "tie",
+       "at": 6,
        "gives": "DRAW",
-       "note": "a drawn game is a tie"
+       "note": "a draw is a tied match"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "absorbed in"
+         "text": "absorbed in",
+         "at": 32,
+         "note": "absorbed in means the reversed letters are taken into the book letters"
         }
        ],
        "parts": [
         {
          "words": "book",
+         "at": 44,
          "gives": "BK",
          "note": "BK is the abbreviation for book"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "retired",
+           "at": 11,
+           "note": "retired means withdrawn, going backwards, so the accountant's letters are reversed"
+          }
+         ],
          "parts": [
           {
            "words": "accountant's",
+           "at": 19,
            "gives": "CA",
-           "note": "CA = chartered accountant; reversed to AC and placed inside BK"
+           "note": "CA is a chartered accountant; the 's is has, a link"
           }
          ]
         }
@@ -338,13 +344,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone without a tie, a retired accountant, is lost in a book.",
-     "walkthrough": "'Minus' reads like 'without', introducing the tie; it is the noun, a negative point.",
-     "definitionFit": "A plain synonym in noun form: a minus is a disadvantage or snag."
+     "surface": "A bookish accountant, recently retired, without his tie.",
+     "walkthrough": "'Minus' is a noun here: a minus is a disadvantage.",
+     "definitionFit": "A drawback is a disadvantage or negative point, as a minus is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Minus"
     }
    }
