@@ -385,29 +385,30 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "'Perhaps' flags an example: the plant named is one instance of the broader word the letters want."
-      }
-     ],
      "parts": [
       {
        "words": "time",
-       "gives": "T",
-       "note": "t is the standard abbreviation for time"
+       "at": 5,
+       "gives": "T"
       },
       {
-       "words": "dock",
+       "words": "perhaps dock",
+       "at": 11,
        "gives": "WEED",
-       "note": "dock is the broad-leaved hedgerow plant whose leaf you rub on a nettle sting"
+       "note": "dock is an example of a weed, hence 'perhaps'"
       }
      ]
     },
     "explanation": {
-     "surface": "Given enough time, a dockside might turn out to be worth something.",
-     "walkthrough": "'Dock' is the trap: it wants to be a harbour, and it is the coarse green thing growing beside the nettles. 'Perhaps' is quietly doing the work of 'for example'.",
-     "definitionFit": "material → TWEED: it is the rough woollen cloth of jackets and flat caps, so 'material' is the plain fabric sense of the word."
+     "surface": "A boat may moor at a dock given time.",
+     "walkthrough": "'dock' suggests a harbour but here is the broad-leaved plant, an example of a weed.",
+     "definitionFit": "Tweed is a rough woollen cloth, a fabric used for jackets and suits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dock"
     }
    }
   },
@@ -484,40 +485,50 @@
      "indicators": [
       {
        "text": "Poor",
-       "note": "Something poor is in a bad way, and letters in a bad way are not in the order they should be."
+       "at": 0,
+       "note": "poor suggests the letters are in bad shape and reassembled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "'Almost' stops just short of the end, so the final letter of the word beside it never arrives."
+         "at": 10,
+         "note": "almost means the word girl loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "girl",
-         "gives": "GIR",
-         "note": "GIRL one letter short"
+         "at": 5,
+         "note": "the word girl, cut short"
         },
         {
-         "words": "regrets",
-         "note": "seven letters of fodder, taken as printed"
-        },
-        {
-         "words": "son",
-         "note": "three more letters, taken whole"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "regrets",
+       "at": 17
+      },
+      {
+       "words": "son",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A girl in a bad way is almost sorry that her son is leaving home.",
-     "walkthrough": "'Going back' sits at the end of the clue where a reversal instruction usually goes, and that is the trap: nothing is turned round here, the whole heap is shuffled.",
-     "definitionFit": "going back → RETROGRESSING: the verb means moving back towards an earlier and worse state, and the -ing form drops straight into the phrase."
+     "surface": "A sad girl very nearly regrets her son departing.",
+     "walkthrough": "GIR (almost girl) plus REGRETS and SON are rearranged together.",
+     "definitionFit": "Retrogressing is moving backwards or returning to a worse state, a synonym for regressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
     }
    }
   },
@@ -542,35 +553,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "'Between' fixes the middle position, with a piece of wordplay on either side of the one it names."
+       "at": 23,
+       "note": "between places the cut letters in the gap separating the two outer pieces"
       }
      ],
      "parts": [
       {
-       "words": "axes",
-       "gives": "XY",
-       "note": "the x and y axes of a graph"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "axes",
+         "at": 31,
+         "gives": "XY",
+         "note": "x and y are the axes of a graph"
+        },
+        {
+         "words": "whetstone",
+         "at": 40,
+         "gives": "HONE",
+         "note": "a hone is a whetstone for sharpening blades"
+        }
+       ]
       },
       {
        "words": "cut",
+       "at": 19,
        "gives": "LOP",
-       "note": "to lop is to cut, the way you lop a branch"
-      },
-      {
-       "words": "whetstone",
-       "gives": "HONE",
-       "note": "a hone is the stone a blade is sharpened on"
+       "note": "to lop is to cut off"
       }
      ]
     },
     "explanation": {
-     "surface": "Axes and a whetstone, with something being cut in a woodshed.",
-     "walkthrough": "'Axes' is the pivot: the surface wants chopping tools to keep company with the whetstone, and the clue means the pair of lines on a graph.",
-     "definitionFit": "Set of wooden bars → XYLOPHONE: tuned wooden bars laid in a row and struck with mallets, so the definition describes what it is made of."
+     "surface": "Someone chops wood using both axes and a sharpening stone.",
+     "walkthrough": "'axes' are the two axes of a graph, x and y, not chopping tools.",
+     "definitionFit": "A xylophone is a percussion instrument made of a row of tuned wooden bars struck with mallets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "axes"
     }
    }
   },
@@ -1175,54 +1201,72 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "Only half the name is wanted, and the half that survives here is the four letters at its end."
+       "text": "welcomes",
+       "at": 24,
+       "note": "welcomes means the half-country takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "welcomes",
-         "note": "To welcome somebody is to take them in, so this word opens up and holds the other piece inside."
+         "text": "Half of",
+         "at": 0,
+         "note": "only half of the country's name is kept, its last four letters"
         }
        ],
        "parts": [
         {
-         "words": "Half of African country",
-         "gives": "OPIA",
-         "note": "the back half of ETHIOPIA"
+         "words": "African country",
+         "at": 8,
+         "gives": "ETHIOPIA",
+         "note": "Ethiopia is a country in the Horn of Africa"
+        },
+        {
+         "gives": "ETHI"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 51,
+         "gives": "L"
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "retiring",
-           "note": "Retiring is withdrawing, going back the way you came, so those letters read in reverse."
+           "at": 33,
+           "note": "retiring means going backwards, so the setter's word is read in reverse"
           }
          ],
          "parts": [
           {
            "words": "setter's",
+           "at": 42,
            "gives": "MY",
-           "note": "the setter's word for what belongs to him"
+           "note": "the setter refers to themself as me, so setter's is my"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "large",
-       "gives": "L",
-       "note": "L is large on a clothing label"
       }
      ]
     },
     "explanation": {
-     "surface": "An African country makes room for a shy setter and his outsize something.",
-     "walkthrough": "'Setter's' is the possessive here, MY rather than the usual I or ME, and that is the step most solvers walk past. Ethiopia gives up only its second half.",
-     "definitionFit": "source of games? → OLYMPIA: the sanctuary in the western Peloponnese where the ancient Games were held every four years, so it is where the whole idea of them started."
+     "surface": "Part of an African nation hosts a shy crossword compiler's big games.",
+     "walkthrough": "OPIA (half of Ethiopia) takes in L and YM (MY reversed).",
+     "definitionFit": "Olympia in ancient Greece was the site where the original Olympic Games were held."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "retiring"
     }
    }
   },
@@ -1617,13 +1661,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "at": 27,
-       "note": "in here simply sets the flipped food alongside the stirred-up letters"
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
@@ -1631,14 +1668,13 @@
         {
          "text": "hot",
          "at": 30,
-         "note": "hot, as in hot-wired or in a state, signals that these letters are stirred about"
+         "note": "hot in the sense of agitated, so the letters of fat are stirred up"
         }
        ],
        "parts": [
         {
          "words": "fat",
-         "at": 34,
-         "note": "the three letters are taken as written and rearranged"
+         "at": 34
         }
        ]
       },
@@ -1648,7 +1684,7 @@
         {
          "text": "flipped",
          "at": 19,
-         "note": "flipped over means turned the other way, so the word is read right to left"
+         "note": "flipped means turned over, so the food word is read backwards"
         }
        ],
        "parts": [
@@ -1672,29 +1708,39 @@
         {
          "text": "revolutionary",
          "at": 46,
-         "note": "a revolution turns something round, so these letters are read backwards"
+         "note": "revolutionary means turning round, so these letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "number one",
-         "at": 60,
-         "gives": "NOI",
-         "note": "NO is the abbreviation for number, and one is I"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "number",
+           "at": 60,
+           "gives": "NO"
+          },
+          {
+           "words": "one",
+           "at": 67,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Food tossed in a hot pan, leaving ashes, from a supposedly brilliant chef.",
-     "walkthrough": "'hot' rearranges FAT into AFT; 'flipped' turns FARE into ERAF; 'revolutionary' reverses NO I into ION. The blog reads 'in' as containment, but ERAF directly follows AFT.",
-     "definitionFit": "After a fashion means in a way or to some extent, which is what 'in one sense' conveys."
+     "surface": "Food is flipped in hot fat and the burnt leftovers look like a revolutionary first.",
+     "walkthrough": "'hot' is the anagram signal for fat, not a cooking word; 'remains' are the ashes left by burning.",
+     "definitionFit": "After a fashion means to some extent, sort of, which is like saying in one sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "food"
+     "misdirectedWord": "revolutionary"
     }
    }
   }

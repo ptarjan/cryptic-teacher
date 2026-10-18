@@ -591,31 +591,35 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "finally",
-       "note": "Finally asks for the letter a word ends on and no other."
+       "text": "brought back",
+       "at": 32,
+       "note": "brought back means the letters return in reverse order"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "brought back",
-         "note": "An across answer brought back is read right to left, so the assembled letters are written in reverse."
-        }
-       ],
        "parts": [
         {
          "words": "pit",
+         "at": 14,
          "gives": "MINE",
-         "note": "A pit is a mine, in the coal sense."
+         "note": "a mine is a pit"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 24,
+           "note": "finally picks the last letter of steed"
+          }
+         ],
          "parts": [
           {
            "words": "steed",
-           "note": "The letter this word ends on."
+           "at": 18,
+           "note": "the word steed, giving its final letter"
           }
          ]
         }
@@ -624,9 +628,14 @@
      ]
     },
     "explanation": {
-     "surface": "A horse being led back up out of a colliery.",
-     "walkthrough": "Pit ponies really did work underground, which is what holds the surface together while its two pieces are quietly being turned round.",
-     "definitionFit": "Denim is the heavy cotton twill jeans are cut from, so 'material' names it by its class — the cloth, not the garment."
+     "surface": "A horse emerges from a coal pit at last.",
+     "walkthrough": "MINE plus D (steed finally) makes MINED, read backwards.",
+     "definitionFit": "Denim is a hard-wearing cotton fabric used for jeans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steed"
     }
    }
   },
@@ -1536,57 +1545,62 @@
     "definitions": [
      {
       "text": "buttocks",
-      "at": 37,
-      "note": "The definition is plural where the answer is singular: the French word names the whole backside, which English counts as a pair of buttocks."
+      "at": 37
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "Turned about, an across piece is read from its far end back to the letter it started on."
-      }
-     ],
      "parts": [
       {
-       "words": "Ruddy",
-       "gives": "DER",
-       "note": "Ruddy means red, and the colour is written back to front here."
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 6,
+         "note": "turned means the colour word is turned round and read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ruddy",
+         "at": 0,
+         "gives": "RED",
+         "note": "ruddy means red"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "pinching",
-         "note": "Pinching something is gripping it tight, so the letter named is held inside this piece."
+         "at": 22,
+         "note": "pinching means the two short words squeeze one inside them"
         }
        ],
        "parts": [
         {
-         "words": "on",
-         "gives": "RE",
-         "note": "On a subject is re it, as in the heading of a memo."
-        },
-        {
          "op": "charade",
          "parts": [
           {
-           "words": "one's",
-           "gives": "I",
-           "note": "One is the numeral I."
+           "words": "on",
+           "at": 13,
+           "gives": "RE",
+           "note": "re means on, concerning"
           },
           {
-           "op": "reversal",
-           "parts": [
-            {
-             "words": "about",
-             "gives": "RE",
-             "note": "About something is re it as well, so the same two letters are wanted twice."
-            }
-           ]
+           "words": "about",
+           "at": 16,
+           "gives": "RE",
+           "note": "re also means about, regarding"
           }
          ]
+        },
+        {
+         "words": "one's",
+         "at": 31,
+         "gives": "I",
+         "note": "I is the Roman numeral one; one's reads as one is"
         }
        ]
       }
@@ -1594,9 +1608,15 @@
     },
     "spelling": "DERRIÈRE",
     "explanation": {
-     "surface": "A red-faced somebody getting worked up and grabbing at a backside.",
-     "walkthrough": "'Ruddy' is a mild British swear word in the surface — a ruddy nuisance — and the plain colour red in the wordplay.",
-     "definitionFit": "Derriere is French for behind, borrowed into polite English as the word you use when you do not want to say backside."
+     "surface": "A red-faced person gets aroused by touching someone's bottom.",
+     "walkthrough": "'on' and 'about' are not positional here: each is a short word meaning concerning, and together they pinch the one.",
+     "definitionFit": "Derriere is a French-derived euphemism for the bottom, the seat of the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ruddy"
     }
    }
   },

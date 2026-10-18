@@ -284,31 +284,25 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SATAY",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "one thing standing for another means it takes the other's place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Never",
-       "gives": "NAY",
-       "note": "split as N plus ever, and ay is an old word for ever"
+       "words": "Never stood",
+       "at": 0,
+       "gives": "SAT",
+       "note": "someone who never stood sat"
       },
       {
-       "words": "stood",
-       "gives": "SAT",
-       "note": "stood for office is sat, as for a parliamentary seat"
+       "words": "for",
+       "at": 12,
+       "gives": "AY",
+       "note": "ay or aye is a vote for"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone declares they never tolerated skewered spiced meat.",
-     "walkthrough": "Read Never as N + EVER, with EVER as AY; then SAT takes the place of the N. The blog's own parse of this clue is unsure.",
+     "surface": "Someone refused to tolerate highly seasoned meat on a skewer.",
+     "walkthrough": "'stood for' looks like 'tolerated', but 'for' is a vote, AY, and 'Never stood' gives SAT.",
      "definitionFit": "Satay is a South-East Asian dish of spiced meat grilled on skewers, which is what en brochette means."
     },
     "features": {
@@ -513,42 +507,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HORACE",
+     "op": "composite",
      "indicators": [
       {
-       "text": "may be translated",
-       "note": "translation turns words into a different form, here a different letter order"
+       "text": "may be translated from",
+       "at": 8,
+       "note": "translated signals rearrangement: the letters of chorale come from the poet plus the Latin letter"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HORACE",
-       "parts": [
-        {
-         "words": "Chorale",
-         "note": "taken as written: the whole fodder"
-        },
-        {
-         "words": "Latin",
-         "gives": "L",
-         "note": "L is the abbreviation for Latin; it is the extra letter in the fodder"
-        }
-       ]
+       "words": "Chorale",
+       "at": 0
+      },
+      {
+       "words": "Latin",
+       "at": 43,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A sung chorale could be rendered from a Latin poet's ode.",
-     "walkthrough": "A composite: the answer plus L together rearrange to CHORALE. The Roman poet Horace wrote in Latin and set odes to music, so translating him could yield a chorale.",
-     "definitionFit": "Horace is the Roman lyric poet famous for his Odes, so he is the odist in question."
+     "surface": "A sung chorale might be a translation of a Latin ode by this poet.",
+     "walkthrough": "CHORALE has the letters of the answer plus L.",
+     "definitionFit": "Horace was the Roman poet famed for his Odes, so he is the odist in question."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "translated"
     }
    }
   },
@@ -672,34 +659,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "battered",
-       "note": "battered means knocked out of shape, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "battered",
+         "at": 12,
+         "note": "battered means knocked about, so the letters of range are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "range",
-         "note": "the letters of range rearranged"
-        },
-        {
-         "words": "bitter",
-         "gives": "ALE",
-         "note": "bitter is a type of British beer, an ale"
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "bitter",
+       "at": 29,
+       "gives": "ALE",
+       "note": "bitter is a type of ale, a British beer"
       }
      ]
     },
     "explanation": {
-     "surface": "A fierce wind lashed the mountain range, and it was bitterly cold.",
-     "walkthrough": "'Bitter' looks like a description of the wind, but it is the beer.",
-     "definitionFit": "A near gale is force 7 on the Beaufort scale, a strong wind just short of a full gale."
+     "surface": "A mountain range lashed by wind, and is the wind sharp?",
+     "walkthrough": "NEARG (range battered) plus ALE; bitter is a British draught beer.",
+     "definitionFit": "A near gale is force 7 on the Beaufort scale, a strong wind just short of gale force."
     },
     "features": {
      "answerInScene": true,
@@ -1664,33 +1653,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cocktail of",
-       "note": "a cocktail is a mixture, so the letters are mixed up"
+       "text": "taken after",
+       "at": 22,
+       "note": "the abbreviation comes after the mixed letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cocktail of",
+         "at": 34,
+         "note": "a cocktail is a mixture, so the letters of bad and rum are mixed"
+        }
+       ],
        "parts": [
         {
-         "words": "bad rum",
-         "note": "the letters of bad rum rearranged"
+         "words": "bad",
+         "at": 46
         },
         {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e. abbreviates id est, that is"
+         "words": "rum",
+         "at": 50
         }
        ]
+      },
+      {
+       "words": "that is",
+       "at": 14,
+       "gives": "IE",
+       "note": "i.e. abbreviates id est, that is"
       }
      ]
     },
     "explanation": {
-     "surface": "A whisky drink is drunk after a cocktail of poor-quality rum.",
-     "definitionFit": "Drambuie is a Scotch whisky liqueur sweetened with heather honey and herbs."
+     "surface": "A whisky drink consumed after a poor rum cocktail.",
+     "walkthrough": "DRAMBU (bad rum mixed) followed by IE.",
+     "definitionFit": "Drambuie is a Scotch whisky liqueur flavoured with honey and herbs."
     },
     "features": {
      "answerInScene": true,

@@ -893,41 +893,59 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one part goes inside the other"
+       "at": 22,
+       "note": "'in short block' puts the one and outlet letters inside the shortened block"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 25,
+         "note": "short tells us the block word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "short block",
-         "gives": "BRIC",
-         "note": "BRICK without its last letter"
+         "words": "block",
+         "at": 31,
+         "gives": "BRICK",
+         "note": "a brick is a block of baked clay"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "one = I, the Roman numeral"
+         "gives": "K"
         }
        ]
       },
       {
-       "words": "retail outlet",
-       "gives": "SHOP",
-       "note": "a shop is a retail outlet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 4,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "retail outlet",
+         "at": 8,
+         "gives": "SHOP",
+         "note": "a shop is a retail outlet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Look at a single shop squeezed into a small block of buildings.",
-     "walkthrough": "'See' looks like a command to look; it is the noun, a bishop's diocese, and so is bishopric.",
-     "definitionFit": "A see is the district a bishop rules, his bishopric."
+     "surface": "An instruction to go and look at a single shop in a small block of buildings.",
+     "walkthrough": "'See' looks like an imperative verb but is the definition: a bishop's see. BRIC (short brick) holds I and SHOP.",
+     "definitionFit": "A see is the diocese or office of a bishop, which is a bishopric."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "See"
     }
    }

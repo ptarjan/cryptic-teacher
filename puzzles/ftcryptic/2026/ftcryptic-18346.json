@@ -941,50 +941,40 @@
      "indicators": [
       {
        "text": "around",
-       "note": "one piece placed around another goes outside it, enclosing it"
+       "at": 6,
+       "note": "the grass word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Grass",
-         "gives": "REED",
-         "note": "a reed is a tall waterside grass"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "walls",
-           "note": "the walls of a word are its outside edges, the first and final letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "city",
-           "note": "the outer letters"
-          }
-         ]
-        }
-       ]
+       "words": "Grass",
+       "at": 0,
+       "gives": "REED",
+       "note": "a reed is a tall grass"
       },
       {
        "op": "outer",
+       "indicators": [
+        {
+         "text": "walls",
+         "at": 26,
+         "note": "walls are the outside, so each word keeps only its outer letters"
+        }
+       ],
        "parts": [
         {
-         "words": "council",
-         "note": "the outer letters"
+         "words": "city council",
+         "at": 13,
+         "note": "the words city and council, giving CY and CL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A green planning complaint: lawns ringing the town hall were the eco-friendly option.",
-     "walkthrough": "'Walls' applies to both city and council, taking the edges of each; 'Grass' is a noun for a plant, not a verb for informing.",
-     "definitionFit": "Reprocessing used materials so they can be made again is the classic green action, so it suits the definition loosely."
+     "surface": "Grass growing round the town hall's walls was greener.",
+     "walkthrough": "REED around CY and CL, the walls of 'city' and 'council'.",
+     "definitionFit": "Recycled material is reused, which is kinder to nature than throwing it away."
     },
     "features": {
      "answerInScene": true,
