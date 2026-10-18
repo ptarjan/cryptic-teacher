@@ -205,49 +205,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STRESS",
      "indicators": [
       {
        "text": "dismissing",
-       "note": "to dismiss is to send away, and the following for says what replaces what is sent off"
+       "at": 15,
+       "note": "dismissing, with 'for', means the opening letters are thrown out and replaced"
       }
      ],
      "parts": [
       {
        "words": "Former captain",
+       "at": 0,
        "gives": "STRAUSS",
-       "note": "Andrew Strauss, a former England cricket captain"
+       "note": "Andrew Strauss is a former captain of England's cricket team"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Australia's openers",
+       "at": 26,
        "gives": "AU",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Australia's openers",
-         "gives": "AU",
-         "select": "first",
-         "note": "the opening letters of Australia"
-        }
-       ]
+       "note": "the opening two letters of Australia"
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E is the abbreviation for English"
+       "at": 50,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "An old England skipper gets Australia's opening batsmen out, piling pressure on the opposition.",
-     "walkthrough": "Andrew Strauss captained England at cricket and won the Ashes against Australia; swapping the AU in his name for E gives the answer.",
-     "definitionFit": "Stress and pressure are synonyms for strain, whether physical force on a material or mental tension."
+     "surface": "An ex-captain gets Australia's opening batsmen out and pressures the English.",
+     "walkthrough": "Andrew Strauss captained England at cricket; 'openers' are both the first letters and, in the surface, the opening batsmen. AU is swapped for E.",
+     "definitionFit": "Stress and pressure are synonyms for strain or tension."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "openers"
     }
    }
@@ -616,56 +609,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INNUENDO",
      "indicators": [
       {
        "text": "Between",
-       "note": "between puts the selected letters in the middle, flanked by the two words on either side"
+       "at": 0,
+       "note": "between means the picked letters go between the pub and party words"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 12,
+         "note": "and joins the pub word to the party word, in that order"
+        }
+       ],
        "parts": [
         {
          "words": "pub",
+         "at": 8,
          "gives": "INN",
          "note": "an inn is a pub"
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "UEN",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means at even intervals, so every second letter of the phrase is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "muse on",
-           "gives": "UEN",
-           "select": "alternate",
-           "note": "second, fourth and sixth letters of the two words"
-          }
-         ]
-        },
-        {
          "words": "party",
+         "at": 16,
          "gives": "DO",
          "note": "a do is a party"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 22,
+         "note": "regularly means take every other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "muse on",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone muses between pub and party over a cheeky comment.",
-     "walkthrough": "'On' looks like a link but it is part of the letters taken; muse on supplies U, E, N.",
-     "definitionFit": "An innuendo is an indirect hint, usually smutty or disparaging, so it is a remark with a suggestion behind it."
+     "surface": "Between the pub and a party, someone keeps thinking about a saucy comment.",
+     "walkthrough": "'Muse on' looks like a verb phrase about thinking, but it only supplies letters, taking the second, fourth and sixth.",
+     "definitionFit": "An innuendo is an indirect hint, often rude or derogatory."
     },
     "features": {
      "answerInScene": true,
@@ -1198,38 +1195,43 @@
      "indicators": [
       {
        "text": "cuddling",
-       "note": "to cuddle is to hug, so one piece wraps its arms around the others"
+       "at": 25,
+       "note": "cuddling means holding something closely, so EG goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "for instance",
-         "gives": "EG",
-         "note": "e.g., short for exempli gratia, for example"
-        },
-        {
-         "words": "when",
-         "gives": "AS",
-         "note": "as in 'as I left'"
-        }
-       ]
+       "words": "for instance",
+       "at": 12,
+       "gives": "EG",
+       "note": "EG is the abbreviation for for example, for instance"
       },
       {
-       "words": "home",
-       "gives": "IN",
-       "note": "being in is being at home"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "when",
+         "at": 34,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "words": "home",
+         "at": 39,
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Relaxing means, say, cuddling up on the sofa once you're home.",
-     "definitionFit": "Easing is the loosening of tension or restrictions, as in an easing of rules, which is a relaxation."
+     "surface": "Cuddling up at home is a good example of relaxation.",
+     "walkthrough": "'For instance' gives the Latin abbreviation for 'for example', which is a container here.",
+     "definitionFit": "Easing is a loosening or lessening of tension, a relaxation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cuddling"
     }
@@ -1260,36 +1262,38 @@
      "indicators": [
       {
        "text": "assuming",
-       "note": "to assume is to take on, so one piece takes the others into it"
+       "at": 23,
+       "note": "assuming means taking on, so the role takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "pantomime role",
-         "gives": "DAME",
-         "note": "the pantomime dame, a comic woman played by a man in British Christmas shows"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
-        }
-       ]
+       "words": "pantomime role",
+       "at": 32,
+       "gives": "DAME",
+       "note": "the dame is a comic woman's part played by a man in a British pantomime"
       },
       {
-       "words": "fellow",
-       "gives": "F",
-       "note": "F is the abbreviation for fellow"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 7,
+         "gives": "E"
+        },
+        {
+         "words": "fellow",
+         "at": 16,
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A European man is mocked for taking the dame's part in panto.",
-     "walkthrough": "Pantomime is a British family stage show at Christmas, whose stock comic dame is a man in drag.",
-     "definitionFit": "To defame someone is to damage their good name with false claims, which is what vilifying does."
+     "surface": "A European man takes on a pantomime part and is criticised.",
+     "walkthrough": "A pantomime is a British family Christmas show, in which the dame is a comic woman's role played by a man. E and F go inside DAME, after D.",
+     "definitionFit": "To defame someone is to damage their reputation, to slander them."
     },
     "features": {
      "answerInScene": false,
