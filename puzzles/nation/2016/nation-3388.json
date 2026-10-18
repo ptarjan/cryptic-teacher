@@ -1123,51 +1123,55 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "the chair sits outside, wrapping round what follows"
+       "at": 43,
+       "note": "outside means the stool goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "a chair",
-         "gives": "STOOL",
-         "note": "a stool is a seat, a kind of chair"
-        },
-        {
-         "words": "fish",
-         "gives": "EEL",
-         "note": "an eel is a fish"
-        }
-       ]
+       "words": "a chair's",
+       "at": 33,
+       "gives": "STOOL",
+       "note": "a stool is a seat, a kind of chair; the 's is is"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the first letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "whiskers",
-         "note": "the first letter of whiskers"
+         "words": "fish",
+         "at": 52,
+         "gives": "EEL",
+         "note": "an eel is a fish"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 67,
+           "note": "initially means the first letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "whiskers",
+           "at": 57,
+           "note": "first letter gives W"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on cleaning the outside of a chair, and fish whiskers, apparently.",
-     "walkthrough": "'Chair's outside' reads as the exterior of a chair; the 's is 'is', so the chair is outside the fish and the letter.",
-     "definitionFit": "Steel wool is a pad of fine metal threads used to scour and polish surfaces, a cleaning tool."
+     "surface": "Advice on scrubbing the exterior of a chair, with mention of fish whiskers.",
+     "walkthrough": "'clean a chair's outside' reads as one instruction, but the definition stops at 'clean'; the chair's outside is the stool holding the other letters.",
+     "definitionFit": "Steel wool is an abrasive pad of fine steel filaments used for scouring and polishing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "outside"
     }
    }

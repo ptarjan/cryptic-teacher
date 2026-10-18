@@ -777,52 +777,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 29,
+       "note": "about means the call goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "phone conversation",
-         "gives": "CALL",
-         "note": "a call is a conversation by phone"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love = nil = O in tennis scores"
-        }
-       ]
+       "words": "phone conversation",
+       "at": 10,
+       "gives": "CALL",
+       "note": "a call is a phone conversation"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "on vacation",
-         "note": "a word on vacation is vacated, emptied of its middle"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "marriage on vacation",
-         "gives": "MARRIAGE",
-         "note": "MarriagE with its middle cleared out"
+         "words": "love",
+         "at": 35,
+         "gives": "O",
+         "note": "O is love, the zero score in tennis"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "at": 53,
+           "note": "on vacation means emptied, so only the outer letters remain"
+          }
+         ],
+         "parts": [
+          {
+           "words": "marriage",
+           "at": 44,
+           "note": "outer letters give ME"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heart-to-heart phone call about love and marriage while away on holiday, and a good release.",
-     "walkthrough": "CAL(O + ME)L. 'Cathartic' reads as emotional release; it is the medical sense, a purgative.",
-     "definitionFit": "Calomel, mercurous chloride, was long used as a purgative, which is what a cathartic is."
+     "surface": "A chat on the phone about love and marriage while on holiday turns out to be purging.",
+     "walkthrough": "'Cathartic' sounds like emotional release, but here it is the noun for a purgative. Calomel is mercurous chloride, once a common laxative.",
+     "definitionFit": "Calomel, mercury chloride, was formerly used in medicine as a purgative, which is a cathartic."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Cathartic"
     }
    }
@@ -851,47 +855,60 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Shortly",
-       "note": "the next word is cut short by its last letter"
+       "text": "opens",
+       "at": 25,
+       "note": "opens means the letters go inside, opening up the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "opens",
-         "note": "the pair opens SEND's word up by going into it"
-        }
-       ],
+       "words": "SEND",
+       "at": 31,
+       "gives": "POST",
+       "note": "to post a letter is to send it"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "SEND",
-         "gives": "POST",
-         "note": "to post a letter is to send it"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Shortly",
+           "at": 0,
+           "note": "shortly means the word is cut short by its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "key",
+           "at": 8,
+           "gives": "ENTER",
+           "note": "Enter is a key on a computer keyboard"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
          "words": "Conservative",
-         "gives": "C",
-         "note": "C = Conservative"
+         "at": 12,
+         "gives": "C"
         }
        ]
-      },
-      {
-       "words": "key",
-       "gives": "ENTE",
-       "note": "to key data is to ENTER it; cut short, ENTE"
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative politician opens a festival for SEND, the British school term for special educational needs and disabilities.",
-     "walkthrough": "P(ENTE + C)OST. The capitals on SEND make it look like the British acronym for special educational needs, but it is only the verb.",
-     "definitionFit": "Pentecost, or Whitsun, is the Christian festival seven weeks after Easter."
+     "surface": "A political line that the Conservatives will soon launch special educational needs provision.",
+     "walkthrough": "SEND is the British acronym for special educational needs and disabilities, which makes it look like a policy topic; here it is just the verb.",
+     "definitionFit": "Pentecost, or Whitsun, is the Christian feast held seven weeks after Easter."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "SEND"
     }
    }
@@ -1170,59 +1187,68 @@
      "op": "container",
      "indicators": [
       {
-       "text": "topless",
-       "note": "the word loses its top, which in a down entry is its first letter"
+       "text": "outside",
+       "at": 57,
+       "note": "outside means the shortened person goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "outside",
-         "note": "the headless word goes around the others"
+         "text": "topless",
+         "at": 42,
+         "note": "topless means the first letter is removed"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "person",
-           "gives": "EING",
-           "note": "a person is a being; topless, EING"
-          },
-          {
-           "words": "at home",
-           "gives": "IN",
-           "note": "someone at home is in"
-          }
-         ]
+         "words": "person",
+         "at": 50,
+         "gives": "BEING",
+         "note": "a being is a person or creature"
         },
         {
-         "words": "in the morning",
-         "gives": "AM",
-         "note": "a.m. = in the morning"
+         "gives": "B"
         }
        ]
       },
       {
-       "words": "times",
-       "gives": "X",
-       "note": "x is the multiplication sign"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "times",
+         "at": 8,
+         "gives": "X",
+         "note": "X is the multiplication sign, read as times"
+        },
+        {
+         "words": "in the morning",
+         "at": 14,
+         "gives": "AM",
+         "note": "AM is ante meridiem, before noon"
+        },
+        {
+         "words": "at home",
+         "at": 29,
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A morning at home facing tough exam times, with someone half-dressed standing outside.",
-     "walkthrough": "E(X + AM + IN)ING. 'Testing times' looks like a phrase for hard days, but the definition stops at 'Testing'.",
-     "definitionFit": "Examining is testing, as an examiner tests a candidate."
+     "surface": "A test schedule in the morning while someone half-dressed stands outside the house.",
+     "walkthrough": "'topless' suggests nudity but just removes the first letter of BEING, leaving EING to go around XAMIN.",
+     "definitionFit": "Examining is the act of inspecting or questioning closely, as in testing a candidate."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "times"
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -1366,50 +1392,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "bored by"
+       "text": "bored by",
+       "at": 11,
+       "note": "bored by means pierced by, so the other letters sit inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Young lady",
-         "gives": "GIRL",
-         "note": "a girl is a young lady"
-        },
-        {
-         "words": "seeing that",
-         "gives": "AS",
-         "note": "as = seeing that, since"
-        }
-       ]
+       "words": "Young lady",
+       "at": 0,
+       "gives": "GIRL",
+       "note": "a girl is a young lady"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "takes the first letter of the next word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "ornamental",
-         "note": "the first letter of ornamental"
+         "words": "seeing that",
+         "at": 20,
+         "gives": "AS",
+         "note": "as means seeing that, since"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 32,
+           "note": "primarily means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ornamental",
+           "at": 42,
+           "note": "first letter gives O"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young lady is bored stiff at the sight of a stone that is mostly ornamental.",
-     "walkthrough": "GIR(AS + O)L. 'Ornamental stone' looks like the definition, but 'ornamental' supplies the O and the definition is just 'stone'.",
-     "definitionFit": "A girasol is a fire opal, a gemstone used ornamentally."
+     "surface": "A girl grows weary of a decorative gem.",
+     "walkthrough": "'bored' suggests boredom, but it means drilled into.",
+     "definitionFit": "A girasol is a fire opal or similar gemstone that shows a reddish glow, so it is a precious stone."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bored"
     }
    }

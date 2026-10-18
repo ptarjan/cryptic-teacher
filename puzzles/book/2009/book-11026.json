@@ -314,39 +314,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue, going up means the word is read from bottom to top"
+       "text": "into",
+       "at": 6,
+       "note": "into means the I and R go inside the reversed word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "into",
-         "note": "the letters go into the other word, sitting inside it"
+         "text": "up",
+         "at": 17,
+         "note": "up in a down entry means the word is written from the bottom upwards, so reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "crowd",
-           "gives": "LOT",
-           "note": "a lot is a group of people, a crowd"
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
-          }
-         ]
+         "words": "crowd",
+         "at": 11,
+         "gives": "LOT",
+         "note": "a lot is a group or crowd of people"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0,
+         "gives": "I"
         },
         {
          "words": "run",
+         "at": 2,
          "gives": "R",
          "note": "R is the cricket abbreviation for run"
         }
@@ -355,13 +360,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone jogging into a crowd up in the mountains.",
-     "definitionFit": "Tirol, or Tyrol, is the mountainous region of the Alps straddling Austria and northern Italy."
+     "surface": "Someone dashes into a crowd high in the Alps.",
+     "walkthrough": "TIROL is the German spelling of Tyrol, the Austrian Alpine state.",
+     "definitionFit": "Tirol (Tyrol) is a mountainous region of western Austria and northern Italy lying in the Alps."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "run"
+     "misdirectedWord": "up"
     }
    }
   },

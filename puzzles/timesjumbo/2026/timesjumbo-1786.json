@@ -412,46 +412,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "entrance to",
-       "note": "the entrance to a word is its first letter"
+       "text": "in front of",
+       "at": 12,
+       "note": "in front of means these pieces come before the next letter"
       }
      ],
      "parts": [
       {
        "words": "Street",
-       "gives": "ST",
-       "note": "St = street"
+       "at": 0,
+       "gives": "ST"
       },
       {
        "words": "safe",
+       "at": 7,
        "gives": "PETER",
-       "note": "old criminal slang for a safe; a safecracker was a peterman"
+       "note": "peter is old criminal slang for a safe"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "in front of"
+         "text": "entrance to",
+         "at": 24,
+         "note": "the entrance to a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "entrance to secure",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of SECURE"
+         "words": "secure",
+         "at": 36,
+         "note": "first letter gives S"
         }
        ]
       }
      ]
     },
+    "spelling": "ST PETER'S",
     "explanation": {
-     "surface": "Advice to a burglar: park the safe in the street before breaking into the secure Vatican building.",
-     "walkthrough": "Thieves' slang for a safe is the key, and the whole surface of streets, safes and security is built to hide it.",
-     "definitionFit": "The great basilica of Vatican City, built over the traditional tomb of the apostle."
+     "surface": "A safe street ahead of a secure entrance at a Vatican building.",
+     "walkthrough": "'safe' looks like an adjective, but it is the noun: a peter in thieves' slang.",
+     "definitionFit": "St Peter's Basilica is the great church in Vatican City, the principal building of the papacy."
     },
     "features": {
      "answerInScene": true,
@@ -476,43 +477,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "army case?",
+      "text": "army case",
       "at": 51
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "arresting"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "regulars in",
-         "note": "regular letters of TUSSLE are the 1st, 3rd and 5th"
+         "text": "arresting",
+         "at": 7,
+         "note": "arresting means holding, so the county wraps around the letters"
         }
        ],
        "parts": [
         {
          "words": "County",
+         "at": 0,
          "gives": "SHIRE",
-         "note": "a shire is an English county; it holds TSL before its last letter"
+         "note": "a shire is an English county"
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "TSL",
+         "indicators": [
+          {
+           "text": "regulars in",
+           "at": 17,
+           "note": "regulars in means every other letter of the word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "regulars in tussle",
-           "gives": "TSL",
-           "select": "alternate",
-           "note": "T, S, L from T-U-S-S-L-E"
+           "words": "tussle",
+           "at": 29,
+           "note": "alternate letters give TSL"
           }
          ]
         }
@@ -520,15 +521,16 @@
       },
       {
        "words": "the day before",
+       "at": 36,
        "gives": "EVE",
-       "note": "the eve is the day before"
+       "note": "eve is the day before an event"
       }
      ]
     },
     "explanation": {
-     "surface": "County police arrest some regular soldiers brawling on the eve of a court-martial.",
-     "walkthrough": "'army case' is read arm-y case: a case for an arm. The question mark flags the pun on a military case.",
-     "definitionFit": "The tube of cloth on a shirt encases the arm, so it is a case of the arm-y kind."
+     "surface": "A county's police arrest regular soldiers in a fight the day before the army case.",
+     "walkthrough": "'army' is a pun: not the military but 'for the arm', since a shirtsleeve encases the arm.",
+     "definitionFit": "A shirtsleeve encloses the arm, so it is jokingly a case for an arm, an army case."
     },
     "features": {
      "answerInScene": false,
@@ -653,35 +655,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "terribly",
-       "note": "ENTER WITH is done terribly and so comes out jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 11,
+         "note": "terribly means badly done, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Enter with",
-         "note": "ENTER WITH rearranged"
+         "words": "Enter",
+         "at": 0,
+         "note": "the letters of enter, rearranged"
         },
         {
-         "words": "hackneyed",
-         "gives": "STALE",
-         "note": "stale = hackneyed, overused"
+         "words": "with",
+         "at": 6,
+         "note": "the letters of with, rearranged"
         }
        ]
+      },
+      {
+       "words": "hackneyed",
+       "at": 20,
+       "gives": "STALE",
+       "note": "stale means hackneyed or overused"
       }
      ]
     },
     "spelling": "THE WINTER'S TALE",
     "explanation": {
-     "surface": "A theatre critic says the actors made their entrance in a play that was terribly clichéd.",
-     "walkthrough": "'Enter with' reads like a stage direction, which suits a play, but it is only anagram fodder.",
-     "definitionFit": "One of Shakespeare's late romances, famous for the direction 'Exit, pursued by a bear'."
+     "surface": "A stage direction tells someone to enter with a dreadfully clichéd drama.",
+     "walkthrough": "'Enter' looks like a stage direction in keeping with 'play', but it is fodder.",
+     "definitionFit": "The Winter's Tale is one of Shakespeare's late plays."
     },
     "features": {
      "answerInScene": true,
@@ -1215,47 +1225,61 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "the app's name is cut short"
-      },
-      {
-       "text": "withdraws",
-       "note": "the computer company draws back, reading right to left"
+       "text": "before",
+       "at": 25,
+       "note": "before means the shortened app comes first"
       }
      ],
      "parts": [
       {
-       "words": "photo app",
-       "gives": "INSTA",
-       "note": "Instagram, shortened to its common nickname"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 17,
+         "note": "briefly means shortened, here to its first five letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "photo app",
+         "at": 7,
+         "gives": "INSTAGRAM",
+         "note": "Instagram is a photo-sharing app"
+        },
+        {
+         "gives": "GRAM"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "before",
-         "note": "the first chunk comes before the second"
+         "text": "withdraws",
+         "at": 56,
+         "note": "withdraws means draws back, so the name is written backwards"
         }
        ],
        "parts": [
         {
          "words": "major computer supplier",
+         "at": 32,
          "gives": "DELL",
-         "note": "Dell, the PC maker, reversed to LLED"
+         "note": "Dell is a large computer manufacturer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A phone is loaded with a photo app just before a big PC maker pulls out.",
-     "walkthrough": "The surface is all tech, which suits the definition: software is loaded onto a computer.",
-     "definitionFit": "Software put onto a computer is said to be loaded or set up there."
+     "surface": "An app is loaded on the eve of a big computer firm pulling out.",
+     "walkthrough": "INSTA is the common shortening of Instagram.",
+     "definitionFit": "Software that has been installed has been loaded onto a computer, ready to use."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "withdraws"
+     "aptDefinition": false
     }
    }
   },
@@ -1323,54 +1347,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "King John?",
+      "text": "King John",
       "at": 40
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ultimately",
-       "note": "the last letter of PRECEDES"
-      }
-     ],
      "parts": [
       {
        "words": "Henry",
+       "at": 0,
        "gives": "H",
-       "note": "H = henry, the unit of inductance"
+       "note": "H is the abbreviation for henry, the unit of inductance"
+      },
+      {
+       "words": "I",
+       "at": 6,
+       "gives": "I"
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "precedes"
+         "text": "ultimately",
+         "at": 8,
+         "note": "ultimately means the final letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "I",
-         "note": "the letter itself"
+         "words": "precedes",
+         "at": 19,
+         "note": "last letter gives S"
         }
        ]
       },
       {
-       "words": "precedes",
-       "gives": "S",
-       "note": "last letter of PRECEDES"
-      },
-      {
        "words": "reactionary",
+       "at": 28,
        "gives": "TORY",
        "note": "a Tory is a conservative, a reactionary"
       }
      ]
     },
     "explanation": {
-     "surface": "A line of English kings: Henry I comes before a right-wing King John.",
-     "walkthrough": "'Henry I' is one name in the surface and two pieces in the wordplay. 'King John' is a Shakespeare history play, hence the question mark.",
-     "definitionFit": "Shakespeare's King John is one of his history plays, so it is an example of the genre."
+     "surface": "A line about King Henry I coming before King John in the royal line.",
+     "walkthrough": "'Henry I' reads as one monarch, but splits into H and I. Shakespeare's King John is one of his history plays, hence the question mark.",
+     "definitionFit": "King John is a Shakespeare play of the type called a history, so it is an example of one."
     },
     "features": {
      "answerInScene": true,
@@ -1466,43 +1489,47 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 17,
+       "note": "on in a down clue means the first piece sits on top of the second"
+      }
+     ],
      "parts": [
       {
        "words": "cleft",
+       "at": 11,
        "gives": "GAP",
-       "note": "a cleft is a gap"
+       "note": "a gap is a cleft or opening"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "ER",
        "indicators": [
         {
          "text": "banks of",
-         "note": "a river's banks are its edges, so the first and last letters"
+         "at": 20,
+         "note": "the banks of a word are its outer letters, like a river's banks"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "on banks of Ember",
-         "gives": "ER",
-         "select": "outer",
-         "note": "first and last letters of EMBER, placed on GAP"
+         "words": "Ember",
+         "at": 29,
+         "note": "outer letters give ER"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mussel is lodged in a crack on the banks of the River Ember.",
-     "walkthrough": "The Ember is a small English river, so 'banks' fits the surface perfectly.",
-     "definitionFit": "A kind of clam whose shell gapes open at the ends, one of the bivalve molluscs."
+     "surface": "A shellfish is found in a crevice on the banks of a river Ember.",
+     "walkthrough": "The gaper is a large burrowing clam whose shell gapes open at the ends.",
+     "definitionFit": "The gaper is a burrowing bivalve shellfish, a type of clam."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "banks"
+     "aptDefinition": false
     }
    }
   },
@@ -2502,31 +2529,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "half of",
-       "note": "take half of CHEESE's six letters"
-      },
-      {
        "text": "placed alongside",
-       "note": "the two pieces are set side by side"
+       "at": 7,
+       "note": "placed alongside means the two pieces sit side by side"
       }
      ],
      "parts": [
       {
        "words": "Relish",
+       "at": 0,
        "gives": "BRIO",
-       "note": "brio = relish, zest"
+       "note": "brio is gusto, relish or verve"
       },
       {
-       "words": "cheese",
-       "gives": "CHE",
-       "note": "first half of CHEESE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 24,
+         "note": "half of means only the first three of six letters are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "at": 32
+        },
+        {
+         "gives": "ESE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pickle served next to a half portion of cheese and a bread roll.",
-     "walkthrough": "'Relish' looks like a condiment beside cheese, but here it is gusto.",
-     "definitionFit": "A sweet, rich French bread, usually baked as a roll or small loaf."
+     "surface": "Pickle is set out beside a cheese bread roll.",
+     "walkthrough": "'Relish' looks like a condiment, which fits the food scene, but it means zest.",
+     "definitionFit": "A brioche is a soft, sweet French bread roll enriched with egg and butter."
     },
     "features": {
      "answerInScene": true,
@@ -3453,55 +3492,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TRAINEE",
      "indicators": [
       {
        "text": "replacing",
-       "note": "the word for teem replaces a letter"
+       "at": 18,
+       "note": "replacing means the new letters take the place of the central letter"
+      },
+      {
+       "text": "core element of",
+       "at": 28,
+       "note": "the core element of a word is its middle letter, here in The"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "TE",
-       "indicators": [
-        {
-         "text": "core element of",
-         "note": "the core of THE is its middle letter"
-        }
-       ],
+       "words": "The",
+       "at": 44
+      },
+      {
+       "gives": "H"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "The",
-         "gives": "TE",
-         "select": "middle",
-         "note": "THE with its core, the middle letter H, taken out"
+         "words": "Teem",
+         "at": 0,
+         "gives": "RAIN",
+         "note": "to teem is to rain hard"
+        },
+        {
+         "words": "energy",
+         "at": 10,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
         }
        ]
-      },
-      {
-       "words": "Teem",
-       "gives": "RAIN",
-       "note": "to teem is to rain heavily; it takes the H's place"
-      },
-      {
-       "words": "energy",
-       "gives": "E",
-       "note": "E = energy"
       }
      ]
     },
     "explanation": {
-     "surface": "The TV show The Apprentice buzzes with energy.",
-     "walkthrough": "'The Apprentice' looks like the title of a TV show; it is two separate words, one wordplay and one the definition.",
-     "definitionFit": "A plain synonym: a person being taught a trade."
+     "surface": "A description of an eager contestant on the reality TV show The Apprentice.",
+     "walkthrough": "The surface reads 'The Apprentice' as the TV show; 'The' is the word worked on and 'Apprentice' alone is the definition.",
+     "definitionFit": "A trainee is a person learning a job or trade, which is what an apprentice is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "The"
     }
    }
