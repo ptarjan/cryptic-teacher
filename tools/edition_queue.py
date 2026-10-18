@@ -657,11 +657,36 @@ def by_urgency(units):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
     newest edition first ("date") across papers, rank 0 (saved by hand) in
-    its plans' order, then the paper's place and plan's order."""
+    its plans' order, then the paper's place and plan's order. With
+    CT_NEWEST_FIRST set (newest_first), the units of those papers come right
+    after rank 0, strictly newest edition first whatever their rank and
+    fa.likely_gain (scans and reads alike: a read's scan is its edition's
+    date too), the paper's place and plan's order breaking a tie; the rest
+    keep the order above after them."""
     units = sorted(units, key=lambda t: t[1:3])
     units.sort(key=lambda t: "" if t[0] == 0 else t[3].get("date", ""), reverse=True)
     units.sort(key=lambda t: (t[0], -fa.likely_gain(t[3])))
+    if newest_first_papers():
+        zero = [t for t in units if t[0] == 0]
+        newest = [t for t in units if t[0] != 0 and newest_first(t[3])]
+        newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
+        units = zero + newest + [t for t in units if t[0] != 0 and not newest_first(t[3])]
     return [u for *_, u in units]
+
+
+def newest_first_papers():
+    """The papers CT_NEWEST_FIRST names (comma-separated keys, e.g.
+    "gale,times"), read at each call so a plan after an env change follows
+    it; empty when unset: the order is then by rank and fa.likely_gain."""
+    return frozenset(k.strip() for k in os.environ.get("CT_NEWEST_FIRST", "").split(",") if k.strip())
+
+
+def newest_first(unit):
+    """Whether `unit` is of a paper CT_NEWEST_FIRST names and not rank 0.
+    Such a unit is never held back as a backlog's (queue's `fed`) nor as a
+    whole-corpus re-read (fa.BLANKET) behind more urgent work: it is the
+    most urgent there is, so its scan is not starved by ready older reads."""
+    return unit["rank"] != 0 and unit["paper"] in newest_first_papers()
 
 
 #: How often (seconds) the Trove articles are planned again: stat-ing
@@ -1505,7 +1530,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             for i, sl in enumerate(qslots):
                 last_of[sl] = i
             body = fresh_scans + fresh_reads + scans + reads
-            cands = [(u, key_of(u), slot_of(u)) for u in body if u["rank"] < fa.BLANKET and pools.get(slot_of(u))]
+            cands = [(u, key_of(u), slot_of(u)) for u in body
+                     if (u["rank"] < fa.BLANKET or newest_first(u)) and pools.get(slot_of(u))]
             first_at = {}  # each urgent candidate's key: its first index in cands
             for i, (_, k, _) in enumerate(cands):
                 first_at.setdefault(k, i)
@@ -1596,11 +1622,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 break
             if not may_start() or free[uslot] <= 0 or ukey in tried:
                 continue
-            if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
+            if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
                 continue
             # Held before its ledger row is checked: stood() stats the
             # edition's files, and a held scan is asked again every pass.
-            if u["kind"] == "scan" and ukey not in firsts and fed(u):
+            if u["kind"] == "scan" and ukey not in firsts and fed(u) and not newest_first(u):
                 continue
             if u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u):
                 # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.

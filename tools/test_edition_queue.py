@@ -218,6 +218,21 @@ check("eq.by_urgency: rank first, then predicted puzzles, then newest",
                                         (2, 1, 0, {"rel": "likely", "date": "1980", "likely": {"x": 1}}),
                                         (2, 0, 1, {"rel": "old", "date": "1970"}),
                                         (1, 0, 2, {"rel": "new", "date": "1960"})])])
+nf_units = [(2, 0, 0, {"rel": "gale-old-gain", "date": "1947", "paper": "gale", "rank": 2, "likely": {"x": 5}}),
+            (3, 0, 1, {"rel": "gale-new", "date": "1999", "paper": "gale", "rank": 3}),
+            (1, 1, 0, {"rel": "other", "date": "2000", "paper": "guardian", "rank": 1}),
+            (0, 0, 2, {"rel": "gale-hand", "date": "1900", "paper": "gale", "rank": 0}),
+            (5, 2, 0, {"rel": "times-mid", "date": "1980", "paper": "times", "rank": 5})]
+check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
+      ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
+      [u["rel"] for u in eq.by_urgency(nf_units)])
+os.environ["CT_NEWEST_FIRST"] = "gale, times"
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers newest first after rank 0, the rest as before",
+      ["gale-hand", "gale-new", "times-mid", "gale-old-gain", "other"],
+      [u["rel"] for u in eq.by_urgency(nf_units)])
+check("eq.newest_first: a named paper's unit, not rank 0", [True, False, False],
+      [eq.newest_first(u) for u in (nf_units[1][3], nf_units[2][3], nf_units[3][3])])
+del os.environ["CT_NEWEST_FIRST"]
 mend = {"readAt": "2026-10-09T00:00:00+00:00"}
 check("blanks a vote fix landed for since the read, answers whole: predicted",
       "blanks a vote fix mends", f.short_cause("times", mend, v(90200, blank={"1-a": "'qx': not a word"}, **part(0)), {}))
