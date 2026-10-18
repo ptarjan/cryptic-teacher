@@ -374,40 +374,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERPLAY",
-     "indicators": [
-      {
-       "text": "not beginning",
-       "note": "lacking a beginning means the opening letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not beginning",
+         "at": 10,
+         "note": "not beginning means the playwright's name loses its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "Dramatist",
-         "gives": "INTER",
-         "note": "Harold Pinter, the playwright, minus his first letter"
+         "at": 0,
+         "gives": "PINTER",
+         "note": "Harold Pinter was a British playwright"
         },
         {
-         "words": "his work",
-         "gives": "PLAY",
-         "note": "a dramatist's work is a play"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "his work",
+       "at": 24,
+       "gives": "PLAY",
+       "note": "a play is the work of a dramatist"
       }
      ]
     },
     "explanation": {
-     "surface": "A playwright has yet to start his new piece, entitled 'Give And Take'.",
-     "walkthrough": "The quotation marks and capitals dress the definition up as a play title, tying it to the dramatist.",
-     "definitionFit": "Interplay is mutual action and reaction between parties, the reciprocal exchange described by give-and-take."
+     "surface": "A playwright's piece titled Give And Take, quoted as if a real play.",
+     "walkthrough": "'not beginning' drops the P from PINTER to leave INTER, and his work as a dramatist is a PLAY.",
+     "definitionFit": "Interplay is mutual action and reaction between people, a back-and-forth exchange."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Give"
     }
@@ -438,27 +442,27 @@
      "indicators": [
       {
        "text": "Some",
-       "note": "taking only some of the following text means the letters sit inside it"
+       "at": 0,
+       "note": "Some means only part of the following words is used, the letters running across them"
       }
      ],
      "parts": [
       {
        "words": "detecting rat in some",
-       "gives": "GRATINS",
-       "note": "runs from the end of the first word into the start of the last"
+       "at": 5,
+       "note": "the letters run unbroken from the last of detecting through rat and in to the first of some"
       }
      ]
     },
     "explanation": {
-     "surface": "Some people spot a rodent in certain French meals.",
-     "walkthrough": "The first 'Some' is the signal; the second 'some' belongs to the letters being searched.",
-     "definitionFit": "A gratin is a French dish topped with breadcrumbs or cheese and browned under a grill."
+     "surface": "A kitchen inspector spots a rat in some French food.",
+     "walkthrough": "The answer runs through detectinG RAT IN Some.",
+     "definitionFit": "A gratin is a dish topped with a browned crust of breadcrumbs or cheese, a French cooking style."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "detecting"
+     "misdirectedWord": "rat"
     }
    }
   },
@@ -745,32 +749,31 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SOVIETERA",
      "indicators": [
       {
        "text": "Revolutionary",
-       "note": "a revolution overturns the established order, so the letters are overturned too"
+       "at": 0,
+       "note": "revolutionary suggests turning things over, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SOVIETERA",
        "indicators": [
         {
          "text": "losing",
-         "note": "to lose something is to be left without it, so a letter drops out"
+         "at": 25,
+         "note": "losing means the letter for power drops out of operatives"
         }
        ],
        "parts": [
         {
          "words": "operatives",
-         "note": "taken as written"
+         "at": 14
         },
         {
          "words": "power",
+         "at": 32,
          "gives": "P",
          "note": "P is the physics symbol for power"
         }
@@ -779,9 +782,9 @@
      ]
     },
     "explanation": {
-     "surface": "Communist agents lose their influence in the period that closed with Gorbachev's openness policy.",
-     "walkthrough": "'Revolutionary' fits the Bolshevik theme perfectly, which hides its role as the signal to rearrange.",
-     "definitionFit": "Gorbachev's policy of openness in the late 1980s preceded the collapse of the USSR, closing that historical period."
+     "surface": "Revolutionary agents losing their grip as openness arrives in the USSR.",
+     "walkthrough": "'losing power' takes P from OPERATIVES to give OERATIVES, and 'Revolutionary' rearranges those letters. Glasnost was Gorbachev's openness policy before the Soviet Union broke up.",
+     "definitionFit": "The period of Soviet rule came to a close soon after Gorbachev's policy of openness in the late 1980s."
     },
     "features": {
      "answerInScene": true,
@@ -1183,42 +1186,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STEEPEST",
-     "indicators": [
-      {
-       "text": "doesn't finish",
-       "note": "not reaching the end means the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "doesn't finish",
+         "at": 21,
+         "note": "doesn't finish means the word for horse loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "horse",
-         "gives": "STEE",
-         "note": "a steed is a horse; its last letter goes"
+         "at": 15,
+         "gives": "STEED",
+         "note": "a steed is a horse"
         },
         {
-         "words": "bother",
-         "gives": "PEST",
-         "note": "to pester or bother; a pest is a bother"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "bother",
+       "at": 38,
+       "gives": "PEST",
+       "note": "a pest is a bother or nuisance"
       }
      ]
     },
     "explanation": {
-     "surface": "The priciest racehorse fails to complete the race, to its owner's annoyance.",
-     "walkthrough": "'Steep' is informal for overpriced, so the superlative means priciest. 'Bother!' reads as an exclamation; it is a noun for a nuisance.",
-     "definitionFit": "Steep is informal for excessively costly, so the superlative describes the highest price of all."
+     "surface": "The priciest horse fails to finish the race, to the owner's annoyance.",
+     "walkthrough": "'doesn't finish' cuts the D from STEED.",
+     "definitionFit": "Steep is informal for overpriced, so steepest means the costliest."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bother"
+     "misdirectedWord": "horse"
     }
    }
   },

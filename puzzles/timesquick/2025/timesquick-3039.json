@@ -308,64 +308,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INSIPID",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "rising",
-         "note": "in a down clue, rising reads the word from bottom to top"
+         "text": "Initially",
+         "at": 0,
+         "note": "initially means only the opening letter of irritated is used"
         }
        ],
        "parts": [
         {
-         "op": "first",
+         "words": "irritated",
+         "at": 10,
+         "note": "first letter of irritated"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 35,
+         "note": "about means the reversed word goes around the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "Initially",
-           "note": "what comes initially in a word is its first letter, so only the I of irritated is used"
+           "text": "rising",
+           "at": 21,
+           "note": "in a down clue, rising means the word is read upwards, so backwards"
           }
          ],
          "parts": [
           {
-           "words": "Initially irritated",
-           "gives": "IRRITATED",
-           "note": "first letter of irritated"
+           "words": "uproar",
+           "at": 28,
+           "gives": "DIN",
+           "note": "a din is a loud uproar"
           }
          ]
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "the reversed word goes around the drink"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rising uproar",
-           "gives": "NID",
-           "note": "DIN (uproar) turned upside down"
-          },
-          {
-           "words": "drink",
-           "gives": "SIP",
-           "note": "a sip is a small drink; it goes inside N…ID"
-          }
-         ]
+         "words": "drink",
+         "at": 41,
+         "gives": "SIP",
+         "note": "to sip is to drink, and a sip is a small drink"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An irritated customer makes a fuss over a bland drink.",
-     "walkthrough": "The drink sits between the N and the ID of the upturned DIN.",
-     "definitionFit": "Insipid food or drink has no flavour."
+     "surface": "Someone annoyed by a noisy row over drinks, finding it all rather dull.",
+     "walkthrough": "'rising' turns DIN upwards to NID, and 'about' wraps that around SIP, giving NSIPID after the opening I.",
+     "definitionFit": "Insipid food or drink lacks flavour, so it is a synonym for bland and tasteless."
     },
     "features": {
      "answerInScene": true,
@@ -508,46 +511,39 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "starts to",
-       "note": "take the starts, or first letters, of the words that follow"
+       "text": "unfortunately",
+       "at": 59,
+       "note": "unfortunately suggests things going wrong, so these letters end up jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "drop",
+       "at": 21
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "the letters end up in an unlucky, jumbled order"
+         "text": "starts to",
+         "at": 26,
+         "note": "starts to means the opening letters of the following words are taken"
         }
        ],
        "parts": [
         {
-         "words": "drop",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "CRI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "starts to cause regular injuries",
-           "gives": "CRI",
-           "select": "first",
-           "note": "first letters of cause, regular, injuries"
-          }
-         ]
+         "words": "cause regular injuries",
+         "at": 36,
+         "note": "first letters of cause, regular, injuries"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that parachute drops regularly cause injuries.",
-     "walkthrough": "'Parachute drop' reads as one phrase, but the definition stops at 'parachute' and 'drop' joins the fodder.",
-     "definitionFit": "The ripcord is the cord pulled to open a parachute."
+     "surface": "A parachute drop that leads to frequent injuries when things go badly.",
+     "walkthrough": "'starts to' gives CRI, the first letters of cause, regular and injuries; these join DROP and 'unfortunately' shuffles the lot.",
+     "definitionFit": "A ripcord is the cord pulled to open a parachute, so it is one part of the equipment."
     },
     "features": {
      "answerInScene": true,
@@ -581,35 +577,36 @@
      "parts": [
       {
        "words": "Wife",
-       "gives": "W",
-       "note": "w = wife"
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "words": "is",
+       "at": 5
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "extremely",
-         "note": "take the extremes, the first and last letters"
+         "at": 8,
+         "note": "extremely means only the outermost letters of eager are used"
         }
        ],
        "parts": [
         {
-         "words": "is",
-         "note": "used as written"
+         "words": "eager",
+         "at": 18,
+         "note": "first and last letters of eager"
         }
        ]
-      },
-      {
-       "words": "extremely eager",
-       "gives": "ER",
-       "note": "the first and last letters of eager"
       }
      ]
     },
     "explanation": {
-     "surface": "A wife is described as very keen and extra clever.",
-     "walkthrough": "'Extremely' looks like it intensifies 'eager' and instead takes its ends.",
-     "definitionFit": "A comparative: 'extra' does the work of the -ER ending, and wise and shrewd are close synonyms."
+     "surface": "A wife who is keen and unusually astute.",
+     "walkthrough": "'extremely' takes the two ends of eager, E and R.",
+     "definitionFit": "Wiser is the comparative of wise, meaning more shrewd or sensible than someone else."
     },
     "features": {
      "answerInScene": false,
@@ -779,57 +776,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Believer",
-      "at": 0
+      "text": "Believer's",
+      "at": 0,
+      "note": "Believer's reads as 'believer is', the definition plus a link"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MUSLIM",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "called back, so the word is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 34,
+         "note": "recalled means called back, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "arithmetic calculation recalled",
-         "gives": "MUS",
-         "note": "SUM backwards"
-        },
+         "words": "arithmetic calculation",
+         "at": 11,
+         "gives": "SUM",
+         "note": "a sum is an arithmetic calculation"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "LIM",
-         "indicators": [
-          {
-           "text": "to begin with",
-           "note": "take the first letters of the words before it"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "little interesting maths to begin with",
-           "gives": "LIM",
-           "select": "first",
-           "note": "first letters of little, interesting, maths"
-          }
-         ]
+         "text": "to begin with",
+         "at": 68,
+         "note": "to begin with means the first letters of the following words are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "little interesting maths",
+         "at": 43,
+         "note": "first letters of little, interesting, maths"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A believer remembers the maths lessons that first caught their interest.",
-     "walkthrough": "The ’s stands for 'is', joining the definition to the wordplay.",
-     "definitionFit": "A definition by category: a follower of Islam is one kind of religious believer."
+     "surface": "A believer remembers a sum, with a bit of interesting maths at the start.",
+     "walkthrough": "'recalled' turns SUM into MUS, and 'to begin with' takes LIM from little, interesting, maths.",
+     "definitionFit": "A Muslim is a follower of Islam, so one kind of religious believer."
     },
     "features": {
      "answerInScene": false,

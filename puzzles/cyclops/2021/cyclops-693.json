@@ -1160,48 +1160,51 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about can mean turned round, so the letters face the other way"
+         "at": 22,
+         "note": "about means turned around, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "insult",
+         "at": 15,
          "gives": "DIG",
-         "note": "a dig is a snide remark"
+         "note": "a dig is a snide remark, an insult"
         }
        ]
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "DY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "unfilled",
-         "note": "something unfilled is empty inside, so only the outside letters remain"
+         "at": 28,
+         "note": "unfilled means emptied of its middle, so the word loses its inner letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "24 hours",
-         "gives": "DY",
-         "select": "outer",
-         "note": "24 hours is a day, emptied of its middle"
+         "at": 37,
+         "gives": "DAY",
+         "note": "a day lasts 24 hours"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dizzy person insulted about wasting an empty day.",
-     "walkthrough": "'24 hours' looks like it points to clue 24, but it is simply a day.",
-     "definitionFit": "Giddy describes someone flighty, frivolous and excitable, a near synonym for a scatterbrained person."
+     "surface": "A scatterbrain insulted for wasting an empty day.",
+     "walkthrough": "'about' turns DIG into GID; 'unfilled' empties DAY to DY.",
+     "definitionFit": "Giddy describes someone flighty and frivolous, a synonym for scatterbrained."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "unfilled"
+     "misdirectedWord": "insult"
     }
    }
   },
@@ -1426,30 +1429,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NIGER",
      "indicators": [
       {
        "text": "to change political allegiance",
-       "note": "switching allegiance means swapping left for right, so one letter is exchanged for another"
+       "at": 20,
+       "note": "changing political allegiance means swapping left for right, so the letter L becomes R"
       }
      ],
      "parts": [
       {
        "words": "Farage",
+       "at": 13,
        "gives": "NIGEL",
-       "note": "Nigel Farage, the British right-wing politician"
+       "note": "Nigel Farage is the British right-wing politician who led UKIP and Reform UK"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A nation tempts Nigel Farage to defect to another party.",
-     "walkthrough": "L and R are the abbreviations for left and right, so changing political side swaps the final L for R.",
-     "definitionFit": "Niger is a landlocked nation in West Africa, so the general word for a state covers it."
+     "surface": "A satirical jibe at Farage switching parties for some country.",
+     "walkthrough": "Left and right are L and R, so swapping sides changes the final L of NIGEL to R.",
+     "definitionFit": "Niger is a landlocked nation in West Africa, named after the river."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "allegiance"
     }
    }

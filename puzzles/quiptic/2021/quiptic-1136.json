@@ -369,47 +369,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Old-fashioned",
+      "text": "Old",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANCIENT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "fashioned",
+       "at": 4,
+       "note": "fashioned means shaped or made, so the letters are worked into a new form"
+      },
+      {
+       "text": "excluded",
+       "at": 26,
+       "note": "excluded means the letters of heir are left out of the pool before it is rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANCIENT",
-       "indicators": [
-        {
-         "text": "excluded",
-         "note": "what is excluded is left out, so some letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "inheritance",
-         "note": "taken as written"
-        },
-        {
-         "words": "heir",
-         "note": "taken as written; these four letters are removed"
-        }
-       ]
+       "words": "inheritance",
+       "at": 14
+      },
+      {
+       "words": "heir",
+       "at": 35
       }
      ]
     },
     "explanation": {
-     "surface": "An outdated will that disinherited the rightful heir.",
-     "walkthrough": "Removing H, E, I and R from INHERITANCE leaves NITANCE, which must then be rearranged; the clue gives no separate signal for that rearrangement.",
-     "definitionFit": "Ancient means very old, and something old-fashioned belongs to a much earlier time, so the two overlap loosely."
+     "surface": "An outmoded will that cut the heir out of the inheritance.",
+     "walkthrough": "'Old-fashioned' looks like one word for the definition, but it splits: 'Old' defines, 'fashioned' signals the anagram. Take H, E, I, R out of INHERITANCE and rearrange the seven letters left.",
+     "definitionFit": "Ancient is a synonym for very old, belonging to the distant past."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heir"
+     "misdirectedWord": "fashioned"
     }
    }
   },
@@ -503,47 +500,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Country",
+      "text": "Country has organised crime within its borders",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AMERICA",
+     "op": "container",
      "indicators": [
       {
-       "text": "organised",
-       "note": "organising things puts them into a new arrangement"
+       "text": "within",
+       "at": 28,
+       "note": "within means the rearranged letters sit inside the border letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "within",
-         "note": "something within is placed inside something else"
+         "text": "its borders",
+         "at": 35,
+         "note": "its borders are the first and last letters of the country being clued, so the clue refers back to its own answer"
         }
        ],
        "parts": [
         {
-         "words": "its borders",
-         "gives": "AA",
-         "note": "the outer letters of the country being clued, A at each end"
-        },
+         "words": "Country",
+         "at": 0,
+         "gives": "AMERICA",
+         "note": "the country being defined, whose name supplies its own outer letters"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "organised",
+         "at": 12,
+         "note": "organised means arranged into a new order, so the letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "crime",
-         "note": "the five letters rearranged"
+         "at": 22
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A nation where the Mafia operates inside its frontiers.",
-     "walkthrough": "'Organised crime' is a stock phrase meaning the Mafia, which hides the anagram signal. 'Its borders' refers to the answer itself: the country begins and ends with A.",
-     "definitionFit": "America is the everyday name for the United States, a nation and so a country."
+     "surface": "A nation where organised crime flourishes inside its frontiers.",
+     "walkthrough": "'its borders' points back at the answer itself: its first and last letters, AA, wrap the rearranged crime. Read whole, the clue is also a jaundiced description of the country.",
+     "definitionFit": "America is commonly used for the United States, a nation."
     },
     "features": {
      "answerInScene": true,
@@ -929,64 +940,65 @@
     "definitions": [
      {
       "text": "They write",
-      "at": 0,
-      "note": "a pronoun and verb standing for a plural noun: people who write music"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COMPOSERS",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the central letters are removed"
+       "text": "in",
+       "at": 25,
+       "note": "in means the rearranged letters go inside the other piece"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "COMPOSERS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "baroque",
-         "note": "baroque means elaborate and convoluted, so the letters are twisted into a new pattern"
+         "text": "heartless",
+         "at": 28,
+         "note": "heartless means the middle letters of covers are removed"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "one thing in another sits inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "covers",
-           "gives": "CORS",
-           "note": "the word with its middle two letters taken out"
-          },
-          {
-           "words": "poems",
-           "note": "the five letters rearranged"
-          }
-         ]
+         "words": "covers",
+         "at": 38,
+         "gives": "COVERS"
+        },
+        {
+         "gives": "VE"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "baroque",
+         "at": 11,
+         "note": "baroque means ornate and convoluted, so these letters are twisted into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poems",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Poets who write ornate verse bound in uncaring covers.",
-     "walkthrough": "'Baroque' suggests music of the Bach era, which fits the answer, but it is the anagram signal. The definition is the opening two words.",
-     "definitionFit": "Composers create pieces of music by setting them down in notation, so they are people who write."
+     "surface": "Elaborate poems tucked inside cold-hearted book jackets.",
+     "walkthrough": "'heartless' takes VE from the middle of COVERS to leave CORS; 'baroque' rearranges POEMS into MPOSE, which goes 'in' that.",
+     "definitionFit": "Composers are people who write music, so they are writers of scores."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "baroque"
     }
    }
@@ -1174,40 +1186,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ECHELON",
-     "indicators": [
-      {
-       "text": "Trim",
-       "note": "trimming something cuts a bit off, here at the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Trim",
+         "at": 0,
+         "note": "trim means cut back, here the opening letter is clipped off"
+        }
+       ],
        "parts": [
         {
          "words": "tech",
-         "gives": "ECH",
-         "note": "the word without its first letter"
+         "at": 5,
+         "gives": "TECH",
+         "note": "tech taken as written"
         },
         {
-         "words": "billionaire",
-         "gives": "ELON",
-         "note": "Elon Musk is a famous tech billionaire"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "billionaire's",
+       "at": 10,
+       "gives": "ELON",
+       "note": "Elon Musk is a well-known tech billionaire"
       }
      ]
     },
     "explanation": {
-     "surface": "A reduction in the standing of a rich technology mogul.",
-     "walkthrough": "'Trim' could cut either end; only removing the opening T gives a usable piece. The billionaire is identified by first name only.",
-     "definitionFit": "An echelon is a level or rank in an organisation or society, so it denotes a person's standing."
+     "surface": "Cutting back a tech billionaire's standing.",
+     "walkthrough": "'Trim' clips the T from TECH, leaving ECH, and the billionaire is Elon Musk.",
+     "definitionFit": "An echelon is a level or rank in an organisation, so a person's standing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Trim"
     }
@@ -1399,62 +1415,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXHAUST",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without a top means the first letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stripped",
+         "at": 16,
+         "note": "stripped means each word loses its outer letters, as if undressed"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "stripped",
-           "note": "stripped of its outer layers, each word keeps only its inside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sexy",
-           "note": "the inner two letters"
-          }
-         ]
+         "words": "sexy chap",
+         "at": 6,
+         "note": "the two words taken letter for letter"
         },
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "chap",
-           "note": "the inner two letters"
-          }
-         ]
-        },
+         "gives": "SYCP"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 32,
+         "note": "topless means the word loses its first letter"
+        }
+       ],
+       "parts": [
         {
          "words": "just",
-         "gives": "UST",
-         "note": "the word without its first letter"
+         "at": 27,
+         "note": "just taken as written"
+        },
+        {
+         "gives": "J"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tired striptease artist ends up merely bare-chested.",
-     "walkthrough": "'Weary' reads as an adjective but is used as a verb, to tire out. Each piece is a word with letters stripped away.",
-     "definitionFit": "To exhaust someone is to drain all their energy, which is a meaning of weary as a verb."
+     "surface": "A tired stripper, having just bared his top half.",
+     "walkthrough": "'stripped' leaves EX from sexy and HA from chap; 'topless' takes the J off JUST.",
+     "definitionFit": "To exhaust someone is to tire them out completely, a synonym for weary as a verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Weary"
+     "joke": "pun",
+     "misdirectedWord": "stripped"
     }
    }
   },
@@ -1582,53 +1596,55 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Dine",
-       "gives": "INDE",
-       "note": "the four letters rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 5,
+         "note": "out means not in its usual state, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dine",
+         "at": 0
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "restricting",
-         "note": "restricting something holds it in, so one piece is placed inside another"
+         "at": 23,
+         "note": "restricting means holding in, so the word for coins goes around the other piece"
         }
        ],
        "parts": [
         {
          "words": "coppers",
+         "at": 14,
          "gives": "PENCE",
-         "note": "copper coins are pennies; pence is the British plural"
+         "note": "coppers are low-value coins, pence"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "out",
-           "note": "out can mean wrong or askew, so the letters are put in a different order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "study",
-           "gives": "DEN",
-           "note": "a den is a private room for reading or work, a study"
-          }
-         ]
+         "words": "study",
+         "at": 35,
+         "gives": "DEN",
+         "note": "a den is a private room for study"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Eating out with police officers who keep a close eye on someone's studies.",
-     "walkthrough": "'Coppers' suggests police, but here it means low-value coins: British pennies are copper-coloured.",
-     "definitionFit": "Independence is the state of being self-governing and not controlled by others, which is liberty."
+     "surface": "Dining out with police officers while keeping them away from the study.",
+     "walkthrough": "'out' rearranges DINE into INDE; 'restricting' places DEN inside PENCE. 'coppers' wants to be police, but it is the coins.",
+     "definitionFit": "Independence is freedom from control by others, especially of a nation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "coppers"
     }
    }
