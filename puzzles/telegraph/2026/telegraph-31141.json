@@ -1239,7 +1239,8 @@
      "indicators": [
       {
        "text": "hosts",
-       "note": "a host takes guests in, so the setter's letters enclose the letters picked out next"
+       "at": 19,
+       "note": "the old setter hosts the other letters, holding them inside"
       }
      ],
      "parts": [
@@ -1248,46 +1249,46 @@
        "parts": [
         {
          "words": "old",
+         "at": 8,
          "gives": "EX",
-         "note": "ex means former"
+         "note": "ex means former, as in an ex-wife"
         },
         {
          "words": "setter",
+         "at": 12,
          "gives": "ME",
-         "note": "the setter refers to themself as me"
+         "note": "the setter refers to themselves as me"
         }
        ]
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TRE",
        "indicators": [
         {
          "text": "occasionally",
-         "note": "occasionally means every so often, so only alternate letters of the word are used"
+         "at": 32,
+         "note": "occasionally means every so often, so alternate letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Tories",
-         "gives": "TRE",
-         "select": "alternate",
-         "note": "the first, third and fifth letters"
+         "at": 25,
+         "note": "its first, third and fifth letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former crossword compiler with extreme views entertains some Conservatives.",
-     "walkthrough": "Old and setter together make the host, and the picked letters sit between its two halves; the setter is the 'me' of the clue writer.",
-     "definitionFit": "A radical position goes far beyond the mainstream, so it is extreme in its views."
+     "surface": "A retired crossword setter with radical views has some Conservatives round now and then.",
+     "walkthrough": "'old setter' is EX ME, not an elderly compiler; it 'hosts' TRE, the letters 'occasionally' picked from 'Tories'.",
+     "definitionFit": "Radical and extreme are both used of views or measures far from the moderate centre."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter"
     }
    }
   },
@@ -1613,53 +1614,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RESPECTED",
+     "op": "composite",
      "indicators": [
       {
        "text": "Dodgy",
-       "note": "dodgy means unreliable or shifty, so the letters are rearranged"
+       "at": 0,
+       "note": "dodgy means unreliable or not right, so the letters are rearranged"
+      },
+      {
+       "text": "no",
+       "at": 23,
+       "note": "the adult is not there, so its letter is taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RESPECTED",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "no adult means without the letter for adult, so it is dropped from the fodder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "dates",
-         "note": "taken as written"
+         "at": 6,
+         "note": "taken as written for the pool"
         },
         {
          "words": "creep",
-         "note": "taken as written"
-        },
-        {
-         "words": "adult's",
-         "gives": "A",
-         "note": "A is the abbreviation for adult; the removed letter"
+         "at": 17,
+         "note": "taken as written for the pool"
         }
        ]
+      },
+      {
+       "words": "adult's",
+       "at": 26,
+       "gives": "A",
+       "note": "A is the film-classification abbreviation for adult; the 's stands for 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "Suspicious romantic outings with a sleazy man, no grown-up present, are welcomed.",
-     "walkthrough": "Take A from DATES and CREEP, then rearrange the remaining letters.",
-     "definitionFit": "Someone respected is held in high regard, which is to be valued or appreciated."
+     "surface": "A shady creep goes on dates, and no grown-up thinks well of him.",
+     "walkthrough": "Pool DATES and CREEP, take out A because there is 'no adult', and 'Dodgy' tells you to rearrange the remaining nine letters.",
+     "definitionFit": "Someone respected is held in high regard, which is what being appreciated means here."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "creep"
+     "misdirectedWord": "Dodgy"
     }
    }
   },

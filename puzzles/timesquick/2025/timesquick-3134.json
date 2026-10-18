@@ -54,46 +54,49 @@
      "indicators": [
       {
        "text": "covered by",
-       "note": "something covered by another thing sits inside it, so the media word wraps around"
+       "at": 20,
+       "note": "the half word is covered by the media word, sitting inside it"
       }
      ],
      "parts": [
       {
        "words": "news media",
+       "at": 31,
        "gives": "PRESS",
-       "note": "the press is the news media collectively"
+       "note": "the press is the collective name for newspapers and journalists"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "INC",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half of a six-letter word means keeping only its first three letters"
+         "at": 15,
+         "note": "only half of the word is kept, here its first three letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "income's",
-         "gives": "INC",
-         "select": "first",
-         "note": "the front half of the word income"
+         "at": 6,
+         "gives": "INCOME",
+         "note": "income, the possessive just tying the half to it"
+        },
+        {
+         "gives": "OME"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal's private finances being picked over by the tabloid papers.",
-     "walkthrough": "Income is six letters, so its half is the first three; 'Royal' reads as an adjective but is the noun definition.",
-     "definitionFit": "A princess is a female member of a monarch's family, so she counts as a royal."
+     "surface": "Half of a royal's earnings gets reported on by the newspapers.",
+     "walkthrough": "'half' of INCOME is INC, which is 'covered by' PRESS, going in after PR.",
+     "definitionFit": "A princess is a female member of a royal family, so the noun royal fits."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Royal"
+     "misdirectedWord": "covered"
     }
    }
   },
@@ -388,42 +391,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PARVENU",
+     "op": "container",
      "indicators": [
       {
-       "text": "Drunken",
-       "note": "a drunken thing staggers about out of order, so these letters are jumbled"
+       "text": "gatecrashed by",
+       "at": 16,
+       "note": "the gatecrasher gets inside the party, so this letter goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "gatecrashed by",
-         "note": "a gatecrasher gets inside a party, so one piece goes into the other"
+         "text": "Drunken",
+         "at": 0,
+         "note": "drunken letters stagger out of order, so rave-up is rearranged"
         }
        ],
        "parts": [
         {
          "words": "rave-up",
-         "note": "the letters of rave-up rearranged"
-        },
-        {
-         "words": "northern",
-         "gives": "N",
-         "note": "N is the abbreviation for northern"
+         "at": 8,
+         "note": "taken as written for the anagram"
         }
        ]
+      },
+      {
+       "words": "northern",
+       "at": 31,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A loud boozy party invaded by an uninvited northerner on the make.",
-     "walkthrough": "A rave-up is a wild party; N goes into the rearranged PARVEU between E and U.",
-     "definitionFit": "A parvenu is a person who has risen suddenly in wealth or status and is seen as not belonging, an upstart."
+     "surface": "A boozy party is crashed by a pushy newcomer from the North.",
+     "walkthrough": "'Drunken' rearranges RAVEUP into PARVEU, and that is 'gatecrashed by' N, which goes in before the final U.",
+     "definitionFit": "A parvenu is a person who has recently risen to wealth or status and is thought not to belong, an upstart."
     },
     "features": {
      "answerInScene": true,
@@ -890,42 +894,59 @@
        "indicators": [
         {
          "text": "regularly",
-         "note": "regularly means at fixed intervals, so every other letter is kept"
+         "at": 8,
+         "note": "regularly means at even intervals, so every other letter is taken, here the second, fourth and sixth"
         }
        ],
        "parts": [
         {
          "words": "Faculty",
-         "note": "the second, fourth and sixth letters of faculty"
+         "at": 0,
+         "note": "gives its alternate letters"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "UMN",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "core trio of",
-         "note": "the core is the centre, so the three middle letters are taken"
+         "text": "core",
+         "at": 26,
+         "note": "the core is the centre, so the back pair is dropped too, leaving the central letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "alumnae",
-         "gives": "UMN",
-         "select": "middle",
-         "note": "the three central letters of alumnae"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "trio of",
+           "at": 31,
+           "note": "only a trio, three letters, is wanted from the seven-letter word, so its front pair is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "alumnae",
+           "at": 39,
+           "note": "keeps only its central three letters"
+          },
+          {
+           "gives": "AL"
+          }
+         ]
+        },
+        {
+         "gives": "AE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "University staff and female graduates coming together, with some of them falling for each other.",
-     "walkthrough": "'Fall for' reads as falling in love, but fall is the North American name for the season.",
-     "definitionFit": "In North American English the season after summer is called fall, so for some speakers it is their word for autumn."
+     "surface": "University staff meet former women students and some of them fall for each other.",
+     "walkthrough": "'Faculty regularly' gives AUT; the 'core trio of alumnae' is UMN, its central three letters with AL and AE left at the ends. 'fall for some' is the definition because Americans call the season fall.",
+     "definitionFit": "Autumn is the season that people in North America call fall."
     },
     "features": {
      "answerInScene": false,

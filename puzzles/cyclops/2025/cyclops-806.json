@@ -550,48 +550,54 @@
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "hugging",
+         "at": 5,
+         "note": "the girl hugs the date, so its letter goes inside the word for her"
+        }
+       ],
        "parts": [
         {
          "words": "Miss",
+         "at": 0,
          "gives": "GIRL",
-         "note": "a miss is a young woman"
+         "note": "a miss is a girl"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "hugging",
-           "note": "One word hugs another by wrapping round it."
-          },
-          {
-           "text": "top",
-           "note": "The top of a word is its first letter."
-          }
-         ],
-         "parts": [
-          {
-           "words": "date",
-           "note": "standard abbreviation"
-          }
-         ]
+         "words": "date",
+         "at": 13,
+         "gives": "D"
         }
        ]
       },
       {
-       "words": "elasticated top",
-       "gives": "E",
-       "note": "first letter of elasticated"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 35,
+         "note": "the top of a word is its first letter, so this takes the opening letter of elasticated"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elasticated",
+         "at": 23,
+         "note": "supplies its first letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An underwear advert: a garment with an elastic top that hugs and flatters.",
-     "walkthrough": "'Elasticated top' looks like part of the garment's description, which the surface wants, but it only gives E.",
-     "definitionFit": "Definition by description: a tight undergarment worn to smooth the waist and hips."
+     "surface": "A woman squeezes into a garment with a stretchy waistband for a date, hoping it flatters her figure.",
+     "walkthrough": "'Miss' is a girl here, not a failure to hit: GIRL 'hugging' D makes GIRDL, then the 'top' of 'elasticated' adds E.",
+     "definitionFit": "A girdle is a tight-fitting foundation garment worn to smooth and shape the waist and hips."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Miss"
     }
    }
@@ -691,42 +697,46 @@
      "indicators": [
       {
        "text": "grabbing",
-       "note": "One word grabs another by taking it inside."
+       "at": 42,
+       "note": "the confession grabs hold of a letter, so that letter goes inside it"
       }
      ],
      "parts": [
       {
        "words": "Admission of promiscuous couple",
+       "at": 10,
        "gives": "WESWING",
-       "note": "a couple might confess 'we swing'"
+       "note": "a couple who swap partners might admit 'we swing'"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "butt",
-         "note": "The butt of a thing is its end, so the last letter."
+         "at": 63,
+         "note": "the butt is the tail end, so this takes the last letter of president's, ignoring the apostrophe-s"
         }
        ],
        "parts": [
         {
-         "words": "president's butt",
-         "gives": "PRESIDENTBUTT",
-         "note": "last letter of president"
+         "words": "president's",
+         "at": 51,
+         "gives": "PRESIDENT",
+         "note": "the president, the possessive just tying the butt to him; its last letter is the T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sex scandal: a swinging couple fondle the president's bottom in the White House.",
-     "walkthrough": "Swinging is partner-swapping. The T goes inside after WES.",
-     "definitionFit": "Definition by what it holds: the President's office sits in that part of the White House."
+     "surface": "A sleazy story about swingers getting hold of a president's backside in the Oval Office.",
+     "walkthrough": "The 'butt' of 'president' is its last letter T, and WE SWING is 'grabbing' it, so T goes in after WES.",
+     "definitionFit": "The Oval Office, the US president's study, sits in the West Wing of the White House."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "butt"
     }
    }
@@ -800,37 +810,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INCOGNITO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "smearing",
-       "note": "Smearing spreads something out of shape, so the letters are rearranged."
+       "text": "on",
+       "at": 43,
+       "note": "in a down clue the first part sits on top of the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "smearing",
+         "at": 20,
+         "note": "smearing the letters messes them up, so gin and tonic are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "gin and tonic",
-         "gives": "INCOGNIT",
-         "note": "GIN and TONIC together, rearranged"
-        },
-        {
-         "words": "ball",
-         "gives": "O",
-         "note": "a ball is round like O"
+         "at": 29,
+         "gives": "GINTONIC",
+         "note": "the drink's two names, gin and tonic, give their letters with the joining word left out"
         }
        ]
+      },
+      {
+       "words": "ball",
+       "at": 46,
+       "gives": "O",
+       "note": "a ball is round, the shape of the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone at a party, not their usual self, spilling a G&T at a ball.",
-     "walkthrough": "The 'and' only joins the two drinks; their letters alone are jumbled.",
-     "definitionFit": "Definition by description: going about under a false identity, not openly as oneself."
+     "surface": "Someone spills a gin and tonic over a ball, or is too drunk at a ball to be themselves.",
+     "walkthrough": "'smearing' rearranges GIN TONIC into INCOGNIT, and 'on' puts that above the ball-shaped O in this down entry.",
+     "definitionFit": "Going incognito means hiding your identity, appearing as someone other than who you are."
     },
     "features": {
      "answerInScene": false,
@@ -977,40 +995,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANNOTATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 40,
+       "note": "the jumbled letters go outside, around the abbreviation for number"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "disturbance",
-         "note": "A disturbance throws things into disorder, so the letters are rearranged."
-        },
-        {
-         "text": "outside",
-         "note": "The rearranged letters go outside the other piece."
+         "at": 28,
+         "note": "a disturbance throws things into disorder, so TEN AT A is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Ten at a",
-         "note": "TEN AT A rearranged, split around the other piece"
+         "words": "Ten",
+         "at": 19,
+         "note": "taken as written as part of the anagram"
         },
         {
-         "words": "Number",
-         "gives": "NO",
-         "note": "short for number"
+         "words": "at",
+         "at": 23,
+         "note": "taken as written as part of the anagram"
+        },
+        {
+         "words": "a",
+         "at": 26
         }
        ]
+      },
+      {
+       "words": "Number",
+       "at": 12,
+       "gives": "NO"
       }
      ]
     },
     "explanation": {
-     "surface": "A protest outside Downing Street pushing the Prime Minister to the sidelines.",
-     "walkthrough": "Number Ten is Downing Street, the Prime Minister's home, but Number and Ten are split here. Marginalize is read literally: write in the margins.",
-     "definitionFit": "Playful literal reading: to put notes in the margins of a text."
+     "surface": "A disturbance outside Number Ten Downing Street, the Prime Minister's residence, pushes someone to the political margins.",
+     "walkthrough": "'Number Ten' reads as Downing Street, but Number gives NO; 'disturbance' rearranges TEN AT A into ANTATE, which goes 'outside' NO as AN...TATE.",
+     "definitionFit": "To annotate is to write notes in the margins of a text, which is what marginalize can mean here."
     },
     "features": {
      "answerInScene": false,
@@ -1037,50 +1067,48 @@
     "definitions": [
      {
       "text": "A snip",
-      "at": 0,
-      "note": "'A snip' is a noun phrase used predicatively, as in 'it was a snip', matching the adjective."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "Finally points to the last letter."
+       "text": "accepted by",
+       "at": 25,
+       "note": "the man accepts a letter, taking it inside himself"
       }
      ],
      "parts": [
       {
        "words": "Guy",
+       "at": 37,
        "gives": "CHAP",
-       "note": "a guy is a chap"
+       "note": "a guy is a chap, a man"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "accepted by",
-         "note": "A piece accepted by another is taken inside it."
+         "text": "finally",
+         "at": 17,
+         "note": "this takes the last letter of the word procedure"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "procedure finally",
-         "gives": "E",
-         "select": "last",
-         "note": "last letter of procedure"
+         "words": "procedure",
+         "at": 7,
+         "note": "gives its final letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man agreeing to a vasectomy.",
-     "walkthrough": "'A snip' pretends to be the surgery; it is the British sense of a bargain.",
-     "definitionFit": "British idiom: a bargain is called a snip, so saying something was one means it was inexpensive."
+     "surface": "A man agrees to a vasectomy, the snip, as a procedure.",
+     "walkthrough": "'procedure finally' is E, 'accepted by' CHAP. 'A snip' looks like the surgical procedure, but something that is a snip is a bargain.",
+     "definitionFit": "In British speech a snip is a bargain, something surprisingly inexpensive, so 'it's a snip' means it costs little."
     },
     "features": {
      "answerInScene": false,
@@ -1237,52 +1265,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HIGNFY",
-     "indicators": [
-      {
-       "text": "impossible",
-       "note": "An impossible version of a word is a nonsense one, so the letters are jumbled."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "impossible",
+         "at": 29,
+         "note": "an impossible arrangement is not the real one, so the letters of nigh are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "nigh",
-         "note": "its letters rearranged"
-        },
+         "at": 24,
+         "note": "taken as written for the anagram"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "Extremely means the extremes, the first and last letters."
-          }
-         ],
-         "parts": [
-          {
-           "words": "extremely funny",
-           "gives": "FUNNY",
-           "note": "first and last letters of funny"
-          }
-         ]
+         "text": "extremely",
+         "at": 44,
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "funny",
+         "at": 54,
+         "note": "gives its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A review of a satirical TV show: almost impossible to watch, and very funny.",
-     "walkthrough": "HIGNFY is short for Have I Got News For You, a long-running British comedy panel show on the week's news, with Private Eye's editor Ian Hislop a team captain.",
-     "definitionFit": "Abbreviation: the initials of the show's title, and 'Short' says the answer is shortened."
+     "surface": "A short review of a topical panel show, calling it almost impossible but very funny.",
+     "walkthrough": "'impossible' rearranges NIGH into HIGN and 'extremely funny' gives FY. 'Short' marks an abbreviation: Have I Got News For You is a British satirical news quiz on BBC television.",
+     "definitionFit": "The initials stand for a BBC panel quiz built around the week's news, a show famous for topical satire."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "impossible"
+     "aptDefinition": false
     }
    }
   },
@@ -1324,29 +1352,42 @@
      "indicators": [
       {
        "text": "alternative",
-       "note": "An alternative version of a word is a different arrangement of its letters."
-      },
-      {
-       "text": "half",
-       "note": "Half a word is one of its two halves."
+       "at": 18,
+       "note": "an alternative arrangement of the letters, so they are rearranged"
       }
      ],
      "parts": [
       {
        "words": "comedian",
-       "note": "used as itself"
+       "at": 30,
+       "note": "taken as written for the anagram"
       },
       {
-       "words": "half shit",
-       "gives": "IT",
-       "note": "the back half of shit"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 41,
+         "note": "only half of the word is kept, its first two letters being dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shit",
+         "at": 46,
+         "note": "half of it, the back two letters, joins the anagram"
+        },
+        {
+         "gives": "SH"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An alternative comic selling drugs, half of it rubbish.",
-     "walkthrough": "The alternative comedy scene suggests a type of comic, but 'alternative' is the instruction to rearrange COMEDIAN and IT together.",
-     "definitionFit": "Plain synonym: medicines prescribed or taken for an illness."
+     "surface": "Drugs being supplied by an alternative comic whose act is half rubbish.",
+     "walkthrough": "'Alternative comedian' sounds like a style of stand-up, but 'alternative' is the anagram signal; the back half of 'shit', IT, joins COMEDIAN.",
+     "definitionFit": "Medication is the general word for medicines, the drugs a doctor prescribes."
     },
     "features": {
      "answerInScene": true,
@@ -1493,46 +1534,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ENMITY",
+     "indicators": [
+      {
+       "text": "berserk",
+       "at": 17,
+       "note": "going berserk is going wild, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ENMITY",
        "indicators": [
         {
          "text": "goes",
-         "note": "The piece goes, leaving the word without it."
-        },
-        {
-         "text": "berserk",
-         "note": "Berserk means wildly out of control, so the letters are jumbled."
+         "at": 12,
+         "note": "the letter for one goes, leaving the word without it"
         }
        ],
        "parts": [
         {
          "words": "Anytime",
-         "note": "used as itself"
+         "at": 0,
+         "note": "taken as written before a letter is taken out"
         },
         {
          "words": "one",
+         "at": 8,
          "gives": "A",
-         "note": "a means one"
+         "note": "A means one, as in a single thing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Whenever someone loses their temper, bad feeling follows.",
-     "walkthrough": "One is A here, as in 'a pound'; take it out of ANYTIME and jumble the rest.",
-     "definitionFit": "Plain synonym: ill will between enemies."
+     "surface": "Whenever someone loses their temper, there is bad feeling.",
+     "walkthrough": "'one goes' removes A from ANYTIME, leaving NYTIME; 'berserk' then rearranges NYTIME into the answer.",
+     "definitionFit": "Enmity is a state of mutual hatred or opposition, the same idea as hostility."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "berserk"
     }
    }
   },
@@ -1557,59 +1600,69 @@
     "definitions": [
      {
       "text": "Starmer's pretty low at present",
-      "at": 58,
-      "note": "The definition is a whole statement about the answer: Starmer's approval ratings are what is low."
+      "at": 58
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "APPROVALRATINGS",
-     "indicators": [
-      {
-       "text": "going without",
-       "note": "The month goes outside the other piece, around it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "affected",
-         "note": "Something affected is altered, so the letters are rearranged."
+         "text": "going without",
+         "at": 15,
+         "note": "the month goes outside, around the letter"
         }
        ],
        "parts": [
         {
          "words": "Month",
+         "at": 9,
          "gives": "APR",
-         "note": "short for April"
+         "note": "APR is the calendar abbreviation for April"
         },
         {
          "words": "pee",
+         "at": 29,
          "gives": "P",
-         "note": "the letter's name"
+         "note": "pee is the spelt-out name of the letter P"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "affected",
+         "at": 47,
+         "note": "the organs are affected, so the letters of vital organs are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vital",
+         "at": 34,
+         "note": "taken as written for the anagram"
         },
         {
-         "words": "vital organs",
-         "gives": "OVALRATINGS",
-         "note": "its letters rearranged"
+         "words": "organs",
+         "at": 40,
+         "note": "taken as written for the anagram"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A month of kidney trouble, with a line about Keir Starmer's unpopularity.",
-     "walkthrough": "Keir Starmer is the UK Prime Minister. P sits inside APR, then the jumbled VITAL ORGANS follows.",
-     "definitionFit": "Topical example: poll figures for a leader's popularity, which were low for Starmer when this was set."
+     "surface": "A medical complaint about a month with no urination and failing organs, ending in a political jibe at Keir Starmer, the UK Prime Minister.",
+     "walkthrough": "'going without' means going outside, not lacking: APR wraps P to give APPR. 'affected' rearranges VITAL ORGANS into OVALRATINGS.",
+     "definitionFit": "Opinion-poll scores measure how much the public likes a leader, and Starmer's have been poor recently."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "pee"
+     "misdirectedWord": "without"
     }
    }
   },
@@ -1638,56 +1691,65 @@
      "indicators": [
       {
        "text": "entered in",
-       "note": "The piece is entered inside the others."
+       "at": 8,
+       "note": "the nothing is entered into the jumbled word, so its letter goes inside"
       }
      ],
      "parts": [
       {
-       "words": "he",
-       "note": "used as itself"
-      },
-      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "unfinished",
-         "note": "An unfinished word loses its last letter."
+         "text": "ballsed up",
+         "at": 41,
+         "note": "something ballsed up is botched or messed up, so all these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "ballsed up",
-           "note": "Ballsed up means botched, so the letters come out jumbled."
+           "text": "unfinished",
+           "at": 19,
+           "note": "an unfinished word loses its final letter"
           }
          ],
          "parts": [
           {
-           "words": "unfinished cryptic",
-           "gives": "CRYPTI",
-           "note": "cryptic without its last letter"
+           "words": "cryptic",
+           "at": 30,
+           "note": "gives all but its last letter"
           },
           {
-           "words": "Sod all",
-           "gives": "O",
-           "note": "nothing, zero"
+           "gives": "C"
           }
          ]
+        },
+        {
+         "words": "he",
+         "at": 38,
+         "note": "taken as written for the anagram"
         }
        ]
+      },
+      {
+       "words": "Sod all",
+       "at": 0,
+       "gives": "O",
+       "note": "sod all is slang for nothing, which is zero, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter who botched a cryptic and got nowhere, denounced as a fraud.",
-     "walkthrough": "'Sod all' is British slang for nothing at all, so it gives O.",
-     "definitionFit": "Plain synonym: someone pretending to virtues they lack."
+     "surface": "A setter fumbles a cryptic clue, puts nothing in it, and is called a fraud.",
+     "walkthrough": "'unfinished' cuts 'cryptic' to CRYPTI; with HE, 'ballsed up' rearranges that to HYPCRITE, and O for 'sod all' (nothing) is 'entered in' after HYP.",
+     "definitionFit": "A hypocrite pretends to virtues or beliefs they lack, making them a kind of fraud."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Sod"
     }
    }
   },
