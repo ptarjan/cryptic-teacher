@@ -84,6 +84,17 @@ check("a leaf giving a stretch of its words is counted", 1, v.leaf_folds({"words
 check("a leaf with a note is not", 0, v.leaf_folds({"words": "bridge", "gives": "RID", "note": "x"}))
 check("a leaf under a hidden-word op is not", 0, v.leaf_folds({"op": "hidden", "parts": [{"words": "bridge", "gives": "RID"}]}))
 check("a possessive S dropped is not", 0, v.leaf_folds({"words": "Mike's", "gives": "MIKE"}))
+check("a standard abbreviation opening the word is not a fold", 0, v.leaf_folds({"words": "English", "gives": "ENG"}))
+check("an unlisted stretch of the word is still a fold", 1, v.leaf_folds({"words": "engineering", "gives": "ENG"}))
+check("an inner charade under an indicated charade is not counted", 0, v.charade_in_charade(
+    {"op": "charade", "indicators": [{"text": "after"}], "parts": [
+        {"op": "charade", "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]},
+        {"op": "charade", "parts": [{"words": "c", "gives": "C"}, {"words": "d", "gives": "D"}]}]}))
+check("a bare leaf whose note names the preamble is not counted", 0, v.bare_in_charade(
+    {"op": "charade", "parts": [{"gives": "R", "note": "the letter the preamble says the wordplay omits"},
+                                {"words": "b", "gives": "B"}]}))
+check("a bare leaf whose note says nothing of the device is counted", 1, v.bare_in_charade(
+    {"op": "charade", "parts": [{"gives": "R", "note": "an R"}, {"words": "b", "gives": "B"}]}))
 sel = tree("(first([a]) + first([b]))", "a b")
 check("a selection repeated word by word is counted", 1, v.repeated_selections(sel))
 check("one leaf is no wordplay", 1, v.single_leaf({"words": "a", "gives": "A"}))

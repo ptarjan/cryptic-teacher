@@ -49,6 +49,14 @@ check("an inflected indicator counts as named", [],
 check("a link word between indicator and fodder is allowed", [], v.apart_indicators(
     {"op": "anagram", "indicators": [{"text": "mixed", "at": 0}], "parts": [{"words": "wee", "at": 9}]},
     "mixed up wee"))
+first = {"op": "first", "indicators": [{"text": "first of", "at": 0}], "parts": [{"words": "learner", "at": 9}]}
+check("'first of' read as 'the first L' is named", [],
+      v.walkthrough_gaps(first, "L", "Only the first L of the shopping centres is swapped."))
+first2 = {"op": "first", "indicators": [{"text": "leader", "at": 0}], "parts": [{"words": "learner", "at": 7}]}
+check("a first-letter indicator paraphrased by 'first' is named", [],
+      v.walkthrough_gaps(first2, "L", "Take the first letter of learner."))
+check("a first-letter indicator with no position word is still a gap", [("indicator", "leader")],
+      v.walkthrough_gaps(first2, "L", "Take the letter L from learner."))
 tag = v.follow_warnings("56D", {"wordplay": ewe, "explanation": {"walkthrough": "A lamb grows up."}},
                         {"clue": {"text": EWE}, "solution": "EWE", "length": 3}, {})
 check("both findings are warnings with their markers", [True, True],
