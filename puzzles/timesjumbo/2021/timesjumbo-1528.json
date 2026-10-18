@@ -1526,51 +1526,55 @@
      "indicators": [
       {
        "text": "Stuff",
-       "note": "to stuff something is to fill its inside, so one piece is packed into another"
+       "at": 0,
+       "note": "to stuff a fish is to fill it, so the other letters go inside the fish"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fish",
-         "gives": "EEL",
-         "note": "an eel is a fish"
-        },
-        {
-         "words": "ten",
-         "gives": "X",
-         "note": "X is the Roman numeral for ten"
-        }
-       ]
+       "words": "fish",
+       "at": 6,
+       "gives": "EEL",
+       "note": "an eel is a fish"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "to begin with",
-         "note": "what comes to begin with is the opening letter only"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "capers",
-         "note": "the opening letter"
+         "words": "ten",
+         "at": 16,
+         "gives": "X",
+         "note": "X is the Roman numeral for ten"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "to begin with",
+           "at": 27,
+           "note": "to begin with points to the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "capers",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook is told to stuff a fish with ten capers first and do a good job.",
-     "walkthrough": "The recipe surface hides the Roman numeral for ten and the first letter of capers packed inside the fish.",
-     "definitionFit": "To excel is to be outstanding or perform exceptionally, so it is a stronger synonym for doing well."
+     "surface": "A cook stuffs a fish with capers and makes a success of it.",
+     "walkthrough": "EEL is stuffed with X (ten) and C (capers, to begin with).",
+     "definitionFit": "To excel is to be outstanding, to perform very well."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Stuff"
+     "misdirectedWord": "capers"
     }
    }
   },
@@ -3540,51 +3544,68 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MISDEAL",
-     "indicators": [
-      {
-       "text": "putting left for right",
-       "note": "putting one thing in place of another is a swap of letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the start, so only the first letter is taken"
+         "at": 27,
+         "note": "initially picks the first letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Mix-up",
-         "gives": "M",
-         "select": "first",
-         "note": "the opening letter"
+         "at": 20
         }
        ]
       },
       {
        "words": "is",
-       "note": "taken as written"
+       "at": 37,
+       "gives": "IS"
       },
       {
-       "words": "costly",
-       "gives": "DEAR",
-       "note": "dear means expensive, costly"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "putting",
+         "at": 47,
+         "note": "putting one letter for another swaps it in"
+        },
+        {
+         "text": "for",
+         "at": 60,
+         "note": "for marks the letter that is replaced"
+        }
+       ],
+       "parts": [
+        {
+         "words": "costly",
+         "at": 40,
+         "gives": "DEAR",
+         "note": "dear means costly"
+        },
+        {
+         "words": "right",
+         "at": 64,
+         "gives": "R"
+        },
+        {
+         "words": "left",
+         "at": 55,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy person muddles left and right, an expensive mistake.",
-     "walkthrough": "'Hands' sounds like the hands you mix up left and right; in fact they are the sets of cards given out at a card game. L and R are the left and right abbreviations.",
-     "definitionFit": "To misdeal is to deal the cards wrongly, so the players' hands come out muddled."
+     "surface": "A shopper muddles a costly purchase, mixing up left and right.",
+     "walkthrough": "M (Mix-up, initially) plus IS, then DEAR with its R (right) changed to L (left) gives DEAL.",
+     "definitionFit": "A misdeal at cards is dealing the hands wrongly, so the players' hands come out muddled."
     },
     "features": {
      "answerInScene": false,

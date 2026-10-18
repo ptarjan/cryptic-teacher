@@ -999,38 +999,43 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means wrapping around, so other letters are taken inside"
+       "at": 17,
+       "note": "involving means enclosing within, so the mistake wraps around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "mistake",
-         "gives": "BISH",
-         "note": "bish is British slang for a blunder"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love is zero in tennis, shaped like O"
-        }
-       ]
+       "words": "mistake",
+       "at": 9,
+       "gives": "BISH",
+       "note": "bish is British slang for a blunder"
       },
       {
-       "words": "unknown",
-       "gives": "Y",
-       "note": "Y is an algebraic unknown"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "love",
+         "at": 27,
+         "gives": "O",
+         "note": "love is nil in tennis, written as the letter O"
+        },
+        {
+         "words": "unknown",
+         "at": 33,
+         "gives": "Y",
+         "note": "Y is one of the algebraic unknowns"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A youthful error involving romance with a stranger.",
-     "definitionFit": "Boyish means like a boy, so young-looking or juvenile in manner, a near synonym for youthful."
+     "surface": "A youthful blunder involving a love affair with someone unidentified.",
+     "walkthrough": "BISH, informal British for a mistake, goes around O (love, zero in tennis) and Y (an unknown in algebra).",
+     "definitionFit": "Boyish means like a boy, so having a young person's looks or manner."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "love"
     }
@@ -2067,8 +2072,7 @@
     "definitions": [
      {
       "text": "Scotsman's drunk",
-      "at": 0,
-      "note": "the Scots adjective sense, heady or giddy with drink"
+      "at": 0
      }
     ],
     "wordplay": {
@@ -2076,54 +2080,60 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places one group inside the city word"
+       "at": 44,
+       "note": "the pieces are placed in the city word, between its first and later letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "e.g. Paris",
-         "gives": "CITY",
-         "note": "Paris is an example of a city"
-        },
-        {
-         "words": "an",
-         "gives": "A",
-         "note": "the indefinite article"
-        }
-       ]
+       "words": "e.g. Paris",
+       "at": 47,
+       "gives": "CITY",
+       "note": "Paris is an example of a city"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "not the last",
-         "note": "not the last means dropping the final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "aperitif",
-         "gives": "PERNOD",
-         "note": "Pernod is an aniseed aperitif"
+         "words": "an",
+         "at": 17,
+         "gives": "A",
+         "note": "an gives the letter A, the indefinite article"
         },
         {
-         "gives": "D"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not the last",
+           "at": 30,
+           "note": "without its last letter, the drink's name loses its final D"
+          }
+         ],
+         "parts": [
+          {
+           "words": "aperitif",
+           "at": 20,
+           "gives": "PERNOD",
+           "note": "Pernod is an anise-flavoured French aperitif"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Scotsman has had a French aperitif in Paris and is tipsy.",
-     "definitionFit": "In Scots capernoity, from the head or noddle, also means muddled or heady, as when tipsy."
+     "surface": "A Scot gets tipsy on an aperitif somewhere like Paris.",
+     "walkthrough": "PERNOD loses its last letter to PERNO; A and PERNO then go into CITY. The answer is a Scots word, hence 'Scotsman's'.",
+     "definitionFit": "Chambers lists capernoity as Scots for muddled or tipsy, alongside a sense of peevish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drunk"
+     "misdirectedWord": "Paris"
     }
    }
   }
