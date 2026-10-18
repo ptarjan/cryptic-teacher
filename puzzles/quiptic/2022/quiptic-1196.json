@@ -409,64 +409,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVAPORATE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so each word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to turn up",
+         "at": 15,
+         "note": "in a down answer, turning up means reading from the bottom upwards, so the letters are reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "to turn up",
-           "note": "in a down clue turning up flips the letters so they read from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
+           "words": "Pay",
+           "at": 0,
+           "gives": "PA",
+           "note": "pay without its last letter: the following mostly does double duty, trimming both words"
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "mostly",
+             "at": 8,
+             "note": "mostly means not quite all, so each of the two words loses its last letter"
+            }
+           ],
            "parts": [
             {
-             "words": "Pay",
-             "gives": "PA",
-             "note": "the word without its last letter"
+             "words": "vet",
+             "at": 4,
+             "gives": "VET",
+             "note": "taken as written before it is shortened"
             },
             {
-             "words": "vet",
-             "gives": "VE",
-             "note": "the word without its last letter"
+             "gives": "T"
             }
            ]
           }
          ]
-        },
-        {
-         "words": "speak",
-         "gives": "ORATE",
-         "note": "to orate is to make a formal speech"
         }
        ]
+      },
+      {
+       "words": "speak",
+       "at": 27,
+       "gives": "ORATE",
+       "note": "to orate is to speak formally"
       }
      ]
     },
     "explanation": {
-     "surface": "A pet owner pays the vet, makes a speech and vanishes.",
-     "walkthrough": "Both of the first two words are cut short before they are put together and flipped.",
-     "definitionFit": "Liquids evaporate when they turn to vapour and vanish, and figuratively anything that vanishes can be said to do so."
+     "surface": "A pet owner is told to settle the vet's bill, show up, talk, and then vanish.",
+     "walkthrough": "'mostly' trims both PAY and VET, giving PA and VE; 'to turn up' reverses PAVE into EVAP, and ORATE follows.",
+     "definitionFit": "To evaporate is to vanish, figuratively, just as liquid turns to vapour and is gone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "turn"
+     "misdirectedWord": "vet"
     }
    }
   },
@@ -596,30 +601,33 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SPECIMENS",
      "indicators": [
       {
        "text": "penultimately displaced by",
-       "note": "displaced means pushed out and replaced, and penultimately pins the one swapped letter to second from the end"
+       "at": 20,
+       "note": "the second-to-last letter of species is pushed out and something else takes its place"
       }
      ],
      "parts": [
       {
        "words": "species",
-       "note": "taken as written"
+       "at": 12
+      },
+      {
+       "gives": "E"
       },
       {
        "words": "humans",
+       "at": 47,
        "gives": "MEN",
-       "note": "men as a word for people in general"
+       "note": "men means humans, people in general"
       }
      ]
     },
     "explanation": {
-     "surface": "Members of various species are being driven out of their habitats by people.",
-     "walkthrough": "The E second from the end of species is swapped out for MEN, giving SPECI-MEN-S.",
-     "definitionFit": "Specimens are individual samples taken as typical of their kind, so they serve as examples or instances."
+     "surface": "Samples of animal species pushed aside by people.",
+     "walkthrough": "The second-to-last letter of SPECIES is E, and MEN takes its place.",
+     "definitionFit": "Specimens are individual samples taken as typical instances of a class, so they serve as examples."
     },
     "features": {
      "answerInScene": true,
@@ -1199,35 +1207,22 @@
      "parts": [
       {
        "words": "Washington DC airport",
+       "at": 12,
        "gives": "DULLES",
        "note": "Dulles International is the main airport serving Washington DC"
       },
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "its terminal",
+       "at": 40,
        "gives": "T",
-       "indicators": [
-        {
-         "text": "terminal",
-         "note": "a terminal is an end point, so only the last letter is kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "its",
-         "gives": "T",
-         "select": "last",
-         "note": "its refers back to the airport, whose final letter is taken"
-        }
-       ]
+       "note": "the airport's terminal: T is the abbreviation for terminal, as on airport signs for T1 and T2"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller rates a Washington airport the most tedious, terminal building included.",
-     "walkthrough": "Terminal suggests an airport building, but it means the last letter of 'airport'.",
-     "definitionFit": "Dull means boring, and the superlative of dull is the most boring of all."
+     "surface": "Someone asks whether the Washington airport and its terminal building are the dreariest around.",
+     "walkthrough": "Dulles International is Washington's main airport; T is the usual abbreviation for an airport terminal.",
+     "definitionFit": "Dullest is the superlative of dull, meaning least interesting or most tedious."
     },
     "features": {
      "answerInScene": false,
@@ -1470,44 +1465,33 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "RHYME",
+     "op": "homophone",
+     "spelt": "RHYME",
      "indicators": [
       {
-       "text": "in",
-       "note": "in points inside the following word, where the letters sit"
+       "text": "heard in",
+       "at": 7,
+       "note": "heard means spoken aloud, and in means found inside, so the letters held within these words are said aloud as a word that sounds the same"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "RHYME",
-       "indicators": [
-        {
-         "text": "heard",
-         "note": "what is heard is listened to, so the letters count by their sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "prime time",
-         "gives": "RIME",
-         "note": "four letters sit inside this phrase, starting after its first letter, and they sound like the answer"
-        }
-       ]
+       "words": "prime time",
+       "at": 16,
+       "gives": "RIME",
+       "note": "rime, an old spelling for verse, is held within these words, in pRIME"
       }
      ]
     },
     "explanation": {
-     "surface": "Verse is being broadcast in a peak-hour television slot.",
-     "walkthrough": "Rime, frost, sits inside the word prime; said aloud it is identical to the answer.",
-     "definitionFit": "Rhyme is used loosely for verse in general, as in 'nursery rhyme', so it can mean poetry."
+     "surface": "Verse being read aloud at the busiest evening slot on television.",
+     "walkthrough": "RIME sits in pRIME; 'heard' turns it into the sound-alike word for poetry.",
+     "definitionFit": "Rhyme can mean verse in general, as in nursery rhyme, so it stands for poetry."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heard"
+     "misdirectedWord": "prime"
     }
    }
   },
