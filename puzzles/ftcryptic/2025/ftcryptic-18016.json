@@ -438,14 +438,15 @@
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TR",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "these words say which letters are picked from the word"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely tender",
-         "gives": "TR",
-         "select": "outer",
+         "words": "tender",
          "note": "the extreme letters of the word"
         }
        ]
@@ -720,8 +721,6 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GREATDANE",
      "indicators": [
       {
        "text": "Spooner's",
@@ -730,23 +729,14 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "morsel",
-         "gives": "GREAT",
-         "soundsLike": "GRAIN",
-         "note": "a grain is a tiny morsel; it takes the opening sound of the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "Go out with",
-         "gives": "DANE",
-         "soundsLike": "DATE",
-         "note": "to go out with someone is to date them; it takes the opening sound of the other word"
-        }
-       ]
+       "words": "morsel",
+       "gives": "DEAT",
+       "note": "a grain is a tiny morsel; it takes the opening sound of the other word"
+      },
+      {
+       "words": "Go out with",
+       "gives": "GRANE",
+       "note": "to go out with someone is to date them; it takes the opening sound of the other word"
       }
      ]
     },
