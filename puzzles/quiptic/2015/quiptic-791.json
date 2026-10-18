@@ -210,52 +210,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TABBIES",
+     "op": "composite",
      "indicators": [
       {
        "text": "Cruelly",
-       "note": "a cruel beating knocks things about, so the letters are jumbled"
+       "at": 0,
+       "note": "cruelly suggests rough treatment, so the remaining letters are knocked into a new order"
+      },
+      {
+       "text": "after throwing",
+       "at": 21,
+       "note": "after throwing the fish away, its letters must be taken out of the pool first"
+      },
+      {
+       "text": "away",
+       "at": 41,
+       "note": "away completes the instruction to discard the fish's letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TABBIES",
-       "indicators": [
-        {
-         "text": "throwing",
-         "note": "throwing something out discards it, so those letters are removed from the rest"
-        },
-        {
-         "text": "away",
-         "note": "completes the phrase about discarding, sending those letters off and out of the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "beat",
-         "note": "taken as written"
-        },
-        {
-         "words": "sibling",
-         "note": "taken as written"
-        },
-        {
-         "words": "fish",
-         "gives": "LING",
-         "note": "the ling is a long sea fish of the cod family"
-        }
-       ]
+       "words": "beat sibling",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "words": "fish",
+       "at": 36,
+       "gives": "LING",
+       "note": "ling is a long sea fish of the cod family"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone cruelly hits a brother or sister after tossing the fish to the cats.",
-     "walkthrough": "Remove the fish from the two words first, then rearrange what is left.",
-     "definitionFit": "Tabbies are striped domestic cats, so the word is an example-style synonym."
+     "surface": "A nasty child beats a brother and throws the goldfish out for the cats.",
+     "walkthrough": "'after throwing fish away' removes LING from BEAT SIBLING, and 'Cruelly' rearranges what is left, BEATSIB, into the answer.",
+     "definitionFit": "Tabbies are domestic cats with striped or mottled coats, so the word names a kind of cat."
     },
     "features": {
      "answerInScene": true,
@@ -1198,54 +1188,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Injure",
-       "note": "an injured limb is twisted out of shape, so the letters are rearranged"
+       "text": "in",
+       "at": 18,
+       "note": "the hurt leg and the catch go in the trap, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places those letters inside the trap"
-        }
-       ],
+       "words": "trap",
+       "at": 21,
+       "gives": "NET",
+       "note": "a net is a trap for catching fish or birds"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "trap",
-         "gives": "NET",
-         "note": "a net traps fish and birds"
-        },
-        {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Injure",
+           "at": 0,
+           "note": "to injure is to damage, so the letters of leg are bent out of shape"
+          }
+         ],
          "parts": [
           {
            "words": "leg",
-           "note": "rearranged"
-          },
-          {
-           "words": "caught",
-           "gives": "C",
-           "note": "C is the cricket scorecard abbreviation for caught"
+           "at": 7,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "caught",
+         "at": 11,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hurt their leg by carelessly getting it stuck in a trap.",
-     "definitionFit": "Neglect is failure to take proper care, the same as carelessness."
+     "surface": "An animal hurts its leg in a snare left out by a careless keeper.",
+     "walkthrough": "'Injure' rearranges LEG into GLE; with C after it, the pair go 'in' NET after NE.",
+     "definitionFit": "Neglect is a failure to give proper care or attention, so it amounts to carelessness."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "caught"
+     "misdirectedWord": "Injure"
     }
    }
   },

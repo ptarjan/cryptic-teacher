@@ -622,48 +622,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENNUI",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first piece inside the second"
+       "at": 18,
+       "note": "the Greek letter goes inside the stripped denim"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENNUI",
+       "op": "middle",
        "indicators": [
         {
          "text": "stripped",
-         "note": "stripped means peeled bare, so the outside letters are taken off"
+         "at": 27,
+         "note": "stripped of its outer layer, denim loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Spartan character",
-         "gives": "NU",
-         "note": "nu is a letter of the Greek alphabet, as used in Sparta"
-        },
-        {
          "words": "denim",
-         "note": "taken as written"
+         "at": 21,
+         "note": "taken as written; its inside is ENI"
         }
        ]
+      },
+      {
+       "words": "Spartan character",
+       "at": 0,
+       "gives": "NU",
+       "note": "Sparta was Greek, and nu is a letter of the Greek alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A spartan figure in faded denim seems to describe a dull piece of real estate.",
-     "walkthrough": "Spartan suggests austere, but here it means Greek, so the character is a letter of the Greek alphabet.",
-     "definitionFit": "Ennui is listless boredom, the quality something tedious has, so it is the property of being boring."
+     "surface": "A soldier from ancient Sparta, wearing denim and then undressed, turns out to be dull.",
+     "walkthrough": "'Spartan' suggests austerity, but it means Greek here: the character is the letter NU. 'stripped' reduces DENIM to ENI, and NU goes 'in' after EN.",
+     "definitionFit": "Ennui is weary listlessness, and a quality of what is boring is that it produces this tedium."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "property"
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spartan"
     }
    }
   },
@@ -995,39 +996,52 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "VICTORHUGO",
-     "indicators": [
-      {
-       "text": "after exchange",
-       "note": "after an exchange the two pieces swap places, so the first goes to the back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "who wins",
+       "at": 7,
        "gives": "VICTOR",
-       "note": "a victor is one who wins"
+       "note": "the one who wins is the victor"
       },
       {
-       "words": "over",
-       "gives": "O",
-       "note": "o is the cricket scorebook abbreviation for over"
-      },
-      {
-       "words": "press",
-       "gives": "HUG",
-       "note": "to press someone close is to hug them"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "after exchange",
+         "at": 28,
+         "note": "after an exchange the two pieces that follow swap places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "over",
+           "at": 16,
+           "gives": "O",
+           "note": "O is the cricket abbreviation for an over"
+          },
+          {
+           "words": "press",
+           "at": 21,
+           "gives": "HUG",
+           "note": "to press someone close is to hug them"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer who wins awards seems to win over the press after a heated exchange.",
-     "definitionFit": "Victor Hugo was the French novelist who wrote Les Misérables, so he is a writer."
+     "surface": "An election victor courts the newspapers after an exchange of views.",
+     "walkthrough": "In the clue O for 'over' comes before HUG for 'press'; 'after exchange' swaps them so the surname reads HUG then O.",
+     "definitionFit": "Victor Hugo was the French novelist who wrote Les Misérables and The Hunchback of Notre-Dame."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "press"
     }

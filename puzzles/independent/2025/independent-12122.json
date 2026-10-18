@@ -224,51 +224,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NUMERIC",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down clue, upset means turned upside down, so the word is read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NUMERIC",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "releasing",
-         "note": "releasing something lets it go, so the named letters are dropped from the word"
+         "text": "upset",
+         "at": 19,
+         "note": "in a down clue, upset turns the word upside down, so it reads backwards"
         }
        ],
        "parts": [
         {
          "words": "International body",
+         "at": 0,
          "gives": "UN",
-         "note": "the United Nations is an international body"
-        },
+         "note": "the UN, the United Nations, is the international body"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "releasing",
+         "at": 34,
+         "note": "releasing means letting go of letters, here two from America"
+        }
+       ],
+       "parts": [
         {
          "words": "America",
-         "note": "taken as written, before losing letters"
+         "at": 25,
+         "note": "taken as written"
         },
         {
          "words": "articles",
+         "at": 44,
          "gives": "AA",
-         "note": "a is the indefinite article, and America contains two of them"
+         "note": "a is the indefinite article, so articles here are two As"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A world body annoys the United States in a dispute about statistics.",
-     "definitionFit": "Numeric is the adjective for numbers, so it describes anything concerning or expressed in figures."
+     "surface": "The United Nations is upset with America, which frees some items related to numbers.",
+     "walkthrough": "'upset' turns UN into NU, and 'releasing articles' takes both As out of AMERICA, leaving MERIC.",
+     "definitionFit": "Numeric means relating to or expressed in numbers, which are the figures of arithmetic."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "articles"
     }
@@ -1207,71 +1214,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AILOUROPHILIA",
      "indicators": [
       {
-       "text": "around",
-       "note": "around means surrounding, so the preceding words go round the next letter"
-      },
-      {
        "text": "in",
-       "note": "in places the preceding letters between the two versions of the following word"
+       "at": 17,
+       "note": "the setter's phrase goes in the middle of the two-way trouble"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "AILOUROPHILIA",
+       "words": "trouble two ways",
+       "at": 20,
+       "gives": "AILLIA",
+       "note": "to ail is to trouble; read two ways, forwards and then backwards, it gives AIL and LIA"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "two ways",
-         "note": "two ways means the same word is read forwards once and backwards once"
+         "text": "around",
+         "at": 37,
+         "note": "the setter's words go around the love, holding it inside"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "trouble",
-           "gives": "AIL",
-           "note": "to ail is to trouble or afflict"
-          },
-          {
-           "words": "Our",
-           "note": "taken as written"
-          },
-          {
-           "words": "love",
-           "gives": "O",
-           "note": "love is a score of zero in tennis, which looks like O"
-          },
-          {
-           "words": "Phi",
-           "note": "taken as written: Phi is the setter's pseudonym"
-          },
-          {
-           "words": "trouble",
-           "gives": "LIA",
-           "note": "the same word for trouble again, this time read the other way"
-          }
-         ]
+         "words": "Our Phi",
+         "at": 0,
+         "gives": "OURPHI",
+         "note": "taken as written: the setter Phi refers to himself"
+        },
+        {
+         "words": "love",
+         "at": 44,
+         "gives": "O",
+         "note": "O is love, the zero score in tennis"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter admits to a feline fondness, perhaps.",
-     "walkthrough": "The first love is the letter inside the setter's words; the second begins the definition. 'possibly' hints that the setter is the cat lover.",
-     "definitionFit": "Ailourophilia comes from Greek ailouros, cat, plus philia, fondness, so it names an affection for felines."
+     "surface": "The setter wonders whether he is in trouble over his feelings for cats.",
+     "walkthrough": "AIL forwards and backwards, AIL then LIA, wraps OUR O PHI, where O goes between OUR and PHI. The question mark admits the definition is a gloss on the Greek: ailouros is cat and philia is love.",
+     "definitionFit": "Ailurophilia is fondness for cats, from Greek words for cat and love; this spelling keeps the Greek diphthong."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "trouble"
     }
    }

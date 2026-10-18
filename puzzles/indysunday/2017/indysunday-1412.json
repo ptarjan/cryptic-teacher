@@ -288,35 +288,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ANNUL",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places the letter and the Greek character inside the country's code"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "the Netherlands",
-       "gives": "NL",
-       "note": "NL is the international code for the Netherlands"
-      },
-      {
        "words": "a",
-       "note": "taken as written"
+       "at": 17,
+       "gives": "A"
       },
       {
-       "words": "Greek character",
-       "gives": "NU",
-       "note": "nu is the thirteenth letter of the Greek alphabet"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 35,
+         "note": "the Greek letter sits in the country's code, between its two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Netherlands",
+         "at": 38,
+         "gives": "NL",
+         "note": "NL is the international code for the Netherlands"
+        },
+        {
+         "words": "Greek character",
+         "at": 19,
+         "gives": "NU",
+         "note": "nu is the thirteenth letter of the Greek alphabet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek resident in Holland having their legal status questioned.",
-     "definitionFit": "To annul a marriage or contract is to declare it void, refusing it any legal force."
+     "surface": "A Greek visitor in Holland is refused recognition.",
+     "walkthrough": "A comes first, then NU goes 'in' NL, splitting it.",
+     "definitionFit": "To annul a marriage or law is to declare it void, so it removes its legal force."
     },
     "features": {
      "answerInScene": false,
@@ -1056,59 +1064,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PIQUANCY",
      "indicators": [
       {
        "text": "entering",
-       "note": "the royal abbreviation goes inside the other pieces"
+       "at": 31,
+       "note": "the queen enters the other pieces, going in between them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "first off",
-         "note": "first off means the opening letter is removed from the city"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "good",
-           "gives": "PI",
-           "note": "pi is short for pious, hence good"
-          },
-          {
-           "words": "queen",
-           "gives": "QU",
-           "note": "Qu is an abbreviation for queen"
-          },
-          {
-           "words": "French city",
-           "gives": "NANCY",
-           "note": "Nancy is a city in Lorraine, north-east France"
-          }
-         ]
+         "words": "good",
+         "at": 40,
+         "gives": "PI",
+         "note": "PI, short for pious, is crossword shorthand for good"
         },
         {
-         "gives": "N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "first off",
+           "at": 57,
+           "note": "first off means the first letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "French city",
+           "at": 45,
+           "gives": "NANCY",
+           "note": "Nancy is a city in north-eastern France"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "queen",
+       "at": 25,
+       "gives": "QU"
       }
      ]
     },
     "explanation": {
-     "surface": "A queen's arrival in a French city was the exciting attraction.",
-     "walkthrough": "The queen abbreviation goes between good and the headless city.",
-     "definitionFit": "Piquancy is a pleasantly sharp or stimulating quality, of flavour or of interest."
+     "surface": "A monarch arrives in a pleasant French city, the first to do so.",
+     "walkthrough": "'first off' cuts NANCY to ANCY; after PI, QU is 'entering' the gap between the two pieces.",
+     "definitionFit": "Piquancy is a pleasantly sharp or spicy quality, something that excites the palate or the interest."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "good"
     }
    }
   },
