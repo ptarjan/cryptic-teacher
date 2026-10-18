@@ -2968,5 +2968,7 @@ tools/test_validator_gap_rules.py              tests for the validator-gap rules
                                                leaves and the redo regression gate
 tools/test_og_prose_family.py                  does the og card's own-prose family check ignore
                                                words quoted from the clue?
+tools/test_repair_padding.py                   tests that repair_fetched takes link words out
+                                               of the wordplay, and only those
 ```
 <!-- LAYOUT-END -->
