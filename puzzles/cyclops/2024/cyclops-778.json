@@ -719,43 +719,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "a word without its end has lost its final letter"
-      }
-     ],
      "parts": [
       {
-       "words": "Morgan's",
-       "gives": "PIER",
-       "note": "Piers Morgan, the TV presenter: first name without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 9,
+         "note": "endless means without its end, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Morgan's",
+         "at": 0,
+         "gives": "PIERS",
+         "note": "Piers Morgan, the TV presenter, so Morgan's first name"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "empty",
-         "note": "an empty word has had its contents removed, leaving only the outer letters"
+         "at": 18,
+         "note": "empty means with the inside removed, leaving only the outer letters"
         }
        ],
        "parts": [
         {
          "words": "cackle",
-         "note": "outer letters of cackle"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insult hurled at Piers Morgan for his endless, hollow cackling.",
-     "walkthrough": "Morgan stands for his first name, Piers. Prick looks like an insult closing the rant, but it is a verb.",
-     "definitionFit": "A plain synonym, both verbs: to prick a balloon is to puncture it."
+     "surface": "An insult hurled at Piers Morgan, mocking his hollow laugh.",
+     "walkthrough": "Piers Morgan is a British TV presenter and Private Eye target; 'prick' is both the insult and the definition.",
+     "definitionFit": "To pierce something is to make a hole in it, as a prick does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "prick"
     }

@@ -140,44 +140,53 @@
      "indicators": [
       {
        "text": "in",
-       "note": "It marks the insertion: what is named before it is pushed inside what is named after it."
+       "at": 23,
+       "note": "in means placed inside, so these letters sit within the clothing"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "clothing",
-         "note": "Clothes go round the outside, so this word takes only the outer letters of the word in front of it and wraps them round the rest."
+         "at": 32,
+         "note": "clothing of a word is its outer layer, its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "fancy",
-           "note": "only the outside of the word is kept — the F at the front, the Y at the back, and the middle three dropped"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "the article is taken at face value"
+         "words": "fancy",
+         "at": 26
         }
        ]
       },
       {
-       "words": "queen",
-       "gives": "ER",
-       "note": "ER is Elizabeth Regina, the crossword's standing queen"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "queen",
+         "at": 17,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the queen"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke is that nobody is wearing anything: 'clothing' is an instruction about the outside of a word, and the fancy dress is the surface's own.",
-     "definitionFit": "An imagined being is a creature that exists only in the mind — the fairy of folklore, spelled here the old Spenserian way."
+     "surface": "Pretending to be royalty while wearing a costume.",
+     "walkthrough": "'fancy clothing' looks like fancy dress, but it is the outside of the word fancy, F and Y.",
+     "definitionFit": "A faery is a fairy, a creature of folklore and imagination rather than reality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clothing"
     }
    }
   },
@@ -1312,32 +1321,46 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "maybe",
-       "note": "It flags an example rather than a synonym: what follows is one kind of the thing named, not the thing itself."
-      },
-      {
-       "text": "cut",
-       "note": "A cut word loses its end, so the mountain here arrives one letter shorter."
-      }
-     ],
      "parts": [
       {
-       "words": "Rock",
+       "words": "Rock maybe",
+       "at": 0,
        "gives": "SWEET",
-       "note": "seaside rock is a stick of boiled sugar — one kind of confection, not a stone"
+       "note": "rock is a kind of seaside sweet, a stick of hard candy"
       },
       {
-       "words": "mountain",
-       "gives": "PEA",
-       "note": "a mountain is a peak, docked of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 11,
+         "note": "cut means trimmed short, so the mountain word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain",
+         "at": 15,
+         "gives": "PEAK",
+         "note": "a peak is a mountain top"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two plain words both need re-reading: the rock is edible and the climber is rooted. Nothing in the surface is what it first appears to be.",
-     "definitionFit": "'Climber' is the gardener's sense — a plant that runs up canes or trellis — and this fragrant annual is one of the commonest."
+     "surface": "A rock face sliced off a mountain, with a climber on it.",
+     "walkthrough": "'climber' wants to be a mountaineer; it is a climbing plant. Rock is a hard sugary British seaside sweet.",
+     "definitionFit": "The sweet pea is a scented garden plant that climbs up supports by tendrils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climber"
     }
    }
   },
@@ -1546,36 +1569,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "originally",
-       "note": "At their origins — so each of the three words in the name gives up only its opening letter."
+       "text": "behind",
+       "at": 26,
+       "note": "behind means following, so these letters come after the old one"
       }
      ],
      "parts": [
       {
+       "words": "old",
+       "at": 33,
+       "gives": "O"
+      },
+      {
        "op": "first",
        "indicators": [
         {
-         "text": "behind",
-         "note": "What stands behind something follows it, so the initials line up after the single letter."
+         "text": "originally",
+         "at": 15,
+         "note": "originally points to the first letter of each word"
         }
        ],
        "parts": [
         {
-         "words": "old",
-         "note": "O is the crossword's standing letter for old"
+         "words": "Attila the Hun",
+         "at": 0
         }
        ]
-      },
-      {
-       "words": "Attila the Hun",
-       "gives": "ATH",
-       "note": "the opening letters of all three words, the little one included"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Attila is a good villain for a bad word, and the trap is 'the': every word of the name is needed, including the one you would skip.",
-     "definitionFit": "A curse is a swear word, and that is one of this word's two senses — the profanity, not the promise sworn in court."
+     "surface": "The warlord Attila trailing an ancient swear word.",
+     "definitionFit": "An oath can be a profane expletive, a swear word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hun"
     }
    }
   },

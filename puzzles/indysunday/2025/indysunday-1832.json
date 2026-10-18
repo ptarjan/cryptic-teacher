@@ -1102,49 +1102,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "crook",
-       "note": "something crook is bent out of true, and letters bent out of true come back in another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Superficially",
+         "at": 0,
+         "note": "superficially means on the surface only, so just the outside letters of thuggish"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "Superficially",
-           "note": "what is superficial is on the surface, so take the letters sitting on the outside of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "thuggish",
-           "note": "the outer letters of THUGGISH, its first and its last"
-          }
-         ]
-        },
-        {
-         "words": "steals",
-         "note": "the six letters of STEALS re-set"
-        },
-        {
-         "words": "superior",
-         "gives": "UPPER",
-         "note": "the upper deck is the superior one"
+         "words": "thuggish",
+         "at": 14
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crook",
+         "at": 23,
+         "note": "crook as a verb means bend out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "steals",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "superior",
+       "at": 36,
+       "gives": "UPPER",
+       "note": "upper means higher or superior"
       }
      ]
     },
     "explanation": {
-     "surface": "A thief who only looks like a thug making off with a fine old painting.",
-     "walkthrough": "'Crook' reads as the thief and is the instruction to bend the letters beside it. The jumbled six run straight on from the two taken off 'thuggish', which is what hides where one word stops.",
-     "definitionFit": "Leonardo's mural of Christ's last meal with the apostles, painted in Milan in the 1490s, is one of the Renaissance's best-known paintings."
+     "surface": "A thug only on the surface, a criminal pinches a fine Renaissance artwork.",
+     "walkthrough": "'crook' looks like a noun for the thief but bends STEALS into ELASTS.",
+     "definitionFit": "Leonardo da Vinci's mural of Christ's final meal is a famous work of the Italian High Renaissance."
     },
     "features": {
      "answerInScene": true,
@@ -1700,12 +1703,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "shortened",
-       "note": "a shortened word has had its end taken off"
-      },
-      {
-       "text": "back of",
-       "note": "the back of a word is the letter it finishes with"
+       "text": "on",
+       "at": 14,
+       "note": "in an across clue on means placed after, so the zip piece follows the costume letter"
       }
      ],
      "parts": [
@@ -1713,28 +1713,44 @@
        "op": "last",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across answer what sits on something follows it, so this piece comes second"
+         "text": "back of",
+         "at": 17,
+         "note": "the back of a word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "costume",
-         "note": "the last letter of costume"
+         "at": 25
         }
        ]
       },
       {
-       "words": "Zip",
-       "gives": "NOUGH",
-       "note": "zip is nothing, a nought, with its final letter dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 4,
+         "note": "shortened means cut off at the end, so the zip word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Zip",
+         "at": 0,
+         "gives": "NOUGHT",
+         "note": "zip is slang for nothing, nought"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A zip cut down to fit the back of a costume.",
-     "walkthrough": "'Zip' is the slang for nil rather than the fastener the costume suggests, so it gives nought. The single letter comes first because 'on' in an across clue puts the other piece after it.",
-     "definitionFit": "Enough is the amount that answers the need — no less than required, and no more."
+     "surface": "A dressmaker shortens the zip at the back of an outfit to just the right length.",
+     "definitionFit": "Enough means a sufficient quantity, exactly what is needed."
     },
     "features": {
      "answerInScene": false,

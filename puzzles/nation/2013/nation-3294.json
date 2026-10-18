@@ -691,50 +691,53 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "a word that eats others takes them inside itself, so the first word wraps around what follows"
+       "at": 6,
+       "note": "eating means taking inside, so the bears word goes round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Bears",
-         "gives": "STANDS",
-         "note": "to bear something is to stand it, tolerate it"
-        },
-        {
-         "words": "fish",
-         "gives": "EEL",
-         "note": "an eel is a fish"
-        }
-       ]
+       "words": "Bears",
+       "at": 0,
+       "gives": "STANDS",
+       "note": "to stand something is to bear it"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter of the word just before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "birds",
-         "note": "only the first letter of birds is kept"
+         "words": "fish",
+         "at": 13,
+         "gives": "EEL",
+         "note": "an eel is a fish"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 30,
+           "note": "initially points to the first letter of birds"
+          }
+         ],
+         "parts": [
+          {
+           "words": "birds",
+           "at": 22
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bears feeding on fish and birds, plus the hint that this happens somewhere in the Caribbean.",
-     "walkthrough": "'Bears' looks like the animals; it is the verb meaning tolerates.",
-     "definitionFit": "Steel bands, playing drums made from oil barrels, are a musical tradition of Trinidad and the wider Caribbean."
+     "surface": "Bears eat fish and birds on a Caribbean island.",
+     "definitionFit": "Groups playing oil-drum pans originated in Trinidad and are typical of Caribbean music."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Bears"
     }
    }
