@@ -97,45 +97,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARBITER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cases",
+       "at": 22,
+       "note": "cases means the anagram letters enclose the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "mishandled",
-         "note": "handled badly, so the letters of RARE are put out of order"
-        },
-        {
-         "text": "cases",
-         "note": "the rearranged letters encase, or wrap around, the next piece"
+         "at": 6,
+         "note": "mishandled means the letters are treated roughly and rearranged"
         }
        ],
        "parts": [
         {
          "words": "rare",
-         "note": "RARE rearranged, split AR…ER around the filling"
-        },
-        {
-         "words": "a little",
-         "gives": "BIT",
-         "note": "a bit = a little"
+         "at": 17,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "a little",
+       "at": 28,
+       "gives": "BIT",
+       "note": "a bit is a little"
       }
      ]
     },
     "explanation": {
-     "surface": "A judge who botched some rare cases, but only slightly.",
-     "walkthrough": "'Cases' looks like a noun for a judge's lawsuits; here it is a verb, the jumbled RARE casing BIT: AR(BIT)ER.",
-     "definitionFit": "An arbiter is someone who judges or settles a dispute."
+     "surface": "A judge has mishandled some rare legal cases, at least slightly.",
+     "walkthrough": "'cases' looks like legal cases but is a verb meaning encloses.",
+     "definitionFit": "An arbiter is someone with authority to settle a dispute, a synonym for a judge or referee."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cases"
     }
    }
@@ -544,43 +547,44 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "unchecked": true,
-     "gives": "GYMSLIP",
-     "indicators": [
-      {
-       "text": "reported",
-       "note": "what is reported is heard, so go by the sound"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "homophone",
-       "spelt": "GYMS",
+       "spelt": "GYM",
+       "indicators": [
+        {
+         "text": "reported",
+         "at": 6,
+         "note": "reported means the word is as heard spoken, a sound-alike"
+        }
+       ],
        "parts": [
         {
-         "words": "James reported",
-         "gives": "JIMS",
-         "note": "Jim's, as in James's, sounds like GYM'S"
+         "words": "James",
+         "at": 0,
+         "gives": "JIM",
+         "note": "Jim is a short form of the name James"
         }
        ]
       },
       {
        "words": "error",
+       "at": 15,
        "gives": "SLIP",
-       "note": "a slip = an error"
+       "note": "a slip is a small error"
       }
      ]
     },
     "explanation": {
-     "surface": "A mistake by James in a school's uniform, as noted in a report.",
-     "walkthrough": "Jim is short for James; the sound gives GYM, and the S joins it to SLIP. A gymslip is a sleeveless tunic worn by British schoolgirls.",
-     "definitionFit": "A gymslip is a pinafore dress once standard in British girls' school uniform."
+     "surface": "James is said to have made a mistake involving his school clothes.",
+     "walkthrough": "A gymslip is a sleeveless pinafore tunic once worn by British schoolgirls.",
+     "definitionFit": "The gymslip was a standard item of girls' school dress in Britain, worn over a blouse."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "reported"
+     "misdirectedWord": "James"
     }
    }
   },
@@ -712,42 +716,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRAINER",
-     "indicators": [
-      {
-       "text": "travelling",
-       "note": "letters on the move end up in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "at": 17,
+         "note": "travelling means the letters move around into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Republican ain't travelling",
-         "gives": "TRAIN",
-         "note": "R + AINT rearranged"
+         "words": "Republican",
+         "at": 0,
+         "gives": "R"
         },
         {
-         "words": "queen",
-         "gives": "ER",
-         "note": "ER = Elizabeth Regina"
+         "words": "ain't",
+         "at": 11,
+         "gives": "AINT",
+         "note": "taken as written, ignoring the apostrophe"
         }
        ]
+      },
+      {
+       "words": "queen",
+       "at": 33,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the crossword queen"
       }
      ]
     },
     "explanation": {
-     "surface": "An anti-monarchist refusing to ride in the royal coach alongside the queen.",
-     "walkthrough": "The republican shunning the queen's coach is the picture; 'coach' is the definition, a sports trainer, not a carriage.",
-     "definitionFit": "A plain synonym in the sporting sense: the person who prepares a team or athlete, not the carriage the surface suggests."
+     "surface": "A Republican who isn't on the move is riding in a carriage with the queen.",
+     "walkthrough": "'coach' looks like the vehicle but means a sports trainer.",
+     "definitionFit": "A trainer prepares athletes or teams, which is what a coach does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "coach"
     }
    }
@@ -830,47 +839,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "unlimited",
-       "note": "with its limits, the first and last letters, removed"
+       "text": "in",
+       "at": 35,
+       "note": "in means the trimmed beer goes inside the cupboard"
       }
      ],
      "parts": [
       {
        "words": "kitchen cupboard",
+       "at": 38,
        "gives": "PANTRY",
-       "note": "a pantry is a food cupboard, split P…ANTRY"
+       "note": "a pantry is a small room or cupboard for food"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "AGE",
+       "op": "middle",
        "indicators": [
         {
-         "text": "in",
-         "note": "goes inside the next piece"
+         "text": "unlimited",
+         "at": 20,
+         "note": "unlimited means the word loses its limits, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "unlimited beer",
-         "gives": "AGE",
-         "select": "outer",
-         "note": "LAGER without its first and last letters"
+         "words": "beer",
+         "at": 30,
+         "gives": "LAGER",
+         "note": "lager is a beer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fine show of endless beer stashed in the kitchen.",
-     "walkthrough": "P(AGE)ANTRY. 'Unlimited beer' sounds like a free bar; it means the beer word with its ends cut off.",
-     "definitionFit": "A plain synonym: the pomp of processions and ceremonies is a splendid display."
+     "surface": "A grand show put on with endless beer kept in the kitchen cupboard.",
+     "definitionFit": "Pageantry is elaborate ceremonial show and spectacle, such as processions and costumes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "unlimited"
     }
    }
@@ -1007,46 +1014,42 @@
      "parts": [
       {
        "words": "revolutionary",
+       "at": 12,
        "gives": "CHE",
-       "note": "Che Guevara"
+       "note": "Che Guevara is the crossword's favourite revolutionary"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "V",
+       "words": "very",
+       "at": 26,
+       "gives": "V"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "after shelling",
-         "note": "once its shell, the outer letters, is removed"
+         "at": 37,
+         "note": "after shelling means the word has its outer letters removed, like a shelled nut"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "very",
-         "gives": "V",
-         "select": "outer",
-         "note": "v = very"
+         "words": "wrong",
+         "at": 31
         }
        ]
-      },
-      {
-       "words": "wrong after shelling",
-       "gives": "RON",
-       "note": "WRONG without W and G"
       }
      ]
     },
     "explanation": {
-     "surface": "A rude gesture from a revolutionary who's gone badly wrong after a bombardment.",
-     "walkthrough": "'V-sign' suggests the rude two-finger gesture; it is simply a V-shaped mark, as on a sergeant's sleeve.",
-     "definitionFit": "A chevron is a V-shaped stripe or symbol."
+     "surface": "A revolutionary making a rude V-sign after an artillery barrage went badly wrong.",
+     "walkthrough": "In Britain a V-sign made with the palm inward is a rude gesture, but here it is the V-shape itself.",
+     "definitionFit": "A chevron is a V-shaped stripe or symbol, as on a soldier's sleeve or a road sign."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "V-sign"
+     "misdirectedWord": "shelling"
     }
    }
   },

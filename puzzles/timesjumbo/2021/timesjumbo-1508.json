@@ -311,69 +311,68 @@
      "indicators": [
       {
        "text": "arresting",
-       "note": "arresting means seizing and holding, so the reversed word takes the others inside"
+       "at": 7,
+       "note": "arresting means holding the other pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "container",
-         "parts": [
-          {
-           "words": "End",
-           "gives": "MIA",
-           "note": "an aim is an end or goal, read upwards"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L is the abbreviation for large"
-          }
-         ]
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "up in a down clue means read upwards, so the word for end runs backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Italian",
-           "gives": "IT",
-           "note": "It is short for Italian, as in It vermouth"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "first",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "leader of",
-         "note": "leader of asks for the first letter of inept"
+         "text": "up",
+         "at": 4,
+         "note": "up in a down clue means the word is read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "inept",
-         "note": "the first letter of inept"
+         "words": "End",
+         "at": 0,
+         "gives": "AIM",
+         "note": "an end is an aim or goal"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 17,
+         "gives": "L"
+        },
+        {
+         "words": "Italian",
+         "at": 23,
+         "gives": "IT"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 32,
+           "note": "leader of means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "inept",
+           "at": 42
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy volunteer unit ends up seizing a big Italian.",
-     "definitionFit": "A militia is a body of citizen soldiers raised from the civilian population, as opposed to regular troops."
+     "surface": "Someone ends up arresting a big Italian and the head of an incompetent band of volunteers.",
+     "definitionFit": "A militia is a body of citizen soldiers, typically volunteers rather than professionals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "End"
     }
@@ -727,35 +726,38 @@
      "indicators": [
       {
        "text": "inspiring",
-       "note": "to inspire is literally to breathe in, so the range of knowledge takes other letters inside it"
+       "at": 19,
+       "note": "inspiring literally means breathing in, so the word takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Range of knowledge",
-         "gives": "KEN",
-         "note": "ken means the range of what one knows, as in 'beyond my ken'"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Range of knowledge",
+       "at": 0,
+       "gives": "KEN",
+       "note": "ken means one's range of knowledge, as in 'beyond my ken'"
       },
       {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 29,
+         "gives": "A"
+        },
+        {
+         "words": "Republican",
+         "at": 31,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-read Republican woman is being described.",
-     "walkthrough": "'Inspiring' reads as praise for the knowledge, but it means breathing in, so the letters go inside.",
-     "definitionFit": "Karen is a female given name, so any particular lady could be called that in a crossword."
+     "surface": "A woman's breadth of learning inspires a Republican.",
+     "walkthrough": "'inspiring' is used in its literal sense of breathing in.",
+     "definitionFit": "Karen is a woman's first name; crosswords often define names simply by the sex of their bearer."
     },
     "features": {
      "answerInScene": true,
@@ -1073,41 +1075,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the staff inside the combined key and hospital area"
+       "at": 19,
+       "note": "in means the staff goes inside the combined key and department"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "area of hospital",
-         "gives": "ENT",
-         "note": "ENT is the ear, nose and throat department"
+         "words": "key",
+         "at": 22,
+         "gives": "E",
+         "note": "E is a musical key"
         },
         {
-         "words": "staff",
-         "gives": "ROD",
-         "note": "a rod is a staff or stick"
+         "words": "area of hospital",
+         "at": 26,
+         "gives": "ENT",
+         "note": "ENT is the ear, nose and throat department of a hospital"
         }
        ]
       },
       {
-       "words": "key",
-       "gives": "E",
-       "note": "E is a musical key"
+       "words": "staff",
+       "at": 13,
+       "gives": "ROD",
+       "note": "a rod is a staff or stick"
       }
      ]
     },
     "explanation": {
-     "surface": "Hospital staff in a key department are being worn out.",
-     "walkthrough": "'Staff' suggests hospital employees, but it is a stick. The rod sits between the key and the department.",
-     "definitionFit": "Erodent is a rare adjective meaning eroding, gradually abrading or eating away at something."
+     "surface": "Staff in an important hospital department are being worn down.",
+     "walkthrough": "'staff' looks like hospital employees but is a stick, and 'key' looks like important but is the musical key E.",
+     "definitionFit": "Erodent is an adjective meaning eroding or causing gradual erosion, so it describes something that wears down."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "staff"
     }
    }

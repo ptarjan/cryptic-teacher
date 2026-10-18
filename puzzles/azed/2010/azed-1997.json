@@ -1026,54 +1026,65 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces inside the following word"
+       "at": 38,
+       "note": "in means the combined pieces go inside the shortened haste word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tip missing",
+         "at": 48,
+         "note": "tip missing means the end letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "tip missing",
-           "note": "the tip is an end, and missing means it is gone, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "haste",
-           "gives": "SPEED",
-           "note": "speed is haste"
-          },
-          {
-           "gives": "D"
-          }
-         ]
+         "words": "haste",
+         "at": 41,
+         "gives": "SPEED",
+         "note": "speed is haste"
         },
         {
-         "words": "I",
-         "note": "taken as written"
+         "gives": "D"
         }
        ]
       },
       {
-       "words": "grave",
-       "gives": "SAD",
-       "note": "grave and sad both mean serious, solemn"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "put by",
+         "at": 25,
+         "note": "put by means the letter is placed beside the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 23,
+         "gives": "I"
+        },
+        {
+         "words": "grave",
+         "at": 32,
+         "gives": "SAD",
+         "note": "grave means serious or sad"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier hastily puts a knightly attachment for his lance beside a grave.",
-     "walkthrough": "The appendage is to the word lance, not the weapon: lancespeisade was an old name for a lance corporal, the lowest rank of officer.",
-     "definitionFit": "The archaic rank lancespeisade or lancepesade, a lance corporal, puts this ending after lance."
+     "surface": "Instructions for a knight: put the lance by a grave in a hurry, minus its point.",
+     "walkthrough": "'Lance' is not a weapon here but the first half of an old military rank, lance-speisade.",
+     "definitionFit": "Lance-speisade is an obsolete term for a lance-corporal, so speisade is the old word that followed lance in that rank."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "lance"
     }
    }

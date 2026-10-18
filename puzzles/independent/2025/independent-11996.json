@@ -565,43 +565,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DELTA",
+     "op": "container",
      "indicators": [
       {
-       "text": "Largely",
-       "note": "largely means most but not all, so the last letter of the put-off word is dropped"
+       "text": "about",
+       "at": 16,
+       "note": "about means the shortened word goes around the temperature letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "going about something means surrounding it, so the shortened word wraps temperature"
+         "text": "Largely",
+         "at": 0,
+         "note": "largely means most of the word is used, so the last letter goes"
         }
        ],
        "parts": [
         {
          "words": "put off",
-         "gives": "DELA",
-         "note": "DELAY, minus its last letter"
+         "at": 8,
+         "gives": "DELAY",
+         "note": "to delay is to put off"
         },
         {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "temperature",
+       "at": 22,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps postponing a trip because of the heat in Egypt.",
-     "walkthrough": "'Put off' looks like a verb about discouraging someone, but here it means postpone, and 'largely' trims its tail before it wraps the temperature.",
-     "definitionFit": "The Nile delta is the fan-shaped area of land where the river splits before reaching the Mediterranean."
+     "surface": "Mostly postponing things because of the heat in the Nile area.",
+     "walkthrough": "DELAY loses its last letter to give DELA, and 'about' wraps it around T.",
+     "definitionFit": "The Nile Delta is the fan-shaped area of river mouths in northern Egypt, the classic example of a delta."
     },
     "features": {
      "answerInScene": true,

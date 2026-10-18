@@ -530,36 +530,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAWDUST",
-     "indicators": [
-      {
-       "text": "most of"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Observed",
+       "at": 0,
+       "gives": "SAW",
+       "note": "saw means observed"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "collapsing",
+         "at": 23,
+         "note": "collapsing means the letters fall down into a new arrangement"
+        }
+       ],
        "parts": [
         {
-         "words": "Observed",
-         "gives": "SAW",
-         "note": "to observe is to see; past tense saw"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "collapsing",
-           "note": "A collapsing thing falls into disorder."
+           "text": "most of",
+           "at": 9,
+           "note": "most of means the last letter is removed"
           }
          ],
          "parts": [
           {
            "words": "study",
-           "gives": "STUD",
-           "note": "STUDY with its last letter dropped"
+           "at": 17,
+           "gives": "STUDY",
+           "note": "taken as the word study"
+          },
+          {
+           "gives": "Y"
           }
          ]
         }
@@ -568,9 +574,8 @@
      ]
     },
     "explanation": {
-     "surface": "Someone saw most of the study fall down and found the debris in the workshop.",
-     "walkthrough": "\"Remains\" looks like a verb, but it is a noun: what is left over after sawing wood.",
-     "definitionFit": "Sawdust is the waste left behind in a woodworking shop."
+     "surface": "Someone watched most of a study fall down, leaving debris in the workshop.",
+     "definitionFit": "Sawdust is the fine particles left behind after cutting wood, typically found on a carpenter's floor."
     },
     "features": {
      "answerInScene": true,
@@ -860,45 +865,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTRID",
+     "op": "container",
      "indicators": [
       {
-       "text": "half of"
+       "text": "securing",
+       "at": 34,
+       "note": "securing means the help word holds the shortened street inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "to help",
+       "at": 26,
+       "gives": "AID",
+       "note": "to aid is to help"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "securing"
+         "text": "half of",
+         "at": 43,
+         "note": "half of means only the first three of the six letters are kept"
         }
        ],
        "parts": [
         {
-         "words": "to help",
-         "gives": "AID",
-         "note": "to help is to aid"
+         "words": "street",
+         "at": 51,
+         "gives": "STREET"
         },
         {
-         "words": "street",
-         "gives": "STR",
-         "note": "the first half of STREET"
+         "gives": "EET"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Scandinavian girl, perhaps, helps to guard part of a road.",
-     "walkthrough": "The \"maybe\" admits the definition is by example: Astrid is one Scandinavian girl's name.",
-     "definitionFit": "Astrid is a common Scandinavian female name."
+     "surface": "A Nordic girl offering assistance while halfway along a road.",
+     "definitionFit": "Astrid is a common girl's name in Scandinavia, so it is an example of a Scandinavian girl's name."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
     }
    }
   },

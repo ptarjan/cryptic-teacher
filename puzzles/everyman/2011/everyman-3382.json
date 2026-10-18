@@ -854,56 +854,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PIERROT",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the shortened word inside the following one"
+       "at": 29,
+       "note": "in means the shortened mistake goes inside the mine"
       }
      ],
      "parts": [
       {
+       "words": "mine",
+       "at": 32,
+       "gives": "PIT",
+       "note": "a pit is a coal mine"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PIERROT",
        "indicators": [
         {
          "text": "most of",
-         "note": "most of means nearly all, so the final letter of the next word is dropped"
+         "at": 13,
+         "note": "most of means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "mine",
-           "gives": "PI",
-           "note": "first part of pit, a mine"
-          },
-          {
-           "words": "mistake",
-           "gives": "ERRO",
-           "note": "error without its last letter"
-          },
-          {
-           "words": "mine",
-           "gives": "T",
-           "note": "last part of pit, a mine"
-          }
-         ]
+         "words": "mistake",
+         "at": 21,
+         "gives": "ERROR",
+         "note": "an error is a mistake"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A circus clown botching things in a colliery.",
-     "definitionFit": "Pierrot is the sad white-faced clown of French pantomime and commedia dell'arte."
+     "surface": "A clown is making a blunder down a mine.",
+     "definitionFit": "Pierrot is the sad white-faced clown figure of French pantomime and the commedia dell'arte."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "mine"
     }
@@ -1480,24 +1473,20 @@
    },
    "solution": "LOVELETTER",
    "annotation": {
-    "definitions": [
-     {
-      "text": "O?",
-      "at": 0
-     }
-    ],
     "wordplay": {
-     "op": "cryptic",
+     "op": "rebus",
+     "reading": "O, and a question about it",
      "parts": [
       {
        "words": "O?",
-       "note": "surface reading: an exclamation, or a lone circle; setter's reading: the letter O stands for nil, which in tennis scoring is called love"
+       "at": 0,
+       "note": "the letter O stands for love, the zero score in tennis, so the question asks what kind of letter O is"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In tennis a score of zero is love, and zero looks like O, so O is the letter that means love.",
-     "definitionFit": "A love letter is normally a romantic message; here the phrase is read literally as the character standing for love."
+     "walkthrough": "In tennis a score of nil is 'love', and O looks like a zero, so O is the letter for love.",
+     "definitionFit": "A love letter is a romantic note to a sweetheart; here the phrase is read literally as the letter meaning love."
     },
     "features": {
      "answerInScene": false,
