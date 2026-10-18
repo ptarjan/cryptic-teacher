@@ -847,41 +847,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDIVIDUAL",
-     "indicators": [
-      {
-       "text": "halved",
-       "note": "halved means cut in two, so only one half of the word is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 14,
+         "note": "halved means cut to half its length, so only the first four of the eight letters of dividend are kept"
+        }
+       ],
        "parts": [
         {
-         "words": "Home",
-         "gives": "IN",
-         "note": "in means at home"
-        },
-        {
          "words": "dividend",
-         "gives": "DIVI",
-         "note": "the first half of this eight-letter word"
+         "at": 5
         },
         {
-         "words": "double",
-         "gives": "DUAL",
-         "note": "dual means double or twofold"
+         "gives": "DEND"
         }
        ]
+      },
+      {
+       "words": "double",
+       "at": 22,
+       "gives": "DUAL",
+       "note": "dual means double, twofold"
       }
      ]
     },
     "explanation": {
-     "surface": "A financial puzzle: half a dividend at home, and a double turns into a single.",
-     "definitionFit": "Individual means separate or one alone, an adjective synonym of the singular sense."
+     "surface": "A household's dividend is cut in half, and a twin payment turns into one.",
+     "walkthrough": "'Halved' keeps DIVI, the first half of DIVIDEND. 'Double becomes single' looks like a paradox, but 'double' gives DUAL and 'single' is the definition.",
+     "definitionFit": "Individual as an adjective means separate and one of a kind, the sense of single in 'each single item'."
     },
     "features": {
      "answerInScene": false,
@@ -912,36 +916,27 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALTHOUGH",
      "indicators": [
       {
-       "text": "curtailed",
-       "note": "curtailed means having the tail cut off, so each word loses its final letter"
+       "text": "must be curtailed",
+       "at": 16,
+       "note": "curtailed means having the tail cut off, so each of the two words loses its last letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "all",
-         "gives": "AL",
-         "note": "all without its last letter"
-        },
-        {
-         "words": "thought",
-         "gives": "THOUGH",
-         "note": "thought without its last letter"
-        }
-       ]
+       "words": "all thought",
+       "at": 4
+      },
+      {
+       "gives": "LT"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that all one's ideas still have to be cut short.",
-     "walkthrough": "Both words lose their tails, not just the second.",
-     "definitionFit": "Yet and although are both conjunctions introducing a contrast, as in 'small, yet strong'."
+     "surface": "A demand that every idea be cut short anyway.",
+     "walkthrough": "'Must be curtailed' applies to both words: ALL loses its final L and THOUGHT its final T.",
+     "definitionFit": "Although and yet are both conjunctions introducing a contrast, as in 'small, yet strong'."
     },
     "features": {
      "answerInScene": false,
@@ -1086,25 +1081,24 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CALCULATOR",
      "indicators": [
       {
        "text": "daft",
-       "note": "daft means silly or mixed up, so the preceding words are jumbled"
+       "at": 13,
+       "note": "daft means silly, so the letters of call our cat are jumbled into a new order"
       }
      ],
      "parts": [
       {
        "words": "Call our cat",
-       "note": "the ten letters of these three words, rearranged"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A pet owner admits the cat may be stupid but at least it can breed.",
-     "walkthrough": "Multiply looks like the cat having kittens; in the definition it is arithmetic.",
-     "definitionFit": "A cryptic description: a pocket device for arithmetic can perform multiplication, unlike a dim pet."
+     "surface": "Someone mocks a pet as foolish, yet insists it can at least do arithmetic.",
+     "walkthrough": "'Daft' signals the jumble of CALL OUR CAT. 'Multiply' suggests a breeding cat, but the definition is a pocket machine that may do little else, hence 'At least'.",
+     "definitionFit": "A calculator is an electronic device for arithmetic, and multiplying numbers is one of its basic functions."
     },
     "features": {
      "answerInScene": false,
@@ -1447,53 +1441,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PUBLIC",
-     "indicators": [
-      {
-       "text": "Back",
-       "note": "back tells us to read the next short word in the opposite direction"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "at": 0,
+         "note": "back means going backwards, so the word up is read from right to left"
+        }
+       ],
        "parts": [
         {
          "words": "up",
-         "gives": "PU",
-         "note": "the word up read the other way"
+         "at": 5,
+         "gives": "UP"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embracing",
+         "at": 15,
+         "note": "embracing means hugging, so the pen's name goes around the student letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writer",
+         "at": 8,
+         "gives": "BIC",
+         "note": "a Bic is a brand of ballpoint pen, hence a writer"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "embracing",
-           "note": "embracing means holding, so the pen wraps around the learner"
-          }
-         ],
-         "parts": [
-          {
-           "words": "writer",
-           "gives": "BIC",
-           "note": "a Bic is a brand of ballpoint pen"
-          },
-          {
-           "words": "student",
-           "gives": "L",
-           "note": "L is a learner, as on a learner driver's plate"
-          }
-         ]
+         "words": "student",
+         "at": 25,
+         "gives": "L",
+         "note": "L, for learner, stands for a student"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone supports an author who hugs a student openly.",
-     "walkthrough": "'Back up' reads as one phrase meaning support, but it splits into a reversal signal and its word.",
-     "definitionFit": "Something public is done openly in view of everyone, the sense of out in the open."
+     "surface": "Supporting an author who takes a pupil into their arms in full view.",
+     "walkthrough": "'Back up writer' reads as supporting an author, but 'Back' reverses the next word, and the writer is a ballpoint pen brand, which 'embracing' wraps round the learner's L to give BLIC.",
+     "definitionFit": "Something public is done openly for everyone to see, as in 'made public'."
     },
     "features": {
      "answerInScene": false,
