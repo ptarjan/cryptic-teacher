@@ -325,52 +325,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NAOMI",
-     "indicators": [
-      {
-       "text": "After introduction",
-       "note": "only what comes after the opening is wanted, so the first letter is dropped"
-      },
-      {
-       "text": "half-ignored",
-       "note": "ignoring half of a word means only half of its letters are kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "write-up of",
+         "at": 20,
+         "note": "in a down clue a write-up is a word written upwards, so it reads in reverse"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "write-up",
-           "note": "in a down entry, writing something up means it reads from bottom to top"
+           "text": "After introduction",
+           "at": 0,
+           "note": "after the introduction means once the opening letter has gone"
           }
          ],
          "parts": [
           {
            "words": "Joan",
-           "gives": "OAN",
-           "note": "the name without its first letter"
+           "at": 32,
+           "note": "the name as written, losing its first letter"
+          },
+          {
+           "gives": "J"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-ignored",
+         "at": 42,
+         "note": "half of the word is left out, here its second half"
+        }
+       ],
+       "parts": [
         {
          "words": "Miro",
-         "gives": "MI",
-         "note": "the first half of the painter's surname"
+         "at": 37,
+         "note": "the painter's name as written, of which only the first half counts"
+        },
+        {
+         "gives": "RO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A review of a Joan Miró exhibition ignores half of it after the opening section.",
-     "walkthrough": "'write-up' looks like a review of the artist, but in a down clue it means reverse; only the trimmed Joan is reversed, then half of Miro follows.",
-     "definitionFit": "In the Book of Ruth, Naomi is the widow whose Moabite daughter-in-law Ruth refuses to leave her, a famous biblical relationship."
+     "surface": "An art critic's review of the Spanish painter Joan Miró, partly ignored, somehow brings in a mother-in-law.",
+     "walkthrough": "Joan Miró looks like one name to treat whole, but each part is worked separately. In the Bible, Naomi is the mother-in-law of Ruth.",
+     "definitionFit": "Naomi in the Book of Ruth is the Bible's best-known mother-in-law, followed home by her loyal daughter-in-law Ruth."
     },
     "features": {
      "answerInScene": false,
@@ -463,44 +477,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPINION",
-     "indicators": [
-      {
-       "text": "getting rid of first",
-       "note": "getting rid of the first means the opening letter is thrown away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op is short for opus, a musical work"
+      },
+      {
+       "words": "in",
+       "at": 5
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "getting rid of first",
+         "at": 19,
+         "note": "losing the first letter, so the opening letter of the word goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Work",
-         "gives": "OP",
-         "note": "op is short for opus, a work"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
          "words": "Jerusalem",
-         "gives": "ION",
-         "note": "Zion is a name for Jerusalem; without its first letter"
+         "at": 8,
+         "gives": "ZION",
+         "note": "Zion is a biblical name for Jerusalem"
+        },
+        {
+         "gives": "Z"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone working in Jerusalem tries to shake off a bad first impression.",
-     "walkthrough": "'first impression' reads as one phrase, but 'first' belongs with the deletion and 'impression' stands alone as the definition.",
-     "definitionFit": "An impression can be a view or belief formed about something, which is a synonym for a personal judgement."
+     "surface": "Someone working in Jerusalem shakes off their first impression of the city.",
+     "walkthrough": "Zion, the hill in Jerusalem, stands for the whole city in the Bible; 'getting rid of first' drops its Z to give ION.",
+     "definitionFit": "An impression is a view or belief formed about something, which is what an opinion is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "first"
     }
@@ -575,12 +593,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VIDEO",
      "indicators": [
       {
        "text": "carrying",
-       "note": "carrying something means holding it inside, so one piece goes within the other"
+       "at": 13,
+       "note": "carrying means holding something inside, so the letter for eastern goes within"
       }
      ],
      "parts": [
@@ -589,33 +606,30 @@
        "indicators": [
         {
          "text": "Cycling",
-         "note": "going round in a cycle moves the front letter to the back"
+         "at": 0,
+         "note": "cycling moves letters round from one end of a word to the other, here the first letter to the back"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "poet",
-           "gives": "OVID",
-           "note": "Ovid was a Roman poet"
-          },
-          {
-           "words": "eastern",
-           "gives": "E",
-           "note": "E is the abbreviation for eastern"
-          }
-         ]
+         "words": "poet",
+         "at": 8,
+         "gives": "OVID",
+         "note": "Ovid was a Roman poet"
         }
        ]
+      },
+      {
+       "words": "eastern",
+       "at": 22,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A poet on a bicycle carries a record from the East.",
-     "walkthrough": "Moving the O of OVID to the end gives VIDO, which then holds E before its final letter.",
-     "definitionFit": "To video something is to capture it on camera, a verb synonym for taping or filming an event."
+     "surface": "A poet riding a bike while carrying an oriental record.",
+     "walkthrough": "'Cycling' sends the O of OVID to the back to make VIDO, and 'carrying' puts E inside it.",
+     "definitionFit": "A video is a recording of moving images, so as a noun it is a kind of record."
     },
     "features": {
      "answerInScene": false,
@@ -708,52 +722,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELABORATENESS",
+     "op": "composite",
      "indicators": [
       {
        "text": "somehow",
-       "note": "somehow means in some unspecified manner, so the letters may be arranged in any way"
+       "at": 22,
+       "note": "somehow says the letters come together in some other order, so they are rearranged"
+      },
+      {
+       "text": "losing",
+       "at": 30,
+       "note": "losing says one letter of the fodder is not used in the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELABORATENESS",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "losing something means it goes missing, so a letter is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Leave",
-         "note": "taken as written"
+         "at": 0,
+         "note": "fodder, as written"
         },
         {
          "words": "bass",
-         "note": "taken as written"
+         "at": 6,
+         "note": "fodder, as written"
         },
         {
          "words": "tenor",
-         "note": "taken as written"
-        },
-        {
-         "words": "verse",
-         "gives": "V",
-         "note": "V is the abbreviation for verse; this letter is the one removed"
+         "at": 16,
+         "note": "fodder, as written"
         }
        ]
+      },
+      {
+       "words": "verse",
+       "at": 37,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "Leaving out a verse simplifies a song for bass and tenor voices.",
-     "walkthrough": "Take V out of LEAVE, then rearrange all the remaining letters of the three words; 'with' simply joins them.",
-     "definitionFit": "Elaborateness is the quality of being intricate and detailed, so it is a noun synonym for intricacy."
+     "surface": "Instructions for a choir: drop the bass, team up with the tenor, and lose a verse of a tricky piece.",
+     "walkthrough": "'Leave' looks like an instruction to drop the bass singer, but it is simply part of the fodder; 'with' only joins the fodder words.",
+     "definitionFit": "Elaborateness is the quality of being intricate and detailed, which amounts to complexity."
     },
     "features": {
      "answerInScene": false,
@@ -913,37 +926,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CATEGORY",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means most but not all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means not quite all, so the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "provide food",
-         "gives": "CATE",
-         "note": "to cater is to provide food, without its last letter"
+         "at": 7,
+         "gives": "CATER",
+         "note": "to cater is to provide food"
         },
         {
-         "words": "red",
-         "gives": "GORY",
-         "note": "gory means bloody, red with blood"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "red",
+       "at": 22,
+       "gives": "GORY",
+       "note": "gory means bloody, so red with blood"
       }
      ]
     },
     "explanation": {
-     "surface": "A host mostly serves up food, a red variety of it.",
-     "walkthrough": "'red sort' reads like a kind of wine or meat, but 'sort' alone is the definition.",
-     "definitionFit": "A sort is a kind or class of things grouped together, which is a direct noun synonym."
+     "surface": "A caterer's note: provide most of the food, the red sort.",
+     "walkthrough": "'Mostly' trims CATER to CATE, and the bloody sense of red gives GORY.",
+     "definitionFit": "A category is a class or group of things sharing a feature, which is a sort or kind."
     },
     "features": {
      "answerInScene": false,
@@ -1091,37 +1108,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSEAM",
-     "indicators": [
-      {
-       "text": "not initially",
-       "note": "not initially means without its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not initially",
+         "at": 17,
+         "note": "without the initial letter, so the word loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "wet",
-         "gives": "INSE",
-         "note": "to rinse is to wet, minus its first letter"
+         "at": 31,
+         "gives": "RINSE",
+         "note": "to rinse something is to wet it with water"
         },
         {
-         "words": "in the morning",
-         "gives": "AM",
-         "note": "a.m. means in the morning"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "in the morning",
+       "at": 35,
+       "gives": "AM",
+       "note": "AM is short for ante meridiem, before noon"
       }
      ]
     },
     "explanation": {
-     "surface": "Some trousers are only damp in the morning, not at first.",
-     "walkthrough": "'wet' is a verb here, the synonym being to rinse, which loses its R.",
-     "definitionFit": "The inside leg seam running from crotch to hem is a component of every pair of trousers."
+     "surface": "Someone's trousers have not yet got wet this morning.",
+     "walkthrough": "'Not initially' trims RINSE to INSE, and AM is the morning.",
+     "definitionFit": "The inseam is the seam running up the inner leg of a pair of trousers, so it is one part of them."
     },
     "features": {
      "answerInScene": true,
@@ -1214,48 +1235,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOLASSES",
+     "op": "container",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the last letter is cut"
+       "text": "drinking",
+       "at": 15,
+       "note": "drinking means taking something in, so the shortened word goes inside the word for lots of people"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Lots of people",
+       "at": 0,
+       "gives": "MASSES",
+       "note": "masses are crowds, lots of people"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "drinking",
-         "note": "drinking means taking in, so one piece goes inside another"
+         "text": "nearly",
+         "at": 24,
+         "note": "nearly means not quite all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Lots of people",
-         "gives": "MASSES",
-         "note": "the masses are large numbers of people"
+         "words": "expired",
+         "at": 31,
+         "gives": "OLD",
+         "note": "something expired, like a ticket or a passport, is old and out of date"
         },
         {
-         "words": "expired",
-         "gives": "OL",
-         "note": "old, as in past its date, without its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crowds are drinking some syrup that is almost past its date.",
-     "walkthrough": "'expired' suggests dead or out of date; OLD is the synonym, cut short and placed after the first letter.",
-     "definitionFit": "Molasses is the thick dark liquid left from refining sugar, a type of treacle-like sweetener."
+     "surface": "Crowds are drinking a sweet syrup that has nearly passed its sell-by date.",
+     "walkthrough": "Expired here means past its date, as an old passport is, rather than dead.",
+     "definitionFit": "Molasses is the thick dark syrup left over when sugar is refined, also called treacle in Britain."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "expired"
+     "misdirectedWord": "drinking"
     }
    }
   },

@@ -807,29 +807,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LITRE",
      "indicators": [
       {
        "text": "Extreme pieces of",
-       "note": "only the pieces at the two extremes are kept, so the middle stretch is thrown away"
+       "at": 0,
+       "note": "only the pieces at the two ends of the word are kept, so its middle stretch is dropped"
       }
      ],
      "parts": [
       {
        "words": "literature",
-       "note": "taken as written"
+       "at": 18,
+       "note": "the word as written, whose opening three and closing two letters are used"
+      },
+      {
+       "gives": "ERATU"
       }
      ]
     },
     "explanation": {
-     "surface": "Bits of books gathered together into one tome.",
-     "walkthrough": "Keep the opening three and closing two letters of the long word and join them up; 'volume' looks like a book, but it is a measure of capacity.",
-     "definitionFit": "A litre is a metric unit measuring capacity, one thousand cubic centimetres."
+     "surface": "A book whose two ends have been assembled into a single volume.",
+     "walkthrough": "'Volume' looks like a book, which fits 'literature', but here it is a unit of measure. 'Extreme pieces of' keeps LIT from the start and RE from the end, cutting out the middle ERATU.",
+     "definitionFit": "A litre is a metric unit for measuring the capacity of liquids, so it is a measure of volume."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "volume"
     }
@@ -1003,22 +1006,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MONSIEUR",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "entering",
-       "note": "entering means going inside, so this word slips between the other two"
+       "text": "Au contraire!",
+       "at": 62,
+       "note": "French for on the contrary, telling you to do the opposite and read the whole construction the other way round"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "Au contraire!",
-         "note": "French for on the contrary, telling the solver to run everything the other way"
+         "text": "entering",
+         "at": 31,
+         "note": "entering means going in, so one word is placed between the others"
         }
        ],
        "parts": [
@@ -1027,28 +1030,30 @@
          "parts": [
           {
            "words": "Parisian street",
+           "at": 40,
            "gives": "RUE",
-           "note": "rue is French for street"
-          },
-          {
-           "words": "is",
-           "note": "taken as written"
+           "note": "the French for street is rue"
           },
           {
            "words": "name",
+           "at": 56,
            "gives": "NOM",
-           "note": "nom is French for name, kept French by the Parisian setting"
+           "note": "the French for name is nom, keeping to the Parisian setting"
           }
          ]
+        },
+        {
+         "words": "is",
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about French etiquette and street names in Paris, closing with a French flourish.",
-     "walkthrough": "Both street and name are rendered in French because of 'Parisian'.",
-     "definitionFit": "Monsieur is the French courtesy title for a man, equivalent to Mr or sir."
+     "surface": "A query about how the French address a man, wondering if it is a Parisian street name.",
+     "walkthrough": "'Au contraire!' reads as a French flourish but is the instruction to reverse everything built from 'entering'. 'Parisian' colours 'name' as well as 'street', so both go into French.",
+     "definitionFit": "Monsieur is the French title for a man, the equivalent of Mr or sir when speaking to him."
     },
     "features": {
      "answerInScene": true,
