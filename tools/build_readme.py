@@ -792,6 +792,7 @@ LAYOUT = [
     ("annotating", "tools/fix_scrambled_gives.py", "drop the made-up `gives` of a fodder leaf inside an anagram (shape round 3, 10-17)"),
     ("annotating", "tools/test_shape_detector_false_positives.py", "the shape detectors (shape_suspects, via shape_queue.findings) must not flag clues no"),
     ("annotating", "tools/test_validator_gap_rules.py", "tests for the validator-gap rules: folded indicators, fake substitution parts, padding leaves and the redo regression gate"),
+    ("annotating", "tools/test_og_prose_family.py", "does the og card's own-prose family check ignore words quoted from the clue?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
