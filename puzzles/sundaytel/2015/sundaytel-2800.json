@@ -822,51 +822,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INTIMIDATE",
      "indicators": [
       {
        "text": "Cockney's",
-       "note": "Cockney speech drops the H at the start of words, so each word loses its initial H"
+       "at": 0,
+       "note": "a Cockney traditionally drops the H at the start of words, so each word below loses its H"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "clue",
-         "gives": "INT",
-         "note": "a hint is a clue, said without its H"
-        },
-        {
-         "words": "that man",
-         "gives": "IM",
-         "note": "him, that man, said without its H"
-        },
-        {
-         "words": "concealed",
-         "gives": "ID",
-         "note": "hid, concealed, said without its H"
-        },
-        {
-         "words": "loathing",
-         "gives": "ATE",
-         "note": "hate, loathing, said without its H"
-        }
-       ]
+       "words": "clue that man concealed loathing",
+       "at": 10,
+       "gives": "HINTHIMHIDHATE",
+       "note": "clue is hint, that man is him, concealed is hid and loathing is hate"
+      },
+      {
+       "gives": "HHHH"
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner's tip-off that a man hid his hatred of a bully.",
-     "walkthrough": "Cockney is the East London dialect, famous for dropping H; every piece here loses one.",
-     "definitionFit": "To bully someone is to intimidate them, frightening them into submission; both are verbs."
+     "surface": "A Londoner gives a hint that a man has been hiding his hatred of a bully.",
+     "walkthrough": "Each of the four words gives a synonym beginning with H: HINT, HIM, HID, HATE. 'Cockney's' drops every H, as a Cockney Londoner would, leaving 'INT 'IM 'ID 'ATE.",
+     "definitionFit": "To intimidate someone is to frighten them into doing what you want, which is what a bully does, so the verbs match."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bully"
+     "joke": "pun",
+     "misdirectedWord": "clue"
     }
    }
   },
