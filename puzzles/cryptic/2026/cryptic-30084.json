@@ -285,32 +285,57 @@
        "op": "outer",
        "indicators": [
         {
-         "text": "case of"
+         "text": "case of",
+         "at": 11,
+         "note": "the case of a word is its outside, so keep only the first and last letters of stout"
         }
        ],
        "parts": [
         {
-         "words": "case of stout",
-         "gives": "STOUT",
-         "note": "the case of a word is its outside: STouT"
+         "words": "stout",
+         "at": 19,
+         "note": "the outer letters of stout"
         }
        ]
       },
       {
        "words": "with",
+       "at": 25,
        "gives": "AND",
-       "note": "with = and, the joiner taken at face value as letters"
+       "note": "and means together with"
       },
       {
-       "words": "case of brandy",
-       "gives": "BY",
-       "note": "BrandY, outside only"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "case of",
+         "at": 30,
+         "note": "again only the case, the outside, of brandy is wanted, so its contents are emptied out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brandy",
+         "at": 38,
+         "note": "brandy with its inner letters gone"
+        },
+        {
+         "gives": "RAND"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both drinks come in cases in the packing sense — keep the outside, drop the contents — and the little word between them is not joinery at all but three letters of the answer.",
-     "definitionFit": "A stand-by is the spare kept ready to take someone's place, so 'Substitute' names it by the job it is waiting to do."
+     "surface": "A drinker swaps a crate of stout beer for a crate of brandy.",
+     "walkthrough": "Each 'case of' keeps a word's outer letters, ST from stout and BY from brandy. 'Case' looks like a crate of bottles, but here it means the shell of a word, its first and last letters.",
+     "definitionFit": "A stand-by is a reserve person or thing ready to replace another, a substitute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
     }
    }
   },

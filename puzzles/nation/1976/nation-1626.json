@@ -973,27 +973,48 @@
      "op": "charade",
      "parts": [
       {
-       "words": "The man of 16 at last",
-       "at": 0,
-       "gives": "ED",
-       "note": "Ed is a man's name, and it is also the last two letters of the answer to 16 across, TETHERED"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "The man of",
+         "at": 0,
+         "note": "the man of means a man's name hiding in the other answer, here the name Ed"
+        },
+        {
+         "text": "at last",
+         "at": 14,
+         "note": "at last says the name sits at the very end of that answer, so everything before it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "16",
+         "at": 11,
+         "gives": "TETHERED",
+         "note": "16 points to the answer of 16 across, tethered"
+        },
+        {
+         "gives": "TETHER"
+        }
+       ]
       },
       {
        "words": "passed on",
        "at": 22,
        "gives": "DIED",
-       "note": "passed on is a gentle way to say died"
+       "note": "to pass on is a euphemism for to die"
       }
      ]
     },
     "explanation": {
-     "surface": "A man tied up passes away, while smoke or water swirls around.",
-     "definitionFit": "Smoke and water both swirl in circular currents, moving round in turn."
+     "surface": "A man from an earlier clue finally died, and something swirled.",
+     "walkthrough": "16 across is TETHERED, which ends in the man's name ED; 'at last' keeps only that ending. 'In turn' is part of the definition: eddying smoke or water turns in circles.",
+     "definitionFit": "Smoke and water both eddy, moving in small whirling currents, so the past tense fits did."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "passed"
+     "misdirectedWord": "man"
     }
    }
   },

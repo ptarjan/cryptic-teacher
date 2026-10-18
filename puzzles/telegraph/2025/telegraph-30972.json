@@ -317,49 +317,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRELIMINARYSTEP",
+     "op": "composite",
      "indicators": [
       {
        "text": "cooking",
-       "note": "cooking suggests mixing ingredients up into something new"
+       "at": 23,
+       "note": "cooking stirs the ingredients into a new mixture"
+      },
+      {
+       "text": "ignore",
+       "at": 52,
+       "note": "ignore tells you to leave the named letters out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PRELIMINARYSTEP",
-       "indicators": [
-        {
-         "text": "ignore",
-         "note": "to ignore some letters is to leave them out of the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "parliamentary pies",
-         "note": "the fodder before the removal"
-        },
-        {
-         "words": "AA",
-         "note": "two letters to be taken out"
-        }
-       ]
+       "words": "parliamentary pies",
+       "at": 31,
+       "note": "the anagram fodder, seventeen letters in all"
+      },
+      {
+       "words": "AA",
+       "at": 59,
+       "note": "the two letters to be left out of the fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe tip on making pies for Parliament, with a dig at the Automobile Association.",
-     "walkthrough": "Remove two of the three A's from the seventeen letters, then rearrange the remaining fifteen.",
-     "definitionFit": "An initial action taken before the main business is literally the opening thing one does."
+     "surface": "A recipe instruction for making pies fit for Parliament, telling the cook to skip the motoring organisation.",
+     "walkthrough": "'cooking' rearranges PARLIAMENTARY PIES once 'ignore' has removed two of its A's. The AA reads as the Automobile Association but is just two letters here.",
+     "definitionFit": "A preliminary step is an initial action taken before the main work, the first thing you do."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "cooking"
+     "misdirectedWord": "AA"
     }
    }
   },
@@ -596,46 +589,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUSLOAD",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "upset",
+       "at": 17,
+       "note": "upset knocks the combined letters into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Loud",
+       "at": 0,
+       "note": "taken as written into the fodder"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "upset",
-         "note": "upset means knocked over and jumbled up"
+         "text": "almost",
+         "at": 10,
+         "note": "almost means the word stops one letter short of its end"
         }
        ],
        "parts": [
         {
-         "words": "Loud",
-         "note": "taken as written"
+         "words": "bass",
+         "at": 5,
+         "note": "the word to be shortened"
         },
         {
-         "words": "bass",
-         "gives": "BAS",
-         "note": "the word without its last letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Booming bass music annoys passengers on a crowded coach.",
-     "definitionFit": "It is the full complement of passengers carried by a single bus, a large group."
+     "surface": "A booming bass line disturbs the passengers on a coach trip.",
+     "walkthrough": "'almost' trims BASS to BAS; 'upset' then rearranges LOUD with BAS.",
+     "definitionFit": "A busload is the number of passengers a bus can carry, a large group travelling together."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "upset"
+     "aptDefinition": true,
+     "misdirectedWord": "bass"
     }
    }
   },
