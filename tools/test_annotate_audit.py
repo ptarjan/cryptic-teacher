@@ -82,6 +82,8 @@ check({n for s in ("genius/2026/genius-1.json", "azed/2025/azed-9.json") for n i
       "a STOPPED line is one class whatever series path it names")
 check(a.tool_error_kind("Bash", "python3 tools/annotate_check.py x", "Exit code 1\nFAIL"), None,
       "annotate_check reporting errors is not a wasted call")
+check(a.tool_error_kind("Bash", "python3 tools/annotate_bag.py check tools/_ann_bag_x.json", "Exit code 1\nFAIL"),
+      None, "nor is the bag check reporting errors")
 check(a.tool_error_kind("Bash", "cat <<X", "Contains brace with quote character"),
       a.REFUSED["brace with quote"], "a refused heredoc is classified")
 
