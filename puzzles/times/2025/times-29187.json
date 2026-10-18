@@ -138,48 +138,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TUNED",
-     "indicators": [
-      {
-       "text": "works",
-       "note": "the letters are worked over into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 20,
+         "note": "first of means take just the opening letter of the next word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first of",
-           "note": "take the first letter of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "first of Titian's",
-           "gives": "TITIANS",
-           "note": "first letter of Titian"
-          }
-         ]
-        },
+         "words": "Titian's",
+         "at": 29,
+         "note": "the painter's name supplies its first letter"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "nude works",
-         "gives": "UNED",
-         "note": "NUDE rearranged"
+         "text": "works",
+         "at": 43,
+         "note": "works means the letters are worked over into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nude",
+         "at": 38,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An art restorer has touched up one of Titian's nudes.",
-     "walkthrough": "\"Works\" looks like paintings, a natural noun after Titian, but it is a verb telling you to rework NUDE.",
-     "definitionFit": "To tune something is to make fine adjustments to it."
+     "surface": "Someone touched up the start of one of Titian's nude paintings.",
+     "walkthrough": "'works' looks like paintings but is the signal to rearrange NUDE.",
+     "definitionFit": "Tuned means altered an instrument or engine slightly so it performs correctly."
     },
     "features": {
      "answerInScene": false,
@@ -314,48 +314,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HORATIO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "first",
-         "note": "take the first letter of Hamlet"
+         "at": 9,
+         "note": "first means take only the opening letter of the name"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "mainly",
-           "note": "most of the word, so drop its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hamlet's first",
-           "gives": "HAMLETFIRST",
-           "note": "first letter of Hamlet"
-          }
-         ]
+         "words": "Hamlet's",
+         "at": 0,
+         "note": "the name supplies its first letter"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 22,
+         "note": "mainly means most of the word, so its last letter is left off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speech",
+         "at": 15,
+         "gives": "ORATION",
+         "note": "an oration is a formal speech"
         },
         {
-         "words": "speech mainly",
-         "gives": "ORATIO",
-         "note": "ORATION without its last letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hamlet's opening speech is mostly addressed to his friend.",
-     "walkthrough": "The surface stays in Hamlet's world, so the answer hides in plain sight: Horatio is Hamlet's loyal friend in the play.",
-     "definitionFit": "In Shakespeare's play, Horatio is Hamlet's closest friend."
+     "surface": "Hamlet's first speech is mostly for the benefit of his companion.",
+     "walkthrough": "'his' refers back to Hamlet, so the definition only works with the earlier part of the clue in mind.",
+     "definitionFit": "Horatio is the loyal companion of Prince Hamlet in Shakespeare's play."
     },
     "features": {
      "answerInScene": true,
@@ -882,8 +886,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "about",
-       "note": "the spoke word goes round the others"
+       "text": "overturning",
+       "at": 23,
+       "note": "overturning in a down clue means the whole thing is turned upside down, read backwards"
       }
      ],
      "parts": [
@@ -891,39 +896,43 @@
        "op": "container",
        "indicators": [
         {
-         "text": "overturning",
-         "note": "in a down clue, turning over reverses the order"
+         "text": "about",
+         "at": 6,
+         "note": "about means the first word goes round the next pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Spoke",
-           "gives": "SAID",
-           "note": "said = spoke"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one"
-          }
-         ]
+         "words": "Spoke",
+         "at": 0,
+         "gives": "SAID",
+         "note": "spoke means said"
         },
         {
-         "words": "number",
-         "gives": "SONG",
-         "note": "a number is a song"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 12,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "number",
+           "at": 16,
+           "gives": "SONG",
+           "note": "a number is a song, as in a musical number"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone talks of a single figure upsetting a problem analysis.",
-     "walkthrough": "\"One number\" looks like a single figure, but it is one plus a song. The whole assembly reads from the bottom up, so the answer opens with the verb backwards.",
-     "definitionFit": "A diagnosis is the identification of a problem by analysing its signs."
+     "surface": "Someone talked about a single figure that overturns an analysis.",
+     "walkthrough": "'number' looks like a figure, but here it is a tune; 'overturning' turns the whole assembly round, as this is a down clue.",
+     "definitionFit": "A diagnosis is the identification of what is wrong, in medicine or with a fault."
     },
     "features": {
      "answerInScene": false,
@@ -1149,42 +1158,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICARUS",
-     "indicators": [
-      {
-       "text": "ultimately diminished",
-       "note": "cut at the end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "The writer",
+       "at": 0,
+       "gives": "I",
+       "note": "the writer refers to the setter, who is I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately diminished",
+         "at": 11,
+         "note": "ultimately diminished means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "The writer",
-         "gives": "I",
-         "note": "the writer of the clue refers to themself as I"
+         "words": "great singer",
+         "at": 33,
+         "gives": "CARUSO",
+         "note": "Enrico Caruso was a great Italian tenor"
         },
         {
-         "words": "great singer",
-         "gives": "CARUS",
-         "note": "CARUSO, the great tenor, without his last letter"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer ends up belittling a famous singer as a doomed star.",
-     "walkthrough": "Enrico Caruso was the famous Italian tenor. Icarus flew too near the sun and fell.",
-     "definitionFit": "In Greek myth Icarus flew so high that his wax wings melted."
+     "surface": "I belittle a famous singer as a tragic star who rose too high.",
+     "walkthrough": "'high-flier' sounds like an ambitious person, but it is the mythical boy who flew.",
+     "definitionFit": "In Greek myth Icarus flew on wax wings too near the sun, which melted, and he fell to his death."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "diminished"
+     "joke": "pun",
+     "misdirectedWord": "high-flier"
     }
    }
   },

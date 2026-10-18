@@ -1818,40 +1818,44 @@
      "indicators": [
       {
        "text": "In",
-       "note": "one thing in another sits inside it"
+       "at": 0,
+       "note": "In at the front means the following pieces go inside the street"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "street abroad",
-         "gives": "RUE",
-         "note": "rue is French for street"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is short for European"
-        }
-       ]
+       "words": "street abroad",
+       "at": 3,
+       "gives": "RUE",
+       "note": "rue is French for street"
       },
       {
-       "words": "can",
-       "gives": "TIN",
-       "note": "a tin is a can"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 18,
+         "gives": "E"
+        },
+        {
+         "words": "can",
+         "at": 27,
+         "gives": "TIN",
+         "note": "a tin is a can"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A European can catch a train in a foreign street.",
-     "walkthrough": "'Train' looks like a railway train or a verb, but it is the noun for a group of attendants.",
-     "definitionFit": "A retinue is a group of followers accompanying an important person, also called a train."
+     "surface": "On a foreign street, a European can catch a train.",
+     "walkthrough": "'train' is not a railway but the people following someone important.",
+     "definitionFit": "A retinue is the group of attendants following an important person, like the train of a procession."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "train"
     }
    }
@@ -2786,47 +2790,52 @@
      "indicators": [
       {
        "text": "brought in",
-       "note": "what is brought in is taken inside something else"
+       "at": 25,
+       "note": "brought in means the soldiers and officer go inside the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "retiring",
-         "gives": "SHY",
-         "note": "a retiring person is shy"
-        },
-        {
-         "words": "Soldiers",
-         "gives": "OR",
-         "note": "OR is other ranks, ordinary soldiers"
-        }
-       ]
+       "words": "retiring",
+       "at": 36,
+       "gives": "SHY",
+       "note": "retiring means shy"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "backing",
-         "note": "backing means moving in reverse, so the letters run the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "officer",
-         "gives": "LT",
-         "note": "LT is short for lieutenant"
+         "words": "Soldiers",
+         "at": 0,
+         "gives": "OR",
+         "note": "OR stands for other ranks, ordinary soldiers"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "backing",
+           "at": 9,
+           "note": "backing means the officer's letters go backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "officer",
+           "at": 17,
+           "gives": "LT",
+           "note": "LT is the abbreviation for lieutenant, an officer"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Troops support an officer called in because he is about to retire.",
-     "walkthrough": "'Retiring' suggests leaving the army, but it means bashful. OR, other ranks, is the British Army term for those who are not officers.",
-     "definitionFit": "Shortly means in a short while, before long, which is the same as soon."
+     "surface": "Troops supporting an officer who is about to retire.",
+     "walkthrough": "'retiring' is not leaving the army but bashful, SHY.",
+     "definitionFit": "Shortly means in a short time, before long."
     },
     "features": {
      "answerInScene": false,

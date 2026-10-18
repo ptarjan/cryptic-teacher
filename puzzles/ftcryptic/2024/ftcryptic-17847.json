@@ -855,41 +855,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DISGUST",
      "indicators": [
       {
        "text": "with veneer of",
-       "note": "a veneer is an outer layer, so the second word wraps around the first"
+       "at": 20,
+       "note": "with veneer of means covered by a surface layer, so the next word goes around"
       }
      ],
      "parts": [
+      {
+       "words": "grit",
+       "at": 35,
+       "gives": "DUST",
+       "note": "grit is fine dust"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "rampaging",
-         "note": "rampaging soldiers run riot, so their letters run out of order"
+         "at": 6,
+         "note": "rampaging means running wild, so the letters go out of order"
         }
        ],
        "parts": [
         {
          "words": "GIs",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "grit",
-         "gives": "DUST",
-         "note": "grit and dust are both fine particles"
+         "at": 16,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fight off marauding American soldiers who look tough on the surface.",
-     "walkthrough": "GIs are US soldiers. 'veneer' suggests a thin coating, which is why grit here forms the outside layer.",
-     "definitionFit": "To disgust is to revolt or sicken, which repels a person."
+     "surface": "Fight off rampaging American soldiers with a layer of grit.",
+     "walkthrough": "GIs are US soldiers; 'veneer' signals that the grit forms a coat around the scrambled letters.",
+     "definitionFit": "To disgust is to repel, to fill with revulsion."
     },
     "features": {
      "answerInScene": false,
@@ -1653,46 +1655,51 @@
      "indicators": [
       {
        "text": "to keep",
-       "note": "one word keeps the others inside it"
+       "at": 4,
+       "note": "to keep means the trial holds the next pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Try",
-         "gives": "TEST",
-         "note": "to try is to test"
-        },
-        {
-         "words": "politician",
-         "gives": "MP",
-         "note": "Member of Parliament"
-        }
-       ]
+       "words": "Try",
+       "at": 0,
+       "gives": "TEST",
+       "note": "test means try out"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "slightly",
-         "note": "only slightly present, so just one letter, the first, is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "electable",
-         "note": "the first letter"
+         "words": "politician",
+         "at": 12,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "slightly",
+           "at": 23,
+           "note": "slightly means just a touch of the word, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "electable",
+           "at": 32,
+           "note": "its first letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bid to keep a barely electable politician in place amid public uproar.",
-     "walkthrough": "'Try to keep' reads as an effort to retain someone, but it is the container instruction.",
-     "definitionFit": "A tempest is a violent storm, and figuratively an uproar or furore."
+     "surface": "An attempt to keep a barely electable politician in office amid uproar.",
+     "walkthrough": "'slightly electable' asks for only a hint of the word, its first letter.",
+     "definitionFit": "A tempest is a violent storm, and figuratively an uproar or commotion."
     },
     "features": {
      "answerInScene": false,
