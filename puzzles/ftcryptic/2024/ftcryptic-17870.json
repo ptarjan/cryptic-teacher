@@ -172,46 +172,51 @@
      "indicators": [
       {
        "text": "includes",
-       "note": "one thing includes another by holding it inside"
+       "at": 22,
+       "note": "includes means the outer pair of letters wraps around what follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 12,
+         "note": "regularly means taking every other letter of the word show"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means at even intervals, taking every other letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "show",
-           "note": "first and third letters of the word"
-          }
-         ]
-        },
-        {
-         "words": "mother's",
-         "gives": "MAS",
-         "note": "Ma is mother; with the 's"
+         "words": "show",
+         "at": 7,
+         "note": "the first and third letters of show"
         }
        ]
       },
       {
-       "words": "idol",
-       "gives": "HERO",
-       "note": "an idol is a hero"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mother's",
+         "at": 31,
+         "gives": "MAS",
+         "note": "ma is mother, so mother's gives MAS"
+        },
+        {
+         "words": "idol",
+         "at": 40,
+         "gives": "HERO",
+         "note": "an idol is a hero"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American hit show regularly features someone's mother's favourite star.",
-     "walkthrough": "'US hit show' looks like one phrase, but 'US hit' is the definition and 'show' starts the wordplay.",
-     "definitionFit": "Smasheroo is American slang for a big success, an emphatic form of smash hit."
+     "surface": "An American hit show includes a song about mother's idol.",
+     "walkthrough": "Alternate letters of 'show' give SO, which holds MA'S HERO.",
+     "definitionFit": "Smasheroo is American slang for a great success, a smash."
     },
     "features": {
      "answerInScene": true,
@@ -1413,35 +1418,38 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "something that eats takes other things inside it"
+       "at": 9,
+       "note": "eating means the word sat takes the next letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "sat",
-         "note": "taken as written"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold on taps"
-        }
-       ]
+       "words": "sat",
+       "at": 5
       },
       {
-       "words": "noodles",
-       "gives": "RAMEN",
-       "note": "ramen are Japanese noodles"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cold",
+         "at": 16,
+         "gives": "C",
+         "note": "C is the standard abbreviation for cold, as on taps"
+        },
+        {
+         "words": "noodles",
+         "at": 21,
+         "gives": "RAMEN",
+         "note": "ramen are Japanese noodles"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dinner host sits down to a bowl of cold noodles.",
-     "walkthrough": "'Host' looks like the person giving a meal, but it is the consecrated bread of the Eucharist.",
-     "definitionFit": "The Host is the consecrated wafer of Holy Communion, also called the Blessed Sacrament, so the definition is an equivalent name."
+     "surface": "A dinner host sat eating a bowl of cold noodles.",
+     "walkthrough": "'Host' looks like a party-giver, but it is the consecrated bread of the Eucharist.",
+     "definitionFit": "The Host is the consecrated bread of Holy Communion, itself called the Blessed Sacrament."
     },
     "features": {
      "answerInScene": false,

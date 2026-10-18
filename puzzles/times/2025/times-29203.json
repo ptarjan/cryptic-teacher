@@ -262,39 +262,42 @@
      "op": "charade",
      "parts": [
       {
+       "words": "alpha",
+       "at": 6,
+       "gives": "A",
+       "note": "A is alpha in the NATO alphabet"
+      },
+      {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally means at the end, so only the end letter of 'male' is used"
+         "at": 17,
+         "note": "finally picks the closing letter of the word male"
         }
        ],
        "parts": [
         {
-         "words": "alpha",
-         "note": "A = alpha in the NATO alphabet"
+         "words": "male",
+         "at": 12,
+         "note": "the last letter of male"
         }
        ]
       },
       {
-       "words": "male finally",
-       "gives": "E",
-       "note": "last letter of 'male'"
-      },
-      {
        "words": "rebuked",
+       "at": 25,
        "gives": "RATED",
-       "note": "to rate is an old word for to scold"
+       "note": "to rate is an old verb meaning to scold, so rebuked gives RATED"
       }
      ]
     },
     "explanation": {
-     "surface": "A dominant man who gets cross after being told off.",
-     "walkthrough": "'Alpha male' reads as one phrase; split, alpha is A and 'male finally' is E.",
-     "definitionFit": "A British colloquialism: someone aerated is worked up, fizzing like a carbonated drink, so angry."
+     "surface": "An alpha male gets angry after finally being told off.",
+     "definitionFit": "Aerated is informal British slang for agitated or worked up, in the sense of overexcited."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "alpha"
     }
@@ -321,37 +324,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IGUANA",
-     "indicators": [
-      {
-       "text": "drifting west in",
-       "note": "west is leftwards on a map and in an across answer, so the I inside drifts to the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Island",
+       "at": 7,
+       "gives": "I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drifting west in",
+         "at": 14,
+         "note": "drifting west says the island letter moves out of the region's name toward its start, in an across answer leftward"
+        }
+       ],
        "parts": [
         {
-         "words": "Island",
-         "gives": "I",
-         "note": "I = island"
+         "words": "South American region",
+         "at": 31,
+         "gives": "GUIANA",
+         "note": "Guiana is the region on the north-east coast of South America"
         },
         {
-         "words": "South American region",
-         "gives": "GUANA",
-         "note": "GUIANA with its I taken out to move"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lizard on an island that floats westward off South America.",
-     "walkthrough": "The region is GUIANA; the island is its own I, which shifts left to the front.",
-     "definitionFit": "A plain category: the iguana is a large tropical American lizard."
+     "surface": "An island drifts west towards a region of South America where lizards live.",
+     "walkthrough": "The I in GUIANA moves to the front (west, in an across entry), leaving GUANA behind it.",
+     "definitionFit": "The iguana is a large tropical American lizard."
     },
     "features": {
      "answerInScene": true,
@@ -891,38 +897,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down answer, to upset something is to tip it over"
-      }
-     ],
      "parts": [
       {
        "words": "mum",
+       "at": 13,
        "gives": "MA",
-       "note": "ma = mum"
+       "note": "ma is a word for mum"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "outside"
+         "text": "outside",
+         "at": 28,
+         "note": "outside means the turned king letters go round what follows"
         }
        ],
        "parts": [
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 17,
+           "note": "upset in a down entry means turned upside down, so the letters run the other way"
+          }
+         ],
          "parts": [
           {
            "words": "king",
+           "at": 23,
            "gives": "REX",
-           "note": "Latin rex = king, reversed to XER"
+           "note": "Rex is Latin for king"
           }
          ]
         },
         {
          "words": "factory",
+         "at": 36,
          "gives": "MILL",
          "note": "a mill is a factory"
         }
@@ -931,9 +943,9 @@
      ]
     },
     "explanation": {
-     "surface": "A comedian whose mother annoyed a king standing outside a factory.",
-     "walkthrough": "Max Miller was a famously risqué British music-hall comedian. The reversed king is split in two, which hides the Latin word well.",
-     "definitionFit": "A description of a person: Max Miller, 'the Cheeky Chappie', made a living being a funny chap."
+     "surface": "A funny man's mother is upset because a king stands outside a factory.",
+     "walkthrough": "Max Miller (1894-1963) was a British music-hall comedian known as the Cheeky Chappie.",
+     "definitionFit": "Max Miller was a famous comedian, a professional funny man of the variety stage."
     },
     "features": {
      "answerInScene": false,
@@ -1192,39 +1204,36 @@
     ],
     "wordplay": {
      "op": "container",
-     "indicators": [
-      {
-       "text": "trashed",
-       "note": "something trashed is binned, put in the bin"
-      }
-     ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "trashed",
-         "gives": "BIN",
-         "note": "trashed = binned"
-        },
-        {
-         "words": "tech",
-         "gives": "IT",
-         "note": "IT = information technology"
-        }
-       ]
+       "words": "trashed",
+       "at": 23,
+       "gives": "BIN",
+       "note": "something trashed is put in the bin, so the bin holds the other letters"
       },
       {
-       "words": "firm",
-       "gives": "CO",
-       "note": "CO = company"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "tech",
+         "at": 13,
+         "gives": "IT",
+         "note": "IT is information technology"
+        },
+        {
+         "words": "firm",
+         "at": 18,
+         "gives": "CO",
+         "note": "CO is the abbreviation for company"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cryptocurrency company that has failed.",
-     "walkthrough": "'Trashed' does two jobs: it names the BIN and says to put something in it.",
-     "definitionFit": "A definition by example: Bitcoin is the best-known cryptocurrency, money that exists only digitally."
+     "surface": "A cryptocurrency tech firm gets wrecked.",
+     "walkthrough": "'Trashed' does double duty: it supplies the rubbish container and says the tech firm is thrown into it.",
+     "definitionFit": "Bitcoin is a cryptocurrency, money that exists only in electronic form."
     },
     "features": {
      "answerInScene": true,
@@ -1308,48 +1317,51 @@
        "indicators": [
         {
          "text": "regularly lost",
-         "note": "letters lost at regular intervals, so every other letter goes"
+         "at": 8,
+         "note": "regularly lost means every other letter of hoodlum is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Hoodlum regularly lost",
-         "gives": "HOODLUM",
-         "note": "H, O, L, M: the 1st, 3rd, 5th, 7th letters of 'hoodlum'"
+         "words": "Hoodlum",
+         "at": 0,
+         "note": "keeping the first, third, fifth and seventh letters of hoodlum"
         }
        ]
+      },
+      {
+       "words": "East",
+       "at": 23,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "premier",
-         "note": "premier means first, so the first letter of 'Side'"
+         "at": 35,
+         "note": "premier means first, so take the opening letter"
         }
        ],
        "parts": [
         {
-         "words": "East",
-         "note": "E = East"
+         "words": "Side's",
+         "at": 28,
+         "note": "the first letter of Side's"
         }
        ]
-      },
-      {
-       "words": "Side's premier",
-       "gives": "S",
-       "note": "first letter of 'Side'"
       }
      ]
     },
     "explanation": {
-     "surface": "A gangster lost on New York's East Side, and the city's best detective.",
-     "walkthrough": "'East Side' reads as a place in New York; split, it gives E and then the first letter of Side.",
-     "definitionFit": "A definition by example: Sherlock Holmes is the archetypal fictional detective."
+     "surface": "A hoodlum has gone missing from the East Side and the top detective is on the case.",
+     "definitionFit": "Sherlock Holmes is Conan Doyle's fictional consulting detective."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "East"
+     "misdirectedWord": "premier"
     }
    }
   },
@@ -1426,59 +1438,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "visiting",
-       "note": "a visitor goes inside someone's place"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "not"
+         "text": "visiting",
+         "at": 15,
+         "note": "visiting means the hour letter goes inside the West End letters"
         }
        ],
        "parts": [
         {
          "words": "West End",
+         "at": 24,
          "gives": "WI",
-         "note": "W1 is the London postcode of the West End; the 1 reads as I"
+         "note": "W1 is the postcode of London's West End, read as WI"
         },
         {
          "words": "hour",
-         "gives": "H",
-         "note": "H = hour"
+         "at": 10,
+         "gives": "H"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 54,
+         "note": "not means the following letter is removed from the show"
+        }
+       ],
        "parts": [
         {
-         "words": "theatre production",
+         "words": "theatre production's",
+         "at": 33,
          "gives": "MUSICAL",
-         "note": "a musical is a theatre production"
+         "note": "a musical is a theatre production; 's is a link"
         },
         {
          "words": "suitable for all",
+         "at": 58,
          "gives": "U",
-         "note": "U = universal, the British film certificate for all ages; removed"
+         "note": "U is the British film certificate for universal viewing, suitable for all"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fantastic West End musical rated too racy for children.",
-     "walkthrough": "W1 is the West End's London postcode, and the digit 1 stands in for I. U is the British film certificate meaning suitable for all.",
-     "definitionFit": "A synonym in the fanciful sense: fantastic here means driven by fancy, not excellent."
+     "surface": "A West End show's adult content is unsuitable for all, a fantastic hour out.",
+     "walkthrough": "London's West End has postcode W1, taken as WI. MUSICAL loses U (the film rating meaning suitable for all ages) to give MSICAL.",
+     "definitionFit": "Whimsical means playfully fanciful or quaint, close to fantastic in the sense of imaginative."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "End"
+     "misdirectedWord": "West"
     }
    }
   },

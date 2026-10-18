@@ -1206,67 +1206,78 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HERPES",
-     "indicators": [
-      {
-       "text": "filthy",
-       "note": "filthy means messed up, so the letters are muddled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "HERPES",
+       "op": "last",
        "indicators": [
         {
-         "text": "replacing",
-         "note": "replacing means one letter takes another's place"
+         "text": "One extreme of",
+         "at": 0,
+         "note": "one extreme means one end of the word, here its final letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
+         "words": "Murdoch",
+         "at": 15,
+         "note": "the last letter of Murdoch"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "filthy",
+         "at": 31,
+         "note": "filthy suggests something dirtied and messed up, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "substitution",
          "indicators": [
           {
-           "text": "One extreme of",
-           "note": "an extreme is an end of a word, here its final letter"
+           "text": "replacing",
+           "at": 52,
+           "note": "replacing tells us one letter is swapped out for another"
           }
          ],
          "parts": [
           {
-           "words": "Murdoch",
-           "note": "last letter of Murdoch"
+           "words": "press's",
+           "at": 23,
+           "gives": "PRESS",
+           "note": "the word press, with 's as a link"
+          },
+          {
+           "words": "Sun",
+           "at": 62,
+           "gives": "S",
+           "note": "S is the abbreviation for sun (as in Sunday)"
+          },
+          {
+           "words": "'e's",
+           "at": 47,
+           "gives": "E",
+           "note": "'e is the dropped-aitch he, giving E; the 's stands for is"
           }
          ]
-        },
-        {
-         "words": "press",
-         "note": "taken as written"
-        },
-        {
-         "words": "'e",
-         "note": "'e is Cockney he, giving E"
-        },
-        {
-         "words": "Sun",
-         "gives": "S",
-         "note": "S abbreviates Sun"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An attack on Rupert Murdoch's papers, especially The Sun, as a filthy sickness.",
-     "walkthrough": "One S of press becomes E before the shuffle; The Sun is Murdoch's British tabloid.",
-     "definitionFit": "Herpes is a viral infection causing blisters, a sexually transmitted disease in one form."
+     "surface": "A jibe at Rupert Murdoch's tabloid press, presented as a filthy disease, with the Sun newspaper mentioned.",
+     "walkthrough": "''e's' is Cockney for he is, the aitch dropped, so it supplies a lone E that takes the place of one S.",
+     "definitionFit": "Herpes is a viral infection causing blisters, a disease often spread by sexual contact."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Sun"
     }
    }
