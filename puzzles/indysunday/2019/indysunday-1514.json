@@ -966,54 +966,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ABERRANT",
-     "indicators": [
-      {
-       "text": "After setback",
-       "note": "a setback here is a setting back, a word put in backwards order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ABERRANT",
        "indicators": [
         {
          "text": "to leave",
-         "note": "letters that leave a word go out of it and are dropped"
+         "at": 20,
+         "note": "to leave means the reversed word departs from the city's name"
         }
        ],
        "parts": [
         {
-         "words": "need",
-         "note": "taken as written"
-        },
-        {
          "words": "Scottish city",
+         "at": 29,
          "gives": "ABERDEEN",
          "note": "Aberdeen is a city in north-east Scotland"
         },
         {
-         "words": "hurried",
-         "gives": "RAN",
-         "note": "ran means hurried"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "After setback",
+           "at": 0,
+           "note": "a setback sends the word back on itself, so need is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "need",
+           "at": 15
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "hurried",
+       "at": 45,
+       "gives": "RAN",
+       "note": "ran means hurried"
+      },
+      {
+       "words": "time",
+       "at": 53,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "After a disappointment, someone has to leave a Scottish city in a hurry, which is out of character.",
-     "walkthrough": "'Setback' sounds like a disappointment but works as an instruction to read backwards.",
-     "definitionFit": "Aberrant means departing from the normal course, so it is a synonym for atypical or deviant."
+     "surface": "After a reversal of fortune, someone must quit Aberdeen, rushing off in an unusual way.",
+     "walkthrough": "NEED read 'After setback' is DEEN, the end of ABERDEEN, and that part is 'to leave', leaving ABER before RAN and T.",
+     "definitionFit": "Aberrant means departing from what is normal or expected, so it describes something atypical."
     },
     "features": {
      "answerInScene": false,

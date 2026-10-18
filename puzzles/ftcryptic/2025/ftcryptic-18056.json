@@ -1558,39 +1558,41 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BUNGA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half keeps one of the two equal parts of the phrase"
+         "at": 0,
+         "note": "half of means only one of the two identical halves of the party's name is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Berlusconi's party",
-         "gives": "BUNGA",
-         "select": "first",
-         "note": "Berlusconi's notorious parties were called 'bunga bunga'; half of that is one bunga"
+         "at": 8,
+         "gives": "BUNGABUNGA",
+         "note": "'bunga bunga' was the notorious name given to the sex parties of the Italian prime minister Silvio Berlusconi"
+        },
+        {
+         "gives": "BUNGA"
         }
        ]
       },
       {
        "words": "depressed",
+       "at": 27,
        "gives": "LOW",
-       "note": "depressed means low in spirits"
+       "note": "depressed means low, in spirits"
       }
      ]
     },
     "explanation": {
-     "surface": "Half of the Italian prime minister's political party feeling glum at home.",
-     "walkthrough": "'Party' looks political, Berlusconi having led Forza Italia; it is the bunga bunga sex parties that made headlines. A bungalow is a one-storey house.",
-     "definitionFit": "A bungalow is a single-storey house, a kind of residence."
+     "surface": "Half the guests at a scandalous Italian politician's party are glum at his home.",
+     "walkthrough": "'Berlusconi's party' is not his political party but the infamous 'bunga bunga' gatherings; 'Half of' that phrase is one BUNGA, then LOW.",
+     "definitionFit": "A bungalow is a single-storey house, a type of dwelling or home."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "party"

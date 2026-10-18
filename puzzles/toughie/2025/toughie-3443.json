@@ -357,40 +357,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SHADES",
      "indicators": [
       {
        "text": "to replace",
-       "note": "to replace means new letters go in where an existing letter stood"
+       "at": 24,
+       "note": "to replace means the new letters take the place of the abbreviation for old"
       }
      ],
      "parts": [
       {
        "words": "Maybe Sandals",
+       "at": 0,
        "gives": "SHOES",
-       "note": "sandals are one kind of footwear; Maybe marks an example"
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "words": "day",
-       "gives": "D",
-       "note": "D is the standard abbreviation for day"
+       "note": "sandals are one kind of shoes, the 'maybe' marking an example"
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "O is the abbreviation for old, the letter swapped out"
+       "at": 35,
+       "gives": "O"
+      },
+      {
+       "words": "a day",
+       "at": 18,
+       "gives": "AD",
+       "note": "A as written, plus D, the abbreviation for day"
       }
      ]
     },
     "explanation": {
-     "surface": "Sandals, the holiday resort chain, might swap its old sunshades for new ones within a day.",
-     "walkthrough": "Sandals with a capital S looks like the resort brand; read in lower case it is just footwear. Replace the O of SHOES with A and D.",
-     "definitionFit": "Shades are things that give shelter from the sun, and a parasol is exactly such a sunshade."
+     "surface": "Someone wonders whether a beach-wear shop has a day set aside for swapping worn-out sunshades.",
+     "walkthrough": "'Sandals' is a holiday company name in the surface, but here it only exemplifies SHOES; AD goes 'to replace' its O.",
+     "definitionFit": "Shades are things that give shade from the sun, as parasols do; the word also covers sunshades generally."
     },
     "features": {
      "answerInScene": true,
@@ -541,47 +538,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHRAPNEL",
-     "indicators": [
-      {
-       "text": "raising",
-       "note": "in a down entry raising lifts a letter higher, shifting it earlier in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "hour",
+       "at": 7,
+       "gives": "HR"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "raising",
+         "at": 23,
+         "note": "raising, in a down clue, lifts the letter A above the P so the two swap places"
+        }
+       ],
        "parts": [
         {
-         "words": "Second",
-         "gives": "S",
-         "note": "S is the abbreviation for second"
-        },
-        {
-         "words": "hour",
-         "gives": "HR",
-         "note": "HR is the abbreviation for hour"
-        },
-        {
          "words": "board",
-         "gives": "APNEL",
-         "note": "a board is a panel; its A moves up one place"
+         "at": 17,
+         "gives": "PANEL",
+         "note": "a panel is a board, as in a flat piece of wood or a committee"
+        },
+        {
+         "gives": "PA"
+        },
+        {
+         "gives": "AP"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A committee spends a second hour raising money, collecting coins.",
-     "walkthrough": "Shrapnel is informal British for loose change; the question mark marks the slang sense.",
-     "definitionFit": "Shrapnel is slang for a pocketful of small change, a heap of coins jangling like metal fragments."
+     "surface": "Someone on a panel keeps lifting a coin collection every second of the hour.",
+     "walkthrough": "In a down entry 'raising' the A of PANEL moves it up past the P, giving APNEL. The question mark flags a slang definition.",
+     "definitionFit": "Shrapnel is informal British slang for loose change, the small coins jangling in a pocket."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "board"
+     "joke": "pun",
+     "misdirectedWord": "raising"
     }
    }
   },
@@ -760,53 +764,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ACHANGEISASGOODASAREST",
-     "indicators": [
-      {
-       "text": "badly",
-       "note": "badly means the letters are put in a poor order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 24,
+         "note": "badly suggests something done wrong, so the letters of the two words are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "China ages",
-         "gives": "ACHANGEIS",
-         "note": "the letters of these two words rearranged"
+         "words": "China",
+         "at": 13
         },
         {
-         "words": "effectively",
-         "gives": "ASGOODAS",
-         "note": "as good as means effectively, in effect"
-        },
+         "words": "ages",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "effectively",
+       "at": 32,
+       "gives": "ASGOODAS",
+       "note": "something that is effectively so is as good as so"
+      },
+      {
+       "op": "homophone",
+       "spelt": "AREST",
+       "indicators": [
         {
-         "op": "homophone",
-         "spelt": "AREST",
-         "indicators": [
-          {
-           "text": "broadcast",
-           "note": "broadcast means spoken over the air, so the word goes by sound"
-          }
-         ],
-         "parts": [
-          {
-           "words": "halt",
-           "gives": "ARREST",
-           "note": "to halt something is to arrest it"
-          }
-         ]
+         "text": "broadcast",
+         "at": 49,
+         "note": "broadcast means the word is spoken aloud and written as it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "halt",
+         "at": 44,
+         "gives": "ARREST",
+         "note": "to halt someone, as police do, is to arrest them"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Chinese wisdom says ageing badly can effectively halt a transmission.",
-     "definitionFit": "This is a well-known saying that a variety of activity refreshes as much as a break, so it is a proverb."
+     "surface": "A saying from China is mangled, so its message about stopping is in effect transmitted.",
+     "walkthrough": "CHINA AGES, taken 'badly', gives A CHANGE IS; 'effectively' supplies AS GOOD AS; and ARREST 'broadcast' sounds like A REST.",
+     "definitionFit": "This well-known saying claims that switching to different work refreshes you just as much as relaxing."
     },
     "features": {
      "answerInScene": false,
@@ -1114,47 +1124,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUTTERNUT",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "trimmed means cut short, so the end of the word goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 5,
+         "note": "trimmed means the word loses its final letter, as a hedge is cut back"
+        }
+       ],
        "parts": [
         {
          "words": "by",
-         "gives": "B",
-         "note": "the word by with its last letter cut"
+         "at": 13,
+         "gives": "BY",
+         "note": "the word as written, before trimming"
         },
         {
-         "words": "complete",
-         "gives": "UTTER",
-         "note": "utter means complete, as in utter nonsense"
-        },
-        {
-         "words": "crank",
-         "gives": "NUT",
-         "note": "a crank or eccentric is a nut"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "complete",
+       "at": 16,
+       "gives": "UTTER",
+       "note": "utter means complete, as in utter nonsense"
+      },
+      {
+       "words": "crank",
+       "at": 25,
+       "gives": "NUT",
+       "note": "a nut is a crank or eccentric"
       }
      ]
     },
     "explanation": {
      "surface": "A tree is pruned by a total eccentric.",
-     "walkthrough": "Trimmed seems to describe the tree, but it applies to the little word by.",
-     "definitionFit": "The butternut is a North American walnut tree, so it is a kind of tree."
+     "walkthrough": "'trimmed by' reads as a passive phrase, but 'trimmed' acts on the word 'by', leaving B, before UTTER and NUT.",
+     "definitionFit": "The butternut is a North American walnut tree, also called the white walnut."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "trimmed"
+     "misdirectedWord": "by"
     }
    }
   },
@@ -1352,38 +1367,55 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TRAVELAGENT",
      "indicators": [
       {
        "text": "Sadly",
-       "note": "sadly means badly, so the letters are put into poor order"
+       "at": 0,
+       "note": "sadly suggests something gone wrong, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TRAVELAGENT",
        "indicators": [
         {
-         "text": "is censored",
-         "note": "read as I's censored, the letter I is cut out wherever it occurs"
+         "text": "censored",
+         "at": 25,
+         "note": "censored means those letters are cut out, as words are cut from a text"
         }
        ],
        "parts": [
         {
-         "words": "a riveting tale",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 6
+          },
+          {
+           "words": "riveting",
+           "at": 8
+          },
+          {
+           "words": "tale",
+           "at": 17
+          }
+         ]
+        },
+        {
+         "words": "is",
+         "at": 22,
+         "gives": "II",
+         "note": "read as I's, the plural of the letter I, so both I's are meant"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gripping story is cut by the review site TripAdvisor.",
-     "walkthrough": "Is censored means the two I's are removed from the fodder before it is rearranged. TripAdvisor is a travel review site, but a trip adviser is literally someone who books holidays.",
-     "definitionFit": "A travel agent advises clients on journeys and books them, quite literally an adviser on trips."
+     "surface": "A gripping story is regrettably cut by the censor.",
+     "walkthrough": "'is censored' reads as a passive verb, but 'is' is I's: both I's go from A RIVETING TALE, and the rest is rearranged 'Sadly'. The definition puns on the review website Tripadvisor.",
+     "definitionFit": "Someone who advises customers on booking a trip, by definition, works as a holiday booking agent."
     },
     "features": {
      "answerInScene": false,
@@ -1704,58 +1736,59 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "DINNERSET",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "cycling means the end letter goes round to the front of the word"
+       "text": "follows",
+       "at": 3,
+       "note": "follows puts the television after the other letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "follows",
-         "note": "follows puts the television piece after the rest"
+         "text": "around",
+         "at": 24,
+         "note": "around means the cycled letters go round the word in"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "cycling",
          "indicators": [
           {
-           "text": "around",
-           "note": "around means placed on either side of what follows"
+           "text": "cycling",
+           "at": 16,
+           "note": "cycling moves the end letter of nerd round to the front"
           }
          ],
          "parts": [
           {
            "words": "nerd",
-           "gives": "DNER",
-           "note": "the word nerd with its last letter moved to the start"
-          },
-          {
-           "words": "in",
-           "note": "taken as written"
+           "at": 11
           }
          ]
         },
         {
-         "words": "TV",
-         "gives": "SET",
-         "note": "a TV is a television set"
+         "words": "in",
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "TV",
+       "at": 0,
+       "gives": "SET",
+       "note": "a TV set, so set is a television"
       }
      ]
     },
     "explanation": {
-     "surface": "A television programme follows a geek cycling through China.",
-     "walkthrough": "China with a question mark is porcelain tableware, not the country.",
-     "definitionFit": "A dinner set is a matching collection of plates and dishes, typically made of porcelain, so it is an example of china."
+     "surface": "A television programme comes after a geek pedalling round China.",
+     "walkthrough": "'cycling' moves the D of NERD to the front, giving DNER, which goes 'around' IN. 'China' looks like the country, but is crockery; the question mark marks this as an example.",
+     "definitionFit": "A dinner set is a matching collection of plates and dishes, typically made of porcelain."
     },
     "features": {
      "answerInScene": false,

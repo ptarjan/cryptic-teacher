@@ -573,49 +573,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WONDERFUL",
      "indicators": [
       {
        "text": "accepting",
-       "note": "accepting something takes it in, so the outer pieces hold the rest"
+       "at": 22,
+       "note": "accepting means the outer letters take the others in between them"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Welsh",
+         "at": 9,
+         "gives": "W"
+        },
+        {
+         "words": "league",
+         "at": 15,
+         "gives": "L",
+         "note": "L is a common abbreviation for league, as in league tables"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "representation of",
-         "note": "a representation is a rendering in another form, so the letters are rearranged"
+         "at": 32,
+         "note": "a fresh representation of the word founder rearranges its letters"
         }
        ],
        "parts": [
         {
-         "words": "Welsh",
-         "gives": "W",
-         "note": "W is the abbreviation for Welsh"
-        },
-        {
          "words": "founder",
-         "note": "taken as written"
-        },
-        {
-         "words": "league",
-         "gives": "L",
-         "note": "L is a standard abbreviation for league"
+         "at": 50
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A great Welsh football league agrees to have its founder represented.",
-     "walkthrough": "'Welsh league' reads as one body, but it splits into W and L, which hold a rearranged FOUNDER.",
-     "definitionFit": "Both words are everyday terms of high praise for something excellent or marvellous."
+     "surface": "A Welsh sports league is praised for taking on a portrayal of its founding figure.",
+     "walkthrough": "W and L sit at either end, 'accepting' ONDERFU, the 'representation of' FOUNDER.",
+     "definitionFit": "Both are enthusiastic adjectives of praise meaning marvellous or excellent."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "representation"
     }
@@ -642,54 +648,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BROTH",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "turned",
-       "note": "turning a word round makes it read backwards"
+       "text": "to go",
+       "at": 22,
+       "note": "to go means those letters leave the longer word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "Relative",
+       "at": 0,
+       "gives": "BROTHER",
+       "note": "a brother is a relative"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to go",
-         "note": "something told to go leaves, so those letters are removed"
+         "text": "turned",
+         "at": 9,
+         "note": "turned means the two letters for about are read the other way round"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Relative",
-           "gives": "BROTHER",
-           "note": "a sibling, a relative"
-          },
-          {
-           "words": "about",
-           "gives": "RE",
-           "note": "RE means about or concerning"
-          }
-         ]
-        },
-        {
-         "gives": "ERRE"
+         "words": "about",
+         "at": 16,
+         "gives": "RE",
+         "note": "RE means about or concerning, as in business letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family member turns round and heads off to get some soup.",
-     "walkthrough": "'Relative turned' looks like a reversal of the relative, but it is RE that turns to ER, and that ER is dropped from the end of BROTHER.",
-     "definitionFit": "Broth is a thin soup of meat or vegetables simmered in stock."
+     "surface": "A family member turns around, ready to leave, rather than stay for a meal of soup.",
+     "walkthrough": "RE (about) is 'turned' to ER, and ER is the part 'to go' from BROTHER.",
+     "definitionFit": "Broth is a thin soup made from stock in which meat or vegetables have simmered."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "turned"
     }

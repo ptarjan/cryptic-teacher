@@ -1170,67 +1170,68 @@
      {
       "text": "Fuddy-duddy",
       "at": 0,
-      "note": "used here as an adjective, old-fashioned"
+      "note": "used as an adjective here: old-fashioned, not cool"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCOOL",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "about",
+       "at": 28,
+       "note": "about means the shortened relative goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one piece surrounds another"
+         "text": "almost",
+         "at": 21,
+         "note": "almost means the word is cut short, losing its final letter"
         }
        ],
        "parts": [
         {
          "words": "relative",
-         "gives": "UNCL",
-         "note": "an uncle, shortened"
+         "at": 12,
+         "gives": "UNCLE",
+         "note": "an uncle is a relative"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "OO",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the end, so only the closing letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "to go",
-           "gives": "OO",
-           "select": "last",
-           "note": "last letter of each of the two words"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 41,
+         "note": "finally picks the last letter of each of the words 'to' and 'go'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to go",
+         "at": 34,
+         "note": "the last letters of to and go are O and O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stuffy old uncle nearly ready to leave at last.",
-     "walkthrough": "'finally' applies to both 'to' and 'go', giving two Os.",
-     "definitionFit": "A fuddy-duddy is a fogey, someone unfashionable and conservative, so as an adjective it means not trendy."
+     "surface": "Someone describes a stuffy old relative who is finally on the point of leaving.",
+     "walkthrough": "UNCLE 'almost' loses its E to give UNCL, which goes 'about' OO, the final letters of 'to' and 'go'. 'about to go' reads as one phrase but splits into the container signal and the fodder.",
+     "definitionFit": "A fuddy-duddy is a stuffy, old-fashioned person, the opposite of anyone fashionable or hip."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "go"
+     "aptDefinition": true,
+     "misdirectedWord": "about"
     }
    }
   },

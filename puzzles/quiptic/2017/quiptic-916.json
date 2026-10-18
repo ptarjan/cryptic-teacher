@@ -564,43 +564,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEFEAT",
+     "op": "container",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the last letter of death is dropped"
+       "text": "with heart of",
+       "at": 22,
+       "note": "with a heart of means the symbol for iron sits at the centre of the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "with heart of",
-         "note": "having something as your heart means holding it in the middle"
+         "text": "nearly",
+         "at": 15,
+         "note": "nearly means not quite all of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "death",
-         "gives": "DEAT",
-         "note": "death without its final letter"
+         "at": 9,
+         "gives": "DEATH",
+         "note": "the word as written, before it is cut short"
         },
         {
-         "words": "iron",
-         "gives": "FE",
-         "note": "Fe is the chemical symbol for iron, from Latin ferrum"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "iron",
+       "at": 36,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
       }
      ]
     },
     "explanation": {
-     "surface": "A brave soul cheating death with an iron will.",
-     "walkthrough": "'Heart of iron' looks like the middle letter of iron, but here iron itself sits at the heart of the shortened word.",
-     "definitionFit": "To overcome an opponent is to beat them, which is to defeat them; both are verbs of victory."
+     "surface": "Someone almost dies but pulls through thanks to a will of iron.",
+     "walkthrough": "'death nearly' gives DEAT, and FE, the symbol for iron, goes at its 'heart'. 'heart of iron' looks like courage, but places the symbol in the middle.",
+     "definitionFit": "To defeat an opponent is to beat or conquer them, so the verb matches overcome."
     },
     "features": {
      "answerInScene": true,
@@ -1384,42 +1389,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "become less common",
-      "at": 33
+      "text": "to become less common",
+      "at": 30
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIEOUT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "endless means without an end, so the last letter of tedious goes"
+       "text": "travelling",
+       "at": 16,
+       "note": "travelling means the letters move about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "travelling",
-         "note": "travelling means moving around, so the remaining letters move into a new order"
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "tedious",
-         "gives": "TEDIOU",
-         "note": "tedious with its final letter removed"
+         "at": 8,
+         "gives": "TEDIOUS",
+         "note": "the word as written, before its end is removed"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that dull, never-ending journeys are going out of fashion.",
-     "definitionFit": "When a species or custom dies out it becomes rarer until it vanishes entirely."
+     "surface": "Long, boring journeys are becoming rarer.",
+     "walkthrough": "'Endless' strips the S from TEDIOUS, and TEDIOU is then rearranged by 'travelling'.",
+     "definitionFit": "When a species or custom dies out it gradually disappears until it no longer exists."
     },
     "features": {
      "answerInScene": false,
