@@ -360,37 +360,40 @@
      "indicators": [
       {
        "text": "to conceal",
-       "note": "to conceal something is to hide it inside, so one word wraps the other"
+       "at": 8,
+       "note": "the attempt hides the other pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Attempt",
-         "gives": "TRY",
-         "note": "a try is an attempt"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Attempt",
+       "at": 0,
+       "gives": "TRY",
+       "note": "an attempt is a try"
       },
       {
-       "words": "piece of clothing",
-       "gives": "VEST",
-       "note": "a vest is an undergarment"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19
+        },
+        {
+         "words": "piece of clothing",
+         "at": 21,
+         "gives": "VEST",
+         "note": "a vest is an item of clothing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "In a stage farce, a character tries to hide an item of clothing.",
-     "definitionFit": "A travesty is an absurd or grotesque mockery of something, a sense close to farce."
+     "surface": "In a stage farce, someone tries to hide a garment.",
+     "definitionFit": "A travesty is an absurd or grotesque imitation, a mockery, which is what a farce is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "farce"
     }
@@ -1519,45 +1522,48 @@
      "indicators": [
       {
        "text": "In",
-       "note": "in tells us the following pieces sit inside another word"
+       "at": 0,
+       "note": "the pieces go in the marshy land, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "flat marshy land",
-         "gives": "FEN",
-         "note": "a fen is low-lying marshland"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "flat marshy land",
+       "at": 3,
+       "gives": "FEN",
+       "note": "a fen is flat marshy land, as in the Fens of eastern England"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "drained",
-         "note": "drained means emptied, so only the outside letters remain"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "settlement",
-         "note": "the first and last letters of settlement"
+         "words": "a",
+         "at": 21
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "drained",
+           "at": 23,
+           "note": "a drained word has its insides emptied, leaving the first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "settlement",
+           "at": 31,
+           "note": "only its outer letters are kept"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A village in drained fenland is safe from flooding.",
-     "walkthrough": "The Fens are low-lying drained marshland in eastern England.",
-     "definitionFit": "To fasten is to fix or attach something firmly, which is to secure it."
+     "surface": "A fenland village whose ground has been drained is now safe from flooding.",
+     "definitionFit": "To fasten something is to fix or secure it firmly, so the verb secure fits."
     },
     "features": {
      "answerInScene": false,

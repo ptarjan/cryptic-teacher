@@ -61,49 +61,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WITCRACKER",
      "indicators": [
       {
        "text": "holds",
-       "note": "one thing holding another wraps around it, putting the second inside the first"
+       "at": 29,
+       "note": "the Scouse mate holds the rearranged letters inside it"
       }
      ],
      "parts": [
       {
+       "words": "Scouse mate",
+       "at": 17,
+       "gives": "WACKER",
+       "note": "wacker is Liverpool dialect for a pal; Scouse means from Liverpool"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "WITCRACKER",
        "indicators": [
         {
          "text": "squirming",
-         "note": "something squirming wriggles out of shape, so what is left gets rearranged"
+         "at": 53,
+         "note": "squirming letters twist into a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "WITCRACKER",
          "indicators": [
           {
            "text": "leaving",
-           "note": "leaving means departing from, so the named letters walk out of the word before them"
+           "at": 42,
+           "note": "us leaving means those letters are taken away"
           }
          ],
          "parts": [
           {
-           "words": "Scouse mate",
-           "gives": "WACKER",
-           "note": "wacker is Liverpool slang for a pal"
-          },
-          {
            "words": "rictus",
-           "note": "taken as written"
+           "at": 35,
+           "note": "taken as written before the cut"
           },
           {
            "words": "us",
-           "note": "the two letters that leave"
+           "at": 50,
+           "gives": "US"
           }
          ]
         }
@@ -112,14 +112,14 @@
      ]
     },
     "explanation": {
-     "surface": "A fast-talking Liverpool comedian whose grinning mate makes the audience squirm.",
-     "walkthrough": "Scouse means from Liverpool, and wacker is a Scouser's word for a friend. 'Squirming' looks like the audience's reaction but signals the mix.",
-     "definitionFit": "A witcracker is an old word for a joker who fires off quips, so a quick-witted comedian."
+     "surface": "A rapid-fire Liverpool comedian's friend wears a fixed grin while the audience writhes.",
+     "walkthrough": "Wacker (or wack) is the Liverpool word for a friend, and Scouse means Liverpudlian.",
+     "definitionFit": "A witcracker is an old word for a jester who fires off wisecracks, so a quickfire comic."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rictus"
+     "misdirectedWord": "squirming"
     }
    }
   },
@@ -1671,48 +1671,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DREAD",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the altered word inside the abbreviation for a divine"
+       "at": 41,
+       "note": "the altered abbreviation goes in the divine's letters, inside them"
       }
      ],
      "parts": [
       {
+       "words": "divine",
+       "at": 44,
+       "gives": "DD",
+       "note": "DD is Doctor of Divinity, a title of a divine or theologian"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "DREAD",
        "indicators": [
         {
          "text": "taking one part of AV for the other",
-         "note": "swapping one half of the pair AV for the other means a V is replaced by an A"
+         "at": 5,
+         "note": "one letter of the pair AV is swapped in for the other one, the V giving way"
         }
        ],
        "parts": [
         {
-         "words": "divine",
-         "gives": "DD",
-         "note": "DD, Doctor of Divinity, a clergyman"
+         "words": "Rev.",
+         "at": 0,
+         "gives": "REV",
+         "note": "the abbreviation for Reverend, taken as its letters"
         },
         {
-         "words": "Rev.",
-         "note": "taken as written"
+         "gives": "V"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman reading the Authorised Version, filled with religious reverence.",
-     "walkthrough": "AV is the Authorised Version of the Bible; here its two letters are swapped. 'Divine' is a noun, a clergyman.",
-     "definitionFit": "Dread means deep reverential fear, the same as awe."
+     "surface": "A clergyman swaps parts of the Authorised Version, to the horror of a divine.",
+     "walkthrough": "'AV' looks like the Authorised Version of the Bible, but it is just the two letters; 'divine' looks like an adjective but is the noun, a theologian, as in Doctor of Divinity.",
+     "definitionFit": "Dread can mean reverential fear, as in dread of God, which is a sense of awe."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "divine"
+     "misdirectedWord": "AV"
     }
    }
   },

@@ -54,60 +54,73 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THEREPAIRSHOP",
      "indicators": [
       {
        "text": "preferring",
-       "note": "preferring one thing to another means putting the first in the second's place, so one letter swaps out for another"
+       "at": 29,
+       "note": "preferring one thing to another puts the first in the second's place"
+      },
+      {
+       "text": "to",
+       "at": 46,
+       "note": "to completes the preferring phrase, naming what is replaced"
       }
      ],
      "parts": [
       {
-       "words": "where",
-       "note": "taken as written, before its first letter is swapped"
-      },
-      {
-       "words": "tango",
-       "gives": "T",
-       "note": "Tango is T in the NATO phonetic alphabet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "where",
+         "at": 8
+        },
+        {
+         "words": "couples",
+         "at": 14,
+         "gives": "PAIRS",
+         "note": "couples are pairs"
+        },
+        {
+         "words": "dance",
+         "at": 22,
+         "gives": "HOP",
+         "note": "a hop is an informal dance"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "originally",
-         "note": "originally points to how a word starts, so only its opening letter is wanted"
+         "at": 55,
+         "note": "originally means the start of the word, its first letter"
         }
        ],
        "parts": [
         {
          "words": "waltz",
-         "note": "the letter that is pushed out"
+         "at": 49,
+         "note": "its first letter is replaced"
         }
        ]
       },
       {
-       "words": "couples",
-       "gives": "PAIRS",
-       "note": "couples are pairs"
-      },
-      {
-       "words": "dance",
-       "gives": "HOP",
-       "note": "a hop is an informal dance"
+       "words": "tango",
+       "at": 40,
+       "gives": "T",
+       "note": "T is tango in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Describes a ballroom dancing show where couples favour the tango over the waltz.",
-     "walkthrough": "The surface invites a dance-show answer like Strictly; in fact WHERE becomes THERE once T replaces W, then THERE PAIRS HOP reads as THE REPAIR SHOP. The Repair Shop is a BBC programme in which craftspeople restore treasured objects.",
-     "definitionFit": "The Repair Shop is a long-running British television programme about restoring heirlooms, so it is a TV show."
+     "surface": "Describing a ballroom programme where couples choose the tango over the waltz.",
+     "walkthrough": "WHERE PAIRS HOP is built first; then T for tango is preferred to the W at the start of waltz, giving THERE PAIRS HOP. The Repair Shop is a BBC programme where heirlooms are restored.",
+     "definitionFit": "The Repair Shop is a BBC television programme in which craftspeople restore treasured family objects."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "dance"
     }
    }
@@ -947,41 +960,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PHILTRE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the final letter of the name is dropped"
+       "text": "after mixing",
+       "at": 18,
+       "note": "after mixing the letters stirs them into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Help",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after mixing",
-         "note": "mixing stirs things together, so the letters come out in a different order"
+         "text": "briefly",
+         "at": 10,
+         "note": "briefly means cut short, so the name loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Help",
-         "note": "taken as written"
+         "words": "Rita",
+         "at": 5,
+         "note": "taken as written before the cut"
         },
         {
-         "words": "Rita",
-         "gives": "RIT",
-         "note": "the name without its last letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asks for a quick hand for Rita once a potion has been stirred up.",
-     "definitionFit": "A philtre is a magic drink, especially a love potion, so it is a kind of potion."
+     "surface": "Rita is given brief help after she mixes a potion.",
+     "definitionFit": "A philtre is a magic drink, especially a love potion."
     },
     "features": {
      "answerInScene": true,
@@ -1178,51 +1195,55 @@
      "indicators": [
       {
        "text": "penning",
-       "note": "penning means enclosing as in a pen, so the other pieces sit inside"
+       "at": 15,
+       "note": "penning means enclosing, as in a pen, so the other pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Upset",
+         "at": 0,
+         "note": "upset in a down clue means turned over, read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "Upset",
-           "note": "in a down entry upset means turned upside down, so the word is read from the bottom up"
-          }
-         ],
-         "parts": [
-          {
-           "words": "old lady",
-           "gives": "MA",
-           "note": "ma is an informal word for mother"
-          }
-         ]
-        },
-        {
-         "words": "article",
-         "gives": "THE",
-         "note": "the definite article"
+         "words": "old lady",
+         "at": 6,
+         "gives": "MA",
+         "note": "one's old lady is one's mother, MA"
         }
        ]
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "at": 23,
+         "gives": "THE",
+         "note": "the is the definite article"
+        },
+        {
+         "words": "is",
+         "at": 31
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An agitated old woman writes an essay that leaves readers unconvinced.",
-     "walkthrough": "'old lady' means mother, not an elderly woman.",
-     "definitionFit": "Atheism is the absence of belief in any god, so it is a form of religious disbelief."
+     "surface": "An elderly woman, distressed, writes an article that sows doubt.",
+     "walkthrough": "MA turned over by 'Upset' gives AM, which pens THE and IS.",
+     "definitionFit": "Atheism is the lack of belief in any god, a form of unbelief."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "penning"
+     "misdirectedWord": "Upset"
     }
    }
   },
