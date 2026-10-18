@@ -533,47 +533,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RIGATONI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "half of",
-       "note": "only half of the word survives, so its other half is discarded"
+       "text": "'s sprinkled",
+       "at": 25,
+       "note": "is sprinkled means scattered about, so the letters are mixed up"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sprinkled",
-         "note": "sprinkled things are scattered about, so these letters are mixed up"
+         "text": "half of",
+         "at": 7,
+         "note": "half of means only one half of the word is kept, here its second five letters"
         }
        ],
        "parts": [
         {
-         "words": "parmigiano's",
-         "gives": "GIANO",
-         "note": "the second half of the cheese's name"
+         "words": "parmigiano",
+         "at": 15,
+         "note": "parmigiano minus its first half leaves GIANO"
         },
         {
-         "words": "it",
-         "note": "taken as written"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "standard abbreviation for right"
+         "gives": "PARMI"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 43
+      },
+      {
+       "words": "right",
+       "at": 47,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A pasta dish with parmesan cheese sprinkled over it: is that correct?",
-     "walkthrough": "The 's of parmigiano's is read as 'is'.",
-     "definitionFit": "Rigatoni is a kind of pasta made in short ridged tubes."
+     "surface": "A cook asks whether the pasta is properly finished with grated Parmesan cheese scattered over it.",
+     "walkthrough": "'half of' keeps the back half of PARMIGIANO, GIANO; 'sprinkled' mixes GIANO + IT + R. Parmigiano, the cheese, looks like a topping, which suits the kitchen surface.",
+     "definitionFit": "Rigatoni is a kind of Italian pasta made in short ridged tubes."
     },
     "features": {
      "answerInScene": true,
@@ -1558,29 +1561,26 @@
      "parts": [
       {
        "words": "good",
+       "at": 23,
        "gives": "BON",
-       "note": "bon is French for good"
+       "note": "bon is French for good, the French being signalled by the Rive Gauche, the Left Bank of Paris"
       },
       {
-       "words": "art",
+       "words": "art on the Rive Gauche",
+       "at": 28,
        "gives": "ES",
-       "note": "es is French for 'art' as in 'thou art'"
-      },
-      {
-       "unchecked": true,
-       "words": "on the Rive Gauche?",
-       "note": "gives no letters: Paris's Left Bank tells you to put both words into French"
+       "note": "art is the old English 'thou art'; in French that is 'tu es', so a Parisian's art is ES"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist on the Left Bank of Paris produces good art.",
-     "walkthrough": "The Rive Gauche is the Left Bank in Paris, telling you both words go into French.",
-     "definitionFit": "Bones (as in sawbones) is slang for a doctor, a medical practitioner."
+     "surface": "A Left Bank painter in Paris turning out fine pictures.",
+     "walkthrough": "Both pieces are French: the Rive Gauche is Paris's Left Bank, and 'art' is the verb (thou art), not painting. Bones is slang for a doctor or bonesetter, hence the question mark.",
+     "definitionFit": "Bones is an informal nickname for a medical man, a surgeon or bonesetter, so a medical practitioner."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "art"
     }

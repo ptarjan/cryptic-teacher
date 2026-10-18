@@ -339,65 +339,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TIMETABLES",
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece is wrapped round another"
+       "at": 55,
+       "note": "about means surrounding, so the jumbled letters go round the abbreviation for Britain"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "TIMETABLES",
        "indicators": [
         {
          "text": "drunk",
-         "note": "a drunk person staggers about, so these letters are jumbled"
+         "at": 31,
+         "note": "drunk means tipsy and unsteady, so the remaining letters reel into a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "TIMETABLES",
          "indicators": [
           {
            "text": "ignoring",
-           "note": "to ignore something is to leave it out, so letters are dropped"
+           "at": 37,
+           "note": "ignoring means leaving out, so those letters are dropped from sentimental"
           }
          ],
          "parts": [
           {
            "words": "sentimental",
-           "note": "taken as written"
+           "at": 19
           },
           {
            "words": "the news",
+           "at": 46,
            "gives": "NN",
-           "note": "N is new, so two news are two Ns"
-          },
-          {
-           "words": "Britain",
-           "gives": "B",
-           "note": "B is the abbreviation for Britain"
+           "note": "read aloud, the news sounds like the Ns, the two letter Ns in sentimental"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Britain",
+       "at": 61,
+       "gives": "B",
+       "note": "B is the abbreviation for Britain, as on international vehicle plates"
       }
      ]
     },
     "explanation": {
-     "surface": "Television schedules produced by a maudlin drunk who refuses to watch the news about Britain.",
-     "walkthrough": "Two news are two Ns: drop both from the sentimental fodder, rearrange the rest, then wrap it round B.",
-     "definitionFit": "A timetable sets out a planned schedule of events, as a programme does for a day or course."
+     "surface": "A maudlin tipsy viewer who refuses to watch the bulletins about Britain chooses other shows instead.",
+     "walkthrough": "'the news' is a pun on 'the Ns': 'ignoring' drops both Ns from SENTIMENTAL, 'drunk' rearranges the rest into TIMETALES, and 'about' puts that around B.",
+     "definitionFit": "Timetables are schedules listing when events happen, as programmes list the order of proceedings."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "news"
     }
    }
@@ -1234,53 +1234,55 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "TOOTHBRUSH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "characters cycling",
-       "note": "letters cycling go round in a loop, so the front letter moves to the back"
+       "text": "behind",
+       "at": 25,
+       "note": "behind tells us the word for shoot comes after the cycled letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "to",
+       "at": 16,
+       "gives": "TO"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "behind",
-         "note": "behind means following, so one piece goes after the other"
+         "text": "cycling",
+         "at": 48,
+         "note": "cycling means going round, so the first letter moves to the end"
         }
        ],
        "parts": [
         {
-         "words": "to",
-         "note": "taken as written"
-        },
-        {
-         "words": "both",
-         "gives": "OTHB",
-         "note": "the first letter moves to the end"
-        },
-        {
-         "words": "shoot",
-         "gives": "RUSH",
-         "note": "to shoot along is to rush"
+         "words": "both characters",
+         "at": 32,
+         "gives": "BOTH",
+         "note": "the characters, that is the letters, of the word both"
         }
        ]
+      },
+      {
+       "words": "shoot",
+       "at": 19,
+       "gives": "RUSH",
+       "note": "to shoot is to rush, move very fast"
       }
      ]
     },
     "explanation": {
-     "surface": "A handheld gun for shooting at someone's back while both are riding bikes.",
-     "walkthrough": "The surface suggests a weapon and riders; the device is a humble bathroom item.",
-     "definitionFit": "A brush for cleaning teeth is a small implement held in the hand."
+     "surface": "A camera or gun that a photographer or gunman carries while filming two cyclists from the rear.",
+     "walkthrough": "'cycling' moves the B of BOTH to the end, giving OTHB.",
+     "definitionFit": "A toothbrush is a small brush held in the hand for cleaning teeth."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "shoot"
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   },

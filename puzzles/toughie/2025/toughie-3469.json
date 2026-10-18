@@ -892,50 +892,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ADHESION",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "back means turned round, so the little word goes the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "outwardly",
-         "note": "outwardly says the next words sit on the outside, surrounding the rest"
+         "at": 30,
+         "note": "outwardly means on the outside, so the gentleman wraps around the rest"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "gentleman",
-           "gives": "DON",
-           "note": "a Spanish gentleman, as in Don Quixote"
-          }
-         ]
+         "words": "gentleman",
+         "at": 20,
+         "gives": "DON",
+         "note": "a don is a Spanish gentleman, as in the title Don"
         },
         {
          "op": "charade",
          "parts": [
           {
            "words": "he",
-           "note": "taken as written"
+           "at": 6,
+           "gives": "HE"
           },
           {
-           "words": "is",
-           "gives": "SI",
-           "note": "is, turned round"
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "back",
+             "at": 12,
+             "note": "back means turned round, so the little word is reads in the other direction"
+            }
+           ],
+           "parts": [
+            {
+             "words": "is",
+             "at": 9,
+             "gives": "IS"
+            }
+           ]
           }
          ]
         }
@@ -944,13 +947,14 @@
      ]
     },
     "explanation": {
-     "surface": "James Bond is back, a gentleman spy, at least on the outside.",
-     "walkthrough": "'Bond' suggests 007, but it is the plain word for sticking together. Only 'is' turns round; 'he' stays as it is.",
-     "definitionFit": "Adhesion is the sticking together of surfaces, a bond between them."
+     "surface": "A spy-thriller teaser: James Bond has returned, but is he really a gentleman on the surface?",
+     "walkthrough": "'back' applies only to 'is', giving SI after HE; that pair sits inside DON after A. 'Bond' looks like the fictional spy, but it is a plain noun here.",
+     "definitionFit": "Adhesion is the sticking together of surfaces, the hold or grip that makes a bond."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Bond"
     }
    }

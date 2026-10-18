@@ -400,52 +400,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HERBALTEA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "dropping bottom bits",
-       "note": "in a down clue the bottom of a word is its end, and dropping those means losing final letters"
+       "text": "Concocted",
+       "at": 0,
+       "note": "concocted means cooked up or mixed, so the letters that follow are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "a",
+       "at": 10
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Concocted",
-         "note": "to concoct is to mix up, so the letters are combined in a fresh order"
+         "text": "dropping bottom bits",
+         "at": 25,
+         "note": "the bottom bits of lethal and brew are their last letters, which are dropped before mixing"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "lethal brew",
+         "at": 12,
+         "note": "the two words lose their final letters, leaving LETHA and BRE"
         },
         {
-         "words": "lethal",
-         "gives": "LETHA",
-         "note": "the word without its last letter"
-        },
-        {
-         "words": "brew",
-         "gives": "BRE",
-         "note": "the word without its last letter"
+         "gives": "LW"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stirred up a poison, straining out the dregs, to make a drink.",
-     "walkthrough": "'Bottom bits' are the last letters of 'lethal' and 'brew', which go before the remaining letters are mixed.",
-     "definitionFit": "An infusion is a drink made by steeping leaves or flowers in hot water, which is what herbal brews are."
+     "surface": "A poisoner mixes a deadly potion and strains off the sediment before serving it.",
+     "walkthrough": "'dropping bottom bits' takes the last letter from each of lethal and brew, leaving LETHA and BRE; 'Concocted' rearranges A + LETHA + BRE. 'to make' is a link.",
+     "definitionFit": "Herbal tea is a drink made by steeping leaves or flowers in hot water, which is what an infusion is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bottom"
+     "misdirectedWord": "lethal"
     }
    }
   },
@@ -977,45 +975,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEARTHEBONE",
-     "indicators": [
-      {
-       "text": "naked",
-       "note": "naked means stripped of covering, so the outer letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Discovered",
-       "gives": "UNEARTHED",
-       "note": "unearthed means found or dug up"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 11,
+         "note": "naked means stripped of covering, so the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Discovered",
+         "at": 0,
+         "gives": "UNEARTHED",
+         "note": "discovered means unearthed, dug up"
+        }
+       ]
       },
       {
        "words": "bishop",
+       "at": 17,
        "gives": "B",
        "note": "B is the chess abbreviation for bishop"
       },
       {
        "words": "using",
+       "at": 24,
        "gives": "ON",
-       "note": "on, as in 'on drugs', means taking"
+       "note": "someone using drugs is on them, so using gives ON"
       },
       {
        "words": "drug",
+       "at": 30,
        "gives": "E",
-       "note": "E is ecstasy"
+       "note": "E is short for ecstasy, the drug"
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid scoop: a bishop found naked and on drugs, a story that borders on the indecent.",
-     "walkthrough": "'Discovered naked' reads as a scandal; 'naked' strips the outer letters off the word for discovered.",
-     "definitionFit": "The idiom describes a joke or remark that is risqué, close to being offensive or improper."
+     "surface": "A scandal: a bishop found nude and high on drugs, which is close to obscene.",
+     "walkthrough": "'naked' strips UNEARTHED to NEARTHE. 'Discovered naked' reads like the bishop's predicament, but the first word is a synonym to be stripped.",
+     "definitionFit": "A joke near the bone is risqué, verging on the improper or offensive."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "naked"
@@ -1824,61 +1830,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NODULAR",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "trimming cuts a bit off the end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the East",
+         "at": 21,
+         "note": "in an across answer, reading from the East means right to left, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "from the East",
-           "note": "across the grid, coming from the east means reading right to left, so backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "large",
-             "gives": "L",
-             "note": "L is the abbreviation for large"
-            },
-            {
-             "words": "noodles",
-             "gives": "UDON",
-             "note": "udon are thick Japanese wheat noodles"
-            }
-           ]
+           "words": "large",
+           "at": 7,
+           "gives": "L",
+           "note": "L is the clothing-size abbreviation for large"
+          },
+          {
+           "words": "noodles",
+           "at": 13,
+           "gives": "UDON",
+           "note": "udon are thick Japanese wheat noodles"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 39,
+         "note": "trimmed means cut short, so the last letter of are goes"
+        }
+       ],
+       "parts": [
         {
          "words": "are",
-         "gives": "AR",
-         "note": "the word less its last letter"
+         "at": 35
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thick, lumpy noodles from Asia are cut short.",
-     "walkthrough": "'From the East' sounds like Asian origin, which fits udon; in an across clue it means read leftwards.",
-     "definitionFit": "Nodular means covered in small rounded swellings, so having many bumps and knobs."
+     "surface": "A cook's note: the big noodles from Asia have had their ends cut off.",
+     "walkthrough": "'from the East' turns L + UDON round to NODUL; 'trimmed' cuts are to AR. 'the East' tempts you toward Asian food, which udon is, but it also signals the reversal.",
+     "definitionFit": "Nodular describes something covered with nodules, small rounded swellings or knots."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "East"
     }
