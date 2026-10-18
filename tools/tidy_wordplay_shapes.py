@@ -58,6 +58,9 @@ FIELDS = {
     "wordplay.delSingle": lambda ann: V.del_single(ann.get("wordplay")),
     "wordplay.indInLeaf": lambda ann: V.ind_in_leaf(ann.get("wordplay")),
     "wordplay.scrambledLeaf": lambda ann: V.scrambled_leaves(ann.get("wordplay")),
+    "wordplay.indFolded": lambda ann: V.folded_indicators(ann.get("wordplay")),
+    "wordplay.fakeParts": lambda ann: V.fake_parts(ann.get("wordplay")),
+    "wordplay.paddingLeaf": lambda ann: V.padding_leaves(ann.get("wordplay")),
 }
 
 

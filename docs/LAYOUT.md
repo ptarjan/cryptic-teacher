@@ -2963,5 +2963,8 @@ tools/fix_scrambled_gives.py                   drop the made-up `gives` of a fod
                                                an anagram (shape round 3, 10-17)
 tools/test_shape_detector_false_positives.py   the shape detectors (shape_suspects, via
                                                shape_queue.findings) must not flag clues no
+tools/test_validator_gap_rules.py              tests for the validator-gap rules: folded
+                                               indicators, fake substitution parts, padding
+                                               leaves and the redo regression gate
 ```
 <!-- LAYOUT-END -->
