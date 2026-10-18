@@ -4,9 +4,8 @@
 #     bash tools/test_worker_commit.sh
 #
 # worker_commit is read out of tools/puzzle_worker.sh into a scratch repo.
-# 1. A sibling's file is staged in the shared index (as a git outside
-#    ct-index.lock leaves it); the commit must hold only its own file, and the
-#    sibling's stays staged, uncommitted.
+# 1. The commit comes from the index: a tracked file edited but not staged
+#    (a sibling's rows in a shared table) stays out and stays edited.
 # 2. A held index.lock that clears within the retries: the commit lands.
 # 3. A commit with nothing staged (-q makes git say nothing): the alert must
 #    carry a reason, not end at its colon.
@@ -39,17 +38,20 @@ git config user.email "worker-commit-test@example.invalid"
 git add tools
 git commit -q -m base
 
-# 1. a sibling's staged file is not swept in
+# 1. the commit is the index: a file edited but not staged is not swept in
+# (a path-limited commit would take its working-tree content)
 echo a >azed-2778.json
+git add azed-2778.json
+git commit -q -m sibling
+echo changed >azed-2778.json
 echo b >book-12035.json
-git add azed-2778.json book-12035.json
+git add book-12035.json
 worker_commit "Annotate book-12035" book-12035.json
 files="$(git show --name-only --format= HEAD | tr '\n' ' ')"
-[ "$files" = "book-12035.json " ] && ok "commit holds only its own file" || bad "commit held: $files"
-[ "$(git diff --cached --name-only)" = "azed-2778.json" ] && ok "the sibling's file is still staged, uncommitted" ||
-  bad "sibling staged state: $(git diff --cached --name-only)"
-git reset -q -- azed-2778.json
-rm -f azed-2778.json
+[ "$files" = "book-12035.json " ] && ok "commit holds only what was staged" || bad "commit held: $files"
+[ "$(git diff --name-only)" = "azed-2778.json" ] && ok "the unstaged working-tree edit is left alone" ||
+  bad "working tree state: $(git diff --name-only)"
+git checkout -q -- azed-2778.json
 
 # 2. a lock held at the first try is cleared and the commit retried
 echo c >p3.json

@@ -572,8 +572,15 @@ worker_commit() {   # subject paths...
   # staged in the shared index, a sibling's file that a git outside
   # ct-index.lock put there (10-17: azed-2778 swept into book-12035), is never
   # in this commit.
+  # 10-17: `-- <paths>` takes the WORKING-TREE content of those paths, and the
+  # shared correction tables (tools/data/*.json) hold every sibling session's
+  # rows there, so puzzle B's rows landed in puzzle A's commit. The commit now
+  # comes from the index alone: stage_puzzle(s) put the puzzle files in it
+  # and own_rows.py stage put exactly the ids' rows in it (hash-object and
+  # update-index, never git add of the whole table). Callers hold ct-index.lock,
+  # which is what keeps a sibling's staging out of this index meanwhile.
   for try in 1 2 3 4 5; do
-    out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" -- "$@" 2>&1) && { ok=1; break; }
+    out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
     rc=$?
     # A git killed by a signal (10-17: exit 135, SIGBUS, three finished puzzles
     # left staged, said nothing) most likely had a pack or the index replaced
