@@ -65,8 +65,10 @@ def cleaned(wp, answer):
     return R.repaired(base, answer) or base
 
 
-def bucket(wp, answer):
-    """(outcome, reason bucket, detail): why a clue clears or does not."""
+def bucket(wp, answer, ann=None, clue=None):
+    """(outcome, reason bucket, detail): why a clue clears or does not. With the clue's
+    annotation `ann` and its text, a tree the validator's shape rules would flag once
+    the flag is gone (an indicator swapped into a leaf) does not clear either."""
     tree = cleaned(wp, answer)
     try:
         wordplay.evaluate(tree, answer)
@@ -83,6 +85,10 @@ def bucket(wp, answer):
         return "crashed", "crashed: " + type(e).__name__, str(e)[:150]
     if V.scrambled_leaves(tree, min_len=3):  # evaluates only because a leaf's letters are pre-scrambled
         return "failing", "scrambled leaf", "a leaf gives its clue words' letters out of order"
+    if ann is not None:
+        shape = V.shape_warnings("clue", {**ann, "wordplay": tree}, clue)
+        if shape:
+            return "failing", "shape: " + _code(shape[0]), shape[0][:150]
     return "cleared", "cleared", ""
 
 
@@ -126,7 +132,7 @@ def clear_puzzle(puzzle):
         wp = ann.get("wordplay")
         if not isinstance(wp, dict) or not flagged(wp):
             continue
-        out, why, detail = bucket(wp, held.get("solution") or "")
+        out, why, detail = bucket(wp, held.get("solution") or "", ann, (held.get("clue") or {}).get("text"))
         counts[out] += 1
         if out != "cleared":
             counts[WHY + why] += 1

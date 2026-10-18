@@ -467,7 +467,7 @@ for name, tree in [
     ("a container with one part", {"op": "container", "parts": [leaf("ab")]}),
     ("a deletion with ten parts", {"op": "deletion", "parts": [leaf("ab")] + [leaf("a")] * 9}),
     ("a deletion with one part", {"op": "deletion", "parts": [leaf("ab")]}),
-    ("a substitution with two parts", {"op": "substitution", "parts": [leaf("ab"), leaf("a")]}),
+    ("a substitution with four parts", {"op": "substitution", "parts": [leaf("ab"), leaf("a"), leaf("b"), leaf("c")]}),
     ("a reversal with none", {"op": "reversal"}),
     ("a first with two", {"op": "first", "parts": [leaf("ab"), leaf("cd")]}),
     ("a nested bad count", {"op": "charade", "parts": [leaf("a"), {"op": "container", "parts": [leaf("b")]}]}),
@@ -500,5 +500,35 @@ check("alternate letters", _sel("alternate", "true", "TU"))
 check("a wrong alternate fails", not _sel("alternate", "true", "TR"))
 _mo = {"op": "reversal", "parts": [{"op": "charade", "parts": [leaf("mo"), leaf("c"), leaf("ha")]}]}
 check("a reversal of MO+C+HA is not MOCHA", "does not give" in refused(_mo, "MOCHA"), refused(_mo, "MOCHA"))
+
+# A spoonerism filed as one leaf with the phrase before the swap (soundsLike), a centre
+# substitution filed as two parts, and the selections the unchecked-step sweep met.
+def _spoon1(sounds, answer):
+    return {"op": "spoonerism", "parts": [{"words": "x y", "gives": answer, "soundsLike": sounds}]}
+check("a one-leaf spoon by sound (HAD MATTER -> MADHATTER)", refused(_spoon1("HAD MATTER", "MADHATTER"), "MADHATTER") == "evaluated")
+check("a one-leaf spoon by sound (BEST GEAR -> GUESTBEER)", refused(_spoon1("BEST GEAR", "GUESTBEER"), "GUESTBEER") == "evaluated")
+check("a one-leaf spoon whose answer is not the swap", "does not give" in refused(_spoon1("HAD MATTER", "BUTTERPAT"), "BUTTERPAT"))
+check("a one-leaf spoon with no soundsLike is a part count",
+      "part(s)" in refused({"op": "spoonerism", "parts": [leaf("ab")]}, "AB"))
+def _written(expr):
+    try:
+        w.parse(expr)
+    except w.WordplayError:
+        return False
+    return True
+check("a one-part spoon and a two-part sub are stored forms, not written ones",
+      not _written("spoon([a]A)") and not _written("sub([ab]AB, [a]A)"))
+check("sub of the centre, x then new (CADIZ, P -> CAPIZ)",
+      refused({"op": "substitution", "parts": [leaf("port", "CADIZ"), leaf("peso", "P")]}, "CAPIZ") == "evaluated")
+check("sub of the centre, new then x (VISOR in EYE)",
+      refused({"op": "reversal", "parts": [{"op": "substitution", "parts": [leaf("face protection", "VISOR"), leaf("eye")]}]},
+              "EROSIVE") == "evaluated")
+check("sub of the centre must give the answer",
+      "does not give" in refused({"op": "substitution", "parts": [leaf("port", "CADIZ"), leaf("peso", "P")]}, "CADPZ"))
+check("alternate letters of a run stopping short (Does Joan vouch -> DEJAVU)", _sel("alternate", "Does Joan vouch", "DEJAVU"))
+check("a short alternate is not trimmed", not _sel("alternate", "true", "T"))
+_last = {"op": "last", "parts": [{"words": "Durham's", "gives": "AM", "select": "last"}]}
+check("a leaf that names its pick, possessive 's dropped (Durham's -> AM)",
+      refused({"op": "container", "parts": [leaf("cricket match", "TEST"), _last]}, "TAMEST") == "evaluated")
 
 raise SystemExit(fails > 0)

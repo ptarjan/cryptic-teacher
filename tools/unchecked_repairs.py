@@ -89,7 +89,7 @@ def unscramble(tree):
 
 def _swappable(tree):
     return [i for i, (n, _) in enumerate(walk(tree))
-            if n.get("op") in SWAPS and len(n.get("parts") or []) == wordplay.ARITY[n["op"]][0]]
+            if n.get("op") in SWAPS and len(n.get("parts") or []) == wordplay.ARITY[n["op"]][n["op"] == "substitution"]]  # sub's full form: 3 parts
 
 
 def swapped(tree, picks):
