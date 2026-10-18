@@ -804,49 +804,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INSCIENCE",
      "indicators": [
       {
        "text": "around",
-       "note": "around means one set of letters wraps the other"
+       "at": 31,
+       "note": "around means IN and CE go round the rearranged letters"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 21
+        },
+        {
+         "words": "church",
+         "at": 24,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Reformation",
-         "note": "reforming something gives it a new shape, so the letters are rearranged"
+         "at": 44,
+         "note": "Reformation means re-forming, so the letters of since are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
          "words": "since",
-         "note": "taken as written"
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE is the Church of England"
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A history lesson about church ignorance in the era after the Reformation.",
-     "walkthrough": "'Reformation' looks like the historical event, but signals an anagram; 'Historical' marks the answer as an archaic word.",
-     "definitionFit": "Inscience is an archaic word for lack of knowledge, hence 'historical' to flag it as obsolete."
+     "surface": "A note on the ignorance found in churches since the Protestant Reformation.",
+     "walkthrough": "'Reformation' suggests church history but signals the anagram of 'since'; 'Historical' marks the answer as an archaic word.",
+     "definitionFit": "Inscience is an archaic word for lack of knowledge, the opposite of science in its old sense."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Reformation"
     }
    }
@@ -1484,40 +1491,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other"
+       "at": 15,
+       "note": "in means R and ON go inside the island's letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "island's",
-         "gives": "IS",
-         "note": "I is island, plus S for the possessive"
-        },
-        {
-         "words": "Rector",
-         "gives": "R",
-         "note": "R is the abbreviation for rector"
-        }
-       ]
+       "words": "island's",
+       "at": 18,
+       "gives": "IS",
+       "note": "I is island, plus the S of the possessive"
       },
       {
-       "words": "working",
-       "gives": "ON",
-       "note": "a machine that is on is working"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Rector",
+         "at": 0,
+         "gives": "R"
+        },
+        {
+         "words": "working",
+         "at": 7,
+         "gives": "ON",
+         "note": "on means working, functioning"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman busy at his job in an island's social clubs.",
-     "definitionFit": "Irons are golf clubs with metal heads, so clubs is a collective synonym."
+     "surface": "A rector busy on an island's golf course.",
+     "walkthrough": "The island's possessive S is used as a letter, so the island gives two letters that go round the rest.",
+     "definitionFit": "In golf an iron is a club with a metal head, so irons are a set of such clubs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "clubs"
+     "misdirectedWord": "Rector"
     }
    }
   },
@@ -1598,51 +1609,55 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "put in means placed inside another word"
+       "at": 20,
+       "note": "put in means the other pieces go inside the cabbage"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cabbage",
-         "gives": "COLE",
-         "note": "cole is an old word for cabbage"
-        },
-        {
-         "words": "also",
-         "gives": "AS",
-         "note": "as can mean also, as in 'as well'"
-        }
-       ]
+       "words": "cabbage",
+       "at": 27,
+       "gives": "COLE",
+       "note": "cole is an old name for cabbage and its relatives"
       },
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "oddly",
-         "note": "oddly keeps only the letters in odd positions"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sherry",
-         "note": "first, third and fifth letters of sherry"
+         "words": "also",
+         "at": 2,
+         "gives": "AS",
+         "note": "as can mean also, equally"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly",
+           "at": 14,
+           "note": "oddly means the first, third and fifth letters of sherry are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sherry",
+           "at": 7
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing the starter theme: some sherry splashed into a cabbage dish.",
-     "walkthrough": "The ellipsis links this to the previous clue's restaurant scene; cole, as in coleslaw, is an old word for cabbage.",
-     "definitionFit": "A casserole is a slow-cooked stew, or the pot it is cooked and served in."
+     "surface": "A cook adds a splash of sherry to cabbage, continuing from the previous clue.",
+     "walkthrough": "The leading dots continue the previous clue's surface. Cole is an old word for cabbage that survives in coleslaw.",
+     "definitionFit": "A casserole is a dish of food slowly cooked in an oven in a covered pot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "also"
+     "misdirectedWord": "oddly"
     }
    }
   },

@@ -511,59 +511,63 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "plated",
-       "note": "plated means coated, so the silver wraps around the container word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "base",
+         "at": 17,
+         "note": "base means debased or corrupted, so the letters of glued are mixed up"
+        }
+       ],
        "parts": [
         {
          "words": "glued",
-         "gives": "DEGLU",
-         "note": "letters of the word rearranged"
-        },
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "base",
-           "note": "base is read as debased or corrupted, so the preceding word is rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "metal",
-           "gives": "TIN",
-           "note": "tin is a metal"
-          },
-          {
-           "words": "silver",
-           "gives": "AG",
-           "note": "Ag is the chemical symbol for silver"
-          }
-         ]
+         "at": 11
         }
        ]
       },
       {
-       "words": "can",
+       "words": "metal",
+       "at": 22,
        "gives": "TIN",
-       "note": "a tin is a can of food"
+       "note": "tin is a metal"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "plated",
+         "at": 39,
+         "note": "plated means coated all round, so the silver goes outside the can"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silver",
+         "at": 32,
+         "gives": "AG",
+         "note": "Ag is the chemical symbol for silver"
+        },
+        {
+         "words": "can",
+         "at": 46,
+         "gives": "TIN",
+         "note": "a tin is a can"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recycling note: base metal and silver-plated cans are being unstuck.",
-     "walkthrough": "'Base metal' looks like one phrase but splits: 'base' is the signal for the word before it.",
-     "definitionFit": "To deglutinate is to unglue, loosening parts that were stuck together, so it means separating them."
+     "surface": "A description of separating a glued-together can made of cheap metal and silver plate.",
+     "walkthrough": "'base metal' reads as one phrase, but 'base' belongs with 'glued' as its anagram signal and 'metal' stands alone. 'Separating' is the definition at the front.",
+     "definitionFit": "Deglutinating means unsticking, pulling apart things that were stuck together, so it is a kind of separating."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "base"
     }
@@ -1495,22 +1499,35 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "end of",
-       "note": "end of a word means its last letter only"
+       "text": "following",
+       "at": 27,
+       "note": "following means the reversed pieces come after the letter from heat"
       }
      ],
      "parts": [
       {
-       "words": "heat",
-       "gives": "T",
-       "note": "last letter"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 37,
+         "note": "end of means the final letter of the word heat is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heat",
+         "at": 44
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "held back",
-         "note": "held back means written backwards, so the setter's words run right to left"
+         "at": 17,
+         "note": "held back means the pieces are turned round and read from the end"
         }
        ],
        "parts": [
@@ -1519,13 +1536,15 @@
          "parts": [
           {
            "words": "Setter's",
+           "at": 0,
            "gives": "IM",
-           "note": "the setter refers to himself, so setter's is I'm, I am"
+           "note": "setter's is the setter saying I am, so I'M"
           },
           {
            "words": "opening",
+           "at": 9,
            "gives": "ANUS",
-           "note": "a bodily opening"
+           "note": "an anus is a bodily opening"
           }
          ]
         }
@@ -1534,14 +1553,13 @@
      ]
     },
     "explanation": {
-     "surface": "The compiler's first words were delayed after a heatwave.",
-     "walkthrough": "'Setter's opening' reads as the setter's first remarks; split, it is I'M plus a rude anatomical opening, reversed and placed after T.",
-     "definitionFit": "A tsunami is a huge sea wave triggered by an undersea earthquake or landslide."
+     "surface": "The setter's first remarks are delayed after a heatwave.",
+     "walkthrough": "'Setter's' expands to 'I am', the setter speaking; 'held back' turns both the setter's words and the opening round together, giving SUNAMI. 'heat wave' looks like one phrase, but only 'wave' defines.",
+     "definitionFit": "A tsunami is a huge sea wave set off by an undersea earthquake or landslide."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "opening"
     }
    }
