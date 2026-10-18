@@ -38,13 +38,13 @@ shutil.copy(src, path)
 a, b = clues[0], clues[1]
 aid, bid = groups.entry_id(a), groups.entry_id(b)
 Q.PATH.write_text(json.dumps([
-    {"id": f"{puzzle['id']}#{Q.clue_key(a)}", "reason": "walkthrough: test"},
+    {"id": f"{puzzle['id']}#{Q.clue_key(a)}", "reason": "gate-test: test"},
     {"id": f"{puzzle['id']}#{Q.clue_key(b)}", "reason": "old", "tried": True}]))
 
 view = json.loads(AC.write_view(path).read_text())
 check("a fully hinted puzzle writes just the listed clue", view.get("annotateOnly") == [aid])
 check("the tried clue is not redone", bid not in view.get("annotateOnly", []))
-check("the view says why", "walkthrough: test" in view.get("flagged", {}).get(aid, ""))
+check("the view says why", "gate-test: test" in view.get("flagged", {}).get(aid, ""))
 
 full = {groups.entry_id(e): e["annotation"] for e in clues}
 pz = F.read_puzzle_file(path)
