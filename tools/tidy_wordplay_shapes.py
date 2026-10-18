@@ -61,6 +61,9 @@ FIELDS = {
     "wordplay.indFolded": lambda ann: V.folded_indicators(ann.get("wordplay")),
     "wordplay.fakeParts": lambda ann: V.fake_parts(ann.get("wordplay")),
     "wordplay.paddingLeaf": lambda ann: V.padding_leaves(ann.get("wordplay")),
+    "wordplay.nestedContainer": lambda ann: V.nested_containers(ann.get("wordplay")),
+    "wordplay.anagramSynonym": lambda ann: V.anagram_synonyms(ann.get("wordplay")),
+    "wordplay.misplacedIndicator": lambda ann: V.misplaced_indicators(ann.get("wordplay")),
 }
 
 

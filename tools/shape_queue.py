@@ -115,8 +115,23 @@ def findings(entry, ann=None):
     row = {"id": "", "series": "", "clue": (entry.get("clue") or {}).get("text", ""),
            "sol": entry.get("solution", ""), "sk": cs.analyse(wp)[0], "line": cs.compact(wp),
            "wp": wp, "defs": ann.get("definitions") or [], "andLit": bool(ann.get("andLit"))}
-    return [f"{k}: {v}" if isinstance(v, str) else k
-            for _, hits in ss.run_detectors([row]) for k, v in hits.items() if k in ss.PRECISION]
+    found = [f"{k}: {v}" if isinstance(v, str) else k
+             for _, hits in ss.run_detectors([row]) for k, v in hits.items() if k in ss.PRECISION]
+    # The validator rules a redo must also clear (a tree that evaluates to the answer
+    # but nests a container wrongly, or hangs an indicator on the wrong op, passes
+    # every other check: times-29420 24a ABUSE, 16d SWEETPEAS).
+    rules = _validator_rules()
+    clue = (entry.get("clue") or {}).get("text", "")
+    return found + [f"{k}: {WHY[k]}" for k in GATED if rules[k](wp, ann, clue)]
+
+
+GATED = ("anaSynonym", "nestedContainer", "misplacedIndicator")
+WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's own words are "
+                     "the fodder, the synonym joins the result in a charade",
+       "nestedContainer": "a container holds another container as its holder: join the pieces "
+                          "going into one holder as a charade, or nest the other way round",
+       "misplacedIndicator": "an indicator is filed on the charade but signals another op: "
+                             "put it on that op"}
 
 
 def _validator_rules():
@@ -132,6 +147,9 @@ def _validator_rules():
             "inDefinition": lambda t, a, c: V.in_definition(a),
             "leafFold": lambda t, a, c: V.leaf_folds(t),
             "anaCharade": lambda t, a, c: V.anagram_charades(t),
+            "nestedContainer": lambda t, a, c: V.nested_containers(t),
+            "anaSynonym": lambda t, a, c: V.anagram_synonyms(t),
+            "misplacedIndicator": lambda t, a, c: V.misplaced_indicators(t),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
             "unchecked_step": lambda t, a, c: any(n.get("unchecked") for n in V._walk(t))}
