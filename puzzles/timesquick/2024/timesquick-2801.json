@@ -624,51 +624,56 @@
      "indicators": [
       {
        "text": "must include",
-       "note": "include means hold within, so the other parts go inside"
+       "at": 34,
+       "note": "the count must include these letters, so they go inside the word for it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "count of people",
-         "gives": "CENSUS",
-         "note": "a census is an official population count"
-        },
-        {
-         "words": "acceptable",
-         "gives": "ON",
-         "note": "on as in 'that's not on', meaning allowable"
-        }
-       ]
+       "words": "count of people",
+       "at": 18,
+       "gives": "CENSUS",
+       "note": "a census is an official count of a population"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at outset",
-         "note": "at the outset means only the beginning letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "syntax",
-         "note": "its opening letter"
+         "words": "acceptable",
+         "at": 47,
+         "gives": "ON",
+         "note": "ON as in 'that's not on', meaning acceptable"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at outset",
+           "at": 65,
+           "note": "at the outset of a word is its first letter, so only the S of syntax is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "syntax",
+           "at": 58,
+           "note": "its first letter, S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Officials agree a population survey must use proper grammar from the start.",
-     "walkthrough": "'Acceptable' gives ON, as in 'that's just not on'.",
-     "definitionFit": "Consensus is broad accord reached by a group, shared opinion among most people."
+     "surface": "A statistician insists that a population survey should check its grammar from the start.",
+     "walkthrough": "'Acceptable' is used in the sense of the phrase 'that's not on', meaning not acceptable.",
+     "definitionFit": "A consensus is the broad agreement of a whole group, so it matches general agreement."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "syntax"
+     "misdirectedWord": "acceptable"
     }
    }
   },
