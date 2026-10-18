@@ -176,50 +176,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "turning something about faces it the other way, so the regret is written backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "entertaining",
-         "note": "a host entertaining a guest has them inside the house"
+         "text": "about",
+         "at": 22,
+         "note": "about here means turned round, so the word for regret is read backwards"
         }
        ],
        "parts": [
         {
          "words": "regret",
+         "at": 15,
          "gives": "RUE",
-         "note": "to rue = to regret; turned about, it leads off"
+         "note": "to rue is to regret"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "entertaining",
+         "at": 35,
+         "note": "entertaining means holding as a guest, so the article goes inside"
+        }
+       ],
        "parts": [
         {
          "words": "frank",
+         "at": 28,
          "gives": "OPEN",
-         "note": "open = frank, candid"
+         "note": "open means frank, candid"
         },
         {
          "words": "article",
+         "at": 48,
          "gives": "A",
-         "note": "the indefinite article, placed inside OPEN before its N"
+         "note": "a is the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A German's regret about some frank talk that included an article.",
-     "walkthrough": "'Maybe' flags a definition by example. The 's after German is 'has', a link.",
-     "definitionFit": "A definition by example: Germany is in Europe, so a German is one of many kinds of European, which 'maybe' admits."
+     "surface": "A German regrets something about a candid man who keeps a certain item.",
+     "walkthrough": "'frank' looks like a name or a currency, but it means open.",
+     "definitionFit": "Germany is in Europe, so a German is an example of a European, hence 'Maybe'."
     },
     "features": {
      "answerInScene": true,
@@ -1328,40 +1333,44 @@
      "indicators": [
       {
        "text": "entering",
-       "note": "something entering a place goes inside it"
+       "at": 10,
+       "note": "the first two pieces enter the trendy word, so they go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "trendy",
-         "gives": "IN",
-         "note": "in = fashionable"
-        },
-        {
-         "words": "Run",
-         "gives": "R",
-         "note": "R = run, in cricket scoring"
-        }
-       ]
+       "words": "trendy",
+       "at": 19,
+       "gives": "IN",
+       "note": "in means fashionable"
       },
       {
-       "words": "round",
-       "gives": "O",
-       "note": "O is round in shape"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Run",
+         "at": 0,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
+        },
+        {
+         "words": "round",
+         "at": 4,
+         "gives": "O",
+         "note": "O is round in shape"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rushing into a fashionable nightclub.",
-     "walkthrough": "'Club' reads as a nightclub, but it is a golf club. 'Round' looks like part of 'run round', but it is a separate piece.",
-     "definitionFit": "A category member: an iron is a golf club with a flat metal head."
+     "surface": "Jogging a lap before getting into a fashionable nightclub.",
+     "walkthrough": "'club' looks like a nightclub in the surface but is a golf club.",
+     "definitionFit": "An iron is a type of golf club with a metal head, used for mid-range shots."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "club"
     }
    }
@@ -1586,50 +1595,52 @@
      "indicators": [
       {
        "text": "to capture",
-       "note": "to capture something is to take it in, so the offer holds the other letters"
+       "at": 17,
+       "note": "the offer captures the next pieces, so they go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "offer",
-         "gives": "BID",
-         "note": "a bid is an offer"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A = area"
-        }
-       ]
+       "words": "offer",
+       "at": 11,
+       "gives": "BID",
+       "note": "a bid is an offer"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "vacated",
-         "note": "a vacated place has been emptied, so Sudanese keeps only its outside letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Sudanese",
-         "note": "SUDANESE emptied to its outer letters"
+         "words": "area",
+         "at": 28,
+         "gives": "A"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "vacated",
+           "at": 42,
+           "note": "vacated means emptied of the middle, leaving the first and last letters of Sudanese"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sudanese",
+           "at": 33
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A guerrilla fighter's offer to seize a region the Sudanese have abandoned.",
-     "walkthrough": "'Partisan' suggests a resistance fighter, but here it is an adjective: one-sided. The 's is 'has', a link.",
-     "definitionFit": "A plain synonym: a partisan view favours one side, which is what biased means."
+     "surface": "A rebel fighter's offer to seize a region the Sudanese abandoned.",
+     "definitionFit": "A partisan person is prejudiced in favour of one side, which is what biased means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Partisan"
     }
    }

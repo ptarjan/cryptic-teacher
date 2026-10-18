@@ -145,29 +145,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down clue the energy letter already in the word for ripens climbs to a higher spot"
-      }
-     ],
      "parts": [
       {
        "words": "one",
+       "at": 10,
        "gives": "A",
-       "note": "one as the article a"
+       "note": "A means one, as in a single thing"
       },
       {
-       "words": "ripens with energy",
-       "gives": "MATEURS",
-       "note": "ripens is MATURES; energy is E, and that E moves up two places"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 21,
+         "note": "with attaches the energy letter to the ripening word, as the one that moves"
+        },
+        {
+         "text": "rising",
+         "at": 33,
+         "note": "in a down clue rising means the letter moves up the word, to an earlier position"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "ripens",
+           "at": 14,
+           "gives": "MATURES",
+           "note": "matures means ripens"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "energy",
+         "at": 26,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list of amateurs, one of whom ripens with a burst of energy.",
-     "walkthrough": "The energy letter is not added: the E already in the word for ripens rises two places in this down entry.",
-     "definitionFit": "Dabblers pursue an interest casually without training or payment, just as amateurs do, making them synonyms."
+     "surface": "A puzzling dictionary entry: amateurs, and someone growing up full of energy.",
+     "walkthrough": "'with energy rising' moves the E of MATURES up two places in this down clue, giving MATEURS after A.",
+     "definitionFit": "Amateurs take up a pursuit casually rather than professionally, so they are dabblers in it."
     },
     "features": {
      "answerInScene": false,
@@ -201,46 +228,49 @@
      "indicators": [
       {
        "text": "to tuck in",
-       "note": "the bachelor and the setter's opening letter are tucked inside the word for notice"
+       "at": 38,
+       "note": "the pieces tuck into the notice, so they go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Notice",
-         "gives": "AD",
-         "note": "an ad is a notice in a paper"
-        },
-        {
-         "words": "bachelor",
-         "gives": "B",
-         "note": "B is the standard abbreviation for bachelor"
-        }
-       ]
+       "words": "Notice",
+       "at": 0,
+       "gives": "AD",
+       "note": "an ad, short for advertisement, is a notice"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "beginning",
-         "note": "the beginning of the setter's name means only its opening letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Everyman's",
-         "note": "the opening letter of the setter's name"
+         "words": "bachelor",
+         "at": 8,
+         "gives": "B"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 28,
+           "note": "beginning means the first letter, here of Everyman's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Everyman's",
+           "at": 17
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A notice that a single man and the setter are tucking in, failing to seize the day.",
-     "walkthrough": "Tuck in suggests eating, but here it just means placing letters inside; seizing the day is carpe diem, which a lie-in fails to do.",
-     "definitionFit": "Someone still lying in bed has not got up to make the most of the morning, the opposite of carpe diem."
+     "surface": "A notice that a bachelor setter is starting to eat, rather than getting on with the day.",
+     "walkthrough": "Everyman is the setter of this puzzle, so 'Everyman's beginning' is simply E.",
+     "definitionFit": "Someone still abed is lying in rather than rising, failing to make the most of the morning, the opposite of carpe diem."
     },
     "features": {
      "answerInScene": true,

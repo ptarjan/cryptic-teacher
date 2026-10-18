@@ -46,46 +46,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the gas and the opening letter sit inside the hospital room, which wraps around them"
+       "at": 34,
+       "note": "the gas and the letter go in the hospital room, so they are placed inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "hospital room",
-         "gives": "WARD",
-         "note": "a ward is a room of beds in a hospital"
-        },
-        {
-         "words": "gas",
-         "gives": "HE",
-         "note": "He is the chemical symbol for helium"
-        }
-       ]
+       "words": "hospital room",
+       "at": 37,
+       "gives": "WARD",
+       "note": "a ward is a room in a hospital"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "primarily means first of all, so only the opening letter of the word before it is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "available",
-         "note": "first letter of available"
+         "words": "gas",
+         "at": 10,
+         "gives": "HE",
+         "note": "He is the chemical symbol for helium, a gas"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 24,
+           "note": "primarily means first, so take the first letter of available"
+          }
+         ],
+         "parts": [
+          {
+           "words": "available",
+           "at": 14
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dangerous gas is apparently on hand in a hospital ward.",
-     "walkthrough": "He is helium's chemical symbol; the gas and the single letter both go inside the hospital room together.",
-     "definitionFit": "A warhead is the explosive charge carried at the front of a missile, so the noun 'explosive' can stand for it."
+     "surface": "A worrying notice that an explosive gas is on hand in a hospital ward.",
+     "definitionFit": "A warhead is the explosive charge carried at the front of a missile, so it can be called an explosive."
     },
     "features": {
      "answerInScene": false,

@@ -1001,44 +1001,49 @@
     "definitions": [
      {
       "text": "white",
-      "at": 28,
-      "note": "White here is the noun of the wine list — a white, as ordered at a bar — rather than the colour."
+      "at": 28
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "50%",
-       "note": "Half of a word is 50% of it, and for a six-letter word that is its first three letters."
-      },
-      {
-       "text": "most of",
-       "note": "Most of a word is all of it but the last letter, one short of the whole."
-      }
-     ],
      "parts": [
       {
-       "words": "chance",
+       "words": "50% chance",
+       "at": 0,
        "gives": "CHA",
-       "note": "the front half of CHAnce"
+       "note": "the first half of the word chance"
       },
       {
-       "words": "heaven",
-       "gives": "BLIS",
-       "note": "heaven is bliss, and BLISS one letter short is BLIS"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 11,
+         "note": "most of a word is all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heaven's",
+         "at": 19,
+         "gives": "BLISS",
+         "note": "heaven means bliss; the 's here reads as is, linking to the definition"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An even chance that most of heaven turns out to be white.",
-     "walkthrough": "The definition is the single word at the end. 'Heaven's' hides an is rather than a possessive, which is what makes the sentence read so smoothly past the join.",
-     "definitionFit": "A white on its own means white wine, and Chablis is the dry white made in that corner of Burgundy."
+     "surface": "A wine buff's claim that heaven is very likely white wine.",
+     "definitionFit": "Chablis is a dry white wine from Burgundy, so it is a white in wine-list shorthand."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "white"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chance"
     }
    }
   },

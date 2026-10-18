@@ -143,45 +143,53 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "between sets the order: the limb sits in the middle, with the other two pieces on either side"
+       "at": 13,
+       "note": "the limb sits between the other two pieces, so it goes inside them"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "tip of",
-         "note": "the tip of something is its extreme point, so only the leading letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "elbow",
-         "note": "the first letter of elbow"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "tip of",
+           "at": 21,
+           "note": "the tip of a word is its first letter, here of elbow"
+          }
+         ],
+         "parts": [
+          {
+           "words": "elbow",
+           "at": 28
+          }
+         ]
+        },
+        {
+         "words": "chest",
+         "at": 38,
+         "gives": "ARK",
+         "note": "an ark is a chest or box, as in the Ark of the Covenant"
         }
        ]
       },
       {
        "words": "limb",
+       "at": 8,
        "gives": "ARM",
        "note": "an arm is a limb"
-      },
-      {
-       "words": "chest",
-       "gives": "ARK",
-       "note": "an ark is a chest or box, as in the Ark of the Covenant"
       }
      ]
     },
     "explanation": {
-     "surface": "An anatomy question: name the limb between the elbow and the chest.",
-     "walkthrough": "'Between' arranges the pieces: the limb sits between the elbow's tip and the chest. 'Chest' is a box, not the torso.",
-     "definitionFit": "To earmark funds is to set them aside for a designated purpose, so the verb means to designate."
+     "surface": "An anatomy instruction: locate a limb lying between the point of the elbow and the chest.",
+     "definitionFit": "To earmark something is to set it aside or designate it for a purpose, which is to specify it."
     },
     "features": {
      "answerInScene": false,
