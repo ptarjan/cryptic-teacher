@@ -614,40 +614,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "fills"
+       "text": "fills",
+       "at": 15,
+       "note": "fills means goes inside, so the portion and single go into the snack"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "snack",
-         "gives": "BITE",
-         "note": "a bite is a snack"
-        },
-        {
-         "words": "portion",
-         "gives": "PART",
-         "note": "a part is a portion"
-        }
-       ]
+       "words": "snack",
+       "at": 24,
+       "gives": "BITE",
+       "note": "a bite is a snack"
       },
       {
-       "words": "Single",
-       "gives": "I",
-       "note": "Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "portion",
+         "at": 7,
+         "gives": "PART",
+         "note": "a part is a portion"
+        },
+        {
+         "words": "Single",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral one, single"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A single helping stuffed into a snack that is split into two halves.",
-     "walkthrough": "'In two sections' looks like part of the snack's description, but it is the definition.",
-     "definitionFit": "Bipartite means having or divided into two parts."
+     "surface": "One portion of filling goes into a snack made in two parts.",
+     "definitionFit": "Bipartite means divided into or consisting of two parts, from Latin bi- twice."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Single"
     }
    }
   },
@@ -919,57 +924,62 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one group of letters goes inside another"
+       "at": 25,
+       "note": "the second in places the reversed letters inside the word for times past"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "times past",
+       "at": 28,
+       "gives": "YORE",
+       "note": "yore means times long past"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "to go back is to go the way you came, so the letters are written from the far end"
+         "at": 20,
+         "note": "back means the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "times past",
-         "gives": "YORE",
-         "note": "'days of yore' are times past"
-        },
-        {
-         "op": "reversal",
+         "op": "container",
          "indicators": [
           {
            "text": "in",
-           "note": "one group of letters goes inside another"
+           "at": 8,
+           "note": "in places the husband inside the word for jeopardy"
           }
          ],
          "parts": [
           {
            "words": "jeopardy",
+           "at": 11,
            "gives": "RISK",
-           "note": "to be in jeopardy is to be at risk"
+           "note": "risk is jeopardy"
+          },
+          {
+           "words": "Husband",
+           "at": 0,
+           "gives": "H"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "Husband",
-       "gives": "H",
-       "note": "standard abbreviation for husband"
       }
      ]
     },
     "explanation": {
-     "surface": "A husband in danger in olden days turns up a pig.",
-     "walkthrough": "The order matters: the husband goes into the jeopardy first, then that whole word turns back, then it lands inside the times past. A Yorkshire is a pig breed, not only a county.",
-     "definitionFit": "The Yorkshire, or Large White, is a breed of domestic pig."
+     "surface": "A husband in danger in the old days finds a pig.",
+     "definitionFit": "The Yorkshire is a breed of pig, also called the Large White, from the English county."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pig"
     }
    }
   },
@@ -1252,8 +1262,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "we hear",
-       "note": "FAULTY is spelt as it sounds"
+       "text": "chasing",
+       "at": 13,
+       "note": "chasing means coming after, so the queen's word follows the sound"
       }
      ],
      "parts": [
@@ -1262,12 +1273,15 @@
        "spelt": "FAWLTY",
        "indicators": [
         {
-         "text": "chasing"
+         "text": "we hear",
+         "at": 27,
+         "note": "we hear means the word is taken by its sound, not its spelling"
         }
        ],
        "parts": [
         {
          "words": "buggy",
+         "at": 21,
          "gives": "FAULTY",
          "note": "buggy software is faulty"
         }
@@ -1275,24 +1289,22 @@
       },
       {
        "words": "Drag",
+       "at": 0,
        "gives": "TOW",
-       "note": "to drag or tow"
+       "note": "to tow is to drag"
       },
       {
-       "words": "queen",
-       "gives": "ER",
-       "note": "ER stands for Elizabeth Regina"
-      },
-      {
-       "words": "'s",
-       "note": "the S of queen's"
+       "words": "queen's",
+       "at": 5,
+       "gives": "ERS",
+       "note": "ER is the Queen, Elizabeth Regina, and the 's adds S"
       }
      ]
     },
     "explanation": {
-     "surface": "A drag queen pursuing a pushchair on the set of a comedy show.",
-     "walkthrough": "'Drag queen' reads as one phrase but splits in two; a buggy is British for a pushchair, and in computing a buggy program is faulty.",
-     "definitionFit": "A definition by example: Fawlty Towers is the 1970s BBC sitcom set in a hotel, starring John Cleese."
+     "surface": "A drag queen is chasing a pushchair, someone hears, in a comedy.",
+     "walkthrough": "'Drag queen' looks like one thing; split it into drag and queen's. Fawlty Towers is the 1970s BBC sitcom starring John Cleese as hotelier Basil Fawlty.",
+     "definitionFit": "Fawlty Towers is a famous British situation comedy set in a Torquay hotel."
     },
     "features": {
      "answerInScene": false,
@@ -1589,49 +1601,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "absorbing",
-       "note": "to absorb is to soak something up and hold it within"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "Almost",
-         "note": "almost means not quite all, so the word loses its last letter"
+         "text": "absorbing",
+         "at": 18,
+         "note": "absorbing means taking in, so the abbreviation for that is holds the D"
         }
        ],
        "parts": [
         {
          "words": "that is",
+         "at": 10,
          "gives": "IE",
-         "note": "i.e. is Latin id est, that is"
+         "note": "ie, id est, means that is"
         },
         {
          "words": "Democrat",
-         "gives": "D",
-         "note": "standard abbreviation"
+         "at": 28,
+         "gives": "D"
         }
        ]
       },
       {
-       "words": "completely",
-       "gives": "AL",
-       "note": "ALL, as in all over, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 49,
+         "note": "almost means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "completely",
+         "at": 37,
+         "gives": "ALL",
+         "note": "all means completely, as in all alone"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A principle that nearly wins a Democrat over completely.",
-     "walkthrough": "The question mark and 'Almost!' look like a comment on the Democrat, but 'Almost' is an instruction acting on 'completely'.",
-     "definitionFit": "A plain synonym: one's ideals are the principles one holds."
+     "surface": "A rule that nearly takes in a Democrat wholesale.",
+     "definitionFit": "An ideal is a standard or principle to aim at, a guiding value."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Democrat"
     }
    }
   },
@@ -1659,35 +1683,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 33,
+       "note": "the second in places the letters inside A and E"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "A&E",
-         "note": "taken letter for letter"
-        },
-        {
-         "words": "seconds",
-         "gives": "S",
-         "note": "standard abbreviation for seconds"
-        }
-       ]
+       "words": "A&E",
+       "at": 36,
+       "gives": "AE",
+       "note": "A and E is Accident and Emergency, a hospital casualty department"
       },
       {
-       "words": "confessed",
-       "gives": "SANG",
-       "note": "to sing is slang for to confess to the police"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "seconds",
+         "at": 15,
+         "gives": "S"
+        },
+        {
+         "words": "confessed",
+         "at": 23,
+         "gives": "SANG",
+         "note": "to sing is slang for to confess, so sang means confessed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drug dealer blurting out a confession while in hospital casualty.",
-     "walkthrough": "'Dope' here is inside information, not drugs: Julian Assange of WikiLeaks dealt in leaked secrets. A&E is British hospital casualty.",
-     "definitionFit": "Julian Assange published leaked secret information, dope in the slang sense."
+     "surface": "A drug dealer turns informer at the hospital's casualty unit.",
+     "walkthrough": "Dope here means inside information, not drugs.",
+     "definitionFit": "Julian Assange founded WikiLeaks, which published secret information, slang dope."
     },
     "features": {
      "answerInScene": false,

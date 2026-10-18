@@ -55,42 +55,57 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "50 per cent of",
-       "note": "fifty per cent is half, so only the first half of loophole is kept"
+       "text": "being abused",
+       "at": 62,
+       "note": "being abused means being mistreated or misused, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "in",
+       "at": 25,
+       "note": "taken as written"
+      },
+      {
+       "words": "tax",
+       "at": 28,
+       "note": "taken as written"
+      },
+      {
+       "words": "rate",
+       "at": 32,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "being abused",
-         "note": "abused letters are mistreated and knocked out of order"
+         "text": "50 per cent of",
+         "at": 38,
+         "note": "50 per cent of keeps only half of the word, its first four letters"
         }
        ],
        "parts": [
         {
-         "words": "in tax rate",
-         "note": "anagram fodder, 9 letters"
+         "words": "loophole",
+         "at": 53,
+         "note": "the word loophole loses its second half"
         },
         {
-         "words": "50 per cent of loophole",
-         "gives": "LOOP",
-         "note": "the first half of LOOPHOLE"
+         "gives": "HOLE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A finance column complains about a tax loophole being exploited.",
-     "walkthrough": "The surface is all tax talk, and 'supplement' sounds like a surcharge; it is the optional add-on of a car salesroom.",
-     "definitionFit": "An optional extra is an add-on the buyer may choose to pay for, so a discretionary supplement."
+     "surface": "A tax loophole being exploited lets someone add an optional charge to the rate.",
+     "definitionFit": "An add-on that a buyer may choose or decline is a discretionary addition to the basic product."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "supplement"
+     "misdirectedWord": "abused"
     }
    }
   },
@@ -874,49 +889,59 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 8,
+       "note": "about means around, so the word for chatted goes round the rest"
       }
      ],
      "parts": [
       {
        "words": "Chatted",
+       "at": 0,
        "gives": "PRATED",
-       "note": "to prate is to chatter"
+       "note": "prated means talked foolishly, chattered"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "welcoming"
+         "text": "welcoming",
+         "at": 23,
+         "note": "welcoming means taking in, so paradise holds the saint and initial"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "paradise",
-           "gives": "EDEN",
-           "note": "the garden of Eden"
-          },
-          {
-           "words": "St",
-           "note": "abbreviation for saint"
-          }
-         ]
+         "words": "paradise",
+         "at": 14,
+         "gives": "EDEN",
+         "note": "Eden is the biblical paradise"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so Ignatius gives I"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Ignatius",
-           "note": "first letter of Ignatius"
+           "words": "St",
+           "at": 33,
+           "gives": "ST",
+           "note": "ST is the abbreviation for saint"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "at": 46,
+             "note": "initially means take the first letter of the word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Ignatius",
+             "at": 36,
+             "note": "the word Ignatius supplies its first letter"
+            }
+           ]
           }
          ]
         }
@@ -925,9 +950,8 @@
      ]
     },
     "explanation": {
-     "surface": "Someone chatted about heaven and St Ignatius, who was ordained a priest earlier.",
-     "walkthrough": "'Ordained earlier' reads as a priest's ordination; it means decreed beforehand, fitting the Jesuit founder's theology.",
-     "definitionFit": "Predestinated means ordained in advance, the doctrine of fate decided by God."
+     "surface": "Talk about heaven receiving St Ignatius, who was destined for it from the start.",
+     "definitionFit": "Something predestinated was fixed or decreed by God beforehand, an older form of predestined."
     },
     "features": {
      "answerInScene": true,
@@ -2470,7 +2494,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "enters"
+       "text": "after",
+       "at": 22,
+       "note": "after places the church abbreviation behind the rest"
       }
      ],
      "parts": [
@@ -2478,39 +2504,57 @@
        "op": "container",
        "indicators": [
         {
-         "text": "after"
+         "text": "enters",
+         "at": 40,
+         "note": "enters means goes into, so the shortened nun goes inside the pub"
         }
        ],
        "parts": [
         {
          "words": "pub",
+         "at": 47,
          "gives": "INN",
          "note": "an inn is a pub"
         },
         {
-         "words": "nun briefly",
-         "gives": "SISTE",
-         "note": "SISTER without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 32,
+           "note": "briefly means cut short, so the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nun",
+           "at": 28,
+           "gives": "SISTER",
+           "note": "a nun is addressed as sister"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       },
       {
        "words": "church",
+       "at": 15,
        "gives": "CE",
        "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "After a nun pops into a pub, the church makes a statement.",
-     "walkthrough": "A nun is addressed as Sister, which is the chunk trimmed here.",
-     "definitionFit": "A plain synonym: insistence is a firm assertion that something is so."
+     "surface": "A churchgoer insists on something after a nun has a quick drink in the pub.",
+     "definitionFit": "Insistence is the act of asserting something firmly and repeatedly, a forceful claim."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "nun"
+     "misdirectedWord": "enters"
     }
    }
   },
@@ -2595,42 +2639,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "when entertaining"
-      }
-     ],
      "parts": [
       {
        "words": "honk",
+       "at": 11,
        "gives": "TOOT",
-       "note": "a car's horn toots"
+       "note": "to toot is to sound a horn, to honk"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "completely exhausted",
-         "note": "both words are emptied of their insides, leaving only their outer letters"
+         "text": "when entertaining",
+         "at": 25,
+         "note": "when entertaining means hosting, so the greeting holds the other letters"
         }
        ],
        "parts": [
         {
          "words": "greeting",
+         "at": 16,
          "gives": "HAIL",
          "note": "hail is a greeting"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "ANDN",
+         "indicators": [
+          {
+           "text": "completely exhausted",
+           "at": 43,
+           "note": "completely exhausted means emptied of all inner letters, leaving each word's first and last"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "completely exhausted Austrian delegation",
-           "gives": "ANDN",
-           "select": "outer",
-           "note": "AustriaN and DelegatioN, each with its middle removed"
+           "words": "Austrian delegation",
+           "at": 64,
+           "note": "the words Austrian and delegation are emptied to their outside letters"
           }
          ]
         }
@@ -2639,15 +2684,14 @@
      ]
     },
     "explanation": {
-     "surface": "Drivers honk furiously in greeting at an exhausted Austrian delegation.",
-     "walkthrough": "'Completely' tells you both words are emptied, not just one.",
-     "definitionFit": "To fight tooth and nail is to fight with all one's strength, vigorously."
+     "surface": "A car honks a greeting while hosting a worn-out delegation from Austria.",
+     "walkthrough": "'Completely exhausted' empties both words, leaving A and N from Austrian and D and N from delegation.",
+     "definitionFit": "To fight tooth and nail is to fight fiercely with every means available, so it is an idiom for vigorously."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Austrian"
+     "misdirectedWord": "exhausted"
     }
    }
   },
@@ -3199,49 +3243,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means turned around"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "blocked by"
+         "text": "about",
+         "at": 10,
+         "note": "about here means turned round, so the word for call is read backwards"
         }
        ],
        "parts": [
         {
          "words": "call",
+         "at": 5,
          "gives": "NAME",
-         "note": "to call someone something is to name them"
+         "note": "to name is to call"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "blocked by",
+         "at": 22,
+         "note": "blocked by means obstructed from within, so the secretary goes inside the word for quote"
+        }
+       ],
        "parts": [
         {
          "words": "quote",
+         "at": 16,
          "gives": "CITE",
          "note": "to cite is to quote"
         },
         {
          "words": "secretary",
+         "at": 33,
          "gives": "PA",
-         "note": "a PA is a personal assistant"
+         "note": "PA is a personal assistant, a secretary"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A free phone call about a quote is blocked by a secretary.",
-     "walkthrough": "'Free' reads as no charge on the call; it is the verb, to set free.",
-     "definitionFit": "A plain synonym: emancipate is to set free, as slaves were emancipated."
+     "surface": "A demand for release, with a secretary getting in the way of a quotation.",
+     "definitionFit": "To emancipate is to liberate someone from bondage or restriction, a formal word for set loose."
     },
     "features": {
      "answerInScene": false,
@@ -3569,41 +3618,40 @@
      "indicators": [
       {
        "text": "circling",
-       "note": "circling means going round"
+       "at": 30,
+       "note": "circling means surrounding, so the prison word goes round the letter"
       }
      ],
      "parts": [
       {
        "words": "prison",
+       "at": 23,
        "gives": "STIR",
        "note": "stir is slang for prison"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "entrance to",
-         "note": "the entrance to a word is its first letter"
+         "at": 39,
+         "note": "entrance to means the opening letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "entrance to Alcatraz",
-         "gives": "A",
-         "select": "first",
-         "note": "first letter of Alcatraz"
+         "words": "Alcatraz",
+         "at": 51,
+         "note": "the word Alcatraz supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An escape from prison circles round the entrance to Alcatraz.",
-     "walkthrough": "'Flight' reads as an escape from prison; it is a flight of stairs.",
-     "definitionFit": "Part for whole: one stair is a single step, a piece of a flight."
+     "surface": "Part of an escape flight from the island jail.",
+     "walkthrough": "'Flight' suggests escaping from Alcatraz, but it is a flight of stairs.",
+     "definitionFit": "A staircase is called a flight, and each single step in it is one of its treads."
     },
     "features": {
      "answerInScene": false,

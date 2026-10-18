@@ -720,50 +720,55 @@
      "indicators": [
       {
        "text": "describing",
-       "note": "to describe a shape is to draw round it, so one piece goes round another"
+       "at": 8,
+       "note": "describing in its old sense of drawing round, so the traders surround the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Traders",
-         "gives": "SELLERS",
-         "note": "traders sell things"
-        },
-        {
-         "words": "Conservative",
-         "gives": "TORY",
-         "note": "a Tory is a member of the UK Conservative Party"
-        }
-       ]
+       "words": "Traders",
+       "at": 0,
+       "gives": "SELLERS",
+       "note": "sellers are traders"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the closing letter of the word is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cabinet",
-         "note": "the last letter of cabinet"
+         "words": "Conservative",
+         "at": 19,
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 40,
+           "note": "ultimately means at the end, so the last letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cabinet",
+           "at": 32,
+           "note": "the word cabinet supplies its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Merchants call the government's ministers liars in the end.",
-     "walkthrough": "'Describing' reads as talking about, but it means drawing round, so the traders enclose the rest. Tory is the everyday name for a British Conservative.",
-     "definitionFit": "Telling stories is a euphemism for lying, so tellers of tales are fibbers, a mild informal synonym."
+     "surface": "Merchants call the Conservative cabinet a bunch of liars in the end.",
+     "walkthrough": "'Describing' is the old sense of drawing a line around something.",
+     "definitionFit": "Calling someone a storyteller is a gentle euphemism for saying that they tell lies."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "describing"
     }
    }
