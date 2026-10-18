@@ -360,38 +360,38 @@
      "parts": [
       {
        "words": "affected",
+       "at": 28,
        "gives": "CAMP",
-       "note": "camp means theatrically affected"
+       "note": "camp means affected, theatrically exaggerated"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "HOR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a six-letter word keeps only its opening three letters"
+         "at": 37,
+         "note": "half of means only the first three of the six letters of horses are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "horses",
-         "gives": "HOR",
-         "select": "first",
-         "note": "the first letter, second letter and third letter of the six, its front half"
+         "at": 45
+        },
+        {
+         "gives": "SES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pungent substance has affected half the horses in a stable.",
-     "walkthrough": "Affected looks like a verb, but it is the adjective meaning showy and mannered, CAMP.",
-     "definitionFit": "Camphor is a waxy aromatic compound with a sharp medicinal odour, used in mothballs and liniments."
+     "surface": "A pungent compound has had an effect on half the horses in a stable.",
+     "walkthrough": "'Affected' reads as a verb, 'had an effect on', but here it is the adjective meaning mannered.",
+     "definitionFit": "Camphor is a waxy compound with a sharp, penetrating odour, used in mothballs and liniments."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "affected"
     }
@@ -1341,47 +1341,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRITE",
+     "op": "container",
      "indicators": [
       {
-       "text": "A lot of",
-       "note": "a lot of something is most but not all of it, so the tail goes"
+       "text": "to keep",
+       "at": 18,
+       "note": "to keep means to hold inside, so the letter for time goes into the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to keep",
-         "note": "to keep something is to hold it inside"
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of means most but not all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "attempts",
-         "gives": "TRIE",
-         "note": "tries, missing its last letter"
+         "at": 9,
+         "gives": "TRIES",
+         "note": "tries are attempts"
         },
         {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 26,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Repeated attempts to keep to time may come across as unpersuasive.",
-     "walkthrough": "TRIES loses its S, then holds T: TRI(T)E.",
-     "definitionFit": "Trite remarks are hackneyed and stale, and so they fail to persuade anyone."
+     "surface": "Many attempts to keep to time can seem half-hearted.",
+     "walkthrough": "'A lot of' cuts TRIES to TRIE, and 'to keep' puts T inside it. 'May be' only links the definition.",
+     "definitionFit": "A trite remark is stale and overused, so it fails to persuade."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "time"
     }
    }
   },
@@ -1406,47 +1411,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THORA",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "welcomes",
+       "at": 23,
+       "note": "welcomes means takes in, so the soldiers go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "welcomes",
-         "note": "to welcome someone is to take them in"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means all but the last letter, so the final T goes"
         }
        ],
        "parts": [
         {
          "words": "that",
-         "gives": "THA",
-         "note": "the word without its last letter"
+         "at": 11
         },
         {
-         "words": "soldiers",
-         "gives": "OR",
-         "note": "OR is other ranks, ordinary soldiers"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "soldiers",
+       "at": 32,
+       "gives": "OR",
+       "note": "OR, other ranks, means soldiers who are not officers"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scandinavian girl who generally makes troops welcome.",
-     "walkthrough": "OR (other ranks) for soldiers is a crossword staple.",
-     "definitionFit": "Thora is a female name of Old Norse origin, derived from the god Thor."
+     "surface": "A Scandinavian girl greets the troops.",
+     "walkthrough": "'Soldiers' here are other ranks, the usual crossword shorthand, rather than any troops; the name itself comes from the Norse god Thor.",
+     "definitionFit": "Thora is a female first name from Old Norse, so it names a Norse girl."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcomes"
     }
    }
   },

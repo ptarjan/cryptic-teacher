@@ -479,44 +479,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REHAB",
+     "op": "reversal",
      "indicators": [
       {
        "text": "Upset",
-       "note": "upset means knocked over or disturbed, so the letters are thrown into another order"
+       "at": 0,
+       "note": "upset means knocked over, and in a down clue that turns the letters upwards so they read in reverse"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "REHAB",
        "indicators": [
         {
          "text": "removed",
-         "note": "removed tells us to take the selected letter out of the other word"
+         "at": 32,
+         "note": "removed means taken away, so that one letter leaves the word"
         }
        ],
        "parts": [
         {
-         "words": "bather's",
-         "gives": "BATHER",
-         "note": "the swimmer word, with its possessive dropped"
+         "words": "bather",
+         "at": 6
         },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "last bit of",
-           "note": "the last bit of a word is its final letter"
+           "text": "'s last bit of",
+           "at": 12,
+           "note": "the last bit of dirt is its final letter"
           }
          ],
          "parts": [
           {
            "words": "dirt",
-           "note": "the final letter of the grime word"
+           "at": 27,
+           "note": "the final letter of dirt"
           }
          ]
         }
@@ -525,9 +524,9 @@
      ]
     },
     "explanation": {
-     "surface": "A bather is annoyed that the last speck of grime has been scrubbed away.",
-     "walkthrough": "Take T out of BATHER to leave BAHER, then rearrange. The surface plays on washing, but 'clean' here means free of drugs or drink.",
-     "definitionFit": "Rehab is a treatment centre where addicts go to get off drugs or alcohol, which is called getting clean."
+     "surface": "A swimmer is disturbed to find the dirt washed away, at the place people get clean.",
+     "walkthrough": "'Last bit of dirt' is T, and 'removed' takes it out of BATHER to leave BAHER, which 'Upset' turns over. 'Clean' here means free of drink or drugs, not soap and water.",
+     "definitionFit": "Rehab is a clinic where addicts are treated so they can come off drink or drugs."
     },
     "features": {
      "answerInScene": false,
@@ -1151,21 +1150,19 @@
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DY",
        "indicators": [
         {
-         "text": "being discharged",
-         "note": "a discharged gun is emptied, so only the outside letters of the time word remain"
+         "text": "after being discharged",
+         "at": 9,
+         "note": "discharged means emptied, so the inside of the word goes and only its outer letters stay"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "24 hours",
-         "gives": "DY",
-         "select": "outer",
-         "note": "24 hours is a day; its first and last letters"
+         "at": 0,
+         "gives": "DAY",
+         "note": "a day is twenty-four hours"
         }
        ]
       },
@@ -1174,28 +1171,31 @@
        "indicators": [
         {
          "text": "is given",
-         "note": "the guard is given something put inside him"
+         "at": 39,
+         "note": "is given means takes in, so the drug letter goes inside the guard"
         }
        ],
        "parts": [
         {
          "words": "guard",
+         "at": 33,
          "gives": "SENTRY",
-         "note": "a sentry stands guard"
+         "note": "a sentry is a soldier on guard"
         },
         {
          "words": "drugs",
+         "at": 48,
          "gives": "E",
-         "note": "E is slang for ecstasy"
+         "note": "E is slang for ecstasy, so it stands for drugs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier discharged from hospital after a day is prescribed medicine for a stomach bug.",
-     "walkthrough": "'discharged' suggests leaving hospital, but here it empties the day of its middle letter. The drug letter sits near the guard's end, before RY.",
-     "definitionFit": "Dysentery is an infection of the intestines causing severe diarrhoea, a form of stomach and gut inflammation."
+     "surface": "A day after leaving hospital, a sentry is prescribed medication for a stomach bug.",
+     "walkthrough": "'After being discharged' suggests a patient sent home, but discharged here means emptied of its middle. The drug is E, the usual crossword shorthand for ecstasy.",
+     "definitionFit": "Dysentery is an infection of the intestines causing severe diarrhoea, a serious form of gastroenteritis."
     },
     "features": {
      "answerInScene": true,
@@ -1273,50 +1273,57 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "OATCAKE",
-     "indicators": [
-      {
-       "text": "the first to finish",
-       "note": "the first letter is sent to the finish, the end of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OATCAKE",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "uncapped",
-         "note": "in a down answer the cap of a word is its top letter, which is removed"
+         "text": "the first to finish",
+         "at": 15,
+         "note": "the first letter goes to the finish, moving from the front of the word to its end"
         }
        ],
        "parts": [
         {
          "words": "Afghan perhaps",
+         "at": 0,
          "gives": "COAT",
-         "note": "an Afghan coat is a sheepskin coat popular in the 1960s and 70s"
-        },
+         "note": "an Afghan is a kind of sheepskin coat"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncapped",
+         "at": 35,
+         "note": "uncapped means with the top taken off, so the first letter is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "wine",
+         "at": 44,
          "gives": "SAKE",
          "note": "sake is Japanese rice wine"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Afghan hound is the first to finish off the wine at a cheese party.",
-     "walkthrough": "'Afghan' suggests the hound, but it is the coat. COAT becomes OATC; SAKE loses its S.",
-     "definitionFit": "An oatcake is a savoury oat biscuit, traditionally served alongside cheese."
+     "surface": "An Afghan hound, the first to finish, drinks wine with its cheese.",
+     "walkthrough": "'Afghan' looks like the dog but is a coat; 'the first to finish' turns COAT into OATC. 'Uncapped' takes S off SAKE.",
+     "definitionFit": "Oatcakes are oatmeal biscuits served with cheese."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "Afghan"
     }
    }
@@ -1556,45 +1563,44 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ENNUI",
      "indicators": [
       {
        "text": "heading north",
-       "note": "in a down answer heading north means reading upwards, from bottom to top"
+       "at": 43,
+       "note": "heading north in a down clue means the whole assembly is read upwards, so it is reversed"
       }
      ],
      "parts": [
       {
        "op": "container",
-       "unchecked": true,
-       "gives": "ENNUI",
        "indicators": [
         {
          "text": "overwhelming",
-         "note": "overwhelming means engulfing, so the abbreviation surrounds the other letters"
+         "at": 18,
+         "note": "overwhelming means engulfing, so the letters of that is surround the rest"
         }
        ],
        "parts": [
         {
+         "words": "that is",
+         "at": 10,
+         "gives": "IE",
+         "note": "ie, from Latin id est, means that is"
+        },
+        {
          "op": "cycling",
-         "unchecked": true,
-         "gives": "ENNUI",
          "indicators": [
           {
            "text": "cycling",
-           "note": "cycling means rolling round, so a letter moves from one end of the word to the other"
+           "at": 31,
+           "note": "cycling means going round, so the first letter of nun moves to the end"
           }
          ],
          "parts": [
           {
-           "words": "that is",
-           "gives": "IE",
-           "note": "i.e., id est, Latin for that is"
-          },
-          {
            "words": "nun",
-           "note": "taken as written"
+           "at": 39,
+           "note": "the word nun with its letters cycled"
           }
          ]
         }
@@ -1603,14 +1609,14 @@
      ]
     },
     "explanation": {
-     "surface": "A cyclist nun pedalling north is overcome by fatigue.",
-     "walkthrough": "'cycling' looks like a bicycle in the surface, but it means moving the nun's first letter to the end; the wrapped result is then read upwards.",
-     "definitionFit": "Ennui is a listless boredom or weariness, a kind of mental fatigue."
+     "surface": "An exhausted nun on a bike, pedalling uphill, is overcome by weariness.",
+     "walkthrough": "The nun is not riding a bike: 'cycling' moves a letter round to the other end of the word. 'Heading north' then reverses the whole assembly, since a down answer reads upwards.",
+     "definitionFit": "Ennui is listless boredom or world-weariness, a kind of tiredness of spirit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -1758,28 +1764,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ROBIN",
      "indicators": [
       {
        "text": "wingless",
-       "note": "a word without wings has lost its two sides, so only its middle letters stay"
+       "at": 10,
+       "note": "wingless means without its wings, the outer letters on either side"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Examining",
-       "gives": "ROBIN",
-       "select": "middle",
-       "note": "probing means examining; its first and last letters go"
+       "at": 0,
+       "gives": "PROBING",
+       "note": "probing means examining closely"
       }
      ]
     },
     "explanation": {
-     "surface": "A vet examines a bird that cannot fly.",
-     "walkthrough": "'wingless' suits the bird of the surface, but it trims the examining word.",
-     "definitionFit": "The robin is a small songbird with a red breast, an example of a bird."
+     "surface": "Scientists study a bird that cannot fly.",
+     "walkthrough": "'Wingless bird' looks like one phrase, an ostrich or emu; but 'wingless' belongs to 'Examining', clipping P and G off PROBING.",
+     "definitionFit": "The robin is a small songbird with a red breast."
     },
     "features": {
      "answerInScene": true,

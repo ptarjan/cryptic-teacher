@@ -1066,47 +1066,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POKING",
+     "op": "container",
      "indicators": [
       {
-       "text": "distressed",
-       "note": "a distressed thing is shaken and disturbed, so the letters of the sound are jumbled"
+       "text": "by",
+       "at": 43,
+       "note": "by here means replaced by, so the new letters go into the gap left in the middle"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "POKING",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "whose heart is moved by",
-         "note": "the middle of the animal word is moved out and something else replaces it"
+         "text": "whose heart is moved",
+         "at": 22,
+         "note": "the heart of pig is its middle letter, and moving it out leaves only the outer two"
         }
        ],
        "parts": [
         {
          "words": "pig",
-         "note": "taken as written; its middle letter is the heart"
+         "at": 18
         },
         {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distressed",
+         "at": 48,
+         "note": "distressed means knocked about, so the letters of oink are rearranged"
+        }
+       ],
+       "parts": [
+        {
          "words": "oink",
-         "note": "taken as written, the sound a pig makes"
+         "at": 60
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone prods a pig, which gives an unhappy grunt.",
-     "definitionFit": "To poke is to prod someone with a finger, so the present participle means prodding them."
+     "surface": "A farmer prods a pig that is upset and grunting.",
+     "walkthrough": "A pig's heart is its middle letter: take it out to leave PG, and 'by' puts the jumbled grunt into that gap. The pig's own noise doing the job is the joke.",
+     "definitionFit": "Poking someone means prodding them, which is to nudge them with a finger."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "moved"
+     "misdirectedWord": "distressed"
     }
    }
   },
@@ -1132,42 +1146,40 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STAMINA",
      "indicators": [
       {
        "text": "renewable",
-       "note": "something renewable is made over again, so the remaining letters are reworked"
+       "at": 20,
+       "note": "renewable suggests made anew, so the remaining letters are put in a fresh order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "STAMINA",
        "indicators": [
         {
          "text": "lacking",
-         "note": "lacking something means it is missing, so a letter is taken away"
+         "at": 10,
+         "note": "lacking a means one letter A is missing from the island's name"
         }
        ],
        "parts": [
         {
          "words": "Tasmania",
-         "note": "the Australian island state, taken as written"
+         "at": 0
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tasmania is short of green power sources.",
-     "walkthrough": "Renewable energy looks like one phrase about power supply, but renewable is the signal and energy alone defines.",
-     "definitionFit": "Stamina is the physical endurance to keep going, a sense of the word energy."
+     "surface": "Tasmania falls short on green power sources.",
+     "walkthrough": "'Lacking a' drops one A from TASMANIA to leave TASMANI; 'renewable', which looks like part of the energy talk, is the signal to rearrange those letters.",
+     "definitionFit": "Stamina is staying power, the physical or mental strength to keep going."
     },
     "features": {
      "answerInScene": false,
@@ -1363,22 +1375,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STACK",
+     "indicators": [
+      {
+       "text": "?",
+       "at": 12,
+       "note": "the question mark warns that spin is not used in its ordinary sense but split up, with part of it swapped for a near-synonym"
+      }
+     ],
      "parts": [
       {
        "words": "spin",
-       "note": "taken as written, then read as s plus pin, with a tack (a small pin) standing in for the pin"
+       "at": 8,
+       "note": "the word spin read as S plus PIN; a tack is another kind of pin, so it takes the place of PIN"
+      },
+      {
+       "gives": "PIN"
+      },
+      {
+       "gives": "TACK"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Spin is not worked on as a whole: read it as S plus pin, and swap pin for its synonym tack.",
-     "definitionFit": "A heap of things placed one on top of another is a synonym for a pile of them."
+     "surface": "A short question asking whether spin heaps up.",
+     "walkthrough": "The question mark admits the trick: read SPIN as S + PIN and swap the PIN for a tack, a similar small sharp fastener.",
+     "definitionFit": "A stack is a neat heap of things placed one on another."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "spin"
     }
    }
