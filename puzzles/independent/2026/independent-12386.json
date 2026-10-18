@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -474,41 +475,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRIPOLI",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 23,
+       "note": "in a down answer one piece sitting over another comes first, above it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "mistake",
+       "at": 15,
+       "gives": "TRIP",
+       "note": "a trip is a slip or stumble, hence a mistake"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "over",
-         "note": "In a down clue 'over' is vertical: the piece named first sits on top of whatever comes next."
-        },
-        {
          "text": "distribution of",
-         "note": "Distributing something deals it out, so these letters are dealt into an order the clue has not printed."
+         "at": 28,
+         "note": "distribution means the letters of oil are spread out and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "mistake",
-         "gives": "TRIP",
-         "note": "a trip is a stumble, and so a mistake"
-        },
-        {
          "words": "oil",
-         "gives": "OLI",
-         "note": "three letters dealt into a new order"
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A north African capital's blunder over how the oil gets shared out.",
-     "walkthrough": "Oil is the commodity the surface is arguing about and the raw material of the letters at the same time, so the word looks like part of the story.",
-     "definitionFit": "Tripoli is the capital and largest city of Libya, on the North African coast, so the definition names it by continent and kind."
+     "surface": "A news-style line about a city's blunder in sharing out its oil revenue.",
+     "walkthrough": "'over' puts TRIP above OLI, the letters of 'oil' rearranged as 'distribution of' signals. The 's is a link ('is').",
+     "definitionFit": "Tripoli is the capital of Libya, on the North African coast, so it is an African city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distribution"
     }
    }
   },
@@ -954,37 +962,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEEPSPACE",
-     "indicators": [
-      {
-       "text": "in different directions",
-       "note": "If the two words run different ways, one of them has to be written out backwards — and it is the first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in different directions",
+         "at": 13,
+         "note": "the two words for hurry run opposite ways, the first read backwards and the second forwards"
+        }
+       ],
        "parts": [
         {
          "words": "Hurry",
-         "gives": "DEEPS",
-         "note": "a hurry is a SPEED, turned round to run the other way up the grid"
-        },
-        {
-         "words": "twice",
-         "gives": "PACE",
-         "note": "'twice' calls for a second word meaning hurry, and PACE goes in as it stands"
+         "at": 0,
+         "gives": "SPEED",
+         "note": "to hurry is to speed"
         }
        ]
+      },
+      {
+       "words": "twice",
+       "at": 6,
+       "gives": "PACE",
+       "note": "twice asks for a second word for hurry: to pace is to go quickly"
       }
      ]
     },
     "explanation": {
-     "surface": "Rushing about in two directions at once in the hope of getting somewhere.",
-     "walkthrough": "Both halves mean hurry and only one of them is disturbed; 'twice' is the clue's way of asking for a synonym it never prints.",
-     "definitionFit": "Deep space is the near-empty region out beyond the planets, so 'interplanetary region' names the emptiness between worlds rather than any body in it."
+     "surface": "Rushing two ways at once to get out among the planets.",
+     "walkthrough": "'Hurry' is used twice over with two different synonyms; 'in different directions' means one runs backwards and the other forwards, not both reversed.",
+     "definitionFit": "Deep space is the vast emptiness beyond Earth's atmosphere, out between the planets and stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "directions"
     }
    }
   },
@@ -1012,8 +1026,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "gutted",
-       "note": "A gutted fish has had its insides taken out, leaving only what was sitting on the outside."
+       "text": "after",
+       "at": 14,
+       "note": "the gutted Tories come after the rest"
       }
      ],
      "parts": [
@@ -1022,17 +1037,20 @@
        "indicators": [
         {
          "text": "among",
-         "note": "Something among others is in the middle of them, so the politician lands inside the other word."
+         "at": 31,
+         "note": "among puts the politician inside the word for right"
         }
        ],
        "parts": [
         {
          "words": "Right",
+         "at": 37,
          "gives": "TRUE",
-         "note": "right in the sense of correct is true"
+         "note": "right as in correct is true"
         },
         {
          "words": "politician",
+         "at": 20,
          "gives": "MP",
          "note": "MP is a Member of Parliament"
         }
@@ -1040,30 +1058,32 @@
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TS",
        "indicators": [
         {
-         "text": "after",
-         "note": "In a down clue 'after' means further down, so these letters follow underneath the rest."
+         "text": "gutted",
+         "at": 7,
+         "note": "gutted means the insides are removed, leaving only the first and last letters of Tories"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Tories gutted",
-         "gives": "TS",
-         "select": "outer",
-         "note": "'Tories' emptied of its insides keeps only the letters at its two ends"
+         "words": "Tories",
+         "at": 0,
+         "note": "the word Tories, from which only the outside letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Conservatives hollowed out, with one member of theirs left among the party's right wing.",
-     "walkthrough": "'Right' is not the political right the surface is arguing about but plain correctness, and it is the word that opens up to take the member inside.",
-     "definitionFit": "To trumpet something is to blare it out — to announce it loudly and publicly — so the two verbs are the same brazen noise."
+     "surface": "A political jibe about gutted Tories and a politician among the Right, ending in a blare.",
+     "walkthrough": "'Right' is not R here but a whole word meaning correct, with the politician placed 'among' its letters; 'blares' is a verb, so the answer is the verb, not the instruments.",
+     "definitionFit": "To trumpet is to sound loudly, so a thing that trumpets blares out noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
     }
    }
   },
@@ -1248,41 +1268,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALEMBIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 10,
+       "note": "keeping means holding something inside, so the other letters go into the word for the smart guy"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Smart guy",
+       "at": 0,
+       "gives": "ALEC",
+       "note": "a smart alec is a know-all, a smart guy"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "keeping",
-         "note": "To keep something is to hold on to it, so the letters named next are held inside."
-        },
-        {
          "text": "unsettled",
-         "note": "Anything unsettled will not stay in the arrangement it was given, so these three letters settle somewhere new."
+         "at": 22,
+         "note": "unsettled means stirred up, so the letters of IBM are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Smart guy",
-         "gives": "ALEC",
-         "note": "a smart alec is a know-all"
-        },
-        {
          "words": "IBM",
-         "gives": "MBI",
-         "note": "the computer firm's three letters, resettled"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clever operator keeping the computer giant permanently on edge.",
-     "walkthrough": "'Still' closes the sentence reading as 'even so' and is the definition, and a noun at that — a piece of equipment rather than an adverb.",
-     "definitionFit": "An alembic is the gourd-shaped vessel alchemists distilled in, so 'still' names it by the job it does: distilling."
+     "surface": "A clever fellow holding on to shaken IBM shares, still.",
+     "walkthrough": "'unsettled' rearranges IBM to MBI, which ALEC holds ('keeping'). 'still' looks like an adverb but is the noun.",
+     "definitionFit": "An alembic is an old distilling apparatus, the kind of vessel called a still in a laboratory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
     }
    }
   },
