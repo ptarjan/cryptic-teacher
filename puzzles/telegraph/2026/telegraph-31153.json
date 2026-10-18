@@ -371,46 +371,51 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "eating means taking in, so one piece swallows the others"
+       "at": 7,
+       "note": "something eating food takes it inside, so the pieces go within the regret word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Regret",
-         "gives": "RUE",
-         "note": "to rue is to regret"
-        },
-        {
-         "words": "soft",
-         "gives": "P",
-         "note": "P is piano, the musical marking for soft"
-        }
-       ]
+       "words": "Regret",
+       "at": 0,
+       "gives": "RUE",
+       "note": "to rue is to regret"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "end of",
-         "note": "end of means the final part, so only the last letter of the following word is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "the",
-         "note": "the last letter of the"
+         "words": "soft",
+         "at": 14,
+         "gives": "P",
+         "note": "P is piano, the musical abbreviation for soft"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 19,
+           "note": "the end of the word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 26,
+           "note": "its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Regretting eating the soft end of a naan.",
-     "walkthrough": "Indian bread suggests naan or chapati, but bread is slang for money.",
-     "definitionFit": "The rupee is India's currency, and bread is informal slang for cash, so it is money in India."
+     "surface": "Wishing you had not eaten the crust of a naan.",
+     "walkthrough": "Bread is slang for money, so the question mark flags Indian money rather than a loaf.",
+     "definitionFit": "The rupee is the currency of India, and bread is slang for cash."
     },
     "features": {
      "answerInScene": false,
@@ -1499,40 +1504,42 @@
      "indicators": [
       {
        "text": "wears",
-       "note": "wears means has on, so one piece is worn inside another like clothing"
+       "at": 11,
+       "note": "something worn is put on around the wearer, so here the man's word encloses the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "the man's",
-         "gives": "HES",
-         "note": "he's is short for the man is"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "the man's",
+       "at": 17,
+       "gives": "HES",
+       "note": "the man's means he's, written without the apostrophe"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is short for daughter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "daughter",
+         "at": 2,
+         "gives": "D",
+         "note": "D is the genealogy abbreviation for daughter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl wearing her father's crowns.",
-     "walkthrough": "The surface reads as the man wearing crowns, but it is he's that wraps around A and D.",
-     "definitionFit": "The crown of a person is the top of the head, so crowns are heads."
+     "surface": "A girl dons her father's crowns, like a princess trying on regalia.",
+     "definitionFit": "Crowns are the tops of people's heads, so the plural noun matches."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wears"
+     "misdirectedWord": "crowns"
     }
    }
   },

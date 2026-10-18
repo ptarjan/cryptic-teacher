@@ -478,56 +478,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "To go about something is to surround it, so one word wraps around the others."
+       "at": 16,
+       "note": "about means around, so the shut-up word surrounds the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "shut up",
+       "at": 8,
+       "gives": "ENCAGE",
+       "note": "to encage is to shut up in a cage"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "shut up",
-           "gives": "ENCAGE",
-           "note": "to encage something is to shut it up in a cage"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O is a standard abbreviation for old"
-          }
-         ]
+         "words": "old",
+         "at": 22,
+         "gives": "O"
         },
         {
          "words": "United",
+         "at": 26,
          "gives": "U",
-         "note": "U is a standard abbreviation for United, as in football club names"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
+         "note": "U is the abbreviation for United, as in football club names"
+        },
         {
-         "text": "in the end",
-         "note": "Only the end of the manager counts, which is its last letter."
-        }
-       ],
-       "parts": [
-        {
-         "words": "manager",
-         "note": "the last letter of manager"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "in the end",
+           "at": 41,
+           "note": "the end of the word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "manager",
+           "at": 33,
+           "note": "its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football fan telling critics to be quiet and back the former Manchester United manager.",
-     "walkthrough": "'Old United manager' calls up Alex Ferguson, but it is three separate pieces: O, U and the end of manager.",
-     "definitionFit": "To support someone and to encourage them are the same thing: giving them backing and confidence."
+     "surface": "Fans want to silence talk of a former Manchester United boss.",
+     "definitionFit": "To encourage is to give support and confidence to someone."
     },
     "features": {
      "answerInScene": false,
@@ -978,30 +977,39 @@
      "op": "container",
      "indicators": [
       {
-       "text": "restricting",
-       "note": "To restrict something is to hem it in, so the river and the feature close around the current."
+       "text": "in",
+       "at": 59,
+       "note": "the river feature goes inside the England abbreviation"
       }
      ],
      "parts": [
       {
+       "words": "England",
+       "at": 62,
+       "gives": "ENG"
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "in",
-         "note": "Everything so far is put in the abbreviation for England."
+         "text": "restricting",
+         "at": 39,
+         "note": "restricting holds something in, so the river and feature enclose the current"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "England",
-           "gives": "ENG",
-           "note": "ENG is the abbreviation for England"
+           "words": "river",
+           "at": 25,
+           "gives": "R",
+           "note": "R is the map abbreviation for river"
           },
           {
            "words": "feature",
+           "at": 31,
            "gives": "CHIN",
            "note": "the chin is a facial feature"
           }
@@ -1009,22 +1017,17 @@
         },
         {
          "words": "current",
+         "at": 51,
          "gives": "I",
          "note": "I is the physics symbol for electric current"
         }
        ]
-      },
-      {
-       "words": "river",
-       "gives": "R",
-       "note": "R is a standard abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A way of improving a river landscape by holding back its flow somewhere in England.",
-     "walkthrough": "'River feature' reads as one thing, a weir or meander, but it is R and a facial feature, and I sits between them before the whole lot goes inside ENG.",
-     "definitionFit": "To enrich something is to improve its quality, as when soil is enriched with compost."
+     "surface": "Describes a river improvement scheme limiting the flow somewhere in England.",
+     "definitionFit": "Enriching something makes it better or richer, adding value or quality."
     },
     "features": {
      "answerInScene": false,
@@ -1055,40 +1058,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "regularly",
-       "note": "Taken regularly means at even intervals, so every other letter of vicar is used."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "touring",
-         "note": "To tour a place is to go round it."
+         "at": 24,
+         "note": "touring means going round, so the prevent word goes round the bar"
         }
        ],
        "parts": [
         {
          "words": "Prevent",
+         "at": 0,
          "gives": "STOP",
-         "note": "to stop something is to prevent it"
+         "note": "to stop is to prevent"
         },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "topless",
-           "note": "A word written down the page has its top at the start, so the first letter goes."
+           "at": 32,
+           "note": "topless means losing the top, so the first letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "bar",
+           "at": 40,
            "gives": "PUB",
-           "note": "a pub is a bar; topless, it loses its P to leave UB"
+           "note": "a pub is a bar"
           },
           {
            "gives": "P"
@@ -1099,22 +1100,30 @@
       },
       {
        "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 14,
+         "note": "regularly means taking every other letter of the word"
+        }
+       ],
        "parts": [
         {
          "words": "vicar",
-         "note": "the second and fourth letters of vIcAr"
+         "at": 8,
+         "note": "its alternate letters, second and fourth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stopping the local vicar from visiting a topless bar in some ugly new housing estate.",
-     "walkthrough": "SUBTOPIA is a British coinage from suburb plus utopia. The vicar's letters come last, after STOP has gone round the bar.",
-     "definitionFit": "Subtopia is a pejorative word for sprawling, characterless suburban development spoiling the landscape."
+     "surface": "Keep the vicar from going round a seedy topless bar.",
+     "walkthrough": "'Prevent' is a verb here, and 'topless' applies only to the bar; subtopia blends suburb and utopia.",
+     "definitionFit": "Subtopia is a derogatory word for sprawling suburbs that spoil the countryside."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "topless"

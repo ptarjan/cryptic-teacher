@@ -472,38 +472,48 @@
     "definitions": [
      {
       "text": "Arrangement",
-      "at": 0
+      "at": 0,
+      "note": "syntax is the arrangement of words in a sentence"
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SYNTAX",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words"
+       "at": 28,
+       "note": "Spooner's name tells the solver to swap the opening sounds of the two words found"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "cheap horn",
-       "gives": "SYNTAX",
-       "soundsLike": "SIN TAX",
-       "note": "a cheap horn is a tin sax; swap the opening sounds and you get sin tax"
+       "op": "homophone",
+       "spelt": "TYN",
+       "parts": [
+        {
+         "words": "cheap",
+         "at": 17,
+         "gives": "TIN",
+         "note": "something cheap and tinny is made of tin, a base metal; said aloud it can be spelt with a Y"
+        }
+       ]
+      },
+      {
+       "words": "horn",
+       "at": 23,
+       "gives": "SAX",
+       "note": "a sax (saxophone) is a horn in jazz slang"
       }
      ]
     },
     "explanation": {
-     "surface": "A musical arrangement scored for a cheap brass instrument.",
-     "walkthrough": "A tin sax would be a cheap saxophone; swapping its first sounds gives 'sin tax', which sounds like SYNTAX.",
-     "definitionFit": "Syntax is the arrangement of words into phrases and sentences according to grammar."
+     "surface": "A musician makes do with a bargain-basement saxophone in a band arrangement.",
+     "walkthrough": "TIN SAX with its opening sounds swapped becomes SIN TAX, which is said just like the answer.",
+     "definitionFit": "Syntax is the grammatical ordering of words, so it is a kind of arrangement."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Arrangement"
     }
    }
@@ -661,48 +671,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "essentially",
+       "at": 18,
+       "note": "the essence of each word is its core, so the outer letters of both words are stripped away"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "SIR",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "'essentially' points to the core, so keep the central letters of each word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "Desired",
-         "gives": "SIR",
-         "select": "middle",
-         "note": "the middle three of its seven letters"
+         "at": 0
+        },
+        {
+         "words": "broccoli",
+         "at": 8
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "OCCO",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "broccoli",
-         "gives": "OCCO",
-         "select": "middle",
-         "note": "the middle four of its eight letters"
-        }
-       ]
+       "gives": "DEEDBRLI"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone longing for broccoli, which notoriously causes wind.",
-     "walkthrough": "The surface joke is flatulence; the wind meant is a weather one.",
-     "definitionFit": "The sirocco is a hot, dusty wind blowing from North Africa across the Mediterranean into southern Europe."
+     "surface": "A craving for broccoli leads, unsurprisingly, to flatulence.",
+     "walkthrough": "'essentially' covers both words: SIR from the heart of desired and OCCO from the heart of broccoli.",
+     "definitionFit": "The sirocco is a hot, dusty Mediterranean wind blowing north from the Sahara."
     },
     "features": {
      "answerInScene": false,

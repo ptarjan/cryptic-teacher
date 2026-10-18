@@ -293,51 +293,55 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "to carry something is to hold it, so one piece holds the others inside"
+       "at": 6,
+       "note": "an agent carrying things holds them, so the papers and core go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Agent",
-         "gives": "SPY",
-         "note": "a secret agent is a spy"
-        },
-        {
-         "words": "papers",
-         "gives": "ID",
-         "note": "identity papers are ID"
-        }
-       ]
+       "words": "Agent",
+       "at": 0,
+       "gives": "SPY",
+       "note": "a spy is a secret agent"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "the essence of a thing is its core, so only the central letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "here",
-         "note": "the two central letters of the word"
+         "words": "papers",
+         "at": 15,
+         "gives": "ID",
+         "note": "ID means identity papers"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 28,
+           "note": "the essence of the word is its middle two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "here",
+           "at": 23,
+           "note": "its middle letters"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A secret agent carries documents marked with suspicious angular lines.",
-     "walkthrough": "The spy opens to hold ID and ER together: SP-ID-ER-Y.",
-     "definitionFit": "Spidery describes thin, sprawling handwriting or lines resembling a spider's long legs, hence the question mark."
+     "surface": "A secret agent with forged documents, the page covered in sharp lines.",
+     "definitionFit": "Spidery handwriting is thin and angular, like the long legs of a spider."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "papers"
+     "misdirectedWord": "Agent"
     }
    }
   },

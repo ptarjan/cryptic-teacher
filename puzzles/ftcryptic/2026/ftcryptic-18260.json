@@ -297,51 +297,55 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "outside means wrapped around, so the shortened word surrounds the next pieces"
+       "at": 23,
+       "note": "outside means surrounding, so the shortened clown goes around the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 6,
+         "note": "dropping means letting fall, so the letter is removed"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "dropping",
-           "note": "dropping means letting fall, so that letter is removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Clown",
-           "note": "taken as written"
-          },
-          {
-           "words": "Charlie",
-           "gives": "C",
-           "note": "Charlie is C in the NATO phonetic alphabet"
-          }
-         ]
+         "words": "Clown",
+         "at": 0
         },
         {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is a party"
+         "words": "Charlie",
+         "at": 15,
+         "gives": "C",
+         "note": "Charlie is C in the NATO phonetic alphabet"
         }
        ]
       },
       {
-       "words": "with",
-       "gives": "W",
-       "note": "W is the abbreviation for with"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "party",
+         "at": 31,
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "words": "with",
+         "at": 37,
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clown leaves out the cocaine but goes to a party with other drugs.",
-     "walkthrough": "'Charlie' and 'dope' both sound like drug slang, but Charlie is the letter C and dope means inside information.",
-     "definitionFit": "Dope and lowdown are both informal words for the inside information on something."
+     "surface": "A clown is thrown out of a party for having drugs.",
+     "walkthrough": "'dope' looks like the drug, but it means inside information.",
+     "definitionFit": "The lowdown is the inside information, as dope is slang for facts."
     },
     "features": {
      "answerInScene": false,
