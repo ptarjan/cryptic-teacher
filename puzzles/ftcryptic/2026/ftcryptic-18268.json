@@ -105,12 +105,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "XENOPHOBIA",
      "indicators": [
       {
        "text": "in",
-       "note": "one thing being in another means it sits inside it"
+       "at": 4,
+       "note": "in places the numeral inside everything that follows it in the clue"
       }
      ],
      "parts": [
@@ -122,39 +121,47 @@
          "indicators": [
           {
            "text": "mad",
-           "note": "mad suggests things scrambled into disorder, so the letters are jumbled"
+           "at": 18,
+           "note": "mad means crazy or deranged, so the letters of phone and box are scrambled together"
           }
          ],
          "parts": [
           {
-           "words": "phone box",
+           "words": "phone",
+           "at": 7,
            "note": "taken as written"
           },
           {
-           "words": "One",
-           "gives": "I",
-           "note": "the Roman numeral for one"
+           "words": "box",
+           "at": 13,
+           "note": "taken as written"
           }
          ]
         },
         {
          "words": "American",
-         "gives": "A",
-         "note": "standard abbreviation for American"
+         "at": 22,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stuck in a telephone kiosk is an angry American who distrusts outsiders.",
-     "walkthrough": "The definition is a gerund phrase standing for the condition itself.",
-     "definitionFit": "Xenophobia is the noun for a fear or hatred of foreign people, so it matches the condition of fearing them."
+     "surface": "Someone shut in a phone box, ranting like an angry American about outsiders.",
+     "walkthrough": "'mad' scrambles PHONE BOX into XENOPHOB, A follows, and 'in' slips I in before that final A.",
+     "definitionFit": "Xenophobia is a dread or hatred of people from other countries, a noun for the attitude of fearing outsiders."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mad"
+     "misdirectedWord": "box"
     }
    }
   },
@@ -953,54 +960,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EDUCATION",
-     "indicators": [
-      {
-       "text": "could upset",
-       "note": "upset means knocked over into disorder, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EDUCATION",
+       "words": "English",
+       "at": 9,
+       "gives": "E"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "upset",
+         "at": 34,
+         "note": "upset means knocked over, so the letters are thrown into a new order"
+        },
+        {
          "text": "leaving",
-         "note": "people leaving go away, so those letters are taken out"
+         "at": 49,
+         "note": "leaving means the learner letters depart from the pool"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation for English"
-        },
-        {
-         "words": "Latin",
-         "note": "taken as written"
+         "words": "Latin could",
+         "at": 22,
+         "note": "taken as written, as the pool of letters"
         },
         {
          "words": "learners",
+         "at": 40,
          "gives": "LL",
-         "note": "L is the learner-driver plate, so two learners are two Ls"
+         "note": "L is a learner, from the L-plate, so learners are two Ls"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Classroom instruction in English and Latin might put off pupils so they drop out.",
-     "walkthrough": "'Could' is fodder, not a verb: LATIN plus COULD lose their two Ls and the rest is jumbled. L-plates mark British learner drivers.",
-     "definitionFit": "Education is the process of instructing people, so the noun teaching is a synonym."
+     "surface": "A school worry: lessons in English and Latin could drive pupils away.",
+     "walkthrough": "Remove LL ('learners leaving') from LATIN COULD, 'upset' the rest to give DUCATION, and put E in front. An L-plate marks a learner driver in Britain.",
+     "definitionFit": "Education is the process of instructing and schooling people, which is what teaching means as a noun."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "could"
+     "misdirectedWord": "learners"
     }
    }
   },
@@ -1406,28 +1411,34 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "IRONY",
      "indicators": [
       {
        "text": "cryptically",
-       "note": "cryptically tells us to read the word as code, swapping a symbol inside it for what it stands for"
+       "at": 18,
+       "note": "cryptically tells us to read the word as a crossword setter would, so the chemical symbol inside it is spelt out in full"
       }
      ],
      "parts": [
       {
        "words": "fey",
-       "note": "taken as written; its first two letters are the chemical symbol Fe"
+       "at": 14,
+       "note": "taken as written"
+      },
+      {
+       "gives": "FE"
+      },
+      {
+       "gives": "IRON"
       }
      ]
     },
     "explanation": {
-     "surface": "Delicate wit described as whimsical, if you read it a certain way.",
-     "walkthrough": "Fe is the chemical symbol for iron, so FE-Y decoded becomes IRON-Y.",
-     "definitionFit": "Irony is a sly form of wit saying the opposite of what is meant, so is understated humour."
+     "surface": "A literary note that a whimsical, elfin style hides a quiet wit.",
+     "walkthrough": "In crossword fashion FE is the chemical symbol for iron, so FE in FEY is read as IRON, leaving the Y.",
+     "definitionFit": "Irony is the wry trick of saying the opposite of what is meant, a dry, understated kind of wit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "fey"

@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -303,42 +304,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IDIOCY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "international",
+       "at": 9,
+       "gives": "I"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "returning",
-         "note": "something returning comes back the way it went, so its letters are written backwards"
+         "text": "boxes",
+         "at": 52,
+         "note": "boxes means the do-it-yourself letters enclose the turned-round firm"
         }
        ],
        "parts": [
         {
-         "words": "international",
-         "gives": "I",
-         "note": "i = international"
+         "words": "self-assembly",
+         "at": 38,
+         "gives": "DIY",
+         "note": "DIY, do-it-yourself, covers putting things together yourself"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "boxes",
-           "note": "to box something is to shut it in a box, so these letters close around it"
+           "text": "returning",
+           "at": 28,
+           "note": "returning means the firm's letters come back the other way"
           }
          ],
          "parts": [
           {
-           "words": "self-assembly",
-           "gives": "DIY",
-           "note": "DIY — do it yourself — is what self-assembly furniture asks of you"
-          },
-          {
            "words": "firm",
-           "gives": "OC",
-           "note": "a firm is a CO, turned back to front"
+           "at": 23,
+           "gives": "CO",
+           "note": "CO is the abbreviation for company, a firm"
           }
          ]
         }
@@ -347,13 +350,14 @@
      ]
     },
     "explanation": {
-     "surface": "An international company foolishly shipping its flat-pack cartons back.",
-     "walkthrough": "'Boxes' is the verb, to enclose — not the cartons the surface is loading onto a lorry. The firm turns round and lands inside DIY, with the international letter already waiting at the front.",
-     "definitionFit": "Idiocy is behaviour without sense, which is what folly names."
+     "surface": "A dig at a global furniture company whose flat-pack boxes keep coming back.",
+     "walkthrough": "'returning' turns CO into OC, and 'boxes' puts OC inside DIY. The surface hints at a Swedish flat-pack retailer, but no name is needed.",
+     "definitionFit": "Idiocy is foolish behaviour, and folly likewise means a lack of good sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "boxes"
     }
    }
@@ -382,51 +386,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "letters that are out are out of their proper order, so they need rearranging"
+       "text": "it's",
+       "at": 36,
+       "note": "it's points to the whole rearranged result as the thing wrapped by the metal"
+      },
+      {
+       "text": "clad",
+       "at": 46,
+       "note": "iron-clad means the iron symbol wraps around the rest"
       }
      ],
      "parts": [
       {
-       "words": "it's iron-clad",
+       "words": "iron",
+       "at": 41,
        "gives": "FE",
-       "note": "iron is Fe on the periodic table, and it clads the rest: F in front, E behind"
+       "note": "FE is the chemical symbol for iron"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "case",
-         "note": "the case of a word is the shell it comes in — its outermost letters"
+         "text": "out",
+         "at": 30,
+         "note": "out here means wrong or in disarray, so the letters are reordered"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "a",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "words": "legal",
+         "at": 9,
+         "note": "taken as written"
+        },
+        {
+         "op": "outer",
          "indicators": [
           {
-           "text": "clad",
-           "note": "to be clad is to be covered, so these two letters wrap round the outside"
+           "text": "case for",
+           "at": 15,
+           "note": "the case of a word is its outside, so only its first and last letters are kept"
           }
          ],
          "parts": [
           {
-           "words": "a legal",
-           "note": "anagram fodder, six letters"
-          },
-          {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "TL",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "for trial",
-             "gives": "TL",
-             "select": "outer",
-             "note": "the case of TriaL is T…L"
-            }
-           ]
+           "words": "trial",
+           "at": 24,
+           "note": "taken as written"
           }
          ]
         }
@@ -435,9 +445,9 @@
      ]
     },
     "explanation": {
-     "surface": "Demolishing the case someone has brought to court, with an argument nothing can dent.",
-     "walkthrough": "'Iron-clad' does two jobs at once: the chemical symbol, and the instruction to wrap it round everything else. Taking the 'case' of a word — its outer letters — is a device worth filing away.",
-     "definitionFit": "To flagellate is to whip, and a thrashing is a whipping; both are the plain verb for beating."
+     "surface": "A lawyer bragging that a court case is watertight and will thrash the opposition.",
+     "walkthrough": "'case for' trial gives TL; 'out' rearranges A, LEGAL and TL; 'clad' puts all that inside FE, so 'iron-clad' is split across two jobs.",
+     "definitionFit": "To flagellate is to whip or flog someone, a literal sense of thrashing."
     },
     "features": {
      "answerInScene": false,
@@ -644,48 +654,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDOLENCE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "cast",
+       "at": 24,
+       "note": "cast means thrown or moulded afresh, so the letters are reshaped"
+      },
+      {
+       "text": "is dropped",
+       "at": 35,
+       "note": "is dropped means the letter for one is taken out of the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "cast",
-         "note": "cast means thrown, and letters thrown down land in a new order"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "is dropped",
-           "note": "what is dropped is left out of the letters you build with"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Céline Dion",
-           "gives": "CELINEDON",
-           "note": "the singer's name less one I: nine letters to rearrange"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "one is dropped",
-         "note": "one = I, and that is the letter taken out"
-        }
-       ]
+       "words": "Céline Dion",
+       "at": 12,
+       "gives": "CELINEDION",
+       "note": "the singer's name, taken as the pool of letters"
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Céline Dion in a show's cast, from which somebody has pulled out.",
-     "walkthrough": "'Cast' is the anagram instruction and the company of a show at the same time, which is what holds the surface together. The 'one' dropped is the Roman numeral, not a performer.",
-     "definitionFit": "Indolence is the settled habit of avoiding effort, which is laziness under a longer name."
+     "surface": "A grumble that the cast of a Céline Dion show has lost a member through idleness.",
+     "walkthrough": "Remove I ('one is dropped') from CELINE DION and 'cast' the rest into a new order.",
+     "definitionFit": "Indolence is a habitual avoidance of effort, which is exactly what laziness means."
     },
     "features": {
      "answerInScene": false,
@@ -715,53 +715,62 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ESPERANTO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "switch",
-       "note": "to switch two things is to have them change places, so the pair trade positions"
+       "text": "at the outset",
+       "at": 53,
+       "note": "at the outset puts the tablets at the very start"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "tablets",
+       "at": 45,
+       "gives": "ES",
+       "note": "Es are ecstasy tablets, slang for the pills"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "at the outset",
-         "note": "the outset is the very beginning, so these letters go to the front"
+         "text": "when A&E switch",
+         "at": 24,
+         "note": "when A and E change places in the parent word, the letters A, R, E become E, R, A"
         }
        ],
        "parts": [
         {
-         "words": "tablets",
-         "gives": "ES",
-         "note": "ecstasy tablets are Es, one E each"
+         "words": "mum, say",
+         "at": 14,
+         "gives": "PARENT",
+         "note": "a mum is an example of a parent"
         },
         {
-         "words": "mum, say, when A&E switch",
-         "gives": "PERANT",
-         "note": "a mum is one example of a PARENT; the A and the E change places"
+         "gives": "ARE"
         },
         {
-         "words": "over",
-         "gives": "O",
-         "note": "o = over in a cricket scorebook"
+         "gives": "ERA"
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 40,
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over"
       }
      ]
     },
     "explanation": {
-     "surface": "At the start of a shift, A&E hands the pills over.",
-     "walkthrough": "A&E is the British hospital's accident and emergency department on the surface; in the wordplay it is only the letters A and E, told to trade places inside a word 'mum, say' has defined by example.",
-     "definitionFit": "Esperanto is a language — the one invented in the 1880s to serve as everybody's second tongue."
+     "surface": "A hospital scene: a mother in casualty, staff swapping her medication.",
+     "walkthrough": "'A&E switch' swaps the A and E in PARENT to give PERANT; 'at the outset' puts ES first, and O ends it. A&E is the British hospital accident and emergency department.",
+     "definitionFit": "Esperanto is the constructed international tongue devised by Zamenhof in 1887, so it is a language."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tablets"
+     "misdirectedWord": "A&E"
     }
    }
   },
@@ -995,39 +1004,55 @@
     "definitions": [
      {
       "text": "it could confirm pregnancy",
-      "at": 23,
-      "note": "The definition describes the answer instead of replacing it: what is named is the structure whose appearance on an early scan settles the question."
+      "at": 23
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "YOLKSAC",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner's trademark slip was to exchange the opening sounds of two words, so that is what must be undone here"
+       "at": 0,
+       "note": "the Reverend Spooner was famous for swapping the opening sounds of words, which signals that swap here"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "drunk talk",
-       "gives": "YOLKSAC",
-       "soundsLike": "SOAK YAK",
-       "note": "a drunk is a soak and to talk is to yak; swap the opening sounds of the pair"
+       "op": "homophone",
+       "spelt": "SOLK",
+       "parts": [
+        {
+         "words": "drunk",
+         "at": 10,
+         "gives": "SOAK",
+         "note": "a soak is a heavy drinker, a drunk"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "YAC",
+       "parts": [
+        {
+         "words": "talk",
+         "at": 16,
+         "gives": "YAK",
+         "note": "yak is informal for chatter or talk"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Reverend Spooner on the conversation of a drunkard.",
-     "walkthrough": "Spooner clues want the pair of words first, so hunt for those: a soak, and to yak. William Spooner was an Oxford don whose tangled announcements made him famous.",
-     "definitionFit": "On an early ultrasound the yolk sac is the first structure visible inside the gestational sac, so seeing it confirms a pregnancy is under way."
+     "surface": "A boozer rambling on about whether someone might be expecting.",
+     "walkthrough": "SOAK YAK, said with the first sounds swapped, comes out as YOKE SACK; that is spelt YOLK SAC (the yolk's L is silent). A yolk sac seen on an early ultrasound scan confirms a pregnancy.",
+     "definitionFit": "The yolk sac is the first structure visible on an early scan, and its presence is a medical sign that a pregnancy is under way."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun"
+     "joke": "absurd",
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -1143,32 +1168,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMU",
+     "op": "middle",
      "indicators": [
       {
        "text": "discovered",
-       "note": "read as dis-covered, it means stripped of its covering, so the letters at either end come off"
+       "at": 18,
+       "note": "dis-covered: with its cover removed, the word loses its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "thigh bone",
+       "at": 7,
        "gives": "FEMUR",
        "note": "the femur is the thigh bone"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody has dug up a bird's thigh bone.",
-     "walkthrough": "The whole clue turns on splitting one word: dis-covered, with the cover taken off. Three-letter entries are usually where a setter hides that kind of trick.",
-     "definitionFit": "The emu is a bird — the big flightless Australian one — so the definition names the family it belongs to."
+     "surface": "An archaeological find: a bird's thigh bone unearthed.",
+     "walkthrough": "'discovered' reads as found, but here it means uncovered, the outer letters of FEMUR stripped away.",
+     "definitionFit": "The emu is a large flightless Australian bird, related to the ostrich."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "discovered"
     }
    }
@@ -1324,46 +1348,41 @@
        "indicators": [
         {
          "text": "leaves",
-         "note": "what leaves is gone, so that letter is no longer among the ones you write"
+         "at": 19,
+         "note": "leaves means the letter departs from the city's name"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "largest city in Michigan",
-           "gives": "DETROIT",
-           "note": "Detroit is the biggest city in the state of Michigan"
-          },
-          {
-           "words": "America",
-           "gives": "US",
-           "note": "US = America"
-          }
-         ]
+         "words": "largest city in Michigan",
+         "at": 26,
+         "gives": "DETROIT",
+         "note": "Detroit is the biggest city in the US state of Michigan"
         },
         {
-         "gives": "O"
+         "words": "Oscar",
+         "at": 13,
+         "gives": "O",
+         "note": "Oscar is O in the NATO phonetic alphabet"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "Oscar",
-       "note": "Oscar is O in the radio alphabet, and O is the letter that goes"
+       "words": "America",
+       "at": 52,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "An Academy Award being carried out of Detroit.",
-     "walkthrough": "Oscar is the radio alphabet's O, from the same list that supplies Charlie, Tango and Victor — a statuette only on the surface. Take it out of the city, then let America follow.",
-     "definitionFit": "Detritus is the rubble and debris a process leaves behind, which is what remains names as a plural noun."
+     "surface": "A story of urban decline: what is left behind when someone departs the Motor City.",
+     "walkthrough": "'leaves' takes O out of DETROIT, leaving DETRIT, and US follows.",
+     "definitionFit": "Detritus is debris or waste left behind, the leftover remains of something broken down."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Oscar"
+     "misdirectedWord": "leaves"
     }
    }
   },
@@ -1496,37 +1515,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DRAGON",
-     "indicators": [
-      {
-       "text": "detailed",
-       "note": "split it as de-tailed and it means with the tail removed, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "doctor",
+       "at": 25,
+       "gives": "DR"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 32,
+         "note": "de-tailed: with its tail cut off, the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "doctor",
-         "gives": "DR",
-         "note": "dr = doctor"
+         "words": "extreme suffering",
+         "at": 41,
+         "gives": "AGONY",
+         "note": "agony is extreme pain or suffering"
         },
         {
-         "words": "extreme suffering",
-         "gives": "AGON",
-         "note": "agony is extreme suffering, docked of its last letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Deborah Meaden's doctor spelling out some terrible illness.",
-     "walkthrough": "Dragons' Den is the BBC show in which entrepreneurs pitch to a panel of millionaire investors, and Deborah Meaden has sat on it for years. 'Detailed' is de-tailed: one letter short at the back.",
-     "definitionFit": "Deborah Meaden is one of the investors on BBC television's Dragons' Den, where the panel are known as the dragons — so she is an example of one."
+     "surface": "A reality-TV investor's medical history: a doctor describing her pain in depth.",
+     "walkthrough": "'detailed' reads as thorough, but means the tail of AGONY comes off. Deborah Meaden is an investor on the BBC show Dragons' Den, whose panellists are called dragons.",
+     "definitionFit": "On the British TV programme Dragons' Den, the wealthy investors judging pitches are known as dragons, and Meaden is one."
     },
     "features": {
      "answerInScene": false,
@@ -1768,52 +1790,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALMS",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Distributing",
+       "at": 0,
+       "note": "distributing means spreading out, so the letters are scattered into a new order"
+      },
+      {
+       "text": "not",
+       "at": 21,
+       "note": "not tells us the large letter is missing from the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "Distributing",
-         "note": "to distribute is to hand things out one by one to different places, which is what happens to these letters"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "not",
-           "note": "'not large' says the letter standing for large is absent"
-          }
-         ],
-         "parts": [
-          {
-           "words": "small",
-           "gives": "SMAL",
-           "note": "SMALL less one L, leaving four letters to rearrange"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "not large",
-         "note": "l = large, and that is the letter dropped"
-        }
-       ]
+       "words": "small",
+       "at": 13,
+       "note": "taken as written, as the pool of letters"
+      },
+      {
+       "words": "large",
+       "at": 25,
+       "gives": "L",
+       "note": "L is the abbreviation for large, as on clothing labels"
       }
      ]
     },
     "explanation": {
-     "surface": "Handing out modest donations rather than lavish ones.",
-     "walkthrough": "'Distributing' shuffles the letters and describes charitable giving at once, so the clue never sounds like an anagram. The letter dropped is the one on a clothing label.",
-     "definitionFit": "Alms are the money and food given to the poor, so they are handouts in the old charitable sense."
+     "surface": "A charity giving out small gifts rather than large ones.",
+     "walkthrough": "Take L ('not large') out of SMALL and rearrange the rest ('Distributing').",
+     "definitionFit": "Alms are money or food given to the poor, charitable gifts handed out to those in need."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Distributing"
     }
    }
   },

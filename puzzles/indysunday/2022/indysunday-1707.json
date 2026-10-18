@@ -542,59 +542,68 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "HONOLULU",
      "indicators": [
       {
        "text": "Wrecked",
-       "note": "a wrecked thing is smashed apart, so the letters are broken up and rebuilt"
+       "at": 0,
+       "note": "wrecked suggests the hull and the rest are smashed into a new arrangement"
       }
      ],
      "parts": [
       {
+       "words": "hull",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "words": "on",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HONOLULU",
        "indicators": [
         {
          "text": "not",
-         "note": "not means without, so that letter is left out"
+         "at": 24,
+         "note": "not British means the British letter must go from the submarine"
         },
         {
          "text": "docking",
-         "note": "to dock is to cut short, as with a tail, so the following letters are cut off"
+         "at": 37,
+         "note": "docking means cutting off, here removing the word at from the submarine too"
         }
        ],
        "parts": [
         {
-         "words": "hull",
-         "note": "taken as written"
-        },
-        {
-         "words": "on",
-         "note": "taken as written"
-        },
-        {
          "words": "U-boat",
-         "note": "taken as written, before trimming"
+         "at": 16,
+         "gives": "UBOAT",
+         "note": "the German submarine, written out as its letters"
         },
         {
-         "words": "British",
-         "gives": "B",
-         "note": "B is the abbreviation for British"
-        },
-        {
-         "words": "at",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "British",
+           "at": 28,
+           "gives": "B"
+          },
+          {
+           "words": "at",
+           "at": 45,
+           "note": "taken as written, the letters removed with the B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wrecked submarine hull being brought into a harbour.",
-     "walkthrough": "'Docking at port' reads as mooring, but 'docking' cuts the following word from the vessel, and with British also gone only two letters of it remain for the rearrangement.",
-     "definitionFit": "Honolulu, the capital of Hawaii, is a major harbour city on the island of Oahu, home to Pearl Harbor nearby."
+     "surface": "A shipwreck report: a damaged hull from a foreign submarine putting into harbour.",
+     "walkthrough": "'not' and 'docking' strip B and AT from UBOAT, leaving UO; 'Wrecked' then rearranges HULL, ON and UO. 'docking at port' reads as mooring, but 'port' alone is the definition.",
+     "definitionFit": "Honolulu, capital of Hawaii, is a major Pacific harbour city, so it is an example of a seaport."
     },
     "features": {
      "answerInScene": true,
@@ -751,38 +760,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "soda?",
+      "text": "soda",
       "at": 28
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LYE",
      "indicators": [
       {
        "text": "Changing hands",
-       "note": "the two hands are right and left, so changing hands means one swaps for the other"
+       "at": 0,
+       "note": "hands are right and left, so changing hands swaps the right-hand letter for the left-hand one"
       }
      ],
      "parts": [
       {
        "words": "whiskey",
+       "at": 16,
        "gives": "RYE",
-       "note": "rye is whiskey distilled from rye grain"
+       "note": "rye is a North American whiskey distilled from rye grain"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A bar order of whiskey and soda passed from one hand to another.",
-     "walkthrough": "'Whiskey and soda' looks like one drink order, but 'and' separates wordplay from definition: R (right) in RYE becomes L (left).",
-     "definitionFit": "Lye is a strong alkali, and caustic soda (sodium hydroxide) is the commonest example, hence the question mark."
+     "surface": "A barroom question: does a whiskey and soda change hands when it is passed along?",
+     "walkthrough": "R (right) in RYE becomes L (left). 'whiskey and soda' looks like one drink order, but the two words are separate jobs.",
+     "definitionFit": "Lye is caustic soda, sodium hydroxide, the strong alkali used in soap-making and drain cleaners."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "soda"
+     "misdirectedWord": "hands"
     }
    }
   },
@@ -1312,44 +1327,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LUCY",
+     "op": "composite",
      "indicators": [
       {
        "text": "terribly",
-       "note": "doing something terribly means doing it badly, so the letters come out jumbled"
+       "at": 8,
+       "note": "terribly suggests the letters are badly jumbled into a new order"
+      },
+      {
+       "text": "having mislaid",
+       "at": 25,
+       "note": "having mislaid means the manuscript's letters are lost from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LUCY",
-       "indicators": [
-        {
-         "text": "having mislaid",
-         "note": "what has been mislaid is lost, so those letters are missing"
-        }
-       ],
-       "parts": [
-        {
-         "words": "clumsy",
-         "note": "taken as written"
-        },
-        {
-         "words": "manuscript",
-         "gives": "MS",
-         "note": "MS is the abbreviation for manuscript"
-        }
-       ]
+       "words": "clumsy",
+       "at": 17,
+       "note": "taken as written, as the pool of letters"
+      },
+      {
+       "words": "manuscript",
+       "at": 40,
+       "gives": "MS"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl who is so clumsy she has lost her manuscript.",
-     "walkthrough": "Remove M and S from CLUMSY and rearrange what is left. Lucy is Linus's bossy sister in Peanuts.",
-     "definitionFit": "Lucy is a common female first name, and crosswords often clue any such name simply by its sex."
+     "surface": "A careless girl who has lost an important document.",
+     "walkthrough": "Remove MS ('having mislaid' manuscript) from CLUMSY, leaving CLUY, which 'terribly' rearranges.",
+     "definitionFit": "Lucy is a common female first name, so it is an example of a girl in crossword terms."
     },
     "features": {
      "answerInScene": true,

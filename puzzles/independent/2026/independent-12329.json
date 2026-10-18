@@ -1099,57 +1099,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOSEJOB",
+     "op": "container",
      "indicators": [
       {
-       "text": "twisted",
-       "note": "the letters are bent out of order"
+       "text": "to save",
+       "at": 22,
+       "note": "to save means to keep safe inside, so the rearranged letters hold the pair"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to save",
-         "note": "the anagram keeps the other piece safe inside it"
+         "text": "twisted",
+         "at": 8,
+         "note": "twisted means bent out of shape, so these letters are put in a new order"
         }
        ],
        "parts": [
         {
          "words": "bones",
-         "note": "BONES rearranged"
+         "at": 16,
+         "note": "taken as written, as the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pair of",
+         "at": 30,
+         "note": "pair of keeps only the opening two letters of the word, dropping the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joints",
+         "at": 38,
+         "note": "taken as written"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "JO",
-         "indicators": [
-          {
-           "text": "pair of",
-           "note": "the first two letters of the next word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pair of joints",
-           "gives": "JO",
-           "select": "first",
-           "note": "first two letters of joints"
-          }
-         ]
+         "gives": "INTS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An orthopaedic operation on broken bones, sparing two joints.",
-     "walkthrough": "The bones-and-joints surface points to orthopaedics; the surgery is cosmetic. NOSE(JO)B.",
-     "definitionFit": "Informal name for rhinoplasty, the cosmetic operation reshaping a nose."
+     "surface": "A grim orthopaedic scene: an operation on broken bones trying to rescue damaged joints.",
+     "walkthrough": "'pair of' joints gives JO, which the anagram of BONES ('twisted') holds inside it ('to save'). The surface is all bones and joints, yet the operation is cosmetic.",
+     "definitionFit": "A nose job is informal for rhinoplasty, cosmetic surgery to reshape the nose."
     },
     "features": {
      "answerInScene": false,

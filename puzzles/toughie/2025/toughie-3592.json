@@ -375,46 +375,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLENDE",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "book",
+       "at": 4,
+       "gives": "B"
+      },
+      {
+       "words": "left",
+       "at": 9,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 15,
+         "note": "almost means the word is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "book",
-         "gives": "B",
-         "note": "B is the standard abbreviation for book"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        },
-        {
          "words": "done",
-         "gives": "ENDE",
-         "note": "done means ended, here without its final D"
+         "at": 22,
+         "gives": "ENDED",
+         "note": "done, as in finished, means ended"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A book about mining that the reader has left nearly finished.",
-     "definitionFit": "Blende is zinc sulphide, a mineral mined as the chief source of zinc metal."
+     "surface": "A cataloguing note: a book about some ore, left nearly complete.",
+     "walkthrough": "'almost' trims the last letter of ENDED, leaving ENDE to follow B and L.",
+     "definitionFit": "Blende is a mineral, chiefly zinc sulphide, mined as a source of metal, so it is a kind of ore."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "done"
     }
    }
   },
@@ -711,53 +715,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "UPEND",
+     "op": "cycling",
      "indicators": [
       {
-       "text": "on",
-       "note": "in an across entry, one thing on another is placed after it"
+       "text": "cycle",
+       "at": 28,
+       "note": "cycle tells us to rotate the letters, moving the front letter round to the back"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
+       "op": "charade",
        "indicators": [
         {
-         "text": "cycle",
-         "note": "to cycle letters is to move them round, here taking the front letter to the back"
+         "text": "on",
+         "at": 25,
+         "note": "in an across clue, on places the new letter after the trick word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "trick",
-           "gives": "DUPE",
-           "note": "to dupe is to trick"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
-          }
-         ]
+         "words": "trick",
+         "at": 19,
+         "gives": "DUPE",
+         "note": "to trick someone is to dupe them"
+        },
+        {
+         "words": "new",
+         "at": 15,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trick cyclist learning a new stunt where the bike flips over.",
-     "walkthrough": "DUPE N has its first letter moved to the end to give UPEND.",
-     "definitionFit": "To upend something is to turn it upside down, which is performing an inversion."
+     "surface": "Instructions for a stunt: turn upside down with a fresh trick performed on a bicycle.",
+     "walkthrough": "'on' puts N after DUPE to make DUPEN; 'cycle' then moves the D from the front to the end.",
+     "definitionFit": "To upend something is to turn it upside down, which is exactly to invert it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycle"
     }
    }

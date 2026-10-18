@@ -50,41 +50,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DRESSINGDOWN",
      "indicators": [
       {
        "text": "not",
-       "note": "'X, not Y' tells you one letter stands where another used to be"
+       "at": 19,
+       "note": "not says the second item is put in instead of the first, a swap inside the dress"
       }
      ],
      "parts": [
       {
        "words": "dress that's far from formal",
+       "at": 32,
        "gives": "DRESSINGGOWN",
-       "note": "a loose robe worn around the house, about as informal as dress gets"
-      },
-      {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is the standard abbreviation for daughter"
+       "note": "a dressing gown is the loosest, least formal thing you could wear"
       },
       {
        "words": "grand",
+       "at": 23,
        "gives": "G",
-       "note": "G is short for grand, a thousand"
+       "note": "G is the common abbreviation for grand, a thousand pounds"
+      },
+      {
+       "words": "daughter",
+       "at": 9,
+       "gives": "D",
+       "note": "D is the genealogical abbreviation for daughter"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told off for wearing clothes far too casual for the occasion.",
-     "walkthrough": "Swap the G of DRESSING GOWN for D to get DRESSING DOWN; the informal dress phrase also ironically hints at the answer's other sense.",
-     "definitionFit": "A dressing-down is a severe scolding, so berating someone is giving them exactly that telling-off."
+     "surface": "Someone scolding their daughter for lounging about in a scruffy outfit instead of something grand.",
+     "walkthrough": "'not' swaps one of the two Gs in DRESSING GOWN for D. A dressing-down is a severe telling-off; the surface makes 'dressing' look like the clothes rather than the scolding.",
+     "definitionFit": "A dressing-down is a sharp reprimand, so the noun matches berating used as a noun for a scolding."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "grand"
+     "misdirectedWord": "Berating"
     }
    }
   },
@@ -427,50 +429,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NUMERAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "playful",
-       "note": "playful suggests messing about, so the letters are jumbled"
+       "at": 12,
+       "note": "playful suggests the letters are frolicking into a new order"
+      },
+      {
+       "text": "no",
+       "at": 32,
+       "note": "no tells us the saint's letters are missing from the rearranged pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NUMERAL",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "having no something means it is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Ulsterman's",
-         "gives": "ULSTERMAN",
-         "note": "a man from Ulster, Northern Ireland"
-        },
-        {
-         "words": "saint",
-         "gives": "ST",
-         "note": "ST is the abbreviation for saint"
-        }
-       ]
+       "words": "Ulsterman's",
+       "at": 20,
+       "gives": "ULSTERMAN",
+       "note": "Ulsterman, with the possessive dropped, supplies the pool of letters"
+      },
+      {
+       "words": "saint",
+       "at": 35,
+       "gives": "ST"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky man from Northern Ireland is clearly no saint.",
-     "walkthrough": "Remove ST from ULSTERMAN to leave ULERMAN, then rearrange. 'Perhaps one' defines by example.",
-     "definitionFit": "The figure 1 is an example of a symbol representing a number, hence 'perhaps'."
+     "surface": "A wry remark that some cheerful man from Northern Ireland is hardly a saint.",
+     "walkthrough": "Take ST ('saint') out of ULSTERMAN ('no' saint) and rearrange what is left ('playful'). 'Perhaps' signals that one is just an example of the answer.",
+     "definitionFit": "The figure 1 is an example of a numeral, a written symbol standing for a number."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "one"
+     "misdirectedWord": "playful"
     }
    }
   },
