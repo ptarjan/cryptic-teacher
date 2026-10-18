@@ -369,48 +369,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DARKHORSE",
      "indicators": [
       {
        "text": "hurt",
-       "note": "hurt suggests damage, so the altered letters are knocked into a new order"
+       "at": 40,
+       "note": "hurt is read as damaged, so the letters are knocked into a new order"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "DARKHORSE",
        "indicators": [
         {
          "text": "for",
-         "note": "X for Y means one letter takes the place of another in the phrase"
+         "at": 27,
+         "note": "right for cocaine means the letter for right replaces the letter for cocaine"
         }
        ],
        "parts": [
         {
          "words": "Do hackers",
-         "note": "taken as written"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "at": 9,
+         "note": "taken as written, as the letters to be altered"
         },
         {
          "words": "cocaine",
+         "at": 31,
          "gives": "C",
          "note": "C is slang shorthand for cocaine"
+        },
+        {
+         "words": "right",
+         "at": 21,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether drug-taking computer hackers harm some mysterious villain.",
-     "walkthrough": "Swap the C of hackers for R, then rearrange all nine letters.",
-     "definitionFit": "A dark horse is a person whose abilities or intentions are little known, someone in the shadows."
+     "surface": "Private Eye's jibe at tabloid hackers: did they harm a mysterious person, with drugs swapped in?",
+     "walkthrough": "Swap the C of DO HACKERS for R to get DOHARKERS, then 'hurt' rearranges those letters into DARK HORSE.",
+     "definitionFit": "A dark horse is an idiom for a little-known person whose abilities are hidden or secret."
     },
     "features": {
      "answerInScene": false,
@@ -1369,51 +1369,55 @@
      "indicators": [
       {
        "text": "caught in",
-       "note": "caught in something means trapped inside it"
+       "at": 36,
+       "note": "caught in means these letters are held inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fly",
-         "gives": "ESCAPE",
-         "note": "to fly is to flee, escape"
-        },
-        {
-         "words": "one",
-         "gives": "A",
-         "note": "a means one"
-        }
-       ]
+       "words": "fly",
+       "at": 46,
+       "gives": "ESCAPE",
+       "note": "to fly is to flee or escape"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head of",
-         "note": "the head of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "dick",
-         "note": "first letter of the word"
+         "words": "one",
+         "at": 14,
+         "gives": "A",
+         "note": "A means one, as in a single thing"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 23,
+           "note": "head of means the first letter of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dick",
+           "at": 31
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sex romp that ends with an embarrassing zip accident.",
-     "walkthrough": "Fly looks like the trouser opening, but it is the verb meaning flee.",
-     "definitionFit": "An escapade is a daring or mischievous adventure, a romp."
+     "surface": "A saucy romp in which a man's member gets stuck in his trouser zip.",
+     "walkthrough": "'fly' looks like the trouser opening of the surface but is the verb meaning flee.",
+     "definitionFit": "An escapade is a lively adventure or bit of mischief, which is what a romp is."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "fly"
     }
    }

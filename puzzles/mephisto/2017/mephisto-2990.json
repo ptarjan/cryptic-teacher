@@ -204,38 +204,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "improved",
-       "note": "improved means reworked, so the letters are put into a better order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small",
+       "at": 0,
+       "gives": "MINI",
+       "note": "mini means small"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "improved",
+         "at": 12,
+         "note": "improved means reworked, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "MINI",
-         "note": "mini means small"
-        },
-        {
          "words": "clues",
-         "note": "the five letters, rearranged"
+         "at": 6,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tiny crossword clues have been sharpened up.",
-     "walkthrough": "MINISCULE is a recognised variant spelling of minuscule.",
-     "definitionFit": "Minuscule means extremely tiny, from Latin minusculus, rather small."
+     "surface": "Short clues get better by becoming tiny.",
+     "walkthrough": "This spelling is a recognised variant of minuscule, and the clue needs the -I- form.",
+     "definitionFit": "Miniscule is a variant spelling of minuscule, meaning tiny or extremely little."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "improved"
     }
    }
   },
@@ -1632,42 +1636,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one word wraps about the others, enclosing them"
+       "at": 8,
+       "note": "about means the word for evasive goes round the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Evasive",
-         "gives": "COY",
-         "note": "coy means reluctant to give details, evasive"
-        },
-        {
-         "words": "minor",
-         "gives": "WARD",
-         "note": "a ward is a minor under a guardian"
-        }
-       ]
+       "words": "Evasive",
+       "at": 0,
+       "gives": "COY",
+       "note": "coy means evasive or reluctant to commit"
       },
       {
-       "words": "league",
-       "gives": "L",
-       "note": "L abbreviates league"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "minor",
+         "at": 14,
+         "gives": "WARD",
+         "note": "a ward is a minor under a guardian"
+        },
+        {
+         "words": "league",
+         "at": 20,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A minor-league sports club dodging questions when it runs out of balls.",
-     "walkthrough": "'Minor league' reads as one sporting phrase but splits into two pieces. 'Balls' is slang for courage.",
-     "definitionFit": "Lacking balls is slang for lacking nerve, which is exactly what cowardly means."
+     "surface": "A minor-league sports club cagey because it has run out of balls.",
+     "walkthrough": "'minor league' looks like a lower sports division, but minor is a ward and league just L.",
+     "definitionFit": "Balls is slang for courage, so someone lacking it is cowardly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "balls"
+     "misdirectedWord": "minor"
     }
    }
   },

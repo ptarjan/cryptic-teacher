@@ -1351,48 +1351,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NAVARRE",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "uncovered means stripped of its covering, so the outermost letters are taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "heading north",
+         "at": 8,
+         "note": "in a down clue, heading north means read upwards, so the word is turned round"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "heading north",
-           "note": "in a down clue going north means reading upwards, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Vehicle",
-           "gives": "VAN",
-           "note": "a van is a vehicle"
-          }
-         ]
-        },
+         "words": "Vehicle",
+         "at": 0,
+         "gives": "VAN",
+         "note": "a van is a vehicle"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 22,
+         "note": "uncovered means the outer letters are stripped off, leaving the middle"
+        }
+       ],
+       "parts": [
         {
          "words": "barren",
-         "gives": "ARRE",
-         "note": "the word with its first and last letters removed"
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A truck drives north across an exposed, desolate part of Spain.",
-     "walkthrough": "'Uncovered barren' reads as a description of the landscape, but it tells you to strip the word's outer letters.",
-     "definitionFit": "Navarre is an autonomous community and former kingdom in northern Spain, bordering France in the Pyrenees."
+     "surface": "A truck drives north across a bare, barren part of Spain.",
+     "walkthrough": "VAN read upwards gives NAV, and BARREN without its ends gives ARRE.",
+     "definitionFit": "Navarre is an autonomous community in northern Spain, once an independent kingdom."
     },
     "features": {
      "answerInScene": true,
@@ -2007,41 +2007,42 @@
      "indicators": [
       {
        "text": "includes",
-       "note": "to include something is to take it in, so one piece is held inside another"
+       "at": 9,
+       "note": "includes means the word for estimate takes the next letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Estimate",
-         "gives": "GUESS",
-         "note": "a guess is a rough estimate"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        }
-       ]
+       "words": "Estimate",
+       "at": 0,
+       "gives": "GUESS",
+       "note": "to guess is to estimate"
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "time",
+         "at": 18,
+         "gives": "T"
+        },
+        {
+         "words": "left",
+         "at": 23,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe's estimate includes the remaining time for cooking poultry.",
-     "walkthrough": "'Chicken' is not the bird but the adjective for cowardly; 'to make' only links.",
-     "definitionFit": "Chicken in slang means cowardly, and gutless means lacking courage or nerve."
+     "surface": "An estimate with time to spare turns out to be a cooked chicken.",
+     "walkthrough": "'chicken' looks like the bird but is the slang adjective for cowardly.",
+     "definitionFit": "Chicken is slang for cowardly, and a gutless person lacks courage."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "chicken"
     }
    }
@@ -3441,45 +3442,44 @@
      "indicators": [
       {
        "text": "contains",
-       "note": "to contain is to hold inside, so one piece sits within another"
+       "at": 8,
+       "note": "contains means the word for dossier holds the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Dossier",
+       "at": 0,
+       "gives": "FILE",
+       "note": "a file is a dossier of documents"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Dossier",
-           "gives": "FILE",
-           "note": "a dossier is a file of papers"
-          },
-          {
-           "words": "lady",
-           "gives": "SHE",
-           "note": "she refers to a woman"
-          }
-         ]
+         "words": "lady",
+         "at": 17,
+         "gives": "SHE",
+         "note": "she is a pronoun for a lady"
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 27,
+         "gives": "A"
+        },
+        {
+         "words": "grand",
+         "at": 29,
+         "gives": "G",
+         "note": "G is slang shorthand for a grand, a thousand"
         }
        ]
-      },
-      {
-       "words": "grand",
-       "gives": "G",
-       "note": "G is slang for a grand, a thousand"
       }
      ]
     },
     "explanation": {
-     "surface": "A file mentions a woman worth a thousand and a hunting bird.",
-     "walkthrough": "'Lady with a grand' reads as a rich woman; it is three separate pieces packed into the file.",
-     "definitionFit": "Fish eagles are large raptors that snatch fish from water, such as the African fish eagle."
+     "surface": "A dossier holds details of a woman along with a thousand pounds.",
+     "definitionFit": "Fish eagles are large raptors that hunt fish, so they are birds of prey."
     },
     "features": {
      "answerInScene": false,

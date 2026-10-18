@@ -867,45 +867,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "leader",
-       "note": "a leader is the opening letter, just one being taken here"
-      }
-     ],
      "parts": [
       {
        "words": "ruddy",
+       "at": 12,
        "gives": "RED",
-       "note": "ruddy means red in colour"
+       "note": "ruddy means reddish in colour"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "about means surrounding, so one word goes round the other"
+         "at": 25,
+         "note": "about means the brute goes around the next letter"
         }
        ],
        "parts": [
         {
          "words": "brute",
+         "at": 18,
          "gives": "BEAST",
-         "note": "a beast is a brute"
+         "note": "a brute is a beast"
         },
         {
-         "words": "Republican",
-         "gives": "R",
-         "note": "first letter of Republican"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 42,
+           "note": "leader means the first letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Republican",
+           "at": 31
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A social-media post insulting a Republican party boss.",
-     "walkthrough": "'Tweets' suggests social media; it is birdsong. Redbreast is the robin, the bird of British Christmas cards.",
-     "definitionFit": "Redbreast is another name for the robin, a songbird that chirps or twitters."
+     "surface": "A tweet attacks a red-faced bully surrounding a Republican leader.",
+     "walkthrough": "'One tweets' looks like a social-media poster, but it is a songbird.",
+     "definitionFit": "The robin redbreast is a songbird, and birds tweet as they sing."
     },
     "features": {
      "answerInScene": false,
@@ -936,64 +944,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "at": 18,
+       "note": "drinking means the outer letters take in the next word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "drinking",
-         "note": "drinking means taking something in, so one word swallows the other"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "with",
-           "gives": "AND",
-           "note": "and means together with"
-          },
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "large",
-             "gives": "L",
-             "note": "L is the abbreviation for large"
-            },
-            {
-             "words": "old",
-             "gives": "EX",
-             "note": "ex means former"
-            }
-           ]
-          }
-         ]
+         "words": "A",
+         "at": 0
         },
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "large",
+         "at": 2,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "old",
+         "at": 8,
+         "gives": "EX",
+         "note": "ex means former or old, as in ex-wife"
+        },
+        {
+         "words": "queen",
+         "at": 12,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the crossword queen"
         }
        ]
       },
       {
-       "words": "queen",
-       "gives": "ER",
-       "note": "Elizabeth Regina, the royal cipher"
+       "words": "with",
+       "at": 27,
+       "gives": "AND",
+       "note": "and means with, as in bread and butter"
       }
      ]
     },
     "explanation": {
-     "surface": "A very fat former queen sharing a drink with an eminent figure.",
-     "walkthrough": "An old queen is an ex-queen, EX plus ER, which takes in AND. The definition points to Alexander the Great.",
-     "definitionFit": "Alexander the Great, the Macedonian conqueror, is history's best-known man given the epithet 'great'."
+     "surface": "A portly elderly queen is having a drink alongside an eminent man.",
+     "walkthrough": "ALEXER, from A, L, EX and ER, 'drinking' AND gives ALEX-AND-ER.",
+     "definitionFit": "Alexander the Great was the Macedonian conqueror, and great man nods to that epithet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "queen"
+     "misdirectedWord": "drinking"
     }
    }
   },
