@@ -1280,11 +1280,8 @@
      "indicators": [
       {
        "text": "Following",
-       "note": "What follows comes after, so the rest is placed after the doctor's letter."
-      },
-      {
-       "text": "almost",
-       "note": "VOTE loses its last letter"
+       "at": 0,
+       "note": "following the doctor's lead means the rest comes after that letter in the answer"
       }
      ],
      "parts": [
@@ -1293,36 +1290,53 @@
        "indicators": [
         {
          "text": "lead",
-         "note": "only the leading letter of doctor"
+         "at": 19,
+         "note": "a word's lead is its front, so only the opening letter of doctor's is used"
         }
        ],
        "parts": [
         {
          "words": "doctor's",
-         "note": "first letter of Doctor"
+         "at": 10,
+         "note": "first letter of doctor"
         }
        ]
       },
       {
        "words": "I",
-       "note": "used as it stands"
+       "at": 25
       },
       {
-       "words": "choose",
-       "gives": "VOT",
-       "note": "VOTE without its E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 27,
+         "note": "almost means not quite all, so the final letter is dropped from the word for choose"
+        }
+       ],
+       "parts": [
+        {
+         "words": "choose",
+         "at": 34,
+         "gives": "VOTE",
+         "note": "to choose by ballot is to vote"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient follows the doctor's advice and chooses to have a lump cut out.",
-     "walkthrough": "'Lump removed' reads as surgery; a divot is turf gouged out by a golf club.",
-     "definitionFit": "A divot is a chunk of turf removed by a club stroke."
+     "surface": "A patient takes the doctor's advice and opts to have a lump cut out.",
+     "walkthrough": "D (doctor's lead) is followed by I and VOT, which is VOTE with 'almost' dropping its last letter. The medical 'lump removed' is really a piece of turf hacked up by a golf club.",
+     "definitionFit": "A divot is a chunk of turf gouged out of the ground, typically by a golfer's swing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "lump"
     }
    }

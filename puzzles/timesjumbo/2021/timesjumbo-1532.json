@@ -233,42 +233,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAFETYVALVE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "reduced",
-       "note": "something reduced has been cut down, so a letter is lost at its end"
+       "text": "after treatment",
+       "at": 24,
+       "note": "after treatment means once worked on, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after treatment",
-         "note": "treatment processes material and changes its form, so the letters are reworked"
+         "text": "reduced",
+         "at": 9,
+         "note": "reduced means cut down, so the last letter of fever goes"
         }
        ],
        "parts": [
         {
-         "words": "A fever",
-         "gives": "AFEVE",
-         "note": "A FEVER with its last letter cut off"
+         "words": "fever",
+         "at": 2
         },
         {
-         "words": "vastly",
-         "note": "taken as written"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "vastly",
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "A patient's fever comes right down after medical treatment, easing the strain.",
-     "walkthrough": "'Reduced' looks like it belongs with 'vastly' (a fever greatly reduced) but it trims the R from 'fever'.",
-     "definitionFit": "A safety valve lets out excess pressure from a boiler, and figuratively any outlet that relieves pent-up strain."
+     "surface": "A fever drops sharply once the patient has had treatment.",
+     "walkthrough": "The surface reads as a medical report, but 'reduced' trims a word rather than a temperature, and 'treatment' means working the letters over.",
+     "definitionFit": "A safety valve lets out excess pressure, and figuratively any outlet that relieves strain."
     },
     "features": {
      "answerInScene": false,
@@ -2277,58 +2283,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATTHEREADY",
-     "indicators": [
-      {
-       "text": "half of",
-       "note": "taking half of a word keeps only part and drops the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "about means surrounding, so the word for consumed goes round the half word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "Consumed",
+         "at": 0,
+         "gives": "ATE",
+         "note": "consumed means ate"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "'about' means around, so one piece surrounds the other"
+           "text": "half of",
+           "at": 15,
+           "note": "half of means only two of the four letters of that are kept"
           }
          ],
          "parts": [
           {
-           "words": "Consumed",
-           "gives": "ATE",
-           "note": "ate means consumed"
+           "words": "that",
+           "at": 23
           },
           {
-           "words": "that",
-           "gives": "TH",
-           "note": "the first half of the word"
+           "gives": "AT"
           }
          ]
-        },
-        {
-         "words": "money",
-         "gives": "READY",
-         "note": "the ready is British slang for cash"
         }
        ]
+      },
+      {
+       "words": "money",
+       "at": 28,
+       "gives": "READY",
+       "note": "the ready is British slang for cash, money in hand"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spent half the cash and is getting set to spend more.",
-     "walkthrough": "'The ready' (or 'readies') is informal British slang for money in hand.",
-     "definitionFit": "Something at the ready is prepared and available for immediate use."
+     "surface": "Someone spends about half that money while getting ready.",
+     "walkthrough": "'Half of that' keeps its first two letters. 'The ready' or 'readies' is British slang for cash.",
+     "definitionFit": "At the ready means poised for immediate use, in a state of preparedness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Consumed"
+     "misdirectedWord": "money"
     }
    }
   },

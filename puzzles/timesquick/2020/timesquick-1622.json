@@ -169,39 +169,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNSENTIMENTAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "before means the unsent piece comes ahead of the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "not dispatched",
+       "at": 31,
+       "gives": "UNSENT",
+       "note": "a letter not dispatched is unsent"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Before"
-        },
-        {
          "text": "unfortunately",
-         "note": "Something that went unfortunately went wrong, so the letters are rearranged."
+         "at": 17,
+         "note": "unfortunately suggests things gone wrong, so the letters of ten and mail are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "not dispatched?",
-         "gives": "UNSENT",
-         "note": "Mail not dispatched is unsent."
+         "words": "ten",
+         "at": 7
         },
         {
-         "words": "ten, mail",
-         "note": "TEN and MAIL rearranged."
+         "words": "mail",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker grumbles that the post wasn't sent before ten, and that's tough.",
-     "walkthrough": "The clue is written in the order of the answer only once you notice \"Before\" applies to the second phrase: UNSENT goes before the rearranged TEN MAIL.",
-     "definitionFit": "Someone unsentimental is hard-headed and tough."
+     "surface": "Sadly the post went unsent before ten o'clock; hard luck.",
+     "walkthrough": "'Tough' sounds like a sympathetic shrug but is the definition.",
+     "definitionFit": "Someone tough is hard-headed and unemotional, unswayed by feelings."
     },
     "features": {
      "answerInScene": false,
@@ -276,43 +284,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "going astray",
-       "note": "Letters going astray wander out of place, so OPEN RENT is rearranged."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "account",
+       "at": 23,
+       "gives": "ACC"
+      },
+      {
+       "words": "I had",
+       "at": 31,
+       "gives": "ID",
+       "note": "I had contracts to I'd"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "going astray",
+         "at": 48,
+         "note": "going astray means wandering off course, so the letters of open and rent are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "account",
-         "gives": "ACC",
-         "note": "ACC is a short form of account."
+         "words": "open",
+         "at": 37
         },
         {
-         "words": "I had",
-         "gives": "ID",
-         "note": "I had contracts to I'd."
-        },
-        {
-         "words": "open, rent",
-         "note": "OPEN and RENT rearranged."
+         "words": "rent",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An account holder left the account open and the rent payment went missing.",
-     "walkthrough": "I had shortens to I'd, giving ID without the apostrophe.",
-     "definitionFit": "A plain synonym phrase: a person who keeps having mishaps, tripping and dropping things, is described by this hyphenated adjective."
+     "surface": "Someone clumsy keeps an account open while the rent goes missing.",
+     "walkthrough": "ACC and ID come first, then 'going astray' rearranges OPEN and RENT into ENTPRONE.",
+     "definitionFit": "Accident-prone describes a person who has mishaps more often than most."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "open"
     }
    }
@@ -541,41 +555,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUCTION",
-     "indicators": [
-      {
-       "text": "when not starting",
-       "note": "Not starting means the first letter is dropped, so RUCTION loses R."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when not starting",
+         "at": 14,
+         "note": "not starting means the first letter is dropped from the word for disturbance"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "Used as it stands."
+         "words": "disturbance",
+         "at": 2,
+         "gives": "RUCTION",
+         "note": "a ruction is a noisy disturbance or row"
         },
         {
-         "words": "disturbance",
-         "gives": "UCTION",
-         "note": "A ruction is a disturbance or row; its first letter goes."
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A commotion breaks out as a sale fails to get going.",
-     "walkthrough": "A ruction is a noisy quarrel, a word more common in Britain than elsewhere.",
-     "definitionFit": "A definition by category: this is one particular kind of sale, where buyers bid against each other and the highest offer wins."
+     "surface": "A commotion breaks out when the sale fails to begin.",
+     "walkthrough": "A is followed by RUCTION with 'not starting' removing its first letter.",
+     "definitionFit": "An auction is a public sale where goods go to the highest bidder."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "starting"
+     "misdirectedWord": "disturbance"
     }
    }
   },
@@ -604,50 +621,54 @@
      "indicators": [
       {
        "text": "comes around",
-       "note": "To come around something is to encircle it, so the friend wraps round the other letters."
+       "at": 7,
+       "note": "comes around means the friend's letters are wrapped around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Friend",
-         "gives": "MATE",
-         "note": "A mate is a friend."
-        },
-        {
-         "words": "in",
-         "note": "Used as it stands."
-        }
-       ]
+       "words": "Friend",
+       "at": 0,
+       "gives": "MATE",
+       "note": "a mate is a friend"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "Finally points to the last letter of time."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "time",
-         "note": "The last letter of time."
+         "words": "in",
+         "at": 20
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 28,
+           "note": "finally means only the last letter of time is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "time",
+           "at": 23,
+           "note": "last letter of time"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend turns up just in time for the afternoon performance.",
-     "walkthrough": "\"In time\" looks like one phrase meaning punctually; the setter uses its two words separately.",
-     "definitionFit": "A matinee is an afternoon performance, earlier than the evening show."
+     "surface": "A friend visits just in time for an early showing.",
+     "walkthrough": "'In' is used as written, a piece of the wordplay rather than a link word.",
+     "definitionFit": "A matinee is an afternoon performance, given earlier than the usual evening show."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "Friend"
     }
    }
   },
@@ -1097,44 +1118,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXPLAIN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appearing in",
+       "at": 18,
+       "note": "appearing in means the cross shows up inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "appearing in"
-        },
-        {
          "text": "strange",
-         "note": "Strange suggests something odd, so ALPINE is rearranged."
+         "at": 31,
+         "note": "strange means odd, so the letters of alpine are rearranged"
         }
        ],
        "parts": [
         {
          "words": "alpine",
-         "note": "ALPINE rearranged."
-        },
-        {
-         "words": "cross",
-         "gives": "X",
-         "note": "X is a cross."
+         "at": 39
         }
        ]
+      },
+      {
+       "words": "cross",
+       "at": 12,
+       "gives": "X",
+       "note": "X is the shape of a cross"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone must justify a cross planted somewhere unusual in the Alps.",
-     "walkthrough": "X goes after the first letter of the rearranged ALPINE.",
-     "definitionFit": "A plain synonym: to account for an event is to give the reasons behind it, as in accounting for a delay."
+     "surface": "A cross turns up somewhere odd in the mountains.",
+     "walkthrough": "'strange' rearranges ALPINE as EPLAIN, and 'appearing in' sets X inside it.",
+     "definitionFit": "To explain something is to give the reasons for it, which is to account for it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cross"
+     "misdirectedWord": "Account"
     }
    }
   },

@@ -1118,49 +1118,54 @@
      "indicators": [
       {
        "text": "defends",
-       "note": "to defend is to surround and protect, so the shortened name goes round the others"
+       "at": 10,
+       "note": "to defend is to surround protectively, so the shortened name goes around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 3,
+         "note": "mostly means all but the last letter of the name"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the last letter of the name is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "PM",
-           "gives": "SUNAK",
-           "note": "Rishi Sunak, UK Prime Minister 2022 to 2024, loses his last letter"
-          },
-          {
-           "gives": "K"
-          }
-         ]
+         "words": "PM",
+         "at": 0,
+         "gives": "SUNAK",
+         "note": "Rishi Sunak was the UK Prime Minister"
         },
         {
-         "words": "British",
-         "gives": "B",
-         "note": "B is the abbreviation for British"
+         "gives": "K"
         }
        ]
       },
       {
-       "words": "literary figure",
-       "gives": "POE",
-       "note": "Edgar Allan Poe, the American writer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 18,
+         "gives": "B"
+        },
+        {
+         "words": "literary figure",
+         "at": 26,
+         "gives": "POE",
+         "note": "Edgar Allan Poe is a famous writer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prime minister stands up for a British author who is facing legal action.",
-     "definitionFit": "A subpoena is a writ, a court order compelling someone to attend and give evidence."
+     "surface": "The Prime Minister largely stands up for a British writer who has been served legal papers.",
+     "walkthrough": "Poe is the American writer Edgar Allan Poe, and Rishi Sunak was the British Prime Minister in 2022-24.",
+     "definitionFit": "A subpoena is a court writ ordering a person to attend and give evidence."
     },
     "features": {
      "answerInScene": true,
@@ -1374,57 +1379,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "stewed",
+      "text": "stewed!",
       "at": 44
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "JUGGED",
      "indicators": [
       {
        "text": "Wasting",
-       "note": "wasting means losing, so one letter drops out"
+       "at": 0,
+       "note": "wasting means losing, so the letter for day is removed"
       },
       {
        "text": "taking up",
-       "note": "taking up means adopting, so a new letter is taken on in place of the lost one"
+       "at": 12,
+       "note": "taking up means adopting, so the letter for golf comes in where day was"
       }
      ],
      "parts": [
       {
-       "words": "reckon",
-       "gives": "JUDGE",
-       "note": "to judge is to reckon or estimate"
-      },
-      {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is the abbreviation for daughter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "reckon",
+         "at": 28,
+         "gives": "JUDGE",
+         "note": "to reckon is to judge"
+        },
+        {
+         "words": "daughter",
+         "at": 35,
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "day",
-       "gives": "D",
-       "note": "D is the abbreviation for day; it is the one removed"
+       "at": 8,
+       "gives": "D"
       },
       {
        "words": "golf",
+       "at": 22,
        "gives": "G",
        "note": "G is golf in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stops working to play golf and thinks their daughter was drunk.",
-     "walkthrough": "In JUDGE plus D, the first D is replaced by G. 'Stewed!' looks like British slang for drunk, but it is the cooking sense.",
-     "definitionFit": "Jugged hare is hare stewed slowly in a covered jug or casserole."
+     "surface": "A daughter decides, after a wasted day spent taking up golf, that she is drunk.",
+     "walkthrough": "JUDGE plus D gives JUDGED; 'Wasting' drops its first D (day) and 'taking up' brings in G (golf). Stewed is British slang for drunk, but here it is cookery.",
+     "definitionFit": "Jugged hare is stewed slowly in a covered jug or pot, so jugged means cooked by stewing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "stewed!"
+     "misdirectedWord": "stewed"
     }
    }
   },

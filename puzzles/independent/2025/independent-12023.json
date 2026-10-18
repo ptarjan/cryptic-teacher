@@ -1314,51 +1314,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "the queue wraps around the other letters"
+       "text": "seen around",
+       "at": 6,
+       "note": "seen around means placed on either side, so the queue's letters enclose the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Queue",
-         "gives": "LINE",
-         "note": "a queue is a line"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Queue",
+       "at": 0,
+       "gives": "LINE",
+       "note": "a queue is a line of people"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "vacant",
-         "note": "vacant means emptied, so only the outer letters remain"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "two-seater",
-         "note": "the word emptied of its middle"
+         "words": "a",
+         "at": 18
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "vacant",
+           "at": 20,
+           "note": "vacant means emptied, so all but the first and last letters are removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "two-seater",
+           "at": 27,
+           "note": "first and last letters of two-seater"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People line up for an unoccupied double loo.",
-     "walkthrough": "'Vacant' fits a toilet door sign, but it empties the word that follows.",
-     "definitionFit": "A latrine is a basic communal toilet, especially in a camp or barracks."
+     "surface": "A line forms outside an empty two-person loo.",
+     "walkthrough": "'Vacant' means emptied of every middle letter, so only the ends of two-seater survive; the surface pictures an empty loo with people waiting.",
+     "definitionFit": "A latrine is a basic communal lavatory, especially in a camp or barracks."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "vacant"
     }
    }

@@ -461,34 +461,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "perhaps marks the preceding word as only one example of a wider class"
-      }
-     ],
      "parts": [
       {
        "words": "guy",
+       "at": 7,
        "gives": "MAN",
        "note": "a guy is a man"
       },
       {
-       "words": "bowler",
+       "words": "bowler, perhaps",
+       "at": 12,
        "gives": "HAT",
-       "note": "a bowler is a kind of hat"
+       "note": "a bowler is one kind of hat, as the perhaps signals"
       },
       {
        "words": "brown",
+       "at": 28,
        "gives": "TAN",
-       "note": "tan is a shade of brown"
+       "note": "tan is a light brown colour"
       }
      ]
     },
     "explanation": {
-     "surface": "A man on an island, a cricket bowler perhaps, gets a suntan.",
-     "walkthrough": "'Bowler' suggests cricket; here it is the rounded felt hat.",
-     "definitionFit": "The central borough of New York City is an island bounded by the Hudson and East rivers."
+     "surface": "A list describing a man in a brown bowler hat.",
+     "walkthrough": "'perhaps' says a bowler is just an example of a hat. 'Bowler' tempts as a cricketer, but the hat is meant.",
+     "definitionFit": "Manhattan is the island borough at the heart of New York City."
     },
     "features": {
      "answerInScene": false,
@@ -591,49 +588,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADORINGLY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "frolicking",
+       "at": 21,
+       "note": "frolicking means romping about, so the letters are mixed up"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "frolicking",
-         "note": "frolicking is romping about playfully, so the letters move around"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most of the word, so the last letter of you is dropped"
         }
        ],
        "parts": [
         {
          "words": "you",
-         "gives": "YO",
-         "note": "the word missing its last letter"
+         "at": 8
         },
         {
-         "words": "and",
-         "note": "taken as written"
-        },
-        {
-         "words": "girl",
-         "note": "taken as written"
+         "gives": "U"
         }
        ]
+      },
+      {
+       "words": "and",
+       "at": 12
+      },
+      {
+       "words": "girl",
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "A couple, mostly you and a girl, romp about with ardour.",
-     "definitionFit": "To act adoringly is to show deep love and devotion, which is a passionate manner."
+     "surface": "Mostly, you and a girl are playing about passionately.",
+     "walkthrough": "'Mostly' cuts YOU to YO, and 'frolicking' rearranges YO, AND and GIRL.",
+     "definitionFit": "To act adoringly is to show intense love and devotion, which is passionate behaviour."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "frolicking"
     }
    }
   },
@@ -1121,40 +1122,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "played",
-       "note": "played suggests something performed freely, so the letters are rearranged"
+       "text": "while",
+       "at": 25,
+       "note": "while means during, so the rearranged letters go inside the word for nude"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "nude",
+       "at": 31,
+       "gives": "BARE",
+       "note": "nude means bare"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "while",
-         "note": "while means during, so one piece is set within the span of the other"
+         "text": "played",
+         "at": 18,
+         "note": "played means performed loosely, so the letters of Quo are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "nude",
-         "gives": "BARE",
-         "note": "nude means bare"
-        },
-        {
          "words": "Quo",
-         "note": "the three letters rearranged"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The rock band Status Quo performed naked.",
-     "walkthrough": "Status Quo is a long-running British rock band.",
-     "definitionFit": "Baroque is the ornate European style of roughly 1600 to 1750, Bach and Handel being examples."
+     "surface": "The rock band Status Quo performing naked.",
+     "walkthrough": "Status Quo are a long-running British rock band, which hides the musical definition behind a band name.",
+     "definitionFit": "Baroque is the ornate style of European music from about 1600 to 1750."
     },
     "features": {
      "answerInScene": true,
@@ -1228,50 +1232,41 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TALKTURKEY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "placing",
-       "note": "placing one thing in another puts it inside"
+       "text": "innovative",
+       "at": 58,
+       "note": "innovative means made new, so the tea with its thousands and truly are all rearranged together"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "innovative",
-         "note": "innovative means newly made, so the letters take a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a couple of thousand",
-         "gives": "KK",
-         "note": "K stands for a thousand, twice"
-        },
-        {
-         "words": "tea",
-         "note": "taken as written"
-        },
-        {
-         "words": "Truly",
-         "note": "taken as written"
-        }
-       ]
+       "words": "placing a couple of thousand in",
+       "at": 15,
+       "gives": "KK",
+       "note": "K stands for a thousand, so a couple of them is two Ks, added in among the other letters"
+      },
+      {
+       "words": "tea",
+       "at": 47
+      },
+      {
+       "words": "Truly",
+       "at": 52
       }
      ]
     },
     "explanation": {
-     "surface": "Someone frankly describes pouring two thousand into a pot of tea as genuinely new.",
-     "definitionFit": "The idiom means to speak frankly and get down to business, so it fits discussing openly."
+     "surface": "Someone praises a novel idea of putting two thousand of something in tea.",
+     "walkthrough": "Once the two thousands are in the tea, 'innovative' scrambles that whole lot along with truly, so the two letters end up apart in the answer.",
+     "definitionFit": "To talk turkey is an idiom for speaking frankly and getting down to business."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "thousand"
+     "joke": "absurd",
+     "misdirectedWord": "tea"
     }
    }
   },
