@@ -430,6 +430,75 @@ def spelt_charade(tree):
     return out
 
 
+_ONES = ("ZERO ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN ELEVEN TWELVE THIRTEEN FOURTEEN "
+         "FIFTEEN SIXTEEN SEVENTEEN EIGHTEEN NINETEEN").split()
+_TENS = "X X TWENTY THIRTY FORTY FIFTY SIXTY SEVENTY EIGHTY NINETY".split()
+
+
+def number_word(text):
+    """A figure written as a word (50 -> FIFTY, 101 -> HUNDREDONE is not attempted), for 0-99; else None."""
+    t = (text or "").strip()
+    if not t.isdigit() or int(t) > 99:
+        return None
+    n = int(t)
+    return _ONES[n] if n < 20 else _TENS[n // 10] + (_ONES[n % 10] if n % 10 else "")
+
+
+def _candidates(node, leaf):
+    """Words a selection's leaf may stand for: a figure written out, then each word of
+    the notes (the annotator named the synonym there: 'the middle of sinners')."""
+    out = []
+    num = number_word(leaf.get("words"))
+    if num:
+        out.append(num)
+    text = " ".join([leaf.get("note") or ""] + [i.get("note") or "" for i in node.get("indicators") or []])
+    for w in re.findall(r"[A-Za-z]+", text):
+        w = w.upper()
+        if len(w) >= 3 and w not in out:
+            out.append(w)
+    return out
+
+
+def synonym_selections(tree):
+    """Variants of each selection (first, middle, alt ...) over one plain leaf whose letters
+    are the selection's result, but not a pick from its own clue words (funds -> OFFER, the
+    middle of COFFERS): the leaf gives the longer word the note names, if the selection
+    of that word gives the result. The evaluator then checks the whole against the answer."""
+    nodes = [i for i, (n, _) in enumerate(walk(tree))
+             if n.get("op") in wordplay.SELECT and len(n.get("parts") or []) == 1 and _plain_leaf(n["parts"][0])]
+    for i in nodes[:MAX_SELECTIONS]:
+        node = [n for n, _ in walk(tree)][i]
+        leaf = node["parts"][0]
+        want = wordplay.letters(leaf.get("gives"))
+        for cand in _candidates(node, leaf):
+            if len(cand) > len(want) and want in wordplay._select(node["op"], node.get("n"), cand, [cand]):
+                t = copy.deepcopy(tree)
+                [n for n, _ in walk(t)][i]["parts"][0]["gives"] = cand
+                yield t
+
+
+def split_spoon(tree):
+    """A copy where each spoonerism filed as one leaf with a two-word `soundsLike` (RATTLE BAG
+    from BATTLE RAG) is two leaves, one per word of the sound, taking the leaf's clue words
+    in order (a leading 'the' or 'a' aside): spoon() then swaps the onsets itself, so the
+    letters are checked. Only a leaf of exactly two content words splits."""
+    tree = copy.deepcopy(tree)
+    for node, _ in walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "spoonerism" or len(parts) != 1 or "op" in parts[0]:
+            continue
+        leaf = parts[0]
+        sounds = (leaf.get("soundsLike") or "").split()
+        words = [w for w in (leaf.get("words") or "").split()]
+        content = [w for w in words if w.lower() not in ("the", "a", "an", "of", "to", "for")]
+        if len(sounds) != 2 or len(content) != 2:
+            continue
+        node["parts"] = [{"words": w, "gives": s, **({"unchecked": True} if leaf.get("unchecked") else {}),
+                          **({"note": leaf["note"]} if leaf.get("note") else {})}
+                         for k, (w, s) in enumerate(zip(content, sounds))]
+    return tree
+
+
 def variants(tree, answer):
     """The repaired trees worth trying, cheapest first."""
     yield tree
@@ -444,8 +513,141 @@ def variants(tree, answer):
     yield from split_ins(tree)
     yield from reversed_runs(tree)
     yield from selections_over_results(tree)
+    yield from synonym_selections(tree)
     yield from pushed_reversals(tree, answer)
     yield from composites(tree)
+
+
+def _bare_select(n):
+    """A selection op with no indicator over one plain leaf."""
+    return (n.get("op") in wordplay.SELECT and not n.get("indicators") and len(n.get("parts") or []) == 1
+            and isinstance(n["parts"][0], dict) and "op" not in n["parts"][0])
+
+
+def merged_outer(tree):
+    """A copy where first(L) + last(L) side by side in a charade, over the same clue words,
+    is the one outer(L): the first and last letters of the same word."""
+    tree = copy.deepcopy(tree)
+    for node, _ in walk(tree):
+        parts = node.get("parts") or []
+        for i in range(len(parts) - 1):
+            a, b = parts[i], parts[i + 1]
+            if (node.get("op") == "charade" and _bare_select(a) and _bare_select(b)
+                    and (a["op"], b["op"]) == ("first", "last")
+                    and wordplay.letters(a["parts"][0].get("words")) == wordplay.letters(b["parts"][0].get("words"))
+                    and a["parts"][0].get("words")):
+                leaf = {k: v for k, v in a["parts"][0].items() if k != "gives"}
+                notes = [x["parts"][0]["note"] for x in (a, b) if x["parts"][0].get("note")]
+                if notes:
+                    leaf["note"] = " and ".join(notes)
+                parts[i:i + 2] = [{"op": "outer", "parts": [leaf]}]
+                if len(parts) == 1:
+                    node.pop("parts")
+                    node.update(parts[0])
+                break
+    return tree
+
+
+def merged_selects(tree, answer):
+    """A copy where two like selections side by side in a charade (alt<odd characters>(Plug) +
+    alt(50)) are the one selection over a multi-word leaf, the way the validator wants it.
+    The leaf reads its words, or, when a piece stands for a longer word (50 -> FIFTY), the
+    letters the pieces stand for in a row. The first reading that still gives `answer` stays."""
+    for node, _ in walk(tree):
+        parts = node.get("parts") or []
+        for i in range(len(parts) - 1):
+            a, b = parts[i], parts[i + 1]
+            if (node.get("op") == "charade" and isinstance(a, dict) and isinstance(b, dict)
+                    and a.get("op") in wordplay.SELECT and a.get("op") == b.get("op") != "nth"
+                    and len(a.get("parts") or []) == len(b.get("parts") or []) == 1
+                    and all(isinstance(x["parts"][0], dict) and "op" not in x["parts"][0] for x in (a, b))
+                    and (not a.get("indicators") or not b.get("indicators")
+                         or [x["text"] for x in a["indicators"]] == [x["text"] for x in b["indicators"]])):
+                la, lb = a["parts"][0], b["parts"][0]
+                inds = a.get("indicators") or b.get("indicators")
+                words = (la.get("words") or "") + " " + (lb.get("words") or "")
+                stands = "".join(wordplay.letters(l.get("gives") or l.get("words")) for l in (la, lb))
+                for gives in (None, stands):
+                    t = copy.deepcopy(tree)
+                    tn = [n for n, _ in walk(t)][[n for n, _ in walk(tree)].index(node)]
+                    leaf = {"words": words.strip(), **({"gives": gives} if gives else {})}
+                    notes = [x["note"] for x in (la, lb) if x.get("note")]
+                    if notes:
+                        leaf["note"] = "; ".join(notes)
+                    merged = {"op": a["op"], **({"indicators": copy.deepcopy(inds)} if inds else {}), "parts": [leaf]}
+                    tn["parts"][i:i + 2] = [merged]
+                    if len(tn["parts"]) == 1:
+                        tn.pop("parts")
+                        tn.update(merged)
+                    if _gives(t, answer):
+                        return t
+                break
+    return tree
+
+
+def shared_indicators(tree):
+    """A copy where a selection with no indicator, beside the same selection in its charade
+    that has one (alt<odd characters>(Plug) + alt(50)), reads the same indicator words."""
+    tree = copy.deepcopy(tree)
+    for node, _ in walk(tree):
+        if node.get("op") != "charade":
+            continue
+        for p in node.get("parts") or []:
+            if _bare_select(p):
+                for q in node["parts"]:
+                    if q is not p and q.get("op") == p["op"] and q.get("indicators"):
+                        p["indicators"] = copy.deepcopy(q["indicators"])
+                        break
+    return tree
+
+
+def peeled_indicators(tree, answer):
+    """A copy where a selection with no indicator over a multi-word leaf takes its leading
+    words as the indicator ('outer parts of' ankle), as many as still leave a pick that
+    gives the answer. The words were already in the leaf."""
+    tree = copy.deepcopy(tree)
+    for node, _ in walk(tree):
+        if not _bare_select(node):
+            continue
+        leaf = node["parts"][0]
+        words = (leaf.get("words") or "").split()
+        for k in range(len(words) - 1, 0, -1):
+            trial = copy.deepcopy(tree)
+            hit = [n for n, _ in walk(trial)][[n for n, _ in walk(tree)].index(node)]
+            hit["parts"][0]["words"] = " ".join(words[k:])
+            hit["indicators"] = [{"text": " ".join(words[:k]),
+                                  "note": "these words say which letters are picked from the word"}]
+            if _gives(trial, answer):
+                node["parts"][0]["words"] = " ".join(words[k:])
+                node["indicators"] = hit["indicators"]
+                break
+    return tree
+
+
+def picked_from_words(tree, answer):
+    """A copy where each selection over a leaf that holds the pick's own result (first([Cats]CA))
+    reads the clue words instead, wherever the tree still gives `answer` that way: the op
+    then really makes the pick, and the evaluator checks it. A leaf standing for a longer
+    word (penury -> POVERTY) fails that way and keeps its letters."""
+    tree = copy.deepcopy(tree)
+    for node, _ in list(walk(tree)):
+        if node.get("op") in wordplay.SELECT and len(node.get("parts") or []) == 1 and _plain_leaf(node["parts"][0]):
+            leaf = node["parts"][0]
+            kept = leaf.pop("gives")
+            if not _gives(tree, answer):
+                leaf["gives"] = kept
+    return tree
+
+
+def shaped(tree, answer):
+    """The tree with the shape repairs that keep it giving `answer` (picked_from_words,
+    merged_outer, merged_selects, shared_indicators, peeled_indicators)."""
+    for fix in (lambda t: picked_from_words(t, answer), merged_outer, lambda t: merged_selects(t, answer), shared_indicators,
+                lambda t: peeled_indicators(t, answer)):
+        t = fix(tree)
+        if _gives(t, answer):
+            tree = t
+    return tree
 
 
 def repaired(tree, answer):

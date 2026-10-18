@@ -147,5 +147,14 @@ check("a del filed removed-first is read the other way round (IGUANAS)", True, c
     op("anagram", op("deletion", leaf("Ten", "TEN"), leaf("nauseating", "NAUSEATING")), unchecked=True), "IGUANAS"))
 check("a comp whose letters do not fit is not made", False, clears(
     op("anagram", op("deletion", leaf("the said", "THESAID"), leaf("is", "IS")), unchecked=True), "DEATX"))
+ink = [{"text": "odd characters", "note": "n"}]
+puffy = R.shaped({"op": "charade", "parts": [op("alternate", leaf("Plug"), indicators=ink),
+                                              op("alternate", leaf("50", "FIFTY"))]}, "PUFFY")
+check("two like selections are one over a multi-word leaf (PUFFY)", ["alternate", "Plug 50", "PLUGFIFTY"],
+      [puffy["op"], puffy["parts"][0]["words"], puffy["parts"][0]["gives"]])
+acute = R.shaped(op("charade", op("first", leaf("outer parts of ankle")), op("last", leaf("outer parts of ankle"))), "AE")
+check("first + last over one word is outer, its leading words the indicator (ACUTE)", ["outer", "outer parts of", "ankle"],
+      [acute["op"], acute["indicators"][0]["text"], acute["parts"][0]["words"]])
+check("a figure is written out", "FIFTY", R.number_word("50"))
 
 raise SystemExit(fails)

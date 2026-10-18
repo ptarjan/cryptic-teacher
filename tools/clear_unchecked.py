@@ -49,6 +49,8 @@ def stripped(node):
 
     def go(n):
         n.pop("unchecked", None)
+        for key in ("select", "soundsLike"):  # unchecked-leaf fields: the schema refuses them on a checked leaf
+            n.pop(key, None)
         if "op" in n:  # a checked op's letters are derived: the schema refuses `gives` there
             n.pop("gives", None)
         for p in n.get("parts") or []:
@@ -61,8 +63,27 @@ def stripped(node):
 def cleaned(wp, answer):
     """The tree to file: the flags stripped after the mechanical repairs of
     tools/unchecked_repairs.py, in the form that gives `answer` when one does."""
-    base = stripped(R.unscramble(R.drop_wordless(wp)))
-    return R.repaired(base, answer) or base
+    base = stripped(R.unscramble(R.split_spoon(R.drop_wordless(wp))))
+    return R.shaped(R.repaired(base, answer) or base, answer)
+
+
+def surplus_words(tree, got):
+    """Whether a selection that has its indicator still carries clue words it does not need:
+    the pick it made (`got`, from the evaluator) can also be made from the leaf's words
+    with the first or the last one left off. Those words are then the real indicator
+    ('gastronome spilling guts' for GE), filed in the leaf while the op names another."""
+    for node, _ in R.walk(tree):
+        parts = node.get("parts") or []
+        if (node.get("op") not in wordplay.SELECT or not node.get("indicators") or len(parts) != 1
+                or "op" in parts[0] or "gives" in parts[0]):
+            continue
+        words = [w for w in (wordplay.letters(x) for x in (parts[0].get("words") or "").split()) if w]
+        if len(words) < 2 or id(node) not in got:
+            continue
+        for sub in (words[1:], words[:-1]):
+            if got[id(node)] in wordplay._select(node["op"], node.get("n"), "".join(sub), sub):
+                return True
+    return False
 
 
 def bucket(wp, answer, ann=None, clue=None):
@@ -71,7 +92,7 @@ def bucket(wp, answer, ann=None, clue=None):
     the flag is gone (an indicator swapped into a leaf) does not clear either."""
     tree = cleaned(wp, answer)
     try:
-        wordplay.evaluate(tree, answer)
+        got = wordplay.evaluate(tree, answer)
     except wordplay.WordplayError as e:
         msg = str(e)
         if msg.startswith("the wordplay does not give"):
@@ -89,6 +110,8 @@ def bucket(wp, answer, ann=None, clue=None):
         shape = V.shape_warnings("clue", {**ann, "wordplay": tree}, clue)
         if shape:
             return "failing", "shape: " + _code(shape[0]), shape[0][:150]
+    if surplus_words(tree, got):
+        return "failing", "surplus leaf words", "a selection's leaf holds words the pick does not need: one is its indicator"
     return "cleared", "cleared", ""
 
 
