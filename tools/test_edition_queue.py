@@ -298,6 +298,88 @@ check("a slow plan names the papers it spent its seconds on",
       (1, True), (len([n for n in notes if n.startswith("slow plan: papers took")]),
                   all(p in notes[-1] for p in ("gale", "times"))))
 
+# ---- the queue is built once and consumed: a plan whose inputs did not move is the last one's lists
+# themselves, and one after units finish or inputs change equals the whole plan derived afresh
+# (Paul 10-17: "Don't we just have a queue to burn through").
+bq = T / "built-queue"
+real_root = eq.media_manifest.downloads.ROOT
+eq.media_manifest.downloads.ROOT = T  # the cache counts as on the media disk: plans are stamped
+real_mm, real_dirs = eq.media_manifest.DIR, f.edition_dirs
+eq.media_manifest.DIR = T / "built-queue-manifest"  # the edition manifests a fetcher appends a row to
+eq.media_manifest.DIR.mkdir()
+f.edition_dirs = lambda cache=None, paper=None: (
+    sorted((bq / "NewsUK1981UKEnglish").iterdir()) if (paper or f.TIMES).key == "times" else [])
+probes = []
+real_reachable = f.vlm.reachable
+f.vlm.reachable = lambda: probes.append(1) or False
+def bq_edition(item, name, content="{}"):
+    d = bq / item / name
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "pages.json").write_text(content)
+    eq.media_manifest.record_edition(d)  # as the fetcher does when it lays an edition out
+    for x in (d, d.parent, bq):
+        os.utime(x, (time.time() - 600, time.time() - 600))
+    return d
+bq_dirs = [bq_edition("NewsUK1981UKEnglish", f"1981-0{m}-0{m}_{m}") for m in (1, 2, 3)]
+def bq_row(d):
+    fh, found = f.input_hash(d), {"puzzles": [], "solutions": []}
+    return {"edition": f"{d.parent.name}/{d.name}", "filesHash": fh, "scanKey": f.scan_key(), "scan": found,
+            "inputs": f.inputs_of(fh, found, f.TIMES.series), "solutionsSeen": [], "verdicts": [],
+            "readAt": "2026-01-01T00:00:00+00:00"}
+def bq_whole(reread=None):
+    """The plan derived from nothing (every memo of the planner set aside, then put back)."""
+    memos = (eq._QUEUE, f._PLANNED, f._PAPER_PLANS)
+    kept = [dict(m) for m in memos]
+    for m in memos:
+        m.clear()
+    try:
+        return eq.plan(["times"], bq, reread)
+    finally:
+        for m, k in zip(memos, kept):
+            m.clear()
+            m.update(k)
+def bq_units(plan):
+    return [[(u["kind"], u["rel"], u["rank"], u["reason"]) for u in us] for us in plan]
+first_plan = eq.plan(["times"], bq)
+check("the first plan of a cache reads each edition due", 3, len(first_plan[1]))
+n_probes = len(probes)
+again = eq.plan(["times"], bq)
+check("a plan whose inputs did not move is the last one's lists themselves, the VLM not probed again",
+      (True, True, n_probes + 1), (again[0] is first_plan[0], again[1] is first_plan[1], len(probes)))
+probes.clear()
+eq._QUEUE.clear()
+f._PLANNED.clear()
+eq.plan(["times"], bq)
+check("a whole plan probes the VLM once, not once a paper per stamp and plan", 1, len(probes))
+import subprocess
+q.append(bq / "filed.jsonl", [bq_row(bq_dirs[0])])
+done_plan = eq.plan(["times"], bq)
+check("a unit's row landing: the incremental plan is the whole plan, the edition dropped out",
+      (bq_units(bq_whole()), False), (bq_units(done_plan), any(u["rel"].endswith(bq_dirs[0].name) for u in done_plan[1])))
+q.append(bq / "filed.jsonl", [bq_row(bq_dirs[1]), {**bq_row(bq_dirs[0]), "inputs": "moved"}])
+check("more rows, one moved: still the whole plan", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+bq_edition("NewsUK1981UKEnglish", "1981-04-04_4")
+check("a new scan laid out: the whole plan again, the new edition in it", (bq_units(bq_whole()), True),
+      (bq_units(eq.plan(["times"], bq)), any(u["rel"].endswith("1981-04-04_4") for u in eq.plan(["times"], bq)[1])))
+bq_edition("NewsUK1981UKEnglish", bq_dirs[2].name, '{"moved": 1}')
+check("a file of an edition moved: the whole plan again", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+cutoff = q.when("2099-01-01T00:00:00+00:00")
+check("a --reread cutoff: the whole plan again, rows read before it due", (bq_units(bq_whole(cutoff)), True),
+      (bq_units(eq.plan(["times"], bq, cutoff)), len(eq.plan(["times"], bq, cutoff)[1]) > len(eq.plan(["times"], bq)[1])))
+check("and back without it", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+os.environ["CT_NEWEST_FIRST"] = "times"
+try:
+    check("CT_NEWEST_FIRST changed: the whole plan again, in its order", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+    with_env = eq.plan_version(eq.code_files())
+finally:
+    del os.environ["CT_NEWEST_FIRST"]
+check("a kept plan is not used by other code or environment: its version moves with CT_NEWEST_FIRST",
+      False, eq.plan_version(eq.code_files()) == with_env)
+f.vlm.reachable = real_reachable
+f.edition_dirs = real_dirs
+eq.media_manifest.downloads.ROOT = real_root
+eq.media_manifest.DIR = real_mm
+
 # ---- the units: each appends its own row, never another's
 calls = []
 f.scan = lambda d: calls.append(("scan", d.name)) or {"puzzles": [{"number": 7, "leaf": 1, "box": None}], "solutions": []}
@@ -815,7 +897,8 @@ quick = lambda papers""").replace(
     'resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None', f"""
 resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else {str(kept)!r}
 if "--resume" not in sys.argv:
-    eq.keep_plan(eq.Path(resume + ".plan"), [["times"], {str(cache)!r}, None, []], (*quick(["times"]), []), time.time())
+    eq.keep_plan(eq.Path(resume + ".plan"), [["times"], {str(cache)!r}, None, [], eq.plan_version(eq.code_files())],
+                 (*quick(["times"]), []), time.time())
 """).replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(fresh_drv), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})

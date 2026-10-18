@@ -2732,11 +2732,27 @@ def held_once():
         yield
         return
     _HELD_NOW.files = {}
+    _HELD_NOW.vlm = []
     try:
         with puzzle_paths.listed_once():  # find_listed's year-folder stats too, once a scope
             yield
     finally:
         _HELD_NOW.files = None
+        _HELD_NOW.vlm = None
+
+
+def vlm_seen():
+    """The VLM version the readings now depend on, or None when it is not
+    reachable. Inside a held_once scope (a plan) it is probed once: the probe
+    is an ssh to the desktop (13-76 s under load) and a plan asked it twice a
+    paper (stamp and plan), 16-17 times a plan."""
+    memo = getattr(_HELD_NOW, "vlm", None)
+    if memo:
+        return memo[0]
+    seen = vlm.version() if vlm.reachable() else None
+    if memo is not None:
+        memo.append(seen)
+    return seen
 
 
 def save_held(path):
@@ -4880,8 +4896,15 @@ def _plan_stamp(paper, cache, ledger, reread, asked, dirs):
     manifests = tuple(_stat_stamp(media_manifest.path(n)) for n in (media_manifest.ARCHIVE_EDITIONS,
                                                                     media_manifest.GALE_EDITIONS))
     return (_stat_stamp(ledger), sisters, manifests, held, folders, current_keys(paper), solution_key(),
-            vlm.version() if vlm.reachable() else None, reread, frozenset(asked),
+            vlm_seen(), reread, frozenset(asked),
             None if dirs is None else tuple(dirs))
+
+
+def plan_stamp(paper, cache=CACHE, reread=None, asked=()):
+    """_plan_stamp of the whole-paper plan(): equal stamps mean plan() would
+    answer the same units (None: not told cheaply, so always plan afresh).
+    Within a held_once scope the listing and the VLM probe are made once."""
+    return _plan_stamp(paper, cache, ledger_of(cache, paper), reread, tuple(asked), None)
 
 
 def _plan_paper(paper, cache, ledger, reread, asked, dirs):
@@ -4977,7 +5000,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         if rel is None:
             rel = st.rels[s] = f"{d.parent.name}/{d.name}"
         rels[d] = rel
-    seen_by = vlm.version() if vlm.reachable() else None
+    seen_by = vlm_seen()
     fhs = {d: input_hash(d) for d in dirs}
     stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d], rels[d])]
     stale_set = set(stale)

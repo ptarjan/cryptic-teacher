@@ -468,7 +468,9 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
     could not add their rows)."""
     load_caches()
     try:
-        return _plan(papers, cache, reread, out)
+        # One scope for the whole plan: each series is listed and the VLM probed once, not per paper.
+        with fa.held_once():
+            return _plan_kept(papers, cache, reread, out)
     finally:
         # The listings are a hint for the next process (each stands only while its dir_key does), and
         # pickling them is ~1s CPU a plan: written at most every DIR_SAVE_EVERY seconds, first plan included.
@@ -524,7 +526,12 @@ COUNT_LEFT_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/count_left.pic
 _LOADED = []
 
 
-def _plan(papers, cache, reread, out):
+#: The last whole plan (see _plan_kept): {"key", "stamps", "extra", "made", "out", "notes"}.
+_QUEUE = {}
+
+
+def _asked():
+    """{paper key: {source}} the annotation asked to have read again."""
     asked = {}
     try:
         for req in scan_queue.all_open_requests():
@@ -536,6 +543,62 @@ def _plan(papers, cache, reread, out):
                 asked.setdefault("trove", set()).add(req["source"])
     except (OSError, ValueError) as e:
         log(f"the annotation re-read requests did not load ({type(e).__name__}: {e}); planned without them")
+    return asked
+
+
+def plan_inputs(papers, cache, reread, asked):
+    """(key, stamps, extra): what a plan of `papers` is made of, each cheap to
+    read (stats, one listing per series, one VLM probe). `key` is the request
+    (papers, cache, reread, CT_NEWEST_FIRST); `stamps` each archive paper's
+    fa.plan_stamp and whether a run holds its ledger (None for any: not told
+    cheaply, as off the media disk); `extra` the Listener's and Trove's units
+    (small, and Trove's kept for TROVE_REPLAN seconds on their own)."""
+    key = (tuple(papers), str(cache), reread, tuple(sorted(newest_first_papers())))
+    stamps = {}
+    for k in papers:
+        if k in ("listener", "trove"):
+            continue
+        paper = fa.FILERS[k]
+        stamp = fa.plan_stamp(paper, cache, reread, asked.get(k, ()))
+        stamps[k] = None if stamp is None else (stamp, bool(scan_queue.held(fa.ledger_of(cache, paper))))
+    extra = {}
+    if "listener" in papers:
+        extra["listener"] = gale_listener.plan()
+    if "trove" in papers:
+        led = media_manifest.trove_ledger(ftp.CACHE)
+        extra["trove"] = (bool(scan_queue.held(led)), None if scan_queue.held(led) else trove_plan(reread, asked.get("trove", ())))
+    return key, stamps, extra
+
+
+def _plan_kept(papers, cache, reread, out):
+    """_plan's answer, the last whole plan's lists themselves while nothing it
+    is made of moved (plan_inputs equal, and under fa.PLAN_REUSE seconds old,
+    fa's own backstop): the queue is built once and consumed (dispatch drops
+    each unit it has tried), not derived again each tick. Any input moving
+    (a ledger row, a new scan or fetch, filed puzzles, the scan code, the
+    VLM, the request, CT_NEWEST_FIRST) derives it again, whole, as before:
+    each paper through fa's own per-paper memo, so only what moved is worked
+    out."""
+    asked = _asked()
+    key, stamps, extra = plan_inputs(papers, cache, reread, asked)
+    last = _QUEUE.get("last")
+    if (last is not None and last["key"] == key and None not in stamps.values() and last["stamps"] == stamps
+            and last["extra"] == extra and time.monotonic() - last["made"] < fa.PLAN_REUSE):
+        if out is not None:
+            out.extend(last["notes"])
+        return last["result"]
+    notes = []
+    result = _plan(papers, cache, reread, notes, asked)
+    if out is not None:
+        out.extend(notes)
+    # Notes about a slow plan describe that plan, not the one that reuses it.
+    _QUEUE["last"] = {"key": key, "stamps": stamps, "extra": extra, "made": time.monotonic(), "result": result,
+                      "notes": [n for n in notes if not n.startswith("slow plan")]}
+    return result
+
+
+def _plan(papers, cache, reread, out, asked=None):
+    asked = _asked() if asked is None else asked
     scans, reads = [], []
     began, took = time.monotonic(), {}
     for k, key in enumerate(papers):
@@ -1144,7 +1207,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # The last plan is kept beside the hand-over, so a re-exec or the next
     # slice starts units from it at once while its own plan is made.
     plan_file = Path(f"{handoff or resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
-    plan_key = [list(papers), str(cache), reread and reread.isoformat(), sorted(fetch)]
+    plan_key = [list(papers), str(cache), reread and reread.isoformat(), sorted(fetch), plan_version(code)]
     plan_at = None  # when the plan in force was made (wall clock), once one is kept
     plan_reuse = PLAN_REUSE if plan_reuse is None else plan_reuse
     planned_took = [0.0]  # seconds the last whole plan took (replan_after)
@@ -1903,6 +1966,18 @@ PLAN_KEPT = 7200
 #: that run's own whole plan: a re-exec on a code change (261 in full_pass.log,
 #: each replanning 55-175 s, up to ~1600 s under load) no longer replans.
 PLAN_REUSE = 600
+
+
+def plan_version(code):
+    """What a kept plan depends on besides its arguments, so a plan kept by
+    other code, scan keys or environment is not started from (a restart after
+    a change started units the new code would have skipped): the digests of
+    the planner's own files (`code`, code_files()), each paper's scan key and
+    the solution key, CT_NEWEST_FIRST and the request files' path."""
+    own = [code.get(Path(f).resolve()) for f in (__file__, fa.__file__, scan_queue.__file__)]
+    keys = [sorted(fa.current_keys(p)) for p in fa.FILERS.values()]
+    return json.loads(json.dumps([own, keys, fa.solution_key(), sorted(newest_first_papers()),
+                                  str(scan_queue.REQUESTS)], default=str))
 
 
 def keep_plan(path, key, made, at, took=0.0):
