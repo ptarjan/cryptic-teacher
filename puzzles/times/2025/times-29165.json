@@ -460,50 +460,42 @@
      "indicators": [
       {
        "text": "ruined",
-       "note": "OUTING is wrecked and its letters rebuilt"
+       "at": 16,
+       "note": "the outing is ruined, so its letters are wrecked and rebuilt"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "outing",
+       "at": 9
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "take the final letter of each word"
+         "at": 50,
+         "note": "ultimately points to the final letter of each of the three words before it"
         }
        ],
        "parts": [
         {
-         "words": "outing",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "LTY",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "this'll upset everybody, ultimately",
-           "gives": "LTY",
-           "select": "last",
-           "note": "last letters of this'll, upset and everybody"
-          }
-         ]
+         "words": "this'll upset everybody",
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An innocent day out spoiled, to the dismay of the whole party.",
-     "walkthrough": "'Upset' looks like a second anagram signal, but it is just one of the three words giving a last letter.",
-     "definitionFit": "A plain synonym: a verdict of not guilty declares someone innocent."
+     "surface": "A spoilt day out that will annoy everyone in the end.",
+     "walkthrough": "'upset' looks like the anagram signal, but here it is just one of three words whose final letters join the fodder; 'ruined' does the shuffling.",
+     "definitionFit": "A not guilty verdict is the court's finding that the accused is innocent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "upset"
+     "misdirectedWord": "Innocent"
     }
    }
   },
@@ -999,49 +991,50 @@
     "definitions": [
      {
       "text": "One's positive",
-      "at": 0,
-      "note": "reads as 'one who is positive', a noun phrase"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "OPTIMIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 21,
+       "note": "the top is worn around Tim's, so it encloses those letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "TIM IS is worn inside the top"
-        },
-        {
          "text": "cycling",
-         "note": "TOP cycles its letters, moving the T from front to back"
+         "at": 29,
+         "note": "cycling moves the first letter of top round to the end"
         }
        ],
        "parts": [
         {
          "words": "top",
-         "gives": "OPT",
-         "note": "TOP with its first letter moved to the end"
-        },
-        {
-         "words": "Tim's",
-         "gives": "TIMIS",
-         "note": "Tim's expanded as Tim is"
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "Tim's",
+       "at": 15,
+       "gives": "TIMIS",
+       "note": "Tim's is read as the contraction of Tim is"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful man called Tim sporting a cycling jersey.",
-     "walkthrough": "The apostrophe in Tim's stands for 'is', not possession, so it gives TIM IS. A cycling top sounds like a jersey; here it tells you to rotate TOP.",
-     "definitionFit": "A descriptive definition: the person who looks on the bright side, expecting things to turn out well."
+     "surface": "Tim, in a cycling jersey, is upbeat.",
+     "walkthrough": "'cycling' turns TOP into OPT by moving its first letter to the back; 'Tim's' must be expanded to 'Tim is' for the wearer.",
+     "definitionFit": "An optimist is someone with a hopeful, upbeat outlook who expects good results."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
@@ -1195,44 +1188,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "a lot of",
-       "note": "most of STICK, losing its last letter"
-      },
-      {
-       "text": "supporting"
+       "text": "supporting",
+       "at": 37,
+       "note": "in a down clue the supporting piece sits beneath, so it comes after the priest"
       }
      ],
      "parts": [
       {
        "words": "priest",
+       "at": 48,
        "gives": "ELI",
-       "note": "Eli, the priest who raised Samuel in the Bible"
+       "note": "Eli is the priest in the Book of Samuel, a crossword regular"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "the letters are turned about to read backwards"
+         "at": 31,
+         "note": "about signals that the shortened criticism is turned round"
         }
        ],
        "parts": [
         {
-         "words": "a lot of criticism",
-         "gives": "STIC",
-         "note": "STICK, criticism, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a lot of",
+           "at": 12,
+           "note": "a lot of, but not all, so the final letter of the word for criticism is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "criticism",
+           "at": 21,
+           "gives": "STICK",
+           "note": "stick is informal for harsh criticism"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A priest attracting a barrage of criticism.",
-     "walkthrough": "To get stick is British slang for being criticised. ELI is the crossword's favourite priest.",
-     "definitionFit": "A plain synonym: to elicit a response is to draw it forth."
+     "surface": "A priest attracts lots of criticism.",
+     "walkthrough": "'a lot of' trims STICK to STIC; 'about' turns that into CITS, which goes under ELI.",
+     "definitionFit": "To elicit is to draw out a response or information from someone."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "supporting"
     }

@@ -419,61 +419,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "coming up",
-       "note": "in a down entry, coming up means the word reads from bottom to top"
+       "text": "as filling for",
+       "at": 25,
+       "note": "a and recipe fill the banana, going inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "as filling for",
-         "note": "a filling goes inside, so these letters go into the middle of the other word"
+         "text": "split coming up",
+         "at": 47,
+         "note": "in a down clue the banana genus is split open and read upwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "split",
-           "note": "a split word is opened in two, leaving a gap for the filling to go in"
-          }
-         ],
-         "parts": [
-          {
-           "words": "banana",
-           "gives": "MUSA",
-           "note": "Musa is the botanical genus of the banana"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "banana",
+         "at": 40,
+         "gives": "MUSA",
+         "note": "Musa is the botanical genus of the banana"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16,
+         "gives": "A"
         },
         {
          "words": "recipe",
+         "at": 18,
          "gives": "R",
-         "note": "R is the abbreviation for recipe, from Latin, on prescriptions"
+         "note": "R is the abbreviation for recipe (take) on prescriptions"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dessert recipe: dried ginger stuffed into a banana split.",
-     "walkthrough": "'Split' is part of the instruction: the reversed banana genus is split to take A and R in its middle.",
-     "definitionFit": "Asarum is wild ginger; its dried rootstock was used like ginger as a spice and medicine."
+     "surface": "A recipe uses dried ginger inside a banana split dessert.",
+     "walkthrough": "The banana genus MUSA, read upwards as ASUM, is split to take A and R.",
+     "definitionFit": "Asarum, or wild ginger, has a dried rootstock used like the spice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "banana"
+     "misdirectedWord": "split"
     }
    }
   },
@@ -645,38 +644,40 @@
      "indicators": [
       {
        "text": "caught by",
-       "note": "something caught by another is held inside it"
+       "at": 30,
+       "note": "the words are caught inside the fool, so they go within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "old fool",
+       "at": 40,
+       "gives": "MOME",
+       "note": "mome is an archaic word for a fool"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "old fool",
-         "gives": "MOME",
-         "note": "mome is an old word for a fool or blockhead"
+         "words": "not",
+         "at": 19
         },
         {
          "words": "note",
+         "at": 24,
          "gives": "RE",
          "note": "re is the second note of the sol-fa scale"
         }
        ]
-      },
-      {
-       "words": "not",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An old fool catching a primitive animal, or rather not doing so.",
-     "walkthrough": "'Not, note' reads as a correction in the surface, but each word is a separate piece.",
-     "definitionFit": "Monotremes, the platypus and echidnas, are the most primitive living mammals, laying eggs like reptiles."
+     "surface": "An old fool catches a primitive animal.",
+     "definitionFit": "Monotremes are egg-laying mammals like the platypus, an ancient and primitive group."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "note"
     }
@@ -1523,44 +1524,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INPUP",
      "indicators": [
       {
        "text": "burying",
-       "note": "a buried thing ends up inside, so that letter is set back within the word"
+       "at": 15,
+       "note": "the model's head is buried, moved from the front to deep inside the word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INPUP",
-       "indicators": [
-        {
-         "text": "her head",
-         "note": "the model's head, her first letter, is taken off the front"
-        }
-       ],
        "parts": [
         {
          "words": "model",
+         "at": 9,
          "gives": "PINUP",
          "note": "a pin-up is a model whose picture is pinned on walls"
+        },
+        {
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "her head",
+       "at": 23,
+       "gives": "P",
+       "note": "the model's head is her first letter"
       }
      ]
     },
     "explanation": {
-     "surface": "An expectant model hides her face, ostrich-like.",
-     "walkthrough": "'Burying her head' suggests an ostrich, but it moves the model's first letter down inside the word. The enumeration warns of two words.",
-     "definitionFit": "In pup is said of a bitch carrying young, so it means pregnant."
+     "surface": "Is the expectant model hiding her face?",
+     "walkthrough": "The first letter of PIN-UP is taken off the front and buried in the middle of what is left.",
+     "definitionFit": "In pup is said of a dog or other animal carrying young, that is, expecting."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "burying"
+     "joke": "pun",
+     "misdirectedWord": "head"
     }
    }
   },

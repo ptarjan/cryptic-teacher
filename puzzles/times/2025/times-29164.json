@@ -351,51 +351,77 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CONTEMPTOFCOURT",
-     "indicators": [
-      {
-       "text": "accepting",
-       "note": "the politician takes the trustee's outer letters inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "case",
-         "note": "a word's case is its outer letters"
-        },
-        {
-         "text": "commuted",
-         "note": "to commute is to change, so the letters are rearranged"
+         "text": "accepting",
+         "at": 16,
+         "note": "the Tory politician accepts the case, taking it inside"
         }
        ],
        "parts": [
         {
-         "words": "Tory politician",
-         "gives": "CONMP",
-         "note": "CON = Conservative (Tory), MP = politician"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Tory",
+           "at": 0,
+           "gives": "CON",
+           "note": "Con is short for Conservative, the Tory party"
+          },
+          {
+           "words": "politician",
+           "at": 5,
+           "gives": "MP",
+           "note": "MP is a Member of Parliament"
+          }
+         ]
         },
         {
-         "words": "trustee's case",
-         "gives": "TE",
-         "note": "first and last letters of TrusteE, placed between CON and MP"
-        },
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case",
+           "at": 36,
+           "note": "the case of a word is its outside, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trustee's",
+           "at": 26,
+           "gives": "TRUSTEE",
+           "note": "the possessive just says the case belongs to the trustee"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "commuted",
+         "at": 52,
+         "note": "commuted means changed or exchanged, so the letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "for cut to",
-         "note": "anagram fodder, 8 letters"
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory politician taking a trustee's case to argue for a commuted sentence.",
-     "walkthrough": "The legal surface (trustee, case, commuted) is all misdirection: 'case' means outer letters and 'commuted' means rearranged.",
-     "definitionFit": "A definition by class: disobeying or disrespecting a court is itself a punishable offence, so the specific crime stands for the general word."
+     "surface": "A Conservative MP takes a trustee's case for a reduced sentence on an offence.",
+     "walkthrough": "'commuted' looks like part of a legal sentence in the surface, but it is the signal to rearrange; 'offence' alone is the definition.",
+     "definitionFit": "Contempt of court is the offence of disobeying or disrespecting a court."
     },
     "features": {
      "answerInScene": true,
@@ -425,46 +451,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTERISK",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "First",
-         "note": "points at the first letter of the word for savour"
+         "at": 0,
+         "note": "first says it is the opening letter for time that goes"
         },
         {
          "text": "out",
-         "note": "'out' as in knocked out or gone out: the letter that 'First time' points at leaves the word savour."
+         "at": 11,
+         "note": "out means the letter is removed"
         }
        ],
        "parts": [
         {
-         "words": "First time out, savour",
-         "gives": "ASTE",
-         "note": "TASTE (savour) with its first T (time) removed"
+         "words": "savour",
+         "at": 16,
+         "gives": "TASTE",
+         "note": "to savour is to taste"
         },
         {
-         "words": "chance",
-         "gives": "RISK",
-         "note": "risk = chance"
+         "words": "time",
+         "at": 6,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "chance",
+       "at": 23,
+       "gives": "RISK",
+       "note": "a risk is a chance or gamble"
       }
      ]
     },
     "explanation": {
-     "surface": "A debutant savouring the chance to become a star.",
-     "walkthrough": "The surface's 'first time out' is a debut; here it tells you T, time, is the first letter to go.",
-     "definitionFit": "The typographical sense: the little star-shaped mark * is literally a star, from Greek asteriskos, small star."
+     "surface": "A newcomer savours the chance to become a star.",
+     "walkthrough": "'First time out' matters because the word for savour has two Ts; only the first one goes.",
+     "definitionFit": "An asterisk is the star-shaped typographical symbol."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "star"
     }
    }
@@ -1007,39 +1039,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "rebuilt",
-       "note": "built again, so the letters are reassembled in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rebuilt",
+         "at": 7,
+         "note": "the empire is rebuilt, its letters reassembled"
+        }
+       ],
        "parts": [
         {
          "words": "Empire",
-         "note": "anagram fodder, 6 letters"
-        },
-        {
-         "words": "socialist",
-         "gives": "RED",
-         "note": "red = socialist"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "socialist",
+       "at": 18,
+       "gives": "RED",
+       "note": "red is a common term for a socialist or communist"
       }
      ]
     },
     "explanation": {
-     "surface": "A fallen empire rebuilt by a socialist, and shown to the world.",
-     "walkthrough": "The surface reads as history; 'rebuilt' just rearranges EMPIRE.",
-     "definitionFit": "A film or play that premiered was first shown then."
+     "surface": "An empire is rebuilt by a socialist at first.",
+     "definitionFit": "A play or film premiered was given its first public performance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Empire"
+     "misdirectedWord": "first"
     }
    }
   },
