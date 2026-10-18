@@ -231,45 +231,37 @@
      "indicators": [
       {
        "text": "Doctor",
-       "note": "to doctor something is to tamper with it, so the letters are rearranged"
+       "at": 0,
+       "note": "to doctor is to tamper with, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "beginning to",
-         "note": "the beginning of a word is its first letter"
+         "at": 7,
+         "note": "beginning to picks the first letter of puncture"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "beginning to puncture",
-           "gives": "P",
-           "select": "first",
-           "note": "first letter of PUNCTURE"
-          }
-         ]
-        },
-        {
-         "words": "delusion",
-         "note": "the other eight letters to be rearranged"
+         "words": "puncture",
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "delusion",
+       "at": 29
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor sets out to burst a patient's delusion that things are as good as ever.",
-     "walkthrough": "'Doctor' sits at the head of the clue like a physician; it is the instruction to rearrange.",
-     "definitionFit": "Something unspoiled is still as nice as it was originally."
+     "surface": "A physician starts to burst a patient's false belief.",
+     "walkthrough": "'Doctor' looks like a person but is a verb, telling you to rearrange P with DELUSION.",
+     "definitionFit": "Something unspoiled is undamaged, still in its original pleasant state."
     },
     "features": {
      "answerInScene": false,
@@ -1147,34 +1139,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
+     "spelt": "GUESTBEER",
      "indicators": [
       {
        "text": "to Spooner",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 34,
+       "note": "Dr Spooner swapped the opening sounds of words, so the two starts change places"
       }
      ],
      "parts": [
       {
        "words": "class A",
-       "gives": "BUEST",
-       "note": "A-class is the best; it takes the G sound from its partner"
+       "at": 20,
+       "gives": "BEST",
+       "note": "class A means first-rate, the best"
       },
       {
-       "words": "drugs",
-       "gives": "GEER",
-       "note": "gear is slang for drugs; it takes the B sound in exchange"
+       "op": "homophone",
+       "spelt": "GEER",
+       "parts": [
+        {
+         "words": "drugs",
+         "at": 28,
+         "gives": "GEAR",
+         "note": "gear is slang for drugs"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub landlord is found to be selling heroin and cocaine.",
-     "walkthrough": "Class A is the UK's most serious drug category, but read here as 'best'; a guest beer is a changing extra ale a pub stocks.",
-     "definitionFit": "A guest beer is a beer a pub offers for a limited time alongside its regulars."
+     "surface": "A landlord is pushing serious narcotics to an elderly don.",
+     "walkthrough": "Say BEST GEAR and swap the opening sounds: GUEST BEER. 'Class A drugs' looks like one phrase, but it is two pieces.",
+     "definitionFit": "A guest beer is an ale a pub serves for a limited time alongside its regular brews."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "class"
     }
    }
