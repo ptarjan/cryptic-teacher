@@ -117,15 +117,34 @@ def findings(entry, ann=None):
            "wp": wp, "defs": ann.get("definitions") or [], "andLit": bool(ann.get("andLit"))}
     found = [f"{k}: {v}" if isinstance(v, str) else k
              for _, hits in ss.run_detectors([row]) for k, v in hits.items() if k in ss.PRECISION]
-    # The validator rules a redo must also clear (a tree that evaluates to the answer
-    # but nests a container wrongly, or hangs an indicator on the wrong op, passes
-    # every other check: times-29420 24a ABUSE, 16d SWEETPEAS).
+    # The validator's verdict: every shape rule a redo must clear (a tree that evaluates to
+    # the answer but nests a container wrongly, or hangs an indicator on the wrong op, passes
+    # every other check: times-29420 24a ABUSE, 16d SWEETPEAS). The gate was three of the
+    # rules only because those were the ones added in 767fd6cea22, not by choice: a redo
+    # that keeps any other flagged shape would pass the ratchet (it counts per puzzle),
+    # so the gate is every rule in _validator_rules() but unchecked_step (see gated()).
     rules = _validator_rules()
     clue = (entry.get("clue") or {}).get("text", "")
-    return found + [f"{k}: {WHY[k]}" for k in GATED if rules[k](wp, ann, clue)]
+    return found + [f"{k}: {_why(k)}" for k in gated() if rules[k](wp, ann, clue)]
 
 
-GATED = ("anaSynonym", "nestedContainer", "misplacedIndicator", "bareInitial", "deletionScope")
+def _why(rule):
+    """What a gated rule says: the hint written for it, else the validator's own label."""
+    import validate_annotations as V
+    labels = {"scrambledLeaf": V.SCRAMBLED_LEAF, "indFolded": V.IND_FOLDED, "fakeParts": V.FAKE_PARTS,
+              "bareInCharade": V.BARE_IN_CHARADE, "inDefinition": V.IN_DEFINITION, "leafFold": V.LEAF_FOLD,
+              "anagramOfContainer": V.ANAGRAM_OF_CONTAINER, "anaCharade": V.ANAGRAM_CHARADE}
+    return WHY.get(rule) or labels.get(rule, rule)
+
+
+def gated():
+    """The validator rules the redo gate enforces: all of _validator_rules() except
+    unchecked_step, which is a status tools/clear_unchecked.py settles (a tree with
+    an unchecked op is not refused here, only the unchecked_leaf detector's leaves are).
+    A rule added to the validator and to _validator_rules() is gated with no edit here."""
+    return tuple(k for k in _validator_rules() if k != "unchecked_step")
+
+
 WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's own words are "
                      "the fodder, the synonym joins the result in a charade",
        "nestedContainer": "a container holds another container as its holder: join the pieces "
