@@ -218,37 +218,23 @@
      }
     ],
     "wordplay": {
-     "op": "cryptic",
-     "unchecked": true,
-     "gives": "MUGUP",
+     "op": "reverse",
+     "reading": "MUG UP",
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "MUGUP",
-       "indicators": [
-        {
-         "text": "suggests",
-         "note": "the answer, read as its own clue, points to something else"
-        }
-       ],
-       "parts": [
-        {
-         "words": "something to chew on",
-         "gives": "GUM",
-         "note": "chewing gum, the thing you chew; it is the answer's first word read upwards"
-        }
-       ]
+       "words": "suggests something to chew on",
+       "at": 11,
+       "note": "gum is something to chew on; MUG with UP, in a down entry, reads upwards to give it"
       }
      ]
     },
     "explanation": {
-     "surface": "A study that gives you food for thought.",
-     "walkthrough": "Read MUG UP as though it were a clue in a down entry: MUG going up gives GUM, something to chew. 'Chew on' pretends to mean 'think about'.",
-     "definitionFit": "To mug up is British slang for studying hard, cramming."
+     "surface": "A clue claiming that this bit of study gives you food for thought.",
+     "walkthrough": "Read the answer as an instruction: MUG written UP in a down light spells GUM, something to chew on.",
+     "definitionFit": "To mug up is British slang for studying a subject hard in a short time, as before an exam."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "chew"
@@ -796,34 +782,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Half of",
-       "note": "take half the letters of the word that follows"
-      }
-     ],
      "parts": [
       {
-       "words": "Half of them",
-       "gives": "TH",
-       "note": "the first half of THEM"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of the word them is kept, so its second half is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "them",
+         "at": 8
+        },
+        {
+         "gives": "EM"
+        }
+       ]
       },
       {
        "words": "held up",
+       "at": 13,
        "gives": "ROBBED",
-       "note": "held up at gunpoint"
+       "note": "to be held up at gunpoint is to be robbed"
       }
      ]
     },
     "explanation": {
-     "surface": "Half of a group were mugged and beaten.",
-     "walkthrough": "The surface suggests 'beat' as assault; it is the past tense of beat as a pulse does.",
-     "definitionFit": "Throbbed means beat rhythmically, like a heart."
+     "surface": "A cryptic report that half of a group were held up, and someone was beaten.",
+     "definitionFit": "Throbbed means pulsed rhythmically, as a heart beat; both are past tense verbs."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "beat"
+     "misdirectedWord": "held"
     }
    }
   },
@@ -862,51 +856,51 @@
      "indicators": [
       {
        "text": "will be absorbed by",
-       "note": "what is absorbed ends up inside the other piece"
+       "at": 19,
+       "note": "being absorbed by means going inside, so these pieces are taken into the word for next"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "next",
+       "at": 39,
+       "gives": "THEN",
+       "note": "then means next, as in 'and then...'"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "next",
-           "gives": "THEN",
-           "note": "then = next"
-          },
-          {
-           "words": "our team",
-           "gives": "WE",
-           "note": "we = our side"
-          }
-         ]
+         "words": "I",
+         "at": 0,
+         "gives": "EGO",
+         "note": "the ego is the I, the self"
         },
         {
          "words": "predict",
+         "at": 2,
          "gives": "BET",
-         "note": "I bet = I predict"
+         "note": "to bet is to predict an outcome with money on it"
+        },
+        {
+         "words": "our team",
+         "at": 10,
+         "gives": "WE",
+         "note": "we is what fans call their own team"
         }
        ]
-      },
-      {
-       "words": "I",
-       "gives": "EGO",
-       "note": "the ego is the self, the 'I'"
       }
      ]
     },
     "explanation": {
-     "surface": "A fan forecasting that their team will be taken over by the next big thing.",
-     "walkthrough": "'I predict' reads as one phrase, but each word is its own piece. The book is L. P. Hartley's 1953 novel, famous for its opening 'The past is a foreign country'.",
-     "definitionFit": "The Go-Between is a well-known English novel by L. P. Hartley."
+     "surface": "A fan's prediction that our side will be swallowed up by the next opponents.",
+     "walkthrough": "The Go-Between is L. P. Hartley's 1953 novel. I predict our team reads like a pundit speaking, but each word is a separate piece.",
+     "definitionFit": "The Go-Between is a famous novel by L. P. Hartley, so it is a book title."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "I"
+     "misdirectedWord": "team"
     }
    }
   },
@@ -1219,41 +1213,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one piece goes in the other"
+       "at": 22,
+       "note": "in places the abbreviations inside the word for importance"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "importance",
+       "at": 25,
+       "gives": "MOMENT",
+       "note": "moment means importance, as in matters of great moment"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "importance",
-         "gives": "MOMENT",
-         "note": "of great moment = of great importance"
+         "words": "very",
+         "at": 9,
+         "gives": "V"
         },
         {
          "words": "English",
-         "gives": "E",
-         "note": "E = English"
+         "at": 14,
+         "gives": "E"
         }
        ]
-      },
-      {
-       "words": "very",
-       "gives": "V",
-       "note": "v = very, a standard abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "A political campaign that is thoroughly English in character and significance.",
-     "walkthrough": "Moment here is the old sense of weight or importance, not a point in time.",
-     "definitionFit": "A plain synonym: an organised effort for a cause, such as the suffragette movement, is a campaign."
+     "surface": "A campaign treated as very important by the English.",
+     "definitionFit": "A movement is an organised campaign by a group pursuing a cause, such as the suffrage movement."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "importance"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

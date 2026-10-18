@@ -150,34 +150,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "fancy",
-       "note": "fancy means elaborate or ornamented, so the letters are dressed up in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "plug",
+       "at": 10,
+       "gives": "AD",
+       "note": "a plug is a promotion, an ad"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 19,
+         "note": "fancy means elaborate, so the letters of taps are dressed up in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "plug",
-         "gives": "AD",
-         "note": "to plug a product is to advertise it, an ad"
-        },
-        {
          "words": "taps",
-         "note": "the letters of taps rearranged"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plumber reworks a plug and some ornate taps.",
-     "walkthrough": "Plug and taps set a bathroom scene; plug is publicity here.",
-     "definitionFit": "To adapt something is to modify it for a new purpose, so it can mean redesign."
+     "surface": "A plumber's catalogue of plugs and fancy taps that redesign a bathroom.",
+     "definitionFit": "To adapt something is to modify it for a new purpose, which is what redesigns means here."
     },
     "features": {
      "answerInScene": false,
@@ -897,36 +898,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in sets the first pieces inside the phrase that follows"
+       "at": 20,
+       "note": "in puts the first two pieces inside the word for that place"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "that place",
-         "gives": "THERE",
-         "note": "there means in that place"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "that place",
+       "at": 23,
+       "gives": "THERE",
+       "note": "there means in that place"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "opening",
-         "note": "a word's opening is its first letter, so only that is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "tragedy's",
-         "note": "the first letter of tragedy"
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening",
+           "at": 12,
+           "note": "the opening of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tragedy's",
+           "at": 2,
+           "note": "first letter of tragedy"
+          }
+         ]
         }
        ]
       }
@@ -934,14 +940,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Where would a tragedy have its opening night?",
-     "walkthrough": "A and T go inside THERE. The whole clue is also the definition, as a play opens in a theatre.",
-     "definitionFit": "Plays, tragedies included, open in a theatre, the building where drama is staged."
+     "surface": "A question about where a tragedy might premiere.",
+     "walkthrough": "A and T (the opening of 'tragedy') go inside THERE. The whole clue also defines: a theatre is where a tragedy opens.",
+     "definitionFit": "A theatre is the building in which plays such as tragedies are first performed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "opening"
     }
    }
@@ -1081,40 +1086,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "This could give",
-       "note": "the answer is read as an instruction whose second half signals a rearrangement of its first"
-      }
-     ],
+     "op": "reverse",
+     "reading": "PEA + NUTS",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "ape",
-         "note": "the letters of ape rearranged"
-        },
-        {
-         "words": "This",
-         "gives": "NUTS",
-         "note": "the answer split as two words: its second word means crazy, an instruction to rearrange the first"
-        }
-       ]
+       "words": "This could give ape",
+       "at": 0,
+       "note": "read the answer as wordplay: PEA with NUTS, meaning crazy, as the signal to rearrange, could give these letters"
       }
      ]
     },
     "explanation": {
-     "surface": "The clue suggests something you might feed to an ape.",
-     "walkthrough": "A reverse clue: read the answer as PEA NUTS, an instruction to scramble PEA, and the result is ape. Peanuts are also a fitting snack for an ape.",
-     "definitionFit": "Peanuts are a common snack, an example of food."
+     "surface": "Something that might make a good meal for a monkey.",
+     "walkthrough": "Split the answer into PEA and NUTS; nuts says rearrange PEA, which gives APE.",
+     "definitionFit": "Peanuts are edible legume seeds, a common snack food."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "give"
+     "misdirectedWord": "ape"
     }
    }
   },

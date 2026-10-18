@@ -1884,7 +1884,8 @@
      "indicators": [
       {
        "text": "removed from both ends",
-       "note": "removal from both ends strips the first and last place"
+       "at": 44,
+       "note": "the letter is taken away at the front and again at the back of the prince's name"
       }
      ],
      "parts": [
@@ -1893,39 +1894,43 @@
        "parts": [
         {
          "words": "Prince",
+         "at": 22,
          "gives": "PHILIP",
-         "note": "Prince Philip, the Duke of Edinburgh"
+         "note": "Prince Philip, the late Duke of Edinburgh"
         },
         {
-         "gives": "P"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 33,
+           "note": "a bit of a word here is just its first letter, so pus supplies one letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pus",
+           "at": 40,
+           "note": "first letter of pus"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "P",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "bit of pus",
-         "gives": "P",
-         "select": "first",
-         "note": "the first letter of pus"
-        }
-       ]
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "A prince has an abscess drained at both ends.",
-     "walkthrough": "PHILIP happens to start and end with the letter that 'bit of pus' supplies.",
-     "definitionFit": "Hili, plural of hilum, are the depressions where vessels and nerves enter organs such as the kidney."
+     "surface": "A grim medical note about a prince whose boil has been lanced at both ends.",
+     "walkthrough": "P, the first letter of 'pus', comes off both ends of PHILIP, leaving HILI.",
+     "definitionFit": "Hili is the plural of hilus or hilum, the anatomical term for a depression where vessels or nerves enter an organ."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pus"
+     "misdirectedWord": "Prince"
     }
    }
   },
