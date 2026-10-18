@@ -367,26 +367,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVER",
+     "op": "middle",
      "indicators": [
       {
        "text": "has lost its walls",
-       "note": "the walls of a building are its outside, so the word loses its first and last letters"
+       "at": 12,
+       "note": "the walls of a word are its outer letters, so both ends are knocked off"
       }
      ],
      "parts": [
       {
        "words": "inn",
+       "at": 8,
        "gives": "TAVERN",
-       "note": "a tavern is an inn"
+       "note": "an inn is a tavern"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone announces that a pub has had its walls knocked down.",
-     "definitionFit": "To aver is to state firmly, a formal synonym for declare."
+     "surface": "Someone announces that a pub has had its walls demolished.",
+     "walkthrough": "Strip the first and last letters from TAVERN.",
+     "definitionFit": "To aver is to state firmly, a formal synonym for declaring something to be true."
     },
     "features": {
      "answerInScene": false,
@@ -1034,56 +1035,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "LIBRETTI",
      "indicators": [
       {
        "text": "following",
-       "note": "following places this part after the other in the answer"
+       "at": 34,
+       "note": "following means the next part comes after the composer's outline"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "LIBRETTI",
+       "op": "outer",
        "indicators": [
         {
-         "text": "over",
-         "note": "turned over means upside down, which in a down entry means reading the word backwards"
+         "text": "outlines of",
+         "at": 44,
+         "note": "the outline of a word is its first and last letters, so take those of the composer's name"
         }
        ],
        "parts": [
         {
-         "op": "cycling",
-         "unchecked": true,
-         "gives": "LIBRETTI",
+         "words": "Ligeti",
+         "at": 56,
+         "note": "the first and last letters of Ligeti are L and I"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "ending getting promoted",
+         "at": 10,
+         "note": "in a down clue promotion moves the last letter up to the top of the word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "ending getting promoted",
-           "note": "promoted means moved up, so in a down entry the last letter climbs to the top"
+           "text": "over",
+           "at": 5,
+           "note": "over means the word for sour is turned backwards"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "outlines of",
-             "note": "an outline is the edge of a shape, so only the outer letters of the name are used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Ligeti",
-             "note": "the first and last letters of Ligeti"
-            }
-           ]
-          },
-          {
            "words": "Sour",
+           "at": 0,
            "gives": "BITTER",
-           "note": "bitter means sour in taste"
+           "note": "sour means bitter"
           }
          ]
         }
@@ -1092,9 +1093,9 @@
      ]
     },
     "explanation": {
-     "surface": "A sour composer is promoted on the strength of the composer Ligeti's opera texts.",
-     "walkthrough": "BITTER read upwards gives RETTIB, and then its last letter moves to the front. Ligeti was a Hungarian composer.",
-     "definitionFit": "Libretti, the plural of libretto, are the written words of operas."
+     "surface": "A critic is souring on Ligeti's work, perhaps after a bad ending.",
+     "walkthrough": "In a down clue 'promoted' means moved upward, toward the start of the word. Ligeti was a Hungarian composer of modern operas.",
+     "definitionFit": "Libretti, the Italian plural of libretto, are the words written for operas to be sung to."
     },
     "features": {
      "answerInScene": true,
@@ -1721,56 +1722,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DEDICATE",
      "indicators": [
       {
        "text": "embraces",
-       "note": "to embrace someone is to hold them in your arms, so one part goes inside"
+       "at": 5,
+       "note": "embraces means the date wraps round the altered name"
       }
      ],
      "parts": [
       {
+       "words": "Beau",
+       "at": 0,
+       "gives": "DATE",
+       "note": "a beau is a boyfriend, a date"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "DEDICATE",
        "indicators": [
         {
          "text": "for",
-         "note": "for means in place of, so one letter is swapped for another"
+         "at": 37,
+         "note": "putting one thing for another means swapping it in, so the letter for right in the name is exchanged for diamonds"
         }
        ],
        "parts": [
         {
-         "words": "Beau",
-         "gives": "DATE",
-         "note": "a date is a romantic partner"
-        },
-        {
          "words": "Eric",
-         "note": "taken as written"
-        },
-        {
-         "words": "diamonds",
-         "gives": "D",
-         "note": "D for diamonds, the card suit"
+         "at": 14
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "standard abbreviation for right"
+         "at": 41,
+         "gives": "R"
+        },
+        {
+         "words": "diamonds",
+         "at": 28,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boyfriend hugs Eric, giving him diamonds as a promise.",
-     "walkthrough": "'Beau' is a boyfriend, so a date; the swap of diamonds for right happens inside Eric before the boyfriend wraps around him.",
-     "definitionFit": "To dedicate is to commit or devote solemnly, which is to pledge."
+     "surface": "A boyfriend hugs his rival Eric, who gets diamonds instead of something rightful as a pledge.",
+     "walkthrough": "Beau is an old-fashioned word for a boyfriend, the person you go on a date with; the comma-split 'Eric, getting' hides that the name itself is altered before being embraced.",
+     "definitionFit": "To dedicate is to commit or devote something solemnly, which is what pledging it means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "diamonds"
     }

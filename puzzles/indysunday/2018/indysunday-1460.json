@@ -231,27 +231,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RATIO",
+     "op": "middle",
      "indicators": [
       {
        "text": "without limits",
-       "note": "limits are the edges of a word, so its first and last letters go"
+       "at": 7,
+       "note": "the limits of a word are its first and last letters, so both are dropped"
       }
      ],
      "parts": [
       {
        "words": "Speech",
+       "at": 0,
        "gives": "ORATION",
        "note": "an oration is a formal speech"
       }
      ]
     },
     "explanation": {
-     "surface": "Talk that is boundless, or else kept in measure.",
-     "walkthrough": "ORATION trimmed of its outer O and N leaves RATIO.",
-     "definitionFit": "A ratio is the relation of one quantity to another, which is what a proportion expresses."
+     "surface": "A grammar question: is it 'speech without limits', or a matter of proportion?",
+     "walkthrough": "Remove the first and last letters of ORATION.",
+     "definitionFit": "A ratio expresses the relative size of two quantities, which is what a proportion describes."
     },
     "features": {
      "answerInScene": false,
@@ -422,48 +422,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ANNIEHALL",
      "indicators": [
       {
        "text": "by",
-       "note": "by means next to, so the model is placed after"
+       "at": 45,
+       "note": "by means the model is placed beside what comes before"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "ANNIEHALL",
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
          "text": "internally upset",
-         "note": "upset in a down clue turns things over, and internally limits that to the inner part of the number"
+         "at": 28,
+         "note": "internally upset means only the inside of the number is turned over, its ends staying put"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "figure",
+         "at": 21,
          "gives": "NINE",
-         "note": "a figure is a number"
+         "note": "nine is a figure, a number"
         },
         {
-         "words": "model",
-         "gives": "HALL",
-         "note": "Jerry Hall is a famous model"
+         "gives": "IN"
+        },
+        {
+         "gives": "NI"
         }
        ]
+      },
+      {
+       "words": "model",
+       "at": 48,
+       "gives": "HALL",
+       "note": "Jerry Hall is a famous model"
       }
      ]
     },
     "explanation": {
-     "surface": "A shape, disturbed inside by a fashion model, in a comedy.",
-     "walkthrough": "Only the middle IN of NINE flips, giving NNIE. Annie Hall is Woody Allen's 1977 comedy.",
-     "definitionFit": "Annie Hall is a celebrated romantic comedy film directed by and starring Woody Allen."
+     "surface": "A film shows someone whose figure is privately upset by a model.",
+     "walkthrough": "'internally upset' reverses only the middle pair IN of NINE, giving NNIE. Annie Hall is Woody Allen's 1977 romantic comedy.",
+     "definitionFit": "Annie Hall is a celebrated Woody Allen comedy that won the Oscar for Best Picture."
     },
     "features": {
      "answerInScene": false,

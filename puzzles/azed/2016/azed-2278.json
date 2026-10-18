@@ -113,54 +113,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FANTASTICISM",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means all but the final letter of the phrase is used"
+       "text": "consumed",
+       "at": 5,
+       "note": "consumed means the wine is swallowed, taken inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "consumed",
-         "note": "the wine is consumed, swallowed up inside the other letters"
+         "text": "scattered",
+         "at": 33,
+         "note": "scattered means the letters of mints and most of café are strewn into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "mints",
+         "at": 15
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "scattered",
-           "note": "scattered things are strewn about, so the letters are thrown into a new order"
+           "text": "mostly",
+           "at": 26,
+           "note": "mostly means all but the last letter of café"
           }
          ],
          "parts": [
           {
-           "words": "mints café",
-           "gives": "MINTSCAF",
-           "note": "the phrase without its last letter"
+           "words": "café",
+           "at": 21,
+           "gives": "CAFE",
+           "note": "café written without its accent"
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "Wine",
-         "gives": "ASTI",
-         "note": "Asti is an Italian sparkling wine"
         }
        ]
+      },
+      {
+       "words": "Wine",
+       "at": 0,
+       "gives": "ASTI",
+       "note": "Asti is the Italian sparkling wine"
       }
      ]
     },
     "explanation": {
-     "surface": "A whimsical scene of wine drunk and mints spilt across a café table.",
-     "walkthrough": "Mostly applies to the whole phrase 'mints café', so only the accented final e is dropped before the shuffle.",
-     "definitionFit": "Fantasticism is the quality of being fanciful or capricious, which is what whimsicality names."
+     "surface": "Someone drinks wine and throws mints around a café in a fit of whimsy.",
+     "walkthrough": "'consumed' looks like part of the café scene, but it is the container signal: the Italian sparkling wine is swallowed by the scattered letters.",
+     "definitionFit": "Fantasticism is a rare word for a fanciful, capricious quality, which is what whimsicality describes."
     },
     "features": {
      "answerInScene": false,

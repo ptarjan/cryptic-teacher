@@ -209,27 +209,33 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MORAL",
+     "op": "substitution",
      "indicators": [
       {
        "text": "60% twisted",
-       "note": "twisted here means turned round, applied to only three fifths of the word, its tail end"
+       "at": 11,
+       "note": "60% of a five-letter word is three letters, so only the last three are turned round"
       }
      ],
      "parts": [
       {
        "words": "tooth",
+       "at": 5,
        "gives": "MOLAR",
-       "note": "a molar is a back grinding tooth"
+       "note": "a molar is a back tooth"
+      },
+      {
+       "gives": "LAR"
+      },
+      {
+       "gives": "RAL"
       }
      ]
     },
     "explanation": {
-     "surface": "A decent tooth that has become partly crooked.",
-     "walkthrough": "Only three of the five letters, 60%, are turned round: the last three, leaving the first two in place.",
-     "definitionFit": "As a noun, a moral is a lesson in good conduct, and as an adjective moral means virtuous or good."
+     "surface": "A dentist reports a good tooth that is mostly twisted.",
+     "walkthrough": "Only the final three of MOLAR's five letters, LAR, are reversed to RAL; the first two stay put.",
+     "definitionFit": "Moral as an adjective means virtuous or ethically sound, a synonym for good in character."
     },
     "features": {
      "answerInScene": false,
@@ -503,53 +509,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOOHICKEY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "said briefly means cut short, so the word loses its final letter"
+       "text": "on",
+       "at": 37,
+       "note": "in a down clue on means placed above, so the file comes before the locker"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "in means the shortened state goes inside the word for file"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "file",
+         "at": 32,
+         "gives": "DOC",
+         "note": "a doc is a document, a computer file"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in",
-           "note": "being in something means sitting inside it, so one piece is placed within another"
+           "text": "briefly",
+           "at": 21,
+           "note": "briefly means the state's name is cut short by its last letter"
           }
          ],
          "parts": [
           {
-           "words": "file",
-           "gives": "DOC",
-           "note": "a doc is a document file"
+           "words": "US state",
+           "at": 12,
+           "gives": "OHIO",
+           "note": "Ohio is a state of the USA"
           },
           {
-           "words": "US state",
-           "gives": "OHI",
-           "note": "Ohio cut short by its last letter"
+           "gives": "O"
           }
          ]
-        },
-        {
-         "words": "locker",
-         "gives": "KEY",
-         "note": "a key locks things"
         }
        ]
+      },
+      {
+       "words": "locker",
+       "at": 40,
+       "gives": "KEY",
+       "note": "a key is what locks something"
       }
      ]
     },
     "explanation": {
-     "surface": "A device taken from an American state, filed in a document on a storage locker.",
-     "walkthrough": "The shortened state sits inside the file, and in a down clue 'on' puts that above the locker.",
-     "definitionFit": "A doohickey is an informal, chiefly American word for a small gadget whose name you forget."
+     "surface": "A gadget arrives from Ohio, filed briefly on top of a locker.",
+     "walkthrough": "'locker' is not a cupboard here but something that locks. In a down clue 'on' puts the first part above the second.",
+     "definitionFit": "Doohickey is informal American slang for a small gadget or thingamajig whose name you have forgotten."
     },
     "features": {
      "answerInScene": false,
@@ -1803,46 +1822,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DEARYME",
      "indicators": [
       {
        "text": "obstructed by",
-       "note": "something obstructed has a blockage in its middle, so another piece sits inside it"
+       "at": 7,
+       "note": "obstructed by means the runner has the other letters blocking its middle"
       }
      ],
      "parts": [
       {
+       "words": "Runner",
+       "at": 0,
+       "gives": "DEE",
+       "note": "a river runs, and the Dee is a river in Scotland, Wales and England"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "DEARYME",
        "indicators": [
         {
          "text": "cycling",
-         "note": "going round in a cycle moves the front letter round to the back of the name"
+         "at": 26,
+         "note": "cycling means the first letter of the name is moved round to the end"
         }
        ],
        "parts": [
         {
-         "words": "Runner",
-         "gives": "DEE",
-         "note": "the Dee is a river, and a river runs"
-        },
-        {
          "words": "Mary",
-         "note": "taken as written"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A runner is blocked by Mary on her bike, and cries in dismay.",
-     "walkthrough": "Cycling moves the first letter of the name to the end. A runner is crossword shorthand for a river; the Dee flows in Scotland and Wales.",
-     "definitionFit": "Deary me is an exclamation of dismay or sorrow, much like saying oh no."
+     "surface": "A runner is blocked by Mary on her bike, and cries out in dismay.",
+     "walkthrough": "'Runner' looks like an athlete but is a river, the Dee, which flows through Scotland and also along the England-Wales border.",
+     "definitionFit": "Deary me is an old-fashioned exclamation of dismay or sorrow, much like saying oh dear."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Runner"
     }

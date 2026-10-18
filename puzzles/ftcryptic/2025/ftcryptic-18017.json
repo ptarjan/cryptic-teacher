@@ -154,25 +154,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARSON",
+     "op": "middle",
      "indicators": [
       {
        "text": "Naked",
-       "note": "naked means stripped of its covering, so the outer letters are removed"
+       "at": 0,
+       "note": "naked means stripped of its outer layer, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "vicars",
+       "at": 6,
        "gives": "PARSONS",
-       "note": "parsons are vicars"
+       "note": "vicars are parsons"
       }
      ]
     },
     "explanation": {
-     "surface": "Clergymen stripping off would scandalise their congregations.",
+     "surface": "Nude clergymen cause a scandal.",
+     "walkthrough": "Strip the first and last letters from PARSONS.",
      "definitionFit": "Arson, deliberately setting fire to property, is a criminal offence."
     },
     "features": {
@@ -334,41 +335,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENHANCE",
-     "indicators": [
-      {
-       "text": "Uncapped",
-       "note": "without a cap means the head of the word is taken off"
-      },
-      {
-       "text": "limitless",
-       "note": "with no limits means both boundary letters of the word are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Uncapped",
+         "at": 0,
+         "note": "uncapped means the word loses its cap, its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "men",
-         "gives": "EN",
-         "note": "men without its first letter"
+         "at": 9
         },
         {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "limitless",
+         "at": 19,
+         "note": "limitless means the word loses both its limits, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "opportunities",
-         "gives": "HANCE",
-         "note": "chances with its first and last letters removed"
+         "at": 29,
+         "gives": "CHANCES",
+         "note": "opportunities are chances"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sports selector gives untried players plenty of chances to get better.",
-     "walkthrough": "'Uncapped men' reads as players not yet picked for their country, but it means only the word men loses its head.",
-     "definitionFit": "To enhance something is to raise its quality, a close synonym of improve."
+     "surface": "Players never capped for their country are given endless chances to get better.",
+     "walkthrough": "'Uncapped' sounds like a sports term for players without international caps, but it removes the first letter of MEN.",
+     "definitionFit": "To enhance something is to raise its quality or value, a synonym for improving it."
     },
     "features": {
      "answerInScene": false,

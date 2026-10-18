@@ -432,44 +432,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "hidden",
+     "indicators": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "Among",
-         "note": "something among other things is sitting inside them, so the letters lie within the words"
-        },
-        {
-         "text": "repeatedly",
-         "note": "says the concealment happens more than once, so the same letters sit in two different stretches of text"
-        }
-       ],
-       "parts": [
-        {
-         "words": "volumes there",
-         "gives": "ESTHER",
-         "note": "the letters run across the end of one word and the start of the next"
-        }
-       ]
+       "text": "Among",
+       "at": 0,
+       "note": "among means the answer sits inside the run of words that follows"
       },
       {
-       "unchecked": true,
-       "words": "libraries the readers",
-       "note": "the same six letters sit again across these words, which is why the clue says the find is repeated; no further letters"
+       "text": "repeatedly",
+       "at": 45,
+       "note": "repeatedly says the same name lurks twice, once across volumes there and again across libraries the readers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "volumes there in libraries the readers",
+       "at": 6,
+       "note": "the letters run from the tail of volumes into there, and again from the tail of libraries through the into the start of readers"
       }
      ]
     },
     "explanation": {
-     "surface": "Readers in libraries keep turning to a work of history.",
-     "walkthrough": "The answer is hidden in volumES THERe, and 'repeatedly' because it is hidden again in librariES THE Readers.",
-     "definitionFit": "The Book of Esther is one of the Old Testament books grouped as the historical books of the Bible."
+     "surface": "Browsing library shelves, readers keep coming across a work of history.",
+     "walkthrough": "The name is concealed twice: in 'volumES THERe' and again in 'librariES THE Readers'. Either one alone is enough.",
+     "definitionFit": "Esther is a book of the Old Testament telling the story of a Jewish queen of Persia, so a work of history."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "repeatedly"
+     "aptDefinition": false,
+     "misdirectedWord": "volumes"
     }
    }
   },
@@ -1034,48 +1026,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HORACE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half",
-       "note": "half of a word means only part of it survives, the rest being cut"
+       "text": "after",
+       "at": 7,
+       "note": "after means the word for pound comes after the half-hour letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "after",
-         "note": "coming after means following, so one piece is placed behind the other"
-        }
-       ],
-       "parts": [
-        {
-         "words": "hour",
-         "gives": "HO",
-         "note": "the first half of the word, its first two of four letters, by deletion"
-        },
-        {
-         "words": "Pound",
-         "gives": "RACE",
-         "note": "a pounding heart races, beating fast"
-        }
-       ]
+       "words": "half-hour",
+       "at": 13,
+       "gives": "HO",
+       "note": "half of the word hour, its first two letters"
+      },
+      {
+       "words": "Pound",
+       "at": 0,
+       "gives": "RACE",
+       "note": "a pounding heart races, so pound means race"
       }
      ]
     },
     "explanation": {
-     "surface": "Ezra Pound, given thirty minutes, turns into a writer of odes.",
-     "walkthrough": "'Pound' invites the poet Ezra Pound or British money, but it is the verb for a thumping heart.",
-     "definitionFit": "Horace, the Roman poet, wrote four books of Odes, making him the classic writer of that form."
+     "surface": "Ezra Pound, after half an hour, becomes a writer of odes.",
+     "walkthrough": "'Pound' looks like the poet Ezra Pound or money, but it is the verb: to pound is to race, like a heartbeat. Horace was the Roman poet famous for his Odes.",
+     "definitionFit": "Horace, the Roman lyric poet, wrote four books of Odes, so he is the classic odist."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Pound"
     }
    }
