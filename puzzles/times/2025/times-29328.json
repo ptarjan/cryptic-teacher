@@ -279,73 +279,77 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSOMNIA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "not all",
-         "note": "only some of the word some is used, so drop its last letter"
+         "text": "in",
+         "at": 17,
+         "note": "in says the shortened word is placed inside the pub word"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "pub",
+         "at": 20,
+         "gives": "INN",
+         "note": "an inn is a pub"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in",
-           "note": "the shortened word sits in the pub"
+           "text": "not all",
+           "at": 7,
+           "note": "not all means a letter is missing from the end of the word"
           }
          ],
          "parts": [
           {
-           "words": "pub",
-           "gives": "INN",
-           "note": "an inn is a pub"
+           "words": "Some",
+           "at": 0,
+           "note": "taken as written before its last letter goes"
           },
           {
-           "words": "Some — not all",
-           "gives": "SOM",
-           "note": "SOMe without its last letter"
+           "gives": "E"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 25
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "admitted, initially",
-           "note": "take only the first letter of admitted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "I",
-           "note": "I as printed"
-          }
-         ]
-        },
+         "text": "initially",
+         "at": 37,
+         "note": "initially means the first letter of the next word"
+        }
+       ],
+       "parts": [
         {
-         "words": "admitted, initially",
-         "gives": "A",
-         "note": "first letter of Admitted"
+         "words": "admitted",
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone owns up that they have a few drinks, which explains their sleeplessness.",
-     "walkthrough": "The dashes make 'not all' look like an aside, but it is the instruction to cut SOME short before placing it inside INN.",
-     "definitionFit": "Insomnia is the condition of being unable to sleep, a wakeful state."
+     "surface": "A drinker admits to having had some, not all, of the drinks at the pub, explaining the sleepless night.",
+     "walkthrough": "The dashes make 'not all' look like an aside about the drinkers; it trims the last letter of Some. 'Showing' only links wordplay to definition.",
+     "definitionFit": "Insomnia is the habitual inability to sleep, a condition of being awake when one should be resting."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Some"
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
     }
    }
   },
@@ -1428,40 +1432,37 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SP",
        "indicators": [
         {
          "text": "Sources of",
-         "note": "a source is where something starts, so take the first letters"
+         "at": 0,
+         "note": "sources are where things start, so take the first letter of each of the next two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Sources of some prevalent",
-         "gives": "SP",
-         "select": "first",
-         "note": "first letters of Some Prevalent"
+         "words": "some prevalent",
+         "at": 11
         }
        ]
       },
       {
        "words": "cold",
+       "at": 26,
        "gives": "ICINESS",
-       "note": "iciness = coldness"
+       "note": "iciness is coldness, the noun sense of cold"
       }
      ]
     },
     "explanation": {
-     "surface": "A weather report on what is behind the current cold or hot spell.",
-     "walkthrough": "Cold or heat look like a matched pair of opposites; one is wordplay and the other the definition, joined by or.",
-     "definitionFit": "Heat in its culinary sense: the burn of chilli or pepper on the tongue."
+     "surface": "Musing on where a common cold or a fever comes from.",
+     "walkthrough": "'Cold' looks like an adjective or the illness, but it is a noun here, coldness, giving ICINESS after the first letters S and P.",
+     "definitionFit": "Heat in food is its fiery, peppery quality, which is spiciness, as with chillies."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "heat"
+     "misdirectedWord": "cold"
     }
    }
   },
@@ -1597,43 +1598,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "suffering goes round the next piece"
-      }
-     ],
      "parts": [
       {
        "words": "United",
+       "at": 0,
        "gives": "U",
-       "note": "U = United, as in football team names"
+       "note": "U is the standard abbreviation for United, common in football club names"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "limitations of",
-         "note": "limits are edges, so take the outside letters"
+         "text": "about",
+         "at": 17,
+         "note": "about means going around, so the suffering word surrounds the edge letters"
         }
        ],
        "parts": [
         {
          "words": "suffering",
+         "at": 7,
          "gives": "PAIN",
-         "note": "pain = suffering"
+         "note": "pain is suffering"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "TR",
+         "indicators": [
+          {
+           "text": "limitations of",
+           "at": 23,
+           "note": "limitations are boundaries, so only the outside letters of their are kept"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "limitations of their",
-           "gives": "TR",
-           "select": "outer",
-           "note": "outer letters of TheiR"
+           "words": "their",
+           "at": 38,
+           "note": "taken as written before its middle goes"
           }
          ]
         }
@@ -1642,9 +1643,9 @@
      ]
     },
     "explanation": {
-     "surface": "Manchester United fans grumble about the trains they take to London.",
-     "walkthrough": "In Britain trains towards London are traditionally 'up' trains, whichever direction on the map; the question mark flags that this is only one example.",
-     "definitionFit": "An up-train runs towards the capital, so it is transport to London."
+     "surface": "Fans of United complain about the limits of the rail service into the capital.",
+     "walkthrough": "In British railway usage an up train runs towards London (the 'up' direction), hence the question mark.",
+     "definitionFit": "On British railways an up train is one heading to London or the main terminus, so it is transport toward London."
     },
     "features": {
      "answerInScene": true,

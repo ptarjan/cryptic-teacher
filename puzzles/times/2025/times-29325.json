@@ -678,30 +678,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SPA",
      "indicators": [
       {
        "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its last letter"
+       "at": 22,
+       "note": "mostly means not quite all, so the final letter is dropped"
       }
      ],
      "parts": [
       {
-       "words": "mail, unwanted mostly",
-       "gives": "SPA",
-       "note": "SPAM, unwanted email, without its last letter"
+       "words": "mail, unwanted",
+       "at": 7,
+       "gives": "SPAM",
+       "note": "spam is unwanted junk email"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Holiday mail from a resort is mostly junk.",
-     "walkthrough": "'Mail, unwanted' is spam, the junk that fills an inbox.",
-     "definitionFit": "A plain synonym: a spa town is a resort built around mineral springs."
+     "surface": "A holiday resort's post is mostly junk.",
+     "definitionFit": "A spa is a health resort or town built around mineral springs, such as Bath or Baden."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mail"
     }
    }
   },
@@ -1500,57 +1503,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROSEWATER",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "At first",
-         "note": "at first means at the very start, so only the opening letter counts"
+         "at": 0,
+         "note": "at first means take the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "not a",
-           "note": "'not a' tells the word to do without an A, so one A is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "At first rub",
-           "gives": "R",
-           "select": "first",
-           "note": "first letter of rub"
-          }
-         ]
+         "words": "rub",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "over",
+       "at": 13,
+       "gives": "O",
+       "note": "O is the cricket scoresheet abbreviation for an over"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 30,
+         "note": "not means the a is left out of the brine word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brine",
+         "at": 23,
+         "gives": "SEAWATER",
+         "note": "brine is salty water, seawater"
         },
         {
-         "words": "over",
-         "gives": "O",
-         "note": "O = over, a cricket term"
-        },
-        {
-         "words": "brine, not a",
-         "gives": "SEWATER",
-         "note": "SEAWATER (brine) without its A"
+         "words": "a",
+         "at": 34,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to begin by rubbing something over with salt water, which is not a perfume.",
-     "walkthrough": "'Not a perfume' looks like a comment on brine; 'not a' is the deletion and 'perfume' the definition.",
-     "definitionFit": "A definition by example: water scented with rose petals is a light perfume."
+     "surface": "Instructions to rub something over with salt water rather than with a scent.",
+     "walkthrough": "'Not a' looks like it is denying the perfume, but it removes A from SEAWATER, leaving SEWATER.",
+     "definitionFit": "Rosewater is a fragrant liquid made by steeping rose petals in water, used as a light scent and flavouring."
     },
     "features": {
      "answerInScene": false,

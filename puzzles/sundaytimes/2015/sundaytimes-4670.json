@@ -750,51 +750,52 @@
      "indicators": [
       {
        "text": "to carry",
-       "note": "to carry is to hold within, so the first piece wraps around the rest"
+       "at": 6,
+       "note": "to carry is to hold, so the about word holds the reversed letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "About",
-         "gives": "RE",
-         "note": "re means about or concerning"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "going back means reading the Spanish beer from its end"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Spanish",
-           "gives": "SP",
-           "note": "SP is an abbreviation for Spanish"
-          }
-         ]
-        }
-       ]
+       "words": "About",
+       "at": 0,
+       "gives": "RE",
+       "note": "re means about, concerning, as in business letters"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 28,
+         "note": "back means the letters are read in reverse order"
+        }
+       ],
        "parts": [
         {
-         "words": "beer",
-         "gives": "ALE",
-         "note": "ale is a beer"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Spanish",
+           "at": 15,
+           "gives": "SP",
+           "note": "SP is an abbreviation for Spanish"
+          },
+          {
+           "words": "beer",
+           "at": 23,
+           "gives": "ALE",
+           "note": "ale is a type of beer"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker sent back Spanish beer and slumped.",
-     "definitionFit": "To relapse is to fall back into a worse state, to decline or sink again."
+     "surface": "Someone about to carry Spanish beer back to the kitchen sink.",
+     "walkthrough": "'Back' reverses SPALE to ELAPS, which RE holds inside. Sink is a verb here: to slip back into a worse state.",
+     "definitionFit": "To relapse is to fall back into illness or a bad habit, which is to sink back down."
     },
     "features": {
      "answerInScene": false,
