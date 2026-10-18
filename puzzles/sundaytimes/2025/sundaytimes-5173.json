@@ -1278,35 +1278,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "cut short",
-       "note": "the word loses its last letter"
-      },
-      {
-       "text": "under"
+       "text": "under",
+       "at": 32,
+       "note": "in a down answer, a piece under another comes below it"
       }
      ],
      "parts": [
       {
-       "words": "Narrative",
-       "gives": "STOR",
-       "note": "a story, less its final Y"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 10,
+         "note": "cut short means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Narrative",
+         "at": 0,
+         "gives": "STORY",
+         "note": "a story is a narrative"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "maiden",
+       "at": 25,
        "gives": "M",
-       "note": "M = maiden, a maiden over in cricket"
+       "note": "M is the cricket abbreviation for a maiden over"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale ends abruptly as a young woman is set upon.",
-     "walkthrough": "'Under attack' is a stock phrase; 'under' places M and 'attack' is the definition.",
-     "definitionFit": "A plain synonym as a verb: troops rush a castle's walls in a sudden assault."
+     "surface": "A tale abruptly ended with a young woman being assaulted.",
+     "walkthrough": "STORY loses its last letter, with M below.",
+     "definitionFit": "To storm is to attack a place violently and suddenly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "under"
+     "misdirectedWord": "maiden"
     }
    }
   },

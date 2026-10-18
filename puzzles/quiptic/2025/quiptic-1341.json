@@ -706,50 +706,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "accepting",
-       "note": "Whatever accepts a thing takes it in, so the letter goes inside the word."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "source of",
-         "note": "A word's source is its beginning, so its first letter alone is taken."
+         "text": "accepting",
+         "at": 8,
+         "note": "accepting means taking something in, so the support word holds the letter"
         }
        ],
        "parts": [
         {
          "words": "Support",
+         "at": 0,
          "gives": "BACK",
-         "note": "to back somebody is to support them, and the word opens after its first letter"
+         "note": "to back is to support"
         },
         {
-         "words": "light",
-         "gives": "L",
-         "note": "the first letter of LIGHT"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "at": 18,
+           "note": "the source of a word is where it starts, so only its opening letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "light",
+           "at": 28,
+           "gives": "L",
+           "note": "first letter of light"
+          }
+         ]
         }
        ]
       },
       {
        "words": "Difficulty",
+       "at": 35,
        "gives": "HOLE",
-       "note": "the hole you are in is the difficulty you are in"
+       "note": "a hole is a difficult situation, as in 'in a hole'"
       }
      ]
     },
     "explanation": {
-     "surface": "A prop taking in a little light, and the trouble of a place with none at all.",
-     "walkthrough": "'Light' appears twice and only the first one pays out a letter; the second belongs to the definition. 'Difficulty' looks like a comment on the clue and is the second spelling piece.",
-     "definitionFit": "A black hole's gravity is strong enough that not even light escapes it, so nothing at all comes out."
+     "surface": "A puzzle about a lamp stand in trouble, ending on a teasing riddle about something that gives out no light.",
+     "definitionFit": "A black hole is a region of space whose gravity is so strong that not even radiation escapes it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Difficulty"
+     "misdirectedWord": "Support"
     }
    }
   },
@@ -1131,31 +1140,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "heading off",
-       "note": "Heading off takes the head away, so the word loses its first letter."
-      },
-      {
        "text": "after",
-       "note": "'After' fixes the order rather than joining: the piece in front of it is set behind the one named next."
+       "at": 44,
+       "note": "the shortened meeting word is placed after the month"
       }
      ],
      "parts": [
       {
        "words": "last month",
+       "at": 50,
        "gives": "DEC",
-       "note": "December is the last month of the year, in the three-letter form used on calendars"
+       "note": "December is the last month of the year, abbreviated DEC"
       },
       {
-       "words": "public meeting",
-       "gives": "ORUM",
-       "note": "a public meeting is a forum, beheaded"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 17,
+         "note": "the head of a word is its first letter, and it is taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "public meeting",
+         "at": 29,
+         "gives": "FORUM",
+         "note": "a forum is a public meeting place or assembly"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Walking out of a public meeting held since the end of last month.",
-     "walkthrough": "The clue's order is the reverse of the answer's: 'after' sends the month to the front. 'Heading off' reads as leaving early and is the instruction to dock a first letter.",
-     "definitionFit": "Decorum is the propriety an occasion calls for, so it is behaviour that is seemly."
+     "surface": "Good manners at a public gathering held at the end of the year.",
+     "definitionFit": "Decorum is propriety: behaviour that keeps to good taste and convention."
     },
     "features": {
      "answerInScene": true,
