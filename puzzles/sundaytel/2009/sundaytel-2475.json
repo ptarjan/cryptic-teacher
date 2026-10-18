@@ -478,43 +478,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "stupidly",
-       "note": "doing something stupidly means doing it without order, so the letters are muddled"
+       "text": "about",
+       "at": 17,
+       "note": "about means going around, so the jumbled letters surround the zero"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the muddled letters wrap round the other piece"
+         "text": "stupidly",
+         "at": 8,
+         "note": "stupidly means in a muddled, senseless way, so the letters are jumbled"
         }
        ],
        "parts": [
         {
          "words": "Ranting",
-         "note": "these seven letters rearranged"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "nothing is zero, the letter O"
+         "at": 0,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 23,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rants foolishly about nothing at all, plainly still with plenty to learn.",
-     "definitionFit": "An ignorant person lacks knowledge, so they have much still to learn."
+     "surface": "Someone rants foolishly over nothing, showing how much they still have to learn.",
+     "walkthrough": "'stupidly' jumbles RANTING into IGNRANT, which goes 'about' O to give IGN-O-RANT.",
+     "definitionFit": "An ignorant person lacks knowledge, so they still have plenty of things they need to learn."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "about"
     }
    }
   },
@@ -918,46 +924,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LACERATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "having shuffled",
-       "note": "shuffling cards mixes their order, so these letters are mixed"
+       "text": "Insert",
+       "at": 0,
+       "note": "Insert tells the solver to put one piece into another; here the card goes into the jumbled word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Insert",
-         "note": "inserting puts one thing inside another"
+         "text": "having shuffled",
+         "at": 26,
+         "note": "having shuffled means the letters of later have been mixed up, as a pack is"
         }
        ],
        "parts": [
         {
          "words": "later",
-         "note": "these five letters rearranged"
-        },
-        {
-         "words": "the card",
-         "gives": "ACE",
-         "note": "an ace is a playing card"
+         "at": 19,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "the card",
+       "at": 7,
+       "gives": "ACE",
+       "note": "the ace is the card par excellence, the highest in many games"
       }
      ]
     },
     "explanation": {
-     "surface": "A card player is told to slip a card into the deck later, after shuffling and cutting.",
-     "walkthrough": "The card-game picture makes 'cut' look like cutting the deck; it is the definition, meaning to gash.",
-     "definitionFit": "To lacerate is to tear or slash flesh, wounding it by cutting."
+     "surface": "A card player is told to slip a card back into the pack later, after shuffling and cutting it.",
+     "walkthrough": "'having shuffled' mixes LATER to give LRATE, and the ace is put in it as L-ACE-RATE. 'cut' looks like part of the card game; it is the definition.",
+     "definitionFit": "To lacerate is to tear or gash the flesh, a forceful verb sense of cut."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "cut"
     }
    }

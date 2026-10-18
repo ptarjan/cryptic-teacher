@@ -1277,53 +1277,67 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ILLEGAL",
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue, sitting on top means coming first"
+       "at": 39,
+       "note": "on means placed above, as the first piece sits on the second in a down answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ILLEGAL",
+       "op": "middle",
        "indicators": [
         {
          "text": "scratching walls",
-         "note": "the walls of a word are its outer letters, and scratching them out removes them"
-        },
-        {
-         "text": "nothing escapes",
-         "note": "nothing is the letter O, and escaping means it gets out and goes"
+         "at": 22,
+         "note": "scratching means removing, and the walls of a word are its outer letters, so both ends go"
         }
        ],
        "parts": [
         {
          "words": "murderer",
+         "at": 13,
          "gives": "KILLER",
          "note": "a killer is a murderer"
-        },
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "escapes",
+         "at": 59,
+         "note": "escapes means gets out, so the letter for nothing leaves the prison"
+        }
+       ],
+       "parts": [
         {
          "words": "prison",
+         "at": 42,
          "gives": "GAOL",
          "note": "gaol is the British spelling of jail"
+        },
+        {
+         "words": "nothing",
+         "at": 51,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A killer clawing at the walls of his cell, and nobody gets out.",
-     "walkthrough": "KILLER loses K and R to give ILLE; GAOL loses its O to give GAL.",
-     "definitionFit": "Illegal and criminal both describe something against the law, a straightforward synonym."
+     "surface": "A murderer claws at the walls of his cell but cannot escape.",
+     "walkthrough": "KILLER with its walls scratched off is ILLE, which sits 'on' GAL, GAOL after O 'escapes'. 'Criminal' is an adjective here, not the murderer.",
+     "definitionFit": "Something illegal is against the law, which is one sense of the adjective criminal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "scratching"
+     "misdirectedWord": "Criminal"
     }
    }
   },
@@ -1815,12 +1829,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATTLEE",
      "indicators": [
       {
        "text": "keeping",
-       "note": "to keep something is to hold it inside"
+       "at": 10,
+       "note": "keeping means holding on to, so the outer letters keep the dry pair inside them"
       }
      ],
      "parts": [
@@ -1829,26 +1842,29 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "dry",
-         "gives": "TT",
-         "note": "TT is teetotal, abstaining from alcohol"
+         "at": 25,
+         "gives": "A"
         },
         {
          "words": "shelter",
+         "at": 27,
          "gives": "LEE",
-         "note": "the lee is the sheltered side away from the wind"
+         "note": "lee is the sheltered side, away from the wind"
         }
        ]
+      },
+      {
+       "words": "dry",
+       "at": 18,
+       "gives": "TT",
+       "note": "TT, teetotal, means abstaining from alcohol, so dry"
       }
      ]
     },
     "explanation": {
-     "surface": "An ex-prime minister staying out of the rain in a bus shelter.",
-     "walkthrough": "TT is the standard abbreviation for teetotal. Clement Attlee was the British Labour prime minister from 1945 to 1951.",
-     "definitionFit": "Attlee led the British government after the Second World War, so he is a past prime minister."
+     "surface": "A former prime minister stays dry by sitting out the weather in a shelter.",
+     "walkthrough": "Clement Attlee was the Labour prime minister of 1945 to 1951. A and LEE keep TT, the teetotal abbreviation, between them.",
+     "definitionFit": "Clement Attlee led Britain as prime minister after the Second World War, so he is a former PM."
     },
     "features": {
      "answerInScene": false,
