@@ -486,35 +486,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOTARIES",
-     "indicators": [
-      {
-       "text": "stripped",
-       "note": "something stripped has its outer layer removed, so the word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "polite refusal",
+       "at": 6,
        "gives": "NOTA",
-       "note": "'no, ta' is a polite refusal, ta being British slang for thanks"
+       "note": "'no, ta' is a polite British way of saying no thank you"
       },
       {
-       "words": "priest",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripped",
+         "at": 29,
+         "note": "stripped means the word loses its outer layer, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "priest",
+         "at": 22,
+         "gives": "PRIEST",
+         "note": "taken as written before its ends are removed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "After saying no thank you, a priest undressed in front of officials.",
-     "definitionFit": "Notaries are legal officials who certify documents and witness signatures."
+     "surface": "Having been politely turned down, a cleric undresses in front of the authorities.",
+     "walkthrough": "'Ta' is informal British for thanks, so 'no, ta' is a polite refusal. 'stripped' takes the outer letters off PRIEST.",
+     "definitionFit": "Notaries are public officials authorised to witness signatures and certify legal documents."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "stripped"
     }
    }

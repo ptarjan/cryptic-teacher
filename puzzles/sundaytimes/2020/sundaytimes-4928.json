@@ -1208,62 +1208,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PHENOBARBITONE",
+     "op": "container",
      "indicators": [
       {
-       "text": "rejected",
-       "note": "something rejected is sent back, so this word runs backwards"
+       "text": "during",
+       "at": 30,
+       "note": "during means in the course of, so the pieces before it go inside the word for call"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "during",
-         "note": "during means within the span of, so these letters go inside the call"
-        }
-       ],
+       "words": "call",
+       "at": 37,
+       "gives": "PHONE",
+       "note": "to phone someone is to call them"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "call",
-         "gives": "PHONE",
-         "note": "to phone is to call"
-        },
-        {
-         "op": "charade",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rejected",
+           "at": 9,
+           "note": "rejected means turned back, so the word one is written backwards"
+          }
+         ],
          "parts": [
           {
            "words": "one",
-           "gives": "ENO",
-           "note": "the word one taken as written, then turned"
-          },
-          {
-           "words": "insult",
-           "gives": "BARB",
-           "note": "a barb is a cutting remark"
-          },
-          {
-           "words": "it",
-           "note": "taken as written"
+           "at": 5,
+           "gives": "ONE"
           }
          ]
+        },
+        {
+         "words": "insult",
+         "at": 20,
+         "gives": "BARB",
+         "note": "a barb is a cutting, insulting remark"
+        },
+        {
+         "words": "it",
+         "at": 27,
+         "gives": "IT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone turned down a medication, then insulted it over the phone.",
-     "walkthrough": "'call' looks like part of the story but supplies the outer letters, split around the rest.",
-     "definitionFit": "Phenobarbitone is a barbiturate sedative used to treat epilepsy, a prescription medication."
+     "surface": "Someone refused a drug, then made a rude remark down the phone.",
+     "walkthrough": "The dash misleads: 'insult it' reads as a command, but insult and it are simply two more pieces placed inside the call.",
+     "definitionFit": "Phenobarbitone is a barbiturate medication used as a sedative and to control epileptic seizures."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "call"
+     "misdirectedWord": "rejected"
     }
    }
   },

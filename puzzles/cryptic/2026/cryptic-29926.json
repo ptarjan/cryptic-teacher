@@ -50,54 +50,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PETSHOP",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in means the rearranged letters sit inside the musical marking"
+      }
+     ],
      "parts": [
       {
+       "words": "very quiet",
+       "at": 17,
+       "gives": "PP",
+       "note": "pp, pianissimo, is the musical marking for very quiet"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "PETSHOP",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 6,
+         "note": "working means being worked on or kneaded, so the letters of those are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "working",
-           "note": "letters that are working are in motion, so THOSE is set moving into a new order"
-          },
-          {
-           "text": "in",
-           "note": "'in' places the rearranged letters inside PP, between its two Ps"
-          }
-         ],
-         "parts": [
-          {
-           "words": "very quiet",
-           "gives": "P",
-           "note": "pp = pianissimo, the musical marking for very quiet; its first P"
-          },
-          {
-           "words": "Those",
-           "note": "the five letters of THOSE, rearranged"
-          },
-          {
-           "words": "very quiet",
-           "gives": "P",
-           "note": "the second P of pp closes round the anagram"
-          }
-         ]
+         "words": "Those",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Staff going about their jobs in a hushed shop.",
-     "walkthrough": "The surface makes 'Those working' the shop staff, so a solver hunts for a word for workers; 'working' is really the instruction, and PP opens to hold the result.",
-     "definitionFit": "A definition by example: a pet shop is one particular kind of store, one that sells animals and their supplies."
+     "surface": "Staff in a shop keep the noise to a minimum.",
+     "walkthrough": "'Those working' looks like the definition (staff), but 'working' is an anagram signal on THOSE, giving ETSHO.",
+     "definitionFit": "A pet shop is a retail store selling animals and supplies for them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "working"
     }
@@ -218,55 +209,72 @@
    "annotation": {
     "definitions": [
      {
-      "text": "aggravation",
+      "text": "aggravation?",
       "at": 42
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word but not all, so STARMER loses its last letter"
-      },
-      {
        "text": "over",
-       "note": "in a down entry 'over' means above"
+       "at": 28,
+       "note": "over here means covering, so the shuffled letters go round the letter for national"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "dithered",
-         "note": "to dither is to waver back and forth, so the letters shift out of order"
+         "at": 19,
+         "note": "dithered suggests wavering this way and that, so the gathered letters are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "Has Starmer mostly",
-         "gives": "HASSTARME",
-         "note": "HAS plus STARMER without its final R; anagram fodder"
+         "words": "Has",
+         "at": 0
         },
         {
-         "words": "national",
-         "gives": "N",
-         "note": "N is the standard abbreviation for national"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 12,
+           "note": "mostly means most of the word, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Starmer",
+           "at": 4,
+           "note": "Keir Starmer, the UK prime minister, taken as written before being cut"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "national",
+       "at": 33,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A political question: is the Prime Minister's hesitation annoying the nation?",
-     "walkthrough": "Keir Starmer is a UK Prime Minister. N does not land at the end of the answer, so it has to join the other letters in the shuffle rather than simply follow them.",
-     "definitionFit": "In British usage aggravation means annoyance or hassle caused by others, which is what harassment is; the sense is informal rather than the medical one."
+     "surface": "A prime minister's indecision about a national issue is causing irritation.",
+     "walkthrough": "'over' is not a charade link: the shuffled letters cover the national letter, enclosing it just before the end. The question mark flags harassment as one kind of aggravation.",
+     "definitionFit": "Aggravation in its informal sense means annoyance or hassle from others, which harassment is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Starmer"
+     "misdirectedWord": "dithered"
     }
    }
   },
@@ -345,57 +353,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RELEASE",
+     "op": "container",
      "indicators": [
       {
-       "text": "jumble",
-       "note": "to jumble is to mix up, so SALE is scrambled"
+       "text": "held by",
+       "at": 17,
+       "note": "held by means the shuffled letters sit inside the letters picked from Greece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "held by",
-         "note": "'held by' means gripped inside, so the scrambled letters sit within the Greek letters"
+         "text": "occasionally",
+         "at": 32,
+         "note": "occasionally means taking only every other letter"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "REE",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "'occasionally' means now and then, so only every other letter of GREECE is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Greece occasionally",
-           "gives": "REE",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters of GREECE"
-          }
-         ]
-        },
+         "words": "Greece",
+         "at": 25,
+         "note": "the second, fourth and sixth letters of Greece"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jumble",
+         "at": 5,
+         "note": "jumble means mix up, so the letters of sale are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "sale",
-         "note": "SALE scrambled, placed after the first two of those letters"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rummage sale being put on in Greece now and then.",
-     "walkthrough": "'Jumble sale' is a fixed British phrase for a charity sale of second-hand goods, which hides that 'jumble' is an instruction.",
-     "definitionFit": "Here 'Free' is a verb, to set loose, matching release as a verb rather than the adjective meaning costing nothing."
+     "surface": "A charity sale of donated goods takes place in Greece from time to time.",
+     "walkthrough": "'jumble sale' reads as a charity event, but 'jumble' is the anagram signal on SALE; 'occasionally' takes the even letters of GREECE.",
+     "definitionFit": "To release someone is to set them free from confinement."
     },
     "features": {
      "answerInScene": false,
@@ -504,32 +509,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAIR",
+     "op": "middle",
      "indicators": [
       {
        "text": "removing clothing",
-       "note": "clothing is the outside layer, so taking it off strips the outer letters from the name"
+       "at": 6,
+       "note": "removing the clothing strips off the outside, the first and last letters"
       }
      ],
      "parts": [
       {
        "words": "Woman",
+       "at": 0,
        "gives": "CLAIRE",
-       "note": "a woman's name; its first and last letters C and E go"
+       "note": "Claire is a woman's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman undressing in a private room.",
-     "walkthrough": "'Woman' could be any name; the length and the stripping point to one whose outside letters leave a four-letter word.",
-     "definitionFit": "A den is a wild animal's hiding place, and so is a lair; both also mean a private retreat, the sense the surface uses."
+     "surface": "A woman undresses in her private room.",
+     "walkthrough": "'Woman' asks for a name, here CLAIRE, which loses its outer letters.",
+     "definitionFit": "A lair is a wild animal's resting place, and a den is the same thing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "clothing"
     }
    }
@@ -1065,48 +1069,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCREWTOP",
+     "op": "container",
      "indicators": [
       {
-       "text": "capsized",
-       "note": "a capsized boat is upside down, and in a down entry that turns POTS end over end"
+       "text": "breaks into",
+       "at": 15,
+       "note": "breaks into means forces its way inside, so the ship's company goes into the reversed vessels"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "breaks into",
-         "note": "a burglar who breaks into a place ends up inside"
+         "text": "capsized",
+         "at": 27,
+         "note": "capsized means turned upside down, so in this down entry the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "capsized vessels",
-         "gives": "STOP",
-         "note": "vessels = POTS, turned over"
-        },
-        {
-         "words": "Ship's company",
-         "gives": "CREW",
-         "note": "a ship's company is its crew; goes in after the S"
+         "words": "vessels",
+         "at": 36,
+         "gives": "POTS",
+         "note": "pots are vessels for holding food or liquid"
         }
        ]
+      },
+      {
+       "words": "Ship's company",
+       "at": 0,
+       "gives": "CREW",
+       "note": "a ship's company is its crew"
       }
      ]
     },
     "explanation": {
-     "surface": "A crew raiding overturned boats, then admiring a bottle.",
-     "walkthrough": "'Vessels' next to 'capsized' and 'Ship's company' insists on boats; the vessels are cooking pots.",
-     "definitionFit": "A definition by example: a screwtop is a bottle whose cap screws on, so it is 'some' bottle, one kind of it."
+     "surface": "Sailors break into upturned containers, and a bottle is involved.",
+     "walkthrough": "'capsized' turns POTS into STOP, which the CREW 'breaks into'.",
+     "definitionFit": "A screwtop bottle has a cap that twists off, so it is one kind of bottle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "vessels"
     }
    }

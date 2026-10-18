@@ -576,51 +576,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OWNERSHIP",
+     "op": "composite",
      "indicators": [
       {
        "text": "arranged",
-       "note": "arranged means put into a new order, so the gathered letters are reshuffled"
+       "at": 11,
+       "note": "arranged means set out in a new order, so the letters of the fodder are rearranged"
+      },
+      {
+       "text": "losing",
+       "at": 32,
+       "note": "losing tells us one letter must be dropped from the fodder before the rearrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OWNERSHIP",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "losing tells us that something is taken away from the letters gathered"
-        }
-       ],
-       "parts": [
-        {
-         "words": "with",
-         "note": "taken as written"
-        },
-        {
-         "words": "person",
-         "note": "taken as written"
-        },
-        {
-         "words": "little time",
-         "gives": "T",
-         "note": "T is the standard abbreviation for time"
-        }
-       ]
+       "words": "with person",
+       "at": 20
+      },
+      {
+       "words": "little time",
+       "at": 39,
+       "gives": "T",
+       "note": "T is the standard short form of time"
       }
      ]
     },
     "explanation": {
-     "surface": "Something owned is set out in agreement with a person who is running short of time.",
-     "walkthrough": "WITH plus PERSON lose a T, leaving WIH and PERSON to be rearranged.",
-     "definitionFit": "Ownership is the state of having something as your own, which is what possession means."
+     "surface": "Someone's belongings were sorted out with a person who was short of time.",
+     "walkthrough": "'arranged' and 'losing' work together: take the letters of WITH PERSON, drop the T ('little time'), and rearrange the rest.",
+     "definitionFit": "Ownership is the state of having or holding something as one's own property, which is what possession means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "arranged"
     }

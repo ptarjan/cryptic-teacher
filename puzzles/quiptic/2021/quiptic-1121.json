@@ -781,47 +781,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ISLANDER",
      "indicators": [
       {
        "text": "into",
-       "note": "one word going into another is put inside it"
+       "at": 29,
+       "note": "into means the word for ground is put inside the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ISLANDER",
+       "op": "middle",
        "indicators": [
         {
          "text": "endless",
-         "note": "endless means without its ends, so the first and last letters of the next word are dropped"
+         "at": 34,
+         "note": "endless here means without both ends, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "words": "ground",
-         "gives": "LAND",
-         "note": "ground in the sense of terrain"
-        },
-        {
          "words": "misery",
-         "note": "taken as written before losing its ends"
+         "at": 42,
+         "note": "misery with its first and last letters removed"
         }
        ]
+      },
+      {
+       "words": "ground",
+       "at": 22,
+       "gives": "LAND",
+       "note": "land is ground, as in a plot of land"
       }
      ]
     },
     "explanation": {
-     "surface": "A Cuban being pushed down into unending wretchedness.",
-     "walkthrough": "'Cuban' tempts you toward cigars or nationality words; the definition rests on Cuba being an island.",
-     "definitionFit": "Cuba is an island nation, so any Cuban is an example of an inhabitant of an island."
+     "surface": "A man from Cuba is being crushed into everlasting despair.",
+     "walkthrough": "'endless' strips both ends from MISERY, and LAND goes 'into' the middle of what is left. Cuba is an island, so a Cuban is one example.",
+     "definitionFit": "A Cuban lives on the island of Cuba, so is one example of an island dweller."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "ground"
     }
    }
@@ -900,40 +900,50 @@
     "definitions": [
      {
       "text": "works on water",
-      "at": 26,
-      "note": "a verb phrase describing the person who does the job"
+      "at": 26
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FERRYMAN",
+     "spelt": "FERRYMAN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner swapped the opening sounds of words, so the first sounds of the two words trade places"
+       "at": 0,
+       "note": "Spooner's signals a Spoonerism, named after William Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "happy supporter",
-       "gives": "FERRYMAN",
-       "soundsLike": "MERRY FAN",
-       "note": "a happy supporter is a merry fan, and Spooner trades the M and F sounds at the start of each word"
+       "op": "homophone",
+       "spelt": "FERRY",
+       "parts": [
+        {
+         "words": "happy",
+         "at": 10,
+         "gives": "MERRY",
+         "note": "merry means happy and cheerful"
+        }
+       ]
+      },
+      {
+       "words": "supporter",
+       "at": 16,
+       "gives": "FAN",
+       "note": "a fan is a supporter, as of a football team"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful fan who walks on water, like a miracle-worker.",
-     "walkthrough": "'Works on water' hints at a miracle, but it simply describes a boatman's job.",
-     "definitionFit": "A ferryman carries passengers across a river or lake by boat, so his job takes place afloat."
+     "surface": "A cheerful football fan takes a job on the river.",
+     "walkthrough": "'Spooner's' says to swap the opening sounds of MERRY FAN; here the sounds and the spellings swap alike.",
+     "definitionFit": "A ferryman operates a ferry, carrying passengers across a river or lake as his job."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "works"
+     "misdirectedWord": "supporter"
     }
    }
   },
