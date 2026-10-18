@@ -227,8 +227,8 @@ check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
       ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 os.environ["CT_NEWEST_FIRST"] = "gale, times"
-check("eq.by_urgency: CT_NEWEST_FIRST puts those papers newest first after rank 0, the rest as before",
-      ["gale-hand", "gale-new", "times-mid", "gale-old-gain", "other"],
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers newest first, ahead of rank 0, the rest as before",
+      ["gale-new", "times-mid", "gale-old-gain", "gale-hand", "other"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 check("eq.newest_first: a named paper's unit, not rank 0", [True, False, False],
       [eq.newest_first(u) for u in (nf_units[1][3], nf_units[2][3], nf_units[3][3])])
