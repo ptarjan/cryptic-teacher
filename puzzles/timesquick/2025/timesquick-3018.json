@@ -510,58 +510,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "daily",
+      "text": "daily?",
       "at": 48
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "ultimately means at the end, so take the last letter"
+       "text": "required in",
+       "at": 16,
+       "note": "required in says one piece is wanted inside the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "variety of",
-         "note": "a variety is a different arrangement of the letters"
+         "at": 28,
+         "note": "a variety of something is a different form of it, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Bran ultimately",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of bran"
-          }
-         ]
-        },
-        {
          "words": "cereal",
-         "note": "used as is"
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 5,
+         "note": "ultimately means in the end, so take the final letter only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bran",
+         "at": 0,
+         "note": "the word Bran supplies its final letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether bran is a necessary part of a breakfast cereal eaten every day.",
-     "walkthrough": "Daily reads as an adjective about breakfast; in Britain a daily is a cleaner who comes in each day.",
-     "definitionFit": "A daily is a domestic cleaner, from 'daily help'."
+     "surface": "Breakfast advice: bran is needed in a varied cereal every day.",
+     "walkthrough": "'variety of cereal' gives CLEAER, and 'required in' puts N, the last letter of Bran ('ultimately'), inside it. A daily is British slang for a cleaner who comes in each day.",
+     "definitionFit": "In Britain a daily is a domestic help who comes to clean a house, hence the question mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "daily"
     }
    }
@@ -641,31 +647,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SON",
      "indicators": [
       {
        "text": "short",
-       "note": "the word is cut short, losing its last letter"
+       "at": 9,
+       "note": "short means cut off, so the last letter of the word is dropped"
       }
      ],
      "parts": [
       {
-       "words": "short tune",
-       "gives": "SON",
-       "note": "SONG without its final G"
+       "words": "tune",
+       "at": 15,
+       "gives": "SONG",
+       "note": "a song is a tune"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A lad humming a brief melody.",
-     "walkthrough": "With is only glue; the shortening happens to tune, not to boy.",
-     "definitionFit": "A plain synonym: both words name a male child in relation to his parents."
+     "surface": "A lad with a brief little melody.",
+     "walkthrough": "'short' cuts the final G from SONG.",
+     "definitionFit": "A son is a male child, which is what a boy is to his parents."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "short"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1331,42 +1339,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EDITOR",
+     "op": "container",
      "indicators": [
       {
-       "text": "novel",
-       "note": "novel means new, so the letters take a new order"
+       "text": "in it",
+       "at": 32,
+       "note": "nothing in it means the letter for nothing goes inside the scrambled word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in it",
-         "note": "the letter goes inside the rearranged word"
+         "text": "novel",
+         "at": 17,
+         "note": "novel means new, so the letters take a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "tried",
-         "note": "TRIED rearranged"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "zero, shaped like O"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 24,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist attempted a novel, which turned out empty.",
-     "walkthrough": "Novel looks like the noun, a book; it is the adjective, new, calling for an anagram.",
-     "definitionFit": "An editor is a journalist in charge of a publication or section."
+     "surface": "A writer attempted a novel, but there was nothing in it.",
+     "walkthrough": "'novel' looks like the book being written, but it rearranges TRIED into EDITR, and 'in it' puts O inside.",
+     "definitionFit": "An editor is a journalist who prepares and oversees what a newspaper publishes."
     },
     "features": {
      "answerInScene": true,

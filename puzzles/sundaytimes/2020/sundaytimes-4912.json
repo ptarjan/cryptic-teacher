@@ -320,37 +320,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PANDAS",
-     "indicators": [
-      {
-       "text": "without end",
-       "note": "a word left without its end has its final letter removed, here the word for ruin"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "face",
+       "at": 19,
+       "gives": "PAN",
+       "note": "pan is slang for a face"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without end",
+         "at": 29,
+         "note": "without end means the final letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "face",
-         "gives": "PAN",
-         "note": "pan is slang for face, as in deadpan"
+         "words": "ruin",
+         "at": 24,
+         "gives": "DASH",
+         "note": "to dash hopes is to ruin them"
         },
         {
-         "words": "ruin",
-         "gives": "DAS",
-         "note": "DASH, as in to dash hopes, loses its last letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A conservation warning: threatened species facing total ruin.",
-     "walkthrough": "'Face' looks like the verb confront, but it is the noun, and pan is informal for a face.",
-     "definitionFit": "Giant pandas are a well-known example of a vulnerable species threatened with extinction in the wild."
+     "surface": "A warning that endangered creatures face ruin with no end in sight.",
+     "walkthrough": "'without end' trims DASH to DAS. Pan is British slang for a face.",
+     "definitionFit": "Giant pandas have long been the emblem of threatened species, listed as vulnerable to extinction."
     },
     "features": {
      "answerInScene": true,
@@ -380,43 +384,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATOLL",
+     "op": "container",
      "indicators": [
       {
-       "text": "not last",
-       "note": "not last tells us to drop the final letter of the word meaning first"
+       "text": "goes round",
+       "at": 16,
+       "note": "goes round means encircles, so the outer word wraps the inner"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "everyone",
+       "at": 7,
+       "gives": "ALL",
+       "note": "all means everyone"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "goes round",
-         "note": "to go round something is to surround it, so the word for everyone wraps the next piece"
+         "text": "not last",
+         "at": 34,
+         "note": "not last says the final letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "everyone",
-         "gives": "ALL",
-         "note": "everyone = all"
+         "words": "first",
+         "at": 27,
+         "gives": "TOP",
+         "note": "top means first, as in top of the class"
         },
         {
-         "words": "first",
-         "gives": "TO",
-         "note": "TOP, meaning first or foremost, without its last letter"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tour instruction: everyone circles the island, starting at the front and not trailing behind.",
-     "walkthrough": "'First' reads like an adverb of order but is a word to be shortened: TOP loses its P.",
-     "definitionFit": "An atoll is a ring-shaped coral reef or low island enclosing a lagoon."
+     "surface": "Everyone takes a lap of the island, aiming to finish first rather than last.",
+     "walkthrough": "'first' looks like part of a race but is the word being trimmed, top in the sense of first place; 'not last' cuts it and 'goes round' wraps everyone around it.",
+     "definitionFit": "An atoll is a ring-shaped coral reef or chain of islets around a lagoon."
     },
     "features": {
      "answerInScene": true,
@@ -450,6 +459,7 @@
      "parts": [
       {
        "words": "Party",
+       "at": 0,
        "gives": "DO",
        "note": "a do is a party"
       },
@@ -458,47 +468,35 @@
        "indicators": [
         {
          "text": "stuffed with",
-         "note": "a sweet stuffed with something has a filling, so the other letters go inside the word for sweet"
+         "at": 12,
+         "note": "stuffed with means filled with, so letters go inside the word"
         }
        ],
        "parts": [
         {
          "words": "sweet",
+         "at": 6,
          "gives": "MINT",
          "note": "a mint is a sweet"
         },
         {
-         "op": "first",
-         "unchecked": true,
+         "words": "bits of aniseed and nuts",
+         "at": 25,
          "gives": "AN",
-         "indicators": [
-          {
-           "text": "bits of",
-           "note": "bits of two words means taking a small piece, the first letter, from each"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "aniseed and nuts",
-           "gives": "AN",
-           "select": "first",
-           "note": "the first letters of aniseed and nuts"
-          }
-         ]
+         "note": "bits here means first letters: A from aniseed and N from nuts, with and simply joining the two"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party treat: a sweet with an aniseed centre and nuts sprinkled on top.",
-     "walkthrough": "The surface ends in a cake-decorating instruction, but 'on top' is the definition; the letters from aniseed and nuts go inside MINT after its N.",
-     "definitionFit": "Being dominant means being in control or in a winning position, the idiomatic sense of being on top."
+     "surface": "Party sweets filled with aniseed and topped with nuts.",
+     "walkthrough": "'on top' reads like a topping of nuts, but it is the definition; the 'and' in 'aniseed and nuts' only joins the two foods and gives no letter of its own.",
+     "definitionFit": "Being on top means being in the controlling or leading position, which is what dominant describes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "top"
     }
    }
@@ -714,57 +712,69 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Game",
+      "text": "Game's",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMMY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "without starter",
-       "note": "a starter opens a meal, so taking it away removes the first letter of the word for tasty"
+       "text": "on",
+       "at": 29,
+       "note": "in an across answer, on means placed after the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "bit of",
+         "at": 32,
+         "note": "bit of here means just the opening letter of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "bit of",
-           "note": "a bit of a word is a single letter, here the opening one of 'rocket'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rocket",
-           "note": "the first letter of rocket"
-          }
-         ]
-        },
+         "words": "rocket",
+         "at": 39,
+         "note": "the word rocket supplies its first letter"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without starter",
+         "at": 13,
+         "note": "without starter means the first letter is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "tasty",
-         "gives": "UMMY",
-         "note": "YUMMY without its first letter"
+         "at": 7,
+         "gives": "YUMMY",
+         "note": "yummy means tasty"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A food review: this game bird is delicious even without a starter, served on some rocket leaves.",
-     "walkthrough": "'Game' and 'rocket' pull towards a restaurant plate (rocket is the salad leaf Americans call arugula); 'on' puts the R in front.",
-     "definitionFit": "Rummy is a card game in which players collect sets and runs of matching cards."
+     "surface": "A game is a tasty treat when served without a starter on a bit of rocket salad.",
+     "walkthrough": "'bit of rocket' supplies one letter, 'without starter' beheads the word for tasty, and 'on' puts that after it. Rocket is the British name for the salad leaf arugula.",
+     "definitionFit": "Rummy is a card game of collecting sets and runs; with the 's the clue reads 'game is'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Game"
+     "misdirectedWord": "rocket"
     }
    }
   },
@@ -1124,42 +1134,50 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 7,
+       "note": "after puts the pub piece following the beer piece"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "DUN",
+       "op": "deletion",
        "indicators": [
         {
          "text": "a half of",
-         "note": "half of a word is a portion of it, here the first three of Dunkel's six letters"
+         "at": 13,
+         "note": "a half of means only the first three of its six letters are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Dunkel",
-         "gives": "DUN",
-         "select": "first",
-         "note": "the first half of Dunkel"
+         "at": 23
+        },
+        {
+         "gives": "KEL"
         }
        ]
       },
       {
        "words": "Boozer",
+       "at": 0,
        "gives": "BAR",
-       "note": "a boozer is British slang for a pub or bar"
+       "note": "a boozer is British slang for a pub, a bar"
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker orders half a pint of Dunkel, the dark German beer, and a glass of port.",
-     "walkthrough": "'Port' seems to be a drink ordered alongside the beer, but it is a harbour town. 'After' puts the pub word second.",
-     "definitionFit": "Dunbar is a harbour town on the east coast of Scotland, in East Lothian."
+     "surface": "A drinker orders a half of Dunkel and some port in the pub.",
+     "walkthrough": "'a half of' keeps DUN from Dunkel, a dark German beer; a 'half' in a British pub is half a pint. Dunbar is a port on Scotland's east coast.",
+     "definitionFit": "Dunbar is a harbour town on the East Lothian coast of Scotland, so it is a port."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "port"
     }
    }
