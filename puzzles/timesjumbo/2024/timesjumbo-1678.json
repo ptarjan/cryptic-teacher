@@ -969,41 +969,44 @@
      "indicators": [
       {
        "text": "securing",
-       "note": "to secure something is to hold it fast"
+       "at": 6,
+       "note": "securing means holding fast, so the word for dunce wraps round the other two pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Dunce",
-         "gives": "ASS",
-         "note": "an ass is a fool"
-        },
-        {
-         "words": "prize",
-         "gives": "TROPHY",
-         "note": "a trophy is a prize"
-        }
-       ]
+       "words": "Dunce",
+       "at": 0,
+       "gives": "ASS",
+       "note": "an ass is a fool or dunce"
       },
       {
-       "words": "thus",
-       "gives": "SIC",
-       "note": "Latin sic = thus"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "prize",
+         "at": 15,
+         "gives": "TROPHY",
+         "note": "a trophy is a prize"
+        },
+        {
+         "words": "thus",
+         "at": 21,
+         "gives": "SIC",
+         "note": "sic is Latin for thus, used to mark a quoted error"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dim pupil somehow wins a science prize.",
-     "walkthrough": "SIC is the Latin 'thus', printed after a quoted error to show it is as written.",
-     "definitionFit": "A definition by class: astrophysics, the physics of stars and space, is one branch of science."
+     "surface": "A slow pupil wins an award, and so turns to a branch of science.",
+     "walkthrough": "'Thus' is the Latin word editors print in brackets after a quoted mistake. 'Securing' holds both the prize and that word together, as one run, inside the dunce.",
+     "definitionFit": "Astrophysics is the branch of astronomy that studies the physical nature of stars and other celestial bodies."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "thus"
     }
    }
@@ -1385,38 +1388,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "concealing",
-       "note": "to conceal is to hide inside"
-      }
-     ],
      "parts": [
       {
        "words": "super",
+       "at": 17,
        "gives": "GREAT",
-       "note": "super = great"
+       "note": "super and great both mean excellent"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "at first",
-         "note": "take the first letter of 'enmity'"
+         "text": "concealing",
+         "at": 31,
+         "note": "concealing means hiding inside, so the word for polite holds that letter"
         }
        ],
        "parts": [
         {
          "words": "polite",
+         "at": 23,
          "gives": "NICE",
-         "note": "nice = polite"
+         "note": "nice can mean polite or well-mannered"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 49,
+           "note": "at first means only the opening letter of the word enmity is used"
+          }
+         ],
          "parts": [
           {
-           "words": "enmity at first",
-           "note": "first letter of enmity"
+           "words": "enmity",
+           "at": 42,
+           "note": "the word enmity taken as written, from which its first letter is picked"
           }
          ]
         }
@@ -1425,9 +1433,9 @@
      ]
     },
     "explanation": {
-     "surface": "A relative who is terribly polite but secretly hostile.",
-     "walkthrough": "The hyphen in 'super-polite' glues two separate pieces of wordplay into one adjective, which hides the seam.",
-     "definitionFit": "A definition by class: a great-niece, the daughter of your nephew or niece, is one kind of female relative."
+     "surface": "A relative who is outwardly charming but hides early hostility.",
+     "walkthrough": "'Super-polite' reads as one hyphenated word, but it splits into two pieces, the first given straight and the second wrapped round E.",
+     "definitionFit": "A great-niece is the daughter of one's nephew or niece, a female relative."
     },
     "features": {
      "answerInScene": true,
@@ -1502,55 +1510,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "start to",
-       "note": "take the first letter of 'clue'"
+       "text": "terribly",
+       "at": 25,
+       "note": "terribly means badly, so all these letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Anagram at",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "terribly",
-         "note": "the letters are messed up badly"
+         "text": "start to",
+         "at": 11,
+         "note": "start to means only the first letter of the word clue is used"
         }
        ],
        "parts": [
         {
-         "words": "Anagram",
-         "note": "anagram fodder, used as itself"
-        },
-        {
-         "words": "at",
-         "note": "anagram fodder, used as itself"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "C",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start to clue",
-           "gives": "C",
-           "select": "first",
-           "note": "first letter of clue"
-          }
-         ]
+         "words": "clue",
+         "at": 20,
+         "note": "the word clue taken as written, from which its first letter is picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setter's note: begin by clueing an anagram badly.",
-     "walkthrough": "The clue talks about crossword-making, so 'Anagram' reads as an instruction; it is the fodder.",
-     "definitionFit": "A definition by example: Magna Carta, the English charter sealed in 1215, is the most famous of old documents."
+     "surface": "A setter's instruction to scramble an anagram at the beginning of a clue, done badly.",
+     "walkthrough": "'Anagram' looks like the instruction, but it is the fodder itself; 'terribly' is the signal to rearrange ANAGRAM AT plus C.",
+     "definitionFit": "Magna Carta is the charter of English liberties sealed by King John in 1215, a very old document."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Anagram"
     }
    }
@@ -1778,42 +1774,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finally",
-       "note": "take the last letter of 'baker'"
-      }
-     ],
      "parts": [
       {
        "words": "service",
+       "at": 10,
        "gives": "MASS",
-       "note": "a church service"
+       "note": "Mass is the Catholic church service"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "admitted"
+         "text": "admitted",
+         "at": 43,
+         "note": "admitted means let in, so the baker's last letter goes inside the word for fantastic"
         }
        ],
        "parts": [
         {
          "words": "fantastic",
+         "at": 18,
          "gives": "ACE",
-         "note": "ace = excellent"
+         "note": "ace is slang for excellent or fantastic"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "R",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 35,
+           "note": "finally means only the closing letter of the word baker is used"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "baker finally",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of baker"
+           "words": "baker",
+           "at": 29,
+           "note": "the word baker taken as written, from which its last letter is picked"
           }
          ]
         }
@@ -1822,14 +1819,14 @@
      ]
     },
     "explanation": {
-     "surface": "A butcher's shop gives great service, with the baker let in too.",
-     "walkthrough": "'Butcher's service' reads as a shop; 'Butcher' is the verb, and the ''s' is 'is'.",
-     "definitionFit": "A verb for a verb: to butcher people is to slaughter them wholesale, to massacre them."
+     "surface": "A butcher's counter service is praised, and the baker gets let in at the end.",
+     "walkthrough": "'Butcher's' reads as a shop, but the definition is the verb butcher; the 's is 'is', a link. 'Finally' gives R, which 'admitted' lets into ACE to make ACRE.",
+     "definitionFit": "To butcher people is to kill them brutally in large numbers, which is to massacre them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Butcher"
+     "misdirectedWord": "Butcher's"
     }
    }
   },
@@ -1902,39 +1899,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "a race",
-         "gives": "ANATION",
-         "note": "a race of people = a nation"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral"
-        }
-       ]
+       "words": "a",
+       "at": 15,
+       "gives": "A"
       },
       {
-       "words": "mile",
-       "gives": "M",
-       "note": "standard abbreviation"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 24,
+         "note": "about means the word for race goes round the other two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "race",
+         "at": 17,
+         "gives": "NATION",
+         "note": "a race can mean a people or nation"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 30,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "mile",
+           "at": 34,
+           "gives": "M"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Vigour on show in a race of about a mile.",
-     "walkthrough": "'Race' is not a running contest but a people, a nation.",
-     "definitionFit": "A plain synonym: animation in a person is liveliness, the energy of being animated."
+     "surface": "Vigour on display in a running race, roughly a mile long.",
+     "walkthrough": "'Race' looks like a running event, but it is a people, a nation; 'one mile' gives the two letters it wraps.",
+     "definitionFit": "Animation means liveliness or vigour, so it is a synonym of energy in that sense."
     },
     "features": {
      "answerInScene": true,
@@ -2199,37 +2210,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letter of 'émigrés'"
+       "text": "housed in",
+       "at": 28,
+       "note": "housed in means that first letter is lodged inside the abbreviation for the currency"
       }
      ],
      "parts": [
       {
        "words": "Bucks",
+       "at": 38,
        "gives": "USD",
-       "note": "bucks are US dollars, USD"
+       "note": "bucks are US dollars, abbreviated USD"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "housed in",
-         "note": "to be housed is to be given a home inside"
+         "text": "initially",
+         "at": 18,
+         "note": "initially means only the opening letter of the word émigrés is taken"
         }
        ],
        "parts": [
         {
-         "words": "émigrés initially",
-         "note": "first letter of émigrés"
+         "words": "émigrés",
+         "at": 10,
+         "note": "the word émigrés taken as written, from which its first letter is picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Refugees were taken advantage of when lodged in Buckinghamshire.",
-     "walkthrough": "Bucks is Buckinghamshire, an English county, which is why it has a capital; here it is dollars.",
-     "definitionFit": "A plain synonym in the unkind sense: someone used has been taken advantage of, exploited."
+     "surface": "Exiles are put up in Buckinghamshire and taken advantage of.",
+     "walkthrough": "Bucks looks like Buckinghamshire, the English county, but here it is dollars. 'Initially' gives É, counted as a plain E, which is 'housed in' USD.",
+     "definitionFit": "Someone exploited has been taken advantage of for another's benefit."
     },
     "features": {
      "answerInScene": true,

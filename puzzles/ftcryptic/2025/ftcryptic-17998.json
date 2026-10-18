@@ -191,59 +191,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "RITZIER",
      "indicators": [
       {
        "text": "following",
-       "note": "following means coming after, so the shuffled part is placed behind the party abbreviation"
+       "at": 44,
+       "note": "following means the rearranged letters come after the abbreviation for Republican"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "RITZIER",
+       "words": "Republican",
+       "at": 54,
+       "gives": "R"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
          "text": "relocated",
-         "note": "relocated things are moved to new positions, so the remaining letters are rearranged"
+         "at": 22,
+         "note": "relocated means moved to new places, so the remaining letters of citizenry are rearranged"
+        },
+        {
+         "text": "out of",
+         "at": 32,
+         "note": "out of means the letters of NYC are taken away from citizenry before it is rearranged"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "RITZIER",
-         "indicators": [
-          {
-           "text": "out of NYC",
-           "note": "the letters of that city's abbreviation are taken out of the fodder word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Republican",
-           "gives": "R",
-           "note": "R is the standard abbreviation for Republican"
-          },
-          {
-           "words": "citizenry",
-           "note": "taken as written, before losing N, Y and C"
-          }
-         ]
+         "words": "citizenry",
+         "at": 12
+        },
+        {
+         "words": "NYC",
+         "at": 39,
+         "note": "New York City, as its initials"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wealthy citizens moving out of New York to somewhere posher, behind a Republican politician.",
-     "walkthrough": "CITIZENRY loses N, Y and C to leave ITIZER, which is rearranged; 'following Republican' puts R first.",
-     "definitionFit": "Ritzy, from the Ritz hotel, means luxurious and swanky; the comparative form matches 'more swanky'."
+     "surface": "Wealthier residents move away from New York, behind a Republican.",
+     "walkthrough": "The N, Y and C come out of CITIZENRY from different places, leaving six letters that 'relocated' rearranges.",
+     "definitionFit": "Ritzy is informal for glamorous or luxurious, after the Ritz hotels, so ritzier is more swanky."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "relocated"
     }

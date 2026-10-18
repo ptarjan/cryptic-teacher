@@ -255,38 +255,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRETENDING",
-     "indicators": [
-      {
-       "text": "missing from",
-       "note": "something missing from a word has been taken out of it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "priest",
-       "note": "taken as written"
-      },
-      {
-       "words": "is",
-       "note": "taken as written, the letters to remove"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing from",
+         "at": 17,
+         "note": "missing from means the letters of is are taken out of the word priest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "priest",
+         "at": 7
+        },
+        {
+         "words": "is",
+         "at": 14
+        }
+       ]
       },
       {
        "words": "the finale",
+       "at": 30,
        "gives": "ENDING",
-       "note": "a finale is the ending"
+       "note": "a finale is the ending of a show or piece"
       }
      ]
     },
     "explanation": {
-     "surface": "A stand-in priest fails to turn up for the closing service.",
-     "walkthrough": "Read 'priest, is missing from' as an instruction: take the two letters out of the first word.",
-     "definitionFit": "Acting in the sense of putting on a show, feigning, which is what pretending means."
+     "surface": "A clergyman is absent from a performance's closing number, only acting the part.",
+     "walkthrough": "'Is missing from' reads as the priest being absent, but it means the two letters of 'is' leave the word; they need not be next to each other, only in the same order.",
+     "definitionFit": "Acting in the sense of feigning or putting on a show is pretending."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Acting"
     }
@@ -972,40 +977,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "half-open",
+       "at": 6,
        "gives": "EN",
-       "indicators": [
-        {
-         "text": "half-",
-         "note": "half keeps only one of the word's two halves"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "open",
-         "gives": "EN",
-         "select": "last",
-         "note": "the second half of the four-letter word"
-        }
-       ]
+       "note": "the second half of the word open"
       },
       {
        "words": "rapture",
+       "at": 21,
        "gives": "TRANCE",
        "note": "a trance is a state of rapture or ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A door left ajar, greeted with delight.",
-     "definitionFit": "An entrance is a way in, such as a door or gate."
+     "surface": "A door left ajar, opened with delight.",
+     "walkthrough": "'Half-open' looks like a description of the door, but it asks for half the letters of 'open', the back two.",
+     "definitionFit": "An entrance is a way in, such as a door or gateway."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rapture"
+     "misdirectedWord": "half-open"
     }
    }
   },
@@ -1080,45 +1073,46 @@
      "parts": [
       {
        "words": "against",
+       "at": 7,
        "gives": "CON",
-       "note": "con as in pros and cons, the case against"
+       "note": "con, as in pros and cons, means against"
       },
       {
        "words": "man",
+       "at": 15,
        "gives": "STAN",
        "note": "Stan is a man's name"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "TLY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "not half",
-         "note": "not half keeps only one half of the word, dropping the other"
+         "at": 28,
+         "note": "not half means half the letters of justly are dropped, here the first three"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "justly",
-         "gives": "TLY",
-         "select": "last",
-         "note": "the last half of the six-letter word"
+         "at": 19,
+         "note": "the word justly taken as written, before half is removed"
+        },
+        {
+         "gives": "JUS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone always objects to a man described as fair — not half they don't!",
-     "walkthrough": "'Not half!' is British slang for 'very much so', disguising an instruction to halve a word.",
-     "definitionFit": "Constantly means all the time, without stopping, so always is a synonym."
+     "surface": "An exclamation that a man is ever opposed to fairness, and how!",
+     "walkthrough": "'Not half!' sounds like British slang for 'very much so', but it tells you to drop half of 'justly', leaving its last three letters.",
+     "definitionFit": "Constantly means all the time, without stopping, which is what always means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "half"
     }
    }

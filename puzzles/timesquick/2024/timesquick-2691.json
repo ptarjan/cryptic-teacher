@@ -843,40 +843,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PAYDIRT",
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so the shuffled letters sit within the other word"
+       "at": 10,
+       "note": "in means the jumbled letters go inside the word for part"
       }
      ],
      "parts": [
+      {
+       "words": "part",
+       "at": 13,
+       "gives": "PART",
+       "note": "the word part taken as it stands, to hold the other letters"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "works",
-         "note": "works means is worked on or processed, so the letters are reshaped"
+         "at": 4,
+         "note": "works, as in the letters are worked over or rearranged, so DIY is jumbled"
         }
        ],
        "parts": [
         {
          "words": "DIY",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "part",
-         "note": "taken as written"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Home improvement jobs are partly a valuable resource.",
-     "walkthrough": "DIY, do-it-yourself, is home repair done by the owner.",
-     "definitionFit": "Pay dirt is ground rich enough in ore to be worth mining, hence any source of profit or reward."
+     "surface": "Home improvement projects, done partly, turn out to be very valuable.",
+     "walkthrough": "'Works' looks like a verb saying the home project succeeds, but it tells you to rearrange its letters; 'in' then places them within the word part, not a synonym of it.",
+     "definitionFit": "Pay dirt is ground rich in gold or ore, and by extension anything that yields a rich reward."
     },
     "features": {
      "answerInScene": false,

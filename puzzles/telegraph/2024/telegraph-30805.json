@@ -356,34 +356,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "drunk",
-       "note": "drunk means staggering about, so the letters lurch into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 21,
+         "note": "drunk means reeling and disordered, so the letters of isn't are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "isn't",
-         "note": "the letters of this word without the apostrophe, mixed"
-        },
-        {
-         "words": "social worker",
-         "gives": "ANT",
-         "note": "ants are social insects and include worker ants"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "social worker",
+       "at": 30,
+       "gives": "ANT",
+       "note": "the ant is a social insect, and a worker ant is the commonest kind"
       }
      ]
     },
     "explanation": {
-     "surface": "A social worker turns down a cup of a particular coffee.",
-     "walkthrough": "'Social worker' suggests a care professional, but it is an insect that lives in a colony.",
-     "definitionFit": "Instant coffee is a kind made from soluble powder or granules rather than ground beans."
+     "surface": "A caseworker refuses to drink the instant coffee.",
+     "walkthrough": "'Social worker' suggests a caseworker, but it is an insect that lives in colonies; 'drunk' scrambles the letters of isn't, apostrophe dropped.",
+     "definitionFit": "Instant is powdered or granulated coffee that dissolves straight into hot water."
     },
     "features": {
      "answerInScene": true,
@@ -780,40 +782,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APPETITE",
-     "indicators": [
-      {
-       "text": "both ends off",
-       "note": "with both ends off, the first and final letters are cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0,
+       "gives": "A"
       },
       {
        "words": "quiet",
+       "at": 2,
        "gives": "P",
-       "note": "p (piano) is the musical mark for quiet"
+       "note": "p (piano) is the musical marking for quiet"
       },
       {
        "words": "dog possibly",
+       "at": 8,
        "gives": "PET",
-       "note": "a dog is an example of a pet"
+       "note": "a dog is an example of a pet, hence 'possibly'"
       },
       {
-       "words": "bites",
-       "note": "taken as written before trimming"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "both ends off",
+         "at": 27,
+         "note": "taking both ends off means the word bites loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bites",
+         "at": 21,
+         "note": "the word bites taken as written, before its ends are trimmed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A silent dog nips off both ends of something, showing it is famished.",
-     "walkthrough": "'Bites' reads as the verb of the dog, but it is the word to trim: shorn of its first and last letters it leaves ITE.",
-     "definitionFit": "Appetite is a desire to eat, which is what hunger is."
+     "surface": "A placid dog might nip at someone, a sign it is hungry.",
+     "walkthrough": "'Bites' looks like the dog's action, but it is just a word to be trimmed: 'both ends off' leaves ITE.",
+     "definitionFit": "Appetite is the natural desire for food, which is what hunger means."
     },
     "features": {
      "answerInScene": true,
@@ -901,48 +911,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNCHANGED",
+     "op": "composite",
      "indicators": [
       {
        "text": "badly",
-       "note": "done badly means done wrongly, so the letters come out jumbled"
+       "at": 17,
+       "note": "badly means the letters of nan coughed are jumbled into a new order"
+      },
+      {
+       "text": "lacking",
+       "at": 24,
+       "note": "lacking means one letter of the jumble is left out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNCHANGED",
-       "indicators": [
-        {
-         "text": "lacking",
-         "note": "lacking means going without, so that letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "nan",
-         "note": "taken as written"
-        },
-        {
-         "words": "coughed",
-         "note": "taken as written"
-        },
-        {
-         "words": "oxygen",
-         "gives": "O",
-         "note": "O is the chemical symbol for oxygen"
-        }
-       ]
+       "words": "nan coughed",
+       "at": 5
+      },
+      {
+       "words": "oxygen",
+       "at": 32,
+       "gives": "O",
+       "note": "O is the chemical symbol for oxygen"
       }
      ]
     },
     "explanation": {
-     "surface": "Grandma coughed hard, short of air, even so.",
-     "walkthrough": "Remove O from NAN COUGHED, then rearrange the rest. 'Even' looks like an adverb, but it is the adjective meaning steady.",
-     "definitionFit": "Something even stays steady and level, constant or not altered."
+     "surface": "Grandma's terrible coughing fit leaves her short of breath.",
+     "walkthrough": "'Lacking oxygen' removes the O from NAN COUGHED and 'badly' says to rearrange the remaining nine letters. 'Even' is the definition, in the sense of steady or constant.",
+     "definitionFit": "Something even stays the same throughout, constant and unaltered, which is what unchanged describes."
     },
     "features": {
      "answerInScene": false,
