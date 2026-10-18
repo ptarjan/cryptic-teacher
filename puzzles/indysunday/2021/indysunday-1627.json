@@ -792,53 +792,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUSHI",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a cut word is shortened, losing its final letter"
+       "text": "in",
+       "at": 10,
+       "note": "'in' places the posh and sons letters within the shortened vessel"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "letters placed in something go inside it"
+         "text": "cut",
+         "at": 18,
+         "note": "cut means docked, so the vessel loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "boat",
-           "gives": "SHI",
-           "note": "a ship is a boat; with its tail cut it loses its last letter"
-          },
-          {
-           "words": "sons",
-           "gives": "S",
-           "note": "S is the abbreviation for son"
-          }
-         ]
+         "words": "boat",
+         "at": 13,
+         "gives": "SHIP",
+         "note": "a ship is a boat"
         },
         {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "Posh",
+         "at": 0,
          "gives": "U",
-         "note": "U means upper class, posh"
+         "note": "U is the old label for upper-class usage, so posh"
+        },
+        {
+         "words": "sons",
+         "at": 5,
+         "gives": "S",
+         "note": "S is the genealogical abbreviation for son or sons"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Well-to-do boys on a boat trip eat Japanese food.",
-     "walkthrough": "SHIP is cut to SHI, then U and S go inside after its S.",
-     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish, so it is food from Japan."
+     "surface": "Upper-class boys on a pleasure cruise get served Japanese cuisine.",
+     "walkthrough": "'cut' docks SHIP to SHI, and 'in' puts U and S inside it after the first letter.",
+     "definitionFit": "Sushi is the Japanese dish of vinegared rice with raw fish, a classic food of that country."
     },
     "features": {
      "answerInScene": true,
@@ -1290,42 +1296,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FORMAT",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "shortly means in brief, so the name is cut short by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "intended to reach",
+       "at": 13,
+       "gives": "FOR",
+       "note": "something intended to reach a person is for them, as in 'this parcel is for you'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 39,
+         "note": "shortly means cut short, so the forename loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "intended to reach",
-         "gives": "FOR",
-         "note": "a letter for someone is meant to reach them"
+         "words": "Hancock",
+         "at": 31,
+         "gives": "MATT",
+         "note": "Matt Hancock is a British politician, a former health secretary"
         },
         {
-         "words": "Hancock",
-         "gives": "MAT",
-         "note": "Matt Hancock was a UK government minister; his first name loses a letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A presentation is meant to reach a famous Hancock soon.",
-     "walkthrough": "Matt Hancock was the British Health Secretary during the pandemic; the question mark warns that only his first name, docked, is used.",
-     "definitionFit": "Format is the way something is arranged or presented, such as the layout of a show or page."
+     "surface": "A slideshow destined for the British politician Matt Hancock, put briefly.",
+     "walkthrough": "The question mark flags that Hancock is to be read as a forename, which 'shortly' then clips by its last letter.",
+     "definitionFit": "A format is the way something is laid out or arranged, its overall design or style of display."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "shortly"
+     "misdirectedWord": "Hancock"
     }
    }
   },
