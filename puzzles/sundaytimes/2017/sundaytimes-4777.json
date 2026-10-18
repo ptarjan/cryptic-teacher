@@ -514,42 +514,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLERIHEW",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost means not quite all, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "and another",
-         "gives": "CLERI",
-         "note": "the previous clue gave a man of the cloth; another is a cleric, cut short"
+         "at": 2,
+         "gives": "CLERIC",
+         "note": "following the chaplain of the previous clue, another man of the cloth is a cleric"
         },
         {
-         "words": "cut",
-         "gives": "HEW",
-         "note": "to hew is to cut with an axe"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "cut",
+       "at": 21,
+       "gives": "HEW",
+       "note": "to hew is to cut, as with an axe"
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing from the previous clue, a further cleric snips out some clever lines.",
-     "walkthrough": "The ellipsis links back to 7 down: 'another' man of the cloth is CLERIC, missing its last letter.",
-     "definitionFit": "A clerihew is a short comic four-line verse about a famous person, invented by E C Bentley."
+     "surface": "Continuing the previous clue: another churchman nearly chops a scrap of comic poetry.",
+     "walkthrough": "The leading dots tie this to 7 down, whose answer is a man of the cloth, so 'another' is CLERIC; 'almost' trims it to CLERI.",
+     "definitionFit": "A clerihew is a short comic four-line verse about a famous person, named after its inventor Edmund Clerihew Bentley."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "another"
     }
    }
   },
@@ -581,43 +585,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CHOPSUEY",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of pairs of words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two parts change places"
       }
      ],
      "parts": [
       {
        "words": "wet bread",
+       "at": 10,
        "gives": "SOP",
        "note": "a sop is a piece of bread soaked in liquid"
       },
       {
-       "words": "firm and sticky",
-       "gives": "CHEWY",
-       "note": "chewy food is firm and sticks to the teeth"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's wet bread — firm and sticky",
-       "gives": "CHOPSUEY",
-       "soundsLike": "SOP CHEWY",
-       "note": "swapping the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "CHUEY",
+       "parts": [
+        {
+         "words": "firm and sticky",
+         "at": 22,
+         "gives": "CHEWY",
+         "note": "chewy describes food that is firm and sticky to bite"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a stodgy, sticky dish of soggy bread.",
-     "walkthrough": "Swap the S and CH sounds of SOP CHEWY to get CHOP SUEY.",
-     "definitionFit": "Chop suey is a Chinese-American stir-fried dish of meat and vegetables."
+     "surface": "A cook describes a dish of soggy bread, firm yet gummy.",
+     "walkthrough": "SOP and CHEWY swap their opening sounds, S and CH. Spooner was an Oxford don famous for such slips.",
+     "definitionFit": "Chop suey is a Chinese-American dish of stir-fried meat and vegetables in a sauce, served with rice."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "bread"
     }
    }
@@ -885,47 +889,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NEWHAMPSHIRE",
-     "indicators": [
-      {
-       "text": "stifle",
-       "note": "to stifle something is to smother it by closing round it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stifle",
+         "at": 18,
+         "note": "stifle means smother, so the cry of joy is held inside the words around it"
+        }
+       ],
        "parts": [
         {
-         "words": "Green",
-         "gives": "NEW",
-         "note": "green means new or inexperienced"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Green",
+           "at": 0,
+           "gives": "NEW",
+           "note": "green means new or inexperienced"
+          },
+          {
+           "words": "politicians",
+           "at": 6,
+           "gives": "MPS",
+           "note": "MPS are Members of Parliament"
+          }
+         ]
         },
         {
          "words": "expression of joy",
+         "at": 25,
          "gives": "HA",
-         "note": "a cry of delight"
-        },
-        {
-         "words": "politicians",
-         "gives": "MPS",
-         "note": "Members of Parliament"
-        },
-        {
-         "words": "take on",
-         "gives": "HIRE",
-         "note": "to take on staff is to hire them"
+         "note": "ha is an exclamation of delight"
         }
        ]
+      },
+      {
+       "words": "take on",
+       "at": 47,
+       "gives": "HIRE",
+       "note": "to hire is to take on an employee"
       }
      ]
     },
     "explanation": {
-     "surface": "Newly elected politicians suppress their glee and turn their attention to the nation.",
-     "walkthrough": "Read 'Green politicians' as one unit, newly elected MPs, which then close round the cry of joy.",
-     "definitionFit": "New Hampshire is one of the fifty United States, in New England."
+     "surface": "Novice MPs suppress a cheer and then recruit someone for the government.",
+     "walkthrough": "HA is stifled between NEW and MPS. 'Green politicians' suggests the Green Party, but the words are split: green means new.",
+     "definitionFit": "New Hampshire is a state in New England, in the north-east of the United States."
     },
     "features": {
      "answerInScene": false,

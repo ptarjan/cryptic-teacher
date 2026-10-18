@@ -859,56 +859,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FRYUP",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 19,
+       "note": "the words before it take in the next letter, as if eating it"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "Father",
+         "at": 0,
+         "gives": "FR",
+         "note": "FR is the abbreviation for Father, a priest's title"
+        },
+        {
+         "words": "out of bed",
+         "at": 7,
+         "gives": "UP",
+         "note": "up means risen, out of bed"
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "eating",
-         "note": "what you eat ends up inside you"
+         "text": "last bit of",
+         "at": 26,
+         "note": "asks for the final letter of yummy"
         }
        ],
        "parts": [
         {
-         "words": "Father",
-         "gives": "FR",
-         "note": "Fr = Father, a priest's title"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "indicators": [
-          {
-           "text": "last bit of",
-           "note": "just the final letter of 'yummy'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "last bit of yummy",
-           "gives": "Y",
-           "select": "last",
-           "note": "the last letter of 'yummy'"
-          }
-         ]
-        },
-        {
-         "words": "out of bed",
-         "gives": "UP",
-         "note": "someone out of bed is up"
+         "words": "yummy",
+         "at": 38,
+         "note": "Y is the last letter of yummy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dad is up and tucking into a tasty cooked breakfast.",
-     "walkthrough": "A fry-up is a British cooked breakfast of fried eggs, bacon, sausages and so on.",
-     "definitionFit": "Definition by example: the full English, with fried eggs, bacon and sausages, is the best-known fry-up."
+     "surface": "Dad has got up and is tucking into the last tasty morsel of a full English.",
+     "walkthrough": "FR and UP sit either side of Y, the last letter of 'yummy'. A fry-up is a cooked British breakfast of bacon, eggs, sausages and so on.",
+     "definitionFit": "A fry-up is the colloquial British name for a full cooked breakfast of fried bacon, eggs and sausages."
     },
     "features": {
      "answerInScene": true,
@@ -1978,60 +1976,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Elaborate",
-       "note": "the letters of MACHINE are worked into a new form"
+       "text": "screening",
+       "at": 18,
+       "note": "screening means hiding behind, so the reworked letters enclose the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "screening"
+         "text": "Elaborate",
+         "at": 0,
+         "note": "elaborate as a verb means to work up or develop, so the letters of machine are reworked"
         }
        ],
        "parts": [
         {
          "words": "machine",
-         "note": "taken as written"
-        },
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "OME",
-         "indicators": [
-          {
-           "text": "naked",
-           "note": "'women' stripped of its outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "naked women",
-           "gives": "OME",
-           "select": "middle",
-           "note": "the middle of 'women'"
-          }
-         ]
+         "text": "naked",
+         "at": 28,
+         "note": "naked means stripped of its covering, so women loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "women",
+         "at": 34,
+         "note": "women without its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elaborate device shows nude women in a private viewing room.",
-     "walkthrough": "'Screening' sounds like showing a film, which suits a cinema; it means hiding inside.",
-     "definitionFit": "A home cinema is a room set up to watch films privately."
+     "surface": "A fancy projector is showing unclothed women in a private room, which sounds racy.",
+     "walkthrough": "Rearrange MACHINE as HCINEMA, then put OME ('naked' women, losing W and N) inside after the H. 'Screening' does double duty in the surface as showing a film.",
+     "definitionFit": "A home cinema is a domestic set-up of large screen and sound system for watching films privately at home."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "screening"
+     "misdirectedWord": "naked"
     }
    }
   },
@@ -2342,57 +2340,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "IANFLEMING",
-     "indicators": [
-      {
-       "text": "penned by"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 6,
+         "note": "novel means new or different, so the letters of Final are put in a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Final",
-         "gives": "IANFL",
-         "note": "rearranged"
+         "at": 0,
+         "note": "the letters of the word Final"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned by",
+         "at": 18,
+         "note": "penned by means enclosed by, so the notes go inside the abbreviation for say"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 29,
+         "gives": "EG",
+         "note": "EG, for example, means say"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "novel",
-           "note": "novel = new, so 'final' changes shape"
-          }
-         ],
-         "parts": [
-          {
-           "words": "notes",
-           "gives": "MIN",
-           "note": "mi, a note of the sol-fa scale, and n, short for note"
-          },
-          {
-           "words": "say",
-           "gives": "EG",
-           "note": "eg = say, for example"
-          }
-         ]
+         "words": "notes",
+         "at": 12,
+         "gives": "MIN",
+         "note": "minutes are notes of a meeting, abbreviated MIN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A children's author has one final new book, with notes written up.",
-     "walkthrough": "E(MIN)G. Better known for James Bond, Ian Fleming also wrote the children's book 'Chitty-Chitty-Bang-Bang'.",
-     "definitionFit": "Ian Fleming wrote 'Chitty-Chitty-Bang-Bang', so he was a children's author."
+     "surface": "A final novel, with notes written by some children's writer.",
+     "walkthrough": "Rearranged FINAL gives IANFL; MIN (minutes, the notes of a meeting) inside EG gives EMING. Ian Fleming, best known for James Bond, also wrote Chitty-Chitty-Bang-Bang for children.",
+     "definitionFit": "Ian Fleming wrote the children's book Chitty-Chitty-Bang-Bang as well as his James Bond spy novels."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "novel"
+     "misdirectedWord": "notes"
     }
    }
   },

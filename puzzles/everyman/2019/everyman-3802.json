@@ -298,37 +298,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MEETING",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Leaderless",
-       "note": "without a leader means the first letter is dropped"
+       "text": "bungled",
+       "at": 20,
+       "note": "bungled means botched, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "bungled",
-         "note": "something bungled is botched and jumbled, so the letters come out disordered"
+         "text": "Leaderless",
+         "at": 0,
+         "note": "without a leader means the first letter of regiment is dropped"
         }
        ],
        "parts": [
         {
          "words": "regiment",
-         "gives": "EGIMENT",
-         "note": "the word with its opening letter removed"
+         "at": 11,
+         "note": "the word regiment, which loses its opening letter"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A regiment with no commander botched its clash with the enemy.",
-     "definitionFit": "A meeting is a coming together of people, just as an encounter is, whether planned or by chance."
+     "surface": "A regiment that has lost its commander botches a clash with the enemy.",
+     "walkthrough": "'Leaderless' drops the R of REGIMENT, leaving EGIMENT; 'bungled' rearranges those seven letters. 'Encounter' reads as a military skirmish, but is a plain meeting.",
+     "definitionFit": "An encounter is a coming together of people, which is what a meeting is; both nouns are close synonyms."
     },
     "features": {
      "answerInScene": true,
@@ -641,42 +645,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENGELS",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "with its head cut off, the word loses its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 19,
+         "note": "beheaded means the first letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "words": "financiers",
+         "at": 8,
+         "gives": "ANGELS",
+         "note": "angels are financial backers, especially of theatre productions"
         },
         {
-         "words": "financiers",
-         "gives": "NGELS",
-         "note": "angels are theatrical backers, here without their first letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Revolutionary justice: British bankers executed by a red.",
-     "walkthrough": "Angels is the theatre term for those who finance a show.",
-     "definitionFit": "Friedrich Engels co-wrote The Communist Manifesto with Karl Marx in 1848."
+     "surface": "British bankers who have lost their heads are a communist's dream.",
+     "walkthrough": "An angel is a backer who finances a stage show; 'beheaded' drops the A of ANGELS. Friedrich Engels co-wrote The Communist Manifesto with Karl Marx.",
+     "definitionFit": "Friedrich Engels was a founding theorist of communism and co-author of The Communist Manifesto."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "beheaded"
+     "misdirectedWord": "financiers"
     }
    }
   },

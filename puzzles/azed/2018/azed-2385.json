@@ -682,54 +682,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CANARYGRASS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "lost from",
+       "at": 26,
+       "note": "lost from means the named letter is taken out of the fodder before it is rearranged"
+      },
+      {
        "text": "bursting",
-       "note": "bursting sacks spill and scatter, so the letters fall into a new order"
+       "at": 36,
+       "note": "bursting means breaking open, so the letters spill into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CANARYGRASS",
-       "indicators": [
-        {
-         "text": "lost",
-         "note": "a thing lost is no longer there, so that letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "kilo",
-         "gives": "K",
-         "note": "K is the abbreviation for kilo, the letter to drop"
-        },
-        {
-         "words": "granary",
-         "note": "taken as written"
-        },
-        {
-         "words": "sacks",
-         "note": "taken as written"
-        }
-       ]
+       "words": "granary sacks",
+       "at": 45,
+       "note": "the letters of the two words granary and sacks"
+      },
+      {
+       "words": "kilo",
+       "at": 21,
+       "gives": "K"
       }
      ]
     },
     "spelling": "CANARY GRASS",
     "explanation": {
-     "surface": "Birdseed spills from split sacks in a granary, a kilo of it lost.",
-     "walkthrough": "Drop the K from granary sacks, then rearrange the rest.",
-     "definitionFit": "Canary grass is a plant whose seed is a staple food for caged birds."
+     "surface": "Grain sacks in a store split open and a kilo of seed spills out.",
+     "walkthrough": "Take the K out of GRANARYSACKS and rearrange the eleven letters left. The surface's split sacks of seed make the definition feel like part of the scene.",
+     "definitionFit": "Canary grass is a grass whose seed is grown as food for caged birds such as canaries."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "kilo"
+     "aptDefinition": true,
+     "misdirectedWord": "bursting"
     }
    }
   },
@@ -755,44 +743,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THEOBROMA",
      "indicators": [
       {
        "text": "in",
-       "note": "one part sits inside the other"
+       "at": 16,
+       "note": "in means the reworked letters go inside the tea-tree word"
       }
      ],
      "parts": [
+      {
+       "words": "tea-tree",
+       "at": 19,
+       "gives": "THEA",
+       "note": "Thea is the old genus name for the tea plant"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "fashioned",
-         "note": "something fashioned is shaped anew, so the letters are rearranged"
+         "at": 6,
+         "note": "fashioned means shaped or made, so the letters are reworked"
         }
        ],
        "parts": [
         {
          "words": "Broom",
-         "note": "the letters of broom, rearranged"
-        },
-        {
-         "words": "tea-tree",
-         "gives": "THEA",
-         "note": "Thea is the botanical genus name once given to the tea plant"
+         "at": 0,
+         "note": "the letters of the word Broom"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A broom made of tea-tree or cacao wood.",
-     "walkthrough": "The jumbled broom goes inside THE-A, the old genus name of the tea plant.",
-     "definitionFit": "Theobroma is the genus of the cacao tree whose beans give chocolate."
+     "surface": "A broom has been made from wood of a tea-tree or a cocoa tree.",
+     "walkthrough": "OBROM (BROOM rearranged) sits inside THEA, a botanical name for the tea plant that Chambers lists. 'or' only joins the wordplay to the definition.",
+     "definitionFit": "Theobroma is the genus of tropical trees including cacao, whose seeds are made into cocoa and chocolate."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "tea-tree"
     }
@@ -819,42 +809,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EPIDAURUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "misguidedly",
-       "note": "a misguided thing goes the wrong way, so its letters stray from order"
+       "text": "around",
+       "at": 60,
+       "note": "around means the wind's name surrounds the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "wind",
+       "at": 55,
+       "gives": "EURUS",
+       "note": "Eurus is the east wind in Greek mythology"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "one part encircles the other"
+         "text": "misguidedly",
+         "at": 38,
+         "note": "misguidedly means wrongly directed, so the letters go astray into a new order"
         }
        ],
        "parts": [
         {
-         "words": "wind",
-         "gives": "EURUS",
-         "note": "Eurus is the Greek god of the east wind"
-        },
-        {
          "words": "Paid",
-         "note": "the letters of paid, rearranged"
+         "at": 33,
+         "note": "the letters of the word Paid"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An outdoor theatre was paid for wrongly, and the wind blew around it.",
-     "walkthrough": "The shuffled paid sits inside EURUS, after its E.",
-     "definitionFit": "Epidaurus in Greece has a famous ancient open-air theatre, so it is an example of such a venue."
+     "surface": "Someone paid wrongly for an outdoor show, and the weather blew in.",
+     "walkthrough": "Rearranged PAID goes inside EURUS, the Greek god of the east wind. The question mark marks the definition as an example: Epidaurus has a famous ancient open-air theatre.",
+     "definitionFit": "Epidaurus in Greece has a superbly preserved ancient theatre still used for open-air performances, noted for its acoustics."
     },
     "features": {
      "answerInScene": true,
@@ -1316,42 +1308,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RHYTON",
+     "op": "container",
      "indicators": [
       {
-       "text": "fashioned",
-       "note": "to fashion something is to shape it afresh, so the letters are reordered"
+       "text": "is found in",
+       "at": 15,
+       "note": "is found in means the short form for that sits inside the reworked letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is found in",
-         "note": "one part lies inside the other"
+         "text": "fashioned",
+         "at": 27,
+         "note": "fashioned means shaped or made, so the letters are reworked"
         }
        ],
        "parts": [
         {
          "words": "horn",
-         "note": "the letters of horn, rearranged"
-        },
-        {
-         "words": "that",
-         "gives": "YT",
-         "note": "yt is an archaic written abbreviation of that"
+         "at": 37,
+         "note": "the letters of the word horn"
         }
        ]
+      },
+      {
+       "words": "that",
+       "at": 10,
+       "gives": "YT",
+       "note": "yt is an obsolete written abbreviation of that, listed in Chambers"
       }
      ]
     },
     "explanation": {
-     "surface": "An ancient cup is found inside a carved drinking horn.",
-     "walkthrough": "YT, from the old scribal form where Y stood for the letter thorn, goes inside the shuffled horn.",
-     "definitionFit": "A rhyton was an ancient Greek drinking vessel, often horn-shaped."
+     "surface": "An ancient cup that is found to be made from horn.",
+     "walkthrough": "YT goes inside a rearrangement of HORN, after its H. Rhytons were often horn-shaped, so the surface hints at the answer.",
+     "definitionFit": "A rhyton is an ancient Greek drinking vessel, often shaped like a horn or an animal's head."
     },
     "features": {
      "answerInScene": true,
@@ -1478,56 +1472,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "USEDNT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Rock",
-       "note": "to rock is to shake, so the letters are tossed into a new order"
+       "text": "involved",
+       "at": 33,
+       "note": "involved means wrapped in, so the initial goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "involved",
-         "note": "involved means taken inside, so one letter sits within the rest"
+         "text": "Rock",
+         "at": 0,
+         "note": "rock means to shake or sway, so the letters of tunes are moved about"
         }
        ],
        "parts": [
         {
          "words": "tunes",
-         "note": "the letters of tunes, rearranged"
-        },
+         "at": 5,
+         "note": "the letters of the word tunes"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "only the first letter of the preceding word is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Dominican",
-           "note": "the first letter of Dominican"
-          }
-         ]
+         "text": "initially",
+         "at": 23,
+         "note": "initially means the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dominican",
+         "at": 13,
+         "note": "the first letter of Dominican"
         }
        ]
       }
      ]
     },
+    "spelling": "USEDN'T",
     "explanation": {
-     "surface": "A Dominican friar used to have nothing to do with rock music.",
-     "walkthrough": "D goes inside the jumbled tunes, USE-NT. 'Rock tunes' looks like a music genre but 'Rock' is the shuffle signal.",
-     "definitionFit": "Usedn't is a contracted form of 'used not', meaning did not habitually."
+     "surface": "A Dominican friar involved with rock music was not a regular habit-wearer.",
+     "walkthrough": "'Rock' looks like a music genre but signals rearranging TUNES, with D from 'Dominican initially' set inside. 'Habit' also puns on a friar's robe.",
+     "definitionFit": "Usedn't is a contracted form of used not, meaning did not formerly do something as a regular practice."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Rock"
     }
    }
@@ -1969,41 +1968,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROBOTISES",
+     "op": "container",
      "indicators": [
       {
-       "text": "misguidedly",
-       "note": "something done misguidedly goes astray, so the letters wander out of order"
+       "text": "installed",
+       "at": 50,
+       "note": "installed means put in place within, so the letter goes inside the rearranged ones"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "installed",
-         "note": "a letter installed is fitted within the rest"
+         "text": "misguidedly",
+         "at": 36,
+         "note": "misguidedly means wrongly directed, so the letters go astray into a new order"
         }
        ],
        "parts": [
         {
          "words": "boosters",
-         "note": "the letters of boosters, rearranged"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
+         "at": 27,
+         "note": "the letters of the word boosters"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 48
       }
      ]
     },
     "explanation": {
-     "surface": "Someone foolishly fitted booster rockets, removing the human crew.",
-     "walkthrough": "I goes inside the jumbled boosters, ROBOT-SES.",
-     "definitionFit": "To robotise a task is to hand it to machines, so people are no longer involved in it."
+     "surface": "A rocket engineer admits wrongly fitting the boosters, ruling out humans.",
+     "walkthrough": "Rearrange BOOSTERS and set the I in among them. The definition is a verb phrase: to robotise a process is to automate it.",
+     "definitionFit": "To robotise is to make a task performed by robots or automatic machines rather than people."
     },
     "features": {
      "answerInScene": true,
