@@ -781,49 +781,63 @@
      "parts": [
       {
        "words": "like",
+       "at": 5,
        "gives": "DIG",
-       "note": "dig = like, as in 'I dig it'"
+       "note": "to dig something is slang for liking it"
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 16,
+         "note": "containing means the pair of words holds the next piece"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "ITIS",
-         "indicators": [
-          {
-           "text": "containing",
-           "note": "IT IS holds the next piece inside"
-          },
-          {
-           "text": "skin",
-           "note": "the skin of a word is its outer letters"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "it is",
-           "gives": "ITIS",
-           "select": "outer",
-           "note": "taken literally"
+           "words": "it",
+           "at": 10,
+           "gives": "IT",
+           "note": "taken as written"
+          },
+          {
+           "words": "is",
+           "at": 13,
+           "gives": "IS",
+           "note": "taken as written"
           }
          ]
         },
         {
-         "words": "animal's skin",
-         "gives": "AL",
-         "note": "outer letters of animal, placed inside IT IS"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "skin",
+           "at": 36,
+           "note": "the skin of the word is its outer layer, the first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "animal's",
+           "at": 27,
+           "gives": "ANIMAL",
+           "note": "the word animal, possessive here"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drug that is like one containing animal hide.",
-     "walkthrough": "'Like' is the slang verb, as in 'I dig that', not a comparison; 'skin' means just the outer letters.",
-     "definitionFit": "The drug takes the foxglove's Latin name, the plant it is extracted from."
+     "surface": "A drug resembling it holds a creature's hide.",
+     "walkthrough": "To dig something is slang for liking it, as in 'I dig it'; the skin of a word is its first and last letters.",
+     "definitionFit": "Digitalis is a heart medicine extracted from foxglove leaves."
     },
     "features": {
      "answerInScene": false,
@@ -948,45 +962,75 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "UNDELETE",
      "indicators": [
       {
-       "text": "replacing both"
+       "text": "replacing",
+       "at": 20,
+       "note": "replacing means the energy letter takes the place of the named letters"
       }
      ],
      "parts": [
       {
-       "words": "wave",
-       "gives": "UNDULATE",
-       "note": "undulate = wave"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "both",
+         "at": 30,
+         "note": "both says the energy letter swaps in for two letters, the first being uranium"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wave",
+         "at": 8,
+         "gives": "UNDULATE",
+         "note": "to undulate is to wave"
+        },
+        {
+         "words": "uranium",
+         "at": 35,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
+        },
+        {
+         "words": "energy",
+         "at": 13,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       },
       {
-       "words": "energy",
-       "gives": "E",
-       "note": "e = energy, used twice"
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "third of",
+         "at": 47,
+         "note": "the third letter of the word coal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coal",
+         "at": 56
+        }
+       ]
       },
       {
-       "words": "uranium",
-       "gives": "U",
-       "note": "U = uranium; the second U of UNDULATE goes"
-      },
-      {
-       "words": "third of coal",
-       "gives": "A",
-       "note": "third letter of coal; replaced by E"
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A plan to bring back wave power in place of nuclear and coal.",
-     "walkthrough": "In UNDULATE, the second U and the A each become E. The surface is energy policy, which hides that uranium is just its symbol.",
-     "definitionFit": "A computing term: to recover a file that was deleted."
+     "surface": "Bring back wave power instead of uranium and coal.",
+     "walkthrough": "In UNDULATE the second U and the A both become E.",
+     "definitionFit": "To undelete is to restore deleted text or files in computing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "energy"
+     "misdirectedWord": "Restore"
     }
    }
   },
@@ -1076,20 +1120,16 @@
     "definitions": [
      {
       "text": "in the heights",
-      "at": 39,
-      "note": "the definition is a phrase meaning placed high, standing for the adjective"
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "reversal",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "most of the word, so the last letter goes"
-      },
-      {
        "text": "climbing",
-       "note": "in a down answer, climbing means read upwards"
+       "at": 30,
+       "note": "climbing in a down clue means reading the result upwards, back to front"
       }
      ],
      "parts": [
@@ -1098,31 +1138,49 @@
        "indicators": [
         {
          "text": "about",
-         "note": "the first piece goes around the second"
+         "at": 15,
+         "note": "about means wrapped around the careless word"
         }
        ],
        "parts": [
         {
-         "words": "Mostly put off",
-         "gives": "DETE",
-         "note": "DETER = put off, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Mostly",
+           "at": 0,
+           "note": "mostly means most of the word, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "put off",
+           "at": 7,
+           "gives": "DETER",
+           "note": "to deter is to put off"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
          "words": "careless",
+         "at": 21,
          "gives": "LAX",
-         "note": "lax = careless; goes inside DETE"
+         "note": "lax means careless"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Being deterred by someone clumsy on a mountain climb.",
-     "walkthrough": "DET(LAX)E is built first, then the whole thing is read upwards.",
-     "definitionFit": "Exalted means raised to a high rank or position."
+     "surface": "Someone is largely discouraged by sloppy mountaineering at altitude.",
+     "walkthrough": "DETE goes round LAX to give DETLAXE, which reads upwards in this down clue.",
+     "definitionFit": "Exalted means raised high in rank or spirit, so it describes being lofty, up in the heights."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "climbing"
     }

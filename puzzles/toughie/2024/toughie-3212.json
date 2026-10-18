@@ -49,45 +49,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "off",
-       "note": "something off is out of order or not right, so the letters before it are rearranged"
+       "text": "guards",
+       "at": 16,
+       "note": "guards means the prison holds the jumbled letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "prison",
+       "at": 9,
+       "gives": "JAIL",
+       "note": "a jail is a prison"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "guards",
-         "note": "a word that guards something wraps around it, keeping it inside"
+         "text": "off",
+         "at": 5,
+         "note": "off means out of order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "prison",
-         "gives": "JAIL",
-         "note": "a jail is a prison"
-        },
-        {
          "words": "Bump",
-         "note": "the letters of bump in a new order"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A violent inmate kills someone while the warders look on, then flees the jail.",
-     "walkthrough": "The jumbled letters go between the J and the AIL of the prison word.",
-     "definitionFit": "Bail is money pledged as security for a defendant's return, so fleeing it is the idiom for skipping court."
+     "surface": "Kill a jailer and then flee custody.",
+     "walkthrough": "'Bump off' reads as one verb meaning kill, but 'off' is the anagram signal working on BUMP.",
+     "definitionFit": "Bail is money pledged as security for a defendant; jumping it means fleeing before the trial."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "guards"
+     "aptDefinition": true,
+     "misdirectedWord": "off"
     }
    }
   },
@@ -737,34 +740,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "terribly",
-       "note": "terribly suggests something badly done or messed up, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Volunteers",
+       "at": 0,
+       "gives": "TA",
+       "note": "the TA (Territorial Army) is Britain's volunteer reserve force"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 11,
+         "note": "terribly suggests something done badly, so the letters are scrambled"
+        }
+       ],
        "parts": [
         {
-         "words": "Volunteers",
-         "gives": "TA",
-         "note": "the Territorial Army, Britain's volunteer reserve force"
-        },
-        {
          "words": "maudlin",
-         "note": "its letters in a new order"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group of volunteers is in a dreadfully weepy mood.",
-     "walkthrough": "TA, the Territorial Army, is Britain's part-time volunteer reserve.",
-     "definitionFit": "Tamil Nadu is a state in southern India whose capital is Chennai."
+     "surface": "Volunteers are wretchedly tearful about something.",
+     "walkthrough": "The TA, Territorial Army, was the British army's reserve of part-time volunteers.",
+     "definitionFit": "Tamil Nadu is one of India's states, in the far south-east of the subcontinent."
     },
     "features": {
      "answerInScene": false,
@@ -1497,26 +1502,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ACCESS",
      "indicators": [
       {
-       "text": "intermittently pairing up",
-       "note": "every other letter is paired with a copy of itself, so alternate letters become doubles"
+       "text": "pairing up",
+       "at": 32,
+       "note": "pairing up means each picked letter gets a twin beside it"
       }
      ],
      "parts": [
       {
-       "words": "experts",
-       "gives": "ACES",
-       "note": "aces are experts"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "intermittently",
+         "at": 17,
+         "note": "intermittently means at every other point, so alternate letters are picked for doubling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "experts",
+         "at": 9,
+         "gives": "ACES",
+         "note": "aces are experts"
+        },
+        {
+         "gives": "C"
+        },
+        {
+         "gives": "CC"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "SS"
       }
      ]
     },
     "explanation": {
-     "surface": "A query about how specialists might occasionally team up.",
-     "walkthrough": "The second and fourth letters of the experts word are doubled; the question mark flags the unusual device.",
-     "definitionFit": "Access is a way in or means of approach, as in 'access road'."
+     "surface": "Experts who sometimes team up in pairs make an overture.",
+     "walkthrough": "In ACES, the second and fourth letters, C and S, are each doubled.",
+     "definitionFit": "Access is a way of getting near or into somewhere, a synonym of approach as a noun."
     },
     "features": {
      "answerInScene": false,

@@ -246,52 +246,56 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means the first word surrounds what follows"
+       "at": 5,
+       "note": "around means the play word wraps the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Play",
-         "gives": "TOY",
-         "note": "to toy with something is to play with it"
-        },
-        {
-         "words": "upper-class",
-         "gives": "U",
-         "note": "U is the old label for upper-class usage"
-        }
-       ]
+       "words": "Play",
+       "at": 0,
+       "gives": "TOY",
+       "note": "to toy is to play idly"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "note": "mostly means not quite all, so the final letter is lost"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "youngster",
-         "gives": "CHILD",
-         "note": "a child is a youngster"
+         "words": "upper-class",
+         "at": 12,
+         "gives": "U"
         },
         {
-         "gives": "D"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 35,
+           "note": "mostly means the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "youngster",
+           "at": 24,
+           "gives": "CHILD",
+           "note": "a child is a youngster"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A posh child fools about and gets crotchety.",
-     "definitionFit": "Both adverbs describe acting in a tetchy, easily offended way."
+     "surface": "Someone toys with a posh child and does so in a grumpy manner.",
+     "definitionFit": "Touchily describes acting in an easily offended, tetchy way, which is acting irritably."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Play"
     }
@@ -1622,39 +1626,44 @@
      "indicators": [
       {
        "text": "stopping",
-       "note": "stopping means plugging a gap, so these letters go inside"
+       "at": 16,
+       "note": "stopping means plugging a gap, so these letters sit inside the city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "French city's",
+       "at": 25,
+       "gives": "NANCY",
+       "note": "Nancy is a city in north-eastern France"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "French city",
-         "gives": "NANCY",
-         "note": "Nancy is a city in Lorraine"
+         "words": "Namely",
+         "at": 0,
+         "gives": "SC",
+         "note": "SC abbreviates scilicet, Latin for namely"
         },
         {
          "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
+         "at": 7,
+         "gives": "E"
         }
        ]
-      },
-      {
-       "words": "Namely",
-       "gives": "SC",
-       "note": "sc, for scilicet, means namely"
       }
      ]
     },
     "explanation": {
-     "surface": "A European citizen blocks the growth of a French town.",
-     "definitionFit": "Nascency is the state of coming into being, so the first stage of growth."
+     "surface": "A European blocks a French city's growth in its earliest stage.",
+     "walkthrough": "SC, short for Latin scilicet, means 'namely' in formal writing.",
+     "definitionFit": "Nascency is the state of being born or beginning to exist, its first stage of growth."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Namely"
     }
    }
   },
@@ -1980,12 +1989,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATFULLPELT",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first word inside the following pair"
+       "at": 7,
+       "note": "in means the loaded word is placed within the rest"
       }
      ],
      "parts": [
@@ -1994,7 +2002,8 @@
        "indicators": [
         {
          "text": "out",
-         "note": "out means removed, so those letters are dropped"
+         "at": 36,
+         "note": "out means the run word is taken away from the goat's skin"
         }
        ],
        "parts": [
@@ -2003,32 +2012,38 @@
          "parts": [
           {
            "words": "goat",
+           "at": 10,
+           "gives": "GOAT",
            "note": "taken as written"
           },
           {
-           "words": "Loaded",
-           "gives": "FULL",
-           "note": "a loaded van is full"
-          },
-          {
            "words": "skin",
+           "at": 15,
            "gives": "PELT",
-           "note": "a pelt is an animal's skin"
+           "note": "a pelt is an animal skin"
           }
          ]
         },
         {
          "words": "to run",
+         "at": 29,
          "gives": "GO",
-         "note": "to go is to run, as an engine does"
+         "note": "to go is to run, as of an engine"
         }
        ]
+      },
+      {
+       "words": "Loaded",
+       "at": 0,
+       "gives": "FULL",
+       "note": "loaded means full"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stuffed into a goatskin is trying to escape quickly.",
-     "definitionFit": "The idiom means moving as fast as possible, at top speed."
+     "surface": "Someone stuffed inside a goatskin manages to escape at a gallop.",
+     "walkthrough": "'Goat skin' reads as one hide, but it is two words: the animal and a synonym for skin, from which the word for run is then removed.",
+     "definitionFit": "At full pelt is an idiom for running as fast as possible, flat out."
     },
     "features": {
      "answerInScene": true,
