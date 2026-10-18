@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -483,43 +484,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SVELTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Unusual",
-       "note": "Something unusual is not in its expected state, so the word after it does not stay in the order it is given."
+       "text": "boxes",
+       "at": 14,
+       "note": "boxes means encloses, so the rearranged letters go around the single letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "boxes",
-         "note": "To box something is to shut it in a container, so the letters just made close around the piece that follows."
+         "text": "Unusual",
+         "at": 0,
+         "note": "unusual means out of the ordinary form, so the letters of steel are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Unusual steel",
-         "gives": "SELTE",
-         "note": "The five letters of steel, reordered to leave a gap after the S."
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the standard abbreviation for very."
+         "words": "steel",
+         "at": 8,
+         "note": "the word steel, taken as written"
         }
        ]
+      },
+      {
+       "words": "very",
+       "at": 20,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "Some oddly made steel boxes are said to be extremely narrow.",
-     "walkthrough": "'boxes' is a verb, not a piece of furniture: the steel does the boxing, and 'very' is what gets shut inside.",
-     "definitionFit": "Svelte describes a figure that is slim and elegant with it, so 'slender' is the plain adjective it stands in for."
+     "surface": "Boxes made of an unusual steel are remarkably thin.",
+     "walkthrough": "'Unusual' rearranges STEEL, and 'boxes' places V inside, just after the S. 'boxes' reads as a noun in the surface, but it is a verb meaning encloses.",
+     "definitionFit": "Svelte describes a person who is slim and graceful, which is what slender means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
     }
    }
   },
@@ -953,26 +959,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CUSTER",
      "indicators": [
       {
        "text": "organised",
-       "note": "Something organised has been put into an order by somebody, and a new order is exactly what the letters come back in."
+       "at": 27,
+       "note": "organised means put into a new order, so the letters of truces are rearranged"
       }
      ],
      "parts": [
       {
        "words": "truces",
-       "gives": "CUSTER",
-       "note": "The six letters of the word, rearranged."
+       "at": 37,
+       "note": "the word truces, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An officer has brokered a series of ceasefires.",
-     "walkthrough": "Arranging truces is exactly the sort of thing a cavalry commander does, which is why the indicator sits so quietly inside the surface.",
-     "definitionFit": "George Custer was the US cavalry officer wiped out at the Little Bighorn in 1876, so the definition names him by his job."
+     "surface": "A US cavalry general arranged a series of ceasefires.",
+     "walkthrough": "'organised' rearranges the six letters of TRUCES. The surface is ironic, since the general is known for fighting, not peace.",
+     "definitionFit": "George Armstrong Custer led the US 7th Cavalry and died at the Battle of the Little Bighorn in 1876."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
     }
    }
   },
@@ -1311,26 +1321,36 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SELFHATE",
      "indicators": [
       {
        "text": "training",
-       "note": "Training something is putting it through its paces until it does something new, and the letters beside it come back in a new arrangement."
+       "at": 23,
+       "note": "training suggests drilling into a new shape or order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "the fleas",
-       "gives": "SELFHATE",
-       "note": "The eight letters of these two words are exactly the ones needed, reordered."
+       "words": "the",
+       "at": 32,
+       "note": "the word the, taken as written"
+      },
+      {
+       "words": "fleas",
+       "at": 36,
+       "note": "the word fleas, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody cannot stand the person who runs the flea circus.",
-     "walkthrough": "The definition runs on past 'dislike' to take in 'one', and that word is the self the loathing is aimed at.",
-     "definitionFit": "Self-hate is intense dislike turned on oneself, and 'of one' is what narrows the definition from general loathing to that."
+     "surface": "Someone who trains fleas for a flea circus is intensely disliked.",
+     "walkthrough": "'training' rearranges the eight letters of THE and FLEAS together. 'of one' belongs to the definition: the dislike is directed at oneself.",
+     "definitionFit": "Self-hate is loathing directed at oneself, so it is a strong dislike of one's own person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "training"
     }
    }
   },
