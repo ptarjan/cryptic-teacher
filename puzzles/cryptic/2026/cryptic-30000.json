@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -108,27 +109,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LISTENIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "wingless",
-       "note": "Wings are the parts that stick out at either side, so a wingless word has given up the letter standing at each of its two ends."
+       "at": 10,
+       "note": "wingless takes off the wings, the letters at either edge of the word"
       }
      ],
      "parts": [
       {
        "words": "Lustrous",
+       "at": 0,
        "gives": "GLISTENING",
-       "note": "a wet pavement or a polished shoe is glistening, which is lustrous"
+       "note": "glistening means shining, lustrous"
       }
      ]
     },
     "explanation": {
-     "surface": "A shiny beetle that has somehow lost its wings.",
-     "walkthrough": "'Bug' is a verb here, not an insect: to bug a room is to eavesdrop on it. The comma after the first word is the setter's only hint that it is fodder rather than description.",
-     "definitionFit": "To bug a room is to listen in on what is said inside it, so the definition is the eavesdropping verb and not the beetle."
+     "surface": "A naturalist describes a glossy insect that has no wings.",
+     "walkthrough": "'bug' looks like the insect the surface describes, but it is a verb: to bug a room is to eavesdrop on it.",
+     "definitionFit": "To bug is to plant a hidden microphone so as to eavesdrop, which is what listening in means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bug"
     }
    }
   },
@@ -160,26 +167,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "REDSEA",
      "indicators": [
       {
        "text": "after cycling",
-       "note": "A cycle brings you back round to where you began, so the letters roll to a new starting point and keep their order all the way."
+       "at": 8,
+       "note": "cycling means the letters go round, so a block from the front of the word moves to the back"
       }
      ],
      "parts": [
       {
        "words": "Parched",
+       "at": 0,
        "gives": "SEARED",
-       "note": "ground seared by the sun is parched"
+       "note": "seared means scorched or dried up, parched"
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist arriving thirsty in the desert country below Suez.",
-     "walkthrough": "Cycling looks like an anagram and is far stricter: no letter changes places with another, the run simply starts three letters further along.",
-     "definitionFit": "The Red Sea is the long water running south from the Gulf of Suez between Egypt and Arabia, so the definition places it on the map instead of naming it."
+     "surface": "A traveller describes a parched region south of Suez after a long bicycle ride.",
+     "walkthrough": "'cycling' reads as riding a bike, but it moves the opening SEA of SEARED round to the end.",
+     "definitionFit": "The Red Sea is the stretch of water that begins at the Gulf of Suez and runs south between Africa and Arabia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -346,55 +358,63 @@
     "definitions": [
      {
       "text": "Edges",
-      "at": 0,
-      "note": "The answer is one boundary while the definition is plural, which is fair because a perimeter is all the edges of a shape counted together as a single line."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "sacked",
-       "note": "A sacked city has been ransacked and left in disorder, and letters left in disorder no longer sit in the order they were handed over."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "last",
-         "note": "The last of a word is the letter it finishes on, so the name in front of this gives up one character and keeps the rest."
+         "text": "sacked",
+         "at": 16,
+         "note": "sacked means plundered and wrecked, as an empire's capital might be, so its letters are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "empire",
-         "note": "six letters of fodder"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "Egypt's last",
-           "gives": "EGYPTLAST",
-           "note": "the closing letter of Egypt, thrown in with the fodder"
-          }
-         ]
-        },
-        {
-         "words": "queen",
-         "gives": "ER",
-         "note": "ER is Elizabeth Regina, the monogram a British queen signs with"
+         "at": 9
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 34,
+         "note": "last points to the final letter of the country's name, Egypt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Egypt's",
+         "at": 26,
+         "gives": "EGYPT",
+         "note": "the name Egypt, its possessive dropped"
+        }
+       ]
+      },
+      {
+       "words": "queen",
+       "at": 39,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the usual crossword queen"
       }
      ]
     },
     "explanation": {
-     "surface": "Cleopatra's army burning its way along the outlying provinces of a neighbouring empire.",
-     "walkthrough": "Egypt's last queen was Cleopatra, and that is the picture only: the wordplay wants nothing of her, just the letter her country ends on and the crossword's standard two for a queen.",
-     "definitionFit": "A perimeter is the line running right round the outside of an area, which is what all the edges of it come to."
+     "surface": "The outer reaches of an empire are plundered by the last queen of Egypt, Cleopatra.",
+     "walkthrough": "'Egypt's last queen' calls up Cleopatra, but it splits into T, the last letter of Egypt, and ER, Elizabeth Regina.",
+     "definitionFit": "A perimeter is the outer boundary of an area, so it is made of its edges, though the clue's plural is looser than the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "queen"
     }
    }
   },
@@ -420,30 +440,44 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TODAY",
      "indicators": [
       {
        "text": "to lose",
-       "note": "Losing something means it is no longer there, so what is named after this phrase comes out of the letters named before it."
+       "at": 10,
+       "note": "to lose says the pound symbols are taken out of the words told ally, wherever they sit"
       }
      ],
      "parts": [
       {
-       "words": "Told ally",
-       "note": "eight letters to start from, the two words run together"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Told ally",
+         "at": 0
+        },
+        {
+         "gives": "L",
+         "note": "the first of the three pound letters, the one in told"
+        }
+       ]
       },
       {
        "words": "three pounds",
-       "gives": "LLL",
-       "note": "a pound is written L, from the Latin libra, and three of them go"
+       "at": 18,
+       "gives": "LL",
+       "note": "L, from Latin libra, is the symbol for a pound; there are three in told ally, one here and two taken first"
       }
      ]
     },
     "explanation": {
-     "surface": "Telling a friend to shed three pounds before the day is out.",
-     "walkthrough": "The dieting surface is what hides the pounds: they are money rather than weight, and the L they give up is the same L drawn as the pound sign.",
-     "definitionFit": "Anything that has to happen before tomorrow has to happen today, so the definition fixes the day by the one that comes after it."
+     "surface": "Someone tells a friend they need to lose three pounds in weight before tomorrow.",
+     "walkthrough": "'three pounds' looks like a diet target, but it is three Ls: one comes out of TOLD and two out of ALLY.",
+     "definitionFit": "Today is the day that comes just before tomorrow; the definition describes it by its place in time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pounds"
     }
    }
   },
@@ -1108,41 +1142,45 @@
      "indicators": [
       {
        "text": "round",
-       "note": "Going round something means closing on both sides of it, so the first word wraps the letters named after it."
+       "at": 9,
+       "note": "round says the decay word wraps itself around the middle of the city's name"
       }
      ],
      "parts": [
       {
        "words": "Goes off",
+       "at": 0,
        "gives": "ROTS",
-       "note": "milk that goes off rots"
+       "note": "food that goes off rots"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AS",
        "indicators": [
         {
          "text": "centre of",
-         "note": "The centre of a word is what has an equal count either side of it, and an eight-letter name has a pair sitting there."
+         "at": 15,
+         "note": "the centre of an eight-letter word is its middle two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of Damascus",
-         "gives": "AS",
-         "select": "middle",
-         "note": "the middle pair of the city's eight letters, with three standing on either side"
+         "words": "Damascus",
+         "at": 25,
+         "note": "its middle two letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Food going off in the heat around the middle of Damascus.",
-     "walkthrough": "'Goes off' is milk turning, not a bomb or a departure. The Syrian heat in the surface is there so the definition can pass as part of the same picture.",
-     "definitionFit": "Something that roasts is unbearably hot, so 'swelters' matches the weather sense of the word — a roasting afternoon — rather than the cooking one."
+     "surface": "A traveller in Damascus finds the food spoiling as the city centre swelters in the heat.",
+     "walkthrough": "Damascus has an even number of letters, so its 'centre' is two letters, not one.",
+     "definitionFit": "To roast is informally to be uncomfortably hot, so someone who roasts swelters in the heat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
     }
    }
   },
@@ -1358,40 +1396,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "QUICK",
      "indicators": [
       {
        "text": "for",
-       "note": "X for Y is an exchange at a counter: what follows this word steps out and what comes before it steps into the space."
+       "at": 15,
+       "note": "for means in place of, so the question letters take over from the bachelor letter"
       },
       {
        "text": "in",
-       "note": "What happens in a thing happens inside it, so the exchange is made within the word named after it."
+       "at": 28,
+       "note": "in says the exchange happens within the name of the car, where the bachelor letter is found"
       }
      ],
      "parts": [
       {
-       "words": "question",
-       "gives": "Q",
-       "note": "q = question, as in a Q and A session"
+       "words": "automobile",
+       "at": 31,
+       "gives": "BUICK",
+       "note": "a Buick is an American make of car"
       },
       {
        "words": "bachelor",
+       "at": 19,
        "gives": "B",
-       "note": "b = bachelor, as in a BA degree; this is the letter being shown the door"
+       "note": "B is the abbreviation for bachelor, as in degree titles"
       },
       {
-       "words": "automobile",
-       "gives": "BUICK",
-       "note": "Buick is one of the oldest American car marques, now part of General Motors"
+       "words": "question",
+       "at": 6,
+       "gives": "Q",
+       "note": "Q is a standard abbreviation for question, as in Q and A"
       }
      ]
     },
     "explanation": {
-     "surface": "A short question put to the single man sitting in the car.",
-     "walkthrough": "'Brief question' reads as one phrase and splits between definition and wordplay. 'Automobile' is the American word for a car, which is the nudge towards an American make.",
-     "definitionFit": "A quick word is a brief one, so the definition is the sense of short duration rather than the one about speed of movement."
+     "surface": "A short question for an unmarried man sitting in a car.",
+     "walkthrough": "Buick is a General Motors car brand, so the 'automobile' is BUICK, and 'question for bachelor' swaps its B for Q.",
+     "definitionFit": "A quick visit is a short one, so the adjective quick means brief, lasting little time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bachelor"
     }
    }
   },

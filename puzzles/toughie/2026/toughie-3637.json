@@ -166,46 +166,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTENSILE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "incomplete",
-       "note": "something incomplete is missing its end, so the final letter is dropped"
+       "text": "Faulty",
+       "at": 0,
+       "note": "a faulty message comes out jumbled, so the letters of the words after it are set in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "telex",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "words": "I",
+       "at": 13
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Faulty",
-         "note": "something faulty is not in working order, so these letters must be rearranged into good order"
+         "text": "incomplete",
+         "at": 21,
+         "note": "incomplete says the word sent loses its final letter before joining the rest"
         }
        ],
        "parts": [
         {
-         "words": "telex",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
          "words": "sent",
-         "gives": "SEN",
-         "note": "the word without its last letter"
+         "at": 15,
+         "note": "taken as written"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A telex has been sent garbled and cut short, apparently stretching out the message.",
-     "walkthrough": "Shorten the last word first, then mix all nine letters together.",
-     "definitionFit": "Extensile is a technical adjective for parts, such as a tongue or limb, that can be stretched out or protruded."
+     "surface": "An apology for a garbled telex message that went out unfinished.",
+     "walkthrough": "'incomplete' cuts SENT to SEN, and 'Faulty' rearranges TELEX, I and SEN together.",
+     "definitionFit": "Extensile is a zoological word for parts, such as some tongues, that can be stretched out or extended."
     },
     "features": {
      "answerInScene": false,
@@ -1406,33 +1410,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEARHUGS",
      "indicators": [
       {
-       "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so initial sounds trade places"
+       "text": "Spooner's description of",
+       "at": 9,
+       "note": "Spooner swaps the opening sounds of two words, so the words for the lice are said with their starts exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "head lice",
-       "gives": "BEARHUGS",
-       "soundsLike": "HAIR BUGS",
-       "note": "lice are insects living in the hair of the head"
+       "op": "homophone",
+       "spelt": "HEAR",
+       "parts": [
+        {
+         "words": "head",
+         "at": 34,
+         "gives": "HAIR",
+         "note": "head lice live in the hair, so head gives hair; the 'air' sound is respelt with EAR, as in the word bear, so the swap comes out right"
+        }
+       ]
+      },
+      {
+       "words": "lice",
+       "at": 39,
+       "gives": "BUGS",
+       "note": "lice are bugs, small insects"
       }
      ]
     },
     "explanation": {
-     "surface": "A comic definition of nits as told by a famously muddled clergyman.",
-     "walkthrough": "Swap the opening sounds of hair bugs and you get the answer.",
-     "definitionFit": "Bear hugs are tight, enveloping hugs, so they are embraces in the plural noun sense."
+     "surface": "A riddle asking what the famous Reverend Spooner would have called a case of head lice.",
+     "walkthrough": "Head lice are HAIR BUGS; 'Spooner's description of' swaps the H and B sounds, giving 'bair hugs', spelt BEAR HUGS. Spooner was an Oxford don famous for such slips of the tongue.",
+     "definitionFit": "A bear hug is a tight, enveloping hug, so bear hugs are embraces; the plural verb sense also fits."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd"
+     "joke": "pun",
+     "misdirectedWord": "head"
     }
    }
   },
@@ -1457,43 +1472,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREBE",
+     "op": "container",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the final letter is dropped"
+       "text": "captures",
+       "at": 16,
+       "note": "captures says the nationality word holds the colour letter inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "captures",
-         "note": "to capture is to take hold of, so one piece is enclosed inside the other"
+         "text": "nearly",
+         "at": 9,
+         "note": "nearly means the word is cut short by its final letter"
         }
        ],
        "parts": [
         {
          "words": "European",
-         "gives": "GREE",
-         "note": "Greek, a European, without its last letter"
+         "at": 0,
+         "gives": "GREEK",
+         "note": "a Greek is a European"
         },
         {
-         "words": "black",
-         "gives": "B",
-         "note": "B is the abbreviation for black, as on pencils"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "black",
+       "at": 25,
+       "gives": "B",
+       "note": "B is the standard abbreviation for black, as on pencils"
       }
      ]
     },
     "explanation": {
-     "surface": "A European man almost manages to catch a dark-feathered bird.",
-     "walkthrough": "'European' must first become a specific nationality before it is shortened.",
-     "definitionFit": "A grebe is a diving water bird with lobed toes, found on lakes and ponds."
+     "surface": "A European almost catches a black bird.",
+     "walkthrough": "'nearly' trims GREEK to GREE, which 'captures' B. 'black bird' reads as one phrase, but black only gives B and bird is the definition.",
+     "definitionFit": "A grebe is a diving waterbird with lobed toes, often seen on lakes and reservoirs."
     },
     "features": {
      "answerInScene": true,
