@@ -76,6 +76,10 @@ check(a.stopped_names("apply_annotations: x.json: refused to write, fix these in
       {"apply refused: schema explanation: missing required key 'walkthrough'",
        "apply refused: schema missing required key 'blocks'"},
       "apply_annotations refusals are named by finding, entry id dropped")
+check({n for s in ("genius/2026/genius-1.json", "azed/2025/azed-9.json") for n in a.stopped_names(
+    f"annotate_check x: STOPPED — the annotations were not applied, so puzzles/{s} is unchanged.")},
+      {"STOPPED: the annotations were not applied, so <puzzle> is unchanged."},
+      "a STOPPED line is one class whatever series path it names")
 check(a.tool_error_kind("Bash", "python3 tools/annotate_check.py x", "Exit code 1\nFAIL"), None,
       "annotate_check reporting errors is not a wasted call")
 check(a.tool_error_kind("Bash", "cat <<X", "Contains brace with quote character"),

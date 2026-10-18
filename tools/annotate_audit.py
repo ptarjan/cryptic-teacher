@@ -186,8 +186,9 @@ def stopped_names(text):
             found.add(re.sub(r"\[\d+\]", "[]", m.group(1)).lstrip(":").strip())
     if found:
         return {f"apply refused: schema {f}" for f in found}
-    m = re.search(r"STOPPED — (.{0,60})", text)
-    return {"STOPPED: " + (m.group(1) if m else "?")}
+    m = re.search(r"STOPPED — (.{0,200})", text)
+    # The path ends the sentence the same way every time: one class, not one per series.
+    return {"STOPPED: " + re.sub(r"puzzles/\S+", "<puzzle>", m.group(1))[:60] if m else "STOPPED: ?"}
 
 
 def failed_command(command):
