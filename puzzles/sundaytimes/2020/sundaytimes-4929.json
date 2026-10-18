@@ -549,43 +549,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BEARER",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "bottles",
+       "at": 4,
+       "note": "bottles means holds inside, as a bottle holds a drink, so one piece goes within the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Ale",
+       "at": 0,
+       "gives": "BEER",
+       "note": "ale is a kind of beer"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "bottles",
-         "note": "to bottle something is to hold it inside, so one piece contains another"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means most of the word, so the final letter of are is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Ale",
-         "gives": "BEER",
-         "note": "ale is a kind of beer"
+         "words": "are",
+         "at": 12,
+         "gives": "ARE",
+         "note": "taken as written before trimming"
         },
         {
-         "words": "are",
-         "gives": "AR",
-         "note": "the word as printed, last letter dropped"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bottled ales are mostly the dark beer called porter.",
-     "walkthrough": "Porter looks like the dark beer that fits the ale surface; here it is a person who carries loads.",
-     "definitionFit": "A porter carries luggage or goods, and a bearer is literally one who carries something."
+     "surface": "A comment on beer: ale often comes in bottles and porter is a dark ale.",
+     "walkthrough": "'Porter' looks like part of the drinks theme, since porter is a dark beer, but here it means a carrier of luggage.",
+     "definitionFit": "A porter is someone who carries luggage, and a bearer is likewise one who carries loads."
     },
     "features": {
      "answerInScene": false,
@@ -1236,43 +1241,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCORN",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the middle letter is removed"
+       "text": "inspires",
+       "at": 17,
+       "note": "inspires is read as breathes in, so one piece is drawn inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "inspires",
-         "note": "to inspire is literally to breathe in, so one piece is taken inside"
+         "text": "heartless",
+         "at": 3,
+         "note": "heartless means the middle letter of son is removed"
         }
        ],
        "parts": [
         {
          "words": "son",
-         "gives": "SN",
-         "note": "the word as printed, middle letter gone"
+         "at": 13,
+         "gives": "SON",
+         "note": "taken as written before its middle goes"
         },
         {
-         "words": "My",
-         "gives": "COR",
-         "note": "cor! is a British exclamation of surprise, like my!"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "My",
+       "at": 0,
+       "gives": "COR",
+       "note": "My! and Cor! are both exclamations of surprise"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent lamenting that their cold-hearted son is despised.",
-     "walkthrough": "'My' looks possessive, but it is the exclamation, and 'heartless' attaches to 'son', not to 'My'.",
-     "definitionFit": "Scorn is open disdain for someone thought worthless, a straightforward synonym of contempt as a noun."
+     "surface": "Someone scolds their own child as unfeeling, and the child responds with disdain.",
+     "walkthrough": "'My' is not a possessive here but an exclamation of surprise; Cor! is the British slang equivalent.",
+     "definitionFit": "Scorn is open disdain, a feeling or expression of contempt for someone thought unworthy."
     },
     "features": {
      "answerInScene": true,
