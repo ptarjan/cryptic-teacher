@@ -68,12 +68,14 @@
        "indicators": [
         {
          "text": "boxes",
-         "note": "to box something is to enclose it, so the post word goes round what follows"
+         "at": 19,
+         "note": "boxes means encloses, so the post word holds the next letters inside it"
         }
        ],
        "parts": [
         {
          "words": "post",
+         "at": 14,
          "gives": "JOB",
          "note": "a post is a job or position"
         },
@@ -82,26 +84,24 @@
          "parts": [
           {
            "words": "are",
+           "at": 25,
            "gives": "A",
            "note": "an are is a metric unit of area, abbreviated A"
           },
           {
            "op": "first",
-           "unchecked": true,
-           "gives": "C",
            "indicators": [
             {
-             "text": "beginning",
-             "note": "the beginning of a word is its opening letter, so only that one is kept"
+             "text": "beginning to",
+             "at": 29,
+             "note": "beginning to catch asks for the opening letter of catch"
             }
            ],
            "parts": [
             {
-             "unchecked": true,
-             "words": "to catch",
-             "gives": "C",
-             "select": "first",
-             "note": "the opening letter of catch"
+             "words": "catch",
+             "at": 42,
+             "note": "the first letter of catch, C, which is also the cricket abbreviation for caught"
             }
            ]
           }
@@ -111,15 +111,16 @@
       },
       {
        "words": "at home",
+       "at": 51,
        "gives": "IN",
-       "note": "someone at home is in"
+       "note": "at home means in"
       }
      ]
     },
     "explanation": {
-     "surface": "A radical's post-boxes are starting to catch on in his own home.",
-     "walkthrough": "A metric are is 100 square metres, hence A. The post word wraps A and C, and IN is added on.",
-     "definitionFit": "The Jacobins were the radical club of the French Revolution, so a Jacobin is a revolutionary."
+     "surface": "A post box is starting to catch on in a household, a postal revolution.",
+     "walkthrough": "'post' reads as mail but means a job, and 'are' is the metric unit of land area, not the verb. 'beginning to' takes only the first letter of 'catch'. The Jacobins were the radical club of the French Revolution.",
+     "definitionFit": "The Jacobins were the most radical political faction of the French Revolution, so the name stands for any extreme revolutionary."
     },
     "features": {
      "answerInScene": false,
@@ -714,46 +715,46 @@
      "indicators": [
       {
        "text": "seen in",
-       "note": "something seen in a place sits inside it, so the chain letters go inside"
+       "at": 11,
+       "note": "seen in places the chain abbreviation inside the regular letters"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ORE",
        "indicators": [
         {
          "text": "regularly",
-         "note": "regularly means at even intervals, so every other letter is kept"
+         "at": 34,
+         "note": "regularly means taking every other letter of the stock exchange word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "stock exchange",
-         "gives": "ORE",
-         "select": "alternate",
-         "note": "a stock exchange is a bourse, and its 2nd, 4th and 6th letters are kept"
+         "at": 19,
+         "gives": "BOURSE",
+         "note": "a bourse is a stock exchange, especially the Paris one"
         }
        ]
       },
       {
        "words": "chain",
+       "at": 5,
        "gives": "CH",
-       "note": "CH is the abbreviation for chain, the surveyor's unit of length"
+       "note": "CH is the abbreviation for chain, the old unit of length"
       }
      ]
     },
     "explanation": {
-     "surface": "A gold chain is spotted on the trading floor.",
-     "walkthrough": "The stock exchange must first become bourse, the Continental word for it, before its alternate letters are taken.",
-     "definitionFit": "Ochre is a yellowish-brown earth pigment, and its colour is a dull golden yellow."
+     "surface": "A gold chain spotted on traders at the stock exchange.",
+     "walkthrough": "The stock exchange is the BOURSE; 'regularly' keeps its even letters O, R, E, and 'seen in' puts CH inside to give O-CH-RE.",
+     "definitionFit": "Ochre is a yellow-brown earth pigment, and its colour is a dull golden yellow."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Gold"
+     "misdirectedWord": "chain"
     }
    }
   },
@@ -1124,44 +1125,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HEROIN",
+     "op": "composite",
      "indicators": [
       {
        "text": "fished",
-       "note": "fished suggests something hauled about and rummaged, so the letters are churned up"
+       "at": 6,
+       "note": "fished suggests the letters being trawled about and pulled up in a new order"
+      },
+      {
+       "text": "cast",
+       "at": 27,
+       "note": "cast means thrown away, so the pole letter is discarded from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HEROIN",
-       "indicators": [
-        {
-         "text": "cast",
-         "note": "to cast off something is to throw it away, so the pole letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "inshore",
-         "note": "taken as written"
-        },
-        {
-         "words": "pole",
-         "gives": "S",
-         "note": "S is south, one of the poles"
-        }
-       ]
+       "words": "inshore",
+       "at": 13
+      },
+      {
+       "words": "pole",
+       "at": 22,
+       "gives": "S",
+       "note": "S is south, one of the two poles"
       }
      ]
     },
     "explanation": {
-     "surface": "A small fishing boat worked close to shore, its pole cast out.",
-     "walkthrough": "'Smack' looks like a fishing boat, fitting the surface, but it is slang for heroin.",
-     "definitionFit": "Smack is a street slang name for heroin, the opioid drug."
+     "surface": "A fishing smack worked the inshore waters with a pole cast out.",
+     "walkthrough": "'Smack' seems to be the fishing boat of the surface. Remove S from INSHORE ('pole cast') to leave INHORE, which 'fished' rearranges into the answer.",
+     "definitionFit": "Smack is long-standing slang for heroin, the opiate drug."
     },
     "features": {
      "answerInScene": false,
@@ -1367,57 +1360,50 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RENTAL",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "holding",
-       "note": "to hold something is to keep it within, so the delayed word goes round the number"
+       "text": "up",
+       "at": 47,
+       "note": "in a down clue, up means the whole is read from the bottom upwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down entry, up means the letters are read from bottom to top"
+         "text": "holding",
+         "at": 26,
+         "note": "holding means containing, so the delay word goes round the number"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "long delayed",
-           "gives": "LAT",
-           "note": "later means delayed a long while; split to take the number"
-          },
-          {
-           "words": "large number",
-           "gives": "N",
-           "note": "N stands for an indefinitely large number in maths"
-          },
-          {
-           "words": "long delayed",
-           "gives": "ER",
-           "note": "the rest of LATER"
-          }
-         ]
+         "words": "long delayed",
+         "at": 13,
+         "gives": "LATER",
+         "note": "later means after a long delay"
+        },
+        {
+         "words": "large number",
+         "at": 34,
+         "gives": "N",
+         "note": "N is used for an indefinitely large number"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A yearly valuation has been postponed for ages, holding a big figure up.",
-     "definitionFit": "A rental is the amount paid as rent, which is reckoned as a yearly sum or annual value."
+     "surface": "A yearly sum, long overdue, held up by a big figure.",
+     "walkthrough": "'holding' puts N inside LATER to make LATNER, and 'up' turns that round in this down entry.",
+     "definitionFit": "A rental is the amount paid as rent, and rent is classically a sum reckoned per year."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "long"
     }
    }
   },
@@ -1606,51 +1592,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNMIRY",
+     "op": "composite",
      "indicators": [
       {
        "text": "ground",
-       "note": "ground means crushed, so the letters are broken up and rearranged"
+       "at": 11,
+       "note": "ground means crushed up, so the letters of mini-rugby are broken and reformed"
       },
       {
-       "text": "terribly",
-       "note": "terribly says the removed word appears in scrambled form"
+       "text": "not terribly",
+       "at": 18,
+       "note": "not terribly big asks for the letters of big, in any order, to be left out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNMIRY",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not says the following letters are excluded from the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Mini-rugby",
-         "note": "taken as written"
-        },
-        {
-         "words": "big",
-         "note": "taken as written, the letters to remove"
-        }
-       ]
+       "words": "Mini-rugby",
+       "at": 0
+      },
+      {
+       "words": "big",
+       "at": 31
       }
      ]
     },
     "explanation": {
-     "surface": "A junior rugby pitch is not too large and not boggy.",
-     "walkthrough": "The letters of big are scattered through mini-rugby, so they come out before the rest is rearranged.",
-     "definitionFit": "Miry means boggy or muddy, so unmiry means free of mire, not marshy."
+     "surface": "A mini-rugby pitch that is small and not boggy.",
+     "walkthrough": "Mix MINIRUGBY ('ground'), and take out B, I, G ('not terribly big') to leave the six letters of the answer.",
+     "definitionFit": "Miry means swampy or muddy, so with the negative prefix the word means dry underfoot, free of bog."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "ground"
     }
    }
@@ -1935,49 +1909,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TSABIAN",
      "indicators": [
       {
        "text": "shown in",
-       "note": "shown in places these letters inside the beating word"
+       "at": 17,
+       "note": "shown in places the jumbled letters inside the bash word"
       }
      ],
      "parts": [
+      {
+       "words": "bash",
+       "at": 26,
+       "gives": "TAN",
+       "note": "to tan someone is to beat or bash them"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Unfortunate",
-         "note": "an unfortunate word has come out badly, so its letters are disordered"
+         "at": 0,
+         "note": "unfortunate suggests the bias has gone wrong, so its letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "bash",
-         "gives": "T",
-         "note": "to tan someone is to beat or bash them, opened to take the fodder"
-        },
-        {
          "words": "bias",
-         "note": "taken as written"
-        },
-        {
-         "words": "bash",
-         "gives": "AN",
-         "note": "the rest of TAN"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Regrettable prejudice is aired at a party for someone of an eastern faith.",
-     "walkthrough": "'Bash' looks like a party, but it is the verb to beat, as is tan.",
-     "definitionFit": "Tsabian is a variant of Sabian, a member of an ancient Middle Eastern star-worshipping religion."
+     "surface": "A regrettable prejudice is displayed at a party.",
+     "walkthrough": "'bash' looks like a party, but here it is the verb: to tan someone's hide is to thrash them. 'Unfortunate' is the mixing signal on the bias.",
+     "definitionFit": "Tsabian is a variant spelling of Sabian, a member of an ancient star-worshipping religious group of the Middle East."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "bash"
     }

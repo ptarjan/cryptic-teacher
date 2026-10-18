@@ -268,49 +268,52 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the later words are placed after the earlier piece in the order read"
+       "at": 26,
+       "note": "after puts the shortened conflict word before the rest, since the rest comes after it"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "WR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "heartless",
-         "note": "without its heart a word loses its middle, keeping just the outside letters"
+         "at": 32,
+         "note": "heartless means the middle letter of the conflict word is removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "conflict",
-         "gives": "WR",
-         "select": "outer",
-         "note": "war with its middle letter removed"
+         "at": 42,
+         "gives": "WAR",
+         "note": "war is armed conflict"
+        },
+        {
+         "gives": "A"
         }
        ]
       },
       {
        "words": "I",
-       "note": "taken as written"
+       "at": 17
       },
       {
        "words": "object",
+       "at": 19,
        "gives": "THING",
-       "note": "a thing is an object"
+       "note": "an object is a thing"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wounded and clearly suffering protests about a callous war.",
-     "walkthrough": "'Object' looks like a verb of protest after 'I'; it is the noun meaning an item.",
-     "definitionFit": "Twisting and squirming is how a body shows agony, so the participle describes visible suffering."
+     "surface": "Someone in visible agony objects after a gutless fight.",
+     "walkthrough": "'object' looks like a verb of protest, but here it is a noun, and 'heartless' means the fight loses its centre letter before 'after' sets the rest behind it.",
+     "definitionFit": "Writhing is twisting and squirming the body, the outward sign of someone suffering pain."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "object"
     }
    }
@@ -1395,75 +1398,44 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "starts off",
+       "at": 14,
+       "note": "starts off says each figure, spelt out as a word, gives only its opening letter, and those letters run in order"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "2",
+       "at": 25,
        "gives": "T",
-       "indicators": [
-        {
-         "text": "starts off",
-         "note": "the starts of words are their opening letters, which are all that is taken"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "2",
-         "gives": "T",
-         "select": "first",
-         "note": "two, spelt out, begins with this"
-        }
-       ]
+       "note": "the first letter of two, the figure 2 written as a word"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "1",
+       "at": 27,
        "gives": "O",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "1",
-         "gives": "O",
-         "select": "first",
-         "note": "one, spelt out, begins with this"
-        }
-       ]
+       "note": "the first letter of one, the figure 1 written as a word"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "8",
+       "at": 29,
        "gives": "E",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "8",
-         "gives": "E",
-         "select": "first",
-         "note": "eight, spelt out, begins with this"
-        }
-       ]
+       "note": "the first letter of eight, the figure 8 written as a word"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "7",
+       "at": 31,
        "gives": "S",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "7",
-         "gives": "S",
-         "select": "first",
-         "note": "seven, spelt out, begins with this"
-        }
-       ]
+       "note": "the first letter of seven, the figure 7 written as a word"
       }
      ]
     },
     "explanation": {
-     "surface": "A list of numbers, apparently a sequence of digits.",
-     "walkthrough": "The numbers must be written out as words before taking their first letters.",
-     "definitionFit": "Digits are fingers and toes, so a foot's five make a set."
+     "surface": "A string of numbers looks like a code or a list of clue references.",
+     "walkthrough": "The figures look like cross-references to other clues, but they are just numbers. Spell them out, two, one, eight, seven, and 'starts off' takes the first letter of each.",
+     "definitionFit": "Toes are the digits of the foot, a set of five on each, so the word puns on numerical digits."
     },
     "features": {
      "answerInScene": false,

@@ -303,13 +303,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRESH",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter of the word is cut off"
+       "text": "in",
+       "at": 12,
+       "note": "in places the about word inside the other letters"
       }
      ],
      "parts": [
@@ -317,31 +316,47 @@
        "op": "charade",
        "parts": [
         {
-         "words": "the",
-         "gives": "TH",
-         "note": "the with its last letter dropped"
-        },
-        {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about or concerning"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 19,
+           "note": "endless means the last letter of the word the is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 15
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "silence",
+         "at": 27,
          "gives": "SH",
-         "note": "the sound made to call for quiet"
+         "note": "sh is the sound made to call for silence"
         }
        ]
+      },
+      {
+       "words": "about",
+       "at": 6,
+       "gives": "RE",
+       "note": "re means about or concerning, as in a letter heading"
       }
      ]
     },
     "explanation": {
-     "surface": "Thrashing around wildly in a quiet without end.",
-     "walkthrough": "'Flail about' reads as a phrase meaning thrash around, but 'about' is a separate piece. The flail is the farm tool used to beat grain from its husks.",
-     "definitionFit": "To thresh is to beat cereal to separate the grain, which is done with a flail, so the verb flail fits."
+     "surface": "Someone thrashes around in the unending quiet.",
+     "walkthrough": "'Flail about' looks like one phrase, but 'Flail' alone is the verb defined and 'about' is the short word for concerning. 'endless' trims the definite article, and the about word goes 'in' it before the silence.",
+     "definitionFit": "To thresh is to beat grain to separate it from the husk, which is exactly what a flail is swung to do."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "about"
     }
@@ -1179,43 +1194,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTICER",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "to hold",
+       "at": 6,
+       "note": "to hold means to contain, so the shortened cold word sits inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Begin",
+       "at": 0,
+       "gives": "ENTER",
+       "note": "to enter on something is to begin it, as one enters on a career"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to hold",
-         "note": "holding something means having it inside, so the first word goes round the second"
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the last letter is left off the word for frigid"
         }
        ],
        "parts": [
         {
-         "words": "Begin",
-         "gives": "ENTER",
-         "note": "to enter on something is to begin it"
+         "words": "frigid",
+         "at": 21,
+         "gives": "ICY",
+         "note": "frigid means icy, very cold"
         },
         {
-         "words": "frigid",
-         "gives": "IC",
-         "note": "icy without its last letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seductress starting to warm up a rather cold partner.",
-     "walkthrough": "The question mark admits the definition is loose: a temptress is one sort of enticer.",
-     "definitionFit": "A temptress lures and allures, so she is an example of an enticer, one who entices."
+     "surface": "A cold woman starts to hold back from being seductive.",
+     "walkthrough": "'Begin' is the verb enter, as in entering on a task. The question mark admits that the answer is any tempter, male or female, not just a temptress.",
+     "definitionFit": "An enticer is one who lures or tempts others, so a temptress is one example of the type."
     },
     "features": {
      "answerInScene": true,

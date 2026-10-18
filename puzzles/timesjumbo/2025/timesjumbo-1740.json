@@ -2943,42 +2943,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DUDGEON",
      "indicators": [
       {
        "text": "gets",
-       "note": "the cell gets a new letter"
+       "at": 32,
+       "note": "gets means receives, so the cell word takes in a new letter"
       },
       {
-       "text": "for"
+       "text": "for",
+       "at": 46,
+       "note": "for means in place of, so the diamonds letter stands where the leader letter was"
       }
      ],
      "parts": [
       {
        "words": "underground cell",
+       "at": 15,
        "gives": "DUNGEON",
-       "note": "a castle's cellar prison"
+       "note": "a dungeon is a prison cell below ground"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 64,
+         "note": "leader asks for the opening letter of nationalists'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nationalists'",
+         "at": 50,
+         "note": "N is the first letter of nationalists'"
+        }
+       ]
       },
       {
        "words": "diamonds",
+       "at": 37,
        "gives": "D",
-       "note": "the card-suit abbreviation, going in"
-      },
-      {
-       "words": "nationalists' leader",
-       "gives": "N",
-       "note": "first letter of nationalists, coming out"
+       "note": "D is the card-suit abbreviation for diamonds"
       }
      ]
     },
     "explanation": {
-     "surface": "Nationalists' leader jailed underground, and resentful about the diamonds taken.",
-     "walkthrough": "The swap works on DUNGEON's middle N; the first N in nationalists is what leaves.",
-     "definitionFit": "Plain synonym, mostly in the phrase 'in high dudgeon': angry resentment."
+     "surface": "Bitterness as a jailed cell of nationalists gets jewels instead of its leader.",
+     "walkthrough": "'gets diamonds for nationalists' leader' means one N of DUNGEON gives way to D.",
+     "definitionFit": "Dudgeon is a feeling of offended indignation, as in 'in high dudgeon'."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "diamonds"
     }
@@ -3227,52 +3242,54 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "STUDDED",
+     "indicators": [
+      {
+       "text": "going back",
+       "at": 40,
+       "note": "going back means the whole result is read in reverse"
+      }
+     ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "STUDDED",
        "indicators": [
         {
-         "text": "going back",
-         "note": "going backwards, so the letters reverse"
-        },
-        {
          "text": "to replace",
-         "note": "to replace is to take the place of, so the two days stand where the bishop was"
+         "at": 14,
+         "note": "to replace means the two-day letters are put where the bishop letter stood"
         }
        ],
        "parts": [
         {
-         "words": "two days",
-         "gives": "DD",
-         "note": "d = day, twice"
+         "words": "starts",
+         "at": 33,
+         "gives": "DEBUTS",
+         "note": "debuts are first appearances, starts"
         },
         {
          "words": "bishop",
+         "at": 25,
          "gives": "B",
-         "note": "chess notation, replaced"
+         "note": "B is the chess abbreviation for bishop"
         },
         {
-         "words": "starts",
-         "gives": "DEBUTS",
-         "note": "first appearances"
+         "words": "two days",
+         "at": 5,
+         "gives": "DD",
+         "note": "D is the abbreviation for day, so two days are DD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An office where two days off go to replace the bishop, and new starters answer to bosses.",
-     "walkthrough": "DEBUTS reversed gives STUBED; DD then goes where the B was.",
-     "definitionFit": "Near synonym: a boss is a round metal stud, so something studded has bosses."
+     "surface": "Two days in place of the bishop, a fresh start returns with the bosses in charge.",
+     "walkthrough": "'bosses' looks like managers, but it means raised studs or knobs. 'to replace' swaps the bishop for the two days in the starts word, and 'going back' turns the result round.",
+     "definitionFit": "Something studded is set with studs or knobs, and a boss is a round ornamental knob."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "bosses"
     }
    }
