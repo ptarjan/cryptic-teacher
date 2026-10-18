@@ -288,44 +288,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Initially",
-       "note": "take the first letter of 'chatty'"
-      }
-     ],
      "parts": [
       {
-       "words": "company",
-       "gives": "CO",
-       "note": "CO = company"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "at": 0,
+         "note": "initially means the first letter of chatty is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chatty",
+         "at": 10
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "accepted by"
+         "text": "that's put up",
+         "at": 49,
+         "note": "in a down clue, put up means the letters are read from the bottom up"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "container",
          "indicators": [
           {
-           "text": "put up",
-           "note": "in a down clue, putting something up reverses it so it reads upward"
+           "text": "accepted by",
+           "at": 29,
+           "note": "being accepted means being taken inside, so the setter's piece goes into the company"
           }
          ],
          "parts": [
           {
-           "words": "chatty",
-           "gives": "C",
-           "note": "first letter of chatty"
+           "words": "company",
+           "at": 41,
+           "gives": "CO"
           },
           {
            "words": "Everyman's",
+           "at": 18,
            "gives": "IM",
-           "note": "the setter, Everyman, says 'I am' = I'M"
+           "note": "the setter Everyman is 'I', so Everyman's is I'M"
           }
          ]
         }
@@ -334,9 +343,9 @@
      ]
     },
     "explanation": {
-     "surface": "A talkative company tolerates the setter's attempts to be funny.",
-     "walkthrough": "C and I'M are put up to read MIC, and CO accepts them to make COMIC. The setter's own name standing for I'M is a common trick.",
-     "definitionFit": "A plain noun sense: a comic is a stand-up or comedian, whose job is getting laughs."
+     "surface": "A chatty newcomer welcomed into a firm that tolerates someone who keeps trying to be funny.",
+     "walkthrough": "Everyman is the setter, so Everyman's stands for 'I am'; 'that's put up' reverses only the company with the setter inside, not the opening letter.",
+     "definitionFit": "A comic is a comedian, a person whose job is to make people laugh."
     },
     "features": {
      "answerInScene": true,
@@ -1400,40 +1409,45 @@
      "indicators": [
       {
        "text": "held by",
-       "note": "the first pieces are held inside the later one"
+       "at": 15,
+       "note": "being held means the other pieces sit inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "source of wine",
-         "gives": "VINE",
-         "note": "wine comes from the vine"
-        },
-        {
-         "words": "Uranium",
-         "gives": "U",
-         "note": "U = uranium"
-        }
-       ]
+       "words": "source of wine",
+       "at": 23,
+       "gives": "VINE",
+       "note": "grapes grow on the vine, the source of wine"
       },
       {
-       "words": "record",
-       "gives": "LP",
-       "note": "LP = long-playing record"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Uranium",
+         "at": 0,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
+        },
+        {
+         "words": "record",
+         "at": 8,
+         "gives": "LP",
+         "note": "an LP is a long-playing record"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A uranium record is kept by a wine source, a crafty move.",
-     "walkthrough": "V(ULP)INE. Vulpine means fox-like, and foxes are proverbially cunning.",
-     "definitionFit": "Vulpine means like a fox, so crafty or cunning."
+     "surface": "A cunning scheme to hide uranium and a record among the grapevines.",
+     "walkthrough": "The colon and exclamation mark set the single word 'cunning' apart as the definition.",
+     "definitionFit": "Vulpine means fox-like, and the fox is proverbially sly and crafty."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true
+     "aptDefinition": false,
+     "misdirectedWord": "source"
     }
    }
   },

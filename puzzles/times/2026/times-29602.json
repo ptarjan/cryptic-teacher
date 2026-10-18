@@ -828,44 +828,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
      "parts": [
       {
        "words": "Have nothing",
+       "at": 0,
        "gives": "FAST",
-       "note": "to fast is to eat nothing"
+       "note": "to fast is to have nothing to eat"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "say",
-         "note": "grotto is an example of the word needed"
+         "text": "in",
+         "at": 18,
+         "note": "the letter for left is placed inside the word for a grotto"
         }
        ],
        "parts": [
         {
-         "words": "grotto",
+         "words": "grotto, say",
+         "at": 21,
          "gives": "BOWER",
-         "note": "a bower is a shady retreat, like a grotto"
+         "note": "a bower is a shady retreat, of which a grotto is an example"
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "L = left, placed inside BOW…ER"
+         "at": 13,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A delivery driver ends up with nothing left in Santa's grotto.",
-     "walkthrough": "The grotto and deliveries suggest Father Christmas; the deliveries are balls bowled in cricket, where a fast bowler is a bowler who relies on pace.",
-     "definitionFit": "In cricket each ball bowled is a delivery, so a fast bowler makes deliveries."
+     "surface": "Someone told to eat nothing while in a grotto, perhaps Santa preparing to deliver presents.",
+     "walkthrough": "In cricket the bowler 'delivers' the ball, so a fast bowler is a pace bowler; L goes inside BOWER.",
+     "definitionFit": "In cricket each ball bowled is called a delivery, so a quick bowler is someone making deliveries."
     },
     "features": {
      "answerInScene": false,
@@ -1301,45 +1299,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "something almost complete is not quite whole, so the word stops one letter short"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "lifted",
-         "note": "in a down clue, raised so it reads upwards"
+         "at": 9,
+         "note": "in a down clue, lifted means the letters are read from the bottom up"
         }
        ],
        "parts": [
         {
-         "words": "7",
-         "gives": "SEVE",
-         "note": "the number SEVEN, almost, is SEVE; it reads upwards as EVES"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 2,
+           "note": "almost means the last letter is left off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "7",
+           "at": 0,
+           "gives": "SEVEN",
+           "note": "refers to the answer to 7, which gives seven"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       },
       {
        "words": "product of eg Berkshire",
+       "at": 16,
        "gives": "HAM",
        "note": "the Berkshire is a breed of pig, and ham comes from pigs"
       }
      ]
     },
     "explanation": {
-     "surface": "A town produces goods, with Berkshire given as an example.",
-     "walkthrough": "'7' looks like a cross-reference to 7 down; here it is just the number seven. Berkshire, which reads as the county, is the pig breed. Evesham is a market town in Worcestershire.",
-     "definitionFit": "A definition by example: the Worcestershire market town in the Vale of fruit orchards is one English town."
+     "surface": "Almost seven of something raised, alongside farm produce of an English county.",
+     "walkthrough": "SEVEN loses its last letter to give SEVE, and 'lifted' turns that into EVES. Berkshire looks like the county but is a breed of pig.",
+     "definitionFit": "Evesham is a market town in Worcestershire, England."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Berkshire"
     }
    }

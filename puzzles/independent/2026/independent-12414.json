@@ -231,45 +231,55 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "A drinker takes what they drink inside them, so the beer named here holds the next letters in its middle instead of standing beside them."
+       "at": 5,
+       "note": "drinking means taking in, so the beer holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Beer",
-         "gives": "ALE",
-         "note": "ale is beer, and this is the word that opens up to take the rest inside"
-        },
-        {
-         "words": "can",
-         "gives": "TIN",
-         "note": "a can is a tin, the thing a tin-opener opens"
-        }
-       ]
+       "words": "Beer",
+       "at": 0,
+       "gives": "ALE",
+       "note": "ale is a type of beer"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "lead to",
-         "note": "The lead of a word is the letter out in front, so only the opening character of the word that follows is taken."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "group",
-         "note": "the opening letter of the word group"
+         "words": "can",
+         "at": 14,
+         "gives": "TIN",
+         "note": "a tin is a can"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "lead to",
+           "at": 18,
+           "note": "the lead of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "group",
+           "at": 26
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The trap is reading 'can lead to' as one phrase about consequences. The can is a noun, and only the two words after it are the instruction.",
-     "definitionFit": "feeling excited -> ATINGLE: to be atingle is to prickle with anticipation, the physical symptom of excitement rather than the emotion named plainly."
+     "surface": "Drinking beer can make a group feel thrilled.",
+     "walkthrough": "'can' looks like a verb, as in 'is able to', but it is the noun for a tin.",
+     "definitionFit": "Atingle means tingling with excitement or anticipation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
     }
    }
   },
@@ -1129,42 +1139,58 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 5,
+       "note": "over means covering, so the fall word goes over the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Fall",
+       "at": 0,
+       "gives": "TRIP",
+       "note": "to trip is to stumble or fall"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Fall over",
-         "gives": "TRIP",
-         "note": "to trip is to fall over, and this word splits open after its first letter"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "ending in",
-           "note": "'Ending' takes the final letter of the word that follows, and 'in' drops that letter inside the word already built."
+           "at": 10,
+           "note": "the ending of a word is its last letter"
           }
          ],
          "parts": [
           {
            "words": "you",
-           "note": "the last letter of the word you"
+           "at": 20
           }
          ]
+        },
+        {
+         "words": "large",
+         "at": 32,
+         "gives": "BIG",
+         "note": "big means large"
         }
        ]
-      },
-      {
-       "words": "large",
-       "gives": "BIG",
-       "note": "big is large, and it follows the single letter into the split"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The answer looks like a brand name because it is one: the elasticated tube sold in British chemists to hold a sprained joint together.",
-     "definitionFit": "bandage -> TUBIGRIP: a trade name used generically in Britain for the stretchy tube you pull over a swollen knee or ankle instead of winding a bandage round it."
+     "surface": "Someone who has fallen ends up needing a large bandage.",
+     "walkthrough": "'Fall over' looks like a single phrase, but 'over' is the containment signal; Tubigrip is a British trade name.",
+     "definitionFit": "Tubigrip is a brand of elasticated tubular support for sprained joints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
     }
    }
   },
@@ -1190,32 +1216,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "naked",
-       "note": "A word stripped naked has lost the letters at each end, the way clothes come off the outside first, leaving the middle bare."
-      },
-      {
-       "text": "topless",
-       "note": "This is a down entry, so the top of a word is the letter it starts with, and topless means that one has gone."
-      }
-     ],
      "parts": [
       {
-       "words": "Drawing",
-       "gives": "URIN",
-       "note": "drawing here means luring, attracting someone in, and the first and last letters come off"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 8,
+         "note": "naked means stripped of the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drawing",
+         "at": 0,
+         "gives": "LURING",
+         "note": "luring means drawing in, attracting"
+        }
+       ]
       },
       {
-       "words": "friends",
-       "gives": "ALS",
-       "note": "friends are PALS, and the letter at the top drops away"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 23,
+         "note": "topless means the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friends",
+         "at": 14,
+         "gives": "PALS",
+         "note": "pals means friends"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a life-drawing class and the definition is the last five words, where 'going' carries the polite sense rather than the travelling one.",
-     "definitionFit": "men can be seen going here -> URINALS: the fixtures on the wall of a gents' lavatory, so the phrase describes the place by what happens at it."
+     "surface": "A life class drawing nude friends, with topless men on view.",
+     "walkthrough": "'naked' strips both outer letters of the drawing word, while 'topless' takes only the first from friends.",
+     "definitionFit": "Urinals are the fixtures in a gents' toilet, where men go to relieve themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drawing"
     }
    }
   },
@@ -1535,46 +1587,66 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "A word given briefly stops a letter early, so the last character of the word beside this is left off."
+       "text": "backed",
+       "at": 42,
+       "note": "backed means the whole string of letters is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "backed",
-         "note": "This is an across entry, so a backed answer is read from its right-hand end towards its left."
-        }
-       ],
        "parts": [
         {
          "words": "a",
-         "note": "the article is taken down as it stands"
+         "at": 14,
+         "gives": "A"
         },
         {
          "words": "small",
+         "at": 16,
          "gives": "MINI",
-         "note": "a mini is a small one of whatever is being talked about"
+         "note": "mini means small"
         },
         {
          "words": "hotel",
+         "at": 22,
          "gives": "H",
-         "note": "hotel is H in the phonetic alphabet"
+         "note": "H is hotel in the NATO phonetic alphabet"
         },
         {
-         "words": "group",
-         "gives": "CAM",
-         "note": "a group of people with a shared cause is a CAMP, and it stops a letter short"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 34,
+           "note": "briefly means the last letter is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "group",
+           "at": 28,
+           "gives": "CAMP",
+           "note": "a camp is a faction or group with shared views"
+          },
+          {
+           "gives": "P"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'A small hotel group' reads as one phrase out of the travel trade and is four separate pieces, which is the whole trick. The answer is animation shot inside video-game engines.",
-     "definitionFit": "Animated film -> MACHINIMA: the technical name for animation made by directing characters inside a game engine and recording it, rather than drawing frames."
+     "surface": "A cartoon about a small hotel chain that got financial support.",
+     "walkthrough": "'backed' applies to the whole string of pieces, not just the group word, which looks like a hotel chain's financial backing.",
+     "definitionFit": "Machinima is animation produced using video-game engines to render the scenes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
     }
    }
   },
@@ -1663,74 +1735,80 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in 8",
-       "note": "Putting a letter in a word wedges it between that word's own letters, and 8 here means the entry already solved at 8 down."
-      }
-     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "A word's ultimate letter is its last, so only the final character of the word in front of this is taken."
+         "text": "clothing",
+         "at": 11,
+         "note": "the clothing of a word is its outside, so its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "clothing",
-             "note": "Clothes are what goes on the outside of a person, so this keeps only the first and last letters of the word before it."
-            }
-           ],
-           "parts": [
-            {
-             "words": "Designer's",
-             "gives": "DESIGNER",
-             "note": "the first and last letters of DESIGNER, with the possessive ending left out of it"
-            }
-           ]
-          },
-          {
-           "words": "8",
-           "gives": "ESSEN",
-           "note": "the German city solved at 8 down, written out in full and then opened up"
-          },
-          {
-           "words": "succeeded",
-           "gives": "S",
-           "note": "S is the standard abbreviation for succeeded, as in a line of monarchs"
-          }
-         ]
+         "words": "Designer's",
+         "at": 0,
+         "gives": "DESIGNER",
+         "note": "the word designer, its possessive acting as the link to clothing"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 30,
+         "note": "the letter for succeeded is put inside the city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "8",
+         "at": 33,
+         "gives": "ESSEN",
+         "note": "refers to the answer to 8, ESSEN, a German city"
         },
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "countries",
-           "note": "the last letter of countries"
-          }
-         ]
+         "words": "succeeded",
+         "at": 20,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 46,
+         "note": "ultimately means the last letter of countries"
+        }
+       ],
+       "parts": [
+        {
+         "words": "countries",
+         "at": 35
         }
        ]
       },
       {
        "words": "eastern",
-       "gives": "E",
-       "note": "E is the compass abbreviation for eastern"
+       "at": 57,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A clue with a cross-reference is worth saving until its neighbour is filled, since five letters then arrive free. The surface is a fashion house's export figures.",
-     "definitionFit": "style -> DRESS SENSE: the knack of putting clothes together well, so style in the personal-taste sense rather than a period, a manner of writing or a hairdo."
+     "surface": "A designer's outfits succeeding across eight nations, with an eastern flavour.",
+     "walkthrough": "'clothing' looks like the designer's garments but takes the outside letters of the word; 8 refers to ESSEN, the German city.",
+     "definitionFit": "Dress sense is a flair for choosing clothes that look good, a personal style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
     }
    }
   },
