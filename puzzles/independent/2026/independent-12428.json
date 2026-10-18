@@ -1568,8 +1568,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "raised",
-       "note": "a down entry runs downwards, so a piece raised inside it is read upwards instead"
+       "text": "above",
+       "at": 12,
+       "note": "above in a down clue puts the first piece on top of the next"
       }
      ],
      "parts": [
@@ -1577,28 +1578,37 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "above",
-         "note": "in a down clue whatever sits above comes first, because the entry is written from the top"
+         "text": "raised",
+         "at": 5,
+         "note": "raised in a down clue means the word for lump is read upwards, so backwards"
         }
        ],
        "parts": [
         {
          "words": "Lump",
+         "at": 0,
          "gives": "LOB",
-         "note": "a lob is a lump, the old word for a clumsy shapeless thing"
+         "note": "lob is a dialect word for a lump"
         }
        ]
       },
       {
        "words": "me",
+       "at": 18,
        "gives": "US",
-       "note": "the editorial we, so a setter speaking of themselves becomes us"
+       "note": "us is colloquial British for me, as in 'give us a kiss'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both halves are conventions rather than definitions: a setter is 'me' and also 'us', and 'lump' is an archaic noun the surface keeps hidden in plain sight.",
-     "definitionFit": "A bolus is a rounded lump: the ball of chewed food a swallow sends down, or a drug dose given all at once."
+     "surface": "A lump lifted over my head turns out to be a round blob.",
+     "walkthrough": "In British speech 'us' often means me ('give us a hand').",
+     "definitionFit": "A bolus is a small rounded mass, especially of chewed food or a large pill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
     }
    }
   },
@@ -1717,32 +1727,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "most of a word is all of it bar the last letter"
-      },
-      {
-       "text": "Mostly",
-       "note": "the same instruction a second time, docking the word that comes before it"
-      }
-     ],
      "parts": [
       {
-       "words": "gentle",
-       "gives": "MIL",
-       "note": "gentle is mild, without its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 7,
+         "note": "mostly means most of the word for gentle, dropping its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gentle",
+         "at": 14,
+         "gives": "MILD",
+         "note": "mild means gentle"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
-       "words": "expression",
-       "gives": "TON",
-       "note": "a tone of voice is an expression, docked of its e"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 33,
+         "note": "the second mostly again drops the last letter, this time of the word for expression"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expression",
+         "at": 21,
+         "gives": "TONE",
+         "note": "tone of voice is an expression of feeling"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The same instruction twice, one in lower case and one capitalised at the end, which is what makes the second read as an afterthought rather than a second order.",
-     "definitionFit": "Definition by example: Milton wrote Paradise Lost, so one particular poet stands in for the job description."
+     "surface": "Asks whether a poet's typical expression is mostly gentle.",
+     "walkthrough": "Each 'mostly' trims the last letter: MIL from MILD, TON from TONE.",
+     "definitionFit": "John Milton was the English poet who wrote Paradise Lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expression"
     }
    }
   },

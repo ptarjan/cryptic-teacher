@@ -938,49 +938,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "halved",
-         "note": "something halved loses half, so only the first four of VIRILITY's eight letters stay"
+         "text": "in",
+         "at": 26,
+         "note": "in means the superior letter is placed in the dress word"
         }
        ],
        "parts": [
         {
          "words": "dress",
+         "at": 29,
          "gives": "TRIM",
-         "note": "to dress is to trim, as in dressing a hedge"
+         "note": "to trim is to decorate or dress"
         },
         {
          "words": "superior",
+         "at": 17,
          "gives": "U",
-         "note": "U = upper class, superior"
+         "note": "U stands for upper class, so superior"
         }
        ]
       },
       {
-       "words": "potency",
-       "gives": "VIRI",
-       "note": "VIRILITY, first four of its eight letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 44,
+         "note": "halved means only the first half of the potency word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "potency",
+         "at": 36,
+         "gives": "VIRILITY",
+         "note": "virility is potency"
+        },
+        {
+         "gives": "LITY"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Roman officials dressed well but lost half their power.",
-     "walkthrough": "U for upper class is a British convention, from the 1950s debate about U and non-U speech.",
-     "definitionFit": "A Latin term: boards of three men who shared an office in Rome, the word meaning 'of three men'."
+     "surface": "Ancient officials, posh in costume, have lost half their power.",
+     "walkthrough": "U is the British label for upper-class usage.",
+     "definitionFit": "Triumviri were members of a triumvirate, a board of three magistrates in ancient Rome."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "dress"
+     "misdirectedWord": "potency"
     }
    }
   },
@@ -1404,40 +1418,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "parts"
+       "text": "parts",
+       "at": 17,
+       "note": "parts means separates, so the always word splits to take the others inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "always",
-         "gives": "AY",
-         "note": "ay = ever, always (also spelt aye)"
-        },
-        {
-         "words": "Doubly",
-         "gives": "BI",
-         "note": "bi- = two, doubly"
-        }
-       ]
+       "words": "always",
+       "at": 23,
+       "gives": "AY",
+       "note": "ay (aye) is an old word for always"
       },
       {
-       "words": "plastered",
-       "gives": "LIT",
-       "note": "lit = drunk, plastered"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Doubly",
+         "at": 0,
+         "gives": "BI",
+         "note": "bi is the prefix meaning two or double"
+        },
+        {
+         "words": "plastered",
+         "at": 7,
+         "gives": "LIT",
+         "note": "plastered and lit both mean drunk"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A double dose of drink leaves someone always bent over.",
-     "walkthrough": "'Parts' wants to be the definition, as a man of parts has talents, but it is the container instruction and 'bent' is the definition.",
-     "definitionFit": "A plain synonym: a bent is a natural talent, as in having a bent for music."
+     "surface": "Bits of wall rendered twice over always end up crooked.",
+     "definitionFit": "A bent is a natural talent or aptitude, a meaning ability shares."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "bent"
     }
    }
