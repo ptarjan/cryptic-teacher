@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -132,37 +133,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "COWBOY",
-     "indicators": [
-      {
-       "text": "getting a rise",
-       "note": "Something getting a rise is travelling upwards, and in a down entry a word written upwards is read from the bottom, so its letters arrive back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "bully",
+       "at": 16,
+       "gives": "COW",
+       "note": "to bully someone is to cow them, intimidate them into submission"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "getting a rise",
+         "at": 31,
+         "note": "in a down clue, getting a rise means the word for lout is read upwards, from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "bully",
-         "gives": "COW",
-         "note": "to cow someone is to bully them into submission"
-        },
-        {
          "words": "lout",
-         "gives": "BOY",
-         "note": "a yob is a lout, and this entry climbs, so YOB is read upwards"
+         "at": 26,
+         "gives": "YOB",
+         "note": "a yob is a lout, a loutish young man (British slang)"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bully and a lout together, trying to get a rise out of somebody.",
-     "walkthrough": "In British usage a cowboy is a shoddy, dishonest tradesman — the cowboy builder who takes the money and botches the job — and none of the Wild West is in play.",
-     "definitionFit": "Cowboy is British slang for a dishonest or incompetent tradesman, which is what 'devious worker' names."
+     "surface": "A shifty employee who bullies people, a lout in the middle of a promotion.",
+     "walkthrough": "'getting a rise' in a down clue turns YOB (British slang for a lout) upwards to give BOY, after COW for bully.",
+     "definitionFit": "A cowboy is a dishonest or incompetent tradesman, a British informal sense for a rogue builder or plumber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rise"
     }
    }
   },
@@ -631,7 +638,13 @@
      "indicators": [
       {
        "text": "to introduce",
-       "note": "To introduce something is to bring it in, so the pieces named before this word are put inside rather than beside."
+       "at": 10,
+       "note": "to introduce one thing into another is to put it inside, so these letters go within the rearranged name"
+      },
+      {
+       "text": "into",
+       "at": 32,
+       "note": "into says where the introduced letters go: inside the other letters"
       }
      ],
      "parts": [
@@ -639,45 +652,47 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "into",
-         "note": "'Into' names where that insertion lands — within the letters of the word that follows, not next to them."
+         "text": "construction of",
+         "at": 37,
+         "note": "a construction of letters builds them into a new arrangement, so Bill is rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "construction of",
-           "note": "A construction is something built out of parts, so the name after it is re-laid brick by brick instead of kept as it stands."
-          }
-         ],
-         "parts": [
-          {
-           "words": "diamonds",
-           "gives": "ICE",
-           "note": "ice is thieves' slang for diamonds"
-          },
-          {
-           "words": "Bill",
-           "gives": "BLLI",
-           "note": "the four letters of BILL rebuilt, and the pair above drop in after the first of them"
-          }
-         ]
+         "words": "Bill",
+         "at": 53,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       },
       {
-       "words": "Excessive",
-       "gives": "OTT",
-       "note": "OTT is over the top — excessive"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Excessive",
+         "at": 0,
+         "gives": "OTT",
+         "note": "OTT is the abbreviation of over the top, meaning excessive"
+        },
+        {
+         "words": "diamonds",
+         "at": 23,
+         "gives": "ICE",
+         "note": "ice is slang for diamonds"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Diamonds being set into some lavish thing built for a man named Bill.",
-     "walkthrough": "OTT for excessive spells out over the top, and ICE for diamonds is the slang; both are pieces a setter expects you to keep ready, and the question mark admits the painter is one artist among many.",
-     "definitionFit": "Botticelli painted the Birth of Venus, so 'the artist' names him by example — one member of the trade, flagged by the question mark."
+     "surface": "Bill is building something showy and over-the-top with jewels set into it.",
+     "walkthrough": "'construction of' rearranges BILL as B...LLI, and 'to introduce ... into' puts OTT (over the top) plus ICE (slang for diamonds) after the B.",
+     "definitionFit": "Sandro Botticelli was the Florentine Renaissance painter of The Birth of Venus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "construction"
     }
    }
   },
@@ -705,40 +720,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "vacuous",
-       "note": "Vacuous means empty in the middle, so the word it describes gives up its insides and keeps only its two ends."
+       "text": "fills",
+       "at": 26,
+       "note": "to fill something is to go inside it, so these letters sit within the word the"
       }
      ],
      "parts": [
       {
        "words": "the",
-       "note": "the word itself, used literally — and it is the thing being filled"
+       "at": 32,
+       "note": "taken as written"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "fills",
-         "note": "What fills a thing goes inside it, so everything built up before this word drops into the middle of the word after it."
-        }
-       ],
        "parts": [
         {
          "words": "Rubbish",
+         "at": 0,
          "gives": "ROT",
-         "note": "rot = rubbish, in the sense of nonsense talked"
+         "note": "rot means rubbish, nonsense"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "TL",
+         "indicators": [
+          {
+           "text": "vacuous",
+           "at": 9,
+           "note": "vacuous means empty, so tutorial loses its whole inside and keeps only its outer letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "vacuous tutorial",
-           "gives": "TL",
-           "select": "outer",
-           "note": "TutoriaL hollowed out keeps its first and last letters only"
+           "words": "tutorial",
+           "at": 17,
+           "note": "the word whose first and last letters are kept"
           }
          ]
         }
@@ -747,9 +762,14 @@
      ]
     },
     "explanation": {
-     "surface": "Nonsense from an empty tutorial filling up what ought to be quiet.",
-     "walkthrough": "'Fills the silence' reads as one phrase, so the split between 'fills' and 'the' is invisible, and the definition is the verb — to throttle a voice is to silence it.",
-     "definitionFit": "To throttle is to choke off, and a throttled sound stops, so 'silence' as a verb swaps straight in."
+     "surface": "A pointless, empty tutorial is nothing but rubbish, padding out an awkward silence.",
+     "walkthrough": "'vacuous' empties tutorial to TL; ROT plus TL then 'fills' THE, sitting between TH and E.",
+     "definitionFit": "To throttle someone is to choke them, which stops them speaking, so it can mean to silence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fills"
     }
    }
   },
@@ -1199,52 +1219,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "VOYAGE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in places the reworked painter's name inside the outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "worked",
-         "note": "Metal that has been worked has been beaten into a different shape, and the name beside this word is reshaped the same way."
+         "text": "extremely",
+         "at": 15,
+         "note": "extremely points to the extremes of venerable, its first and last letters only"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "'In' drops the reshaped letters inside the piece that follows rather than setting them alongside it."
-          },
-          {
-           "text": "extremely",
-           "note": "'Extremely' points at the far ends of the word after it, so only its first and last letters are taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "extremely venerable",
-           "gives": "VENERABLE",
-           "note": "the extremes of VenerablE — its opening and closing letters"
-          }
-         ]
-        },
+         "words": "venerable",
+         "at": 25,
+         "note": "the word whose outer letters are taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worked",
+         "at": 5,
+         "note": "worked means shaped or kneaded into a new form, so the letters of Goya are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "Goya",
-         "gives": "OYAG",
-         "note": "the painter's four letters reshuffled, then set down between those two"
+         "at": 0,
+         "note": "taken as written, as anagram fodder: the Spanish painter's name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Goya at work during an extremely distinguished period.",
-     "walkthrough": "Goya reads as a painter doing a painter's job, which is why his name looks like a subject rather than four loose letters waiting to be moved.",
-     "definitionFit": "A voyage is a passage by sea — 'passage' in the sense of a crossing made, as in booking passage to New York."
+     "surface": "The Spanish painter Goya worked on a respected old painting of a sea journey.",
+     "walkthrough": "'extremely venerable' gives VE, and 'worked' turns GOYA into OYAG, which goes 'in' between V and E.",
+     "definitionFit": "A voyage is a long journey by sea, and a passage is the old word for such a crossing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
     }
    }
   },
@@ -1264,64 +1292,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Anticipation",
-      "at": 0
+      "text": "Anticipation's",
+      "at": 0,
+      "note": "read as anticipation is, the definition followed by a link"
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "useless",
-       "note": "Something called useless is no good as it stands, and letters written off that way get re-set into another order."
-      }
-     ],
      "parts": [
-      {
-       "words": "except",
-       "gives": "EXPECT",
-       "note": "the six letters of EXCEPT re-set, the C and the P trading places"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "name-dropping",
-         "note": "'Dropping' announces a removal and 'name' says which letter goes — the single letter that stands for it."
+         "text": "useless",
+         "at": 15,
+         "note": "useless suggests broken or not working, so the letters of except are put out of order"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "name",
-             "gives": "N",
-             "note": "n = name, and this is the letter dropped from what follows"
-            },
-            {
-             "words": "former First Lady",
-             "gives": "ANCY",
-             "note": "Nancy Reagan was First Lady in the 1980s, and her name arrives minus that initial"
-            }
-           ]
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "except",
+         "at": 23,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 40,
+         "note": "dropping means letting fall, so the letter for name is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "former First Lady",
+         "at": 49,
+         "gives": "NANCY",
+         "note": "Nancy Reagan was the US First Lady in the 1980s"
+        },
+        {
+         "words": "name",
+         "at": 35,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Anticipation counting for nothing unless you can drop a former First Lady's name.",
-     "walkthrough": "'Except' looks like a link word carving something out of the clue, and it is the fodder itself — the one word the letters actually come from.",
-     "definitionFit": "Expectancy is the state of expecting something to come, which is what anticipation names: the waiting, not the thing waited for."
+     "surface": "Waiting eagerly is pointless, except when you can drop the name of an old First Lady.",
+     "walkthrough": "'useless' rearranges EXCEPT into EXPECT; NANCY (Nancy Reagan) 'dropping' the N for name leaves ANCY.",
+     "definitionFit": "Expectancy is the state of expecting something to happen, which is anticipation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "useless"
     }
    }
   },
@@ -1357,40 +1386,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TURNBACK",
+     "spelt": "TURNBACK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner was famous for exchanging the opening sounds of two words, so the pair named next swap the noises at their fronts."
+       "at": 0,
+       "note": "Spooner's signals a swap of the opening sounds of two words, after the Reverend Spooner, famous for such slips"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "TURN",
        "parts": [
         {
-         "unchecked": true,
          "words": "Rivulet",
-         "gives": "TURN",
-         "soundsLike": "BURN",
-         "note": "a burn is a small stream in Scotland and the north of England; said aloud it hands its opening B over and takes a T in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "Sailing Course",
-         "gives": "BACK",
-         "soundsLike": "TACK",
-         "note": "a tack is the line a sailing boat holds between changes of direction; its opening T is the sound that goes the other way"
+         "at": 10,
+         "gives": "BURN",
+         "note": "a burn is a small stream, chiefly in Scotland"
         }
        ]
+      },
+      {
+       "words": "Sailing Course",
+       "at": 18,
+       "gives": "TACK",
+       "note": "a tack is the course a sailing boat holds relative to the wind"
       }
      ]
     },
     "explanation": {
-     "surface": "The Reverend Spooner naming a stream and the line a boat is sailing.",
-     "walkthrough": "Say BURN TACK aloud and move the two front noises across, and the pair comes out as an ordinary phrase — the capital letters on Rivulet and Sailing Course are pure surface dressing.",
-     "definitionFit": "To turn back is to retreat — to give up the advance and go the way you came, which is what a retreat is in plain terms."
+     "surface": "A sailing race on a little stream ends with the boats retreating.",
+     "walkthrough": "BURN (a Scottish stream) and TACK (a sailing course) swap first letters, as Spooner might have said them, to give the two-word answer.",
+     "definitionFit": "To turn back is to go back the way you came, which is to retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
@@ -1472,42 +1504,46 @@
     "definitions": [
      {
       "text": "energy source",
-      "at": 23,
-      "note": "The answer is an adjective and 'energy source' is a noun phrase; the setter is leaning on the everyday shorthand in which solar stands for solar power."
+      "at": 23
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOLAR",
-     "indicators": [
-      {
-       "text": "diverted",
-       "note": "A diverted river is sent a different way, and letters diverted likewise leave the course the clue set them on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "diverted",
+         "at": 5,
+         "note": "diverted means turned onto another route, so the letters of also take a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Also",
-         "gives": "SOLA",
-         "note": "the four letters of ALSO re-ordered"
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "r = river, the standard map abbreviation"
+         "at": 0,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "river",
+       "at": 14,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A river rerouted to generate power.",
-     "walkthrough": "Hydro is the power the surface promises and the answer is the other renewable, which is the whole misdirection; the river shrinks to a single map abbreviation.",
-     "definitionFit": "Solar means of the sun, and the sun is the energy source meant — the adjective standing in for solar power the way it does in everyday speech."
+     "surface": "A river has been diverted so it can drive a hydroelectric scheme, among other energy projects.",
+     "walkthrough": "The river suggests water power, but the answer is the sun's: 'diverted' rearranges ALSO and R for river follows.",
+     "definitionFit": "Solar energy comes from the sun, so solar names a power source in phrases like solar power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "river"
     }
    }
   },
