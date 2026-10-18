@@ -470,38 +470,32 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GERRYMANDER",
      "indicators": [
       {
        "text": "after swapping tips",
-       "note": "the first letters of the two words change places"
+       "at": 19,
+       "note": "the tips, the first letters, of the two words change places"
       }
      ],
      "parts": [
       {
        "words": "festive",
+       "at": 5,
        "gives": "MERRY",
-       "note": "merry = festive"
+       "note": "merry means festive"
       },
       {
        "words": "goose",
+       "at": 13,
        "gives": "GANDER",
        "note": "a gander is a male goose"
-      },
-      {
-       "unchecked": true,
-       "words": "festive goose",
-       "gives": "GERRYMANDER",
-       "soundsLike": "MERRY GANDER",
-       "note": "M and G exchanged"
       }
      ]
     },
     "explanation": {
-     "surface": "A Christmas recipe: roast a goose after trimming its ends.",
-     "walkthrough": "'Cook' sounds like the kitchen, but it means rig, as in cooking the books.",
-     "definitionFit": "To gerrymander is to rig electoral boundaries, which is to cook them."
+     "surface": "A recipe step: prepare the Christmas goose once its ends have been exchanged.",
+     "walkthrough": "'Cook' looks like a kitchen instruction but means to falsify; swapping M and G turns the merry gander into the answer.",
+     "definitionFit": "To cook the books is to falsify them; gerrymandering likewise rigs electoral boundaries dishonestly."
     },
     "features": {
      "answerInScene": false,
@@ -1125,52 +1119,55 @@
      "indicators": [
       {
        "text": "houses",
-       "note": "the country holds the other letters inside it"
+       "at": 47,
+       "note": "the country houses, contains, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "country",
+       "at": 39,
+       "gives": "CHAD",
+       "note": "Chad is an African country"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "country",
-         "gives": "CHAD",
-         "note": "Chad is a country in Africa"
-        },
         {
          "op": "alternate",
          "indicators": [
           {
            "text": "regularly fleeing",
-           "note": "every other letter departs, leaving N and C"
+           "at": 13,
+           "note": "letters leave at regular intervals, keeping alternate ones"
           }
          ],
          "parts": [
           {
-           "words": "neck, regularly fleeing",
-           "gives": "NECK",
-           "note": "alternate letters of neck: N, C"
+           "words": "neck",
+           "at": 7,
+           "note": "the word whose alternate letters remain"
           }
          ]
+        },
+        {
+         "words": "English",
+         "at": 31,
+         "gives": "E"
         }
        ]
-      },
-      {
-       "words": "English",
-       "gives": "E",
-       "note": "abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stuck their neck out escaping from English stately homes.",
-     "walkthrough": "'Risked neck' looks like one phrase; the definition is just 'Risked'. Chad is the African country.",
-     "definitionFit": "To chance something is to risk it."
+     "surface": "Someone stuck their neck out, running away from English stately homes.",
+     "walkthrough": "'country houses' reads as stately homes, but Chad is the country and 'houses' means contains: NC from neck plus E go inside it.",
+     "definitionFit": "To chance something is to take a risk with it, so chanced is a past-tense synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "neck"
+     "misdirectedWord": "houses"
     }
    }
   },
@@ -1359,41 +1356,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 11,
+       "note": "the tool goes about, around, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Instrument",
-         "gives": "TOOL",
-         "note": "a tool is an instrument"
-        },
-        {
-         "words": "to capture",
-         "gives": "COP",
-         "note": "to cop is to catch"
-        }
-       ]
+       "words": "Instrument",
+       "at": 0,
+       "gives": "TOOL",
+       "note": "a tool is an instrument"
       },
       {
-       "words": "this female",
-       "gives": "HER",
-       "note": "pronoun"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to capture",
+         "at": 17,
+         "gives": "COP",
+         "note": "to cop is to catch or capture"
+        },
+        {
+         "words": "this female",
+         "at": 28,
+         "gives": "HER",
+         "note": "her refers to a female"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musical instrument is about to catch a woman who needs feeding.",
-     "walkthrough": "'About to' reads as 'on the point of'; split it, as 'about' is the container signal and 'to capture' is COP.",
-     "definitionFit": "Tocopherol is vitamin E, a nutrient the body needs."
+     "surface": "A device is put round a woman to ensure she gets her necessary diet.",
+     "definitionFit": "Tocopherol is vitamin E, an essential nutrient that the diet must supply."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Instrument"
     }
    }
   },

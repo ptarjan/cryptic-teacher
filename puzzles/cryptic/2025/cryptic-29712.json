@@ -261,34 +261,38 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means surrounding, so the article letters go on either side"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 21,
+         "note": "the two articles stand about, around, the crusts of the loaf"
+        }
+       ],
        "parts": [
         {
          "words": "articles",
-         "gives": "AAA",
-         "note": "a is the indefinite article, and three of them are needed"
+         "at": 12,
+         "gives": "AA",
+         "note": "A is the indefinite article; two of them here"
         },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "crusts",
-           "note": "crusts are the outer edges of a loaf, so only the outside letters of the word are used"
+           "at": 32,
+           "note": "the crusts of a loaf are its outside letters, first and last"
           }
          ],
          "parts": [
           {
            "words": "loaf",
-           "note": "the first and last letters of loaf"
+           "at": 27,
+           "note": "the word whose outer letters are taken"
           }
          ]
         }
@@ -296,20 +300,21 @@
       },
       {
        "words": "Repeatedly",
-       "gives": "LF",
-       "note": "the loaf crusts used a second time"
+       "at": 0,
+       "gives": "LFA",
+       "note": "the crust-and-article pattern is given again, a second LF followed by a closing A"
       }
      ]
     },
     "explanation": {
-     "surface": "Bread crusts are used as animal feed, sold with a label repeated on every item.",
-     "walkthrough": "'Repeatedly' says the pattern of article round crusts happens twice, sharing the middle article: three articles enclose two sets of crusts.",
-     "definitionFit": "Alfalfa, also called lucerne, is a leguminous plant grown as feed for cattle and horses."
+     "surface": "A note on repeatedly serving up the ends of a loaf, with a couple of articles, as feed for livestock.",
+     "walkthrough": "A around LF gives ALFA; 'Repeatedly' runs the crust-then-article pattern once more, so a second LF and a final A follow, sharing the middle article.",
+     "definitionFit": "Lucerne, the plant known as this word, is grown chiefly as animal feed, so it is fodder by example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "articles"
+     "misdirectedWord": "crusts"
     }
    }
   },
