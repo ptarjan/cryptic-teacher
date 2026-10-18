@@ -151,7 +151,10 @@ def message_problems(puzzle):
         if hl and not any(m.get("kind") == hl.get("kind") for m in puzzle.get("messages") or []) \
                 and not names_device(puzzle.get("preamble")):
             out.append(f"{entry_id(e)}: hiddenLetter, but the preamble describes no "
-                       f"hidden-letter device")
+                       f"hidden-letter device. Drop `hiddenLetter`: a letter the preamble "
+                       f"only adds to or removes from the wordplay, and never reads "
+                       f"together, is an ordinary block (a charade part, a deletion or "
+                       f"an `ind`), not a device letter")
     return out
 
 
@@ -167,7 +170,8 @@ DEVICE_PATTERNS = {
     "extra": (r"\b(extra|surplus|redundant|superfluous|spare|additional|unwanted)\s+(letter|word)s?\b"
               r"|\bletters?\s+(superfluous|to\s+be\s+(disregarded|ignored|discarded))\b"
               r"|\bdiscarded\s+letters\b|\bletter\s+too\s+many\b|\bone\s+letter\s+more\b"
-              r"|\bwordplay\b[^.]{0,60}\b(an?|one)\s+(extra|additional)\b"),
+              r"|\bwordplay\b[^.]{0,60}\b(an?|one)\s+(extra|additional)\b"
+              r"|\bletter\s+must\s+be\s+(removed|deleted)\s+from\s+each\s+clue\b"),
     "omitted": (r"\bomi(t|ts|tted)\s+(a|one|an?\s+\w+)\s+letter\b|\bletters?\s+omitted\b|\bomissions?\b"
                 r"|\bmissing\s+letters?\b"
                 r"|\bletters?\s+(missing|short|lacking)\b|\bone\s+letter\s+(short|fewer)\b"
@@ -181,7 +185,10 @@ DEVICE_PATTERNS = {
 #: letter before entry").
 READ_TOGETHER = re.compile(
     r"\bin\s+(clue\s+)?order\b|\bclue\s+by\s+clue\b"
-    r"|\b(these|such|the|discarded|extra|superfluous|additional|omitted|surplus)\s+(letters|omissions)\b"
+    r"|\b(these|such|the|discarded|extra|superfluous|additional|omitted|surplus)\s+"
+    r"((\d+|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"
+    r"sixteen|seventeen|eighteen|nineteen|twenty)\s+)?(letters|omissions)\b"
+    r"|\bsuperfluous\s+material\b"
     r"|\bfirst\s+letters\b|\bthese\s+(spell|form|give|generate|indicate|suggest|can)\b"
     r"|\b(spell|spells|spelt|spelled)\b", re.I)
 
