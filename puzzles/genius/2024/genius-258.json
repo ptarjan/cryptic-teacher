@@ -221,54 +221,58 @@
      "indicators": [
       {
        "text": "interrupts",
-       "note": "something that interrupts breaks into the middle of what is going on"
+       "at": 4,
+       "note": "something that interrupts breaks into the middle, so the I goes inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader removed",
+         "at": 27,
+         "note": "the leader of a word is its first letter, and here that letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "leader removed",
-           "note": "the leader of a word is its first letter, and removing it drops that letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "requesting",
-           "gives": "ASKING",
-           "note": "requesting something is asking for it"
-          },
-          {
-           "gives": "A"
-          }
-         ]
+         "words": "requesting",
+         "at": 16,
+         "gives": "ASKING",
+         "note": "requesting means asking"
         },
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "gives": "A"
         }
        ]
       },
       {
-       "gives": "MM",
-       "note": "the preamble's double letter, left out of the wordplay and restored in the grid"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        },
+        {
+         "gives": "MM",
+         "note": "the double letter omitted from the wordplay, as the preamble says for half the clues"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone butts into a conversation, asking for a turn to speak before taking off.",
-     "walkthrough": "The wordplay gives SKIING; the doubled M is the missing feature.",
-     "definitionFit": "Skimming milk means removing the cream from its surface, so it is a kind of taking off."
+     "surface": "Someone cuts into a conversation, asking that the person at the front be removed so things can take off.",
+     "walkthrough": "The wordplay gives SKIING: ASKING without its leader A is SKING, which 'One' (I) interrupts. The preamble's related features are double letters, so MM, left out of the wordplay, completes the entry.",
+     "definitionFit": "Skimming is moving lightly over a surface, as a stone or plane does when lifting away, so it can mean taking off."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "requesting"
+     "misdirectedWord": "taking"
     }
    }
   },
@@ -423,44 +427,50 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "adopted by",
-       "note": "something adopted is taken in, so it ends up inside the other piece"
-      }
-     ],
+     "op": "substitution",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "adopted by",
+         "at": 15,
+         "note": "something adopted by a family is taken into it, so the U goes inside the word for foundation"
+        }
+       ],
        "parts": [
         {
          "words": "foundation",
+         "at": 26,
          "gives": "ROOT",
-         "note": "the root is the base something grows from"
+         "note": "a foundation is a root, the base something grows from"
         },
         {
          "words": "uniform",
+         "at": 7,
          "gives": "U",
-         "note": "U is uniform in the NATO alphabet, and also the abbreviation"
+         "note": "Uniform is the NATO alphabet code word for U"
         }
        ]
       },
       {
-       "gives": "LL",
-       "note": "the preamble's double letter, left out of the wordplay and restored in the grid"
+       "gives": "O"
+      },
+      {
+       "gives": "OLL",
+       "note": "the double letter LL, omitted from the wordplay as the preamble says, joins the first O"
       }
      ]
     },
     "explanation": {
-     "surface": "A charity's new uniform is being launched.",
-     "walkthrough": "Without its doubled L the wordplay spells a non-word, a sign this clue lacks a feature.",
-     "definitionFit": "A rollout is the public introduction of a new product or service, its launch."
+     "surface": "A product launch with a new uniform taken up by a charitable foundation.",
+     "walkthrough": "The wordplay gives ROOUT: U taken into ROOT. This is one of the clues missing a double letter, the puzzle's related feature, so LL is restored after the first O.",
+     "definitionFit": "A rollout is the official introduction of a new product or service, the same thing as its launch."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "uniform"
+     "misdirectedWord": "foundation"
     }
    }
   },
@@ -989,40 +999,42 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "to welcome a guest is to take them in, so one piece holds the other"
+       "at": 10,
+       "note": "a host welcoming a guest takes them in, so the E goes inside the word for satisfied"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Satisfied",
-         "gives": "SATED",
-         "note": "sated means satisfied, full"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
-        }
-       ]
+       "words": "Satisfied",
+       "at": 0,
+       "gives": "SATED",
+       "note": "satisfied, having had one's fill, means sated"
       },
       {
-       "gives": "RR",
-       "note": "the preamble's double letter, left out of the wordplay and restored in the grid"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 20,
+         "gives": "E"
+        },
+        {
+         "gives": "RR",
+         "note": "the double letter omitted from the wordplay, as the preamble says for half the clues"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-fed host welcoming a European guest, with a sharp-toothed grin.",
-     "walkthrough": "E inside SATED makes SEATED; restoring the doubled R gives SERRATED.",
-     "definitionFit": "A serrated edge, like a bread knife's, has a row of small sharp teeth."
+     "surface": "A well-fed host welcomes a European guest, perhaps one showing sharp teeth.",
+     "walkthrough": "This is one of the clues whose wordplay leaves out the puzzle's related feature, a double letter, which the solver must put back to fill the grid.",
+     "definitionFit": "A serrated edge has a row of small sharp points like a saw's, so it is notched with teeth."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Satisfied"
+     "misdirectedWord": "welcoming"
     }
    }
   },
@@ -1098,38 +1110,41 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece goes round the other"
+       "at": 27,
+       "note": "about means surrounding, so the word for left hurriedly goes round the 1"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "left hurriedly",
-         "gives": "FLED",
-         "note": "to flee is to leave in a hurry"
-        },
-        {
-         "words": "1",
-         "gives": "I",
-         "note": "I is the Roman numeral for 1"
-        }
-       ]
+       "words": "left hurriedly",
+       "at": 12,
+       "gives": "FLED",
+       "note": "someone who left hurriedly fled"
       },
       {
-       "gives": "DD",
-       "note": "the preamble's double letter, left out of the wordplay and restored in the grid"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "1",
+         "at": 33,
+         "gives": "I",
+         "note": "1 is the Roman numeral I"
+        },
+        {
+         "gives": "DD",
+         "note": "the double letter omitted from the wordplay, as the preamble says for half the clues"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swindler who cheated and fled in a hurry, around one o'clock.",
-     "walkthrough": "'1' looks like a reference to 1 Down but is just the numeral. I inside FLED gives FILED, then the double D.",
-     "definitionFit": "To fiddle is to swindle or falsify accounts, so fiddled is past-tense cheated."
+     "surface": "A cheat who got away quickly around one o'clock.",
+     "walkthrough": "The 1 is not a cross-reference to 1 Down but simply the Roman numeral; the wordplay alone falls short of the entry by one double letter, the preamble's related feature.",
+     "definitionFit": "To fiddle is informal for to swindle or falsify accounts, so someone who fiddled has cheated."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "1"
     }
