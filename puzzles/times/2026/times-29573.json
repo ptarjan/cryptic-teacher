@@ -639,52 +639,65 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "to put something in is to insert it, so the pieces go inside the word for place"
+       "at": 30,
+       "note": "put in means placed inside, so the first pieces go inside the word for place"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "place",
+       "at": 37,
+       "gives": "LAY",
+       "note": "to lay is to place or set down"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "place",
-           "gives": "LAY",
-           "note": "to place is to lay; this word wraps round the rest"
-          },
-          {
-           "words": "\"Very good\"",
-           "gives": "PI",
-           "note": "pi, short for pious, is crossword shorthand for very good"
-          }
-         ]
+         "words": "Very good",
+         "at": 1,
+         "gives": "PI",
+         "note": "pi is slang for pious, very good"
         },
         {
          "words": "diamonds",
+         "at": 12,
          "gives": "D",
-         "note": "card-suit abbreviation"
+         "note": "D is the card-suit abbreviation for diamonds"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 25,
+           "note": "cut means shortened, so the last letter of are is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "are",
+           "at": 21
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "are cut",
-       "gives": "AR",
-       "note": "the word 'are' without its last letter"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A gem-cutter watches good diamonds being cut and set, and wonders whether it was their own work.",
-     "walkthrough": "Read whole, the clue describes the answer: a craftsman cutting and setting diamonds asks 'by me?' The same words, read as parts, build it.",
-     "definitionFit": "A lapidary is a craftsman who cuts, polishes and sets gemstones, so the whole clue reads straight as his job."
+     "surface": "A craftsman boasts that his diamonds are cut beautifully and set in place.",
+     "walkthrough": "The whole clue is both wordplay and description: a gem cutter could say diamonds are cut and set by him.",
+     "definitionFit": "A lapidary is a craftsman who cuts, polishes and engraves gemstones."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "place"
+     "misdirectedWord": "good"
     }
    }
   },
@@ -1062,8 +1075,7 @@
     "definitions": [
      {
       "text": "who dishes out cash?",
-      "at": 41,
-      "note": "'who dishes out cash' stands for 'one who dishes out cash', a noun"
+      "at": 41
      }
     ],
     "wordplay": {
@@ -1071,51 +1083,53 @@
      "indicators": [
       {
        "text": "hugged by",
-       "note": "something hugged is held in someone's arms, so these pieces sit inside the father"
+       "at": 24,
+       "note": "hugged by means held inside, so the word for father goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "father",
+       "at": 34,
+       "gives": "PATER",
+       "note": "pater is Latin, and old public-school slang, for father"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "father",
-         "gives": "PATER",
-         "note": "Latin for father, old public-school slang; wraps round the rest"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "End of",
-           "note": "the end of a word is its last letter"
+           "at": 0,
+           "note": "end of means the last letter of day is taken"
           }
          ],
          "parts": [
           {
-           "words": "End of day",
-           "gives": "DAY",
-           "note": "last letter of day"
+           "words": "day",
+           "at": 7
           }
          ]
+        },
+        {
+         "words": "mother's",
+         "at": 15,
+         "gives": "MAS",
+         "note": "ma is mother, with the 's kept as S"
         }
        ]
-      },
-      {
-       "words": "mother's",
-       "gives": "MAS",
-       "note": "mother is MA, plus the 's"
       }
      ]
     },
     "explanation": {
-     "surface": "At the end of the day, Dad, not Mum, is the one handing over the money.",
-     "walkthrough": "The surface makes 'father' the cash-giver, but he only supplies the outer letters; the definition starts at 'who'.",
-     "definitionFit": "A paymaster is the official who pays out wages, so the definition describes his job."
+     "surface": "A child describes a day out where mum is embraced by dad, who pays for everything.",
+     "definitionFit": "A paymaster is the official who pays out wages or money in an organisation."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "father"
     }
    }
@@ -1141,50 +1155,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "in want of",
-       "note": "to be in want of something is to lack it, so these letters are missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Was weepy",
-       "gives": "WASTEARFUL",
-       "note": "weepy is tearful"
+       "words": "Was",
+       "at": 0,
+       "gives": "WAS"
       },
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the last letter of father is taken"
+         "text": "in want of",
+         "at": 11,
+         "note": "in want of means lacking, so the named letters are taken out of the word for weepy"
         }
        ],
        "parts": [
         {
-         "op": "last",
+         "words": "weepy",
+         "at": 4,
+         "gives": "TEARFUL",
+         "note": "tearful means weepy, inclined to cry"
+        },
+        {
+         "op": "charade",
          "parts": [
           {
            "words": "a",
-           "note": "removed"
+           "at": 22,
+           "gives": "A"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "ultimately",
+             "at": 31,
+             "note": "ultimately means the last letter of father"
+            }
+           ],
+           "parts": [
+            {
+             "words": "father",
+             "at": 24
+            }
+           ]
           }
          ]
-        },
-        {
-         "words": "father",
-         "gives": "R",
-         "note": "last letter of father, removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The prodigal son, missing his father, was in tears.",
-     "walkthrough": "The surface borrows the parable, where the son comes home in tears to his father; 'was' is kept as a word of the answer, not a link.",
-     "definitionFit": "In the parable the prodigal son squandered his inheritance, so the Bible story is the example of wasteful."
+     "surface": "Someone cried, missing their dad in the end, just like the son in the parable.",
+     "walkthrough": "TEARFUL loses A and R to leave TEFUL. In the parable the prodigal son squanders his inheritance.",
+     "definitionFit": "The prodigal son squandered his inheritance, so he was extravagant and spendthrift."
     },
     "features": {
      "answerInScene": true,
@@ -1266,49 +1293,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one thing in another sits inside it, so the numeral goes into the state"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "put up",
-         "note": "in a down entry, a word put up reads from the bottom, so it is reversed"
+         "text": "in",
+         "at": 5,
+         "note": "in means placed inside, so the numeral goes inside the state's abbreviation"
         }
        ],
        "parts": [
         {
          "words": "small American state",
+         "at": 8,
          "gives": "RI",
-         "note": "Rhode Island, the smallest US state, abbreviated RI"
+         "note": "RI is Rhode Island, the smallest US state"
         },
         {
          "words": "Four",
+         "at": 0,
          "gives": "IV",
-         "note": "Roman numeral"
+         "note": "IV is the Roman numeral for four"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "put up",
+         "at": 33,
+         "note": "put up in a down clue means raised, so the word are reads from bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "are",
-         "note": "used as itself, then reversed"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Four people from a tiny American state are put up at a resort.",
-     "walkthrough": "'Small' points to Rhode Island, the smallest state. 'Put up' reads as lodging, which suits the holiday, but it reverses.",
-     "definitionFit": "The Riviera, the Mediterranean coast of France and Italy, is a holiday destination by example, hence the question mark."
+     "surface": "Four people in a tiny US state are lodged in a resort.",
+     "walkthrough": "'are' turned upwards gives ERA.",
+     "definitionFit": "The Riviera, the Mediterranean coast of France and Italy, is a famous resort area."
     },
     "features": {
      "answerInScene": true,
@@ -1695,47 +1726,49 @@
      "indicators": [
       {
        "text": "all around",
-       "note": "something all around encircles the rest, so the word for given nutrition goes on the outside"
+       "at": 64,
+       "note": "all around means surrounding, so the word for given nutrition goes round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "given nutrition",
-         "gives": "FED",
-         "note": "fed; this word wraps round the rest"
-        },
-        {
-         "words": "inferior",
-         "gives": "LOWER",
-         "note": "lower in rank"
-        }
-       ]
+       "words": "given nutrition",
+       "at": 48,
+       "gives": "FED",
+       "note": "fed means given food or nourishment"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "beginning to",
-         "note": "the beginning of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "beginning to blossom",
-         "gives": "BLOSSOM",
-         "note": "first letter of blossom"
+         "words": "inferior",
+         "at": 15,
+         "gives": "LOWER",
+         "note": "lower means inferior, of less rank or quality"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 26,
+           "note": "beginning to means just the first letter of blossom"
+          }
+         ],
+         "parts": [
+          {
+           "words": "blossom",
+           "at": 39
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poor patch of garden only starts to bloom once it has been fed all over.",
-     "walkthrough": "'Blossom' suits the garden but gives only one letter; the flower in the answer comes from 'inferior'.",
-     "definitionFit": "A flowerbed is a planted plot, one part of a garden: a definition by what it belongs to."
+     "surface": "A poor patch of garden starts to bloom once it is fertilised.",
+     "definitionFit": "A flowerbed is a plot of soil within a garden where flowers are planted."
     },
     "features": {
      "answerInScene": true,

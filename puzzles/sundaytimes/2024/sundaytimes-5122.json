@@ -461,37 +461,49 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "the wine loses its last letter"
+       "text": "returned",
+       "at": 25,
+       "note": "returned means sent back, so the combined letters are read in the opposite direction"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "returned",
-         "note": "sent back, so read right to left"
-        }
-       ],
        "parts": [
         {
-         "words": "wine",
-         "gives": "RETSIN",
-         "note": "RETSINA, a Greek wine, without its final A"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfinished",
+           "at": 5,
+           "note": "unfinished means the last letter of the wine is not there"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wine",
+           "at": 17,
+           "gives": "RETSINA",
+           "note": "retsina is a Greek white wine flavoured with pine resin"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         },
         {
          "words": "is",
-         "note": "is, as written"
+         "at": 22,
+         "gives": "IS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A half-drunk bottle of wine is sent back.",
-     "walkthrough": "'Left unfinished' reads as one phrase, but 'Left' is the definition and 'unfinished' works on the wine; the whole string then turns round. Sinister is Latin for left, used in heraldry.",
-     "definitionFit": "In heraldry sinister means the left side of a shield."
+     "surface": "Someone leaves a bottle half-drunk and sends the wine back.",
+     "walkthrough": "'unfinished' cuts RETSINA to RETSIN; with IS that makes RETSINIS, and 'returned' reads it backwards.",
+     "definitionFit": "Sinister is the heraldic and Latin term for the left-hand side."
     },
     "features": {
      "answerInScene": false,
@@ -928,54 +940,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "turned round, so read backwards"
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "A, as written"
+       "at": 0,
+       "gives": "A"
       },
       {
        "words": "horse",
+       "at": 2,
        "gives": "GG",
-       "note": "gee-gee, a child's word for a horse"
+       "note": "GG, short for gee-gee, is a childish word for a horse"
       },
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "circles",
-         "note": "to circle something is to surround it, so the turned word goes round the one"
+         "at": 29,
+         "note": "circles means surrounds, so the reversed word goes round the letter for one"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning",
+           "at": 21,
+           "note": "turning means turned round, so the word for always is read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "always",
+           "at": 14,
            "gives": "EVER",
-           "note": "ever = always"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one in Roman numerals"
+           "note": "ever means always, as in 'ever hopeful'"
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 10,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horse, forever going round in circles, suffers pain.",
-     "walkthrough": "'Pain' is a verb here, to hurt or distress, not the horse's suffering.",
-     "definitionFit": "A verb sense: to pain someone is to distress or wrong them, the sense of this word."
+     "surface": "A horse forever going round in circles must be in some distress.",
+     "walkthrough": "'turning' makes EVER into REVE, and 'circles' wraps that round I.",
+     "definitionFit": "To aggrieve is to distress or wrong someone, so it works as the verb to pain."
     },
     "features": {
      "answerInScene": false,

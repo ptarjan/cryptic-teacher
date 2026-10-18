@@ -305,12 +305,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "lifted",
-       "note": "in a down clue, lifting a word turns it upside down, so it reads backwards"
-      },
-      {
        "text": "ahead of",
-       "note": "that whole piece comes before the word for guard"
+       "at": 34,
+       "note": "ahead of means coming before, so the first part precedes the guard"
       }
      ],
      "parts": [
@@ -319,28 +316,32 @@
        "indicators": [
         {
          "text": "within",
-         "note": "the reversed half goes inside the word for vaults"
+         "at": 20,
+         "note": "within means placed inside, so the reversed piece goes into the word for vaults"
         }
        ],
        "parts": [
         {
          "words": "vaults",
+         "at": 27,
          "gives": "ARCHES",
-         "note": "arches are vaults, curved roofs"
+         "note": "arches are curved structures, like vaults"
         },
         {
          "op": "reversal",
          "indicators": [
           {
-           "text": "half",
-           "note": "the word for half is meant"
+           "text": "lifted",
+           "at": 13,
+           "note": "lifted in a down clue means raised, so the prefix reads from bottom to top"
           }
          ],
          "parts": [
           {
            "words": "half",
+           "at": 8,
            "gives": "DEMI",
-           "note": "demi- means half; lifted it reads IMED, placed inside ARCHES"
+           "note": "demi is a prefix meaning half"
           }
          ]
         }
@@ -348,20 +349,21 @@
       },
       {
        "words": "guard",
+       "at": 43,
        "gives": "SCREW",
-       "note": "screw is slang for a prison guard"
+       "note": "screw is prison slang for a warder or guard"
       }
      ]
     },
     "explanation": {
-     "surface": "A machine partly raised inside some vaults, in front of a watchman.",
-     "walkthrough": "'Guard' reads as a protective device on a machine; it is prison slang for a warder.",
-     "definitionFit": "Archimedes' screw is a machine for raising water: a screw turning inside a tilted tube."
+     "surface": "A device is partly raised inside a crypt before a security man.",
+     "walkthrough": "'Machine' is the definition; 'guard' is not a protective cover but prison slang for a warder.",
+     "definitionFit": "The Archimedes screw is an ancient device that raises water by turning a helix in a tube."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "guard"
+     "misdirectedWord": "vaults"
     }
    }
   },
@@ -393,43 +395,31 @@
        "indicators": [
         {
          "text": "cycling",
-         "note": "a letter goes round from the front of the word to the back"
+         "at": 15,
+         "note": "cycling means the letters rotate, so the first letter of the valley moves to the end"
         }
        ],
        "parts": [
         {
          "words": "valley",
+         "at": 8,
          "gives": "GLEN",
-         "note": "a glen is a narrow valley; moving its G to the end gives LENG"
+         "note": "a glen is a narrow valley, especially in Scotland"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "half of this",
+       "at": 28,
        "gives": "TH",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "only the first half of the next word is used"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "this",
-         "gives": "TH",
-         "select": "first",
-         "note": "the first half of THIS"
-        }
-       ]
+       "note": "the first two of the four letters of this"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone measures a valley while cycling through it.",
-     "walkthrough": "'Cycling' conjures a bike ride; it is a letter-movement instruction.",
-     "definitionFit": "Length is a measure, how long something is."
+     "surface": "A cyclist gauges a valley with part of the route.",
+     "walkthrough": "'cycling' moves the G of GLEN to the end.",
+     "definitionFit": "Length is a dimension, the extent of something from end to end, a quantity measured."
     },
     "features": {
      "answerInScene": false,
@@ -923,45 +913,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "most of the word is used, so the last letter goes"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "upset",
-         "note": "in a down clue, upsetting a word turns it upside down, so it reads backwards"
+         "at": 24,
+         "note": "upset in a down clue means turned upside down, so the letters read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "Exercises on mat",
-         "gives": "YOG",
-         "note": "YOGA without its last letter; upset it gives GOY"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 17,
+           "note": "mostly means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Exercises on mat",
+           "at": 0,
+           "gives": "YOGA",
+           "note": "yoga is a set of exercises done on a mat"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
       },
       {
        "words": "American",
-       "gives": "A",
-       "note": "the usual abbreviation"
+       "at": 30,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A yoga class, mostly upset, featuring an American painter.",
-     "walkthrough": "'American painter' looks like one phrase; the painter is Spanish, and 'American' only gives A.",
-     "definitionFit": "Francisco Goya was a Spanish painter and printmaker."
+     "surface": "An American artist is upset by most of his gym routine.",
+     "walkthrough": "YOGA less its last letter is YOG, and 'upset' turns that into GOY.",
+     "definitionFit": "Francisco Goya was a celebrated Spanish artist, known for portraits and The Third of May 1808."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "American"
+     "misdirectedWord": "Exercises"
     }
    }
   },
@@ -1305,8 +1306,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "the word for medic turns about, reading backwards"
+       "text": "by",
+       "at": 15,
+       "note": "by means next to, so the German article is set beside the medic"
       }
      ],
      "parts": [
@@ -1314,33 +1316,37 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "by",
-         "note": "the reversed medic sits beside the article"
+         "text": "about",
+         "at": 24,
+         "note": "about means turned round, so the word for medic reads backwards"
         }
        ],
        "parts": [
         {
          "words": "medic",
+         "at": 18,
          "gives": "DOC",
-         "note": "a doc is a doctor; turned about it gives COD"
+         "note": "doc is short for doctor, a medic"
         }
        ]
       },
       {
        "words": "German article",
+       "at": 0,
        "gives": "EINE",
-       "note": "eine is the German feminine for 'a'"
+       "note": "eine is the German feminine indefinite article, a"
       }
      ]
     },
     "explanation": {
-     "surface": "A German newspaper piece by a doctor about which painkiller to choose.",
-     "walkthrough": "'Article' suggests a newspaper story; it is the grammatical article.",
-     "definitionFit": "Codeine is an opiate painkiller, one analgesic among several."
+     "surface": "A German newspaper piece by a doctor discusses a painkiller.",
+     "walkthrough": "'about' turns DOC into COD.",
+     "definitionFit": "Codeine is an opiate drug used to relieve pain, one choice of painkiller."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "article"
     }
    }
@@ -2198,45 +2204,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SKINCARE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the first sounds of words, so swap them here"
+       "at": 0,
+       "note": "Spooner's signals that the opening sounds of the two words are swapped, after the reverend famous for such slips"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "CIN",
        "parts": [
         {
-         "unchecked": true,
          "words": "family",
-         "gives": "SKIN",
-         "soundsLike": "KIN",
-         "note": "kin is family, and it takes the S sound from the word after it"
-        },
+         "at": 10,
+         "gives": "KIN",
+         "note": "kin means family or relatives"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "SKARE",
+       "parts": [
         {
-         "unchecked": true,
          "words": "panic",
-         "gives": "CARE",
-         "soundsLike": "SCARE",
-         "note": "a scare is a panic, and giving up its S leaves this"
+         "at": 17,
+         "gives": "SCARE",
+         "note": "a scare is a sudden fright or panic"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family's alarm over someone scrubbing their face.",
-     "walkthrough": "The question mark marks the definition as an example: exfoliating is one kind of skincare.",
-     "definitionFit": "Applying an exfoliant is part of a skincare routine."
+     "surface": "A household gets in a flap over beauty products.",
+     "walkthrough": "Swapping the opening sounds of KIN and SCARE gives SKIN CARE.",
+     "definitionFit": "Exfoliants scrub away dead cells, so using them is part of a beauty regime for the complexion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "panic"
     }
    }
@@ -3047,52 +3057,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "bit of",
-       "note": "just the first letter of the next word"
+       "text": "gathered",
+       "at": 37,
+       "note": "gathered means taken in, so the agent holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "gathered",
-         "note": "the agent gathers the other pieces inside him"
-        }
-       ],
+       "words": "agent's",
+       "at": 29,
+       "gives": "SPY",
+       "note": "a spy is a secret agent; the 's stands for 'has'"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "agent",
-         "gives": "SPY",
-         "note": "a secret agent; RAW and L go inside"
+         "words": "cold",
+         "at": 11,
+         "gives": "RAW",
+         "note": "raw means cold and damp, as of weather"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "L",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 16,
+           "note": "bit of means just the first letter of lunch"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "bit of lunch",
-           "gives": "L",
-           "select": "first",
-           "note": "the first letter of LUNCH"
+           "words": "lunch",
+           "at": 23
           }
          ]
         }
        ]
-      },
-      {
-       "words": "cold",
-       "gives": "RAW",
-       "note": "raw weather is cold"
       }
      ]
     },
     "explanation": {
-     "surface": "A cold scrap of lunch picked up by a spy.",
-     "walkthrough": "'Spread out' reads as a verb; it is the adjective.",
-     "definitionFit": "An adjective to match the past participle: a sprawly town or handwriting has spread out untidily over its space."
+     "surface": "A spy has collected a chilly piece of his packed lunch.",
+     "definitionFit": "Sprawly means sprawling, straggling over a wide area untidily."
     },
     "features": {
      "answerInScene": false,
@@ -3351,36 +3359,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HOVER",
      "indicators": [
       {
-       "text": "having swapped",
-       "note": "one tap marker is swapped for the other"
+       "text": "having swapped markers for taps",
+       "at": 20,
+       "note": "taps are marked H and C, for hot and cold, so one tap marker is exchanged for the other"
       }
      ],
      "parts": [
       {
        "words": "shelter",
+       "at": 12,
        "gives": "COVER",
-       "note": "cover is shelter"
+       "note": "cover means shelter, as in 'take cover'"
       },
       {
-       "words": "markers for taps",
-       "gives": "H",
-       "note": "taps are marked C (cold) and H (hot); the H takes the place of the C at the front of the shelter word"
+       "gives": "C"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lingers near a bus shelter after swapping signs on some taps.",
-     "walkthrough": "'Markers for taps' are the H and C letters on taps; the swap changes one letter.",
-     "definitionFit": "A plain synonym: someone hanging about near a door, waiting to be noticed, is said to hover."
+     "surface": "Someone lingers by a shelter after relabelling the plumbing.",
+     "walkthrough": "Taps are marked H and C; the C of COVER becomes H.",
+     "definitionFit": "To hover is to linger or hang about near someone, waiting nearby."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "taps"
+     "misdirectedWord": "markers"
     }
    }
   },
