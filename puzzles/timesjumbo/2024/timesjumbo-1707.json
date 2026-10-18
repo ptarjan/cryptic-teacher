@@ -286,62 +286,47 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'called in' reads as one phrase, but 'in' alone sends the call inside the other word"
+       "at": 13,
+       "note": "the word for called goes inside the shortened word for demanding"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 16,
+         "note": "endlessly means the last letter of the word for demanding is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "endlessly",
-         "gives": "STER",
-         "note": "STERN without its last letter"
+         "words": "demanding",
+         "at": 26,
+         "gives": "STERN",
+         "note": "a demanding teacher is stern"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "endlessly",
-           "note": "without an end, so the last letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "called",
-           "gives": "RANG",
-           "note": "rang = telephoned, called"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "gives": "N"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "demanding",
-         "gives": "STERN",
-         "note": "stern = strict, demanding"
-        },
-        {
-         "gives": "STER"
-        }
-       ]
+       "words": "called",
+       "at": 6,
+       "gives": "RANG",
+       "note": "to call on the phone is to ring, past tense rang"
       }
      ]
     },
     "explanation": {
-     "surface": "A visitor summoned indoors who keeps making demands.",
-     "walkthrough": "'Called in' reads as a phrasal verb; split it into the phone call and the container instruction.",
-     "definitionFit": "An older sense: a visitor to a house was a stranger, as in 'you're quite a stranger'."
+     "surface": "A visitor phoned in, constantly making demands.",
+     "definitionFit": "A guest is someone from outside the household; a stranger in old usage is a visitor or newcomer."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "called"
     }
    }
@@ -584,36 +569,39 @@
      "indicators": [
       {
        "text": "accommodating",
-       "note": "to accommodate is to give lodging, so the place takes the papa and daughter in"
+       "at": 17,
+       "note": "accommodating means housing within, so the word for place holds the two letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "place",
-         "gives": "STEAD",
-         "note": "stead = place, as in 'in his stead'"
-        },
-        {
-         "words": "papa",
-         "gives": "P",
-         "note": "Papa is P in the NATO alphabet"
-        }
-       ]
+       "words": "place",
+       "at": 11,
+       "gives": "STEAD",
+       "note": "stead means place, as in 'in his stead'"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "papa",
+         "at": 31,
+         "gives": "P",
+         "note": "Papa is P in the NATO phonetic alphabet"
+        },
+        {
+         "words": "daughter",
+         "at": 40,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family member's house putting up a father and his daughter.",
-     "walkthrough": "The family setting makes papa look like the father here; it is the NATO letter P, and the actual father is the answer.",
-     "definitionFit": "A definition by example: a relative by marriage, the mother's new husband."
+     "surface": "A family member's home putting up a father and his daughter.",
+     "walkthrough": "The 's after Relative is read as 'is', linking definition to wordplay.",
+     "definitionFit": "A stepfather is a family member by marriage, so a stepdad counts as a relative."
     },
     "features": {
      "answerInScene": true,
@@ -1274,59 +1262,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "outside of",
-       "note": "take the outside letters of Tredegar"
-      }
-     ],
      "parts": [
       {
        "words": "Home",
+       "at": 0,
        "gives": "IN",
-       "note": "at home = in"
+       "note": "to be home is to be in"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "entered by",
-         "note": "to be entered by is to have something come inside, so rough goes between T and R"
+         "at": 25,
+         "note": "the outer letters of Tredegar have the word for rough put between them"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "TR",
+         "indicators": [
+          {
+           "text": "outside of",
+           "at": 5,
+           "note": "the outside of a word is its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "outside of Tredegar",
-           "gives": "TR",
-           "select": "outer",
-           "note": "the outer letters of TredegaR"
+           "words": "Tredegar",
+           "at": 16
           }
          ]
         },
         {
          "words": "rough",
+         "at": 36,
          "gives": "RUDE",
-         "note": "rude = rough, crude"
+         "note": "rough manners are rude"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A house on the edge of a Welsh town broken into by a rough intruder.",
-     "walkthrough": "Tredegar is a town in South Wales, so 'outside of Tredegar' reads as a location; it is the instruction to take its outer letters.",
-     "definitionFit": "A plain synonym: someone who enters where they have no right to be."
+     "surface": "Someone from Tredegar, a Welsh town, whose home was rudely broken into.",
+     "definitionFit": "An intruder enters property without permission, which is exactly what a trespasser does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "outside"
+     "misdirectedWord": "Home"
     }
    }
   },
@@ -1840,39 +1826,41 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "to involve is literally to roll up inside, so evaluated wraps round the rest"
+       "at": 19,
+       "note": "involving means taking in, so the word for evaluated wraps the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "evaluated",
-         "gives": "PRICED",
-         "note": "priced = valued, evaluated"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "evaluated",
+       "at": 9,
+       "gives": "PRICED",
+       "note": "to price something is to evaluate it"
       },
       {
-       "words": "Judges",
-       "gives": "JUD",
-       "note": "Jud is the abbreviation of the Book of Judges"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 29,
+         "gives": "E"
+        },
+        {
+         "words": "Judges",
+         "at": 38,
+         "gives": "JUD",
+         "note": "Jud. is an abbreviation for the Bible's Book of Judges"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Complaint that a biased panel of European judges assessed the case.",
-     "walkthrough": "'Judges' is the Old Testament book, not the people on the bench.",
-     "definitionFit": "A plain synonym: biased towards one side."
+     "surface": "A one-sided valuation that brings in European judges.",
+     "definitionFit": "A partisan view is biased towards one side, which is to be prejudiced."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Judges"
     }
@@ -2676,39 +2664,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the second 'in' puts over and the words inside the school"
+       "at": 33,
+       "note": "the pieces sit in the letters for high school"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "high school",
+       "at": 36,
+       "gives": "HS"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "high school",
-         "gives": "HS",
-         "note": "standard abbreviation"
+         "words": "over",
+         "at": 14,
+         "gives": "O",
+         "note": "O is the cricket scoring abbreviation for an over"
         },
         {
          "words": "words in play",
+         "at": 19,
          "gives": "LINES",
-         "note": "an actor's lines are the words in a play"
+         "note": "an actor's lines are the words spoken in a play"
         }
        ]
-      },
-      {
-       "words": "over",
-       "gives": "O",
-       "note": "O = over, in cricket scoring"
       }
      ]
     },
     "explanation": {
-     "surface": "A school play whose script is all about virtue.",
-     "walkthrough": "'In play' belongs with words, as an actor's script. The container instruction is the second 'in'.",
-     "definitionFit": "A plain synonym: the state of being saintly or sacred."
+     "surface": "A school drama full of virtuous speeches.",
+     "definitionFit": "Holiness is the state of being saintly or morally pure, close to righteousness."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "play"
     }
@@ -2830,41 +2820,43 @@
      "indicators": [
       {
        "text": "including",
-       "note": "to include is to take in, so suggest takes the other pieces inside"
+       "at": 18,
+       "note": "including means holding within, so the word for suggest surrounds the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "suggest",
-         "gives": "IMPLY",
-         "note": "imply = suggest"
-        },
-        {
-         "words": "one's",
-         "gives": "IS",
-         "note": "I = one, plus the S of the possessive"
-        }
-       ]
+       "words": "suggest",
+       "at": 10,
+       "gives": "IMPLY",
+       "note": "to imply is to suggest"
       },
       {
-       "words": "husband",
-       "gives": "H",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one's",
+         "at": 28,
+         "gives": "IS",
+         "note": "one's is read as one is: I (one) plus IS gives IS... here the letters I and S"
+        },
+        {
+         "words": "husband",
+         "at": 34,
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky hint that someone's husband might be involved.",
-     "walkthrough": "'Naughtily' reads as how the suggesting is done; it is the definition.",
-     "definitionFit": "A plain synonym: mischievously, like a little imp."
+     "surface": "A cheeky hint that a woman's husband is involved.",
+     "definitionFit": "Acting impishly means behaving mischievously like an imp, which is acting naughtily."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Naughtily"
+     "misdirectedWord": "suggest"
     }
    }
   },
@@ -2945,45 +2937,27 @@
      "parts": [
       {
        "words": "Cuts parts off",
+       "at": 0,
        "gives": "LOPS",
-       "note": "to lop is to cut off branches"
+       "note": "to lop is to cut parts off, as with branches; lops is the verb form here"
       },
       {
-       "words": "fish",
-       "gives": "IDE",
-       "note": "the ide is a freshwater fish"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "D",
-       "indicators": [
-        {
-         "text": "its middle",
-         "note": "the middle letter of the fish just named"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "its middle",
-         "gives": "D",
-         "select": "middle",
-         "note": "the middle letter of IDE"
-        }
-       ]
+       "words": "fish with its middle",
+       "at": 15,
+       "gives": "IDED",
+       "note": "the ide is a freshwater fish; with its middle means its own central letter D is added again at the end"
       }
      ]
     },
     "explanation": {
-     "surface": "A fishmonger trimming a fish that turns out bent in the middle.",
-     "walkthrough": "'Its middle' points back to the fish's own letters, not to any word printed in the clue.",
-     "definitionFit": "A plain synonym: askew, heavier or lower on one side."
+     "surface": "A fishmonger trims a fish and leaves its centre bent.",
+     "walkthrough": "The ide is a European freshwater fish common in crosswords; its middle letter is D.",
+     "definitionFit": "Something lopsided leans to one side or is uneven, a sense of crooked."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "crooked"
+     "misdirectedWord": "middle"
     }
    }
   },
@@ -3012,38 +2986,42 @@
      "indicators": [
       {
        "text": "described by",
-       "note": "to describe a circle is to draw round, so the bay draws round the rest"
+       "at": 31,
+       "note": "to describe a circle is to draw round, so the word bay goes around the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bay",
+       "at": 44,
+       "gives": "BAY",
+       "note": "bay is taken as written and then split open"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "bay",
-         "note": "used as printed"
+         "words": "is",
+         "at": 22,
+         "gives": "IS"
         },
         {
          "words": "about",
+         "at": 25,
          "gives": "C",
-         "note": "c = circa, about"
+         "note": "C, short for circa, means about"
         }
        ]
-      },
-      {
-       "words": "is",
-       "note": "used as printed"
       }
      ]
     },
     "explanation": {
-     "surface": "A geography note on part of the Atlantic that lies within a bay.",
-     "walkthrough": "The joke is that the answer really is a bay, off the coasts of France and Spain.",
-     "definitionFit": "A proper name: the Bay of Biscay is the arm of the Atlantic between Brittany and northern Spain."
+     "surface": "An Atlantic region marked out by a bay.",
+     "definitionFit": "The Bay of Biscay is the stretch of the Atlantic Ocean off western France and northern Spain."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "described"
     }
    }
@@ -3291,36 +3269,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in pain' sounds like suffering, but 'in' puts Victor and the chap inside the pain"
+       "at": 13,
+       "note": "the letter and the name are put inside the word for pain"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "pain",
+       "at": 16,
+       "gives": "ACHE",
+       "note": "an ache is a pain"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "pain",
-         "gives": "ACHE",
-         "note": "an ache is a pain"
+         "words": "Victor",
+         "at": 0,
+         "gives": "V",
+         "note": "Victor is V in the NATO phonetic alphabet"
         },
         {
          "words": "chap",
+         "at": 8,
          "gives": "ALAN",
-         "note": "Alan is a man's name, standing for any chap"
+         "note": "Alan is a man's name, a chap"
         }
        ]
-      },
-      {
-       "words": "Victor",
-       "gives": "V",
-       "note": "Victor is V in the NATO alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Victor hurt after a fall in the Alps.",
-     "walkthrough": "'Fall' reads as a skier's tumble; it is snow falling.",
-     "definitionFit": "A plain paraphrase: a mass of snow falling down a mountainside."
+     "surface": "A man called Victor suffering after a tumble in the Alps.",
+     "definitionFit": "An avalanche is a mass of snow tumbling down a mountain, a fall in alpine terrain."
     },
     "features": {
      "answerInScene": true,

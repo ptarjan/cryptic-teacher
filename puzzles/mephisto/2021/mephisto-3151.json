@@ -1116,48 +1116,53 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so one part goes round the other"
+       "at": 11,
+       "note": "about means around, so the shortened play word goes round the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the last letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Short",
-           "note": "short means cut off before the end, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "play",
-           "gives": "DRAMA",
-           "note": "a drama is a play"
-          },
-          {
-           "gives": "A"
-          }
-         ]
+         "words": "play",
+         "at": 6,
+         "gives": "DRAMA",
+         "note": "a play is a drama"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "A"
         }
        ]
       },
       {
-       "words": "label",
-       "gives": "TAG",
-       "note": "a tag is a label"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "label",
+         "at": 19,
+         "gives": "TAG",
+         "note": "a tag is a label"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brief play about a label is used to carry information.",
-     "definitionFit": "A datagram is a self-contained unit of data sent across a network, a packet of information."
+     "surface": "A brief play concerning a sticker used for packaging information.",
+     "definitionFit": "In computing a datagram is a self-contained unit of data sent across a network, a packet."
     },
     "features": {
      "answerInScene": false,
@@ -1296,7 +1301,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Let's have more",
+      "text": "Let's have more Italian",
       "at": 0
      }
     ],
@@ -1305,41 +1310,44 @@
      "indicators": [
       {
        "text": "to entertain",
-       "note": "to entertain guests is to take them in, so these letters hold the others"
+       "at": 32,
+       "note": "to entertain is to host, so the stories word holds the pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "stories",
-         "gives": "ANA",
-         "note": "ana is a collection of anecdotes or table talk"
-        },
-        {
-         "words": "a hundred",
-         "gives": "C",
-         "note": "C is the Roman numeral for a hundred"
-        }
-       ]
+       "words": "stories",
+       "at": 24,
+       "gives": "ANA",
+       "note": "ana is a collection of anecdotes or stories"
       },
       {
-       "words": "soldiers",
-       "gives": "OR",
-       "note": "OR is other ranks, ordinary soldiers"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a hundred",
+         "at": 45,
+         "gives": "C",
+         "note": "C is the Roman numeral for a hundred"
+        },
+        {
+         "words": "soldiers",
+         "at": 55,
+         "gives": "OR",
+         "note": "OR stands for other ranks, ordinary soldiers"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An audience of soldiers calls out for more Italian tales.",
-     "walkthrough": "'Italian' marks the answer as an Italian word. Ana, a collection of sayings, and OR for other ranks are crossword staples.",
-     "definitionFit": "Ancora is the Italian cry of encore, an audience demanding a repeat performance."
+     "surface": "An Italian audience calling for more tales, with a hundred troops to amuse.",
+     "definitionFit": "Ancora is the Italian cry for an encore, a call for a performer to give more."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "stories"
+     "aptDefinition": true,
+     "misdirectedWord": "entertain"
     }
    }
   },

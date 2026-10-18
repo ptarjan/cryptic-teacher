@@ -1267,44 +1267,48 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "something drinking takes another thing into itself"
+       "at": 20,
+       "note": "drinking means taking in, so the word for alcoholic swallows the pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "alcoholic",
-         "gives": "HARD",
-         "note": "hard drinks are alcoholic ones, like spirits"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "alcoholic",
+       "at": 10,
+       "gives": "HARD",
+       "note": "hard drinks are alcoholic ones"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "at the end",
-         "note": "at the end points to the closing letter of the word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "shiraz",
-         "note": "last letter of the wine"
+         "words": "a",
+         "at": 29,
+         "gives": "A"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at the end",
+           "at": 38,
+           "note": "at the end picks the last letter of shiraz"
+          }
+         ],
+         "parts": [
+          {
+           "words": "shiraz",
+           "at": 31
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "What are the odds of a heavy drinker finishing off a bottle of red wine?",
-     "definitionFit": "Hazard means chance or luck, as in the old dice game and the phrase at hazard."
+     "surface": "The odds of a drinker having a glass of shiraz at the close of the evening.",
+     "definitionFit": "A hazard is a risk; in the old sense it is a game of chance, and to hazard is to chance."
     },
     "features": {
      "answerInScene": false,
