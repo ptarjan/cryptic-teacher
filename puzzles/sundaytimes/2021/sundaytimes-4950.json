@@ -377,48 +377,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AORTA",
+     "op": "composite",
      "indicators": [
       {
+       "text": "dropping",
+       "at": 9,
+       "note": "dropping means the gun letters are let fall out of the pool"
+      },
+      {
        "text": "off",
-       "note": "something off has gone wrong or awry, so the remaining letters are disordered"
+       "at": 28,
+       "note": "off means what remains is off its proper order and must be rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AORTA",
-       "indicators": [
-        {
-         "text": "dropping",
-         "note": "dropping something means letting it fall away, so those letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Argonaut",
-         "note": "taken as written"
-        },
-        {
-         "words": "gun parts",
-         "gives": "GUN",
-         "note": "the separate letters of the word gun, scattered through the first word"
-        }
-       ]
+       "words": "Argonaut",
+       "at": 0,
+       "note": "the letters of Argonaut form the pool"
+      },
+      {
+       "words": "gun parts",
+       "at": 18,
+       "gives": "GUN",
+       "note": "the separate letters of gun, scattered through Argonaut"
       }
      ]
     },
     "explanation": {
-     "surface": "One of Jason's crew throws pieces of his weapon over the side of his ship.",
-     "walkthrough": "The Argonauts sailed with Jason in the Argo. Removing G, U and N from ARGONAUT leaves AROAT, which is rearranged. 'Vessel' suggests the ship, but it is a blood vessel.",
-     "definitionFit": "The aorta is the main artery leaving the heart, the largest blood vessel in the body."
+     "surface": "One of Jason's crew sheds pieces of weaponry as he leaves the ship.",
+     "walkthrough": "'Dropping' takes G, U and N out of ARGONAUT, leaving AROAT, which 'off' rearranges. 'Vessel' suggests the Argo, but it is a blood vessel.",
+     "definitionFit": "The aorta is the main artery carrying blood from the heart, a blood vessel."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "vessel"
     }
@@ -1002,40 +995,43 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "DI",
        "indicators": [
         {
          "text": "starts to",
-         "note": "starts are the opening letters, so only the first of each word counts"
+         "at": 4,
+         "note": "starts to means the opening letter of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "deep-fry its",
-         "gives": "DI",
-         "select": "first",
-         "note": "the first letters of the two words"
+         "words": "deep-fry",
+         "at": 14,
+         "note": "the word deep-fry, whose start is taken"
         }
        ]
       },
       {
+       "words": "its",
+       "at": 23,
+       "gives": "I",
+       "note": "first letter of its, the second of the two starts"
+      },
+      {
        "words": "pasty",
+       "at": 27,
        "gives": "SALLOW",
-       "note": "pasty as an adjective describes a pale, sallow complexion"
+       "note": "pasty as an adjective means pale and unhealthy, sallow"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub that serves a deep-fried pasty, a Cornish pie.",
-     "walkthrough": "A Cornish pasty is a British pastry pie, so 'pasty' looks like food; here it is the adjective for a pale, unhealthy face, and 'Bar' is a verb.",
-     "definitionFit": "To bar something is to forbid or prohibit it, which is what disallowing does."
+     "surface": "A cafe owner forbids deep-frying its pasties.",
+     "walkthrough": "'Starts to' takes the first letters of deep-fry and its. 'Pasty' looks like the Cornish pastry, but it is the adjective for a pale complexion.",
+     "definitionFit": "To bar something is to forbid it, the same as refusing to permit it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "pasty"
     }
    }

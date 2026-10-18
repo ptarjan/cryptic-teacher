@@ -44,38 +44,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DEPTH",
      "indicators": [
       {
-       "text": "to replace"
+       "text": "to replace",
+       "at": 9,
+       "note": "to replace means the pressure letter takes the place of the article in the word for the end"
       }
      ],
      "parts": [
       {
        "words": "the end",
+       "at": 31,
        "gives": "DEATH",
        "note": "death is the end of life"
       },
       {
-       "words": "Pressure",
-       "gives": "P",
-       "note": "P is the physics symbol for pressure"
+       "words": "article",
+       "at": 20,
+       "gives": "A",
+       "note": "a is the indefinite article"
       },
       {
-       "words": "article",
-       "gives": "A",
-       "note": "A is the indefinite article, and it is the letter swapped out of DEATH"
+       "words": "Pressure",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the physics symbol for pressure"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone at their lowest point, asking whether it all ends in death under pressure.",
-     "walkthrough": "\"In\" places the swap inside DEATH; the definition is a whole phrase, since the depth of something is the lowest point it reaches.",
-     "definitionFit": "The depth is the deepest point, as low as anything goes."
+     "surface": "A grim musing on whether pressure in the final moments is the lowest point anyone can reach.",
+     "walkthrough": "In DEATH, the article A is swapped for P. The definition is a whole phrase: the depth is literally the lowest point.",
+     "definitionFit": "The depth is the deepest or lowest point of something, so nothing goes further down."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Pressure"
     }
@@ -609,48 +612,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PURSUER",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Disorganised",
+       "at": 0,
+       "note": "disorganised means the remaining letters are thrown into a new order"
+      },
+      {
+       "text": "withdrawing",
+       "at": 24,
+       "note": "withdrawing means the two name letters are pulled out of the pool first"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PURSUER",
-       "indicators": [
-        {
-         "text": "Disorganised",
-         "note": "disorganised letters are put in a new order"
-        },
-        {
-         "text": "withdrawing",
-         "note": "RUNNERS-UP withdraws, takes out, the two Ns"
-        }
-       ],
-       "parts": [
-        {
-         "words": "runners-up",
-         "note": "the letters of the fodder"
-        },
-        {
-         "words": "names",
-         "gives": "NN",
-         "note": "N is the abbreviation for name; two names are two Ns, taken out"
-        }
-       ]
+       "words": "runners-up",
+       "at": 13,
+       "note": "the letters of runners-up form the pool"
+      },
+      {
+       "words": "names",
+       "at": 36,
+       "gives": "NN",
+       "note": "N is the abbreviation for name, so names gives two of them"
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled bunch of second-placed finishers pulling their names from a race one by one.",
-     "walkthrough": "\"One after another\" looks like it means in turn, but it is the definition: someone going after another person.",
-     "definitionFit": "A cryptic reading of an ordinary phrase: one who chases is literally one going after another person."
+     "surface": "A shambolic set of second-placed finishers pulling out of the race, one after another.",
+     "walkthrough": "'Withdrawing' takes both Ns out of RUNNERSUP, leaving RUERSUP, which 'Disorganised' rearranges.",
+     "definitionFit": "A pursuer is one who follows behind someone else in a chase."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "names"
+     "misdirectedWord": "runners-up"
     }
    }
   },
@@ -1492,42 +1489,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRADEDEALS",
-     "indicators": [
-      {
-       "text": "leader ditched",
-       "note": "the leader, the first letter, is thrown away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Craft",
+       "at": 0,
+       "gives": "TRADE",
+       "note": "a craft is a trade or skilled occupation"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader ditched",
+         "at": 23,
+         "note": "leader ditched means the first letter of the word for moral principles is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Craft",
-         "gives": "TRADE",
-         "note": "a craft is a skilled trade"
+         "words": "moral principles",
+         "at": 6,
+         "gives": "IDEALS",
+         "note": "ideals are moral principles"
         },
         {
-         "words": "moral principles",
-         "gives": "DEALS",
-         "note": "ideals are moral principles; without the I it is DEALS"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician abandoning principles to secure trade agreements.",
-     "walkthrough": "\"Leader\" suggests a political leader, but it is only the first letter of ideals.",
-     "definitionFit": "Trade deals are commercial agreements between countries."
+     "surface": "A boat's morally upright captain was thrown overboard over some business agreements.",
+     "walkthrough": "'Craft' looks like a boat in the surface, but it is the skilled-work sense.",
+     "definitionFit": "Trade deals are agreements between nations on the terms of commerce, the same as commercial treaties."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "Craft"
     }
    }
   },

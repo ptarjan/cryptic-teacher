@@ -142,37 +142,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "takes the initial letter of 'cedar'"
+       "text": "in",
+       "at": 21,
+       "note": "in means the cedar letter goes inside the word for way"
       }
      ],
      "parts": [
       {
        "words": "way",
+       "at": 24,
        "gives": "LANE",
-       "note": "a lane is a way or path"
+       "note": "a lane is a narrow road or way"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "in",
-         "note": "puts that letter inside the word for way"
+         "text": "initially",
+         "at": 11,
+         "note": "initially means take only the opening letter of cedar"
         }
        ],
        "parts": [
         {
-         "words": "cedar, initially",
-         "note": "first letter of cedar, placed inside LANE"
+         "words": "cedar",
+         "at": 4,
+         "note": "C is the first letter of cedar"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to cut down a cedar that stands in the road.",
-     "walkthrough": "'Cut' looks like a command about the cedar; it is the definition, as in lancing a boil.",
-     "definitionFit": "To lance is to cut open with a sharp blade, as a surgeon does."
+     "surface": "Instructions for felling a cedar tree where it blocks the path.",
+     "definitionFit": "To lance is to cut open with a blade, as a surgeon lances a boil."
     },
     "features": {
      "answerInScene": false,
@@ -370,51 +373,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "interior",
-       "note": "keeps only the inside letters of 'tree'"
+       "text": "destroyed",
+       "at": 24,
+       "note": "destroyed means the letters of Italian and the tree's inside are broken up and rebuilt"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Italian",
+       "at": 0
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "destroyed",
-         "note": "the letters are broken up and rearranged"
+         "text": "interior",
+         "at": 15,
+         "note": "interior means the inner letters of tree, without its outer ones"
         }
        ],
        "parts": [
         {
-         "words": "Italian",
-         "note": "used as it stands"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "RE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "tree's interior",
-           "gives": "RE",
-           "select": "middle",
-           "note": "the middle two letters of tRE e"
-          }
-         ]
+         "words": "tree's",
+         "at": 8,
+         "gives": "TREE",
+         "note": "the tree's interior: the word tree, whose inside is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian tree has rotted from the inside, and was not the only one.",
-     "walkthrough": "'Italian' hints at a Latin phrase, which the answer is, though the country only supplies the letters.",
-     "definitionFit": "Inter alia is Latin for 'among other things', so what it describes is not alone."
+     "surface": "An Italian tree's heartwood has been ruined, though it was not the only one affected.",
+     "walkthrough": "The interior of TREE is RE; 'destroyed' shuffles ITALIAN with RE.",
+     "definitionFit": "Inter alia is Latin for among other things, so it describes something mentioned alongside others rather than alone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Italian"
+     "misdirectedWord": "destroyed"
     }
    }
   },
@@ -506,46 +503,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUMUPTHEWORKS",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "sends HE PUT out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Eucalyptus, say",
+       "at": 0,
+       "gives": "GUM",
+       "note": "a eucalyptus is a gum tree, so the example gives gum"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 24,
+         "note": "out means the letters of he put are knocked out of order and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Eucalyptus, say",
-         "gives": "GUM",
-         "note": "a eucalyptus is a gum tree"
-        },
-        {
-         "words": "he put out",
-         "gives": "UPTHE",
-         "note": "HE PUT rearranged"
-        },
-        {
-         "words": "plant",
-         "gives": "WORKS",
-         "note": "a plant is a factory, or works"
+         "words": "he put",
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "plant",
+       "at": 33,
+       "gives": "WORKS",
+       "note": "a plant in the factory sense is works"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener sets a eucalyptus beside another plant.",
-     "walkthrough": "'Plant' looks botanical beside the eucalyptus, but it means an industrial plant.",
-     "definitionFit": "To gum up the works is to jam the machinery so nothing can proceed."
+     "surface": "A man has evicted a eucalyptus along with another plant, halting everything.",
+     "definitionFit": "To gum up the works is an idiom for jamming a process so that nothing can proceed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "plant"
     }
    }
@@ -882,31 +879,34 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Key",
+       "at": 0,
+       "gives": "E",
+       "note": "E is a musical key"
+      },
+      {
        "op": "alternate",
        "indicators": [
         {
-         "text": "oddly",
-         "note": "keeps the odd-numbered letters of limes"
+         "text": "oddly deficient",
+         "at": 10,
+         "note": "limes losing its oddly placed letters keeps only the alternate ones that remain"
         }
        ],
        "parts": [
         {
-         "words": "Key",
-         "note": "E is a musical key"
+         "words": "limes",
+         "at": 4,
+         "note": "limes with its odd-placed letters kept and the rest dropped"
         }
        ]
-      },
-      {
-       "words": "limes oddly deficient",
-       "gives": "LMS",
-       "note": "LiMeS, the even letters missing"
       }
      ]
     },
     "explanation": {
-     "surface": "A key-lime pie that lacks proper limes passes itself off as something from trees.",
-     "walkthrough": "'Key limes' reads as the pie fruit, but 'Key' is split off as the note E.",
-     "definitionFit": "Definition by category: the elm is a familiar broadleaf tree, fitting the puzzle's tree theme."
+     "surface": "A vital batch of limes turns out short, as fruit trees sometimes do.",
+     "walkthrough": "'Oddly deficient' keeps the odd letters of LIMES, LMS, after E.",
+     "definitionFit": "Elms are a familiar genus of large deciduous trees, so the plural noun fits."
     },
     "features": {
      "answerInScene": true,
@@ -1087,57 +1087,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PLASTIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned over",
-       "note": "SAL is flipped back to front"
+       "text": "caught by",
+       "at": 34,
+       "note": "caught by means the trees sit inside the letters for cop"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "caught by"
-        }
-       ],
+       "words": "cop",
+       "at": 44,
+       "gives": "PC",
+       "note": "PC is a police constable, a cop"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned over",
+           "at": 21,
+           "note": "turned over means the first tree is written backwards"
+          }
+         ],
          "parts": [
           {
-           "words": "cop",
-           "gives": "PC",
-           "note": "PC = police constable"
-          },
-          {
-           "words": "trees one turned over",
-           "gives": "LAS",
-           "note": "SAL, a large Indian tree, reversed"
+           "words": "trees",
+           "at": 11,
+           "gives": "SAL",
+           "note": "the sal is a large North Indian tree"
           }
          ]
         },
         {
-         "words": "trees",
+         "words": "one",
+         "at": 17,
          "gives": "TI",
-         "note": "the ti, a small Pacific tree, goes in after it"
+         "note": "one more of the trees: the ti, a small Pacific tree"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police officer seizes fake Christmas trees, one of them upside down.",
-     "walkthrough": "'Trees' supplies two obscure trees: the sal of northern India, turned over, then the ti of the Pacific. Both sit inside PC.",
-     "definitionFit": "A plain synonym: something plastic is man-made and fake, like a plastic Christmas tree."
+     "surface": "A fake tree has been knocked over and a policeman catches the culprit.",
+     "walkthrough": "'Trees' are two: the sal, which 'turned over' makes LAS, and one more, the ti; 'caught by' puts LASTI inside PC.",
+     "definitionFit": "Plastic is a synthetic substance, so as an adjective it means man-made or artificial."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Artificial"
+     "misdirectedWord": "trees"
     }
    }
   },
@@ -1254,49 +1258,58 @@
        "indicators": [
         {
          "text": "in",
-         "note": "the ring goes inside the tree"
+         "at": 5,
+         "note": "in means the ring shape goes inside the tree"
         }
        ],
        "parts": [
         {
          "words": "tree",
+         "at": 8,
          "gives": "PALM",
-         "note": "the palm tree"
+         "note": "a palm is a tree"
         },
         {
          "words": "Ring",
+         "at": 0,
          "gives": "O",
-         "note": "O is ring-shaped; placed in PALM"
+         "note": "O is shaped like a ring"
         }
        ]
       },
       {
+       "words": "I",
+       "at": 13
+      },
+      {
        "op": "homophone",
-       "spelt": "INO",
+       "spelt": "NO",
        "indicators": [
         {
          "text": "reportedly",
-         "note": "I KNOW is said, and written as it sounds"
+         "at": 15,
+         "note": "reportedly means it is how the words I know are heard that counts"
         }
        ],
        "parts": [
         {
-         "words": "I reportedly know",
-         "gives": "IKNOW",
-         "note": "I + NO, sounding like 'know'"
+         "words": "know",
+         "at": 26,
+         "note": "know, said aloud, is heard as no"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone remarks that a tree ring looks like chestnut or bay wood.",
-     "walkthrough": "In a tree puzzle chestnut and bay read as trees; they are horse colours.",
-     "definitionFit": "A palomino is a horse coloured by its coat, like a chestnut or a bay."
+     "surface": "A ring carved into a tree, which the speaker recognises as a horse chestnut or bay laurel.",
+     "walkthrough": "O goes in PALM for PALOM; then I, and 'reportedly' turns know into NO. Chestnut and bay look like trees, matching the theme, but here they are horse colours.",
+     "definitionFit": "A palomino is a horse of a golden coat, a colour type listed alongside chestnut and bay horses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "chestnut"
     }
    }
