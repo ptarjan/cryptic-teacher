@@ -1461,49 +1461,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "Pilot's",
+       "at": 0,
+       "note": "pilots spell letters with the NATO phonetic alphabet, so the letter is replaced by its code word"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "BRAVO",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 18,
+         "note": "essentially means at its essence or core, so only the central letter of celebrity is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "B",
-         "indicators": [
-          {
-           "text": "essentially",
-           "note": "the essence of something is its core, so the central letter of the word is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "celebrity",
-           "gives": "B",
-           "select": "middle",
-           "note": "the middle letter of celebrity"
-          }
-         ]
+         "words": "celebrity",
+         "at": 8,
+         "note": "the nine-letter word whose central letter is wanted"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "Pilot's",
-       "note": "pilots spell letters with the NATO radio alphabet, so the middle letter is spoken as its code word"
+       "gives": "B"
+      },
+      {
+       "gives": "BRAVO"
       }
      ]
     },
     "explanation": {
-     "surface": "Applauding an airman who became famous.",
-     "walkthrough": "The middle letter of the nine-letter 'celebrity' is B, and a pilot calls B by its radio code word.",
-     "definitionFit": "Bravo is an exclamation of approval, like 'well done' shouted to a performer."
+     "surface": "Someone praising a pilot who has, in essence, become famous.",
+     "walkthrough": "The middle letter of CELEBRITY is B, and in the phonetic alphabet pilots use, B is spoken as Bravo.",
+     "definitionFit": "Bravo is an exclamation of approval shouted to a performer, used just like the cry of congratulation it is defined by."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Pilot's"
     }

@@ -428,36 +428,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VISCOUNT",
-     "indicators": [
-      {
-       "text": "taking clothes off",
-       "note": "taking clothes off strips the outer layer, so the first and last letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Victor",
+       "at": 0,
        "gives": "V",
-       "note": "Victor is V in the NATO phonetic alphabet"
+       "note": "V is Victor in the NATO phonetic alphabet"
       },
       {
-       "words": "rejects",
-       "gives": "DISCOUNTS",
-       "note": "to discount an idea is to reject it"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "taking clothes off",
+         "at": 15,
+         "note": "stripping the clothes off a word removes its outside letters, leaving only the inner ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rejects",
+         "at": 7,
+         "gives": "DISCOUNTS",
+         "note": "to discount something is to reject it as not worth considering, so rejects is discounts"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Victor refuses to undress for an aristocrat.",
-     "definitionFit": "A viscount is a British peer ranking below an earl and above a baron."
+     "surface": "A man named Victor refuses to undress, perhaps out of modesty.",
+     "walkthrough": "'rejects' is DISCOUNTS; 'taking clothes off' strips its first and last letters to leave ISCOUNT, which follows V.",
+     "definitionFit": "A viscount is a member of the peerage ranking below an earl and above a baron, so a titled nobleman."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "clothes"
+     "misdirectedWord": "rejects"
     }
    }
   },
@@ -482,38 +489,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROSETTES",
-     "indicators": [
-      {
-       "text": "run to the front",
-       "note": "run is R, as in cricket scoring, and that letter is lifted out and put at the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Old",
-       "gives": "O",
-       "note": "O is a standard abbreviation for old"
+       "words": "run",
+       "at": 14,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for run"
       },
       {
-       "words": "compilers",
-       "gives": "SETTERS",
-       "note": "crossword compilers are called setters"
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to the front",
+         "at": 18,
+         "note": "to the front says the letter for run leaves its place in the compilers and goes to the very start of the whole"
+        }
+       ],
+       "parts": [
+        {
+         "words": "compilers",
+         "at": 4,
+         "gives": "SETTERS",
+         "note": "crossword compilers are called setters"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Retired crossword setters race ahead to collect crazy awards.",
-     "walkthrough": "O plus SETTERS gives OSETTERS; the last R moves to the front. 'Loopy' suggests mad, but describes the ribbon loops.",
-     "definitionFit": "Rosettes are circular ribbon badges, made of looped fabric, awarded as prizes at shows."
+     "surface": "Veteran crossword compilers dash forward to collect their awards.",
+     "walkthrough": "O plus SETTERS gives OSETTERS; 'run to the front' takes its R (run) and moves it to the start, leaving R-O-SETTES.",
+     "definitionFit": "Rosettes are ribbon awards made of looped ribbon, given at shows to winners, so they are prizes made of loops."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "loopy"
+     "misdirectedWord": "run"
     }
    }
   },

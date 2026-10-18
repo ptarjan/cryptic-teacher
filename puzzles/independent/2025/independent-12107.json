@@ -1528,65 +1528,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IRAN",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "heads west",
-       "note": "in an across clue heading west means travelling right to left, so the word runs backwards"
+       "text": "to",
+       "at": 40,
+       "note": "to here means changed to, so the letter for unknown becomes the next letter"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "IRAN",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to",
-         "note": "to marks a change from one thing into another, so one letter is swapped for a different one"
+         "text": "heads west",
+         "at": 20,
+         "note": "in an across clue, heading west means running right to left, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Far-right extremist",
+         "at": 0,
          "gives": "NAZI",
-         "note": "a Nazi is a far-right extremist"
-        },
+         "note": "a Nazi is the archetypal far-right extremist"
+        }
+       ]
+      },
+      {
+       "words": "unknown",
+       "at": 32,
+       "gives": "Z",
+       "note": "Z is one of the letters used for an unknown quantity in algebra"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "unknown",
-         "gives": "Z",
-         "note": "Z is an algebraic unknown"
-        },
+         "text": "leader of",
+         "at": 43,
+         "note": "leader of points at the first letter of Republican"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader of",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Republican",
-           "note": "the opening letter of Republican"
-          }
-         ]
+         "words": "Republican",
+         "at": 53,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A far-right figure heads west, unknown to the Republican party's leader.",
-     "walkthrough": "NAZI reversed is IZAN; its unknown Z is changed to R.",
-     "definitionFit": "This Middle Eastern country, once called Persia, is a nation state with Tehran as its capital."
+     "surface": "A political story: an extremist heads off westwards, a stranger to the Republican party's leader.",
+     "walkthrough": "'heads west' turns NAZI round to IZAN; then Z, an algebraic unknown, changes 'to' R, the 'leader of Republican'.",
+     "definitionFit": "Iran is a sovereign country in western Asia, and state is used in the sense of a nation or country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "unknown"
+     "misdirectedWord": "west"
     }
    }
   },

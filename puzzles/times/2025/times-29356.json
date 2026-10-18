@@ -664,46 +664,45 @@
      "indicators": [
       {
        "text": "round",
-       "note": "the fruit goes round the letter"
+       "at": 32,
+       "note": "round means the fruit wraps around the next letter"
       }
      ],
      "parts": [
       {
        "words": "item that's curved",
+       "at": 13,
        "gives": "BANANA",
-       "note": "a banana is famously curved"
+       "note": "a banana is the classic curved item of fruit"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
          "text": "finally",
-         "note": "takes the last letter of forehead"
+         "at": 48,
+         "note": "finally points at the last letter of forehead"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "forehead, finally",
-         "gives": "D",
-         "select": "last",
-         "note": "the last letter of foreheaD"
+         "words": "forehead",
+         "at": 38,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scarf described as something that curves round the brow.",
-     "walkthrough": "A bandana worn round the forehead fits the surface, but the curved item is a piece of fruit.",
-     "definitionFit": "A bandana is a patterned square of cloth worn at the neck or on the head."
+     "surface": "A neck scarf described as something bent and tied around the brow.",
+     "walkthrough": "'forehead, finally' gives D, and 'round' puts BANANA (the curved item) around it: BAN-D-ANA. The surface suggests tying the scarf round your head, as a bandana often is.",
+     "definitionFit": "A bandana is a large patterned handkerchief tied round the neck or head, so a neckerchief is one of its uses."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "item"
+     "misdirectedWord": "forehead"
     }
    }
   },
@@ -1078,33 +1077,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beginning",
-       "note": "takes the first letter of case"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "in"
+         "text": "in",
+         "at": 27,
+         "note": "in means the first letter of case goes inside the word for midday"
         }
        ],
        "parts": [
         {
          "words": "midday",
+         "at": 30,
          "gives": "NOON",
-         "note": "noon = midday"
+         "note": "noon is midday"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 17,
+           "note": "beginning points at the first letter of case's"
+          }
+         ],
          "parts": [
           {
-           "words": "case's beginning",
-           "gives": "CASEBEGINNING",
-           "note": "the first letter of Case"
+           "words": "case's",
+           "at": 10,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
@@ -1112,20 +1115,21 @@
       },
       {
        "words": "trial",
+       "at": 37,
        "gives": "TEST",
-       "note": "test = trial"
+       "note": "a test is a trial"
       }
      ]
     },
     "explanation": {
-     "surface": "A defendant's plea at a lunchtime court hearing.",
-     "walkthrough": "The courtroom words 'case' and 'trial' dress up plain wordplay: a letter and a synonym for test.",
-     "definitionFit": "No contest is a plea in which the accused accepts conviction without admitting guilt."
+     "surface": "A defence offered at the start of a case being heard at lunchtime.",
+     "walkthrough": "C, from 'case's beginning', goes 'in' NOON to make NOCON, then TEST follows. No contest is a plea in American law, accepting conviction without admitting guilt.",
+     "definitionFit": "No contest is the courtroom plea, also called nolo contendere, by which a defendant does not dispute a charge without admitting it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "case"
+     "misdirectedWord": "trial"
     }
    }
   },
@@ -1249,51 +1253,56 @@
      "indicators": [
       {
        "text": "dresses",
-       "note": "the thin word is wrapped around the others like clothing"
+       "at": 5,
+       "note": "dresses means clothes or covers, so the word for thin wraps around the next pieces"
       }
      ],
      "parts": [
       {
        "words": "Thin",
+       "at": 0,
        "gives": "DILUTE",
-       "note": "to dilute is to thin"
+       "note": "to thin a liquid is to dilute it"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "takes the first letter of seem"
-        }
-       ],
        "parts": [
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 19,
+           "note": "initially points at the first letter of seem"
+          }
+         ],
          "parts": [
           {
-           "words": "seem, initially",
-           "note": "the first letter of Seem"
+           "words": "seem",
+           "at": 13,
+           "note": "the word whose first letter is taken"
           }
          ]
         },
         {
          "words": "really",
+         "at": 30,
          "gives": "SO",
-         "note": "so = really, as in so good"
+         "note": "so can mean really, as in I'm so tired"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that flimsy dresses look indecent.",
-     "walkthrough": "'Thin dresses' reads as skimpy clothing; 'thin' is a verb and 'dresses' a container instruction.",
-     "definitionFit": "Dissolute means lax in morals, given to vice."
+     "surface": "Revealing dresses look truly indecent at first glance.",
+     "walkthrough": "'seem, initially' gives S and 'really' gives SO; DILUTE (thin) 'dresses' them, giving DI-SSO-LUTE.",
+     "definitionFit": "Dissolute describes someone given over to vice and indulgence, so it means lacking moral restraint."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "dresses"
+     "misdirectedWord": "Thin"
     }
    }
   },
@@ -1430,34 +1439,36 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "OWNER",
+     "op": "deletion",
      "indicators": [
       {
        "text": "having dropped header",
-       "note": "the word loses its first letter, its head"
+       "at": 24,
+       "note": "a word's header is its first letter, so dropping it removes the opening letter"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "disappointment having dropped header",
-       "gives": "OWNER",
-       "select": "first",
-       "note": "DOWNER, a letdown, loses its first letter D"
+       "words": "disappointment",
+       "at": 9,
+       "gives": "DOWNER",
+       "note": "a downer is a depressing experience or disappointment"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A goalkeeper's dismay after fumbling a header.",
-     "walkthrough": "'Keeper' and 'header' conjure a football goal; the keeper is simply someone who keeps something.",
-     "definitionFit": "A plain synonym: the person a pet or a shop belongs to is its keeper, as in shopkeeper."
+     "surface": "A goalkeeper's let-down after a header that went wrong.",
+     "walkthrough": "A downer is something that lowers your spirits; losing its first letter, D, leaves the answer. Keeper looks like a goalkeeper here, but it means the person who keeps something.",
+     "definitionFit": "An owner is the person who keeps and holds something as their property, so keeper is a fair synonym."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Keeper"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "header"
     }
    }
   },
@@ -1710,37 +1721,36 @@
        "indicators": [
         {
          "text": "reportedly",
-         "note": "what is reported is heard spoken, so the word is taken by its sound"
-        },
-        {
-         "text": "involving",
-         "note": "the move is one that involves the king"
+         "at": 5,
+         "note": "reportedly means as it is said aloud, so the spelling of the heard word changes"
         }
        ],
        "parts": [
         {
-         "words": "reportedly was aware",
+         "words": "was aware",
+         "at": 16,
          "gives": "KNEW",
-         "note": "knew = was aware of"
+         "note": "knew means was aware of"
         }
        ]
       },
       {
        "words": "move involving King",
+       "at": 29,
        "gives": "CASTLE",
-       "note": "castling in chess moves the king and a rook together"
+       "note": "castling is the chess move in which the king and a rook shift together"
       }
      ]
     },
     "explanation": {
-     "surface": "A city that knew about a royal manoeuvre.",
-     "walkthrough": "'King' looks like a monarch; it is the chess piece, and castling is the one move that shifts king and rook at once.",
-     "definitionFit": "Newcastle upon Tyne is a city in north-east England."
+     "surface": "Someone apparently knew about a chess move that involved the king.",
+     "walkthrough": "KNEW said aloud is NEW, and to castle is the one chess move in which the king and a rook move together.",
+     "definitionFit": "Newcastle upon Tyne is a major city in north-east England, so it is an example of a city."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "King"
+     "misdirectedWord": "move"
     }
    }
   }
