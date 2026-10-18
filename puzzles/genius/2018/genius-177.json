@@ -51,23 +51,40 @@
      "op": "charade",
      "parts": [
       {
-       "words": "a bit of a laugh",
-       "gives": "HA",
-       "note": "one 'ha' is a single burst of laughter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 21,
+         "note": "only a part of the laughing word is kept, half of its repeated sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a laugh",
+         "at": 30,
+         "gives": "HAHA",
+         "note": "ha-ha is a laugh"
+        },
+        {
+         "gives": "HA",
+         "note": "one of the two halves of the laugh"
+        }
+       ]
       },
       {
        "gives": "JJ",
-       "note": "the doubled letter this incomplete clue leaves out, as the preamble warns"
+       "note": "the doubled letters the preamble's incomplete clues leave out"
       }
      ]
     },
     "explanation": {
-     "surface": "A pilgrimage is described as a light-hearted bit of fun.",
-     "walkthrough": "In this puzzle 26 clues each omit a doubled letter, one for every letter A to Z; here the wordplay gives only HA and JJ must be added to make HAJJ.",
-     "definitionFit": "The Hajj is the annual pilgrimage to Mecca that every able Muslim should make once."
+     "surface": "Someone jokes that a pilgrimage is a bit of a laugh.",
+     "walkthrough": "'a bit of' keeps one HA of the laugh HA-HA. This is one of the 'consistently incomplete' clues: every answer has a doubled pair, here JJ, which the wordplay leaves out.",
+     "definitionFit": "The Hajj is the Muslim pilgrimage to Mecca, a religious trip every able believer should make."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "laugh"
     }
@@ -380,41 +397,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KIDD",
-     "indicators": [
-      {
-       "text": "interrupted half-way through",
-       "note": "the word is cut off at its midpoint, so only its first half survives"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "interrupted half-way through",
+         "at": 16,
+         "note": "the word for murder is stopped at its midpoint, so its second half is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "murder",
-         "gives": "KI",
-         "note": "to kill, of which only the opening half is kept"
+         "at": 9,
+         "gives": "KILL",
+         "note": "to murder is to kill"
         },
         {
-         "gives": "DD",
-         "note": "the doubled letter this incomplete clue leaves out, as the preamble warns"
+         "gives": "LL",
+         "note": "the second half of the word for murder"
         }
        ]
+      },
+      {
+       "gives": "DD",
+       "note": "the doubled letters the preamble's incomplete clues leave out"
       }
      ]
     },
     "explanation": {
-     "surface": "A buccaneer's killing spree is cut short halfway.",
-     "walkthrough": "KILL stopped halfway is KI; adding DD gives KIDD.",
-     "definitionFit": "Captain William Kidd was a notorious Scottish seaman hanged for piracy in 1701."
+     "surface": "A pirate's killing spree was cut short in the middle.",
+     "walkthrough": "'interrupted half-way through' cuts KILL to KI. As in the other incomplete clues, the answer's doubled letters DD are absent from the wordplay.",
+     "definitionFit": "Captain William Kidd was a notorious Scottish privateer hanged for piracy in 1701."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "murder"
+     "misdirectedWord": "interrupted"
     }
    }
   },
@@ -703,44 +724,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "drunk",
-       "note": "someone drunk staggers about, so these letters lurch into a new order"
+       "text": "hosted by",
+       "at": 23,
+       "note": "the eating word is entertained inside the other letters, as a guest is held by a host"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "hosted by",
-         "note": "a guest hosted by someone is taken in, so one piece sits inside another"
+         "text": "drunk",
+         "at": 38,
+         "note": "a drunk word is reeling and out of order, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "dear",
-         "note": "letters rearranged"
-        },
-        {
-         "words": "dined",
-         "gives": "ATE",
-         "note": "past tense of eat"
+         "at": 33
         }
        ]
+      },
+      {
+       "words": "dined",
+       "at": 17,
+       "gives": "ATE",
+       "note": "to dine is to eat, past tense ate"
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy darling invites someone to dinner, leaving them bloated.",
-     "definitionFit": "Aerated means having had air or another gas forced into it, as with fizzy drinks."
+     "surface": "A guest who ate at the home of a tipsy darling ends up full of wind.",
+     "walkthrough": "'drunk' scrambles DEAR to AERD and 'hosted by' puts ATE inside it. This answer has no doubled letters, so the preamble's gimmick does not touch it.",
+     "definitionFit": "Aerated liquids, like fizzy drinks, have had air or carbon dioxide forced into them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dear"
+     "joke": "pun",
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -1384,36 +1410,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECCE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "cut",
-       "note": "a word that is cut is trimmed, here losing its final letter"
+       "at": 6,
+       "note": "the word for grass is cut short, losing its final letter, and the gap is where the missing doubled pair goes"
       }
      ],
      "parts": [
       {
        "words": "grass",
-       "gives": "REE",
-       "note": "a reed is a tall waterside grass, with its last letter docked"
+       "at": 10,
+       "gives": "REED",
+       "note": "a reed is a tall grass"
       },
       {
-       "gives": "CC",
-       "note": "the doubled letter this incomplete clue leaves out, as the preamble warns"
+       "gives": "ED",
+       "note": "the end of the word for grass, where the change happens"
+      },
+      {
+       "gives": "CCE",
+       "note": "the missing doubled pair CC followed by the remaining E"
       }
      ]
     },
     "explanation": {
-     "surface": "A Boy Scout mows the lawn.",
-     "walkthrough": "'Scout' looks like a noun, a Boy Scout, but it is a verb. The doubled CC this clue omits goes in before the last letter.",
-     "definitionFit": "To recce, British military slang for reconnoitre, is to scout an area before acting."
+     "surface": "A scout trims the lawn.",
+     "walkthrough": "'cut' docks REED to REE. As in the other incomplete clues, the answer's doubled pair, CC, is absent from the wordplay and must be put back, before the last E.",
+     "definitionFit": "A recce, short for reconnaissance, is a military scouting mission, and to recce is to scout an area."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Scout"
+     "misdirectedWord": "grass"
     }
    }
   },
@@ -1932,26 +1962,26 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "ZARAPE",
      "indicators": [
       {
-       "text": "enjoyed in part",
-       "note": "only a part of these words is used, the letters sitting inside them"
+       "text": "in part",
+       "at": 40,
+       "note": "only a part of the phrase Jay-Z, a rap enjoyed is taken, its letters lying across the words"
       }
      ],
      "parts": [
       {
-       "words": "Jay-Z, a rap",
+       "words": "Jay-Z, a rap enjoyed",
+       "at": 19,
        "gives": "ZARAPE",
-       "note": "the run of letters across Jay-Z, a rap and enjoyed"
+       "note": "the letters run across Jay-Z, a, rap and the first letter of enjoyed"
       }
      ]
     },
     "explanation": {
-     "surface": "A Mexican fan covers a Jay-Z song and partly enjoys the rap.",
-     "walkthrough": "'Cover' suggests a cover version of a song; here it is a blanket. The letters run on into the E of enjoyed.",
-     "definitionFit": "A zarape, or serape, is a brightly coloured Mexican blanket worn as a shawl or poncho."
+     "surface": "Someone in Mexico performs a cover version of a Jay-Z rap and enjoys it.",
+     "walkthrough": "'in part' takes the run of letters from the Z of Jay-Z to the E of enjoyed. 'cover' looks like a musical cover version, but it means a blanket worn in Mexico.",
+     "definitionFit": "A zarape, or serape, is a brightly coloured woollen shawl or blanket worn in Mexico."
     },
     "features": {
      "answerInScene": false,
