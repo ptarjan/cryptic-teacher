@@ -276,47 +276,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AUSPICE",
+     "op": "container",
      "indicators": [
       {
-       "text": "scribbled",
-       "note": "a scribble is messy writing, so the letters of the words before get jumbled"
+       "text": "in",
+       "at": 22,
+       "note": "in places the jumbled letters inside the word for the card"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "card",
+       "at": 25,
+       "gives": "ACE",
+       "note": "an ace is a playing card"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the jumbled letters inside the word that follows"
+         "text": "scribbled",
+         "at": 12,
+         "note": "scribbled suggests a messy, jumbled writing, so the letters of is up are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "card",
-         "gives": "ACE",
-         "note": "an ace is a playing card"
-        },
-        {
          "words": "is up",
-         "note": "the letters of is up rearranged"
+         "at": 5,
+         "note": "the letters of is up, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An omen is posted, jotted down on a card.",
-     "walkthrough": "The jumbled letters sit inside ACE: A-USPI-CE.",
-     "definitionFit": "An auspice is an omen or portent, originally a sign read from the flight of birds."
+     "surface": "A message is scrawled on a greetings card announcing that someone is awake or the game is over.",
+     "walkthrough": "'up' looks like a reversal signal, but 'scribbled' is the anagram indicator acting on 'is up' as a whole, and 'in' sets the result inside the card.",
+     "definitionFit": "An auspice is an omen or portent, originally a bird watched by Roman augurs, so it is a sign of things to come."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "card"
+     "misdirectedWord": "scribbled"
     }
    }
   },

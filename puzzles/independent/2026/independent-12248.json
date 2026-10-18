@@ -1382,71 +1382,82 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RIJKSMUSEUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "losing heart",
-       "note": "losing the heart means the central letters go"
+       "text": "accepting",
+       "at": 44,
+       "note": "accepting means the jumble takes another letter into itself"
+      },
+      {
+       "text": "later",
+       "at": 65,
+       "note": "later says the university letter goes in near the end of the word, after the rest is built"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "in places the shortened jack inside the jumbled letters of summer is"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "accepting",
-           "note": "to accept is to take in, so one letter goes inside the rest"
+           "text": "conflicted",
+           "at": 32,
+           "note": "conflicted suggests being torn in different directions, so the letters of summer is are rearranged"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "conflicted",
-             "note": "something conflicted is torn and disordered, so these letters are rearranged"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Jack",
-             "gives": "JK",
-             "note": "the word with its two middle letters removed"
-            },
-            {
-             "words": "summer is",
-             "note": "taken as written, to be rearranged"
-            }
-           ]
-          },
-          {
-           "words": "university",
-           "gives": "U",
-           "note": "U is the abbreviation for university"
+           "words": "summer is",
+           "at": 22
           }
          ]
         },
         {
-         "unchecked": true,
-         "words": "later",
-         "note": "gives no letters: it says this letter goes in after the rearranging is done"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing heart",
+           "at": 6,
+           "note": "losing its heart means the middle letters of jack are dropped, leaving its two ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Jack",
+           "at": 0,
+           "note": "the word jack, taken as written before its middle goes"
+          },
+          {
+           "gives": "AC"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "university",
+       "at": 54,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Jack is torn over a summer trip, then takes in a university town, perhaps Amsterdam.",
-     "walkthrough": "JK joins SUMMER IS in the rearrangement; 'later' says U is slotted in after that step.",
-     "definitionFit": "The Rijksmuseum is the Dutch national museum in Amsterdam, home to Rembrandt's Night Watch and a major tourist draw."
+     "surface": "Someone called Jack, torn and heartsick one summer, finally goes off to university.",
+     "walkthrough": "'losing heart' cuts Jack to JK; 'in' puts that inside RISMUSEM (the letters of 'summer is', shuffled as 'conflicted' says), and 'accepting university later' adds U near the end.",
+     "definitionFit": "The Rijksmuseum is the Dutch national museum in Amsterdam, a major tourist draw, so the question mark marks a definition by example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Jack"
     }

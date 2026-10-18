@@ -226,43 +226,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SWEDEN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Unbounded",
-       "note": "without bounds means without edges, so the outermost letters are removed"
+       "text": "corrupted",
+       "at": 19,
+       "note": "corrupted means spoiled and twisted out of shape, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "corrupted",
-         "note": "corrupted means spoiled or altered, so the letters are put into a new order"
+         "text": "Unbounded",
+         "at": 0,
+         "note": "unbounded means without its bounds, so the first and last letters of lewdness are removed"
         }
        ],
        "parts": [
         {
          "words": "lewdness",
-         "gives": "EWDNES",
-         "note": "the word minus its first and last letters"
+         "at": 10,
+         "note": "the letters of lewdness, taken as written"
+        },
+        {
+         "gives": "LS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Unrestrained indecency has corrupted a whole nation.",
-     "walkthrough": "'Corrupted' reads as the verb of the sentence, but it is the anagram signal working on the trimmed letters.",
-     "definitionFit": "Sweden is a Scandinavian nation, an example of the general class named in the clue."
+     "surface": "Unchecked lewdness has debauched a whole nation.",
+     "walkthrough": "'Unbounded' strips the outer letters of lewdness to leave EWDNES, which 'corrupted' rearranges.",
+     "definitionFit": "Sweden is a Scandinavian nation, so it is an example of a country."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "corrupted"
+     "misdirectedWord": "Unbounded"
     }
    }
   },
@@ -857,43 +860,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CEMENT",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within the other"
+       "at": 21,
+       "note": "in places the word for chaps inside the cycled letters"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "CEMENT",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling means going round, so the last letter moves round to the front"
+         "at": 24,
+         "note": "cycling means going round, so a letter of etc is moved from one end to the other"
         }
        ],
        "parts": [
         {
-         "words": "chaps",
-         "gives": "MEN",
-         "note": "chaps are men"
-        },
-        {
          "words": "etc",
-         "note": "taken as written"
+         "at": 32,
+         "note": "the letters of etc, taken as written"
         }
        ]
+      },
+      {
+       "words": "chaps",
+       "at": 15,
+       "gives": "MEN",
+       "note": "chaps are men"
       }
      ]
     },
     "explanation": {
-     "surface": "A friendship forged among the lads on bike rides and the like.",
-     "walkthrough": "'Cycling' looks like the hobby; it moves the C of ETC to the front, giving CET, which then holds MEN.",
-     "definitionFit": "Cement is a binding material, and figuratively whatever bonds things firmly together, so it serves as a noun for bond."
+     "surface": "A friendship forged by a group of men who go cycling and the like.",
+     "walkthrough": "'cycling' moves the C of etc to the front, giving CET, and 'in' puts MEN (chaps) inside it.",
+     "definitionFit": "Cement is a binding material, and as a verb or noun it stands for a bond that holds things together."
     },
     "features": {
      "answerInScene": false,
@@ -1044,42 +1047,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUSTLE",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "not quite complete means falling just short, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "broken",
+       "at": 18,
+       "gives": "BUST",
+       "note": "bust is an informal word for broken"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 31,
+         "note": "not quite means falling a little short, so the last letter of leg is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "broken",
-         "gives": "BUST",
-         "note": "bust is informal for broken"
+         "words": "leg",
+         "at": 25,
+         "note": "the word leg, taken as written"
         },
         {
-         "words": "leg",
-         "gives": "LE",
-         "note": "the word without its last letter"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rushing around on a fractured leg, though it isn't quite broken.",
-     "walkthrough": "'About' belongs with 'Hurry' in the definition, not as a container signal.",
-     "definitionFit": "To bustle is to move energetically and busily, rushing around, which is a phrasal synonym for hurrying."
+     "surface": "Someone rushes around even though their leg is nearly broken.",
+     "walkthrough": "'broken' looks like an anagram signal for leg, but it is BUST, and 'not quite' cuts leg to LE.",
+     "definitionFit": "To bustle is to move busily and energetically, rushing from task to task."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "broken"
     }
    }
   },

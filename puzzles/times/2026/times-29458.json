@@ -798,30 +798,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "WHIT",
      "indicators": [
       {
        "text": "mostly",
-       "note": "most of the word is kept and the last letter goes"
+       "at": 12,
+       "note": "mostly means most of the word but not all, so its final letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "lacking in colour",
-       "gives": "WHIT",
-       "note": "WHITE, which lacks colour, minus its E"
+       "at": 19,
+       "gives": "WHITE",
+       "note": "something white has no colour in it, so lacking in colour gives white"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A small scrap that is nearly colourless.",
-     "walkthrough": "The whole phrase 'lacking in colour' stands for WHITE before 'mostly' trims it.",
-     "definitionFit": "A whit is the smallest part, as in 'not a whit'."
+     "surface": "A small fragment, largely drained of colour.",
+     "walkthrough": "'colour' alone tempts a list of hues, but 'lacking in colour' as a phrase is the word white, which 'mostly' trims by its last letter.",
+     "definitionFit": "A whit is the least amount, as in 'not a whit', so it is a very small bit."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "colour"
     }
    }
   },
@@ -1360,61 +1364,69 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ASIMOV",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penned by",
+       "at": 13,
+       "note": "penned by means enclosed, so the card type sits within the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "penned by"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "a",
+         "at": 23,
+         "gives": "A"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "retired",
-           "note": "retiring means withdrawing, going back, so VO is reversed"
+           "at": 35,
+           "note": "retired means gone back, so the letters for very old are read backwards"
           }
          ],
          "parts": [
           {
-           "words": "a",
-           "note": "as printed"
-          },
-          {
-           "words": "Type of card",
-           "gives": "SIM",
-           "note": "a SIM card goes in a phone"
-          },
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "V = very"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "very",
+             "at": 25,
+             "gives": "V"
+            },
+            {
+             "words": "old",
+             "at": 30,
+             "gives": "O"
+            }
+           ]
           }
          ]
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O = old; with V it turns round to OV"
         }
        ]
+      },
+      {
+       "words": "Type of card",
+       "at": 0,
+       "gives": "SIM",
+       "note": "a SIM card is the chip card that connects a mobile phone to its network"
       }
      ]
     },
     "explanation": {
-     "surface": "A greetings card written by an elderly author who has stopped working.",
-     "walkthrough": "'Retired writer' reads as one phrase about an author's career; 'retired' works on 'very old'. A + SIM + OV.",
-     "definitionFit": "Isaac Asimov was a prolific science-fiction writer."
+     "surface": "A greetings card is written out by an elderly, retired author.",
+     "walkthrough": "'retired' reverses only V and O, giving OV; the SIM card is 'penned by' A and that OV. Isaac Asimov was the American science-fiction writer.",
+     "definitionFit": "Isaac Asimov was a prolific American author of science fiction, so he is an example of a writer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "retired"
+     "misdirectedWord": "card"
     }
    }
   },

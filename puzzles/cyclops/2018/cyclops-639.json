@@ -1066,67 +1066,63 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CLINICAL",
-     "indicators": [
-      {
-       "text": "backing",
-       "note": "backing means going backwards, so the word is read from end to start"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 39,
+         "note": "out says the turned-round letters are removed from Clinton"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "Clinton",
+         "at": 18,
+         "note": "the surname Clinton, taken as written"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "out",
-           "note": "out means removed, so these letters are dropped from the name"
+           "text": "backing",
+           "at": 31,
+           "note": "backing means the word not is read backwards"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Clinton",
-             "note": "taken as written"
-            },
-            {
-             "words": "not",
-             "note": "taken as written"
-            }
-           ]
-          },
-          {
-           "gives": "TONNOT"
+           "words": "not",
+           "at": 27,
+           "note": "the word not, taken as written before it is turned round"
           }
          ]
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "state",
-         "gives": "CAL",
-         "note": "CAL is an abbreviation for California"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 50,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "state",
+       "at": 54,
+       "gives": "CAL",
+       "note": "CAL is an abbreviation for California, a US state"
       }
      ]
     },
     "explanation": {
-     "surface": "An unfeeling Clinton, refusing to retreat, carries one state in the election.",
-     "walkthrough": "Not reads backwards as TON, which is then removed from the end of the surname.",
-     "definitionFit": "Clinical describes a detached, coolly efficient manner devoid of warmth or feeling."
+     "surface": "A jibe at Hillary or Bill Clinton as a cold, robotic politician who never retreats and grabs a state.",
+     "walkthrough": "'not backing' gives TON, and 'out' strips TON from Clinton to leave CLIN; then add I for one and CAL for California.",
+     "definitionFit": "Clinical describes a manner that is detached and unfeeling, as if conducted in a hospital setting."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "backing"
     }

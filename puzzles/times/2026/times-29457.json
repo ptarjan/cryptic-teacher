@@ -198,31 +198,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "VIOLA",
      "indicators": [
       {
        "text": "half of",
-       "note": "keep only the first half of the word"
+       "at": 23,
+       "note": "half of means only the first five of the ten letters are kept, the rest dropped"
       }
      ],
      "parts": [
       {
-       "words": "half of offences",
-       "gives": "VIOLA",
-       "note": "offences = VIOLATIONS, ten letters; keep the first five"
+       "words": "offences",
+       "at": 31,
+       "gives": "VIOLATIONS",
+       "note": "violations are offences, breaches of a rule or law"
+      },
+      {
+       "gives": "TIONS"
       }
      ]
     },
     "explanation": {
-     "surface": "A big violin somehow makes up half of the crimes on record.",
-     "walkthrough": "You must find the ten-letter synonym for offences before you can halve it.",
-     "definitionFit": "The viola is a slightly larger member of the violin family."
+     "surface": "A big con includes half of all criminal charges.",
+     "walkthrough": "'fiddle' tempts as a swindle, but here it is the violin family; 'comprises' is only a link.",
+     "definitionFit": "The viola is a stringed instrument slightly bigger than the violin, which is informally called a fiddle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "fiddle"
     }
    }
@@ -248,39 +250,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALLEGORIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "at": 48,
+       "note": "houses means contains, so the rearranged letters take the toy inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "around",
-         "note": "the letters of TRAILS are moved around"
-        },
-        {
-         "text": "houses"
+         "at": 41,
+         "note": "around here means moved about, so the letters of trails are rearranged"
         }
        ],
        "parts": [
         {
          "words": "trails",
-         "note": "TRAILS rearranged"
-        },
-        {
-         "words": "building toy",
-         "gives": "LEGO",
-         "note": "Lego is the plastic building toy"
+         "at": 34,
+         "note": "the letters of trails, taken as written"
         }
        ]
+      },
+      {
+       "words": "building toy",
+       "at": 21,
+       "gives": "LEGO",
+       "note": "Lego is the plastic building-brick toy"
       }
      ]
     },
     "explanation": {
-     "surface": "A storyteller of symbolic tales traces paths around the houses in a toy town.",
-     "walkthrough": "'Building toy' reads as a toy being built, but it is a single noun for the toy, which the shuffled trails then house.",
-     "definitionFit": "An allegorist writes allegories, stories whose characters and events stand for something else."
+     "surface": "Someone builds with a child's toy while trailing around houses.",
+     "walkthrough": "'building' looks like the anagram signal, but 'building toy' is LEGO; 'around' jumbles trails, and the result 'houses' LEGO.",
+     "definitionFit": "An allegorist writes allegories, stories whose characters and events stand for hidden meanings."
     },
     "features": {
      "answerInScene": false,
@@ -373,64 +380,79 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENHANCE",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 51,
+       "note": "in places the gathered letters inside the European and church letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "limit of",
-         "note": "the end letter of the word"
-        },
-        {
-         "text": "in"
-        }
-       ],
        "parts": [
         {
          "words": "European",
-         "gives": "E",
-         "note": "standard abbreviation"
+         "at": 54,
+         "gives": "E"
         },
         {
+         "words": "church",
+         "at": 63,
+         "gives": "CE",
+         "note": "CE is the abbreviation for the Church of England"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
          "indicators": [
           {
-           "text": "mainly",
-           "note": "most of the word, so drop its last letter"
+           "text": "limit of",
+           "at": 10,
+           "note": "limit of means the furthest point, here the last letter of humanitarian"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "limit of humanitarian",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of humanitarian"
+           "words": "humanitarian",
+           "at": 19,
+           "note": "the word humanitarian, whose final letter is taken"
           }
          ]
         },
         {
-         "words": "assistance, mainly",
-         "gives": "HAN",
-         "note": "HAND (assistance, as in 'give a hand') without its last letter"
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE = Church of England"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mainly",
+           "at": 44,
+           "note": "mainly means for the most part, so the last letter of the word for assistance is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "assistance",
+           "at": 32,
+           "gives": "HAND",
+           "note": "a hand is help or assistance, as in giving someone a hand"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A call to step up aid efforts inside a European church.",
-     "walkthrough": "'Humanitarian assistance' reads as one aid-agency phrase, but it splits into two separate pieces, and 'European church' likewise wraps around the middle.",
-     "definitionFit": "A plain synonym: to enhance a flavour or effect is to heighten or intensify it."
+     "surface": "A call to boost aid efforts reaching a church in Europe.",
+     "walkthrough": "'limit' could be either end of humanitarian; only the last letter fits. 'mainly' trims the word for assistance, and 'in' sets both inside European plus church.",
+     "definitionFit": "To enhance is to heighten or increase, so intensify is a close synonym."
     },
     "features": {
      "answerInScene": false,
@@ -674,56 +696,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ABHORRENT",
+     "indicators": [
+      {
+       "text": "bores",
+       "at": 38,
+       "note": "bores means drills into, so the half word goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ABHORRENT",
-       "indicators": [
+       "op": "charade",
+       "parts": [
         {
-         "text": "split"
+         "words": "rating",
+         "at": 8,
+         "gives": "AB",
+         "note": "an AB, able seaman, is a naval rating"
         },
         {
-         "text": "bores"
+         "words": "split",
+         "at": 15,
+         "gives": "RENT",
+         "note": "rent is the past tense of rend, so it means split"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 21,
+         "note": "half of means only the first three of its six letters are kept"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "keep the first half of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rating",
-           "gives": "AB",
-           "note": "AB = able seaman, a naval rating"
-          },
-          {
-           "words": "half of \"horsey\"",
-           "gives": "HOR",
-           "note": "first three of HORSEY's six letters"
-          },
-          {
-           "words": "split",
-           "gives": "RENT",
-           "note": "rent = split or torn"
-          }
-         ]
+         "words": "horsey",
+         "at": 30,
+         "note": "the word horsey, whose first half is kept"
+        },
+        {
+         "gives": "SEY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rude remark about horsey people being dull.",
-     "walkthrough": "'Bores' looks like a noun for dull people; it is a verb, drilling the half-word into the gap between the other two pieces.",
-     "definitionFit": "Abhorrent means repugnant or offensive, close to obscene in its sense of 'disgusting'."
+     "surface": "A crude remark from a rating at odds with some tedious horsey people.",
+     "walkthrough": "'bores' looks like a noun for dull people, but it is the insertion signal: HOR (half of horsey) bores into AB + RENT.",
+     "definitionFit": "Abhorrent means repugnant or loathsome, and obscene is used in the same sense of morally offensive."
     },
     "features": {
      "answerInScene": false,
@@ -756,8 +779,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Finally",
-       "note": "the last letter of the next word"
+       "text": "after",
+       "at": 14,
+       "note": "after puts the final letter of suing behind the rest"
       }
      ],
      "parts": [
@@ -765,20 +789,23 @@
        "op": "container",
        "indicators": [
         {
-         "text": "after",
-         "note": "'after' means following, so the last letter of suing is placed following the rest"
+         "text": "covers",
+         "at": 37,
+         "note": "covers means wraps round, so the facial feature encloses the word for guardian"
         }
        ],
        "parts": [
         {
          "words": "feature",
+         "at": 29,
          "gives": "CHIN",
-         "note": "a facial feature; it covers ANGEL"
+         "note": "the chin is a facial feature"
         },
         {
          "words": "Guardian",
+         "at": 20,
          "gives": "ANGEL",
-         "note": "a guardian angel"
+         "note": "a guardian angel watches over someone, so Guardian gives angel"
         }
        ]
       },
@@ -786,23 +813,25 @@
        "op": "last",
        "indicators": [
         {
-         "text": "covers",
-         "note": "to cover something is to go over and around it, so the feature wraps round the guardian"
+         "text": "Finally",
+         "at": 0,
+         "note": "finally means at the end, so only the last letter of suing is used"
         }
        ],
        "parts": [
         {
-         "words": "Finally suing",
-         "note": "last letter of suing"
+         "words": "suing",
+         "at": 8,
+         "note": "the word suing, whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper feature ends with a lawsuit over a swapped child.",
-     "walkthrough": "The capital G makes 'Guardian' look like the newspaper; it is a guardian angel.",
-     "definitionFit": "In folklore a changeling is a fairy child secretly swapped for a human baby."
+     "surface": "A newspaper feature covers a lawsuit over a swapped baby.",
+     "walkthrough": "Guardian reads as the newspaper, but it is the guardian angel; the facial feature 'covers' it, and the last letter from 'Finally suing' goes 'after', giving CHANGELIN plus G.",
+     "definitionFit": "In folklore a changeling is a fairy child left in place of a human baby stolen away."
     },
     "features": {
      "answerInScene": true,
@@ -934,7 +963,8 @@
      "indicators": [
       {
        "text": "return of",
-       "note": "read the letters backwards"
+       "at": 11,
+       "note": "return of means going back, so the hidden letters are read backwards"
       }
      ],
      "parts": [
@@ -942,48 +972,51 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "some",
-         "note": "take only some of the letters"
+         "text": "abandoned",
+         "at": 49,
+         "note": "abandoned means left behind, so the letter for one is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "abandoned",
-           "note": "to abandon is to leave behind, so one (I) is left out of the letters"
+           "text": "some",
+           "at": 21,
+           "note": "some means only part of, so the opening and closing letters of comrade Russians are cut away, keeping a run that spans the two words"
           }
          ],
          "parts": [
           {
-           "words": "some comrade Russians",
-           "gives": "DERUSSIA",
-           "note": "the run of letters inside comraDE RUSSIAns"
+           "words": "comrade Russians",
+           "at": 26,
+           "note": "the letters of these two words, from which a middle stretch is kept"
           },
           {
-           "words": "one's abandoned",
-           "gives": "DERUSSA",
-           "note": "I (one) is dropped"
+           "gives": "COMRANS"
           }
          ]
         },
         {
-         "gives": "DERUSSIA"
+         "words": "one's",
+         "at": 43,
+         "gives": "I",
+         "note": "I is the Roman numeral one; the 's stands for is, linking to abandoned"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A promise that some Russian comrades will return, though one has defected.",
-     "walkthrough": "The letters are hidden across 'comrade Russians', then one I is dropped and the rest read backwards. A letter taken out of a hidden word is rare.",
-     "definitionFit": "A plain synonym: an assured result is one that is guaranteed, certain to happen."
+     "surface": "A promise that some Soviet comrades will be sent home, with one left behind.",
+     "walkthrough": "'some' finds DERUSSIA inside 'comrade Russians'; 'one's abandoned' drops the I to leave DERUSSA, and 'return of' reads that backwards.",
+     "definitionFit": "Assured means made certain or secured, the same as guaranteed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "abandoned"
+     "misdirectedWord": "return"
     }
    }
   },
@@ -1064,41 +1097,41 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "take the first letter of each word"
+       "text": "on",
+       "at": 42,
+       "note": "on means placed after, so the initial letters follow the word for flat"
       }
      ],
      "parts": [
       {
        "words": "flat",
+       "at": 45,
        "gives": "EVEN",
-       "note": "even = flat, level"
+       "note": "even means flat or level, as in an even surface"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "TER",
        "indicators": [
         {
-         "text": "on"
+         "text": "primarily",
+         "at": 32,
+         "note": "primarily means first of all, so the first letter of each of the three words is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "trainers encourage racing primarily",
-         "gives": "TER",
-         "select": "first",
-         "note": "first letters of trainers, encourage, racing"
+         "words": "trainers encourage racing",
+         "at": 6,
+         "note": "the three words whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Horse trainers promote racing on the flat, not over jumps.",
-     "walkthrough": "'Racing on the flat' is real racing language, so 'flat' seems to belong to the sport; it just gives EVEN.",
-     "definitionFit": "An eventer is a horse trained for eventing, which combines dressage, cross-country and show jumping."
+     "surface": "A racehorse's trainers urge it on at a flat race meeting.",
+     "walkthrough": "'flat' looks like flat racing in the surface, but it is EVEN; 'primarily' takes TER from 'trainers encourage racing', placed 'on' it.",
+     "definitionFit": "An eventer is a horse trained for eventing, the equestrian contest of dressage, cross-country and show jumping."
     },
     "features": {
      "answerInScene": true,
@@ -1256,41 +1289,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "at regular intervals, so every second letter is taken"
+       "text": "wearing",
+       "at": 16,
+       "note": "wearing means having on like clothing, so the pig word goes round the picked letters"
       }
      ],
      "parts": [
       {
        "words": "pig",
+       "at": 24,
        "gives": "SWINE",
-       "note": "a swine is a pig; it goes around DL"
+       "note": "a swine is a pig"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "DL",
        "indicators": [
         {
-         "text": "wearing"
+         "text": "regularly",
+         "at": 6,
+         "note": "regularly means at even intervals, so every other letter of adult is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Adult regularly",
-         "gives": "DL",
-         "select": "alternate",
-         "note": "the 2nd and 4th letters of aDuLt"
+         "words": "Adult",
+         "at": 0,
+         "note": "the word adult, whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grown-up routinely dressed in pigskin.",
-     "walkthrough": "'Pig skin' looks like leather, but 'skin' is the definition, a verb meaning to fleece someone.",
-     "definitionFit": "To skin someone is slang for cheating them out of money, as a swindle does."
+     "surface": "A grown-up is dressed in pigskin from time to time.",
+     "walkthrough": "'skin' looks like the pigskin of the surface, but it is the definition, meaning cheat. 'regularly' takes DL from Adult, and SWINE is 'wearing' it.",
+     "definitionFit": "To skin someone is slang for fleecing or cheating them, the same as to swindle."
     },
     "features": {
      "answerInScene": false,
@@ -1428,37 +1461,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word but not all, so its last letter goes"
+       "text": "ground",
+       "at": 28,
+       "note": "ground means crushed or milled, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "crop in",
+       "at": 7,
+       "note": "the letters of crop in, taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ground",
-         "note": "the letters are ground up and remixed"
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means most of it, so the last letter of fluid is dropped"
         }
        ],
        "parts": [
         {
-         "words": "crop in",
-         "note": "anagram fodder, as printed"
+         "words": "fluid",
+         "at": 22,
+         "note": "the word fluid, whose last letter goes"
         },
         {
-         "words": "mostly fluid",
-         "gives": "FLUI",
-         "note": "FLUID without its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A failed harvest on waterlogged land.",
-     "walkthrough": "'Ground' looks like soil for the crop, but it means crushed: the letters are remixed.",
-     "definitionFit": "Barren land is unproductive, not prolific."
+     "surface": "A crop that fails in soggy, waterlogged soil.",
+     "walkthrough": "'ground' looks like soil in the surface, but it is the anagram signal: FLUI (fluid 'mostly') joins 'crop in' and the letters are shuffled.",
+     "definitionFit": "Unprolific means not producing much offspring or fruit, so a barren field or animal is unprolific."
     },
     "features": {
      "answerInScene": true,

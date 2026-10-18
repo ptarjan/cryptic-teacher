@@ -1398,41 +1398,60 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MORE",
      "indicators": [
       {
-       "text": "exchanging",
-       "note": "exchanging two things means each takes the other's place in the word"
+       "text": "and",
+       "at": 41,
+       "note": "and completes the exchange: the original marks letter in the capital goes the other way and becomes rupees"
       }
      ],
      "parts": [
       {
-       "words": "foreign capital",
-       "gives": "ROME",
-       "note": "the capital of Italy"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "exchanging",
+         "at": 23,
+         "note": "exchanging means trading one currency for another, so the rupees letter at the front gives way to the marks letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foreign capital",
+         "at": 6,
+         "gives": "ROME",
+         "note": "Rome is the capital of Italy, a foreign capital to a British solver"
+        },
+        {
+         "words": "Rupees",
+         "at": 34,
+         "gives": "R",
+         "note": "R is the abbreviation for rupees, the currency of India"
+        },
+        {
+         "words": "Marks",
+         "at": 45,
+         "gives": "M",
+         "note": "M is the abbreviation for marks, the old German currency"
+        }
+       ]
       },
       {
-       "words": "Rupees",
-       "gives": "R",
-       "note": "R is the abbreviation for rupees"
+       "gives": "M"
       },
       {
-       "words": "Marks",
-       "gives": "M",
-       "note": "M is the abbreviation for marks, the old German currency"
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller changes rupees and marks for more of a foreign city's currency.",
-     "walkthrough": "Swap the positions of the first and third letters of ROME to get MORE.",
-     "definitionFit": "More, as an adjective, means additional or in greater quantity, which is what extra means."
+     "surface": "A tip about Italian money changers swapping rupees for marks, with extra on top.",
+     "walkthrough": "'exchanging Rupees and Marks' swaps R and M in the capital: the R at the front becomes M, giving MOME, and 'and' turns the old M into R.",
+     "definitionFit": "More, as an adjective, means additional or further, so it is a synonym of extra."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
