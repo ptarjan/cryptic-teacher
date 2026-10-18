@@ -1226,39 +1226,39 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "CA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half",
-         "note": "half of a word means keeping only part of it, here the front portion"
+         "at": 0,
+         "note": "half of a four-letter word is its first two letters, so the back half is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "came",
-         "gives": "CA",
-         "select": "first",
-         "note": "the first two of its four letters"
+         "at": 5
+        },
+        {
+         "gives": "ME"
         }
        ]
       },
       {
        "words": "one in twelve",
+       "at": 11,
        "gives": "JUN",
-       "note": "June, abbreviated, is one of the twelve months"
+       "note": "one of the twelve months; JUN is the usual short form of June"
       }
      ]
     },
     "explanation": {
-     "surface": "Half the group arrived, one in a dozen being of French colonial stock.",
-     "walkthrough": "'One in twelve' looks like a ratio, but it is a single month of the year.",
-     "definitionFit": "Cajuns of Louisiana are descended from the Acadians, French settlers expelled from Canada."
+     "surface": "Only half of someone turned up, one person among twelve, with French colonial roots.",
+     "walkthrough": "'Half' keeps CA, the first two letters of came. 'one in twelve' is a month of the year, abbreviated JUN.",
+     "definitionFit": "Cajuns of Louisiana descend from Acadians, French settlers expelled from eastern Canada in the eighteenth century."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "twelve"
     }
