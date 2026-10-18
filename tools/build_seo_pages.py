@@ -1777,26 +1777,44 @@ def series_chart(row, pages=()):
 
 
 def queue_depths(c):
-    """(to fetch, to read, to annotate) for one series' row c: scans known to
-    exist and not on disk (known less downloaded), scans on disk not read
-    (queued), filed puzzles with a clue unexplained (filed less hinted). A
-    queue the row has no count for is None; none is below 0."""
-    known, _, filed, _, hinted, downloaded, queued = c
-    fetch = None if known is None or downloaded is None else max(known - downloaded, 0)
+    """(to fetch, to read, to annotate) for one series' row c: puzzles known
+    to exist that we hold neither filed nor queued (known less filed less
+    queued), scans on disk not read (queued), filed puzzles with a clue
+    unexplained (filed less hinted). The recorded downloaded phase counts
+    scans only, so it is not used: a series filed from a blog or an API has
+    far more filed than downloaded. A queue the row has no count for is
+    None; none is below 0."""
+    known, _, filed, _, hinted, _, queued = c
+    fetch = None if known is None or queued is None else max(known - (filed + queued), 0)
     return fetch, queued, max(filed - hinted, 0)
+
+
+def held_series(days):
+    """[(day, filed + queued)] over the nights that record both."""
+    pts = []
+    for d, row in days.items():
+        t = progress.totals(row)
+        if t[progress.QUEUED] is not None:
+            pts.append((d, t[progress.FILED] + t[progress.QUEUED]))
+    return pts
 
 
 def queue_flows(days, window):
     """((fetch in, out), (read in, out), (annotate in, out)) a day over the
     last `window` days of the recorded nights `days`, a part None where a
-    phase has fewer than two nights. Into fetch is known's gain, out is
-    downloaded's; into read is downloaded's gain, out is filed's (a scan read
-    for nothing, or a puzzle filed from another source, makes that only a
-    proxy); into annotate is filed's gain, out is hinted's."""
+    phase has fewer than two nights. Into fetch is known's gain (negative
+    when the known count falls), out is the gain in filed plus queued, all
+    we hold; into read is the gain in queued plus read-out; out of read is
+    filed's gain (a scan read for nothing, or a puzzle filed from another
+    source, makes that only a proxy); into annotate is filed's gain, out is
+    hinted's."""
     g = {ph: progress.rate(progress.series_of(days, ph), window)
-         for ph in (progress.KNOWN, progress.FILED, progress.HINTED, progress.DOWNLOADED)}
-    return ((g[progress.KNOWN], g[progress.DOWNLOADED]),
-            (g[progress.DOWNLOADED], g[progress.FILED]),
+         for ph in (progress.KNOWN, progress.FILED, progress.HINTED, progress.QUEUED)}
+    held = progress.rate(held_series(days), window)
+    read_in = None if g[progress.QUEUED] is None or g[progress.FILED] is None \
+        else g[progress.QUEUED] + g[progress.FILED]
+    return ((g[progress.KNOWN], held),
+            (read_in, g[progress.FILED]),
             (g[progress.FILED], g[progress.HINTED]))
 
 
@@ -1918,11 +1936,13 @@ def progress_page(idx, today=None, now=None):
             *(("<h2>The queues</h2>",
                "<p>Three queues feed the goal, each shown as its depth now and, in brackets, its "
                "seven-day flow a day: in / out. <strong>To fetch</strong> is scans known to exist and "
-               "not on disk yet (known less downloaded); the ledger finding puzzles feeds it and "
-               "downloads drain it. <strong>To read</strong> is scans on disk not read yet; downloads "
-               "feed it and puzzles filed drain it. <strong>To annotate</strong> is filed puzzles "
-               "with a clue still unexplained (filed less hinted); new files feed it and hints "
-               "drain it. Each flow is the change in a recorded count between nights, so a read "
+               "not held yet: known less everything filed or in the read queue, never below 0. Its "
+               "in is the gain in the known count (negative when that count falls) and its out is "
+               "the gain in filed plus read queue. <strong>To read</strong> is scans on disk not "
+               "read yet; its in is the gain in the read queue plus its out, and its out is the "
+               "gain in filed. <strong>To annotate</strong> is filed puzzles with a clue still "
+               "unexplained (filed less hinted); its in is the gain in filed and its out the gain "
+               "in hinted. Each flow is the change in a recorded count between nights, so a read "
                "is counted as a puzzle filed, which also counts a puzzle filed from another source "
                "and misses a scan read for nothing. A ? is a count recorded on fewer than two "
                "nights. A series with all three queues empty is left out.</p>",
