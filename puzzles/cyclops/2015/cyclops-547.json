@@ -755,51 +755,54 @@
      "indicators": [
       {
        "text": "covered",
-       "note": "something covered is wrapped by another piece on both sides"
+       "at": 8,
+       "note": "covered means the crying word goes around everything else"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Blubber",
-         "gives": "CRY",
-         "note": "to blubber is to cry noisily"
-        },
-        {
-         "words": "viral disease",
-         "gives": "HIV",
-         "note": "the virus behind AIDS"
-        }
-       ]
+       "words": "Blubber",
+       "at": 0,
+       "gives": "CRY",
+       "note": "to blubber is to cry noisily"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "starts to",
-         "note": "starts are opening letters, so only the first of each word is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "affect luckless",
-         "note": "the opening letters of these two words"
+         "words": "viral disease",
+         "at": 16,
+         "gives": "HIV",
+         "note": "HIV is the virus that causes AIDS"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starts to",
+           "at": 30,
+           "note": "starts to picks the opening letters of affect and luckless"
+          }
+         ],
+         "parts": [
+          {
+           "words": "affect luckless",
+           "at": 40
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disease spread among whales affects an unlucky knight.",
-     "walkthrough": "'Blubber' looks like whale fat but is the verb to weep.",
-     "definitionFit": "The medieval code of honour, courtesy and bravery was the ideal followed by knights."
+     "surface": "A sobbing knight's unlucky affliction with a viral disease.",
+     "walkthrough": "Blubber-covered means CRY covers HIV and A and L.",
+     "definitionFit": "Chivalry is the code of honour and courtesy associated with medieval knighthood."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Blubber"
     }
    }

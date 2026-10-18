@@ -800,39 +800,41 @@
      "indicators": [
       {
        "text": "drinks",
-       "note": "drinking takes something inside, so these letters swallow the following ones"
+       "at": 16,
+       "note": "drinks means the nickname takes the other letters into it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Farage casually",
-         "gives": "NIGE",
-         "note": "Nige is the informal short form of Nigel, Farage's first name"
-        },
-        {
-         "words": "gallons",
-         "gives": "G",
-         "note": "G is the abbreviation for gallons"
-        }
-       ]
+       "words": "Farage casually",
+       "at": 0,
+       "gives": "NIGE",
+       "note": "Nige is the casual short form of Nigel, as in Nigel Farage"
       },
       {
-       "words": "live",
-       "gives": "L",
-       "note": "L marks the live wire in electrical wiring"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gallons",
+         "at": 23,
+         "gives": "G"
+        },
+        {
+         "words": "live",
+         "at": 32,
+         "gives": "L",
+         "note": "L marks the live terminal in an electric plug"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nigel Farage casually downing pints by the gallon, exclaiming in annoyance.",
-     "walkthrough": "G and L go inside NIGE, after its first three letters.",
-     "definitionFit": "A minor irritation or worry that nags at someone, the kind of trivial trouble meant by an exasperated exclamation."
+     "surface": "Nigel Farage, the British politician, downs gallons of drink and cries out in irritation.",
+     "definitionFit": "To niggle is to irritate or nag mildly, which is to bother."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "live"
     }
@@ -869,44 +871,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "manoeuvres",
-       "note": "manoeuvres are tactical repositionings, so the letters of the alliance are moved around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvres",
+         "at": 5,
+         "note": "military manoeuvres move things around, so the letters of NATO are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "NATO",
-         "note": "the alliance's letters rearranged"
-        },
-        {
-         "words": "bound",
-         "gives": "HOP",
-         "note": "a hop is a small jump or bound"
-        },
-        {
-         "words": "East",
-         "gives": "E",
-         "note": "E is the abbreviation for East"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "bound",
+       "at": 16,
+       "gives": "HOP",
+       "note": "a bound is a leap, a hop"
+      },
+      {
+       "words": "East",
+       "at": 36,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "NATO military exercises bound to join up with the East: an unlikely prospect.",
-     "walkthrough": "'Bound' looks like 'certain to', but it is a leap.",
-     "definitionFit": "Both are scornful exclamations meaning something will never happen, an expression of utter disbelief."
+     "surface": "NATO's military exercises bounding east to unite with others: never going to happen.",
+     "walkthrough": "NATO rearranged gives NOTA.",
+     "definitionFit": "Not a hope is an idiom of scepticism, saying something is very unlikely to happen."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "bound"
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvres"
     }
    }
   },

@@ -526,41 +526,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces inside the church"
+       "at": 14,
+       "note": "in means the nothing and wrong pieces sit inside the church letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "church",
+       "at": 17,
+       "gives": "CE",
+       "note": "CE stands for Church of England"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE is the Church of England"
+         "words": "Nothing",
+         "at": 0,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
         },
         {
          "words": "wrong",
+         "at": 8,
          "gives": "SIN",
          "note": "a sin is a wrong"
         }
        ]
-      },
-      {
-       "words": "Nothing",
-       "gives": "O",
-       "note": "O is zero"
       }
      ]
     },
     "explanation": {
-     "surface": "No misdeeds at a church event.",
-     "walkthrough": "'Function' suggests a social gathering; it is the mathematical sense.",
-     "definitionFit": "Cosine is a trigonometric ratio, one of the standard mathematical functions of an angle."
+     "surface": "There's no wrongdoing in church.",
+     "walkthrough": "'Function' here is the mathematical kind, not a church social event.",
+     "definitionFit": "Cosine is a trigonometric function, the ratio of adjacent side to hypotenuse."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "function"
     }
    }
@@ -590,40 +593,43 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means wrapping about the following pieces"
+       "at": 7,
+       "note": "around means the colour word goes about the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Colour",
-         "gives": "TAN",
-         "note": "tan is a brown colour"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "an algebraic unknown"
-        }
-       ]
+       "words": "Colour",
+       "at": 0,
+       "gives": "TAN",
+       "note": "tan is a brown colour"
       },
       {
-       "words": "part",
-       "gives": "ROLE",
-       "note": "a role is a part in a play"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unknown",
+         "at": 14,
+         "gives": "Y",
+         "note": "Y is a mathematical unknown, like x"
+        },
+        {
+         "words": "part",
+         "at": 22,
+         "gives": "ROLE",
+         "note": "a role is a part in a play"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tint surrounding an unexplored corner of the mountains.",
-     "definitionFit": "Tyrolean describes the Tyrol, the mountainous area of western Austria and northern Italy."
+     "surface": "A colour spread around an unexplored part of the Alps.",
+     "definitionFit": "Tyrolean describes the Tyrol, a mountainous area of Austria and Italy in the Alps."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "part"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1187,48 +1193,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces inside the word for actual"
+       "at": 27,
+       "note": "in means those pieces go inside the actual word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "actual",
-         "gives": "TRUE",
-         "note": "true means real"
-        },
-        {
-         "words": "New",
-         "gives": "N",
-         "note": "N abbreviates new"
-        }
-       ]
+       "words": "actual",
+       "at": 30,
+       "gives": "TRUE",
+       "note": "true means real, actual"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "excluding filling",
-         "note": "excluding the filling drops the middle letters of the word for a transaction"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "deal",
-         "note": "taken as written before its middle goes"
+         "words": "New",
+         "at": 0,
+         "gives": "N"
         },
         {
-         "gives": "EA"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "excluding filling",
+           "at": 9,
+           "note": "excluding filling means deal loses its middle letters, keeping only its two ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "deal",
+           "at": 4
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh agreement leaves out the stuffing in a real bread roll.",
-     "definitionFit": "To trundle is to roll or move slowly and heavily on wheels."
+     "surface": "A fresh deal leaves out the filling inside an actual bread roll.",
+     "walkthrough": "'Roll' tempts as a bread roll after 'filling', but it is the verb.",
+     "definitionFit": "To trundle is to move or roll along slowly and heavily, like a cart on wheels."
     },
     "features": {
      "answerInScene": false,

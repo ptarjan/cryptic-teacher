@@ -411,49 +411,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOISELESSLY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "struggling",
-         "note": "the lionesses thrash about, their letters jumbled"
+         "at": 10,
+         "note": "struggling suggests things in disorder, so the letters of lionesses are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Lionesses",
-         "note": "anagram fodder, 9 letters"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "the word is emptied, keeping only its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "locality",
-           "note": "L(ocalit)Y"
-          }
-         ]
+         "text": "empty",
+         "at": 26,
+         "note": "empty means locality loses all its inside letters, keeping only its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "locality",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lionesses fighting over a deserted patch of land, yet somehow silent.",
-     "walkthrough": "'Still' reads as 'nevertheless' in the surface; it is the adverb 'silently'. The Lionesses are also England's women's football team.",
-     "definitionFit": "To move noiselessly is to move still, without a sound."
+     "surface": "Lions fighting in an abandoned place.",
+     "walkthrough": "'Still' looks like an adjective for calm, but here it means quietly, an adverb. LIONESSES rearranged gives NOISELESS.",
+     "definitionFit": "Doing something still, as in sitting still, means doing it without sound or movement, i.e. silently."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "still"
     }
@@ -532,44 +532,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Capital",
+      "text": "Capital of America?",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "of America",
-       "note": "use the American spelling of the next word"
-      },
-      {
-       "text": "short",
-       "note": "a word that falls short of its full length is missing its end, so HONOR loses its R"
-      }
-     ],
      "parts": [
       {
-       "words": "to celebrate",
-       "gives": "HONO",
-       "note": "to honor (American spelling) = to celebrate, cut short to HONO"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 33,
+         "note": "short means the final letter of the celebrating word is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to celebrate",
+         "at": 20,
+         "gives": "HONOR",
+         "note": "to honor is to celebrate, here in the American spelling"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "Scottish singer",
+       "at": 39,
        "gives": "LULU",
-       "note": "Lulu is the Scottish pop singer of 'Shout'"
+       "note": "Lulu is a Scottish pop singer, famous for Shout"
       }
      ]
     },
     "explanation": {
-     "surface": "A capital city in America set up to honour a Scottish pop star.",
-     "walkthrough": "'Of America' reads as part of the definition but tells you to spell honour the US way, HONOR, before cutting the R. Honolulu is the capital of Hawaii.",
-     "definitionFit": "A definition by example: Hawaii's seat of government is one of fifty US state capitals."
+     "surface": "A trivia question about a capital, then a call to celebrate a diminutive Scottish singer.",
+     "walkthrough": "The question mark flags that the definition is loose: the city is a state capital in the USA, not the national capital. American spelling HONOR loses its R.",
+     "definitionFit": "Honolulu is the capital of Hawaii, a US state, so it is a capital in America."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "America"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "short"
     }
    }
   },

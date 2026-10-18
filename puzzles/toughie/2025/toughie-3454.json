@@ -1095,31 +1095,47 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "RUNWAYS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of two words"
+       "at": 0,
+       "note": "Spooner's signals that the opening sounds of the two words are swapped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "achieved more money",
-       "gives": "RUNWAYS",
-       "soundsLike": "WON RAISE",
-       "note": "achieved is won and more money is a raise; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "WUN",
+       "parts": [
+        {
+         "words": "achieved",
+         "at": 10,
+         "gives": "WON",
+         "note": "to have achieved a prize is to have won it, said here like wun"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "RAYS",
+       "parts": [
+        {
+         "words": "more money",
+         "at": 19,
+         "gives": "RAISE",
+         "note": "a raise is an increase in pay, more money, said here like rays"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone boasts of having secured a pay increase for airport facilities.",
-     "walkthrough": "Swapping the W and R sounds of WON RAISE gives RUN WAYS.",
-     "definitionFit": "Runways are the strips aircraft touch down on, the landing sites of an airfield."
+     "surface": "A Spooner remark about earning more money in exchange for landing places.",
+     "walkthrough": "Swap the opening sounds of WON RAISE and you get RUN WAYS.",
+     "definitionFit": "Runways are the strips of tarmac where aircraft touch down, so they are sites for landing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "achieved"
@@ -1157,47 +1173,50 @@
      "indicators": [
       {
        "text": "covers",
-       "note": "covers means wraps round, so one piece goes around another"
+       "at": 20,
+       "note": "covers would put the my and eye pieces around the reason word"
+      },
+      {
+       "text": "Quite the opposite",
+       "at": 44,
+       "note": "this reverses the covering, so the reason word goes around the other two"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "Quite the opposite",
-         "note": "this flips the stated relation, so the cover and the covered swap roles"
-        }
-       ],
-       "parts": [
-        {
-         "words": "for this reason",
-         "gives": "SO",
-         "note": "so means therefore, for this reason"
-        },
-        {
-         "words": "my",
-         "gives": "COR",
-         "note": "cor! is a British exclamation like my!"
-        }
-       ]
+       "words": "for this reason",
+       "at": 27,
+       "gives": "SO",
+       "note": "so means therefore, for this reason"
       },
       {
-       "words": "Private Eye",
-       "gives": "PI",
-       "note": "a PI is a private investigator, a private eye"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "my",
+         "at": 5,
+         "gives": "COR",
+         "note": "cor is an exclamation of surprise, like my!"
+        },
+        {
+         "words": "Private Eye",
+         "at": 8,
+         "gives": "PI",
+         "note": "a private eye is a private investigator, a PI"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether the satirical magazine Private Eye runs horoscopes.",
-     "walkthrough": "Read literally, my private eye would wrap the reason; 'Quite the opposite' reverses that, so the reason wraps the rest. Private Eye is a British satirical magazine.",
+     "surface": "Sign up with my private detective to cover this reason, or rather the reverse.",
+     "walkthrough": "COR and PI do not cover SO; quite the opposite, S...O covers CORPI.",
      "definitionFit": "Scorpio is one of the twelve signs of the zodiac, the scorpion."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "my"
+     "misdirectedWord": "Eye"
     }
    }
   },
@@ -1583,39 +1602,44 @@
      "indicators": [
       {
        "text": "accepts",
-       "note": "to accept is to take in, so the following letters go inside the name"
+       "at": 10,
+       "note": "accepts means the manager's name takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Guardiola",
-         "gives": "PEP",
-         "note": "Pep Guardiola, the football manager"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Guardiola",
+       "at": 0,
+       "gives": "PEP",
+       "note": "Pep Guardiola is the football manager"
       },
       {
-       "words": "little bit of money",
-       "gives": "SOU",
-       "note": "a sou was a French coin of small value"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        },
+        {
+         "words": "little bit of money",
+         "at": 20,
+         "gives": "SOU",
+         "note": "a sou is an old French coin of tiny value"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The football manager takes a small payment to spend on meals.",
-     "definitionFit": "Pea soup is a thick soup of dried peas, so a kind of food."
+     "surface": "A football manager takes a small payment in exchange for something to eat.",
+     "walkthrough": "Pep Guardiola is a famous football manager, at Manchester City and earlier Barcelona.",
+     "definitionFit": "Pea soup is a thick soup made from dried peas, a dish to eat."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Guardiola"
+     "misdirectedWord": "accepts"
     }
    }
   },
