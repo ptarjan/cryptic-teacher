@@ -730,46 +730,49 @@
      "indicators": [
       {
        "text": "admitting",
-       "note": "to admit is to let in, so the barrier holds the following letters within it"
+       "at": 17,
+       "note": "admitting means the fence lets the following letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fence",
-         "gives": "BARRIER",
-         "note": "a fence is a barrier"
-        },
-        {
-         "words": "second",
-         "gives": "S",
-         "note": "S is the abbreviation for second"
-        }
-       ]
+       "words": "fence",
+       "at": 11,
+       "gives": "BARRIER",
+       "note": "a barrier is a fence"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points at the closing letter of the word it follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "theft",
-         "note": "the final letter of theft"
+         "words": "second",
+         "at": 27,
+         "gives": "S"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 41,
+           "note": "finally means only the last letter of theft"
+          }
+         ],
+         "parts": [
+          {
+           "words": "theft",
+           "at": 34
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer acting for a receiver of stolen goods who admits a second theft.",
-     "walkthrough": "A fence is also slang for someone who handles stolen goods, which makes the surface sound criminal; here it is just a barrier.",
-     "definitionFit": "A barrister is a lawyer in Britain who argues cases in the higher courts."
+     "surface": "An attorney represents a receiver of stolen goods who has confessed to another burglary.",
+     "walkthrough": "'Fence' looks like a criminal client, a dealer in stolen goods; here it is a barrier.",
+     "definitionFit": "A barrister is a lawyer who argues cases in the higher courts in Britain."
     },
     "features": {
      "answerInScene": true,
@@ -1072,66 +1075,78 @@
      "indicators": [
       {
        "text": "interrupted by",
-       "note": "an interrupted thing has something cutting into its middle, so the drink is split open"
+       "at": 15,
+       "note": "interrupted by means the drink is broken into by the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
+       "words": "drink",
+       "at": 9,
+       "gives": "ALE",
+       "note": "ale is a drink"
+      },
+      {
+       "op": "charade",
+       "indicators": [
         {
-         "words": "drink",
-         "gives": "ALE",
-         "note": "ale is beer"
-        },
+         "text": "going on",
+         "at": 49,
+         "note": "going on means the degree follows on after the shortened name"
+        }
+       ],
+       "parts": [
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "endlessly",
-           "note": "without an end means the final letter is dropped"
+           "at": 39,
+           "note": "endlessly means the feminist's name loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "feminist",
+           "at": 30,
            "gives": "GREER",
-           "note": "Germaine Greer, the Australian feminist writer"
+           "note": "Germaine Greer is an Australian feminist author"
           },
           {
            "gives": "R"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
+        },
         {
-         "text": "about",
-         "note": "about here means turned around, so the degree's letters are read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "degree",
-         "gives": "BA",
-         "note": "a BA is a Bachelor of Arts degree"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 58,
+           "note": "about means the degree's letters are turned round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "degree",
+           "at": 64,
+           "gives": "BA",
+           "note": "BA, Bachelor of Arts, is a degree"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nice drink is spoiled by a campaigner who keeps talking about her qualifications.",
-     "walkthrough": "Germaine Greer is the Australian author of The Female Eunuch; 'going on' simply means followed by, and 'about' turns the degree round.",
-     "definitionFit": "Agreeable means pleasing or enjoyable, so it is a synonym of pleasant."
+     "surface": "A pleasant drink is disrupted by a feminist who never stops talking about qualifications.",
+     "definitionFit": "Agreeable means pleasing and enjoyable, nice to experience."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "feminist"
+     "misdirectedWord": "going"
     }
    }
   },
