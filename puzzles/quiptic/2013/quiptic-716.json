@@ -143,55 +143,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Prepared",
-       "note": "food that is prepared has been made up, so these letters are made into a new order"
+       "text": "wrapping",
+       "at": 16,
+       "note": "the reworked letters wrap around the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wrapping",
-         "note": "wrapping something means going around it, so one piece is placed inside the other"
+         "text": "Prepared",
+         "at": 0,
+         "note": "prepared means made ready, so the letters are reworked"
         }
        ],
        "parts": [
         {
          "words": "canapé",
-         "note": "the letters of canapé rearranged"
-        },
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "gutted",
-           "note": "a gutted fish has had its insides removed, leaving only the outer letters of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trout",
-           "note": "the first and last letters of trout"
-          }
-         ]
+         "text": "gutted",
+         "at": 25,
+         "note": "gutted means the inside is removed, leaving the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trout",
+         "at": 32,
+         "gives": "TT",
+         "note": "outer letters of trout"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: a canapé made by wrapping cleaned trout in bacon.",
-     "walkthrough": "'Bacon' looks like part of the recipe, but it is the definition, with 'in' joining it to the wordplay.",
-     "definitionFit": "Pancetta is Italian cured pork belly, a type of bacon."
+     "surface": "A canapé is made by wrapping a cleaned trout in bacon.",
+     "walkthrough": "The surface suggests a recipe, but 'bacon' at the end is the definition, and the accent on canapé is ignored.",
+     "definitionFit": "Pancetta is Italian cured pork belly, a kind of bacon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gutted"
+     "misdirectedWord": "Prepared"
     }
    }
   },
@@ -385,61 +390,68 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Lobby",
+      "text": "Lobby for",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CAMPAIGN",
-     "indicators": [
-      {
-       "text": "to capture",
-       "note": "capturing means taking something inside, so one piece goes within the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to capture",
+         "at": 34,
+         "note": "the politician pieces capture the a between them"
+        }
+       ],
        "parts": [
         {
-         "words": "Conservative",
-         "gives": "C",
-         "note": "C is the abbreviation for Conservative"
-        },
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "potential",
-           "note": "potential describes what something could become, so these letters may form something else"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "Conservative",
+           "at": 10,
+           "gives": "C"
+          },
+          {
            "words": "politician",
+           "at": 23,
            "gives": "MP",
-           "note": "a Member of Parliament"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "gain",
-           "note": "the letters of gain rearranged"
+           "note": "MP is a member of parliament"
           }
          ]
+        },
+        {
+         "words": "a",
+         "at": 45,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "potential",
+         "at": 47,
+         "note": "potential means the letters of gain have possible other orders"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gain",
+         "at": 57
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory MP lobbies hoping to win a possible gain.",
-     "walkthrough": "C and MP surround A, then a rearranged GAIN follows.",
-     "definitionFit": "To campaign is to lobby, working actively to press for a cause."
+     "surface": "A Tory MP is pushed to seize a possible electoral gain.",
+     "walkthrough": "'Lobby for' is a verb phrase, matching the verb sense of the answer rather than a noun for an electoral drive.",
+     "definitionFit": "To campaign for something is to press or agitate for it, as a lobbyist does."
     },
     "features": {
      "answerInScene": true,
@@ -578,43 +590,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "vigorous",
-       "note": "vigorous suggests lively shaking about, so the letters get mixed"
+       "text": "before",
+       "at": 20,
+       "note": "before means the earlier pieces precede the last one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Listen",
+       "at": 0,
+       "gives": "HEAR",
+       "note": "to hear is to listen"
+      },
+      {
+       "words": "Consumption",
+       "at": 8,
+       "gives": "TB",
+       "note": "TB, tuberculosis, was once called consumption"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "vigorous",
+         "at": 27,
+         "note": "vigorous means the letters of run are shaken up"
+        }
+       ],
        "parts": [
         {
-         "words": "Listen",
-         "gives": "HEAR",
-         "note": "to hear is to listen"
-        },
-        {
-         "words": "Consumption",
-         "gives": "TB",
-         "note": "consumption is an old name for tuberculosis, TB"
-        },
-        {
          "words": "run",
-         "note": "the letters of run rearranged"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warning: eating right before a hard run brings on indigestion.",
-     "walkthrough": "'Consumption' looks like eating, but it is the old name for tuberculosis.",
-     "definitionFit": "Heartburn is a burning chest pain caused by acid indigestion."
+     "surface": "A shout to pay attention: eating before a hard run brings on indigestion.",
+     "walkthrough": "'Consumption' looks like eating; it is the old name for tuberculosis, TB. RUN rearranged gives URN.",
+     "definitionFit": "Heartburn is a burning pain in the chest caused by acid indigestion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Consumption"
     }
    }
@@ -1161,64 +1184,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "KINSFOLK",
      "indicators": [
       {
        "text": "including",
-       "note": "including means holding inside, so the rearranged letters go within"
+       "at": 22,
+       "note": "the thousands surround the other piece"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "KINSFOLK",
+       "words": "thousands",
+       "at": 11,
+       "gives": "KK",
+       "note": "K is a thousand, so two Ks are thousands"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
          "text": "rare",
-         "note": "rare can mean undercooked or unusual, signalling a changed state of the letters"
+         "at": 32,
+         "note": "rare means unusual, so the letters of florins are rearranged"
+        },
+        {
+         "text": "chucked out",
+         "at": 50,
+         "note": "chucked out means the king's letter is thrown away from the fodder"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "KINSFOLK",
-         "indicators": [
-          {
-           "text": "chucked out",
-           "note": "chucking something out removes it, so that letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "thousands",
-           "gives": "KK",
-           "note": "K is a thousand, and the plural gives two of them"
-          },
-          {
-           "words": "florins",
-           "note": "taken as written"
-          },
-          {
-           "words": "King",
-           "gives": "R",
-           "note": "R is the abbreviation for king, from the Latin rex"
-          }
-         ]
+         "words": "florins",
+         "at": 37
+        },
+        {
+         "words": "King",
+         "at": 45,
+         "gives": "R",
+         "note": "R is for Rex, king"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family owns thousands, including scarce old florins, though the King has been ousted.",
-     "walkthrough": "FLORINS loses R, the rest is rearranged and sits between two Ks. A florin was an old British two-shilling coin.",
-     "definitionFit": "Kinsfolk are one's relatives, the members of a family."
+     "surface": "A household owns thousands, including rare coins a king threw away.",
+     "walkthrough": "A florin was an old British two-shilling coin. R stands for Rex, Latin for king.",
+     "definitionFit": "Kinsfolk are one's relatives, the members of one's family."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "rare"
     }
@@ -1840,40 +1855,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "flourish",
-       "note": "plants that flourish spread wildly, so the letters are scattered into a new order"
+       "text": "in which",
+       "at": 24,
+       "note": "the rearranged flowers go in the time word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "time",
+       "at": 19,
+       "gives": "EON",
+       "note": "an eon is a vast period of time"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in which",
-         "note": "in which says one thing lies inside another"
+         "text": "flourish",
+         "at": 40,
+         "note": "flourish means the letters of oxlips are brandished into a new order"
         }
        ],
        "parts": [
         {
-         "words": "time",
-         "gives": "EON",
-         "note": "an eon is a vast period of time"
-        },
-        {
          "words": "oxlips",
-         "note": "the letters of oxlips rearranged"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spring scene: over time, wild oxlips bloom and spread.",
-     "walkthrough": "An oxlip is a wild flower related to the primrose.",
-     "definitionFit": "A population explosion is a rapid, sudden increase in numbers."
+     "surface": "A period when wild primulas suddenly bloom in abundance.",
+     "walkthrough": "'flourish' looks like the flowers thriving, but it signals the rearrangement. Oxlips are primrose-like wildflowers.",
+     "definitionFit": "An explosion can mean a rapid surge in numbers, as in a population explosion."
     },
     "features": {
      "answerInScene": false,

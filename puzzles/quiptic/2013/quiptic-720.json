@@ -461,33 +461,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wrong",
-       "note": "something that has gone wrong is out of order, so these letters are muddled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Flibbertigibbet",
+       "at": 0,
+       "gives": "BUTTERFLY",
+       "note": "a flibbertigibbet is a frivolous, flighty person, as is a social butterfly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 21,
+         "note": "the letters of sent are put wrong, i.e. rearranged into another order"
+        }
+       ],
        "parts": [
         {
-         "words": "Flibbertigibbet",
-         "gives": "BUTTERFLY",
-         "note": "a butterfly is a flighty, frivolous person"
-        },
-        {
          "words": "sent",
-         "note": "the letters of sent, rearranged"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scatterbrained person dispatched the wrong equipment for a nature outing.",
-     "definitionFit": "Naturalists collecting insects use these fine-meshed nets on handles, so they are part of the equipment."
+     "surface": "A scatterbrain has been sent the wrong equipment for a nature outing.",
+     "walkthrough": "The long word at the start looks like a mere surface flourish, but a flighty person is a butterfly, and that word starts the answer.",
+     "definitionFit": "Lepidopterists and other naturalists carry these meshed hoops to catch insects."
     },
     "features": {
      "answerInScene": true,
@@ -657,45 +660,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Colonists",
-      "at": 0
+      "text": "Colonists'",
+      "at": 0,
+      "note": "the possessive reads as the plural noun: termites are colonists"
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "developed",
-       "note": "a site that is developed is built over and changed, so its letters are rearranged"
+       "text": "after",
+       "at": 26,
+       "note": "the rearranged letters come after the period word in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "limited period",
+       "at": 32,
+       "gives": "TERM",
+       "note": "a term is a fixed, limited period of time"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developed",
+         "at": 16,
+         "note": "the letters of site are developed into a new arrangement"
+        }
+       ],
        "parts": [
         {
-         "words": "limited period",
-         "gives": "TERM",
-         "note": "a term is a fixed, limited span of time"
-        },
-        {
          "words": "site",
-         "note": "the letters of site, rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Settlers' land was built upon after a short stay.",
-     "walkthrough": "'Colonists' suggests settlers; these colonists are insects that live in colonies.",
-     "definitionFit": "These insects live in large organised colonies, building mounds, so they are colonists in a literal sense."
+     "surface": "A settlers' camp has been built up after a short spell.",
+     "walkthrough": "'Colonists' site' reads as one phrase, but the apostrophe belongs to the definition and site is the fodder.",
+     "definitionFit": "These insects live in huge organised colonies, so they are fair colonists."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Colonists"
+     "misdirectedWord": "Colonists'"
     }
    }
   },
@@ -919,38 +931,41 @@
      "indicators": [
       {
        "text": "nurses",
-       "note": "to nurse is to hold something close and cradle it, so one piece holds the others inside"
+       "at": 6,
+       "note": "to nurse is to hold close, so the marry word holds the other pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Marry",
-         "gives": "WED",
-         "note": "to wed is to marry"
-        },
-        {
-         "words": "at",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Marry",
+       "at": 0,
+       "gives": "WED",
+       "note": "to marry is to wed"
       },
       {
-       "words": "church",
-       "gives": "CH",
-       "note": "CH is the abbreviation for church"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "at": 13,
+         "gives": "AT"
+        },
+        {
+         "words": "church",
+         "at": 16,
+         "gives": "CH"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wedding conducted in church is closely observed.",
-     "walkthrough": "'Nurses' looks like hospital staff, but it is a verb meaning holds.",
-     "definitionFit": "Something watched is observed carefully, kept under surveillance, which is close scrutiny."
+     "surface": "A wedding ceremony is conducted while nurses attend at a church.",
+     "walkthrough": "'Marry' looks like an instruction to wed nurses; WED holds AT and CH: W-ATCH-ED.",
+     "definitionFit": "Something watched is being observed carefully, kept under close scrutiny."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "nurses"
     }
@@ -1075,29 +1090,20 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "DOUBLED",
-     "indicators": [
-      {
-       "text": "central components",
-       "note": "central components are the letters in the middle of the word, the ones at its heart"
-      }
-     ],
+     "op": "reverse",
+     "reading": "DOUBLE + D",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Ladder's",
-       "gives": "DOUBLED",
-       "select": "middle",
-       "note": "the two middle letters of ladder are D and D, a pair of Ds"
+       "words": "Ladder's central components",
+       "at": 0,
+       "note": "the central letters of ladder are two Ds"
       }
      ]
     },
     "explanation": {
-     "surface": "The middle rungs of a ladder have been replaced.",
-     "walkthrough": "The middle of ladder is DD, which is read out as 'double D'.",
-     "definitionFit": "An actor who doubles for another stands in for them, so doubled means substituted."
+     "surface": "A ladder's middle rungs have been swapped out for new ones.",
+     "walkthrough": "The middle of LADDER is DD, which can be described as 'double D'; run together that reads as the answer.",
+     "definitionFit": "In film or theatre, someone who doubled for an actor stood in for them, i.e. substituted."
     },
     "features": {
      "answerInScene": false,

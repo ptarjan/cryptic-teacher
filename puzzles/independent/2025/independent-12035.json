@@ -1809,72 +1809,70 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BANQUO",
      "indicators": [
       {
        "text": "taking",
-       "note": "taking a place means occupying it in place of something else"
+       "at": 18,
+       "note": "the ghost's letter takes the seat, replacing it"
+      },
+      {
+       "text": "in",
+       "at": 44,
+       "note": "the replacement happens within the feast word"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "O",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "the essence of a word is its very centre, so the middle letter is wanted"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Ghost",
-         "gives": "O",
-         "select": "middle",
-         "note": "middle letter of ghost"
-        }
-       ]
+       "words": "feast",
+       "at": 47,
+       "gives": "BANQUET",
+       "note": "a banquet is a feast"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ET",
        "indicators": [
         {
          "text": "oddly vacated",
-         "note": "with the odd letters vacated, only the even letters are left"
+         "at": 25,
+         "note": "the odd letters of seat are emptied out, leaving its even ones"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "seat",
-         "gives": "ET",
-         "select": "alternate",
-         "note": "second and fourth letters of seat"
+         "at": 39
         }
        ]
       },
       {
-       "words": "feast",
-       "gives": "BANQUET",
-       "note": "a banquet is a feast"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 6,
+         "note": "the essence of ghost is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ghost",
+         "at": 0,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "At Macbeth's banquet a ghost takes the empty seat.",
-     "walkthrough": "Read whole, the clue tells the story: the murdered Banquo's ghost sits in Macbeth's place at the feast.",
-     "definitionFit": "Banquo is the Shakespeare character whose spectre appears at the dinner table in Macbeth."
+     "surface": "A spectre takes the empty chair at a banquet, as in Macbeth.",
+     "walkthrough": "In BANQUET, the ET (seat with odd letters removed) is replaced by O, the middle of GHOST. In Macbeth, Banquo's ghost occupies Macbeth's empty seat at the feast.",
+     "definitionFit": "Banquo, murdered by Macbeth, returns as a ghost and sits in the king's place at the banquet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "essentially"
+     "misdirectedWord": "seat"
     }
    }
   },

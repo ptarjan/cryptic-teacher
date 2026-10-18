@@ -425,53 +425,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "somehow",
-       "note": "somehow suggests the letters arrive in some unspecified order, so they are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "con",
+       "at": 18,
+       "gives": "DO",
+       "note": "to do someone is to con them"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "at": 27,
+         "note": "somehow means the letters of but are put in some other order"
+        }
+       ],
        "parts": [
         {
-         "words": "con",
-         "gives": "DO",
-         "note": "to do someone is to swindle or con them"
-        },
-        {
          "words": "but",
-         "note": "the three letters of the word, rearranged"
-        },
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "cleaned out",
-           "note": "a word cleaned out has its insides removed, leaving only its outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "expected",
-           "note": "only the first and last letters are kept"
-          }
-         ]
+         "text": "cleaned out",
+         "at": 51,
+         "note": "cleaned out means the inside is emptied, leaving only the ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expected",
+         "at": 35,
+         "gives": "ED",
+         "note": "outer letters of expected"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone smelled a rat about a scam, yet assumed they would be fleeced anyway.",
-     "definitionFit": "To doubt someone is to distrust them, so having doubted means having been suspicious of them."
+     "surface": "Someone suspected a swindle, but anticipated being fleeced anyway.",
+     "walkthrough": "DO, then BUT rearranged as UBT, then ED, the outside of 'expected' once emptied.",
+     "definitionFit": "To have doubted something is to have mistrusted or questioned it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "con"
+     "misdirectedWord": "cleaned"
     }
    }
   },

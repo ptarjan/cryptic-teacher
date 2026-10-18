@@ -327,37 +327,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TENORCLEF",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "a word cut short has had its tail lopped off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "meaning",
+       "at": 15,
+       "gives": "TENOR",
+       "note": "the tenor of something is its general meaning"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 29,
+         "note": "cut short means the last letter is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "meaning",
-         "gives": "TENOR",
-         "note": "the tenor of a remark is its gist or meaning"
+         "words": "break",
+         "at": 23,
+         "gives": "CLEFT",
+         "note": "a cleft is a break or split"
         },
         {
-         "words": "break",
-         "gives": "CLEF",
-         "note": "CLEFT, a break or split, cut short"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A notice for employees announcing that their break is being shortened.",
-     "walkthrough": "'Staff' looks like the workforce; it is the musical stave, and the clef is the sign at its start.",
-     "definitionFit": "A musical sense: the tenor clef is the symbol written on a staff to fix the pitch of its lines."
+     "surface": "A notice for employees explains the meaning of a curtailed break.",
+     "walkthrough": "'staff' looks like employees; it is the musical stave. CLEFT loses its last T.",
+     "definitionFit": "A clef is a symbol placed on a musical stave to fix the pitch of the notes."
     },
     "features": {
      "answerInScene": false,
@@ -445,41 +449,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "biting"
+       "text": "biting",
+       "at": 4,
+       "note": "the dog word bites into the other pieces, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Dog",
-         "gives": "MUTT",
-         "note": "a mutt is a mongrel"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American"
-        }
-       ]
+       "words": "Dog",
+       "at": 0,
+       "gives": "MUTT",
+       "note": "a mutt is a mongrel dog"
       },
       {
-       "words": "man's backside",
-       "gives": "N",
-       "note": "last letter of maN"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 11,
+         "gives": "A"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "backside",
+           "at": 26,
+           "note": "a backside is the rear, so the final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "man's",
+           "at": 20,
+           "gives": "N",
+           "note": "last letter of man"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog playfully nips an American man's rear end.",
-     "walkthrough": "'Sport' is the biologist's word for an organism that differs suddenly from its parents, not a game.",
-     "definitionFit": "A biological sense: a sport is an offspring showing a sudden inherited variation, which is what a mutant is."
+     "surface": "A dog nips an American's bottom just for fun.",
+     "walkthrough": "'sport' is the biological sense: an organism differing markedly from its parent stock.",
+     "definitionFit": "In biology a sport is an individual showing a sudden genetic variation, a mutant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "sport"
     }
    }
@@ -505,44 +525,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GRAVITATION",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to adopt",
+       "at": 21,
+       "note": "adopting means taking in, so the rearranged letters hold the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "poor",
-         "note": "a poor navigator's letters are in poor shape, so they are rearranged"
-        },
-        {
-         "text": "to adopt"
+         "at": 6,
+         "note": "poor means the letters of navigator are in a bad, jumbled order"
         }
        ],
        "parts": [
         {
          "words": "navigator",
-         "note": "NAVIGATOR rearranged"
-        },
-        {
-         "words": "new way of processing data",
-         "gives": "IT",
-         "note": "IT = information technology"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "new way of processing data",
+       "at": 30,
+       "gives": "IT",
+       "note": "IT, information technology, is the modern way of handling data"
       }
      ]
     },
     "explanation": {
-     "surface": "A bad navigator being made to take up computer technology.",
-     "walkthrough": "The surface puts 'poor' with 'navigator' as a description; it is the instruction to shuffle, and IT slots in after the fourth letter.",
-     "definitionFit": "Definition by category: gravitation is one of the fundamental forces of physics."
+     "surface": "An incompetent navigator is made to learn a new computer system.",
+     "walkthrough": "IT, information technology, is the 'new way of processing data'; the rearranged navigator letters take it in.",
+     "definitionFit": "Gravitation is the attractive force between masses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "poor"
+     "misdirectedWord": "Force"
     }
    }
   },
@@ -1259,43 +1283,44 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "GLADDEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "letters cycling go round like a wheel, the front one coming round to the back"
+       "text": "in",
+       "at": 19,
+       "note": "the cycled word goes in the valley word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "valley",
+       "at": 22,
+       "gives": "GLEN",
+       "note": "a glen is a narrow Scottish valley"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing in another sits inside it, so the result goes inside the valley"
+         "text": "cycling",
+         "at": 11,
+         "note": "cycling means the first letter goes round to the end"
         }
        ],
        "parts": [
         {
-         "words": "valley",
-         "gives": "GLEN",
-         "note": "a glen is a valley"
-        },
-        {
-         "words": "dad, cycling",
-         "gives": "ADD",
-         "note": "DAD with its D moved to the back"
+         "words": "dad",
+         "at": 6,
+         "gives": "DAD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Encouraging a father out on a bike ride through a valley.",
-     "walkthrough": "'Cycling' looks like a bike ride; here it rotates the letters of DAD. A glen is a Scottish valley.",
-     "definitionFit": "A plain synonym as a verb: to cheer someone up is to make them glad."
+     "surface": "A cheer goes up for dad as he cycles through a valley.",
+     "walkthrough": "'cycling' looks like dad riding a bike, but it moves a letter of dad from the front to the back. A glen is a Scottish valley.",
+     "definitionFit": "To gladden is to make happy, to cheer someone up."
     },
     "features": {
      "answerInScene": false,
@@ -1376,42 +1401,46 @@
      "indicators": [
       {
        "text": "charged with",
-       "note": "a gun charged with powder is loaded with it, so the guy is filled with the other letters"
+       "at": 4,
+       "note": "charged with means filled with, so the guy word holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Guy",
-         "gives": "MALE",
-         "note": "a guy is a male"
-        },
-        {
-         "words": "current",
-         "gives": "AC",
-         "note": "AC = alternating current"
-        }
-       ]
+       "words": "Guy",
+       "at": 0,
+       "gives": "MALE",
+       "note": "a guy is a male"
       },
       {
-       "words": "murder",
-       "gives": "HIT",
-       "note": "a hit is a contract killing"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "current",
+         "at": 17,
+         "gives": "AC",
+         "note": "AC is alternating current"
+        },
+        {
+         "words": "murder",
+         "at": 25,
+         "gives": "HIT",
+         "note": "a hit is a contract killing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man accused of a recent killing turns out to be a police officer's informant.",
-     "walkthrough": "'Copper' looks like police slang, and 'source' an informant; here copper is the metal and its source an ore.",
-     "definitionFit": "Definition by description: malachite is a green mineral mined as an ore of copper."
+     "surface": "A man accused of an electrocution killing turns out to be the police officer's informant.",
+     "walkthrough": "'copper' looks like a police officer; it is the metal. MALE holds AC+HIT.",
+     "definitionFit": "Malachite is a green mineral that is mined as an ore of the metal copper."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "copper"
+     "misdirectedWord": "copper's"
     }
    }
   },
@@ -1555,56 +1584,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEAKISH",
+     "op": "container",
      "indicators": [
       {
-       "text": "brief",
-       "note": "a brief kiss is cut short, losing its last letter"
+       "text": "welcoming",
+       "at": 28,
+       "note": "welcoming means taking in, so the couple's letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "welcoming",
-         "note": "a couple welcoming guests take them in, so W and H surround the rest"
-        }
-       ],
+       "words": "married couple",
+       "at": 13,
+       "gives": "WH",
+       "note": "W and H, the abbreviations for wife and husband"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "married couple",
-           "gives": "WH",
-           "note": "W = wife, H = husband"
-          },
-          {
-           "words": "each",
-           "gives": "EA",
-           "note": "ea = each"
-          }
-         ]
+         "words": "each",
+         "at": 38,
+         "gives": "EA"
         },
         {
-         "words": "kiss",
-         "gives": "KIS",
-         "note": "KISS with its last letter deleted, as 'brief' instructs"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "brief",
+           "at": 43,
+           "note": "brief means cut short, losing the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "kiss",
+           "at": 49,
+           "gives": "KISS",
+           "note": "kiss taken as written"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly married pair greeting each other with a quick peck.",
-     "walkthrough": "W and H are the standard abbreviations for wife and husband, so they make the married couple.",
-     "definitionFit": "The -ish suffix gives 'rather': weakish is somewhat weak, rather frail."
+     "surface": "A frail husband and wife greet one another with a quick peck.",
+     "walkthrough": "W (wife) and H (husband) surround EA plus KIS (kiss cut short).",
+     "definitionFit": "Weakish means somewhat weak, so a little feeble or frail."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "couple"
     }
@@ -1705,26 +1739,27 @@
      "indicators": [
       {
        "text": "read aloud",
-       "note": "something read aloud is heard, not seen, so the letter's spoken name counts"
+       "at": 11,
+       "note": "read aloud means the letter's spoken name gives the answer"
       }
      ],
      "parts": [
       {
-       "words": "letter read aloud",
+       "words": "letter",
+       "at": 4,
        "gives": "U",
-       "note": "the 21st letter's spoken name is also a common pronoun"
+       "note": "the letter U"
       }
      ]
     },
     "explanation": {
-     "surface": "A single letter being read out.",
-     "walkthrough": "'One' is the impersonal pronoun, as in 'one never knows', for which 'you' is the everyday substitute.",
-     "definitionFit": "The generic pronoun: 'you never know' says the same as 'one never knows'."
+     "surface": "A single letter is being read out.",
+     "walkthrough": "'One' is the impersonal pronoun, as in 'one never knows', which can be replaced by 'you'.",
+     "definitionFit": "Generic 'you' and formal 'one' are both pronouns for people in general."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "One"
     }
    }
