@@ -318,7 +318,7 @@
       {
        "text": "not",
        "at": 43,
-       "note": "the word able is taken away"
+       "note": "the second 'not' says the following word is to be dropped from the longer word"
       }
      ],
      "parts": [
@@ -326,7 +326,7 @@
        "words": "what's not responsive to treatment",
        "at": 7,
        "gives": "INCURABLE",
-       "note": "an incurable condition does not respond to treatment"
+       "note": "something incurable cannot be put right by medical treatment"
       },
       {
        "words": "able",
@@ -337,12 +337,14 @@
      ]
     },
     "explanation": {
-     "surface": "A patient endures a condition that does not respond to treatment and leaves them unable.",
-     "definitionFit": "To incur something is to bring it on oneself, as one might suffer a loss."
+     "surface": "A patient endures an untreatable condition and finds themselves unable to cope.",
+     "walkthrough": "The first 'not' belongs inside the description of INCURABLE; the second 'not' removes ABLE from it.",
+     "definitionFit": "To incur a loss or penalty is to bring it on oneself and so undergo it, a verb sense close to suffer."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "able"
     }
    }
   },
@@ -659,38 +661,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "could make it",
+       "text": "could make",
        "at": 20,
-       "note": "the answer plus the word handier could be rearranged to make Chinese ready"
+       "note": "the words Chinese ready could be rearranged to produce the answer together with the word handier"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Chinese ready",
-         "at": 0,
-         "gives": "HANDIERECESY",
-         "note": "the letters of these two words, listed so that the clue word handier stands apart from what is left"
-        },
-        {
-         "words": "handier",
-         "at": 34,
-         "note": "taken as written"
-        }
-       ]
+       "words": "Chinese ready",
+       "at": 0,
+       "note": "the anagram fodder; 'ready' is slang for cash, so the phrase also defines the answer"
+      },
+      {
+       "words": "handier",
+       "at": 34,
+       "note": "taken as written: these letters are what the fodder holds beyond the answer"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Chinese cash in hand, and a suggestion that it is more convenient to carry.",
-     "walkthrough": "A composite anagram: the answer with handier makes the letters of Chinese ready; ready is cash.",
-     "definitionFit": "Sycee is fine silver cast in ingots, formerly used as money in China."
+     "surface": "A question whether Chinese cash would be more convenient to carry.",
+     "walkthrough": "This is a composite anagram: the letters of CHINESE READY are those of HANDIER plus SYCEE. 'Ready', short for ready money, is British slang for cash.",
+     "definitionFit": "Sycee is fine uncoined silver cast in ingots that once served as money in China, so it is Chinese cash."
     },
     "features": {
      "answerInScene": true,
@@ -1831,52 +1827,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
        "at": 15,
-       "note": "the answer with the other two words could be rearranged into the closing phrase"
+       "note": "the words pampas rodent could be rearranged to give the answer together with the letters of pond pest"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "pampas rodent",
-         "at": 24,
-         "gives": "PONDPESTAMAR",
-         "note": "the letters of these two words, listed so that the clue words pond pest stand apart from what is left"
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "pond",
-           "at": 5,
-           "note": "taken as written"
-          },
-          {
-           "words": "pest",
-           "at": 10,
-           "note": "taken as written"
-          }
-         ]
-        }
-       ]
+       "words": "pampas rodent",
+       "at": 24,
+       "note": "the anagram fodder, which also describes the answer"
+      },
+      {
+       "words": "pond pest",
+       "at": 5,
+       "note": "taken as written: these letters are what the fodder holds beyond the answer"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A nuisance in the garden pond might turn out to be a South American rodent.",
-     "walkthrough": "A composite anagram: the answer plus pond pest has the letters of pampas rodent.",
-     "definitionFit": "The mara is a long-legged cavy, a rodent of the Patagonian grasslands of Argentina."
+     "surface": "A puzzled observer wonders whether a creature bothering a pond is really a South American rodent.",
+     "walkthrough": "A composite anagram: the letters of PAMPAS RODENT are those of POND PEST plus MARA.",
+     "definitionFit": "The mara, or Patagonian cavy, is a long-legged rodent of the Argentine grasslands, the pampas."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "pest"
     }
    }

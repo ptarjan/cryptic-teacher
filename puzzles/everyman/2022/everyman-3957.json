@@ -563,44 +563,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SCREWBALLS",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Spooner famously swapped the opening sounds of words, so initial sounds trade places"
+       "at": 12,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BEW",
        "parts": [
         {
-         "unchecked": true,
          "words": "jeer at",
-         "gives": "SCREW",
-         "soundsLike": "BOO",
-         "note": "to boo is to jeer at someone; it takes the other word's opening sound"
-        },
+         "at": 34,
+         "gives": "BOO",
+         "note": "to boo is to jeer at"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "SCRALLS",
+       "parts": [
         {
-         "unchecked": true,
          "words": "scribbles",
-         "gives": "BALLS",
-         "soundsLike": "SCRAWLS",
-         "note": "scrawls are untidy scribbles; they take the other word's opening sound"
+         "at": 42,
+         "gives": "SCRAWLS",
+         "note": "scrawls are scribbles"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd heckles graffiti, as if mocking someone's untidy writing.",
-     "walkthrough": "Swap the B of BOO with the SCR of SCRAWLS: 'boo scrawls' becomes 'scroo bawls'.",
-     "definitionFit": "A screwball is a slang term for a crazy or oddball person, the same as a crank."
+     "surface": "A heckler mocks someone's untidy handwriting.",
+     "walkthrough": "Swapping the opening sounds of BOO and SCRAWLS gives 'scroo bawls', which says the answer.",
+     "definitionFit": "A screwball is a crazy or eccentric person, an American slang word taken from baseball."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jeer"
     }
    }
   },
@@ -625,46 +631,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THUG",
-     "indicators": [
-      {
-       "text": "stunted",
-       "note": "something stunted has not grown to full length, so the word loses its tail"
-      },
-      {
-       "text": "not-half",
-       "note": "not half means half is missing, so only the first two of four letters stay"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stunted",
+         "at": 4,
+         "note": "stunted means cut short of full growth, so the last letter is lost"
+        }
+       ],
        "parts": [
         {
          "words": "The",
-         "gives": "TH",
-         "note": "the word with its last letter cut"
+         "at": 0,
+         "gives": "THE",
+         "note": "taken as written before it is cut short"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not-half",
+         "at": 12,
+         "note": "not-half means only half the word is kept, the second half going"
+        }
+       ],
+       "parts": [
+        {
          "words": "ugly",
-         "gives": "UG",
-         "note": "the first half of the word"
+         "at": 21,
+         "gives": "UGLY",
+         "note": "taken as written before it is halved"
+        },
+        {
+         "gives": "LY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short, unattractive yob is described scornfully.",
-     "walkthrough": "'Not half' is British slang for 'very', so 'not half ugly' seems to mean really ugly; here it literally halves the word.",
-     "definitionFit": "A lout is a rough, aggressive man, and a thug is a violent ruffian of the same kind."
+     "surface": "A description of a short, quite unattractive yob.",
+     "definitionFit": "A thug is a violent, brutish person, much the same as a hooligan or lout."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "not-half"
+     "misdirectedWord": "stunted"
     }
    }
   },
@@ -931,41 +951,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EYEBALL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "shelled",
-       "note": "a shelled nut has lost its outer casing, so the first and last letters go"
+       "text": "peculiar",
+       "at": 16,
+       "note": "peculiar means odd, so the remaining letters are set in an odd new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "peculiar",
-         "note": "peculiar means odd or out of the ordinary, so the letters fall into an odd order"
+         "text": "shelled",
+         "at": 25,
+         "note": "shelled means the outer covering is removed, so the first and last letters go"
         }
        ],
        "parts": [
         {
          "words": "jellybean",
-         "gives": "ELLYBEA",
-         "note": "the sweet without its outer letters"
+         "at": 33,
+         "note": "taken as written before its outer letters go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone peers suspiciously at an odd-looking sweet with its coating removed.",
-     "walkthrough": "Strip the J and the N, then rearrange the seven letters that remain.",
-     "definitionFit": "To eyeball something is informal for looking at it hard or staring at it carefully."
+     "surface": "Someone peers at a strange sweet with its coating stripped off.",
+     "walkthrough": "Shelling JELLYBEAN leaves ELLYBEA, which 'peculiar' rearranges.",
+     "definitionFit": "To eyeball something is informal for staring at it hard or inspecting it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "shelled"
     }

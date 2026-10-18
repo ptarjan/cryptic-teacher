@@ -495,43 +495,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHERE",
+     "op": "composite",
      "indicators": [
       {
        "text": "drunkenly",
-       "note": "a drunk staggers about, so these letters are taken in jumbled order"
+       "at": 23,
+       "note": "drunkenly means staggering about, so the letters of sir need not sit together or in order within the longer word"
+      },
+      {
+       "text": "abandons",
+       "at": 33,
+       "note": "abandons means leaves behind, so the letters of sir leave the longer word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "WHERE",
-       "indicators": [
-        {
-         "text": "abandons",
-         "note": "to abandon something is to leave it behind, so these letters are dropped from the longer word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "sir",
-         "note": "taken as written"
-        },
-        {
-         "words": "wherries",
-         "note": "taken as written; wherries are light rowing boats"
-        }
-       ]
+       "words": "wherries",
+       "at": 42,
+       "note": "taken as written; wherries are light rowing boats"
+      },
+      {
+       "words": "sir",
+       "at": 19,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy gentleman deserts his rowing boats on the river.",
-     "walkthrough": "Remove R, I and S, in any order, from WHERRIES to leave WHERE.",
-     "definitionFit": "The interrogative adverb asks about place, so it stands for at what location or in what circumstances."
+     "surface": "A tipsy gentleman deserts his rowing boats, prompting the question of where that leaves things.",
+     "walkthrough": "'drunkenly' scrambles SIR, and those three letters, wherever they fall, are taken out of WHERRIES.",
+     "definitionFit": "Where can mean 'in which place or circumstances', as in 'the stage where we stopped'."
     },
     "features": {
      "answerInScene": false,
@@ -892,53 +885,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "UMBRA",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "turning up",
-       "note": "in a down entry, turning up makes a word read from bottom to top"
+       "text": "getting kicked out",
+       "at": 45,
+       "note": "getting kicked out means being thrown out, so those letters leave the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "offence",
+       "at": 18,
+       "gives": "UMBRAGE",
+       "note": "to take umbrage is to take offence"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "getting kicked out",
-         "note": "something kicked out is thrown away, so those letters are removed"
+         "text": "turning up",
+         "at": 33,
+         "note": "turning up means rising, and in a down clue a word that rises is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "offence",
-           "gives": "UMBRAGE",
-           "note": "to take umbrage is to take offence"
-          },
-          {
-           "words": "e.g.",
-           "note": "taken as written"
-          }
-         ]
-        },
-        {
-         "gives": "GEEG"
+         "words": "e.g.",
+         "at": 28,
+         "gives": "EG",
+         "note": "taken as written, as the letters EG"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gatecrasher's crime is turning up and being thrown out of the party.",
-     "walkthrough": "EG reversed is GE; drop it from UMBRAGE to leave UMBRA. Umbra is the Latin word for shadow.",
-     "definitionFit": "In ancient Rome an umbra, or shadow, was a person brought along by an invited diner without an invitation of their own."
+     "surface": "A gatecrasher causes offence, for example by turning up and then being thrown out.",
+     "walkthrough": "In ancient Rome an umbra, literally a shadow, was a guest brought along uninvited by an invited one. EG turned up is GE, which is removed from UMBRAGE.",
+     "definitionFit": "Umbra was the Latin term for a shadow-guest who tagged along to a dinner without a personal invitation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "turning"
     }

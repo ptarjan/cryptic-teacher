@@ -386,45 +386,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JOBSEEKER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "at": 32,
+       "note": "keeps means holds inside, so the comedian's word surrounds the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "comedian",
+       "at": 23,
+       "gives": "JOKER",
+       "note": "a joker is a comedian"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "keeps"
-        },
-        {
          "text": "for a change",
-         "note": "the letters of BEES are changed round"
+         "at": 43,
+         "note": "for a change says the letters of bees are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "comedian",
-         "gives": "JOKER",
-         "note": "a joker is a comedian"
-        },
-        {
          "words": "bees",
-         "note": "BEES rearranged"
+         "at": 38,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comedian with no gigs takes up beekeeping as a new line of work.",
-     "walkthrough": "'Perhaps' signals that a jobseeker is one example of an unemployed person.",
-     "definitionFit": "A jobseeker is someone out of work and looking for a job."
+     "surface": "An out-of-work comic takes up beekeeping as a new line of work.",
+     "walkthrough": "BEES rearranged gives BSEE, which sits inside JOKER. 'Perhaps' warns that the definition is an example.",
+     "definitionFit": "A jobless person hunting for work is a typical jobseeker, the UK term for someone claiming unemployment benefit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "change"
+     "misdirectedWord": "comedian"
     }
    }
   },
@@ -450,30 +454,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SUN",
      "indicators": [
       {
        "text": "endlessly",
-       "note": "without its end, so the last letter goes"
+       "at": 24,
+       "note": "endlessly says the word loses its last letter"
       }
      ],
      "parts": [
       {
-       "words": "endlessly hymned",
-       "gives": "SUN",
-       "note": "SUNG (hymned) without its last letter"
+       "words": "hymned",
+       "at": 34,
+       "gives": "SUNG",
+       "note": "hymned means praised in song, sung"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "Pagans sing endless hymns to the thing they worship.",
-     "walkthrough": "'Hymned' is a past participle, sung, and cutting its end leaves the object many ancient religions worshipped.",
-     "definitionFit": "The sun was worshipped as a god by many pagan cultures."
+     "surface": "A pagan deity was praised in song without end.",
+     "definitionFit": "Many ancient religions revered the sun as a god, so it was a thing pagans worshipped."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
     }
    }
   },
@@ -912,26 +919,40 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SURD",
      "indicators": [
       {
        "text": "scrapping",
-       "note": "throwing out, so A and B are dropped"
+       "at": 27,
+       "note": "scrapping means throwing away, so these letters are taken out of the word"
       }
      ],
      "parts": [
       {
-       "words": "ridiculous, scrapping a book",
-       "gives": "SURD",
-       "note": "ABSURD minus A and B (book)"
+       "words": "ridiculous",
+       "at": 15,
+       "gives": "ABSURD",
+       "note": "absurd means ridiculous"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 37
+        },
+        {
+         "words": "book",
+         "at": 39,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone calls it silly and pointless to throw out a book.",
-     "walkthrough": "'Irrational' is the maths sense: a surd is a root that cannot be written as a fraction, like the square root of 2.",
-     "definitionFit": "A surd is an irrational number, such as the square root of 2."
+     "surface": "A reviewer dismisses something as illogical and silly, throwing out a book.",
+     "walkthrough": "'Irrational' is the maths sense: a surd is an irrational root such as the square root of two.",
+     "definitionFit": "In mathematics a surd is an irrational number, one that cannot be written as a fraction."
     },
     "features": {
      "answerInScene": false,
@@ -1014,47 +1035,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TANAGER",
      "indicators": [
       {
-       "text": "drops"
-      },
-      {
-       "text": "husked",
-       "note": "with its outer shell removed, so only the inner letters of SEED remain"
+       "text": "drops",
+       "at": 11,
+       "note": "drops means lets go of, so these letters leave the word"
       },
       {
        "text": "for",
-       "note": "in exchange for, so A replaces what was dropped"
+       "at": 31,
+       "note": "for means in exchange for, so a new letter takes the place of those dropped"
       }
      ],
      "parts": [
       {
        "words": "Adolescent",
+       "at": 0,
        "gives": "TEENAGER",
-       "note": "a teenager is an adolescent"
+       "note": "an adolescent is a teenager"
       },
       {
-       "words": "seed, husked",
-       "gives": "EE",
-       "note": "SEED without its outer letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "husked",
+         "at": 23,
+         "note": "husked means stripped of its outer layer, leaving the middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seed",
+         "at": 17,
+         "note": "taken as written before it is stripped"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "A goes in where EE came out"
+       "at": 35
       }
      ]
     },
     "explanation": {
-     "surface": "A teenager scatters seed for a garden bird.",
-     "walkthrough": "The surface feeds a bird, but 'for' is doing swap work: EE out of TEENAGER, A in.",
-     "definitionFit": "Tanagers are brightly coloured American songbirds."
+     "surface": "A teenager scatters shelled seed for a little bird in the garden.",
+     "walkthrough": "Husking SEED leaves EE; 'drops' takes EE out of TEENAGER and 'for' puts A in its place.",
+     "definitionFit": "A tanager is a brightly coloured American bird of the perching family, a type of songbird."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "drops"
     }
    }
   },
