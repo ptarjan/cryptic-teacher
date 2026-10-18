@@ -138,60 +138,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UGLY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "the opening letter is placed inside the shortened month"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "opening to",
-         "note": "the opening of a word is its first letter"
-        },
-        {
          "text": "without leader",
-         "note": "the leading letter is dropped"
+         "at": 46,
+         "note": "without its leader means losing the first letter"
         }
        ],
        "parts": [
         {
-         "words": "part of summer without leader",
-         "gives": "ULY",
-         "note": "JULY, a summer month, loses its first letter J"
+         "words": "part of summer",
+         "at": 31,
+         "gives": "JULY",
+         "note": "July is a summer month"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "G",
-         "indicators": [
-          {
-           "text": "in"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "opening to game",
-           "gives": "G",
-           "select": "first",
-           "note": "first letter of game"
-          }
-         ]
+         "gives": "J"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening to",
+         "at": 12,
+         "note": "the opening to a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some bad-tempered start to a game played during the summer.",
-     "walkthrough": "'Part of summer' is a month, July in the northern calendar; beheaded it is ULY, and G slips in after the U.",
-     "definitionFit": "Ugly can mean hostile or bad-tempered, as in an ugly mood."
+     "surface": "A grumpy start to a match played in midsummer, with no captain.",
+     "walkthrough": "JULY without its leader is ULY; G goes inside.",
+     "definitionFit": "Ugly can describe a hostile, threatening mood, as in an ugly temper, so it means ill-natured."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "part"
+     "misdirectedWord": "summer"
     }
    }
   },
@@ -360,35 +363,32 @@
      "parts": [
       {
        "words": "Bishops, perhaps",
+       "at": 0,
        "gives": "MEN",
-       "note": "bishops are chess pieces, or men"
+       "note": "bishops are chess pieces, which are called men"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "perhaps",
-         "note": "bishops are an example of chessmen, so an example stands for the class"
-        },
-        {
          "text": "beginning to",
+         "at": 18,
          "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "beginning to discourage",
-         "gives": "DISCOURAGE",
-         "note": "first letter of discourage"
+         "words": "discourage",
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Churchmen setting out to put people off reform.",
-     "walkthrough": "The surface puts bishops in the church; the answer wants them on a chessboard, where the pieces are called men.",
-     "definitionFit": "Both verbs mean putting right what was wrong, as in mending one’s ways; reform is used of habits, mend of habits and objects alike."
+     "surface": "Churchmen start to put a stop to reform.",
+     "walkthrough": "'Bishops' looks clerical, but they are chessmen here; 'perhaps' marks them as one example of men.",
+     "definitionFit": "To mend one's ways is to reform, so mend works as a verb meaning improve or correct."
     },
     "features": {
      "answerInScene": false,

@@ -410,42 +410,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPECIALITY",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "dropped",
+       "at": 12,
+       "note": "dropped tells you the temperature's letter goes from the fodder"
+      },
+      {
+       "text": "when working",
+       "at": 20,
+       "note": "working means being reworked, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPECIALITY",
-       "indicators": [
-        {
-         "text": "dropped",
-         "note": "the letter for temperature is left out"
-        },
-        {
-         "text": "when working",
-         "note": "the remaining letters are put to work in a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "clay-pit site",
-         "note": "the raw letters"
-        },
-        {
-         "words": "Temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature; one T is removed"
-        }
-       ]
+       "words": "clay-pit site",
+       "at": 33,
+       "note": "taken as written"
+      },
+      {
+       "words": "Temperature",
+       "at": 0,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "An archaeological or geological report: the temperature fell while digging at a clay pit in a field.",
-     "walkthrough": "Only one of the two Ts in CLAY-PIT SITE is dropped; the other stays in the anagram.",
-     "definitionFit": "Plain synonym: the area of work or study a person concentrates on can be called either."
+     "surface": "A weather report from a quarry: it got cooler while the dig was going on.",
+     "walkthrough": "CLAYPITSITE without one T leaves ten letters to rearrange.",
+     "definitionFit": "A speciality is a subject someone is expert in, their field of expertise."
     },
     "features": {
      "answerInScene": false,
@@ -757,52 +751,59 @@
      "indicators": [
       {
        "text": "scored by",
-       "note": "the penalty is cut through by the other pieces, which sit inside it"
+       "at": 8,
+       "note": "scored means cut into, so the penalty is split open by the following letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "changed",
-         "note": "the letters of the match are rearranged"
-        }
-       ],
+       "words": "Penalty",
+       "at": 0,
+       "gives": "FINE",
+       "note": "a fine is a penalty"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Penalty",
-         "gives": "FINE",
-         "note": "a fine is a penalty"
-        },
-        {
          "words": "Rugby",
+         "at": 18,
          "gives": "RU",
          "note": "RU is short for Rugby Union"
         },
         {
          "words": "International",
-         "gives": "I",
-         "note": "I is the abbreviation for international"
+         "at": 24,
+         "gives": "I"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "changed",
+           "at": 38,
+           "note": "changed means the letters of the following word are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "match",
+           "at": 46
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "match",
-       "gives": "TMACH",
-       "note": "MATCH rearranged"
       }
      ]
     },
     "explanation": {
-     "surface": "A penalty kick scored in a rugby international turns the game; gamblers take note.",
-     "walkthrough": "A fruit machine is the British name for a slot machine. 'Scored' means cut through, not a point won.",
-     "definitionFit": "A fruit machine is a slot machine, something you literally put a bet into."
+     "surface": "A rugby international decided by a penalty looks fixed; somebody had money on it.",
+     "walkthrough": "The surface suggests a rugby penalty, but the penalty is a fine, which is split open by the rest.",
+     "definitionFit": "A fruit machine is a coin-operated gambling machine, so it is something you stake money on."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "scored"
     }
    }
@@ -1265,62 +1266,67 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PHRENOLOGIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 38,
+       "note": "the shortened meaning goes inside the rearranged polar letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to spend",
-         "note": "the letter for time is used up and gone"
-        },
-        {
          "text": "base",
-         "note": "a base version of North Pole is corrupted, so its letters are rearranged"
+         "at": 52,
+         "note": "base means debased or corrupt, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "North Pole",
-         "note": "NORTH POLE rearranged"
+         "at": 41,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to spend",
+         "at": 24,
+         "note": "to spend means to use up, so the time's letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meaning",
+         "at": 16,
+         "gives": "GIST",
+         "note": "the gist is the meaning"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "what is left goes inside the other letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "meaning",
-           "gives": "GIST",
-           "note": "the gist is the meaning"
-          },
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the abbreviation for time; it is removed from GIST"
-          }
-         ]
+         "words": "time",
+         "at": 33,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A polar explorer's leader means to pass a season at the North Pole base camp.",
-     "walkthrough": "'Head explorer' looks like an expedition leader; a phrenologist studied the bumps on people's heads.",
-     "definitionFit": "A phrenologist examined the shape of the skull to read character, literally exploring heads."
+     "surface": "A polar explorer's leader intends to stay a while at the base camp.",
+     "walkthrough": "GIST 'to spend' T leaves GIS, which goes 'in' PHRENOLOT, a rearrangement of NORTHPOLE ('base'). 'Head explorer' is not an expedition leader.",
+     "definitionFit": "A phrenologist studies the bumps of the skull, so is literally someone exploring heads."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Head"
+     "misdirectedWord": "explorer's"
     }
    }
   },
@@ -1555,52 +1561,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "JOCOSENESS",
+     "indicators": [
+      {
+       "text": "hosted by",
+       "at": 19,
+       "note": "hosted by means taken in, so the function goes inside the neighbours"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "JOCOSENESS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "hosted by",
-         "note": "the function is a guest inside the neighbours"
-        },
-        {
          "text": "moving",
-         "note": "one letter of the neighbours shifts position"
+         "at": 49,
+         "note": "moving means the east letter leaves its place in the neighbours and goes elsewhere"
         }
        ],
        "parts": [
         {
          "words": "enviable neighbours",
+         "at": 29,
          "gives": "JONESES",
-         "note": "the neighbours everyone tries to keep up with"
+         "note": "the Joneses are the neighbours everyone tries to keep up with"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "function",
+         "at": 10,
+         "gives": "COS",
+         "note": "COS is cosine, a trigonometric function"
         },
         {
          "words": "east",
-         "gives": "E",
-         "note": "E for east; the second E of JONESES moves up to just after JO, giving JOENESS"
-        },
-        {
-         "words": "function",
-         "gives": "COS",
-         "note": "cos, short for cosine, a trigonometric function"
+         "at": 56,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Finding the humour in a party thrown by the envied neighbours who are moving house.",
-     "walkthrough": "'Keeping up with the Joneses' means trying to match the neighbours' lifestyle, hence enviable. 'Function' is the maths kind, not a party.",
-     "definitionFit": "Plain synonym: a rare noun from jocose, meaning given to joking."
+     "surface": "A party thrown by the envied family next door drifts eastward.",
+     "walkthrough": "'Keeping up with the Joneses' means trying to match your neighbours, which is why they are enviable. Their second east letter moves out and travels with the function.",
+     "definitionFit": "Jocoseness is playful jokiness, a fondness for joking, so it is a kind of humour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "function"
     }
    }
@@ -1705,63 +1720,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BYANDLARGE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 27,
+       "note": "the rearranged rage comes after the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "irritated",
-         "note": "the rage is stirred up into a new order"
-        },
-        {
-         "text": "drills"
+         "text": "drills",
+         "at": 37,
+         "note": "drills means bores into, so the new letter goes inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "after",
-           "note": "this piece follows the first"
-          },
-          {
            "text": "failed",
-           "note": "the letters of badly break down into a new order"
+           "at": 44,
+           "note": "failed means the letters of the next word did not hold together and are rearranged"
           }
          ],
          "parts": [
           {
            "words": "badly",
-           "note": "BADLY rearranged"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
+           "at": 51
           }
          ]
         },
         {
+         "words": "new",
+         "at": 33,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "irritated",
+         "at": 17,
+         "note": "irritated means stirred up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
          "words": "rage",
-         "note": "RAGE rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Widespread fury, made worse after the new training exercises went badly wrong.",
-     "walkthrough": "'In general' opens the clue as if it meant 'widespread'; it is the definition. 'Drills' is the container verb, not training.",
-     "definitionFit": "By and large means generally, on the whole."
+     "surface": "A general flies into a rage after some new drill goes wrong.",
+     "walkthrough": "BADLY 'failed' gives BYADL; N 'drills' into it, making BYANDL; RAGE 'irritated' gives ARGE.",
+     "definitionFit": "By and large is an idiom meaning on the whole or generally speaking."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drills"
+     "misdirectedWord": "general"
     }
    }
   }

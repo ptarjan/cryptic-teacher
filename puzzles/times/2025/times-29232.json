@@ -207,42 +207,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OTHERWISE",
-     "indicators": [
-      {
-       "text": "failing to start",
-       "note": "the first letter of MOTHER is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to start",
+         "at": 17,
+         "note": "failing to start means the word loses its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "Woman with issue",
-         "gives": "OTHER",
-         "note": "a woman with issue (children) is a MOTHER; without its first letter, OTHER"
+         "at": 0,
+         "gives": "MOTHER",
+         "note": "issue means children, so a woman with issue is a mother"
         },
         {
-         "words": "knowing",
-         "gives": "WISE",
-         "note": "knowing = wise"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "knowing",
+       "at": 34,
+       "gives": "WISE",
+       "note": "wise means knowing, informed"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman with a problem can't get going and would rather know things another way.",
-     "walkthrough": "'Issue' here is the legal word for offspring, not a problem; a woman with issue is a mother.",
-     "definitionFit": "Otherwise means in a different way, differently."
+     "surface": "A mother's knowledge fails to start working.",
+     "walkthrough": "MOTHER without its first letter is OTHER.",
+     "definitionFit": "Otherwise as an adverb means in a different way, so it swaps for differently."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "issue"
     }
    }
@@ -502,38 +505,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "rising"
-      },
-      {
-       "text": "dispatching",
-       "note": "the article A is sent away from ABILITY"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 16,
+         "note": "in a down answer rising means the word reads upwards, so backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "talent, dispatching article",
-         "gives": "YTILIB",
-         "note": "ABILITY = talent, minus the article A"
+         "words": "on",
+         "at": 13,
+         "gives": "ON"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dispatching",
+         "at": 31,
+         "note": "dispatching means getting rid of, so the article goes from the word for talent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "talent",
+         "at": 23,
+         "gives": "ABILITY",
+         "note": "ability means talent"
         },
         {
-         "words": "on rising",
-         "gives": "ON",
-         "note": "ON turned upwards"
+         "words": "article",
+         "at": 43,
+         "gives": "A",
+         "note": "a is the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A talent scout counts on rising stars while cutting a news story.",
-     "walkthrough": "'Counts' looks like a verb; it is the plural of count, the European nobleman, and 'maybe' marks them as one example.",
-     "definitionFit": "Counts are titled aristocrats, members of the nobility."
+     "surface": "Aristocrats may count on rising talent, sending an item packing.",
+     "walkthrough": "ON read upwards gives NO; ABILITY without A is BILITY. 'Counts maybe' is a definition by example, counts being titled nobles.",
+     "definitionFit": "Counts are members of the titled aristocracy, so they are an example of the nobility."
     },
     "features": {
      "answerInScene": false,
@@ -567,36 +587,39 @@
      "op": "container",
      "indicators": [
       {
-       "text": "detains"
+       "text": "detains",
+       "at": 26,
+       "note": "detains means holds in, so the other letters sit inside the cry"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "I disapprove of that",
-         "gives": "BOO",
-         "note": "'boo!' is a cry of disapproval"
-        },
-        {
-         "words": "colleague",
-         "gives": "ALLY",
-         "note": "an ally is a colleague on your side"
-        }
-       ]
+       "words": "I disapprove of that",
+       "at": 5,
+       "gives": "BOO",
+       "note": "boo is the cry of someone who disapproves"
       },
       {
-       "words": "hours",
-       "gives": "H",
-       "note": "H = hours"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "colleague",
+         "at": 34,
+         "gives": "ALLY",
+         "note": "an ally is a colleague or associate"
+        },
+        {
+         "words": "hours",
+         "at": 44,
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone complains about the fuss when a co-worker is kept back for hours.",
-     "walkthrough": "A whole sentence, 'I disapprove of that', stands for a single interjection, and 'detains' then works on it as if it were a jailer.",
-     "definitionFit": "A plain synonym, slightly American in flavour: ballyhoo was the barker's patter outside a circus sideshow, hence any noisy fuss."
+     "surface": "Someone objects to a fuss that keeps a workmate back for hours.",
+     "definitionFit": "Ballyhoo is noisy publicity or commotion, a synonym for a fuss."
     },
     "features": {
      "answerInScene": true,
@@ -626,40 +649,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "change of",
-       "note": "the letters of TONE are rearranged"
+       "text": "After",
+       "at": 0,
+       "note": "the doctor's letters come after the rearranged word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change of",
+         "at": 6,
+         "note": "change of means the letters of the next word are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "tone",
-         "note": "TONE rearranged"
-        },
-        {
-         "words": "doctor",
-         "gives": "MB",
-         "note": "MB = Bachelor of Medicine, a doctor's degree"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "doctor",
+       "at": 21,
+       "gives": "MB",
+       "note": "MB is Bachelor of Medicine, a doctor's degree"
       }
      ]
     },
     "explanation": {
-     "surface": "After changing his manner, the doctor finally went quiet.",
-     "walkthrough": "'Shut up' looks like the doctor falling silent; 'shut up finally' is the definition, to enclose for the last time.",
-     "definitionFit": "To entomb is to shut someone up in a tomb, finally and for good."
+     "surface": "After a change of tone, the doctor at last tells someone to be quiet.",
+     "walkthrough": "TONE rearranged gives ENTO; 'shut up finally' reads as 'went quiet at last' but means sealed in for good.",
+     "definitionFit": "To entomb is to place in a tomb, shutting someone away for the last time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "tone"
+     "misdirectedWord": "shut"
     }
    }
   },

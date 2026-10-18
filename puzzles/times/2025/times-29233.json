@@ -772,54 +772,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "regularly",
-       "note": "at regular intervals, so take every other letter"
-      }
-     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "GEOL",
        "indicators": [
         {
-         "text": "wanting",
-         "note": "wanting means lacking, so the letter for Victor goes missing"
+         "text": "regularly",
+         "at": 9,
+         "note": "regularly means taking every other letter of the city's name, starting with its first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Grenoble regularly",
-         "gives": "GEOL",
-         "select": "alternate",
-         "note": "GrEnObLe: the odd letters"
+         "words": "Grenoble",
+         "at": 0,
+         "note": "the French city supplies its first, third, fifth and seventh letters"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 27,
+         "note": "wanting means lacking, so a letter is taken out of the word for calling"
+        }
+       ],
        "parts": [
         {
          "words": "calling",
+         "at": 19,
          "gives": "VOCATION",
          "note": "a calling is a vocation"
         },
         {
-         "words": "Victor",
+         "words": "Victor's",
+         "at": 35,
          "gives": "V",
-         "note": "V = Victor in the phonetic alphabet; it is removed"
+         "note": "Victor is V in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A phone call from Grenoble can't reach Victor, whose GPS position is needed.",
-     "walkthrough": "'Calling' looks like making a phone call; it is a vocation.",
-     "definitionFit": "A loose fit: the word means fixing where something is, and GPS coordinates are the result of doing so."
+     "surface": "Someone in Grenoble rings up without Victor's location data.",
+     "walkthrough": "'regularly' takes GEOL from Grenoble; VOCATION 'wanting' V leaves OCATION.",
+     "definitionFit": "Geolocation is fixing where something is on Earth, which is what GPS coordinates give."
     },
     "features": {
      "answerInScene": true,
@@ -1123,47 +1123,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Leader of",
-       "note": "the leader goes in front, so take the first letter"
+       "text": "put on",
+       "at": 18,
+       "note": "in a down answer the first letter is placed on top of the rest"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
-         "text": "put on",
-         "note": "in a down entry, what is put on something sits above it, so it comes first"
+         "text": "Leader of",
+         "at": 0,
+         "note": "the leader of a word is its opening letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Leader of archers",
-         "gives": "A",
-         "select": "first",
-         "note": "first letter of archers"
+         "words": "archers",
+         "at": 10,
+         "note": "gives its first letter"
         }
        ]
       },
       {
        "words": "his equipment",
+       "at": 25,
        "gives": "QUIVER",
-       "note": "the case an archer carries his arrows in"
+       "note": "an archer's quiver holds his arrows"
       }
      ]
     },
     "explanation": {
-     "surface": "The chief archer, shaking, puts on his gear.",
-     "walkthrough": "'His equipment' ties back to the archer, and the quiver is exactly that, while also meaning a tremble.",
-     "definitionFit": "A plain synonym: to be aquiver is to be quivering, trembling all over."
+     "surface": "The chief archer kits himself out, shaking with nerves.",
+     "definitionFit": "Aquiver is an adjective meaning quivering, shaking with excitement or fear."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "misdirectedWord": "equipment"
     }
    }
   },
