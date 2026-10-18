@@ -1302,51 +1302,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BESMIRCH",
      "indicators": [
       {
        "text": "riven by",
-       "note": "something riven is split apart, so another piece is forced into the gap"
+       "at": 28,
+       "note": "riven means split apart, so the pieces are split by the other letters"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 14,
+         "gives": "B"
+        },
+        {
+         "words": "hotel",
+         "at": 22,
+         "gives": "H",
+         "note": "H is Hotel in the NATO alphabet"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "violent",
-         "note": "violent things are thrown about wildly, so these letters are rearranged"
+         "at": 37,
+         "note": "violent upheaval throws the letters into a new order"
         }
        ],
        "parts": [
         {
-         "words": "British",
-         "gives": "B",
-         "note": "B is the abbreviation for British"
-        },
-        {
-         "words": "hotel",
-         "gives": "H",
-         "note": "H is hotel in the NATO phonetic alphabet"
-        },
-        {
          "words": "crimes",
-         "note": "the letters to be rearranged"
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A British hotel's reputation is tarnished after a spate of violent crime.",
-     "walkthrough": "'Violent crimes' reads as a single phrase, but violent is the anagram signal for the crimes, which split the British hotel's two letters apart.",
-     "definitionFit": "To besmirch someone is to damage their reputation, dirtying their good name as a stain sullies cloth."
+     "surface": "A British hotel's reputation torn apart by a spate of violent crimes.",
+     "walkthrough": "\"Sully name\" is the definition as a phrase: to sully a name is to tarnish a reputation.",
+     "definitionFit": "To besmirch is to tarnish someone's reputation, to drag their good name through the mud."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "violent"
+     "misdirectedWord": "hotel"
     }
    }
   },
@@ -1934,38 +1940,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PENTATEUCH",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the last letter is cut off"
+       "text": "about",
+       "at": 24,
+       "note": "about here means in a roundabout, mixed-up order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "He can",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means all round or around, so these letters are turned every which way"
+         "text": "endlessly",
+         "at": 14,
+         "note": "endlessly means without the final letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "He can putter",
-         "gives": "HECANPUTTE",
-         "note": "the phrase without its last letter, ready to be rearranged"
+         "words": "putter",
+         "at": 7
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man can potter about endlessly, getting through some books of the Bible.",
-     "walkthrough": "Putter is the American spelling of potter, to idle about; it drops its final letter before the anagram.",
-     "definitionFit": "The Pentateuch is the first five books of the Old Testament, traditionally ascribed to Moses."
+     "surface": "A man fiddling about endlessly with his golf putter.",
+     "walkthrough": "'endlessly' cuts PUTTER to PUTTE; HE CAN plus PUTTE are rearranged.",
+     "definitionFit": "The Pentateuch is the first five books of the Old Testament, Genesis to Deuteronomy."
     },
     "features": {
      "answerInScene": false,
@@ -2493,52 +2505,56 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps round another"
+       "at": 4,
+       "note": "about means surrounding, so the joy goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Joy",
-         "gives": "ELATION",
-         "note": "elation is great joy"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the standard abbreviation for European"
-        }
-       ]
+       "words": "Joy",
+       "at": 0,
+       "gives": "ELATION",
+       "note": "elation is joy"
       },
       {
-       "op": "nth",
-       "n": 3,
-       "indicators": [
-        {
-         "text": "third",
-         "note": "third points to one position in the word, so only that letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "advertiser's",
-         "note": "the third letter of the word"
+         "words": "European",
+         "at": 10,
+         "gives": "E"
+        },
+        {
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "third",
+           "at": 32,
+           "note": "third means only the third letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "advertiser's",
+           "at": 19
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An advertising executive is thrilled to be given a step up.",
-     "walkthrough": "'Advertiser's third' looks like a third-placed advertiser, but it asks for that word's third letter.",
-     "definitionFit": "Elevation means raising to a higher rank or office, so being promoted, as in elevation to the peerage."
+     "surface": "An advertiser delighted about a European sales campaign.",
+     "walkthrough": "'promotion' looks like advertising; it means being raised up.",
+     "definitionFit": "Elevation is raising someone to a higher rank, as in being elevated to the peerage."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "third"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "promotion"
     }
    }
   },

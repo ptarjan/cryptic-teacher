@@ -983,49 +983,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in",
-       "note": "in says these pieces sit inside the next word"
+       "text": "seen in",
+       "at": 44,
+       "note": "the pieces are seen inside the pubs, so they sit within that word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "pubs",
-         "gives": "BARS",
-         "note": "bars are pubs"
-        },
-        {
-         "words": "a certain sort",
-         "gives": "ONE",
-         "note": "one can mean a certain person, as in a one for the ladies"
-        }
-       ]
+       "words": "pubs",
+       "at": 52,
+       "gives": "BARS",
+       "note": "bars are pubs"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "primarily means first of all, so the opening letter alone is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "seen",
-         "note": "the first letter of seen"
+         "words": "a certain",
+         "at": 19,
+         "gives": "ONE",
+         "note": "one means a certain, as in 'one Mr Smith'"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 34,
+           "note": "primarily signals the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sort",
+           "at": 29
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A titled lady of a particular kind is mainly spotted in pubs.",
-     "definitionFit": "A baroness holds a noble title, so she is a titled person; entitled is read as having a title."
+     "surface": "A particular kind of person who is mostly seen in pubs.",
+     "walkthrough": "'Entitled' looks like feeling owed something; it means holding a title.",
+     "definitionFit": "A baroness holds a noble title, a peeress of the lowest rank, so a titled person."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Entitled"

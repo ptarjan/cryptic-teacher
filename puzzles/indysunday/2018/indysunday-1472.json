@@ -523,35 +523,38 @@
      "indicators": [
       {
        "text": "bottles",
-       "note": "to bottle something is to hold it inside, so the wine word surrounds the rest"
+       "at": 5,
+       "note": "to bottle something is to hold it in, so the wine surrounds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Wine",
-         "gives": "TENT",
-         "note": "tent is a deep red Spanish wine"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Wine",
+       "at": 0,
+       "gives": "TENT",
+       "note": "tent is a deep-red Spanish wine"
       },
       {
-       "words": "new",
-       "gives": "N",
-       "note": "N is the abbreviation for new"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13,
+         "gives": "A"
+        },
+        {
+         "words": "new",
+         "at": 15,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wine bottle brings a fresh revenue stream to a pub landlord.",
-     "walkthrough": "The landlord sounds like a publican selling wine, but he is a property owner collecting rent.",
-     "definitionFit": "A person renting property pays rent, which is how a landlord earns money from it."
+     "surface": "A new kind of wine in bottles becomes a money-spinner for a pub landlord.",
+     "walkthrough": "The landlord looks like a publican selling wine; it is a property owner collecting rent.",
+     "definitionFit": "A tenant pays rent, which is what a landlord lives on; the question mark marks the definition by example."
     },
     "features": {
      "answerInScene": false,
@@ -1094,28 +1097,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HANDCART",
      "indicators": [
       {
        "text": "Spooner delivers",
-       "note": "Spooner was the Oxford don who swapped the opening sounds of words, so the two words trade first sounds"
+       "at": 21,
+       "note": "a Spoonerism swaps the opening sounds of two words, as Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Tinned sort of offal",
-       "gives": "HANDCART",
-       "soundsLike": "CANNED HEART",
-       "note": "tinned means canned, and the heart is a kind of offal"
+       "op": "homophone",
+       "spelt": "CAND",
+       "parts": [
+        {
+         "words": "Tinned",
+         "at": 0,
+         "gives": "CANNED",
+         "note": "canned means tinned"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "HART",
+       "parts": [
+        {
+         "words": "sort of offal",
+         "at": 7,
+         "gives": "HEART",
+         "note": "heart is eaten as offal"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher wheels round tins of offal in a barrow.",
-     "walkthrough": "Swap the opening sounds of the two words to hear the answer.",
-     "definitionFit": "A small cart pushed by hand for carrying goods is what a barrow is."
+     "surface": "Someone wheels a barrow full of tinned offal around.",
+     "walkthrough": "Say 'canned heart' and swap the opening sounds to get 'hand cart'.",
+     "definitionFit": "A barrow is a small cart pushed or pulled by hand."
     },
     "features": {
      "answerInScene": true,
