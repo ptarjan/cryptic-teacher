@@ -254,48 +254,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAGIARIST",
+     "op": "container",
      "indicators": [
       {
-       "text": "Topless",
-       "note": "without a top, the word loses its first letter"
+       "text": "going round",
+       "at": 18,
+       "note": "going round means the shortened beekeeper wraps around the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "going round",
-         "note": "to go round something is to surround it, so one piece encloses another"
+         "text": "Topless",
+         "at": 0,
+         "note": "topless means the word loses its top, its first letter"
         }
        ],
        "parts": [
         {
          "words": "beekeeper",
-         "gives": "PIARIST",
-         "note": "an apiarist keeps bees; minus its first letter"
+         "at": 8,
+         "gives": "APIARIST",
+         "note": "an apiarist is someone who keeps bees"
         },
         {
-         "words": "trail",
-         "gives": "LAG",
-         "note": "to trail is to lag behind"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "trail",
+       "at": 30,
+       "gives": "LAG",
+       "note": "to trail is to lag, to fall behind"
       }
      ]
     },
     "explanation": {
-     "surface": "A shirtless beekeeper on a path, mocked for stale thinking.",
-     "walkthrough": "APIARIST is the formal word for a beekeeper; trail is a verb here, not a path.",
-     "definitionFit": "A plagiarist passes off borrowed work as original, so nothing he offers is new."
+     "surface": "A beekeeper with no shirt walks round a trail, and is mocked for unoriginal thinking.",
+     "walkthrough": "'Topless' strips the first letter, leaving PIARIST, and 'going round' wraps it around the trail word just after its P. The surface's beekeeper is only the fodder; the definition is the closing exclamation.",
+     "definitionFit": "A plagiarist copies other people's work and passes it off as their own, so nothing they offer is original."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "trail"
+     "joke": "absurd",
+     "misdirectedWord": "Topless"
     }
    }
   },
@@ -626,30 +632,38 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ELGAR",
-     "indicators": [
-      {
-       "text": "The origin of",
-       "note": "the origin is the starting point, so each listed title gives its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Emmaus, Liebesahnung, Gloria, Arthur and Rosemary",
-       "gives": "ELGAR",
-       "select": "first",
-       "note": "the initials of the five titles; 'and' is passed over"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "The origin of",
+         "at": 0,
+         "note": "the origin of each listed title is its opening letter, so the first letters are read off in order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Emmaus, Liebesahnung, Gloria, Arthur",
+         "at": 14,
+         "note": "four titles of pieces Elgar wrote or arranged, each word read as written"
+        }
+       ]
+      },
+      {
+       "words": "Rosemary",
+       "at": 55,
+       "gives": "R",
+       "note": "the same 'origin of' reaches across 'and' to this last title too, giving its initial; Rosemary is a short Elgar salon piece"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asks who lies behind five musical works.",
-     "walkthrough": "The italic titles are all works by the composer, so the whole clue both defines him and spells him. The 'and' merely joins the list.",
-     "definitionFit": "Edward Elgar, the English composer, wrote all five pieces, so he is literally their origin."
+     "surface": "A list of musical titles asks who first produced them all.",
+     "walkthrough": "'The origin of' takes the first letter of each of the five titles, ELGA from the first four and R from Rosemary; 'and' just links the last. The whole clue is also the definition: Edward Elgar composed or arranged all five pieces, so he is their origin.",
+     "definitionFit": "Sir Edward Elgar, the English composer, wrote or arranged each of these works, making him their creator or source."
     },
     "features": {
      "answerInScene": true,
@@ -726,43 +740,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "UTRECHT",
      "indicators": [
       {
        "text": "quivering",
-       "note": "quivering things shake about, so the letters are disturbed into a new order"
+       "at": 21,
+       "note": "quivering suggests shaking about, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "UTRECHT",
        "indicators": [
         {
          "text": "less",
-         "note": "less means minus, so a letter is taken away"
+         "at": 10,
+         "note": "less means the following item is taken away from the name"
         }
        ],
        "parts": [
         {
          "words": "Cuthbert",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "bold",
+         "at": 15,
          "gives": "B",
-         "note": "B is the abbreviation for bold type"
+         "note": "B is the printing abbreviation for bold type"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Cuthbert, now timid and trembling, somewhere in Holland.",
-     "walkthrough": "'Less bold' reads as timid, but it means remove the B. The remaining seven letters are shuffled.",
-     "definitionFit": "Utrecht is a city and province in the Netherlands, one of the Low Countries."
+     "surface": "A man called Cuthbert, now less brave, trembles somewhere in the Netherlands.",
+     "walkthrough": "'less' removes B (bold) from CUTHBERT, leaving CUTHERT, and 'quivering' rearranges those letters.",
+     "definitionFit": "Utrecht is a Dutch city, and the Netherlands forms part of the Low Countries with Belgium and Luxembourg."
     },
     "features": {
      "answerInScene": true,
@@ -1143,43 +1156,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANGINA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "clothing removed",
-       "note": "clothing is the outer covering, so stripping it takes off the outside letters"
+       "text": "to treat",
+       "at": 32,
+       "note": "to treat something is to work on it, so the remaining letters are processed into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "to treat",
-         "note": "treating something works it over, so the letters are reprocessed into a new order"
+         "text": "clothing removed",
+         "at": 5,
+         "note": "with its clothing removed the word loses its outer layer, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "managing",
-         "gives": "ANAGIN",
-         "note": "the word stripped of its first and last letters"
+         "at": 23,
+         "note": "the word managing is taken as written before its outer letters go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor, once undressed, sets about treating an illness.",
-     "walkthrough": "'Clothing' looks like garments taken off a patient, but it is the outer letters.",
-     "definitionFit": "Angina is a heart condition causing chest pain, a medical disorder."
+     "surface": "A doctor, having taken off a patient's clothes, manages to treat an illness.",
+     "walkthrough": "'clothing removed' strips the outside letters from MANAGING, leaving ANAGIN, and 'to treat' rearranges them.",
+     "definitionFit": "Angina is chest pain caused by restricted blood flow to the heart, a medical condition or complaint."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "clothing"
+     "misdirectedWord": "treat"
     }
    }
   },

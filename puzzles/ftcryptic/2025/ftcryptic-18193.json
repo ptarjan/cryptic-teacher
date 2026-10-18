@@ -110,64 +110,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EFFUSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "unopened",
-       "note": "something left unopened has lost its front, so the first letter goes"
+       "text": "bags",
+       "at": 55,
+       "note": "to bag is to hold in a bag, so the shortened rubbish wraps around the other letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "bags",
-         "note": "to bag something is to capture it, so one piece holds the other"
+         "text": "unopened",
+         "at": 38,
+         "note": "unopened means the word loses its opening letter"
         }
        ],
        "parts": [
         {
          "words": "rubbish",
-         "gives": "EFUSE",
-         "note": "rubbish is refuse; without its opening letter it loses the R"
+         "at": 47,
+         "gives": "REFUSE",
+         "note": "refuse is rubbish, household waste"
         },
         {
-         "op": "first",
-         "unchecked": true,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the very least",
+         "at": 7,
+         "note": "at the very least means the smallest possible part, the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "four or five",
+         "at": 25,
          "gives": "F",
-         "indicators": [
-          {
-           "text": "at the very least",
-           "note": "the very least of a word is its smallest starting part, here the initial both words share"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "four or five",
-           "gives": "F",
-           "select": "first",
-           "note": "both numbers begin with the same letter, so either way the first letter is the same"
-          }
-         ]
+         "note": "four and five both begin with F, and 'or' says one of them supplies a single F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garden shed holds at least four or five unopened bin bags of rubbish.",
-     "walkthrough": "The apostrophe-s stands for 'is', joining the definition to the wordplay. F slips in after the first two letters of the shortened rubbish.",
-     "definitionFit": "To effuse is to pour out or give off, as a liquid, light or smell is shed."
+     "surface": "Someone's shed holds at least four or five sacks of junk.",
+     "walkthrough": "'unopened' cuts the R from REFUSE, leaving EFUSE, and 'bags' wraps it round F, 'at the very least' the letter that 'four' and 'five' each start with. 'Shed's' is 'Shed is', the link to the wordplay.",
+     "definitionFit": "To effuse is to pour out or emit, as a liquid or light, which is a sense of shed."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Shed"
+     "misdirectedWord": "Shed's"
     }
    }
   },
@@ -309,26 +310,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "UNBLOCKS",
      "indicators": [
       {
        "text": "when cycling",
-       "note": "cycling sends letters round in a loop, so the first letter moves to the back"
+       "at": 23,
+       "note": "cycling means letters go round, the front letter moving to the end"
       }
      ],
      "parts": [
       {
        "words": "Factor 50, say",
+       "at": 7,
        "gives": "SUNBLOCK",
-       "note": "factor 50 is a strong sun cream, an example of sunblock"
+       "note": "factor 50 is a strong sun protection rating, an example of sunblock"
       }
      ]
     },
     "explanation": {
-     "surface": "Factor 50 sun cream clears your skin of danger while you are out cycling.",
-     "walkthrough": "'say' marks Factor 50 as an example of the word wanted; its first letter moves to the end.",
-     "definitionFit": "To unblock something is to free it of obstruction, so a drain that unblocks clears."
+     "surface": "Advice to wear high-factor sun cream on a bike ride.",
+     "walkthrough": "'when cycling' suggests a bike ride, but it moves the S at the front of SUNBLOCK to the back.",
+     "definitionFit": "To unblock a drain or pipe is to remove an obstruction, so unblocks is a synonym of clears."
     },
     "features": {
      "answerInScene": false,
@@ -591,40 +592,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBEDIENCE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "repeatedly denied opening",
-       "note": "denied its opening twice over means the front letter is removed, then the new front letter too"
+       "text": "linked to",
+       "at": 23,
+       "note": "linked to joins the honour to the front of the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "honour",
+       "at": 16,
+       "gives": "OBE",
+       "note": "the OBE, Officer of the Order of the British Empire, is a British honour"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "repeatedly denied opening",
+         "at": 53,
+         "note": "denied opening twice over means the first letter goes, then the new first letter goes too"
+        }
+       ],
        "parts": [
         {
-         "words": "honour",
-         "gives": "OBE",
-         "note": "the OBE is a British honour, the Order of the British Empire"
+         "words": "group of spectators",
+         "at": 33,
+         "gives": "AUDIENCE",
+         "note": "an audience is a group of people watching"
         },
         {
-         "words": "group of spectators",
-         "gives": "DIENCE",
-         "note": "an audience is a group of spectators; losing two front letters leaves the rest"
+         "gives": "AU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Duty is honoured, but the audience keeps being refused entry.",
-     "walkthrough": "AUDIENCE loses A, then U, before joining the honour.",
-     "definitionFit": "Obedience is the quality of doing as one is told, closely allied to dutifulness."
+     "surface": "A dutiful person receives an honour, but is kept out of the opening night again and again.",
+     "walkthrough": "'repeatedly denied opening' removes the first letter of AUDIENCE and then the first letter again, losing AU and leaving DIENCE.",
+     "definitionFit": "Obedience is doing what one is told, the quality of carrying out one's duty."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "opening"
     }
@@ -695,46 +707,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TSUNAMI",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means the final letter of the phrase before it is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Tense",
+       "at": 0,
+       "gives": "T",
+       "note": "T is the grammar abbreviation for tense"
+      },
+      {
+       "words": "half of weekend",
+       "at": 6,
+       "gives": "SUN",
+       "note": "Sunday is one of the weekend's two days, and SUN is its standard short form"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 38,
+         "note": "endless means the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Tense",
-         "gives": "T",
-         "note": "T is the grammar abbreviation for tense"
-        },
-        {
-         "words": "half of weekend",
-         "gives": "SUN",
-         "note": "the weekend is Saturday and Sunday; one half is the Sunday abbreviation"
-        },
-        {
          "words": "in the thick of",
-         "gives": "AMI",
-         "note": "in the thick of means amid, here without its last letter"
+         "at": 22,
+         "gives": "AMID",
+         "note": "amid means in the thick of, in the middle of"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Things get tense halfway through a weekend amid an unending catastrophe.",
-     "definitionFit": "A tsunami is a huge sea wave, often caused by an earthquake, that brings natural catastrophe to coasts."
+     "surface": "Someone is anxious halfway through the weekend while a calamity rages.",
+     "walkthrough": "The weekend is Saturday and Sunday, so half of it is SUN; 'endless' cuts the D from AMID (in the thick of).",
+     "definitionFit": "A tsunami is a huge sea wave caused by an earthquake, one of the most destructive natural catastrophes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "thick"
+     "misdirectedWord": "Tense"
     }
    }
   },
@@ -821,41 +839,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREENHORN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "chiefly",
-       "note": "chiefly means mostly, so the word after keeps all but its final letter"
+       "text": "introduces",
+       "at": 15,
+       "note": "introduces means the colour comes first, leading into the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Olive perhaps",
+       "at": 0,
+       "gives": "GREEN",
+       "note": "olive is a shade of green"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "chiefly",
+         "at": 27,
+         "note": "chiefly means mostly, so all but the last letter is kept"
+        }
+       ],
        "parts": [
         {
-         "words": "Olive perhaps",
-         "gives": "GREEN",
-         "note": "olive is one shade of green"
+         "words": "lustful",
+         "at": 35,
+         "gives": "HORNY",
+         "note": "horny is slang for lustful"
         },
         {
-         "words": "lustful",
-         "gives": "HORN",
-         "note": "lustful is horny, here with its final letter dropped"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl named Olive leads an innocent beginner into lust.",
-     "walkthrough": "Olive looks like a name; it is a colour. The quoted 'introduces' just puts the colour first.",
-     "definitionFit": "A greenhorn is an inexperienced newcomer, someone new and untrained in a job or place."
+     "surface": "A woman called Olive brings in a randy beginner.",
+     "walkthrough": "'Olive' looks like a woman's name but is an example of GREEN; 'chiefly' keeps most of HORNY, dropping the Y.",
+     "definitionFit": "A greenhorn is an inexperienced newcomer, someone raw and easily fooled."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Olive"
     }
    }
@@ -1064,41 +1094,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GOLDLEAF",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the reworked word inside the sport"
+       "at": 9,
+       "note": "in puts the rearranged letters inside the sport"
       }
      ],
      "parts": [
+      {
+       "words": "sport",
+       "at": 12,
+       "gives": "GOLF",
+       "note": "golf is a sport"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "New",
-         "note": "new suggests a fresh version, so the letters of the next word are remade"
+         "at": 0,
+         "note": "new means freshly made, so the letters of deal are formed into a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "deal",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "sport",
-         "gives": "GOLF",
-         "note": "golf is a sport"
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new sponsorship deal in a sport that is forever losing.",
-     "walkthrough": "Beaten here means hammered thin: gold leaf is gold beaten into very fine sheets.",
-     "definitionFit": "Gold leaf is made by goldbeaters hammering gold into extremely thin sheets for gilding."
+     "surface": "A new contract in sport for a team that always loses.",
+     "walkthrough": "The surface reads 'New deal in sport' as a contract, but 'New' only shuffles the four letters of deal before 'in' tucks them into the sport. The definition is the joke: gold leaf is made by beating gold very thin, so it is always beaten.",
+     "definitionFit": "Gold leaf is gold hammered into extremely thin sheets, so it is by its making a beaten material."
     },
     "features": {
      "answerInScene": false,
@@ -1693,47 +1724,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUSHI",
+     "op": "container",
      "indicators": [
       {
-       "text": "that doesn't close",
-       "note": "something that does not close lacks its ending, so the final letter is dropped"
+       "text": "kept in",
+       "at": 18,
+       "note": "kept in means the letters for America are held inside the shortened vessel"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "kept in",
-         "note": "kept in means held inside, so one piece sits within the other"
+         "text": "that doesn't close",
+         "at": 33,
+         "note": "a word that doesn't close lacks its closing letter"
         }
        ],
        "parts": [
         {
          "words": "vessel",
-         "gives": "SHI",
-         "note": "a ship is a vessel, here without its last letter"
+         "at": 26,
+         "gives": "SHIP",
+         "note": "a ship is a sea vessel"
         },
         {
-         "words": "America",
-         "gives": "US",
-         "note": "US is short for America"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "America",
+       "at": 10,
+       "gives": "US",
+       "note": "US is the usual abbreviation for America, the United States"
       }
      ]
     },
     "explanation": {
-     "surface": "American food is kept aboard a ship whose doors won't shut.",
-     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish, a kind of food."
+     "surface": "Food from the United States stored in a container left open.",
+     "walkthrough": "The surface's open container is a vessel in the nautical sense: 'that doesn't close' leaves SHI, and the abbreviation for America is 'kept in' it.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish or other toppings."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "close"
+     "misdirectedWord": "vessel"
     }
    }
   }

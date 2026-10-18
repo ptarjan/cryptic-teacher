@@ -638,52 +638,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TESTIFIER",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 12,
+       "note": "trial for the other piece means the trial word takes that piece's place"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "TESTIFIER",
+       "words": "Dummy",
+       "at": 0,
+       "gives": "PACIFIER",
+       "note": "a pacifier is the American word for a baby's dummy, the rubber teat babies suck"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for",
-         "note": "one thing stands in for another"
-        },
-        {
          "text": "rejected",
-         "note": "sent back, so the letters are written in reverse"
+         "at": 22,
+         "note": "rejected means the word is turned back on itself, read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Dummy",
-         "gives": "PACIFIER",
-         "note": "the American word for a baby's dummy"
-        },
-        {
-         "words": "trial",
-         "gives": "TEST",
-         "note": "trial = test, which replaces PAC"
-        },
-        {
-         "words": "Trump rejected",
-         "gives": "PAC",
-         "note": "to trump = to cap (outdo); CAP written backwards is PAC, removed from PACIFIER"
+         "words": "Trump",
+         "at": 16,
+         "gives": "CAP",
+         "note": "to trump is to cap, to go one better than"
         }
        ]
+      },
+      {
+       "words": "trial",
+       "at": 6,
+       "gives": "TEST",
+       "note": "a test is a trial"
       }
      ]
     },
     "explanation": {
-     "surface": "A mock trial staged for Donald Trump throws out a witness.",
-     "walkthrough": "'Trump' is not the president but the verb to outdo, which is CAP. A dummy is British for the rubber teat given to a baby, which Americans call a pacifier.",
-     "definitionFit": "A testifier is someone who gives evidence, a witness."
+     "surface": "A mock hearing staged for Donald Trump is thrown out, along with its witness.",
+     "walkthrough": "CAP (Trump) 'rejected' gives PAC, and in PACIFIER (Dummy) TEST (trial) stands 'for' that PAC. The surface makes Trump the US president, and PAC suits him too: a political action committee.",
+     "definitionFit": "A testifier is someone who gives evidence, as a witness does in court."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Trump"
     }
    }
@@ -1145,41 +1149,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "URBANLEGEND",
      "indicators": [
       {
        "text": "Timeless",
-       "note": "less means without, and time is T, so the phrase that follows drops a T"
+       "at": 0,
+       "note": "time is abbreviated T, so timeless means losing a T"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Timeless Punjabi",
-         "gives": "URBAN",
-         "note": "TURBAN, the headwear of a Sikh Punjabi star, without T (time)"
-        },
-        {
-         "words": "superstar",
-         "gives": "LEGEND",
-         "note": "a legend = a superstar"
-        },
-        {
-         "unchecked": true,
-         "words": "being fanciful?",
-         "note": "flags that 'turban legend' is a whimsical description, not a real phrase"
-        }
-       ]
+       "words": "Punjabi superstar being fanciful",
+       "at": 9,
+       "gives": "TURBANLEGEND",
+       "note": "read whimsically, a famous Sikh from the Punjab might be called a turban legend, after the turban many Sikh men wear"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrated Punjabi star whose fame may be exaggerated.",
-     "walkthrough": "The question mark flags 'turban legend' as a playful description of a Sikh Punjabi celebrity, not a real phrase.",
-     "definitionFit": "An urban legend is a widely told story that is not true."
+     "surface": "A celebrated Indian star is described as ageless, though the claim may be a fantasy.",
+     "walkthrough": "'being fanciful?' warns that 'Punjabi superstar' is a playful description, TURBAN LEGEND; 'Timeless' drops its T. Not every Punjabi wears a turban, hence the question mark.",
+     "definitionFit": "An urban legend is a widely repeated modern story, usually false, passed on as if it really happened."
     },
     "features": {
      "answerInScene": false,
@@ -1466,30 +1458,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPI",
+     "op": "middle",
      "indicators": [
       {
-       "text": "Content",
-       "note": "the content of a word is its inside, without the outer letters"
+       "text": "Content to",
+       "at": 0,
+       "note": "content to a word, what belongs to its inside, is what lies inside it, so its first and last letters are dropped"
       }
      ],
      "parts": [
       {
-       "words": "Content to clear",
-       "gives": "IMPI",
-       "note": "LIMPID (clear) without its outer letters"
+       "words": "clear",
+       "at": 11,
+       "gives": "LIMPID",
+       "note": "limpid means clear, as of water"
       }
      ]
     },
     "explanation": {
-     "surface": "Zulu warriors happy to clear out.",
-     "walkthrough": "'Content' reads as happy; it is the inside of the next word's synonym. An impi is a Zulu regiment.",
-     "definitionFit": "A Zulu word for an armed regiment, so a specialist term that names the fighters themselves."
+     "surface": "Someone is happy to get rid of a band of Zulu warriors.",
+     "walkthrough": "'Content' looks like 'happy' but means the inside of the word for clear, LIMPID, without its first and last letters.",
+     "definitionFit": "An impi is a regiment or armed band of Zulu warriors, as in the nineteenth-century Zulu army."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Content"
     }
@@ -1519,41 +1511,52 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "releasing",
-       "note": "letting go of the letters of the record"
+       "text": "to get hit",
+       "at": 38,
+       "note": "to get hit is to be knocked about, so the letters are scrambled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to get hit",
-         "note": "the letters take a beating and land in a new order"
+         "text": "releasing",
+         "at": 12,
+         "note": "releasing means letting these letters go from the trumpeter's surname"
         }
        ],
        "parts": [
         {
-         "words": "Alpert releasing record",
-         "gives": "AERT",
-         "note": "ALPERT without LP (a long-playing record)"
+         "words": "Alpert",
+         "at": 5
         },
         {
-         "words": "aim is",
-         "note": "anagram fodder"
+         "words": "record",
+         "at": 22,
+         "gives": "LP",
+         "note": "an LP is a long-playing record"
         }
        ]
+      },
+      {
+       "words": "aim",
+       "at": 31
+      },
+      {
+       "words": "is",
+       "at": 35
       }
      ]
     },
     "explanation": {
-     "surface": "The trumpeter Herb Alpert putting out a record meant to be a hit.",
-     "walkthrough": "'Herb Alpert' reads as the bandleader's full name, but 'Herb' is the definition. A 'hit' record sounds like success; here hit means knocked about.",
-     "definitionFit": "Artemisia is a genus of aromatic herbs including wormwood and tarragon."
+     "surface": "The trumpeter Herb Alpert puts out a record, hoping for a chart hit.",
+     "walkthrough": "'Herb' looks like the first name of Herb Alpert, the American trumpeter, but it is the definition. 'releasing' takes LP (record) out of ALPERT, leaving AERT, and 'to get hit' rearranges AERT with AIM and IS.",
+     "definitionFit": "Artemisia is a genus of aromatic plants including wormwood, mugwort and tarragon, used as culinary and medicinal herbs."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Herb"
     }

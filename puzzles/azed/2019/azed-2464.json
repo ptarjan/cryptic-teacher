@@ -184,58 +184,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PALPI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half of",
-       "note": "half of a word means keeping only one of its two halves and dropping the rest"
+       "text": "on",
+       "at": 37,
+       "note": "in a down clue, one piece on another sits above it, so the friend word comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "mate",
+       "at": 32,
+       "gives": "PAL",
+       "note": "a pal is a mate, a friend"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down entry, on means placed above, so one part sits on top of the next"
+         "text": "half of",
+         "at": 40,
+         "note": "half of means only one of the two halves of the reversed word is kept"
         }
        ],
        "parts": [
-        {
-         "words": "mate",
-         "gives": "PAL",
-         "note": "a pal is a friend or mate"
-        },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "upturned",
-           "note": "in a down clue upturned means turned upside down, so the letters read from bottom to top"
+           "at": 48,
+           "note": "in a down answer upturned means turned upside down, so the word is read bottom to top"
           }
          ],
          "parts": [
           {
            "words": "ship",
-           "gives": "IP",
-           "note": "the second half of the word ship"
+           "at": 57,
+           "gives": "SHIP",
+           "note": "ship is taken as written"
           }
          ]
+        },
+        {
+         "gives": "HS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crustacean feels for a mate on the hull of a capsized ship.",
-     "definitionFit": "Palpi are the jointed feelers near the mouth of arthropods, used as sense organs."
+     "surface": "A sailor stands with a friend on a capsized vessel, with a crab nearby.",
+     "walkthrough": "'upturned' reverses SHIP to PIHS, 'half of' keeps PI, and 'on' puts PAL (mate) above it in this down entry.",
+     "definitionFit": "Palpi, plural of palpus, are the jointed feelers near the mouth of crustaceans and insects, used for touch and taste."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "mate"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upturned"
     }
    }
   },
@@ -1049,39 +1056,41 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "UTIS",
      "indicators": [
       {
        "text": "less",
-       "note": "less means minus, so letters of the following word are taken away"
+       "at": 32,
+       "note": "less means the named letters are subtracted from the musician"
       },
       {
        "text": "at edges",
-       "note": "at edges says the removed letters come from the two ends of the word, not its middle"
+       "at": 42,
+       "note": "at edges says the letters to remove sit at the two ends of the musician, the start and the finish"
       }
      ],
      "parts": [
       {
        "words": "musician",
+       "at": 22,
        "gives": "FLAUTIST",
-       "note": "a flautist is a musician who plays the flute"
+       "note": "a flautist is a flute player"
       },
       {
        "words": "flat",
-       "note": "taken as written, the letters to be removed from the ends"
+       "at": 37,
+       "gives": "FLAT",
+       "note": "the word flat is taken as written, its letters split between the two ends"
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful racket comes from a player who is no longer playing flat.",
-     "walkthrough": "FLA comes off the front of the musician and T off the back, which together spell the removed word.",
-     "definitionFit": "Utis is an old Shakespearean word for a din, uproar or noisy merriment."
+     "surface": "A complaint that a flute player's dreadful racket would be better if less off-key at the margins.",
+     "walkthrough": "'flat' looks like a musical fault, but it is the letters taken away: FLA from the front of FLAUTIST and T from its end, which is what 'less' and 'at edges' instruct.",
+     "definitionFit": "Utis is a Shakespearean word for noisy merriment or confused din, now obsolete, hence 'once'."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "flat"
     }
    }
