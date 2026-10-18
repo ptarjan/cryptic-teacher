@@ -1055,38 +1055,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERRIFIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "rejecting lead",
-       "note": "the lead is the front letter and rejecting it throws it out"
+       "text": "New",
+       "at": 0,
+       "note": "something new is made afresh, so the remaining letters are rearranged into a fresh order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "New",
-         "note": "a new version is a remake, so these letters are rearranged"
+         "text": "rejecting lead",
+         "at": 14,
+         "note": "the lead of a word is its first letter, and rejecting it drops that letter from artificer"
         }
        ],
        "parts": [
         {
          "words": "artificer",
-         "gives": "RTIFICER",
-         "note": "the word without its first letter"
+         "at": 4
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh craftsman who refuses to take charge is excellent.",
-     "walkthrough": "An artificer is a skilled craftsman; 'lead' looks like the metal but means the first letter.",
-     "definitionFit": "Terrific in everyday use means excellent or outstanding, an informal adjective synonym."
+     "surface": "A newly hired craftsman, having refused to take charge, turns out to be excellent.",
+     "walkthrough": "'rejecting lead' removes A, the first letter of ARTIFICER, leaving RTIFICER; 'New' then rearranges those eight letters.",
+     "definitionFit": "Terrific is an informal adjective of strong praise, a close synonym of excellent or very good."
     },
     "features": {
      "answerInScene": false,
@@ -1478,48 +1480,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STATEMENT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in",
-       "note": "being in something means sitting within it, so one piece goes inside"
+       "text": "ahead of",
+       "at": 40,
+       "note": "ahead of places the blokes phrase before the letter for time"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "ahead of",
-         "note": "ahead of means placed in front, so this piece precedes the next"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Whitehall",
-         "gives": "STATE",
-         "note": "Whitehall, the London street of ministries, stands for the government or state"
-        },
-        {
-         "words": "blokes",
-         "gives": "MEN",
-         "note": "blokes are men"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        }
-       ]
+       "words": "blokes in Whitehall",
+       "at": 20,
+       "gives": "STATEMEN",
+       "note": "Whitehall is the street of UK government ministries, standing for the state, so its blokes are STATE MEN"
+      },
+      {
+       "words": "time",
+       "at": 49,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A government spokesman's formal account, delivered early.",
-     "walkthrough": "Whitehall is the London street of government departments, so it stands for the state; the blokes slot inside STATE + T.",
-     "definitionFit": "A statement is a formal written or spoken account of facts, as given to police or the press."
+     "surface": "An official report issued by civil servants in Whitehall before a deadline.",
+     "walkthrough": "Whitehall, the London street of government departments, is used as a metonym for the STATE, so its blokes are STATE MEN; 'ahead of' puts them before T.",
+     "definitionFit": "A statement is an official declaration or written account of facts, such as one given to police or published by a government."
     },
     "features": {
      "answerInScene": true,

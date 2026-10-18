@@ -478,32 +478,29 @@
      "indicators": [
       {
        "text": "no different when turned up",
-       "note": "in a down clue turning up reads bottom to top, and 'no different' says the word survives that unchanged"
+       "at": 24,
+       "note": "in a down entry, turned up means read from bottom to top, and no different means the word survives that unchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Live performance",
-       "note": "the definition: a concert, especially of pop or rock music"
-      },
-      {
-       "unchecked": true,
-       "words": "no different when turned up",
-       "note": "the answer reads the same from either end"
+       "at": 0,
+       "gives": "GIG",
+       "note": "a booked live show, and the same word is read again for the palindrome"
       }
      ]
     },
     "explanation": {
-     "surface": "A concert that sounds the same however loud the volume goes.",
-     "walkthrough": "'Turned up' suggests raising the volume, which suits a concert, but in a down answer it means reversed.",
-     "definitionFit": "Musicians call any single booked concert or club appearance a gig, informal musical slang."
+     "surface": "A concert that sounds the same however loudly it is turned up.",
+     "walkthrough": "'turned up' suggests a volume knob, but in a down clue it means reading the entry upwards; this three-letter word reads the same either way.",
+     "definitionFit": "A gig is a single booked live show by a band or comedian."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "up"
+     "misdirectedWord": "turned"
     }
    }
   },
@@ -1012,68 +1009,73 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNHEROIC",
      "indicators": [
       {
        "text": "in",
-       "note": "the shortened drug sits inside the letters from 'empty urban clubs'"
+       "at": 24,
+       "note": "in puts the shortened drug word inside the letters from urban and clubs"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "at": 27,
+           "note": "an empty word keeps only its outside letters, the first and last of urban"
+          }
+         ],
+         "parts": [
+          {
+           "words": "urban",
+           "at": 33,
+           "note": "urban emptied of its middle letters leaves its first and last"
+          }
+         ]
+        },
+        {
+         "words": "clubs",
+         "at": 39,
+         "gives": "C",
+         "note": "C is the card-suit abbreviation for clubs"
+        }
+       ]
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "UNHEROIC",
        "indicators": [
         {
          "text": "cut",
-         "note": "a cut word has been shortened, so the drug loses its final letter"
+         "at": 20,
+         "note": "cut means docked, so the drug word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "empty",
-             "note": "an empty word has lost its contents, leaving only the outer letters of 'urban'"
-            }
-           ],
-           "parts": [
-            {
-             "words": "urban",
-             "note": "first and last letters only"
-            }
-           ]
-          },
-          {
-           "words": "Class A drug",
-           "gives": "HEROI",
-           "note": "heroin without its tail"
-          },
-          {
-           "words": "clubs",
-           "gives": "C",
-           "note": "card-suit abbreviation"
-          }
-         ]
+         "words": "Class A drug",
+         "at": 7,
+         "gives": "HEROIN",
+         "note": "heroin is a Class A drug under UK law, the most harmful category"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police report on dealers selling cut heroin in abandoned city nightclubs.",
-     "walkthrough": "'Yellow' looks like a colour but means cowardly; 'cut' suggests drugs being adulterated, but it trims a letter.",
-     "definitionFit": "Being yellow is informal for lacking courage, which is the opposite of acting like a hero."
+     "surface": "A cowardly dealer has cut his heroin in the clubs of a deserted city.",
+     "walkthrough": "'Yellow' looks like a colour, but it is slang for cowardly, the opposite of heroic; the drug is docked by 'cut' before going in.",
+     "definitionFit": "Yellow is slang for cowardly, and someone who lacks bravery is unheroic."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Yellow"
     }
    }
@@ -1215,49 +1217,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANECDOTE",
+     "op": "composite",
      "indicators": [
       {
-       "text": "nervously",
-       "note": "acting nervously means jittering about, so the remaining letters are jumbled"
+       "text": "nervously forgetting",
+       "at": 13,
+       "note": "nervously suggests jittery jumbling of the letters, and forgetting says one named letter is left out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANECDOTE",
-       "indicators": [
-        {
-         "text": "forgetting",
-         "note": "what is forgotten is left out, so the letter for golf is removed from the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Act on edge",
-         "note": "the fodder, before one letter is dropped"
-        },
-        {
-         "words": "golf",
-         "gives": "G",
-         "note": "G in the NATO alphabet; this is the letter left out"
-        }
-       ]
+       "words": "Act on edge",
+       "at": 0
+      },
+      {
+       "words": "golf",
+       "at": 34,
+       "gives": "G",
+       "note": "Golf is the NATO phonetic alphabet word for G"
       }
      ]
     },
     "explanation": {
-     "surface": "A jittery golfer forgets his lines while telling a tale.",
-     "walkthrough": "'On edge, nervously' reads as a description of an actor, but 'on edge' is fodder and 'nervously' the signal to rearrange it.",
-     "definitionFit": "A short amusing account of a real incident is a kind of tale told in conversation."
+     "surface": "A performer, on edge before a show, forgets to talk about golf.",
+     "walkthrough": "'nervously forgetting' rearranges the letters of ACT ON EDGE with the G (golf) left out; the eight letters remaining make the answer.",
+     "definitionFit": "An anecdote is a short amusing or revealing story about a real incident."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "edge"
+     "misdirectedWord": "golf"
     }
    }
   },

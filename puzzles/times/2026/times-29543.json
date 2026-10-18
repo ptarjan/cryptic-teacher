@@ -750,7 +750,8 @@
      "indicators": [
       {
        "text": "higher",
-       "note": "in a down clue, higher means placed above, so the pot comes first"
+       "at": 22,
+       "note": "in a down entry, higher means placed above, so the pot chunk sits on top of the gambling word"
       }
      ],
      "parts": [
@@ -759,33 +760,37 @@
        "indicators": [
         {
          "text": "put into",
-         "note": "'put into' means placed inside, so the I is placed inside the pan"
+         "at": 39,
+         "note": "put into places the numeral inside the word for pot"
         }
        ],
        "parts": [
         {
-         "words": "higher pot",
+         "words": "pot",
+         "at": 29,
          "gives": "PAN",
          "note": "a pan is a cooking pot"
         },
         {
          "words": "one's",
+         "at": 33,
          "gives": "I",
-         "note": "I = one"
+         "note": "one is the Roman numeral I; the 's reads as 'is'"
         }
        ]
       },
       {
        "words": "gambling",
+       "at": 8,
        "gives": "STAKING",
-       "note": "staking = betting"
+       "note": "staking means betting or wagering money"
       }
      ]
     },
     "explanation": {
-     "surface": "Careful betting, with a bigger pot that you've put money into.",
-     "walkthrough": "'Pot' promises a poker kitty, but it is a pan, and 'higher' puts it above STAKING in this down entry.",
-     "definitionFit": "Painstaking work takes great care over every detail."
+     "surface": "A gambler raises the pot and puts one more chip into it.",
+     "walkthrough": "In a down clue 'higher' puts PAIN above STAKING; 'with' only joins the two halves.",
+     "definitionFit": "Painstaking means taking great pains, so it describes work that is thorough and meticulous."
     },
     "features": {
      "answerInScene": false,
@@ -1168,40 +1173,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARAGON",
-     "indicators": [
-      {
-       "text": "removing heels",
-       "note": "the heel of a word is its last letter, removed from each"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing",
+         "at": 19,
+         "note": "removing says letters are taken away, here the heel of the word for some"
+        }
+       ],
        "parts": [
         {
          "words": "some",
-         "gives": "PAR",
-         "note": "PART = some, less its last letter"
+         "at": 9,
+         "gives": "PART",
+         "note": "part means some, as in part of the cake"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heels",
+         "at": 28,
+         "note": "a heel is the bottom end, so the last letter of the pain word goes too; the plural covers both words"
+        }
+       ],
+       "parts": [
+        {
          "words": "pain",
-         "gives": "AGON",
-         "note": "AGONY = pain, less its last letter"
+         "at": 14,
+         "gives": "AGONY",
+         "note": "agony is intense pain"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashion model hobbling in pain until she takes off her high heels.",
-     "walkthrough": "The heels belong to the words, not the model's shoes. 'Model' means an ideal example.",
-     "definitionFit": "'Model' in the sense of a perfect example to copy is the plain synonym, not a fashion model."
+     "surface": "A fashion model is in some discomfort from taking off high heels.",
+     "walkthrough": "'removing heels' acts on both words, since 'heels' is plural: PART and AGONY each lose their last letter, leaving PAR and AGON.",
+     "definitionFit": "A paragon is a perfect example to be copied, which is a model in the sense of an exemplar."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "heels"
@@ -1230,40 +1254,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEDSIT",
      "indicators": [
       {
        "text": "to Spooner",
-       "note": "Rev Spooner swapped the first sounds of words"
+       "at": 30,
+       "note": "as the Reverend Spooner would say it, the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SED",
        "parts": [
         {
-         "unchecked": true,
          "words": "spoke",
-         "gives": "BED",
-         "soundsLike": "SED",
-         "note": "said, pronounced sed, takes the B from 'bit'"
-        },
-        {
-         "unchecked": true,
-         "words": "little",
-         "gives": "SIT",
-         "soundsLike": "BIT",
-         "note": "a bit is a little, and takes the S from 'said'"
+         "at": 17,
+         "gives": "SAID",
+         "note": "said is the past tense of say, meaning spoke, and it is pronounced 'sed'"
         }
        ]
+      },
+      {
+       "words": "little",
+       "at": 23,
+       "gives": "BIT",
+       "note": "a bit is a little"
       }
      ]
     },
     "explanation": {
-     "surface": "In a college combination room, the old Warden said little.",
-     "walkthrough": "A combination room is a common room at Cambridge colleges, which suits Spooner, an Oxford don. A bedsit combines bedroom and sitting room in one.",
-     "definitionFit": "A bedsit is a single room serving as both bedroom and sitting room."
+     "surface": "A senior common room where members barely talked to the old Warden of New College.",
+     "walkthrough": "The Spoonerism works by sound: SAID is said 'sed', so swapping its opening sound with that of BIT gives BED SIT. A combination room is the Cambridge name for a common room, a pun here.",
+     "definitionFit": "A bedsit is a single rented room serving as both bedroom and sitting room, so it combines two rooms in one."
     },
     "features": {
      "answerInScene": false,
@@ -1294,42 +1316,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXTRA",
+     "op": "container",
      "indicators": [
       {
-       "text": "affected",
-       "note": "affected letters are altered from their natural order"
+       "text": "cuts",
+       "at": 23,
+       "note": "cuts means slices into, so the cross letter goes inside the jumbled word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "cuts"
+         "text": "affected",
+         "at": 28,
+         "note": "affected here means altered or disturbed, so the letters of rate are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "affected rate",
-         "gives": "ETRA",
-         "note": "RATE rearranged"
-        },
-        {
-         "words": "cross",
-         "gives": "X",
-         "note": "a cross is an X"
+         "words": "rate",
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "cross",
+       "at": 17,
+       "gives": "X",
+       "note": "a cross is shaped like the letter X"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor on low pay, angry that cuts have hit his rate.",
-     "walkthrough": "'Cross' looks like angry but is the letter X.",
-     "definitionFit": "An extra is a film actor in a non-speaking crowd role, paid less than the cast."
+     "surface": "A poorly paid performer's angry outburst cuts their already lowered fee.",
+     "walkthrough": "'affected' rearranges RATE as ETRA, and 'cuts' slips X inside it. An extra is a film actor in a non-speaking crowd role, paid less than the cast.",
+     "definitionFit": "An extra is a background performer with no lines, ranking below the main cast in pay and billing."
     },
     "features": {
      "answerInScene": true,
@@ -1359,46 +1382,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MORATORIA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In lying",
+       "at": 0,
+       "note": "lying in means resting inside, so the speaker sits within the reversed word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "In",
-         "note": "the speaker goes in the reversed word"
-        },
-        {
-         "text": "lying about",
-         "note": "turned about, AIM lies backwards"
+         "text": "about",
+         "at": 9,
+         "note": "about means turned round, so the word for objective is read backwards"
         }
        ],
        "parts": [
         {
          "words": "objective",
-         "gives": "MIA",
-         "note": "AIM = objective, turned round"
-        },
-        {
-         "words": "public speaker",
-         "gives": "ORATOR",
-         "note": "an orator gives public speeches"
+         "at": 15,
+         "gives": "AIM",
+         "note": "an aim is an objective or goal"
         }
        ]
+      },
+      {
+       "words": "public speaker",
+       "at": 26,
+       "gives": "ORATOR",
+       "note": "an orator is a public speaker"
       }
      ]
     },
     "explanation": {
-     "surface": "A public speaker who lies about his goals freezes up.",
-     "walkthrough": "'Freezes' is a plural noun, not a verb: temporary bans. MORATORIA is the Latin plural of moratorium.",
-     "definitionFit": "A moratorium is a freeze on some activity; moratoria is its plural."
+     "surface": "A politician, lying about their goal, freezes when speaking in public.",
+     "walkthrough": "'freezes' looks like a verb but is a plural noun here, as in pay freezes, matching a Latin plural answer.",
+     "definitionFit": "A moratorium is an official suspension or temporary halt, which is a freeze on an activity such as lending."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "freezes"
+     "misdirectedWord": "lying"
     }
    }
   },

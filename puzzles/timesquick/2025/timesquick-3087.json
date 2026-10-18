@@ -563,41 +563,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TONIC",
-     "indicators": [
-      {
-       "text": "not to finish",
-       "note": "each word stops short of its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 29,
+         "note": "not, read with to finish, says the word for too is not allowed its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "too",
-         "gives": "TO",
-         "note": "TOO without its last letter"
+         "at": 20
         },
         {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to finish",
+         "at": 33,
+         "note": "a word's finish is its last letter, and the phrase applies to nice as well, which also loses its end"
+        }
+       ],
+       "parts": [
+        {
          "words": "nice",
-         "gives": "NIC",
-         "note": "NICE without its last letter"
+         "at": 24
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone decides a drink is too pleasant to leave unfinished.",
-     "walkthrough": "'Not to finish' applies to both words, not just the last; each loses its final letter.",
-     "definitionFit": "A definition by description: tonic water is the classic mixer poured with gin."
+     "surface": "A drinker finds a gin mixer so pleasant they cannot bring themselves to finish it.",
+     "walkthrough": "'not to finish' applies to both words: TOO and NICE each lose their last letter, giving TO and NIC.",
+     "definitionFit": "Tonic water is the classic mixer served with gin in a gin and tonic."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "finish"
     }
    }
