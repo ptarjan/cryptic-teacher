@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -527,56 +528,73 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRAJECTORY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "transporting",
-         "note": "A vehicle transporting a load carries it inside, so the letters go within rather than alongside."
+         "at": 24,
+         "note": "transporting means carrying inside, so the shortened jet rides within the vehicle word"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "hauling vehicle",
-           "gives": "TRACTOR",
-           "note": "A tractor is the machine that hauls a plough or a trailer."
-          },
-          {
-           "words": "most of jet",
-           "gives": "JE",
-           "note": "Most of the word, which is all of it bar the final letter."
-          }
-         ]
+         "words": "hauling vehicle",
+         "at": 8,
+         "gives": "TRACTOR",
+         "note": "a tractor is a vehicle used for hauling loads and farm machinery"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 37,
+           "note": "most of means all but the last letter of the word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "back to bay",
-           "gives": "Y",
-           "select": "last",
-           "note": "The letter at the back of the word 'bay'."
+           "words": "jet",
+           "at": 45
+          },
+          {
+           "gives": "T"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back to",
+         "at": 49,
+         "note": "back to means the rear letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bay",
+         "at": 57,
+         "note": "bay ends in Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tow truck hauling most of a jet back down to the harbour.",
-     "walkthrough": "'Back to bay' belongs to the towing picture and is really an instruction: take the letter standing at the back of the word 'bay'.",
-     "definitionFit": "A trajectory is the curved path a thrown or fired object follows through the air, so 'path' is the plain noun."
+     "surface": "A tow truck carrying a damaged jet back to its bay at the airfield.",
+     "walkthrough": "'most of jet' gives JE, which 'transporting' places inside TRACTOR; 'back to bay' adds Y.",
+     "definitionFit": "A trajectory is the curved route that a thrown or launched object follows through the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
     }
    }
   },
@@ -698,41 +716,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WORSELUCK",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to pen",
+       "at": 15,
+       "note": "to pen means to enclose, as in a sheep pen, so the rearranged clues go inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "try hard",
+       "at": 6,
+       "gives": "WORK",
+       "note": "to work is to try hard, put in effort"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to pen",
-         "note": "To pen animals is to shut them in an enclosure, so one word closes around the others."
-        },
-        {
          "text": "fresh",
-         "note": "Letters made fresh are made new, which here means put in an order they were not given in."
+         "at": 22,
+         "note": "fresh means new, so the letters of clues are made into a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "try hard",
-         "gives": "WORK",
-         "note": "To work at something is to try hard at it."
-        },
-        {
          "words": "clues",
-         "gives": "SELUC",
-         "note": "The five letters of 'clues' in a new order."
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setter struggling to write new crossword clues.",
-     "walkthrough": "'Sadly' opens the clue where an anagram indicator usually sits, and it is the definition; what it defines is a phrase you say, not an adverb.",
-     "definitionFit": "'Worse luck' is what you tack on to bad news — 'he isn't coming, worse luck' — which is the job 'sadly' does in a sentence."
+     "surface": "A setter labouring to write some new clues.",
+     "walkthrough": "'fresh' rearranges CLUES into SELUC, which sits inside WORK. 'Sadly' is the definition, not an anagram signal.",
+     "definitionFit": "Worse luck is an interjection of regret, a way of saying unfortunately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sadly"
     }
    }
   },
@@ -757,37 +782,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WALRUSES",
-     "indicators": [
-      {
-       "text": "Reversal",
-       "note": "A reversal turns a word end for end, so its letters are read the other way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Reversal of",
+         "at": 0,
+         "note": "reversal of means the next word is turned round and read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "rule",
-         "gives": "WAL",
-         "note": "A rule is a law, written out backwards."
-        },
-        {
-         "words": "tricks",
-         "gives": "RUSES",
-         "note": "A ruse is a trick, and the plural matches."
+         "at": 12,
+         "gives": "LAW",
+         "note": "a law is a rule"
         }
        ]
+      },
+      {
+       "words": "tricks",
+       "at": 17,
+       "gives": "RUSES",
+       "note": "ruses are tricks or wiles"
       }
      ]
     },
     "explanation": {
-     "surface": "A change in the rules catches the bathers out.",
-     "walkthrough": "'Rule' means law here, not a ruler or a reign, and it is the only word being turned; 'tricks' arrives the right way round.",
-     "definitionFit": "Walruses spend their lives swimming in Arctic water, so 'swimmers' names them by what they do, plural to match."
+     "surface": "Someone overturning a regulation through cunning schemes.",
+     "walkthrough": "'Reversal of' turns LAW into WAL; RUSES follows.",
+     "definitionFit": "Walruses are large marine mammals of the Arctic that swim and dive for their food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmers"
     }
    }
   },
@@ -996,60 +1027,87 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "APPEASE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 40,
+       "note": "following means coming after, so the reversed letters go after the shortened word"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "upset",
-         "note": "Upset, in a down entry, sends the letters back up the way they came."
-        },
-        {
-         "text": "following",
-         "note": "What follows something is written after it, so these letters take second place."
+         "text": "early closure of",
+         "at": 50,
+         "note": "early closure means the word is shut before its end, losing its final letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "APPEA",
-         "indicators": [
-          {
-           "text": "at last",
-           "note": "At last picks the letter each word ends on, here from two words in a row."
-          },
-          {
-           "text": "early closure of",
-           "note": "A closure that comes early shuts the word before its real ending, losing the final letter."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "attraction",
-           "gives": "APPEA",
-           "select": "last",
-           "note": "An attraction is an appeal, and the L it ends on never arrives."
-          }
-         ]
+         "words": "attraction",
+         "at": 67,
+         "gives": "APPEAL",
+         "note": "appeal is attraction, as in the appeal of a holiday"
         },
         {
-         "words": "Thorpe Park-goers",
-         "gives": "SE",
-         "note": "The final letters here are E and S, and they climb back up the grid the other way round."
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 8,
+         "note": "upset in a down clue means turned upside down, so these letters read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "at last",
+             "at": 32,
+             "note": "at last means the final letter of each of the two words, Thorpe and Park-goers"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Thorpe",
+             "at": 14,
+             "note": "Thorpe Park is a theme park in Surrey, England; Thorpe ends in E"
+            }
+           ]
+          },
+          {
+           "words": "Park-goers",
+           "at": 21,
+           "gives": "S",
+           "note": "at last applies here too: Park-goers, one hyphenated word, ends in S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Visitors to a theme park are annoyed when a ride shuts down early.",
-     "walkthrough": "Thorpe Park is a big English theme park, so 'Park-goers' reads as its visitors; 'upset' looks like their mood and is the instruction to read two letters upwards.",
-     "definitionFit": "To appease people is to satisfy them enough to quiet them, so 'satisfy' is the plain verb behind it."
+     "surface": "A theme park shuts a ride early and must placate its disappointed visitors.",
+     "walkthrough": "'at last' takes the final letters of Thorpe and Park-goers, and 'upset' reverses them. 'early closure of attraction' cuts APPEAL to APPEA, and 'following' puts the reversed pair after it.",
+     "definitionFit": "To appease someone is to calm them by giving them what they want, so to satisfy them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attraction"
     }
    }
   },
@@ -1530,37 +1588,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENDURING",
-     "indicators": [
-      {
-       "text": "leaves capital",
-       "note": "What leaves is the capital letter itself, the initial the name is written with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "foot",
+       "at": 9,
+       "gives": "END",
+       "note": "the foot of something is its end, as at the foot of the bed"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves capital",
+         "at": 29,
+         "note": "leaves capital means the opening letter, its capital, goes away"
+        }
+       ],
        "parts": [
         {
-         "words": "foot",
-         "gives": "END",
-         "note": "The foot of a page or a bed is its end."
+         "words": "mathematician",
+         "at": 15,
+         "gives": "TURING",
+         "note": "Alan Turing, the British mathematician and codebreaker"
         },
         {
-         "words": "mathematician",
-         "gives": "URING",
-         "note": "Alan Turing, the mathematician who broke Enigma, arrives without the T he is written with."
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "On foot, a mathematician walks out of the capital city.",
-     "walkthrough": "'Capital' wants to be a city, especially with a man leaving one; it is a capital letter, and the man is the only one who never goes anywhere.",
-     "definitionFit": "Something enduring goes on and on, 'going on' in the sense of continuing rather than of happening."
+     "surface": "A mathematician walking away from the capital city.",
+     "walkthrough": "'Going on foot' reads as walking, but 'foot' is END. 'capital' is the head letter, not a city: TURING drops its T.",
+     "definitionFit": "Enduring means continuing or lasting over time, which is what going on describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
     }
    }
   }
