@@ -1840,51 +1840,56 @@
      "indicators": [
       {
        "text": "checked by",
-       "note": "something checked is stopped in its tracks, held up by what blocks it, so one piece sits inside"
+       "at": 13,
+       "note": "checked by means the number is stopped partway through, with the other letters cutting in"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "number",
-         "gives": "EIGHT",
-         "note": "eight is a number"
-        },
-        {
-         "words": "fine",
-         "gives": "YES",
-         "note": "'Fine' and 'yes' both signal agreement"
-        }
-       ]
+       "words": "number",
+       "at": 6,
+       "gives": "EIGHT",
+       "note": "eight is a number"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "in the end",
-         "note": "the end of a word is its last letter, so only that is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "inspector",
-         "note": "its final letter"
+         "words": "fine",
+         "at": 24,
+         "gives": "YES",
+         "note": "fine said as agreement means yes"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "in the end",
+           "at": 39,
+           "note": "in the end takes the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "inspector",
+           "at": 29,
+           "gives": "R",
+           "note": "last letter of inspector"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An inspector finally checks a numbered order and fines it.",
-     "walkthrough": "'Order' is a command, not a sequence, and 'number' is a specific number.",
-     "definitionFit": "Eyes right is a military command on parade telling soldiers to turn their heads rightward in salute."
+     "surface": "A number is examined by an exacting inspector at the finish.",
+     "definitionFit": "Eyes right is a military command on parade telling troops to turn their heads to the right."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Order"
+     "misdirectedWord": "checked"
     }
    }
   }
