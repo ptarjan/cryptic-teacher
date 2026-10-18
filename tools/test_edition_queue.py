@@ -52,6 +52,13 @@ def check(what, want, got):
         fails += 1
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
+for _val, _want in ((None, 1200), ("", 1200), ("3600", 3600.0), ("abc", 1200), ("0", 1200), ("-5", 1200)):
+    os.environ.pop("CT_READ_SECONDS_T", None)
+    if _val is not None:
+        os.environ["CT_READ_SECONDS_T"] = _val
+    check(f"seconds_from_env({_val!r})", _want, eq.seconds_from_env("CT_READ_SECONDS_T", 1200))
+os.environ.pop("CT_READ_SECONDS_T", None)
+
 T = Path(os.environ["TMP"])
 eq.DIR_CACHE, eq.HELD_CACHE, eq.LIKELY_CACHE = T / "dir_cache.pickle", T / "held_files.pickle", T / "likely.pickle"  # never this host's caches
 eq.COUNT_LEFT_CACHE = T / "count_left.pickle"
