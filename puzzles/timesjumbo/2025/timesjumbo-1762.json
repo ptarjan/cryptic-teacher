@@ -141,52 +141,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "a new version of the letters is a rearranged one, a fresh mix"
-      }
-     ],
      "parts": [
       {
        "words": "Setter's",
+       "at": 0,
        "gives": "IM",
-       "note": "the setter is I, so setter's = I'M, I am"
+       "note": "the setter refers to themselves as I, so setter's is I'm, written IM"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "infused with"
+         "text": "infused with",
+         "at": 27,
+         "note": "infused with means the mixed drink has the cognac steeped inside it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "dash of",
-           "note": "a dash is a small splash of drink, here just the first letter"
+           "text": "new",
+           "at": 9,
+           "note": "new means the letters form a new arrangement"
           }
          ],
          "parts": [
           {
-           "words": "tipple — beer",
-           "note": "anagram fodder, rearranged by 'new'"
+           "words": "tipple",
+           "at": 13
           },
           {
-           "op": "first",
-           "unchecked": true,
-           "gives": "C",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "dash of cognac",
-             "gives": "C",
-             "select": "first",
-             "note": "first letter of cognac, mixed in with the fodder"
-            }
-           ]
+           "words": "beer",
+           "at": 22
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "dash of",
+           "at": 40,
+           "note": "a dash of something is a small amount, here its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cognac",
+           "at": 48
           }
          ]
         }
@@ -195,14 +199,14 @@
      ]
     },
     "explanation": {
-     "surface": "The setter describes a new drink: beer with a splash of brandy.",
-     "walkthrough": "The ’s on Setter is a contraction, not a possessive: the setter is I, so it gives I'M. 'Infused with' tells you the C joins the beer before the shake-up.",
-     "definitionFit": "Something too faint or small to be noticed at all is slight in the extreme, so the adjective swaps cleanly for the phrase."
+     "surface": "The setter tries a fresh drink: beer laced with a splash of brandy.",
+     "walkthrough": "The surface reads 'new tipple' as a novel drink, but 'new' is the signal to rearrange; the dash is a tiny splash, so just one letter.",
+     "definitionFit": "Imperceptible means so slight or small it cannot be noticed or detected."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "tipple"
     }
    }
   },
@@ -342,35 +346,38 @@
      "indicators": [
       {
        "text": "surrounded by",
-       "note": "a thing surrounded by another is enclosed in it"
+       "at": 29,
+       "note": "surrounded by means these letters sit inside the word for deceased"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "deceased",
-         "gives": "LATE",
-         "note": "the late X = the deceased X; its letters wrap round the filling"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R = right"
-        }
-       ]
+       "words": "deceased",
+       "at": 43,
+       "gives": "LATE",
+       "note": "the late means the dead, so deceased is late"
       },
       {
-       "words": "in",
-       "note": "the word itself, placed after R"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 19,
+         "gives": "R"
+        },
+        {
+         "words": "in",
+         "at": 25,
+         "gives": "IN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grim battlefield picture: a soldier goes in among the dead.",
-     "walkthrough": "'Goes' in the definition means answers a call of nature, not advances. The word 'in' reads as part of the soldier's movement but gives its own letters here.",
-     "definitionFit": "Army camps dig a communal toilet trench, so this is where a soldier relieves himself; 'goes' is the euphemism."
+     "surface": "A soldier walks right in among the dead.",
+     "walkthrough": "'goes' looks like marching but is a polite euphemism for using the toilet.",
+     "definitionFit": "A latrine is a communal toilet, especially in a military camp, which is where a soldier relieves himself."
     },
     "features": {
      "answerInScene": true,
@@ -776,36 +783,37 @@
      "indicators": [
       {
        "text": "invested in",
-       "note": "money invested in something is put into it, so the letters go inside"
+       "at": 11,
+       "note": "invested in means these letters are put inside the word for miniature"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "miniature",
-         "gives": "TOY",
-         "note": "a toy dog is a miniature one; TOY holds the rest"
-        },
-        {
-         "words": "Each",
-         "gives": "EA",
-         "note": "EA = each"
-        }
-       ]
+       "words": "miniature",
+       "at": 23,
+       "gives": "TOY",
+       "note": "toy describes something small, as in a toy dog"
       },
       {
-       "words": "penny",
-       "gives": "P",
-       "note": "P = penny"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Each",
+         "at": 0,
+         "gives": "EA"
+        },
+        {
+         "words": "penny",
+         "at": 5,
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Every penny spent on a doll's-house table.",
-     "walkthrough": "The answer is a small three-legged side table, originally from India; the word is rare, so the wordplay does the work.",
-     "definitionFit": "This is a small tripod stand from India, often used to hold a tea caddy, which suggests its folk link with tea."
+     "surface": "Every penny is put into a dolls' house table.",
+     "definitionFit": "A teapoy is a small three-legged side table, often used for holding a tea service."
     },
     "features": {
      "answerInScene": true,
@@ -1353,52 +1361,54 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in means these letters go inside the school abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "school",
+       "at": 25,
+       "gives": "SCH"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "school",
-         "gives": "SCH",
-         "note": "SCH = school; it is split round the filling"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "At first",
-           "note": "what comes at first is at the start, so take the opening letter"
-          },
-          {
-           "text": "in",
-           "note": "what is in something sits inside it"
+           "at": 0,
+           "note": "at first means only the opening letter is taken"
           }
          ],
          "parts": [
           {
-           "words": "At first, teaching",
-           "gives": "TEACHING",
-           "note": "first letter of teaching"
+           "words": "teaching",
+           "at": 10
           }
          ]
+        },
+        {
+         "words": "IT",
+         "at": 19,
+         "gives": "IT"
         }
        ]
-      },
-      {
-       "words": "IT",
-       "note": "used as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher's grumble that teaching IT in schools is a chore.",
-     "walkthrough": "'Is a bit of a pain' sounds like a complaint about the lessons, but 'a bit of a pain' is a noun: the answer is a sharp pain in the side.",
-     "definitionFit": "Runners get a sudden sharp cramp in the side, a brief twinge rather than a lasting ache."
+     "surface": "Starting to teach computing in a school is a mild headache.",
+     "definitionFit": "A stitch is a sharp pain in the side, often from running, so a small ache."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "pain"
     }
    }
@@ -1893,46 +1903,43 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means encircling, so the word for cut goes round the letters"
+       "at": 13,
+       "note": "around means the cut surrounds the letters"
       }
      ],
      "parts": [
       {
        "words": "cut",
+       "at": 9,
        "gives": "INCISION",
-       "note": "an incision is a cut; it wraps round DE"
+       "note": "an incision is a cut, as made by a surgeon"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "edges of",
-         "note": "the edges of something are its outer parts, so take the first and last letters"
+         "at": 20,
+         "note": "the edges of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "edges of drive",
-         "gives": "DE",
-         "select": "outer",
-         "note": "outer letters of DrivE"
+         "words": "drive",
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mower dithering, cutting only round the edges of the driveway.",
-     "walkthrough": "Wavering is here a noun, as in 'after much wavering', so it matches the answer.",
-     "definitionFit": "Wavering as a noun is dithering, the state of being unable to make up your mind."
+     "surface": "Hesitation cuts in at the margins of a driveway.",
+     "definitionFit": "Indecision is an inability to make up one's mind, which is shown by wavering."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "drive"
     }
    }
   },
@@ -2010,58 +2017,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Poor",
-       "note": "a poor version is a bad one, so the letters come out in a bad order"
+       "text": "masking",
+       "at": 16,
+       "note": "masking means the rearranged letters hide the next letter inside them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "masking",
-         "note": "a mask hides what is behind it"
+         "text": "Poor",
+         "at": 0,
+         "note": "poor means badly done, so the letters are reassembled"
         }
        ],
        "parts": [
         {
          "words": "chancellor",
-         "note": "anagram fodder, rearranged by 'Poor'"
-        },
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "onset of",
-           "note": "the onset is the beginning, so take the first letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "onset of tears",
-           "gives": "T",
-           "select": "first",
-           "note": "first letter of tears, masked inside the fodder"
-          }
-         ]
+         "text": "onset of",
+         "at": 24,
+         "note": "the onset of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chancellor holding back tears in a public hall.",
-     "walkthrough": "The Chancellor of the Exchequer is Britain's finance minister, which makes a 'poor chancellor' a neat joke.",
-     "definitionFit": "A large building for orchestral performances has a seated auditorium; the whole venue is named by example."
+     "surface": "A struggling finance minister hides the start of his crying.",
+     "definitionFit": "A concert hall is a large venue for musical performances, with seating for an audience."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Poor"
     }
@@ -2543,46 +2547,43 @@
      "indicators": [
       {
        "text": "enveloping",
-       "note": "an envelope wraps what it holds"
+       "at": 21,
+       "note": "enveloping means the word wraps round the letter"
       }
      ],
      "parts": [
       {
        "words": "power cut",
+       "at": 11,
        "gives": "OUTAGE",
-       "note": "a power outage is a cut in supply; it holds R"
+       "note": "an outage is a power failure"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "the centre of",
-         "note": "the centre is the middle, so take the middle letter"
+         "at": 32,
+         "note": "the centre of a five-letter word is its third letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the centre of Paris",
-         "gives": "R",
-         "select": "middle",
-         "note": "middle letter of PaRis"
+         "words": "Paris",
+         "at": 46
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scandal over a blackout across central Paris.",
-     "walkthrough": "'Of' links the definition to the wordplay; 'Scandal of' is not a phrase to keep together.",
-     "definitionFit": "A shocking act or public furore, the kind that makes headlines, is a synonym for a scandal."
+     "surface": "A blackout across central Paris causes public uproar.",
+     "definitionFit": "An outrage is a shocking act causing public anger, much as a scandal does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "centre"
+     "misdirectedWord": "power"
     }
    }
   },
@@ -2769,38 +2770,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "what is in something sits inside it"
+       "at": 31,
+       "note": "in means these letters go inside the abbreviation for the province"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "province",
-         "gives": "NI",
-         "note": "Northern Ireland is often called the Province; NI holds the rest"
-        },
-        {
-         "words": "I",
-         "note": "used as written"
-        }
-       ]
+       "words": "province",
+       "at": 34,
+       "gives": "NI",
+       "note": "NI is Northern Ireland, often called the Province"
       },
       {
-       "words": "mostly see",
-       "gives": "SE",
-       "note": "SEE without its last letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 18,
+         "gives": "I"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 20,
+           "note": "mostly means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "see",
+           "at": 27,
+           "gives": "SEE",
+           "note": "see is taken as written before trimming"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Japanese-American speaking of what they mostly see in their region.",
-     "walkthrough": "The answer means a child of Japanese immigrants born in the US or Canada; it is a rare word, built here from simple parts.",
-     "definitionFit": "Japanese for 'second generation', it names US-born children of immigrants from Japan."
+     "surface": "I mostly see myself living in a certain region.",
+     "walkthrough": "Northern Ireland is called the Province in British usage.",
+     "definitionFit": "A Nisei is a person born in the Americas to Japanese immigrant parents, a second-generation Japanese-American."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "province"
     }

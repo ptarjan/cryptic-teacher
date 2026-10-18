@@ -924,50 +924,56 @@
      "indicators": [
       {
        "text": "gathering",
-       "note": "gathering means taking in, so one word encloses others"
+       "at": 14,
+       "note": "gathering means the card takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Spade perhaps",
-         "gives": "CARD",
-         "note": "a spade is a playing card suit"
-        },
-        {
-         "words": "up",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Spade perhaps",
+       "at": 0,
+       "gives": "CARD",
+       "note": "a spade is one example of a playing card suit, so a card"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "most of",
-         "note": "most but not all means the final letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "box",
-         "note": "taken as written, shortened by its last letter"
+         "words": "up",
+         "at": 24,
+         "gives": "UP"
         },
         {
-         "gives": "X"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 27,
+           "note": "most of means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "box",
+           "at": 35,
+           "gives": "BOX"
+          },
+          {
+           "gives": "X"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garden spade scoops up most of a box, perhaps to hold food.",
-     "definitionFit": "A cupboard is a cabinet, often in a kitchen, where food is stored."
+     "surface": "A garden tool scooping up a box of food.",
+     "walkthrough": "'Spade' looks like the digging tool; here it is a suit of playing cards.",
+     "definitionFit": "A cupboard is a cabinet with shelves where food and crockery are stored, hence the question mark."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Spade"
     }

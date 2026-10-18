@@ -51,36 +51,39 @@
      "indicators": [
       {
        "text": "Consuming",
-       "note": "the doctor eats the other letters, so they end up inside him"
+       "at": 0,
+       "note": "consuming means the doctor's letters swallow up the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "doctor",
-         "gives": "DR",
-         "note": "DR = doctor, opened up to take the rest in"
-        },
-        {
-         "words": "more rum",
-         "gives": "ODDER",
-         "note": "rum = odd, so more rum = odder"
-        }
-       ]
+       "words": "doctor's",
+       "at": 28,
+       "gives": "DR",
+       "note": "DR is the abbreviation for doctor"
       },
       {
-       "words": "English",
-       "gives": "E",
-       "note": "E = English"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "more rum",
+         "at": 10,
+         "gives": "ODDER",
+         "note": "rum means odd, so more rum is odder"
+        },
+        {
+         "words": "English",
+         "at": 20,
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heavy-drinking English doctor is written off as a weakling.",
-     "walkthrough": "'Rum' looks like the drink; here it is the old adjective meaning strange, so 'more rum' is ODDER, which goes inside DR along with E.",
-     "definitionFit": "A dodderer is someone shaky and frail, a feeble sort."
+     "surface": "An English doctor drinking more rum is a weak character.",
+     "walkthrough": "'rum' looks like the drink, but here it is the British word for strange.",
+     "definitionFit": "A dodderer is someone shaky and infirm, usually through old age, so a weak or feeble person."
     },
     "features": {
      "answerInScene": true,
@@ -161,46 +164,38 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "on vacation",
-       "note": "a word that has been vacated keeps only its outside letters"
+       "text": "ruined",
+       "at": 32,
+       "note": "ruined means the letters are wrecked and rebuilt in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "ruined",
-         "note": "the letters are wrecked and rebuilt in a new order"
+         "text": "on vacation",
+         "at": 20,
+         "note": "a word on vacation is emptied of its middle, leaving only its outside letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "LS",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "legs on vacation",
-           "gives": "LS",
-           "select": "outer",
-           "note": "LEGS emptied of its middle leaves L…S"
-          }
-         ]
-        },
-        {
-         "words": "despair",
-         "note": "anagram fodder with LS"
+         "words": "legs",
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "despair",
+       "at": 44
       }
      ]
     },
     "explanation": {
-     "surface": "A holiday ruined, legs sprawled out in despair.",
-     "walkthrough": "'Of legs' looks like part of the definition, a spreading of legs; the definition stops at 'A spreading', and legs is emptied to LS for the anagram.",
-     "definitionFit": "A plain synonym: scattering things over a wide area is spreading them."
+     "surface": "Someone sprawls out on holiday, sunk in hopeless gloom.",
+     "walkthrough": "Legs emptied leaves LS; mix LS with DESPAIR.",
+     "definitionFit": "Dispersal is the act of scattering or distributing things widely, which is a spreading."
     },
     "features": {
      "answerInScene": false,
@@ -376,7 +371,8 @@
     "definitions": [
      {
       "text": "that's fishy",
-      "at": 38
+      "at": 38,
+      "note": "facetious definition: the answer is a thing that is a fish"
      }
     ],
     "wordplay": {
@@ -384,35 +380,39 @@
      "indicators": [
       {
        "text": "opens",
-       "note": "the politician forces the hut open and sits inside it"
+       "at": 22,
+       "note": "opens means the politician splits the shelter open by going inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "shelter",
-         "gives": "HUT",
-         "note": "a hut is a shelter"
-        },
-        {
-         "words": "A",
-         "note": "as written"
-        }
-       ]
+       "words": "shelter",
+       "at": 28,
+       "gives": "HUT",
+       "note": "a hut is a simple shelter"
       },
       {
-       "words": "one-time politician",
-       "gives": "LIB",
-       "note": "LIB = Liberal, the party the Liberal Democrats replaced"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "one-time politician",
+         "at": 2,
+         "gives": "LIB",
+         "note": "Lib is short for Liberal, a member of the old UK Liberal Party, which merged in 1988"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former MP moves into a shed, and something smells off.",
-     "walkthrough": "'That's fishy' sounds like suspicion; taken literally it is the definition, something that is a fish.",
-     "definitionFit": "A definition by example with a twist: 'fishy' usually means suspect, but here it means literally a fish, and the flatfish qualifies."
+     "surface": "A former MP opening a shed sounds like a suspicious story.",
+     "walkthrough": "'fishy' looks like it means suspicious; here it simply says the answer is a fish.",
+     "definitionFit": "The halibut is a large flatfish of northern seas, so it is literally a fishy thing."
     },
     "features": {
      "answerInScene": false,
