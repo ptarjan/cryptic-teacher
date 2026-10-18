@@ -43,28 +43,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EPEE",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something cut short loses its end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 21,
+         "note": "short tells us to cut the last letter off the word for aristocrat"
+        }
+       ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation for English"
+         "words": "aristocrat's",
+         "at": 8,
+         "gives": "PEER",
+         "note": "a peer is a member of the aristocracy"
         },
         {
-         "words": "aristocrat's",
-         "gives": "PEE",
-         "note": "an aristocrat is a peer; the 's stands for 'is', and the peer is short of its last letter"
+         "gives": "R"
         }
        ]
       }
@@ -72,9 +75,9 @@
     },
     "spelling": "ÉPÉE",
     "explanation": {
-     "surface": "A British nobleman carries a small sword at his side.",
-     "walkthrough": "The 's reads as 'is': the aristocrat is short, so PEER loses its R.",
-     "definitionFit": "An épée is a fencing weapon, a thrusting sword with a stiff blade."
+     "surface": "A British nobleman carries a compact blade.",
+     "walkthrough": "'short sword' reads as one phrase, but 'short' docks PEER to PEE, and 'sword' alone is the definition.",
+     "definitionFit": "The épée is a thin thrusting blade used in modern fencing."
     },
     "features": {
      "answerInScene": true,
@@ -366,36 +369,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASPIC",
-     "indicators": [
-      {
-       "text": "chopped",
-       "note": "something chopped has a piece cut off its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "chopped",
+         "at": 2,
+         "note": "chopped tells us to cut the final letter from the word for pungent"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "pungent",
+         "at": 10,
+         "gives": "SPICY",
+         "note": "spicy food is pungent and hot"
         },
         {
-         "words": "pungent",
-         "gives": "SPIC",
-         "note": "spicy, losing its last letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A finely cut spicy condiment for the table.",
-     "walkthrough": "'Chopped' looks like kitchen work on the relish; it trims the word for pungent.",
-     "definitionFit": "Aspic is a savoury jelly served alongside meats, loosely an accompaniment or relish."
+     "surface": "A chutney of finely cut, sharp-tasting ingredients.",
+     "walkthrough": "'chopped' looks like kitchen prep, but it docks SPICY to SPIC.",
+     "definitionFit": "Aspic is a savoury jelly served as an accompaniment to cold meats, loosely a relish."
     },
     "features": {
      "answerInScene": true,
@@ -1244,45 +1250,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "cooked",
-       "note": "cooked means prepared or tampered with, so the letters are reworked"
+       "text": "tucked in",
+       "at": 30,
+       "note": "tucked in says the word for chaps goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "tucked in",
-         "note": "things tucked in are placed inside something else"
+         "text": "cooked",
+         "at": 15,
+         "note": "cooked suggests the letters of pot and I are worked over into a new order"
         }
        ],
        "parts": [
         {
-         "words": "pot I",
-         "note": "these letters rearranged; the outer piece"
+         "words": "pot",
+         "at": 9
         },
         {
-         "words": "chaps",
-         "gives": "MEN",
-         "note": "chaps are men"
+         "words": "I",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "chaps",
+       "at": 24,
+       "gives": "MEN",
+       "note": "chaps are men"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook prepares a pot of peppers, and the men tuck into it.",
-     "walkthrough": "The surface makes 'tucked in' mean eating; here it means placed inside the rearranged letters.",
-     "definitionFit": "A pimento is a sweet red pepper, also called a pimiento."
+     "surface": "A pepper pot is prepared while men sit down to eat.",
+     "walkthrough": "'pot' looks like part of 'pepper pot', but the pepper is the definition and the pot is anagram fodder.",
+     "definitionFit": "The pimento is a sweet red capsicum, a kind of pepper often stuffed into olives."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tucked"
+     "joke": "pun",
+     "misdirectedWord": "pot"
     }
    }
   },
