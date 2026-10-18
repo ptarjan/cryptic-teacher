@@ -89,42 +89,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "NOBLE",
-     "indicators": [
-      {
-       "text": "delaying",
-       "note": "delaying a letter means holding it back so it turns up later in the word than before"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Chemist",
-       "gives": "NOBEL",
-       "note": "Alfred Nobel, the Swedish chemist who founded the Nobel prizes"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "delaying",
+         "at": 8,
+         "note": "delaying means holding back, so the E of the chemist's name is held back and comes at the end instead"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chemist",
+         "at": 0,
+         "gives": "NOBEL",
+         "note": "Alfred Nobel, founder of the Nobel prizes, was a Swedish chemist"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately points to the final letter of the word it follows"
+         "at": 26,
+         "note": "ultimately points to the last letter of medicine"
         }
        ],
        "parts": [
         {
          "words": "medicine",
-         "note": "the last letter of medicine, which is already the fourth letter of the chemist's name"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pharmacist holding back a prescription for a member of the aristocracy.",
-     "walkthrough": "The E of the chemist's name is moved from fourth place to the end: NOBEL becomes NOBLE.",
-     "definitionFit": "A peer of the realm is a noble, a member of the titled aristocracy."
+     "surface": "A pharmacist slow to dispense the drugs to a lord.",
+     "walkthrough": "'Chemist' looks like a pharmacist but is the inventor of dynamite; delaying the final letter of medicine means letting it arrive later in his name than it did.",
+     "definitionFit": "A peer is a member of the nobility, a lord or lady, so a noble."
     },
     "features": {
      "answerInScene": false,

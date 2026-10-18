@@ -43,74 +43,82 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLAPJACK",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "a word that is cut has lost its tail, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 31,
+         "note": "revolutionary means turning round, so the whole construction is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "container",
          "indicators": [
           {
-           "text": "revolutionary",
-           "note": "a revolution turns things right round, so the combined letters are read backwards"
+           "text": "in",
+           "at": 19,
+           "note": "in places the pieces inside the shortened café"
           }
          ],
          "parts": [
           {
-           "op": "container",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "in",
-             "note": "being in something means sitting inside it, so one group goes within the other"
+             "text": "cut",
+             "at": 27,
+             "note": "cut means shortened, so the last letter of café goes"
             }
            ],
            "parts": [
             {
              "words": "café",
-             "gives": "CAF",
-             "note": "the word loses its final letter"
+             "at": 22,
+             "gives": "CAFE",
+             "note": "the word café as written"
             },
             {
-             "op": "charade",
-             "parts": [
-              {
-               "words": "Juliet",
-               "gives": "J",
-               "note": "J is Juliet in the NATO phonetic alphabet"
-              },
-              {
-               "words": "friend",
-               "gives": "PAL",
-               "note": "a pal is a friend"
-              }
-             ]
+             "gives": "E"
+            }
+           ]
+          },
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Juliet",
+             "at": 0,
+             "gives": "J",
+             "note": "J is Juliet in the NATO phonetic alphabet"
+            },
+            {
+             "words": "friend",
+             "at": 12,
+             "gives": "PAL",
+             "note": "a pal is a friend"
             }
            ]
           }
          ]
-        },
-        {
-         "words": "king",
-         "gives": "K",
-         "note": "K is the chess abbreviation for king"
         }
        ]
+      },
+      {
+       "words": "king",
+       "at": 45,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl and her friend in a café order a slice of a cake named after a revolutionary king.",
-     "walkthrough": "'Revolutionary king' reads as one figure, but the turning applies only to everything before 'king'; the king is added afterwards, unturned, at the end.",
-     "definitionFit": "A flapjack is a baked oat bar, sold in British cafés as a type of small sweet traybake."
+     "surface": "Juliet and a friend in a café cut a king cake.",
+     "walkthrough": "'cut' leaves CAF; J and PAL go 'in' it to give CAJPALF, which 'revolutionary' turns into FLAPJAC; K is added.",
+     "definitionFit": "A flapjack in Britain is a chewy baked bar of oats, butter and syrup, a kind of cake."
     },
     "features": {
      "answerInScene": true,
@@ -1407,56 +1415,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUIZ",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "unfinished means lacking its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 6,
+         "note": "unfinished means the end is missing, so the last letter of quit goes"
+        }
+       ],
        "parts": [
         {
          "words": "Leave",
-         "gives": "QUI",
-         "note": "to quit is to leave, here losing its final letter"
+         "at": 0,
+         "gives": "QUIT",
+         "note": "to quit is to leave"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "Z",
-         "indicators": [
-          {
-           "text": "essentially",
-           "note": "the essence of something is its core, so only the central letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pizza",
-           "gives": "Z",
-           "select": "middle",
-           "note": "the middle letter of the word"
-          }
-         ]
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 23,
+         "note": "essentially means at its core, the central letter of pizza"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pizza",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone abandons a half-eaten pizza in order to put it under the grill.",
-     "walkthrough": "'Grill' looks like a cooking verb in a pizza scene, but it means to question someone hard.",
-     "definitionFit": "To grill a suspect is to interrogate them intensely, and to quiz is likewise to question."
+     "surface": "Abandon a half-eaten pizza to go under the grill.",
+     "walkthrough": "'grill' looks like cooking, but it means to question someone closely.",
+     "definitionFit": "To quiz someone is to question them hard, which is what grilling a suspect means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "grill"
     }
    }
@@ -1485,50 +1492,37 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first two of three",
+       "at": 13,
        "gives": "JE",
-       "indicators": [
-        {
-         "text": "first two of",
-         "note": "first two of means keeping only the opening pair of letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "three",
-         "gives": "JE",
-         "select": "first",
-         "note": "three refers to entry 3 down in this grid, whose first two letters are taken"
-        }
-       ]
+       "note": "three refers to the answer to 3 down, JETSTREAM, whose first two letters are taken"
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "exhausted",
-         "note": "exhausted means emptied, so the inside goes and only the outer letters remain"
+         "at": 32,
+         "note": "exhausted means emptied out, leaving only the outer letters of sparrowhawks"
         }
        ],
        "parts": [
         {
          "words": "sparrowhawks",
-         "note": "the outer letters of the word"
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A falconer asks what ties up three worn-out hunting birds.",
-     "walkthrough": "'Three' is not a number of birds but a cross-reference to the 3 down answer, which begins JE.",
-     "definitionFit": "A jess is the short leather strap fastened round a hawk's leg in falconry, used to tie the bird up."
+     "surface": "A question about what ties up a few tired hawks.",
+     "walkthrough": "'three' is a cross-reference to 3 Down, not the number.",
+     "definitionFit": "A jess is the short leather strap fastened to a hawk's leg in falconry, by which it is held."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "three"
     }
    }
@@ -1646,33 +1640,35 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOSHOW",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "ultimately shunned",
-       "note": "the ultimate letter is the last one, and shunning it leaves it out"
+       "text": "arrangement",
+       "at": 29,
+       "note": "arrangement means the letters are put into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Who's",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "arrangement",
-         "note": "an arrangement puts things into a new order"
+         "text": "ultimately shunned",
+         "at": 10,
+         "note": "ultimately shunned means the last letter of now is avoided and dropped"
         }
        ],
        "parts": [
         {
-         "words": "Who's",
-         "note": "taken as written, apostrophe ignored"
+         "words": "now",
+         "at": 6
         },
         {
-         "words": "now",
-         "gives": "NO",
-         "note": "the word without its last letter"
+         "gives": "W"
         }
        ]
       }
@@ -1680,9 +1676,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone asks who has just snubbed a planned meeting.",
-     "walkthrough": "The whole clue is both wordplay and definition: read straight, it asks who failed to turn up to an arrangement.",
-     "definitionFit": "A no-show is a person who books or agrees to attend and then fails to appear, shunning the plan."
+     "surface": "Asking who has finally failed to keep an appointment.",
+     "walkthrough": "Drop the W ending 'now' to leave NO, then rearrange it with WHOS; the whole clue also describes the answer.",
+     "definitionFit": "A no-show is a person who fails to turn up as booked, having shunned an agreed engagement."
     },
     "features": {
      "answerInScene": true,
@@ -1716,46 +1712,50 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "accepting something means taking it in, so one piece goes inside another"
+       "at": 18,
+       "note": "accepting means taking in, so the headlands go around the turned letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "heads",
+       "at": 11,
+       "gives": "CAPES",
+       "note": "a cape is a headland, a head of land jutting into the sea"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "making a comeback",
+         "at": 39,
+         "note": "making a comeback means coming back the way it went, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "heads",
-         "gives": "CAPES",
-         "note": "capes are headlands, points of land jutting into the sea"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "making a comeback",
-           "note": "coming back means going the opposite way, so the letters run backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "unknown",
+           "at": 28,
+           "gives": "Z",
+           "note": "Z is an unknown in algebra"
+          },
+          {
            "words": "is",
-           "note": "taken as written"
+           "at": 36
           }
          ]
         }
        ]
-      },
-      {
-       "words": "unknown",
-       "gives": "Z",
-       "note": "z is a standard unknown quantity in algebra"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone does somersaults head over heels, welcoming a mysterious stranger back.",
-     "walkthrough": "'Heads' suggests a body part or a coin, but here it is the geographical sense, a headland.",
-     "definitionFit": "A boat that capsizes turns upside down in the water, so it flips over."
+     "surface": "Someone takes headers while staging a return, accepting the unknown.",
+     "walkthrough": "'heads' is headlands, CAPES; 'making a comeback' turns Z plus IS into SIZ, which CAPES takes in.",
+     "definitionFit": "A boat that capsizes overturns in the water, so it flips over."
     },
     "features": {
      "answerInScene": false,

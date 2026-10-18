@@ -560,7 +560,8 @@
      "indicators": [
       {
        "text": "picked up",
-       "note": "in a down clue, picking something up lifts it so it reads from bottom to top"
+       "at": 30,
+       "note": "picked up in a down clue means lifted, read from bottom to top"
       }
      ],
      "parts": [
@@ -569,37 +570,40 @@
        "indicators": [
         {
          "text": "to receive",
-         "note": "to receive something is to take it in, so one piece holds the other"
+         "at": 8,
+         "note": "to receive means to take in, so the refusal holds the other pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Refusal",
-           "gives": "NOPE",
-           "note": "nope is an informal refusal"
-          },
-          {
-           "words": "student",
-           "gives": "L",
-           "note": "L is a learner, on a learner driver's plate"
-          }
-         ]
+         "words": "Refusal",
+         "at": 0,
+         "gives": "NOPE",
+         "note": "nope is an informal refusal"
         },
         {
-         "words": "is",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "student",
+           "at": 19,
+           "gives": "L",
+           "note": "L is for learner, a student driver's plate"
+          },
+          {
+           "words": "is",
+           "at": 27
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student is refused entry, and the refusal is overheard in a letter.",
-     "walkthrough": "'Picked up' suggests hearing something, but in a down clue it means lifted, so the built word reads from the bottom upwards.",
-     "definitionFit": "Epsilon is the fifth character of the Greek alphabet, so it is a letter."
+     "surface": "A refusal to accept a student is overturned by letter.",
+     "walkthrough": "'picked up' could suggest a homophone, but in a down clue it means lifted, so the whole construction reads upwards.",
+     "definitionFit": "Epsilon is the fifth character of the Greek alphabet."
     },
     "features": {
      "answerInScene": false,
@@ -1070,41 +1074,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHOIR",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite complete, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all, so the last letter of chop goes"
+        }
+       ],
        "parts": [
         {
          "words": "axe",
-         "gives": "CHO",
-         "note": "to axe is to chop; the last letter goes"
+         "at": 7,
+         "gives": "CHOP",
+         "note": "to chop is to cut with an axe"
         },
         {
-         "words": "Irish",
-         "gives": "IR",
-         "note": "IR is the abbreviation for Irish"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "Irish",
+       "at": 11,
+       "gives": "IR"
       }
      ]
     },
     "explanation": {
-     "surface": "An Irish vocal ensemble is nearly shut down.",
-     "walkthrough": "'Axe' is the verb, to chop, cut short by one letter.",
-     "definitionFit": "A choir is an organised body of people who sing together, often in a church or school."
+     "surface": "An Irish choral group is nearly cut.",
+     "definitionFit": "A choir is an organised body of singers, as in a church or school."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "axe"
     }
    }
   },

@@ -105,57 +105,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHAMOMILE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "most of the word is used, so its last letter goes"
-      },
-      {
-       "text": "first for",
-       "note": "take the first letter of the word that follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Tea",
+       "at": 0,
+       "gives": "CHA",
+       "note": "cha is an informal British word for tea"
+      },
+      {
+       "words": "second",
+       "at": 4,
+       "gives": "MO",
+       "note": "a mo is a moment, a second"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means most but not all, so the last letter of milk is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Tea",
-         "gives": "CHA",
-         "note": "cha is a slang word for tea"
+         "words": "milk",
+         "at": 12
         },
         {
-         "words": "second",
-         "gives": "MO",
-         "note": "a mo is a moment, as in 'wait a mo'"
-        },
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "milk mostly",
-         "gives": "MIL",
-         "note": "MILK without its last letter"
-        },
+         "text": "first for",
+         "at": 24,
+         "note": "first for points to the opening letter of English"
+        }
+       ],
+       "parts": [
         {
-         "words": "first for English",
-         "gives": "E",
-         "note": "the first letter of English"
+         "words": "English",
+         "at": 34
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for brewing: tea, then milk, in a particular order, as an Englishman makes his cuppa.",
-     "walkthrough": "'Tea maker' looks like a person or a kettle, but it is the plant whose flowers make a herbal tea.",
-     "definitionFit": "Chamomile is the plant whose dried flowers are steeped to make chamomile tea, so it makes tea."
+     "surface": "A recipe for a proper English cuppa: tea, a moment, then most of the milk.",
+     "walkthrough": "'mostly' cuts MILK to MIL; 'first for English' gives E.",
+     "definitionFit": "Chamomile is a daisy-like plant whose dried flowers are steeped to brew a herbal infusion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "maker"
+     "misdirectedWord": "milk"
     }
    }
   },
@@ -340,41 +349,44 @@
      "indicators": [
       {
        "text": "taking in",
-       "note": "one piece takes the other inside it"
+       "at": 20,
+       "note": "taking in means holding something inside, so the pieces go within the first word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Reflect in silence",
-         "gives": "MUSE",
-         "note": "to muse is to ponder quietly"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
-        }
-       ]
+       "words": "Reflect in silence",
+       "at": 0,
+       "gives": "MUSE",
+       "note": "to muse is to ponder quietly to oneself"
       },
       {
-       "words": "small",
-       "gives": "S",
-       "note": "S = small, as on clothing labels"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "small",
+         "at": 34,
+         "gives": "S",
+         "note": "S is the abbreviation for small, as on clothing labels"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Quiet reflection helps someone come to terms with a minor injustice.",
-     "walkthrough": "'Wrong' here is the verb, to treat someone badly, which is what misuse means.",
-     "definitionFit": "To misuse someone is to treat them badly, to wrong them."
+     "surface": "Someone quietly considering a minor mistake they once made.",
+     "definitionFit": "To misuse something is to treat it wrongly, so wrong as a verb (to do wrong by) matches it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "wrong"
+     "misdirectedWord": "Reflect"
     }
    }
   },
@@ -886,46 +898,49 @@
      "indicators": [
       {
        "text": "absorbed in",
-       "note": "the pieces go inside the next word"
+       "at": 46,
+       "note": "absorbed in means soaked up inside, so these letters sit within the tune"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "catchy music",
+       "at": 58,
+       "gives": "EARWORM",
+       "note": "an earworm is a catchy tune that sticks in your head"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "catchy music",
-         "gives": "EARWORM",
-         "note": "an earworm is a tune you cannot get out of your head"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "'initially' means at the start, so only the first letter of travels is used"
+           "at": 22,
+           "note": "initially points to the opening letter of travels"
           }
          ],
          "parts": [
           {
            "words": "travels",
-           "note": "first letter of Travels"
+           "at": 32
           }
          ]
+        },
+        {
+         "words": "hours",
+         "at": 40,
+         "gives": "H"
         }
        ]
-      },
-      {
-       "words": "hours",
-       "gives": "H",
-       "note": "H = hours"
       }
      ]
     },
     "explanation": {
-     "surface": "A Tube commuter loses whole hours lost in a tune stuck in his head.",
-     "walkthrough": "'Underground traveller' paints a London Tube passenger, but the traveller really moves through soil.",
-     "definitionFit": "An earthworm burrows through the ground, travelling underground."
+     "surface": "A commuter on the Tube spends hours lost in a catchy song.",
+     "walkthrough": "'Underground traveller' suggests a Tube passenger, but the creature tunnels through soil.",
+     "definitionFit": "The worm burrows and moves through the soil, so it travels under the ground."
     },
     "features": {
      "answerInScene": false,
@@ -1444,46 +1459,43 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "the first word takes the next piece inside it"
+       "at": 15,
+       "note": "accepting means taking in, so the picked letters go inside"
       }
      ],
      "parts": [
       {
        "words": "Hold back",
+       "at": 0,
        "gives": "DAM",
        "note": "to dam water is to hold it back"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TU",
        "indicators": [
         {
          "text": "odd bits of",
-         "note": "take the first, third and so on letters"
+         "at": 25,
+         "note": "odd bits means the letters in odd positions, first and third, of true"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "odd bits of true",
-         "gives": "TU",
-         "select": "alternate",
-         "note": "TrUe: first and third letters"
+         "words": "true",
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone holds off on admitting even the odd scrap of truth.",
-     "walkthrough": "'Hold back' looks like restraint, but it is a dam holding back water.",
-     "definitionFit": "A datum is a single piece of information, a fact."
+     "surface": "Someone holding back until they accept fragments of truth as fact.",
+     "walkthrough": "'odd bits of true' gives T and U, which DAM takes in.",
+     "definitionFit": "A datum is a single piece of information, one given fact used as a basis for reasoning."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Hold"
+     "aptDefinition": false
     }
    }
   },
