@@ -469,37 +469,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "beginning",
-       "note": "A word's beginning is its first letter."
+       "text": "in",
+       "at": 26,
+       "note": "in means the letter is placed inside the other word"
       }
      ],
      "parts": [
       {
        "words": "gardening activity",
+       "at": 29,
        "gives": "SEEDING",
-       "note": "sowing seed in the garden"
+       "note": "seeding is sowing seed, a gardening job"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "in"
+         "text": "beginning",
+         "at": 16,
+         "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "pain's beginning",
-         "gives": "PAINBEGINNING",
-         "note": "first letter of Pain"
+         "words": "pain's",
+         "at": 9,
+         "note": "the word pain, whose first letter is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sharp pain that started while the gardener was at work.",
-     "walkthrough": "'Shooting pain' reads as one phrase; split it after the first word, which means moving fast, as a shooting star does.",
-     "definitionFit": "Shooting past something means moving fast, the same idea as speeding in a car."
+     "surface": "A gardener feels a stabbing pain while working in the garden.",
+     "walkthrough": "'Shooting' looks like it describes the pain, but it is the definition. P goes inside SEEDING.",
+     "definitionFit": "Shooting along means going very fast, i.e. speeding."
     },
     "features": {
      "answerInScene": false,
@@ -640,33 +644,32 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Regularly",
-       "note": "Taking letters at regular intervals keeps every other one."
+       "text": "in",
+       "at": 15,
+       "note": "in means these letters are put inside the next word"
       }
      ],
      "parts": [
       {
        "words": "that place",
+       "at": 18,
        "gives": "THERE",
-       "note": "there = in that place"
+       "note": "there means in that place"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "AT",
        "indicators": [
         {
-         "text": "in",
-         "note": "'In' puts those letters inside the word for that place."
+         "text": "Regularly",
+         "at": 0,
+         "note": "regularly means every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Regularly acts",
-         "gives": "AT",
-         "select": "alternate",
-         "note": "the first and third letters of Acts"
+         "words": "acts",
+         "at": 10,
+         "note": "the word acts, whose alternate letters are wanted"
         }
        ]
       }
@@ -674,9 +677,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Somebody who performs in a certain venue on a regular basis.",
-     "walkthrough": "The whole clue doubles as the definition: read straight, it describes the building where plays are acted night after night.",
-     "definitionFit": "Read straight, the whole clue describes a playhouse, where performers act on a regular schedule."
+     "surface": "A troupe performs in the same venue night after night.",
+     "walkthrough": "Read whole, the clue is also the definition: a theatre is the place where acts are put on regularly.",
+     "definitionFit": "A theatre is the building where plays are performed and actors appear on stage regularly."
     },
     "features": {
      "answerInScene": true,
@@ -1011,42 +1014,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost means not quite all, so the last letter is dropped."
-      },
-      {
-       "text": "to return",
-       "note": "Returning is going back, so the letters run backwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 17,
+         "note": "almost means the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 12,
+         "gives": "RUDD",
+         "note": "the rudd is a freshwater fish"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to return",
+         "at": 30,
+         "note": "to return means turning back, so these letters are read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "about",
+         "at": 24,
          "gives": "RE",
-         "note": "re = about, turned round"
-        },
-        {
-         "words": "fish almost",
-         "gives": "DUR",
-         "note": "RUDD, a freshwater fish, without its last letter"
+         "note": "re means about, concerning"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A coarse fish almost about to swim back.",
-     "walkthrough": "'Coarse fish' is an angling term for freshwater fish; split it so that 'More coarse' is the definition.",
-     "definitionFit": "Comparative adjectives: coarse language is rude, so more coarse matches the comparative form."
+     "surface": "A rather crude fish is nearly ready to come back.",
+     "walkthrough": "'More coarse' hints at coarse fishing, which is where the rudd, a freshwater fish, comes in; but it is the definition.",
+     "definitionFit": "Ruder is the comparative of rude, meaning cruder or more vulgar, so more coarse."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "coarse"
@@ -1309,38 +1326,39 @@
      "parts": [
       {
        "words": "mark",
+       "at": 4,
        "gives": "SCAR",
-       "note": "a scar is a mark on skin"
+       "note": "a scar is a mark left by a wound"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LET",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Not half",
-         "note": "Read literally, only half the word is taken: its first half."
+         "at": 17,
+         "note": "not half means half the word is left out, here its back half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lethal? Not half",
-         "gives": "LET",
-         "select": "first",
-         "note": "the first half of LETHAL"
+         "words": "lethal",
+         "at": 9,
+         "note": "the word lethal, of which only the first half stays"
+        },
+        {
+         "gives": "HAL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is a red mark lethal? Absolutely!",
-     "walkthrough": "'Not half!' is British slang for 'very much so', which makes the surface an alarmed answer.",
-     "definitionFit": "A plain colour synonym: scarlet is a vivid, slightly orange shade of red."
+     "surface": "A red mark is asked whether it is deadly, and the reply is an emphatic yes.",
+     "walkthrough": "'Not half!' is British slang for a strong yes, but here it says LETHAL loses HAL to give LET.",
+     "definitionFit": "Scarlet is a vivid shade of red."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "half"

@@ -1715,40 +1715,42 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "ENID",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "somewhat",
-       "note": "somewhat means part of, so only a stretch of letters is used"
+       "text": "taken aback",
+       "at": 21,
+       "note": "taken aback means turned backwards, so the letters are read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "ENID",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "taken aback",
-         "note": "taken aback is read as taken backwards, so the stretch runs in reverse"
+         "text": "somewhat",
+         "at": 12,
+         "note": "somewhat means a part of, so the letters lie hidden inside"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "18",
-         "note": "the answer to 18 across is NEEDINESS, in whose middle the name lies backwards"
+         "at": 8,
+         "gives": "NEEDINESS",
+         "note": "18 across is NEEDINESS, the answer to another clue"
+        },
+        {
+         "gives": "NEESS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman left a little startled.",
-     "walkthrough": "The cross-reference to 18 across supplies the word to search, read right to left.",
-     "definitionFit": "Enid is a woman's first name, so as is usual in crosswords it stands for a female."
+     "surface": "A woman is somewhat surprised by the answer to 18.",
+     "walkthrough": "The answer to 18 across is NEEDINESS; read backwards, SSENIDEEN contains the name.",
+     "definitionFit": "Enid is a woman's name, as in Enid Blyton, so it can stand for a female."
     },
     "features": {
      "answerInScene": false,
@@ -2419,54 +2421,59 @@
      "indicators": [
       {
        "text": "to accept",
-       "note": "to accept something is to take it in, so the other pieces go inside"
+       "at": 6,
+       "note": "to accept means to take in, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Happy",
-         "gives": "ELATED",
-         "note": "elated means very happy"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Happy",
+       "at": 0,
+       "gives": "ELATED",
+       "note": "elated means very happy"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mainly",
-         "note": "mainly means for the most part, so the word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "punishment",
-         "gives": "STICK",
-         "note": "to give someone stick is to punish or criticise them"
+         "words": "a",
+         "at": 16,
+         "gives": "A"
         },
         {
-         "gives": "K"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mainly",
+           "at": 30,
+           "note": "mainly means most of it, so the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "punishment",
+           "at": 18,
+           "gives": "STICK",
+           "note": "stick is punishment, as in getting stick"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful person taking a penalty in good spirit and bouncing back.",
-     "walkthrough": "Stick as punishment is the beating rod, as in the carrot and the stick.",
-     "definitionFit": "Elasticated fabric has stretchy rubber threads woven in, so it springs back after being pulled."
+     "surface": "A happy person willingly takes punishment for being so resilient.",
+     "walkthrough": "To get stick is British slang for being criticised or punished, which is how stick means punishment.",
+     "definitionFit": "Elasticated describes fabric made stretchy with elastic so it springs back into shape."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "resilience"
+     "misdirectedWord": "Happy"
     }
    }
   },

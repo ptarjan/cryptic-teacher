@@ -104,60 +104,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CALCIUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "'almost' means not quite complete, so the word loses its final letter"
+       "text": "stored",
+       "at": 31,
+       "note": "stored means kept inside, so these letters go within the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "stored",
-         "note": "something stored is kept inside, so these letters go within another word"
-        }
-       ],
+       "words": "with",
+       "at": 6,
+       "gives": "CUM",
+       "note": "cum is Latin for with, as in a bedroom-cum-study"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "with",
-         "gives": "CUM",
-         "note": "cum is Latin for 'with', as in 'kitchen-cum-diner'"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 11,
+           "note": "almost means the last letter is dropped"
+          }
+         ],
          "parts": [
           {
            "words": "all",
-           "gives": "AL",
-           "note": "ALL with its last letter dropped"
+           "at": 18,
+           "gives": "ALL",
+           "note": "the word all, cut short"
           },
           {
-           "words": "carbon",
-           "gives": "C",
-           "note": "C is the chemical symbol for carbon"
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
+           "gives": "L"
           }
          ]
+        },
+        {
+         "words": "carbon",
+         "at": 22,
+         "gives": "C",
+         "note": "C is the chemical symbol for carbon"
+        },
+        {
+         "words": "I",
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A metal described as containing nearly all carbon, as if in a chemistry lab.",
-     "walkthrough": "'With' looks like a joining word, but it is the Latin cum, as in 'bedroom-cum-study', and it opens up to hold the other pieces.",
-     "definitionFit": "Calcium is a soft alkaline earth element, chemically classed among the metals."
+     "surface": "A metal in which nearly all the carbon is held.",
+     "walkthrough": "'with' is the Latin word cum, as in a kitchen-cum-diner, not a link word.",
+     "definitionFit": "Calcium is a soft silvery-white chemical element, one of the alkaline earth metals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "with"
     }
@@ -586,58 +592,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OCCUPATIONALTHERAPY",
-     "indicators": [
-      {
-       "text": "only one left",
-       "note": "keeping just one of a pair of a letter means the other is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "work",
+       "at": 22,
+       "gives": "OCCUPATION",
+       "note": "one's work is one's occupation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 47,
+         "note": "accepting means taking in, so the other letters go inside"
+        }
+       ],
        "parts": [
         {
-         "words": "work",
-         "gives": "OCCUPATION",
-         "note": "an occupation is one's work"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "accepting",
-           "note": "to accept is to take in, so one word is put inside another"
+           "text": "only one left",
+           "at": 33,
+           "note": "only one L is left, so one of its two Ls is removed"
           }
          ],
          "parts": [
           {
            "words": "mate",
-           "gives": "ALY",
-           "note": "a mate is an ally; ALLY keeps only one L"
+           "at": 27,
+           "gives": "ALLY",
+           "note": "an ally is a friend, a mate"
           },
           {
-           "words": "blame",
-           "gives": "THERAP",
-           "note": "'the rap' is the blame, as in taking the rap"
+           "gives": "L"
           }
          ]
+        },
+        {
+         "words": "blame",
+         "at": 57,
+         "gives": "THERAP",
+         "note": "to take the rap is to take the blame, so the blame is the rap"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A colleague left to take the blame alone, under a workplace policy.",
-     "walkthrough": "To take the rap is to accept blame, so THE RAP is the blame; it goes into ALY after ALLY loses one L.",
-     "definitionFit": "Occupational therapy is a treatment that helps patients recover everyday skills through activities, so it is a restorative regime."
+     "surface": "A recovery scheme in which a workmate is the only one left, taking the blame.",
+     "walkthrough": "'only one left' turns ALLY into ALY, which accepts THE RAP to give ALTHERAPY; 'of' links.",
+     "definitionFit": "Occupational therapy is a treatment that helps patients recover everyday skills after illness or injury."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mate"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -1362,40 +1374,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "something broken has its parts disordered, so the letters are rearranged"
+       "text": "with inner",
+       "at": 29,
+       "note": "with inner says the next letters go inside this word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "strain",
+       "at": 21,
+       "gives": "TUNE",
+       "note": "a strain is a tune, a melody"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inner",
-         "note": "inner means on the inside, so these letters go within another word"
+         "text": "broken",
+         "at": 44,
+         "note": "broken means the letters of rib are smashed and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "strain",
-         "gives": "TUNE",
-         "note": "a strain is a tune or melody"
-        },
-        {
          "words": "rib",
-         "note": "the letters rearranged"
+         "at": 40,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rotating motor under strain, its internal rib cracked.",
-     "walkthrough": "'Strain' sounds like mechanical stress but means a melody.",
-     "definitionFit": "A turbine is an engine driven by a rotor turned by flowing steam, gas or water, so it is a rotary machine."
+     "surface": "An engine strains with a cracked rib inside it.",
+     "walkthrough": "'strain' is a musical strain, a melody, not a physical effort.",
+     "definitionFit": "A turbine is an engine whose shaft is spun by a flow of water, steam or gas."
     },
     "features": {
      "answerInScene": true,
@@ -2066,61 +2082,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRAGEDIENNE",
      "indicators": [
       {
        "text": "hugging",
-       "note": "to hug is to wrap round, so one piece holds another"
+       "at": 32,
+       "note": "hugging means wrapping round, so the jumbled letters enclose the next piece"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "TRAGEDIENNE",
        "indicators": [
         {
          "text": "cast",
-         "note": "cast means thrown, so the letters are flung into a new order"
+         "at": 27,
+         "note": "to cast is to throw, so the remaining letters are thrown into a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "TRAGEDIENNE",
          "indicators": [
           {
            "text": "Ignoring",
-           "note": "to ignore is to leave out, so these letters are dropped"
+           "at": 0,
+           "note": "ignoring means leaving out, so a part of the next word is removed"
           }
          ],
          "parts": [
           {
-           "words": "cheers",
-           "gives": "TA",
-           "note": "ta is British slang for thanks"
-          },
-          {
            "words": "entertain",
+           "at": 17,
            "note": "taken as written"
           },
           {
-           "words": "elderly",
-           "gives": "AGED",
-           "note": "aged means elderly"
+           "words": "cheers",
+           "at": 9,
+           "gives": "TA",
+           "note": "ta is British informal for thanks, like cheers"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "elderly",
+       "at": 40,
+       "gives": "AGED",
+       "note": "elderly people are aged"
       }
      ]
     },
     "explanation": {
-     "surface": "Without applause, an elderly actress is still asked to entertain a cast.",
-     "walkthrough": "'Cheers' is British slang for thanks, the same as ta; 'cast' looks like a theatre company but tells you to mix what is left.",
-     "definitionFit": "A tragedienne is a woman who acts in tragic roles, a specialist kind of actress."
+     "surface": "Without applause, a theatre cast puts on a show embracing an old actress.",
+     "walkthrough": "'Ignoring' removes TA from ENTERTAIN to leave ENTERIN; 'cast' rearranges it to TRIENNE, which hugs AGED.",
+     "definitionFit": "A tragedienne is an actress who specialises in tragic roles."
     },
     "features": {
      "answerInScene": true,
@@ -3074,43 +3090,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JURIDIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Nearly all",
-       "note": "nearly all means not quite the whole, so the last letter is dropped"
+       "text": "charging",
+       "at": 28,
+       "note": "charging as in loading a gun, so the other letters are packed inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "charging",
-         "note": "charging means loading up, as a gun is charged, so one piece is filled with another"
+         "text": "Nearly all",
+         "at": 0,
+         "note": "nearly all means the final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "petrol",
-         "gives": "JUIC",
-         "note": "juice is slang for fuel, here losing its E"
+         "at": 11,
+         "gives": "JUICE",
+         "note": "juice is slang for fuel such as petrol"
         },
         {
-         "words": "free",
-         "gives": "RID",
-         "note": "rid means free of something"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "free",
+       "at": 23,
+       "gives": "RID",
+       "note": "to rid is to free"
       }
      ]
     },
     "explanation": {
-     "surface": "Free electric-car charging with nearly all the petrol would be legal.",
-     "walkthrough": "Juice is slang for fuel or electricity, so it serves for petrol.",
-     "definitionFit": "Juridic means relating to law or the administration of justice, so it describes legal matters."
+     "surface": "Free charging with almost all petrol is within the law.",
+     "walkthrough": "'charging' is meant as loading, as a gun is charged with powder; 'petrol' is the slang juice.",
+     "definitionFit": "Juridic is a rare adjective meaning relating to law or the administration of justice."
     },
     "features": {
      "answerInScene": false,
@@ -3197,52 +3218,51 @@
      "indicators": [
       {
        "text": "stopping",
-       "note": "stopping means plugging a gap, so the letters fill the inside of another word"
+       "at": 28,
+       "note": "stopping as in plugging a gap, so these letters fill the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "people's",
-         "gives": "LAY",
-         "note": "lay means of the laity, belonging to ordinary people"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "Retired",
-           "note": "retired means withdrawn or gone back, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "councillor",
-           "gives": "CR",
-           "note": "Cr is the abbreviation for councillor"
-          }
-         ]
-        }
-       ]
+       "words": "people's",
+       "at": 37,
+       "gives": "LAY",
+       "note": "lay means belonging to ordinary people as opposed to clergy"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retired",
+         "at": 0,
+         "note": "retired means drawn back, so the letters are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Tyneside",
-         "gives": "NE",
-         "note": "Tyneside is in the North East of England"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Tyneside",
+           "at": 8,
+           "gives": "NE",
+           "note": "Tyneside is in north-east England, abbreviated NE"
+          },
+          {
+           "words": "councillor",
+           "at": 17,
+           "gives": "CR"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pensioned-off councillor from Newcastle halts a crime spree.",
-     "walkthrough": "Tyneside, round Newcastle, is in the North East, so NE; lay means non-clergy, ordinary people.",
-     "definitionFit": "Larceny is the legal term for theft of personal property, a crime in its own right."
+     "surface": "A retired local councillor in Newcastle blocks a popular offence.",
+     "walkthrough": "Tyneside is the area around Newcastle in northeast England; 'people's' is lay in the sense of the laity, not the clergy.",
+     "definitionFit": "Larceny is the legal term for theft, the crime of taking another's property."
     },
     "features": {
      "answerInScene": true,
@@ -3334,42 +3354,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASSAI",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "not half means keeping only one half of the word and losing the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "like",
+       "at": 5,
+       "gives": "AS",
+       "note": "as means like, in the manner of"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 19,
+         "note": "not half means half the letters are dropped, here the back half"
+        }
+       ],
        "parts": [
         {
-         "words": "like",
-         "gives": "AS",
-         "note": "as means like"
+         "words": "sailor",
+         "at": 10,
+         "note": "the word sailor, which keeps only its first half"
         },
         {
-         "words": "sailor",
-         "gives": "SAI",
-         "note": "the first half of the word"
+         "gives": "LOR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Very much like a sailor, and not half — as a sailor might say.",
-     "walkthrough": "'Not half' is British slang for 'very much', which makes it look like part of the definition.",
-     "definitionFit": "Assai is an Italian musical direction meaning very, as in allegro assai, very fast."
+     "surface": "Someone looks very like a sailor, but only half.",
+     "walkthrough": "'not half' leaves SAI from SAILOR. Assai is a musical direction, as in allegro assai.",
+     "definitionFit": "In music, assai is an Italian term meaning very, as in allegro assai, very fast."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "Very"
     }
    }
   },

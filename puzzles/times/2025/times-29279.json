@@ -95,7 +95,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "This may keep you afloat if you live around south of lake",
+      "text": "This may keep you afloat",
       "at": 0
      }
     ],
@@ -103,47 +103,63 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "around",
-       "note": "turning around means facing the other way, so YOU BE is read back to front"
+       "text": "south of",
+       "at": 44,
+       "note": "in a down clue, what is south of a piece is written below it, so it follows that piece"
       }
      ],
      "parts": [
       {
        "words": "lake",
+       "at": 53,
        "gives": "L",
-       "note": "standard abbreviation, at the top"
+       "note": "L is the map abbreviation for lake"
       },
       {
        "words": "if",
-       "note": "as printed"
+       "at": 25,
+       "gives": "IF",
+       "note": "taken as written"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "south of",
-         "note": "in a down clue, being south of something means sitting below it"
+         "text": "around",
+         "at": 37,
+         "note": "around asks for the words you live to be read backwards"
         }
        ],
        "parts": [
         {
-         "words": "you live",
-         "gives": "YOUBE",
-         "note": "YOU + BE, to live or exist, then turned around to EBUOY"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "you",
+           "at": 28,
+           "gives": "YOU",
+           "note": "taken as written"
+          },
+          {
+           "words": "live",
+           "at": 32,
+           "gives": "BE",
+           "note": "to live is to be, exist"
+          }
+         ]
         }
        ]
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A safety notice by a lake: this float may save you, if you are still alive.",
-     "walkthrough": "The whole clue also reads straight: a lifebuoy by a lake keeps you afloat, and alive, if you fall in.",
-     "definitionFit": "&lit: read plainly, the clue describes a lifebuoy's job on a lakeside, keeping a person afloat and alive."
+     "surface": "A conditional promise of buoyancy to someone living near a lake.",
+     "walkthrough": "'live' is to be, exist; 'south of' works because this is a down clue, where later letters sit lower.",
+     "definitionFit": "A lifebuoy is a floating ring thrown to someone in the water to stop them sinking."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "live"
     }
    }
@@ -170,24 +186,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "empty",
-       "note": "something empty has lost its contents, so ZIT keeps only its shell"
-      }
-     ],
      "parts": [
       {
        "words": "What for Guatemalan",
+       "at": 0,
        "gives": "QUE",
-       "note": "Spanish, spoken in Guatemala, for 'what'"
+       "note": "Guatemalans speak Spanish, in which 'what' is que"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, going up means reading from the bottom"
+         "at": 46,
+         "note": "in a down clue, up means the letters are read from the bottom, i.e. backwards"
         }
        ],
        "parts": [
@@ -199,28 +211,33 @@
            "indicators": [
             {
              "text": "filling",
-             "note": "a filling is what sits inside something, so the flag's filling is its middle letters"
+             "at": 27,
+             "note": "the filling of a word is its inside, all but the first and last letters"
             }
            ],
            "parts": [
             {
-             "words": "flag's filling",
-             "gives": "FLAG",
-             "note": "the middle letters of fLAg"
+             "words": "flag",
+             "at": 20,
+             "note": "the word flag, whose inner letters are wanted"
             }
            ]
           },
           {
            "op": "outer",
-           "unchecked": true,
-           "gives": "ZT",
+           "indicators": [
+            {
+             "text": "empty",
+             "at": 35,
+             "note": "an empty word keeps only its outside letters"
+            }
+           ],
            "parts": [
             {
-             "unchecked": true,
-             "words": "empty spot",
-             "gives": "ZT",
-             "select": "outer",
-             "note": "ZIT, a spot, emptied of its middle; LA + ZT then reversed to TZAL"
+             "words": "spot",
+             "at": 41,
+             "gives": "ZIT",
+             "note": "a zit is a pimple, a spot"
             }
            ]
           }
@@ -232,14 +249,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone asking what fills the empty space in the middle of Guatemala's flag.",
-     "walkthrough": "The whole clue reads as the definition too: the quetzal, a bird, is what fills the centre of the Guatemalan flag.",
-     "definitionFit": "&lit: the resplendent quetzal is the emblem at the centre of Guatemala's flag, so it is what fills that spot."
+     "surface": "Something odd is wanted for the middle of Guatemala's national flag.",
+     "walkthrough": "Guatemala is Spanish-speaking, hence the Spanish word for what; 'up' works because this is a down clue. As a whole the clue also describes the bird, which sits at the centre of Guatemala's flag.",
+     "definitionFit": "The resplendent quetzal, a bright green bird, is the emblem pictured in the centre of the Guatemalan flag; it also names the country's currency."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "What"
+     "misdirectedWord": "spot"
     }
    }
   },
@@ -264,45 +281,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSTANTLY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penned by",
+       "at": 30,
+       "note": "something penned by another is shut inside it, as in a pen"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "penned by",
-         "note": "to be penned is to be shut in, like sheep in a pen"
-        },
-        {
          "text": "itinerant",
-         "note": "an itinerant wanders from place to place, so the letters of SAINTLY roam into a new order"
+         "at": 48,
+         "note": "an itinerant wanders about, so the letters of saintly are moved around"
         }
        ],
        "parts": [
         {
          "words": "saintly",
-         "note": "rearranged, split around NT"
-        },
-        {
-         "words": "scripture's",
-         "gives": "NT",
-         "note": "the New Testament; the 's is 'is'"
+         "at": 40
         }
        ]
+      },
+      {
+       "words": "scripture's",
+       "at": 18,
+       "gives": "NT",
+       "note": "NT is the New Testament, a body of scripture"
       }
      ]
     },
     "explanation": {
-     "surface": "A wandering holy man writing out scripture on the spot.",
-     "walkthrough": "'Saintly' looks like the description of the writer, but it is the fodder.",
-     "definitionFit": "Idiom: 'on the spot' means immediately, there and then, without delay."
+     "surface": "A wandering holy man writes out scripture wherever he happens to be.",
+     "walkthrough": "'saintly itinerant' reads as a wandering holy man, but 'itinerant' only tells you to rearrange the word before it.",
+     "definitionFit": "Doing something on the spot means doing it at once, immediately, without delay."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "saintly"
+     "misdirectedWord": "spot"
     }
    }
   },
@@ -327,31 +347,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "Barge",
-       "note": "to barge is to shove roughly about, so the letters are knocked out of order"
+       "at": 0,
+       "note": "to barge is to push and jostle, so these letters are knocked into a new order"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "afloat",
+         "at": 6,
+         "note": "taken as written"
+        },
+        {
+         "words": "but",
+         "at": 14,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "with no hint of",
-         "note": "a hint is the first trace of something, so the first letter of underdeck, U, is taken out"
+         "text": "hint of",
+         "at": 26,
+         "note": "a hint of a word is just its opening letter"
         }
        ],
        "parts": [
         {
-         "words": "afloat",
-         "note": "as printed, into the mix"
-        },
-        {
-         "words": "but with no hint of underdeck",
-         "gives": "BT",
-         "note": "BUT without U, the first letter of underdeck"
+         "words": "underdeck",
+         "at": 34,
+         "note": "the word underdeck, whose first letter is taken away"
         }
        ]
       }
@@ -359,9 +392,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A barge on the water with no lower deck at all.",
-     "walkthrough": "The whole clue is the definition too: a flatboat is a flat-bottomed barge with nothing below deck.",
-     "definitionFit": "&lit: a flatboat is a flat-bottomed river barge, with no space under the deck."
+     "surface": "A query about a floating barge that has nothing below its deck.",
+     "walkthrough": "Take AFLOATBUT, remove U (the hint of underdeck) and rearrange the rest. As a whole the clue describes the vessel: a flat-bottomed barge with no hold.",
+     "definitionFit": "A flatboat is a broad, flat-bottomed river barge for carrying goods, with no deep hull below decks."
     },
     "features": {
      "answerInScene": true,
@@ -397,44 +430,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEFTHANDEDNESS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 33,
+       "note": "by means next to, so the two parts sit side by side"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "abandoned",
+       "at": 36,
+       "gives": "LEFT",
+       "note": "something abandoned has been left behind"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "banks of",
-         "note": "a river's banks are its edges, so the banks of earthen are its outer letters"
-        },
-        {
-         "text": "by"
+         "text": "works",
+         "at": 27,
+         "note": "works suggests the letters are worked over into a new form"
         }
        ],
        "parts": [
         {
-         "words": "abandoned",
-         "gives": "LEFT",
-         "note": "left behind"
+         "words": "Sheds",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "and",
+         "at": 6,
+         "note": "taken as written"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "HANDEDNESS",
          "indicators": [
           {
-           "text": "works",
-           "note": "to work something is to shape it, so the letters are worked into a new order"
+           "text": "banks of",
+           "at": 10,
+           "note": "the banks of a word are its two edges, its first and last letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Sheds and banks of earthen",
-           "gives": "HANDEDNESS",
-           "select": "outer",
-           "note": "SHEDS + AND + EN (the outer letters of earthen) rearranged"
+           "words": "earthen",
+           "at": 19,
+           "note": "the word earthen, whose outside letters are wanted"
           }
          ]
         }
@@ -443,9 +487,9 @@
      ]
     },
     "explanation": {
-     "surface": "An estate agent's listing of sheds and earthworks on a deserted, ominous plot.",
-     "walkthrough": "'Sinister' is Latin for left, which is how heraldry uses it; 'property' means quality, not real estate.",
-     "definitionFit": "Crossword sense: sinister originally meant on the left, so being left-handed is the sinister property."
+     "surface": "Abandoned earthworks with sheds and embankments make a gloomy, sinister estate.",
+     "walkthrough": "'banks of earthen' gives EN; 'works' rearranges SHEDS AND EN into HANDEDNESS. Sinister is Latin for left, which is why the property is unlucky.",
+     "definitionFit": "Sinister originally meant on the left side, so the quality of favouring the left hand is a sinister trait."
     },
     "features": {
      "answerInScene": false,
@@ -711,38 +755,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "Putting"
+       "text": "Putting",
+       "at": 0,
+       "note": "putting with in says one piece is placed inside the others"
       },
       {
        "text": "in",
-       "note": "in here means joining, as in 'put in with'"
+       "at": 17,
+       "note": "with putting, it asks for the letter to go inside"
       }
      ],
      "parts": [
       {
-       "words": "charge",
-       "gives": "FEE",
-       "note": "a charge is a fee"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "charge",
+         "at": 20,
+         "gives": "FEE",
+         "note": "a fee is a charge for a service"
+        },
+        {
+         "words": "pack",
+         "at": 28,
+         "gives": "STUFF",
+         "note": "to pack a bag is to stuff it"
+        }
+       ]
       },
       {
        "words": "daughter",
-       "gives": "D",
-       "note": "standard abbreviation"
-      },
-      {
-       "words": "pack",
-       "gives": "STUFF",
-       "note": "to pack is to stuff"
+       "at": 8,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent leaving their daughter in charge of packing the children's lunch.",
-     "walkthrough": "The kids are young goats, not children, which is why lunch is feedstuff: animal fodder.",
-     "definitionFit": "Definition by example: feedstuff is fodder for livestock, and kids are young goats, hence the question mark."
+     "surface": "A parent hands the daughter responsibility for packing the children's school lunch.",
+     "walkthrough": "The kids are young goats, not children, which is what makes the definition fair.",
+     "definitionFit": "Feedstuff is fodder for livestock, and kids are young goats, so it is food for them."
     },
     "features": {
      "answerInScene": false,
@@ -776,12 +830,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "heartlessly",
-       "note": "a word's heart is its middle, so RAT loses its central A"
-      },
-      {
        "text": "turned",
-       "note": "turned means facing the other way, so the whole is read backwards"
+       "at": 30,
+       "note": "turned means the combined letters are read back to front"
       }
      ],
      "parts": [
@@ -789,33 +840,47 @@
        "op": "container",
        "indicators": [
         {
-         "text": "put in"
+         "text": "put in",
+         "at": 17,
+         "note": "put in means one piece is placed inside another"
         }
        ],
        "parts": [
         {
          "words": "sack",
+         "at": 24,
          "gives": "AXE",
-         "note": "to sack is to axe; split A...XE"
+         "note": "to give someone the axe is to sack them"
         },
         {
-         "words": "Rat, heartlessly",
-         "gives": "RT",
-         "note": "RAT without its middle A"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "heartlessly",
+           "at": 5,
+           "note": "heartlessly removes the middle, leaving the outside letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rat",
+           "at": 0,
+           "note": "the word rat, whose first and last letters are kept"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rat bundled into a sack turns and bites.",
-     "walkthrough": "'Bit' looks like the past of bite, but 'bit performer' is the definition: a bit-part player.",
-     "definitionFit": "Film jargon: a bit part is a tiny role, and an extra plays the smallest, non-speaking kind."
+     "surface": "A rat thrown in a bag turns and bites someone performing.",
+     "walkthrough": "'sack' is the verb, to fire someone, not a bag; the reversal applies after the insertion is made.",
+     "definitionFit": "An extra is a film actor with a small non-speaking part, the most minor of performers."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "bit"
     }
    }
@@ -1117,39 +1182,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HELLBENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 22,
+       "note": "around means the outer letters surround the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "swinging",
-         "note": "a swinging bell moves to and fro, so the letters of THE BELL swing into a new order"
-        },
-        {
-         "text": "around"
+         "at": 13,
+         "note": "a swinging bell moves back and forth, so its letters are shaken up"
         }
        ],
        "parts": [
         {
-         "words": "the bell",
-         "note": "rearranged, split around N"
+         "words": "the",
+         "at": 4,
+         "note": "taken as written"
         },
         {
-         "words": "noon",
-         "gives": "N",
-         "note": "standard abbreviation"
+         "words": "bell",
+         "at": 8,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "noon",
+       "at": 29,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Starting the bell ringing at midday.",
-     "walkthrough": "'Set' looks like a verb about starting the bell; it is the adjective, as in set on something.",
-     "definitionFit": "Adjectival synonym: to be set on doing something is to be determined, hellbent on it."
+     "surface": "Getting the church bell ringing at midday.",
+     "walkthrough": "'Set' looks like a verb about ringing the bell; it is the adjective, as in set on doing something.",
+     "definitionFit": "Being set on something means being determined to do it, just as being hellbent on it does."
     },
     "features": {
      "answerInScene": false,
@@ -1401,27 +1475,26 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Vacuous",
-       "note": "vacuous means empty, so idiot keeps only its outer letters"
+       "text": "claiming",
+       "at": 14,
+       "note": "claiming means taking hold of, so the outer letters enclose the rest"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "IT",
        "indicators": [
         {
-         "text": "claiming"
+         "text": "Vacuous",
+         "at": 0,
+         "note": "vacuous means empty, so only the outside letters stay"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Vacuous idiot",
-         "gives": "IT",
-         "select": "outer",
-         "note": "outer letters of idiot"
+         "words": "idiot",
+         "at": 8,
+         "note": "the word idiot, whose outside letters are kept"
         }
        ]
       },
@@ -1430,7 +1503,8 @@
        "indicators": [
         {
          "text": "turning",
-         "note": "turning means facing the other way, so the picked letters are read backwards"
+         "at": 36,
+         "note": "turning means those picked letters are read backwards"
         }
        ],
        "parts": [
@@ -1439,13 +1513,15 @@
          "indicators": [
           {
            "text": "off and on",
-           "note": "off and on means intermittently, so every other letter is taken"
+           "at": 44,
+           "note": "off and on means every other letter is taken, skipping the first"
           }
          ],
          "parts": [
           {
            "words": "he's joking",
-           "note": "the even letters of HESJOKING, then reversed"
+           "at": 23,
+           "note": "the words he's joking, from which alternate letters are picked"
           }
          ]
         }
@@ -1454,14 +1530,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone joking about switching a printer off and on again.",
-     "walkthrough": "'Off and on' reads as the IT-support fix; it asks for every other letter of 'he's joking'.",
-     "definitionFit": "Definition by type: an inkjet is a printer that sprays tiny jets of ink onto the page."
+     "surface": "A dim-witted person says they're joking while switching the printer off and on.",
+     "walkthrough": "'off and on' picks EJKN from HESJOKING (the 2nd, 4th, 6th and 8th letters); 'turning' gives NKJE, which 'Vacuous idiot' (IT) claims.",
+     "definitionFit": "An inkjet is a kind of computer printer that sprays tiny droplets of ink onto paper."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turning"
+     "misdirectedWord": "joking"
     }
    }
   },
@@ -1598,45 +1674,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about as in turned about, facing the other way"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "having run away from",
-         "note": "running away from something means leaving it, so R departs from TRIAL"
+         "text": "about",
+         "at": 5,
+         "note": "about here means turned around, read backwards"
         }
        ],
        "parts": [
         {
          "words": "Joke",
+         "at": 0,
          "gives": "PUN",
-         "note": "wordplay joke; turned back to NUP"
+         "note": "a pun is a joke on words"
         }
        ]
       },
       {
-       "words": "run away from ordeal",
-       "gives": "TIAL",
-       "note": "TRIAL (an ordeal) without R, the cricket abbreviation for run"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 11,
+         "note": "having with away from says one letter has gone from the next word"
+        },
+        {
+         "text": "away from",
+         "at": 22,
+         "note": "with having, it asks for run's letter to be taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ordeal",
+         "at": 32,
+         "gives": "TRIAL",
+         "note": "a trial is an ordeal"
+        },
+        {
+         "words": "run",
+         "at": 18,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cynic's joke about fleeing the ordeal that is marriage.",
-     "walkthrough": "'Ordeal of marriage' reads as one phrase; the break comes after 'ordeal'.",
-     "definitionFit": "Plain synonym: nuptial comes from Latin nuptiae, wedding, and means relating to marriage."
+     "surface": "A wry remark that someone has fled the ordeal of married life.",
+     "walkthrough": "'ordeal of marriage' reads as one phrase, but the ordeal is wordplay and 'of marriage' is the adjectival definition.",
+     "definitionFit": "Nuptial is an adjective meaning relating to a wedding or to married life."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "run"
     }
    }

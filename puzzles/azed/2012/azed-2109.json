@@ -1447,28 +1447,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OPEL",
      "indicators": [
       {
        "text": "shorn of outer parts",
-       "note": "shearing off the outer parts removes letters from both ends, keeping the core"
+       "at": 17,
+       "note": "shorn of outer parts means the letters at both ends are cut away"
       }
      ],
      "parts": [
       {
        "words": "propeller",
-       "note": "the word taken as written"
+       "at": 7,
+       "note": "the word propeller, trimmed at each end"
+      },
+      {
+       "gives": "PRLER"
       }
      ]
     },
     "explanation": {
-     "surface": "A car make whose propeller has lost its outer blades.",
-     "walkthrough": "Drop PR from the front and LER from the back.",
-     "definitionFit": "Opel is a German car brand, and a marque is a make of car."
+     "surface": "A car maker's propeller has had its outer blades cut off.",
+     "walkthrough": "PR goes from the front and LER from the back of PROPELLER.",
+     "definitionFit": "Opel is a German car manufacturer, and a marque is a make or brand of car."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "propeller"
     }
@@ -1538,42 +1541,32 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Now his kitchen is stocked with this … it has many uses there",
-      "at": 0
+      "text": "it has many uses there",
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "WHISK",
      "indicators": [
       {
-       "text": "is stocked with",
-       "note": "the earlier words are stocked with, or contain, the answer inside them"
+       "text": "is stocked with this",
+       "at": 16,
+       "note": "a phrase stocked with something holds it inside, so the answer sits within these words"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "Now his kitchen",
+       "at": 0,
        "gives": "WHISK",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Now his kitchen",
-         "gives": "WHISK",
-         "select": "middle",
-         "note": "the run of letters spanning the end of now, all of his and the start of kitchen"
-        }
-       ]
+       "note": "the words now his kitchen, inside which the answer lies"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A well-equipped kitchen now has this versatile utensil.",
-     "walkthrough": "The whole clue is both the hiding place and the description of a kitchen tool.",
-     "definitionFit": "A whisk is a kitchen utensil for beating eggs and cream, used for many tasks there."
+     "surface": "A cook's kitchen now has this utensil, which is used for many jobs.",
+     "walkthrough": "'there' refers back to the kitchen, so the definition is a kitchen tool with many uses.",
+     "definitionFit": "A whisk is a kitchen utensil for beating eggs, cream and batters, used in many recipes."
     },
     "features": {
      "answerInScene": true,
