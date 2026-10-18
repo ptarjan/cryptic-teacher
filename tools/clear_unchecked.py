@@ -229,6 +229,8 @@ def run(paths, write, push_every=0):
                         publish(pending)
             out.append(r)
             print(f"[{len(out)}/{len(paths)}] {Path(r[0]).stem}: {len(r[1])} cleared", file=sys.stderr, flush=True)
+    if pending:  # the last batch, short of push_every
+        publish(pending)
     return out
 
 
