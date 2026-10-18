@@ -1065,44 +1065,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONSUMMATE",
-     "indicators": [
-      {
-       "text": "exotic",
-       "note": "exotic means strange and foreign, so the letters take an unfamiliar arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CONSUMMATE",
        "indicators": [
         {
          "text": "Endlessly",
-         "note": "without an end means the final letter is cut off"
+         "at": 0,
+         "note": "endlessly means without its end, so the final letter goes"
         }
        ],
        "parts": [
         {
          "words": "devour",
+         "at": 10,
          "gives": "CONSUME",
-         "note": "to devour is to consume; lose its last letter"
+         "note": "to devour food is to consume it"
         },
         {
-         "words": "tea",
-         "note": "taken as written, then rearranged"
+         "gives": "E",
+         "note": "the last letter of consume"
         }
        ]
+      },
+      {
+       "words": "exotic tea",
+       "at": 17,
+       "gives": "MATE",
+       "note": "mate, or yerba mate, is a South American herbal tea"
       }
      ]
     },
     "explanation": {
-     "surface": "Gulp down a strange foreign brew, which turns out to be delicious.",
-     "walkthrough": "CONSUME drops its E to CONSUM, then TEA is rearranged to MATE, which is also a South American tea, a nice touch.",
-     "definitionFit": "Consummate as an adjective means supremely skilled or perfect, a stronger synonym of excellent."
+     "surface": "Wolfing down some foreign brew that turns out to be first-rate.",
+     "walkthrough": "'Endlessly' drops the final E of CONSUME. 'exotic' is not an anagram signal: mate is a tea from South America.",
+     "definitionFit": "Consummate as an adjective means supremely skilled or perfect, as in a consummate professional."
     },
     "features": {
      "answerInScene": false,
@@ -1249,59 +1247,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NASAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "arranged",
-       "note": "arranging puts things in a fresh order, so the letters are reordered"
+       "at": 9,
+       "note": "arranged means put in order, so the remaining letters are set out afresh"
+      },
+      {
+       "text": "not",
+       "at": 19,
+       "note": "not says the letter that follows is left out of the plan's letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NASAL",
+       "words": "A plan's",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "not",
-         "note": "not means without, so that letter is removed"
+         "text": "initially",
+         "at": 23,
+         "note": "initially points to the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "words": "A plan's",
-         "note": "taken as written, with the S"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so just the opening letter of the word is meant"
-          }
-         ],
-         "parts": [
-          {
-           "words": "paying",
-           "note": "the first letter of paying"
-          }
-         ]
+         "words": "paying",
+         "at": 33,
+         "note": "first letter gives P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scheme drawn up to avoid paying over the odds.",
-     "walkthrough": "'Paying through the nose' is an idiom for being overcharged, but the first word goes to the wordplay and 'through the nose' is the definition.",
-     "definitionFit": "Nasal describes sound produced with air passing out by way of the nostrils, as in a nasal voice."
+     "surface": "A scheme that has been put in place, though nobody is paying through the nose for it yet.",
+     "walkthrough": "'not' with 'initially paying' takes P out of APLANS, leaving ALANS, and 'arranged' rearranges those letters. 'paying through the nose' is an idiom for overpaying, but only the last three words define.",
+     "definitionFit": "A nasal sound is produced with air passing through the nose, like the consonants m and n."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "paying"
     }
    }

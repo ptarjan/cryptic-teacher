@@ -48,58 +48,61 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DANIELCRAIG",
-     "indicators": [
-      {
-       "text": "smuggling",
-       "note": "to smuggle something is to carry it hidden inside, so the first word holds the next"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "smuggling",
+         "at": 9,
+         "note": "smuggling means carrying something hidden within, so the one goes inside"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "exploding",
-           "note": "something exploding is blown apart, so the word after it is scattered into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "European",
-           "gives": "DANE",
-           "note": "a Dane is a European from Denmark"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L is the abbreviation for large, as on clothing labels"
-          }
-         ]
+         "words": "European",
+         "at": 0,
+         "gives": "DANE",
+         "note": "a Dane is a European from Denmark"
         },
         {
+         "words": "one",
+         "at": 19,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "at": 23,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exploding",
+         "at": 30,
+         "note": "exploding blows the letters apart so they land in a new order"
+        }
+       ],
+       "parts": [
+        {
          "words": "cigar",
-         "gives": "CRAIG",
-         "note": "the five letters of the smoke rearranged"
+         "at": 40,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spy-film scene: a European smuggler with a big cigar that blows up, a gadget fit for 007.",
-     "walkthrough": "The one-and-large pair is split around the last letter of the European: one goes inside, large follows outside.",
-     "definitionFit": "The actor played the fictional secret agent in five films from Casino Royale onwards, so the name stands for the role."
+     "surface": "A traveller sneaks a huge cigar through customs, and it blows up, as if in a spy film.",
+     "walkthrough": "The definition names the role rather than the man: the clue wants the actor who played James Bond, not the spy himself.",
+     "definitionFit": "Daniel Craig played the spy James Bond in five films, from Casino Royale to No Time to Die."
     },
     "features": {
      "answerInScene": true,
@@ -234,43 +237,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXCLUSIVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "cryptic",
-       "note": "cryptic means puzzling or obscure, so the words that follow are jumbled"
+       "text": "written over",
+       "at": 27,
+       "note": "the shuffled letters are written over and around the ten, so it ends up inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "written over",
-         "note": "letters written over something cover it, so they go around it"
+         "text": "cryptic",
+         "at": 7,
+         "note": "cryptic means puzzling and hidden, so the letters are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "clues, I've",
-         "gives": "ECLUSIVE",
-         "note": "the seven letters of these words rearranged"
+         "words": "clues",
+         "at": 15,
+         "note": "taken as written"
         },
         {
-         "words": "ten",
-         "gives": "X",
-         "note": "X is the Roman numeral for ten"
+         "words": "I've",
+         "at": 22,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "ten",
+       "at": 40,
+       "gives": "X",
+       "note": "X is the Roman numeral for ten"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter boasting that their cryptic clues are one of a kind, ten of them written.",
-     "walkthrough": "The rearranged letters are wrapped around X: E(X)CLUSIVE.",
-     "definitionFit": "Something exclusive is the only one of its kind, not shared with others, which is a sense of unique."
+     "surface": "A setter boasting that their cryptic clues are one of a kind, finished off with ten more.",
+     "walkthrough": "'cryptic' sounds like a description of the setter's clues, but it is the signal to rearrange them, and 'written over' wraps those letters around the ten.",
+     "definitionFit": "Something exclusive is the only one of its kind, not shared with others, which is what unique means."
     },
     "features": {
      "answerInScene": false,
@@ -1614,34 +1623,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NEARSIGHTED",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+       "at": 30,
+       "note": "Spooner's name signals swapping the opening sounds of two words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "prophet given a title",
-       "gives": "NEARSIGHTED",
-       "soundsLike": "SEER KNIGHTED",
-       "note": "a prophet is a seer, and a man given the title Sir has been knighted; the K is silent, so the opening sounds are S and N"
+       "op": "homophone",
+       "spelt": "SEAR",
+       "parts": [
+        {
+         "words": "prophet",
+         "at": 7,
+         "gives": "SEER",
+         "note": "a seer is a prophet who sees the future"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NIGHTED",
+       "parts": [
+        {
+         "words": "given a title",
+         "at": 15,
+         "gives": "KNIGHTED",
+         "note": "a man given a title by the monarch is knighted, said with its silent K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short-sighted prophet is honoured with a knighthood.",
-     "walkthrough": "SEER KNIGHTED with its opening sounds swapped becomes NEAR SIGHTED; the K of KNIGHTED is silent, so the N sound moves.",
-     "definitionFit": "Myopia is the condition in which distant things look blurred, so a myopic person sees only close things clearly."
+     "surface": "A holy man being honoured with a knighthood.",
+     "walkthrough": "'according to Spooner' swaps the S and N sounds of 'seer knighted'; the K of knighted is silent, so the swap lands as near-sighted.",
+     "definitionFit": "A myopic person can see near things clearly but not distant ones, the meaning of short-sighted."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "title"
+     "joke": "pun",
+     "misdirectedWord": "prophet"
     }
    }
   }

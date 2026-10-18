@@ -50,43 +50,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CATERER",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "something without an end has lost its final letter, so the word is cut short"
+       "text": "feeding",
+       "at": 17,
+       "note": "feeding X to someone puts it into them, so the shortened tea goes inside the nurse"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "nurse",
+       "at": 40,
+       "gives": "CARER",
+       "note": "a carer is someone who looks after, or nurses, the sick or elderly"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "feeding",
-         "note": "food that feeds someone goes inside them, so one piece is placed within another"
+         "text": "endless",
+         "at": 25,
+         "note": "endless means losing the final letter"
         }
        ],
        "parts": [
         {
-         "words": "nurse",
-         "gives": "CARER",
-         "note": "a carer looks after the sick, as a nurse does"
+         "words": "tea",
+         "at": 33,
+         "gives": "TEA",
+         "note": "taken as written"
         },
         {
-         "words": "tea",
-         "gives": "TE",
-         "note": "the drink with its last letter dropped"
+         "gives": "A",
+         "note": "the last letter of tea"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone serves a nurse a cup of tea, perhaps a cafeteria worker on a ward round.",
-     "walkthrough": "'Nurse' looks like the person being fed, but it is the outer wordplay piece, a synonym for someone who looks after others, which the clipped drink is fed into.",
-     "definitionFit": "A caterer is a business or person supplying meals for events, a straightforward description of the job."
+     "surface": "Someone giving a cup of tea to a nurse, and asking whether that makes them a supplier of food.",
+     "walkthrough": "'nurse' reads as a verb in the surface, but here it stands for the person who nurses: a carer.",
+     "definitionFit": "A caterer supplies the meals and refreshments for events, a professional purveyor of food."
     },
     "features": {
      "answerInScene": true,
@@ -1045,37 +1051,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "NIECE",
+     "spelt": "NIECE",
      "indicators": [
       {
        "text": "we hear",
-       "note": "what we hear is spoken, so the sound of a word matters more than its spelling"
+       "at": 43,
+       "note": "we hear tells us to go by the sound of the place name, not its spelling"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "NICE",
-       "parts": [
-        {
-         "words": "somewhere in the south of France",
-         "gives": "NEES",
-         "note": "the Riviera city of Nice"
-        }
-       ]
+       "words": "somewhere in the south of France",
+       "at": 9,
+       "gives": "NICE",
+       "note": "Nice is a city on the French Riviera, pronounced like the relative"
       }
      ]
     },
     "explanation": {
-     "surface": "A family member lives somewhere on the Côte d'Azur.",
-     "walkthrough": "The French city of Nice is pronounced like 'neece', not like the English adjective.",
-     "definitionFit": "A niece is a daughter of one's brother or sister, so a family relative."
+     "surface": "Asking whether a relative lives somewhere in southern France.",
+     "walkthrough": "'we hear' asks for sound only: the French city Nice is said 'neece', just like the relative.",
+     "definitionFit": "A niece is the daughter of one's brother or sister, a family member."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "Relative"
     }
    }
   },

@@ -222,46 +222,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GARCON",
+     "op": "charade",
      "indicators": [
       {
-       "text": "second half of game's abandoned",
-       "note": "something abandoned is dropped, so the back half of the word is lost"
+       "text": "after",
+       "at": 26,
+       "note": "after places the racket word behind the letters that come before it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "second half of",
+         "at": 32,
+         "note": "the second half of the four-letter word game is its last two letters"
+        },
+        {
+         "text": "abandoned",
+         "at": 54,
+         "note": "abandoned means dropped, so those letters leave the word"
+        }
+       ],
        "parts": [
         {
-         "words": "game",
-         "gives": "GA",
-         "note": "the word with its last two letters dropped"
+         "words": "game's",
+         "at": 47,
+         "gives": "GAME",
+         "note": "taken as the word game"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the standard abbreviation for right"
-        },
-        {
-         "words": "racket",
-         "gives": "CON",
-         "note": "a racket is a swindle, and so is a con"
+         "gives": "ME",
+         "note": "the last two of game's four letters"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 65,
+       "gives": "R"
+      },
+      {
+       "words": "racket",
+       "at": 19,
+       "gives": "CON",
+       "note": "a racket is a swindle or con"
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis player carrying a racket gives up the game halfway through.",
-     "walkthrough": "'Racket' suggests tennis but means a scam; 'after' places the scam behind the R for right, which is tacked on at the end of the clue.",
-     "definitionFit": "Garcon is the French word for a waiter, someone who waits at tables in a restaurant."
+     "surface": "A tennis player with a racket gives up halfway through a game and asks if that is all right.",
+     "walkthrough": "'racket' looks like the tennis kit, but here it is a swindle; 'second half of' and 'abandoned' strip the back of game to leave GA, and 'after' puts the racket at the end.",
+     "definitionFit": "A garcon is a French waiter, the server at a table in a cafe."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "racket"
     }
    }
@@ -478,34 +495,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "POUREDWITHRAIN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner famously swapped the opening sounds of words, so his version trades initial sounds"
+       "at": 20,
+       "note": "Spooner's signals a Spoonerism, swapping the opening sounds of two words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "cried in anguish",
-       "gives": "POUREDWITHRAIN",
-       "soundsLike": "ROARED WITH PAIN",
-       "note": "roared with pain is crying out in anguish; swap the R and P sounds"
+       "op": "homophone",
+       "spelt": "ROUREDWITH",
+       "parts": [
+        {
+         "words": "cried",
+         "at": 30,
+         "gives": "ROAREDWITH",
+         "note": "cried here is roared with, said aloud so that roared rhymes with poured"
+        }
+       ]
+      },
+      {
+       "words": "in anguish",
+       "at": 36,
+       "gives": "PAIN",
+       "note": "anguish is pain"
       }
      ]
     },
     "explanation": {
-     "surface": "It rained heavily and someone howled in distress.",
-     "walkthrough": "Swapping the opening consonants of 'roared' and 'pain' produces the weather phrase; 'poured' and 'roared' rhyme in British speech.",
-     "definitionFit": "Bucketed down is informal for rain falling heavily, the same as the idiom about a downpour."
+     "surface": "Someone describing a downpour, then a person howling in pain.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of 'roared' and 'pain' in 'roared with pain'; roared rhymes with poured, so think of it as ROUREDWITH before the R and P trade places.",
+     "definitionFit": "Bucketed down is informal for rain falling very heavily, a torrential shower."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "cried"
+     "misdirectedWord": "Bucketed"
     }
    }
   },
@@ -536,59 +563,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PINKFLOYD",
+     "op": "composite",
      "indicators": [
       {
        "text": "performing",
-       "note": "performing suggests putting on a show, reworking the letters into a new act"
+       "at": 11,
+       "note": "performing suggests the letters putting on a new show in a fresh order"
+      },
+      {
+       "text": "without",
+       "at": 35,
+       "note": "without says a letter is taken out of the phrase before the shuffle"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PINKFLOYD",
+       "words": "kind of play",
+       "at": 22,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so a letter is taken out"
+         "text": "hint of",
+         "at": 43,
+         "note": "a hint of a word is just its opening letter"
         }
        ],
        "parts": [
         {
-         "words": "kind of play",
-         "note": "the three words taken letter for letter"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "hint of",
-           "note": "a hint is just a trace, so only the opening letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "actors",
-           "note": "the first letter, to be removed"
-          }
-         ]
+         "words": "actors",
+         "at": 51,
+         "note": "first letter gives A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A band stages some sort of drama that has no actors in it.",
-     "walkthrough": "Remove the A from 'kind of play', then scramble the remaining nine letters.",
-     "definitionFit": "Pink Floyd were a famous British rock band behind The Dark Side of the Moon."
+     "surface": "A rock band staging some sort of drama with no actors in it.",
+     "walkthrough": "'hint of' actors is A; 'without' takes it out of KIND OF PLAY to leave KINDOFPLY, and 'performing' rearranges those nine letters.",
+     "definitionFit": "Pink Floyd were an English progressive rock band, famous for The Dark Side of the Moon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "performing"
+     "misdirectedWord": "Rock"
     }
    }
   },
@@ -1086,61 +1107,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EPSILON",
-     "indicators": [
-      {
-       "text": "detailed",
-       "note": "read as de-tailed: each word loses its tail, its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Ultimately",
+         "at": 0,
+         "note": "ultimately points to the very end of the next word"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "Ultimately",
-           "note": "ultimately means in the end, so only the final letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "plaintive",
-           "note": "the final letter"
-          }
-         ]
-        },
-        {
-         "words": "PS",
-         "note": "taken as written"
-        },
-        {
-         "words": "in",
-         "gives": "I",
-         "note": "the word minus its last letter"
-        },
-        {
-         "words": "long",
-         "gives": "LON",
-         "note": "the word minus its last letter"
+         "words": "plaintive",
+         "at": 11,
+         "note": "last letter gives E"
         }
        ]
+      },
+      {
+       "words": "PS",
+       "at": 21
+      },
+      {
+       "words": "in long, detailed",
+       "at": 24,
+       "gives": "ILON",
+       "note": "detailed docks the tail of each of the two words in and long, leaving I and LON"
       }
      ]
     },
     "explanation": {
-     "surface": "A mournful postscript tacked onto a long, thorough letter sent from Greece.",
-     "walkthrough": "'Detailed' seems to describe the letter, but read as de-tailed it cuts the last letter from both 'in' and 'long'.",
-     "definitionFit": "Epsilon is the fifth character of the Greek alphabet, the alphabet used in Athens."
+     "surface": "A mournful postscript tacked onto a lengthy, thorough letter.",
+     "walkthrough": "'Ultimately' plaintive gives E; then PS; then 'detailed' cuts the last letter off both 'in' and 'long', giving I and LON, so ILON.",
+     "definitionFit": "Epsilon is the fifth letter of the Greek alphabet, so a character used in Athens."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "detailed"
     }
    }

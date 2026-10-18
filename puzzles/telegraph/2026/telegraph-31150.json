@@ -277,48 +277,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RESILIENT",
+     "op": "composite",
      "indicators": [
       {
        "text": "novel",
-       "note": "novel means new, so the letters are made into a fresh arrangement"
+       "at": 6,
+       "note": "novel means new, so the letters are given a new arrangement"
+      },
+      {
+       "text": "banned",
+       "at": 32,
+       "note": "banned says the church letters are excluded from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RESILIENT",
-       "indicators": [
-        {
-         "text": "banned",
-         "note": "banned means kept out, so the church abbreviation is removed from Leicester"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "in",
+         "at": 12,
          "note": "taken as written"
         },
         {
          "words": "Leicester",
-         "note": "the English city name"
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE is the Church of England"
+         "at": 15,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "church",
+       "at": 25,
+       "gives": "CE",
+       "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "A Thomas Hardy novel is banned from a Leicester church.",
-     "walkthrough": "Thomas Hardy is the Wessex novelist, but here hardy means tough. LEICESTER minus CE leaves LEISTER, shuffled with IN.",
-     "definitionFit": "A hardy plant or person is tough and recovers well from hardship, which is being resilient."
+     "surface": "A Thomas Hardy novel being banned in a church in Leicester.",
+     "walkthrough": "'banned' takes CE out of LEICESTER, leaving LEISTER, and 'novel' rearranges that with IN. 'Hardy' looks like the novelist, but it is the definition.",
+     "definitionFit": "A hardy plant or person withstands harsh conditions, so is tough and quick to recover."
     },
     "features": {
      "answerInScene": false,
@@ -691,35 +690,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERRUN",
-     "indicators": [
-      {
-       "text": "without wingers",
-       "note": "wingers are players on the edges, so losing them strips off the end letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Blackburn, for one",
-       "gives": "ROVERS",
-       "note": "Blackburn Rovers is an English football club, one of several called Rovers"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "without wingers",
+         "at": 20,
+         "note": "wingers play on the edges of a team, so the word loses its two outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blackburn, for one",
+         "at": 0,
+         "gives": "ROVERS",
+         "note": "Blackburn Rovers is an English football club, so Blackburn is one of the Rovers"
+        }
+       ]
       },
       {
        "words": "manage",
+       "at": 36,
        "gives": "RUN",
        "note": "to run a business is to manage it"
       }
      ]
     },
     "explanation": {
-     "surface": "A Blackburn side playing without its wide men must find another way to attack.",
-     "walkthrough": "Wingers in football play on the flanks, so here they are the letters on each side.",
-     "definitionFit": "To overrun a position is to invade and swarm over it, an attack by sheer force."
+     "surface": "A football club, shorn of its wide players, organising an attack.",
+     "walkthrough": "Blackburn Rovers is a football club in Lancashire; 'without wingers' strips the R and S off ROVERS. Football wingers play out wide, hence the image.",
+     "definitionFit": "To overrun a place is to attack and swarm over it, as an invading army does."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "wingers"
@@ -1899,50 +1904,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SLENDER",
      "indicators": [
       {
        "text": "making",
-       "note": "making here means turning one thing into another, so one letter is swapped for a new one"
+       "at": 12,
+       "note": "making American butt of joke means the letter for American is turned into the joke's last letter"
       }
      ],
      "parts": [
       {
        "words": "slur",
+       "at": 7,
        "gives": "SLANDER",
-       "note": "a slur is a damaging false remark, slander"
+       "note": "a slander is a damaging slur"
       },
       {
        "words": "American",
-       "gives": "A",
-       "note": "A is a standard abbreviation for American"
+       "at": 19,
+       "gives": "A"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "butt of",
-         "note": "a butt is the thick end of something, so the final letter of joke is wanted"
+         "at": 28,
+         "note": "the butt of something is its end, so the last letter"
         }
        ],
        "parts": [
         {
          "words": "joke",
-         "note": "the final letter of joke"
+         "at": 36,
+         "note": "last letter gives E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small insult turns an American into the target of mockery.",
-     "walkthrough": "The A in SLANDER is replaced by E.",
-     "definitionFit": "Slender means small or meagre, as in slender chances, so slight is a synonym."
+     "surface": "A minor insult that makes an American the target of a joke.",
+     "walkthrough": "'butt of' joke is E, and 'making' swaps it for the A of SLANDER. 'butt of joke' looks like the victim of a joke, but it means the word's last letter.",
+     "definitionFit": "Slender means slim or small in amount, as in a slender chance, so slight."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "butt"
     }
    }
