@@ -1508,55 +1508,60 @@
      "indicators": [
       {
        "text": "round",
-       "note": "round means the shortened barrel encloses the next two letters"
+       "at": 25,
+       "note": "round means the shortened barrel encloses the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 12,
+         "note": "short means cut off before the end, so the barrel word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "short",
-           "note": "short means the word for barrel loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "barrel",
-           "gives": "BUTT",
-           "note": "a butt is a large cask for wine or rainwater"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "words": "barrel",
+         "at": 18,
+         "gives": "BUTT",
+         "note": "a butt is a large cask for wine or beer"
         },
         {
-         "words": "island",
-         "gives": "I",
-         "note": "I abbreviates island"
+         "gives": "T"
         }
        ]
       },
       {
-       "words": "lake",
-       "gives": "L",
-       "note": "L abbreviates lake"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island",
+         "at": 31,
+         "gives": "I",
+         "note": "I is the map abbreviation for island"
+        },
+        {
+         "words": "lake",
+         "at": 42,
+         "gives": "L",
+         "note": "L is the map abbreviation for lake"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tolerated a small cask on an island beside a lake.",
-     "walkthrough": "'Put up with' sounds like one phrase meaning tolerate; the definition stops at 'Put up'.",
-     "definitionFit": "A house that was built has been erected, which is what put up means for a structure."
+     "surface": "Someone tolerates a stubby cask placed around an island with its lake.",
+     "walkthrough": "'Put up with' looks like one phrase meaning tolerate, but the definition stops at 'Put up' and 'with' is a link.",
+     "definitionFit": "Something put up has been constructed or erected, which is what built means as a past participle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Put"
+     "misdirectedWord": "with"
     }
    }
   },

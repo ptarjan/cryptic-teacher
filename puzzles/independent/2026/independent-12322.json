@@ -883,32 +883,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "backward",
-         "note": "'backward' in its sense of facing the wrong way, so SOME is read from the end"
+         "text": "in",
+         "at": 21,
+         "note": "in places the cab's last letter inside the reversed word"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "backward",
+           "at": 29,
+           "note": "backward means the word some is read from right to left"
+          }
+         ],
          "parts": [
           {
            "words": "some",
-           "note": "as printed"
-          },
+           "at": 24,
+           "gives": "SOME"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
           {
-           "words": "rear of cab",
-           "gives": "B",
-           "note": "last letter of cab"
+           "text": "rear of",
+           "at": 9,
+           "note": "the rear of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cab",
+           "at": 17
           }
          ]
         }
@@ -916,15 +931,15 @@
       },
       {
        "words": "society",
-       "gives": "S",
-       "note": "S = society"
+       "at": 38,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Adorning the back of a taxi in a society stuck in the past.",
-     "walkthrough": "'Backward society' reads as one idea, a primitive culture; 'backward' belongs to 'some', and S for society simply follows.",
-     "definitionFit": "A specific kind of decorating: raising a design in relief on metal, leather or paper."
+     "surface": "Someone adorns the back of a taxi in a society that has gone backward.",
+     "walkthrough": "SOME read backwards is EMOS; B goes inside it and S is added.",
+     "definitionFit": "To emboss is to ornament a surface with a raised design, a way of decorating it."
     },
     "features": {
      "answerInScene": false,
@@ -958,51 +973,55 @@
      "indicators": [
       {
        "text": "claims",
-       "note": "takes hold of, so the other letters go inside"
+       "at": 7,
+       "note": "claims means takes in, so the expert word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Expert",
-         "gives": "ACE",
-         "note": "an ace is an expert"
-        },
-        {
-         "words": "referee's assistant",
-         "gives": "VAR",
-         "note": "VAR = video assistant referee, used in football"
-        }
-       ]
+       "words": "Expert",
+       "at": 0,
+       "gives": "ACE",
+       "note": "an ace is an expert"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "at its essence, the middle letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "committed",
-         "note": "middle letter of committed"
+         "words": "referee's assistant",
+         "at": 14,
+         "gives": "VAR",
+         "note": "VAR is the video assistant referee in football"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 34,
+           "note": "essentially points to the essence, the central letter of committed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "committed",
+           "at": 46
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pundit claims the video referee essentially committed a sin.",
-     "walkthrough": "VAR is the video assistant referee who reviews football incidents.",
-     "definitionFit": "A definition by example: greed is one of the seven deadly sins."
+     "surface": "An expert alleges that a football official's helper has really done wrong.",
+     "walkthrough": "'Claims' reads as alleges, but it means takes in: ACE holds VAR and I, the middle letter of 'committed'.",
+     "definitionFit": "Avarice, or greed, is one of the seven deadly sins."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "committed"
+     "misdirectedWord": "claims"
     }
    }
   },
@@ -1541,51 +1560,55 @@
      "indicators": [
       {
        "text": "circling",
-       "note": "going round the other letters"
+       "at": 11,
+       "note": "circling means the fish goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "bottom of",
-         "note": "in a down clue, the last letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "fish",
-         "gives": "CHUB",
-         "note": "a chub is a freshwater fish"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "bottom of wide",
-           "note": "last letter of wide"
-          }
-         ]
-        }
-       ]
+       "words": "fish",
+       "at": 6,
+       "gives": "CHUB",
+       "note": "the chub is a freshwater fish"
       },
       {
-       "words": "river",
-       "gives": "R",
-       "note": "R = river"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "bottom of",
+           "at": 20,
+           "note": "in a down clue the bottom of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wide",
+           "at": 30
+          }
+         ]
+        },
+        {
+         "words": "river",
+         "at": 35,
+         "gives": "R",
+         "note": "R is the map abbreviation for river"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angelfish swimming round the far end of a broad river.",
-     "walkthrough": "'Angel fish' is one creature in the surface; split it: 'Angel' is the definition and 'fish' the wordplay.",
-     "definitionFit": "A definition by example: this winged child-like figure belongs to one of the orders of angels."
+     "surface": "An angelfish swims round and round the deep end of a wide river.",
+     "walkthrough": "'Angel fish' reads as one creature, but the definition is 'Angel' alone.",
+     "definitionFit": "A cherub is a type of angel, often pictured as a winged child."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Angel"
+     "misdirectedWord": "fish"
     }
    }
   },

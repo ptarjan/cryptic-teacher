@@ -107,66 +107,68 @@
      "indicators": [
       {
        "text": "wears",
-       "note": "whatever is worn goes around the wearer, so one piece is put on around another"
+       "at": 37,
+       "note": "wears means has on, so the underwear goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "short",
-           "note": "something cut short has lost its end, so the final letter is removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "underwear",
-           "gives": "PANTS",
-           "note": "pants are underpants in British usage"
-          },
-          {
-           "gives": "S"
-          }
-         ]
-        },
-        {
-         "words": "each",
-         "gives": "EA",
-         "note": "EA is the standard abbreviation for each"
-        }
-       ]
-      },
-      {
-       "op": "first",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "primarily",
-         "note": "primarily means first of all, so only the opening letter of the word is kept"
+         "text": "short",
+         "at": 43,
+         "note": "short means the underwear word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "summer",
-         "note": "the opening letter of summer"
+         "words": "underwear",
+         "at": 49,
+         "gives": "PANTS",
+         "note": "pants is British for underpants"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "each",
+         "at": 15,
+         "gives": "EA"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 27,
+           "note": "primarily points to the first letter of summer"
+          }
+         ],
+         "parts": [
+          {
+           "words": "summer",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rustic man wears skimpy underwear every summer.",
-     "walkthrough": "In Britain pants means underpants, not trousers; 'short' trims the garment before it goes around the other pieces.",
-     "definitionFit": "A peasant is a farm labourer or smallholder living in the countryside, a rural man of humble standing."
+     "surface": "A rustic man wears brief underpants every summer.",
+     "definitionFit": "A peasant is a farm labourer or smallholder living in the countryside."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "wears"
+     "misdirectedWord": "short"
     }
    }
   },
@@ -1226,38 +1228,41 @@
      "indicators": [
       {
        "text": "discovered in",
-       "note": "something discovered in a place is found within it, so these letters sit inside"
+       "at": 18,
+       "note": "these letters are found inside the storehouse word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "storehouse",
-         "gives": "DEPOT",
-         "note": "a depot is a warehouse"
-        },
-        {
-         "words": "spades",
-         "gives": "S",
-         "note": "S is the card-suit abbreviation for spades"
-        }
-       ]
+       "words": "storehouse",
+       "at": 32,
+       "gives": "DEPOT",
+       "note": "a depot is a storehouse or warehouse"
       },
       {
-       "words": "I",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "spades",
+         "at": 9,
+         "gives": "S",
+         "note": "S is the card-suit abbreviation for spades"
+        },
+        {
+         "words": "I",
+         "at": 16,
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone found spades hidden in a warehouse and set them down.",
-     "walkthrough": "The two short pieces go inside the storehouse word between its O and T.",
-     "definitionFit": "To deposit something is to lay it down or place it somewhere, matching put down."
+     "surface": "Garden tools and a person are found in a warehouse.",
+     "definitionFit": "To deposit something is to lay it down or place it somewhere."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "spades"
     }
