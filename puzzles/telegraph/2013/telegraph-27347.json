@@ -1391,43 +1391,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BESOM",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means nearly all, so the word for highest loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all, so the final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "highest",
-         "gives": "BES",
-         "note": "best means highest in quality, trimmed at the end"
+         "at": 7,
+         "gives": "BEST",
+         "note": "best means highest in quality"
         },
         {
-         "words": "honour",
-         "gives": "OM",
-         "note": "OM is the Order of Merit, a British honour"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "honour",
+       "at": 15,
+       "gives": "OM",
+       "note": "the OM, Order of Merit, is a British honour"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly wins the top award for their work as a cleaner.",
-     "walkthrough": "The Order of Merit is an exclusive British honour awarded by the monarch. 'Cleaner?' is a tool, not a person, hence the question mark.",
-     "definitionFit": "A besom is a traditional broom made of twigs bound to a handle, a sweeping tool."
+     "surface": "Someone almost gets the top award for cleaning.",
+     "walkthrough": "The Order of Merit is a British honour in the monarch's personal gift.",
+     "definitionFit": "A besom is a broom made of twigs tied round a stick, a tool used for sweeping."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "cleaner"
+     "aptDefinition": false,
+     "misdirectedWord": "honour"
     }
    }
   },

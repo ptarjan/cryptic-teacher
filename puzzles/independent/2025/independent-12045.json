@@ -1442,12 +1442,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CANAPE",
      "indicators": [
       {
        "text": "grabs",
-       "note": "to grab is to take hold, so one piece is clutched inside the other"
+       "at": 12,
+       "note": "the cycled nut grabs the letter, holding it inside"
       }
      ],
      "parts": [
@@ -1456,39 +1455,35 @@
        "indicators": [
         {
          "text": "Cycling",
-         "note": "cycling moves letters round in a loop, taking some from the front to the back"
+         "at": 0,
+         "note": "cycling moves letters round from one end to the other, here the first two to the back"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "nut",
-           "gives": "PECAN",
-           "note": "a pecan is a nut"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "nut",
+         "at": 8,
+         "gives": "PECAN",
+         "note": "a pecan is a nut"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
       }
      ]
     },
     "spelling": "CANAPÉ",
     "explanation": {
-     "surface": "A cyclist with a screw loose snatches a snack.",
-     "walkthrough": "PECAN with its first two letters moved to the end gives CANPE, which then takes in A.",
-     "definitionFit": "A canapé is a small savoury morsel served on a cracker or bread at drinks parties."
+     "surface": "A health-conscious cyclist grabs a small snack of nuts.",
+     "definitionFit": "A canapé is a small bite-sized savoury snack served at drinks parties."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "nut"
+     "misdirectedWord": "Cycling"
     }
    }
   },
@@ -1565,59 +1560,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SITUATION",
-     "indicators": [
-      {
-       "text": "retiring",
-       "note": "retiring means going back, so the word is read in the reverse direction"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SITUATION",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for",
-         "note": "for means in place of, so one letter swaps in where another stood"
+         "text": "retiring",
+         "at": 3,
+         "note": "retiring means going back, so the word is reads backwards"
         }
        ],
        "parts": [
         {
          "words": "Is",
+         "at": 0,
          "note": "taken as written"
-        },
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 21,
+         "note": "one thing put for another replaces it, so the letter for accepted replaces the letter for one"
+        }
+       ],
+       "parts": [
         {
          "words": "teaching",
+         "at": 32,
          "gives": "TUITION",
          "note": "tuition is teaching"
         },
         {
-         "words": "accepted",
-         "gives": "A",
-         "note": "A is short for accepted"
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "the Roman numeral for one is I"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "words": "accepted",
+         "at": 12,
+         "gives": "A",
+         "note": "A is an abbreviation for accepted, as on bills of exchange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is a person who is stepping down being taken on for a teaching job?",
-     "walkthrough": "In TUITION the first I is replaced by A; 'teaching post' reads as one phrase but 'post' alone is the definition.",
-     "definitionFit": "A situation is a job or position of employment, as in 'situations vacant'."
+     "surface": "Is retirement accepted for someone in a teaching job?",
+     "walkthrough": "'retiring' turns IS into SI; in TUITION the first I is swapped for A to make TUATION.",
+     "definitionFit": "A situation is a job or position of employment, as in 'situations vacant', which is a post."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "retiring"
+     "misdirectedWord": "teaching"
     }
    }
   },
