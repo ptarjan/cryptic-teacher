@@ -138,38 +138,49 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 31,
+       "note": "and adds one more starter letter after the first two"
+      }
+     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "PLO",
        "indicators": [
         {
          "text": "starters of",
-         "note": "a starter is the first course, so only the opening letter of each following word is served up"
+         "at": 4,
+         "note": "starters are the first course, and here the first letters of the vegetables named"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "parsnip, liver and octopus",
-         "gives": "PLO",
-         "select": "first",
-         "note": "the first letters of the three foods"
+         "words": "parsnip, liver",
+         "at": 16,
+         "note": "the first letters of parsnip and liver"
         }
        ]
       },
       {
+       "words": "octopus",
+       "at": 35,
+       "gives": "O",
+       "note": "the first letter of octopus, the third starter"
+      },
+      {
        "words": "yuck",
+       "at": 45,
        "gives": "UGH",
-       "note": "an exclamation of disgust"
+       "note": "ugh, like yuck, is an exclamation of disgust"
       }
      ]
     },
     "explanation": {
-     "surface": "A diner faced with a starter of parsnip, liver and octopus is understandably disgusted.",
-     "walkthrough": "'Starters' looks like a menu course, but it means first letters; 'and' sits inside the fodder list and gives nothing.",
-     "definitionFit": "To plough a field is to turn over the soil, a farming sense of digging the ground."
+     "surface": "A diner digs into a starter of parsnip, liver and octopus and recoils in disgust.",
+     "walkthrough": "'starters' looks like the first course of a meal, but it means first letters: P, L and O, followed by UGH for 'yuck'.",
+     "definitionFit": "To plough is to turn over soil with a blade, so it is a way to dig the ground."
     },
     "features": {
      "answerInScene": false,
@@ -200,48 +211,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENGLAND",
+     "op": "composite",
      "indicators": [
       {
        "text": "wicked",
-       "note": "wicked means wrong or bad, so the letters are behaving badly and land in a new order"
+       "at": 9,
+       "note": "wicked means twisted and bad, so the remaining letters are rearranged"
+      },
+      {
+       "text": "no",
+       "at": 29,
+       "note": "no means without, so the letters of sir are taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENGLAND",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "saying no to something refuses it entry, so those letters are struck out of the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "slandering",
-         "note": "taken as written"
-        },
-        {
-         "words": "sir",
-         "note": "taken as written, then removed letter by letter"
-        }
-       ]
+       "words": "slandering",
+       "at": 16
+      },
+      {
+       "words": "sir",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "A politician protests that the country's spiteful slanders are untrue: no, sir!",
-     "walkthrough": "Take S, I and R out of SLANDERING to leave LANDENG, then rearrange. 'No sir!' reads as an indignant denial, not a removal.",
-     "definitionFit": "England is a country within the United Kingdom, an example of a nation."
+     "surface": "A reprimand to someone spreading nasty slander about a country.",
+     "walkthrough": "SLANDERING without S, I and R ('no sir') leaves LANDENG, which 'wicked' rearranges.",
+     "definitionFit": "England is a country of the United Kingdom, a nation in its own right."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "no"
+     "misdirectedWord": "sir"
     }
    }
   },
@@ -267,43 +269,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CLAUSE",
      "indicators": [
       {
        "text": "organisation",
-       "note": "organising things means arranging them, so the letters are put into a new order"
+       "at": 36,
+       "note": "organisation means putting in order, so the remaining letters are arranged afresh"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CLAUSE",
        "indicators": [
         {
          "text": "abolishing",
-         "note": "to abolish something is to do away with it, so a letter is removed"
+         "at": 8,
+         "note": "abolishing means doing away with, so the letter for right is removed from secular"
         }
        ],
        "parts": [
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the standard abbreviation for right"
+         "words": "secular",
+         "at": 28
         },
         {
-         "words": "secular",
-         "note": "taken as written"
+         "words": "right",
+         "at": 19,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper article about a secular body that does away with someone's rights.",
-     "walkthrough": "'Organisation' reads as a noun, a secular group, but it signals rearranging the six letters left once R goes.",
-     "definitionFit": "In a contract or treaty, an article is a numbered section or provision, another name for a clause."
+     "surface": "A newspaper piece on a secular body scrapping someone's rights.",
+     "walkthrough": "'abolishing right' takes the R out of SECULAR to leave SECULA, and 'organisation' rearranges it. 'Article' looks like a newspaper piece, but it is a clause in a contract.",
+     "definitionFit": "An article is a separate section of a legal document, which is a clause."
     },
     "features": {
      "answerInScene": false,
@@ -785,43 +785,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPIDERS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "Not",
+       "at": 11,
+       "note": "not here means leave out, so the letters of me are taken from the pool"
+      },
+      {
        "text": "Rubbish",
-       "note": "rubbish is trash, so the remaining letters are thrown about into a new order"
+       "at": 19,
+       "note": "rubbish means poor and disordered, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPIDERS",
-       "indicators": [
-        {
-         "text": "Not",
-         "note": "not having something means it is absent, so those letters are left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Impressed",
-         "note": "taken as written"
-        },
-        {
-         "words": "me",
-         "note": "taken as written, then removed"
-        }
-       ]
+       "words": "Impressed",
+       "at": 0
+      },
+      {
+       "words": "me",
+       "at": 15
       }
      ]
     },
     "explanation": {
-     "surface": "A critic sneers at the work of some website designers: not impressed.",
-     "walkthrough": "Drop M and E from IMPRESSED and rearrange the rest. 'Web designers' sounds like people building websites; it means creatures that spin webs.",
-     "definitionFit": "Spiders literally design and build webs, a witty literal reading of a job title."
+     "surface": "A grumpy critic is unimpressed by some poor website designers.",
+     "walkthrough": "'web designers' looks like internet designers, but it means creatures that spin webs. IMPRESSED without M and E ('Not me') leaves IPRSSED, which 'Rubbish' rearranges.",
+     "definitionFit": "Spiders spin silk webs, so they are literally designers of webs."
     },
     "features": {
      "answerInScene": false,
@@ -914,32 +905,33 @@
    "annotation": {
     "definitions": [
      {
-      "text": "definitely not well done!",
-      "at": 22
+      "text": "definitely not well done",
+      "at": 22,
+      "note": "said of meat, an adjective like the answer"
      }
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "RARE",
      "indicators": [
       {
        "text": "Some",
-       "note": "some of a phrase is only part of it, so the letters are found within"
+       "at": 0,
+       "note": "some means part of, so the answer is a run of letters inside offer a reward"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "offer a reward",
-       "note": "the letters run consecutively across the end of the first word, the middle word and the start of the third"
+       "at": 5,
+       "gives": "RARE",
+       "note": "the letters run across the end of offer, all of a, and the start of reward"
       }
      ]
     },
     "explanation": {
-     "surface": "A disappointed winner says the prize offered was poor, hardly a well-done job.",
-     "walkthrough": "'Well done' looks like praise, but it is how steak is cooked; the opposite of well done is barely cooked.",
-     "definitionFit": "Rare steak is cooked only briefly, the opposite end of the scale from meat cooked through."
+     "surface": "A pleased customer is told some will offer a reward, while a steak is far from cooked through.",
+     "walkthrough": "'Some' points to a run that sits across 'offeR A REward'. 'well done' looks like praise, but it is the steak term.",
+     "definitionFit": "Rare meat is cooked only lightly, the opposite end of the scale from well-cooked steak."
     },
     "features": {
      "answerInScene": false,

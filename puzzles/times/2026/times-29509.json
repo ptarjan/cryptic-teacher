@@ -46,39 +46,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WATERSIDE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must admit",
+       "at": 3,
+       "note": "to admit is to let in, so the two letters of We go around the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "We",
+       "at": 0
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "must admit",
-         "note": "to admit is to let in, so WE takes the rest inside"
-        },
-        {
          "text": "mismanaged",
-         "note": "handled badly, so the letters are scrambled"
+         "at": 23,
+         "note": "something mismanaged has been handled badly, so the letters of trade is are thrown into disorder"
         }
        ],
        "parts": [
         {
-         "words": "We",
-         "note": "taken as printed; it wraps the rest"
-        },
-        {
          "words": "trade is",
-         "note": "TRADE IS rearranged"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that the trading at a bank has been badly run.",
-     "walkthrough": "The bank in the surface is a financial one; the answer is a riverbank, which is why the question mark is there.",
-     "definitionFit": "A definition by example: a riverbank is one kind of waterside, and the question mark admits the narrowing."
+     "surface": "A confession that a business has been run badly, perhaps at a bank.",
+     "walkthrough": "'mismanaged' turns TRADE IS into ATERSID, and 'We must admit' wraps W and E round it. 'bank' looks financial, but the question mark points to a riverbank.",
+     "definitionFit": "A riverbank is land at the water's edge, which is what the waterside is; the question mark flags the example."
     },
     "features": {
      "answerInScene": false,
@@ -922,31 +924,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "OWL",
      "indicators": [
       {
        "text": "moving left to right",
-       "note": "L (left) moves from the front to the right-hand end"
+       "at": 30,
+       "note": "the letter at the left end of the word for near ground moves across to the right end"
       }
      ],
      "parts": [
       {
        "words": "near ground",
+       "at": 17,
        "gives": "LOW",
-       "note": "low = close to the ground; its L goes to the end"
+       "note": "low means close to the ground"
       }
      ]
     },
     "explanation": {
-     "surface": "An animal hunting close to the ground, moving across from left to right.",
-     "walkthrough": "Left is L, the usual abbreviation, and right means the end of the word. Barn owls hunt by flying low over fields.",
-     "definitionFit": "A descriptive definition: the owl is a bird of prey, a creature that hunts."
+     "surface": "An animal stalks prey close to the ground, sweeping across from left to right.",
+     "walkthrough": "'moving left to right' takes the leftmost letter of LOW, the L, and sends it to the right-hand end.",
+     "definitionFit": "Owls are birds of prey that hunt at night, so the bird is a creature that hunts."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "moving"
     }
    }
   },
@@ -971,44 +973,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLIGARCHY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swelling",
+       "at": 21,
+       "note": "swelling means adding bulk, so the numeral goes inside and swells the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "swelling"
-        },
-        {
          "text": "fantastic",
-         "note": "wild, so the letters are rearranged"
+         "at": 30,
+         "note": "fantastic means fanciful and bizarre, so the letters of gay choir are rearranged"
         }
        ],
        "parts": [
         {
          "words": "gay choir",
-         "note": "GAY CHOIR rearranged"
-        },
-        {
-         "words": "50",
-         "gives": "L",
-         "note": "Roman numeral fifty, set inside after the O"
+         "at": 40
         }
        ]
+      },
+      {
+       "words": "50",
+       "at": 18,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
       }
      ]
     },
     "explanation": {
-     "surface": "Fifty voices joining a fabulous gay choir makes it a powerful group.",
-     "walkthrough": "Of links the definition to the wordplay; 50 is the Roman L, which swells the anagram by one letter.",
-     "definitionFit": "A descriptive definition: an oligarchy is rule by a few, a small group holding power."
+     "surface": "A fifty-strong choir grows, making a powerful ensemble.",
+     "walkthrough": "'fantastic' rearranges GAY CHOIR into OIGARCHY, and L (50) goes inside it to swell it.",
+     "definitionFit": "An oligarchy is rule by a small, powerful elite, or that ruling clique itself."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Powerful"
+     "misdirectedWord": "swelling"
     }
    }
   },
@@ -1371,37 +1377,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANDROMEDA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "moved to the east",
-       "note": "east is the right-hand side of a map, so the A goes to the end"
+       "text": "to the east",
+       "at": 41,
+       "note": "east is the right-hand side of a map, so the letter is set at the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "also",
+       "at": 14,
+       "gives": "AND",
+       "note": "and means also, in addition"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "moved",
+         "at": 35,
+         "note": "moved means taken away from its place, so the A leaves the word for wandered"
+        }
+       ],
        "parts": [
         {
-         "words": "also",
-         "gives": "AND",
-         "note": "and = also"
+         "words": "wandered",
+         "at": 19,
+         "gives": "ROAMED",
+         "note": "roamed means wandered"
         },
         {
-         "words": "wandered: Alpha",
-         "gives": "ROMEDA",
-         "note": "ROAMED with its A (alpha) sent to the end"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "Alpha",
+       "at": 29,
+       "gives": "A",
+       "note": "Alpha is the NATO phonetic alphabet word for A"
       }
      ]
     },
     "explanation": {
-     "surface": "A star map note: a constellation drifting, with its brightest star moved eastward.",
-     "walkthrough": "Alpha is the NATO word for A, and in an across clue east means to the right, so the A of ROAMED shifts to the end.",
-     "definitionFit": "A definition by example: Andromeda is one constellation, named after the chained princess of Greek myth."
+     "surface": "A star pattern also drifted, its brightest star slipping eastwards across the sky.",
+     "walkthrough": "Alpha is also the name for a constellation's brightest star, which suits the surface. ROAMED loses its A ('moved'), leaving ROMED, and the A goes 'to the east', the right-hand end.",
+     "definitionFit": "Andromeda is a constellation in the northern sky, named after the princess of Greek myth."
     },
     "features": {
      "answerInScene": true,

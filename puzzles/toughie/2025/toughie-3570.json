@@ -318,43 +318,43 @@
        "indicators": [
         {
          "text": "finale",
-         "note": "a finale is the closing part, so only the final letter is kept"
+         "at": 8,
+         "note": "a finale is the closing part, so the last letter of Lotto is taken"
         }
        ],
        "parts": [
         {
          "words": "Lotto's",
+         "at": 0,
          "gives": "LOTTO",
-         "note": "the last letter of the game's name"
+         "note": "the word Lotto, read without its possessive ending, whose finale is wanted"
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "PEN",
        "indicators": [
         {
          "text": "unlimited",
-         "note": "with no limits means the boundary letters at each end are removed, keeping the inside"
+         "at": 16,
+         "note": "unlimited means without its limits, so the outer letters of the word for expenditure are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "expenditure",
-         "gives": "PEN",
-         "select": "middle",
-         "note": "spend, a noun for money paid out, loses its first and last letters"
+         "at": 26,
+         "gives": "SPEND",
+         "note": "spend, as a noun, is an amount of money spent, an expenditure"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lottery jackpot finale with spending caps lifted, open to every entrant.",
-     "walkthrough": "'Unlimited expenditure' reads as lavish spending, but 'unlimited' strips the word's outer letters.",
-     "definitionFit": "Something open is accessible to everyone, free for any person to enter or use."
+     "surface": "A lottery's grand finale lets winners spend without limit.",
+     "walkthrough": "'finale' gives O, the last letter of Lotto, and 'unlimited' strips the ends from SPEND to leave PEN.",
+     "definitionFit": "Something open is accessible to everyone, with no restriction on who may take part."
     },
     "features": {
      "answerInScene": false,
@@ -926,61 +926,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "AMERICANENGLISH",
      "indicators": [
       {
        "text": "about",
-       "note": "turned about suggests going around and moving, so the letters are rearranged"
+       "at": 24,
+       "note": "about means moved around, so the resulting letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "AMERICANENGLISH",
        "indicators": [
         {
          "text": "becomes",
-         "note": "to become something is to turn into it, so one letter turns into another"
+         "at": 57,
+         "note": "becomes means turns into, so the letter for Democrat is replaced by the letter for Liberal"
         }
        ],
        "parts": [
         {
-         "words": "race",
-         "note": "taken as written"
-        },
-        {
-         "words": "means",
-         "note": "taken as written"
-        },
-        {
-         "words": "hiding",
-         "note": "taken as written, before its D is swapped"
+         "words": "race means hiding",
+         "at": 30
         },
         {
          "words": "Democrat",
+         "at": 48,
          "gives": "D",
-         "note": "D is the abbreviation for Democrat"
+         "note": "D is the standard abbreviation for Democrat in US politics"
         },
         {
          "words": "Liberal",
-         "gives": "L",
-         "note": "L is the abbreviation for Liberal"
+         "at": 65,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political attack on Trump's racial rhetoric, with a hidden Democrat turning Liberal.",
-     "walkthrough": "'About race' reads as the topic of the speech, but 'about' signals an anagram; HIDING with D replaced by L gives HILING to join the fodder.",
-     "definitionFit": "Trump is American, so his variety of the language is the form spoken in the United States."
+     "surface": "A political jibe at Donald Trump's talk about race, where a Democrat is reframed as a liberal.",
+     "walkthrough": "The anagram pool is RACE MEANS HIDING, but 'Democrat becomes Liberal' swaps its D for L, giving RACEMEANSHILING, which 'about' rearranges.",
+     "definitionFit": "Trump speaks the American variety of English, so American English describes his way of speaking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "hiding"
+     "misdirectedWord": "Liberal"
     }
    }
   },
@@ -1358,12 +1349,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AILMENT",
      "indicators": [
       {
        "text": "around",
-       "note": "to go around something is to enclose it, so one piece encircles another"
+       "at": 13,
+       "note": "around means surrounding, so the cycled letters go round the word for staff"
       }
      ],
      "parts": [
@@ -1372,33 +1362,31 @@
        "indicators": [
         {
          "text": "Cycling",
-         "note": "going round in a cycle moves the front letter to the end"
+         "at": 0,
+         "note": "cycling means rotating, so the first letter of the word for back moves round to the end"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "back",
-           "gives": "TAIL",
-           "note": "the tail is the back end"
-          },
-          {
-           "words": "staff",
-           "gives": "MEN",
-           "note": "staff are the workforce, the men"
-          }
-         ]
+         "words": "back",
+         "at": 8,
+         "gives": "TAIL",
+         "note": "the tail is the back end of something"
         }
        ]
+      },
+      {
+       "words": "staff",
+       "at": 20,
+       "gives": "MEN",
+       "note": "the men are the staff or workforce"
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist with back trouble moaning to the workers.",
-     "walkthrough": "'Cycling back' looks like a reversal; instead the back word rotates its first letter to the end before going around the staff.",
-     "definitionFit": "A complaint in the medical sense is an illness, which is what an ailment means."
+     "surface": "A cyclist with back pain surrounded by people talking about it.",
+     "walkthrough": "'Cycling back' reads like a bike ride, but 'back' is the word being rotated and 'Cycling' the instruction: the tail's first letter rolls round to its end, giving AILT.",
+     "definitionFit": "An ailment is a minor illness, and complaint is a common word for a physical disorder."
     },
     "features": {
      "answerInScene": true,
@@ -1429,36 +1417,47 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "south",
+       "at": 28,
+       "note": "in a down clue south is the bottom, so the moved letter is set at the end"
+      }
+     ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "EATS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "moving south",
-         "note": "in a down entry, south is the bottom, so a letter shifts to the end"
+         "text": "moving",
+         "at": 21,
+         "note": "moving means shifting from its position, so the abbreviation for succeeded leaves the front of the word for place"
         }
        ],
        "parts": [
         {
          "words": "place",
+         "at": 5,
          "gives": "SEAT",
-         "note": "a seat is a place to sit"
+         "note": "a seat is a place, as in taking your place at a table"
+        },
+        {
+         "gives": "S"
         }
        ]
       },
       {
-       "unchecked": true,
        "words": "succeeded",
-       "note": "S, the genealogical abbreviation for succeeded, is the letter that moves"
+       "at": 11,
+       "gives": "S",
+       "note": "S is the standard abbreviation for succeeded, used in family trees and lists of rulers"
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant that did well after relocating to the south.",
-     "walkthrough": "In SEAT the S (succeeded) slides to the foot of this down light. Eats is informal for food.",
-     "definitionFit": "Eats is a casual slang noun for food, as in grabbing some eats at a cafe."
+     "surface": "A restaurant succeeds in relocating to the south of town.",
+     "walkthrough": "'Food place' looks like the definition, a restaurant, but only 'Food' defines. SEAT loses its S, which is 'moving', leaving EAT, and the S goes 'south' to the end.",
+     "definitionFit": "Eats is informal slang for food, as in a café promising good eats."
     },
     "features": {
      "answerInScene": true,
