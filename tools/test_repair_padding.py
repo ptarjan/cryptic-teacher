@@ -56,5 +56,11 @@ for name, leaf in [
     before = copy.deepcopy(e)
     same(f"near miss kept: {name}", (R.unpad_charades(e, puzzle), e == before), ([], True))
 
+e = entry(dict(pad))
+e["annotation"]["wordplay"]["indicators"] = [{"text": "uneasily", "note": "x"}]
+before = copy.deepcopy(e)
+same("near miss kept: charade with fields of its own would be left one-piece",
+     (R.unpad_charades(e, puzzle), e == before), ([], True))
+
 print("repair_padding: all checks passed" if fails == 0 else f"repair_padding: {fails} FAILED")
 sys.exit(1 if fails else 0)
