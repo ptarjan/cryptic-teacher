@@ -1069,35 +1069,38 @@
      "op": "container",
      "indicators": [
       {
-       "text": "treated as rubbish"
+       "text": "treated as",
+       "at": 25,
+       "note": "treated as rubbish means placed in the bins, so the following pieces go inside that word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "treated as rubbish",
-         "gives": "BINS",
-         "note": "rubbish goes in bins"
-        },
-        {
-         "words": "IT",
-         "note": "IT as written"
-        }
-       ]
+       "words": "rubbish",
+       "at": 36,
+       "gives": "BINS",
+       "note": "bins hold rubbish; to bin is to treat as rubbish"
       },
       {
-       "words": "company",
-       "gives": "CO",
-       "note": "co = company"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "IT",
+         "at": 14
+        },
+        {
+         "words": "company",
+         "at": 17,
+         "gives": "CO"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tech firm's cryptocurrency holdings turn out to be worthless.",
-     "walkthrough": "The question mark flags a loose container: putting something in the bins is treating it as rubbish. The surface is a sceptic's jibe at crypto.",
-     "definitionFit": "Bitcoin is the best-known cryptocurrency, and its coins are held as assets."
+     "surface": "A tech firm dismisses digital currencies as worthless.",
+     "walkthrough": "'Rubbish' looks like the definition's comment on crypto; here to treat something as rubbish is to put it in the bins.",
+     "definitionFit": "Bitcoin is the best-known cryptocurrency, so its coins are examples of digital assets."
     },
     "features": {
      "answerInScene": true,
@@ -1131,35 +1134,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "get in"
+       "text": "get in",
+       "at": 8,
+       "note": "get in means the following pieces enter the word for the philosopher"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "oriental philosopher",
-         "gives": "TAOIST",
-         "note": "a Taoist follows the Chinese philosophy of the Tao"
-        },
-        {
-         "words": "Time",
-         "gives": "T",
-         "note": "t = time"
-        }
-       ]
+       "words": "oriental philosopher",
+       "at": 15,
+       "gives": "TAOIST",
+       "note": "a Taoist follows the Chinese philosophy of Laozi"
       },
       {
-       "words": "to",
-       "note": "to as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "at": 0,
+         "gives": "T",
+         "note": "T is the physics abbreviation for time"
+        },
+        {
+         "words": "to",
+         "at": 5,
+         "gives": "TO"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "It is time for an Eastern philosopher and an artist to take part.",
-     "walkthrough": "\"Graphic artist\" suggests a designer; a tattooist makes pictures on skin.",
-     "definitionFit": "A tattooist is an artist whose work is graphic images on skin."
+     "surface": "It is time for an Eastern sage and a designer to arrive.",
+     "walkthrough": "The pair from 'Time to' lodge after the philosopher's first two letters; 'graphic artist' is a playful name for someone who draws on skin.",
+     "definitionFit": "A tattooist draws designs on skin, so the clue jokingly calls them a graphic artist."
     },
     "features": {
      "answerInScene": false,
@@ -1191,48 +1199,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "losing",
-       "note": "'losing' means giving up, so a letter is taken away"
-      }
-     ],
      "parts": [
       {
        "words": "Old",
-       "gives": "O",
-       "note": "o = old"
+       "at": 0,
+       "gives": "O"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "third of",
-         "note": "the third letter of unit is I"
+         "text": "losing",
+         "at": 19,
+         "note": "losing means a letter is taken out of the king's name"
         }
        ],
        "parts": [
         {
          "words": "crusading king",
+         "at": 4,
          "gives": "RICHARD",
          "note": "Richard the Lionheart led the Third Crusade"
         },
         {
-         "words": "third of unit",
-         "gives": "I",
-         "note": "the third letter of unIt, removed from RICHARD"
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "third of",
+           "at": 26,
+           "note": "third of means the third letter of the word unit is the one taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unit",
+           "at": 35,
+           "note": "the word whose third letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Richard the Lionheart, down a third of his army, camps in a field at Jaffa.",
-     "walkthrough": "Jaffa was a crusader battleground, but Jaffa is also a famous orange, so a field at Jaffa is an orange grove; the question mark signals the definition by example.",
-     "definitionFit": "An orchard is a field of fruit trees, like the Jaffa orange groves."
+     "surface": "An old crusader monarch loses part of his army in a field near Jaffa in the Holy Land.",
+     "walkthrough": "O (old) then RICHARD without I (third letter of unit). Jaffa is also a variety of orange, hence the question mark.",
+     "definitionFit": "Jaffa oranges grow on trees, and a field of fruit trees is an orchard."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Jaffa"

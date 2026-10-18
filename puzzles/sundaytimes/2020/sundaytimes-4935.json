@@ -965,7 +965,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "cleans roasting tins",
+      "text": "cleans roasting tins?",
       "at": 23
      }
     ],
@@ -974,35 +974,38 @@
      "indicators": [
       {
        "text": "fills",
-       "note": "whatever fills something sits inside it, so one piece goes into another"
+       "at": 6,
+       "note": "fills means these pieces go into the middle of the word for orders"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "orders",
+       "at": 12,
+       "gives": "DEGREES",
+       "note": "degrees are ranks or orders, as in holy orders"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "orders",
-         "gives": "DEGREES",
-         "note": "degrees are ranks or orders, as in holy orders and degrees of knighthood"
+         "words": "A",
+         "at": 0
         },
         {
          "words": "son",
+         "at": 2,
          "gives": "S",
-         "note": "S is the standard abbreviation for son"
+         "note": "S is the genealogical abbreviation for son"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A son takes on household orders and scrubs out the roasting tins after the Christmas dinner.",
-     "walkthrough": "The question mark marks the definition as one example: tins are only one thing that can be cleaned of fat.",
-     "definitionFit": "Removing the fat and grease left after roasting meat is the typical job of scrubbing a dirty roasting tin."
+     "surface": "A boy carries out his instructions and scrubs the baking trays.",
+     "walkthrough": "A and S (son) go inside DEGREES (orders). The question mark flags that cleaning roasting tins is one example of removing fat.",
+     "definitionFit": "Roasting tins are coated in fat, and to degrease something is to remove the grease from it."
     },
     "features": {
      "answerInScene": true,
@@ -3448,41 +3451,45 @@
      "indicators": [
       {
        "text": "to consume",
-       "note": "consuming takes something inside, so one piece goes within another"
+       "at": 7,
+       "note": "to consume means the signal word takes in and swallows what follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Signal",
-         "gives": "CUE",
-         "note": "a cue is a signal to begin"
-        },
-        {
-         "words": "one's",
-         "gives": "IS",
-         "note": "one is I, and 'one's' read as 'one is' gives I + S"
-        }
-       ]
+       "words": "Signal",
+       "at": 0,
+       "gives": "CUE",
+       "note": "a cue is a signal to begin, as given to an actor"
       },
       {
-       "words": "home",
-       "gives": "IN",
-       "note": "to be in is to be at home"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one's",
+         "at": 18,
+         "gives": "IS",
+         "note": "one is I and the apostrophe s stands for is, giving IS"
+        },
+        {
+         "words": "home",
+         "at": 24,
+         "gives": "IN",
+         "note": "in means at home, as in staying in"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gives the word to tuck into their home-made food.",
-     "walkthrough": "'Home cooking' reads as a phrase, but 'home' belongs to the wordplay and only 'cooking' is the definition.",
-     "definitionFit": "Cuisine is a style or manner of cooking, as in French cuisine, so it is a fair synonym for cookery."
+     "surface": "A prompt to eat whatever is cooked at home.",
+     "walkthrough": "CUE (signal) consumes IS (one's, read as one is) and IN (home).",
+     "definitionFit": "Cuisine is a style or manner of preparing food, so it is a synonym of cooking as a noun."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "home"
+     "misdirectedWord": "consume"
     }
    }
   },
@@ -3593,36 +3600,38 @@
      "indicators": [
       {
        "text": "about",
-       "note": "to be about something is to surround it, so one piece goes around the others"
+       "at": 7,
+       "note": "about means the word for carols goes round the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Carols",
-         "gives": "SINGS",
-         "note": "to carol is to sing joyfully"
-        },
-        {
-         "words": "child",
-         "gives": "SON",
-         "note": "a son is a child"
-        }
-       ]
+       "words": "Carols",
+       "at": 0,
+       "gives": "SINGS",
+       "note": "to carol is to sing joyfully, so carols means sings"
       },
       {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the standard abbreviation for good"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "child",
+         "at": 13,
+         "gives": "SON",
+         "note": "a son is a child"
+        },
+        {
+         "words": "good",
+         "at": 20,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Christmas songs about the infant Jesus suit festive gatherings around the piano.",
-     "walkthrough": "'Carols' reads as a plural noun for Christmas songs, but it is the verb, sings.",
-     "definitionFit": "Informal get-togethers where people join in singing popular songs together are gatherings centred on the voice."
+     "surface": "Christmas songs about a child are fitting for occasions where people sing.",
+     "definitionFit": "A singsong is an informal gathering where people sing together, hence a vocal get-together."
     },
     "features": {
      "answerInScene": true,

@@ -565,51 +565,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "to be about something is to surround it, so one piece wraps the others"
+       "at": 13,
+       "note": "about means the papers word goes round the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "papers",
-         "gives": "PRESS",
-         "note": "the press is the newspapers collectively"
-        },
-        {
-         "words": "popular",
-         "gives": "IN",
-         "note": "something in is fashionable or popular"
-        }
-       ]
+       "words": "papers",
+       "at": 6,
+       "gives": "PRESS",
+       "note": "the press means the newspapers"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "a leader goes in front, so only the opening letter is wanted"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Conservative",
-         "note": "the first letter of the party name"
+         "words": "popular",
+         "at": 19,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 40,
+           "note": "leader means the first letter of Conservative"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Conservative",
+           "at": 27,
+           "note": "the word whose first letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The newspapers run stories about a popular leader of the Tory party.",
-     "walkthrough": "'Royal' looks like an adjective for the papers, but here it is a noun: a member of a royal family.",
-     "definitionFit": "A daughter of a monarch is a member of the royal family, and a royal can be used as a noun for such a person."
+     "surface": "Newspaper coverage of a royal and a well-liked Tory leader.",
+     "definitionFit": "A princess is a female member of a royal family, so she is an example of a royal."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Royal"
+     "misdirectedWord": "papers"
     }
    }
   },

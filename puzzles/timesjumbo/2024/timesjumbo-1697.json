@@ -857,42 +857,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PARACETAMOL",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "losing",
+       "at": 14,
+       "note": "losing means the letter for power is taken away from the pool of letters"
+      },
+      {
+       "text": "damaged",
+       "at": 27,
+       "note": "damaged signals that the remaining letters are broken up and rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PARACETAMOL",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "the phrase loses the letter that follows"
-        },
-        {
-         "text": "damaged",
-         "note": "the remaining letters are damaged, rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Laptop camera",
-         "note": "anagram fodder before the deletion"
-        },
-        {
-         "words": "power",
-         "gives": "P",
-         "note": "P = power; one P of LAPTOP goes"
-        }
-       ]
+       "words": "Laptop camera",
+       "at": 0
+      },
+      {
+       "words": "power",
+       "at": 21,
+       "gives": "P",
+       "note": "P is the physics abbreviation for power"
       }
      ]
     },
     "explanation": {
-     "surface": "A laptop's webcam stops working, and so does the tablet computer.",
-     "walkthrough": "Tablet seems to continue the computing theme; it is a pill.",
-     "definitionFit": "Paracetamol is a painkiller commonly taken as a tablet; the question mark marks it as one example."
+     "surface": "A laptop's webcam stops working once the power is gone, making a broken computer tablet.",
+     "walkthrough": "'Tablet' tempts as a computer; it is a pill. The letters of LAPTOP CAMERA minus P are rearranged.",
+     "definitionFit": "Paracetamol is a common painkiller sold as pills, so a tablet is one form of it."
     },
     "features": {
      "answerInScene": false,
@@ -927,40 +921,43 @@
      "indicators": [
       {
        "text": "covered by",
-       "note": "the motorway and area are covered, enclosed, by the salesman"
+       "at": 23,
+       "note": "covered by means the following pieces are wrapped inside the salesman word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "salesman",
-         "gives": "REP",
-         "note": "a rep, sales representative"
-        },
-        {
-         "words": "motorway",
-         "gives": "M",
-         "note": "M for motorway, as in the M1"
-        }
-       ]
+       "words": "salesman",
+       "at": 34,
+       "gives": "REP",
+       "note": "a rep is a sales representative"
       },
       {
-       "words": "area",
-       "gives": "A",
-       "note": "A is the standard abbreviation for area"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "motorway",
+         "at": 9,
+         "gives": "M",
+         "note": "M is used for motorways, as in the M1"
+        },
+        {
+         "words": "area",
+         "at": 18,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sales rep's territory covering the motorway is redrawn.",
-     "walkthrough": "British motorways are numbered with M, as in the M25 round London.",
-     "definitionFit": "To remap keys or functions is to assign them afresh."
+     "surface": "A travelling salesman covers a motorway territory and redistributes it.",
+     "definitionFit": "To remap is to draw the map again, to allocate keys or territories differently."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "area"
     }
    }
   },
@@ -1040,31 +1037,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ROUT",
      "indicators": [
       {
-       "text": "Swapping sides",
-       "note": "the sides of a word are its first and last letters, and they change places"
+       "text": "Swapping",
+       "at": 0,
+       "note": "swapping means the two end letters trade places, so the first is replaced by the last"
       }
      ],
      "parts": [
       {
-       "words": "period of military service",
-       "gives": "TOUR",
-       "note": "a tour of duty"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "sides",
+         "at": 9,
+         "note": "sides names the two outer letters of the service word, the last one replaced by the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "period of military service",
+         "at": 18,
+         "gives": "TOUR",
+         "note": "a tour of duty is a period of military service"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "Swapping sides",
-       "gives": "ROUT",
-       "note": "T and R change ends"
+       "gives": "T"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Soldiers changing sides mid-tour end up badly beaten.",
-     "walkthrough": "Swapping sides suggests defection; here the two end letters trade places.",
-     "definitionFit": "A rout is a crushing defeat with the losers put to flight."
+     "surface": "Changing allegiance during a stint in the army ends in a crushing loss.",
+     "walkthrough": "A tour is a stint of duty; swapping its two outer letters gives the answer.",
+     "definitionFit": "A rout is a decisive defeat in which the losers are put to flight."
     },
     "features": {
      "answerInScene": true,
@@ -1360,8 +1376,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "end of",
-       "note": "the end of a word is its last letter"
+       "text": "after",
+       "at": 13,
+       "note": "after means the level word follows that letter"
       }
      ],
      "parts": [
@@ -1369,31 +1386,34 @@
        "op": "last",
        "indicators": [
         {
-         "text": "after",
-         "note": "the level word comes after that letter"
+         "text": "end of",
+         "at": 19,
+         "note": "end of means only the final letter of game is used"
         }
        ],
        "parts": [
         {
          "words": "game",
-         "note": "last letter of game"
+         "at": 26,
+         "note": "the word whose last letter is taken"
         }
        ]
       },
       {
        "words": "level",
+       "at": 7,
        "gives": "RASE",
-       "note": "rase is a variant spelling of raze, to level"
+       "note": "to rase (or raze) is to level a building to the ground"
       }
      ]
     },
     "explanation": {
-     "surface": "Wipe the level once the game ends.",
-     "walkthrough": "Level is a verb, to raze, here in the older spelling rase.",
-     "definitionFit": "A plain synonym, narrowed: erasing removes marks or data by wiping them out."
+     "surface": "Take away a stage once a match has finished.",
+     "walkthrough": "RASE is an older spelling of raze, to level a building.",
+     "definitionFit": "To erase is to rub out or delete, so it is a synonym of removing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "level"
     }
@@ -1494,40 +1514,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the gallery and pieces go in the stone"
+       "at": 34,
+       "note": "in means the following pieces sit inside the stone abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "stone",
-         "gives": "ST",
-         "note": "ST is the abbreviation for stone, the weight"
-        },
-        {
-         "words": "gallery",
-         "gives": "TATE",
-         "note": "the Tate is the London art gallery"
-        }
-       ]
+       "words": "stone",
+       "at": 37,
+       "gives": "ST",
+       "note": "ST is the abbreviation for stone, the unit of weight"
       },
       {
-       "words": "pieces",
-       "gives": "MEN",
-       "note": "chess pieces are men"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gallery",
+         "at": 19,
+         "gives": "TATE",
+         "note": "the Tate is the London art gallery"
+        },
+        {
+         "words": "pieces",
+         "at": 27,
+         "gives": "MEN",
+         "note": "men are pieces in chess or draughts"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery's stone sculpture makes a daring impression.",
-     "walkthrough": "A stone is a British unit of weight, 14 pounds.",
-     "definitionFit": "A statement, as in a fashion statement, is a bold way of expressing something."
+     "surface": "Art from a gallery carved in stone makes a powerful artistic declaration.",
+     "walkthrough": "The Tate is a London art gallery; men are chess pieces.",
+     "definitionFit": "A statement can mean a strong, deliberate show of style, as in making a fashion statement."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "pieces"
     }
    }
@@ -1734,40 +1758,44 @@
      "indicators": [
       {
        "text": "overwhelming",
-       "note": "the qualification overwhelms, swallows, the next letters"
+       "at": 23,
+       "note": "overwhelming means the qualification word engulfs the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "qualification",
-         "gives": "BED",
-         "note": "BEd, Bachelor of Education, a teaching degree"
-        },
-        {
-         "words": "unprepared",
-         "gives": "RAW",
-         "note": "raw = untrained, unprepared"
-        }
-       ]
+       "words": "qualification",
+       "at": 9,
+       "gives": "BED",
+       "note": "BEd is a Bachelor of Education degree"
       },
       {
-       "words": "learner",
-       "gives": "L",
-       "note": "L for learner, as on a British L-plate"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unprepared",
+         "at": 36,
+         "gives": "RAW",
+         "note": "raw means unprepared or inexperienced"
+        },
+        {
+         "words": "learner",
+         "at": 47,
+         "gives": "L",
+         "note": "L is the learner driver's plate letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A course was cancelled because students came unprepared.",
-     "walkthrough": "Scrapped looks like cancelled; it is the past tense of scrap, to fight.",
-     "definitionFit": "To scrap is to fight, so those who scrapped brawled."
+     "surface": "A degree course was abandoned because it swamped a green trainee.",
+     "walkthrough": "'Scrapped' looks like discarded but means fought. BEd is a Bachelor of Education, a teaching qualification.",
+     "definitionFit": "A scrap is a fight, so to have scrapped is to have brawled."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Scrapped"
     }
    }
@@ -2303,40 +2331,41 @@
      "indicators": [
       {
        "text": "destroyed",
-       "note": "the letters are destroyed and rebuilt"
+       "at": 12,
+       "note": "destroyed means the letters are broken up and reassembled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Special",
+       "at": 0
+      },
+      {
+       "words": "ban",
+       "at": 8
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "last of",
-         "note": "take the last letter of the word"
+         "at": 22,
+         "note": "last of means the final letter of industry"
         }
        ],
        "parts": [
         {
-         "words": "Special ban",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "industry",
-           "note": "last letter of industry"
-          }
-         ]
+         "words": "industry",
+         "at": 30,
+         "note": "the word whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A special ban has wrecked what remained of industry, as was bound to happen.",
-     "walkthrough": "The Y joins the anagram fodder before the letters are rearranged.",
-     "definitionFit": "Inescapably means in a way that cannot be avoided, inevitably."
+     "surface": "A particular embargo wrecked the tail end of a trade, as was bound to happen.",
+     "definitionFit": "Something that happens inescapably cannot be avoided, the same sense as unavoidably."
     },
     "features": {
      "answerInScene": false,
@@ -2677,44 +2706,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DINNERSET",
      "indicators": [
       {
        "text": "according to Reverend Spooner's",
-       "note": "Spooner swapped the first sounds of words"
+       "at": 19,
+       "note": "Spooner's habit of swapping initial sounds is applied to the phrase"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "evildoer",
+       "at": 5,
+       "gives": "SINNER",
+       "note": "a sinner is an evildoer"
+      },
+      {
+       "op": "homophone",
+       "spelt": "DET",
        "parts": [
         {
-         "unchecked": true,
-         "words": "evildoer",
-         "gives": "DINNER",
-         "soundsLike": "SINNER",
-         "note": "an evildoer is a sinner"
-        },
-        {
-         "unchecked": true,
          "words": "owes",
-         "gives": "SET",
-         "soundsLike": "DEBT",
-         "note": "what one owes is a debt"
+         "at": 14,
+         "gives": "DEBT",
+         "note": "what someone owes is a debt, whose b is silent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "What a wrongdoer is owed at a church service, says the Reverend.",
-     "walkthrough": "Sinner's debt with the S and D swapped gives dinner set.",
-     "definitionFit": "A dinner service is a full set of plates and dishes, a dinner set."
+     "surface": "What a wrongdoer is due, in the words of Reverend Spooner's sermon.",
+     "walkthrough": "Sinner's debt, with the opening S and D sounds swapped, becomes dinner set.",
+     "definitionFit": "A dinner service is a matching set of plates and dishes, so service is a synonym."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "service"
     }
@@ -3102,34 +3129,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DROSS",
      "indicators": [
       {
        "text": "with fivefold increase initially",
-       "note": "the first letter, C for 100, grows five times to D for 500"
+       "at": 6,
+       "note": "the Roman numeral at the start is multiplied by five: C, a hundred, becomes D, five hundred"
       }
      ],
      "parts": [
       {
        "words": "Angry",
+       "at": 0,
        "gives": "CROSS",
-       "note": "cross = angry"
+       "note": "cross means angry"
       },
       {
-       "words": "with fivefold increase initially",
-       "gives": "DROSS",
-       "note": "Roman C (100) becomes D (500)"
+       "gives": "C"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Furious about a huge rise in waste.",
-     "walkthrough": "The increase is in Roman numerals: C is 100 and D is 500.",
-     "definitionFit": "A figurative synonym: literally the scum skimmed off molten metal, hence any worthless stuff."
+     "surface": "Annoyed at a fivefold price rise at the start of a rubbish collection.",
+     "walkthrough": "In CROSS, the opening Roman numeral C (100) times five gives D (500).",
+     "definitionFit": "Dross is waste matter or worthless material, so it is a synonym of rubbish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "increase"
     }

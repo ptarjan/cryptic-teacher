@@ -471,48 +471,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "drunk",
-       "note": "a drunk staggers out of line, so the letters are rearranged"
-      }
-     ],
      "parts": [
       {
        "words": "small beer",
+       "at": 6,
        "gives": "HALF",
-       "note": "a half = half a pint of beer"
+       "note": "a half is a half-pint of beer"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "around"
+         "text": "around",
+         "at": 24,
+         "note": "around means those jumbled letters wrap about the letter for noon"
         }
        ],
        "parts": [
         {
          "op": "anagram",
+         "indicators": [
+          {
+           "text": "drunk",
+           "at": 18,
+           "note": "drunk signals that the letters of no less are befuddled into a new order"
+          }
+         ],
          "parts": [
           {
            "words": "no less",
-           "note": "anagram fodder"
+           "at": 36
           }
          ]
         },
         {
          "words": "noon",
-         "gives": "N",
-         "note": "N is the abbreviation for noon"
+         "at": 31,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exclamation at someone who has been drinking beer by midday.",
-     "walkthrough": "'Holds' looks like a verb, but it is the plural noun: wrestling grips.",
-     "definitionFit": "Definition by category: a half nelson is a wrestling hold, an arm locked behind the opponent's neck."
+     "surface": "A modest beer, drunk at about midday, no less!",
+     "walkthrough": "'Holds' is the definition: a half nelson is a wrestling hold. 'Small beer' usually means something trivial, but here it is a half-pint.",
+     "definitionFit": "A half nelson is a wrestling grip applied from behind, so the plural names wrestling holds."
     },
     "features": {
      "answerInScene": false,
@@ -2032,47 +2036,51 @@
      "indicators": [
       {
        "text": "includes",
-       "note": "the outer word takes in the rest"
+       "at": 50,
+       "note": "includes means the allowance word takes in the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "allowance",
+       "at": 40,
+       "gives": "CHARTER",
+       "note": "a charter is a granted right or privilege"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "allowance",
-         "gives": "CHARTER",
-         "note": "a charter is a granted right or privilege, split CHAR…TER"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "at the back",
-           "note": "what sits at the back of a word is its last letter"
+           "at": 22,
+           "note": "at the back means the last letter of ticket"
           }
          ],
          "parts": [
           {
-           "words": "ticket at the back",
-           "gives": "TICKET",
-           "note": "last letter of TICKET"
+           "words": "ticket",
+           "at": 15,
+           "note": "the word whose final letter is taken"
           }
          ]
+        },
+        {
+         "words": "coach",
+         "at": 34,
+         "gives": "BUS",
+         "note": "a coach is a bus"
         }
        ]
-      },
-      {
-       "words": "coach",
-       "gives": "BUS",
-       "note": "coach = bus"
       }
      ]
     },
     "explanation": {
-     "surface": "A single ticket at the back of a coach, included in a travel allowance.",
-     "walkthrough": "'Single' and 'ticket' point to travel; a single here is a hit record.",
-     "definitionFit": "A description: a record that busts into the charts is a very popular single."
+     "surface": "A popular one-way fare, with a coach service included in the package.",
+     "walkthrough": "'Single' reads as a one-way ticket, but it is a record released as a single.",
+     "definitionFit": "A chartbuster is a hit record, a single that sells strongly and tops the charts."
     },
     "features": {
      "answerInScene": false,
@@ -2583,44 +2591,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SELLSHORT",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Reverend Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "Spooner's habit of swapping initial sounds is applied to the two words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Big Oil firm",
+       "at": 22,
+       "gives": "SHELL",
+       "note": "Shell is one of the oil majors"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SORT",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Big Oil firm",
-         "gives": "SELL",
-         "soundsLike": "SHELL",
-         "note": "Shell, the oil company; its opening SH is swapped for the S of the next word"
-        },
-        {
-         "unchecked": true,
          "words": "sought",
-         "gives": "SHORT",
-         "soundsLike": "SAWT",
-         "note": "sought = looked for; with SH in front it sounds like the second half of the answer"
+         "at": 35,
+         "gives": "SOUGHT",
+         "note": "in a non-rhotic accent sought is said the same as sort"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A major oil company tries to bet against the market.",
-     "walkthrough": "In British speech 'short' and 'sought' rhyme, which is what makes the swap land.",
-     "definitionFit": "A financial idiom: to sell short is to bet that a share price will fall."
+     "surface": "A huge oil company looked to bet against the market.",
+     "walkthrough": "Shell sought, said as shell sort, with its opening sounds swapped becomes sell short.",
+     "definitionFit": "To sell short is to sell borrowed shares hoping to buy them back cheaper, a wager on falling prices."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sought"
     }
    }
   },

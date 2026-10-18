@@ -1082,50 +1082,54 @@
      "indicators": [
       {
        "text": "to secure",
-       "note": "to secure something is to hold it fast, here by enclosing it"
+       "at": 5,
+       "note": "to secure means the help word holds the following pieces fast inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Help",
-         "gives": "AID",
-         "note": "aid is help"
-        },
-        {
-         "words": "stone",
-         "gives": "ST",
-         "note": "st is the abbreviation for stone, a British unit of weight"
-        }
-       ]
+       "words": "Help",
+       "at": 0,
+       "gives": "AID",
+       "note": "aid means help"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turning up",
-         "note": "in a down clue, turning up means reading upwards, so the word runs backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "mineral",
-         "gives": "ORE",
-         "note": "ore is mineral-bearing rock"
+         "words": "stone",
+         "at": 15,
+         "gives": "ST",
+         "note": "ST is the abbreviation for stone, the unit of weight"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning up",
+           "at": 33,
+           "note": "turning up in a down clue means the mineral word is read from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mineral",
+           "at": 25,
+           "gives": "ORE",
+           "note": "ore is mineral-bearing rock"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rescue effort to secure stone and minerals unearthed in a spacecraft.",
-     "walkthrough": "A stone is a British unit of weight, 14 pounds, abbreviated st.",
-     "definitionFit": "An asteroid is a small rocky body orbiting the sun, mostly between Mars and Jupiter."
+     "surface": "Assistance in fixing a rock and some ore that appear inside a body in space.",
+     "definitionFit": "An asteroid is a small rocky body travelling around the Sun."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Help"
     }
@@ -1497,50 +1501,54 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "to accept is to take in, so the shortened word takes the other letters inside it"
+       "at": 29,
+       "note": "accepting means the shortened word takes the following pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned",
+         "at": 19,
+         "note": "abandoned means the letter I is dropped from the word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "abandoned",
-           "note": "the letter said to be abandoned is left out of the word for standards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Decent standards",
-           "gives": "MORALITY",
-           "note": "morality is a code of decent standards"
-          },
-          {
-           "words": "I",
-           "note": "the letter to remove"
-          }
-         ]
+         "words": "Decent standards",
+         "at": 0,
+         "gives": "MORALITY",
+         "note": "morality is a set of decent standards of conduct"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "I",
+         "at": 17
         }
        ]
       },
       {
-       "words": "year",
-       "gives": "Y",
-       "note": "y is the abbreviation for year"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 39,
+         "gives": "A"
+        },
+        {
+         "words": "year",
+         "at": 41,
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A councillor laments that decent standards were dropped within a year of taking office.",
-     "walkthrough": "The word for decent standards has two Is; it is the second that goes.",
-     "definitionFit": "The mayoralty is the office or term of a mayor, the head of a town or city council."
+     "surface": "A council official gives up on proper standards for a year.",
+     "walkthrough": "Losing its I, the word for decent standards opens after its first letter to accept the year.",
+     "definitionFit": "The mayoralty is the office or term of a mayor, the head of a town council."
     },
     "features": {
      "answerInScene": true,

@@ -794,28 +794,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MIDDLEOFTHEROAD",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "Spooner swapped the opening sounds of words, so the first sounds of the two key words change places"
+       "at": 35,
+       "note": "Spooner's habit of swapping the opening sounds of words is applied to the phrase"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "puzzle to do with fashion",
-       "gives": "MIDDLEOFTHEROAD",
-       "soundsLike": "RIDDLE OF THE MODE",
-       "note": "a puzzle is a riddle and a fashion is a mode; swapping the opening sounds gives the phrase"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "puzzle",
+         "at": 9,
+         "gives": "RIDDLE",
+         "note": "a riddle is a puzzle"
+        },
+        {
+         "words": "to do with",
+         "at": 16,
+         "gives": "OFTHE",
+         "note": "of the means relating to or concerning, as in a matter of the heart"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MOAD",
+       "parts": [
+        {
+         "words": "fashion",
+         "at": 27,
+         "gives": "MODE",
+         "note": "a mode is a fashion; its vowel sound is spelt here as in road"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull crossword about the fashion world, as Reverend Spooner might put it.",
-     "walkthrough": "After the swap, the second word sounds like rode, spelt as the word for a street.",
-     "definitionFit": "Middle-of-the-road means moderate and unadventurous, hence ordinary or mediocre."
+     "surface": "A dull puzzle about clothes, as told by Spooner.",
+     "walkthrough": "Riddle of the mode, with the R and M sounds swapped, becomes middle of the road.",
+     "definitionFit": "Middle-of-the-road describes something moderate and unadventurous, hence mediocre."
     },
     "features": {
      "answerInScene": false,
@@ -1201,39 +1222,24 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "How to make",
-       "note": "the clue asks for an instruction that would produce the given word, so the answer itself contains the shuffling command"
-      }
-     ],
+     "op": "reverse",
+     "reading": "ROCK + SALT",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "How to make",
-         "gives": "ROCK",
-         "note": "to rock is to shake about, the instruction the answer gives"
-        },
-        {
-         "words": "last",
-         "note": "these four letters, which the instruction would shake into the clue's word"
-        }
-       ]
+       "words": "How to make last",
+       "at": 0,
+       "note": "rock signals a shake-up of the letters of salt, which gives last; how to make last"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled query about how to make a mineral endure.",
-     "walkthrough": "A reverse anagram: read the answer as an instruction, rock (shake) the second word, and the result is the clue's 'last'.",
-     "definitionFit": "Halite is the mineral name for natural sodium chloride, mined as common salt in crystal form."
+     "surface": "A question about preserving something, followed by a mineral name.",
+     "walkthrough": "This works backwards: read as wordplay, the answer's first word is an anagram signal (rock) for its second (salt), and rocking salt makes last.",
+     "definitionFit": "Halite is the mineralogical name for naturally occurring sodium chloride, known as rock salt."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "last"
     }
    }
