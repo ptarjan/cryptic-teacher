@@ -149,39 +149,43 @@
      "indicators": [
       {
        "text": "suppressing",
-       "note": "to suppress is to hold something down within, so one word sits inside another"
+       "at": 5,
+       "note": "holding something down inside, so these letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Wise",
-         "gives": "SAGE",
-         "note": "a sage is a wise person; also sage as an adjective"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "C for cold, as on a tap"
-        }
-       ]
+       "words": "Wise",
+       "at": 0,
+       "gives": "SAGE",
+       "note": "a sage is a wise person"
       },
       {
-       "words": "anger",
-       "gives": "RILE",
-       "note": "to rile is to anger"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cold",
+         "at": 17,
+         "gives": "C",
+         "note": "C, the tap abbreviation"
+        },
+        {
+         "words": "anger",
+         "at": 22,
+         "gives": "RILE",
+         "note": "to rile is to anger"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wise person holds back their chilly fury and swearing.",
-     "walkthrough": "SAGE holds C and RILE together: SA + C + RILE + GE.",
-     "definitionFit": "Sacrilege is disrespect toward sacred things, and profanity in its older sense means just that irreverence."
+     "surface": "A wise person holds back cold fury and foul language.",
+     "walkthrough": "'Wise' looks like an adjective, but it stands for a wise person; the cold anger sits within that word.",
+     "definitionFit": "Sacrilege is the violation of something sacred, which is what profanity means in its religious sense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Wise"
     }
@@ -784,46 +788,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding words inside the following one"
+       "at": 12,
+       "note": "the letters for tie and workers go inside the emptied plant"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 15,
+         "note": "emptied of its inside letters, leaving only the first and last"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "an empty word has lost its insides, leaving only its outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "plant",
-           "note": "first and last letters only"
-          }
-         ]
-        },
-        {
-         "words": "Tie",
-         "gives": "LACE",
-         "note": "to lace is to tie up, as shoes"
+         "words": "plant",
+         "at": 21
         }
        ]
       },
       {
-       "words": "workers",
-       "gives": "MEN",
-       "note": "men as a workforce"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tie",
+         "at": 0,
+         "gives": "LACE",
+         "note": "to lace is to tie up, as with shoes"
+        },
+        {
+         "words": "workers",
+         "at": 4,
+         "gives": "MEN",
+         "note": "men are workers, as in a workforce"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Factory staff knot something together inside an abandoned plant.",
-     "walkthrough": "'Plant' reads as a factory in the surface; here only its two outer letters count.",
-     "definitionFit": "A placement is a position or posting, especially temporary work experience: a job."
+     "surface": "Staff tie things up in a deserted factory as part of their work.",
+     "walkthrough": "'Plant' is a factory, not something green; emptied it leaves PT, which holds LACE + MEN.",
+     "definitionFit": "A placement is a work posting, such as a student's spell of work experience, so it is a kind of job."
     },
     "features": {
      "answerInScene": true,

@@ -176,58 +176,64 @@
      "indicators": [
       {
        "text": "wearing",
-       "note": "one who is wearing something has it wrapped round them"
+       "at": 30,
+       "note": "having something on, so the outer pair goes around it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "clothing in",
+         "at": 38,
+         "note": "the outer letters that clothe the word"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "clothing",
-           "note": "the clothing of a word is its outside, its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pieces",
-           "note": "the outside letters of pieces"
-          }
-         ]
+         "words": "pieces",
+         "at": 50
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13,
+         "gives": "A"
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "backward",
-           "note": "backward tells us the word for clod is read bottom to top"
+           "at": 15,
+           "note": "turned backward, so these letters run in reverse"
           }
          ],
          "parts": [
           {
            "words": "clod",
+           "at": 24,
            "gives": "ASS",
-           "note": "an ass is a fool, a clod"
+           "note": "an ass is a clod, a fool"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A dim oaf dressed in rags is mistaken for someone else.",
-     "definitionFit": "To pass as something is to be accepted or taken for it, a phrasal verb synonym."
+     "surface": "A dim oaf mistaken for someone in tattered clothes.",
+     "walkthrough": "'In pieces' looks like ragged clothing, but only the outside letters of 'pieces' are used, worn around the backward fool.",
+     "definitionFit": "To pass as something is to be accepted or mistaken for it, an idiom meaning be taken for."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "clothing"
     }
