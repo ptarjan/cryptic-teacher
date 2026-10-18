@@ -809,42 +809,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "TEAMMATE",
-     "indicators": [
-      {
-       "text": "repeatedly",
-       "note": "repeatedly means more than once, so the same word is written twice in a row"
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cooked",
-         "note": "cooking transforms raw ingredients, so the letters are worked into a new arrangement"
+         "at": 5,
+         "note": "cooked means the letters of the word meat are reworked into a new order"
         }
        ],
        "parts": [
         {
          "words": "Meat",
-         "gives": "MEATMEAT",
-         "note": "the word written down twice"
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 12,
+         "note": "repeatedly means the same word meat is rearranged a second time, in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Meat",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Meat is cooked again and again for a sporting colleague.",
-     "walkthrough": "Two copies of MEAT give eight letters to rearrange. A side is a sports team, a common British usage.",
-     "definitionFit": "A fellow member of the same sports team, the side, is a colleague playing alongside you."
+     "surface": "A recipe instruction: cook the meat again and again for a team-mate.",
+     "walkthrough": "'cooked' rearranges MEAT into TEAM, and 'repeatedly' says do it again, this time making MATE.",
+     "definitionFit": "A teammate is a fellow player on the same team, and a side is a sports team."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "side"
+     "misdirectedWord": "Meat"
     }
    }
   },

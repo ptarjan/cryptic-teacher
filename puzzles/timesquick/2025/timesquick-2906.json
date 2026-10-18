@@ -320,26 +320,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EJECT",
      "indicators": [
       {
        "text": "without opening",
-       "note": "lacking its opening means the word loses its first letter"
+       "at": 25,
+       "note": "the defective item's word loses its first letter, its opening"
       }
      ],
      "parts": [
       {
        "words": "defective item",
-       "gives": "EJECT",
-       "note": "a reject is a faulty item discarded in manufacture; its first letter is dropped"
+       "at": 10,
+       "gives": "REJECT",
+       "note": "a reject is an item discarded as faulty"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Throw away a faulty product without even unwrapping it.",
-     "walkthrough": "REJECT is the factory word for a defective item; take off its R to leave the answer.",
-     "definitionFit": "To eject something is to throw or force it out, which matches chucking it out informally."
+     "surface": "Someone is told to throw away a faulty product, perhaps still in its unopened box.",
+     "walkthrough": "'without opening' looks like a sealed product, but it tells you to drop the first letter R of REJECT.",
+     "definitionFit": "To eject something is to throw or force it out, the same as chucking it."
     },
     "features": {
      "answerInScene": true,
@@ -369,43 +372,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARTINI",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "something brief is cut short, so the word loses its last letter"
+       "text": "holds",
+       "at": 23,
+       "note": "holds means the shortened name contains the other piece inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "holds",
-         "note": "to hold something is to keep it inside, so one piece wraps the other"
+         "text": "briefly",
+         "at": 15,
+         "note": "briefly means the name is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "girl",
-         "gives": "MARI",
-         "note": "the name Maria with its final letter removed"
+         "at": 10,
+         "gives": "MARIA",
+         "note": "Maria is a girl's name"
         },
         {
-         "words": "can",
-         "gives": "TIN",
-         "note": "a tin is a can, as for food"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "can",
+       "at": 6,
+       "gives": "TIN",
+       "note": "a tin is a can"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl holds a can of drink for a moment.",
-     "walkthrough": "'Can' looks like a verb, but it is the noun TIN. The girl is Maria, shortened by one letter.",
-     "definitionFit": "A martini is a cocktail of gin or vodka with vermouth, a classic alcoholic beverage."
+     "surface": "A girl holds a can of drink, perhaps briefly.",
+     "walkthrough": "'briefly' clips MARIA to MARI, and 'holds' puts TIN (can) inside it.",
+     "definitionFit": "A martini is a cocktail of gin and vermouth, a kind of alcoholic beverage."
     },
     "features": {
      "answerInScene": true,
@@ -1356,37 +1364,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARASITE",
-     "indicators": [
-      {
-       "text": "barely",
-       "note": "something bare is stripped of its covering, so the word loses its outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Tough troops",
+       "at": 0,
+       "gives": "PARAS",
+       "note": "the Paras, the Parachute Regiment, are famously tough soldiers"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "barely",
+         "at": 13,
+         "note": "barely here means stripped bare, so the word loses its outer letters at both ends"
+        }
+       ],
        "parts": [
         {
-         "words": "Tough troops",
-         "gives": "PARAS",
-         "note": "the Paras are the Parachute Regiment, renowned as hard soldiers"
-        },
-        {
          "words": "mentioned",
-         "gives": "ITE",
-         "note": "cited means mentioned; strip off its first and last letters"
+         "at": 20,
+         "gives": "CITED",
+         "note": "cited means mentioned"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hardened soldiers scarcely referred to a sponger in their unit.",
-     "walkthrough": "'Barely mentioned' reads as 'hardly spoken of', but it means CITED with its ends stripped off.",
-     "definitionFit": "A parasite is someone who lives off others without giving anything back, just like a sponger or hanger-on."
+     "surface": "Elite soldiers are said to have barely noticed someone hanging around them.",
+     "walkthrough": "'barely' looks like 'hardly', but it strips CITED of its first and last letters, leaving ITE. The Paras are the British Army's Parachute Regiment.",
+     "definitionFit": "A parasite is someone who lives off others without contributing, a sponger or hanger-on."
     },
     "features": {
      "answerInScene": false,

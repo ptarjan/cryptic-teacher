@@ -332,46 +332,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "APPROVAL",
-     "indicators": [
-      {
-       "text": "going for",
-       "note": "going for means one thing leaves and another takes its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Perhaps Google",
+       "at": 0,
        "gives": "APP",
-       "note": "Google is an example of an app"
+       "note": "Google is an example of an app, so 'perhaps' marks it as one instance"
       },
       {
-       "words": "challenger",
-       "gives": "RIVAL",
-       "note": "a challenger is a rival"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral for one"
-      },
-      {
-       "words": "nothing",
-       "gives": "O",
-       "note": "zero, shaped like the letter O"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "going for",
+         "at": 31,
+         "note": "one going for nothing means the letter for one is swapped out and the letter for nothing takes its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "challenger",
+         "at": 15,
+         "gives": "RIVAL",
+         "note": "a rival is a challenger"
+        },
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        },
+        {
+         "words": "nothing",
+         "at": 41,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rival tech firm hoping to win endorsement from users or regulators.",
-     "walkthrough": "Google is the example of an app; going for means swapping the one for the nothing inside the challenger word.",
-     "definitionFit": "Giving the thumbs-up is the idiomatic gesture of agreement, so it stands for approval."
+     "surface": "A tech company competing with Google is promised a favourable verdict.",
+     "walkthrough": "In RIVAL, 'one going for nothing' replaces I with O to make ROVAL, placed after APP.",
+     "definitionFit": "Approval is the act of giving consent or endorsement, which a thumbs-up gesture signals."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "Google"
     }
    }
@@ -1396,53 +1404,55 @@
        "indicators": [
         {
          "text": "bar",
-         "note": "bar here means except, so the following thing is excluded"
+         "at": 7,
+         "note": "bar means to exclude, so the letter for name is shut out of the cereal"
         }
        ],
        "parts": [
         {
          "words": "Cereal",
+         "at": 0,
          "gives": "BRAN",
-         "note": "bran is a cereal"
+         "note": "bran is the husk of cereal grain, sold as a breakfast cereal"
         },
         {
          "words": "name",
-         "gives": "N",
-         "note": "abbreviation for name"
+         "at": 11,
+         "gives": "N"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "VO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half means only the first half of the next word is used"
+         "at": 16,
+         "note": "only half of the word for promises is kept, its first two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "promises",
-         "gives": "VO",
-         "select": "first",
-         "note": "the first two of four letters of VOWS"
+         "at": 21,
+         "gives": "VOWS",
+         "note": "vows are solemn promises"
+        },
+        {
+         "gives": "WS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A breakfast cereal bar whose name claims it will be healthy.",
-     "walkthrough": "Cereal bar reads like a snack, but bar means without: BRAN without N, then half of VOWS.",
-     "definitionFit": "Good for you is an exclamation of praise, and bravo is a cheer of approval."
+     "surface": "A cereal bar brand claims it is healthy for you.",
+     "walkthrough": "'Cereal bar' reads as a snack, but 'bar' works on its own, removing N from BRAN; half of VOWS gives VO.",
+     "definitionFit": "Bravo is an exclamation of praise or congratulation, said much as one says 'good for you!'"
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "bar"
     }
    }
@@ -1537,52 +1547,60 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SPARSE",
-     "indicators": [
-      {
-       "text": "making",
-       "note": "making here means one letter is turned into another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Small",
-       "gives": "S",
-       "note": "abbreviation for small"
+       "at": 0,
+       "gives": "S"
       },
       {
-       "words": "winnings",
-       "gives": "PURSE",
-       "note": "a purse is prize money"
-      },
-      {
-       "words": "United",
-       "gives": "U",
-       "note": "abbreviation for United, as in football team names"
-      },
-      {
-       "op": "last",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "ultimately points to the last letter of the word before"
+         "text": "making",
+         "at": 15,
+         "note": "making one letter into another means the first is replaced by the second"
         }
        ],
        "parts": [
         {
-         "words": "mania",
-         "note": "the last letter"
+         "words": "winnings",
+         "at": 6,
+         "gives": "PURSE",
+         "note": "a purse is prize money, the winnings in a contest"
+        },
+        {
+         "words": "United",
+         "at": 22,
+         "gives": "U",
+         "note": "U is the abbreviation for United, as in football team names"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 35,
+           "note": "ultimately points to the last letter of the word mania"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mania",
+           "at": 29,
+           "note": "its final letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Small prize money makes the excitement around Manchester United scarce.",
-     "walkthrough": "PURSE swaps its U for A.",
-     "definitionFit": "Sparse means scattered and scanty, which is an idiom of things being thin on the ground."
+     "surface": "A modest prize means football-crazy United fans are few and far between.",
+     "walkthrough": "'making United mania ultimately' turns the U of PURSE into A, the last letter of 'mania', giving PARSE after S.",
+     "definitionFit": "Sparse means scattered and scanty, present only in small numbers, like something thinly spread."
     },
     "features": {
      "answerInScene": false,

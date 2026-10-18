@@ -676,26 +676,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARSON",
+     "op": "middle",
      "indicators": [
       {
        "text": "uncovered",
-       "note": "with its covering stripped, the word loses its first and last letters"
+       "at": 14,
+       "note": "uncovered means the outer letters, the covering at each end, are stripped away"
       }
      ],
      "parts": [
       {
        "words": "clerics",
+       "at": 6,
        "gives": "PARSONS",
-       "note": "parsons are parish clergymen"
+       "note": "parsons are parish clergy, clerics"
       }
      ]
     },
     "explanation": {
-     "surface": "Wrongdoing by the clergy exposed.",
-     "definitionFit": "Arson, deliberately setting fire to property, is a criminal offence."
+     "surface": "A scandal: wrongdoing by the clergy has been exposed.",
+     "walkthrough": "'uncovered' reads as 'exposed', but it peels the first and last letters off PARSONS.",
+     "definitionFit": "Arson, the deliberate setting of fire to property, is a criminal offence."
     },
     "features": {
      "answerInScene": false,
@@ -1196,46 +1197,51 @@
     "definitions": [
      {
       "text": "This one",
-      "at": 0,
-      "note": "the answer is what did the overhearing"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EARDRUM",
      "indicators": [
       {
        "text": "isn't available",
-       "note": "what is unavailable is absent, so those words' letters are taken out"
+       "at": 37,
+       "note": "isn't available means the letters of these words are absent from the phrase, taken away"
       }
      ],
      "parts": [
       {
        "words": "overheard rumour",
-       "note": "taken as written; the removals strip exactly its outer letters, so the result also lies hidden in this phrase, no coincidence"
+       "at": 9,
+       "note": "taken as written; that what is left also runs hidden in these words is a coincidence of the deletion, not a separate device"
       },
       {
-       "words": "Extra",
-       "gives": "OVER",
-       "note": "over means extra or left over"
-      },
-      {
-       "words": "Time",
-       "gives": "HOUR",
-       "note": "a unit of time"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Extra",
+         "at": 26,
+         "gives": "OVER",
+         "note": "over means extra, as in left over"
+        },
+        {
+         "words": "Time",
+         "at": 32,
+         "gives": "HOUR",
+         "note": "an hour is a unit of time"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hearsay picked up about a match with no added period of play.",
-     "walkthrough": "'Extra Time' looks like a sporting phrase, but it splits into two words that are struck out of the first phrase.",
-     "definitionFit": "The eardrum is the membrane in the ear that vibrates with sound, so it is what overheard."
+     "surface": "Someone wonders if gossip about extra time in a match was misheard.",
+     "walkthrough": "'isn't available' tells you to remove OVER from the start of 'overheard rumour', then H and OUR from what remains, and the organ of hearing is left; 'This one' points to the clue's own talk of overhearing.",
+     "definitionFit": "The eardrum is the membrane in the ear that vibrates with sound, the part that would overhear a rumour."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Extra"
     }
    }
