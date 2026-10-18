@@ -317,32 +317,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CATACHRESTIC",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
-       "note": "could be says one set of letters might be rearranged into another"
+       "at": 25,
+       "note": "could be says the letters of the opening words might form something else once rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CATACHRESTIC",
+       "words": "Oaf's inaccurate chatter",
+       "at": 0,
+       "note": "the letters of these three words are the pool: the answer's letters plus those of the words around the blank"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Oaf's inaccurate chatter",
-         "note": "all of these letters are the pool to rearrange"
-        },
-        {
          "words": "of a",
-         "note": "these letters are part of the rearranged pool and are taken away"
+         "at": 34,
+         "note": "taken as written, to be removed from the pool"
         },
         {
          "words": "nature",
-         "note": "these letters are also part of the pool and are taken away"
+         "at": 44,
+         "note": "taken as written, to be removed from the pool"
         }
        ]
       }
@@ -350,13 +350,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A clumsy man's careless talk might be described as having this quality.",
-     "walkthrough": "A composite anagram: the answer plus OF A NATURE uses exactly the letters of OAFS INACCURATE CHATTER, and the clue as a whole defines it.",
-     "definitionFit": "Catachrestic describes catachresis, the misuse of words, which is what an oaf's inaccurate talk shows."
+     "surface": "A sentence with a gap in it, inviting the word that describes a clumsy speaker's misused vocabulary.",
+     "walkthrough": "A composite anagram: the letters of OAF'S INACCURATE CHATTER are exactly those of OF A, NATURE and the answer, so removing OF A NATURE leaves the twelve letters to rearrange. The whole sentence also defines the word that fills the blank.",
+     "definitionFit": "Catachresis is the misuse of words, so an oaf's wrongly used language is catachrestic by nature."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "chatter"
     }
    }
   },
@@ -1895,41 +1896,39 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "homophone",
+     "spelt": "MEEMIE",
+     "indicators": [
       {
-       "op": "homophone",
-       "spelt": "MEEMIE",
-       "indicators": [
-        {
-         "text": "to be heard",
-         "note": "to be heard means what counts is how the words sound when spoken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "the first person",
-         "gives": "MEME",
-         "note": "the first person is me, said twice over"
-        }
-       ]
+       "text": "to be heard",
+       "at": 34,
+       "note": "to be heard means the word is taken by its sound rather than its spelling"
       },
       {
-       "unchecked": true,
-       "words": "repeatedly",
-       "note": "no letters of its own: it says the pronoun is spoken more than once"
+       "text": "repeatedly",
+       "at": 46,
+       "note": "repeatedly says the pronoun is spoken over again, giving it twice in a row"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the first person",
+       "at": 17,
+       "gives": "MEME",
+       "note": "the first-person pronoun me, said twice because the clue asks for it repeatedly"
       }
      ]
     },
     "explanation": {
-     "surface": "An attention-seeker is the first to be heard again and again.",
-     "walkthrough": "'Repeatedly' doubles the pronoun; a self-absorbed 'me, me' fits the surface picture of someone hysterical.",
-     "definitionFit": "A meemie is a hysterical person, as in the 'screaming meemies', a fit of nervous hysteria."
+     "surface": "Someone shrieking about themselves over and over.",
+     "walkthrough": "Say 'me' twice and you have the sound of the answer, as in 'the screaming meemies', a fit of hysterics.",
+     "definitionFit": "A meemie is an old slang word for a hysterical person, from 'screaming meemies' for a nervous fit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "person"
     }
    }
   },
