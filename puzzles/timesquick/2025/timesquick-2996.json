@@ -208,49 +208,48 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, writing a word upwards reverses it"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "finally",
-         "note": "take only the last letter"
+         "text": "up",
+         "at": 11,
+         "note": "in a down clue, up means the word is written from the bottom upwards, so it reads backwards"
         }
        ],
        "parts": [
         {
          "words": "ate",
+         "at": 7,
          "gives": "HAD",
-         "note": "had (a meal) = ate"
+         "note": "to have had a meal is to have eaten, so had stands for ate"
         }
        ]
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "L",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 24,
+         "note": "finally points to the very last letter of approval"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "approval, finally",
-         "gives": "L",
-         "select": "last",
-         "note": "last letter of approvaL"
+         "words": "approval",
+         "at": 14,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer greedily consumes praise, at last.",
-     "walkthrough": "Roald Dahl wrote Charlie and the Chocolate Factory. 'Ate up' sounds like one phrase for eating everything, but 'up' is doing separate work on HAD.",
-     "definitionFit": "A definition by example: Roald Dahl, who wrote Charlie and the Chocolate Factory, is one author among many."
+     "surface": "An author lapped up the approval, at long last.",
+     "walkthrough": "'up' turns HAD over to give DAH, and 'finally' adds the L that ends approval. Roald Dahl wrote Charlie and the Chocolate Factory.",
+     "definitionFit": "Roald Dahl was a British writer of children's books and short stories, an example of an author."
     },
     "features": {
      "answerInScene": true,
@@ -981,42 +980,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "possibly",
-       "note": "Roget in some other possible arrangement"
+       "text": "includes",
+       "at": 15,
+       "note": "includes means contains, so the shuffled name goes around the next word"
       }
      ],
      "parts": [
       {
-       "words": "Roget",
-       "gives": "TOGER",
-       "note": "anagram fodder, 5 letters"
-      },
-      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "includes",
-         "note": "the rearranged letters take THE inside"
+         "text": "possibly",
+         "at": 6,
+         "note": "possibly means in some possible form, a hint that the name's letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "the",
-         "note": "as printed"
+         "words": "Roget",
+         "at": 0,
+         "note": "taken as written; Peter Mark Roget compiled the famous thesaurus"
         }
        ]
+      },
+      {
+       "words": "the",
+       "at": 24,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A thesaurus lookup: Roget's gives a word meaning organised.",
-     "walkthrough": "Roget's Thesaurus is the classic book of synonyms, so the clue sounds like a reference lookup. 'Possibly' rearranges ROGET, and THE goes inside.",
-     "definitionFit": "Someone together is well-organised and self-possessed."
+     "surface": "Roget's Thesaurus, perhaps, includes this word among its synonyms for well-organised.",
+     "walkthrough": "The surface leans on Roget's Thesaurus, the classic book of synonyms, so 'synonym for' reads as part of the story when it is only a link to the definition.",
+     "definitionFit": "Someone who is together, informally, is calm, capable and well-organised."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Roget"
+     "misdirectedWord": "synonym"
     }
    }
   },
