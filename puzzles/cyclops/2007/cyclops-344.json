@@ -703,41 +703,43 @@
      "indicators": [
       {
        "text": "brought in",
-       "note": "something brought in is taken inside, so these letters go within the other word"
+       "at": 28,
+       "note": "brought in means introduced inside, so these letters go within the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Observed",
-         "gives": "SEEN",
-         "note": "observed means seen"
-        },
-        {
-         "words": "Conservative",
-         "gives": "C",
-         "note": "C is the abbreviation for Conservative"
-        }
-       ]
+       "words": "Observed",
+       "at": 0,
+       "gives": "SEEN",
+       "note": "seen means observed"
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Conservative",
+         "at": 9,
+         "gives": "C"
+        },
+        {
+         "words": "right",
+         "at": 22,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory politician watched while undergoing vetting of their honesty.",
-     "walkthrough": "'Conservative right' sounds like the Tory right wing, but it is just two abbreviations.",
-     "definitionFit": "To screen someone is to vet them, checking they are reliable before granting trust or a job."
+     "surface": "A Tory right-winger is watched as he is vetted for honesty.",
+     "walkthrough": "C and R are brought into SEEN after its S.",
+     "definitionFit": "To screen someone is to vet them, checking their background for reliability."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "Observed"
     }
    }
   },
@@ -1036,47 +1038,50 @@
      "op": "charade",
      "parts": [
       {
+       "words": "House",
+       "at": 23,
+       "gives": "HO"
+      },
+      {
        "op": "container",
        "indicators": [
         {
          "text": "accepts",
-         "note": "a word that accepts something takes it in, holding it inside"
+         "at": 49,
+         "note": "accepts means takes in, so these letters hold another inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "House",
-           "gives": "HO",
-           "note": "HO is the abbreviation for house"
+           "words": "masculine",
+           "at": 30,
+           "gives": "M"
           },
           {
-           "words": "masculine",
-           "gives": "M",
-           "note": "M is the abbreviation for masculine"
+           "words": "aversion",
+           "at": 40,
+           "gives": "PHOBIA",
+           "note": "a phobia is an irrational aversion"
           }
          ]
         },
         {
          "words": "nothing",
+         "at": 57,
          "gives": "O",
-         "note": "O looks like zero, nothing"
+         "note": "O is the figure zero, nothing"
         }
        ]
-      },
-      {
-       "words": "aversion",
-       "gives": "PHOBIA",
-       "note": "a phobia is a strong aversion"
       }
      ]
     },
     "explanation": {
-     "surface": "Asks whether a royal fell victim to some House of Parliament's dislike of men.",
-     "walkthrough": "Queen is slang for a gay man, not the monarch, which is why the definition works.",
-     "definitionFit": "Hostility to gay people is the prejudice a gay man could suffer from, so he is its victim."
+     "surface": "A question about whether a monarch suffers from something in a parliament full of men.",
+     "walkthrough": "'Queen' is slang for a gay man, not the monarch, which makes the definition fair.",
+     "definitionFit": "Homophobia is prejudice against gay people, so a gay man, colloquially a queen, may fall victim to it."
     },
     "features": {
      "answerInScene": false,

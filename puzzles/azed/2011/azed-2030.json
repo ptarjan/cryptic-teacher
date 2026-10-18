@@ -909,48 +909,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another sits inside it, so the raised letters go within the word for worn-out"
+       "at": 19,
+       "note": "in means placed inside, so one piece sits within the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "worn-out",
+       "at": 22,
+       "gives": "TRITE",
+       "note": "trite means hackneyed or worn out through overuse"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "at": 8,
+         "note": "in a down clue brought up means read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "worn-out",
-         "gives": "TRITE",
-         "note": "trite means stale, worn out by overuse"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "brought up",
-           "note": "in a down clue what is brought up is raised from the bottom, so the letters run backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "A",
+           "at": 0,
+           "gives": "A"
+          },
+          {
            "words": "point",
+           "at": 2,
            "gives": "NUB",
            "note": "the nub is the central point of a matter"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A point raised about an outdated, tired office of state.",
-     "definitionFit": "A tribunate is the office of a tribune, a magistrate of ancient Rome who protected the plebeians."
+     "surface": "A point raised about an outmoded office of state.",
+     "walkthrough": "In a down clue 'brought up' reverses the letters, so the point and the A are read from bottom to top.",
+     "definitionFit": "A tribunate was the office of a tribune, a magistracy in ancient Rome."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "point"
     }
@@ -1141,33 +1147,41 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SCALESTAIR",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "one thing given for another replaces it, so the drinks take the place of the zero in the Scotsman"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Jock maybe",
-       "gives": "SCOT",
-       "note": "Jock is a nickname for a Scotsman"
-      },
-      {
-       "words": "beers",
-       "gives": "ALES",
-       "note": "ales are beers"
-      },
-      {
-       "words": "nothing",
-       "gives": "O",
-       "note": "nothing is zero, the letter O, which is taken out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 24,
+         "note": "for here means in place of, so one piece replaces another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jock maybe",
+         "at": 0,
+         "gives": "SCOT",
+         "note": "Jock is a nickname for a Scotsman, so maybe a Scot"
+        },
+        {
+         "words": "nothing",
+         "at": 28,
+         "gives": "O",
+         "note": "O is the figure zero, nothing"
+        },
+        {
+         "words": "beers",
+         "at": 18,
+         "gives": "ALES",
+         "note": "ales are beers"
+        }
+       ]
       },
       {
        "words": "look",
+       "at": 37,
        "gives": "AIR",
        "note": "an air is a look or appearance"
       }
@@ -1175,13 +1189,14 @@
     },
     "spelling": "SCALE STAIR",
     "explanation": {
-     "surface": "A Scotsman with free drinks gazes up a straight flight of stairs.",
-     "walkthrough": "A scale stair is the Scottish term for a straight staircase, as opposed to the spiral turnpike stair; the bracketed note gives the enumeration.",
-     "definitionFit": "A scale stair is a staircase that runs straight up in one direct flight, so named in Scotland."
+     "surface": "A Scotsman gets free beer while looking at a flight to Scotland.",
+     "walkthrough": "'for Scotland' marks a Scots usage, and 'for nothing' is not 'free' but a swap of the zero letter.",
+     "definitionFit": "A scale stair is the Scots term for a straight staircase, one continuous run of steps without turns."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "flight"
     }
    }

@@ -264,53 +264,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "something made new is remade, so the name before it is rearranged into a fresh order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 18,
+         "note": "primarily means first of all, so only the first letter of literacy"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "primarily",
-           "note": "primarily means first of all, so only the opening letter of the word before is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "literacy",
-           "note": "the first letter of literacy"
-          }
-         ]
-        },
-        {
-         "words": "Pat",
-         "note": "the name rearranged"
-        },
-        {
-         "words": "work",
-         "gives": "OP",
-         "note": "OP is short for opus, a work"
+         "words": "literacy",
+         "at": 9,
+         "gives": "L",
+         "note": "its first letter is L"
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 37,
+         "note": "new means remade, so the letters of Pat are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pat",
+         "at": 33,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "at": 41,
+       "gives": "OP",
+       "note": "op is short for opus, a work"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone called Pat is given a new job because of good computer literacy.",
-     "definitionFit": "A laptop is a portable personal computer small enough to rest on the knees."
+     "surface": "A child called Pat gains reading skills and a new job.",
+     "walkthrough": "L, then PAT rearranged as APT, then OP, the abbreviation of opus.",
+     "definitionFit": "A laptop is a portable computer designed to rest on the user's lap."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "work"
     }
    }
   },
