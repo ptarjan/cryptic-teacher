@@ -793,49 +793,53 @@
      "indicators": [
       {
        "text": "has swallowed",
-       "note": "what is swallowed ends up inside, so one piece goes within the other"
+       "at": 7,
+       "note": "the insect takes the other letters inside, swallowing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Insect",
-         "gives": "FLY",
-         "note": "a fly is an insect"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Insect",
+       "at": 0,
+       "gives": "FLY",
+       "note": "a fly is an insect"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "tailless",
-         "note": "without a tail means the final letter of that creature is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rodent",
-         "gives": "MOUSE",
-         "note": "a mouse is a rodent"
+         "words": "a",
+         "at": 21
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 23,
+           "note": "tailless means the rodent word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rodent",
+           "at": 32,
+           "gives": "MOUSE",
+           "note": "a mouse is a rodent"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insect has gulped down a mouse missing its tail, as is well known.",
-     "walkthrough": "The shortened rodent and A go inside the insect, between its F and LY.",
-     "definitionFit": "Famously means in a well-known way, so something everyone is aware of."
+     "surface": "A nursery-rhyme scene of an insect swallowing a mouse without a tail.",
+     "walkthrough": "The definition reads 'famously', as in widely known; it is not 'getting on famously'.",
+     "definitionFit": "Something famously so is known to all, widely reported."
     },
     "features": {
      "answerInScene": false,
