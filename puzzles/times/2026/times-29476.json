@@ -109,40 +109,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SANE",
      "indicators": [
       {
-       "text": "plays part of"
+       "text": "plays part of",
+       "at": 28,
+       "note": "to play the part of someone is to stand in for them, so one letter takes the other's place"
       }
      ],
      "parts": [
       {
        "words": "except",
+       "at": 11,
        "gives": "SAVE",
-       "note": "save = except, as in all save one"
-      },
-      {
-       "words": "noun",
-       "gives": "N",
-       "note": "N = noun"
+       "note": "save means except, as in 'all save one'"
       },
       {
        "words": "verb",
+       "at": 42,
        "gives": "V",
-       "note": "V = verb; N replaces it in SAVE"
+       "note": "V is the grammar abbreviation for verb"
+      },
+      {
+       "words": "noun",
+       "at": 23,
+       "gives": "N",
+       "note": "N is the grammar abbreviation for noun"
       }
      ]
     },
     "explanation": {
-     "surface": "A grammar rule: fine, except where a noun does a verb's job.",
-     "walkthrough": "\"Except when\" looks like part of the grammar rule, but \"except\" is SAVE and \"when\" just links it to the swap.",
-     "definitionFit": "A plain synonym: a sane decision is a reasonable one, sound in judgement."
+     "surface": "A grammar rule: a word is acceptable unless a noun is doing a verb's job.",
+     "walkthrough": "'plays part of' means the N stands in for the V in SAVE. The grammar-lesson surface makes 'noun' and 'verb' look like terms to discuss, not letters.",
+     "definitionFit": "Sane means of sound mind, sensible and rational, which is what reasonable conveys."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "except"
+     "misdirectedWord": "plays"
     }
    }
   },
@@ -167,46 +170,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EXCISES",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "excluded from",
+       "at": 18,
+       "note": "excluded from means left out of, so the reversed letters come out of the longer word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "training",
+       "at": 32,
+       "gives": "EXERCISES",
+       "note": "exercises are training drills"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "Retired",
-         "note": "gone back, so written backwards"
-        },
-        {
-         "text": "excluded from",
-         "note": "taken out of the next word"
+         "at": 0,
+         "note": "retired means withdrawn or gone back, so the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "training",
-         "gives": "EXERCISES",
-         "note": "exercises are training"
-        },
-        {
-         "words": "Retired engineers",
-         "gives": "ER",
-         "note": "RE (Royal Engineers) backwards; take it out of EXERCISES"
+         "words": "engineers",
+         "at": 8,
+         "gives": "RE",
+         "note": "RE is the Royal Engineers, the British army corps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Former army engineers left off the drill rota.",
-     "walkthrough": "RE is the Royal Engineers, a British Army corps. Remove ER from EXERCISES.",
-     "definitionFit": "Excises are duties, taxes on goods made or sold at home."
+     "surface": "Engineers who have retired no longer have to take part in training.",
+     "walkthrough": "'Retired' turns RE into ER, and that is 'excluded from' EXERCISES. The RE are the Royal Engineers of the British Army.",
+     "definitionFit": "Excises are taxes levied on goods produced at home, and duties is another name for such taxes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "duties"
+     "misdirectedWord": "Retired"
     }
    }
   },
@@ -320,42 +327,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CRANEFLY",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "called back: written backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "crossing",
+         "at": 10,
+         "note": "crossing means lying across, so the fish's letters straddle the reversed ones"
+        }
+       ],
        "parts": [
         {
-         "words": "Cold",
-         "gives": "C",
-         "note": "C = cold"
+         "words": "fish",
+         "at": 5,
+         "gives": "RAY",
+         "note": "a ray is a flat fish"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "crossing",
-           "note": "the fish lies across, so around, the marsh"
+           "text": "recalled",
+           "at": 31,
+           "note": "recalled means called back, so the letters run in reverse"
           }
          ],
          "parts": [
           {
-           "words": "fish",
-           "gives": "RAY",
-           "note": "a ray is a flat fish"
-          },
-          {
-           "words": "large marsh recalled",
-           "gives": "NEFL",
-           "note": "L (large) + FEN (marsh), backwards"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "large",
+             "at": 19,
+             "gives": "L",
+             "note": "L is the clothing-size abbreviation for large"
+            },
+            {
+             "words": "marsh",
+             "at": 25,
+             "gives": "FEN",
+             "note": "a fen is a low marshy area"
+            }
+           ]
           }
          ]
         }
@@ -364,12 +385,12 @@
      ]
     },
     "explanation": {
-     "surface": "A chilly fish swimming across a big swamp, remembered as a long-legged creature.",
-     "walkthrough": "\"Six-footer\" suggests a tall person; it is an insect with six feet. A crane fly is a daddy-long-legs.",
-     "definitionFit": "A crane fly is an insect, so six-legged, with notably long legs."
+     "surface": "A chilly fish swimming over a big wetland, followed by a spindly creature.",
+     "walkthrough": "'recalled' turns L and FEN into NEFL, which RAY straddles ('crossing') after C. 'six-footer' means an insect, with six legs, not a tall person.",
+     "definitionFit": "The crane fly, or daddy-long-legs, is an insect famous for its very long, spindly legs."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "six-footer"
@@ -398,29 +419,29 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "EARTH",
      "indicators": [
       {
        "text": "Cycling",
-       "note": "the first letter goes round to the back"
+       "at": 0,
+       "note": "cycling means going round in a loop, so the first letter moves to the end"
       }
      ],
      "parts": [
       {
        "words": "centre",
+       "at": 8,
        "gives": "HEART",
-       "note": "the heart of something is its centre; its H then cycles to the back"
+       "note": "the heart of something is its centre"
       }
      ]
     },
     "explanation": {
-     "surface": "A power plant at a cycle hub making electricity.",
-     "walkthrough": "British usage: what Americans call a ground wire is an earth in Britain.",
-     "definitionFit": "A regional use: in British wiring the safety connection to the ground takes the planet's own name."
+     "surface": "A cycling centre producing its own electricity supply.",
+     "walkthrough": "'Cycling' moves the H of HEART round to the back. 'Cycling centre' reads as a bike venue, but it is an instruction plus a word.",
+     "definitionFit": "An earth is the wire linking an electrical circuit to the ground for safety, called a ground in American usage."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Cycling"
     }
@@ -683,47 +704,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REENACT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "returned",
-       "note": "sent back: written backwards"
+       "text": "after",
+       "at": 22,
+       "note": "after places the time letter behind the reversed word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "on",
+       "at": 14,
+       "gives": "RE",
+       "note": "re means on or about, as in a memo heading"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "after"
+         "text": "returned",
+         "at": 32,
+         "note": "returned means sent back, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "on",
-         "gives": "RE",
-         "note": "RE = on, concerning, as in a memo"
-        },
-        {
-         "words": "Rod returned",
-         "gives": "ENAC",
-         "note": "a cane is a rod; backwards it is ENAC"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T = time"
+         "words": "Rod",
+         "at": 28,
+         "gives": "CANE",
+         "note": "a cane is a rod or stick"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 17,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A stage direction for a performer called Rod, back and on cue.",
-     "walkthrough": "\"Rod\" looks like a name, capital R and all, but it is an ordinary rod: a cane.",
-     "definitionFit": "A plain synonym built from its parts: the prefix re- means again, and to enact a scene is to perform it."
+     "surface": "A man called Rod came back and did his act a second time.",
+     "walkthrough": "'returned' turns CANE into ENAC; T comes 'after' it. 'Rod' looks like a man's name but is a stick.",
+     "definitionFit": "To re-enact something is to act it out again, as with a historical battle staged a second time."
     },
     "features": {
      "answerInScene": true,
@@ -1131,52 +1155,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EPOCHS",
-     "indicators": [
-      {
-       "text": "empty",
-       "note": "with the inside removed, only the outer letters stay"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "spinning",
+         "at": 7,
+         "note": "spinning means turning round, so the letters are reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "EPOC",
-         "indicators": [
-          {
-           "text": "spinning",
-           "note": "turned round, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Manage spinning",
-           "gives": "EPOC",
-           "select": "outer",
-           "note": "to cope is to manage; backwards it is EPOC"
-          }
-         ]
-        },
+         "words": "Manage",
+         "at": 0,
+         "gives": "COPE",
+         "note": "to cope is to manage"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "words": "empty half-truths",
-         "gives": "HS",
-         "note": "Half-truthS without its middle"
+         "text": "empty",
+         "at": 16,
+         "note": "an empty word has its insides removed, leaving only the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "half-truths",
+         "at": 22,
+         "note": "only the first and last letters, H and S, survive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spin doctor turning out hollow half-truths for years on end.",
-     "walkthrough": "\"Manage spinning\" suggests spin doctors, but spinning simply turns COPE round.",
-     "definitionFit": "Epochs are long periods of time, ages."
+     "surface": "A spin doctor getting by on hollow half-truths for years on end.",
+     "walkthrough": "'spinning' turns COPE into EPOC, and 'empty' leaves HS from half-truths. The political sense of 'spinning' is the misdirection.",
+     "definitionFit": "An epoch is a long period of history, an era, so epochs are ages."
     },
     "features": {
      "answerInScene": false,
@@ -1460,48 +1481,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "song in service?",
+      "text": "song in service",
       "at": 35
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "backing",
+       "at": 23,
+       "note": "the alternate letters back, or follow behind, the key in the answer"
+      }
+     ],
      "parts": [
+      {
+       "words": "key",
+       "at": 31,
+       "gives": "E",
+       "note": "E is a musical key"
+      },
       {
        "op": "alternate",
        "indicators": [
         {
          "text": "alternately",
-         "note": "taking turns, as the guys in the surface do, so the letters are used every other one"
-        },
-        {
-         "text": "backing",
-         "note": "in a down clue, supporting from below, so after"
+         "at": 11,
+         "note": "only every other letter is taken, starting from the second"
         }
        ],
        "parts": [
         {
-         "words": "key",
-         "note": "E is a musical key"
+         "words": "Blues guys",
+         "at": 0,
+         "note": "the second, fourth, sixth and eighth letters give L, E, G and Y"
         }
        ]
-      },
-      {
-       "words": "Blues guys alternately",
-       "gives": "LEGY",
-       "note": "bLuEs GuYs: every other letter"
       }
      ]
     },
     "explanation": {
-     "surface": "Blues men taking turns backing a singer in a particular key.",
-     "walkthrough": "The question mark marks the loose definition: an elegy is a lament, as might be sung at a funeral service.",
-     "definitionFit": "An elegy is a mournful song or poem for the dead."
+     "surface": "Blues musicians taking turns to provide the backing in a key for a church service song.",
+     "walkthrough": "'backing' is not about a band: it puts the alternate letters LEGY behind E.",
+     "definitionFit": "An elegy is a mournful song or poem of lament, often performed at a funeral service."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "service"
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
     }
    }
   },
@@ -1762,20 +1789,15 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "moving",
-       "note": "the letters move into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "close to",
-         "note": "the close, or end, of tents: its last letter"
+         "text": "moving",
+         "at": 22,
+         "note": "moving means shifting about, so these letters are rearranged"
         }
        ],
        "parts": [
@@ -1784,29 +1806,38 @@
          "indicators": [
           {
            "text": "first",
-           "note": "take the first letter of Who"
+           "at": 6,
+           "note": "first means only the opening letter of Who is taken"
           }
          ],
          "parts": [
           {
-           "words": "Who's first",
-           "gives": "WHOS",
-           "note": "first letter of Who"
+           "words": "Who's",
+           "at": 0,
+           "note": "the first letter of Who is W"
           }
          ]
         },
         {
          "words": "seen yeti",
-         "note": "anagram fodder"
-        },
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "close to tents",
-           "note": "last letter of tentS"
-          }
-         ]
+         "text": "close to",
+         "at": 29,
+         "note": "close to means the end of, so only the final letter of tents is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tents",
+         "at": 38,
+         "note": "the final letter of tents is S"
         }
        ]
       }
@@ -1814,14 +1845,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asking who spotted the yeti prowling near the camp.",
-     "walkthrough": "The whole clue is both wordplay and definition: an eyewitness is whoever first sees the yeti near the tents.",
-     "definitionFit": "An eyewitness is someone who saw an event with their own eyes."
+     "surface": "A camper wondering who saw a yeti wandering near the tents first.",
+     "walkthrough": "'moving' rearranges W with SEENYETI; S, the 'close to' tents, follows. The whole clue also describes the answer: whoever first saw the yeti.",
+     "definitionFit": "An eyewitness is a person who saw an event with their own eyes and can report it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "close"
+     "misdirectedWord": "moving"
     }
    }
   }

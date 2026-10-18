@@ -968,27 +968,26 @@
      "indicators": [
       {
        "text": "below",
-       "note": "in a down clue what sits below comes after, so 'quiet' goes above the definition, at the end"
+       "at": 51,
+       "note": "in a down clue the piece placed below the others sits at the foot of the grid entry"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EMBE",
        "indicators": [
         {
          "text": "Discovered",
-         "note": "dis-covered means with its cover taken off, so 'one of crew' loses its outer letters"
+         "at": 0,
+         "note": "dis-covered means with its covers taken off, so the outer letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Discovered one of crew",
-         "gives": "EMBE",
-         "select": "middle",
-         "note": "a member of a crew, with its first and last letters stripped away"
+         "words": "one of crew",
+         "at": 11,
+         "gives": "MEMBER",
+         "note": "a member of a crew is one of them"
         }
        ]
       },
@@ -997,34 +996,36 @@
        "indicators": [
         {
          "text": "coming round",
-         "note": "to come round is to turn about, so 'queasy' runs backwards"
+         "at": 23,
+         "note": "coming round means turning about, so the letters are reversed"
         }
        ],
        "parts": [
         {
          "words": "queasy",
+         "at": 36,
          "gives": "ILL",
-         "note": "feeling ill, sick"
+         "note": "feeling queasy is feeling ill"
         }
        ]
       },
       {
        "words": "quiet",
+       "at": 45,
        "gives": "SH",
-       "note": "sh is the call for silence"
+       "note": "SH is the call for quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor found coming round seasick, told to be quiet below decks.",
-     "walkthrough": "'Below deck' reads as a nautical phrase, which is the misdirection; 'deck' is the definition, a verb meaning adorn, and 'Discovered' means stripped of its covering.",
-     "definitionFit": "To deck something, as in decking the halls, is to adorn or decorate it, so the verbs are synonyms."
+     "surface": "A sailor, found coming to feeling seasick, is told to keep the noise down below decks.",
+     "walkthrough": "'Discovered' strips MEMBER to EMBE; 'coming round' turns ILL into LLI; 'below' puts SH at the bottom. 'deck' looks like part of a ship but is the verb.",
+     "definitionFit": "To deck something is to decorate or adorn it, as in decking the halls, which is to add ornament."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "deck"
+     "aptDefinition": false,
+     "misdirectedWord": "Discovered"
     }
    }
   },
@@ -1214,51 +1215,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUNDAE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "After first day off",
-       "note": "taking away the first 'day' abbreviation from 'insensitive' removes its opening letter"
+       "text": "withdraws",
+       "at": 45,
+       "note": "to withdraw is to draw back, so all the letters are read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "withdraws",
-         "note": "to withdraw is to draw back, so the whole string runs backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "After first day off",
+           "at": 0,
+           "note": "what is left after the first D, the abbreviation for day, is dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "first day off insensitive",
-           "gives": "EAD",
-           "note": "insensitive is DEAD, as a numb limb, and the first D (day) is removed"
+           "words": "insensitive",
+           "at": 20,
+           "gives": "DEAD",
+           "note": "dead to something means insensitive to it, as in dead to the world"
           },
           {
-           "words": "student body",
-           "gives": "NUS",
-           "note": "the NUS is the National Union of Students"
+           "gives": "D"
           }
          ]
+        },
+        {
+         "words": "student body",
+         "at": 32,
+         "gives": "NUS",
+         "note": "the NUS is the National Union of Students, the UK student body"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "After a day off, a thick-skinned student union pulls its ice cream from sale.",
-     "walkthrough": "The NUS is the UK's National Union of Students; 'withdraws' looks like pulling something from sale but reverses everything before it.",
-     "definitionFit": "A dessert of scoops topped with syrup, nuts or fruit is a classic served dish of frozen dairy."
+     "surface": "A student union retreats after an unfeeling first day off, consoled by ice cream.",
+     "walkthrough": "'After first day off' leaves EAD from DEAD; 'withdraws' reverses EADNUS. The NUS is Britain's National Union of Students.",
+     "definitionFit": "A sundae is a dessert of ice cream with toppings such as syrup, nuts and cream."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "withdraws"
     }

@@ -1456,48 +1456,51 @@
        "indicators": [
         {
          "text": "opening",
-         "note": "opening something up lets another thing be put inside, so the drink holds the first word"
+         "at": 3,
+         "note": "the drink is opening up to let the fashionable word inside"
         }
        ],
        "parts": [
         {
          "words": "drink",
+         "at": 11,
          "gives": "COLA",
-         "note": "cola is a soft drink"
+         "note": "cola is a fizzy drink"
         },
         {
          "words": "In",
+         "at": 0,
          "gives": "HIP",
-         "note": "something in, or fashionable, is hip"
+         "note": "hip means in, as in fashionable"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "starts to",
-         "note": "the starts of a word are its opening letters, so only the front of the next word is kept"
+         "at": 18,
+         "note": "the starts to taste are its opening letters, so its tail is left off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "taste",
-         "gives": "TA",
-         "select": "first",
-         "note": "the first two letters of taste"
+         "at": 28,
+         "note": "only the first two letters of taste are kept"
+        },
+        {
+         "gives": "STE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sample a sausage alongside your first drink of the evening.",
-     "walkthrough": "In is not a container signal here but the word meaning fashionable; opening is the verb that splits the drink.",
-     "definitionFit": "A chipolata is a small thin pork sausage, so it is a specific kind of the general meat product."
+     "surface": "Someone opening a drink and starting to sample a banger.",
+     "walkthrough": "'In' is not a link here: it means fashionable, so HIP goes inside COLA, the drink 'opening' to take it. Then 'starts to' keeps TA, the opening two letters of taste.",
+     "definitionFit": "A chipolata is a small, thin pork sausage, often served with roast turkey in Britain."
     },
     "features": {
      "answerInScene": true,

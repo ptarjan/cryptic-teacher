@@ -437,51 +437,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GERSHWIN",
-     "indicators": [
-      {
-       "text": "Most of",
-       "note": "most of something is the greater part of it, so the word loses some of its letters"
-      },
-      {
-       "text": "shortly",
-       "note": "shortly means briefly, so the word is cut short by its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "only the greater part of singers is kept, with its opening three letters dropped"
+        }
+       ],
        "parts": [
         {
          "words": "singers",
-         "gives": "GERS",
-         "note": "the last four of its seven letters, which is most of them"
+         "at": 8,
+         "note": "singers loses its first three letters, leaving its larger final part"
         },
         {
-         "words": "hot",
-         "gives": "H",
-         "note": "H is the abbreviation for hot, as on a tap"
-        },
+         "gives": "SIN"
+        }
+       ]
+      },
+      {
+       "words": "hot",
+       "at": 24,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 35,
+         "note": "said shortly, the word is cut off before its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "drink",
-         "gives": "WIN",
-         "note": "wine with its last letter removed"
+         "at": 28,
+         "gives": "WINE",
+         "note": "wine is a drink"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Most of a choir, given a hot drink, are soon ready to sing a composer's work.",
-     "walkthrough": "'Most of' here keeps four of seven letters, a bare majority, dropping SIN from the front.",
-     "definitionFit": "George Gershwin was the American who wrote Rhapsody in Blue and Porgy and Bess, a famous writer of music."
+     "surface": "Choir members having a short glass of something warming before a concert by a composer.",
+     "walkthrough": "'Most of' here keeps GERS, the larger part of singers; 'shortly' trims WINE to WIN.",
+     "definitionFit": "George Gershwin was the American composer of Rhapsody in Blue and Porgy and Bess."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drink"
+     "misdirectedWord": "hot"
     }
    }
   },
@@ -1016,42 +1031,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SNOBBERY",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without a top, the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Southern",
+       "at": 19,
+       "gives": "S"
+      },
+      {
+       "words": "aristocrat",
+       "at": 28,
+       "gives": "NOB",
+       "note": "a nob is informal British slang for an aristocrat or toff"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scandalised",
+         "at": 54,
+         "note": "scandalised means thrown into turmoil, so the remaining letters are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Southern",
-         "gives": "S",
-         "note": "S is the abbreviation for southern"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "scandalised",
-           "note": "someone scandalised is thrown into upset, so the letters are disturbed into a new order"
+           "text": "topless",
+           "at": 39,
+           "note": "topless means losing the top, so the first letter goes"
           }
          ],
          "parts": [
           {
-           "words": "aristocrat",
-           "gives": "NOB",
-           "note": "a nob is slang for a toff, a person of high class"
+           "words": "Derby",
+           "at": 48
           },
           {
-           "words": "Derby",
-           "gives": "ERBY",
-           "note": "the name with its first letter dropped"
+           "gives": "D"
           }
          ]
         }
@@ -1060,14 +1078,13 @@
      ]
     },
     "explanation": {
-     "surface": "A haughty Southern lord shocks the racing crowd at the Derby by going bare-chested.",
-     "walkthrough": "'topless' looks attached to the aristocrat, but it acts on the next word. The Derby is England's famous flat horse race at Epsom.",
-     "definitionFit": "Snobbery is looking down on those thought socially inferior, the same airs as being uppity."
+     "surface": "A snooty southern lord shocked by a scandal at the Derby horse race.",
+     "walkthrough": "'topless' takes the D off Derby to leave ERBY, and 'scandalised' rearranges that to BERY. The Derby is a famous English horse race.",
+     "definitionFit": "Uppishness is a haughty, superior attitude, which is the essence of looking down on others socially."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "topless"
     }
    }
@@ -1282,41 +1299,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUBBLETEA",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word is all but its last letter"
-      },
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 6,
+         "note": "most of means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "champagne",
-         "gives": "BUBBL",
-         "note": "bubbly is champagne, less its last letter"
+         "at": 14,
+         "gives": "BUBBLY",
+         "note": "bubbly is an informal word for champagne"
         },
         {
-         "op": "anagram",
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 46,
+         "note": "out here means disordered, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "out",
-           "note": "out can mean disordered or wrong, so the letters are rearranged"
+           "text": "briefly",
+           "at": 32,
+           "note": "briefly means cut short, so the last letter of eaten goes"
           }
          ],
          "parts": [
           {
            "words": "eaten",
-           "gives": "EATE",
-           "note": "the word short of its last letter"
+           "at": 40
+          },
+          {
+           "gives": "N"
           }
          ]
         }
@@ -1325,14 +1356,14 @@
      ]
     },
     "explanation": {
-     "surface": "A diner drinks most of the bubbly after a quick meal at a restaurant.",
-     "walkthrough": "'Drink' looks like a verb ordering you to quaff the champagne; it is the noun definition. Bubbly is a casual name for champagne.",
-     "definitionFit": "Bubble tea is a Taiwanese iced beverage with chewy tapioca pearls, so it is a kind of beverage."
+     "surface": "Someone drinking almost all the champagne after a quick meal out.",
+     "walkthrough": "'most of' trims BUBBLY to BUBBL; 'briefly' cuts EATEN to EATE, which 'out' rearranges as ETEA.",
+     "definitionFit": "Bubble tea is a sweet Taiwanese tea drink served with chewy tapioca pearls."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Drink"
+     "misdirectedWord": "out"
     }
    }
   },
@@ -1525,42 +1556,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IRONING",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means all but a little, so the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means all but the final letter is used"
+        }
+       ],
        "parts": [
         {
          "words": "insincere",
-         "gives": "IRONI",
-         "note": "ironic, saying the opposite of what one means, less its last letter"
+         "at": 7,
+         "gives": "IRONIC",
+         "note": "ironic speech says the opposite of what is meant, so it is insincere"
         },
         {
-         "words": "no good",
-         "gives": "NG",
-         "note": "NG is the standard abbreviation for no good"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "no good",
+       "at": 18,
+       "gives": "NG"
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that some task is half-hearted, useless and rather tedious.",
-     "walkthrough": "'a bit of a chore' sounds like a mild complaint, but it is the definition: one particular household task.",
-     "definitionFit": "Pressing clothes with a hot iron is one of the routine household jobs people dread, so it is an example."
+     "surface": "A complaint that a household task is mostly fake and no use.",
+     "definitionFit": "Pressing clothes with a hot iron is a typical household task that many people find tedious."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "bit"
+     "misdirectedWord": "insincere"
     }
    }
   },
