@@ -1551,43 +1551,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CELLARED",
+     "op": "container",
      "indicators": [
       {
-       "text": "unopened",
-       "note": "something unopened has lost its opening, so the word's first letter goes"
+       "text": "about",
+       "at": 8,
+       "note": "about means the word for worried goes round the shortened stock"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Worried",
+       "at": 0,
+       "gives": "CARED",
+       "note": "to have cared about something is to have worried over it"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so one word goes round another"
+         "text": "unopened",
+         "at": 14,
+         "note": "unopened means the word for stock loses its opening letter"
         }
        ],
        "parts": [
         {
-         "words": "Worried",
-         "gives": "CARED",
-         "note": "to have cared about something is to have worried over it"
+         "words": "stock",
+         "at": 23,
+         "gives": "SELL",
+         "note": "a shop that stocks an item sells it"
         },
         {
-         "words": "stock",
-         "gives": "ELL",
-         "note": "to stock an item is to sell it; without its opening letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone fretted over unsealed supplies kept in a wine cellar.",
-     "walkthrough": "A shop that stocks a product sells it; drop the first letter of that verb.",
-     "definitionFit": "Cellared wine has been laid down and kept in a cellar, so it is in the wine store."
+     "surface": "A merchant frets over unopened cases of stock sitting in the wine store.",
+     "walkthrough": "'Stock' looks like a noun, the merchant's goods, but it is the verb, as when a shop stocks an item, giving SELL; 'unopened' then drops its first letter.",
+     "definitionFit": "Cellared wine has been laid down and kept in a cellar, so it is held in a wine store."
     },
     "features": {
      "answerInScene": true,

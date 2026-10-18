@@ -646,26 +646,44 @@
      "indicators": [
       {
        "text": "drops",
-       "note": "to drop something is to let it go, so the dressmaker loses some letters"
+       "at": 11,
+       "note": "drops means the dressmaker's name loses that half"
       }
      ],
      "parts": [
       {
        "words": "Dressmaker",
+       "at": 0,
        "gives": "COUTURIER",
-       "note": "a couturier designs and makes fashionable clothes"
+       "note": "a couturier is a designer and maker of fashionable clothes"
       },
       {
-       "words": "half of tutu",
-       "gives": "TU",
-       "note": "tutu is two identical halves, each of two letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 17,
+         "note": "half of means only one of the two identical halves of tutu is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tutu",
+         "at": 25,
+         "gives": "TUTU",
+         "note": "a ballet dancer's skirt, of which only half is wanted"
+        },
+        {
+         "gives": "TU"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dressmaker cuts down a ballet skirt, then sends it off in a parcel.",
-     "walkthrough": "Remove TU from the middle of COUTURIER. 'Package' is a package holiday, not a parcel, hence the question mark.",
-     "definitionFit": "A courier is a travel guide employed to look after tourists on a package holiday, accompanying the group throughout."
+     "surface": "A fashion designer leaves out half a ballet skirt from a delivery.",
+     "walkthrough": "'Package' suggests a parcel, but the question mark points to a package holiday, whose tour guide travels with the group. 'Half of' takes TU from tutu, and the dressmaker 'drops' it.",
+     "definitionFit": "A courier on a package tour is the guide employed to travel with holidaymakers and look after them."
     },
     "features": {
      "answerInScene": false,

@@ -1016,59 +1016,63 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "APRESSKI",
      "indicators": [
       {
        "text": "getting into",
-       "note": "getting into means going inside, so one piece is placed within another"
+       "at": 29,
+       "note": "getting into means the word for squeeze goes inside the a and the shortened kiss"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Not half",
-         "note": "not half means half the word is missing, so the back two letters are cut"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "squeeze",
-           "gives": "PRESS",
-           "note": "to press is to squeeze"
-          },
-          {
-           "words": "kiss",
-           "note": "taken as written, then cut in half"
-          }
-         ]
+         "words": "a",
+         "at": 42,
+         "gives": "A"
         },
         {
-         "gives": "SS"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not half",
+           "at": 50,
+           "note": "not half means only half of kiss survives, its back half lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "kiss",
+           "at": 44,
+           "gives": "KISS",
+           "note": "the word whose second half is dropped"
+          },
+          {
+           "gives": "SS"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "squeeze",
+       "at": 20,
+       "gives": "PRESS",
+       "note": "to squeeze is to press"
       }
      ]
     },
-    "spelling": "APRÈS SKI",
+    "spelling": "APRÈS-SKI",
     "explanation": {
-     "surface": "A fun night out with a girlfriend, ending in a hug and a kiss.",
-     "walkthrough": "'Squeeze' looks like a boyfriend or girlfriend here, but it is a verb. Après-ski is the socialising after a day on the slopes.",
-     "definitionFit": "Après-ski is the drinking and partying at a ski resort once the day's skiing is over."
+     "surface": "A flirtatious night out: a hug that turns into a kiss, though only partly.",
+     "walkthrough": "'Not half' is British slang for 'very much', which suits the flirting, but here it halves kiss to KI.",
+     "definitionFit": "Après-ski is the socialising and partying that follows a day on the ski slopes, typically in the evening."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "squeeze"
+     "aptDefinition": true,
+     "misdirectedWord": "half"
     }
    }
   },

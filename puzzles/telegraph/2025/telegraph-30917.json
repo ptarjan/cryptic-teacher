@@ -99,47 +99,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EDINBURGH",
+     "op": "container",
      "indicators": [
       {
-       "text": "shuffled",
-       "note": "shuffled cards are mixed up, so the two words before it are rearranged"
+       "text": "around",
+       "at": 19,
+       "note": "around means the rearranged letters go round the abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "going around something means enclosing it, so the jumble wraps round the next piece"
+         "text": "shuffled",
+         "at": 10,
+         "note": "shuffled, like a pack of cards, means the letters of hired gun are mixed into a new order"
         }
        ],
        "parts": [
         {
          "words": "Hired gun",
-         "note": "the letters of these two words, rearranged"
-        },
-        {
-         "words": "British",
-         "gives": "B",
-         "note": "B is the standard abbreviation for British"
+         "at": 0,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "British",
+       "at": 26,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A hitman is moved about the country to some British city.",
-     "walkthrough": "'British city' reads as one phrase, but British gives a single letter and the definition is just 'city'.",
-     "definitionFit": "Edinburgh, the Scottish capital, is a city in Britain."
+     "surface": "A hitman shuffles around a British city, looking for his target.",
+     "walkthrough": "'British city' reads as one phrase, but British is only the B that the shuffled letters of hired gun go 'around'; city alone is the definition.",
+     "definitionFit": "Edinburgh is the capital of Scotland, so it is an example of a city."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Hired"
+     "misdirectedWord": "British"
     }
    }
   },
@@ -407,30 +408,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNDERTHEWEATHER",
      "indicators": [
       {
-       "text": "carried separately in",
-       "note": "carried in means held inside, and separately says the two go in at different places"
+       "text": "carried separately",
+       "at": 9,
+       "note": "carried separately means the two articles are held at two different places in the underwear, not side by side"
       }
      ],
      "parts": [
       {
-       "words": "scanties",
-       "gives": "UNDERWEAR",
-       "note": "scanties are skimpy knickers, a kind of underclothing"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 28,
+         "note": "in means each article is placed inside the word for scanties"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scanties",
+         "at": 31,
+         "gives": "UNDERWEAR",
+         "note": "scanties is a jokey word for skimpy underwear"
+        },
+        {
+         "words": "Articles",
+         "at": 0,
+         "gives": "THE",
+         "note": "the is the definite article, and the plural asks for it twice"
+        }
+       ]
       },
       {
        "words": "Articles",
-       "gives": "THETHE",
-       "note": "two definite articles, one inserted after the fifth letter of the host and one before its last"
+       "at": 0,
+       "gives": "THE",
+       "note": "the definite article again, the second of the two the plural asks for"
       }
      ]
     },
     "explanation": {
-     "surface": "Items stowed one by one in skimpy underwear are judged not up to standard.",
-     "definitionFit": "Feeling under the weather is an idiom for being slightly unwell, not so good in health."
+     "surface": "A newspaper's articles on lingerie are deemed below standard.",
+     "walkthrough": "'Articles' is plural, so the definite article is used twice, and 'carried separately' keeps the two copies apart inside the scanties rather than as one block.",
+     "definitionFit": "Feeling under the weather is an idiom for being slightly unwell, that is not in good health."
     },
     "features": {
      "answerInScene": false,

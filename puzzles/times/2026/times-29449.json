@@ -354,50 +354,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IDYLLIST",
+     "indicators": [
+      {
+       "text": "to welcome",
+       "at": 20,
+       "note": "to welcome is to take in, so the first letters enclose the reversed word"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "The author had",
+         "at": 0,
+         "gives": "ID",
+         "note": "the author is the setter, I, and 'I had' contracts to I'D"
+        },
+        {
+         "words": "time",
+         "at": 15,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to welcome"
+         "text": "flipping",
+         "at": 31,
+         "note": "flipping turns the word for daft over, so it reads backwards"
         }
        ],
        "parts": [
         {
-         "words": "The author had",
-         "gives": "ID",
-         "note": "the setter would say I'd = I had"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "flipping"
-          }
-         ],
-         "parts": [
-          {
-           "words": "daft",
-           "gives": "SILLY",
-           "note": "daft = silly"
-          }
-         ]
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T = time"
+         "words": "daft",
+         "at": 40,
+         "gives": "SILLY",
+         "note": "daft means silly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter confesses to having had time to host a hopelessly daft poet.",
-     "walkthrough": "'The author' is the setter speaking of himself, so the words become I'D. 'Flipping' pretends to be a mild British curse.",
-     "definitionFit": "An idyllist is a poet who writes idylls, short pastoral poems."
+     "surface": "A writer had time to receive a ridiculous poet as a guest.",
+     "walkthrough": "'Flipping' looks like a mild British expletive qualifying daft, but it is the reversal signal, and 'to welcome' then has the setter's contraction plus T take that turned word in.",
+     "definitionFit": "An idyllist is a writer of idylls, short pastoral poems, so the word names a kind of poet."
     },
     "features": {
      "answerInScene": true,
@@ -427,47 +431,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIRAC",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "DIRE is cut short, losing its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 10,
+         "note": "cut means the word for dreadful loses its tail letter"
+        }
+       ],
        "parts": [
         {
          "words": "dreadful",
-         "gives": "DIR",
-         "note": "DIRE = dreadful, minus its E"
+         "at": 14,
+         "gives": "DIRE",
+         "note": "dreadful means dire"
         },
         {
-         "words": "article",
-         "gives": "A",
-         "note": "a is the indefinite article"
-        },
-        {
-         "words": "speed of light",
-         "gives": "C",
-         "note": "c is the physicists' symbol for the speed of light"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "article",
+       "at": 23,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "words": "speed of light",
+       "at": 34,
+       "gives": "C",
+       "note": "c is the physics symbol for the speed of light"
       }
      ]
     },
     "explanation": {
-     "surface": "A physicist edits out a dreadful article about the speed of light.",
-     "walkthrough": "The physics surface is apt: Dirac was a physicist, and c really is his field's symbol for light speed.",
-     "definitionFit": "Paul Dirac was a British theoretical physicist, a founder of quantum mechanics."
+     "surface": "A scientist trims a terrible essay about the speed of light.",
+     "walkthrough": "Paul Dirac was the British theoretical physicist behind the Dirac equation; the clue's physics content fits him nicely.",
+     "definitionFit": "Paul Dirac was a Nobel-winning quantum theorist, so the surname is an example of a physicist."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "article"
     }
    }
   },
