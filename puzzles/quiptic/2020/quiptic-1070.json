@@ -799,41 +799,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WELLSPOKEN",
+     "spelt": "WELLSPOKEN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
+       "at": 0,
+       "note": "William Spooner, the Oxford don, was famous for swapping the opening sounds of words, so the phrase is said with its starts traded"
       }
      ],
      "parts": [
       {
-       "words": "time",
-       "gives": "SPELL",
-       "note": "a spell is a period of time"
+       "op": "homophone",
+       "spelt": "WELL",
+       "parts": [
+        {
+         "words": "time",
+         "at": 10,
+         "gives": "SPELL",
+         "note": "a spell is a period of time"
+        }
+       ]
       },
       {
-       "words": "aroused",
-       "gives": "WOKEN",
-       "note": "woken means roused from sleep"
-      },
-      {
-       "unchecked": true,
-       "words": "time aroused",
-       "gives": "WELLSPOKEN",
-       "soundsLike": "SPELL WOKEN",
-       "note": "swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "SPOKEN",
+       "parts": [
+        {
+         "words": "aroused",
+         "at": 15,
+         "gives": "WOKEN",
+         "note": "woken means roused from sleep, aroused"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The good reverend says the moment of awakening was put eloquently.",
-     "definitionFit": "A well-spoken remark is articulate, clearly and properly voiced."
+     "surface": "A lecturer muddling his words after a period of being stirred up, yet still sounding eloquent.",
+     "walkthrough": "Swap the opening sounds of SPELL and WOKEN: SP and W trade places to make the two-word answer.",
+     "definitionFit": "Someone well-spoken talks clearly and politely, so the phrase describes a person who has expressed themselves articulately."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "aroused"
     }
    }

@@ -366,52 +366,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "YEASTCAKE",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the cheese letter is placed in the word for recipe"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to change",
+         "at": 23,
+         "note": "the letters of easy are to change their order"
+        }
+       ],
        "parts": [
         {
          "words": "easy",
-         "gives": "YEAS",
-         "note": "the four letters of 'easy' rearranged"
+         "at": 18,
+         "note": "taken as written, the letters to rearrange"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 52,
+         "note": "the cheese letter goes inside the recipe word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recipe",
+         "at": 55,
+         "gives": "TAKE",
+         "note": "a recipe originally meant 'take', the Latin instruction that opens a prescription, abbreviated Rx"
         },
         {
-         "op": "anagram",
+         "op": "first",
          "indicators": [
           {
-           "text": "to change",
-           "note": "'easy to change' tells us the letters of 'easy' are to be rearranged"
+           "text": "bit of",
+           "at": 38,
+           "note": "only a small bit is used, the first letter"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "bit of",
-             "note": "a bit of a word is taken as its first letter here"
-            }
-           ],
-           "parts": [
-            {
-             "words": "cheese",
-             "note": "first letter of 'cheese'"
-            }
-           ]
-          },
-          {
-           "words": "recipe",
-           "gives": "TAKE",
-           "note": "recipe comes from Latin for 'take', abbreviated R on prescriptions"
+           "words": "cheese",
+           "at": 45,
+           "note": "taken as written; its first letter is used"
           }
          ]
         }
@@ -420,9 +423,9 @@
      ]
     },
     "explanation": {
-     "surface": "A cook's tip that a simple baking ingredient can be adapted by adding a little cheese to the recipe.",
-     "walkthrough": "The old sense of recipe is 'take', the instruction heading a prescription. C goes into TAKE to make TCAKE, placed after the rearranged 'easy'.",
-     "definitionFit": "Yeast cake is compressed fresh yeast sold in small blocks for home bread-making, so it is an ingredient used when baking."
+     "surface": "A cook's tip for making a recipe simpler by adding a little cheese.",
+     "walkthrough": "'to change' turns EASY into YEAS; 'bit of' takes C from 'cheese', and 'in' puts it into TAKE after the T. Recipe is from Latin for 'take', the old opening of a prescription.",
+     "definitionFit": "Yeast cake is a compressed cake of yeast used to make bread rise, so it is something a baker adds."
     },
     "features": {
      "answerInScene": true,
@@ -796,39 +799,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "hush-hush",
-      "at": 53
+      "text": "That's hush-hush",
+      "at": 46
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TOPSECRET",
-     "indicators": [
-      {
-       "text": "revolutionary",
-       "note": "a revolution turns something round, so the word for 'see' is turned back to front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "TOPSECRET",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycling round",
-         "note": "cycling round moves the island's last letter to the front, like a wheel turning one notch"
+         "text": "revolutionary",
+         "at": 4,
+         "note": "turning round in a revolution, so the see word is written backwards"
         }
        ],
        "parts": [
         {
          "words": "See",
+         "at": 0,
          "gives": "SPOT",
-         "note": "to see something is to spot it"
-        },
+         "note": "to spot something is to see it"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling round",
+         "at": 18,
+         "note": "the letters move round in a cycle, the last one coming to the front"
+        }
+       ],
+       "parts": [
         {
          "words": "Greek island",
+         "at": 32,
          "gives": "CRETE",
          "note": "Crete is the largest Greek island"
         }
@@ -837,13 +845,13 @@
      ]
     },
     "explanation": {
-     "surface": "A cyclist touring round a Greek island stumbles on a revolutionary secret.",
-     "walkthrough": "SPOT reversed gives TOPS; CRETE with its final E moved to the front gives ECRET. 'Revolutionary' suggests CHE or RED, but here it only says reverse.",
-     "definitionFit": "Hush-hush is an informal term for confidential, and top-secret is the highest security classification for such matters."
+     "surface": "A puzzle about a rebel touring a Greek island, presented as a classified secret.",
+     "walkthrough": "'revolutionary' turns SPOT into TOPS; 'cycling round' brings the final E of CRETE to the front, giving ECRET.",
+     "definitionFit": "Top secret is the highest security classification, used for information that must be kept hush-hush."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "revolutionary"
     }
    }
@@ -1019,33 +1027,37 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "How many",
+       "at": 0,
+       "note": "asking how many of the jets are allowed calls for their allowance, so the jet word is followed by the allowance word"
+      }
+     ],
      "parts": [
       {
        "words": "Russian aircraft",
+       "at": 9,
        "gives": "MIG",
-       "note": "the MiG is a Russian military jet"
+       "note": "the MiG is a Russian fighter jet, named after its designers Mikoyan and Gurevich"
       },
       {
-       "words": "How many",
-       "gives": "RATION",
-       "note": "together with 'are allowed' this asks for the fixed quantity permitted, which is a ration"
-      },
-      {
-       "unchecked": true,
        "words": "are allowed",
-       "note": "completes the phrase begun by 'How many'; the aircraft sit inside the phrase in the surface"
+       "at": 26,
+       "gives": "RATION",
+       "note": "a ration is the fixed amount people are allowed"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the limit on Russian military planes permitted to make a trip.",
-     "walkthrough": "The clue reads naturally as a question of numbers, but the MiG sits inside the phrase whose meaning is RATION, then comes first in the answer.",
-     "definitionFit": "A migration is a long seasonal journey made by birds or animals, or a mass movement of people, so the definition is a broader term."
+     "surface": "A question about how many fighter jets a nation may have before a long flight.",
+     "walkthrough": "'How many ... are allowed' reads as one question that wraps round the jet: the setter means the allowance, or ration, of MiGs.",
+     "definitionFit": "A migration is a long seasonal journey, as made by birds or herds."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "How"
+     "misdirectedWord": "aircraft"
     }
    }
   },
@@ -1157,46 +1169,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MARRY",
      "indicators": [
       {
        "text": "for",
-       "note": "'adult for' something means the adult letter takes that thing's place"
+       "at": 17,
+       "note": "for means in place of, so adult replaces the entertainment letter"
       }
      ],
      "parts": [
       {
        "words": "jolly",
+       "at": 5,
        "gives": "MERRY",
-       "note": "jolly means merry"
-      },
-      {
-       "words": "adult",
-       "gives": "A",
-       "note": "A is the film certificate for adult"
+       "note": "merry means jolly"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "bit of",
-         "note": "a bit of the word 'entertainment' is its first letter"
+         "at": 21,
+         "note": "only a bit is taken, the first letter"
         }
        ],
        "parts": [
         {
          "words": "entertainment",
-         "note": "first letter of 'entertainment', the one to be swapped out"
+         "at": 28,
+         "note": "taken as written; its first letter is the one replaced"
         }
        ]
+      },
+      {
+       "words": "adult",
+       "at": 11,
+       "gives": "A",
+       "note": "A is the film-classification abbreviation for adult"
       }
      ]
     },
     "explanation": {
-     "surface": "An invitation to join a cheerful grown-up for a spot of fun.",
-     "walkthrough": "Swap the E of MERRY for A. 'Join' reads as an invitation to come along, but here it means unite in wedlock.",
-     "definitionFit": "To marry is to unite two people in wedlock, so join fits in the sense of joining in matrimony."
+     "surface": "An invitation to join a cheerful grown-up for some fun.",
+     "walkthrough": "'bit of' gives E from 'entertainment', and 'for' puts A in place of that E in MERRY.",
+     "definitionFit": "To marry is to join two people in wedlock, or to join two things together."
     },
     "features": {
      "answerInScene": false,

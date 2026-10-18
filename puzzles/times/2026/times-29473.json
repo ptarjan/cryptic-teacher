@@ -566,60 +566,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ZUCCHINI",
+     "indicators": [
+      {
+       "text": "stuffed with",
+       "at": 31,
+       "note": "the first pieces are filled with the duck's centre, like a stuffed vegetable"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "unknown",
+         "at": 11,
+         "gives": "Z",
+         "note": "Z is a standard algebraic unknown"
+        },
+        {
+         "words": "Chinese",
+         "at": 19,
+         "gives": "CHIN",
+         "note": "Chin. is the dictionary abbreviation for Chinese"
+        },
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "stuffed with"
+         "text": "'s heart",
+         "at": 48,
+         "note": "the heart of a word is its central letters, here the two in the middle of duck"
         }
        ],
        "parts": [
         {
-         "words": "unknown",
-         "gives": "Z",
-         "note": "z is a mathematical unknown"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "UC",
-         "indicators": [
-          {
-           "text": "heart",
-           "note": "the heart of a word is its middle letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "duck's heart",
-           "gives": "UC",
-           "select": "middle",
-           "note": "the middle two letters of dUCk"
-          }
-         ]
-        },
-        {
-         "words": "Chinese",
-         "gives": "CHIN",
-         "note": "Chin. is the abbreviation for Chinese"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
+         "words": "duck",
+         "at": 44,
+         "note": "taken as written; its middle two letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unidentified Chinese dish of vegetable stuffed with duck.",
-     "walkthrough": "The surface is a menu item; the stuffing goes in right after the Z, not in the middle.",
-     "definitionFit": "Zucchini is the American and Italian name for a courgette, a vegetable."
+     "surface": "A Chinese dish of vegetables filled with duck, from an unnamed cook.",
+     "walkthrough": "'unknown' gives Z, 'Chinese' CHIN and 'one' I; the heart of 'duck' is UC, and 'stuffed with' puts it after the Z.",
+     "definitionFit": "The zucchini is the American and Italian name for the courgette, a green summer squash eaten as a vegetable."
     },
     "features": {
      "answerInScene": true,
@@ -833,54 +833,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "POLYHEDRON",
+     "indicators": [
+      {
+       "text": "guarding",
+       "at": 25,
+       "note": "the ruler and knight surround the rearranged word as guards would"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Iberian ruler",
+         "at": 0,
+         "gives": "PEDRO",
+         "note": "Pedro was the name of several kings of Portugal and Castile"
+        },
+        {
+         "words": "knight",
+         "at": 18,
+         "gives": "N",
+         "note": "N is the chess notation for a knight"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "guarding"
+         "text": "carved",
+         "at": 34,
+         "note": "carved up, so the letters of holy are cut and rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "carved",
-           "note": "'carved' means cut into a new shape, so the letters are reshaped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Iberian ruler",
-           "gives": "PEDRO",
-           "note": "Pedro was the name of kings of Portugal, Castile and Aragon"
-          },
-          {
-           "words": "knight",
-           "gives": "N",
-           "note": "N = knight in chess notation"
-          },
-          {
-           "words": "holy",
-           "note": "anagram of HOLY"
-          }
-         ]
+         "words": "holy",
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Spanish king and his knight stand guard over a carved religious statue.",
-     "walkthrough": "\"Holy figure\" reads as one phrase, a statue of a saint, but \"figure\" alone is the definition and \"holy\" is fodder.",
-     "definitionFit": "A polyhedron is a solid geometric figure with flat faces."
+     "surface": "A Spanish king and his knight protecting a carved religious statue.",
+     "walkthrough": "'carved' rearranges HOLY into OLYH, and 'guarding' puts PEDRO and N around it, after the P.",
+     "definitionFit": "A polyhedron is a solid geometric figure with many flat faces."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "figure"
     }
    }
@@ -1493,42 +1497,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INDEX",
      "indicators": [
       {
        "text": "between covers",
-       "note": "take only what lies between the outer letters of each word"
+       "at": 11,
+       "note": "only what lies between each word's outer letters, its covers, is kept"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Finds",
-         "gives": "IND",
-         "note": "fINDs without its first and last letters"
-        },
-        {
-         "words": "text",
-         "gives": "EX",
-         "note": "tEXt without its first and last letters"
-        }
-       ]
+       "words": "Finds text",
+       "at": 0,
+       "note": "taken as written; each word loses its outer letters"
+      },
+      {
+       "gives": "FSTT"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A reader finds a passage in a book by using this.",
-     "walkthrough": "The whole clue is both definition and wordplay: an index lets you find text between a book's covers, and the insides of 'Finds text' spell INDEX.",
-     "definitionFit": "A book's index is how you find text in it."
+     "surface": "A question about how a reader locates passages inside a book.",
+     "walkthrough": "'between covers' strips the outer letters of each word, leaving IND and EX. Read whole, the clue also describes the answer, since a book's index lets you find text inside its covers.",
+     "definitionFit": "An index is the alphabetical list at the back of a book that tells a reader where topics appear."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "covers"
     }
    }

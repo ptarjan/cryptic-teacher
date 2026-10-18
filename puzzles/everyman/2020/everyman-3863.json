@@ -380,36 +380,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "HUNDREDYEARSWAR",
      "indicators": [
       {
        "text": "Struggling",
-       "note": "struggling suggests thrashing about, so the letters wrestle into a new order"
+       "at": 0,
+       "note": "struggling suggests flailing about, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HUNDREDYEARSWAR",
        "indicators": [
         {
          "text": "having lost",
-         "note": "having lost tells you a letter is dropped from the word just before"
+         "at": 38,
+         "note": "the pool must give up one letter before it is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "headway",
-         "note": "taken as written"
-        },
-        {
-         "words": "surrender",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "headway",
+           "at": 19,
+           "note": "taken as written, part of the letter pool"
+          },
+          {
+           "words": "surrender",
+           "at": 28,
+           "note": "taken as written, part of the letter pool"
+          }
+         ]
         },
         {
          "words": "energy",
+         "at": 50,
          "gives": "E",
          "note": "E is the physics symbol for energy"
         }
@@ -418,13 +424,13 @@
      ]
     },
     "explanation": {
-     "surface": "An army bogged down, unable to advance, gives up in a long war.",
-     "walkthrough": "One E goes from surrender, leaving SURRNDER to mix with HEADWAY.",
-     "definitionFit": "The series of English and French wars from 1337 to 1453 actually lasted well over a century."
+     "surface": "An army bogged down and finally giving in once its strength runs out.",
+     "walkthrough": "'having lost' removes one E from HEADWAY SURRENDER, and 'Struggling' rearranges the fifteen remaining letters. The Hundred Years' War between England and France ran from 1337 to 1453.",
+     "definitionFit": "The Hundred Years' War was famously long, lasting more than a century, so it is a drawn-out conflict by name."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Struggling"
     }
    }
@@ -551,41 +557,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ATTAIN",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "for means in place of, so one letter stands where another was"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 4
       },
       {
-       "words": "coach",
-       "gives": "TRAIN",
-       "note": "to coach someone is to train them"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
-      },
-      {
-       "words": "run",
-       "gives": "R",
-       "note": "R is the cricket scoring abbreviation for run"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 22,
+         "note": "for means in place of, so time stands where run was"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coach",
+         "at": 6,
+         "gives": "TRAIN",
+         "note": "a coach is a railway carriage, and to coach is to train; a train is the vehicle sense here"
+        },
+        {
+         "words": "run",
+         "at": 26,
+         "gives": "R",
+         "note": "R is the cricket scoring abbreviation for run"
+        },
+        {
+         "words": "time",
+         "at": 17,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hire a coach with enough time to fit in a run.",
-     "walkthrough": "The R of TRAIN is swapped for a T.",
-     "definitionFit": "To reach or achieve a goal is to get there, so the verbs are synonyms."
+     "surface": "Advice to catch a coach when there is no time to jog.",
+     "walkthrough": "Putting T in place of the R in TRAIN gives TTAIN, after A.",
+     "definitionFit": "To attain something is to reach or achieve it, a synonym of get as in get a degree."
     },
     "features": {
      "answerInScene": false,
@@ -996,35 +1008,36 @@
     "definitions": [
      {
       "text": "Circulates stripped resin scent?",
-      "at": 0,
-      "note": "read whole, the clue describes what the plural noun does: fragrant gum burnt to spread its smell"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "INCENSES",
      "indicators": [
       {
        "text": "Circulates",
-       "note": "things that circulate move round, so the letters go round into a new order"
+       "at": 0,
+       "note": "letters that circulate move round, so they come out in a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INCENSES",
        "indicators": [
         {
          "text": "stripped",
-         "note": "stripped means the outer layer is taken off, losing the first and last letters"
+         "at": 11,
+         "note": "stripped of its covering, so the phrase loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "resin scent",
-         "note": "taken as written"
+         "at": 20,
+         "note": "taken as written; its outer letters are removed before the shuffle"
+        },
+        {
+         "gives": "RT"
         }
        ]
       }
@@ -1032,9 +1045,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone wafts the smell of burning resin around a room.",
-     "walkthrough": "The outer R and T are dropped before the remaining letters are mixed; the whole clue then doubles as a description of the answer.",
-     "definitionFit": "Frankincense and similar gums burnt for their fragrant smoke are aromatic substances made from tree sap."
+     "surface": "A question about a fragrance wafting round a room once its resin is exposed.",
+     "walkthrough": "'stripped' takes the R and T off RESIN SCENT, and 'Circulates' rearranges ESINSCEN. Read whole, the clue also describes the answer: burning incense sends a resin scent around.",
+     "definitionFit": "Incense is aromatic resin burned for its fragrant smoke, so incenses are resin scents spreading through the air."
     },
     "features": {
      "answerInScene": true,
@@ -1469,36 +1482,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TWEEDS",
      "indicators": [
       {
-       "text": "for",
-       "note": "for means in place of, so one letter replaces another in the word"
+       "text": "'s seen for",
+       "at": 4,
+       "note": "is seen in place of, so the duke letter takes the place of one time letter"
+      },
+      {
+       "text": "in",
+       "at": 23,
+       "note": "the swap happens inside the online messages word"
       }
      ],
      "parts": [
       {
        "words": "online messages",
+       "at": 26,
        "gives": "TWEETS",
-       "note": "short posts on the platform formerly called Twitter"
-      },
-      {
-       "words": "Duke",
-       "gives": "D",
-       "note": "D is the abbreviation for Duke"
+       "note": "tweets are short messages posted online"
       },
       {
        "words": "a time",
+       "at": 16,
        "gives": "T",
-       "note": "T is the abbreviation for time"
+       "note": "T is the standard abbreviation for a time"
+      },
+      {
+       "words": "Duke",
+       "at": 0,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat posts on social media for a while, pictured in smart clothes.",
-     "walkthrough": "One T of TWEETS, the second, gives way to a D.",
-     "definitionFit": "Suits of woollen cloth are traditional country wear of the British upper classes."
+     "surface": "A duke posting on social media for a while about his upper-class outfits.",
+     "walkthrough": "D goes in place of the second T in TWEETS. Tweeds are suits of rough woollen cloth, worn by the British country gentry.",
+     "definitionFit": "Tweeds are traditional woollen suits associated with country estates and the landed upper class, so they are posh clothing."
     },
     "features": {
      "answerInScene": true,
