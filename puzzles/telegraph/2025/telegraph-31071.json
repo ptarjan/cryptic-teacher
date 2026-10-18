@@ -916,52 +916,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HAPPYGOLUCKY",
-     "indicators": [
-      {
-       "text": "naked",
-       "note": "naked means stripped of covering, so the outer letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 9,
+         "note": "naked means stripped of covering, so the word loses its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chaps",
+         "at": 15,
+         "note": "chaps without its first and last letters"
+        }
+       ]
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "filled with",
-         "note": "something filled has contents placed inside it, so one piece goes into another"
+         "at": 30,
+         "note": "filled with means stuffed, so the second part goes inside the first"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "chaps",
-           "gives": "HAP",
-           "note": "the word with its first and last letters stripped"
-          },
-          {
-           "words": "gutsy",
-           "gives": "PLUCKY",
-           "note": "plucky means brave and spirited"
-          }
-         ]
+         "words": "gutsy",
+         "at": 23,
+         "gives": "PLUCKY",
+         "note": "plucky means brave or gutsy"
         },
         {
          "op": "charade",
          "parts": [
           {
            "words": "variable",
+           "at": 42,
            "gives": "Y",
-           "note": "y is a standard algebraic variable"
+           "note": "Y is a standard algebraic symbol for a variable"
           },
           {
            "words": "energy",
+           "at": 51,
            "gives": "GO",
-           "note": "go means vigour or energy"
+           "note": "go means energy or vigour, as in full of go"
           }
          ]
         }
@@ -970,14 +973,13 @@
      ]
     },
     "explanation": {
-     "surface": "Naked lads, feeling brave and full of fluctuating vigour, run about without a care.",
-     "walkthrough": "In algebra x, y and z are the usual variables, and 'go' as a noun means get-up-and-go; both slip into the brave word just after its first letter.",
-     "definitionFit": "Happy-go-lucky describes someone cheerfully unconcerned about the future, the same easy-going outlook as carefree."
+     "surface": "A cheerful picture of nude men, gutsy and bursting with restless energy.",
+     "walkthrough": "'Naked' strips chaps to HAP; then 'filled with' puts Y (variable) and GO (energy) into PLUCKY (gutsy), splitting it as P-YGO-LUCKY.",
+     "definitionFit": "A happy-go-lucky person takes life as it comes, cheerfully unconcerned about the future."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "naked"
     }
    }

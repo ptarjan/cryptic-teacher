@@ -245,45 +245,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ASSIGNMENT",
+     "indicators": [
+      {
+       "text": "played",
+       "at": 13,
+       "note": "played suggests the letters are put through their paces, moved around into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ASSIGNMENT",
        "indicators": [
         {
-         "text": "played",
-         "note": "the letters are played about with, rearranged"
-        },
-        {
-         "text": "without"
+         "text": "without",
+         "at": 20,
+         "note": "without means lacking, so the letter for eastern is taken out"
         }
        ],
        "parts": [
         {
          "words": "Tennis games",
-         "note": "anagram fodder, 11 letters"
+         "at": 0
         },
         {
          "words": "eastern",
-         "gives": "E",
-         "note": "e = eastern; one E is removed, leaving 10 letters"
+         "at": 28,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis match played without its eastern contingent.",
-     "walkthrough": "Remove one E from TENNIS GAMES before rearranging. 'Delegation' here is the act of handing a task over, not a group of delegates.",
-     "definitionFit": "An assignment is a task delegated to someone, the result of delegation."
+     "surface": "Some tennis games are played without an eastern delegation in attendance.",
+     "walkthrough": "'Without' takes the E (eastern) out of tennis games, leaving TENNISGAMS; 'played' rearranges those ten letters.",
+     "definitionFit": "An assignment is a task or post handed to someone, and delegation is the handing of such duties."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "delegation"
+     "misdirectedWord": "played"
     }
    }
   },
@@ -508,52 +509,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Case of",
-       "note": "the case of a word is its outer letters"
+       "text": "outside",
+       "at": 13,
+       "note": "outside means surrounding, so the egg case goes round the next two pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "outside",
-         "note": "E…S sits outside the rest"
+         "text": "Case of",
+         "at": 0,
+         "note": "the case of a word is its outer shell, its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "ES",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Case of eggs",
-           "gives": "ES",
-           "select": "outer",
-           "note": "the outer letters of eggs; they go outside"
-          }
-         ]
-        },
-        {
-         "words": "by",
-         "gives": "X",
-         "note": "x = by, as in 3 x 4 metres"
+         "words": "eggs",
+         "at": 8,
+         "note": "the first and last letters of eggs"
         }
        ]
       },
       {
-       "words": "morning",
-       "gives": "AM",
-       "note": "am = ante meridiem, morning"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "by",
+         "at": 21,
+         "gives": "X",
+         "note": "X is the multiplication sign, read as by, as in three by four"
+        },
+        {
+         "words": "morning",
+         "at": 24,
+         "gives": "AM",
+         "note": "AM, ante meridiem, means in the morning"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crate of eggs put outside with the morning newspapers.",
-     "walkthrough": "'Papers' suggests newspapers, which the eggs and morning support; here they are exam papers.",
-     "definitionFit": "Exam papers are commonly just called papers."
+     "surface": "A box of eggs left out next to the morning papers on the doorstep.",
+     "walkthrough": "'Case of' gives ES, and it goes 'outside' X (by, as in 3 x 4) and AM (morning).",
+     "definitionFit": "Exam papers are the question sheets set in a test, so exams are papers sat by students."
     },
     "features": {
      "answerInScene": false,
@@ -1164,46 +1165,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "inside",
-       "note": "the inside letters of Asian"
+       "text": "borders",
+       "at": 15,
+       "note": "borders means sits next to, so the two pieces are put side by side"
       }
      ],
      "parts": [
       {
        "words": "at large",
+       "at": 23,
        "gives": "FREE",
-       "note": "an escaped prisoner at large is free"
+       "note": "at large means free, not captured"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "SIA",
        "indicators": [
         {
-         "text": "borders"
+         "text": "'s inside",
+         "at": 5,
+         "note": "the possessive reads as the inside belonging to the word, its interior without first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Asian's inside",
-         "gives": "SIA",
-         "select": "middle",
-         "note": "the middle letters of aSIAn"
+         "words": "Asian",
+         "at": 0,
+         "note": "Asian without its outside letters A and N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Asian inside the borders of a large plant, a factory.",
-     "walkthrough": "'Large plant' is a false phrase suggesting a factory; 'at large' belongs to the wordplay and 'plant' alone is the flower.",
-     "definitionFit": "A definition by category: the freesia is a South African flower grown from corms, prized for its scent."
+     "surface": "An Asian plant has escaped from its garden borders and is growing at large.",
+     "walkthrough": "Borders looks like garden beds but means lies next to: FREE (at large) is followed by SIA, the inside of Asian, the possessive pointing to the inside that belongs to the word.",
+     "definitionFit": "Freesia is a South African flowering plant of the iris family, grown for its scented blooms."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "plant"
+     "misdirectedWord": "borders"
     }
    }
   },
@@ -1446,37 +1447,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LAGER",
      "indicators": [
       {
-       "text": "dropping"
+       "text": "dropping",
+       "at": 13,
+       "note": "dropping means letting go, so those letters are taken out of the word"
       },
       {
        "text": "for",
-       "note": "A goes in its place, in for it"
+       "at": 25,
+       "note": "for means in exchange for, so the new letter goes in their place"
       }
      ],
      "parts": [
       {
        "words": "Hang around",
+       "at": 0,
        "gives": "LINGER",
-       "note": "to linger is to hang around"
+       "note": "to linger is to hang around, waiting"
       },
       {
        "words": "in",
-       "note": "IN is removed"
+       "at": 22,
+       "gives": "IN",
+       "note": "in is taken as written"
       },
       {
        "words": "a",
-       "note": "A replaces IN"
+       "at": 29,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Loitering at the pub, dropping in for a beer.",
-     "walkthrough": "'Dropping in' reads as visiting; split it: 'dropping' removes the letters IN.",
-     "definitionFit": "A definition by category: lager is the pale, bottom-fermented kind of beer."
+     "surface": "Someone lingers, then drops in to the pub for a beer.",
+     "walkthrough": "'Dropping in' looks like paying a visit, but it means losing IN from LINGER; 'for a' puts A in its place.",
+     "definitionFit": "Lager is a pale, light beer fermented and stored at low temperature, served chilled."
     },
     "features": {
      "answerInScene": true,

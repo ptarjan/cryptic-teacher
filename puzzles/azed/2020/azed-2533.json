@@ -718,30 +718,44 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "VISAGE",
      "indicators": [
       {
-       "text": "one short",
-       "note": "one short means lacking a single one, so the numeral one is taken away"
-      },
-      {
        "text": "not the last",
-       "note": "not the last means the final letter is dropped"
+       "at": 39,
+       "note": "not the last means the final letter is left off the end"
       }
      ],
      "parts": [
       {
-       "words": "group of old wiseacres",
-       "gives": "VIISAGES",
-       "note": "the Seven Sages of ancient Greece, with the seven as a Roman numeral"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "one short",
+         "at": 28,
+         "note": "one short means lacking one, so the I (one) is dropped, making seven into six"
+        }
+       ],
+       "parts": [
+        {
+         "words": "group of old wiseacres",
+         "at": 5,
+         "gives": "VIISAGES",
+         "note": "the Seven Sages of ancient Greece, written with the Roman numeral as VII SAGES"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzling question about one face among a band of old know-alls.",
-     "walkthrough": "The Seven Sages were seven wise men of ancient Greece. Drop an I to make six, then drop the final S.",
-     "definitionFit": "A visage is a person's face, a literary synonym."
+     "surface": "A wry look at the face of a band of old know-alls, minus one of their number.",
+     "walkthrough": "The Seven Sages were the wise men of ancient Greece. 'One short' takes an I (one) out of VII SAGES, leaving VI SAGES; 'not the last' then drops the final S.",
+     "definitionFit": "A visage is a person's face or countenance, a literary word for the features."
     },
     "features": {
      "answerInScene": false,
@@ -1059,42 +1073,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LONGBOAT",
+     "op": "container",
      "indicators": [
       {
-       "text": "freely",
-       "note": "freely means without restraint, so the letters are loose to rearrange"
+       "text": "stuffing",
+       "at": 23,
+       "note": "stuffing means filling, so this letter is packed inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "stuffing",
-         "note": "stuffing means being packed inside, so the number goes in"
+         "text": "freely",
+         "at": 41,
+         "note": "freely means without constraint, so the letters of loot bag are moved about at will"
         }
        ],
        "parts": [
         {
          "words": "loot bag",
-         "note": "the letters of loot bag rearranged"
-        },
-        {
-         "words": "Number",
-         "gives": "N",
-         "note": "N, abbreviation for number"
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "Number",
+       "at": 16,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Raiders pack a sack of plunder for the voyage.",
-     "walkthrough": "The question mark admits the definition is an example: Vikings invaded in longboats.",
-     "definitionFit": "A longboat is the Viking warship used for raids and invasions."
+     "surface": "Raiders cram plunder into a bag in a rough and ready way.",
+     "walkthrough": "'Freely' rearranges loot bag as LOGBOAT, and 'stuffing' puts N (number) inside it. The question mark is there because the Vikings invaded in such boats.",
+     "definitionFit": "Longboats were the long oared ships the Vikings used for their raids and invasions."
     },
     "features": {
      "answerInScene": true,
@@ -1358,29 +1372,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BAGH",
      "indicators": [
       {
-       "text": "was carried out",
-       "note": "carried out means removed, so the word was is lifted out from the middle"
+       "text": "carried out",
+       "at": 18,
+       "note": "carried out means taken away, so those letters are lifted from the middle of the word"
       }
      ],
      "parts": [
       {
        "words": "Dhobi service",
+       "at": 0,
        "gives": "BAGWASH",
-       "note": "a bagwash is a laundry service where washing is sent in a bag; a dhobi is an Indian washerman"
+       "note": "a dhobi is an Indian washerman, and a bagwash is a laundry service that washes a bag of clothes without ironing them"
+      },
+      {
+       "words": "was",
+       "at": 14,
+       "gives": "WAS"
       }
      ]
     },
     "explanation": {
-     "surface": "An Indian washerman did the laundry in a local garden.",
-     "walkthrough": "'Local' here means in India, where a bagh is a garden; the question mark flags that locality.",
-     "definitionFit": "Bagh is an Anglo-Indian word for a garden or orchard."
+     "surface": "A laundry job was done in an Indian garden.",
+     "walkthrough": "'Carried out' lifts WAS from BAGWASH. 'Local' means the word belongs to a region, here India.",
+     "definitionFit": "In India a bagh is a garden or orchard, a term used in Anglo-Indian English."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "carried"
     }
