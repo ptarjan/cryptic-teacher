@@ -474,6 +474,9 @@ for name, tree in [
 ]:
     r = refused(tree, "AB")
     check(f"{name} is a WordplayError naming the count", r.startswith(("(", "")) and "part(s)" in r and "CRASH" not in r, r)
+_r = refused({"op": "anagram", "parts": [{"op": "deletion", "parts": [leaf("ab"), leaf("x"), leaf("y")]}]}, "AB")
+check("a failing three-piece deletion under an anagram is diagnosed, not a crash",
+      "gives nothing" in _r and "CRASH" not in _r, _r)
 check("an unchecked node with a wrong count is left alone",
       refused({"op": "container", "unchecked": True, "gives": "AB", "parts": [leaf("ab")]}, "AB") == "evaluated")
 

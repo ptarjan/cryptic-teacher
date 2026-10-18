@@ -937,7 +937,8 @@ def _gives_nothing(node):
         except (_NeedTarget, WordplayError):
             pass
     if node.get("op") == "deletion":
-        whole, gone = parts_of(node)
+        whole, *gones = parts_of(node)
+        gone = gones[0] if len(gones) == 1 else {"op": "charade", "parts": gones}
         return (f"{render(node)} gives nothing: {render(gone)} is not letters of "
                 f"{render(whole)} in order (one run, or scattered but in the same order). "
                 f"Letters taken in another order are one del per piece, e.g. del(del(x, N), OT)")
