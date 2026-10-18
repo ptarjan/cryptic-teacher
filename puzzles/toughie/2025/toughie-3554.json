@@ -447,48 +447,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SURGERIES",
+     "op": "container",
      "indicators": [
       {
-       "text": "unlimited",
-       "note": "without limits means the outer edges are taken off, losing the first and last letters"
+       "text": "curbing",
+       "at": 23,
+       "note": "to curb is to hold in check, so the sequence word holds the trimmed illness inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sequence",
+       "at": 14,
+       "gives": "SERIES",
+       "note": "a series is a sequence of things in order"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "curbing",
-         "note": "curbing means holding in check, so one word restrains another inside it"
+         "text": "unlimited",
+         "at": 31,
+         "note": "with its limits, the first and last letters, removed"
         }
        ],
        "parts": [
         {
-         "words": "sequence",
-         "gives": "SERIES",
-         "note": "a series is a sequence"
-        },
-        {
          "words": "illness",
-         "gives": "URG",
-         "note": "lurgy, British slang for an unspecified illness, without its ends"
+         "at": 41,
+         "gives": "LURGY",
+         "note": "the lurgy is British slang for a vague, catching illness"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Medical procedures carried out one after another to hold back a disease.",
-     "walkthrough": "The lurgy is British jokey slang for a vague, catching ailment; topped and tailed it fits after the first letter of SERIES to make SURGERIES.",
-     "definitionFit": "Surgical procedures are commonly called operations, and the plural nouns are interchangeable in a hospital context."
+     "surface": "Medical procedures happen one after another, holding back a disease that has no bounds.",
+     "walkthrough": "The lurgy is jokey British slang for a bug that is going round. Once 'unlimited' strips its ends, 'curbing' tucks what is left in near the start of the sequence word.",
+     "definitionFit": "Surgeries are operations performed by a surgeon, as well as the rooms where they happen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "curbing"
+     "misdirectedWord": "illness"
     }
    }
   },
@@ -1447,49 +1449,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GREEN",
+     "op": "composite",
      "indicators": [
       {
+       "text": "comes out in",
+       "at": 15,
+       "note": "the daughter letter is taken away from the word that follows"
+      },
+      {
        "text": "changing",
-       "note": "changing means altering, so the remaining letters are rearranged"
+       "at": 28,
+       "note": "the letters left are changed round into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GREEN",
-       "indicators": [
-        {
-         "text": "comes out in",
-         "note": "coming out of something means leaving it, so the letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "standard abbreviation for daughter"
-        },
-        {
-         "words": "gender",
-         "note": "taken as written"
-        }
-       ]
+       "words": "gender",
+       "at": 37
+      },
+      {
+       "words": "daughter",
+       "at": 6,
+       "gives": "D",
+       "note": "D is the standard abbreviation for daughter, as in family trees"
       }
      ]
     },
     "explanation": {
-     "surface": "A young daughter tells her family she is transitioning.",
-     "walkthrough": "'Comes out' suggests a personal announcement, but it means the letter leaves the word.",
-     "definitionFit": "Green describes someone inexperienced or immature, as raw and new as unripe fruit, so it means youthful."
+     "surface": "A girl comes out to her family while transitioning.",
+     "walkthrough": "'Comes out in' removes D from GENDER, leaving GENER, and 'changing' rearranges those five letters.",
+     "definitionFit": "Green means inexperienced or immature, the way a young recruit is still new to a job."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "comes"
     }
    }

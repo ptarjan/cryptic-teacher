@@ -787,18 +787,17 @@
    "annotation": {
     "definitions": [
      {
-      "text": "I ordered bartender not to close, keeping one _____?",
-      "at": 0
+      "text": "_____?",
+      "at": 46
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INEBRIATED",
+     "op": "container",
      "indicators": [
       {
-       "text": "not to close",
-       "note": "a word that is not allowed to close loses its final letter"
+       "text": "keeping",
+       "at": 34,
+       "note": "the rearranged letters hold the single letter inside them"
       }
      ],
      "parts": [
@@ -807,38 +806,53 @@
        "indicators": [
         {
          "text": "ordered",
-         "note": "ordered here means arranged, so the letters are put into a fresh sequence"
+         "at": 2,
+         "note": "put in order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "bartender",
-         "gives": "BARTENDE",
-         "note": "the word bartender without its last letter"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "one is the Roman numeral I"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not to close",
+           "at": 20,
+           "note": "the word is not allowed its close, so its last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bartender",
+           "at": 10
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 42,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A drinker begs the barman to stay open, staying for one more.",
-     "walkthrough": "The blank invites the solver to complete the sentence: the person ordering the barman to keep serving is the one described.",
-     "definitionFit": "Anyone demanding the bar stay open to keep drinking is likely to be drunk already."
+     "surface": "A drinker tells the barman to stay open while keeping him in a state shown only by a blank.",
+     "walkthrough": "The blank stands for the answer: fill it in and the clue says how the drinker ends up. 'Not to close' trims BARTENDER, 'ordered' mixes it with I into INEBRATED, and 'keeping' holds a second I (one).",
+     "definitionFit": "Filling the gap gives 'keeping one inebriated', the drunken state that a bar kept open late would produce."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "ordered"
     }
    }
@@ -1604,48 +1618,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CELEBRATED",
+     "op": "composite",
      "indicators": [
       {
        "text": "drunk",
-       "note": "drunk suggests staggering, so the letters reel into a new order"
+       "at": 21,
+       "note": "drunk means reeling and disordered, so the letters of disrespectable are jumbled"
+      },
+      {
+       "text": "making odd",
+       "at": 27,
+       "note": "odd here means jumbled too: the sips letters are part of the same disordered pool"
+      },
+      {
+       "text": "with this",
+       "at": 43,
+       "note": "this is the answer itself, which together with sips accounts for every letter of the drunk word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CELEBRATED",
-       "indicators": [
-        {
-         "text": "making odd sips with this",
-         "note": "the first word, rearranged, makes these other letters plus the answer, so those letters must be removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "disrespectable",
-         "note": "taken as written"
-        },
-        {
-         "words": "sips",
-         "note": "taken as written, the letters to take away"
-        }
-       ]
+       "words": "disrespectable",
+       "at": 6
+      },
+      {
+       "words": "sips",
+       "at": 38
       }
      ]
     },
     "explanation": {
-     "surface": "A noted, disreputable drunk takes odd little sips.",
-     "walkthrough": "This is a composite anagram: the long word's letters equal the answer's plus those of the small drinking word.",
-     "definitionFit": "Someone celebrated is famous and well known, so notable or noted."
+     "surface": "A tipsy, disreputable drinker takes strange little sips.",
+     "walkthrough": "'Disrespectable' is a nonce word built for its letters: 'drunk', they make the answer plus SIPS, which is what 'making odd sips with this' says.",
+     "definitionFit": "A celebrated person is famous or renowned, just as a noted one is well known."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drunk"
+     "joke": "absurd",
+     "misdirectedWord": "sips"
     }
    }
   }

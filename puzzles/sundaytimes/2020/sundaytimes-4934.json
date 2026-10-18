@@ -155,42 +155,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIRTIED",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "cutting something shortens it, so the final letter is trimmed off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 6,
+         "note": "a word that is cut loses its end, here the final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Nasty",
-         "gives": "DIR",
-         "note": "DIRE, dreadful, with its last letter removed"
+         "at": 0,
+         "gives": "DIRE",
+         "note": "dire means dreadful or nasty"
         },
         {
-         "words": "bound",
-         "gives": "TIED",
-         "note": "bound with rope is tied"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "bound",
+       "at": 10,
+       "gives": "TIED",
+       "note": "tied means bound, as with rope"
       }
      ]
     },
     "explanation": {
-     "surface": "An ugly wound that is sure to become infected.",
-     "walkthrough": "'Nasty cut' looks like a wound, but 'cut' tells you to trim the word for nasty; 'bound to be' looks like certainty, yet 'bound' is the tying.",
-     "definitionFit": "Both words describe something made dirty or impure, so the past participles are straightforward synonyms."
+     "surface": "A nasty wound has been bandaged and is bound to get infected.",
+     "walkthrough": "'Nasty cut' looks like a wound; 'cut' only trims the last letter of DIRE, and 'to be' is a link.",
+     "definitionFit": "To dirty something is to soil it, so something dirtied has been made unclean."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bound"
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -378,47 +382,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIBERALDEMOCRAT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "not closed",
-       "note": "something not closed lacks its end, so the last letter goes"
+       "text": "before",
+       "at": 8,
+       "note": "puts the free word ahead of the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "free",
+       "at": 3,
+       "gives": "LIBERAL",
+       "note": "liberal means generous or free with something"
+      },
+      {
+       "words": "trial",
+       "at": 15,
+       "gives": "DEMO",
+       "note": "a demo is a trial version, as of software"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not closed",
+         "at": 27,
+         "note": "a closed word keeps its last letter; without its close, the end goes"
+        }
+       ],
        "parts": [
         {
-         "words": "free",
-         "gives": "LIBERAL",
-         "note": "liberal as in generous or unrestricted"
-        },
-        {
-         "words": "trial",
-         "gives": "DEMO",
-         "note": "a demo is a trial run or demonstration"
-        },
-        {
          "words": "Case",
-         "gives": "CRAT",
-         "note": "a crate, a packing case, with its last letter missing"
+         "at": 22,
+         "gives": "CRATE",
+         "note": "a crate is a packing case"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician released on bail ahead of trial, with the case still open.",
-     "walkthrough": "The legal picture of bail and an open case is a disguise; each word is a piece. The Liberal Democrats are a UK political party.",
-     "definitionFit": "An MP is a Member of Parliament, and a Lib Dem MP is one example, so this is definition by example."
+     "surface": "A member of parliament released ahead of his court hearing, with the case still open.",
+     "walkthrough": "The courtroom picture misleads: the 'trial' is a software demo and the 'Case' a packing case, which loses its last letter because it is 'not closed'; 'before' sets the free word first.",
+     "definitionFit": "A Liberal Democrat is a member of the UK's Liberal Democrat party, and many sit in the House of Commons as MPs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Case"
+     "misdirectedWord": "trial"
     }
    }
   },
@@ -1050,43 +1066,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MILKIER",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means lacking its end, so the final letter is dropped"
+       "text": "blocked by",
+       "at": 19,
+       "note": "the runner is obstructed by the trimmed word sitting in its path, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "runner",
+       "at": 12,
+       "gives": "MILER",
+       "note": "a miler is an athlete who runs the mile"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "blocked by",
-         "note": "a path blocked by something has that thing sitting in its middle"
+         "text": "short",
+         "at": 30,
+         "note": "short of its last letter, so the word is trimmed"
         }
        ],
        "parts": [
         {
-         "words": "runner",
-         "gives": "MILER",
-         "note": "a miler is an athlete who runs the mile"
+         "words": "kid",
+         "at": 36,
+         "gives": "KID",
+         "note": "taken as written, the word kid"
         },
         {
-         "words": "kid",
-         "gives": "KI",
-         "note": "KID with its last letter removed"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A weaker athlete obstructed by a small child on the track.",
-     "walkthrough": "'Less strong' sounds like a feeble person, but it describes tea or coffee with more milk in it.",
-     "definitionFit": "A drink with extra milk is weaker in flavour, so milkier tea or coffee is less strong."
+     "surface": "A weaker athlete is held up by a small child.",
+     "walkthrough": "'Less strong' is said of tea or coffee with more milk in it, not of an athlete; the runner being 'blocked by' the shortened kid is pure wordplay.",
+     "definitionFit": "A drink with more milk added is weaker, so milkier tea is a less strong brew."
     },
     "features": {
      "answerInScene": false,
@@ -1485,41 +1506,52 @@
      {
       "text": "handbag?",
       "at": 22,
-      "note": "handbag is used as a verb, so the question mark admits a loose definition"
+      "note": "verb: to attack someone's position, as Margaret Thatcher was said to handbag her cabinet"
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "UNDERMINE",
      "indicators": [
       {
        "text": "Almost",
-       "note": "almost means not quite complete, so the last letter is cut"
+       "at": 0,
+       "note": "all but the last letter, so the final letter is dropped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "puts the fur inside the destroy word"
+        }
+       ],
        "parts": [
         {
          "words": "destroy",
-         "gives": "UND",
-         "note": "UNDO, ruin, missing its final letter"
+         "at": 7,
+         "gives": "UNDO",
+         "note": "to undo something is to ruin or destroy it"
         },
         {
          "words": "fur",
+         "at": 15,
          "gives": "ERMINE",
          "note": "ermine is the white winter fur of the stoat"
         }
        ]
+      },
+      {
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A near-ruined fur stuffed into a handbag.",
-     "walkthrough": "To handbag is British slang, from Margaret Thatcher, for attacking someone ruthlessly; 'in' looks like a container signal but merely links.",
-     "definitionFit": "Handbagging a colleague means bullying or verbally attacking them, which weakens their position, a loose sense of sapping."
+     "surface": "A fur stole nearly ruined by being stuffed into a handbag.",
+     "walkthrough": "'Handbag' looks like a noun but is the verb: British slang for a woman, Thatcher first, verbally battering opponents. ERMINE goes 'in' UNDO to give UNDERMINEO, and 'Almost' drops the final O.",
+     "definitionFit": "To handbag someone is to belittle or attack them, which weakens their position: the question mark admits the stretch."
     },
     "features": {
      "answerInScene": false,

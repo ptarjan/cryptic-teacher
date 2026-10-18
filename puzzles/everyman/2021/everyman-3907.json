@@ -640,36 +640,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DODGING",
      "indicators": [
       {
        "text": "putting",
-       "note": "putting one thing for another means swapping it into the other's place"
+       "at": 19,
+       "note": "putting one thing in place of another: the depth letter goes in"
+      },
+      {
+       "text": "for",
+       "at": 35,
+       "note": "in place of, so the breadth letter is swapped out"
       }
      ],
      "parts": [
       {
        "words": "bungling",
+       "at": 9,
        "gives": "BODGING",
-       "note": "to bodge is to botch or do a clumsy job"
+       "note": "bodging is British slang for doing a clumsy, makeshift job"
       },
       {
-       "words": "'depth'",
-       "gives": "D",
-       "note": "d is the standard abbreviation for depth"
-      },
-      {
-       "words": "'breadth'",
+       "words": "breadth",
+       "at": 40,
        "gives": "B",
-       "note": "b is the standard abbreviation for breadth"
+       "note": "B is the abbreviation for breadth, as in dimensions"
+      },
+      {
+       "words": "depth",
+       "at": 28,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sidesteps a botched measurement, writing one dimension where another belonged.",
-     "walkthrough": "The B at the front of BODGING is replaced by D. Bodging is British slang for doing a careless repair.",
-     "definitionFit": "Dodging means evading or avoiding something, often by quick sideways movement or by trickery."
+     "surface": "Instructions for fixing a botched measurement by swapping one dimension for another.",
+     "walkthrough": "To bodge is to botch a repair. 'Putting' D (depth) 'for' B (breadth) turns BODGING into the answer.",
+     "definitionFit": "Dodging means evading or sidestepping something, so it is a way of avoiding it."
     },
     "features": {
      "answerInScene": false,
@@ -1051,42 +1057,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DEADSEA",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words"
+       "at": 0,
+       "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds are exchanged"
       }
      ],
      "parts": [
       {
-       "words": "pronounced",
-       "gives": "SAID",
-       "note": "something pronounced has been said"
+       "op": "homophone",
+       "spelt": "SEAD",
+       "parts": [
+        {
+         "words": "pronounced",
+         "at": 10,
+         "gives": "SAID",
+         "note": "said means uttered or pronounced"
+        }
+       ]
       },
       {
-       "words": "Scottish river",
-       "gives": "DEE",
-       "note": "the Dee flows through Aberdeenshire to Aberdeen"
-      },
-      {
-       "unchecked": true,
-       "words": "pronounced Scottish river",
-       "gives": "DEADSEA",
-       "soundsLike": "DEAD SEE",
-       "note": "swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "DEA",
+       "parts": [
+        {
+         "words": "Scottish river",
+         "at": 21,
+         "gives": "DEE",
+         "note": "the Dee flows through Aberdeenshire to the North Sea"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list of Scottish features: a river and a loch.",
-     "walkthrough": "SAID DEE becomes DEAD SEE when the opening consonants trade places. 'Lake' is fair: the salt body in the Jordan valley is landlocked.",
-     "definitionFit": "Though called a sea, it is an enclosed salt lake between Israel and Jordan with no outlet to the ocean."
+     "surface": "A tongue-twisted mention of a river in Scotland and a lake.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of SAID and DEE to give 'dade see', which is how the answer is said; SEAD and DEA are just the spellings that make the swap come out right.",
+     "definitionFit": "The Dead Sea is a salt lake on the border of Israel, the West Bank and Jordan."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "pronounced"
     }
    }
