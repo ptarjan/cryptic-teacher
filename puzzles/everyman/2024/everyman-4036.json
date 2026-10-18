@@ -427,43 +427,42 @@
      "parts": [
       {
        "words": "Fruit",
+       "at": 0,
        "gives": "DATE",
-       "note": "a date is a fruit"
+       "note": "a date is the fruit of the date palm"
       },
       {
        "words": "coming",
+       "at": 6,
        "gives": "NIGH",
-       "note": "nigh = approaching, as in 'the end is nigh'"
+       "note": "nigh means near, as of something coming soon"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "TS",
        "indicators": [
         {
          "text": "at last",
-         "note": "take the last letter of each of the following words"
+         "at": 13,
+         "note": "the last letter of each of the following words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "at last, it seems",
-         "gives": "TS",
-         "select": "last",
-         "note": "last letters of iT and seemS"
+         "words": "it seems",
+         "at": 22,
+         "note": "taken as written; only the final letter of each word is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit arriving at last, just in time for some romantic evenings.",
-     "walkthrough": "'Coming at last' reads as one phrase, but it splits: 'coming' is NIGH, and 'at last' works on 'it seems', which looks like mere hedging.",
-     "definitionFit": "Date nights are evenings a couple set aside for romance."
+     "surface": "A date is finally on the way, apparently, in time for some romantic evenings.",
+     "walkthrough": "'it seems' looks like a hedge on the surface, but its two words supply their final letters, picked out by 'at last'.",
+     "definitionFit": "A date night is an evening a couple set aside to go out together, so the plural names romantic evenings."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "seems"
     }
@@ -837,26 +836,38 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "unopened",
-       "note": "without its opening letter"
-      },
-      {
        "text": "rearranged",
-       "note": "arranged anew, so the remaining letters take a fresh order"
+       "at": 19,
+       "note": "the remaining letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "words": "Wreathes unopened",
-       "gives": "REATHES",
-       "note": "WREATHES without its first letter W"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 9,
+         "note": "without its opening, so the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wreathes",
+         "at": 0,
+         "note": "taken as written before losing its first letter"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Garlands left unopened and rearranged, with wood as the aim.",
-     "walkthrough": "'Wreathes' looks like a verb (to encircle), but it is just the word to be trimmed; 'for' links fodder to definition.",
-     "definitionFit": "A definition by function: ash is a tough timber used for tool handles and bats."
+     "surface": "Garlands, still unopened, are reshaped from a supply of timber.",
+     "walkthrough": "'unopened' strips W from Wreathes, and 'rearranged' turns the REATHES that remain into the answer.",
+     "definitionFit": "The ash is a common deciduous tree whose tough pale timber is used for tool handles, so it is a source of wood."
     },
     "features": {
      "answerInScene": true,
@@ -931,35 +942,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ALLEARS",
      "indicators": [
       {
        "text": "changing hands two out of three times",
-       "note": "swap R (right hand) for L (left hand) in two of its three places"
+       "at": 12,
+       "note": "R and L stand for right and left hands, so two of the word's three right-hand letters are swapped for left"
       }
      ],
      "parts": [
       {
        "words": "Debt",
+       "at": 7,
        "gives": "ARREARS",
-       "note": "arrears = money owed"
+       "note": "arrears are debts that are overdue"
       },
       {
-       "words": "changing hands two out of three times",
-       "gives": "ALLEARS",
-       "note": "ARREARS has three Rs; the first two become L"
+       "gives": "RR"
+      },
+      {
+       "gives": "LL"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that a debt keeps being passed from one owner to another.",
-     "walkthrough": "'Changing hands' sounds like transferring ownership; in crossword terms R and L are right and left hands, and ARREARS has three Rs.",
-     "definitionFit": "Someone all ears is alert and listening closely."
+     "surface": "A warning cry as a debt passes between owners in two of its three transfers.",
+     "walkthrough": "'changing hands' reads as a debt being transferred; it means R (right) becomes L (left). ARREARS has three Rs, and only the first two change.",
+     "definitionFit": "Someone all ears is listening keenly and paying full attention, which is to say attentive."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "hands"
     }
    }

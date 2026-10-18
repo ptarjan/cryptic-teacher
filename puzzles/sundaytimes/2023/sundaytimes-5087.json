@@ -298,48 +298,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARSEC",
-     "indicators": [
-      {
-       "text": "half-destroyed",
-       "note": "destroying half of a word leaves only the other half standing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repel",
+         "at": 5,
+         "note": "to repel is to drive back, so the word for charge is turned back to front"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "repel",
-           "note": "to repel is to drive back, so the word is pushed back the way it came"
-          }
-         ],
-         "parts": [
-          {
-           "words": "charge",
-           "gives": "RAP",
-           "note": "a rap is a criminal charge, as in 'take the rap'"
-          }
-         ]
-        },
+         "words": "charge",
+         "at": 11,
+         "gives": "RAP",
+         "note": "a rap is a criminal charge, as in 'take the rap'"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-destroyed",
+         "at": 21,
+         "note": "half of the word sector is wiped out, leaving only its first three letters"
+        }
+       ],
+       "parts": [
         {
          "words": "sector",
-         "gives": "SEC",
-         "note": "the word with its second half removed, keeping the first three of six letters"
+         "at": 36,
+         "note": "taken as written before losing its second half"
+        },
+        {
+         "gives": "TOR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An army unit fights off an attack beside a sector that has been half wrecked.",
-     "walkthrough": "'Unit' reads as a military group but is a unit of measurement; 'by' just places one piece beside the other.",
-     "definitionFit": "A parsec is an astronomical unit of distance, about 3.26 light years."
+     "surface": "A military unit is ordered to repel a charge with support from a sector that has been half wrecked.",
+     "walkthrough": "'Unit' and 'charge' both look military, but 'Unit' is the definition: RAP turned back by 'repel' gives PAR, and 'half-destroyed' leaves SEC of sector.",
+     "definitionFit": "A parsec is an astronomical measure of distance, about 3.26 light years, so it is a unit of length."
     },
     "features": {
      "answerInScene": false,
