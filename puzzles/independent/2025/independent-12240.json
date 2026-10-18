@@ -100,49 +100,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LOUNGE",
-     "indicators": [
-      {
-       "text": "retiring",
-       "note": "to retire is to withdraw or fall back, so the letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOUNGE",
        "indicators": [
         {
-         "text": "is banished",
-         "note": "the two letters spelling 'is' are sent away from the name they sit in"
+         "text": "banished",
+         "at": 10,
+         "note": "banished means sent away, so the letters of is are taken out of the prince's name"
         }
        ],
        "parts": [
         {
          "words": "Prince",
+         "at": 0,
          "gives": "LOUIS",
-         "note": "Louis is a common name for a French prince or king"
+         "note": "Prince Louis is a member of the British royal family, the younger son of the Prince of Wales"
         },
         {
+         "words": "is",
+         "at": 7,
+         "gives": "IS",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "at": 20,
+         "note": "retiring means withdrawing backwards, so those final letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
          "op": "last",
-         "unchecked": true,
-         "gives": "ENN",
          "indicators": [
           {
            "text": "conclusively",
-           "note": "conclusively means at the conclusion, so only the final letter of each word counts"
+           "at": 29,
+           "note": "conclusively points to the end of each of these words, taking their last letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "hence King can",
-           "gives": "ENN",
-           "select": "last",
-           "note": "the last letters of these three words"
+           "at": 44,
+           "note": "the words whose last letters are used"
           }
          ]
         }
@@ -151,14 +158,14 @@
      ]
     },
     "explanation": {
-     "surface": "A prince is exiled and steps down, leaving the king free to unwind.",
-     "walkthrough": "LOUIS loses its IS to leave LOU; the final letters E, G, N of 'hence King can' are then read backwards as NGE.",
-     "definitionFit": "To lounge is to recline lazily and take things easy, a synonym for unwinding."
+     "surface": "With a prince exiled and retiring at last, the King can finally take it easy.",
+     "walkthrough": "Take IS out of LOUIS to leave LOU. The last letters of 'hence King can' are E, G, N; 'retiring' reverses them to NGE.",
+     "definitionFit": "To lounge is to recline or loaf about lazily, a way to relax."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "retiring"
+     "misdirectedWord": "Prince"
     }
    }
   },
@@ -602,56 +609,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "UNGUAL",
      "indicators": [
       {
        "text": "making",
-       "note": "to make someone do something is to force a change, here one letter giving way to others"
+       "at": 8,
+       "note": "making here means turning one thing into another, so the son letter becomes the new letters"
       }
      ],
      "parts": [
       {
        "words": "General",
+       "at": 0,
        "gives": "USUAL",
-       "note": "general and usual both mean common or normal"
+       "note": "general in the sense of normal or customary means usual"
       },
       {
        "words": "son",
+       "at": 15,
        "gives": "S",
-       "note": "S is the abbreviation for son"
+       "note": "S is the standard abbreviation for son, as in genealogies"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "NG",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the end, so the last letter of each word is kept"
+         "at": 19,
+         "note": "finally takes the last letter of each of the words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "abandon biting",
-         "gives": "NG",
-         "select": "last",
-         "note": "the last letters of these two words"
+         "at": 27,
+         "note": "the words whose last letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An army general who has his son quit the habit of chewing his fingernails.",
-     "walkthrough": "In USUAL the S for son is dropped and NG put in its place. 'Biting of nails' looks like one phrase, but 'of nails' is the definition.",
-     "definitionFit": "Ungual is a technical adjective meaning relating to a nail, claw or hoof, from Latin unguis."
+     "surface": "An army general forces his son to give up a nail-biting habit.",
+     "walkthrough": "'making son finally abandon biting' reads as 'turn S into the last letters of abandon and biting', N and G.",
+     "definitionFit": "Ungual is an anatomical adjective from Latin unguis, meaning relating to a nail, claw or hoof."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "biting"
+     "misdirectedWord": "making"
     }
    }
   },

@@ -758,46 +758,51 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the volume wraps round what follows"
+       "at": 12,
+       "note": "about means surrounding, so the book goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "book",
-         "gives": "TOME",
-         "note": "a tome is a large book"
-        },
-        {
-         "words": "passion",
-         "gives": "IRE",
-         "note": "ire is anger, a passion"
-        }
-       ]
+       "words": "book",
+       "at": 7,
+       "gives": "TOME",
+       "note": "a tome is a large heavy book"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the final letter of the following word is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sucks",
-         "note": "the last letter of sucks"
+         "words": "passion",
+         "at": 18,
+         "gives": "IRE",
+         "note": "ire is anger, a fierce passion"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 26,
+           "note": "ultimately means at the end, so the last letter of the following word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sucks",
+           "at": 37,
+           "note": "the word whose last letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull read in which romance ends up being rubbish.",
-     "walkthrough": "'Passion' suggests romance, but here it is anger; 'about' puts the volume round both the anger and the final letter.",
-     "definitionFit": "Something boring is tedious and wearying, which is what tiresome means."
+     "surface": "A reviewer's verdict: a dull book about passion is ultimately rubbish.",
+     "walkthrough": "'Boring' sounds like a reviewer's adjective for the book, and it is: the definition.",
+     "definitionFit": "Tiresome means tedious and wearying, the same as dull or boring."
     },
     "features": {
      "answerInScene": true,
@@ -878,35 +883,39 @@
      "indicators": [
       {
        "text": "hugged by",
-       "note": "something hugged is enclosed in arms, so it goes inside the next word"
+       "at": 16,
+       "note": "hugged by means held inside, so the favourite wraps round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "favourite",
-         "gives": "PET",
-         "note": "a teacher's pet is the favourite"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "favourite",
+       "at": 26,
+       "gives": "PET",
+       "note": "a pet is a favourite, as in teacher's pet"
       },
       {
-       "words": "dissolute guy",
-       "gives": "RAKE",
-       "note": "a rake is a man of loose morals"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "dissolute guy",
+         "at": 2,
+         "gives": "RAKE",
+         "note": "a rake is a man of dissolute habits"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A debauched man embraced by his favourite 1920s good-time girl.",
-     "walkthrough": "A flapper is a 1920s young woman, which fits the rake; here it is literally something that flaps its wings.",
-     "definitionFit": "A parakeet is a small long-tailed parrot, a bird that flaps its wings in flight."
+     "surface": "A womanising rake is embraced by his favourite 1920s flapper girl.",
+     "walkthrough": "'Flapper' suggests a 1920s party girl alongside the rake; it is a bird.",
+     "definitionFit": "A parakeet is a small parrot, and a flapper here is anything that flaps its wings, such as a bird."
     },
     "features": {
      "answerInScene": false,
