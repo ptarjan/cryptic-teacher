@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -308,42 +309,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RUNSLOW",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out of true, out of order — three letters sent out will not come back in the order they left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 15,
+         "note": "out signals that the letters of urn are knocked out of their order and rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "urn",
-         "gives": "RUN",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "steadily",
-         "gives": "SLOW",
-         "note": "slow is the pace 'steadily' describes, as in going slow"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "steadily",
+       "at": 19,
+       "gives": "SLOW",
+       "note": "slow can be used as an adverb, as in 'go slow', meaning steadily and unhurriedly"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tips an urn out at a steady pace until nothing is left.",
-     "walkthrough": "The enumeration is the disguise: the wordplay's two pieces do not break where the answer's two words break, so the join lands one letter late. 'Steadily' is an adverb doing an adjective's work, which the surface makes easy to swallow.",
-     "definitionFit": "Gets empty -> RUNS LOW: stock that runs low is dwindling towards nothing, the process of emptying rather than the finished state."
+     "surface": "Someone drains a tea urn at an unhurried pace.",
+     "walkthrough": "'out' rearranges URN into RUN; SLOW, read as an adverb, stands for 'steadily'. 'Gets empty' is the definition, not part of the wordplay.",
+     "definitionFit": "To run low is an idiom for a supply nearing exhaustion, so a tank that runs low is getting empty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "empty"
     }
    }
   },
@@ -872,31 +872,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WAR",
+     "op": "middle",
      "indicators": [
       {
        "text": "stripped",
-       "note": "something stripped has had its outer covering pulled off, here the letter at each end"
+       "at": 6,
+       "note": "stripped means the word award loses its outer covering, its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "Award",
-       "note": "the prize is not a synonym for anything: its own five letters are the raw material"
+       "at": 0,
+       "note": "the word award, whose inner letters remain once the outer two are removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A prize is taken back off someone.",
-     "walkthrough": "Short entries usually hide a whole word inside a longer one, and this one does it in plain sight: the clue's first word carries the answer with a letter to spare at each end.",
-     "definitionFit": "opposition to peace -> WAR: the state that stands against peace, the pair of opposites every treaty is written between."
+     "surface": "A prize is taken away from someone for opposing peace.",
+     "walkthrough": "'stripped' looks like it describes the award being revoked; instead it removes A and D from the ends of AWARD.",
+     "definitionFit": "War is the state of armed conflict, the opposite condition to peace."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Award"
+     "aptDefinition": true,
+     "misdirectedWord": "stripped"
     }
    }
   },
@@ -1910,40 +1910,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RATTLE",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out of order is what these three letters are: let out, they do not come back in the order they went"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Rodent",
+       "at": 0,
+       "gives": "RAT",
+       "note": "a rat is a rodent"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 11,
+         "note": "out signals that the letters of let are put out of order and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Rodent",
-         "gives": "RAT",
-         "note": "a rat is the rodent everybody thinks of first"
-        },
-        {
          "words": "let",
-         "gives": "TLE",
-         "note": "the three letters rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rat escapes its cage and frightens the household.",
-     "walkthrough": "'Alarm' is the verb here — to alarm somebody is to unsettle them — so the definition is doing something rather than ringing. A three-letter anagram is easy to miss because so little of it moves.",
-     "definitionFit": "alarm -> RATTLE: to rattle someone is to shake their composure, which is what alarming them does to them."
+     "surface": "A rat escapes from its cage and frightens everyone.",
+     "walkthrough": "'Rodent let out' reads as a pet escaping, but 'out' only shuffles the three letters of 'let'; 'causing' is just a link to the definition.",
+     "definitionFit": "To rattle someone is to unnerve or fluster them, which is a synonym for alarming them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "out"
     }

@@ -62,44 +62,63 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "JEBUSITIC",
      "indicators": [
       {
-       "text": "intervenes in",
-       "note": "to intervene is to come between, so the single letters go inside the rearranged word"
+       "text": "in",
+       "at": 21,
+       "note": "in says the second copy also goes inside the jumbled subject, at another place"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "tricky",
-         "note": "something tricky is twisty and awkward, so the letters of the word after it are rearranged"
+         "text": "intervenes",
+         "at": 10,
+         "note": "intervenes says the letter for one comes between letters of the jumbled subject"
         }
        ],
        "parts": [
         {
-         "words": "subject",
-         "note": "taken as written, then rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "tricky",
+           "at": 24,
+           "note": "tricky says the letters of subject are handled cunningly and rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "subject",
+           "at": 31
+          }
+         ]
         },
         {
-         "words": "One twice",
-         "gives": "II",
-         "note": "one is the Roman numeral I, used twice"
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
         }
        ]
+      },
+      {
+       "words": "twice",
+       "at": 4,
+       "gives": "I",
+       "note": "twice supplies a second copy of the letter for one, so another I goes in"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps butting in on an awkward topic that once concerned an old Catholic.",
-     "walkthrough": "The two I's go in separately: JEBUS-I-T-I-C. 'Once' marks the word as obsolete: a Jebusite was a 17th-century nickname for a Roman Catholic.",
-     "definitionFit": "Jebusite was a hostile historical label for a Roman Catholic, and the adjective describes anything relating to such people."
+     "surface": "A tricky exam topic about an old Catholic, with a person stepping in twice.",
+     "walkthrough": "'tricky' shuffles SUBJECT to JEBUSTC; 'One intervenes in' puts an I inside to make JEBUSITC, and 'twice' means a second I goes in too: JEBUS-I-T-I-C. 'once' marks the definition as obsolete.",
+     "definitionFit": "Jebusitic was a seventeenth-century Protestant slur meaning Roman Catholic, so it is an archaic adjective for papist things."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "subject"
     }
@@ -459,35 +478,32 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CASEIN",
      "indicators": [
       {
        "text": "Compound",
-       "note": "to compound is to mix ingredients together, so the remaining letters are rearranged"
+       "at": 0,
+       "note": "to compound is to mix or combine, so the remaining letters of arsenic are mixed into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CASEIN",
        "indicators": [
         {
          "text": "out",
-         "note": "'out' says the preceding letter is put out of the word"
+         "at": 25,
+         "note": "right out means the letter for right is taken out of arsenic"
         }
        ],
        "parts": [
         {
-         "words": "arsenic's",
-         "gives": "ARSENIC",
-         "note": "taken as written"
+         "words": "arsenic",
+         "at": 9
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right, removed"
+         "at": 19,
+         "gives": "R"
         }
        ]
       }
@@ -495,9 +511,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A warning that arsenic is no longer used in cheese production.",
-     "walkthrough": "The whole clue is both wordplay and definition: the result is a compound that is part of making cheese.",
-     "definitionFit": "Casein is the main protein in milk, which coagulates to form the curd in cheese-making."
+     "surface": "A cheesemaker relieved that arsenic has been left out of the recipe.",
+     "walkthrough": "'Compound' looks like the definition but is the anagram signal; 'right out' drops the R from ARSENIC, leaving ASENIC to be mixed. The whole clue describes the answer, a protein central to cheese.",
+     "definitionFit": "Casein is the main protein in milk; rennet curdles it in cheesemaking, so it is a compound at the heart of the process."
     },
     "features": {
      "answerInScene": true,
@@ -1856,45 +1872,63 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SURAHS",
      "indicators": [
       {
        "text": "blasting",
-       "note": "blasting breaks things apart, so the remaining letters are scattered and rearranged"
+       "at": 20,
+       "note": "blasting suggests the letters are blown apart and reassembled in a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SURAHS",
        "indicators": [
         {
-         "text": "backs off",
-         "note": "with the backs taken off, each word loses its final letter"
+         "text": "backs",
+         "at": 10,
+         "note": "backs points to the back, the last letter, of each of the two words, here that of harsh"
         }
        ],
        "parts": [
         {
          "words": "Harsh",
-         "note": "taken as written, then shortened"
+         "at": 0,
+         "note": "the word harsh, which loses its last letter to leave HARS"
         },
         {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 16,
+         "note": "off says the back letter of sun is taken away too"
+        }
+       ],
+       "parts": [
+        {
          "words": "Sun",
-         "note": "taken as written, then shortened"
+         "at": 6,
+         "note": "the word sun, which loses its last letter to leave SU"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A harsh tabloid backs away from attacking religious scripture.",
-     "walkthrough": "The Sun, a British tabloid newspaper, seems to retreat from criticism; in fact each word just drops its last letter.",
-     "definitionFit": "A surah is a chapter of the Koran, so the plural means several of its parts."
+     "surface": "A harsh sun retreats behind clouds, its heat blasting.",
+     "walkthrough": "'backs off' applies to both words: HARSH becomes HARS and SUN becomes SU, and 'blasting' scrambles those six letters.",
+     "definitionFit": "A surah is a chapter of the Koran, so the plural names its divisions."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "backs"
     }

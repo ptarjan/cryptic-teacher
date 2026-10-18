@@ -959,47 +959,75 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LOANSHARK",
-     "indicators": [
-      {
-       "text": "exchanging daughter for son initially",
-       "note": "exchanging one thing for another means swapping a letter: D (daughter) is replaced by the initial of son"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Look",
+       "at": 10,
+       "gives": "LO",
+       "note": "lo is an old word meaning look"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "exchanging",
+         "at": 27,
+         "note": "exchanging says one letter of the word and is swapped out for another"
+        },
+        {
+         "text": "for",
+         "at": 47,
+         "note": "for marks what comes in: the daughter letter gives way to the one for son"
+        }
+       ],
        "parts": [
         {
-         "words": "Look",
-         "gives": "LO",
-         "note": "lo is an old word for look"
-        },
-        {
          "words": "and",
-         "gives": "ANS",
-         "note": "the word and with its D swapped for an S"
+         "at": 15
         },
         {
-         "words": "listen",
-         "gives": "HARK",
-         "note": "hark means listen"
+         "words": "daughter",
+         "at": 38,
+         "gives": "D",
+         "note": "D is the genealogical abbreviation for daughter"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 55,
+           "note": "initially points to the first letter of son"
+          }
+         ],
+         "parts": [
+          {
+           "words": "son",
+           "at": 51,
+           "note": "the word son, of which only the first letter is used"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "listen",
+       "at": 19,
+       "gives": "HARK",
+       "note": "hark is an old command meaning listen"
       }
      ]
     },
     "explanation": {
-     "surface": "Shakespeare's moneylender speaking, swapping a daughter for a son, as Shylock's Jessica might suggest.",
-     "walkthrough": "D is the standard abbreviation for daughter, and son gives its initial S. Shylock, the usurer of The Merchant of Venice, became a byword for a moneylender.",
-     "definitionFit": "A shylock is a ruthless moneylender charging extortionate interest, the same as a loan shark."
+     "surface": "Shylock, Shakespeare's moneylender, urging someone to look and listen.",
+     "walkthrough": "'exchanging daughter for son initially' turns AND into ANS by swapping its D for S. Shylock, the moneylender in The Merchant of Venice, is used as a common noun for a ruthless lender.",
+     "definitionFit": "A shylock is a slang term for a predatory moneylender charging extortionate interest, the same as a loan shark."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Shylock"
+     "misdirectedWord": "daughter"
     }
    }
   },
@@ -1667,44 +1695,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AMERICANGOTHIC",
-     "indicators": [
-      {
-       "text": "unexpectedly",
-       "note": "something happening unexpectedly comes out in no predictable order, so the letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unexpectedly",
+         "at": 10,
+         "note": "unexpectedly says the letters of rain came turn up in a surprising new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rain came",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "caught",
+       "at": 27,
+       "gives": "GOT",
+       "note": "got can mean caught, as in got the ball or got a cold"
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "most of",
-         "note": "most but not all, so the final letter is dropped"
+         "at": 34,
+         "note": "most of says the provincial word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Rain came",
-           "gives": "AMERICAN",
-           "note": "these two words, rearranged"
-          },
-          {
-           "words": "caught",
-           "gives": "GOT",
-           "note": "got means caught, as in got a cold"
-          },
-          {
-           "words": "provincial",
-           "gives": "HICK",
-           "note": "a hick is an unsophisticated country person"
-          }
-         ]
+         "words": "provincial",
+         "at": 42,
+         "gives": "HICK",
+         "note": "a hick is an unsophisticated provincial person"
         },
         {
          "gives": "K"
@@ -1714,14 +1743,14 @@
      ]
     },
     "explanation": {
-     "surface": "A sudden downpour soaked most of a country painting.",
-     "walkthrough": "'Caught' looks like the usual C abbreviation but here it supplies GOT.",
-     "definitionFit": "American Gothic is Grant Wood's 1930 painting of a farmer with a pitchfork beside a woman, a famous artwork."
+     "surface": "An unexpected rainstorm drenching a rural painting.",
+     "walkthrough": "'most of' trims HICK to HIC. The artwork is Grant Wood's 1930 painting of a stern farmer with a pitchfork beside a woman, aptly a provincial scene.",
+     "definitionFit": "American Gothic is Grant Wood's famous painting of a Midwestern farm couple, a celebrated work of art."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "caught"
+     "misdirectedWord": "provincial"
     }
    }
   }

@@ -831,38 +831,38 @@
     "definitions": [
      {
       "text": "This horse",
-      "at": 0
+      "at": 0,
+      "note": "horse is drug slang for heroin, and so is the answer"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCAG",
+     "op": "composite",
      "indicators": [
       {
        "text": "carelessly",
-       "note": "done carelessly, the letters of the named words are picked out from scattered places rather than together"
+       "at": 17,
+       "note": "carelessly says the letters are jumbled without order, so the answer plus the named letters shuffle into another word"
       }
      ],
      "parts": [
       {
-       "words": "I pen",
-       "note": "the four letters to be removed"
+       "words": "escaping",
+       "at": 35
       },
       {
-       "words": "escaping",
-       "note": "taken as written"
+       "words": "I pen",
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "surface": "A horse in a corral may break out because I fenced it badly.",
-     "walkthrough": "E, P, I and N are struck from the last word wherever they sit. Horse is slang for heroin, as is the answer.",
-     "definitionFit": "Scag and horse are both drug slang for heroin, so the two are synonyms."
+     "surface": "A warning that a horse may slip its pen if someone shuts it in carelessly.",
+     "walkthrough": "A composite: the answer together with I and PEN, all jumbled ('carelessly'), would spell ESCAPING. Both the answer and 'horse' are slang for heroin.",
+     "definitionFit": "Scag and horse are both street slang for heroin, so the drug-world synonym fits."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "horse"
     }
@@ -958,28 +958,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "OATCAKE",
+     "spelt": "OATCAKE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner famously swapped sounds between words, so the sounds are exchanged"
+       "at": 21,
+       "note": "Rev Spooner famously swapped sounds between words, so the sounds of the two words here are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "swallowed with fizzy pop",
-       "gives": "OATCAKE",
-       "soundsLike": "ATE COKE",
-       "note": "swallowed is ate and fizzy pop is Coke; swapping their vowel sounds"
+       "op": "homophone",
+       "spelt": "OAT",
+       "parts": [
+        {
+         "words": "swallowed",
+         "at": 31,
+         "gives": "ATE",
+         "note": "swallowed food is food you ate; with the vowel sound from the other word, 'ate' becomes 'oat'"
+        }
+       ]
+      },
+      {
+       "words": "with fizzy pop",
+       "at": 41,
+       "gives": "COKE",
+       "note": "Coke is a brand of fizzy soft drink, pop in British slang"
       }
      ]
     },
     "explanation": {
      "surface": "A cheese cracker downed alongside a fizzy soft drink.",
-     "walkthrough": "Here the swap is of vowel sounds, AY and OH, not opening consonants.",
-     "definitionFit": "An oatcake is a flat oatmeal biscuit, often eaten with cheese, so it is an example."
+     "walkthrough": "Here 'Spooner's' swaps the vowel sounds, AY and OH, not opening consonants: 'ate Coke' becomes 'oat cake'.",
+     "definitionFit": "An oatcake is a flat oatmeal biscuit, often served with cheese, so it is an example of the type."
     },
     "features": {
      "answerInScene": true,
@@ -1094,32 +1105,31 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NUDENESS",
+     "op": "composite",
      "indicators": [
       {
        "text": "may turn",
-       "note": "turning into something else implies a change of form, so the letters are rearranged"
+       "at": 14,
+       "note": "turn signals the letters are rearranged into a new order, so the phrase's letters are shuffled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NUDENESS",
+       "words": "One undressed",
+       "at": 0
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "One undressed",
-         "note": "the letters of both words"
-        },
-        {
          "words": "red",
-         "note": "taken as written, letters set aside"
+         "at": 23,
+         "note": "taken as written: its letters are part of what the jumble contains besides the answer"
         },
         {
          "words": "O",
-         "note": "the letter itself, also set aside"
+         "at": 39,
+         "note": "the letter O, also an exclamation of surprise"
         }
        ]
       }
@@ -1127,9 +1137,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A person caught without clothes blushes at their state and cries out.",
-     "walkthrough": "A compositional anagram: the letters of 'One undressed' equal RED plus the answer plus O, so remove RED and O to leave it. The whole clue also describes blushing at being naked.",
-     "definitionFit": "Being undressed means being naked, the condition that makes someone blush."
+     "surface": "Someone caught without clothes blushes and gasps 'Oh!'",
+     "walkthrough": "A composite anagram: ONE UNDRESSED is a jumble of the answer plus R, E, D and O. The whole clue also describes the answer's effect, so it is an &lit.",
+     "definitionFit": "Nudeness is the state of being naked, which is just what makes an undressed person blush."
     },
     "features": {
      "answerInScene": true,
@@ -1896,32 +1906,34 @@
      "indicators": [
       {
        "text": "containing",
-       "note": "containing means holding within, so one piece sits inside the other"
+       "at": 32,
+       "note": "containing means the rock word holds the other piece inside it"
       }
      ],
      "parts": [
       {
        "words": "some rock's",
+       "at": 20,
        "gives": "BASALTS",
-       "note": "basalt is a volcanic rock, made plural"
+       "note": "basalt is a volcanic rock, so 'some rock's' gives basalt's, written BASALTS"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TH",
+       "op": "deletion",
        "indicators": [
         {
          "text": "not half",
-         "note": "only half the word is kept, the first two of its four letters"
+         "at": 49,
+         "note": "not half means the word this loses half its letters, keeping only its first two"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "this",
-         "gives": "TH",
-         "select": "first",
-         "note": "the first half of the word"
+         "at": 43,
+         "note": "the word this, of which only the first half is kept"
+        },
+        {
+         "gives": "IS"
         }
        ]
       }
@@ -1929,11 +1941,12 @@
     },
     "spelling": "BATH SALTS",
     "explanation": {
-     "surface": "A scented additive includes some crushed rock, not quite half of it.",
-     "definitionFit": "Bath salts are scented crystals dissolved in bathwater, an additive for fragrance."
+     "surface": "A bath additive is said to contain rocky material.",
+     "walkthrough": "Basalt is a dark volcanic rock; the apostrophe-s in 'rock's' supplies the final S, and 'containing' wraps the rock word round half of 'this'.",
+     "definitionFit": "Bath salts are scented crystals dissolved in bathwater, an additive meant to perfume it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rock's"
     }
