@@ -1246,52 +1246,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece surrounds the other"
+       "at": 8,
+       "note": "about means the remarks word goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Remarks",
-         "gives": "COMMENTS",
-         "note": "remarks are comments"
-        },
-        {
-         "words": "staff",
-         "gives": "MAN",
-         "note": "to staff a post is to man it"
-        }
-       ]
+       "words": "Remarks",
+       "at": 0,
+       "gives": "COMMENTS",
+       "note": "comments are remarks"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the very first letter only"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "defying",
-         "note": "the first letter of the word"
+         "words": "staff",
+         "at": 14,
+         "gives": "MAN",
+         "note": "to staff a post is to man it"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 20,
+           "note": "initially means take only the first letter of defying"
+          }
+         ],
+         "parts": [
+          {
+           "words": "defying",
+           "at": 30
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Remarks about staff first defying instructions from senior management.",
-     "walkthrough": "'orders from above' reads as instructions from bosses, but it means divine law handed down from heaven.",
-     "definitionFit": "The Ten Commandments are rules said to be handed down by God, orders from heaven."
+     "surface": "Comments about employees ignoring instructions handed down by the bosses.",
+     "walkthrough": "'staff' looks like a noun for employees; it is the verb, to man.",
+     "definitionFit": "The Ten Commandments were given from heaven, divine orders handed down to Moses."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "above"
+     "misdirectedWord": "staff"
     }
    }
   },

@@ -1041,50 +1041,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "crossing",
-       "note": "One thing crossing another cuts through the middle of it, so the letters named land inside."
-      }
-     ],
      "parts": [
       {
        "words": "street",
-       "gives": "ST",
-       "note": "St is the abbreviation on every street sign and envelope."
+       "at": 25,
+       "gives": "ST"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "defaced",
-         "note": "A word defaced has lost its face, the letter at its front."
+         "text": "crossing",
+         "at": 51,
+         "note": "crossing means the rural word goes across, enclosing the other letters"
         }
        ],
        "parts": [
         {
          "words": "away from the town",
+         "at": 32,
          "gives": "RURAL",
-         "note": "Country areas away from the town are rural, and the word opens after its first letter."
+         "note": "rural means in the countryside, away from towns"
         },
         {
-         "words": "channel",
-         "gives": "UCT",
-         "note": "A channel is a duct, here with its opening D struck off."
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "defaced",
+           "at": 60,
+           "note": "defaced means the face, the first letter, is removed from the channel word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "channel",
+           "at": 68,
+           "gives": "DUCT",
+           "note": "a duct is a channel or tube"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A road layout out in the country, crossing a vandalised waterway.",
-     "walkthrough": "'Away from the town' is a full definition of a word buried in the wordplay rather than a piece of the surface geography. 'Defaced' is meant literally — a word losing its face loses its first letter.",
-     "definitionFit": "Structural questions are the ones about how a thing is put together rather than how it looks, which is design in the engineer's sense."
+     "surface": "A planner considers a street in the countryside crossed by a vandalised canal.",
+     "definitionFit": "Structural means relating to the way something is built or arranged, its construction."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "crossing"
+     "misdirectedWord": "defaced"
     }
    }
   },

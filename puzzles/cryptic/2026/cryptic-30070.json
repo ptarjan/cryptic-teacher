@@ -1130,42 +1130,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "largely"
-      }
-     ],
      "parts": [
       {
-       "words": "Duke",
+       "words": "Duke's",
+       "at": 0,
        "gives": "D",
-       "note": "D = duke"
+       "note": "D abbreviates duke; the 's reads as 'has', linking to what follows"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "involving"
+         "text": "involving",
+         "at": 23,
+         "note": "involving means the unknown letter is enclosed by the shortened decline word"
         }
        ],
        "parts": [
         {
-         "words": "decline",
-         "gives": "REFUS",
-         "note": "REFUSE (decline) 'largely' — most of it"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "largely",
+           "at": 15,
+           "note": "largely means most of the word, dropping the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "decline",
+           "at": 7,
+           "gives": "REFUSE",
+           "note": "to refuse is to decline"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "unknown",
+         "at": 33,
          "gives": "Y",
-         "note": "y, algebra's unknown, taken inside"
+         "note": "Y is an algebraic unknown"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "D + REFUS(e) involving Y. Alfred Dreyfus was the wrongly convicted officer at the centre of the affair that split 1890s France — the 'figure in French scandal'.",
-     "definitionFit": "Alfred, a Jewish army captain falsely convicted of treason in 1894, gave his surname to the affair that divided France."
+     "surface": "A nobleman's fall from grace involves a mystery figure in a French affair.",
+     "walkthrough": "'decline' looks like a noun for the Duke's downfall, but it is the verb, refuse.",
+     "definitionFit": "Alfred Dreyfus was the French army officer wrongly convicted of treason, the centre of the Dreyfus affair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decline"
     }
    }
   },
@@ -1470,43 +1491,72 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "blocking"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "a timid one",
-       "gives": "AMOUS",
-       "note": "A MOUSE (a timid one), 'mostly' — the E drops"
+       "words": "a",
+       "at": 26
       },
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "mostly"
+         "text": "blocking",
+         "at": 17,
+         "note": "blocking means sitting in the way, so the pompous pieces go inside the shortened timid one"
         }
        ],
        "parts": [
         {
-         "words": "Pompous",
-         "gives": "BIG",
-         "note": "big = pompous, self-important"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 39,
+           "note": "mostly means drop the last letter of the timid creature"
+          }
+         ],
+         "parts": [
+          {
+           "words": "timid one",
+           "at": 28,
+           "gives": "MOUSE",
+           "note": "a mouse is a timid person"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
-         "words": "Unionist",
-         "gives": "U",
-         "note": "U = Unionist, the political abbreviation"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Pompous",
+           "at": 0,
+           "gives": "BIG",
+           "note": "big, as in big-headed, means pompous"
+          },
+          {
+           "words": "Unionist",
+           "at": 8,
+           "gives": "U",
+           "note": "U stands for Unionist, as in UK political party names"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "BIG + U block A MOUS(e). 'Of doubtful value' defines fairly: what is ambiguous is of uncertain meaning or worth.",
-     "definitionFit": "Something open to more than one reading has an unclear meaning or merit, which stretches to the definition's sense of questionable value."
+     "surface": "A self-important politician gets in the way of a shy person, of dubious worth.",
+     "definitionFit": "Ambiguous means open to more than one interpretation, so its meaning or worth is uncertain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pompous"
     }
    }
   },
