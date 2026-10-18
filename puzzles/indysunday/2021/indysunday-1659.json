@@ -1005,44 +1005,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLDSARUM",
+     "op": "composite",
      "indicators": [
       {
+       "text": "leaving",
+       "at": 10,
+       "note": "the two ducks are leaving, so those letters go out of the pool before it is rearranged"
+      },
+      {
        "text": "bananas",
-       "note": "going bananas is going crazy, so the letters are scrambled"
+       "at": 29,
+       "note": "bananas is slang for crazy, so the remaining letters go crazy and are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OLDSARUM",
-       "indicators": [
-        {
-         "text": "leaving",
-         "note": "letters that leave a word are taken out of it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "malodorous",
-         "note": "taken as written"
-        },
-        {
-         "words": "Two ducks",
-         "gives": "OO",
-         "note": "a duck is a score of nothing, O, so two ducks are two Os"
-        }
-       ]
+       "words": "malodorous",
+       "at": 18
+      },
+      {
+       "words": "Two ducks",
+       "at": 0,
+       "gives": "OO",
+       "note": "a duck is a score of nothing in cricket, so two ducks are two O's"
       }
      ]
     },
     "explanation": {
-     "surface": "Two ducks walk away from rotten-smelling bananas at a spot in Wiltshire.",
-     "walkthrough": "Wiltshire is a county in south-west England. 'Bananas' looks like fruit, but it means crazy.",
-     "definitionFit": "Old Sarum is the ancient hill fort and abandoned settlement near Salisbury in that English county, a historic location."
+     "surface": "Two ducks wander off from some foul-smelling bananas at a spot in Wiltshire.",
+     "walkthrough": "'bananas' looks like fruit in the surface but signals the jumble. MALODOROUS has three O's; with two gone, MALDORUS rearranges into the answer.",
+     "definitionFit": "Old Sarum is the abandoned hilltop settlement north of Salisbury, an ancient historic location in Wiltshire."
     },
     "features": {
      "answerInScene": false,
@@ -1540,37 +1532,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARLEQUIN",
-     "indicators": [
-      {
-       "text": "content",
-       "note": "the content of something is what is inside it, so its outer letters are discarded"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Prince",
-       "gives": "CHARLES",
-       "note": "Prince Charles, now King"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "content",
+         "at": 15,
+         "note": "a word's content is what it holds, so the outer letters are stripped and only the inside is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prince's",
+         "at": 6,
+         "gives": "CHARLES",
+         "note": "Charles was long the Prince of Wales; it is his name whose content is used"
+        }
+       ]
       },
       {
        "words": "one with four siblings",
+       "at": 24,
        "gives": "QUIN",
-       "note": "a quin, or quintuplet, is one of five babies born together"
+       "note": "a quin, or quintuplet, is one of five born together, so has four siblings"
       }
      ]
     },
     "explanation": {
-     "surface": "A royal joker who is happy as one of five children.",
-     "walkthrough": "'Content' looks like an adjective meaning happy, but it means the inside of the prince's name.",
-     "definitionFit": "Harlequin is the masked comic servant of the commedia dell'arte and pantomime, a stock buffoon figure."
+     "surface": "A playful jester-prince is pleased to be one of five children.",
+     "walkthrough": "'Prince's content' is the inside of CHARLES, shedding its first and last letters; 'one with four siblings' is a quin, one of quintuplets.",
+     "definitionFit": "Harlequin is the masked, chequered comic servant of Italian commedia dell'arte, a stock buffoon figure."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "content"
     }
    }
