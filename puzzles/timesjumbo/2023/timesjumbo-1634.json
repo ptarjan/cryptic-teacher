@@ -538,31 +538,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NUTATED",
      "indicators": [
       {
        "text": "disregarding a stroke",
-       "note": "the stroke is a pen stroke, so the first letter of the changed-form word is written with one line fewer, turning it into a different capital"
+       "at": 30,
+       "note": "a capital M written without one of its four strokes looks like a capital N, so one letter is swapped for the other"
       }
      ],
      "parts": [
       {
        "words": "having changed form",
+       "at": 9,
        "gives": "MUTATED",
-       "note": "something that has changed form has mutated"
+       "note": "to have mutated is to have changed form"
       },
       {
-       "words": "disregarding a stroke",
-       "gives": "N",
-       "note": "drop one stroke from the capital M and an N is left"
+       "gives": "M"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A plant wilted after altering its shape and ignoring a blow.",
-     "walkthrough": "The 'stroke' is a pen stroke, not a blow or a caress: M has four straight strokes, N has three, so leaving one out turns the first letter of MUTATED into N.",
-     "definitionFit": "To nutate is a botanical term for nodding or bending over, as a flower head does, so it matches drooped."
+     "surface": "A plant drooped after changing form, ignoring a stroke of the gardener's hand.",
+     "walkthrough": "Write a capital M and leave out one of its strokes: what remains is an N. So MUTATED becomes the botanical word for nodding or drooping.",
+     "definitionFit": "In botany, to nutate is to nod or bend over, as a flower head does on a weak stem."
     },
     "features": {
      "answerInScene": false,
@@ -2398,46 +2399,51 @@
      "indicators": [
       {
        "text": "replaces",
-       "note": "one piece takes the place of another, so the young lady goes where the narcissi letter was"
+       "at": 30,
+       "note": "one thing replacing another means the young lady's word takes the place of a letter in the bulbs"
       }
      ],
      "parts": [
       {
        "words": "bulbs",
+       "at": 8,
        "gives": "ONIONS",
-       "note": "onions are bulbs"
+       "note": "onions are bulbs grown as vegetables"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "in the front",
-         "note": "the front of a word is its first letter, so only the start of narcissi is meant"
+         "at": 48,
+         "note": "the front of narcissi is its opening letter, the one that gets swapped out"
         }
        ],
        "parts": [
         {
          "words": "narcissi",
-         "note": "the first letter of 'narcissi'"
+         "at": 39,
+         "note": "the opening letter of narcissi"
         }
        ]
       },
       {
        "words": "young lady",
+       "at": 19,
        "gives": "MISS",
-       "note": "a miss is a young unmarried woman"
+       "note": "Miss is the title of a young unmarried woman"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's bed has holes where daffodils once stood, now filled by a girl.",
-     "walkthrough": "The gardening surface suggests daffodils (narcissi are bulbs too), but the bulbs are ONIONS and the narcissi give only their initial.",
-     "definitionFit": "Omissions are things left out, spaces where something should be, so the word for them is a synonym of gaps."
+     "surface": "A gardener finds gaps in the bulb bed where a young woman has swapped out the narcissi at the front.",
+     "walkthrough": "'in the front' picks N, the first letter of 'narcissi'; 'replaces' puts MISS where that N stood in ONIONS.",
+     "definitionFit": "Omissions are things left out, the blanks or gaps in a list or text."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "narcissi"
+     "misdirectedWord": "bulbs"
     }
    }
   },
@@ -2468,42 +2474,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERALIA",
-     "indicators": [
-      {
-       "text": "when Victor's forgotten",
-       "note": "Victor is the V of the phonetic alphabet, and forgetting him leaves him out of the pause word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when",
+         "at": 6,
+         "note": "when here sets the condition under which the Victor letter goes missing from the pause word"
+        },
+        {
+         "text": "'s forgotten",
+         "at": 17,
+         "note": "something forgotten is left out, so the Victor letter drops from the pause word"
+        }
+       ],
        "parts": [
         {
          "words": "Pause",
-         "gives": "INTERAL",
-         "note": "INTERVAL, a pause in a performance, without its V"
+         "at": 0,
+         "gives": "INTERVAL",
+         "note": "an interval is a pause, as between acts of a play"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
-        },
-        {
-         "words": "answer",
-         "gives": "A",
-         "note": "A = answer, as in Q and A"
+         "words": "Victor",
+         "at": 11,
+         "gives": "V",
+         "note": "Victor is V in the NATO phonetic alphabet"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "words": "answer",
+       "at": 34,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A quizmaster stops because the contestant Victor has lost track of one answer among the many.",
-     "walkthrough": "Victor is V in the NATO phonetic alphabet, so it is the V of INTERVAL that goes.",
-     "definitionFit": "Inter alia is Latin for 'among other things', used to show an item is one of several on a list."
+     "surface": "A quiz host pauses while a contestant called Victor forgets one answer among many.",
+     "walkthrough": "The surface's Victor is a person; in the wordplay he is just the letter V from the phonetic alphabet, dropped from the pause word.",
+     "definitionFit": "Inter alia is Latin for 'among other things', used to say something is one item among several."
     },
     "features": {
      "answerInScene": false,
@@ -2910,26 +2928,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALAMO",
      "indicators": [
       {
        "text": "that has infiltrated",
-       "note": "the mission is something that has got inside the place name, so only its interior letters are kept"
+       "at": 8,
+       "note": "the word that has got inside is the one sitting within the site's name, so the outer letters are stripped away"
       }
      ],
      "parts": [
       {
        "words": "site of nuclear bomb development",
+       "at": 29,
        "gives": "LOSALAMOS",
-       "note": "the New Mexico laboratory town where the Manhattan Project built the first atomic bomb"
+       "note": "Los Alamos in New Mexico is where the first atomic bombs were developed"
+      },
+      {
+       "gives": "LOSS"
       }
      ]
     },
     "explanation": {
-     "surface": "A spy operation has penetrated the atomic weapons laboratory.",
-     "walkthrough": "The surface is espionage, but the mission is a Spanish mission church: the Alamo in Texas, famous for its 1836 siege, sits inside the Los Alamos name.",
-     "definitionFit": "The Alamo was originally a Spanish Catholic mission in San Antonio before becoming a fort."
+     "surface": "A question about a spy mission that has got inside the base where the atom bomb was built.",
+     "walkthrough": "The answer is the word that has infiltrated LOS ALAMOS: strip LOS from the front and S from the end. The question mark flags this playful reading.",
+     "definitionFit": "The Alamo in San Antonio, Texas, was a Spanish mission church before its famous 1836 siege."
     },
     "features": {
      "answerInScene": false,

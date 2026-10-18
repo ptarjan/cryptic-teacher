@@ -151,47 +151,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "RESPECTABLE",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "'X for Y' means X put in place of Y, one letter swapped in where the other stood"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Regarding",
+       "at": 0,
        "gives": "RE",
-       "note": "re means regarding or about"
+       "note": "re means regarding, as in a letter heading"
       },
       {
-       "words": "show",
-       "gives": "SPECTACLE",
-       "note": "a spectacle is a show"
-      },
-      {
-       "words": "book",
-       "gives": "B",
-       "note": "B is the abbreviation for book"
-      },
-      {
-       "words": "clubs",
-       "gives": "C",
-       "note": "C is the card-suit abbreviation for clubs"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 21,
+         "note": "book for clubs means the book letter takes the place of a clubs letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "show",
+         "at": 10,
+         "gives": "SPECTACLE",
+         "note": "a spectacle is a show or display"
+        },
+        {
+         "words": "clubs",
+         "at": 25,
+         "gives": "C",
+         "note": "C is the card-game abbreviation for clubs"
+        },
+        {
+         "words": "book",
+         "at": 16,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A show about a social club and its reputation among members.",
-     "walkthrough": "The substitution works inside the word for a show: of its two Cs, only the second is swapped, which is the clue's clubs.",
-     "definitionFit": "Someone held in proper regard by society is respectable, so having good standing is the plain synonym phrase."
+     "surface": "Instructions on booking a show for a club of decent repute.",
+     "walkthrough": "SPECTACLE has two Cs; 'book for clubs' swaps the second for B.",
+     "definitionFit": "Someone respectable is regarded by society as decent and proper, so has a good standing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "clubs"
+     "misdirectedWord": "book"
     }
    }
   },
@@ -889,42 +896,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REHEARSE",
-     "indicators": [
-      {
-       "text": "not the last",
-       "note": "without the last means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not the last",
+         "at": 17,
+         "note": "not the last means the final letter of red is left off"
+        }
+       ],
        "parts": [
         {
          "words": "red",
-         "gives": "RE",
-         "note": "the word with its final letter removed"
+         "at": 11
         },
         {
-         "words": "vehicle",
-         "gives": "HEARSE",
-         "note": "a hearse is a vehicle for coffins"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "vehicle",
+       "at": 30,
+       "gives": "HEARSE",
+       "note": "a hearse is a vehicle that carries a coffin"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver jumps a red light, and it is not the last vehicle to do so.",
-     "walkthrough": "'Go through red' is the language of traffic lights, but 'Go through' alone is the definition.",
-     "definitionFit": "To go through a play or speech is to practise it in advance, as actors do at a rehearsal."
+     "surface": "A driver runs a red light, but this is not the last vehicle to do it.",
+     "walkthrough": "'Go through red' reads as jumping a traffic light, but 'Go through' alone is the definition, as an actor goes through lines.",
+     "definitionFit": "To rehearse a play or speech is to go through it in practice before performing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "red"
+     "joke": "pun",
+     "misdirectedWord": "last"
     }
    }
   },
@@ -1584,54 +1594,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "'in' puts one item inside another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
-       "parts": [
+       "indicators": [
         {
-         "words": "social worker",
-         "gives": "ANT",
-         "note": "the ant is a social insect and the classic worker"
-        },
+         "text": "in",
+         "at": 7,
+         "note": "in means the doctor sits within the a and university pair"
+        }
+       ],
+       "parts": [
         {
          "op": "charade",
          "parts": [
           {
-           "words": "Doctor",
-           "gives": "MB",
-           "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+           "words": "a",
+           "at": 10,
+           "gives": "A"
           },
           {
            "words": "university",
-           "gives": "U",
-           "note": "U is the abbreviation for university"
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "L is the abbreviation for left"
+           "at": 12,
+           "gives": "U"
           }
          ]
+        },
+        {
+         "words": "Doctor",
+         "at": 0,
+         "gives": "MB",
+         "note": "MB, Bachelor of Medicine, is a doctor's qualification"
         }
        ]
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "words": "left",
+       "at": 23,
+       "gives": "L"
+      },
+      {
+       "words": "social worker",
+       "at": 28,
+       "gives": "ANT",
+       "note": "an ant is a social insect, and a worker ant is the classic worker"
       }
      ]
     },
     "explanation": {
-     "surface": "A university doctor leaves, and a social worker helps a patient get back on their feet.",
-     "walkthrough": "'social worker' suggests a care professional, but it is the ant, which lives in colonies and works.",
-     "definitionFit": "An ambulant patient can move about on foot rather than being confined to bed."
+     "surface": "A doctor at a university leaves a social worker, now fit to walk.",
+     "walkthrough": "'social worker' suggests a care professional, but it is the ant, a social insect.",
+     "definitionFit": "Ambulant patients can walk about rather than being confined to bed."
     },
     "features": {
      "answerInScene": true,

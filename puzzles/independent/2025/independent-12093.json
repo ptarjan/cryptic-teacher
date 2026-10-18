@@ -96,51 +96,56 @@
      "indicators": [
       {
        "text": "In",
-       "note": "placed in front, the word says what follows goes inside what remains of the island"
+       "at": 0,
+       "note": "in at the head of the clue means the sailors and the notice go inside what remains of the island's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having left",
+         "at": 11,
+         "note": "having left means the land word goes out of Tobago"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "having left",
-           "note": "something that has left is gone, so those letters are taken away from the island's name"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Tobago",
-           "note": "the Caribbean island, taken as written"
-          },
-          {
-           "words": "land",
-           "gives": "BAG",
-           "note": "to land a catch is to bag it"
-          }
-         ]
+         "words": "Tobago",
+         "at": 3
         },
         {
-         "words": "sailors",
-         "gives": "RN",
-         "note": "the Royal Navy"
+         "words": "land",
+         "at": 23,
+         "gives": "BAG",
+         "note": "to bag a fish or prize is to land it"
         }
        ]
       },
       {
-       "words": "notice",
-       "gives": "AD",
-       "note": "a notice in a paper is an advertisement, AD for short"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sailors",
+         "at": 29,
+         "gives": "RN",
+         "note": "RN is the Royal Navy, the sailors"
+        },
+        {
+         "words": "notice",
+         "at": 37,
+         "gives": "AD",
+         "note": "an ad is a notice, an advertisement"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Seafarers off Tobago spot a gale coming in.",
-     "walkthrough": "Taking BAG from TOBAGO leaves TO_O; RN and AD go into the gap to make TORNADO.",
-     "definitionFit": "A tornado is a violent rotating windstorm, so it is a very strong wind."
+     "surface": "Seamen who have come ashore in Tobago spot an approaching gale.",
+     "walkthrough": "'land' looks like the shore, but it is the verb, as when an angler lands a catch.",
+     "definitionFit": "A tornado is a violent rotating column of air, an extremely strong wind."
     },
     "features": {
      "answerInScene": true,
@@ -677,36 +682,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APOLLO",
-     "indicators": [
-      {
-       "text": "naked",
-       "note": "naked means stripped of its covering, so the outside letters come off the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Journalists",
+       "at": 0,
        "gives": "AP",
-       "note": "the Associated Press news agency"
+       "note": "AP is the Associated Press, a news agency of journalists"
       },
       {
-       "words": "pursue",
-       "gives": "FOLLOW",
-       "note": "to pursue is to follow"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 19,
+         "note": "naked means stripped of its outer covering, so the pursue word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pursue",
+         "at": 12,
+         "gives": "FOLLOW",
+         "note": "to follow someone is to pursue them, and following them puts this piece after the journalists"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Reporters chase a nude good-looking man.",
-     "walkthrough": "'Naked' seems to describe the chap, but it strips the outer letters from the verb for pursue. AP is the Associated Press, a US news agency.",
-     "definitionFit": "Apollo was the Greek god famed for male beauty, so his name stands for any handsome young man."
+     "walkthrough": "'pursue' reads as the reporters' action and also gives the word that follows them. In Greek myth Apollo was the ideal of male beauty.",
+     "definitionFit": "Apollo, the Greek god, stands for male beauty, so a very good-looking young man is called an Apollo."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "naked"
     }
    }

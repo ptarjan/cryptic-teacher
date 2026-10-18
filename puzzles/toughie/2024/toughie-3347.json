@@ -197,37 +197,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPOUSE",
-     "indicators": [
-      {
-       "text": "abruptly terminated",
-       "note": "cut off abruptly means stopped short, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abruptly terminated",
+         "at": 32,
+         "note": "abruptly terminated means cut short at the end, so the last letter of the position word goes"
+        }
+       ],
        "parts": [
         {
          "words": "awkward position",
-         "gives": "SPO",
-         "note": "a spot is a tight or awkward situation; its last letter goes"
+         "at": 15,
+         "gives": "SPOT",
+         "note": "to be in a spot is to be in an awkward position"
         },
         {
-         "words": "employment",
-         "gives": "USE",
-         "note": "use is employment of something"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "employment",
+       "at": 52,
+       "gives": "USE",
+       "note": "use means employment, as in putting something to use"
       }
      ]
     },
     "explanation": {
-     "surface": "A trade union member's job ends suddenly after an awkward situation at work.",
-     "walkthrough": "Union here is marriage, not a trade union.",
-     "definitionFit": "A spouse is one partner in a marriage, which is a union of two people."
+     "surface": "A trade unionist in an awkward spot whose job was suddenly ended.",
+     "walkthrough": "'Union member' suggests a trade unionist, but the union is marriage.",
+     "definitionFit": "A spouse is a husband or wife, one partner in the union of marriage."
     },
     "features": {
      "answerInScene": false,
@@ -999,42 +1003,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OPTIC",
-     "indicators": [
-      {
-       "text": "Shift",
-       "note": "shift means move, telling us part of the word changes place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "work",
+       "at": 6,
+       "gives": "OP",
+       "note": "op is short for opus, a work"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "work",
-         "gives": "OP",
-         "note": "op is short for opus, a work"
+         "text": "Shift",
+         "at": 0,
+         "note": "shift means move, so the work letters change position within the subject word"
         },
         {
+         "text": "in",
+         "at": 11,
+         "note": "in says where the work letters are found before they move: inside the subject word"
+        }
+       ],
+       "parts": [
+        {
          "words": "subject",
-         "gives": "TIC",
-         "note": "the rest of a word for subject, around which the work moves"
+         "at": 14,
+         "gives": "TOPIC",
+         "note": "a topic is a subject of discussion"
+        },
+        {
+         "gives": "OP"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker changes jobs within a university faculty.",
-     "walkthrough": "TOPIC is the subject; shifting the OP inside it to the front gives the answer.",
+     "surface": "Shift work as a subject of study connected to a university faculty.",
+     "walkthrough": "'Shift work' looks like a phrase about working hours, but 'Shift' is the instruction. 'faculty' is not a university department but a power of the body, here sight.",
      "definitionFit": "Optic means relating to the eye or vision, the faculty of sight."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "faculty"
     }
    }

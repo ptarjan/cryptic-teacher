@@ -47,55 +47,56 @@
      "indicators": [
       {
        "text": "hosting",
-       "note": "a host takes guests inside, so the drink word holds the other letters within it"
+       "at": 25,
+       "note": "a host holds guests, so the beer word holds the gathered initials inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "beer",
+       "at": 20,
+       "gives": "ALE",
+       "note": "ale is a type of beer"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "beer",
-         "gives": "ALE",
-         "note": "ale is a type of beer"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "heads of",
-           "note": "heads are what sit at the top, so only the opening letter of each following word is kept"
+           "at": 33,
+           "note": "the heads of words are their first letters, here of Stella, Artois and Carlsberg"
           }
          ],
          "parts": [
           {
            "words": "Stella Artois",
-           "note": "the opening letters of the two brand words"
+           "at": 42,
+           "note": "the first letters of Stella and Artois"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
+        },
         {
          "words": "Carlsberg",
-         "note": "the opening letter of the lager brand"
+         "at": 60,
+         "gives": "C",
+         "note": "C is the head of Carlsberg too, the 'heads of' instruction covering this brand as well"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beer-lover's note on where Kronenbourg comes from, mentioning two rival lager brands.",
-     "walkthrough": "Kronenbourg is brewed near Strasbourg, so the definition is a plain geographical fact rather than a pun.",
-     "definitionFit": "Alsace is the French region around Strasbourg where the Kronenbourg brewery has long been based."
+     "surface": "A beer drinker's note that Kronenbourg's homeland plays host to two rival lager brands.",
+     "walkthrough": "'heads of' applies to all three brand words, Stella, Artois and Carlsberg; 'and' simply links them.",
+     "definitionFit": "Kronenbourg is brewed near Strasbourg, the chief city of the French region of Alsace."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "hosting"
+     "misdirectedWord": "heads"
     }
    }
   },
@@ -257,38 +258,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COCTEAU",
      "indicators": [
       {
        "text": "replaced by",
-       "note": "one item is swapped out and another put in its place, so a fragment of the house word is exchanged"
+       "at": 13,
+       "note": "one thing replaced by another means the hat letters leave the country house and the autumn month takes their place"
       }
      ],
      "parts": [
       {
+       "words": "country house",
+       "at": 40,
+       "gives": "CHATEAU",
+       "note": "a chateau is a French country house"
+      },
+      {
        "words": "hat",
-       "note": "taken as written; this is what is taken out"
+       "at": 9,
+       "gives": "HAT",
+       "note": "the word hat, written out in the country house"
       },
       {
        "words": "autumn time",
+       "at": 25,
        "gives": "OCT",
-       "note": "October, abbreviated, is a month of autumn"
-      },
-      {
-       "words": "country house",
-       "gives": "CHATEAU",
-       "note": "a chateau is a French country house"
+       "note": "October, abbreviated OCT, is a month in autumn"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist's hat is swapped for something seasonal at a country estate.",
-     "walkthrough": "Take HAT out of CHATEAU and put OCT in its place. The 's here is 'is', joining artist to the wordplay.",
-     "definitionFit": "Jean Cocteau was a French poet, painter and film-maker, so he counts as an artist."
+     "surface": "A painter's hat has been swapped for something autumnal at a country estate.",
+     "walkthrough": "CHATEAU contains the word HAT; 'replaced by' swaps it for OCT, the calendar abbreviation for October. Jean Cocteau was a French poet, film-maker and artist.",
+     "definitionFit": "Jean Cocteau was a French writer, film director and visual artist of the twentieth century."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "hat"
     }
@@ -1534,60 +1538,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OXYMORON",
-     "indicators": [
-      {
-       "text": "being dismissed separately",
-       "note": "dismissed means sent away, and separately means the letters go one at a time from different spots"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the closing letter only of the studio word"
+         "at": 39,
+         "note": "finally points to the closing letter of studio"
         }
        ],
        "parts": [
         {
          "words": "studio",
-         "note": "the closing letter"
+         "at": 32,
+         "note": "the last letter of studio"
         }
        ]
       },
       {
        "words": "axes",
+       "at": 47,
        "gives": "XY",
-       "note": "the x and y axes of a graph"
+       "note": "x and y are the two axes of a graph"
       },
       {
        "words": "Flash",
+       "at": 52,
        "gives": "MO",
-       "note": "a flash or moment is a mo"
+       "note": "a mo, as in 'half a mo', is a flash, an instant"
       },
       {
-       "words": "Gordon",
-       "note": "taken as written"
-      },
-      {
-       "words": "Blessed",
-       "gives": "GOD",
-       "note": "God is the blessed being; these letters leave the name one by one"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being dismissed separately",
+         "at": 74,
+         "note": "being dismissed means the letters are removed, and separately means they are taken out one by one, not as a block"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gordon",
+         "at": 58
+        },
+        {
+         "words": "Blessed",
+         "at": 66,
+         "gives": "GOD",
+         "note": "the Blessed one is God"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A studio finally scraps Flash Gordon, and the actor Brian Blessed is sacked too.",
-     "walkthrough": "'Blessed being' is GOD, whose G, O and D are removed separately from GORDON to leave RON. Brian Blessed starred in the film Flash Gordon.",
-     "definitionFit": "Deafening silence pairs contradictory terms, which is an example of an oxymoron."
+     "surface": "A film studio sacks the star of Flash Gordon and the actor Brian Blessed in turn.",
+     "walkthrough": "Brian Blessed played Prince Vultan in the 1980 Flash Gordon film, but here Flash is MO and Blessed is GOD; take G, O and D one at a time from GORDON to leave RON.",
+     "definitionFit": "An oxymoron joins contradictory terms, and 'deafening silence' is a classic example of the figure of speech."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Blessed"
     }
@@ -1836,41 +1849,45 @@
      "indicators": [
       {
        "text": "bypassing",
-       "note": "a bypass goes round the outside, so the connector word wraps the other letters"
+       "at": 20,
+       "note": "to bypass is to go round, so the connector goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "connector",
-         "gives": "AND",
-         "note": "and is a connecting word, a conjunction"
-        },
-        {
-         "words": "singular",
-         "gives": "S",
-         "note": "S is the abbreviation for singular"
-        }
-       ]
+       "words": "connector",
+       "at": 9,
+       "gives": "AND",
+       "note": "and is a connecting word, a conjunction"
       },
       {
-       "words": "engineer",
-       "gives": "CE",
-       "note": "CE is a civil engineer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "singular",
+         "at": 30,
+         "gives": "S",
+         "note": "S is the grammatical abbreviation for singular"
+        },
+        {
+         "words": "engineer",
+         "at": 39,
+         "gives": "CE",
+         "note": "CE is a civil engineer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Removing a connector while working around a unique engineer.",
-     "walkthrough": "'Take off' looks like removing something; it is the definition, as an aircraft takes off.",
-     "definitionFit": "When a plane takes off it rises into the air, which is to ascend."
+     "surface": "Instructions to remove a connector by working round a single engineer.",
+     "walkthrough": "'Take off' looks like an order to remove something, but it is the definition, as an aircraft takes off.",
+     "definitionFit": "When an aircraft takes off it rises into the air, so it ascends."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "off"
+     "misdirectedWord": "Take"
     }
    }
   }

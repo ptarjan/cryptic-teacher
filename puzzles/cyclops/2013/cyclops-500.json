@@ -292,41 +292,40 @@
     "definitions": [
      {
       "text": "Bill's back from holiday venue",
-      "at": 0,
-      "note": "the whole clue loosely names the politician as wordplay only"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MAJOR",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "back",
-       "note": "going back means running the other way, so the bill's letters are read right to left"
+       "text": "from",
+       "at": 12,
+       "note": "from means the reversed bill letters are taken away from the holiday island"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MAJOR",
+       "words": "holiday venue",
+       "at": 17,
+       "gives": "MAJORCA",
+       "note": "Majorca is a Spanish island popular with British holidaymakers"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "from",
-         "note": "taking something from a place removes it, so those letters come out of the holiday spot"
+         "text": "back",
+         "at": 7,
+         "note": "back means the bill letters are read in reverse order"
         }
        ],
        "parts": [
         {
-         "words": "Bill's",
+         "words": "Bill",
+         "at": 0,
          "gives": "AC",
-         "note": "a bill is an account, AC for short"
-        },
-        {
-         "words": "holiday venue",
-         "gives": "MAJORCA",
-         "note": "Majorca is a Spanish island popular for British package holidays"
+         "note": "AC, short for account, is a bill"
         }
        ]
       }
@@ -334,14 +333,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone called Bill has just come home from holiday.",
-     "walkthrough": "John Major, Conservative Prime Minister in the 1990s, is one of the themed names, given only the wordplay as definition.",
-     "definitionFit": "John Major, the former British Prime Minister, is a themed name the setter defines only through this wordplay."
+     "surface": "Someone's bill has just come back from a holiday resort.",
+     "walkthrough": "The puzzle is a hall of infamy of politicians caught in affairs, and this clue gives only wordplay: the theme supplies the meaning, John Major, whose own affair surfaced years after Clinton's.",
+     "definitionFit": "John Major is the former British prime minister whose affair with Edwina Currie made him a figure like Bill Clinton."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Bill's"
+     "aptDefinition": true,
+     "misdirectedWord": "Bill"
     }
    }
   },
@@ -726,70 +725,75 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 45,
+       "note": "in means the broken-up letters and the Left letter go inside the Southern and America pair"
+      }
+     ],
      "parts": [
       {
-       "words": "Southern",
-       "gives": "S",
-       "note": "S is the abbreviation for southern"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Southern",
+         "at": 48,
+         "gives": "S"
+        },
+        {
+         "words": "America",
+         "at": 57,
+         "gives": "US",
+         "note": "US is the United States of America"
+        }
+       ]
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "half breaking",
-         "note": "each half of the pair breaks into the next word, splitting it, so one of its letters sits on each side"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "container",
          "indicators": [
           {
-           "text": "in",
-           "note": "being in a region means sitting inside its borders, so everything before goes between the outer letters"
+           "text": "half breaking",
+           "at": 28,
+           "note": "half breaking means the Right letter breaks the up word in half, sitting between its two letters"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "up",
-             "note": "taken as written"
-            },
-            {
-             "words": "America",
-             "gives": "US",
-             "note": "the United States"
-            }
-           ]
+           "words": "up",
+           "at": 42,
+           "gives": "UP",
+           "note": "the word up, which is broken in two"
           },
           {
-           "words": "Left",
-           "gives": "L",
-           "note": "L is the abbreviation for left"
+           "words": "Right",
+           "at": 13,
+           "gives": "R"
           }
          ]
         },
         {
-         "words": "Right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "words": "Left",
+         "at": 23,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political note about what is left of the right and left wings falling apart in the American South.",
-     "walkthrough": "R and L each take one half of the word up: U then R, P then L. All that sits between S and US.",
-     "definitionFit": "A surplus is an amount left over after needs are met, so it is a remainder."
+     "surface": "What is left over after the political right and left break apart in the American South.",
+     "walkthrough": "The blog reads it the same way: the Right letter breaks the up word at its halfway point, the Left letter follows, and that sits inside the Southern and America letters.",
+     "definitionFit": "A surplus is an amount left over beyond what is needed, a remainder."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Southern"
+     "misdirectedWord": "Left"
     }
    }
   },

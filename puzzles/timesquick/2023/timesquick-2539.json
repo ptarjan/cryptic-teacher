@@ -674,44 +674,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STREAKY",
      "indicators": [
       {
        "text": "in",
-       "note": "the reworked letters go inside the following word"
+       "at": 15,
+       "note": "in means the broken rake letters go inside the pigpen word"
       }
      ],
      "parts": [
+      {
+       "words": "pigpen",
+       "at": 18,
+       "gives": "STY",
+       "note": "a sty is a pen where pigs are kept"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "is broken",
-         "note": "something broken is smashed apart and its letters can be reassembled in a new order"
+         "at": 5,
+         "note": "is broken means the letters of rake are smashed up and put back in another order"
         }
        ],
        "parts": [
         {
          "words": "Rake",
-         "note": "the four letters reordered"
-        },
-        {
-         "words": "pigpen",
-         "gives": "STY",
-         "note": "a sty is an enclosure for pigs"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farm tool lies broken in the pig enclosure, appropriately near future bacon.",
-     "definitionFit": "Streaky bacon is cut from the belly and has visible stripes of fat and lean meat."
+     "surface": "A garden rake lies broken in a pig enclosure, which fits a clue about bacon.",
+     "walkthrough": "The pigs in the surface lead naturally to bacon; streaky bacon has bands of fat running through it.",
+     "definitionFit": "Streaky bacon, cut from the belly, has alternating streaks of fat and lean meat."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Rake"
     }
    }

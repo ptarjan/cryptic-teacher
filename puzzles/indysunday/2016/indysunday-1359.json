@@ -846,41 +846,50 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HARRYENFIELD",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in",
-       "note": "one element placed in another goes inside its letters"
+       "text": "after",
+       "at": 42,
+       "note": "after places the consequence piece behind the bother word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "bother",
+       "at": 48,
+       "gives": "HARRY",
+       "note": "to harry someone is to bother or harass them"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "in means the reformed letters sit within the consequence word"
+        }
+       ],
        "parts": [
         {
-         "words": "bother",
-         "gives": "HARRY",
-         "note": "to harry is to harass or pester"
+         "words": "consequence",
+         "at": 30,
+         "gives": "END",
+         "note": "an end is an outcome or consequence"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "reformed",
-           "note": "something reformed has been made over into a new shape, so its letters are rearranged"
+           "at": 18,
+           "note": "reformed means formed again in a new shape, so the letters of life are rearranged"
           }
          ],
          "parts": [
           {
            "words": "life",
-           "note": "the word rearranged"
-          },
-          {
-           "words": "consequence",
-           "gives": "END",
-           "note": "an end can be a result or outcome"
+           "at": 13
           }
          ]
         }
@@ -889,14 +898,14 @@
      ]
     },
     "explanation": {
-     "surface": "A comic changes his ways after getting into trouble.",
-     "walkthrough": "'After' puts the trouble word first. Harry Enfield is a British comedian known for TV sketch shows.",
-     "definitionFit": "He is a well-known English comic performer, so he is an instance of the general term for a funny entertainer."
+     "surface": "A comedian has had his life turned around as a result of some trouble.",
+     "walkthrough": "'has' only links the bother word to the rest; 'reformed' applies to life alone. Harry Enfield is a British comic actor known for sketch shows.",
+     "definitionFit": "Harry Enfield is an English comedian famous for television characters such as Loadsamoney and Kevin the Teenager."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bother"
+     "misdirectedWord": "reformed"
     }
    }
   },
@@ -1200,34 +1209,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MALICE",
-     "indicators": [
-      {
-       "text": "lacking heart",
-       "note": "without its heart the word loses its central letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "country",
+       "at": 18,
        "gives": "MALI",
-       "note": "the West African country"
+       "note": "Mali is a country in West Africa"
       },
       {
-       "words": "clique",
-       "note": "taken as written before trimming"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "lacking heart",
+         "at": 33,
+         "note": "lacking its heart means the middle letters of clique go, leaving only its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clique",
+         "at": 26,
+         "note": "the first and last letters of clique"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heartless national faction displays hostility.",
-     "definitionFit": "Ill-will is the wish to harm others, which is exactly what malice is."
+     "surface": "Resentment is displayed in a nation's ruling clique, which is short on compassion.",
+     "walkthrough": "'heart' here is the whole middle of the word, not just one letter: only the outer C and E survive.",
+     "definitionFit": "Malice is the wish to do harm to others, a spiteful hostility."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
     }
    }
   },

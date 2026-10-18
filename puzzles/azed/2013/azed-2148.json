@@ -239,41 +239,42 @@
      "indicators": [
       {
        "text": "going into",
-       "note": "the kept letters go into the other word, sitting inside it"
+       "at": 27,
+       "note": "going into means the half of deal is placed inside the process word"
       }
      ],
      "parts": [
       {
        "words": "process",
+       "at": 38,
        "gives": "TRAIN",
-       "note": "a train is a sequence of events, a process"
+       "note": "a train is a process or sequence of events, as in a train of thought"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "DE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "50% of",
-         "note": "half of a four-letter word means keeping just its opening pair"
+         "at": 15,
+         "note": "50% of the word means only half its letters are kept, the first two"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "deal",
-         "gives": "DE",
-         "select": "first",
-         "note": "the first half of the word"
+         "at": 22
+        },
+        {
+         "gives": "AL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half a car deal gets swallowed up by the bureaucratic process.",
-     "walkthrough": "TRA(DE)IN. A trade-in is the old item handed over as part payment.",
-     "definitionFit": "Part-exchange is the British term for handing in an old item as partial payment, which Americans call a trade-in."
+     "surface": "A car dealer's note on swapping an old vehicle for half the price as part of the sale process.",
+     "walkthrough": "'process' is the noun sense of a train, a series of steps, as in a train of events.",
+     "definitionFit": "A trade-in is an old item handed over as part payment for a new one, which is part-exchange."
     },
     "features": {
      "answerInScene": true,
@@ -768,47 +769,52 @@
      "indicators": [
       {
        "text": "lining",
-       "note": "a lining sits within something, so these letters go inside the name"
+       "at": 49,
+       "note": "lining means the reversed pair sits inside the girl's name like a jacket's lining"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "girl",
+       "at": 23,
+       "gives": "ZOE",
+       "note": "Zoe is a girl's name"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from rear",
+         "at": 56,
+         "note": "read from the rear means the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "girl",
-         "gives": "ZOE",
-         "note": "a girl's name"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "from rear",
-           "note": "read from the rear means read from its end back to its start"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "see",
+           "at": 40,
+           "gives": "V",
+           "note": "V is short for vide, Latin for see"
+          },
+          {
            "words": "gold",
+           "at": 44,
            "gives": "AU",
            "note": "Au is the chemical symbol for gold"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "see",
-       "gives": "V",
-       "note": "v is the abbreviation for vide, Latin for see"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl shows off her embroidered jacket, with gold thread lining visible at the back.",
-     "walkthrough": "ZO(UAV)E. 'Her' marks this as a woman's garment.",
-     "definitionFit": "A zouave is a short, open, often embroidered jacket for women, modelled on the uniform of French Algerian infantry."
+     "surface": "A girl shows off her embroidered jacket with a gold lining seen from behind.",
+     "walkthrough": "'gold lining' looks like part of the jacket, but 'lining' is the insertion signal, and 'from rear' turns the see and gold letters round before they go in.",
+     "definitionFit": "A zouave is a short open-fronted women's jacket, often embroidered, modelled on French Algerian soldiers' uniform."
     },
     "features": {
      "answerInScene": true,
@@ -1359,6 +1365,7 @@
      "parts": [
       {
        "words": "form of dismissal",
+       "at": 19,
        "gives": "RO",
        "note": "RO, run out, is a way a batsman is dismissed in cricket"
       },
@@ -1367,25 +1374,26 @@
        "indicators": [
         {
          "text": "changing",
-         "note": "letters changing swap places"
+         "at": 37,
+         "note": "changing means the letters of a test are rearranged"
         }
        ],
        "parts": [
         {
          "words": "a test",
-         "note": "taken as written, to be jumbled"
+         "at": 46
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket picture: a spin bowler, a dismissal and a Test match.",
-     "walkthrough": "In cricket a spinner is a slow bowler and run out is a dismissal, but the definition is literal: a spinning thing turns round.",
-     "definitionFit": "Anything that spins turns round on an axis, which is what the verb in the answer means."
+     "surface": "A cricket commentator explains what a spin bowler does to get a batsman out.",
+     "walkthrough": "'spinner' suggests the cricket bowler, but the definition is literal: a spinning thing rotates. Run out is a cricket dismissal.",
+     "definitionFit": "Anything that spins turns round on an axis, which is exactly what rotating means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "spinner"
