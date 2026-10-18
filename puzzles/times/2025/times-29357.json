@@ -472,24 +472,22 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
      "indicators": [
       {
        "text": "Working",
-       "note": "the remaining letters are set to work in a new order"
-      },
-      {
-       "text": "initially",
-       "note": "take only the first letter of 'is'"
+       "at": 0,
+       "note": "working here means being worked over, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "interminably",
-         "note": "without its end: the last letter goes"
+         "text": "bar",
+         "at": 29,
+         "note": "bar means except, so the letter that follows is excluded"
         }
        ],
        "parts": [
@@ -497,34 +495,47 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "bar",
-           "note": "leave out, as in 'all bar one'"
+           "text": "interminably",
+           "at": 8,
+           "note": "interminably means without end, so the word loses its final letter"
           }
          ],
          "parts": [
           {
-           "words": "interminably tedious",
-           "gives": "TEDIOU",
-           "note": "TEDIOUS without its last letter"
+           "words": "tedious",
+           "at": 21,
+           "note": "taken as written, then trimmed"
           },
           {
-           "gives": "I"
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 36,
+           "note": "initially points to the first letter of the word is"
+          }
+         ],
+         "parts": [
+          {
+           "words": "is",
+           "at": 33,
+           "note": "its first letter"
           }
          ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "bar is initially",
-       "note": "remove I, the first letter of 'is', leaving TEDOU"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull bar job, and the worker gets publicly exposed.",
-     "walkthrough": "Two cuts come before the shuffle: the end of 'tedious', then its I.",
-     "definitionFit": "To be outed is to have something private, usually one's sexuality, revealed against one's wishes."
+     "surface": "A dull pub at work is suddenly thrust into the spotlight.",
+     "walkthrough": "'interminably' cuts TEDIOUS to TEDIOU, and 'bar is initially' takes out its I, leaving TEDOU for 'Working' to rearrange.",
+     "definitionFit": "To be outed is to have something private, such as sexuality, revealed publicly against one's wishes."
     },
     "features": {
      "answerInScene": false,

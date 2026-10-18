@@ -565,12 +565,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXCESSBAGGAGE",
      "indicators": [
       {
        "text": "included",
-       "note": "something included is set inside, so the airline's initials go into the middle"
+       "at": 62,
+       "note": "something included is set inside, so the airline's initials go into the middle of the assembled letters"
       }
      ],
      "parts": [
@@ -579,46 +578,52 @@
        "indicators": [
         {
          "text": "after",
+         "at": 34,
          "note": "after says the piece for day is placed second, behind the piece for going"
         }
        ],
        "parts": [
         {
          "words": "rest",
+         "at": 25,
          "gives": "EXCESS",
          "note": "the rest, what remains over, is the excess"
-        },
-        {
-         "words": "BA",
-         "note": "British Airways"
         },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "on vacation",
+           "at": 46,
            "note": "a vacated house is emptied, so going keeps only its outside letters"
           }
          ],
          "parts": [
           {
            "words": "going",
+           "at": 40,
            "note": "the word emptied of its interior"
           }
          ]
         },
         {
          "words": "day",
+         "at": 30,
          "gives": "AGE",
-         "note": "'in my day' – a day is an era or age"
+         "note": "'in my day': a day is an era or age"
         }
        ]
+      },
+      {
+       "words": "BA",
+       "at": 59,
+       "note": "British Airways, taken as written"
       }
      ]
     },
     "explanation": {
      "surface": "A traveller resting a day after a holiday flight with British Airways.",
-     "walkthrough": "'rest' here is the noun for what is left over, not a break; 'day' as in 'in my day' means an era. BA is the airline British Airways.",
+     "walkthrough": "'rest' here is the noun for what is left over, not a break; 'day' as in 'in my day' means an era. BA is British Airways, which fits the airline surface.",
      "definitionFit": "Airlines levy a fee for luggage over the free weight allowance, which is excess baggage."
     },
     "features": {
@@ -752,47 +757,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PATCHOULI",
      "indicators": [
       {
        "text": "must be cooked",
+       "at": 27,
        "note": "cooking transforms ingredients, so the remaining letters are mixed into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PATCHOULI",
        "indicators": [
         {
          "text": "discounted",
-         "note": "a discounted item has had a portion taken off it"
+         "at": 5,
+         "note": "a discounted item has had a portion taken off it, so letters come out of the sausages"
         }
        ],
        "parts": [
         {
-         "words": "When",
-         "gives": "AS",
-         "note": "as and when both mean at the time that"
-        },
-        {
          "words": "chipolatas",
+         "at": 16,
          "note": "small sausages, taken as written"
         },
         {
-         "words": "posh",
-         "gives": "U",
-         "note": "U means upper-class"
+         "words": "When",
+         "at": 0,
+         "gives": "AS",
+         "note": "as and when both mean at the time that"
         }
        ]
+      },
+      {
+       "words": "posh",
+       "at": 47,
+       "gives": "U",
+       "note": "U means upper-class, as in U and non-U"
       }
      ]
     },
     "explanation": {
      "surface": "Kitchen talk: cut-price sausages need frying in fancy oil.",
-     "walkthrough": "Remove AS from CHIPOLATAS, leaving CHIPOLAT, then shuffle it together with U. A chipolata is a thin British sausage.",
+     "walkthrough": "'When' is not a time word here but AS, which is 'discounted' from CHIPOLATAS to leave CHIPOLAT; that and U 'must be cooked'. A chipolata is a thin British sausage.",
      "definitionFit": "Patchouli is an aromatic essential oil from an Asian plant, used in perfumes."
     },
     "features": {
@@ -1418,33 +1424,33 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "DRENCH",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "cycling means rotating, so the first letter of flatter's synonym moves to the end"
+       "text": "is wanting",
+       "at": 23,
+       "note": "wanting means lacking, so the cycled letters are taken out of the name"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DRENCH",
+       "words": "Dawn French",
+       "at": 11,
+       "note": "the British comedian, taken as written"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "is wanting",
-         "note": "wanting means lacking, so those letters are taken out of the name"
+         "text": "cycling",
+         "at": 42,
+         "note": "cycling means rotating, so the first letter of the synonym moves to the end"
         }
        ],
        "parts": [
         {
-         "words": "Dawn French",
-         "note": "the British comedian, taken as written"
-        },
-        {
          "words": "flatter",
+         "at": 34,
          "gives": "FAWN",
          "note": "to fawn is to flatter obsequiously"
         }
@@ -1454,7 +1460,7 @@
     },
     "explanation": {
      "surface": "Dawn French, the comedian, looks for a less hilly bike ride.",
-     "walkthrough": "Dawn French is a British comic actress; 'cycling' is not about bikes but rotates the letters of the synonym before they are removed from her name.",
+     "walkthrough": "Dawn French is a British comic actress. 'cycling' is not about bikes: it turns FAWN into AWNF, whose letters 'is wanting' removes from DAWNFRENCH.",
      "definitionFit": "To steep something is to soak it in liquid, which is to drench it."
     },
     "features": {
@@ -1635,51 +1641,85 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SAMARITAN",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "to embody",
-       "note": "to embody is to take something into a body, so one word holds the other"
+       "text": "making every",
+       "at": 23,
+       "note": "making every one of a letter into another means each instance is replaced"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "SAMARITAN",
+       "parts": [
+        {
+         "op": "substitution",
+         "parts": [
+          {
+           "op": "container",
+           "indicators": [
+            {
+             "text": "to embody",
+             "at": 5,
+             "note": "to embody is to take something into a body, so one word holds the other"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Seen",
+             "at": 0,
+             "note": "taken as written"
+            },
+            {
+             "words": "merit",
+             "at": 15,
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "gives": "E"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "making every scheme ultimately a",
-         "note": "every instance of the last letter of scheme is to be turned into a different letter"
+         "text": "ultimately",
+         "at": 43,
+         "note": "ultimately points to the last letter of scheme"
         }
        ],
        "parts": [
         {
-         "words": "Seen",
-         "note": "taken as written"
-        },
-        {
-         "words": "merit",
-         "note": "taken as written"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "scheme",
-           "note": "its last letter"
-          }
-         ]
+         "words": "scheme",
+         "at": 36,
+         "note": "its last letter"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 54
       }
      ]
     },
     "explanation": {
      "surface": "Being visibly deserving makes every plan, in the end, a good deed.",
-     "walkthrough": "SE(MERIT)EN has four Es; turning every one into A gives SA(MARIT)AN.",
+     "walkthrough": "SEEN 'to embody' MERIT gives SEMERITEN, which has three Es; 'making every' one of them (the end of 'scheme') an A gives the answer.",
      "definitionFit": "From the parable of the Good Samaritan, a samaritan is a kindly person who helps others."
     },
     "features": {

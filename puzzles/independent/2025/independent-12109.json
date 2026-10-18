@@ -133,50 +133,57 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ENNOBLE",
      "indicators": [
       {
        "text": "in retirement",
+       "at": 50,
        "note": "retiring means withdrawing or going back, so everything assembled is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENNOBLE",
-       "indicators": [
-        {
-         "text": "discovered",
-         "note": "dis-covered means stripped of its covering, so the outside letters are taken away"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "in principle",
+           "at": 6,
            "note": "a pun on principal: the principal or leading letter of the next word is wanted"
           }
          ],
          "parts": [
           {
            "words": "Ezra",
+           "at": 23,
            "note": "the first letter of the poet's first name"
           }
          ]
         },
         {
          "words": "Pound",
+         "at": 28,
          "gives": "LB",
          "note": "lb is the abbreviation for a pound in weight"
         },
         {
-         "words": "poem",
-         "gives": "SONNET",
-         "note": "a sonnet is a fourteen-line poem"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "discovered",
+           "at": 39,
+           "note": "dis-covered means stripped of its covering, so the poem loses its outside letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "poem",
+           "at": 34,
+           "gives": "SONNET",
+           "note": "a sonnet is a fourteen-line poem"
+          }
+         ]
         }
        ]
       }
@@ -184,7 +191,7 @@
     },
     "explanation": {
      "surface": "A literary prize given, in theory, for a poem by Ezra Pound that turned up after he retired.",
-     "walkthrough": "'Ezra Pound' looks like one name but splits into two jobs: the poet's initial and the weight abbreviation. 'Award' is a verb here, to honour with a title.",
+     "walkthrough": "'Ezra Pound' looks like one name but splits into two jobs: the poet's initial and the weight abbreviation. 'discovered' strips SONNET to ONNE, and 'in retirement' turns ELBONNE round. 'Award' is a verb here, to honour with a title.",
      "definitionFit": "To ennoble someone is to confer a title of nobility upon them, an honour bestowed as a reward."
     },
     "features": {
@@ -479,42 +486,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "OPENERS",
-     "indicators": [
-      {
-       "text": "covering",
-       "note": "covering for someone means standing in for them, so one piece takes the place of another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "six balls",
-       "gives": "OVER",
-       "note": "in cricket an over is six deliveries from one bowler"
-      },
-      {
-       "words": "five",
-       "gives": "V",
-       "note": "V is the Roman numeral for five"
-      },
-      {
-       "words": "Writer",
-       "gives": "PEN",
-       "note": "a pen is a writing instrument"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 7,
+         "note": "covering for someone means standing in for them, so the writer takes the place of the numeral"
+        }
+       ],
+       "parts": [
+        {
+         "words": "six balls",
+         "at": 28,
+         "gives": "OVER",
+         "note": "in cricket an over is six deliveries from one bowler"
+        },
+        {
+         "words": "five",
+         "at": 16,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        },
+        {
+         "words": "Writer",
+         "at": 0,
+         "gives": "PEN",
+         "note": "a pen is a writing instrument"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately points to the final letter of the word just before it"
+         "at": 38,
+         "note": "ultimately points to the final letter of the word that follows it"
         }
        ],
        "parts": [
         {
          "words": "annoys",
+         "at": 49,
          "note": "its last letter"
         }
        ]
@@ -523,7 +539,7 @@
     },
     "explanation": {
      "surface": "A cricket writer complains that the last ball of the over irritates the batsmen.",
-     "walkthrough": "PEN replaces V in OVER to give OPENER. Openers are the two batsmen who start a cricket innings.",
+     "walkthrough": "PEN replaces V in OVER to give OPENER, and the S from the end of 'annoys' makes it plural. Openers are the two batsmen who start a cricket innings.",
      "definitionFit": "The opening pair go in first to bat, so they are a particular kind of cricket player."
     },
     "features": {
@@ -747,41 +763,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BODYSNATCHERS",
      "indicators": [
       {
        "text": "in reconstruction",
-       "note": "reconstructing something builds it again in a different arrangement"
+       "at": 38,
+       "note": "reconstructing something builds it again, so the combined letters are put in a different arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BODYSNATCHERS",
+       "op": "middle",
        "indicators": [
         {
          "text": "barely",
-         "note": "laid bare, the word is stripped of its outer letters"
+         "at": 14,
+         "note": "laid bare, the word is stripped of its outer letters, leaving only its core"
         }
        ],
        "parts": [
         {
          "words": "shock",
+         "at": 21,
          "note": "taken as written, then stripped"
-        },
-        {
-         "words": "bystanders",
-         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "bystanders",
+       "at": 27,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
      "surface": "Onlookers are hardly troubled as cemetery thieves are reenacted.",
-     "walkthrough": "SHOCK without its first and last letters leaves HOC, which joins BYSTANDERS to be rearranged.",
+     "walkthrough": "'barely' takes the outer S and K off SHOCK, leaving HOC, which joins BYSTANDERS to be rearranged 'in reconstruction'.",
      "definitionFit": "Body snatchers dug up fresh corpses from graveyards to sell to anatomy schools, notoriously in nineteenth-century Britain."
     },
     "features": {
