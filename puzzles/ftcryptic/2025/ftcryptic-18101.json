@@ -995,45 +995,50 @@
      "indicators": [
       {
        "text": "to accommodate",
-       "note": "accommodating something means giving it room inside"
+       "at": 18,
+       "note": "the word for terminal makes room for the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "terminal",
-         "gives": "END",
-         "note": "a terminal point is an end"
-        },
-        {
-         "words": "fifty",
-         "gives": "L",
-         "note": "L is fifty in Roman numerals"
-        }
-       ]
+       "words": "terminal",
+       "at": 9,
+       "gives": "END",
+       "note": "a terminal point is an end"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "internally",
-         "note": "internally points to the inside of a word, keeping its middle letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "barges",
-         "note": "the inner letters"
+         "words": "fifty",
+         "at": 33,
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "internally",
+           "at": 46,
+           "note": "only the inside of the word is used, its outer letters lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "barges",
+           "at": 39
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dock terminal was enlarged to take fifty barges inside.",
-     "definitionFit": "Enlarged means made bigger, which is exactly what expanded means."
+     "surface": "A port terminal is extended so that fifty barges fit inside.",
+     "walkthrough": "Terminal looks like an airport or port building, but here it is simply an end.",
+     "definitionFit": "Enlarged means made bigger, increased in size."
     },
     "features": {
      "answerInScene": true,
@@ -1127,70 +1132,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "in successive quarters",
+       "at": 55,
+       "note": "each eight-letter word is split into four quarters and the first, second, third and fourth quarters are taken in turn"
+      }
+     ],
      "parts": [
       {
-       "op": "regular",
-       "unchecked": true,
-       "gives": "GA",
-       "indicators": [
-        {
-         "text": "in successive quarters",
-         "note": "each of the four eight-letter words gives up one quarter, moving on a quarter each time"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "gangland",
-         "gives": "GA",
-         "select": "regular",
-         "note": "the first quarter of the word"
-        }
-       ]
+       "words": "gangland murderer presents paranoia",
+       "at": 19
       },
       {
-       "op": "regular",
-       "unchecked": true,
-       "gives": "RD",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "murderer",
-         "gives": "RD",
-         "select": "regular",
-         "note": "the second quarter of the word"
-        }
-       ]
-      },
-      {
-       "op": "regular",
-       "parts": [
-        {
-         "words": "presents",
-         "note": "the third quarter of the word"
-        }
-       ]
-      },
-      {
-       "op": "regular",
-       "unchecked": true,
-       "gives": "IA",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "paranoia",
-         "gives": "IA",
-         "select": "regular",
-         "note": "the fourth quarter of the word"
-        }
-       ]
+       "gives": "NGLANDMUERERPRESTSPARANO"
       }
      ]
     },
     "explanation": {
-     "surface": "A crazier relative of a gang killer displays paranoia.",
-     "walkthrough": "'Madder' reads as crazier, but it is a plant family. Each word is eight letters, so a quarter is two letters, first from the first word, second from the second, and so on.",
+     "surface": "A crazier relative of a mob killer shows signs of paranoia at every turn.",
+     "walkthrough": "Madder is not 'crazier' but the madder plant. Each word has eight letters: take the first quarter of gangland, the second of murderer, the third of presents and the fourth of paranoia.",
      "definitionFit": "The gardenia belongs to the madder family of plants, Rubiaceae, so it is a botanical relative of madder."
     },
     "features": {

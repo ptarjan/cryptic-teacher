@@ -603,47 +603,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "NEGLIGIBLE",
-     "indicators": [
-      {
-       "text": "with a typo",
-       "note": "a typo is one wrongly struck letter, so one letter of the word is swapped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "note",
+       "at": 12,
+       "gives": "N"
+      },
+      {
+       "words": "for instance",
+       "at": 18,
+       "gives": "EG",
+       "note": "EG, exempli gratia, means for instance"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with a typo",
+         "at": 41,
+         "note": "a typing slip has changed one letter of the word for readable to another"
+        }
+       ],
        "parts": [
         {
-         "words": "note",
-         "gives": "N",
-         "note": "n = note"
+         "words": "readable",
+         "at": 32,
+         "gives": "LEGIBLE",
+         "note": "readable writing is legible"
         },
         {
-         "words": "for instance",
-         "gives": "EG",
-         "note": "e.g. = for instance"
+         "gives": "E"
         },
         {
-         "words": "readable with a typo",
-         "gives": "LIGIBLE",
-         "note": "readable = LEGIBLE, with its first E mistyped as I"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A throwaway remark that a scribbled memo is legible despite a slip of the keys.",
-     "walkthrough": "The typo is the key step: LEGIBLE needs one letter changed, and the crossing letters tell you which.",
-     "definitionFit": "A plain synonym: something negligible is too slight to be worth considering."
+     "surface": "A note that is perfectly readable apart from one misprint is hardly worth worrying about.",
+     "walkthrough": "The typo turns the first E of LEGIBLE into I, giving LIGIBLE.",
+     "definitionFit": "Something negligible is so small or trivial that it can be ignored."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "note"
+     "misdirectedWord": "typo"
     }
    }
   },
@@ -864,58 +871,49 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without ends means both the first and last letters are cut off"
-      }
-     ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "middle",
        "indicators": [
         {
-         "text": "flipping",
-         "note": "to flip something is to turn it over, so the word reads backwards"
+         "text": "endlessly",
+         "at": 30,
+         "note": "without its ends, so the first and last letters of the word go"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "writes music",
-           "gives": "SCORES",
-           "note": "scores = writes music"
-          },
-          {
-           "words": "endlessly",
-           "gives": "CORE",
-           "note": "SCORES without its ends"
-          }
-         ]
-        },
-        {
-         "gives": "SCORES"
+         "words": "writes music",
+         "at": 17,
+         "gives": "SCORES",
+         "note": "a composer scores a piece"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 41,
+         "note": "flipping turns the word for bad round to run backwards"
+        }
+       ],
        "parts": [
         {
          "words": "bad",
+         "at": 50,
          "gives": "ILL",
-         "note": "ill = bad"
+         "note": "ill means bad, as in ill will"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A composer's tireless output is dismissed as awful.",
-     "walkthrough": "'Flipping' looks like a mild British swear word qualifying 'bad', but it is the reversal instruction.",
-     "definitionFit": "A definition by example: Arcangelo Corelli was an Italian Baroque composer."
+     "surface": "An Italian composer writes music non-stop and things go badly wrong.",
+     "walkthrough": "Flipping applies only to the word for bad; the music word is simply trimmed at both ends.",
+     "definitionFit": "Arcangelo Corelli was a Baroque violinist and composer from Italy."
     },
     "features": {
      "answerInScene": true,
@@ -1002,35 +1000,38 @@
      "indicators": [
       {
        "text": "covered in",
-       "note": "something covered in a coating is wrapped by it, so the letters sit inside the butter"
+       "at": 28,
+       "note": "the butter wraps around the other letters, so they are covered in it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "butter",
-         "gives": "GHI",
-         "note": "ghi (ghee) is clarified butter"
-        },
-        {
-         "words": "no",
-         "note": "taken as written"
-        }
-       ]
+       "words": "butter",
+       "at": 39,
+       "gives": "GHI",
+       "note": "ghi, also spelt ghee, is the clarified butter of Indian cooking"
       },
       {
-       "words": "small volume",
-       "gives": "CC",
-       "note": "cc = cubic centimetre, a small volume"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no",
+         "at": 12,
+         "gives": "NO"
+        },
+        {
+         "words": "small volume",
+         "at": 15,
+         "gives": "CC",
+         "note": "CC, cubic centimetres, is a small measure of volume"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dieter orders dumplings but wants them without too much butter.",
-     "walkthrough": "The dash makes the surface a menu instruction; GHI is a recognised spelling of ghee.",
-     "definitionFit": "A definition by class: gnocchi are small Italian dumplings of potato or semolina."
+     "surface": "A cook insists the dumplings should be smothered in butter, and not just a little.",
+     "definitionFit": "Gnocchi are small Italian dumplings made from potato, semolina or flour."
     },
     "features": {
      "answerInScene": true,
@@ -1383,55 +1384,54 @@
      "indicators": [
       {
        "text": "after",
-       "note": "'I love after' the initials means those two letters come later in the answer than the initials"
+       "at": 28,
+       "note": "I and love come after the opening letters in the answer"
       }
      ],
      "parts": [
       {
        "words": "fish",
+       "at": 16,
        "gives": "CARP",
-       "note": "carp = fish"
+       "note": "the carp is a freshwater fish"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ACC",
        "indicators": [
         {
          "text": "starters of",
-         "note": "the starters of words are their opening letters"
+         "at": 34,
+         "note": "the opening letters of each of the following words are the starters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starters of artisanal cold cuts",
-         "gives": "ACC",
-         "select": "first",
-         "note": "first letters of Artisanal Cold Cuts"
+         "words": "artisanal cold cuts",
+         "at": 46
         }
        ]
       },
       {
        "words": "I",
-       "note": "taken as written"
+       "at": 21
       },
       {
        "words": "love",
+       "at": 23,
        "gives": "O",
-       "note": "love = zero in tennis, O"
+       "note": "love is zero in tennis, and zero is O"
       }
      ]
     },
     "explanation": {
-     "surface": "A diner praises a starter of fish alongside a platter of craft charcuterie.",
-     "walkthrough": "The cold cuts belong to the wordplay but also hint at the answer, which is thinly sliced raw meat or fish.",
-     "definitionFit": "A definition by class: carpaccio is a starter of thinly sliced raw beef or fish."
+     "surface": "Someone loves a starter of fish after some craft-made cold meats.",
+     "walkthrough": "CARP, then ACC from the first letters of artisanal cold cuts, then I and O.",
+     "definitionFit": "Carpaccio is a starter of very thinly sliced raw meat or fish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "starters"
+     "misdirectedWord": "fish"
     }
    }
   },
@@ -1457,55 +1457,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "West end of",
-       "note": "on a map west is the left, and the left end of a word is its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "H",
        "indicators": [
         {
-         "text": "not all of",
-         "note": "not all of a word means it is cut short, losing its last letter"
+         "text": "West end of",
+         "at": 0,
+         "note": "in an across answer the west end of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "West end of Hispaniola",
-         "gives": "H",
-         "select": "first",
-         "note": "the left-hand, western, letter of HISPANIOLA"
+         "words": "Hispaniola",
+         "at": 12
         }
        ]
       },
       {
        "words": "island",
+       "at": 23,
        "gives": "AIT",
-       "note": "an ait is a small river island"
+       "note": "an ait is a small island in a river, especially the Thames"
       },
       {
-       "words": "not all of it",
-       "gives": "I",
-       "note": "IT cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not all of",
+         "at": 32,
+         "note": "only part of the word is used, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 43
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A geography question about how the Caribbean island is divided.",
-     "walkthrough": "The whole clue is also the definition: Haiti occupies the western part of Hispaniola, not the entire island.",
-     "definitionFit": "The whole clue reads straight: Haiti takes up the western third of Hispaniola, sharing it with the Dominican Republic."
+     "surface": "A question about the country that takes up the western part of Hispaniola, which is not the whole island.",
+     "walkthrough": "H, then AIT, then IT cut short to I. Read whole, the clue also describes the country.",
+     "definitionFit": "Haiti is the nation occupying the western third of the Caribbean island of Hispaniola."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "West"
+     "misdirectedWord": "island"
     }
    }
   },

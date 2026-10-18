@@ -267,8 +267,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a fasting period",
-      "at": 34
+      "text": "fasting period",
+      "at": 36
      }
     ],
     "wordplay": {
@@ -276,46 +276,49 @@
      "indicators": [
       {
        "text": "to gobble",
-       "note": "to gobble is to swallow greedily, so the first word takes the next ones inside it"
+       "at": 8,
+       "note": "the word for hurried swallows the next letters, which go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Hurried",
+       "at": 0,
+       "gives": "RAN",
+       "note": "ran means hurried"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "before",
-         "note": "before means ahead of, so the word it follows comes first"
+         "at": 27,
+         "note": "the word for crackers comes before a"
         }
        ],
        "parts": [
         {
-         "words": "Hurried",
-         "gives": "RAN",
-         "note": "ran = hurried; it holds the rest"
+         "words": "crackers",
+         "at": 18,
+         "gives": "MAD",
+         "note": "crackers means mad, crazy"
         },
         {
-         "words": "crackers",
-         "gives": "MAD",
-         "note": "crackers = mad, crazy"
+         "words": "a",
+         "at": 34,
+         "gives": "A"
         }
        ]
-      },
-      {
-       "words": "a",
-       "note": "used as printed; it follows MAD inside the outer word"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rushes to wolf down biscuits before a fast begins.",
-     "walkthrough": "'Crackers' is the biscuit in the surface and the adjective in the wordplay. The 'a' does double duty, as a letter and as the start of the definition.",
-     "definitionFit": "Ramadan is the Muslim month of fasting from dawn to dusk, so the definition describes it by kind."
+     "surface": "Someone rushed to scoff some crackers before a period of fasting began.",
+     "definitionFit": "Ramadan is the Islamic month in which Muslims fast from dawn to sunset."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "crackers"
     }
    }
@@ -394,28 +397,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MUDFLAP",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Rev. William Spooner was famous for swapping the first sounds of two words, so his version of a phrase does the same"
+       "at": 0,
+       "note": "Dr Spooner's version swaps the opening sounds of the two words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "tide guide",
-       "gives": "MUDFLAP",
-       "soundsLike": "FLOOD MAP",
-       "note": "a flood map charts where the tide will reach; swap its opening sounds FL and M"
+       "op": "homophone",
+       "spelt": "FLUD",
+       "parts": [
+        {
+         "words": "tide",
+         "at": 10,
+         "gives": "FLOOD",
+         "note": "a flood is a rising tide, and the word sounds as if spelt with a U"
+        }
+       ]
+      },
+      {
+       "words": "guide",
+       "at": 15,
+       "gives": "MAP",
+       "note": "a map is a guide"
       }
      ]
     },
     "explanation": {
-     "surface": "A chart of the tides, as mangled by Reverend Spooner.",
-     "walkthrough": "FLOOD MAP swaps to MUD FLAP. 'Estate' is an estate car, the British name for a station wagon, not land; the flap stops dirt being thrown up onto it.",
-     "definitionFit": "A mudflap hangs behind a wheel and cuts down the mud sprayed onto the car, the deposits on the estate."
+     "surface": "A chart of high tides might also help keep a country estate free of muddy deposits.",
+     "walkthrough": "FLOOD MAP with FL and M swapped sounds like MUD FLAP. An estate here is an estate car, a station wagon.",
+     "definitionFit": "A mudflap hangs behind a vehicle's wheel to stop dirt being sprayed onto the bodywork."
     },
     "features": {
      "answerInScene": false,
@@ -1816,52 +1829,56 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the first word goes round the rest"
+       "at": 8,
+       "note": "the word for cheered goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "from the right",
-         "note": "read from the right means read backwards, as English runs left to right"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Cheered",
-         "gives": "CONSOLED",
-         "note": "to console is to cheer someone up; it goes round the rest"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "one = I"
-        }
-       ]
+       "words": "Cheered",
+       "at": 0,
+       "gives": "CONSOLED",
+       "note": "consoled means comforted, cheered"
       },
       {
-       "op": "reversal",
+       "op": "charade",
        "parts": [
         {
-         "words": "touch",
-         "gives": "TAD",
-         "note": "a tad = a touch, a small amount"
+         "words": "one",
+         "at": 14,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "from the right",
+           "at": 24,
+           "note": "read from the right, the word runs backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "touch",
+           "at": 18,
+           "gives": "TAD",
+           "note": "a tad is a touch, a small amount"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fans cheered a late winner for Manchester United.",
-     "walkthrough": "'United' looks like the football club; it is the definition, as merged or combined.",
-     "definitionFit": "A plain synonym: firms or forces merged into a single whole are united."
+     "surface": "A crowd felt better about a narrow win for a football club called United.",
+     "walkthrough": "United looks like a football club's name, but it is the definition, meaning joined together.",
+     "definitionFit": "Consolidated means combined or merged into a single whole."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "United"
     }
    }
@@ -2383,8 +2400,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Section",
-      "at": 0
+      "text": "Section's",
+      "at": 0,
+      "note": "the definition is Section; the 's stands for is, linking it to the wordplay"
      }
     ],
     "wordplay": {
@@ -2392,42 +2410,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means inside, so these letters go within the city"
+       "at": 26,
+       "note": "the second and district letters are placed in the city's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "French city",
-         "gives": "CAEN",
-         "note": "Caen, in Normandy; it holds the rest"
-        },
-        {
-         "words": "second",
-         "gives": "S",
-         "note": "s = second"
-        }
-       ]
+       "words": "French city",
+       "at": 29,
+       "gives": "CAEN",
+       "note": "Caen is a city in Normandy"
       },
       {
-       "words": "district",
-       "gives": "AREA",
-       "note": "an area = a district"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "at": 10,
+         "gives": "S"
+        },
+        {
+         "words": "district",
+         "at": 17,
+         "gives": "AREA",
+         "note": "an area is a district"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A section of a French city is its second district.",
-     "walkthrough": "'Section' looks like a part of a town; it is a caesarean section, the surgical birth.",
-     "definitionFit": "A caesarean section is the operation of delivering a baby through the abdomen, usually shortened to 'section' or 'caesarean'."
+     "surface": "Reads like a guide to the second district of a French city.",
+     "definitionFit": "A Caesarean section is a surgical delivery of a baby, often called simply a section."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Section"
+     "misdirectedWord": "Section's"
     }
    }
   },
@@ -2455,47 +2474,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "central to",
-       "note": "letters central to a word are its middle ones"
+       "text": "in",
+       "at": 26,
+       "note": "the central letters are placed in the word for tract"
       }
      ],
      "parts": [
       {
        "words": "tract",
+       "at": 29,
        "gives": "REGION",
-       "note": "a tract of land is a region; it holds the other letters"
+       "note": "a tract of land is a region"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "LI",
        "indicators": [
         {
-         "text": "in",
-         "note": "in means placed within, so those letters go inside the tract"
+         "text": "Letters central to",
+         "at": 0,
+         "note": "the letters at the centre of the word are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Letters central to belief",
-         "gives": "LI",
-         "select": "middle",
-         "note": "the middle two letters of BELIEF"
+         "words": "belief",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A religious tract shows the reader what lies at the heart of belief.",
-     "walkthrough": "'Tract' in a faith setting is a pamphlet; here it is a stretch of land.",
-     "definitionFit": "A plain synonym: a religion is a faith, such as Islam or Christianity."
+     "surface": "A religious pamphlet is full of words about belief.",
+     "walkthrough": "Tract tempts as a religious pamphlet, fitting the surface, but it means an expanse of land.",
+     "definitionFit": "A religion is a system of faith and worship, such as Christianity or Islam."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tract"
     }
    }
@@ -3115,41 +3131,49 @@
      "indicators": [
       {
        "text": "to protect",
-       "note": "to protect something is to surround it with a shield, so the goddess goes round the rest"
+       "at": 8,
+       "note": "the goddess's name wraps round the other letters to protect them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Goddess",
-         "gives": "ATE",
-         "note": "Ate, the Greek goddess of folly and ruin; she wraps the rest"
-        },
-        {
-         "words": "NEC",
-         "note": "used as printed; the National Exhibition Centre in Birmingham"
-        }
-       ]
+       "words": "Goddess",
+       "at": 0,
+       "gives": "ATE",
+       "note": "Ate is the Greek goddess of folly and ruin"
       },
       {
-       "words": "party",
-       "gives": "DO",
-       "note": "a do = a party"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "associated with",
+         "at": 25,
+         "note": "the party word is joined on next to the letters of NEC"
+        }
+       ],
+       "parts": [
+        {
+         "words": "NEC",
+         "at": 41
+        },
+        {
+         "words": "party",
+         "at": 19,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A story of a goddess guarding a party at a Birmingham exhibition hall.",
-     "walkthrough": "Ate is a crossword regular, the Greek goddess of mischief; she protects the rest by standing round it.",
-     "definitionFit": "An anecdote is a short, entertaining narrative about a real incident."
+     "surface": "A goddess guards a party held at the NEC, the big Birmingham exhibition centre, and there's a story in it.",
+     "definitionFit": "An anecdote is a short, entertaining account or story about a real incident."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "protect"
+     "misdirectedWord": "Goddess"
     }
    }
   },
@@ -3340,41 +3364,44 @@
      "indicators": [
       {
        "text": "entering",
-       "note": "to enter is to go into, so these pieces go inside the marshland"
+       "at": 17,
+       "note": "the editor and the yes go into the word for marshy land"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "marshy land",
-         "gives": "FEN",
-         "note": "a fen is low marshy land, as in the Fens of eastern England"
-        },
-        {
-         "words": "News boss",
-         "gives": "ED",
-         "note": "ed. = editor"
-        }
-       ]
+       "words": "marshy land",
+       "at": 26,
+       "gives": "FEN",
+       "note": "a fen is low marshy land"
       },
       {
-       "words": "indeed",
-       "gives": "AYE",
-       "note": "aye = yes, indeed"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "News boss",
+         "at": 0,
+         "gives": "ED",
+         "note": "ED, editor, is the boss of a newspaper"
+        },
+        {
+         "words": "indeed",
+         "at": 10,
+         "gives": "AYE",
+         "note": "aye means yes, indeed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An editor wading into the marshes spots a band of guerrillas.",
-     "walkthrough": "ED and AYE go into FEN. The question mark is there because the fighters are guerrillas rather than any Arab soldiers.",
-     "definitionFit": "Fedayeen are Arab guerrilla fighters, the name meaning those who sacrifice themselves."
+     "surface": "A newspaper editor ventures into a marsh and spots some Arab soldiers.",
+     "definitionFit": "Fedayeen are Arab guerrilla commandos, particularly Palestinian ones."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "indeed"
+     "misdirectedWord": "boss"
     }
    }
   },
