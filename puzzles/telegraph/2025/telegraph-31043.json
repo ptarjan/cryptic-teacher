@@ -644,46 +644,49 @@
      "indicators": [
       {
        "text": "to host",
-       "note": "a host takes guests inside, so one word holds the others"
+       "at": 20,
+       "note": "the soon word hosts the others inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "soon",
-         "gives": "ANON",
-         "note": "anon is an old word for soon"
-        },
-        {
-         "words": "contest",
-         "gives": "GAME",
-         "note": "a game is a contest"
-        }
-       ]
+       "words": "soon",
+       "at": 15,
+       "gives": "ANON",
+       "note": "anon is an old word for soon"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader of",
-         "note": "the leader of a group is the one in front, so take the opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "men",
-         "note": "first letter of men"
+         "words": "contest",
+         "at": 28,
+         "gives": "GAME",
+         "note": "a game is a contest"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 37,
+           "note": "the first letter leads the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "men",
+           "at": 47
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek king about to stage a competition for his soldiers.",
-     "walkthrough": "'Soon' uses the archaic sense found in Shakespeare; the contest and the letter go in after its opening letter.",
-     "definitionFit": "Agamemnon was the legendary king of Mycenae who led the Greeks at Troy."
+     "surface": "An ancient king will soon hold a contest headed by his men.",
+     "definitionFit": "Agamemnon was king of Mycenae in Greek legend, leader of the Greeks at Troy."
     },
     "features": {
      "answerInScene": true,
@@ -908,35 +911,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "in",
-       "note": "in tells the solver where the fighter is placed, next to the compass point"
+       "at": 16,
+       "note": "the fighter goes in the other letters"
       }
      ],
      "parts": [
       {
-       "words": "East",
-       "gives": "E",
-       "note": "E for east"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "East",
+         "at": 19,
+         "gives": "E"
+        },
+        {
+         "words": "respected",
+         "at": 25,
+         "gives": "RATED",
+         "note": "rated means highly regarded"
+        }
+       ]
       },
       {
        "words": "Russian fighter",
+       "at": 0,
        "gives": "MIG",
-       "note": "the MiG is a Russian fighter jet"
-      },
-      {
-       "words": "respected",
-       "gives": "RATED",
-       "note": "a rated performer is highly regarded"
+       "note": "a MiG is a Russian fighter jet"
       }
      ]
     },
     "explanation": {
-     "surface": "A Russian soldier stationed in the East, well respected, defected abroad.",
-     "walkthrough": "'Fighter' suggests a soldier, but it is an aircraft.",
-     "definitionFit": "To emigrate is to leave one's own country to settle in another."
+     "surface": "A respected Russian warrior in the East leaves his homeland.",
+     "walkthrough": "'Russian fighter' suggests a soldier but means the MiG jet.",
+     "definitionFit": "To have emigrated is to have moved abroad permanently, leaving one's own land."
     },
     "features": {
      "answerInScene": true,

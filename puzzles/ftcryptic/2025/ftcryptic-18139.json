@@ -47,41 +47,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "troubled",
-       "note": "something troubled is disturbed and stirred up, so the word beside it is jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Miles",
+       "at": 0,
+       "gives": "M"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "troubled",
+         "at": 10,
+         "note": "troubled letters are disturbed, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Miles",
-         "gives": "M",
-         "note": "M is the standard abbreviation for miles"
-        },
-        {
          "words": "too",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "ill-tempered",
-         "gives": "CROSS",
-         "note": "cross means bad-tempered"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "ill-tempered",
+       "at": 23,
+       "gives": "CROSS",
+       "note": "cross means angry or bad-tempered"
       }
      ]
     },
     "explanation": {
-     "surface": "A rider too grumpy and irritable to take part in a race.",
-     "definitionFit": "Motocross is racing motorcycles over rough cross-country tracks, a competitive sport."
+     "surface": "Miles is too upset and grumpy to take part in a contest.",
+     "walkthrough": "'Miles' looks like a name but is the unit.",
+     "definitionFit": "Motocross is off-road motorcycle racing on rough circuits, a contested sport."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Miles"
     }
@@ -1179,34 +1182,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "covering",
-       "note": "in a down clue, covering puts the first part on top of what follows"
+       "at": 7,
+       "note": "the lesson covers the French article, sitting over it in this down entry with the vice-president below"
       }
      ],
      "parts": [
       {
-       "words": "Lesson",
-       "gives": "RE",
-       "note": "RE is religious education, a school lesson"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lesson",
+         "at": 0,
+         "gives": "RE",
+         "note": "RE is religious education, a school lesson"
+        },
+        {
+         "words": "vice-president's",
+         "at": 27,
+         "gives": "VANCE",
+         "note": "JD Vance is the US vice-president"
+        }
+       ]
       },
       {
        "words": "the French",
+       "at": 16,
        "gives": "LE",
        "note": "le is French for the"
-      },
-      {
-       "words": "vice-president",
-       "gives": "VANCE",
-       "note": "JD Vance became US vice-president in 2025"
       }
      ]
     },
     "explanation": {
-     "surface": "A class on the French vice-president's significance.",
-     "definitionFit": "Relevance is pertinence to the matter at hand, hence significance or importance."
+     "surface": "A lesson about the French and the American vice-president's significance.",
+     "walkthrough": "'covering' works vertically: in a down answer the lesson sits above the French word, with the vice-president's name tucked in after.",
+     "definitionFit": "Relevance is pertinence, the significance something has to the matter in hand."
     },
     "features": {
      "answerInScene": false,
@@ -1892,32 +1905,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NYLON",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "William Spooner was famous for swapping the opening sounds of words, so the sounds here change places"
+       "at": 0,
+       "note": "the Reverend Spooner muddled word starts, so the sounds of the phrase are swapped about"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "note about",
-       "gives": "NYLON",
-       "soundsLike": "LINE ON",
-       "note": "a line is a short note, as in drop me a line; on means about; said quickly it runs lie-non, and the L and N sounds swap"
+       "op": "homophone",
+       "spelt": "LY",
+       "parts": [
+        {
+         "words": "note",
+         "at": 10,
+         "gives": "LINE",
+         "note": "a line is a short note, as in drop me a line"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NON",
+       "parts": [
+        {
+         "words": "about",
+         "at": 15,
+         "gives": "ON",
+         "note": "on means about, as in a talk on a subject"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Oxford don jots a memo on the subject of man-made fabric.",
-     "walkthrough": "Line on is spoken lie-non; swapping the opening sounds gives nigh-lon.",
-     "definitionFit": "Nylon is a man-made polymer used for fabric, the classic synthetic material."
+     "surface": "Spooner writes about some man-made fabric.",
+     "walkthrough": "Spooner says LINE ON with the sounds swapped, giving the sound of NYLON.",
+     "definitionFit": "Nylon is a man-made polymer fibre, the classic artificial fabric."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "note"
     }
    }
