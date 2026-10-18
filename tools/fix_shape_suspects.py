@@ -702,14 +702,14 @@ def merge_rows(left, fixed_ids, path=None):
     """Update the re-annotation list in place on --apply: drop only the rows of clues this
     run fixed outright, add the still-flagged clues it has no row for, and leave every
     other row (other sources', "tried" marks) exactly as filed."""
+    import shape_queue
     path = Path(path or OUT)
-    have = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
-    keep = [r for r in have if r["id"] not in fixed_ids]
-    seen = {r["id"] for r in have}
-    keep += [r for r in left if r["id"] not in seen]
-    part = path.with_name(f".{path.name}.part")
-    part.write_text("[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in keep) + "\n]\n", encoding="utf-8")
-    os.replace(part, path)
+    with shape_queue.locked():   # the burn's done() rewrites the same file
+        have = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+        keep = [r for r in have if r["id"] not in fixed_ids]
+        seen = {r["id"] for r in have}
+        keep += [r for r in left if r["id"] not in seen]
+        shape_queue.write(shape_queue.dump(keep), path)
 
 
 def load_ledger(ledger, key):
