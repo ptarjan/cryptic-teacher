@@ -277,36 +277,40 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "whatever eats takes food inside itself, so one piece goes inside another"
+       "at": 4,
+       "note": "a cat eating something takes it inside, so the cat word encloses the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Cat",
-         "gives": "LYNX",
-         "note": "a wild cat with tufted ears"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Cat",
+       "at": 0,
+       "gives": "LYNX",
+       "note": "a lynx is a wild cat"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "the head of something is its top or front, so only the opening letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rat's",
-         "note": "the first letter of rat"
+         "words": "a",
+         "at": 11,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 19,
+           "note": "head means the first letter of rat's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rat's",
+           "at": 13
+          }
+         ]
         }
        ]
       }
@@ -314,8 +318,8 @@
     },
     "explanation": {
      "surface": "A cat devours a rat's head and part of its throat.",
-     "walkthrough": "The A and R go together inside the cat, just after its first letter.",
-     "definitionFit": "The larynx is the voice box, the organ in the neck housing the vocal cords."
+     "walkthrough": "LYNX opens after L to take A and R.",
+     "definitionFit": "The larynx is the voice box, an organ in the neck at the top of the windpipe."
     },
     "features": {
      "answerInScene": true,

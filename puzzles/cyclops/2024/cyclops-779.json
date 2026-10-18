@@ -830,57 +830,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "rising"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a",
-         "note": "as printed"
-        },
-        {
-         "words": "date",
-         "gives": "D",
-         "note": "D = date"
-        },
-        {
-         "words": "mighty",
-         "gives": "VERY",
-         "note": "mighty = very, as in 'mighty fine'"
-        }
-       ]
+       "words": "a",
+       "at": 10,
+       "gives": "A"
       },
       {
-       "op": "charade",
+       "words": "date",
+       "at": 12,
+       "gives": "D"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "surroundings"
+         "text": "in",
+         "at": 40,
+         "note": "in, with surroundings, says the king and reversed pieces are placed within the word for mighty"
+        },
+        {
+         "text": "surroundings",
+         "at": 50,
+         "note": "surroundings means the word for mighty goes round the other pieces"
         }
        ],
        "parts": [
         {
-         "words": "king",
-         "gives": "R",
-         "note": "R = rex, king"
+         "words": "mighty",
+         "at": 43,
+         "gives": "VERY",
+         "note": "mighty, as an informal adverb, means very"
         },
         {
-         "op": "reversal",
+         "op": "charade",
          "parts": [
           {
-           "words": "since",
-           "gives": "AS",
-           "note": "as = since, as in 'as it's late'"
+           "words": "king",
+           "at": 22,
+           "gives": "R",
+           "note": "R is Rex, Latin for king"
+          },
+          {
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "rising",
+             "at": 33,
+             "note": "in a down clue rising means the word is read from bottom to top"
+            }
+           ],
+           "parts": [
+            {
+             "words": "since",
+             "at": 27,
+             "gives": "AS",
+             "note": "as means since, because"
+            }
+           ]
           }
          ]
         }
@@ -889,12 +897,12 @@
      ]
     },
     "explanation": {
-     "surface": "A rival has a date with a king ever since coming up in powerful circles.",
-     "walkthrough": "'Mighty' sounds like a noun for the powerful; it is the informal adverb meaning very.",
-     "definitionFit": "A plain synonym: an opponent in a contest or conflict."
+     "surface": "A rival has a romantic engagement with a monarch, ever since rising to power.",
+     "walkthrough": "'Mighty' looks like an adjective for the king, but it is the informal adverb, as in 'mighty fine'.",
+     "definitionFit": "An adversary is an opponent or enemy, someone competing against you."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "mighty"
     }
@@ -1389,46 +1397,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "arranged",
-       "note": "'arranged' means put into a fresh order, so the letters of REST are laid out anew"
-      },
-      {
-       "text": "head off",
-       "note": "BOYS loses its first letter"
+       "text": "after",
+       "at": 14,
+       "note": "after says the jumbled piece comes behind the shortened lads"
       }
      ],
      "parts": [
       {
-       "words": "lads head off",
-       "gives": "OYS",
-       "note": "BOYS without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "head off",
+         "at": 25,
+         "note": "head off means the first letter of the word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lads",
+         "at": 20,
+         "gives": "BOYS",
+         "note": "boys are lads"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "the jumble comes after the shortened lads"
+         "text": "arranged",
+         "at": 5,
+         "note": "arranged means the letters are rearranged into a new order"
         }
        ],
        "parts": [
         {
          "words": "Rest",
-         "note": "anagram fodder, 4 letters"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lie-down is organised after the boys head off, in the hope of romance.",
-     "walkthrough": "Blocks follow the answer, so the lads come first even though 'Rest' opens the clue.",
-     "definitionFit": "A definition by example: oysters are the classic food reputed to stir desire."
+     "surface": "Some rest is planned after the lads go off for libido-boosting food.",
+     "walkthrough": "'Head off' reads as the lads leaving, but it beheads the word for lads.",
+     "definitionFit": "Oysters are a shellfish traditionally believed to arouse sexual desire."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Rest"
+     "misdirectedWord": "head"
     }
    }
   },
