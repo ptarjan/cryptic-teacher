@@ -57,41 +57,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANESSAYONMAN",
-     "indicators": [
-      {
-       "text": "disheartened",
-       "note": "losing one's heart means the middle letters of the poet's name are taken out, leaving only its ends"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Auden",
-       "note": "the poet's surname, before its middle is removed"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 6,
+         "note": "disheartened means having lost heart, so the poet's name keeps only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Auden",
+         "at": 0,
+         "gives": "AUDEN",
+         "note": "W. H. Auden, the poet; only his first and last letters survive"
+        }
+       ]
       },
       {
        "words": "attempt",
+       "at": 22,
        "gives": "ESSAY",
-       "note": "an essay is an attempt or trial"
+       "note": "an essay is an attempt, its original sense"
       },
       {
-       "words": "e.g. in Douglas",
+       "words": "e.g. in Douglas's",
+       "at": 31,
        "gives": "ONMAN",
-       "note": "Douglas is the capital of the Isle of Man, so anything there, for example, is on Man"
+       "note": "Douglas is the capital of the Isle of Man, so something in Douglas is on Man; the 's is read as 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone compares a tepid attempt by Auden with a poem by a writer called Douglas.",
-     "walkthrough": "AN ESSAY ON MAN is Alexander Pope's philosophical poem. Douglas reads as a poet's name, but it is the town, capital of the Isle of Man.",
-     "definitionFit": "Pope's long verse work of 1733-34 bears this title, so it is a specific example of a poem."
+     "surface": "A poet who has lost heart after a try is compared with something in a Douglas poem.",
+     "walkthrough": "'disheartened' strips the inside of AUDEN, leaving AN. 'Douglas' looks like a poet's name, but it is the capital of the Isle of Man. The poem is Alexander Pope's.",
+     "definitionFit": "An Essay on Man is Alexander Pope's philosophical poem in heroic couplets, published in 1733-34."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Douglas"
+     "misdirectedWord": "Douglas's"
     }
    }
   },
@@ -1207,41 +1215,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ASYLUM",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "found around",
-       "note": "something found around another thing encloses it"
-      },
-      {
-       "text": "west end",
-       "note": "the west end of a word written left to right is its opening letter, so only that letter is enclosed"
+       "text": "found",
+       "at": 15,
+       "note": "the wrapped letter is found where the slum's first letter was, taking its place in the word"
       }
      ],
      "parts": [
       {
-       "words": "always",
-       "gives": "AY",
-       "note": "ay is an old word for always, ever"
-      },
-      {
-       "words": "shantytown",
+       "words": "shantytown's",
+       "at": 28,
        "gives": "SLUM",
        "note": "a shantytown is a slum"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 21,
+         "note": "the word for always is placed around the slum's first letter, enclosing it where it stands"
+        }
+       ],
+       "parts": [
+        {
+         "words": "always",
+         "at": 8,
+         "gives": "AY",
+         "note": "ay is an old and dialect word for always"
+        },
+        {
+         "words": "west end",
+         "at": 41,
+         "gives": "S",
+         "note": "the west end of the slum word is its first letter, since across entries run west to east; it stays in place while the other word wraps it"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Refuge can always be had near the western edge of a shantytown.",
-     "walkthrough": "The word for always goes only around the west end, the first letter, of the slum, leaving the rest to follow.",
-     "definitionFit": "Asylum is protection or refuge, as granted to a political refugee."
+     "surface": "A refuge that is forever located near the western edge of a shantytown.",
+     "walkthrough": "'always found around' the 'west end' wraps AY round only the slum's first letter, so the result is ASY followed by the rest of the slum. 'west end' looks like London's theatre district, but it is just the first letter.",
+     "definitionFit": "Asylum is protection or refuge, especially that granted by a state to a political refugee."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "end"
+     "misdirectedWord": "west"
     }
    }
   },

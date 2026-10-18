@@ -310,40 +310,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MESOPOTAMIANS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 33,
+       "note": "the shuffled letters go around the other piece, holding it inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "playing",
-         "note": "letters at play are jumbled"
-        },
-        {
-         "text": "around",
-         "note": "the jumbled letters go around the next piece"
+         "at": 25,
+         "note": "playing suggests the letters of 'some spot' are fooling about into a new order"
         }
        ],
        "parts": [
         {
          "words": "some spot",
-         "note": "SOME SPOT jumbled"
-        },
-        {
-         "words": "is Methuselah one?",
-         "gives": "AMIAN",
-         "note": "the setter, Methuselah, asking about himself: 'Am I an (ancient person)?'"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "is Methuselah one",
+       "at": 42,
+       "gives": "AMIAN",
+       "note": "Methuselah is the setter, so the question 'is Methuselah one?' in the setter's own voice is 'am I an?'"
       }
      ]
     },
     "explanation": {
-     "surface": "A search for old folk in a spot where people play, ending with a question about the setter's age.",
-     "walkthrough": "Methuselah is this puzzle's setter, named for the long-lived biblical figure, so 'is Methuselah one?' becomes the setter's own question, AM I AN.",
-     "definitionFit": "Mesopotamia, between the Tigris and Euphrates, was home to Sumer and Babylon, so its people are the ancient people in question."
+     "surface": "A teasing question whether the famously aged setter belongs among the ancients found in some playful spot.",
+     "walkthrough": "'playing' rearranges SOME SPOT into MESOPOTS, and 'around' wraps those letters about AM I AN, the setter asking of himself whether he is one, placed between the T and the final S.",
+     "definitionFit": "Mesopotamians were the inhabitants of the ancient land between the Tigris and Euphrates, home of Sumer and Babylon."
     },
     "features": {
      "answerInScene": true,
@@ -627,53 +630,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
        "text": "trashed",
-       "note": "wrecked, so the letters are jumbled"
+       "at": 14,
+       "note": "trashed means wrecked, so the letters of the word basement are thrown into disorder"
+      },
+      {
+       "text": "after dropping",
+       "at": 31,
+       "note": "the rearrangement happens once one letter has been dropped from the fodder, which is taken away before reshuffling"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "dropping",
-         "note": "to drop something is to let it fall away, so the E falls out of the word"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "basement",
-           "note": "the word to work on"
-          },
-          {
-           "gives": "E"
-          }
-         ]
-        }
-       ]
+       "words": "basement",
+       "at": 22
       },
       {
-       "unchecked": true,
        "words": "an E",
-       "note": "one E is dropped, leaving BASMENT to jumble"
+       "at": 46,
+       "gives": "E",
+       "note": "a single letter E"
       }
      ]
     },
     "explanation": {
-     "surface": "A wedding guest who, having had one too many, wrecks the basement.",
-     "walkthrough": "'An E' is exact: BASEMENT has two Es and only one goes.",
-     "definitionFit": "The best man is the groom's chief supporter and a guest at the wedding."
+     "surface": "A reveller at a wedding wrecks the cellar, having first let a letter fall.",
+     "walkthrough": "'after dropping' an E takes one E out of BASEMENT to leave BASEMNT, and 'trashed' rearranges those seven letters.",
+     "definitionFit": "The best man is the groom's chief attendant, the most prominent guest at a wedding after the couple."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd"
+     "misdirectedWord": "trashed"
     }
    }
   },
@@ -1301,38 +1292,37 @@
      "parts": [
       {
        "words": "Declaration at wedding",
+       "at": 0,
        "gives": "IDO",
-       "note": "'I do', said when taking the vows"
+       "note": "'I do' is the vow each partner declares at a wedding"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "LS",
        "indicators": [
         {
          "text": "exposed",
-         "note": "stripped of its outer covering, so the outer letters go"
+         "at": 28,
+         "note": "exposed means stripped of its covering, here the inside of the word taken away to leave only its outside letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "also exposed",
+         "words": "also",
+         "at": 23,
          "gives": "LS",
-         "select": "outer",
-         "note": "aLSo with its first and last letters removed"
+         "note": "the first and last letters of also"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Vows at a wedding revealed who the couple really loved.",
-     "walkthrough": "'Also exposed' works like peeling: take the skin off ALSO and the middle two letters remain.",
-     "definitionFit": "Idols are people who are adored."
+     "surface": "A wedding vow is spoken, and at the same time beloved people are revealed.",
+     "walkthrough": "'exposed' keeps only the ends of 'also', L and S, after I DO.",
+     "definitionFit": "Idols are people who are adored or worshipped, the objects of great devotion."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "exposed"
     }
@@ -1576,42 +1566,38 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MARS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "sending",
-       "note": "moving a letter somewhere else"
+       "text": "sending third of",
+       "at": 27,
+       "note": "the third letter of the word for weapons is sent elsewhere, rearranging the word"
       },
       {
        "text": "to the front",
-       "note": "the letter moves to the start"
+       "at": 52,
+       "note": "the moved letter goes to the start of the word, ahead of the others"
       }
      ],
      "parts": [
       {
        "words": "weapons",
+       "at": 44,
        "gives": "ARMS",
        "note": "arms are weapons"
-      },
-      {
-       "words": "third of weapons",
-       "gives": "M",
-       "note": "the third letter of ARMS, which moves to the start"
       }
      ]
     },
     "explanation": {
-     "surface": "An army's area of operations, moving its guns to the front line.",
-     "walkthrough": "ARMS with its M sent to the front spells MARS, the Roman god of war and a planet; 'supposedly' allows that the warlike link is myth.",
-     "definitionFit": "Mars, the planet named for the war god, is a sphere with military associations."
+     "surface": "An armed force supposedly ordering its weapons forward to the front line.",
+     "walkthrough": "In ARMS the third letter, M, is 'sent to the front', giving the planet. 'supposedly' is there because the planet is military only by its name.",
+     "definitionFit": "The planet is named after the Roman god of war, so it is a heavenly body with a warlike reputation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "sphere"
+     "misdirectedWord": "front"
     }
    }
   },
