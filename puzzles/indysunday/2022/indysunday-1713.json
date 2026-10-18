@@ -467,27 +467,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TAPE",
+     "op": "middle",
      "indicators": [
       {
        "text": "discovered",
-       "note": "dis-covered means having the cover taken off, so the outer letters are stripped"
+       "at": 20,
+       "note": "read as dis-covered, with its covering stripped, so the outer letters of the bone's name are removed"
       }
      ],
      "parts": [
       {
        "words": "tiny bone",
+       "at": 10,
        "gives": "STAPES",
-       "note": "the stapes is the tiny stirrup bone in the middle ear"
+       "note": "the stapes, or stirrup, in the middle ear is the smallest bone in the human body"
       }
      ]
     },
     "explanation": {
-     "surface": "Documentation of a minute bone that has been unearthed.",
-     "walkthrough": "Read 'discovered' as 'dis-covered': STAPES loses its outer S and S.",
-     "definitionFit": "To tape something is to record it, as on audio or video cassette."
+     "surface": "An archaeologist logs the find of a very small bone.",
+     "walkthrough": "'discovered' reads as 'uncovered': take the first and last letters off STAPES, the ear's stirrup bone and the body's smallest, to leave TAPE.",
+     "definitionFit": "A tape is a recording, and to tape something is to record it on magnetic tape."
     },
     "features": {
      "answerInScene": false,
@@ -619,59 +619,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SWAHILI",
+     "op": "composite",
      "indicators": [
       {
+       "text": "forgotten by",
+       "at": 27,
+       "note": "the named letters are dropped from the other word's stock of letters before it is rearranged"
+      },
+      {
        "text": "translated",
-       "note": "translation turns words into another form, so the letters are rearranged"
+       "at": 50,
+       "note": "translating renders a word in a new form, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SWAHILI",
+       "words": "whimsical",
+       "at": 40
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "forgotten by",
-         "note": "what is forgotten is left out, so those letters are removed from the following word"
+         "text": "originally",
+         "at": 16,
+         "note": "originally points to the opening letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "MC",
-         "indicators": [
-          {
-           "text": "originally",
-           "note": "originally means at the origin, so only the initial letters are wanted"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Many consonants",
-           "gives": "MC",
-           "select": "first",
-           "note": "initial letters of the two words"
-          }
-         ]
-        },
-        {
-         "words": "whimsical",
-         "note": "taken as written"
+         "words": "Many consonants",
+         "at": 0,
+         "note": "the initial letters of Many and consonants"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tongue that drops lots of consonants, rendered in a fanciful way.",
-     "walkthrough": "Strip M and C from WHIMSICAL, leaving WHISIAL, then rearrange.",
-     "definitionFit": "Swahili is a Bantu tongue spoken widely across East Africa, so it is one example of a language."
+     "surface": "A fanciful translation loses many of its consonants along the way.",
+     "walkthrough": "'originally' takes M and C, the first letters of 'Many consonants'; they are 'forgotten by' WHIMSICAL, and its remaining letters WHISIAL are 'translated' into the language.",
+     "definitionFit": "Swahili is a Bantu tongue widely spoken in East Africa, used as a lingua franca in Kenya and Tanzania."
     },
     "features": {
      "answerInScene": true,
@@ -1995,61 +1983,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Stealing",
+      "text": "Stealing from",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ROBBING",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "'in' brings one letter into the word, and paired with a letter leaving it is a swap"
-      },
-      {
-       "text": "to leave",
-       "note": "a letter that leaves makes room for the incoming one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Queen",
+       "at": 14,
        "gives": "R",
-       "note": "R is for Regina, Latin for queen"
+       "note": "R, for Regina, is the standard abbreviation for a queen"
       },
       {
-       "words": "tears",
-       "gives": "SOBBING",
-       "note": "being in tears is sobbing"
-      },
-      {
-       "op": "first",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "beginning",
-         "note": "the beginning of a word is its opening letter"
+         "text": "to leave",
+         "at": 50,
+         "note": "the named letter departs from the word for crying"
         }
        ],
        "parts": [
         {
-         "words": "spouse's",
-         "note": "first letter of spouse"
+         "words": "in tears",
+         "at": 20,
+         "gives": "SOBBING",
+         "note": "someone in tears is sobbing"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 40,
+           "note": "the beginning of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spouse's",
+           "at": 31,
+           "gives": "S",
+           "note": "the first letter of spouse"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theft from the monarch leaves her weeping as her husband begins to walk out.",
-     "walkthrough": "In SOBBING the S goes and R comes in its place.",
-     "definitionFit": "Robbing is taking property unlawfully, so it is a synonym for stealing in the present participle."
+     "surface": "A queen weeps as her husband begins to walk out on her.",
+     "walkthrough": "R (Regina) comes first, followed by SOBBING with 'spouse's beginning', its S, told 'to leave'.",
+     "definitionFit": "To rob a person or place is to steal from them, so the participle covers the act of taking."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tears"
+     "misdirectedWord": "Queen"
     }
    }
   },

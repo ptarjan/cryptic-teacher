@@ -717,12 +717,11 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TANGO",
      "indicators": [
       {
        "text": "heard on radio",
-       "note": "radio operators speak letters as codewords, so the kept letter is swapped for its spoken code name"
+       "at": 33,
+       "note": "radio operators say each letter as its word in the NATO phonetic alphabet, so the letter is replaced by its code word"
       }
      ],
      "parts": [
@@ -731,26 +730,35 @@
        "indicators": [
         {
          "text": "what ends",
-         "note": "what ends a word is its final letter, so only that one is kept"
+         "at": 15,
+         "note": "what ends a word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "concert",
+         "at": 25,
          "note": "the last letter of concert"
         }
        ]
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "gives": "TANGO"
       }
      ]
     },
     "explanation": {
-     "surface": "A listener notes which dance tune closes a concert broadcast on the radio.",
-     "walkthrough": "In the NATO phonetic alphabet used on radio, T is spoken as Tango.",
-     "definitionFit": "The tango is a Latin American dance, and the word also names the music written for it."
+     "surface": "A radio broadcast of a concert closes with dance music.",
+     "walkthrough": "Concert ends in T, and 'heard on radio' means T is said as its NATO phonetic-alphabet code word, which is also the dance.",
+     "definitionFit": "The tango is a ballroom dance from Argentina, and the name also covers the music written for it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "radio"
     }
    }
@@ -819,41 +827,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "City",
+      "text": "City in which man's name is heard",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "container",
+     "indicators": [
       {
-       "op": "homophone",
-       "spelt": "LEICESTER",
-       "indicators": [
-        {
-         "text": "is heard",
-         "note": "is heard means the sound matters rather than the spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "man's name",
-         "gives": "LESTER",
-         "note": "Lester is a man's name"
-        }
-       ]
+       "text": "seen when",
+       "at": 41,
+       "note": "the man is what is seen once the other word goes, so the answer is the man with that word put back inside"
       },
       {
-       "unchecked": true,
-       "words": "he's seen when ice disappears",
-       "note": "a second, confirming route: take ice out of the city's spelling and the man's name is left"
+       "text": "disappears",
+       "at": 55,
+       "note": "the frozen water vanishes from inside the city's spelling, leaving the man in view"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he's",
+       "at": 36,
+       "gives": "LESTER",
+       "note": "he is the man of the first half, the one whose name, Lester, sounds like the city"
+      },
+      {
+       "words": "ice",
+       "at": 51
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about a city where a man's name rings out, and who appears when ice melts.",
-     "walkthrough": "The city is pronounced like Lester, a quirk of English place names; the dash adds a confirmation, since removing ICE from the city's spelling leaves LESTER.",
-     "definitionFit": "Leicester is a city in the English East Midlands."
+     "surface": "A man's name is spoken in a city where ice melts away to reveal him.",
+     "walkthrough": "The definition carries the sound: the city is pronounced like a man's name. The tail works backwards: the man appears when the frozen water leaves the city's spelling, so the city is the man with that word put inside.",
+     "definitionFit": "Leicester is a city in the East Midlands of England whose name is pronounced like the man's name Lester."
     },
     "features": {
      "answerInScene": false,

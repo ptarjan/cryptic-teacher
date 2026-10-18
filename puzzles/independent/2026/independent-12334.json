@@ -205,40 +205,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CONDIMENT",
      "indicators": [
       {
-       "text": "exchange",
-       "note": "swap one piece of the word for another"
+       "text": "to exchange",
+       "at": 6,
+       "note": "exchanging swaps one thing out and puts another in its place"
       },
       {
        "text": "for",
-       "note": "names what comes in to replace it"
+       "at": 38,
+       "note": "for marks what the letter is traded for, the replacement"
       }
      ],
      "parts": [
       {
        "words": "Happy",
+       "at": 0,
        "gives": "CONTENT",
-       "note": "content = happy"
+       "note": "content means happy, satisfied"
       },
       {
-       "words": "one drop of Tabasco",
-       "gives": "T",
-       "note": "the first letter of Tabasco, taken out"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "one drop of",
+         "at": 18,
+         "note": "a single drop from the bottle: just the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tabasco",
+         "at": 30,
+         "note": "the hot pepper sauce's name, of which only the first letter is taken"
+        }
+       ]
       },
       {
        "words": "thick",
+       "at": 42,
        "gives": "DIM",
-       "note": "thick = stupid = dim, put in its place"
+       "note": "dim means thick, slow-witted"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook adds a single drop of hot sauce to a thick sauce and is pleased with it.",
-     "walkthrough": "Only the first T of CONTENT is swapped: CON + DIM + ENT. 'Thick' looks like part of the sauce, but it means stupid.",
-     "definitionFit": "A sauce is a condiment, something added to food for flavour."
+     "surface": "Someone is quite happy to swap a drop of hot sauce for a thicker one.",
+     "walkthrough": "CONTENT ends in T, the 'one drop of Tabasco'; exchange that T for DIM, meaning thick, and the happy word becomes the sauce. The question mark admits a sauce is only one kind of condiment.",
+     "definitionFit": "A condiment is a relish or sauce added to food at the table to flavour it."
     },
     "features": {
      "answerInScene": true,
@@ -273,29 +287,28 @@
      "indicators": [
       {
        "text": "reportedly",
-       "note": "what follows is heard, not spelt"
-      },
-      {
-       "text": "after",
-       "note": "the drinking comes after the game"
+       "at": 12,
+       "note": "what is reported is passed on by word of mouth, so the phrase is heard rather than read"
       }
      ],
      "parts": [
       {
        "words": "drank after game",
+       "at": 23,
        "gives": "GOSIPPED",
-       "note": "game = GO (the board game), drank = SIPPED; said together they sound like the answer"
+       "note": "GO, a game, followed by SIPPED, drank: said together, 'go sipped'"
       }
      ]
     },
     "explanation": {
-     "surface": "Friends chat over drinks after a match.",
-     "walkthrough": "Go is the Asian board game. Only the sound of GO SIPPED matters; the spelling loses one P.",
-     "definitionFit": "To gossip is to chat idly, so gossiped = chatted."
+     "surface": "Drinkers chat and swap gossip after a match.",
+     "walkthrough": "Go is a board game; say 'go' then 'sipped', the drinking word, and it sounds like the answer.",
+     "definitionFit": "To gossip is to chat idly about other people's affairs, so the past tense means chatted."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "game"
     }
    }
@@ -1018,35 +1031,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "leader",
-       "note": "the first letter of Oriental"
-      },
-      {
        "text": "unstable",
-       "note": "the letters are not fixed in place, so they move"
+       "at": 25,
+       "note": "an unstable mixture will not hold its form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "Strange",
-       "note": "anagram fodder, 7 letters"
+       "at": 0
       },
       {
-       "words": "Oriental leader",
-       "gives": "O",
-       "note": "first letter of Oriental"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 17,
+         "note": "the leader of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oriental",
+         "at": 8,
+         "note": "the first letter of Oriental"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shady foreign ruler, the volatile friend of a Russian called Vladimir.",
-     "walkthrough": "'Strange' looks like the anagram signal but is the fodder; 'unstable' does the stirring. Estragon and Vladimir are the two tramps in Beckett's 'Waiting for Godot'.",
-     "definitionFit": "Estragon is Vladimir's companion throughout Waiting for Godot."
+     "surface": "An odd Eastern ruler is called the unstable companion of a Russian president.",
+     "walkthrough": "'leader' takes the O of Oriental, and 'unstable' rearranges it with STRANGE. Vladimir looks like Putin, but he is the tramp in Beckett's Waiting for Godot.",
+     "definitionFit": "In Waiting for Godot the two tramps who wait together are Vladimir and Estragon, lifelong companions."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Strange"
+     "misdirectedWord": "Vladimir's"
     }
    }
   },
@@ -1542,57 +1564,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUREMBERG",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 13,
+       "note": "the named little word goes missing from the stock of letters before they are rearranged"
+      },
+      {
+       "text": "disastrous",
+       "at": 24,
+       "note": "a disaster leaves things in disorder, so the remaining letters are jumbled"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "missing",
-         "note": "remove the letters A and T"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "disastrous",
-           "note": "the letters are wrecked into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Great",
-           "gives": "GRE",
-           "note": "deletion: GREAT minus A and T, which are removed"
-          },
-          {
-           "words": "number",
-           "note": "anagram fodder, 6 letters"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "at",
-         "note": "the letters removed from Great"
-        }
-       ]
+       "words": "Great number",
+       "at": 0
+      },
+      {
+       "words": "at",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "surface": "A huge crowd stayed away from a place of catastrophic rallies.",
-     "walkthrough": "'Disastrous rallies' conjures the Nazi party rallies, which is where the answer comes from; 'disastrous' also stirs the letters.",
-     "definitionFit": "The Nazi party held its mass rallies at Nuremberg in the 1930s."
+     "surface": "A big crowd stays away from rallies that turn out a disaster.",
+     "walkthrough": "With AT 'missing' from GREAT NUMBER, the rest is made 'disastrous', or rearranged. The Nazi party held its mass rallies in the city in the 1920s and 30s.",
+     "definitionFit": "The Bavarian city hosted the Nazi party's annual mass rallies, so it is the place where they were held."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "number"
+     "misdirectedWord": "rallies"
     }
    }
   },

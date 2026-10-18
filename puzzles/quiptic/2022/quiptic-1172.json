@@ -43,42 +43,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BANDIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "playing",
-       "note": "letters that are playing are messing about, free to jump into a new order"
+       "text": "catching",
+       "at": 17,
+       "note": "one word catches the other, holding it inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "part",
+       "at": 12,
+       "gives": "BIT",
+       "note": "a bit is a part or piece of something"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "catching",
-         "note": "to catch something is to close around it and hold it inside"
+         "text": "playing",
+         "at": 4,
+         "note": "letters playing about are rearranged from their written order"
         }
        ],
        "parts": [
         {
-         "words": "part",
-         "gives": "BIT",
-         "note": "a bit is a part or piece"
-        },
-        {
          "words": "DNA",
-         "note": "the three letters of the genetic abbreviation, rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A forensic scientist's DNA test has helped bring an armed robber to justice.",
-     "walkthrough": "DNA looks like evidence in the surface, but here it is just three letters to rearrange, and 'part' is a small piece rather than a role.",
-     "definitionFit": "A bandit is an outlaw who holds up travellers, typically with a weapon, so an armed robber."
+     "surface": "Forensic DNA, playing its part, helps catch a gunman.",
+     "walkthrough": "'playing' rearranges DNA into AND, and BIT (part) is 'catching' it.",
+     "definitionFit": "A bandit is an outlaw who robs travellers, usually carrying weapons."
     },
     "features": {
      "answerInScene": true,
@@ -349,47 +350,49 @@
        "indicators": [
         {
          "text": "Oddly",
-         "note": "oddly means taking the odd-numbered positions, first, third, fifth, and dropping the rest"
+         "at": 0,
+         "note": "oddly picks the odd-numbered letters, first, third and fifth, of the next word"
         }
        ],
        "parts": [
         {
          "words": "curvy",
-         "note": "the first, third and fifth letters"
+         "at": 6,
+         "note": "the word whose first, third and fifth letters are used"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "STAL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "40%",
-         "note": "forty percent of a ten-letter word is its opening four letters"
+         "at": 25,
+         "note": "forty per cent of a ten-letter word is its first four letters; the last six go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "stalactite's",
-         "gives": "STAL",
-         "select": "first",
-         "note": "four of the ten letters, from the front"
+         "at": 12,
+         "note": "the cave formation's name, taken as written, of which only the opening part is kept"
+        },
+        {
+         "gives": "ACTITES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caver remarks that a strangely curved stalactite is partly made of quartz.",
-     "walkthrough": "The percentage is literal: STALACTITE has ten letters, so 40% is its first four.",
-     "definitionFit": "Quartz is a hard mineral that forms clear six-sided crystals, and rock crystal is its common name."
+     "surface": "A cave formation is found to be partly made of quartz.",
+     "walkthrough": "'Oddly' takes the first, third and fifth letters of curvy; stalactite has ten letters, so '40%' keeps only its first four.",
+     "definitionFit": "Rock crystal is the clear, colourless form of the mineral quartz."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Oddly"
+     "misdirectedWord": "curvy"
     }
    }
   },
@@ -459,54 +462,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LOWMORALE",
      "indicators": [
       {
        "text": "in",
-       "note": "one piece goes in another, sitting within its letters"
+       "at": 17,
+       "note": "the shortened word sits inside the phrase for poor-quality beer"
       }
      ],
      "parts": [
       {
+       "words": "cheap beer",
+       "at": 20,
+       "gives": "LOWALE",
+       "note": "LOW ALE: low here means cheap or inferior, and ale is beer"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOWMORALE",
        "indicators": [
         {
          "text": "shortage",
-         "note": "a shortage means something is short, so the word loses its final letter"
+         "at": 8,
+         "note": "a shortage means something is missing: here the last letter of the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "cheap",
-           "gives": "LOW",
-           "note": "low prices are cheap ones"
-          },
-          {
-           "words": "Further",
-           "gives": "MOR",
-           "note": "more means further, cut short by one letter"
-          },
-          {
-           "words": "beer",
-           "gives": "ALE",
-           "note": "ale is a kind of beer"
-          }
-         ]
+         "words": "Further",
+         "at": 0,
+         "gives": "MORE",
+         "note": "more means further, additional"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub's run-out of cheap beer has left the regulars thoroughly gloomy.",
-     "walkthrough": "'Shortage' sounds like the beer running out, but it is the instruction to clip a word by one letter; 'cheap beer' then wraps around the result.",
-     "definitionFit": "Morale is the collective spirit of a team or body of people, so when it is low the group feels dejected."
+     "surface": "A pub runs out of its budget beer and the drinkers grow glum.",
+     "walkthrough": "MORE (further) suffers a 'shortage', losing its E, and MOR goes 'in' LOW ALE.",
+     "definitionFit": "Low morale is the dispirited mood of a team or workforce, a shared lack of confidence."
     },
     "features": {
      "answerInScene": true,
@@ -952,52 +948,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ACUTABOVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "unexpected",
-       "note": "something unexpected does not come out as planned, so the letters fall into another order"
+       "text": "described by",
+       "at": 45,
+       "note": "to describe a circle round something is to draw round it, so the outer word encloses the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "described by",
-         "note": "to describe a circle is to draw round it, so the outer word encircles the rest"
-        }
-       ],
+       "words": "expert",
+       "at": 58,
+       "gives": "ACE",
+       "note": "an ace is an expert, someone highly skilled"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "expert",
-         "gives": "ACE",
-         "note": "an ace is an expert"
-        },
-        {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "unexpected",
+           "at": 19,
+           "note": "something unexpected turns up in an unforeseen form, so the letters are rearranged"
+          }
+         ],
          "parts": [
           {
            "words": "U-boat",
-           "note": "the five letters rearranged"
-          },
-          {
-           "words": "victory",
-           "gives": "V",
-           "note": "V is the abbreviation for victory"
+           "at": 30
           }
          ]
+        },
+        {
+         "words": "victory",
+         "at": 37,
+         "gives": "V",
+         "note": "V is the abbreviation for victory, as in V-sign or VE Day"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A naval expert recounts a surprise win over a German submarine, a far better outcome.",
-     "walkthrough": "'Described by' uses the geometric sense: a line described round a shape encloses it. A U-boat is a German submarine.",
-     "definitionFit": "Being a cut above others is an idiom for being noticeably superior to them, so much better."
+     "surface": "An expert commentator calls a surprise win over a German submarine.",
+     "walkthrough": "'described by' means drawn round: the expert's word opens after its first letter to wrap the rearranged submarine and the victory letter.",
+     "definitionFit": "A cut above is an idiom for distinctly superior, a notch higher than the rest."
     },
     "features": {
      "answerInScene": false,
@@ -1218,41 +1216,42 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "THIC",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "semi-",
-         "note": "semi means half, so only half of the next word is kept"
+         "text": "semi",
+         "at": 26,
+         "note": "semi means half, so only half of the next word, its second four letters, is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "empathic",
-         "gives": "THIC",
-         "select": "last",
-         "note": "the back half of the eight letters"
+         "at": 31,
+         "note": "the word taken as written, of which only the latter half is used"
+        },
+        {
+         "gives": "EMPA"
         }
        ]
       },
       {
        "words": "understanding",
+       "at": 40,
        "gives": "KEN",
-       "note": "ken is knowledge or understanding, as in 'beyond my ken'"
+       "note": "ken is range of knowledge or understanding, as in 'beyond my ken'"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend gets drawn deeper into things, showing only partial sympathy.",
-     "walkthrough": "The hyphen joins 'semi-' to the next word in the surface, but it is a separate signal to halve it. Ken survives mostly in 'beyond my ken'.",
-     "definitionFit": "When a plot thickens it becomes more complicated and intricate, an idiomatic sense of involved."
+     "surface": "A sympathetic friend's partial understanding draws them further into a problem.",
+     "walkthrough": "'semi' keeps half the letters, and here it is the back half; ken is a Scottish and literary word for knowledge, as in 'beyond my ken'.",
+     "definitionFit": "When a plot thickens it grows more complicated and intricate, which is the sense here."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "semi-empathic"
+     "misdirectedWord": "involved"
     }
    }
   },
@@ -1432,42 +1431,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PLAQUE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Turning",
-       "note": "turning things over changes their order, so the letters come out rearranged"
+       "text": "filling",
+       "at": 23,
+       "note": "one piece fills the inside of the other, as a filling sits in a tooth"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "filling",
-         "note": "a filling goes inside something, like the stuffing in a pie"
+         "text": "Turning",
+         "at": 0,
+         "note": "the letters turn about into a fresh arrangement"
         }
        ],
        "parts": [
         {
          "words": "pale",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "question",
-         "gives": "QU",
-         "note": "QU is the abbreviation for question"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "question",
+       "at": 14,
+       "gives": "QU"
       }
      ]
     },
     "explanation": {
-     "surface": "A patient goes white when asked whether a tooth filling is needed for some dental trouble.",
-     "walkthrough": "'Filling' sits next to 'dental' to suggest a tooth filling, but it is the signal to put QU inside the rearranged letters.",
-     "definitionFit": "Plaque is the sticky bacterial film that builds up on teeth and causes decay, a common dental problem."
+     "surface": "A patient goes pale when asked about a filling at the dentist.",
+     "walkthrough": "'filling' looks like part of the dental scene, but it is the container signal: the question abbreviation goes inside the rearranged colour word.",
+     "definitionFit": "Plaque is the sticky film of bacteria on teeth that leads to decay and gum disease."
     },
     "features": {
      "answerInScene": true,
@@ -1571,47 +1570,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INEPT",
+     "op": "container",
      "indicators": [
       {
-       "text": "spilling",
-       "note": "spilt liquid goes everywhere, so these letters scatter into a new order"
+       "text": "over",
+       "at": 22,
+       "note": "the rearranged letters go over, covering both sides of, the single letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "over",
-         "note": "spread over something, the outer word covers it on both sides"
+         "text": "spilling",
+         "at": 8,
+         "note": "a spilt drink loses its shape, so the letters are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "pint",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "partner at the table",
-         "gives": "E",
-         "note": "at the bridge table the players are North, South, East and West; East partners West"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "partner at the table",
+       "at": 27,
+       "gives": "E",
+       "note": "at the bridge table the partners are North and South, East and West; E is East"
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy diner knocks a pint over a dining companion.",
-     "walkthrough": "'Partner at the table' sounds like a dinner companion, but means a bridge partner, here East.",
-     "definitionFit": "Inept means lacking skill or competence, and someone who spills drinks is awkward or clumsy."
+     "surface": "A clumsy diner knocks a pint over a dinner companion.",
+     "walkthrough": "'spilling' turns PINT into INPT, and E, East in bridge, goes in the middle.",
+     "definitionFit": "Inept means lacking skill or competence, awkward in handling things."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "table"
+     "misdirectedWord": "partner"
     }
    }
   },
@@ -1642,42 +1642,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LETGO",
-     "indicators": [
-      {
-       "text": "abridged",
-       "note": "an abridged text has been shortened, so the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Long",
+       "at": 0,
+       "gives": "L",
+       "note": "L is an abbreviation for long, as in longitude"
+      },
+      {
+       "words": "film",
+       "at": 5,
+       "gives": "ET",
+       "note": "ET, the Spielberg film about an extraterrestrial"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abridged",
+         "at": 14,
+         "note": "an abridged text is shortened, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Long",
-         "gives": "L",
-         "note": "L is an abbreviation for long"
-        },
-        {
-         "words": "film",
-         "gives": "ET",
-         "note": "E.T. is Spielberg's 1982 film, crosswords' favourite movie"
-        },
-        {
          "words": "got",
-         "gives": "GO",
-         "note": "the word minus its final letter"
+         "at": 10,
+         "note": "the word taken as written, cut short"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lengthy movie was cut down before being released.",
-     "walkthrough": "'Long film' reads as one idea about running time, but splits into a single letter and a two-letter film title.",
-     "definitionFit": "To let go of something is to stop holding it, the same act as releasing it."
+     "surface": "A lengthy movie is cut down before going on general release.",
+     "walkthrough": "'Long film' looks like one idea, a lengthy movie, but it splits into two pieces: the abbreviation for long, then Spielberg's alien film.",
+     "definitionFit": "To let go of something is to release one's grip on it, setting it free."
     },
     "features": {
      "answerInScene": false,
@@ -1771,36 +1775,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "QUOTE",
-     "indicators": [
-      {
-       "text": "broken",
-       "note": "a broken thing is smashed apart, and these letters reassemble differently"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Queen's",
+       "at": 0,
+       "gives": "QU",
+       "note": "Qu. is a recognised abbreviation for queen"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 8,
+         "note": "something broken is in pieces, so the letters are reassembled in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Queen",
-         "gives": "QU",
-         "note": "Qu is an abbreviation for queen"
-        },
-        {
          "words": "toe",
-         "note": "the three letters rearranged"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The monarch's injured toe is sore.",
-     "walkthrough": "'Tender' looks like 'sore', but it is the verb used in business: a firm tenders or bids for a contract.",
-     "definitionFit": "To quote for a job is to state a price for doing it, just as one tenders a bid."
+     "surface": "The monarch has fractured a toe and it is sore.",
+     "walkthrough": "'tender' reads as sore, to go with the broken toe, but the definition is the verb: to tender is to offer a price.",
+     "definitionFit": "To tender a price is to submit an offer, which is what giving a quote for a job does."
     },
     "features": {
      "answerInScene": false,
@@ -1962,43 +1966,48 @@
        "indicators": [
         {
          "text": "turning over",
-         "note": "turned over, a word is flipped and read from end to start"
+         "at": 13,
+         "note": "the word is turned over, so it is read from its last letter back to its first"
         }
        ],
        "parts": [
         {
          "words": "plenty",
+         "at": 6,
          "gives": "LOTS",
-         "note": "lots means plenty"
+         "note": "lots means plenty, a great deal"
         }
        ]
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "EN",
        "indicators": [
         {
          "text": "both of",
-         "note": "both edges of a word are its two ends together, so the first and last letters stay"
+         "at": 26,
+         "note": "both sides together: the letters at each end of the number's name"
+        },
+        {
+         "text": "banks",
+         "at": 39,
+         "note": "a river's banks are its two edges, so the word's first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "18's banks",
-         "gives": "EN",
-         "select": "outer",
-         "note": "18 written as a word, eighteen, and its two outside letters"
+         "words": "18's",
+         "at": 34,
+         "gives": "EIGHTEEN",
+         "note": "the number eighteen, spelt out in words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone helped themselves to a lot, cleaning out the banks.",
-     "walkthrough": "'18' looks like a cross-reference to 18 Down, but it is the number spelt out, EIGHTEEN, whose banks, or edges, are E and N.",
-     "definitionFit": "Stolen means taken without permission; the past participle of steal matches 'taken'."
+     "surface": "Someone takes a great deal from the riverside.",
+     "walkthrough": "'18' is not the cross-reference it looks like; spell the number out in words and take the letters at both its ends.",
+     "definitionFit": "Stolen goods are things taken without permission, so the past participle matches."
     },
     "features": {
      "answerInScene": false,

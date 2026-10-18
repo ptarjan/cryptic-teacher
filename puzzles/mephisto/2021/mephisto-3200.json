@@ -1097,43 +1097,52 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 21,
+       "note": "in an across answer, one piece sits on, that is just before, the next"
+      }
+     ],
      "parts": [
       {
        "words": "seated",
+       "at": 14,
        "gives": "SAT",
-       "note": "sat means seated"
+       "note": "sat means seated, as in 'she sat down'"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "IS",
+       "op": "deletion",
        "indicators": [
         {
          "text": "back half of",
-         "note": "the back half keeps only the second two of the four letters"
+         "at": 24,
+         "note": "only the second half of the word is kept; its first two letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "raised floor",
-         "gives": "IS",
-         "select": "last",
-         "note": "a dais is a raised floor"
+         "at": 37,
+         "gives": "DAIS",
+         "note": "a dais is a raised platform or floor at one end of a hall"
+        },
+        {
+         "gives": "DA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Widows in India are sitting at the back of a platform.",
-     "walkthrough": "The back half of DAIS is IS.",
-     "definitionFit": "Sati, plural satis, is a widow who immolates herself on her husband's funeral pyre, a historical Indian practice."
+     "surface": "Widows sit on a raised platform at the back of a hall.",
+     "walkthrough": "The back half of DAIS is IS. Sati was the old Hindu custom of a widow burning herself on her husband's funeral pyre; the word also names the widow herself.",
+     "definitionFit": "A sati is a Hindu widow who immolated herself on her husband's pyre, so the plural names such women."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "seated"
+     "misdirectedWord": "floor"
     }
    }
   },
@@ -1666,51 +1675,59 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ACCRA",
      "indicators": [
       {
        "text": "to be used for",
-       "note": "one thing being used for another means it replaces it in the word"
+       "at": 23,
+       "note": "one thing is used for, in place of, another, so the named letters are swapped out"
       }
      ],
      "parts": [
       {
        "words": "increase",
+       "at": 8,
        "gives": "ACCRUE",
-       "note": "to accrue is to increase or grow"
+       "note": "to accrue is to increase or build up, as interest does"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "UE",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "primarily keeps just the first letters of the two words before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "university entrance",
-         "gives": "UE",
-         "select": "first",
-         "note": "the opening letters of the two words"
+         "words": "university",
+         "at": 38,
+         "gives": "U"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 58,
+           "note": "primarily picks the first letter of the word next to it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "entrance",
+           "at": 49,
+           "note": "the first letter of entrance"
+          }
+         ]
         }
        ]
       },
       {
        "words": "about",
+       "at": 17,
        "gives": "A",
-       "note": "a is a dictionary abbreviation for about"
+       "note": "Chambers gives a as a form meaning about or on, as in the old preposition seen in 'a-roving'"
       }
      ]
     },
     "explanation": {
-     "surface": "A financial boost, approximately, earmarked for university admission.",
-     "walkthrough": "In ACCRUE the U and E are replaced by A.",
-     "definitionFit": "Accra is the capital city of Ghana."
+     "surface": "A city's growth is about to be spent on a new university entrance.",
+     "walkthrough": "ACCRUE ends in U and E, the university and the first letter of entrance; A is used for them. Accra is the capital of Ghana.",
+     "definitionFit": "Accra is the capital city of Ghana, on the Gulf of Guinea coast of West Africa."
     },
     "features": {
      "answerInScene": false,
@@ -1856,58 +1873,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GLAIK",
+     "op": "composite",
      "indicators": [
       {
+       "text": "put out",
+       "at": 11,
+       "note": "the named letters are put out of the pool of letters before it is rearranged"
+      },
+      {
        "text": "hit",
-       "note": "something hit is knocked about, so its letters are scrambled"
+       "at": 24,
+       "note": "a hit plane is knocked about, so its letters and those of flak are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GLAIK",
-       "indicators": [
-        {
-         "text": "put out",
-         "note": "put out means thrown out, so these letters are removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Mass",
-         "gives": "M",
-         "note": "M is the abbreviation for mass"
-        },
-        {
-         "words": "force",
-         "gives": "F",
-         "note": "F is the abbreviation for force"
-        },
-        {
          "words": "MiG",
-         "note": "taken as written"
+         "at": 20
         },
         {
          "words": "flak",
-         "note": "taken as written"
+         "at": 33
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mass",
+         "at": 0,
+         "gives": "M",
+         "note": "M is the abbreviation for mass in physics"
+        },
+        {
+         "words": "force",
+         "at": 5,
+         "gives": "F",
+         "note": "F is the abbreviation for force in physics"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Soviet MiG fighter is hit by anti-aircraft fire and wrecked in an instant.",
-     "walkthrough": "M and F are removed from MIGFLAK and the remaining IGLAK is rearranged.",
-     "definitionFit": "Glaik is a Scots word for a flash of light, a glint or flicker that dazzles."
+     "surface": "A fighter jet is struck by anti-aircraft fire and knocked out in an instant.",
+     "walkthrough": "Pool MIG and FLAK, 'put out' M and F, and rearrange IGLAK. Glaik is a Scots word for a flash, a dazzling glint of light.",
+     "definitionFit": "In Scots a glaik is a flash or glint of light, the sense recorded in Chambers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hit"
+     "misdirectedWord": "Mass"
     }
    }
   },
@@ -2061,47 +2081,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "could be _____ up",
-      "at": 20
+      "text": "Drunk ignores pub — could be _____ up",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "Drunk",
-       "note": "a drunk person staggers about, so the letters are jumbled"
+       "at": 0,
+       "note": "a drunk's word order staggers, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "ignores",
-         "note": "the compound anagram works when the second word of the completed phrase is set aside from the letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ignores pub",
-         "note": "taken as written"
-        },
-        {
-         "gives": "PU"
-        }
-       ]
+       "words": "ignores pub",
+       "at": 6
+      },
+      {
+       "words": "up",
+       "at": 35,
+       "note": "the little word that, with the answer, accounts for every letter of the fodder"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A drinker passes by the pub, which might be a sign of reform.",
-     "walkthrough": "A compound anagram: IGNORES PUB rearranges to SOBERING UP, so the answer is that phrase minus the UP the clue already prints.",
-     "definitionFit": "Sobering up is becoming less drunk, which a drinker who skips the pub could well be doing."
+     "surface": "A drinker who walks past the pub may be getting sober.",
+     "walkthrough": "The blank is the answer. Rearranged, IGNORES PUB gives the answer plus UP, so the clue reads as both wordplay and the scene it describes.",
+     "definitionFit": "Sobering up is becoming less intoxicated, which is what a drinker skipping the pub might be doing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Drunk"
     }
    }
