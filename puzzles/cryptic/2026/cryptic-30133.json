@@ -48,29 +48,26 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "the Latin circa, 'about', is abbreviated to a single letter at the front"
-      }
-     ],
      "parts": [
       {
        "words": "about",
+       "at": 9,
        "gives": "C",
-       "note": "c. (circa) means about"
+       "note": "C is circa, about"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "that's set up",
-         "note": "in a down clue, something set up is raised, so its letters are read from the bottom upwards"
+         "at": 20,
+         "note": "in a down clue a chum that's set up is raised, read upwards, backwards"
         }
        ],
        "parts": [
         {
          "words": "chum",
+         "at": 15,
          "gives": "PAL",
          "note": "a pal is a chum"
         }
@@ -78,20 +75,21 @@
       },
       {
        "words": "trick",
+       "at": 34,
        "gives": "TRAP",
-       "note": "a trap is a trick to catch someone"
+       "note": "a trap is a trick"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend has rigged up some foolish prank.",
-     "walkthrough": "The answer is split across two lights, 1 and 2 down.",
-     "definitionFit": "Claptrap is empty, pretentious talk, a synonym for rubbish or nonsense."
+     "surface": "Rubbish talked about a friend who was framed.",
+     "walkthrough": "'set up trick' reads as a frame-up, but 'set up' turns the chum.",
+     "definitionFit": "Claptrap is pretentious nonsense, empty talk."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "set"
     }
    }
   },
@@ -932,34 +930,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CALLBOX",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the starts of words, so the first sounds are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "bathroom parts",
-       "gives": "CALLBOX",
-       "soundsLike": "BALL COCKS",
-       "note": "ball cocks are float valves in a cistern; swapping their opening sounds gives the result"
+       "words": "bathroom",
+       "at": 10,
+       "gives": "BALL",
+       "note": "with parts, ballcocks are the float valves in a bathroom cistern"
+      },
+      {
+       "op": "homophone",
+       "spelt": "COX",
+       "parts": [
+        {
+         "words": "parts",
+         "at": 19,
+         "gives": "COCKS",
+         "note": "cocks, with ball, makes ballcocks"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bits of plumbing for a bathroom, found in a roadside hut.",
-     "walkthrough": "A ballcock is the floating valve that refills a toilet cistern.",
-     "definitionFit": "A call box is a public telephone booth, often standing by the roadside."
+     "surface": "Bathroom fittings found inside a roadside kiosk.",
+     "walkthrough": "Ballcocks are float valves in a cistern; swapping the B and C sounds gives CALL BOCKS, said as the answer.",
+     "definitionFit": "A call box is a public telephone booth, often by the roadside."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "bathroom"
+     "misdirectedWord": "parts"
     }
    }
   },

@@ -298,33 +298,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RETRO",
      "indicators": [
       {
-       "text": "having run for miles"
+       "text": "having",
+       "at": 25,
+       "note": "having one thing for another means getting it as a replacement, so a swap is coming"
+      },
+      {
+       "text": "for",
+       "at": 36,
+       "note": "'having run for miles' asks for the run letter to stand in place of the miles letter in the word"
       }
      ],
      "parts": [
       {
        "words": "railway system",
+       "at": 10,
        "gives": "METRO",
-       "note": "an underground railway, as in Paris"
+       "note": "the Metro is an underground railway network, as in Paris or Newcastle"
       },
       {
-       "words": "run for miles",
+       "words": "miles",
+       "at": 40,
+       "gives": "M"
+      },
+      {
+       "words": "run",
+       "at": 32,
        "gives": "R",
-       "note": "R = run, as on a cricket scorecard, replaces M = miles"
+       "note": "R is the cricket scorecard abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "An old-fashioned railway line with a very long run.",
-     "walkthrough": "R and M are standard abbreviations for run and miles; the surface makes 'run for miles' sound like the length of the line.",
-     "definitionFit": "A plain synonym: retro describes a deliberately old style, like retro furniture."
+     "surface": "A description of a vintage railway network that operated over long distances.",
+     "walkthrough": "'having run for miles' tells you to swap the M of METRO for R.",
+     "definitionFit": "Retro styling deliberately imitates fashions of the past, so it is old-style."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "run"
     }
@@ -680,40 +692,55 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "brief",
-       "note": "something brief is cut short, so the stumble loses its last letter"
-      },
-      {
        "text": "after",
-       "note": "the business and the look are placed after the stumble"
+       "at": 32,
+       "note": "after places the business and bad-look pieces behind the shortened stumble"
       }
      ],
      "parts": [
       {
-       "words": "stumble",
-       "gives": "TRI",
-       "note": "TRIP, brief, loses P"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 38,
+         "note": "brief means cut short, so the last letter of the word for stumble is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stumble",
+         "at": 44,
+         "gives": "TRIP",
+         "note": "to trip is to stumble"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "business",
+       "at": 9,
        "gives": "CO",
-       "note": "CO = company"
+       "note": "CO is the abbreviation for company, a business"
       },
       {
        "words": "bad look",
+       "at": 23,
        "gives": "LOUR",
-       "note": "to lour is to scowl"
+       "note": "to lour (or lower) is to frown or scowl, a bad look"
       }
      ]
     },
     "explanation": {
-     "surface": "An ordinary firm gives someone a dirty look after they trip.",
-     "walkthrough": "'Standard' is a flag here, not ordinary. To lour (or lower) is to frown darkly.",
-     "definitionFit": "A definition by example: a standard is a flag, and a tricolour such as the French flag is one kind."
+     "surface": "A company gets a frown after a small slip-up.",
+     "walkthrough": "'Standard' is a flag here, not a norm; TRI is TRIP made brief.",
+     "definitionFit": "A standard is a flag, and the French tricolour is a famous three-coloured flag."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Standard"
     }
    }
@@ -858,56 +885,44 @@
      "indicators": [
       {
        "text": "digesting",
-       "note": "what you digest is taken inside you"
+       "at": 15,
+       "note": "digesting means taking something inside, so the strawberry letters go into the middle of the stomach-and-queasy pair"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "first pair of",
-         "note": "the first two letters of the word that follows"
-        }
-       ],
        "parts": [
         {
          "words": "Stomach",
+         "at": 0,
          "gives": "STAND",
-         "note": "can't stomach it = can't stand it"
+         "note": "to stomach something is to stand it, tolerate it"
         },
         {
          "words": "queasy",
+         "at": 8,
          "gives": "ILL",
-         "note": "feeling ill"
+         "note": "feeling queasy is feeling ill"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first pair of strawberries",
+       "at": 25,
        "gives": "ST",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "first pair of strawberries",
-         "gives": "ST",
-         "select": "first",
-         "note": "ST, taken inside STAND…ILL"
-        }
-       ]
+       "note": "the first two letters of strawberries"
       }
      ]
     },
     "explanation": {
-     "surface": "An upset stomach from eating strawberries and jam.",
-     "walkthrough": "'Stomach' is a verb (tolerate), and 'jam' is traffic, not preserve.",
-     "definitionFit": "A traffic sense: a jam is a standstill, where nothing can move."
+     "surface": "Someone whose stomach turns after eating strawberries and jam.",
+     "walkthrough": "'jam' looks like part of the menu but is the definition, a traffic jam.",
+     "definitionFit": "A traffic jam brings vehicles to a halt, a complete standstill."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "jam"
     }
    }
@@ -1024,46 +1039,46 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "the story",
+       "gives": "SAGA",
+       "note": "a saga is a long story"
+      },
+      {
+       "words": "Charlie",
+       "gives": "C",
+       "note": "C in the phonetic alphabet"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hosting",
+         "note": "a host has guests inside the house, so the word is takes the tour's centre inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "the story",
-         "gives": "SAGA",
-         "note": "a saga is a long story"
-        },
-        {
-         "words": "Charlie",
-         "gives": "C",
-         "note": "C in the phonetic alphabet"
+         "words": "is",
+         "gives": "IS"
         },
         {
          "op": "middle",
          "indicators": [
           {
-           "text": "hosting",
-           "note": "a host has guests inside the house, so IS holds the tour's centre"
-          },
-          {
            "text": "centrepiece of",
-           "note": "the centre of a word is its middle letters"
+           "note": "the centrepiece of a word is its middle, here the two central letters of an even-length word"
           }
          ],
          "parts": [
           {
-           "words": "is",
-           "note": "used as it stands, around OU"
+           "words": "tour"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "centrepiece of tour",
-       "gives": "OU",
-       "note": "the middle two letters of TOUR"
       }
      ]
     },
@@ -1363,43 +1378,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "on",
-       "note": "in a down answer, one piece sits on top of the next"
+       "text": "wearing",
+       "at": 15,
+       "note": "wearing means being dressed in, so the ship letters enclose the sailor and base like clothing"
       }
      ],
      "parts": [
       {
        "words": "ship's",
+       "at": 23,
        "gives": "SS",
-       "note": "SS = steamship, split S…S around TARE"
+       "note": "SS stands for steamship, the prefix on a ship's name"
       },
       {
        "op": "charade",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "clothes wrap the wearer, so the ship's letters wrap round the rest"
+         "text": "on",
+         "at": 7,
+         "note": "in a down clue, on puts the sailor above the base"
         }
        ],
        "parts": [
         {
          "words": "Sailor",
+         "at": 0,
          "gives": "TAR",
          "note": "a tar is a sailor"
         },
         {
          "words": "base",
+         "at": 10,
          "gives": "E",
-         "note": "e, the base of natural logarithms"
+         "note": "e is the base of natural logarithms"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor at a naval base wears the ship's protective goggles.",
-     "walkthrough": "'Goggles' is a verb: he goggles, with eyes wide open.",
-     "definitionFit": "A plain synonym for the verb: to goggle is to gaze with wide eyes."
+     "surface": "A sailor at a naval base wearing protective goggles from the ship.",
+     "walkthrough": "'goggles' is a verb here: stares in amazement.",
+     "definitionFit": "To goggle is to look with wide eyes, so goggles and stares are verb synonyms."
     },
     "features": {
      "answerInScene": false,

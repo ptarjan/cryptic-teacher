@@ -2057,47 +2057,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "at last",
-       "note": "the final letter of 'comedy'"
+       "text": "in",
+       "at": 15,
+       "note": "in puts the comedy letter inside the two section words"
       }
      ],
      "parts": [
       {
        "words": "two sections",
+       "at": 18,
        "gives": "PARTPIECE",
-       "note": "a part and a piece, split to take Y"
+       "note": "a part and a piece are two sections"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "Y",
        "indicators": [
         {
-         "text": "in",
-         "note": "that letter goes inside the pair of words"
+         "text": "at last",
+         "at": 7,
+         "note": "at last means the final letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Comedy at last",
-         "gives": "Y",
-         "select": "last",
-         "note": "the last letter of comedY"
+         "words": "Comedy",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comedy in two acts finally gets its laugh.",
-     "walkthrough": "'Two sections' is two synonyms side by side, and the letter slots in at the join between them. A turn is a short stage act.",
-     "definitionFit": "A party piece is a trick or song someone always performs to entertain, an amusing turn in the music-hall sense."
+     "surface": "A comedy show finally divided into two halves offers an entertaining act.",
+     "walkthrough": "The Y goes between PART and PIECE.",
+     "definitionFit": "A party piece is a performance someone does to entertain at gatherings."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "sections"
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
     }
    }
   },
@@ -3281,31 +3279,28 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the male goes into 'great'"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "accommodates",
-         "note": "the city holds the fire and the writer"
+         "text": "in",
+         "at": 5,
+         "note": "in puts the male inside the great letters"
         }
        ],
        "parts": [
         {
          "words": "great",
+         "at": 8,
          "gives": "AI",
-         "note": "A1 = first-rate, written AI; split round TOM"
+         "note": "A1 means first-class, great, with the 1 read as I"
         },
         {
          "words": "Male",
+         "at": 0,
          "gives": "TOM",
-         "note": "a tom is a male animal"
+         "note": "a tom is a male cat"
         }
        ]
       },
@@ -3313,26 +3308,37 @@
        "op": "container",
        "indicators": [
         {
-         "text": "following",
-         "note": "the writer comes after the fire"
+         "text": "accommodates",
+         "at": 25,
+         "note": "accommodates means houses, so the city letters hold the fire and writer pieces"
         }
        ],
        "parts": [
         {
          "words": "metropolis",
+         "at": 14,
          "gives": "CITY",
-         "note": "split round ENERGY AUTHOR"
+         "note": "a city is a metropolis"
         },
         {
          "op": "charade",
+         "indicators": [
+          {
+           "text": "following",
+           "at": 45,
+           "note": "following places the writer after the fire word"
+          }
+         ],
          "parts": [
           {
            "words": "fire",
+           "at": 55,
            "gives": "ENERGY",
-           "note": "fire in the sense of vigour"
+           "note": "fire means vigour, energy"
           },
           {
            "words": "writer",
+           "at": 38,
            "gives": "AUTHOR",
            "note": "an author is a writer"
           }
@@ -3343,9 +3349,9 @@
      ]
     },
     "explanation": {
-     "surface": "A man in a great city takes in a writer after a fire at a laboratory.",
-     "walkthrough": "'Great metropolis' is two pieces: A1, written with the letter I, then CITY. The UK Atomic Energy Authority runs nuclear research at Culham in Oxfordshire.",
-     "definitionFit": "The UK Atomic Energy Authority is the British body that carries out nuclear research, and its sites are research centres."
+     "surface": "A man in a big city housing a writer after a fire at a laboratory.",
+     "walkthrough": "'great metropolis' reads as one phrase, but great gives A1 holding TOM, and CITY splits after C to take ENERGY and AUTHOR.",
+     "definitionFit": "The UK Atomic Energy Authority runs nuclear research centres such as Culham."
     },
     "features": {
      "answerInScene": false,
@@ -3541,8 +3547,8 @@
         {
          "words": "Greece",
          "at": 28,
-         "gives": "EE",
-         "note": "the middle pair of letters of Greece"
+         "gives": "GREECE",
+         "note": "Greece is used as written, the country's name being the word whose centre is taken"
         }
        ]
       },
