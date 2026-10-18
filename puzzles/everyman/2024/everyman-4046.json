@@ -896,53 +896,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "reeling",
-       "note": "reeling means staggering drunkenly, so the letters lurch out of order"
+       "text": "before",
+       "at": 16,
+       "note": "before puts the rearranged letters ahead of the final one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "end of",
-         "note": "the end of a word is its final letter, so take the last letter of stale"
+         "text": "reeling",
+         "at": 8,
+         "note": "reeling means staggering about, so the letters of all are are shuffled"
         }
        ],
        "parts": [
         {
          "words": "All are",
-         "note": "anagram fodder, 6 letters"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "before"
-          }
-         ],
-         "parts": [
-          {
-           "words": "end of stale",
-           "note": "the last letter of stalE"
-          }
-         ]
+         "text": "end of",
+         "at": 23,
+         "note": "end of picks the last letter of stale"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stale",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drinkers all staggering after a stale pint.",
-     "walkthrough": "Real ale is the British term for traditionally brewed, cask-conditioned beer.",
-     "definitionFit": "A definition by class: real ale is a kind of beer, conditioned in the cask it is served from."
+     "surface": "Everyone staggering about drunk, just before the beer runs out and goes stale.",
+     "walkthrough": "'reeling' rearranges ALLARE into REALAL; 'end of' takes E from stale.",
+     "definitionFit": "Real ale is the British term for traditional cask-conditioned beer, promoted by CAMRA."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "stale"
     }
    }
   },
