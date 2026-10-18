@@ -197,5 +197,49 @@ FX.merge_rows([{"id": "n-1#4a", "reason": "ins_split: new"}, {"id": "s-1#3a", "r
 check("apply drops only the fixed row, keeps the rest and their marks, adds the new one",
       json.loads(FX.OUT.read_text()) == [rows[0], rows[2], {"id": "n-1#4a", "reason": "ins_split: new"}])
 
+# The list is replaced atomically: `git add` takes no lock, and 16 burn commits
+# (10-17) captured the file empty while done() truncated and rewrote it in place.
+import threading
+big = [{"id": f"r-{i}#1a", "reason": "x" * 40} for i in range(4000)]
+Q.write(Q.dump(big))
+stop, bad = threading.Event(), []
+def reader():
+    while not stop.is_set():
+        try:
+            text = Q.PATH.read_text()
+            if len(json.loads(text)) != len(big):
+                bad.append(len(text))
+        except ValueError:
+            bad.append("torn")
+t = threading.Thread(target=reader)
+t.start()
+for _ in range(150):
+    with Q.locked():
+        Q.write(Q.dump(big))
+stop.set()
+t.join()
+check("a reader never sees the list empty or torn while it is rewritten", not bad)
+check("no temp file is left beside the list", not list(tmp.glob(".shape_reannotate*part")))
+
+# A row leaves the queue only with the annotation that settled it
+# (own_rows.keep_unlanded): a withdrawn or failed run's pruned rows stay.
+import own_rows as OR
+head = Q.dump([{"id": "a-1#1a", "reason": "r"}, {"id": "w-1#2d", "reason": "r"},
+               {"id": "w-1#3a", "reason": "r"}, {"id": "z-9#4a", "reason": "r"}])
+staged = Q.dump([{"id": "a-1#1a", "reason": "r"}, {"id": "z-9#4a", "reason": "r"}])   # w-1's rows pruned in the tree
+real = OR._landed
+OR._landed = lambda pid, clue: False
+check("a puzzle whose annotation did not land keeps its rows, in place",
+      OR.keep_unlanded(head, staged, {"w-1"}) == head)
+check("a row of another puzzle is never put back by this one's stage",
+      OR.keep_unlanded(head, staged, {"a-1"}) == staged)
+OR._landed = lambda pid, clue: clue == "2d"
+check("only the clue whose annotation landed leaves",
+      [r["id"] for r in json.loads(OR.keep_unlanded(head, staged, {"w-1"}))] == ["a-1#1a", "w-1#3a", "z-9#4a"])
+OR._landed = lambda pid, clue: True
+check("a landed puzzle's rows leave", OR.keep_unlanded(head, staged, {"w-1"}) == staged)
+OR._landed = real
+check("a puzzle with no file here has not landed", not OR._landed("nosuch-1", "1a"))
+
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)

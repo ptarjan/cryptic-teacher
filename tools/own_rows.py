@@ -29,6 +29,7 @@ the result is checked to hold exactly the donor's rows for ID and the base's
 for everyone else before anything is written.
 """
 import ast
+import contextlib
 import json
 import subprocess
 import sys
@@ -168,14 +169,79 @@ def _merger(rel):
     return splice if rel == REL else splice_list if rel in LIST_RELS else splice_json
 
 
+def _landed(pid, clue):
+    """Whether puzzle `pid`'s file in the tree holds a new annotation of clue key
+    `clue` ("22a") that the shape detectors pass. By id only: one file is read."""
+    import puzzle_paths
+    import shape_queue
+    try:
+        path = puzzle_paths.find(pid)
+        entries = json.loads(path.read_text(encoding="utf-8")).get("entries") or [] if path else []
+    except (OSError, ValueError, SystemExit):
+        return False
+    for e in entries:
+        if shape_queue.clue_key(e) == clue:
+            return bool(e.get("annotation")) and not shape_queue.findings(e)
+    return False
+
+
+def keep_unlanded(base, text, pids):
+    """`text` (the list as staged) with back every row of `pids` that `base` (HEAD)
+    holds and `text` dropped, unless its clue's new annotation is in the puzzle's
+    file and passes. A row leaves the queue in its puzzle's own commit and only
+    with the annotation that settled it: a run that was withdrawn, or failed
+    validation, has pruned its rows in the tree (done() runs at apply, before the
+    check), and those pruned rows must not ride out in anyone's commit
+    (mephisto-3304, book-26025, mephisto-3388 lost theirs that way, 10-17)."""
+    import shape_queue
+    b, t = json.loads(base or "[]"), json.loads(text or "[]")
+    have = {r["id"] for r in t}
+    back = [r for r in b if r["id"] not in have and r["id"].partition("#")[0] in pids
+            and not _landed(*r["id"].partition("#")[::2])]
+    if not back:
+        return text
+    out = list(t)
+    for r in back:
+        before = [x["id"] for x in b[:b.index(r)]]
+        at = max((i + 1 for i, x in enumerate(out) if x["id"] in before), default=0)
+        out.insert(at, r)
+        have.add(r["id"])
+    return shape_queue.dump(out)
+
+
 def stage(*pids):
     """Several ids chain onto one another's result, so a batch commit holds every
     one's rows (staged one at a time, each would rebuild from HEAD and undo the last)."""
+    import shape_queue
     for rel in (REL, *DATA_RELS, *_lists()):
-        text, donor = git("show", f"HEAD:{rel}"), (TOOLS.parent / rel).read_text()
+        head = git("show", f"HEAD:{rel}")
+        if rel in LIST_RELS:
+            with shape_queue.locked():
+                donor = (TOOLS.parent / rel).read_text()
+        else:
+            donor = (TOOLS.parent / rel).read_text()
+        text = head
         for pid in pids:
             text = _merger(rel)(text, donor, pid)
+        if rel in LIST_RELS:
+            text = keep_unlanded(head, text, set(pids))
         _stage_blob(rel, text)
+
+
+def _guard(rel):
+    """The queue's lock around a read-modify-write of a LIST_RELS file."""
+    import shape_queue
+    return shape_queue.locked() if rel in LIST_RELS else contextlib.nullcontext()
+
+
+def _write(rel, path, text):
+    """The list file is replaced atomically (git add takes no lock and must
+    never see it half written); the others as before."""
+    if rel in LIST_RELS:
+        import shape_queue
+        shape_queue.write(text, path)
+    else:
+        path.write_text(text)
 
 
 def revert(pid):
@@ -186,11 +252,12 @@ def revert(pid):
         print(f"  [{pid}] put its rows of {REL} back as HEAD has them")
     for rel in (*DATA_RELS, *_lists()):
         path = TOOLS.parent / rel
-        text = path.read_text()
-        kept = _merger(rel)(text, git("show", f"HEAD:{rel}"), pid)
-        if kept != text:
-            path.write_text(kept)
-            print(f"  [{pid}] put its rows of {rel} back as HEAD has them")
+        with _guard(rel):
+            text = path.read_text()
+            kept = _merger(rel)(text, git("show", f"HEAD:{rel}"), pid)
+            if kept != text:
+                _write(rel, path, kept)
+                print(f"  [{pid}] put its rows of {rel} back as HEAD has them")
 
 
 def graft(pid, donor_dir):
@@ -199,12 +266,13 @@ def graft(pid, donor_dir):
         if not donor.is_file() or not (TOOLS.parent / rel).is_file():
             continue
         path = TOOLS.parent / rel
-        text = path.read_text()
-        merge = _merger(rel)
-        kept = merge(text, donor.read_text(), pid)
-        if kept != text:
-            path.write_text(kept)
-            print(f"  [{pid}] put its rows of {rel} back as the interrupted run left them")
+        with _guard(rel):
+            text = path.read_text()
+            merge = _merger(rel)
+            kept = merge(text, donor.read_text(), pid)
+            if kept != text:
+                _write(rel, path, kept)
+                print(f"  [{pid}] put its rows of {rel} back as the interrupted run left them")
 
 
 def main(argv):

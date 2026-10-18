@@ -20,9 +20,13 @@ every listed row, tried or not).
 The row changes ship in the puzzle's own commit (tools/own_rows.py), so a
 pruned row reaches master with the tree that settled it, and a discarded run
 puts its rows back."""
+import contextlib
 import fcntl
+import hashlib
 import json
+import os
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -195,20 +199,41 @@ def done(puzzle, written, held=()):
     if not mine:
         return 0
     verdict = {clue_key(by_id[k]): k in held or still_flagged(by_id[k]) for k in mine}
-    with open(PATH, "r+") as f:
-        fcntl.flock(f, fcntl.LOCK_EX)
+    with locked():
         out = []
-        for r in json.load(f):
+        for r in json.loads(PATH.read_text()):
             p, _, c = r["id"].partition("#")
             if p == puzzle["id"] and c in verdict:
                 if verdict[c]:
                     out.append({**r, "tried": True})
                 continue
             out.append(r)
-        f.seek(0)
-        f.truncate()
-        f.write(dump(out))
+        write(dump(out))
     return len(mine)
+
+
+@contextlib.contextmanager
+def locked():
+    """Exclusive lock for a read-modify-write of the list. The lock is a file of
+    its own, not PATH, because write() replaces PATH's inode."""
+    lock = Path(tempfile.gettempdir()) / f"ct-shape-queue-{hashlib.sha1(str(PATH).encode()).hexdigest()[:12]}.lock"
+    with open(lock, "w") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        yield
+
+
+def write(text, path=None):
+    """Replace the list with `text` in one step (a temp file beside it, then
+    os.replace), so a reader, and the burn's `git add`, which takes no lock,
+    sees the old file or the new one and never a truncated half: 16 "Annotate"
+    commits (10-17) captured it empty while done() rewrote it in place."""
+    path = Path(path or PATH)
+    part = path.with_name(f".{path.name}.{os.getpid()}.part")
+    with open(part, "w", encoding="utf-8") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(part, path)
 
 
 def dump(out):
