@@ -126,18 +126,28 @@ assert live["2026-10-08"] == {"azed": [None, None, 1, 1, 1, None, None], "times"
 assert P.totals(live["2026-10-08"]) == [10, 3, 6, 5, 4, 110, 30]
 # The three queues: depths from one row, flows from the recorded nights.
 assert B.queue_depths([10, 3, 5, 4, 3, 110, 30]) == (0, 30, 2)
-assert B.queue_depths([100, 3, 5, 4, 3, 40, 30]) == (60, 30, 2)
+assert B.queue_depths([100, 3, 5, 4, 3, 40, 30]) == (65, 30, 2)
 assert B.queue_depths([None, None, 1, 1, 1, None, None]) == (None, None, 0)
+# Filed from a blog: filed 5,542 vs downloaded 319 must not read as to fetch.
+assert B.queue_depths([6000, 0, 5542, 0, 0, 319, 10]) == (448, 10, 5542)
+assert B.queue_depths([100, 0, 120, 0, 0, 5, 3]) == (0, 3, 120)   # never negative
+# A falling known count makes fetch's in negative, shown with its sign.
+fall = {"2026-10-01": {"blog": [100, 0, 50, 0, 0, 5, 2]}, "2026-10-03": {"blog": [96, 0, 54, 0, 0, 6, 2]}}
+ff = B.queue_flows(fall, 7)
+assert ff[0] == (-2, 2) and ff[1] == (2, 2), ff
+assert B.flow_text(ff[0]) == "&minus;2 / &minus;2", B.flow_text(ff[0])
+assert "<td>40 " in B.queue_table(fall["2026-10-03"], fall)
 flows = B.queue_flows(days, 7)
-# Downloaded 100 -> 110 over the two days between the queue's nights: 5 a day
-# into read and out of fetch; known is recorded on one night only here.
-assert flows[0] == (None, 5) and flows[1][0] == 5 and flows[2][0] == flows[1][1], flows
+# Filed + queued fell 42 -> 33 over the two days between the queue's nights, so
+# fetch's out is -5 a day; read's in is queued's gain plus filed's; known is
+# recorded on one night only here.
+assert flows[0] == (None, -5) and abs(flows[1][0] - (-5 + flows[1][1])) < 1e-9 and flows[2][0] == flows[1][1], flows
 assert B.flow_text((None, None)) == "needs 2 nights" and B.flow_text((5, 2)) == "+5 / &minus;2"
 assert B.flow_text((None, 2)) == "? / &minus;2"
 html = B.queue_table({"times": [100, 3, 5, 4, 3, 40, 30], "azed": [1, 1, 1, 1, 1, 1, 0], "x": [0, 0, 0, 0, 0, 0, 0]}, days)
 assert "Downloaded" not in html and "<th>To fetch</th>" in html and "All series" in html, html
 assert html.index("Times") < html.index("Azed") if "Azed" in html else True
-assert ">x<" not in html and "<td>60 " in html, html
+assert ">x<" not in html and "<td>65 " in html, html
 
 pts = P.series_of(live, P.HINTED)
 assert P.daily(pts)[-1] == ("2026-10-08", 1), P.daily(pts)
@@ -178,7 +188,7 @@ ided(idx)
 html = B.progress_page(idx, today=date(2026, 10, 8))
 assert html.count("<svg") == 5, html.count("<svg")
 assert "<h2>The queues</h2>" in html and "<th>To annotate</th>" in html and "Not read" not in html
-assert "30 <span" in html and "(+5 / " in html, html
+assert "30 <span" in html and "(&minus;5 / " in html, "read queue fell 40 to 30 with 1 filed"
 assert "<polyline" in html, html[:2000]
 
 # The table is the bars: same stages, labels, numbers, order and colours, from
