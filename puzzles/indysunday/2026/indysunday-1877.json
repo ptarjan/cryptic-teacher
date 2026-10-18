@@ -110,22 +110,25 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "raised",
-       "note": "Something raised has been lifted from where it lay, and in a down entry that means its letters are read from the bottom of the grid upwards."
+       "text": "behind",
+       "at": 32,
+       "note": "in a down clue the raised creature comes below, behind the pub"
       }
      ],
      "parts": [
       {
        "words": "pub",
+       "at": 39,
        "gives": "PH",
-       "note": "PH is the map-maker's abbreviation for a public house, and it opens the answer"
+       "note": "PH is the map abbreviation for public house"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "behind",
-         "note": "One thing behind another comes after it, so the piece described first ends up following the piece named next."
+         "text": "raised",
+         "at": 25,
+         "note": "in a down clue raising the word means reading it from bottom to top"
         }
        ],
        "parts": [
@@ -134,13 +137,15 @@
          "parts": [
           {
            "words": "Large",
+           "at": 0,
            "gives": "L",
-           "note": "L is the size on a clothing label, one letter joining the front of the next piece"
+           "note": "L is the clothing-size abbreviation for large"
           },
           {
            "words": "tentacled creature",
+           "at": 6,
            "gives": "ANEMONE",
-           "note": "a sea anemone waves tentacles from a rock, seven letters that turn over with the L in front of them"
+           "note": "a sea anemone is a creature with tentacles"
           }
          ]
         }
@@ -149,8 +154,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Large tentacled creature' pulls you towards a squid or an octopus. It is a sea anemone, which is tentacled but not large — the size is a separate letter.",
-     "definitionFit": "extraordinary -> PHENOMENAL: a phenomenon is something striking enough to be remarked on, so the adjective means far outside the ordinary run of things."
+     "surface": "A huge tentacled beast rising up behind a pub would be extraordinary.",
+     "definitionFit": "Phenomenal means remarkable or exceptional, a near synonym of extraordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "creature"
     }
    }
   },
@@ -914,35 +925,46 @@
      "indicators": [
       {
        "text": "Silly",
-       "note": "Silly behaviour has no order to it, and letters made silly will not keep the sequence they were given in."
+       "at": 0,
+       "note": "silly suggests the letters are being foolish and so jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "men",
+       "at": 6
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "heartless",
-         "note": "A word with no heart loses the letter at its exact centre, and the two halves then close up over the gap."
+         "at": 10,
+         "note": "the heart of viragos, its central letter, is removed"
         }
        ],
        "parts": [
         {
-         "words": "men",
-         "note": "three letters lifted straight out of the clue to join the pile"
+         "words": "viragos",
+         "at": 20,
+         "note": "with its middle letter taken out it is VIRGOS"
         },
         {
-         "words": "viragos",
-         "gives": "VIRGOS",
-         "note": "a virago is a fierce, domineering woman; strike the middle letter out of the seven and six remain"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A virago is an overbearing, quarrelsome woman, an old and unkind word, which is why the surface reads as an insult rather than as instructions.",
-     "definitionFit": "lead to ruin? -> MISGOVERN: to misgovern is to rule so badly that the country falls apart, so the phrase names the result of the act."
+     "surface": "Foolish men and cold-hearted shrews make a ruinous combination.",
+     "walkthrough": "VIRAGOS loses its central A, and its remaining letters go with MEN into the mix.",
+     "definitionFit": "To misgovern a country is to rule it badly, which can bring it to ruin; the question mark flags the loose fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Silly"
     }
    }
   },

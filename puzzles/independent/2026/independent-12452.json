@@ -752,36 +752,40 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "an across answer written back reads right to left, so the slang word for head arrives the wrong way round"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "round",
-         "note": "one thing set round another wraps it, so the turned word closes over the single letter"
+         "at": 10,
+         "note": "the reversed head goes round the South letter, holding it"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 5,
+           "note": "going back means the word for head is read in reverse"
+          }
+         ],
          "parts": [
           {
            "words": "Head",
+           "at": 0,
            "gives": "BEAN",
-           "note": "bean is old slang for the head, as in 'off his bean'"
-          },
-          {
-           "words": "South",
-           "gives": "S",
-           "note": "S is the compass point in one letter, and it goes inside"
+           "note": "bean is slang for the head"
           }
          ]
+        },
+        {
+         "words": "South",
+         "at": 16,
+         "gives": "S",
+         "note": "S is the compass abbreviation for South"
         }
        ]
       },
@@ -790,21 +794,30 @@
        "indicators": [
         {
          "text": "ending in",
-         "note": "the ending of a word is its final letter, and that is all this one is asked to give"
+         "at": 23,
+         "note": "only the last letter of legendary is used"
         }
        ],
        "parts": [
         {
          "words": "legendary",
-         "note": "the last letter of the word, tacked on at the end"
+         "at": 33,
+         "gives": "Y",
+         "note": "its last letter is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The 1645 battle broke the King's cause in the Civil War, which is why 'legendary' sits so comfortably in the surface while quietly handing over a letter.",
-     "definitionFit": "battleground -> NASEBY: the Northamptonshire village where Parliament's New Model Army broke the King in 1645, so a place name answers the general word."
+     "surface": "Someone heads back around the South to a legendary battlefield.",
+     "walkthrough": "'Legendary' reads as describing the battleground, but it only supplies its final letter; Naseby was the decisive English Civil War battle of 1645.",
+     "definitionFit": "Naseby in Northamptonshire was the site of the 1645 battle where Parliament beat Charles I."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
     }
    }
   },
@@ -993,34 +1006,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "picked up",
-       "note": "a down entry read upwards runs bottom to top, so the newspaper's letters come out in the reverse order"
-      }
-     ],
      "parts": [
       {
        "words": "crime",
+       "at": 4,
        "gives": "SIN",
-       "note": "a sin is a crime against a moral code, and it leads off"
+       "note": "a sin is a wrongdoing, a crime against morality"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "involving",
-         "note": "to involve people is to draw them into the middle of things, so the two academic letters end up inside"
+         "at": 31,
+         "note": "the reversed newspaper takes in the other letters"
         }
        ],
        "parts": [
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "picked up",
+           "at": 20,
+           "note": "in a down clue picking up means reading from bottom to top"
+          }
+         ],
          "parts": [
           {
            "words": "newspaper",
+           "at": 10,
            "gives": "RAG",
-           "note": "rag is the mildly sneering word for a newspaper, and it is written the other way up"
+           "note": "a rag is a disparaging word for a newspaper"
           }
          ]
         },
@@ -1029,13 +1046,13 @@
          "parts": [
           {
            "words": "university",
-           "gives": "U",
-           "note": "U is the standard abbreviation for university"
+           "at": 41,
+           "gives": "U"
           },
           {
            "words": "lecturer",
-           "gives": "L",
-           "note": "L is the short form for lecturer in academic listings"
+           "at": 52,
+           "gives": "L"
           }
          ]
         }
@@ -1044,8 +1061,13 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Odd' at the head of a clue is usually an instruction to take alternate letters. Here it is simply the definition, which is what makes the clue hard to open.",
-     "definitionFit": "Odd -> SINGULAR: singular in its older sense of remarkable or out of the common run, not the grammarian's opposite of plural."
+     "surface": "A strange crime in which a tabloid gets mixed up with a university lecturer.",
+     "definitionFit": "Singular can mean strange or peculiar, as in a singular occurrence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
     }
    }
   },
@@ -1114,35 +1136,40 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "brief",
-       "note": "asked for briefly, a word turns up in its abbreviated form rather than spelt out in full"
-      },
-      {
        "text": "after",
-       "note": "what comes after is written behind, so the damaging word follows the shortened stretch of time"
+       "at": 30,
+       "note": "the damaging word comes after the hour"
       }
      ],
      "parts": [
       {
        "words": "soprano",
+       "at": 13,
        "gives": "S",
-       "note": "S is the score's abbreviation for soprano, the highest of the singing voices"
+       "note": "S is the abbreviation for soprano in music"
       },
       {
-       "words": "time",
+       "words": "brief time",
+       "at": 36,
        "gives": "HR",
-       "note": "an hour is a stretch of time, and HR is how a diary writes it"
+       "note": "HR is the short form of hour"
       },
       {
        "words": "damaging",
+       "at": 21,
        "gives": "ILL",
-       "note": "ill means harmful, as in ill effects, so it stands in for damaging"
+       "note": "ill can mean harmful or damaging, as in ill effects"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Soprano's S and the diary's hour are both shorthand a solver collects once and keeps; the noisy singer of the surface is only there to hold them together.",
-     "definitionFit": "High-pitched -> SHRILL: a shrill sound is high and piercing enough to grate, so the answer carries a complaint the definition leaves out."
+     "surface": "A soprano's voice turns harmful after a short spell.",
+     "definitionFit": "A shrill sound is piercing and high in pitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damaging"
     }
    }
   },

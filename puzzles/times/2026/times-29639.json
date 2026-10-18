@@ -50,47 +50,52 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "a greeting that welcomes something takes it inside"
+       "at": 8,
+       "note": "a greeting that welcomes something takes it inside, so the letters go within the greeting"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Greeter",
-         "gives": "HI",
-         "note": "HI is a greeting"
-        },
-        {
-         "words": "round",
-         "gives": "O",
-         "note": "O is round in shape"
-        }
-       ]
+       "words": "Greeter",
+       "at": 0,
+       "gives": "HI",
+       "note": "hi is a word of greeting"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "first of",
-         "note": "take only the opening letter of 'party'"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "first of party",
-         "gives": "PARTY",
-         "note": "P opens 'party'"
+         "words": "round",
+         "at": 18,
+         "gives": "O",
+         "note": "a round shape looks like the letter O"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 24,
+           "note": "only the opening letter of party is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "party",
+           "at": 33,
+           "gives": "P",
+           "note": "its first letter is P"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A host at the door greets the first guest to arrive at a party they had to book for.",
-     "walkthrough": "'Reservation' reads as a booking, but it is land set aside for a Native American people. O then P go between the H and I of HI.",
-     "definitionFit": "The Hopi are a Native American people whose land is a reservation in Arizona."
+     "surface": "A greeter at a reception welcomes a round of drinks for the first partygoers.",
+     "walkthrough": "The 'reservation' is not a booking but a Native American reservation, where the Hopi people live in Arizona.",
+     "definitionFit": "The Hopi are a Native American nation whose lands are a reservation in northeastern Arizona."
     },
     "features": {
      "answerInScene": false,
@@ -1229,41 +1234,45 @@
      "indicators": [
       {
        "text": "invading",
-       "note": "an invader goes inside, so these letters sit within the others"
+       "at": 36,
+       "note": "the invaders go inside the abbreviation for Britain"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Britain",
-         "gives": "BR",
-         "note": "BR = Britain"
-        },
-        {
-         "words": "hurt",
-         "gives": "OW",
-         "note": "'ow!' is what you say when hurt"
-        }
-       ]
+       "words": "Britain",
+       "at": 45,
+       "gives": "BR",
+       "note": "BR is a standard abbreviation for Britain or British"
       },
       {
-       "words": "you once",
-       "gives": "YE",
-       "note": "ye is the old form of 'you'"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that hurt",
+         "at": 17,
+         "gives": "OW",
+         "note": "ow is the cry of someone in pain"
+        },
+        {
+         "words": "you once",
+         "at": 27,
+         "gives": "YE",
+         "note": "ye is the old, archaic form of you"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An arms maker whose weapons wounded invaders of Britain long ago.",
-     "walkthrough": "The surface reads as history, and fits: the English longbow, a bowyer's work, did hurt invaders once. 'Hurt' is the cry of pain, not the verb.",
-     "definitionFit": "A bowyer is a maker of bows for archery."
+     "surface": "An old-fashioned armourer whose weapons hurt, invading Britain long ago.",
+     "walkthrough": "A bow is the weapon in question, which the definition keeps vague.",
+     "definitionFit": "A bowyer is a craftsman who makes bows, the weapons used by archers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hurt"
+     "misdirectedWord": "once"
     }
    }
   },

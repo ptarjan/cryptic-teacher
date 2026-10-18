@@ -656,39 +656,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Something endless has no end, so the final letter of the word beside it comes off."
-      }
-     ],
      "parts": [
       {
-       "words": "Hint",
-       "gives": "CLU",
-       "note": "a hint is a clue, with its last letter taken off"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 5,
+         "note": "without its end, the last letter of the word for hint is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hint",
+         "at": 0,
+         "gives": "CLUE",
+         "note": "a clue is a hint"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "start to",
-         "note": "The start of a word is its opening letter, and that is all this one takes."
+         "at": 19,
+         "note": "only the opening letter of badger is used"
         }
        ],
        "parts": [
         {
          "words": "badger",
-         "note": "the opening letter of the animal"
+         "at": 28,
+         "gives": "B",
+         "note": "its first letter is B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dropping hints forever, then starting to pester someone.",
-     "walkthrough": "'Hint' is a noun here rather than a verb, and a hint is a clue — the setter winking at the thing you are holding.",
-     "definitionFit": "A CLUB is an association: a body of people formally joined together around a shared interest."
+     "surface": "Someone keeps dropping hints and begins badgering a society.",
+     "definitionFit": "A club is an association of people with a shared interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "badger"
     }
    }
   },
