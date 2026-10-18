@@ -114,7 +114,7 @@ None: every skeleton of at least 150 clues has a verdict.
 
 ### 1. unchecked node (parse not verified): 23,868 clues (4.29%), unverified
 
-- why: an op or leaf the validator could not rebuild step by step; its letters are taken as filed, so nothing says the shape is real (spoonerisms, cyclings, substitutions, deletions of scattered letters and indirect anagrams are most of them)
+- why: an op or leaf the validator could not rebuild step by step; its letters are taken as filed, so nothing says the shape is real (spoonerisms, cyclings, substitutions, reversals of part of a word and indirect anagrams are most of them)
 - right: re-annotate so every step is checked; none can be added now (the ratchet)
 - 4373 skeletons; commonest `del?(S)` (980)
   - `azed-1736#28d` Factions second to last in ramble (JUNTA) = `del<second to last>([ramble]JAUNT)`

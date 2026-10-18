@@ -21,9 +21,14 @@ Grammar
                           indicator on the charade
     ana(x)                anagram of x's letters (the answer slice decides order);
                           ana(x + y + z) shuffles several pieces as one pool
-    rev(x)                x backwards
+    rev(x)                x backwards; when its indicator names a stretch (last pair
+                          of, turning tail, first three, half) only that stretch
+                          of 2+ letters, at that end and that size, is turned:
+                          rev<last pair of>([mini vehicles]KARTS) for KARST
     ins(outer, inner)     inner put inside outer (the answer decides where)
-    del(from, removed)    removed taken out of from (the answer decides where)
+    del(from, removed)    removed taken out of from (the answer decides where):
+                          one run, or the letters scattered but in the same order
+                          (del([Equably], [by]BY) for EQUAL)
     hid(x)                letters hidden in x's words: hid([say no before]YNOBE),
                           or hid([say no before]) to let the answer pick them
     sound(x, SPELT)       x sounds like SPELT, the letters entered
@@ -513,6 +518,69 @@ def _onset(s):
     return m.group() if m.group() != s else s[:1]
 
 
+def _removals(f, r):
+    """Every string left when the letters of `r` are taken out of `f`, each once, in
+    order: one run (STING from NESTING), or scattered letters (B, Y from EQUABLY)."""
+    if not r:
+        return {f}
+    states = {(0, "")}  # (letters of r gone so far, letters kept so far)
+    for i, ch in enumerate(f):
+        left = len(f) - i - 1  # letters after this one
+        nxt = set()
+        for j, kept in states:
+            if len(r) - j <= left:
+                nxt.add((j, kept + ch))
+            if j < len(r) and ch == r[j] and len(r) - j - 1 <= left:
+                nxt.add((j + 1, kept))
+        states = nxt
+        if len(states) > CAP:
+            raise WordplayError(f"del({f}, {r}) has too many readings to check: delete in two steps")
+    return {kept for j, kept in states if j == len(r)}
+
+
+# What a reversal's indicators say about the stretch it turns round, not the whole word.
+_ENDS = {"first": 0, "initial": 0, "opening": 0, "start": 0, "head": 0, "top": 0, "front": 0,
+         "leading": 0, "beginning": 0, "last": 1, "final": 1, "closing": 1, "end": 1, "tail": 1,
+         "bottom": 1, "finally": 1}
+_SIZES = {"pair": 2, "couple": 2, "two": 2, "three": 3, "four": 4}
+_MIDDLE = {"middle", "centre", "center", "central", "essentially", "inside"}
+
+
+def _span_words(node):
+    """(sides, sizes, halves, middle): the position words in a reversal's indicators,
+    or None when they name no stretch (an ordinary whole-word reversal)."""
+    toks = re.findall(r"[a-z]+|\d+", " ".join(i.get("text", "") for i in node.get("indicators") or []).lower())
+    sides = {_ENDS[t] for t in toks if t in _ENDS}
+    sizes = {_SIZES[t] for t in toks if t in _SIZES} | {int(t) for t in toks if t.isdigit()}
+    half = "half" in toks
+    middle = any(t in _MIDDLE for t in toks)
+    return (sides, sizes, half, middle) if sides or sizes or half or middle else None
+
+
+def _span_flips(node, v):
+    """The strings `v` becomes when the reversal turns round only the stretch its
+    indicators name ("last pair of", "turning tail", "half sent back"): a proper stretch
+    of 2+ letters at the end they name, of the size they name."""
+    named = _span_words(node)
+    if not named or len(v) < 3:
+        return set()
+    sides, sizes, half, middle = named
+    out = set()
+    for a in range(len(v)):
+        for b in range(a + 2, len(v) + 1):
+            n = b - a
+            if n == len(v):
+                continue
+            if sizes and n not in sizes:
+                continue
+            if half and not sizes and n not in (len(v) // 2, (len(v) + 1) // 2):
+                continue
+            if sides and not middle and not ((0 in sides and a == 0) or (1 in sides and b == len(v))):
+                continue
+            out.add(v[:a] + v[a:b][::-1] + v[b:])
+    return out - {v}
+
+
 def values(node):
     """Every string `node` can give, without the answer to steer it."""
     if node.get("unchecked"):
@@ -533,7 +601,8 @@ def values(node):
                                     f"write the letters each part gives")
         return out
     if op == "reversal":
-        return {v[::-1] for v in values(parts[0])}
+        vs = values(parts[0])
+        return {v[::-1] for v in vs}.union(*(_span_flips(node, v) for v in vs))
     if op == "container":
         return {o[:k] + i + o[k:] for o in values(parts[0]) for i in values(parts[1])
                 for k in range(1, len(o))}
@@ -541,7 +610,7 @@ def values(node):
         out = set()
         for f in values(parts[0]):
             for r in values(parts[1]):
-                out |= {f[:k] + f[k + len(r):] for k in range(len(f)) if f.startswith(r, k)}
+                out |= _removals(f, r)
         return out
     if op == "hidden":
         leaf = parts[0]
@@ -659,6 +728,13 @@ def match(node, want, got=None):
         ok = _match_run(parts_of(node), want, got)
     elif op == "reversal":
         ok = match(parts_of(node)[0], want[::-1], got) is not None
+        if not ok and _span_words(node):
+            try:
+                whole = sorted(v for v in values(parts_of(node)[0]) if want in _span_flips(node, v))
+            except _NeedTarget:
+                whole = []
+            if whole:
+                ok = match(parts_of(node)[0], whole[0], got) is not None
     elif op == "anagram":
         child = fodder_pool(node)
         ok = False
@@ -682,7 +758,7 @@ def match(node, want, got=None):
         ok = False
         for f in sorted(values(parts_of(node)[0])):
             for r in sorted(values(parts_of(node)[1])):
-                if any(f.startswith(r, k) and f[:k] + f[k + len(r):] == want for k in range(len(f))):
+                if want in _removals(f, r):
                     match(parts_of(node)[0], f, got)
                     match(parts_of(node)[1], r, got)
                     ok = True
@@ -852,9 +928,9 @@ def _gives_nothing(node):
             pass
     if node.get("op") == "deletion":
         whole, gone = parts_of(node)
-        return (f"{render(node)} gives nothing: {render(gone)} is not one run of the "
-                f"letters {render(whole)} gives. Letters taken from more than one place "
-                f"are one del per run, e.g. del(del(x, N), OT)")
+        return (f"{render(node)} gives nothing: {render(gone)} is not letters of "
+                f"{render(whole)} in order (one run, or scattered but in the same order). "
+                f"Letters taken in another order are one del per piece, e.g. del(del(x, N), OT)")
     return f"{render(node)} gives no letters"
 
 
