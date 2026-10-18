@@ -1398,59 +1398,69 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 38,
+       "note": "after places the Keynes letters behind the shortened word"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "left",
-         "note": "having left, the party member is no longer present in the word"
+         "at": 63,
+         "note": "left here means departed, so the Liberal's letter goes from the word"
         }
        ],
        "parts": [
         {
          "words": "greatest",
+         "at": 44,
          "gives": "LARGEST",
-         "note": "greatest in size is largest"
+         "note": "largest means greatest"
         },
         {
          "words": "Liberal's",
+         "at": 53,
          "gives": "L",
-         "note": "L is the abbreviation for Liberal"
+         "note": "L is the standard abbreviation for Liberal"
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ES",
+       "op": "deletion",
        "indicators": [
         {
          "text": "last couple",
-         "note": "the last couple are the final two letters of the name"
+         "at": 26,
+         "note": "only the last couple of letters are kept, the rest being dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Keynes'",
-         "gives": "ES",
-         "select": "last",
-         "note": "the final pair of letters of Keynes"
+         "at": 18,
+         "gives": "KEYNES",
+         "note": "the economist's name, taken as written before all but its last two letters go"
+        },
+        {
+         "gives": "KEYN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setback for the new town of Milton Keynes, and its top Liberal departs.",
-     "walkthrough": "'Milton Keynes' reads as the English new town, but Milton is the poet and Keynes supplies letters. ARGESTES is the north-west wind in Paradise Lost.",
-     "definitionFit": "Argestes is the classical name for the north-west wind, which Milton names among the blasts in Paradise Lost; a wind is a blow."
+     "surface": "An economics puzzle about a town and a famous economist, with Milton Keynes split across names.",
+     "walkthrough": "'left' takes L (Liberal) out of LARGEST (greatest), leaving ARGEST, and 'last couple' keeps ES of KEYNES. 'Milton Keynes' reads as the English new town, but Milton is the poet and Keynes is fodder.",
+     "definitionFit": "Argestes, the north-west wind of classical writers, appears in Milton's Paradise Lost, so it is a poet's wind."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Milton"
     }
    }
@@ -1603,6 +1613,7 @@
      "parts": [
       {
        "words": "Concert",
+       "at": 0,
        "gives": "PROM",
        "note": "a prom is a promenade concert, as at the BBC Proms"
       },
@@ -1611,41 +1622,45 @@
        "indicators": [
         {
          "text": "keeping",
-         "note": "keeping means holding something within"
+         "at": 28,
+         "note": "keeping means holding, so the reversed half sits inside the probing word"
         }
        ],
        "parts": [
         {
          "words": "probe impertinently",
+         "at": 8,
          "gives": "PRY",
-         "note": "to pry is to poke nosily into others' business"
+         "note": "to pry is to probe nosily into others' business"
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "back",
-           "note": "back means the letters are put the wrong way round"
+           "at": 36,
+           "note": "back means backwards, so the kept half is read in reverse"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "unchecked": true,
-           "gives": "AUT",
+           "op": "deletion",
            "indicators": [
             {
              "text": "half of",
-             "note": "half of a word means just its front portion is taken"
+             "at": 41,
+             "note": "half of keeps only the first three of the six letters"
             }
            ],
            "parts": [
             {
-             "unchecked": true,
              "words": "author's",
-             "gives": "AUT",
-             "select": "first",
-             "note": "the first three of the word's six letters"
+             "at": 49,
+             "gives": "AUTHOR",
+             "note": "taken as written before half of it goes"
+            },
+            {
+             "gives": "HOR"
             }
            ]
           }
@@ -1656,9 +1671,9 @@
      ]
     },
     "explanation": {
-     "surface": "A nosy concert-goer peers into a writer's reference book.",
-     "walkthrough": "The Proms are the BBC's summer series of London concerts. PROMPTUARY is an old word for a handbook of facts.",
-     "definitionFit": "A promptuary is a storehouse of information, a handbook from which facts may be quickly drawn, so a fact-book."
+     "surface": "At a concert someone nosily pokes into a writer's notebook.",
+     "walkthrough": "'half of' keeps AUT of AUTHOR, 'back' gives TUA, and 'keeping' puts it inside PRY after PROM (Concert). The Proms are London's summer season of promenade concerts.",
+     "definitionFit": "A promptuary is an old word for a handbook or storehouse of ready information, a reference book of facts."
     },
     "features": {
      "answerInScene": true,
