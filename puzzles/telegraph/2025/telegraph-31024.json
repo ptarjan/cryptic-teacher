@@ -90,32 +90,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "REBUFF",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was famous for swapping the opening sounds of two words, so the phrase that follows gets its first sounds exchanged"
+       "at": 10,
+       "note": "Spooner, the Oxford don famed for swapping the opening sounds of words, signals the swap"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "instruction to act aggressively",
-       "gives": "BEROUGH",
-       "soundsLike": "BEE RUFF",
-       "note": "telling someone to be rough is telling them to act aggressively"
+       "words": "instruction to act",
+       "at": 20,
+       "gives": "BE",
+       "note": "be, as in 'be quiet', is the instruction that tells someone how to act"
+      },
+      {
+       "op": "homophone",
+       "spelt": "RUFF",
+       "parts": [
+        {
+         "words": "aggressively",
+         "at": 39,
+         "gives": "ROUGH",
+         "note": "rough means aggressive or violent, as in rough play, and it is said like ruff"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A refusal to follow the Reverend Spooner's order to get violent.",
-     "walkthrough": "Say 'be rough' and swap the opening consonants: 'ree-buff'.",
-     "definitionFit": "To rebuff an offer or person is to reject or snub it, which is to turn it down."
+     "surface": "A bully is told to turn down a request to get physical.",
+     "walkthrough": "Say BE ROUGH (rough sounding like RUFF) and, as 'Spooner's' asks, swap the opening sounds B and R: RE BUFF.",
+     "definitionFit": "To rebuff is to reject or refuse someone bluntly, which is to turn them down."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "aggressively"
     }
    }
   },
@@ -1183,53 +1194,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CHOSEN",
      "indicators": [
       {
        "text": "stops",
-       "note": "to stop a gap is to plug it, so one piece fills a hole in another"
+       "at": 9,
+       "note": "the hospital letter stops up a gap, plugging the space inside the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "CHOSEN",
-       "indicators": [
-        {
-         "text": "running",
-         "note": "running suggests something flowing out of shape, so these letters are rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "cold",
+         "at": 15,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "running",
+           "at": 21,
+           "note": "a running nose is a streaming one, and running also suggests the letters are in motion and rearranged"
+          }
+         ],
          "parts": [
           {
-           "words": "cold",
-           "gives": "C",
-           "note": "standard abbreviation"
-          },
-          {
-           "words": "Hospital",
-           "gives": "H",
-           "note": "standard abbreviation"
-          },
-          {
            "words": "nose",
-           "note": "the letters rearranged"
+           "at": 29
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Hospital",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
       }
      ]
     },
     "explanation": {
-     "surface": "A hospital claims it can cure the common cold and runny nose.",
-     "walkthrough": "The hospital plugs the gap between the cold and the rearranged nose. 'Running nose' reads as a symptom of a cold.",
-     "definitionFit": "Something chosen has been picked out or selected, as something claimed has been taken as one's own."
+     "surface": "A patient with a cold and a streaming nose is told to keep away from hospital.",
+     "walkthrough": "'running' jumbles NOSE to OSEN; H (hospital) then 'stops' between C and OSEN.",
+     "definitionFit": "Something chosen has been picked or selected, as a prize is claimed by the one who takes it."
     },
     "features": {
      "answerInScene": false,

@@ -347,47 +347,52 @@
      "indicators": [
       {
        "text": "supporting",
-       "note": "in a down answer, supporting means placed underneath the other piece"
+       "at": 13,
+       "note": "in a down clue the supporting piece sits underneath, so it comes last"
       }
      ],
      "parts": [
       {
+       "words": "by-election",
+       "at": 33,
+       "gives": "B",
+       "note": "the head of the hyphenated word, one word counted whole, under the same instruction about polls"
+      },
+      {
        "op": "first",
-       "unchecked": true,
-       "gives": "BAS",
        "indicators": [
         {
-         "text": "polls",
-         "note": "a poll is a head, so the heads of these words are taken"
+         "text": "polls in",
+         "at": 24,
+         "note": "a poll is a head, so the heads of these words are their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "by-election and suchlike",
-         "gives": "BAS",
-         "select": "first",
-         "note": "first letters of by-election, and, suchlike"
+         "words": "and suchlike",
+         "at": 45,
+         "note": "the heads of the words and and suchlike"
         }
        ]
       },
       {
        "words": "that's",
+       "at": 6,
        "gives": "IE",
-       "note": "i.e. abbreviates id est, that is"
+       "note": "i.e. is the abbreviation of id est, that is"
       }
      ]
     },
     "explanation": {
-     "surface": "Counting polling figures in by-elections and the like.",
-     "walkthrough": "'Count' looks like a verb about tallying votes, but it is a jazz title. 'Poll' is an old word for head.",
-     "definitionFit": "Count Basie was an American jazz bandleader whose stage name included the title Count."
+     "surface": "Someone reports what holds up the polling in by-elections and similar contests.",
+     "walkthrough": "'polls' is the old word for heads, not votes; IE goes at the foot, 'supporting' the rest. Count Basie was the American jazz bandleader and pianist.",
+     "definitionFit": "Count Basie was the stage name of the jazz bandleader William Basie, so Count is his title in the clue."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Count"
+     "misdirectedWord": "polls"
     }
    }
   },
@@ -413,41 +418,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LEINSTER",
      "indicators": [
       {
        "text": "has",
-       "note": "has ... for means one thing is put in place of another"
+       "at": 5,
+       "note": "the boss has one piece in exchange for another, a swap inside the word"
+      },
+      {
+       "text": "for",
+       "at": 21,
+       "note": "for marks the piece given up: institution comes in for publicity"
       }
      ],
      "parts": [
       {
        "words": "Boss",
+       "at": 0,
        "gives": "LEADER",
-       "note": "a leader is a boss"
-      },
-      {
-       "words": "institution",
-       "gives": "INST",
-       "note": "inst. abbreviates institution"
+       "note": "a leader is a boss, the one in charge"
       },
       {
        "words": "publicity",
+       "at": 25,
        "gives": "AD",
-       "note": "an ad is publicity"
+       "note": "an ad, short for advertisement, is publicity"
+      },
+      {
+       "words": "institution",
+       "at": 9,
+       "gives": "INST"
       }
      ]
     },
     "explanation": {
-     "surface": "A boss uses an institution for publicity somewhere in Ireland.",
-     "walkthrough": "In LEADER, swap AD for INST; 'for' signals the swap.",
-     "definitionFit": "Leinster is one of the four historic provinces of Ireland, in the east."
+     "surface": "A boss has set up an institution to win publicity somewhere in Ireland.",
+     "walkthrough": "'has institution for publicity': in LEADER, INST takes the place of AD.",
+     "definitionFit": "Leinster is one of the four historic provinces of Ireland, in the east around Dublin."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "publicity"
+     "misdirectedWord": "has"
     }
    }
   },
@@ -1679,44 +1690,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DICTAPHONE",
+     "op": "composite",
      "indicators": [
       {
        "text": "caught",
-       "note": "caught as in caught up or tangled, so the letters are jumbled together"
+       "at": 16,
+       "note": "caught as in caught up or tangled, so the letters are jumbled"
+      },
+      {
+       "text": "forgotten",
+       "at": 5,
+       "note": "forgotten means left out, so the letter for long goes from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DICTAPHONE",
-       "indicators": [
-        {
-         "text": "forgotten",
-         "note": "what is forgotten is left out, so that letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Long",
-         "gives": "L",
-         "note": "L is the abbreviation for long"
-        },
-        {
-         "words": "child on tape",
-         "note": "taken as written"
-        }
-       ]
+       "words": "child on tape",
+       "at": 23
+      },
+      {
+       "words": "Long",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the abbreviation for long, as on clothing sizes"
       }
      ]
     },
     "explanation": {
-     "surface": "An old recording of a child, long forgotten, has turned up on tape.",
-     "walkthrough": "Remove the L from CHILD ON TAPE and rearrange the rest. 'Tape' is part of the fodder, so the definition is just 'recorder'.",
-     "definitionFit": "A Dictaphone is a trademarked machine for recording speech for later typing, a kind of recorder."
+     "surface": "Someone has long forgotten a child captured on tape.",
+     "walkthrough": "'forgotten' takes L (long) out of CHILD ON TAPE, leaving CHIDONTAPE, which 'caught' jumbles.",
+     "definitionFit": "A Dictaphone is a brand of office machine for recording dictated speech, so it is a recorder."
     },
     "features": {
      "answerInScene": true,

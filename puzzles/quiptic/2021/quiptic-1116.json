@@ -507,44 +507,46 @@
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 11,
+       "gives": "A"
       },
       {
        "words": "newspaper",
+       "at": 13,
        "gives": "FT",
-       "note": "FT is the Financial Times"
+       "note": "the FT is the Financial Times, a British newspaper"
       },
       {
        "words": "the Queen",
+       "at": 28,
        "gives": "ER",
-       "note": "ER is the royal cipher, Elizabeth Regina"
+       "note": "ER is Elizabeth Regina, the late Queen's royal cipher"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "NOON",
+       "op": "deletion",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a word is its core, so the middle letters of each preceding word are kept"
+         "at": 52,
+         "note": "the essence of each word is its centre, so the outer letters of each are dropped and only the middles kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "and now gone",
-         "gives": "NOON",
-         "select": "middle",
-         "note": "the middle letters of and, now and gone"
+         "at": 38
+        },
+        {
+         "gives": "ADNWGE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Prime Minister appeared in the press beside the late Queen, now gone.",
-     "walkthrough": "PM looks like the Prime Minister, but it is the time abbreviation post meridiem. The Financial Times is a London daily.",
-     "definitionFit": "The abbreviation post meridiem marks hours after midday, which covers this part of the day."
+     "surface": "A Prime Minister appears in the press alongside the Queen, then disappears.",
+     "walkthrough": "'PM' looks like the Prime Minister but means post meridiem, after midday. 'essentially' takes the centres of and, now and gone: N, O and ON.",
+     "definitionFit": "PM, post meridiem, marks the hours after midday, which is the afternoon."
     },
     "features": {
      "answerInScene": false,

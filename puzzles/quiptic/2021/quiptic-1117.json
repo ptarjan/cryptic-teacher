@@ -1117,33 +1117,41 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ONSPEC",
      "indicators": [
       {
        "text": "Both sides abandon",
-       "note": "the two sides, first and last letters, leave each of the following words"
+       "at": 0,
+       "note": "both sides of each word, its first and last letters, abandon it and are removed"
       }
      ],
      "parts": [
       {
-       "words": "long",
-       "note": "taken as written, before its outer letters go"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "long",
+         "at": 19
+        },
+        {
+         "words": "aspect",
+         "at": 24
+        }
+       ]
       },
       {
-       "words": "aspect",
-       "note": "taken as written, before its outer letters go"
+       "gives": "LGAT"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone drops a long-held view of things once they start betting.",
-     "definitionFit": "Doing something on spec means acting speculatively, taking a chance without a guarantee of return."
+     "surface": "A gambler's advice: both teams should give up on the long view.",
+     "walkthrough": "'Both sides abandon' applies to each of 'long' and 'aspect': the outer letters L and G, then A and T, leave, giving ON and SPEC.",
+     "definitionFit": "Doing something on spec means doing it speculatively, taking a chance without any guarantee of reward."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "aspect"
+     "aptDefinition": true,
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -1268,39 +1276,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TOILET",
      "indicators": [
       {
-       "text": "to take time for run",
-       "note": "taking one thing for another means swapping: a time letter comes in where a run letter stood"
+       "text": "to take",
+       "at": 21,
+       "note": "taking one letter in exchange for another signals a swap inside the word"
+      },
+      {
+       "text": "for",
+       "at": 34,
+       "note": "for marks what is given up in the exchange: time replaces run"
       }
      ],
      "parts": [
       {
        "words": "hard worker",
+       "at": 9,
        "gives": "TOILER",
-       "note": "a toiler works hard"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "note": "a toiler is someone who works hard"
       },
       {
        "words": "run",
+       "at": 38,
        "gives": "R",
-       "note": "R is the cricket abbreviation for run"
+       "note": "R is the cricket scoring abbreviation for run"
+      },
+      {
+       "words": "time",
+       "at": 29,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A hard-working employee pauses to tidy up before going out for a jog.",
-     "walkthrough": "The final R of TOILER is replaced by T.",
-     "definitionFit": "Toilet in its older sense is the process of washing, dressing and arranging one's hair, as in toilet water."
+     "surface": "A diligent worker makes time for a run while getting groomed.",
+     "walkthrough": "'to take time for run' means swap T (time) in for R (run) in TOILER. Toilet here is the old sense of dressing and grooming oneself.",
+     "definitionFit": "Toilet in its older sense is the process of washing, dressing and arranging one's appearance, which is grooming."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "run"
     }

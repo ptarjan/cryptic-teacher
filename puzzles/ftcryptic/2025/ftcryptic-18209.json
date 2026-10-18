@@ -1106,58 +1106,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DERISORY",
+     "op": "composite",
      "indicators": [
       {
        "text": "unusually",
+       "at": 19,
        "note": "unusually means not in the normal way, so the letters are rearranged"
+      },
+      {
+       "text": "with no",
+       "at": 40,
+       "note": "with no means lacking, so that letter is removed from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DERISORY",
+       "words": "sorry side",
+       "at": 29
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "with no",
-         "note": "with no means lacking, so a letter is removed from the fodder"
+         "text": "end of",
+         "at": 48,
+         "note": "the end of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "words": "sorry",
-         "note": "taken as written"
-        },
-        {
-         "words": "side",
-         "note": "taken as written"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "duds",
-           "note": "the final letter of duds"
-          }
-         ]
+         "words": "duds",
+         "at": 55,
+         "note": "the final letter of duds"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pathetically small and regretful team without a single failure at the end.",
-     "walkthrough": "One S is removed from sorry side before the letters are rearranged.",
-     "definitionFit": "A derisory offer is so low it invites ridicule, laughably inadequate in amount."
+     "surface": "A feeble team, a sorry side whose duds never stop losing.",
+     "walkthrough": "'end of' duds is S; 'with no' removes that S from the letters of SORRY SIDE, and 'unusually' rearranges what is left.",
+     "definitionFit": "A derisory sum is so small or inadequate as to be laughable, ridiculously small."
     },
     "features": {
      "answerInScene": false,
@@ -1253,39 +1242,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VILLAIN",
-     "indicators": [
-      {
-       "text": "largely",
-       "note": "largely means mostly but not wholly, so the last letter is dropped"
-      },
-      {
-       "text": "uncovered",
-       "note": "with the cover stripped off, the outside letters at both ends go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "hideous",
-       "gives": "VILE",
-       "note": "vile means hideous"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 12,
+         "note": "largely means for the most part, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hideous",
+         "at": 20,
+         "gives": "VILE",
+         "note": "vile means hideous, repulsive"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "US city",
+       "at": 28,
        "gives": "LA",
        "note": "LA is Los Angeles"
       },
       {
-       "words": "ring",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 41,
+         "note": "with its covers off, the word loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ring",
+         "at": 36,
+         "note": "ring without its outer letters R and G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mobster in an ugly American city has his ring gang exposed.",
-     "definitionFit": "A gangster is a criminal, and a criminal is the classic bad guy or wrongdoer."
+     "surface": "A mobster operating in an ugly American city runs a gang that has been exposed.",
+     "walkthrough": "'largely' cuts VILE to VIL; 'uncovered' strips RING to IN.",
+     "definitionFit": "A gangster is a criminal, and villain is British slang for a crook of exactly that kind."
     },
     "features": {
      "answerInScene": true,
