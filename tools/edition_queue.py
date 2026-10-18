@@ -761,8 +761,26 @@ def by_urgency(units):
         named = newest_first_papers()
         newest = [t for t in units if t[3].get("paper") in named]
         newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
-        units = newest + [t for t in units if t[3].get("paper") not in named]
+        newest.sort(key=lambda t: not files_likely(t[0], t[3]))  # stable: newest first in each group
+        units = newest +[t for t in units if t[3].get("paper") not in named]
     return [u for *_, u in units]
+
+
+#: The rank 2 reasons whose last read was refused or short and a fix landed
+#: since: fa.likely_gain is 0 for these (it counts only fa.LIKELY causes), yet
+#: they are the rereads that can file. Other rank 2 reasons ("inputs changed",
+#: "titles changed", ...) are held behind them unless likely_gain > 0.
+FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
+              "read without the VLM")
+
+
+def files_likely(rank, unit):
+    """Whether a unit of a newest-first paper is likely to file something:
+    rank 0 or 1, a rank 2 or higher with fa.likely_gain > 0, or a reread
+    whose reason is a refusal or short read a fix has landed for."""
+    reason = unit.get("reason") or ""
+    return (rank <= 1 or fa.likely_gain(unit) > 0
+            or (reason.startswith("refused ") and reason.endswith(" before its fix")) or reason in FIX_LANDED)
 
 
 def newest_first_papers():
