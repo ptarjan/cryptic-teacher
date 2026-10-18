@@ -696,47 +696,46 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "TIARA",
      "indicators": [
       {
        "text": "on the counter",
-       "note": "counter means contrary, so the assembled letters are read backwards"
+       "at": 60,
+       "note": "counter means in the opposite direction, so the combined letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TIARA",
-       "indicators": [
-        {
-         "text": "content to leave",
-         "note": "the contents leaving means the inside letters go, keeping only the shell"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Anchor",
-         "note": "taken as written before its insides are emptied"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AIT",
+         "op": "outer",
          "indicators": [
           {
-           "text": "every now and then",
-           "note": "occasionally means only every other letter is kept"
+           "text": "content to leave",
+           "at": 17,
+           "note": "content to leave means the inside of the word goes, keeping its outer letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
+           "words": "Anchor",
+           "at": 10
+          }
+         ]
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "every now and then",
+           "at": 41,
+           "note": "every now and then means taking alternate letters"
+          }
+         ],
+         "parts": [
+          {
            "words": "a pint",
-           "gives": "AIT",
-           "select": "alternate",
-           "note": "first, third and fifth letters"
+           "at": 34
           }
          ]
         }
@@ -745,9 +744,9 @@
      ]
     },
     "explanation": {
-     "surface": "Drinkers at the Crown and Anchor pub happily leave a pint on the bar now and then.",
-     "walkthrough": "Crown and Anchor reads as a pub name, but 'Crown' is the definition and 'and' a link. Emptying ANCHOR leaves AR; add AIT and reverse the lot.",
-     "definitionFit": "A tiara is a jewelled coronet, a kind of small crown worn by women."
+     "surface": "Playing Crown and Anchor in a pub, happy to leave a pint on the bar now and then.",
+     "walkthrough": "Crown and Anchor is an old British dice game, so 'Crown' looks tied to it; it stands alone as the definition.",
+     "definitionFit": "A tiara is a jewelled ornamental headband, a kind of crown."
     },
     "features": {
      "answerInScene": false,
@@ -845,70 +844,70 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ADDITIONAL",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "'in' sets the island inside the other piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ADDITIONAL",
+       "op": "middle",
        "indicators": [
         {
          "text": "discovered",
-         "note": "dis-covered means having its cover stripped, so the outer letters go"
+         "at": 8,
+         "note": "discovered means the covering, the first and last letters, is taken off"
         }
        ],
        "parts": [
         {
          "words": "Villain",
+         "at": 0,
          "gives": "BADDIE",
-         "note": "a baddie is the villain of a story"
-        },
+         "note": "baddie is an informal word for a villain"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 26,
+         "note": "in puts the island between those central letters"
+        }
+       ],
+       "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "TL",
          "indicators": [
           {
            "text": "middle of",
-           "note": "'middle of' keeps only the central letters of the place name"
+           "at": 29,
+           "note": "middle of means the central letters of the word"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "Portland",
-           "gives": "TL",
-           "select": "middle",
-           "note": "the two central letters of an eight-letter word"
+           "at": 39
           }
          ]
         },
         {
          "words": "island",
+         "at": 19,
          "gives": "IONA",
-         "note": "Iona is an island of the Inner Hebrides, Scotland"
+         "note": "Iona is an island of the Inner Hebrides, off Scotland"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A villain finds an island off Portland and calls it surplus.",
-     "walkthrough": "'discovered' looks like 'found', but it means stripped of its covering: BADDIE loses B and E.",
-     "definitionFit": "Spare and additional both describe something extra beyond what is needed."
+     "surface": "A villain finds an island in the heart of Portland that's surplus to requirements.",
+     "walkthrough": "Dis-covered: ADDI is BADDIE with its covering removed; TL is the middle of Portland.",
+     "definitionFit": "Something additional is extra, over and above, just as a spare item is surplus."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "discovered"
     }
    }

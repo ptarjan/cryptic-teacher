@@ -1044,46 +1044,49 @@
      "indicators": [
       {
        "text": "about",
-       "note": "going about something means surrounding it, so one word wraps around the others"
+       "at": 25,
+       "note": "about means the word for complain wraps around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "complain",
-         "gives": "MOAN",
-         "note": "to moan is to grumble"
-        },
-        {
-         "words": "scold",
-         "gives": "NAG",
-         "note": "to nag is to keep scolding"
-        }
-       ]
+       "words": "complain",
+       "at": 16,
+       "gives": "MOAN",
+       "note": "to moan is to complain"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "beginning to",
-         "note": "the beginning of the next word is just its opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "henpeck",
-         "note": "the first letter"
+         "words": "scold",
+         "at": 31,
+         "gives": "NAG",
+         "note": "to nag is to scold"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 37,
+           "note": "beginning to means the first letter of henpeck"
+          }
+         ],
+         "parts": [
+          {
+           "words": "henpeck",
+           "at": 50
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In Ireland, someone grumbles about being nagged by a domineering wife.",
-     "walkthrough": "'about' tells the complaint word to wrap around the rest. Monaghan is a county in the Republic of Ireland, bordering Northern Ireland.",
-     "definitionFit": "Monaghan is one of the counties of Ireland, in the province of Ulster."
+     "surface": "Somewhere in Ireland a man grumbles about a nagging partner who henpecks him.",
+     "definitionFit": "Monaghan is a county of the Republic of Ireland, in the province of Ulster."
     },
     "features": {
      "answerInScene": true,

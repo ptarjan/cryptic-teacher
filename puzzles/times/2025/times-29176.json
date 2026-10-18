@@ -162,50 +162,65 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ECHIDNA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "cycling a word moves its last letter round to the front"
-      },
-      {
-       "text": "tail of",
-       "note": "the tail of a word is its last letter"
+       "text": "over",
+       "at": 16,
+       "note": "in a down clue, over means the first piece sits above the pieces that follow"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 8,
+         "note": "cycling means the final letter of the word goes round to its front"
+        }
+       ],
        "parts": [
         {
-         "words": "Monster cycling",
-         "gives": "ECHID",
-         "note": "to monster is to scold severely (Australian slang) = CHIDE; cycled, the final E comes to the front"
-        },
-        {
-         "words": "over tail of stricken",
-         "gives": "N",
-         "note": "last letter of stricken"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American"
+         "words": "Monster",
+         "at": 0,
+         "gives": "CHIDE",
+         "note": "to monster is British slang for to criticise harshly, i.e. to chide"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail of",
+         "at": 21,
+         "note": "tail of means the last letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stricken",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 38,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A monster riding a bicycle over the end of a stricken American creature.",
-     "walkthrough": "Monster looks like a noun, and Echidna is even a monster in Greek myth, but here it is the verb 'to scold', CHIDE.",
-     "definitionFit": "Definition by example: the spiny anteater of Australia and New Guinea is one kind of animal."
+     "surface": "A monster circles a wounded American beast.",
+     "walkthrough": "'Monster' looks like a noun (Echidna is even a monster of Greek myth), but it is the verb meaning to chide; CHIDE cycled gives ECHID, then N from the tail of stricken and A.",
+     "definitionFit": "The echidna is a spiny egg-laying mammal of Australia and New Guinea, a real creature."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Monster"
     }
    }
@@ -526,44 +541,42 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "UTAH",
+     "indicators": [
+      {
+       "text": "returned",
+       "at": 35,
+       "note": "returned means the letters picked are then read in the opposite direction"
+      }
+     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "UTAH",
        "indicators": [
         {
          "text": "periodically",
-         "note": "take letters at regular intervals"
-        },
-        {
-         "text": "returned",
-         "note": "the selected letters come back the other way"
+         "at": 22,
+         "note": "periodically means taking letters at regular intervals, every other one of these words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the art, but periodically returned",
-         "gives": "UTAH",
-         "select": "alternate",
-         "note": "the even letters of tHe ArT bUt give HATU, which is then read backwards"
+         "words": "the art, but",
+         "at": 9,
+         "note": "the second, fourth, sixth and eighth letters are the ones picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grudging remark that something is state of the art, but with a catch.",
-     "walkthrough": "'State of the art' is a set phrase that hides the split: State is the definition and the fodder starts at 'the'.",
-     "definitionFit": "Definition by example: the Mormon heartland, capital Salt Lake City, is one of the fifty US states."
+     "surface": "Talk of a state of the art that keeps coming back now and again.",
+     "walkthrough": "Every other letter of THE ART BUT, starting with the second, gives HATU, which 'returned' turns round.",
+     "definitionFit": "Utah is one of the fifty states of the USA, in the Mountain West."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "State"
+     "misdirectedWord": "art"
     }
    }
   },
@@ -1634,39 +1647,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "to turn about is to face the other way, so the toff's letters are read backwards"
-      },
-      {
-       "text": "half-cut",
-       "note": "the parent is cut in half"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 15,
+         "note": "about here means turned round, so the word for a toff is written backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "half-cut parent",
-         "gives": "TOM",
-         "note": "MOTHER with half its letters cut"
+         "words": "toff",
+         "at": 10,
+         "gives": "NOB",
+         "note": "a toff or nob is a posh upper-class person in British slang"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 21,
+         "note": "half-cut means the word is cut in half, its second half dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parent",
+         "at": 30,
+         "gives": "MOTHER",
+         "note": "a mother is a parent"
         },
         {
-         "words": "toff about",
-         "gives": "NOB",
-         "note": "a nob is a toff, a posh person; NOB turned round"
+         "gives": "HER"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A posh wit's remark about his tipsy mother.",
-     "walkthrough": "Half-cut is British slang for drunk, which is the picture; here it halves MOTHER.",
-     "definitionFit": "French loanword for a witty remark, literally 'good word'."
+     "surface": "A witty remark from a posh man about his tipsy mother.",
+     "walkthrough": "Half-cut is British slang for drunk, but here it halves MOTHER to MOT; NOB, a British word for a toff, turned about gives BON.",
+     "definitionFit": "A bon mot is a clever witty remark, French for 'good word', so a quip."
     },
     "features": {
      "answerInScene": true,
