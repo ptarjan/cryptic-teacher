@@ -58,6 +58,19 @@ out (--padding-only does just this). Left alone: other jobs in the note,
 pronouns, placeholders, long phrases, and clues where padding is most of the
 words; the tree must give the same answer after.
 
+Word breaks an OCR'd count lost. A file tools/file_archive_org_puzzles.py filed
+may print "(13)" for a light the paper counted "(8,5)". restore_word_breaks gives
+it the breaks other puzzles print for the same letters (fetch_puzzle.
+lost_word_breaks, from tools/data/answer_breaks.json: --write-breaks reads it off
+the corpus's other files), and a light they print both ways, settling on neither,
+is left, flagged for a read of the print (--write-flags). Letters alone never
+decide it: a lexicon cut of the answer cut half the real one-word answers
+the lexicon lacks. Marks an OCR left in a clue text (a
+stray "·", a "." run on to the next word, a run of spaces) are mended as
+punctuation.mend_puzzle and enumeration.collapse_entry_spaces mend them.
+The edition queue writes each reading through mechanical(), so a re-read never
+files what this would mend.
+
 WHAT IT ONLY REPORTS
 
 A mis-filed date. convert() refuses a page whose two stated dates are more
@@ -97,11 +110,16 @@ import collections
 import copy
 import re
 import json
+import re
 import sys
-from datetime import timedelta
+from collections import Counter
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
+import enumeration
 import fetch_puzzle as fetcher  # the rules being applied live there
 import groups
+import punctuation
 from groups import entry_id
 import series as series_meta
 
@@ -156,6 +174,120 @@ def rebuild(puzzle):
     is what settles whether a link is real before anything is rebuilt from one.
     """
     return fetcher.reconstruct_groups(puzzle["entries"], series_meta.of(puzzle))
+
+
+#: The filer whose OCR'd files the two repairs below mend: a printed count and
+#: a clue's marks are only ever misread in a file a reader wrote.
+ARCHIVE_FILER = "tools/file_archive_org_puzzles.py"
+
+
+def read_by_archive_filer(puzzle):
+    """Whether tools/file_archive_org_puzzles.py acquired `puzzle` (an OCR'd
+    newspaper page)."""
+    return (puzzle.get("source") or {}).get("acquiredBy") == ARCHIVE_FILER
+
+
+def restore_word_breaks(puzzle):
+    """Give the bare count of each phrase answer its word breaks. Returns the
+    (light, was, now) of the ones restored.
+
+    An OCR'd count often loses its commas: a light printed "(8,5)" filed as
+    "(13)". The same letters are the same phrase in every puzzle that clues
+    them, so the breaks come from there (fetch_puzzle.settled_breaks), hyphens
+    and all; a light the other puzzles print both ways is left for the print
+    (flagged_word_breaks)."""
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    restored, done = [], []
+    for eid, now in fetcher.lost_word_breaks(puzzle).items():
+        if now is None:
+            continue
+        e = by_id[eid]
+        was = e["clue"]["enumeration"]
+        e["clue"] = {**e["clue"], "enumeration": now}
+        restored.append((eid, was, e["clue"]["enumeration"]))
+        done.append(e)
+    fetcher.enumeration_separators(done)
+    return restored
+
+
+def flagged_word_breaks(puzzle):
+    """The lights of `puzzle` whose bare count the other puzzles print both
+    ways, settling on neither: only the print says."""
+    return [eid for eid, now in fetcher.lost_word_breaks(puzzle).items() if now is None]
+
+
+def write_breaks(path=None):
+    """Write the BREAKS file (fetch_puzzle.BREAKS, or `path`) from the files
+    this corpus holds that no OCR reader wrote: every unlinked answer's
+    printed enumerations, {enumeration: puzzles}, settled by
+    fetch_puzzle.settled_breaks into {"breaks", "mixed"}. Returns
+    (answers settled, answers mixed)."""
+    seen = {}
+    for p in fetcher.puzzle_files():
+        puzzle = fetcher.read_puzzle_file(p)
+        if read_by_archive_filer(puzzle):
+            continue
+        for e in puzzle.get("entries") or ():
+            enum, solution = (e.get("clue") or {}).get("enumeration") or "", e.get("solution")
+            if (solution and len(e.get("group") or ()) <= 1 and re.fullmatch(r"\d+(?:[,-]\d+)*", enum)
+                    and sum(enumeration.counts(enum)) == len(solution)):
+                seen.setdefault(solution, Counter())[enum] += 1
+    breaks, mixed = {}, []
+    for solution, printed in sorted(seen.items()):
+        settled = fetcher.settled_breaks(printed)
+        if settled:
+            breaks[solution] = settled
+        else:
+            broken = sum(n for e, n in printed.items() if not re.fullmatch(r"\d+", e))
+            if broken >= 2 and broken >= sum(printed.values()) - broken:
+                mixed.append(solution)
+    Path(path or fetcher.BREAKS).write_text(
+        json.dumps({"breaks": breaks, "mixed": mixed}, separators=(",", ":"), ensure_ascii=False) + "\n",
+        encoding="utf-8")
+    return len(breaks), len(mixed)
+
+
+#: The archive.org files flagged_word_breaks leaves for a read of the print:
+#: {"at": when the sweep found them, "ids": [puzzle id]}. The queue
+#: (file_archive_org_puzzles.settled) never skips an edition holding one.
+FLAGS = Path(__file__).resolve().parent / "data" / "word_break_flags.json"
+
+
+def write_flags(path, ids):
+    """Write `ids` as the FLAGS file at `path`, stamped now."""
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    Path(path).write_text(json.dumps({"at": now, "ids": sorted(set(ids))}, indent=1) + "\n")
+
+
+def mend_clue_marks(puzzle):
+    """Cut each clue's runs of spaces to one and make punctuation's certain
+    mends (a stray "·", a "." run on to the next word), in place, annotation
+    and italics moved with the words. Returns {light: its clue now}."""
+    spaced = {entry_id(e): e["clue"]["text"] for e in puzzle["entries"]
+              if isinstance(e.get("clue"), dict) and enumeration.collapse_entry_spaces(e)}
+    return {**spaced, **punctuation.mend_puzzle(puzzle)}
+
+
+def mechanical(puzzle, filer=None):
+    """(puzzle mended, notes): the repairs above, on a copy, for an archive.org
+    filer's file (or any puzzle `filer`, the tool about to write it, names
+    so); any other file comes back as it was. The queue writes each
+    reading through this (tools/scan_queue.file_puzzle), so a re-read never
+    files what the sweep would have mended."""
+    if any("number" not in e or "direction" not in e for e in puzzle.get("entries") or ()):
+        return puzzle, []  # not a laid-out puzzle (a reading mid-build): nothing to name a light by
+    if not (read_by_archive_filer(puzzle) or filer == ARCHIVE_FILER):
+        return puzzle, []
+    fixed = copy.deepcopy(puzzle)
+    notes = []
+    marks = mend_clue_marks(fixed)
+    if marks:
+        notes.append(f"{len(marks)} clue(s) with stray marks or spaces mended")
+    breaks = restore_word_breaks(fixed)
+    if breaks:
+        notes.append(f"{len(breaks)} word-break count(s) restored: "
+                     + ", ".join(f"{eid} ({was})->({now})" for eid, was, now in breaks))
+    return (fixed, notes) if notes else (puzzle, [])
 
 
 def misfiled_dates(dated):
@@ -358,6 +490,9 @@ def repair(path, puzzle, apply_it, padding_only=False):
         notes.append("link words filed as wordplay leaves taken out: "
                      + ", ".join(f"{eid} {w!r}" for eid, w in unpadded))
 
+    fixed, archive_notes = mechanical(fixed)
+    notes += archive_notes
+
     if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
         return None
     if apply_it:
@@ -380,7 +515,16 @@ def main(argv):
                     help="lowest puzzle number to consider")
     ap.add_argument("--to", dest="end", type=int,
                     help="highest puzzle number to consider")
+    ap.add_argument("--write-flags", nargs="?", const=str(FLAGS), metavar="PATH",
+                    help="write the archive.org files whose word breaks only the print can give "
+                         f"(default {FLAGS}): the queue reads those again, and no others for them")
+    ap.add_argument("--write-breaks", action="store_true",
+                    help=f"rebuild {fetcher.BREAKS} (the word breaks other puzzles print for an answer) and stop")
     args = ap.parse_args(argv)
+    if args.write_breaks:
+        settled, mixed = write_breaks()
+        print(f"{settled} answers with settled word breaks, {mixed} printed both ways -> {fetcher.BREAKS}")
+        return 0
     if args.apply and args.dry_run:
         ap.error("--apply and --dry-run say opposite things; pass one")
     if args.series and args.series not in series_meta.SERIES:
@@ -390,7 +534,7 @@ def main(argv):
     # neighbours of a selected puzzle are collected even when the number range
     # excludes them — a range of ten puzzles cannot say which of the ten is out
     # of line. Only the selected ones are repaired, and only they are reported.
-    examined, repaired, by_series, wanted = 0, 0, {}, set()
+    examined, repaired, by_series, wanted, unsettled = 0, 0, {}, set(), []
     for path in fetcher.puzzle_files():
         series, number = series_meta.parse_id(path.stem)
         if args.series and series != args.series:
@@ -404,6 +548,8 @@ def main(argv):
             continue
         examined += 1
         wanted.add(path.stem)
+        if args.write_flags and read_by_archive_filer(puzzle):
+            unsettled.extend(puzzle["id"] for _ in flagged_word_breaks(puzzle)[:1])
         line = repair(path, puzzle, args.apply, args.padding_only)
         if line:
             repaired += 1
@@ -429,6 +575,10 @@ def main(argv):
 
     for why, count in sorted(SKIPPED.items()):
         print(f"padding-like leaf left alone ({why}): {count}")
+    if args.write_flags:
+        write_flags(args.write_flags, unsettled)
+        print(f"{len(unsettled)} archive.org file(s) hold a word-break count the lexicon cannot settle "
+              f"-> {args.write_flags}")
     verb = "repaired" if args.apply else "would repair"
     print(f"{examined} file(s) examined, {verb} {repaired}, "
           f"{misfiled} mis-filed date(s) to re-fetch by hand")

@@ -69,7 +69,7 @@ import media_manifest
 
 #: The modules file_puzzle() loads lazily (importing this module must not
 #: load them), which parallel() loads up front.
-WRITE_PATH_MODULES = ("ocr_clues", "puzzle_integrity")
+WRITE_PATH_MODULES = ("ocr_clues", "puzzle_integrity", "repair_fetched")
 
 def now():
     return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
@@ -353,6 +353,10 @@ def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
     if bleed:
         verdict["refusedWrite"] = f"refusing to write {puzzle.get('id')}: " + "; ".join(bleed)
         return False
+    # What the sweep (tools/repair_fetched.py) would mend in this reading is
+    # mended as it is filed, so a re-read never costs a second pass.
+    import repair_fetched
+    puzzle, _ = repair_fetched.mechanical(puzzle, generator)
     try:
         write_puzzle_file(path, puzzle, generator=generator)
     except puzzle_integrity.RefusedWrite as e:
