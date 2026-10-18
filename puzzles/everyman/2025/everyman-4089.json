@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,36 +44,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISH",
-     "indicators": [
-      {
-       "text": "skipping starter of",
-       "note": "to skip a thing is to leave it out, and the starter of a word is the letter it begins on"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Germany",
+       "at": 10,
+       "gives": "D",
+       "note": "D is the international vehicle code for Germany"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "skipping starter of",
+         "at": 19,
+         "note": "skipping starter of means the first letter of the fish word is left out"
+        }
+       ],
        "parts": [
         {
-         "words": "Germany",
-         "gives": "D",
-         "note": "D is Germany's international vehicle plate letter, short for Deutschland"
+         "words": "herring perhaps",
+         "at": 39,
+         "gives": "FISH",
+         "note": "a herring is an example of a fish"
         },
         {
-         "words": "herring perhaps",
-         "gives": "ISH",
-         "note": "a herring is one kind of fish, and FISH minus its opening letter is ISH"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Perhaps' is the setter owning up: a herring is only an example of a fish, and it is the general word the wordplay wants, never the particular one.",
-     "definitionFit": "Meal → DISH: a dish is one prepared course set on the table, and by extension the food itself, so it stands in for something to eat."
+     "surface": "A German meal that does without the usual herring starter.",
+     "walkthrough": "'starter' looks like the first course of a meal, but it is the first letter of FISH.",
+     "definitionFit": "A dish is a particular prepared food served as part of a meal, so the words are used interchangeably."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
     }
    }
   },
@@ -945,36 +957,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DARLING",
-     "indicators": [
-      {
-       "text": "will miss opening",
-       "note": "to miss something out is to go without it, and the opening of a name is the letter it starts on"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Director",
+       "at": 5,
+       "gives": "D"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "will miss opening",
+         "at": 33,
+         "note": "will miss opening means the surname loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Director",
-         "gives": "D",
-         "note": "D is the standard abbreviation, as it appears on a film's credits"
+         "words": "Rugby player Will",
+         "at": 15,
+         "gives": "CARLING",
+         "note": "Will Carling captained the England rugby union team"
         },
         {
-         "words": "Rugby player Will",
-         "gives": "ARLING",
-         "note": "Will Carling captained England at rugby union, and his surname without its opening C leaves ARLING"
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The capitals do the misleading: 'Dear Director' reads as the top of a letter of complaint, and only one of the two people named in this clue actually exists.",
-     "definitionFit": "Dear → DARLING: both are terms of endearment addressed to a loved one, darling being the warmer of the pair and dear the more formal."
+     "surface": "A director addresses a rugby star who is going to miss a premiere.",
+     "walkthrough": "The repeated Will is the trick: the first is the rugby player's first name, the second the start of the deletion signal.",
+     "definitionFit": "Darling and dear are both affectionate terms of address for a loved one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
     }
    }
   },
@@ -1303,35 +1324,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLEA",
-     "indicators": [
-      {
-       "text": "Abruptly",
-       "note": "something done abruptly stops before it has finished, so the word is cut off before its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Abruptly",
+         "at": 0,
+         "note": "abruptly here means cut off short, so the last letter of the escape word is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Run for it",
-         "gives": "FLE",
-         "note": "to run for it is to flee, and cut short that is three letters"
+         "at": 10,
+         "gives": "FLEE",
+         "note": "to flee is to run for it"
         },
         {
-         "words": "A",
-         "note": "the clue's own A, taken at face value and joined on the end"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "A",
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The exclamation marks sell it as panic in a comic strip, which is the point: 'Run for it!' is a phrase to be swapped for a synonym, not an instruction to obey.",
-     "definitionFit": "biting beastie → FLEA: the tiny wingless parasite that lives on cats and dogs and feeds by biting them, so the phrase names it by what it does."
+     "surface": "A sudden shout to scarper because something with a bite is coming.",
+     "walkthrough": "'Abruptly' reads as describing the shout, but it trims FLEE to FLE before A is added.",
+     "definitionFit": "A flea is a tiny bloodsucking insect whose bite itches, a small creature in jokey terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Abruptly"
     }
    }
   },

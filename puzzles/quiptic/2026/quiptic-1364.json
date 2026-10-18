@@ -1631,49 +1631,57 @@
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 10,
+         "note": "containing means the explosive word holds the chemical letter inside it"
+        }
+       ],
        "parts": [
         {
          "words": "Explosive",
+         "at": 0,
          "gives": "GRENADE",
-         "note": "the hand-thrown bomb, opening up before its last letter"
+         "note": "a grenade is a small explosive device"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "containing",
-           "note": "A thing containing another has it inside, so the single letter goes within the word before it."
-          },
-          {
-           "text": "beginning to",
-           "note": "The beginning of a word is the letter it starts on, and that is all this takes."
-          }
-         ],
-         "parts": [
-          {
-           "words": "iodine",
-           "note": "I is iodine's symbol on the periodic table"
-          }
-         ]
+         "words": "iodine",
+         "at": 21,
+         "gives": "I",
+         "note": "I is the chemical symbol for iodine"
         }
        ]
       },
       {
-       "words": "beginning to rattle",
-       "gives": "R",
-       "note": "the first letter of the word 'rattle'"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 28,
+         "note": "beginning to picks the first letter of the word rattle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rattle",
+         "at": 41,
+         "gives": "R",
+         "note": "its first letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bomb with iodine inside it is starting to rattle.",
-     "walkthrough": "The soldier and the weapon he is named after sit in the same clue: a grenadier was originally the man who threw them. Iodine gives its chemical symbol, as iron does at 7 down.",
-     "definitionFit": "A grenadier is an infantryman, and in the British Army the Grenadier Guards still carry the name."
+     "surface": "A bomb laced with iodine starts to rattle a soldier.",
+     "walkthrough": "I goes inside GRENADE, near its end, and R from rattle is added last.",
+     "definitionFit": "A grenadier is an infantryman, originally one who threw grenades, and now a Guards regiment soldier."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rattle"
+     "misdirectedWord": "Explosive"
     }
    }
   },

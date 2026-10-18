@@ -1373,35 +1373,46 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head of",
-         "note": "The head of a word is the letter at its front, so only the first character of the noun following is used."
-        }
-       ],
-       "parts": [
-        {
-         "words": "clubs",
-         "note": "C is the card player's abbreviation for the suit of clubs"
-        }
-       ]
+       "words": "clubs",
+       "at": 10,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
       },
       {
        "words": "get rid of",
+       "at": 16,
        "gives": "LOSE",
        "note": "to lose something is to get rid of it"
       },
       {
-       "words": "head of diversity",
-       "gives": "D",
-       "note": "diversity supplies its opening letter only"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 27,
+         "note": "head of picks the first letter of the word diversity"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diversity",
+         "at": 35,
+         "gives": "D",
+         "note": "its first letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Head of diversity' is a job title in the surface and a single letter in the wordplay, and the sentence about a members' club depends on you reading the first.",
-     "definitionFit": "Exclusive -> CLOSED: a closed shop or a closed circle keeps outsiders out, which is what calling a club exclusive amounts to."
+     "surface": "Members-only clubs sack their head of diversity.",
+     "walkthrough": "'clubs' looks like the subject, but it is just the card-suit letter C.",
+     "definitionFit": "A closed group or shop admits only selected members, which is what exclusive means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
     }
    }
   },
