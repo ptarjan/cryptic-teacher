@@ -382,42 +382,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "something broken is in pieces, so the letters are rearranged"
+       "text": "about",
+       "at": 21,
+       "note": "about means around, so the phone call goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "call",
+       "at": 16,
+       "gives": "RING",
+       "note": "to call someone is to ring them on the phone"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the call is wrapped around the other letters"
+         "text": "broken",
+         "at": 27,
+         "note": "a broken crate is smashed apart, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "call",
-         "gives": "RING",
-         "note": "to ring is to phone"
-        },
-        {
          "words": "crate",
-         "note": "the five letters rearranged"
+         "at": 34
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone retraces their steps to answer a call about a broken crate.",
-     "definitionFit": "To go back over a route or sequence of events is to follow it again step by step."
+     "surface": "Someone phones about a crate that arrived smashed and goes back over what happened.",
+     "walkthrough": "'broken' turns CRATE into ETRAC, and 'about' wraps RING around it, after the R.",
+     "definitionFit": "Retracing your steps means going back along the way you came, covering the same route again."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "call"
     }
@@ -629,53 +633,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OREGANO",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the rearranged letters inside the selected ones"
+       "at": 18,
+       "note": "in puts the reordered letters inside the two middle letters"
       }
      ],
      "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 21,
+         "note": "the centre of a four-letter word is its two middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "room",
+         "at": 31,
+         "note": "the middle two letters of room are OO"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "fancy",
-         "note": "fancy as a verb hints at elaboration, so the letters are fancifully rearranged"
+         "at": 6,
+         "note": "fancy as a verb hints at fanciful rearrangement, so the letters of range are reordered"
         }
        ],
        "parts": [
         {
          "words": "range",
-         "note": "the five letters rearranged"
-        },
-        {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "centre of",
-           "note": "centre of picks out the middle letters of the word that follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "room",
-           "note": "the two central letters of the four"
-          }
-         ]
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to put a decorative kitchen range in the middle of a room.",
-     "definitionFit": "This aromatic herb of the mint family is a plant whose leaves season Italian cooking."
+     "surface": "A decorative plant sits in the middle of a room beside a smart kitchen range.",
+     "walkthrough": "'centre of room' gives OO, and 'fancy' turns RANGE into REGAN, which 'in' places between those two Os.",
+     "definitionFit": "Oregano is a herb grown in gardens and used in cooking, so it is a plant."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "range"
     }
@@ -1014,39 +1021,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Revamped",
-       "note": "revamped means remodelled, so the letters are reworked"
+       "text": "outside",
+       "at": 25,
+       "note": "outside means the opening goes around the other letters, holding them within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "opening",
+       "at": 17,
+       "gives": "SLOT",
+       "note": "a slot is an opening, as in a letterbox"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means the opening goes around the remodelled letters"
+         "text": "Revamped",
+         "at": 0,
+         "note": "a revamped pub has been done up, so the word's letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "opening",
-         "gives": "SLOT",
-         "note": "a slot is a narrow opening"
-        },
-        {
          "words": "pub",
-         "note": "the three letters rearranged"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A refurbished pub has a launch party outdoors, which is a small news item.",
-     "definitionFit": "A secondary storyline running alongside the main plot of a novel or film is a minor story."
+     "surface": "A refurbished pub has a new doorway on the outside, which makes a small local news item.",
+     "walkthrough": "'Revamped' turns PUB into UBP, and 'outside' puts SLOT around it, after its S.",
+     "definitionFit": "A subplot is a secondary storyline running alongside the main plot of a novel or play."
     },
     "features": {
      "answerInScene": false,
