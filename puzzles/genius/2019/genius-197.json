@@ -167,54 +167,70 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "pprng n",
-       "note": "'appearing in' places one set of letters inside the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "pprng n",
+         "at": 28,
+         "note": "'popping in' tells us each pioneer letter drops inside one of the internationals"
+        }
+       ],
        "parts": [
         {
-         "words": "tw ntrntnls",
-         "gives": "INTINT",
-         "note": "INT is the abbreviation for international, taken twice"
+         "words": "tw",
+         "at": 36,
+         "gives": "INT",
+         "note": "'two' internationals: the first of the pair, INT for international"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "pnrs",
-           "note": "pioneers go first, so only the opening letters of the county words are used"
+           "at": 23,
+           "note": "'pioneers' are those who go first, so we take the opening letters of Sussex and County"
           }
          ],
          "parts": [
           {
            "words": "Sssx",
-           "note": "the first letter of Sussex"
+           "at": 13,
+           "note": "first letter of Sussex"
           }
          ]
         }
        ]
       },
       {
-       "op": "first",
+       "op": "container",
        "parts": [
         {
-         "words": "Cnty",
-         "note": "the first letter of County"
+         "words": "ntrntnls",
+         "at": 39,
+         "gives": "INT",
+         "note": "the second international, INT again"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Cnty",
+           "at": 18,
+           "note": "first letter of County"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gut feeling displayed by early Sussex cricketers playing in a pair of international matches.",
-     "walkthrough": "With vowels: 'Intuition shown by Sussex County pioneers appearing in two internationals'. S goes into the first INT and C into the second.",
-     "definitionFit": "Instinct is a feeling known without reasoning, which is what intuition means."
+     "surface": "A cricket commentator praises a Sussex county player's knack after two overseas caps.",
+     "walkthrough": "With vowels restored the clue reads 'Intuition shown by Sussex County pioneers popping in two internationals'; 'popping in' works once for each international, one pioneer letter apiece, and the answer is entered without its vowels.",
+     "definitionFit": "Instinct is a synonym of intuition: knowing something without conscious reasoning."
     },
     "features": {
      "answerInScene": false,
@@ -836,46 +852,51 @@
      "indicators": [
       {
        "text": "tks",
-       "note": "the bloke takes letters into himself, holding them inside"
+       "at": 4,
+       "note": "'takes' means the bloke holds the following letters inside himself"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Blk",
-         "gives": "GENT",
-         "note": "a bloke is a man, a gent"
-        },
-        {
-         "words": "vr",
-         "gives": "OVER",
-         "note": "'over', reduced to two consonants"
-        }
-       ]
+       "words": "Blk",
+       "at": 0,
+       "gives": "GENT",
+       "note": "a bloke is a gent"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "strts t",
-         "note": "'starts to' takes only the opening letter of each following word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "nmnt mnstrs",
-         "note": "the first letters of nominate and ministers"
+         "words": "vr",
+         "at": 8,
+         "gives": "OVER",
+         "note": "'over' taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "strts t",
+           "at": 14,
+           "note": "'starts to' asks for the opening letters of enumerate and ministers"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nmnt mnstrs",
+           "at": 22,
+           "note": "first letters of the vowelless words, N and M"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man takes charge and begins naming his cabinet, who will run the country.",
-     "walkthrough": "With vowels: 'Bloke takes over and starts to nominate ministers — they run the country'. 'Takes over' looks like a phrase but splits into container and contents.",
-     "definitionFit": "The government is the body of people who administer the state."
+     "surface": "A man takes over and starts counting cabinet members, the people who run the country.",
+     "walkthrough": "Restored, the clue is 'Bloke takes over and starts to enumerate ministers'. The trick is that 'starts to' reads the printed vowelless words, giving N and M rather than E and M, which is why the parse only works in this puzzle.",
+     "definitionFit": "The government is the body of people with authority to rule a nation, so they run the country."
     },
     "features": {
      "answerInScene": true,
