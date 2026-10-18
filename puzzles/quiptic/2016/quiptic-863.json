@@ -552,45 +552,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMERSON",
+     "op": "container",
      "indicators": [
       {
-       "text": "not initially",
-       "note": "not at the start means the opening letter is dropped"
+       "text": "gripping",
+       "at": 34,
+       "note": "the shortened word holds the next piece tightly within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "gripping",
-         "note": "to grip is to hold, so one piece holds another"
+         "text": "not initially",
+         "at": 20,
+         "note": "the word for someone loses its initial letter"
         }
        ],
        "parts": [
         {
          "words": "someone",
-         "gives": "ERSON",
-         "note": "a person, minus the P at the front"
+         "at": 12,
+         "gives": "PERSON",
+         "note": "a person is someone, anyone at all"
         },
         {
-         "words": "me",
-         "note": "used as it stands"
+         "gives": "P",
+         "note": "the first letter removed"
         }
        ]
+      },
+      {
+       "words": "me",
+       "at": 43,
+       "gives": "ME"
       }
      ]
     },
     "explanation": {
-     "surface": "A literary puzzle about some unnamed person wrapping their arms around the speaker.",
-     "walkthrough": "'Someone' has to be turned into a word before its first letter can go. Ralph Waldo Emerson was the American essayist and poet.",
-     "definitionFit": "Ralph Waldo Emerson was a nineteenth-century American essayist and transcendentalist writer, so he is an author from the States."
+     "surface": "A writer from America is described as a nobody who still clings on to the speaker.",
+     "walkthrough": "The 's after 'US author' is a link meaning 'is'. Ralph Waldo Emerson was a 19th-century American essayist and poet.",
+     "definitionFit": "Ralph Waldo Emerson was an American essayist and poet, an instance of a writer from the United States."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "someone"
     }
@@ -1376,37 +1382,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RASCALS",
-     "indicators": [
-      {
-       "text": "disheartened",
-       "note": "losing heart means losing the central letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Artist",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, a member of the Royal Academy of Arts"
+      },
+      {
+       "words": "s",
+       "at": 7,
+       "gives": "S",
+       "note": "the apostrophe-s on Artist supplies the letter S"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 15,
+         "note": "losing its heart, the central letter of the word for cries is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "Artist's",
-         "gives": "RAS",
-         "note": "RA = Royal Academician, a crossword artist, with the 's"
+         "words": "cries",
+         "at": 9,
+         "gives": "CALLS",
+         "note": "calls are cries or shouts"
         },
         {
-         "words": "cries",
-         "gives": "CALS",
-         "note": "calls, with one of its middle L's removed"
+         "gives": "L",
+         "note": "the heart of the word for cries"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An artist's anguished cries as he gives up hope over some villains.",
-     "walkthrough": "CALLS has five letters, so its heart is the middle letter, the second L.",
-     "definitionFit": "The word describes rogues and scoundrels, dishonest people, though today it is often used playfully of mischievous children."
+     "surface": "A painter's dejected shouts are blamed on a gang of rogues.",
+     "walkthrough": "RA, an abbreviation for a Royal Academician, is crossword shorthand for an artist; 'disheartened' takes the middle L out of CALLS to leave CALS.",
+     "definitionFit": "Rascals are scoundrels or rogues, a near-synonym for villains, often used playfully."
     },
     "features": {
      "answerInScene": false,

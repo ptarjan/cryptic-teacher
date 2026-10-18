@@ -333,47 +333,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PHILOSOPHISE",
      "indicators": [
       {
        "text": "struggling",
-       "note": "struggling letters are wrestling about, so they end up in a new order"
+       "at": 34,
+       "note": "struggling letters are thrashing about, so the combined letters are thrown into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PHILOSOPHISE",
        "indicators": [
         {
          "text": "out of",
-         "note": "something taken out of a word is removed from it"
+         "at": 7,
+         "note": "taken out of the word school, so the letter for caught is removed from it"
         }
        ],
        "parts": [
         {
-         "words": "Caught",
-         "gives": "C",
-         "note": "C is the cricket scoring abbreviation for caught"
-        },
-        {
          "words": "school",
-         "note": "taken as written"
+         "at": 14
         },
         {
-         "words": "hippies",
-         "note": "taken as written for rearranging"
+         "words": "Caught",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the cricket scorecard abbreviation for caught"
         }
        ]
+      },
+      {
+       "words": "hippies",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil caught skipping school with hippies tries hard to think like a great philosopher.",
-     "walkthrough": "Remove C from SCHOOL to leave SHOOL, then rearrange it together with HIPPIES.",
-     "definitionFit": "Immanuel Kant was a German philosopher, so reasoning in his manner is to philosophise, theorising about ideas."
+     "surface": "A dropout and some hippies wrestle with deep questions in the manner of a German thinker.",
+     "walkthrough": "'out of' removes C (caught) from SCHOOL to leave SHOOL; 'struggling' then rearranges SHOOL with HIPPIES into the answer.",
+     "definitionFit": "Immanuel Kant was a philosopher, so reasoning in his manner is to theorise as a philosopher does."
     },
     "features": {
      "answerInScene": false,
@@ -1752,7 +1751,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "An exclamation of mild disapprobation",
+      "text": "An exclamation of mild disapprobation whichever way you look at it",
       "at": 0
      }
     ],
@@ -1761,25 +1760,30 @@
      "indicators": [
       {
        "text": "whichever way you look at it",
-       "note": "whichever way you look means the word reads identically from the front or from the back"
+       "at": 38,
+       "note": "looked at from either end, forwards or backwards, these letters stay the same, a palindrome"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "whichever way you look at it",
-       "note": "surface only: it says the answer is symmetrical"
+       "words": "An exclamation of mild disapprobation",
+       "at": 0,
+       "gives": "TUTTUT",
+       "note": "the tongue-clicking sound of mild disapproval"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A disapproving sound that stays the same from any angle.",
-     "walkthrough": "The definition is the long opening phrase; the rest tells you the answer is a palindrome.",
-     "definitionFit": "Tut-tut is the clicking sound people make to show they mildly disapprove of something."
+     "surface": "A tutting noise means the same thing from any angle.",
+     "walkthrough": "The phrase 'whichever way you look at it' usually means 'in any case', but here it says the answer is a palindrome, the same in both directions.",
+     "definitionFit": "Tut-tut is the clicking sound people make with the tongue to show mild disapproval."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "way"
     }
    }
   },

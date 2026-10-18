@@ -99,39 +99,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUSBAND",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the final letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "most of the word but not all of it: its final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "silence",
-         "gives": "HUS",
-         "note": "hush means silence; mostly trims its last letter"
+         "at": 7,
+         "gives": "HUSH",
+         "note": "hush means silence, as in 'a hush fell'"
         },
         {
-         "words": "tape",
-         "gives": "BAND",
-         "note": "a band is a strip, like a tape"
+         "gives": "H",
+         "note": "the last letter cut"
         }
        ]
+      },
+      {
+       "words": "on tape",
+       "at": 15,
+       "gives": "BAND",
+       "note": "a band is a strip of material like tape, placed after the shortened word"
       }
      ]
     },
     "explanation": {
-     "surface": "A spouse insists on quiet whenever the recording is running.",
-     "definitionFit": "Other half is an informal idiom for a spouse or partner, and a husband is a married man in that role."
+     "surface": "A recording of near-silence seems to belong to someone's partner.",
+     "walkthrough": "The 's after 'tape' is a link meaning 'is', joining the wordplay to the definition.",
+     "definitionFit": "Other half is an informal idiom for a spouse or partner, so it can mean a married man."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "tape"
     }
