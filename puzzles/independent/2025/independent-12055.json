@@ -286,48 +286,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STAMPEDES",
+     "op": "container",
      "indicators": [
       {
-       "text": "rushing",
-       "note": "horses rushing about are thrown into disorder, so the letters of the horses' word get rearranged"
+       "text": "across",
+       "at": 35,
+       "note": "the rearranged steeds spread across, that is around, what is left of pampa"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "across",
-         "note": "one group of letters stretches across another, sitting on either side of it"
+         "text": "rushing",
+         "at": 27,
+         "note": "rushing means the letters of steeds dash about into a new order"
         }
        ],
        "parts": [
         {
          "words": "steeds",
-         "note": "the word steeds jumbled, split to wrap around the middle piece"
+         "at": 20,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unconfined",
+         "at": 48,
+         "note": "unconfined means pampa is freed of its outer letters, its first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pampa",
+         "at": 42,
+         "note": "pampa without its first and last letters"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "AMP",
-         "indicators": [
-          {
-           "text": "unconfined",
-           "note": "freed from its confines, the plains word loses its outer letters and keeps only the inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pampa",
-           "gives": "AMP",
-           "select": "middle",
-           "note": "pampa without its first and last letters"
-          }
-         ]
+         "gives": "PA"
         }
        ]
       }
@@ -335,14 +336,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Wild horses galloping over the South American grasslands, kicking up a riot.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: horses rushing over the plains are exactly what produces a stampede.",
-     "definitionFit": "A stampede is a sudden panicked charge of a herd of animals, which is what galloping horses on open plains create."
+     "surface": "Horses charging over the South American grassland could cause a panicked rush.",
+     "walkthrough": "'Across' looks like travel over the grassland, but it signals one piece going round another; the whole clue also describes the answer.",
+     "definitionFit": "A stampede is a sudden mass charge of panicked animals such as horses or cattle, which rushing steeds could become."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "unconfined"
+     "misdirectedWord": "across"
     }
    }
   },
@@ -605,37 +606,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SACREDCOW",
-     "indicators": [
-      {
-       "text": "move around",
-       "note": "moving letters around means shifting them into a different sequence"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "move around",
+         "at": 8,
+         "note": "move around tells us to shift the letters of the synonym into another order"
+        }
+       ],
        "parts": [
         {
          "words": "Afraid",
-         "gives": "SACRED",
-         "note": "afraid is scared, whose letters are moved around"
-        },
-        {
-         "words": "bully",
-         "gives": "COW",
-         "note": "to cow someone is to intimidate or bully them"
+         "at": 0,
+         "gives": "SCARED",
+         "note": "afraid means scared"
         }
        ]
+      },
+      {
+       "words": "bully",
+       "at": 20,
+       "gives": "COW",
+       "note": "to cow someone is to intimidate or bully them"
       }
      ]
     },
     "explanation": {
-     "surface": "A frightened person sidesteps a thug who acts as if untouchable.",
-     "walkthrough": "This is an indirect anagram: Afraid must first become SCARED, and those letters are rearranged.",
-     "definitionFit": "A sacred cow is an institution or belief treated as immune from criticism, held above any reproach."
+     "surface": "A frightened person is told to get away from an intimidating thug.",
+     "walkthrough": "SCARED, the synonym for afraid, is rearranged into SACRED.",
+     "definitionFit": "A sacred cow is an idea or institution treated as immune from criticism."
     },
     "features": {
      "answerInScene": false,
@@ -1550,48 +1552,52 @@
      "indicators": [
       {
        "text": "during",
-       "note": "during places one thing in the middle of another, so these letters go inside the film's title"
+       "at": 35,
+       "note": "during means these letters occur within the film title"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "film",
+       "at": 42,
+       "gives": "KES",
+       "note": "Kes is a 1969 Ken Loach film about a boy and a kestrel"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "film",
-         "gives": "KES",
-         "note": "Kes is Ken Loach's 1969 film about a boy and his kestrel"
+         "words": "I",
+         "at": 18
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "start to",
-           "note": "the start of a word is its first letter, so only that is used"
+           "at": 20,
+           "note": "start to picks the first letter of think"
           }
          ],
          "parts": [
           {
            "words": "think",
+           "at": 29,
            "note": "first letter of think"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "I",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A viewer muses about lofty ideas while watching a movie.",
-     "walkthrough": "Kes is a classic British film set in Barnsley, about a boy who trains a kestrel.",
-     "definitionFit": "Kites are flown high on strings in the wind, so they are things that fly aloft."
+     "surface": "Someone starts thinking about lofty ideas while watching a movie.",
+     "walkthrough": "Kes is a British film about a boy who trains a kestrel, apt for a clue about flying things; I and T go inside it.",
+     "definitionFit": "Kites are flown high in the air on strings, so they are literally flown high."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "High-flown"
@@ -1739,49 +1745,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "'weird'",
-       "note": "weird suggests something odd and strange, so the word before it is twisted out of shape"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "prog rock band",
+       "at": 8,
+       "gives": "YES",
+       "note": "Yes is a British progressive rock band"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "weird",
+         "at": 30,
+         "note": "weird signals that the letters of rated are scrambled"
+        }
+       ],
        "parts": [
         {
-         "words": "prog rock band",
-         "gives": "YES",
-         "note": "Yes, the English progressive rock band"
-        },
-        {
          "words": "rated",
-         "note": "the letters of rated jumbled"
-        },
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "at last",
-           "note": "last points to the final letter of the following word alone"
-          }
-         ],
-         "parts": [
-          {
-           "words": "'revolutionary'",
-           "note": "final letter of revolutionary"
-          }
-         ]
+         "text": "at last",
+         "at": 48,
+         "note": "at last picks the final letter of revolutionary"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revolutionary",
+         "at": 58,
+         "note": "last letter of revolutionary"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A music critic's review of a prog band: weird at first, then hailed as revolutionary.",
-     "walkthrough": "The answer is the Beatles song by Paul McCartney, while Yes is the band the clue names in the wordplay.",
-     "definitionFit": "Yesterday is a famous Beatles ballad from 1965, one of the most recorded pop tunes ever written."
+     "surface": "A music critic reviews a prog rock song, first calling it weird and finally revolutionary.",
+     "walkthrough": "'Revolutionary' looks like a review; only its last letter counts.",
+     "definitionFit": "Yesterday is the famous Beatles ballad by Paul McCartney, so it is an example of a song."
     },
     "features": {
      "answerInScene": true,

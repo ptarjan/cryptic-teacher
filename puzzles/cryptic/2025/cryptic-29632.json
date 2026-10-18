@@ -107,61 +107,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BLOODDONOR",
      "indicators": [
       {
-       "text": "swaddle",
-       "note": "swaddling wraps a baby, so the ladies are wrapped around the strange word"
-      },
-      {
        "text": "in",
-       "note": "the wrapped bundle goes inside the remade word"
+       "at": 23,
+       "note": "in places the swaddled group within the rearranged letters of born"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "newborn",
+       "at": 26,
+       "gives": "BNOR",
+       "note": "the word splits into new and born: new tells us the letters of born are made afresh in a different order, so this one word supplies born rearranged"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "new",
-         "note": "new means made fresh, so the following word is remade in another order"
+         "text": "swaddle",
+         "at": 15,
+         "note": "the ladies piece wraps round the word for strange as a baby is wrapped in swaddling cloth"
         }
        ],
        "parts": [
         {
-         "words": "newborn",
-         "gives": "B",
-         "note": "first letter of the second half of this word, rearranged"
-        },
-        {
          "words": "ladies",
+         "at": 8,
          "gives": "LOO",
-         "note": "the ladies is a women's toilet, a loo; it is split around the next piece"
+         "note": "the ladies is a British term for a women's toilet, and loo is slang for a toilet"
         },
         {
          "words": "Strange",
+         "at": 0,
          "gives": "ODD",
          "note": "strange means odd"
-        },
-        {
-         "words": "newborn",
-         "gives": "NOR",
-         "note": "the rest of the rearranged letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Strange women bundle up a baby; perhaps this saves a life.",
-     "walkthrough": "'Newborn' must be split in two: 'new' is the instruction and the four letters after it are the material. Two wrappings nest, like a baby swaddled and then held.",
-     "definitionFit": "Someone who gives blood for transfusions can save patients' lives, hence a lifesaver."
+     "surface": "Odd women wrap up a baby in a scene that turns out to save a life.",
+     "walkthrough": "'Newborn' must be split: new is the anagram signal and born its fodder. The ladies is the British name for a women's toilet, so a loo.",
+     "definitionFit": "Someone who gives blood for transfusions may literally save a patient's life."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "newborn"
+     "misdirectedWord": "swaddle"
     }
    }
   },
@@ -258,54 +252,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DENYBAIL",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means all except the last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Study",
+       "at": 0,
+       "gives": "DEN",
+       "note": "a den is a private room for study or work"
+      },
+      {
+       "op": "homophone",
+       "spelt": "Y",
+       "indicators": [
+        {
+         "text": "said",
+         "at": 10,
+         "note": "said means we take the sound of the word, not its spelling"
+        }
+       ],
        "parts": [
         {
-         "words": "Study",
-         "gives": "DEN",
-         "note": "a den is a private room for work, a study"
-        },
+         "words": "why",
+         "at": 6,
+         "gives": "WHY",
+         "note": "the word why spoken sounds like the letter Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "anagram",
+         "text": "inconsistent",
+         "at": 28,
+         "note": "inconsistent suggests the shortened alibi does not hold together, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "inconsistent",
-           "note": "something inconsistent does not hold to one form, so the letters change order"
+           "text": "mostly",
+           "at": 21,
+           "note": "mostly means the word alibi loses its final letter"
           }
          ],
          "parts": [
           {
-           "op": "homophone",
-           "spelt": "Y",
-           "indicators": [
-            {
-             "text": "said",
-             "note": "said means spoken, so the word before is heard rather than read"
-            }
-           ],
-           "parts": [
-            {
-             "words": "why",
-             "gives": "WHY",
-             "note": "the letter that is pronounced like this word"
-            }
-           ]
+           "words": "alibi",
+           "at": 15
           },
           {
-           "words": "alibi",
-           "gives": "ALIB",
-           "note": "the word less its final letter"
+           "gives": "I"
           }
          ]
         }
@@ -314,13 +313,14 @@
      ]
     },
     "explanation": {
-     "surface": "A detective asks why a suspect's story keeps changing, and decides to hold them.",
-     "definitionFit": "When a court refuses release on surety pending trial, the accused stays locked up."
+     "surface": "A detective questions a suspect about a shaky alibi and decides to keep them locked up.",
+     "walkthrough": "ALIBI without its last letter gives ALIB, which 'inconsistent' rearranges into BAIL.",
+     "definitionFit": "A court that refuses release on bail keeps the accused in prison until trial."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Study"
+     "misdirectedWord": "inconsistent"
     }
    }
   },
@@ -450,40 +450,24 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "THROB",
-     "indicators": [
-      {
-       "text": "'s",
-       "note": "the possessive says the answer belongs to, and sits inside, the name before it"
-      }
-     ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "Heath Robinson's",
+       "at": 0,
        "gives": "THROB",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Heath Robinson",
-         "gives": "THROB",
-         "select": "middle",
-         "note": "the letters run across the join of the two names"
-        }
-       ]
+       "note": "the answer is hidden across the end of Heath and the start of Robinson, the possessive showing it belongs to those words"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark about the rhythm or patrol of the cartoonist Heath Robinson.",
-     "walkthrough": "Heath Robinson was a British cartoonist known for absurdly complicated machines; the answer straddles his two names.",
-     "definitionFit": "A throb is a rhythmic pulse, as a heart's beat or a drum's pounding."
+     "surface": "It sounds like a question about the cartoonist Heath Robinson's drawing style or rhythm.",
+     "walkthrough": "The answer runs across heaTH ROBinson; the possessive hints that the word belongs to the name. Heath Robinson was a British cartoonist known for absurd contraptions.",
+     "definitionFit": "A throb is a regular pulsing, as of the heart, so it is a synonym of beat."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Robinson's"
+     "misdirectedWord": "Heath"
     }
    }
   },
@@ -776,56 +760,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PALATIAL",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "only the opening letter of the word that follows is kept, the rest is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Grandfather",
+       "at": 0,
+       "gives": "PA",
+       "note": "the father part of the word gives pa, an informal word for father; its first part, Grand, is the definition"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moved",
+         "at": 35,
+         "note": "moved means these letters are shifted into a new arrangement"
+        }
+       ],
        "parts": [
         {
-         "words": "Grandfather",
-         "gives": "PA",
-         "note": "the second half of this word, father, is pa; the first half is the definition"
-        },
-        {
-         "op": "anagram",
+         "op": "first",
          "indicators": [
           {
-           "text": "moved",
-           "note": "letters that have been moved are shifted out of their order"
+           "text": "initially",
+           "at": 12,
+           "note": "initially picks the first letter of isn't"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "parts": [
-            {
-             "words": "isn't",
-             "note": "its first letter only"
-            }
-           ]
-          },
-          {
-           "words": "at all",
-           "note": "taken as written"
+           "words": "isn't",
+           "at": 22,
+           "note": "first letter of isn't"
           }
          ]
+        },
+        {
+         "words": "at all",
+         "at": 28,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly man remains entirely unaffected, unmoved by events.",
-     "walkthrough": "Grandfather must be split: 'Grand' is the definition and 'father' starts the wordplay.",
-     "definitionFit": "Palatial means like a palace, so splendid and imposing, which is what grand describes."
+     "surface": "Grandfather has not budged in the slightest.",
+     "walkthrough": "'Grandfather' reads as one relative, but it must be split: Grand is the definition and father is wordplay.",
+     "definitionFit": "Palatial describes something as splendid as a palace, so it means magnificent or imposing."
     },
     "features": {
      "answerInScene": false,
@@ -1639,51 +1621,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "goal",
-      "at": 51
+      "text": "the goal",
+      "at": 47
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EQUALISER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of a word means all but its final letter"
+       "text": "must be directed",
+       "at": 21,
+       "note": "the letters must be steered into a fresh order, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "must be directed",
-         "note": "being directed means being steered into a new arrangement"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means the word all loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "all",
-         "gives": "AL",
-         "note": "the word less its last letter"
+         "at": 8,
+         "note": "all without its final letter"
         },
         {
-         "words": "queries",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "queries",
+       "at": 13,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly every question should be routed through proper channels to get to the point.",
-     "walkthrough": "'Goal' here is a football score that levels the match, not an aim.",
-     "definitionFit": "An equaliser is the score that brings a team level, typically in football."
+     "surface": "Questions should be channelled properly in order to achieve one's aim.",
+     "walkthrough": "ALL loses a letter to give AL, and AL plus QUERIES are rearranged. 'Goal' looks like an aim; it is a football goal.",
+     "definitionFit": "In football an equaliser is the score that levels the match, so it is a particular kind of goal."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "goal"
     }
    }
