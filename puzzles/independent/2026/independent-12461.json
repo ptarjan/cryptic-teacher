@@ -410,46 +410,53 @@
      "indicators": [
       {
        "text": "upset",
-       "note": "Something upset has been knocked out of its arrangement, so the letters are to be rebuilt in another order."
+       "at": 6,
+       "note": "upset means knocked over, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Great",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "with a",
+       "at": 12,
+       "gives": "A",
+       "note": "with a means joined by an A, the letter added to the pool"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "curtailed",
-         "note": "To curtail is to cut short at the end, so the last letter of the word comes off before anything else happens."
+         "at": 19,
+         "note": "the title loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Great",
-         "note": "five letters of fodder"
-        },
-        {
-         "words": "with a",
-         "gives": "A",
-         "note": "the article taken as a single letter and added to the fodder"
-        },
-        {
          "words": "Mrs.",
-         "gives": "MR",
-         "note": "the title docked of its final letter"
+         "at": 29,
+         "note": "taken as written"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A furious row with a Mrs Thatcher who has been cut off mid-sentence.",
-     "walkthrough": "'Mrs.' belongs to the wordplay, not to the name: the definition is the surname on its own, and the answer is the first name that goes with it. Margaret Thatcher was Britain's prime minister from 1979 to 1990.",
-     "definitionFit": "Thatcher names the woman by her surname and the answer is her first name, the standard crossword way of asking for one half of a famous name."
+     "surface": "Great upset as a certain Mrs Thatcher is cut short.",
+     "walkthrough": "'Mrs.' looks like part of the definition, but it is fodder, cut to MR.",
+     "definitionFit": "Margaret was the first name of Britain's first female Prime Minister, Mrs Thatcher."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Mrs"
+     "misdirectedWord": "Mrs."
     }
    }
   },
@@ -1415,52 +1422,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "at last",
-       "note": "At last means at the end, so only the final letter of the word before it is taken."
+       "text": "inside",
+       "at": 23,
+       "note": "the new and final letters go inside the rent word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "inside",
-         "note": "Letters put inside a word go between its letters rather than in front of or behind it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Let",
-         "gives": "RENT",
-         "note": "a flat that is let is rented"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the standard abbreviation for new"
-        }
-       ]
+       "words": "Let",
+       "at": 0,
+       "gives": "RENT",
+       "note": "to let a property is to rent it out"
       },
       {
-       "op": "last",
+       "op": "charade",
        "parts": [
         {
-         "words": "enzyme",
-         "note": "the last letter of the word"
+         "words": "new",
+         "at": 4,
+         "gives": "N"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 15,
+           "note": "at last picks the final letter of enzyme"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enzyme",
+           "at": 8
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new enzyme finally being allowed into the dairy.",
-     "walkthrough": "'Let' is the landlord's verb and rent is what it comes to, which hides the four letters the rest of the clue opens up. Rennet really is an enzyme preparation, taken from a calf's stomach.",
-     "definitionFit": "Rennet is the enzyme preparation a cheese-maker stirs into milk to curdle it, the first step in turning milk into cheese."
+     "surface": "A new enzyme is finally allowed into the additives a cheesemaker uses.",
+     "walkthrough": "'enzyme' looks like part of the definition, but only its last letter is used.",
+     "definitionFit": "Rennet is a curdling agent, traditionally from calves' stomachs, added to milk in cheesemaking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Let"
+     "misdirectedWord": "enzyme"
     }
    }
   },
@@ -1908,40 +1918,66 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "What goes between two things has one of them on either side, so these letters sit in the middle of the pair named."
+       "at": 17,
+       "note": "the two ones sit between the two numerals"
       }
      ],
      "parts": [
       {
-       "words": "50",
-       "gives": "L",
-       "note": "L is fifty in Roman numerals"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "50",
+         "at": 25,
+         "gives": "L",
+         "note": "L is the Roman numeral 50"
+        },
+        {
+         "words": "500",
+         "at": 32,
+         "gives": "D",
+         "note": "D is the Roman numeral 500"
+        }
+       ]
       },
       {
-       "words": "one plus one",
-       "gives": "AI",
-       "note": "A is one as the article, I is one as the Roman numeral"
-      },
-      {
-       "words": "500",
-       "gives": "D",
-       "note": "D is five hundred in Roman numerals"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "plus",
+         "at": 8,
+         "note": "plus means added on, so the second one follows the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 4,
+         "gives": "A",
+         "note": "a means one"
+        },
+        {
+         "words": "one",
+         "at": 13,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An arithmetic instruction to slot a small sum in between two larger numbers.",
-     "walkthrough": "The two ones are different kinds of one, the article and the numeral, written side by side. Set and laid are the same past tense of putting something down: the table is laid, or set.",
-     "definitionFit": "To lay a thing down is to set it in place, and the past tenses match — a table that has been laid has been set."
+     "surface": "A puzzle in arithmetic: one plus one placed between fifty and five hundred.",
+     "definitionFit": "Laid and set both describe putting something down in position, as a table is laid or set."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "Set"
     }
    }
   },

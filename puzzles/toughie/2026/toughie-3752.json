@@ -1866,8 +1866,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "bye",
-      "at": 59
+      "text": "say \"bye\"",
+      "at": 54,
+      "note": "say marks bye as an example: a bye is one kind of extra in cricket"
      }
     ],
     "wordplay": {
@@ -1875,46 +1876,50 @@
      "indicators": [
       {
        "text": "In",
-       "note": "in means placed within, so the letters go inside another word"
+       "at": 0,
+       "note": "the letters go in the time word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "time",
-         "gives": "ERA",
-         "note": "an era is a period of time"
-        },
-        {
-         "words": "Twitter's successor",
-         "gives": "X",
-         "note": "Twitter was renamed X"
-        }
-       ]
+       "words": "time",
+       "at": 3,
+       "gives": "ERA",
+       "note": "an era is a period of time"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "the essence of something is its core, so the central letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "punters",
-         "note": "the middle letter of the seven"
+         "words": "Twitter's successor",
+         "at": 13,
+         "gives": "X",
+         "note": "Twitter was renamed X"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 42,
+           "note": "essentially picks the central letter of punters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "punters",
+           "at": 34
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gamblers say goodbye to the social media platform now it has been renamed.",
-     "walkthrough": "'Bye' looks like a farewell, but in cricket it is a run scored when the ball passes the batter and keeper, one of the runs not credited to a batter.",
-     "definitionFit": "In cricket byes are counted among the extras, the runs added to the total without coming off the bat, so a bye is an example."
+     "surface": "Along with X, the platform that replaced Twitter, gamblers are basically saying goodbye.",
+     "walkthrough": "In cricket a bye is a run scored when the ball passes the batter without being hit, and it counts as an extra.",
+     "definitionFit": "Byes are among the runs in cricket credited to the batting side without a stroke, called extras."
     },
     "features": {
      "answerInScene": false,
