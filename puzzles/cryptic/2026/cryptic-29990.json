@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,37 +45,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNPREPOSSESSING",
-     "indicators": [
-      {
-       "text": "stewed",
-       "note": "Fruit left stewing goes soft and loses the shape it went into the pot with, and letters treated that way do not keep their order either."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stewed",
+         "at": 6,
+         "note": "stewed means cooked to a mush, so the letters are mixed up"
+        }
+       ],
        "parts": [
         {
-         "words": "stewed prune",
-         "gives": "UNPRE",
-         "note": "the five letters of PRUNE, cooked into a different order"
-        },
-        {
-         "words": "being like spirit?",
-         "gives": "POSSESSING",
-         "note": "what a spirit does to whoever it inhabits — the word for having somebody in your grip"
+         "words": "prune",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "being like spirit?",
+       "at": 19,
+       "gives": "POSSESSING",
+       "note": "a spirit, in the supernatural sense, is known for possessing people"
       }
      ]
     },
     "explanation": {
-     "surface": "A dish of stewed prunes so plain that it seems to have something ghostly about it.",
-     "walkthrough": "'Plain stewed prune' reads as one phrase about the pudding, and the cut falls after the first word: only 'Plain' is the definition, the rest is material.",
-     "definitionFit": "Unprepossessing means making no favourable impression at first sight, so 'Plain' in the sense of drab-looking rather than simple or honest."
+     "surface": "A dull plate of stewed prunes compared to something ghostly.",
+     "walkthrough": "'stewed' turns prune into UNPRE. 'Plain' is the definition in the sense of unattractive, not simple.",
+     "definitionFit": "Unprepossessing means not attractive in appearance, which is the looks sense of plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
     }
    }
   },
@@ -105,49 +111,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
        "text": "a version of",
-       "note": "A version of something is the same material re-set in a different arrangement, which is what happens to these letters."
+       "at": 26,
+       "note": "a version of means a reworked form, so the letters are rearranged"
+      },
+      {
+       "text": "lacking",
+       "at": 58,
+       "note": "lacking means the named letters are missing from the mix"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "lacking",
-         "note": "Lacking names what is missing, so the letters it points at never reach the answer at all."
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Dylan Thomas",
-           "note": "the Welsh poet's full name, eleven letters of raw material"
-          },
-          {
-           "gives": "THO"
-          }
-         ]
-        }
-       ]
+       "words": "Dylan Thomas",
+       "at": 39,
+       "note": "the Welsh poet's name, used for its letters"
       },
       {
-       "unchecked": true,
        "words": "tho'",
-       "note": "these three letters come out of the poet's name first, leaving eight to work with"
+       "at": 53,
+       "note": "the shortened spelling of though, whose letters are removed"
       }
      ]
     },
     "spelling": "LADY'S MAN",
     "explanation": {
-     "surface": "A man rating his own romantic prospects, cast as a sort of Dylan Thomas with a bit missing.",
-     "walkthrough": "An anagram that eats a famous name is easy to miss, because the name looks like knowledge you are being asked for; all the setter wants from the poet is his letters.",
-     "definitionFit": "A lady's man is a man who pursues women and expects to succeed, so 'He fancies his chances' describes his standing habit rather than one occasion."
+     "surface": "Someone flirtatious is compared to a rough version of the Welsh poet Dylan Thomas.",
+     "walkthrough": "With Dylan Thomas 'lacking' THO, the letters left are to leave DYLANMAS, which 'a version of' rearranges. Dylan Thomas was a Welsh poet with a reputation as a womaniser.",
+     "definitionFit": "A ladies' man is a man who enjoys female company and thinks himself attractive to women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "version"
     }
    }
   },
@@ -205,37 +204,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SISYPHUS",
-     "indicators": [
-      {
-       "text": "grimly",
-       "note": "Grim means bad or unpleasant, and material described as being in a bad way has been knocked out of its proper order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "son",
+       "at": 19,
+       "gives": "S",
+       "note": "S is the abbreviation for son, as in genealogies"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "grimly",
+         "at": 26,
+         "note": "grimly suggests a struggle, so the letters are twisted about"
+        }
+       ],
        "parts": [
         {
-         "words": "son",
-         "gives": "S",
-         "note": "the family-tree abbreviation, s for son"
+         "words": "is",
+         "at": 23
         },
         {
-         "words": "is grimly pushy",
-         "gives": "ISYPHUS",
-         "note": "IS and PUSHY hand over seven letters between them, and they arrive in a new order"
+         "words": "pushy",
+         "at": 33,
+         "note": "the word whose letters join is in the rearrangement"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Whoever wronged the son of Zeus is described as relentlessly, joylessly aggressive.",
-     "walkthrough": "Sisyphus is the king condemned to shove a boulder uphill for eternity, so 'grimly pushy' is a joke about him as well as an instruction about letters.",
-     "definitionFit": "Sisyphus cheated death and gave away Zeus's secrets, and the endless boulder is his punishment for it, so he is the offender of Zeus by name."
+     "surface": "A grim family complaint: the son of Zeus is pushy.",
+     "walkthrough": "Read 'Zeus's' as Zeus is: the definition stops at Zeus, and 's links it to the wordplay. 'grimly' rearranges is pushy into ISYPHUS.",
+     "definitionFit": "In Greek myth Sisyphus angered Zeus by his trickery and was condemned to push a boulder uphill forever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "son"
     }
    }
   },
@@ -464,59 +472,62 @@
    "annotation": {
     "definitions": [
      {
-      "text": "almost a disaster",
+      "text": "almost a disaster?",
       "at": 39
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "protection for",
-       "note": "Protecting something means closing round it, so the letters named after this sit inside the ones before."
+       "at": 5,
+       "note": "protection for means the trimmed word wraps around the organ"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "not",
-         "note": "The plain word for absence: what follows it is taken out of the letters rather than added to them."
+         "at": 27,
+         "note": "not means the round letter is left out"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Zero",
-           "gives": "NOTHING",
-           "note": "zero is nothing, and here it is wanted spelled out as a whole word"
-          },
-          {
-           "gives": "O"
-          }
-         ]
+         "words": "Zero",
+         "at": 0,
+         "gives": "NOTHING",
+         "note": "nothing is zero"
         },
         {
-         "words": "organ",
-         "gives": "EAR",
-         "note": "the ear is the organ of hearing"
+         "words": "ball",
+         "at": 31,
+         "gives": "O",
+         "note": "O is shaped like a ball"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "ball",
-       "note": "a ball is round, so it stands for the letter O, and that O is the one taken away"
+       "words": "organ",
+       "at": 20,
+       "gives": "EAR",
+       "note": "the ear is an organ of hearing"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody left with no protection for an organ, the ball excepted, in an incident that nearly ended badly.",
-     "walkthrough": "'Zero' wants to be the single letter O and is the whole word instead. A ball for that letter is worth keeping — anything round, a ring, a duck, an egg, does the same job.",
-     "definitionFit": "A near thing is an escape by the narrowest of margins, so what almost became a disaster is exactly what the phrase names."
+     "surface": "A sportsman's protective box nearly fails, a near disaster for a delicate part.",
+     "walkthrough": "'not' ball takes O out of NOTHING, leaving NTHING, which gives 'protection for' EAR.",
+     "definitionFit": "A near thing is a narrow escape, something that almost went badly wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ball"
     }
    }
   },
@@ -670,53 +681,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "POMP",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 19,
+       "note": "out of means these letters are taken away from the ball"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "fancy ball",
+       "at": 26,
+       "gives": "POMPOM",
+       "note": "a pompom is a decorative ball of wool or tufts"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "backed",
-         "note": "Backing a thing turns it to face the other way, so the two letters come out in the opposite order to the one given."
+         "at": 12,
+         "note": "backed means sent backwards, so the two letters are reversed"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "out of",
-           "note": "Out of names removal: what has just been assembled is taken away from the longer word rather than joined to it."
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "fancy ball",
-           "gives": "POMPOM",
-           "note": "a pom-pom is the fluffy decorative ball on a bobble hat or in a cheerleader's hand, and those two turned letters come out of it"
+           "words": "Male",
+           "at": 0,
+           "gives": "M"
           },
           {
            "words": "circle",
+           "at": 5,
            "gives": "O",
-           "note": "a circle drawn on the page is the letter O"
+           "note": "O is shaped like a circle"
           }
          ]
-        },
-        {
-         "words": "Male",
-         "gives": "M",
-         "note": "m for male, as on any form"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man backing out of an elaborate fancy-dress ball at the last minute.",
-     "walkthrough": "The ball is not a dance at all but a pom-pom, and 'fancy' is describing that ball rather than telling you to shuffle anything.",
-     "definitionFit": "Pomp is ceremonial display — the pomp of a coronation — so 'ceremony' names the same grand public show."
+     "surface": "A man in a circle dance withdraws from a fancy-dress ball ceremony.",
+     "walkthrough": "'backed' turns M and O into OM, which comes 'out of' POMPOM. 'fancy ball' suggests a dance, but it is a woolly bobble.",
+     "definitionFit": "Pomp is the splendid display that goes with a ceremony, as in pomp and circumstance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ball"
     }
    }
   },
@@ -994,41 +1012,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FANDANGO",
-     "indicators": [
-      {
-       "text": "relaxed",
-       "note": "Something relaxed has gone slack and is no longer held in place, so the three letters beside it can settle any way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cooler",
+       "at": 0,
+       "gives": "FAN",
+       "note": "a fan cools the air"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "relaxed",
+         "at": 11,
+         "note": "relaxed means loosened up, so the letters shift"
+        }
+       ],
        "parts": [
         {
-         "words": "Cooler",
-         "gives": "FAN",
-         "note": "a fan is the thing that cools a room"
-        },
-        {
          "words": "and",
-         "note": "the three letters of AND, loosened into another order"
-        },
-        {
-         "words": "Try",
-         "gives": "GO",
-         "note": "a go at something is a try at it"
+         "at": 7,
+         "note": "the word whose letters are rearranged"
         }
        ]
+      },
+      {
+       "words": "Try",
+       "at": 20,
+       "gives": "GO",
+       "note": "to have a go is to try"
       }
      ]
     },
     "explanation": {
-     "surface": "A calmer, more laid-back person being invited to have a go at a dance.",
-     "walkthrough": "'Cooler' points you at a fridge or a prison cell, and the thing wanted is the one that stirs the air; the little word beside it is material, not joinery.",
-     "definitionFit": "A fandango is a brisk Spanish dance in triple time, so 'dance' is the plain class word it belongs to."
+     "surface": "Advice to someone hot and stiff: cool off, loosen up and try dancing.",
+     "walkthrough": "'relaxed' turns and into DAN.",
+     "definitionFit": "The fandango is a lively Spanish dance in triple time, done in pairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cooler"
     }
    }
   },

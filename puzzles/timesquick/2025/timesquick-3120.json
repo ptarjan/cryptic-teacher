@@ -408,42 +408,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NECTARINE",
+     "op": "container",
      "indicators": [
       {
-       "text": "damaged",
-       "note": "damaged goods are knocked out of shape, so the letters of the crate get rearranged"
+       "text": "outside",
+       "at": 16,
+       "note": "outside says the number's letters go around the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "a number",
+       "at": 7,
+       "gives": "NINE",
+       "note": "nine is a number"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means lying around something else, so the number wraps the other piece"
+         "text": "damaged",
+         "at": 31,
+         "note": "the crate is broken up, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "a number",
-         "gives": "NINE",
-         "note": "nine is one number among many"
-        },
-        {
          "words": "crate",
-         "note": "these letters are rearranged before going inside"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A greengrocer finds fruit sitting outside a broken box.",
-     "walkthrough": "'A number' could be any figure; it has to be one long enough to split around five letters.",
-     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a common stone fruit."
+     "surface": "A greengrocer reports a crate of fruit arrived broken, with a number of items outside it.",
+     "walkthrough": "'a number' is not just N here: the whole word nine is split around the jumbled crate.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a stone fruit."
     },
     "features": {
      "answerInScene": true,
@@ -837,58 +838,60 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CRYSTAL",
      "indicators": [
       {
        "text": "drunk",
-       "note": "something drunk staggers about out of order, so the letters are jumbled"
+       "at": 24,
+       "note": "drunk suggests the letters are reeling about, so they are rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "CRYSTAL",
        "indicators": [
         {
          "text": "for",
-         "note": "putting one thing for another means swapping it in as a replacement"
+         "at": 43,
+         "note": "for signals that one letter stands in place of another"
         }
        ],
        "parts": [
         {
          "words": "claret's",
-         "note": "the word with its S, before any change"
+         "at": 15,
+         "gives": "CLARETS",
+         "note": "claret's spelt out without the apostrophe"
+        },
+        {
+         "words": "English",
+         "at": 47,
+         "gives": "E"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "last of",
-           "note": "last of points to the final letter of the next word only"
+           "at": 31,
+           "note": "last of means only the final letter of day is used"
           }
          ],
          "parts": [
           {
            "words": "day",
-           "note": "the final letter of day"
+           "at": 39,
+           "note": "the word whose final letter is taken"
           }
          ]
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English; this letter leaves"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clear wine glass of red has been drained, the last of the day's drinks.",
-     "walkthrough": "Swap E out of CLARETS for Y to get CLARTSY, then rearrange it.",
-     "definitionFit": "Crystal is high-quality transparent glass, the kind used for fine wine glasses and decanters."
+     "surface": "A wine glass of claret has been drunk, with an aside about the end of the day.",
+     "walkthrough": "The 'last of' day is Y; 'for' puts it in place of the E (English) in CLARETS, giving CLARYTS, which 'drunk' then rearranges.",
+     "definitionFit": "Crystal is fine, clear, high-quality glassware, such as lead crystal."
     },
     "features": {
      "answerInScene": true,
@@ -1096,36 +1099,27 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "TACTILE",
+     "spelt": "TACTILE",
      "indicators": [
       {
        "text": "Soundly",
-       "note": "soundly here means going by sound, so the words are judged as spoken"
+       "at": 0,
+       "note": "Soundly says the phrase is heard rather than read, so its sound gives the entry"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "TACT",
-       "parts": [
-        {
-         "words": "fix",
-         "gives": "TACK",
-         "note": "to tack is to fix with small nails"
-        }
-       ]
-      },
-      {
-       "words": "roofing slab",
-       "gives": "TILE",
-       "note": "a tile is a thin slab for covering roofs"
+       "words": "fix roofing slab",
+       "at": 8,
+       "gives": "TACKTILE",
+       "note": "to tack is to fix with a small nail, and a tile is a roofing slab: TACK TILE"
       }
      ]
     },
     "explanation": {
-     "surface": "A roofer firmly secures a slab, hands on the job.",
-     "definitionFit": "Tactile describes things relating to the sense of touch, or a person who likes physical contact."
+     "surface": "Instructions to securely fix a roof tile in place.",
+     "walkthrough": "'Soundly' says TACK TILE, spoken aloud, gives the answer.",
+     "definitionFit": "Tactile means relating to the sense of touch, so touching in the physical, feeling sense."
     },
     "features": {
      "answerInScene": false,

@@ -196,33 +196,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FORESTALLING",
+     "spelt": "FORESTALLING",
      "indicators": [
       {
        "text": "Spooner tells us",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of pairs of words"
+       "at": 35,
+       "note": "Spooner, the clergyman famed for swapping the starts of words, says the phrase with its opening sounds exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "shop collapsing",
-       "gives": "FORESTALLING",
-       "soundsLike": "STORE FALLING",
-       "note": "a shop is a store and collapsing is falling; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "FORE",
+       "parts": [
+        {
+         "words": "shop",
+         "at": 18,
+         "gives": "STORE",
+         "note": "a store is a shop"
+        }
+       ]
+      },
+      {
+       "words": "collapsing",
+       "at": 23,
+       "gives": "FALLING",
+       "note": "falling means collapsing"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes steps to stop a shop from falling down.",
-     "walkthrough": "Swapping ST and F turns 'store falling' into 'fore stalling', which runs together as one word.",
-     "definitionFit": "To forestall is to get in first and stop something happening, so the participle means taking preventive action."
+     "surface": "A building inspector intervenes to stop a shop falling down, as reported by someone called Spooner.",
+     "walkthrough": "'Spooner tells us' says: say 'store falling' with the opening sounds swapped and it becomes FORE STALLING.",
+     "definitionFit": "To forestall is to act in advance to prevent or obstruct something happening."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "collapsing"
     }
    }
@@ -300,42 +311,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "A bit of gear",
+      "text": "A bit of gear?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEMISE",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "shortly means in brief, so the word is cut short by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 27,
+         "note": "shortly means cut short, so the final letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "Drug dealer",
-         "gives": "CHEMIS",
-         "note": "a chemist sells drugs; its final T goes"
+         "at": 15,
+         "gives": "CHEMIST",
+         "note": "a chemist legitimately deals in drugs"
         },
         {
-         "words": "ecstasy",
-         "gives": "E",
-         "note": "E is the street abbreviation for the drug ecstasy"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "ecstasy",
+       "at": 43,
+       "gives": "E",
+       "note": "E is the slang abbreviation for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A dealer hands over some gear, then picks up ecstasy too.",
-     "walkthrough": "'Gear' and 'drug dealer' point at narcotics, but gear also means clothing, and the dealer is a lawful pharmacist.",
-     "definitionFit": "A chemise is a loose shift or undergarment, so one item of clothing, which is informally called gear."
+     "surface": "A drug dealer is caught with some gear and some ecstasy.",
+     "walkthrough": "'gear' and 'Drug dealer' suggest drugs, but gear here is clothing and the dealer a pharmacist; 'shortly' trims CHEMIST to CHEMIS.",
+     "definitionFit": "Gear is informal for clothes, and a chemise is one item of them, a loose slip or shift."
     },
     "features": {
      "answerInScene": false,
@@ -897,44 +912,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENCAGED",
+     "op": "composite",
      "indicators": [
       {
        "text": "Dodgy",
-       "note": "something dodgy is shady and not right, so the letters are out of their proper order"
+       "at": 0,
+       "note": "dodgy means suspect or not genuine, so the letters are rearranged"
+      },
+      {
+       "text": "off",
+       "at": 23,
+       "note": "off means the runs are taken away from the letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENCAGED",
-       "indicators": [
-        {
-         "text": "off",
-         "note": "off means removed or taken away, so those letters leave"
-        }
-       ],
-       "parts": [
-        {
-         "words": "green card",
-         "note": "taken as written"
-        },
-        {
-         "words": "Runs",
-         "gives": "RR",
-         "note": "R is the cricket scoring abbreviation for a run, so runs are two of them"
-        }
-       ]
+       "words": "green card",
+       "at": 6,
+       "note": "the letters of these words are rearranged once the named letters are gone"
+      },
+      {
+       "words": "Runs",
+       "at": 18,
+       "gives": "RR",
+       "note": "R is the cricket abbreviation for runs; plural runs gives two of them"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone with a forged US residence permit flees and ends up in jail.",
-     "walkthrough": "The full stops make three terse news-report sentences; both Rs of green card go, leaving seven letters to rearrange.",
-     "definitionFit": "To encage is to shut up in a cage, so the past participle means locked up or confined."
+     "surface": "A forged US residency permit is discovered, so its holder runs off and ends up in jail.",
+     "walkthrough": "Take both Rs ('Runs') 'off' from out of GREEN CARD to leave GEENCAD, which 'Dodgy' rearranges.",
+     "definitionFit": "Encaged means shut up in a cage, so confined like a prisoner."
     },
     "features": {
      "answerInScene": true,
@@ -1240,28 +1248,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ODES",
      "indicators": [
       {
        "text": "Nakedly",
-       "note": "naked means stripped of covering, so the outer layer is removed and the core kept"
+       "at": 0,
+       "note": "nakedly means with the outer covering removed, so first and last letters go"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "humble",
-       "gives": "ODES",
-       "select": "middle",
-       "note": "humble means modest; strip its first and last letters"
+       "at": 8,
+       "gives": "MODEST",
+       "note": "modest means humble"
       }
      ]
     },
     "explanation": {
-     "surface": "Poems that are plainly unassuming.",
-     "walkthrough": "Humble must first become its synonym modest before the outer letters come off.",
-     "definitionFit": "An ode is a lyric poem, often addressed to a subject, so the plural means poems or verses."
+     "surface": "Simple, unadorned poems written in a humble style.",
+     "walkthrough": "'Nakedly' strips M and T from MODEST.",
+     "definitionFit": "Odes are lyric poems, so a set of verses in the poetic sense."
     },
     "features": {
      "answerInScene": true,
@@ -1291,30 +1297,38 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "IRAQ",
-     "indicators": [
-      {
-       "text": "early on",
-       "note": "early on means at the very start, so only the opening letter of each word counts"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Its ruler? Al-za'im Qasim",
-       "gives": "IRAQ",
-       "select": "first",
-       "note": "the opening letters of these four words"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "early on",
+         "at": 27,
+         "note": "early on means taking the earliest letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Its ruler? Al",
+         "at": 0,
+         "note": "the words whose initials are taken; Al-za'im is one hyphenated title, so only its first letter counts"
+        }
+       ]
+      },
+      {
+       "words": "Qasim",
+       "at": 20,
+       "gives": "Q",
+       "note": "first letter of Qasim, the last word"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A quiz question about which country Abd al-Karim Qasim, called al-za'im, governed in its early republican years.",
-     "walkthrough": "Al-za'im, Arabic for 'the leader', was Qasim's nickname; he ruled from the 1958 revolution until 1963, so the whole clue describes the country too.",
-     "definitionFit": "Qasim was prime minister of the new republic after the 1958 overthrow of the monarchy, so the clue points to his nation."
+     "surface": "A quiz question: whose ruler was Qasim, known as al-za'im (the leader)?",
+     "walkthrough": "'early on' takes the first letter of each word. Abd al-Karim Qasim, called al-za'im ('the leader'), led the country after the 1958 revolution, so the whole clue also defines it.",
+     "definitionFit": "Qasim was the Iraqi prime minister and effective ruler from 1958 to 1963."
     },
     "features": {
      "answerInScene": true,
