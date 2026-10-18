@@ -257,6 +257,11 @@ check("a fixed tree is settled for its detector", Q.settled(pz["entries"][1], "a
 check("a reason the detectors cannot judge is never settled", not Q.settled(pz["entries"][2], "model-fixable: x"))
 check("one unknown name keeps the row", not Q.settled(pz["entries"][2], "arity_ins: x; walkthrough: y"))
 check("a clue with no tree is never settled", not Q.settled({"annotation": None}, "arity_ins: x"))
+_leaf = {"words": "x", "gives": "AB", "unchecked": True}
+_unch = {"annotation": {"wordplay": {"op": "charade", "parts": [_leaf, {"words": "y", "gives": "C"}]}}}
+_ok = {"annotation": {"wordplay": {"op": "charade", "parts": [{"words": "x", "gives": "AB"}, {"words": "y", "gives": "C"}]}}}
+check("an unchecked step keeps its unchecked_step row", Q.settled(_unch, "unchecked_step: charade") is False)
+check("a cleared tree settles its unchecked_step row", Q.settled(_ok, "unchecked_step: charade"))
 rows_ = [{"id": "stale-1#1a", "reason": "arity_ins: x"}, {"id": "stale-1#2a", "reason": "arity_ins: x"},
          {"id": "stale-1#3a", "reason": "model-fixable: x"}, {"id": "gone-1#1a", "reason": "arity_ins: x"}]
 Q.PATH.write_text(json.dumps(rows_))
