@@ -483,65 +483,80 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Brief",
-       "note": "a brief word is cut short at the end"
-      }
-     ],
      "parts": [
       {
-       "words": "spell",
-       "gives": "PERIO",
-       "note": "PERIOD without its last letter"
-      },
-      {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "standing",
-         "note": "in a down answer, standing letters rise upwards, so they read in reverse"
+         "text": "Brief",
+         "at": 0,
+         "note": "Brief means the word for spell is cut short by its last letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "spell",
+         "at": 6,
+         "gives": "PERIOD",
+         "note": "a period is a spell of time"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "controlling",
+         "at": 24,
+         "note": "controlling means the reversed word holds the tense letter in its grip"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "controlling",
-           "note": "to control is to hold within"
+           "text": "standing",
+           "at": 12,
+           "note": "standing in a down clue means set upright, so the word is reads upwards"
           }
          ],
          "parts": [
           {
            "words": "is",
-           "note": "as printed, holding T"
-          },
-          {
-           "words": "tense",
-           "gives": "T",
-           "note": "T = tense, the grammar label; ITS then stands up to STI"
+           "at": 21,
+           "note": "the word is, read backwards"
           }
          ]
+        },
+        {
+         "words": "tense",
+         "at": 36,
+         "gives": "T",
+         "note": "T is the grammar abbreviation for tense"
         }
        ]
       },
       {
        "words": "twitch",
+       "at": 42,
        "gives": "TIC",
-       "note": "a tic = a twitch"
+       "note": "a tic is a nervous twitch"
       }
      ]
     },
     "explanation": {
-     "surface": "A medical note about a short bout of a membrane inflammation whose twitch is held in check.",
-     "walkthrough": "IS holds T to make ITS, which reads upward as STI. The periosteum is the membrane that covers bone.",
-     "definitionFit": "Periostitic describes periostitis, inflammation of the periosteum membrane."
+     "surface": "A short bout of standing gives someone a nervous twitch.",
+     "walkthrough": "PERIOD made 'Brief' is PERIO; IS 'standing' is SI, which holds T; TIC ends it.",
+     "definitionFit": "Periostitis is inflammation of the periosteum, the membrane covering bone; periostitic is its adjective."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "spell"
+     "misdirectedWord": "standing"
     }
    }
   },
@@ -566,39 +581,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "edited",
-       "note": "edited text is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "publicity",
+       "at": 18,
+       "gives": "AD",
+       "note": "an ad is a piece of publicity"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "edited",
+         "at": 28,
+         "note": "edited means the letters of poster have been altered and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "publicity",
-         "gives": "AD",
-         "note": "an ad = publicity"
-        },
-        {
          "words": "poster",
-         "note": "POSTER rearranged"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People who took on a publicity job and then reworked the poster.",
-     "walkthrough": "'Publicity' and 'poster' belong together in the surface, but only one is fodder; the other just gives AD.",
-     "definitionFit": "Adopters are those who take on a child, pet or idea as their own."
+     "surface": "People who take on publicity work have revised a poster.",
+     "walkthrough": "AD, then POSTER 'edited' into OPTERS.",
+     "definitionFit": "Adopters are people who take on a child, pet or idea as their own."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "publicity"
+     "misdirectedWord": "edited"
     }
    }
   },
@@ -678,31 +695,35 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "last to",
-       "note": "the last of a word is its final letter"
+       "text": "overturned",
+       "at": 22,
+       "note": "overturned means the whole string of letters is turned back to front"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "overturned",
-         "note": "overturned letters are turned round"
-        }
-       ],
        "parts": [
         {
          "words": "Infant",
+         "at": 0,
          "gives": "BABE",
-         "note": "a babe = an infant"
+         "note": "a babe is an infant"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "last to",
+           "at": 8,
+           "note": "last to means only the final letter of sulk is used"
+          }
+         ],
          "parts": [
           {
-           "words": "last to sulk",
-           "note": "last letter of sulk"
+           "words": "sulk",
+           "at": 16,
+           "note": "the last letter of sulk"
           }
          ]
         }
@@ -711,14 +732,15 @@
      ]
     },
     "explanation": {
-     "surface": "A sulking toddler throwing their dinner on the floor.",
-     "walkthrough": "BABE then K makes BABEK, which read backwards is KEBAB. The surface's flipped dish is exactly what the wordplay does to the letters.",
-     "definitionFit": "A kebab is a dish of meat pieces cooked on a skewer."
+     "surface": "A sulky baby has tipped over its plate of food.",
+     "walkthrough": "BABE plus K gives BABEK, which is 'overturned'.",
+     "definitionFit": "A kebab is a dish of meat pieces grilled on a skewer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "overturned"
+     "joke": "absurd",
+     "misdirectedWord": "Infant"
     }
    }
   },
@@ -816,55 +838,66 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "covering",
-       "note": "in a down answer, a word covering another sits on top of it"
+       "at": 25,
+       "note": "covering means the garment and thus wrap round the half of face, holding it between them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "going around",
-         "note": "one word goes around another to hold it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Long veiled garment",
-         "gives": "BURKA",
-         "note": "the burka covers the body and face; it goes around IN"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "going around",
+           "at": 52,
+           "note": "going around means the garment goes round the word for when"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Long veiled garment",
+           "at": 0,
+           "gives": "BURKA",
+           "note": "a burka is a long garment with a veil worn by some Muslim women"
+          },
+          {
+           "words": "in",
+           "at": 65,
+           "gives": "IN"
+          }
+         ]
         },
         {
-         "words": "in",
-         "note": "as printed"
+         "words": "thus",
+         "at": 20,
+         "gives": "SO",
+         "note": "so means thus"
         }
        ]
       },
       {
        "words": "half of face",
+       "at": 34,
        "gives": "FA",
-       "note": "first half of FACE"
-      },
-      {
-       "words": "thus",
-       "gives": "SO",
-       "note": "so = thus"
+       "note": "the first half of face"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a veiled robe worn in an African country.",
-     "walkthrough": "'In African republic' reads as where the garment is worn, but the 'in' is a letter pair to be wrapped. The burka is a full-body Muslim garment with a mesh over the face.",
-     "definitionFit": "Burkina Faso is a landlocked republic in West Africa."
+     "surface": "A long veiled robe covers half the face when worn in an African country.",
+     "walkthrough": "Two containers work here: the garment goes around one piece, and together with thus it is covering the half of face. 'when' only links the pieces.",
+     "definitionFit": "Burkina Faso is a landlocked republic in West Africa, formerly Upper Volta."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "when"
     }
    }
   },
@@ -1245,41 +1278,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'one in silence' places the stage and the one inside the silence"
+       "at": 31,
+       "note": "in places the stage and the one inside the trimmed silence"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 34,
+         "note": "unlimited means without its limits, so the outer letters of the word are removed"
+        }
+       ],
        "parts": [
         {
-         "words": "unlimited silence",
-         "gives": "EAC",
-         "note": "PEACE without its outer letters; it holds LEG and I"
-        },
-        {
-         "words": "stage of journey",
-         "gives": "LEG",
-         "note": "a leg of a journey"
+         "words": "silence",
+         "at": 44,
+         "gives": "PEACE",
+         "note": "peace is silence, quiet"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "stage of journey",
+         "at": 9,
+         "gives": "LEG",
+         "note": "a leg is a stage of a journey"
+        },
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sad step of a journey, one made in total silence.",
-     "walkthrough": "'Silence' is PEACE (as in peace and quiet), and 'unlimited' strips its first and last letters.",
-     "definitionFit": "Elegiac means mournful, in the manner of an elegy."
+     "surface": "A sad part of a trip spent by one person in total quiet.",
+     "walkthrough": "PEACE made 'unlimited' is EAC, which holds LEG and I.",
+     "definitionFit": "Elegiac means having the sorrowful tone of an elegy, a lament for the dead."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unlimited"
+     "misdirectedWord": "silence"
     }
    }
   },
@@ -1573,40 +1622,45 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "these letters are found inside another word"
+       "at": 51,
+       "note": "found in means the pieces sit inside the word for bar"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bar",
+       "at": 60,
+       "gives": "BUT",
+       "note": "but means bar, except"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "bar",
-         "gives": "BUT",
-         "note": "but = except, bar; it holds STAG and U"
+         "words": "you",
+         "at": 47,
+         "gives": "U",
+         "note": "U is text-speak for you"
         },
         {
          "words": "unaccompanied male",
+         "at": 28,
          "gives": "STAG",
-         "note": "going stag = a man going alone"
+         "note": "a stag is a man without a female partner at a social event"
         }
        ]
-      },
-      {
-       "words": "you",
-       "gives": "U",
-       "note": "u = you in text speak"
       }
      ]
     },
     "explanation": {
-     "surface": "A lone man at the bar, sweating to get served.",
-     "walkthrough": "'Bar' reads as a pub, but it is the preposition meaning except: BUT.",
-     "definitionFit": "An idiom: straining so hard you might rupture your belly means working very hard."
+     "surface": "A lone man found in a pub shows how to graft.",
+     "walkthrough": "'bar' looks like a pub but is BUT, meaning except, which holds U and STAG.",
+     "definitionFit": "To bust a gut is an informal idiom for making a great effort."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bar"
     }
    }
@@ -1692,62 +1746,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Dropping",
-       "note": "dropping something leaves it out"
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "raised",
-         "note": "in a down answer, raised letters go upwards, so they read in reverse"
+         "text": "Dropping",
+         "at": 0,
+         "note": "Dropping means the word for announcement is taken out of radar"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "radar",
-           "gives": "RAR",
-           "note": "RADAR dropping AD"
-          },
-          {
-           "words": "announcement",
-           "gives": "AD",
-           "note": "an ad = an announcement; dropped from radar"
-          },
-          {
-           "words": "a",
-           "note": "as printed"
-          }
-         ]
+         "words": "radar",
+         "at": 23
         },
         {
-         "gives": "DA"
+         "words": "announcement",
+         "at": 9,
+         "gives": "AD",
+         "note": "an ad is an announcement"
         }
        ]
       },
       {
+       "words": "a",
+       "at": 32,
+       "gives": "A"
+      },
+      {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 44,
+         "note": "raised in a down clue means read upwards, so the destroyer's name is reversed"
+        }
+       ],
        "parts": [
         {
          "words": "destroyer",
+         "at": 34,
          "gives": "SIVA",
-         "note": "Siva, or Shiva, the Hindu god of destruction; raised to AVIS"
+         "note": "Siva, or Shiva, is the Hindu god known as the destroyer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warship's radar raised on deck without any announcement, which is odd.",
-     "walkthrough": "'Destroyer' reads as a warship, but it is the Hindu god Siva, the destroyer of the trinity.",
-     "definitionFit": "Rara avis, Latin for rare bird, means an unusual person or thing."
+     "surface": "A radar set aboard a warship, lifted up, is a strange thing.",
+     "walkthrough": "RADAR without AD is RAR, then A, then SIVA 'raised' as AVIS. 'destroyer' looks like a warship but is the god.",
+     "definitionFit": "Rara avis is Latin for rare bird, used of an unusual or exceptional person or thing."
     },
     "features": {
      "answerInScene": false,
@@ -2369,49 +2419,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "poor",
-       "note": "poor letters are in bad shape, rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "tide",
+       "at": 17,
+       "gives": "NEAP",
+       "note": "a neap is a tide with the least range"
+      },
+      {
+       "words": "over",
+       "at": 22,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for over"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "at": 27,
+         "note": "poor shows the letters of Latin are badly arranged"
+        }
+       ],
        "parts": [
         {
-         "words": "tide",
-         "gives": "NEAP",
-         "note": "a neap tide"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "o = over, in cricket scores"
-        },
-        {
          "words": "Latin",
-         "note": "LATIN rearranged"
-        },
-        {
-         "words": "society",
-         "gives": "S",
-         "note": "s = society"
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "society",
+       "at": 38,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Some Italians coping with a tide over their poorer Latin neighbours.",
-     "walkthrough": "'In part' belongs to the definition: Neapolitans are Italians from one part of Italy. A neap tide is the small tide between springs.",
-     "definitionFit": "Neapolitans are people from Naples, Italians from one part of the country."
+     "surface": "Some Italians get through a tidal surge despite weak Latin and social life.",
+     "walkthrough": "NEAP, O, LITAN (from 'poor' Latin) and S. 'in part' because Neapolitans are only the Italians of Naples.",
+     "definitionFit": "Neapolitans are people from Naples, one region's share of the Italian population."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "part"
+     "aptDefinition": true,
+     "misdirectedWord": "tide"
     }
    }
   },
@@ -2636,42 +2689,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "absorbing",
-       "note": "to absorb is to take inside"
-      }
-     ],
      "parts": [
       {
        "words": "beloved",
+       "at": 3,
        "gives": "DEAR",
-       "note": "dear = beloved"
+       "note": "dear means beloved"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "to begin with",
-         "note": "the words to begin with give their first letters"
+         "text": "absorbing",
+         "at": 19,
+         "note": "absorbing means the abbreviation for that is takes the next letters inside it"
         }
        ],
        "parts": [
         {
          "words": "that is",
+         "at": 11,
          "gives": "IE",
-         "note": "ie = id est, that is; it absorbs EM"
+         "note": "IE, id est, means that is"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "EM",
+         "indicators": [
+          {
+           "text": "to begin with",
+           "at": 42,
+           "note": "to begin with means the first letter of each word is used"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "every moment to begin with",
-           "gives": "EM",
-           "select": "first",
+           "words": "every moment",
+           "at": 29,
            "note": "first letters of every and moment"
           }
          ]
@@ -2681,9 +2734,9 @@
      ]
     },
     "explanation": {
-     "surface": "A lover declaring they are absorbed from the very first moment.",
-     "walkthrough": "'My beloved' reads as a phrase, but 'My' is on its own the exclamation of surprise.",
-     "definitionFit": "Dearie me and my! are both mild exclamations of surprise or dismay."
+     "surface": "A lover says their darling is absorbed every moment from the start.",
+     "walkthrough": "IE holds EM, the opening letters of every and moment. 'My' is the exclamation, not the possessive.",
+     "definitionFit": "Dearie me is a mild exclamation of dismay or surprise, like the interjection my!"
     },
     "features": {
      "answerInScene": false,

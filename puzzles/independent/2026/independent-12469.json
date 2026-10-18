@@ -1544,39 +1544,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short has been cut, so the word loses its last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "very",
-       "gives": "VER",
-       "note": "the word very cut short by removing its last letter, Y"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 24,
+         "note": "short means cut off, so the last letter of very is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very",
+         "at": 19,
+         "note": "the word very, which loses its final letter"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "ends of",
-         "note": "a word's ends are its first and last letters, so only those two are kept"
+         "at": 31,
+         "note": "ends of means only the first and last letters of trousers are used"
         }
        ],
        "parts": [
         {
          "words": "trousers",
-         "note": "the first and last letters of trousers"
+         "at": 39,
+         "note": "the outside letters of trousers are T and S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rolling up very short trousers at the hem.",
-     "walkthrough": "The surface is about rolling up trouser legs. The answer comes from skateboarding.",
-     "definitionFit": "In skateboarding a vert is a vertical ramp, which skaters roll up and ride off."
+     "surface": "It sounds like a note on turn-ups: the bottoms of trouser legs are what you roll up.",
+     "walkthrough": "'short' trims VERY to VER, then 'ends of' gives TS from trousers. The surface points at trouser turn-ups, but the answer belongs to skateboarding.",
+     "definitionFit": "In skateboarding a vert is a vertical ramp, and skaters roll up its curved wall."
     },
     "features": {
      "answerInScene": false,

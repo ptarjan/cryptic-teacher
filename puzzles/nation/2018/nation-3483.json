@@ -303,51 +303,56 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "one phrase goes outside the other, surrounding it"
+       "at": 18,
+       "note": "outside places the ghoul's activity around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "What a ghoul does",
-         "gives": "ROBGRAVES",
-         "note": "a ghoul in folklore plunders burial sites"
-        },
-        {
-         "words": "hospital area",
-         "gives": "ER",
-         "note": "the emergency room"
-        }
-       ]
+       "words": "What a ghoul does",
+       "at": 0,
+       "gives": "ROBGRAVES",
+       "note": "a ghoul is a grave robber, so what it does is rob graves"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "start to",
-         "note": "the start of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "taunt",
-         "note": "the first letter of taunt"
+         "words": "a hospital area",
+         "at": 26,
+         "gives": "ER",
+         "note": "ER, the emergency room, is an area of a hospital"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 43,
+           "note": "start to means only the first letter of taunt is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "taunt",
+           "at": 52,
+           "note": "the first letter of taunt"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ghoul lurks by an emergency ward to taunt a writer.",
-     "walkthrough": "The insert goes between the two words of the grave-robbing phrase, not around it as a whole.",
-     "definitionFit": "Robert Graves was the English author of the poems and the novel I, Claudius."
+     "surface": "A grisly scene: grave-robbing near a hospital, then a jibe at a writer.",
+     "walkthrough": "ROB GRAVES goes 'outside' ER and T, splitting after ROB.",
+     "definitionFit": "Robert Graves was the English author of war poetry and of the novel I, Claudius."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "ghoul"
     }
    }

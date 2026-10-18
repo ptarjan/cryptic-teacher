@@ -62,39 +62,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly tells the solver to use the short written form of the legal title rather than the full word"
-      }
-     ],
      "parts": [
       {
-       "words": "Lawyer",
-       "gives": "ATT",
-       "note": "Att. is the standard abbreviation for Attorney"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 8,
+         "note": "briefly shows the word for lawyer is cut short to its opening letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lawyer",
+         "at": 0,
+         "gives": "ATTORNEY",
+         "note": "an attorney is a lawyer, shortened here to att"
+        },
+        {
+         "gives": "ORNEY"
+        }
+       ]
       },
       {
        "words": "to question",
+       "at": 17,
        "gives": "ASK",
-       "note": "to question someone is to put a query to them"
+       "note": "to question someone is to ask them"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T is the usual abbreviation for time"
+       "at": 35,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer interrogates someone, and after some time the person is left feeling unfairly told off.",
-     "walkthrough": "ATTASKT is a Spenserian word whose meaning is uncertain, often glossed as 'taken to task'; 'dubiously' admits that doubt.",
-     "definitionFit": "Spenser's obscure form is usually taken to mean reproached or scolded, though dictionaries mark that sense as doubtful."
+     "surface": "A lawyer, given a short name, is questioned at length and doubtfully told off.",
+     "walkthrough": "ATT, short for attorney, is followed by ASK and T. 'dubiously' warns that this Spenserian form is marked doubtful in Chambers.",
+     "definitionFit": "Attaskt is an old Spenserian past participle meaning taken to task, scolded."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "question"
+     "misdirectedWord": "dubiously"
     }
    }
   },

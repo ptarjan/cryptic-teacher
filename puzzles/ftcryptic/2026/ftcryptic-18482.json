@@ -187,14 +187,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned"
-      }
-     ],
      "parts": [
       {
        "words": "Gold",
+       "at": 0,
        "gives": "AU",
        "note": "Au is the chemical symbol for gold"
       },
@@ -202,38 +198,48 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "base of",
-         "note": "in a down clue the base of a word is its bottom, that is, last letter"
+         "text": "turned",
+         "at": 12,
+         "note": "turned means the word for polish is read the other way round"
         }
        ],
        "parts": [
         {
          "words": "polish",
+         "at": 5,
          "gives": "RUB",
-         "note": "to polish something is to rub it"
+         "note": "to rub is to polish"
         }
        ]
       },
       {
        "op": "last",
+       "indicators": [
+        {
+         "text": "base of",
+         "at": 19,
+         "note": "in a down clue the base of a word is its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "base of crown",
-         "note": "last letter of CROWN"
+         "words": "crown",
+         "at": 27,
+         "note": "the last letter of crown"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gold crown, polished and turned over, shows a reddish-brown base.",
-     "walkthrough": "'Crown' tempts you toward royalty or hair; only its final letter is wanted.",
-     "definitionFit": "Auburn is a reddish-brown shade, usually of hair."
+     "surface": "Instructions for burnishing a gold crown to a reddish-brown hue.",
+     "walkthrough": "AU, then RUB 'turned' into BUR, then N from the bottom of crown.",
+     "definitionFit": "Auburn is a colour word for a warm reddish-brown, usually of hair."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "crown"
+     "misdirectedWord": "polish"
     }
    }
   },
@@ -323,36 +329,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in its plain sense of placement: the knight and the catch end up inside the raid"
+       "at": 18,
+       "note": "in places the two letters inside the word for incursion"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "incursion",
-         "gives": "RAID",
-         "note": "a raid is an incursion into enemy ground"
-        },
-        {
-         "words": "knight",
-         "gives": "N",
-         "note": "N is the chess notation for knight"
-        }
-       ]
+       "words": "incursion",
+       "at": 21,
+       "gives": "RAID",
+       "note": "a raid is a sudden incursion into enemy territory"
       },
       {
-       "words": "caught",
-       "gives": "C",
-       "note": "C is the cricket scorecard abbreviation for caught"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "knight",
+         "at": 4,
+         "gives": "N",
+         "note": "N is the chess notation for knight"
+        },
+        {
+         "words": "caught",
+         "at": 11,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A villainous knight is captured during a raid.",
-     "walkthrough": "'Bad knight' reads as a villain, but 'Bad' stands alone as the definition, as in butter gone off.",
-     "definitionFit": "Bad in the sense of spoiled: butter or oil that has gone off smells rancid."
+     "surface": "A wicked knight is captured during an enemy raid.",
+     "definitionFit": "Rancid describes food gone bad, especially fat that smells stale and sour."
     },
     "features": {
      "answerInScene": false,
@@ -1114,37 +1123,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about"
-      }
-     ],
      "parts": [
       {
        "words": "Steerpike's",
+       "at": 0,
        "gives": "IM",
-       "note": "Steerpike is the setter, so the setter's = I'm"
+       "note": "the setter Steerpike refers to himself, so Steerpike's is I'm, short for I am"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "upset"
+         "text": "about",
+         "at": 24,
+         "note": "about means the word for peevishness goes round the church letters"
         }
        ],
        "parts": [
         {
          "words": "peevishness",
+         "at": 12,
          "gives": "BILE",
-         "note": "bile is bad temper"
+         "note": "bile is bad temper or peevishness"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 37,
+           "note": "upset in a down clue means turned over, so the letters for church are reversed"
+          }
+         ],
          "parts": [
           {
            "words": "church",
+           "at": 30,
            "gives": "CE",
-           "note": "CE is the Church of England"
+           "note": "CE stands for Church of England"
           }
          ]
         }
@@ -1153,14 +1169,14 @@
      ]
     },
     "explanation": {
-     "surface": "The setter's irritation at the church has upset a fool.",
-     "walkthrough": "Setters often use their pen-name for 'I' or 'me'; here 'Steerpike's' is I'M.",
-     "definitionFit": "A plain synonym: both are dated insults for someone foolish."
+     "surface": "The setter confesses to irritation with a church that has upset a fool.",
+     "walkthrough": "The setter's name gives IM; CE 'upset' is EC, which BILE holds 'about' as B-EC-ILE.",
+     "definitionFit": "An imbecile is a stupid person, a dated insult with the same sense as halfwit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Steerpike"
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -1501,44 +1517,37 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "STAGNATE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Dr Spooner swapped the starts of words, so the opening sounds are exchanged"
+       "at": 26,
+       "note": "Spooner's tells you the opening sounds of two words are swapped, after Rev Spooner"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "horse",
-         "gives": "STAG",
-         "soundsLike": "NAG",
-         "note": "a nag is an old horse; it gives up its N and takes ST"
-        },
-        {
-         "unchecked": true,
-         "words": "country",
-         "gives": "NATE",
-         "soundsLike": "STATE",
-         "note": "a state is a country; it hands over ST and takes the N"
-        }
-       ]
+       "words": "horse",
+       "at": 36,
+       "gives": "NAG",
+       "note": "a nag is an old horse"
+      },
+      {
+       "words": "country",
+       "at": 42,
+       "gives": "STATE",
+       "note": "a state is a country"
       }
      ]
     },
     "explanation": {
-     "surface": "Standing still in horse country.",
-     "walkthrough": "Say 'nag state' and swap the opening sounds of the two words.",
-     "definitionFit": "To stagnate is to stop moving or developing."
+     "surface": "Someone stays stuck in a land of horses, as the reverend might put it.",
+     "walkthrough": "NAG STATE, with first sounds exchanged, becomes STAG NATE. William Spooner was an Oxford don famed for swapping word starts.",
+     "definitionFit": "Water or business that stagnates stops moving or developing, staying stuck at a standstill."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "horse"
     }
    }
