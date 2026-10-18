@@ -108,58 +108,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SISTERS",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "about suggests letters moved around into a different order"
+       "text": "bandaging",
+       "at": 20,
+       "note": "bandaging means wrapping round, so the jumbled letters enclose the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "bandaging",
-         "note": "a bandage wraps round something, so one piece is wrapped around the other"
+         "text": "about",
+         "at": 14,
+         "note": "about here means in disorder, so the letters of stress are scrambled"
         }
        ],
        "parts": [
         {
          "words": "stress",
-         "note": "the letters of stress rearranged"
-        },
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "bottom",
-           "note": "the bottom of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Ali's",
-           "gives": "ALI",
-           "note": "the final letter of Ali"
-          }
-         ]
+         "text": "'s bottom",
+         "at": 33,
+         "note": "the bottom of a name is its last letter, here of Ali"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ali",
+         "at": 30,
+         "note": "I is the last letter of Ali"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ward nurses fret as they bandage a patient called Ali's backside.",
-     "walkthrough": "In British hospitals a sister is a senior nurse, so the plural is a fair definition.",
-     "definitionFit": "In British usage a sister is a senior female nurse in charge of a ward."
+     "surface": "Stressed-out hospital staff dress a wound on a patient's rear.",
+     "walkthrough": "In British hospitals a sister is a senior nurse. 'about' scrambles STRESS to SSTERS, which is 'bandaging' the I from 'Ali's bottom'.",
+     "definitionFit": "In Britain a ward sister is a senior nurse, so sisters can mean nurses."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bottom"
+     "joke": "pun",
+     "misdirectedWord": "bandaging"
     }
    }
   },
@@ -938,51 +940,57 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DESPERADO",
      "indicators": [
       {
        "text": "off",
-       "note": "off suggests something gone wrong, so the letters are set in a new order"
+       "at": 39,
+       "note": "off means gone wrong, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DESPERADO",
        "indicators": [
         {
          "text": "losing",
-         "note": "losing means a letter is taken away from the fodder"
-        },
-        {
-         "text": "initially",
-         "note": "initially points to the first letter of the name before it as the one dropped"
+         "at": 44,
+         "note": "losing means the letter is taken away from gasped"
         }
        ],
        "parts": [
         {
          "words": "gasped",
-         "note": "taken as written"
+         "at": 23
         },
         {
-         "words": "rode",
-         "note": "taken as written"
-        },
-        {
-         "words": "Garrett",
-         "gives": "G",
-         "note": "the first letter of Garrett, which is removed"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 59,
+           "note": "initially picks out the first letter of Garrett"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Garrett",
+           "at": 51,
+           "note": "G is the first letter of Garrett"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "rode",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "The outlaw Billy the Kid gasps and rides away, escaping Sheriff Pat Garrett.",
-     "walkthrough": "Pat Garrett was the sheriff who shot Billy the Kid; his initial is removed from the combined words before they are rearranged.",
-     "definitionFit": "Billy the Kid was a notorious Wild West outlaw, an example of a reckless bandit or desperado."
+     "surface": "The outlaw panted and galloped away, shaking off Sheriff Pat Garrett.",
+     "walkthrough": "Pat Garrett was the sheriff who killed Billy the Kid. 'losing Garrett initially' takes G from GASPED, and 'off' rearranges ASPED with RODE.",
+     "definitionFit": "Billy the Kid was a notorious Wild West outlaw, an example of a reckless gunman of the kind called a desperado."
     },
     "features": {
      "answerInScene": true,

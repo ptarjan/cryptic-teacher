@@ -180,45 +180,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SIGIL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "lacks",
-       "note": "the word lacks the letters named next, so they are taken away"
-      },
-      {
-       "text": "at edges",
-       "note": "the removed letters come off the two ends, split between the front and the back"
+       "text": "after",
+       "at": 21,
+       "note": "after places the words one and left following what remains of design"
       }
      ],
      "parts": [
       {
-       "words": "design",
-       "note": "taken as written"
-      },
-      {
-       "words": "study",
-       "gives": "DEN",
-       "note": "a den is a study; 'at edges' splits it, DE at the front and N at the back"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacks",
+         "at": 34,
+         "note": "lacks means the word for study is taken out of design"
+        },
+        {
+         "text": "at edges",
+         "at": 46,
+         "note": "two of the three letters removed come from the very ends of design"
+        }
+       ],
+       "parts": [
+        {
+         "words": "design",
+         "at": 27
+        },
+        {
+         "words": "study",
+         "at": 40,
+         "gives": "DEN",
+         "note": "a den is a private room for study"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 12,
        "gives": "I",
-       "note": "Roman numeral one"
+       "note": "I is the Roman numeral for one"
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 16,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A sorcerer's symbol, its design trimmed so one line remains.",
-     "walkthrough": "'study' is split across both ends of the design, two letters at the front and one at the back.",
-     "definitionFit": "A sigil is a seal or sign believed to have occult power, a symbol drawn in magic."
+     "surface": "A magician's symbol is abandoned once a pattern loses its borders.",
+     "walkthrough": "DEN comes out of DESIGN letter by letter: D and N from the edges and the E between, leaving SIG; I and L then come 'after'.",
+     "definitionFit": "A sigil is a seal or occult sign believed to have magical power, so it is a magic mark."
     },
     "features": {
      "answerInScene": true,
@@ -891,43 +905,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCRUTO",
+     "op": "composite",
      "indicators": [
       {
        "text": "may get",
-       "note": "the answer's letters plus two more may get, that is become, the phrase that follows once rearranged"
+       "at": 27,
+       "note": "the answer joined by the named letters can be rearranged to get the phrase that follows"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCRUTO",
-       "indicators": [
+       "op": "charade",
+       "parts": [
         {
-         "text": "with",
-         "note": "the answer is what you have once the added letters that come with it are taken away again"
+         "words": "actors",
+         "at": 35
+        },
+        {
+         "words": "up",
+         "at": 42
         }
-       ],
+       ]
+      },
+      {
+       "op": "charade",
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 10
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 12,
+           "note": "a bit of panache here is its opening letter"
+          }
+         ],
          "parts": [
           {
            "words": "panache",
-           "note": "a bit of panache is its first letter"
+           "at": 19,
+           "note": "P is the first letter of panache"
           }
          ]
-        },
-        {
-         "words": "actors up",
-         "note": "the letters of these words, rearranged from the answer plus the two extras"
         }
        ]
       }
@@ -935,14 +957,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asking what device, used with flair, lifts performers on to the stage.",
-     "walkthrough": "A composite: the answer with A and P added rearranges to ACTORS UP, so take A and P out of those letters. The whole clue also defines it, since a scruto is a stage trapdoor that raises actors.",
-     "definitionFit": "A scruto is a spring trapdoor in a theatre stage through which performers can appear suddenly, so it is what raises actors up."
+     "surface": "A stage device lets performers rise with a flourish.",
+     "walkthrough": "A composite anagram: the answer plus A and P, rearranged, 'may get' ACTORS UP. The whole clue is also the definition: a scruto is a stage trapdoor through which actors can make a dramatic appearance.",
+     "definitionFit": "A scruto is a theatre trapdoor, so it is exactly the thing that raises performers onto the stage with a flourish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "panache"
+     "misdirectedWord": "What"
     }
    }
   },

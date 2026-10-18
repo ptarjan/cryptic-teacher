@@ -935,58 +935,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APRICOT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of a word means all but its last letter"
+       "text": "mixed",
+       "at": 16,
+       "note": "mixed means these letters are stirred into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "mixed",
-         "note": "mixed means stirred together, so the letters are combined and rearranged"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word is all but its final letter"
         }
        ],
        "parts": [
         {
          "words": "tapioca",
-         "gives": "TAPIOC",
-         "note": "tapioca without its final letter"
+         "at": 8
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last of",
-           "note": "last of picks out the final letter of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sour",
-           "note": "the final letter of sour"
-          }
-         ]
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 27,
+         "note": "the last letter of sour is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sour",
+         "at": 35,
+         "note": "R is the last letter of sour"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pudding of tapioca stirred together with some sharp-tasting fruit.",
-     "walkthrough": "The surface's sour fruit is a false pairing: sour gives only its last letter and fruit stands alone.",
-     "definitionFit": "An apricot is a small orange stone fruit."
+     "surface": "A pudding of tapioca is stirred together with something tart.",
+     "walkthrough": "'Most of' trims TAPIOCA to TAPIOC; 'last of' sour gives R; 'mixed' rearranges TAPIOCR.",
+     "definitionFit": "An apricot is a small orange stone fruit, so the answer is an example of a fruit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sour"
+     "misdirectedWord": "mixed"
     }
    }
   },
