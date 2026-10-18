@@ -3739,17 +3739,28 @@ def del_single(tree):
     return sum(len(n.get("parts") or []) == 1 for n in _unchecked_ops(tree) if n["op"] == "deletion")
 
 
-def ind_in_leaf(tree):
+def ind_in_leaf(tree, clue=None):
     """Indicators (3+ letters) that also sit, as a whole word, inside a longer leaf of
-    clue words: the leaf took the indicator's word as well as its own."""
+    clue words: the leaf took the indicator's word as well as its own.
+
+    With the `clue` the count is by occurrence: a word the clue says twice
+    ("Jog without clothes, without much money") can be an indicator once and
+    inside a leaf once, so it is flagged only when the leaves and indicators
+    use it more times than the clue has it. Without the clue any repeat fires."""
     nodes = list(_walk(tree))
-    words = [[wordplay.letters(x) for x in n["words"].split()] for n in nodes
-             if "op" not in n and n.get("words") and len(n["words"].split()) > 1]
+    leaf_words = [[wordplay.letters(x) for x in n["words"].split()] for n in nodes
+                  if "op" not in n and n.get("words")]
+    words = [ws for ws in leaf_words if len(ws) > 1]
+    said = collections.Counter(wordplay.letters(x) for x in (clue or "").split())
+    used = collections.Counter(wordplay.letters(i.get("text")) for node in nodes
+                               for i in node.get("indicators") or [])
     n = 0
     for node in nodes:
         for i in node.get("indicators") or []:
             t = wordplay.letters(i.get("text"))
             if len(t) >= 3 and any(t in ws and ws != [t] for ws in words):
+                if clue and said[t] >= used[t] + sum(ws.count(t) for ws in leaf_words):
+                    continue  # the clue says the word often enough for each use
                 n += 1
     return n
 
@@ -3797,7 +3808,7 @@ def lesson_warnings(tag, ann, held):
     return out
 
 
-def shape_warnings(tag, ann):
+def shape_warnings(tag, ann, clue=None):
     """The findings for one annotation's tree shape, each a ratchet marker."""
     tree = ann.get("wordplay")
     out = []
@@ -3839,7 +3850,7 @@ def shape_warnings(tag, ann):
         out.append(f"{tag}: {k} {ARITY_OTHER}: write the step as an expression the evaluator takes")
     if k := del_single(tree):
         out.append(f"{tag}: {k} {DEL_SINGLE}: del(whole, removed)")
-    if k := ind_in_leaf(tree):
+    if k := ind_in_leaf(tree, clue):
         out.append(f"{tag}: {k} {IND_IN_LEAF}: the leaf holds only the words that give its letters")
     if k := scrambled_leaves(tree):
         out.append(f"{tag}: {k} {SCRAMBLED_LEAF}: a leaf gives its own letters in order; "
@@ -4057,7 +4068,7 @@ def tree_view(puzzle):
                             f"fodder is one pool of letters, so its pieces are its own parts "
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
                             f"anagram indicator goes on ana<...>")
-        warnings += shape_warnings(_tag_of(puzzle, where), ann)
+        warnings += shape_warnings(_tag_of(puzzle, where), ann, (held.get("clue") or {}).get("text"))
         warnings += lesson_warnings(_tag_of(puzzle, where), ann, held)
         warnings += follow_warnings(_tag_of(puzzle, where), ann, held, puzzle)
     return viewed, errors, warnings

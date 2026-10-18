@@ -101,15 +101,10 @@ def d_span_overlap(r):
 
 
 def d_ind_in_leaf(r):
-    for n in nodes(r["wp"]):
-        for i in n.get("indicators") or []:
-            t = L(i.get("text"))
-            if len(t) < 3:
-                continue
-            for lf in leaves(r["wp"]):
-                ws = [L(x) for x in (lf.get("words") or "").split()]
-                if len(ws) > 1 and t in ws and lf.get("words") and L(lf["words"]) != t:
-                    return f"indicator '{i.get('text')}' also sits inside leaf '{lf['words']}'"
+    """The validator's own rule (validate_annotations.ind_in_leaf), occurrence-aware."""
+    import validate_annotations as V
+    if V.ind_in_leaf(r["wp"], r["clue"]):
+        return "indicator also sits inside a leaf of clue words"
 
 
 def d_leaf_in_def(r):
@@ -125,11 +120,30 @@ def d_leaf_in_def(r):
                 return f"leaf '{lf['words']}' is inside the definition '{d.get('text')}'"
 
 
+def _sanctioned_unchecked(lf, parent):
+    """Whether an unchecked leaf is the mandatory form, not an unverified synonym:
+    the sound leaf under a spoonerism (`soundsLike` says what is said aloud, and its
+    `gives` is not the words' own letters, so it can never be checked), or a `select`
+    leaf whose `gives` is letters picked from its own words (first, middle, outer,
+    last: the op over it does the picking, the leaf cannot be checked)."""
+    if lf.get("soundsLike") and (parent or {}).get("op") == "spoonerism":
+        return True
+    if lf.get("select"):
+        g, w = L(lf.get("gives")), L(lf.get("words"))
+        it = iter(w)
+        return bool(g) and all(c in it for c in g)  # g is a subsequence of the words' letters
+    return False
+
+
 def d_unchecked_leaf_word(r):
     """An unchecked leaf (gives taken as filed) with clue words."""
-    for lf in leaves(r["wp"]):
-        if lf.get("unchecked") and lf.get("words") and "dropped" not in (lf.get("note") or ""):
-            return f"unchecked leaf '{lf['words']}'"
+    stack = [(r["wp"], None)]
+    while stack:
+        n, parent = stack.pop()
+        stack += [(p, n) for p in n.get("parts") or []]
+        if "op" not in n and n.get("unchecked") and n.get("words") and "dropped" not in (n.get("note") or "") \
+                and not _sanctioned_unchecked(n, parent):
+            return f"unchecked leaf '{n['words']}'"
 
 
 def d_unchecked_rare(r, c):
@@ -176,6 +190,8 @@ def is_rebus_clue(text, solution):
         return False
     if _REF.match(text) or not re.search(r"[^\s?]", text):
         return False
+    if not re.search(r"[A-Z0-9]", text):
+        return False  # a bare symbol ("*") is an unclued entry, not a picture to read
     if not _WORDS:
         lex = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
         with lex.open(encoding="utf-8") as f:

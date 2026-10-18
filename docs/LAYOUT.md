@@ -2961,5 +2961,7 @@ tools/test_worker_commit.sh                    does worker_commit commit only it
                                                and say why when it cannot?
 tools/fix_scrambled_gives.py                   drop the made-up `gives` of a fodder leaf inside
                                                an anagram (shape round 3, 10-17)
+tools/test_shape_detector_false_positives.py   the shape detectors (shape_suspects, via
+                                               shape_queue.findings) must not flag clues no
 ```
 <!-- LAYOUT-END -->
