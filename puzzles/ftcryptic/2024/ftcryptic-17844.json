@@ -516,42 +516,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NINETY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Scratching head",
-       "note": "scratching out the head means striking off the first letter"
+       "text": "bewildered",
+       "at": 26,
+       "note": "bewildered means confused, so these letters are muddled up"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "bewildered",
-         "note": "bewildered means confused, so these letters lose their order"
+         "text": "Scratching head",
+         "at": 0,
+         "note": "scratching head means the first letter of one is struck off"
         }
        ],
        "parts": [
         {
          "words": "one",
-         "gives": "NE",
-         "note": "one without its first letter"
+         "at": 17
         },
         {
-         "words": "tiny",
-         "note": "taken as written"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "tiny",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled little person scratching their head.",
-     "walkthrough": "Scratching head looks like a sign of puzzlement; it removes the head of one.",
-     "definitionFit": "Ninety is a number, and figure is a common crossword word for a number."
+     "surface": "A tiny confused person scratching their head over a number.",
+     "walkthrough": "'Scratching head' sounds like puzzlement, but it removes the first letter of 'one', leaving NE to mix with TINY.",
+     "definitionFit": "Ninety is a number, and a figure is a numeral or number."
     },
     "features": {
      "answerInScene": false,
@@ -1133,53 +1135,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "terrible",
-       "note": "terrible means awful, so the next word is badly mangled"
+       "text": "in",
+       "at": 38,
+       "note": "in means the leading letter goes inside the scrambled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the single letter inside the scrambled word"
+         "text": "terrible",
+         "at": 41,
+         "note": "terrible signals that the letters of strop are scrambled"
         }
        ],
        "parts": [
         {
          "words": "strop",
-         "note": "a strop is a fit of bad temper; its letters are rearranged"
-        },
+         "at": 50
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader of",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "union",
-           "note": "first letter of union"
-          }
-         ]
+         "text": "leader of",
+         "at": 22,
+         "note": "leader of means the first letter of union"
+        }
+       ],
+       "parts": [
+        {
+         "words": "union",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trade union boss is stunned to see a dreadful tantrum.",
-     "walkthrough": "A strop is British slang for a sulk or fit of temper.",
-     "definitionFit": "A stupor is a dazed state of near-unconsciousness, the kind brought on by shock."
+     "surface": "A union boss in a fearful temper leaves everyone stunned.",
+     "walkthrough": "A strop is British slang for a sulky bad mood.",
+     "definitionFit": "A stupor is a dazed state of near unconsciousness, as after a shock."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "leader"
     }
