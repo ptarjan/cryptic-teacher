@@ -544,39 +544,68 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "a ditch almost",
-         "gives": "ADUM",
-         "note": "A + DUMP (to ditch) without its P; D END goes after its D"
-        },
-        {
-         "words": "finish",
-         "gives": "END",
-         "note": "end = finish"
-        }
-       ]
+       "words": "a",
+       "at": 29,
+       "gives": "A"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D = daughter"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 26,
+         "note": "daughter and finish go in the shortened ditch word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 37,
+           "note": "almost means not quite all, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ditch",
+           "at": 31,
+           "gives": "DUMP",
+           "note": "to dump is to ditch, discard"
+          },
+          {
+           "gives": "P"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "daughter",
+           "at": 10,
+           "gives": "D"
+          },
+          {
+           "words": "finish",
+           "at": 19,
+           "gives": "END",
+           "note": "end means finish"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horse rider and his daughter nearly ending up in a ditch.",
-     "walkthrough": "'Rider' pictures someone on horseback; a rider is also a clause added to a document.",
-     "definitionFit": "A specialist sense: in law and politics a rider is a clause tacked on to a document, an addition at the end."
+     "surface": "A horseman and his daughter end up in a ditch.",
+     "walkthrough": "'Rider' looks like a horseman, but it is a clause added to a document.",
+     "definitionFit": "A rider is an extra clause appended to a document or bill, a supplement."
     },
     "features": {
      "answerInScene": false,
@@ -1552,46 +1581,52 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "inside"
+       "text": "about",
+       "at": 36,
+       "note": "about means turned round, so the whole run is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "about means turned around, so the assembled letters are read backwards"
-        }
-       ],
        "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "Firstly",
-           "note": "firstly means first of all, so scout gives only its first letter"
+           "at": 0,
+           "note": "only the opening letter of scout"
           }
          ],
          "parts": [
           {
            "words": "scout",
-           "note": "first letter of scout"
+           "at": 9
           }
          ]
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "inside",
+           "at": 24,
+           "note": "the word for acquires goes inside the word for info"
+          }
+         ],
          "parts": [
           {
            "words": "info",
+           "at": 31,
            "gives": "GEN",
-           "note": "gen = information, British slang"
+           "note": "gen is British slang for information"
           },
           {
            "words": "acquires",
+           "at": 15,
            "gives": "GETS",
-           "note": "gets = acquires, placed inside GEN"
+           "note": "gets means acquires"
           }
          ]
         }
@@ -1600,15 +1635,14 @@
      ]
     },
     "explanation": {
-     "surface": "A talent scout gets inside information on the reserve players.",
-     "walkthrough": "'Inside info' looks like one phrase, but 'inside' is the container signal; the whole string is then turned round.",
-     "definitionFit": "An idiom: money put aside for the future, a financial reserve."
+     "surface": "A boy scout picks up confidential information about stockpiles.",
+     "walkthrough": "'inside info' reads as secrets, but 'inside' is a container instruction and 'info' is GEN, British slang for information.",
+     "definitionFit": "Nest eggs are savings set aside for the future, funds held back as a reserve."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "reserves"
+     "misdirectedWord": "inside"
     }
    }
   }

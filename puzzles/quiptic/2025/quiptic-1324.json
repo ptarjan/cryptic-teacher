@@ -47,36 +47,42 @@
      "indicators": [
       {
        "text": "spoiled",
-       "note": "spoiled letters are ruined and rearranged"
+       "at": 15,
+       "note": "spoiled food has been ruined, so the letters are ruined into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "most of",
-         "note": "keep all but the last letter of 'pie'"
+         "at": 23,
+         "note": "only most of the word is used, losing its final letter"
         }
        ],
        "parts": [
         {
          "words": "pie",
-         "gives": "PI",
-         "note": "PIE without its last letter"
+         "at": 31,
+         "note": "the clue word, cut short to PI"
         },
         {
-         "words": "mash",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "mash",
+       "at": 39,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook's small kitchen disaster ruins the pie and mash.",
-     "walkthrough": "Pie and mash is a traditional London working-class dish; here both words are just raw letters.",
-     "definitionFit": "A plain synonym: a mishap is by nature minor, so 'small' is part of the definition rather than padding."
+     "surface": "Someone drops a plate of pie and mash, ruining it.",
+     "walkthrough": "PI (most of 'pie') and MASH are rearranged together. Pie and mash is a traditional London dish.",
+     "definitionFit": "A mishap is a minor unlucky mistake or mischance, much less serious than a disaster."
     },
     "features": {
      "answerInScene": true,
@@ -468,46 +474,43 @@
      "indicators": [
       {
        "text": "to take in",
-       "note": "to take something in is to admit it inside, as a house takes in a lodger, so one piece goes inside the other"
+       "at": 14,
+       "note": "the steering word absorbs, takes in, the other letter"
       }
      ],
      "parts": [
       {
        "words": "Steering boat",
+       "at": 0,
        "gives": "COXING",
-       "note": "the cox steers a rowing boat"
+       "note": "to cox is to steer a rowing boat, so coxing is steering one"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "capital of",
-         "note": "the capital, first, letter of Antigua"
+         "at": 25,
+         "note": "the capital, first letter, of the island name Antigua"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "capital of Antigua",
-         "gives": "A",
-         "select": "first",
-         "note": "first letter"
+         "words": "Antigua's",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sailing a boat to call at St John's, Antigua's capital, sounds tempting.",
-     "walkthrough": "'Capital of Antigua' wants to be St John's; it is simply its first letter.",
-     "definitionFit": "Coaxing is gently tempting someone into something."
+     "surface": "A sailor finds steering a boat around Antigua an attractive prospect.",
+     "walkthrough": "The cox is the person who steers a racing rowing boat.",
+     "definitionFit": "Coaxing means gently persuading or luring someone, so it is close to enticing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }

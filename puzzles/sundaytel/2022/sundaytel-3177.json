@@ -950,50 +950,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the American and politician pieces inside the cult word"
+       "at": 30,
+       "note": "the pieces go in the word for cult"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cult",
-         "gives": "SECT",
-         "note": "a sect is a cult"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "US abbreviates the United States, so American"
-        }
-       ]
+       "words": "cult",
+       "at": 33,
+       "gives": "SECT",
+       "note": "a sect is a cult"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter of politician alone"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "politician",
-         "note": "first letter of politician"
+         "words": "American",
+         "at": 0,
+         "gives": "US",
+         "note": "US means American"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 20,
+           "note": "only the first letter of politician"
+          }
+         ],
+         "parts": [
+          {
+           "words": "politician",
+           "at": 9
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A US politician who once belonged to a cult faces charges.",
-     "definitionFit": "The accused in a case is the person under suspicion, which is what the noun means."
+     "surface": "An American politician accused of being in a cult.",
+     "definitionFit": "A suspect is a person charged or thought guilty of a crime, as the accused is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "American"
+     "misdirectedWord": "accused"
     }
    }
   },
