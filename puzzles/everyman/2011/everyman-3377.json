@@ -43,48 +43,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAYERS",
+     "op": "container",
      "indicators": [
       {
-       "text": "losing husband",
-       "note": "husband is abbreviated H in crosswords, and losing it means that letter is dropped"
+       "text": "about",
+       "at": 20,
+       "note": "about means going round, so the word for speaks is wrapped around the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "speaks",
+       "at": 13,
+       "gives": "SAYS",
+       "note": "speaks means says"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "one word goes about another, wrapping round it on both sides"
+         "text": "losing",
+         "at": 37,
+         "note": "losing means a letter is dropped, here the one for husband from the pronoun"
         }
        ],
        "parts": [
         {
-         "words": "speaks",
-         "gives": "SAYS",
-         "note": "speaks = says"
+         "words": "that woman",
+         "at": 26,
+         "gives": "HER",
+         "note": "that woman is her"
         },
         {
-         "words": "that woman",
-         "gives": "ER",
-         "note": "that woman is HER; minus H for husband"
+         "words": "husband",
+         "at": 44,
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crime novelist talks about a widow.",
-     "walkthrough": "The 'widow' surface is a decoy: husband is the crossword abbreviation H, struck from the pronoun before it is wrapped.",
-     "definitionFit": "Dorothy L. Sayers wrote the Lord Peter Wimsey detective novels, so she is a famous crime writer."
+     "surface": "A novelist talks about a woman who has lost her husband, the stuff of a detective plot.",
+     "walkthrough": "HER 'losing' H leaves ER, and SAYS goes 'about' it. Dorothy L. Sayers wrote the Lord Peter Wimsey detective novels.",
+     "definitionFit": "Dorothy L. Sayers was a celebrated English author of detective fiction."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "husband"
+     "misdirectedWord": "speaks"
     }
    }
   },
@@ -210,41 +217,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REUTERS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "if the top two leave",
-       "note": "in a down clue the top is the start, so the first two letters are removed"
+       "text": "could make",
+       "at": 12,
+       "note": "could make says the remaining letters can be rearranged to form the answer"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "could make",
-         "note": "the remaining letters could make something else when rearranged"
+         "text": "if the top two leave",
+         "at": 33,
+         "note": "if the top two leave means the first two letters of the word overtures go, in a down clue the top"
         }
        ],
        "parts": [
         {
          "words": "overtures",
-         "gives": "ERTURES",
-         "note": "overtures without its first two letters"
+         "at": 23
+        },
+        {
+         "gives": "OV"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A press agency might make approaches if its two bosses quit.",
-     "walkthrough": "'The top two' sounds like senior staff, but it means the first two letters of overtures.",
-     "definitionFit": "Reuters is an international news agency founded in London that supplies stories to newspapers worldwide."
+     "surface": "A wire service might make friendly approaches to someone if a couple of bosses departed.",
+     "walkthrough": "OVERTURES with its top two letters, O and V, gone leaves ERTURES, and those letters rearranged give the answer.",
+     "definitionFit": "Reuters is the international press organisation that supplies reports to newspapers and broadcasters."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "top"
     }

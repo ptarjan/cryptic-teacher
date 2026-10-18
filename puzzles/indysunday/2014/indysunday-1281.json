@@ -110,45 +110,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WINDFARM",
      "indicators": [
       {
        "text": "in",
-       "note": "in says the jumbled letters are placed inside the next word"
+       "at": 10,
+       "note": "in places the rearranged letters inside the word for snug"
       }
      ],
      "parts": [
+      {
+       "words": "snug",
+       "at": 13,
+       "gives": "WARM",
+       "note": "snug means warm"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "nuts",
-         "note": "nuts means crazy, so the preceding word's letters go haywire"
+         "at": 5,
+         "note": "nuts means crazy, so the letters of find are jumbled"
         }
        ],
        "parts": [
         {
          "words": "Find",
-         "note": "the four letters of find rearranged"
-        },
-        {
-         "words": "snug",
-         "gives": "WARM",
-         "note": "snug means cosy and warm"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finds nuts inside a warm hideaway, a squirrel's store of energy-rich food for winter.",
-     "walkthrough": "'Nuts' reads as the food being found, but it signals the jumble; 'snug' is an adjective standing for its synonym.",
-     "definitionFit": "A wind farm is a group of turbines generating large amounts of electrical power, so it supplies plenty of energy."
+     "surface": "Discover some nuts tucked into a cosy spot, a handy energy snack.",
+     "walkthrough": "The surface suggests nuts as a food giving energy, but 'nuts' is the anagram signal working on 'Find'.",
+     "definitionFit": "A wind farm is a group of turbines that generates large amounts of electricity."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "nuts"
     }
    }
@@ -276,35 +278,38 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "holding means gripping something within, so one part encloses the other"
+       "at": 7,
+       "note": "holding means containing, so the mother word goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Mother",
-         "gives": "MAM",
-         "note": "mam is an informal word for mother"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Mother",
+       "at": 0,
+       "gives": "MAM",
+       "note": "mam is an informal word for mother, common in the north of England"
       },
       {
-       "words": "rascal's",
-       "gives": "CAD",
-       "note": "a cad is a dishonourable rascal; the 's is the possessive of the surface"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "rascal's",
+         "at": 17,
+         "gives": "CAD",
+         "note": "a cad is a rascal; the possessive just ties it to the coat in the surface"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mother keeps hold of a naughty child's coat as they walk along the street.",
-     "walkthrough": "The insertion goes after the first letter of the mother word. 'Coat' reads as a garment but means a surface layer on a road.",
-     "definitionFit": "Macadam is the layered road surface of crushed stone, a coating laid on the street."
+     "surface": "A mother keeping hold of a scoundrel's coat out on the street.",
+     "walkthrough": "'Coat' looks like clothing, but it means a surface layer on a road; mam is a northern English word for mother.",
+     "definitionFit": "Macadam is the layered crushed-stone road surface named after John McAdam."
     },
     "features": {
      "answerInScene": false,
@@ -1132,34 +1137,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wildly",
-       "note": "wildly means without control, so the letters are thrown about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wildly",
+         "at": 6,
+         "note": "wildly says the letters of exert are thrown around into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Exert",
-         "note": "the five letters of exert rearranged"
-        },
-        {
-         "words": "Nitsy",
-         "gives": "ME",
-         "note": "the setter refers to herself or himself by name, giving me"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "Nitsy",
+       "at": 17,
+       "gives": "ME",
+       "note": "Nitsy is the setter, so the setter's name stands for me"
       }
      ]
     },
     "explanation": {
-     "surface": "Exercising too hard leaves the setter with stiff muscles.",
-     "walkthrough": "Nitsy is the setter's pseudonym, so the name stands for the first person.",
-     "definitionFit": "Stiff in the sense of severe, as in a stiff penalty, is synonymous with extreme."
+     "surface": "The setter strains hard and ends up rigid.",
+     "walkthrough": "'Exert wildly' gives EXTRE, and the setter Nitsy is ME.",
+     "definitionFit": "A stiff penalty or price is a severe or excessive one, which is the sense of extreme here."
     },
     "features": {
      "answerInScene": false,

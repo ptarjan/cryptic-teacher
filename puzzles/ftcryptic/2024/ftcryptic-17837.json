@@ -51,46 +51,49 @@
      "indicators": [
       {
        "text": "guards",
-       "note": "whoever guards something stands around it, so one word wraps the others"
+       "at": 18,
+       "note": "guards means encloses, so the word for deceived surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "deceived",
-         "gives": "CONNED",
-         "note": "conned means tricked or deceived"
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the standard abbreviation for very"
-        }
-       ]
+       "words": "deceived",
+       "at": 9,
+       "gives": "CONNED",
+       "note": "conned means tricked or deceived"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "in the end",
-         "note": "the end of a word is its final letter, so only that one is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "gullible",
-         "note": "the final letter of gullible"
+         "words": "very",
+         "at": 25,
+         "gives": "V"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "in the end",
+           "at": 39,
+           "note": "in the end takes the last letter of gullible"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gullible",
+           "at": 30
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd assembles, having fooled someone extremely credulous.",
-     "walkthrough": "CONNED holds V plus E, making CON-V-E-NED.",
-     "definitionFit": "To convene is to meet or assemble, so convened is a synonym for gathered in the past tense."
+     "surface": "A trickster's victims crowd around someone ultimately very easy to fool.",
+     "walkthrough": "V and E go inside CONNED.",
+     "definitionFit": "Convened means assembled for a meeting, so a gathered group has convened."
     },
     "features": {
      "answerInScene": false,
@@ -853,41 +856,44 @@
      "indicators": [
       {
        "text": "when in",
-       "note": "being in something means being enclosed by it"
+       "at": 36,
+       "note": "when in means placed inside, so the company letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "CO is the abbreviation for company"
-        },
-        {
-         "words": "playing",
-         "gives": "ON",
-         "note": "a show that is on is being performed"
-        }
-       ]
+       "words": "company",
+       "at": 44,
+       "gives": "CO"
       },
       {
-       "words": "sure winner",
-       "gives": "CERT",
-       "note": "a cert is a racing certainty"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "playing",
+         "at": 15,
+         "gives": "ON",
+         "note": "playing means on, as in a show that is on"
+        },
+        {
+         "words": "sure winner",
+         "at": 24,
+         "gives": "CERT",
+         "note": "a cert is a certainty, a horse sure to win"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musical work that is a guaranteed hit when performed with others.",
-     "walkthrough": "A cert is British racing slang for a horse certain to win, short for certainty.",
-     "definitionFit": "A concerto is a composition for a solo instrument with orchestra, an example of a piece of music."
+     "surface": "A tune playing as a dead cert in good company.",
+     "walkthrough": "A cert is British slang for a certainty, a bet sure to win.",
+     "definitionFit": "A concerto is a musical composition for a solo instrument with orchestra."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "company"
+     "misdirectedWord": "playing"
     }
    }
   },

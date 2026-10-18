@@ -2028,38 +2028,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENTERIC",
      "indicators": [
       {
-       "text": "last couple swallowed",
-       "note": "a word that swallows letters takes them inside, here its own final pair"
+       "text": "swallowed",
+       "at": 32,
+       "note": "swallowed means taken inside, so the final pair is put back inside the rest of the word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ENTERIC",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 20,
+         "note": "last points at the end of the tempter word, where the pair of letters is lifted off"
+        }
+       ],
        "parts": [
         {
          "words": "tempter",
+         "at": 11,
          "gives": "ENTICER",
          "note": "an enticer is one who tempts"
+        },
+        {
+         "gives": "ER"
         }
        ]
+      },
+      {
+       "words": "couple",
+       "at": 25,
+       "gives": "ER",
+       "note": "the couple is the pair of final letters of the word for tempter, the same two taken off its end"
       }
      ]
     },
     "explanation": {
-     "surface": "Gut feelings about a temptation, the last couple of mouthfuls gulped down.",
-     "walkthrough": "The last two letters are taken off the end and moved inside the word.",
-     "definitionFit": "Enteric means relating to the intestines, as in enteric fever."
+     "surface": "A seducer whose last two victims were swallowed, with an intestinal theme.",
+     "walkthrough": "The 'last couple' of letters of the tempter word are not lost but moved: they are lifted off its end and 'swallowed' back inside what remains.",
+     "definitionFit": "Enteric is the medical adjective for things relating to the intestines."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "swallowed"
+     "misdirectedWord": "couple"
     }
    }
   },

@@ -414,74 +414,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "banks",
+       "at": 58,
+       "note": "banks means borders on both sides, so the food word wraps around the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "banks",
-         "note": "banks line both sides, so the outer word flanks the rest like a riverbank"
-        }
-       ],
+       "words": "food",
+       "at": 53,
+       "gives": "RATIONS",
+       "note": "rations are allowances of food"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "European",
+         "at": 10,
+         "gives": "E"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 30,
+           "note": "initially takes the first letter of parliament"
+          }
+         ],
          "parts": [
           {
-           "words": "to object to",
-           "gives": "RESENT",
-           "note": "to resent something is to object to it"
-          },
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "op": "first",
-             "indicators": [
-              {
-               "text": "initially",
-               "note": "initially points to the opening letter of each of the two words before it"
-              }
-             ],
-             "parts": [
-              {
-               "words": "European",
-               "note": "first letter"
-              }
-             ]
-            },
-            {
-             "op": "first",
-             "parts": [
-              {
-               "words": "parliament",
-               "note": "first letter"
-              }
-             ]
-            }
-           ]
+           "words": "parliament",
+           "at": 19
           }
          ]
         },
         {
-         "words": "food",
-         "gives": "R",
-         "note": "rations, the food allowance, opening letter of its wrapper"
+         "words": "to object to",
+         "at": 40,
+         "gives": "RESENT",
+         "note": "to resent is to object to or take offence at"
         }
        ]
-      },
-      {
-       "words": "food",
-       "gives": "ATIONS",
-       "note": "rest of rations, the food allowance"
       }
      ]
     },
     "explanation": {
-     "surface": "Members of the European parliament lodge complaints opposing food banks.",
-     "walkthrough": "'Food banks' reads as charity, but banks is the container signal: RATIONS surrounds E, P and RESENT.",
-     "definitionFit": "Representations are formal statements of a case or protest made to an authority, much like petitions."
+     "surface": "European MPs protest against food banks.",
+     "walkthrough": "'Food banks' reads as charity, but banks is the container signal.",
+     "definitionFit": "Representations are formal statements of a case or complaint made to an authority, like petitions."
     },
     "features": {
      "answerInScene": true,
@@ -1504,50 +1489,64 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RUNRIOT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "moved",
-       "note": "moving the one puts it into a fresh place in the other word"
+       "text": "after",
+       "at": 19,
+       "note": "after says the corruption piece is sent second, following the destroy piece"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RUNRIOT",
        "indicators": [
         {
-         "text": "after one's moved",
-         "note": "once the one has been moved, it is no longer where it was"
+         "text": "moved",
+         "at": 31,
+         "note": "moved says the letter for one leaves the first word and goes elsewhere"
         }
        ],
        "parts": [
         {
          "words": "Destroy",
+         "at": 0,
          "gives": "RUIN",
-         "note": "to ruin is to wreck"
+         "note": "to ruin is to destroy"
         },
         {
+         "words": "one's",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
          "words": "corruption",
+         "at": 8,
          "gives": "ROT",
-         "note": "rot is decay, moral or physical"
+         "note": "rot is decay or corruption"
+        },
+        {
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wrecking a corrupt system after someone has shifted, to run amok.",
-     "walkthrough": "One is I, the roman numeral: it leaves RUIN and slips into ROT.",
-     "definitionFit": "To run riot is to behave in a wild, unrestrained, disorderly way, out of control."
+     "surface": "Wrecking a rotten system once someone is relocated.",
+     "walkthrough": "RUIN followed by ROT; its I is 'moved' from RUIN into ROT, giving RUN and RIOT.",
+     "definitionFit": "To run riot is to behave wildly and unchecked, with no control at all."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "one's"
+     "misdirectedWord": "Destroy"
     }
    }
   },
