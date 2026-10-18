@@ -397,34 +397,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Find new direction",
+      "text": "Find new direction for",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "not",
-       "note": "tells us to leave out the next piece"
+       "text": "flowing",
+       "at": 42,
+       "note": "flowing means the letters run freely into a new order"
       },
       {
-       "text": "flowing",
-       "note": "the remaining letters run into a new shape"
+       "text": "not",
+       "at": 33,
+       "note": "not means the named letter is excluded from the fodder before rearranging"
       }
      ],
      "parts": [
       {
-       "words": "overture, not very",
-       "gives": "OERTURE",
-       "note": "OVERTURE without V (very)"
+       "words": "overture",
+       "at": 23
+      },
+      {
+       "words": "very",
+       "at": 37,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer is told the overture drags and needs a new direction.",
-     "walkthrough": "V for very is a standard abbreviation. Musical words like overture and flowing make it read like a note to a composer.",
-     "definitionFit": "To reroute is to send something by a new course or direction."
+     "surface": "Instructions for an orchestra to take an opening piece in a new, less fluid way.",
+     "walkthrough": "'Not' very removes V from OVERTURE, leaving OERTURE, which 'flowing' rearranges.",
+     "definitionFit": "To reroute something is to send it by a different path, giving it a new course to follow."
     },
     "features": {
      "answerInScene": false,
@@ -572,44 +578,43 @@
      "parts": [
       {
        "op": "nth",
-       "unchecked": true,
-       "gives": "N",
        "n": 6,
        "indicators": [
         {
-         "text": "Sixth",
-         "note": "take the sixth letter of the next word"
+         "text": "Sixth to",
+         "at": 0,
+         "note": "Sixth to a word means its letter in sixth position, counted from the start"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Sixth to recognise",
-         "gives": "N",
-         "select": 6,
-         "note": "sixth letter of RECOGNISE"
+         "words": "recognise",
+         "at": 9,
+         "note": "the word recognise, whose sixth letter is used"
         }
        ]
       },
       {
-       "words": "fool",
+       "words": "fool's",
+       "at": 19,
        "gives": "ASS",
        "note": "an ass is a fool"
       },
       {
        "words": "gold",
+       "at": 26,
        "gives": "AU",
        "note": "Au is the chemical symbol for gold"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone learns to tell pyrite, fool's gold, from the real thing while in the Bahamas.",
-     "walkthrough": "'Fool's gold' is a set phrase for pyrite, but here it splits into two pieces: fool and gold.",
-     "definitionFit": "A definition by example: Nassau, the capital, is one place in the Bahamas among many."
+     "surface": "A sixth-former learns to spot pyrite somewhere in the Caribbean.",
+     "walkthrough": "'Fool's gold' reads as the mineral pyrite, but it splits into two pieces, the fool and the chemical symbol for gold. 'Sixth to' recognise is its sixth letter.",
+     "definitionFit": "Nassau is the capital city of the Bahamas, on the island of New Providence."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fool's"
     }
@@ -1092,48 +1097,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SUDOKU",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 32,
+       "note": "over means the reversed pair goes over and around the party, enclosing it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "SUDOKU",
+       "op": "reversal",
        "indicators": [
         {
          "text": "flipping",
-         "note": "each piece is turned back to front"
-        },
-        {
-         "text": "over",
-         "note": "the pieces go over, around, the next piece"
+         "at": 23,
+         "note": "flipping means the letters are turned round to read backwards"
         }
        ],
        "parts": [
         {
          "words": "Both sides of Atlantic",
-         "gives": "USUK",
-         "note": "the US on one side, the UK on the other, each flipped to SU and KU"
-        },
-        {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is a party, placed between SU and KU"
+         "at": 0,
+         "gives": "UKUS",
+         "note": "the UK and the US lie on the two sides of the Atlantic Ocean"
         }
        ]
+      },
+      {
+       "words": "party",
+       "at": 37,
+       "gives": "DO",
+       "note": "a do is a party"
       }
      ]
     },
     "explanation": {
-     "surface": "Americans and Britons alike go head over heels for a party game.",
-     "walkthrough": "'Flipping' applies to each country separately, not to the whole string, so the party ends up sandwiched in the middle.",
-     "definitionFit": "Sudoku is a number-placement puzzle on a nine-by-nine grid."
+     "surface": "Transatlantic friends turning to a game at a party.",
+     "walkthrough": "'Flipping' turns the two country abbreviations round, and the result goes 'over' the party, around it. 'Party' looks political, but it is a celebration.",
+     "definitionFit": "Sudoku is the Japanese number-placement puzzle played on a nine-by-nine grid."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "flipping"
+     "misdirectedWord": "party"
     }
    }
   },
@@ -1421,46 +1428,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TREASURETROVES",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Cut-off",
-       "note": "the end of the next word is cut away"
+       "text": "and",
+       "at": 17,
+       "note": "and gathers the trimmed trousers with the following words into one pool of letters to be mixed"
       },
       {
        "text": "surprisingly",
-       "note": "the letters turn up in an unexpected order"
+       "at": 31,
+       "note": "surprisingly means the letters fall into an unexpected new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cut-off",
+         "at": 0,
+         "note": "cut-off means the end of the word is cut away"
+        }
+       ],
        "parts": [
         {
-         "words": "Cut-off trousers",
-         "gives": "TROUSER",
-         "note": "TROUSERS without its last letter"
+         "words": "trousers",
+         "at": 8,
+         "note": "the word trousers, which loses its last letter"
         },
         {
-         "words": "and vest are",
-         "gives": "VESTARE",
-         "note": "rest of the fodder; 'and' joins the pieces"
+         "gives": "S",
+         "note": "the final letter of trousers, cut off"
         }
        ]
+      },
+      {
+       "words": "vest",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "words": "are",
+       "at": 26,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone discovers that their old cut-offs and vest are worth a fortune.",
-     "walkthrough": "'Cut-off trousers' reads as shorts, but the hyphenated word tells us to trim TROUSERS. A vest in Britain is an undershirt.",
-     "definitionFit": "A treasure trove is a hoard of valuables, anything of great worth."
+     "surface": "Shorts made from old trousers and a vest turn out to be valuable finds.",
+     "walkthrough": "'Cut-off' trousers looks like a garment, shorts, but it means TROUSERS loses an S; add VEST and ARE and 'surprisingly' rearranges the lot.",
+     "definitionFit": "A treasure trove is a hoard of valuables found hidden, so treasure troves are precious collections."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Cut-off"
     }
    }

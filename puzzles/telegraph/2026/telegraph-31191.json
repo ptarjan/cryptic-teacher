@@ -696,64 +696,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREGORIAN",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the last letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 26,
+         "note": "changes means the remaining letters are altered into a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "changes",
-           "note": "a change alters the arrangement, so these letters are reordered"
+           "text": "endlessly",
+           "at": 16,
+           "note": "endlessly means the word loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "George",
-           "gives": "GEORG",
-           "note": "the name minus its final letter"
-          }
-         ]
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "to go around something is to enclose it, so one piece surrounds another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "organised",
-           "gives": "RAN",
-           "note": "to run an event is to organise it"
+           "at": 9,
+           "note": "the name George, losing its last letter"
           },
           {
-           "words": "one",
-           "gives": "I",
-           "note": "Roman numeral one"
+           "gives": "E",
+           "note": "the last letter of George, dropped"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 45,
+         "note": "around means ran goes either side of the one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "organised",
+         "at": 35,
+         "gives": "RAN",
+         "note": "to organise something is to run it, past tense ran"
+        },
+        {
+         "words": "one",
+         "at": 52,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "George keeps altering a calendar that was arranged around one person.",
-     "walkthrough": "'Calendar' looks like a noun, but here it is the adjective qualifying the answer, as in Gregorian calendar.",
-     "definitionFit": "The Gregorian calendar, introduced by Pope Gregory XIII in 1582, is the civil calendar used worldwide today."
+     "surface": "A man called George keeps altering his diary, sorting it out around a single date.",
+     "walkthrough": "'Organised' looks like a second anagram signal after 'changes', but here it is a synonym, meaning ran, as in ran the show.",
+     "definitionFit": "The Gregorian calendar, introduced by Pope Gregory XIII in 1582, is the civil calendar now used across most of the world."
     },
     "features": {
      "answerInScene": true,
@@ -853,57 +860,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LATVIAN",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost means the word stops short of its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "delayed",
-         "gives": "LAT",
-         "note": "late, missing its final letter"
+         "at": 18,
+         "gives": "LATE",
+         "note": "something delayed is late"
         },
         {
-         "words": "through",
-         "gives": "VIA",
-         "note": "via means by way of"
-        },
+         "gives": "E",
+         "note": "the final letter of late, dropped"
+        }
+       ]
+      },
+      {
+       "words": "through",
+       "at": 26,
+       "gives": "VIA",
+       "note": "via means by way of, through"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means in the end, so only the last letter counts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "congestion",
-           "note": "final letter"
-          }
-         ]
+         "text": "ultimately",
+         "at": 45,
+         "note": "ultimately points to the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "congestion",
+         "at": 34,
+         "note": "the word congestion, whose last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A European traveller is nearly held up by traffic jams.",
-     "walkthrough": "LATE loses its last letter, then VIA and the end of 'congestion' follow.",
-     "definitionFit": "Latvia is a Baltic state that joined the European Union in 2004, so its nationals are EU citizens."
+     "surface": "A European traveller held up by heavy traffic.",
+     "walkthrough": "'Almost' cuts LATE to LAT, then VIA and N, the letter 'ultimately' taken from congestion.",
+     "definitionFit": "Latvia is a member state of the European Union, so a Latvian national is a citizen of the bloc."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "through"
+     "misdirectedWord": "congestion"
     }
    }
   },
@@ -998,46 +1012,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CONCORDAT",
      "indicators": [
       {
-       "text": "as plane's new base",
-       "note": "a new base replaces the old foot, so the last letter is swapped out"
+       "text": "to use",
+       "at": 10,
+       "note": "to use one thing as another means to put it in that role, swapping it in"
+      },
+      {
+       "text": "as",
+       "at": 31,
+       "note": "as names the role the airport letters fill"
+      },
+      {
+       "text": "new base",
+       "at": 42,
+       "note": "new base means the bottom letter of this down entry is replaced"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "plane's",
+       "at": 34,
+       "gives": "CONCORDE",
+       "note": "Concorde was the Anglo-French supersonic airliner"
+      },
+      {
+       "gives": "E",
+       "note": "the last letter of the plane's name, its base in a down entry"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 17,
+         "note": "empty means the inside letters are removed, leaving the first and last"
+        }
+       ],
        "parts": [
         {
-         "words": "plane",
-         "gives": "CONCORD",
-         "note": "Concorde, the supersonic airliner, minus its final E"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "an empty container has no contents, so only its outer letters remain"
-          }
-         ],
-         "parts": [
-          {
-           "words": "airport",
-           "note": "first and last letters"
-          }
-         ]
+         "words": "airport",
+         "at": 23,
+         "note": "the word airport, of which only its outside letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deal letting an aircraft move its home to a deserted airfield.",
-     "walkthrough": "The base of a down word is its last letter: Concorde's final E is swapped for AT.",
-     "definitionFit": "A concordat is a formal agreement or treaty, especially one between the Vatican and a government."
+     "surface": "A deal to put a disused airfield to work as the home base for an aircraft.",
+     "walkthrough": "'Empty' airport gives AT; the clue says 'to use' it 'as' the plane's 'new base', so AT replaces the E at the bottom of CONCORDE in this down entry.",
+     "definitionFit": "A concordat is a formal agreement or treaty, especially one between the Vatican and a state."
     },
     "features": {
      "answerInScene": false,
