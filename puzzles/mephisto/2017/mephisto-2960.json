@@ -1654,34 +1654,35 @@
        "indicators": [
         {
          "text": "reported",
-         "note": "reported means passed on by word of mouth, so it is the sound that counts"
+         "at": 10,
+         "note": "something reported is told by word of mouth, so we want a word that sounds like the synonym"
         }
        ],
        "parts": [
         {
          "words": "Agitation",
+         "at": 0,
          "gives": "SHAKE",
-         "note": "a shake is a jolt of agitation"
+         "note": "a shake is a bout of agitation or shaking"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "DO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a four-letter name keeps its first two letters"
+         "at": 20,
+         "note": "only half the word is kept, so its second pair of letters is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Doha",
-         "gives": "DO",
-         "select": "first",
-         "note": "the first half of the city name"
+         "at": 28
+        },
+        {
+         "gives": "HA"
         }
        ]
       },
@@ -1690,27 +1691,28 @@
        "indicators": [
         {
          "text": "beginning to",
+         "at": 33,
          "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "march",
-         "note": "first letter"
+         "at": 46
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disturbance is reported as people start to march in the Qatari capital.",
-     "walkthrough": "Doha is the capital of Qatar, which sits in the surface as a decoy.",
-     "definitionFit": "Qatar is an Arab state ruled by an emir, and a territory ruled by an Arab chief is this kind of domain."
+     "surface": "Unrest is reported in Qatar, beginning in the capital Doha with a march.",
+     "walkthrough": "Doha is Qatar's capital, which makes the clue feel like a news item; SHAKE and SHEIKH sound alike.",
+     "definitionFit": "Qatar is ruled by an emir from the Al Thani family, and is an example of a territory under an Arab ruler."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Doha"
+     "misdirectedWord": "march"
     }
    }
   },

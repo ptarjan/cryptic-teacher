@@ -46,40 +46,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "tossed",
-       "note": "TO BE is thrown about into a new order"
+       "text": "entering",
+       "at": 5,
+       "note": "something entering goes inside, so the synonym for only goes into the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "entering"
+         "text": "tossed",
+         "at": 20,
+         "note": "tossed as in a salad, mixed up so the letters move"
         }
        ],
        "parts": [
         {
-         "words": "Only",
-         "gives": "SOLE",
-         "note": "sole = only, as in 'the sole survivor'"
-        },
-        {
-         "words": "to be tossed",
-         "gives": "OBTE",
-         "note": "TO BE rearranged, split around the next piece"
+         "words": "to be",
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "Only",
+       "at": 0,
+       "gives": "SOLE",
+       "note": "sole means only, as in the sole survivor"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody is only let in to be thrown straight back out.",
-     "walkthrough": "'Tossed out' reads as one phrase; split it, and 'out' alone is the definition, in the sense of out of date.",
-     "definitionFit": "Something obsolete is out, no longer in use or in fashion."
+     "surface": "Someone thrown out the moment they come in.",
+     "walkthrough": "'tossed out' reads as one phrase, but 'tossed' is the anagram signal and 'out' is the definition.",
+     "definitionFit": "Obsolete describes something no longer in use, out of date, as in 'that fashion is out'."
     },
     "features": {
      "answerInScene": false,
@@ -396,41 +399,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
-      },
-      {
-       "text": "beheaded",
-       "note": "the first letter of BOSS is cut off"
+       "text": "about",
+       "at": 5,
+       "note": "about means around, so the talk wraps the other letters"
       }
      ],
      "parts": [
       {
        "words": "Talk",
+       "at": 0,
        "gives": "CONFER",
-       "note": "to confer is to talk things over"
+       "note": "to confer is to talk"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "revolutionary",
-         "note": "a revolution turns BOSS round"
+         "at": 11,
+         "note": "a revolution turns something round, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "leader beheaded",
-         "gives": "OSS",
-         "note": "BOSS = leader, minus its B"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "beheaded",
+           "at": 32,
+           "note": "losing its head means the first letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leader",
+           "at": 25,
+           "gives": "BOSS",
+           "note": "a boss is a leader"
+          },
+          {
+           "gives": "B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beheaded revolutionary is discussed as if in place of King Edward.",
-     "walkthrough": "'Revolutionary leader' reads as Lenin or Castro; it is a boss turned round. Edward the Confessor was the English king who founded Westminster Abbey.",
-     "definitionFit": "Edward the Confessor is one confessor; the question mark marks the example."
+     "surface": "Talk of a revolutionary leader losing his head, as kings once did.",
+     "walkthrough": "OSS (boss without its head) runs backwards to SSO. Edward the Confessor was an English king, so the question mark marks a definition by example.",
+     "definitionFit": "Edward the Confessor, the pious Anglo-Saxon king, is one named for this religious title."
     },
     "features": {
      "answerInScene": true,
@@ -573,42 +592,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "West Ham's",
-       "note": "said the East End way, 'West 'Am', dropping the H"
+       "text": "about",
+       "at": 28,
+       "note": "about means around, so the first piece goes round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about"
+         "text": "West Ham's",
+         "at": 0,
+         "note": "a West Ham (East London Cockney) speaker drops the initial H"
         }
        ],
        "parts": [
         {
          "words": "unable to decide",
-         "gives": "UNG",
-         "note": "a HUNG jury cannot decide; West Ham drops the H"
+         "at": 11,
+         "gives": "HUNG",
+         "note": "a hung jury is one unable to decide"
         },
         {
-         "words": "the German",
-         "gives": "DER",
-         "note": "der = the, in German"
+         "gives": "H"
         }
        ]
       },
       {
-       "words": "substitute",
-       "gives": "STANDIN",
-       "note": "a stand-in is a substitute"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the German",
+         "at": 34,
+         "gives": "DER",
+         "note": "der is a German word for the"
+        },
+        {
+         "words": "substitute's",
+         "at": 45,
+         "gives": "STANDIN",
+         "note": "a stand-in is a substitute"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "West Ham cannot make up their minds about the German stand-in's transfer deal.",
-     "walkthrough": "West Ham is in the East End of London, where the H is traditionally dropped; that is the only job the club does here.",
-     "definitionFit": "A plain synonym in the sense of an arrangement agreed between two parties, often unwritten."
+     "surface": "A football club's indecision over a German substitute's contract.",
+     "walkthrough": "West Ham is an East London football club, and its Cockney fans traditionally drop their H's; 'deal' is the definition, not the transfer the surface suggests.",
+     "definitionFit": "An understanding is an informal agreement, the same as a deal struck between two parties."
     },
     "features": {
      "answerInScene": true,
@@ -803,45 +836,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "returning",
-       "note": "men returning go back the way they came, so their letters are read backwards"
-      }
-     ],
      "parts": [
       {
        "words": "assembled",
+       "at": 19,
        "gives": "MET",
-       "note": "met = came together"
+       "note": "people who met assembled together"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "POLISH loses its last letter"
+         "text": "returning",
+         "at": 33,
+         "note": "returning means going back, so the letters run backwards"
         }
        ],
        "parts": [
         {
          "words": "men",
+         "at": 29,
          "gives": "OR",
-         "note": "OR = other ranks, ordinary soldiers"
+         "note": "OR (other ranks) is the military abbreviation for ordinary soldiers, men"
         }
        ]
       },
       {
-       "words": "from European country",
-       "gives": "POLIS",
-       "note": "POLISH = from Poland, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 43,
+         "note": "cut short, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "from European country",
+         "at": 51,
+         "gives": "POLISH",
+         "note": "Polish means from Poland"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Reporters in Kent describe men coming home from a European country.",
-     "walkthrough": "Kent is not the English county but Clark Kent, Superman, who is a reporter on the Daily Planet in Metropolis.",
-     "definitionFit": "Clark Kent works as a reporter in Metropolis."
+     "surface": "Something gathered from people coming back from abroad, a news report from the county of Kent.",
+     "walkthrough": "Kent is Clark Kent, Superman's alter ego, a reporter at the Daily Planet; it is not the English county.",
+     "definitionFit": "Metropolis is the fictional city where Clark Kent works as a newspaper reporter in the Superman stories."
     },
     "features": {
      "answerInScene": false,
@@ -1085,64 +1131,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "securing"
+       "text": "securing",
+       "at": 14,
+       "note": "to secure something is to hold it fast, so the old lady's letters hold the rest"
       }
      ],
      "parts": [
       {
+       "words": "old lady",
+       "at": 5,
+       "gives": "MUM",
+       "note": "mum is a familiar term for mother, an old lady"
+      },
+      {
        "op": "reversal",
        "indicators": [
         {
-         "text": "backing"
+         "text": "backing",
+         "at": 44,
+         "note": "backing means going backwards, so the joined pieces are read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "old lady",
-             "gives": "MUM",
-             "note": "one's old lady = mother"
-            },
-            {
-             "words": "make-up",
-             "gives": "DNA",
-             "note": "DNA is your genetic make-up"
-            }
-           ]
+           "words": "make-up",
+           "at": 23,
+           "gives": "DNA",
+           "note": "DNA is genetic make-up"
           },
           {
            "words": "capital",
+           "at": 36,
            "gives": "ROME",
-           "note": "the capital of Italy"
+           "note": "Rome is the capital of Italy"
           }
          ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "with",
-       "note": "joins the two pieces that go inside"
       }
      ]
     },
     "explanation": {
-     "surface": "A note from an old woman who has invested in cosmetics with a backer's money.",
-     "walkthrough": "'Make-up' is genetic, not cosmetic, and 'capital' is a city rather than money.",
-     "definitionFit": "A plain synonym: the office memo is a short written message, a note in the sense of jotted reminder."
+     "surface": "A note from an old woman holding her make-up, backed by money.",
+     "walkthrough": "'make-up' looks like cosmetics and 'capital' like money; the first is genetic make-up and the second a capital city, and 'backing' turns both round together.",
+     "definitionFit": "A memorandum is a written note or memo, a reminder or brief message."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "make-up"
+     "misdirectedWord": "capital"
     }
    }
   },

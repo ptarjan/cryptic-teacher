@@ -211,7 +211,13 @@
      "indicators": [
       {
        "text": "introducing",
-       "note": "the leader introduces the plan, so the plan comes straight after it"
+       "at": 13,
+       "note": "something introducing another comes ahead of it"
+      },
+      {
+       "text": "to link with",
+       "at": 30,
+       "note": "linking with means joining on, so the next pieces follow"
       }
      ],
      "parts": [
@@ -220,43 +226,45 @@
        "indicators": [
         {
          "text": "Leader of",
-         "note": "a leader goes in front, so only the opening letter of the bloc's initials is taken"
+         "at": 0,
+         "note": "the leader of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Leader of EU",
-         "gives": "EU",
-         "note": "the first letter of EU"
+         "words": "EU",
+         "at": 10
         }
        ]
       },
       {
        "words": "plan",
+       "at": 25,
        "gives": "SPEC",
-       "note": "spec, short for specification, is a plan or design"
+       "note": "a spec (specification) is a plan"
       },
       {
        "words": "India",
+       "at": 43,
        "gives": "I",
-       "note": "India is I in the NATO phonetic alphabet"
+       "note": "I is India in the NATO phonetic alphabet"
       },
       {
        "words": "China",
+       "at": 53,
        "gives": "ALLY",
-       "note": "china plate is rhyming slang for mate, and a mate is an ally"
+       "note": "china is rhyming slang for mate (china plate), and an ally is a mate"
       }
      ]
     },
     "explanation": {
-     "surface": "The head of the European Union unveils a scheme to build ties with two Asian powers.",
-     "walkthrough": "China here is not the country: in Cockney rhyming slang 'china plate' means mate, so a china is a friend or ally.",
-     "definitionFit": "Both are adverbs singling out one item above the others, so they are straightforward synonyms."
+     "surface": "The EU chief brings in a plan to tie up with India and China especially.",
+     "walkthrough": "China is not the country: in Cockney rhyming slang 'china plate' means mate, a friend, so it gives ALLY.",
+     "definitionFit": "Especially means particularly or above all, an exact equivalent of in particular."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "China"
     }
    }
@@ -283,44 +291,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OMITTED",
      "indicators": [
       {
        "text": "scoffed by",
-       "note": "food scoffed by an animal ends up inside it, so the rabbit swallows the pud"
+       "at": 13,
+       "note": "something scoffed is eaten, taken inside the eater, so the hand goes into the rabbit"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "OMITTED",
        "indicators": [
         {
          "text": "with head down",
-         "note": "in a down entry the head is the top, so the rabbit's first letter drops to the bottom"
+         "at": 31,
+         "note": "the head of the word moves down to the bottom, so its first letter goes to the end"
         }
        ],
        "parts": [
         {
          "words": "rabbit",
+         "at": 24,
          "gives": "DOE",
          "note": "a doe is a female rabbit"
-        },
-        {
-         "words": "pud",
-         "gives": "MITT",
-         "note": "pud is an old word for a hand or paw, and so is mitt"
         }
        ]
+      },
+      {
+       "words": "pud",
+       "at": 9,
+       "gives": "MITT",
+       "note": "pud is an informal word for a hand, and so is mitt"
       }
      ]
     },
     "explanation": {
-     "surface": "A rabbit gobbles a pudding that was left out, then hangs its head.",
-     "walkthrough": "Pud looks like pudding, but it is an old dialect word for a hand or paw. In a down entry the head is the top letter, so dropping it moves it to the bottom.",
-     "definitionFit": "Something omitted has been missed out or excluded, a plain synonym of the past participle phrase."
+     "surface": "A pudding wolfed down by a rabbit with its head lowered, leaving none.",
+     "walkthrough": "'pud' suggests pudding but is a childish word for a hand; 'with head down' sends the rabbit's first letter to the bottom of this down entry.",
+     "definitionFit": "Omitted means left out or not included."
     },
     "features": {
      "answerInScene": false,
@@ -610,40 +618,39 @@
      "indicators": [
       {
        "text": "is resolved",
-       "note": "to resolve something is to break it down and reorganise it, so the letters are reworked"
+       "at": 58,
+       "note": "resolved here means broken down and reassembled, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "option",
-       "note": "anagram fodder"
+       "at": 26
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "MOT",
+       "op": "deletion",
        "indicators": [
         {
          "text": "only half of",
-         "note": "keeping only half of a six-letter word leaves its front three letters"
+         "at": 38,
+         "note": "only half the word is kept, so its last three letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "only half of motion",
-         "gives": "MOT",
-         "select": "first",
-         "note": "the first half of the six-letter word motion"
+         "words": "motion",
+         "at": 51
+        },
+        {
+         "gives": "ION"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A committee debates whether a half-passed motion counts as settled.",
-     "walkthrough": "The meeting-room vocabulary of option, motion and resolved keeps the reader thinking of procedure rather than letters.",
-     "definitionFit": "A question still open to debate, with no settled conclusion, is exactly what people call this phrase."
+     "surface": "A debating question: whether an option tabled with half a motion counts as resolved.",
+     "definitionFit": "A moot point is a question open to debate, something still unsettled."
     },
     "features": {
      "answerInScene": true,
