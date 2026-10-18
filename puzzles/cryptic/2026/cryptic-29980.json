@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -53,35 +54,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
-         "text": "First of",
-         "note": "Asking for the first of something takes only the letter standing at the front of the word that follows."
+         "text": "First of the",
+         "at": 0,
+         "note": "first of the means only the opening letter of chickens is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the chickens",
-         "gives": "C",
-         "select": "first",
-         "note": "the letter the bird's name opens with"
+         "words": "chickens",
+         "at": 13,
+         "note": "the first letter of chickens"
         }
        ]
       },
       {
        "words": "moulting",
+       "at": 22,
        "gives": "LOSINGDOWN",
-       "note": "a moulting bird is shedding the soft feathers underneath, so it is losing its down"
+       "note": "a moulting bird is losing its down, the soft fluffy feathers"
       }
      ]
     },
     "explanation": {
-     "surface": "Hens shedding their feathers while the evening's television programmes come to an end.",
-     "walkthrough": "'Moulting' looks like an instruction to shuffle letters and is a plain synonym instead. 'Once' points at the years when British channels shut for the night rather than running on until dawn.",
-     "definitionFit": "Closing down is what a channel does when its programmes stop for the night, from the era when broadcasting ended before midnight."
+     "surface": "The leading hen of the flock is shedding her feathers.",
+     "walkthrough": "'Once' matters: British TV channels used to go off air each night with a closedown announcement, which no longer happens now that broadcasting runs round the clock.",
+     "definitionFit": "Closing down was the term for a broadcaster ending its transmissions for the night, a routine of the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "programmes"
     }
    }
   },
@@ -281,62 +285,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORCADIAN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "love",
+       "at": 11,
+       "gives": "O",
+       "note": "love means nil in tennis scoring, which looks like the letter O"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "lacks",
-         "note": "What a word lacks is missing from it, so the letter named next never gets written down."
+         "at": 33,
+         "note": "lacks means the pastoral word goes without that opening letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "of pastoral life",
+         "at": 16,
+         "gives": "ARCADIAN",
+         "note": "Arcadian means of idyllic rural life, after Arcadia in Greece"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
            "text": "initial",
-           "note": "'Initial' picks out the letter a word starts with, here to say which single letter is the one to go."
+           "at": 39,
+           "note": "initial means the opening letter of attractiveness only"
           }
          ],
          "parts": [
           {
-           "words": "love",
-           "gives": "O",
-           "note": "love is nothing on a tennis scoreboard, and nothing is written as a nought"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "RCADIAN",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "of pastoral life",
-             "gives": "RCADIAN",
-             "select": "first",
-             "note": "Arcadian means belonging to an idealised country life, and it arrives here short of its opening letter"
-            }
-           ]
+           "words": "attractiveness",
+           "at": 47,
+           "note": "the first letter of attractiveness"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "attractiveness",
-         "note": "the A that this word begins with is the letter taken away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An islander whose fondness for the simple country life does not look appealing to begin with.",
-     "walkthrough": "Arcadia was a mountainous district of Greece that poets turned into shorthand for shepherds and simplicity, so 'pastoral life' is doing the work of a place name here.",
-     "definitionFit": "An Orcadian is a native of Orkney, the islands off the north coast of Scotland, so 'islander' names the person by where they come from."
+     "surface": "A man of the islands loves the country life but lacks charm.",
+     "walkthrough": "ARCADIAN 'lacks' A, the 'initial' of attractiveness, giving RCADIAN to follow O. The Orkney Islands lie off the north of Scotland; their Latin name was Orcades. The 's is a link meaning 'is'.",
+     "definitionFit": "An Orcadian is a native of Orkney, the Scottish archipelago, so he is a particular islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
     }
    }
   },
@@ -418,47 +420,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PHILADELPHIAN",
-     "indicators": [
-      {
-       "text": "questionable",
-       "note": "Something questionable is not to be taken as it stands, and neither is the printed order of the four letters beside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Letter",
+       "at": 0,
+       "gives": "PHI",
+       "note": "phi is a letter of the Greek alphabet"
+      },
+      {
+       "words": "boy",
+       "at": 10,
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "questionable",
+         "at": 14,
+         "note": "questionable means the letters of help are doubtful as they stand and are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Letter",
-         "gives": "PHI",
-         "note": "phi is a letter of the Greek alphabet, the one that gives us physics and philosophy"
-        },
-        {
-         "words": "boy",
-         "gives": "LAD",
-         "note": "a lad is a boy"
-        },
-        {
          "words": "help",
-         "gives": "ELPH",
-         "note": "the same four letters in another order"
-        },
-        {
-         "words": "Botham",
-         "gives": "IAN",
-         "note": "Ian Botham, England's great cricket all-rounder, hands over his first name"
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "Botham",
+       "at": 40,
+       "gives": "IAN",
+       "note": "Ian Botham is a famous English cricketer"
       }
      ]
     },
     "explanation": {
-     "surface": "Dubious assistance with a letter to a boy, somehow involving a famous cricketer.",
-     "walkthrough": "Greek letters are the crossword's spare alphabet — phi, chi, psi, eta — so 'Letter' asks for one of those rather than for something posted, and a surname alone is enough to summon a forename.",
-     "definitionFit": "Someone from Philadelphia is a US citizen, so the definition works by example: one city's residents standing in for Americans at large."
+     "surface": "A note sent to a lad asks for dubious assistance in getting the cricketer Botham.",
+     "walkthrough": "'Questionable' rearranges HELP as ELPH. Ian Botham was an England all-rounder in cricket.",
+     "definitionFit": "A Philadelphian is someone from Philadelphia, the city in Pennsylvania, so an American citizen of a particular place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
     }
    }
   },
@@ -649,63 +657,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LUTHERANS",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "reform",
+       "at": 19,
+       "note": "reform means the pooled letters are shaped anew into a different order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "reform",
-         "note": "To re-form a thing is to form it again in a different shape, which is what happens to the letters it governs."
+         "text": "most of",
+         "at": 26,
+         "note": "most of means the word unearthly loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "most of",
-           "note": "Most of a word is all of it bar the end, so its final letter is left behind before anything else happens."
-          }
-         ],
-         "parts": [
-          {
-           "words": "most of unearthly",
-           "gives": "UNEARTHL",
-           "note": "eight of that word's nine letters, the tail one dropped"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "S",
-           "indicators": [
-            {
-             "text": "ultimately",
-             "note": "'Ultimately' points at the very end of the word before it, meaning its last letter and nothing more."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "beliefs ultimately",
-             "gives": "S",
-             "select": "last",
-             "note": "the letter that word finishes on"
-            }
-           ]
-          }
-         ]
+         "words": "unearthly",
+         "at": 34
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 52,
+         "note": "ultimately means only the last letter of beliefs"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beliefs",
+         "at": 44,
+         "note": "the last letter of beliefs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A congregation finally overhauling most of its unearthly doctrine.",
-     "walkthrough": "'Reform' is the joke as well as the instruction: the Martin whose followers these are set the Reformation going, and only a first name is needed to name him.",
-     "definitionFit": "Martin Luther's followers are the members of the Protestant church founded on his teaching, so the plural definition names the people rather than the creed."
+     "surface": "A call to overhaul strange spiritual creeds in the end.",
+     "walkthrough": "'Most of' UNEARTHLY is UNEARTHL; add S, 'ultimately' from beliefs, and 'reform' rearranges the lot. 'Reform' also nods to the Reformation that Martin Luther began.",
+     "definitionFit": "Lutherans are members of the Protestant church founded on the teaching of Martin Luther."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reform"
     }
    }
   },
@@ -875,37 +883,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THANKSTO",
-     "indicators": [
-      {
-       "text": "cuts",
-       "note": "To cut a word is to shorten it, and this one does the job twice over, on the name in front of it and on the word after."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "F. Gump actor",
+       "at": 0,
+       "gives": "THANKS",
+       "note": "Forrest Gump was played by Tom Hanks, written here in the same initial-plus-surname style as F. Gump: T. Hanks"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cuts",
+         "at": 14,
+         "note": "cuts means the word toe is clipped, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "F. Gump actor",
-         "gives": "THANKS",
-         "note": "Tom Hanks played Forrest Gump, and the forename is cut back to its initial in front of the surname"
+         "words": "toe",
+         "at": 19
         },
         {
-         "words": "toe",
-         "gives": "TO",
-         "note": "the same knife takes the last letter off the toe"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody explaining how the star of Forrest Gump came to cut his toe, then trailing off.",
-     "walkthrough": "'Cuts toe' reads as an accident in the surface and is a pair of instructions underneath. The trailing dots leave the sentence hanging, which is how a definition that normally opens a phrase can sit at the end of one.",
-     "definitionFit": "Thanks to something is because of it — the phrase works for a cause of good fortune and, just as often, ironically for the cause of a mishap."
+     "surface": "The star of Forrest Gump injures his foot, and the question is why.",
+     "walkthrough": "'F. Gump' shortens Forrest to an initial, telling you to write the actor the same way, T. HANKS; then 'cuts' trims TOE to TO.",
+     "definitionFit": "Thanks to is an idiom meaning owing to or as a result of, used to give the cause of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
     }
    }
   },
@@ -1315,37 +1330,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOSCORE",
-     "indicators": [
-      {
-       "text": "reflection",
-       "note": "A reflection shows a thing the other way round, so the two letters in front of it are written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflection",
+         "at": 9,
+         "note": "on reflection means the word on is seen as in a mirror, back to front"
+        }
+       ],
        "parts": [
         {
          "words": "On",
-         "gives": "NO",
-         "note": "two letters taken as printed, then turned round"
-        },
-        {
-         "words": "20",
-         "gives": "SCORE",
-         "note": "a score is twenty, as in three score years and ten"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "20",
+       "at": 21,
+       "gives": "SCORE",
+       "note": "a score is twenty"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody thinking again and settling on the number twenty.",
-     "walkthrough": "'20' looks like a cross-reference to the clue numbered 20 and is the plain number instead. A duck in cricket is a batter dismissed without troubling the scorers, named after the duck's egg a nought resembles.",
-     "definitionFit": "Duck is cricket's word for an innings that ends without a single run, so it is precisely a nought on the scoreboard."
+     "surface": "A curt instruction to take cover, followed by a moment of thought about the number twenty.",
+     "walkthrough": "In cricket, a duck is a batsman's dismissal without scoring a run. 'On reflection' reads ON backwards, giving NO, and 20 is a SCORE.",
+     "definitionFit": "A batsman out for a duck has made zero runs, recorded as nothing scored."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
     }
    }
   },

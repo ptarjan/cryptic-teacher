@@ -1110,59 +1110,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEWZEALANDER",
-     "indicators": [
-      {
-       "text": "madly",
-       "note": "acting madly is acting wildly and without order, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NEWZEALANDER",
+       "words": "fresh",
+       "at": 16,
+       "gives": "NEW",
+       "note": "fresh means new"
+      },
+      {
+       "words": "passion",
+       "at": 22,
+       "gives": "ZEAL",
+       "note": "passion means zeal, fervent enthusiasm"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "losing",
-         "note": "losing something means it goes missing, so a letter drops out of the word"
+         "text": "madly",
+         "at": 37,
+         "note": "madly means the remaining letters are thrown into a wild new order"
         }
        ],
        "parts": [
         {
-         "words": "fresh",
-         "gives": "NEW",
-         "note": "fresh means new"
-        },
-        {
-         "words": "passion",
-         "gives": "ZEAL",
-         "note": "zeal is fervent passion"
-        },
-        {
-         "words": "ranted",
-         "note": "taken as written"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time; this letter is removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing",
+           "at": 44,
+           "note": "losing means the time letter is dropped from the word ranted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ranted",
+           "at": 30
+          },
+          {
+           "words": "time",
+           "at": 51,
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Australian or Kiwi rants wildly with renewed fervour, running out of time.",
-     "walkthrough": "Antipodean means from Australia or New Zealand; take T out of RANTED and mix the five letters left.",
-     "definitionFit": "The Antipodes are the lands on the opposite side of the globe from Britain, chiefly Australia and its Pacific neighbour, so a Kiwi qualifies."
+     "surface": "Someone from down under ranted wildly with fresh passion, running out of time.",
+     "walkthrough": "'Losing' T (time) from RANTED leaves RANED, and 'madly' rearranges that into ANDER to follow NEW and ZEAL.",
+     "definitionFit": "Antipodean describes someone from Australia or New Zealand, on the far side of the globe from Britain, so a Kiwi is an example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "time"
+     "misdirectedWord": "passion"
     }
    }
   },

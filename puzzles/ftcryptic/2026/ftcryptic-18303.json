@@ -710,43 +710,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MYSTERIOUS",
      "indicators": [
       {
        "text": "hiding",
-       "note": "to hide something you keep it inside, so these letters go within the others"
+       "at": 26,
+       "note": "hiding means the setter's word and the promises enclose the shortened severe word between them"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Monk's",
+         "at": 0,
+         "gives": "MY",
+         "note": "Monk is the setter, so Monk's means the setter's own: my"
+        },
+        {
+         "words": "financial promises",
+         "at": 7,
+         "gives": "IOUS",
+         "note": "IOUs, written as I owe you, are promises to pay a debt"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "mostly means not quite all, so the final letter is lost"
+         "at": 33,
+         "note": "mostly means the severe word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Monk's",
-           "gives": "MY",
-           "note": "Monk is the setter's pseudonym, so the setter's own is the first-person possessive"
-          },
-          {
-           "words": "severe",
-           "gives": "STERN",
-           "note": "stern means severe or strict"
-          },
-          {
-           "words": "financial promises",
-           "gives": "IOUS",
-           "note": "IOUs are written promises to pay a debt"
-          }
-         ]
+         "words": "severe",
+         "at": 40,
+         "gives": "STERN",
+         "note": "severe means stern"
         },
         {
          "gives": "N"
@@ -756,12 +759,12 @@
      ]
     },
     "explanation": {
-     "surface": "A monk's promises to pay conceal a harsh hidden truth.",
-     "walkthrough": "Monk is the name of this crossword's setter, so 'Monk's' means the setter's own. The two outer pieces enclose the shortened severe word.",
-     "definitionFit": "Secret as an adjective can describe something hidden or obscure, and mysterious likewise means unexplained or not understood."
+     "surface": "A monastic brother's IOUs conceal something harsh and shameful.",
+     "walkthrough": "Monk is this puzzle's setter, so 'Monk's' is MY. 'Mostly' trims STERN to STER, which MY and IOUS are 'hiding' at their join.",
+     "definitionFit": "Something mysterious is hidden or unexplained, which is close to secret in the sense of not known or seen."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Monk's"
     }
