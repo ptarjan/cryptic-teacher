@@ -798,8 +798,7 @@
     "definitions": [
      {
       "text": "Nana",
-      "at": 0,
-      "note": "nana is British slang for a silly person, a fool"
+      "at": 0
      }
     ],
     "wordplay": {
@@ -807,58 +806,53 @@
      "parts": [
       {
        "gives": "P",
-       "note": "ignored: part of P-P-PICK UP on the left edge"
+       "note": "an ignored letter, the start of the PICK UP column of the theme"
       },
       {
        "gives": "E",
-       "note": "ignored: a letter of EMPEROR, the penguin running down this column"
+       "note": "an ignored letter, part of the down penguin EMPEROR"
       },
       {
-       "op": "container",
+       "op": "substitution",
        "parts": [
         {
-         "op": "container",
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "undressed",
+           "at": 5,
+           "note": "undressed means stripped of outer layers, so the girl's name loses its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "op": "middle",
-           "indicators": [
-            {
-             "text": "undressed",
-             "at": 5,
-             "note": "undressed strips the outer layer, so the first and last letters come off"
-            }
-           ],
-           "parts": [
-            {
-             "words": "a girl I've just met",
-             "at": 15,
-             "gives": "MARIA",
-             "note": "from West Side Story: 'I've just met a girl named Maria'"
-            }
-           ]
-          },
-          {
-           "gives": "B",
-           "note": "ignored: a letter of HUMBOLDT, the penguin running down this column"
+           "words": "a girl I've just met",
+           "at": 15,
+           "gives": "MARIA",
+           "note": "from the West Side Story song 'Maria': 'I've just met a girl named Maria'"
           }
          ]
         },
         {
-         "gives": "A",
-         "note": "ignored: a letter of SNARES, the penguin running down this column"
+         "gives": "R",
+         "note": "the preamble's ignored letters B and A sit around this letter in the grid"
+        },
+        {
+         "gives": "BRA",
+         "note": "the ignored themed letters B and A from the grid wrap this letter; they are not clued"
         }
        ]
       },
       {
        "gives": "N",
-       "note": "ignored: a letter of GENTOO, the penguin running down this column"
+       "note": "an ignored letter, part of the down penguin GENTOO"
       }
      ]
     },
     "explanation": {
-     "surface": "Grandma has stripped off in front of a young woman just introduced.",
-     "walkthrough": "Nana looks like a granny but means a fool. Only A, R and I come from the wordplay; every other letter sits in a themed line.",
-     "definitionFit": "In British slang a nana is a fool, and a pea-brain is someone of very little intelligence."
+     "surface": "A cheeky grandmother strips off in front of a girl she has only just been introduced to.",
+     "walkthrough": "Only ARI comes from the wordplay: MARIA undressed. Per the preamble P, E, B, A and N are ignored; they are themed letters (PICK UP, EMPEROR, HUMBOLDT, SNARES, GENTOO) that the wordplay never supplies.",
+     "definitionFit": "Nana is informal British and Australian slang for a silly person, a fool, just as pea-brain is."
     },
     "features": {
      "answerInScene": false,
@@ -1683,8 +1677,12 @@
      "op": "charade",
      "parts": [
       {
-       "gives": "OO",
-       "note": "ignored: the end of GENTOO, which began above the black squares in 9"
+       "gives": "O",
+       "note": "an ignored letter: the end of the down penguin GENTOO, not clued"
+      },
+      {
+       "gives": "O",
+       "note": "the second ignored letter, also part of the themed penguin GENTOO"
       },
       {
        "op": "reversal",
@@ -1692,42 +1690,24 @@
         {
          "text": "Up",
          "at": 0,
-         "note": "in a down entry, up means read from the bottom, so the letters reverse"
+         "note": "in a down answer, up means the hidden letters are read from bottom to top, backwards"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "at": 3,
-           "note": "in signals letters lying within the run of words, here the tail of one and the head of the next"
-          }
-         ],
          "parts": [
           {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "Riverside",
-             "at": 6,
-             "note": "only the last two letters of Riverside are kept"
-            },
-            {
-             "gives": "RIVERSI"
-            }
-           ]
+           "words": "in Riverside,",
+           "at": 3,
+           "gives": "DE",
+           "note": "the letters in the closing part of Riverside: its last two start the run of letters that the clue tucks across the word break"
           },
           {
-           "op": "first",
-           "parts": [
-            {
-             "words": "Zinfandel",
-             "at": 17,
-             "note": "the first letter of Zinfandel"
-            }
-           ]
+           "words": "Zinfandel",
+           "at": 17,
+           "gives": "Z",
+           "note": "its opening letter completes the three-letter run straddling the two words"
           }
          ]
         }
@@ -1736,13 +1716,14 @@
      ]
     },
     "explanation": {
-     "surface": "Wine spilled out on the riverbank.",
-     "walkthrough": "Only the last three letters come from the wordplay.",
-     "definitionFit": "To ooze is to flow slowly, seeping out."
+     "surface": "A wine merchant's note: up in a riverside town, the Zinfandel flowed freely.",
+     "walkthrough": "'in' points to the run DEZ sitting inside 'riversiDE Zinfandel'; 'Up' turns it to ZED. Per the preamble the first two letters OO are ignored; they finish GENTOO, the penguin running down this column through AGENT.",
+     "definitionFit": "To ooze is to seep or trickle slowly out, so oozed is a past-tense synonym for a liquid having flowed."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Up"
     }
    }
   },
