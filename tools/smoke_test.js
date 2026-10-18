@@ -3331,35 +3331,20 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // tracked field rather than a sentence somebody might remember to write, so
   // drive every sound clue there is and check it reaches the page.
   {
-    const plainSpoonerism = (ann) => {
-      if ((ann.type || []).includes("homophone")) return false;
-      const found = [];
-      const nodes = [ann.wordplay];
-      while (nodes.length) {
-        const n = nodes.pop();
-        if (n && typeof n === "object") {
-          if (n.op === "spoonerism") found.push(n);
-          nodes.push(...(n.parts || []));
-        }
-      }
-      return found.length > 0 && !found.some((n) => "spelt" in n);
-    };
+    // Whether a sound clue must carry a soundsLike at all (a plain spoonerism need
+    // not) is the validator's rule, validate_annotations.check_sound_names_its_source,
+    // and it gates the push; this only checks that the ones that do carry one show it.
     const sound = [];
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const t = (e.annotation || {}).type || [];
-        if (t.includes("homophone") || t.includes("spoonerism")) sound.push({ id, e });
+        if ((t.includes("homophone") || t.includes("spoonerism"))
+            && (e.annotation.blocks || []).some((b) => b.soundsLike)) sound.push({ id, e });
       }
     }
     assert(enough(sound.length, 20), "the corpus still has sound clues to check: " + sound.length);
     for (const s of sound) {
       const heard = (s.e.annotation.blocks || []).filter((b) => b.soundsLike);
-      // Mirrors plain_spoonerism in validate_annotations.py: a clue whose only
-      // sound is spoon(a, b) swaps the onsets of two spelt words, so there is no
-      // heard word to carry and the validator asks for no soundsLike.
-      if (!heard.length && plainSpoonerism(s.e.annotation)) continue;
-      assert(heard.length,
-        `${s.id} ${entryId(s.e)}: type ${s.e.annotation.type} but no block says what is said aloud`);
       openClue(s);
       // Climb until the blocks rung has been bought.
       let html = "";
