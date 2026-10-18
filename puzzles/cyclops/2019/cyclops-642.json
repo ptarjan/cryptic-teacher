@@ -339,41 +339,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HOOSEGOW",
-     "indicators": [
-      {
-       "text": "corrupt",
-       "note": "a corrupted word has a letter altered, so one letter is swapped for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "House",
-       "note": "taken as written"
+       "at": 23,
+       "gives": "HO"
       },
       {
-       "words": "goes",
-       "gives": "G",
-       "note": "the opening of the word, as setters loosely allow"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupt",
+         "at": 34,
+         "note": "something corrupt has been spoiled and twisted out of its proper form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "goes",
+         "at": 29,
+         "note": "the word taken as written, as letters to be jumbled"
+        }
+       ]
       },
       {
        "words": "that's a pain",
+       "at": 44,
        "gives": "OW",
-       "note": "the cry you give when something hurts"
+       "note": "ow is the cry of someone in pain"
       }
      ]
     },
     "explanation": {
-     "surface": "Fraudsters are plain to see once Parliament turns crooked, and that is painful.",
-     "walkthrough": "HOUSE G OW has its U changed to O; HOOSE is also how house sounds in Scots. 'Cons' are convicts, not swindles.",
-     "definitionFit": "A hoosegow is American slang for a jail, the place where convicts are found locked up."
+     "surface": "A Private Eye jibe: the House of Commons turning corrupt is painful, and its members belong behind bars.",
+     "walkthrough": "'House' looks like Parliament, but it only gives its abbreviation. A hoosegow is American slang for a jail.",
+     "definitionFit": "Convicts are found in a jail, and hoosegow is American slang for a prison, from Spanish juzgado, a court."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Cons"
+     "joke": "pun",
+     "misdirectedWord": "House"
     }
    }
   },
@@ -1385,42 +1392,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUSBANDRY",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "not quite complete means falling short, so a letter is dropped from the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 24,
+         "note": "the word falls just short, its last letter dropped"
+        }
+       ],
        "parts": [
         {
          "words": "old man",
-         "gives": "HUSBAN",
-         "note": "old man is slang for a husband, here missing its last letter"
+         "at": 16,
+         "gives": "HUSBAND",
+         "note": "one's old man is informal for one's husband"
         },
         {
-         "words": "on the wagon",
-         "gives": "DRY",
-         "note": "on the wagon means abstaining from alcohol"
+         "gives": "D",
+         "note": "the final letter of the spouse word, removed"
         }
        ]
+      },
+      {
+       "words": "on the wagon",
+       "at": 34,
+       "gives": "DRY",
+       "note": "someone on the wagon has given up alcohol, so is dry"
       }
      ]
     },
     "explanation": {
-     "surface": "An old man who has nearly given up drinking shows a careful attitude to money.",
-     "walkthrough": "'Not quite' looks like it qualifies the teetotalism, but it trims the husband.",
-     "definitionFit": "Husbandry has an older sense of careful, economical management of resources, i.e. frugality."
+     "surface": "A wife notes her husband's careful saving now he has nearly stopped drinking.",
+     "walkthrough": "'Thrift' is an old sense of the answer, careful management of resources, as in the phrase 'good husbandry'.",
+     "definitionFit": "Husbandry can mean careful, economical management of money and resources, the same as frugality."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "quite"
+     "misdirectedWord": "wagon"
     }
    }
   },

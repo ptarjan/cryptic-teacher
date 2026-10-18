@@ -1223,42 +1223,70 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TORTE",
-     "indicators": [
-      {
-       "text": "its foot in",
-       "note": "the foot is the bottom letter of a word in a down clue, and in sends it inside the next piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "child",
-       "gives": "TOT",
-       "note": "a tot is a small child"
-      },
-      {
-       "op": "outer",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "on vacation",
-         "note": "on vacation means emptied out, so only the outer letters of the word stay"
+         "text": "with",
+         "at": 12,
+         "note": "the child comes with its foot detached, so that last letter is taken off to be placed elsewhere"
         }
        ],
        "parts": [
         {
-         "words": "Rhine",
-         "note": "the first and last letters of Rhine"
+         "words": "child",
+         "at": 6,
+         "gives": "TOT",
+         "note": "a tot is a small child"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 26,
+         "note": "the moved letter goes inside the river's emptied name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "at": 35,
+           "note": "a vacated word has been emptied, leaving only its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rhine",
+           "at": 29,
+           "note": "the German river, emptied to its outer letters"
+          }
+         ]
+        },
+        {
+         "words": "its foot",
+         "at": 17,
+         "gives": "T",
+         "note": "the foot of the word for child is its last letter, T, which moves away from the rest"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sweet child dipping a foot into the German river while on holiday.",
-     "walkthrough": "The child's foot is its last letter, T, which moves into the emptied river, leaving TO in front of R(T)E.",
-     "definitionFit": "A torte is a rich layered cake, a sweet in the sense of dessert."
+     "surface": "A child dangles a foot in the Rhine while on holiday.",
+     "walkthrough": "TOT is the child, 'with' its foot (its last letter T) is detached and put 'in' RE, which is Rhine 'on vacation' (emptied of its middle), leaving TO + RTE.",
+     "definitionFit": "A torte is a rich layered cake, a kind of dessert or sweet in British usage."
     },
     "features": {
      "answerInScene": false,

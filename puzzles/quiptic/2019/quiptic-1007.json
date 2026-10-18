@@ -723,47 +723,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STRAIGHTEN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the conjunction before it loses its final letter"
+       "text": "mess",
+       "at": 26,
+       "note": "the letters are made into a mess, thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "mess",
-         "note": "making a mess of something scrambles it, so the preceding letters are jumbled"
+         "text": "mostly",
+         "at": 9,
+         "note": "most of the word is kept, its final letter dropped"
         }
        ],
        "parts": [
         {
          "words": "and",
-         "gives": "AN",
-         "note": "the word without its last letter"
+         "at": 5
         },
         {
-         "words": "set right",
-         "note": "anagram fodder, eight letters"
+         "gives": "D",
+         "note": "the last letter of and, removed"
         }
        ]
+      },
+      {
+       "words": "set right",
+       "at": 16,
+       "note": "taken as written, as part of the letters to be jumbled"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent telling a child to tidy up and sort out the mess.",
-     "walkthrough": "'and' looks like a link between definition and wordplay, but it is shortened and joins the fodder. 'set right' also looks like a definition.",
-     "definitionFit": "To straighten a room is to put it in order, a synonym of tidy as a verb."
+     "surface": "An order to tidy up and put right the mess, more or less.",
+     "walkthrough": "'set right' looks like part of the definition, but it is anagram fodder with AN (most of 'and'); 'mess' is the anagram signal, a verb like 'jumble'.",
+     "definitionFit": "To straighten a room is to tidy it, putting things in order."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "and"
+     "misdirectedWord": "mess"
     }
    }
   },
@@ -1655,43 +1659,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCENERY",
+     "op": "composite",
      "indicators": [
       {
-       "text": "Not as",
-       "note": "'not' tells us to strike out the two letters of 'as' from the word before"
+       "text": "Refurbishing",
+       "at": 0,
+       "note": "refurbishing remakes something, so the letters of the long word are rebuilt in a new order"
+      },
+      {
+       "text": "Not",
+       "at": 24,
+       "note": "the letters of as are left out of the rebuilt word"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Refurbishing",
-         "note": "refurbishing reworks and reorganises, so the remaining letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "necessary",
-         "gives": "NECESRY",
-         "note": "the word with an A and an S taken out"
-        }
-       ]
+       "words": "necessary",
+       "at": 13,
+       "note": "the word whose letters are refurbished"
+      },
+      {
+       "words": "as",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether a room needs doing up, answered with a no.",
-     "walkthrough": "The question mark breaks the surface in two, hiding that 'Not as' belongs to 'necessary'.",
-     "definitionFit": "Scenery is the painted backdrop on a theatre stage, the setting behind the actors."
+     "surface": "Is redecorating really needed? No, it is just a backdrop.",
+     "walkthrough": "Take the letters A and S out of NECESSARY ('Not as'), and rearrange the remaining seven.",
+     "definitionFit": "Stage scenery is the painted backdrop behind the actors, the background to the action."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Not"
+     "misdirectedWord": "Refurbishing"
     }
    }
   }
