@@ -1080,33 +1080,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "A lot of",
-       "note": "most of HYPE: drop the last letter"
-      },
-      {
-       "text": "a lot of",
-       "note": "most of NOTICE: drop the last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "publicity",
-       "gives": "HYP",
-       "note": "HYPE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of a word, but not all of it, means its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "publicity",
+         "at": 9,
+         "gives": "HYPE",
+         "note": "hype is aggressive publicity"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "attention",
-       "gives": "NOTIC",
-       "note": "NOTICE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 23,
+         "note": "again most of the word is kept, so its final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attention",
+         "at": 32,
+         "gives": "NOTICE",
+         "note": "notice means attention, as in take notice"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Heavy press coverage and public attention can hold people spellbound.",
-     "walkthrough": "'A lot of' reads as quantity, but here it is a trimming instruction: most of the word, not much of the thing.",
-     "definitionFit": "Hypnotic means mesmerising, holding the attention as if in a trance."
+     "surface": "Heavy promotion and close scrutiny might hold someone spellbound.",
+     "walkthrough": "Each 'a lot of' trims one final E: HYPE becomes HYP and NOTICE becomes NOTIC.",
+     "definitionFit": "Something hypnotic holds people spellbound, exactly as a mesmerist's trance does."
     },
     "features": {
      "answerInScene": true,

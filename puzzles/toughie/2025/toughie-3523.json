@@ -877,39 +877,41 @@
      "indicators": [
       {
        "text": "to include",
-       "note": "to include something is to take it inside, so the work word holds the following letters"
+       "at": 10,
+       "note": "to include means the work word holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Hard work",
-         "gives": "CHORE",
-         "note": "a chore is a tedious task"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Hard work",
+       "at": 0,
+       "gives": "CHORE",
+       "note": "a chore is a hard or tedious task"
       },
       {
-       "words": "line",
-       "gives": "L",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21
+        },
+        {
+         "words": "line",
+         "at": 23,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Learning a single line of a sung piece turns out to be hard work.",
-     "walkthrough": "A + L go inside CHORE.",
-     "definitionFit": "A chorale is a hymn tune of the Lutheran church, sung by choir or congregation."
+     "surface": "Fitting one more line into a song is a struggle.",
+     "definitionFit": "A chorale is a stately hymn tune, sung by a choir."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "line"
     }
    }
   },
@@ -1006,47 +1008,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first pieces inside the support word"
+       "at": 11,
+       "note": "in places the new period inside the reversed support"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 23,
+         "note": "backing means the word for support is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "backing",
-           "note": "backing means going in reverse, so the support word is read from its end"
-          }
-         ],
-         "parts": [
-          {
-           "words": "support",
-           "gives": "LEG",
-           "note": "a leg holds up a table or chair"
-          }
-         ]
-        },
-        {
-         "words": "period",
-         "gives": "ERA",
-         "note": "an era is a span of time"
+         "words": "support",
+         "at": 14,
+         "gives": "LEG",
+         "note": "a leg supports a table"
         }
        ]
       },
       {
-       "words": "New",
-       "gives": "N",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "words": "period",
+         "at": 4,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh era begins with backing for the army's commander.",
-     "walkthrough": "'Backing' reads as support for the general, but it only turns the support word round before the other pieces go inside.",
-     "definitionFit": "A general is a senior army officer commanding large formations, so a chief of the military."
+     "surface": "A new era in which support grows for the top brass.",
+     "definitionFit": "A general is a senior army officer commanding large forces."
     },
     "features": {
      "answerInScene": true,
