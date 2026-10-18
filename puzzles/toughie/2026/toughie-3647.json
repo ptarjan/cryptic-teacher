@@ -154,37 +154,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TARPAULIN",
-     "indicators": [
-      {
-       "text": "stripped",
-       "note": "stripping something removes its outer covering, so the word loses both its end letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Sailor",
+       "at": 0,
        "gives": "TAR",
-       "note": "a tar is an old word for a sailor"
+       "note": "tar is an old word for a sailor"
       },
       {
        "words": "quietly",
+       "at": 7,
        "gives": "P",
-       "note": "p for piano, the musical direction for quietly"
+       "note": "p (piano) is the musical direction for quietly"
       },
       {
-       "words": "heaving",
-       "gives": "HAULING",
-       "note": "heaving a rope is hauling it"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripped",
+         "at": 15,
+         "note": "stripped means its outer layers are taken off, so the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heaving",
+         "at": 24,
+         "gives": "HAULING",
+         "note": "heaving, as in pulling on a rope, means hauling"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor quietly hauls on a canvas sheet, as on a ship's deck.",
-     "walkthrough": "'Stripped' reads as undressed, but it means peeling off the first and last letters. Tar is an old word for a sailor, from the tarred clothing they wore.",
-     "definitionFit": "A tarpaulin is a large waterproof covering, traditionally of tarred canvas, used to protect goods or cover boats."
+     "surface": "A sailor, stripped to the waist, quietly hauls on a canvas sheet.",
+     "walkthrough": "'stripped' takes the outer letters off HAULING to leave AULIN. A tar is a traditional name for a sailor.",
+     "definitionFit": "A tarpaulin is a large waterproof covering, traditionally of tarred canvas, used to protect goods."
     },
     "features": {
      "answerInScene": true,
@@ -533,49 +540,17 @@
     ],
     "wordplay": {
      "op": "cryptic",
-     "unchecked": true,
-     "gives": "MASSEUSE",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "She reportedly needs others to work",
-         "note": "surface reading: a woman who depends on other people to do the work for her"
-        },
-        {
-         "op": "homophone",
-         "unchecked": true,
-         "gives": "MASSEUSE",
-         "indicators": [
-          {
-           "text": "reportedly",
-           "note": "reportedly means as people say it, so a word is to be heard rather than read"
-          }
-         ],
-         "parts": [
-          {
-           "op": "homophone",
-           "spelt": "KNEADS",
-           "parts": [
-            {
-             "words": "needs",
-             "gives": "NEEDS",
-             "note": "setter's reading: heard aloud the word could equally be spelt 'kneads', so she kneads other people as her job"
-            }
-           ]
-          }
-         ]
-        }
-       ]
+       "words": "She reportedly needs others to work",
+       "at": 0,
+       "note": "a woman whose job can only be done on other people's bodies: she needs clients to knead"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman who supposedly lets others do all the work.",
-     "walkthrough": "'Reportedly' tells you to hear 'needs' as 'kneads': she kneads others for a living.",
-     "definitionFit": "A female practitioner of massage works by kneading clients' muscles, so others are what her work is done on."
+     "walkthrough": "The surface suggests someone idle who relies on other people to do the work; in fact she works on other people, rubbing their muscles. 'needs' may hint at kneads.",
+     "definitionFit": "A female massage therapist cannot work without clients, whose bodies she kneads and rubs."
     },
     "features": {
      "answerInScene": false,

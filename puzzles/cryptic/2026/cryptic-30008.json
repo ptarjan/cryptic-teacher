@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,51 +45,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEPRECHAUN",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Tricksy",
+       "at": 0,
+       "note": "tricksy means full of tricks and playful, so the letters are played about with"
+      },
+      {
+       "text": "concealing",
+       "at": 20,
+       "note": "concealing means hiding away, so the a is taken out of sight before the letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "LEPRECHAUN",
-       "indicators": [
-        {
-         "text": "Tricksy",
-         "note": "Something tricksy will not play straight, so the letters it labels refuse to stay in the order the clue prints them."
-        },
-        {
-         "text": "concealing",
-         "note": "To conceal is to put out of sight, and a letter put out of sight is no longer among the ones being shuffled."
-        },
-        {
-         "text": "ultimately",
-         "note": "'Ultimately' points at the end of the road, so only the final letter of the word in front of it is wanted."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "unreal chap",
-         "note": "ten letters offered up whole, before the clue starts editing them"
+         "words": "unreal",
+         "at": 8
         },
         {
-         "words": "a",
-         "note": "this A is the letter put out of sight, leaving nine to work with"
+         "words": "chap",
+         "at": 15
         },
         {
-         "words": "treasure",
-         "gives": "E",
-         "note": "the final letter of 'treasure' steps into the space the hidden letter left"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 43,
+           "note": "ultimately means at the end, so only the last letter of the word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "treasure",
+           "at": 33,
+           "note": "last letter of treasure"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 31
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A shifty imaginary man is sitting on something valuable and saying nothing about it.",
-     "walkthrough": "The clue defines itself: a tricksy unreal chap who hides treasure is exactly what the letters build. One letter is swapped rather than merely shuffled, which is rare and easy to miss.",
-     "definitionFit": "Read straight, the sentence describes the trickster of Irish folklore who guards a crock of gold and vanishes when you look away."
+     "surface": "A description of a mischievous, imaginary little man who keeps a hidden hoard.",
+     "walkthrough": "The letters of UNREAL CHAP plus E, the last of treasure, contain one A too many: 'concealing' takes it away, and 'Tricksy' rearranges what is left. The whole clue also describes the Irish fairy guarding his crock of gold.",
+     "definitionFit": "In Irish folklore this mischievous fairy cobbler hides a pot of gold at the rainbow's end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "concealing"
     }
    }
   },
@@ -352,53 +368,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AIRINDIA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen around",
+       "at": 48,
+       "note": "seen around means visible on either side, so the two halves sit around the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "AIRINDIA",
-       "parts": [
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in two directions",
-           "note": "'In two directions' asks for the same short piece written out forwards and then backwards, once at each end."
-          },
-          {
-           "text": "seen around",
-           "note": "'Seen around' puts what has been assembled on the outside, with the next word's letters shut in between."
-          }
-         ],
-         "parts": [
-          {
-           "words": "excellent",
-           "gives": "AI",
-           "note": "A1 means first-rate, and the 1 is written as the letter I"
-          },
-          {
-           "words": "outside",
-           "gives": "RIND",
-           "note": "the rind is the outside of a cheese or a fruit"
-          },
-          {
-           "words": "excellent",
-           "gives": "IA",
-           "note": "the same A1 spent a second time, now facing the other way"
-          }
-         ]
-        }
-       ]
+       "words": "excellent in two directions",
+       "at": 19,
+       "gives": "AIIA",
+       "note": "A1 means excellent; written forwards and then backwards it gives AI and IA"
+      },
+      {
+       "words": "outside",
+       "at": 60,
+       "gives": "RIND",
+       "note": "the rind is the outside skin of a fruit or cheese"
       }
      ]
     },
     "explanation": {
-     "surface": "A haulage firm has a first-rate reputation whichever way you look and is spotted on the outskirts.",
-     "walkthrough": "Setters use A1 for excellent constantly, writing the 1 as an I; here it is cashed in twice, once each way round. The company being described is India's national airline.",
-     "definitionFit": "Air India is the country's flag-carrying airline, so 'transport company' is the category it belongs to rather than a synonym."
+     "surface": "A firm praised as excellent whichever way it goes, and seen everywhere.",
+     "walkthrough": "A1, written AI, is slang for excellent; 'in two directions' gives it forwards then backwards, AI and IA, and RIND goes between.",
+     "definitionFit": "Air India is the national airline of India, a company carrying passengers by air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
     }
    }
   },
@@ -1413,35 +1414,52 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STURDY",
      "indicators": [
       {
        "text": "deleted",
-       "note": "'Deleted' is the instruction to take letters out, and what it names just before it is what goes."
-      },
-      {
-       "text": "during",
-       "note": "'During' says where the deletion happens — inside the longer word that follows, not at either end of it."
+       "at": 16,
+       "note": "deleted means struck out, so both articles are removed from the day"
       }
      ],
      "parts": [
       {
-       "words": "part of weekend",
-       "gives": "SATURDAY",
-       "note": "Saturday is one of the weekend's two days"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 24,
+         "note": "during means within the span of, here saying the articles to be struck out lie inside the day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "part of weekend",
+         "at": 31,
+         "gives": "SATURDAY",
+         "note": "Saturday is one of the two days of the weekend"
+        },
+        {
+         "words": "articles",
+         "at": 7,
+         "gives": "A",
+         "note": "a is the indefinite article, and articles plural gives two of them"
+        }
+       ]
       },
       {
-       "words": "articles",
-       "gives": "AA",
-       "note": "two indefinite articles, an A each, are the letters taken out"
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper's articles get cut on one of the weekend's two days.",
-     "walkthrough": "'Articles' means the grammatical kind, not newspaper pieces, and there are two of them to lose. The surface reads as a sub-editor's Saturday, which is what makes the misdirection hold.",
-     "definitionFit": "Something sturdy is solidly built and stands up to hard use, which is what 'robust' means in the same everyday register."
+     "surface": "Something robust has been edited out of a document during the weekend.",
+     "walkthrough": "'articles' stands for two A's here, and both are 'deleted' from SATURDAY.",
+     "definitionFit": "Sturdy means strongly built and solid, a close synonym of robust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
     }
    }
   },

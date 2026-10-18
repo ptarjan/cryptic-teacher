@@ -91,67 +91,76 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MINDFUL",
      "indicators": [
       {
        "text": "absorbing",
-       "note": "to absorb is to soak something up and hold it inside, so these letters wrap around others"
+       "at": 45,
+       "note": "absorbing means soaking up and holding inside, so the other letters go within"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "slush",
-         "note": "slush is melted, churned snow, so the letters beside it are churned into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "outer",
          "indicators": [
           {
            "text": "banks",
-           "note": "the banks of a river are its two edges, so only the outside letters of the word are kept"
+           "at": 17,
+           "note": "the banks of something are its two edges, so the city's outside letters are used"
           }
          ],
          "parts": [
           {
            "words": "Miami's",
+           "at": 9,
            "gives": "MIAMI",
-           "note": "the first and last letters of the city's name"
+           "note": "Miami, whose banks are its first and last letters"
           }
          ]
-        },
-        {
-         "words": "fund",
-         "note": "taken as written, then rearranged"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "primarily",
-           "note": "primarily means first of all, so only the opening letter of the word is wanted"
+           "at": 27,
+           "note": "primarily means first of all, so only the opening letter is used"
           }
          ],
          "parts": [
           {
            "words": "Lloyd's",
-           "note": "the first letter of the bank's name"
+           "at": 37,
+           "note": "first letter of Lloyd's"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "slush",
+         "at": 55,
+         "note": "slush is read as a verb of churning into a mess, so the letters of fund are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fund",
+         "at": 61
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A financier knows about a secret slush fund moved between banks in Miami and at Lloyd's.",
-     "walkthrough": "'Slush fund' looks like a single banking phrase, but 'slush' is the signal to rearrange 'fund'. Lloyd's is a big British bank, which keeps the money theme going.",
-     "definitionFit": "Being mindful of something means keeping it in your thoughts and paying attention to it."
+     "surface": "A financial scandal: a Miami bank and Lloyd's are found to be soaking up a secret slush fund.",
+     "walkthrough": "'banks' gives the edges of Miami, MI, and 'primarily' the L of Lloyd's; 'slush' turns FUND into NDFU, which 'absorbing' puts between them. A slush fund is a hidden pot of money for bribes.",
+     "definitionFit": "To be mindful of something is to be conscious of it and keep it in your thoughts."
     },
     "features": {
      "answerInScene": false,
@@ -708,49 +717,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IGNOBLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "Violently",
-       "note": "something done violently is thrown about, so the letters are scattered into a new order"
+       "at": 0,
+       "note": "done violently, the letters are thrown about into a new order"
+      },
+      {
+       "text": "out",
+       "at": 24,
+       "note": "out means taken away, so the letter for wife is removed from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IGNOBLE",
-       "indicators": [
-        {
-         "text": "out",
-         "note": "out means removed or ejected, so a letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "elbowing",
-         "note": "taken as written"
-        },
-        {
-         "words": "wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife"
-        }
-       ]
+       "words": "elbowing",
+       "at": 10
+      },
+      {
+       "words": "wife",
+       "at": 19,
+       "gives": "W",
+       "note": "W is the abbreviation for wife, as in genealogy tables"
       }
      ]
     },
     "explanation": {
-     "surface": "Shoving your wife out of the way with your elbows is a despicable act.",
-     "walkthrough": "Take the W from ELBOWING and rearrange the seven letters left.",
-     "definitionFit": "Ignoble means base, dishonourable and unworthy of respect, so it is a close synonym."
+     "surface": "Someone shoves their wife out of the way with their elbows, a despicable act.",
+     "walkthrough": "With W for wife taken 'out' of ELBOWING, 'Violently' rearranges the remaining ELBOING.",
+     "definitionFit": "Ignoble describes conduct that is base and dishonourable, which earns the scorn of others."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wife"
+     "misdirectedWord": "Violently"
     }
    }
   },
