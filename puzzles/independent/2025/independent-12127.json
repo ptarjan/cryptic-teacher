@@ -121,28 +121,28 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APERCU",
+     "op": "middle",
      "indicators": [
       {
        "text": "has part removed from both ends",
-       "note": "a piece is cut off each end of the item, so its first and last letters go"
+       "at": 45,
+       "note": "says a piece is cut off each end, leaving only the inner letters of the item"
       }
      ],
      "parts": [
       {
        "words": "disposable item",
+       "at": 29,
        "gives": "PAPERCUP",
-       "note": "a paper cup is thrown away after one use"
+       "note": "a paper cup is a throwaway item used once and binned"
       }
      ]
     },
     "spelling": "APERÇU",
     "explanation": {
-     "surface": "Someone makes a sharp remark while a throwaway object is trimmed at each end.",
-     "walkthrough": "PAPER CUP loses its outer P and P to leave APERCU.",
-     "definitionFit": "An aperçu, borrowed from French, is a brief illuminating observation or quick perceptive summary."
+     "surface": "Someone remarks on a throwaway object that has been trimmed at both ends.",
+     "walkthrough": "Strip the outer P from each end of PAPER CUP ('has part removed from both ends') to leave the French loanword.",
+     "definitionFit": "An aperçu is a brief illuminating insight or summary remark, borrowed from French."
     },
     "features": {
      "answerInScene": false,
@@ -362,52 +362,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CARAVAGGIO",
-     "indicators": [
-      {
-       "text": "astray",
-       "note": "letters going astray wander out of their proper order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CARAVAGGIO",
        "indicators": [
         {
          "text": "endless",
-         "note": "without an end, the group of camels loses its last letter"
-        },
-        {
-         "text": "missing",
-         "note": "with that letter missing, it is taken away from the other word"
+         "at": 11,
+         "note": "endless says the final letter of the word is cut away"
         }
        ],
        "parts": [
         {
          "words": "group of camels",
+         "at": 19,
          "gives": "CARAVAN",
-         "note": "a caravan is a train of camels crossing a desert"
+         "note": "a caravan is a group of travellers with camels crossing a desert"
         },
         {
-         "words": "going",
-         "note": "taken as written"
-        },
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "first",
+         "text": "astray",
+         "at": 41,
+         "note": "going astray means wandering off course, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "at first",
-           "note": "at first points to the opening letter of the following word only"
+           "text": "missing",
+           "at": 67,
+           "note": "missing says a letter is absent from the word going"
           }
          ],
          "parts": [
           {
-           "words": "none",
-           "note": "the first letter of none, which is the letter taken out"
+           "words": "going",
+           "at": 35
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "at first",
+             "at": 53,
+             "note": "at first takes only the opening letter of none"
+            }
+           ],
+           "parts": [
+            {
+             "words": "none",
+             "at": 62,
+             "note": "first letter N"
+            }
+           ]
           }
          ]
         }
@@ -416,9 +433,9 @@
      ]
     },
     "explanation": {
-     "surface": "A desert train of camels wanders off, though not one animal is lost.",
-     "walkthrough": "CARAVAN loses its end to give CARAVA; GOING without N leaves GOIG, rearranged as GGIO.",
-     "definitionFit": "Caravaggio was the Italian Baroque master famed for dramatic light and shadow, so he is someone who painted."
+     "surface": "An artist's subject: a line of camels wandering off, all present and correct.",
+     "walkthrough": "CARAVA is CARAVAN 'endless'. 'At first none' is N, 'missing' from GOING leaves GOIG, which goes 'astray' to GGIO.",
+     "definitionFit": "Caravaggio was the Italian Baroque master famed for dramatic light and shade in his canvases."
     },
     "features": {
      "answerInScene": false,
@@ -1396,51 +1413,33 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CHANCE",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "over",
-       "note": "turned over in a down clue, the word is flipped to read backwards"
+       "text": "ignores",
+       "at": 14,
+       "note": "ignores says the following letters are left out of her title"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "ignores",
-         "note": "what is ignored is left out of the title"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Rachel Reeves",
-           "gives": "CHANCELLOR",
-           "note": "Rachel Reeves became Britain's Chancellor of the Exchequer, its finance minister, in 2024"
-          },
-          {
-           "words": "rollover",
-           "gives": "ROLL",
-           "note": "the first four letters of this word, before the indicator inside it"
-          }
-         ]
-        },
-        {
-         "gives": "LLORROLL"
-        }
-       ]
+       "words": "Rachel Reeves",
+       "at": 0,
+       "gives": "CHANCELLOR",
+       "note": "Rachel Reeves became Chancellor of the Exchequer, the UK finance minister, in 2024"
+      },
+      {
+       "words": "rollover",
+       "at": 22,
+       "gives": "LLOR",
+       "note": "read as roll over: the word roll turned backwards"
       }
      ]
     },
     "explanation": {
-     "surface": "The British finance minister passes up the chance of a rollover.",
-     "walkthrough": "'Rollover' reads as one financial word, but it splits into roll plus a turning signal.",
-     "definitionFit": "A chance is an opening or favourable occasion to do something, the same as an opportunity."
+     "surface": "A finance minister passes up a chance to roll something over, as with a budget.",
+     "walkthrough": "'Rollover' splits into ROLL plus 'over', a reversal signal, giving LLOR; CHANCELLOR 'ignores' those letters.",
+     "definitionFit": "A chance is an opening or opportunity to do something."
     },
     "features": {
      "answerInScene": true,

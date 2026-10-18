@@ -310,53 +310,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CONFIGURE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bottle",
+       "at": 25,
+       "note": "to bottle is to enclose, so the medicine holds the next pieces inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "bottle",
-         "note": "to bottle is to hold inside"
-        }
-       ],
+       "words": "medicine",
+       "at": 16,
+       "gives": "CURE",
+       "note": "a cure is a remedy, a medicine"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
            "text": "returned",
-           "note": "sent back, so IF NO runs the other way"
+           "at": 32,
+           "note": "returned means sent back, so the two words are read in the opposite direction"
           }
          ],
          "parts": [
           {
-           "words": "medicine",
-           "gives": "CURE",
-           "note": "a cure is a remedy, a medicine"
-          },
-          {
-           "words": "returned if no",
-           "gives": "ONFI",
-           "note": "IFNO read backwards"
+           "words": "if no",
+           "at": 41
           }
          ]
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "G = good"
+         "at": 47,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pharmacist agrees to take back a bottle of medicine if it didn't work.",
-     "walkthrough": "'Medicine bottle' reads as one object, but 'bottle' is a verb: CURE bottles up ONFI and G.",
-     "definitionFit": "To configure something is to arrange or set it up in a particular way."
+     "surface": "Instructions to have a bottle of medicine sent back if it turns out to be useless.",
+     "walkthrough": "'Medicine bottle' looks like one object, but 'bottle' is a verb: CURE holds ONFI ('if no' 'returned') and G.",
+     "definitionFit": "To configure is to set up or lay out the parts of something in a particular way."
     },
     "features": {
      "answerInScene": false,
@@ -827,47 +827,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Retired",
-       "note": "withdrawn, so LOCO runs backwards"
+       "text": "parts",
+       "at": 15,
+       "note": "parts means splits apart, so the reversed engine is pushed into the middle of the assembled letters"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "parts"
+         "text": "assembled",
+         "at": 21,
+         "note": "assembled means put together, so the letters are built into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "assembled",
-           "note": "the letters of ON A LINE are put together in a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "on a line",
-           "note": "anagram fodder, arranged as NE…ONIAL"
-          }
-         ]
+         "words": "on a line",
+         "at": 31
         }
        ]
       },
       {
-       "words": "Retired engine",
-       "gives": "OCOL",
-       "note": "LOCO (locomotive, an engine) reversed"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retired",
+         "at": 0,
+         "note": "retired means withdrawn, going backwards, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "engine",
+         "at": 8,
+         "gives": "LOCO",
+         "note": "loco, short for locomotive, is a railway engine"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Old engine components put together on a production line, measured in inches and pounds.",
-     "walkthrough": "'Imperial measures' suggests feet and gallons, but it means empire-building policies; the question mark admits the pun.",
-     "definitionFit": "Neocolonial describes powers that keep control over former colonies by economic or political means."
+     "surface": "An old locomotive is taken apart and its parts put together on a production line in imperial units.",
+     "walkthrough": "'Imperial measures' suggests feet and inches; here it means the policies of empire. 'Parts' is a verb: the reversed engine splits the rearranged ON A LINE.",
+     "definitionFit": "Neocolonial policy is a modern form of empire-building, extending power over other nations by economic or political control."
     },
     "features": {
      "answerInScene": false,
@@ -974,8 +979,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "leaves",
-       "note": "'leaves' is the verb, departs"
+       "text": "arriving from the east",
+       "at": 33,
+       "note": "in an across answer, coming from the east means travelling right to left, so the letters are read backwards"
       }
      ],
      "parts": [
@@ -983,29 +989,33 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "reportedly"
+         "text": "leaves",
+         "at": 11,
+         "note": "leaves means goes away from, so that letter is taken out of the curry"
         }
        ],
        "parts": [
         {
          "words": "curry",
+         "at": 5,
          "gives": "KORMA",
-         "note": "a korma is a mild curry"
+         "note": "a korma is a mild, creamy curry"
         },
         {
          "op": "homophone",
          "spelt": "R",
          "indicators": [
           {
-           "text": "arriving from the east",
-           "note": "in an across entry, coming from the east means read right to left"
+           "text": "reportedly",
+           "at": 22,
+           "note": "reportedly says the word is only heard, so are stands for the letter that sounds the same"
           }
          ],
          "parts": [
           {
-           "words": "are reportedly",
-           "gives": "ARE",
-           "note": "the letter R sounds like 'are'; it is removed"
+           "words": "are",
+           "at": 18,
+           "note": "said aloud, are sounds like the letter R"
           }
          ]
         }
@@ -1014,14 +1024,13 @@
      ]
     },
     "explanation": {
-     "surface": "Curry leaves arriving from the East, as if an exotic spice shipment.",
-     "walkthrough": "'Curry leaves' looks like the herb; the curry is KORMA and 'leaves' is the verb, as R departs.",
-     "definitionFit": "Running amok is going wild, and amok on its own means in a wild frenzy."
+     "surface": "Curry leaves, an Indian ingredient, said to be coming in from the East.",
+     "walkthrough": "'Curry leaves' looks like the herb; 'leaves' is a verb. KORMA without R gives KOMA, then 'arriving from the east' turns it round.",
+     "definitionFit": "To run amok is to behave wildly and out of control; the word comes from Malay."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "leaves"
     }
    }
@@ -1110,40 +1119,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TARANTINO",
-     "indicators": [
-      {
-       "text": "reflecting",
-       "note": "a reflection is back to front, so ON IT reverses"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having spent",
+         "at": 26,
+         "note": "having spent means having used up, so that letter is gone from the cloth"
+        }
+       ],
        "parts": [
         {
-         "words": "checked material having spent time",
-         "gives": "TARAN",
-         "note": "TARTAN (a checked cloth) without one T for time"
+         "words": "checked material",
+         "at": 9,
+         "gives": "TARTAN",
+         "note": "tartan is the checked woollen cloth of Scottish clans"
         },
         {
-         "words": "reflecting on it",
-         "gives": "TINO",
-         "note": "ON IT backwards"
+         "words": "time",
+         "at": 39,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflecting",
+         "at": 44,
+         "note": "reflecting means mirrored, so the words on it are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on it",
+         "at": 55
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film director inspects fabric after pondering it for a while.",
-     "walkthrough": "'Checked' passes for inspected, but it means patterned in checks, as tartan is.",
-     "definitionFit": "Quentin Tarantino is the American film director of Pulp Fiction."
+     "surface": "A film-maker checks some fabric and, having wasted time, thinks it over.",
+     "walkthrough": "'Checked' looks like a verb but describes the cloth. TARTAN loses one T to give TARAN; 'reflecting' ON IT gives TINO.",
+     "definitionFit": "Quentin Tarantino is the American film-maker behind Pulp Fiction and Reservoir Dogs."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "checked"
     }
@@ -1364,45 +1389,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LIBYAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "climbing",
-       "note": "in a down entry, climbing reads bottom to top"
+       "text": "borders",
+       "at": 39,
+       "note": "borders means surrounds on either side, so the reversed word wraps round the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "borders"
+         "text": "climbing",
+         "at": 23,
+         "note": "climbing in a down answer means going upwards, so the word is read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "climbing secure",
-         "gives": "LIAN",
-         "note": "NAIL (secure) reversed"
-        },
-        {
-         "words": "close to",
-         "gives": "BY",
-         "note": "by = near, close to"
+         "words": "secure",
+         "at": 32,
+         "gives": "NAIL",
+         "note": "to nail is to fasten down, secure"
         }
        ]
+      },
+      {
+       "words": "close to",
+       "at": 14,
+       "gives": "BY",
+       "note": "by means near, close to"
       }
      ]
     },
     "explanation": {
-     "surface": "A North African near the top of a climb, making the frontier safe.",
-     "walkthrough": "'Close to' looks like a last-letter instruction; here it is simply BY.",
-     "definitionFit": "A Libyan is someone from Libya, in North Africa."
+     "surface": "A man from North Africa near to a climb, making sure of the frontiers.",
+     "walkthrough": "'Close to' looks like a last-letter signal; it is BY. NAIL 'climbing' gives LIAN, which 'borders' BY.",
+     "definitionFit": "A Libyan is a person from Libya, the country on Africa's Mediterranean coast between Egypt and Tunisia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "close"
     }
@@ -1718,32 +1746,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARM",
      "indicators": [
       {
        "text": "Bow's",
-       "note": "in Bow, in London's East End, Cockney speakers drop their H"
+       "at": 0,
+       "note": "Bow is in London's East End, where the Cockney accent drops the letter H at the start of words"
       }
      ],
      "parts": [
       {
        "words": "hurt",
-       "gives": "ARM",
-       "note": "HARM with the H dropped"
+       "at": 6,
+       "gives": "HARM",
+       "note": "harm means hurt, injury"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "An archer's bow strain has spoiled their throwing.",
-     "walkthrough": "Bow is a district of East London, home of Cockneys, who famously drop their Hs: 'harm' becomes ''arm'.",
-     "definitionFit": "A player with a good arm can throw well."
+     "surface": "An archer's bow has been damaged.",
+     "walkthrough": "Bow looks like the archer's weapon, but it is the East End district, and a Cockney says HARM without its H.",
+     "definitionFit": "A player with a good arm, as in cricket or baseball, is one who can throw hard and accurately."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Bow"
+     "misdirectedWord": "Bow's"
     }
    }
   },
