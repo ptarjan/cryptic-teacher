@@ -1004,46 +1004,51 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the inquiry goes around the other pieces, enclosing them"
+       "at": 14,
+       "note": "about means the investigation goes round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Investigation",
-         "gives": "PROBE",
-         "note": "a probe is an investigation"
-        },
-        {
-         "words": "rating",
-         "gives": "AB",
-         "note": "a rating is a non-officer sailor, the able seaman AB"
-        }
-       ]
+       "words": "Investigation",
+       "at": 0,
+       "gives": "PROBE",
+       "note": "a probe is an investigation"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "starting",
-         "note": "starting points to only the opening letter of the next word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "look",
-         "note": "first letter of look"
+         "words": "rating",
+         "at": 20,
+         "gives": "AB",
+         "note": "AB, able seaman, is a naval rating"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starting",
+           "at": 27,
+           "note": "starting asks for the first letter of look"
+          }
+         ],
+         "parts": [
+          {
+           "words": "look",
+           "at": 39,
+           "note": "first letter of look"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An inquiry into a credit score begins to seem promising.",
-     "walkthrough": "'Rating' suggests a score, but in the Royal Navy a rating is an ordinary sailor, so it gives the able seaman.",
-     "definitionFit": "Probable describes what will most likely happen, so it is a near synonym of likely."
+     "surface": "An inquiry into a ratings figure is beginning to seem plausible.",
+     "walkthrough": "A rating is a non-officer sailor; AB (able-bodied seaman) is the usual one.",
+     "definitionFit": "Probable means likely to happen or be true; the two are close synonyms."
     },
     "features": {
      "answerInScene": false,

@@ -104,39 +104,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 19,
+       "note": "about means the tirades go round the old letter"
       }
      ],
      "parts": [
       {
-       "words": "Anticipate",
-       "gives": "EXPECT",
-       "note": "to anticipate = to expect"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Anticipate",
+         "at": 0,
+         "gives": "EXPECT",
+         "note": "to expect is to anticipate"
+        },
+        {
+         "words": "tirades",
+         "at": 11,
+         "gives": "RANTS",
+         "note": "rants are tirades"
+        }
+       ]
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "standard abbreviation"
-      },
-      {
-       "words": "tirades",
-       "gives": "RANTS",
-       "note": "a rant is a tirade"
+       "at": 25,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone braces for an earful of complaints about outdated pills.",
-     "walkthrough": "'About old medicines' looks like the topic of the tirades; the definition is only the last word, and O simply joins RANTS.",
-     "definitionFit": "Expectorants are cough medicines that help you bring up phlegm."
+     "surface": "Someone braces for angry outbursts about outdated drugs.",
+     "definitionFit": "Expectorants are cough medicines that help bring up phlegm."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Anticipate"
     }
    }
   },
@@ -938,40 +946,41 @@
      "indicators": [
       {
        "text": "across",
-       "note": "the row stretches across, around, the next pieces"
+       "at": 23,
+       "note": "across means the row stretches over and holds the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "row",
-         "gives": "TIFF",
-         "note": "a tiff is a row, a quarrel"
-        },
-        {
-         "words": "a",
-         "note": "used literally"
-        }
-       ]
+       "words": "row",
+       "at": 19,
+       "gives": "TIFF",
+       "note": "a tiff is a row or quarrel"
       },
       {
-       "words": "river",
-       "gives": "R",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 30
+        },
+        {
+         "words": "river",
+         "at": 32,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boatman's price list for rowing people over a river.",
-     "walkthrough": "'Row' is a quarrel (rhymes with cow), not what you do with oars.",
-     "definitionFit": "A plain synonym, the word hotels and utilities use for their published price schedule."
+     "surface": "Instructions to row a boat across a river.",
+     "walkthrough": "Row sounds like rowing a boat, but it is a quarrel.",
+     "definitionFit": "A tariff is a schedule of prices or duties payable."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "row"
     }
    }

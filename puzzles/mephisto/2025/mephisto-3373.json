@@ -1147,37 +1147,45 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SLOETREE",
      "indicators": [
       {
        "text": "shifting",
-       "note": "shifting means moving around, so the kept letters are rearranged"
+       "at": 19,
+       "note": "shifting means moving the letters around into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SLOETREE",
+       "op": "middle",
        "indicators": [
         {
          "text": "Uncovered",
-         "note": "uncovered means stripped of its outer layer, so the first and last letters go"
-        },
-        {
-         "text": "endless",
-         "note": "endless means having no ends, so the word loses both its first and last letters"
+         "at": 0,
+         "note": "uncovered means hostelry loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "hostelry",
-         "note": "taken as written, then stripped at both ends"
-        },
+         "at": 10,
+         "note": "inner letters of hostelry"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 28,
+         "note": "endless means beer loses both ends"
+        }
+       ],
+       "parts": [
         {
          "words": "beer",
-         "note": "taken as written, then stripped at both ends"
+         "at": 36,
+         "note": "inner letters of beer"
         }
        ]
       }
@@ -1185,12 +1193,12 @@
     },
     "spelling": "SLOE TREE",
     "explanation": {
-     "surface": "An open-air pub moving its last beer next to a blackthorn hedge.",
-     "walkthrough": "OSTELR from hostelry and EE from beer together rearrange to the answer.",
-     "definitionFit": "Blackthorn is the shrub whose small sour fruit are sloes, so it is the sloe tree."
+     "surface": "An open-air pub moves its leftover beer stock and a blackthorn bush.",
+     "walkthrough": "OSTELR and EE are rearranged together.",
+     "definitionFit": "The blackthorn is the shrub bearing sloes, so it is also called the sloe-tree."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Uncovered"
     }
@@ -1329,47 +1337,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REMAKES",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means going in reverse, so the word for first person is read backwards"
+       "text": "in",
+       "at": 39,
+       "note": "in means the turned pronoun is placed inside the plural scrape"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "more than one scrape",
+       "at": 42,
+       "gives": "RAKES",
+       "note": "to rake is to scrape, and as nouns rakes are scrapes"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the reversed first-person word inside the scrapes"
+         "text": "back",
+         "at": 34,
+         "note": "back means the pronoun is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "more than one scrape",
-         "gives": "RAKES",
-         "note": "to rake is to scrape, and more than one gives a plural"
-        },
-        {
          "words": "First person's",
-         "gives": "EM",
-         "note": "me is the first-person pronoun; the apostrophe-s is is"
+         "at": 19,
+         "gives": "ME",
+         "note": "me is the first-person pronoun; the 's (is) attaches it to back"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film buff asks whether fresh versions of movies are just one more scrape after another.",
-     "definitionFit": "Remakes are films made again from an earlier story, so they are new versions of old movies."
+     "surface": "A first-person narrator looks back on several scrapes, as in a film's plot.",
+     "walkthrough": "The 's in person's stands for is; the question mark flags that remakes are being defined by example.",
+     "definitionFit": "A remake is a new version of an earlier film, made with fresh cast or crew."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "First"
+     "misdirectedWord": "scrape"
     }
    }
   },

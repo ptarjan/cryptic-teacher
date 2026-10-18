@@ -600,50 +600,71 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "initially means only the first letter of the following word is kept"
-      }
-     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "putting name forward",
-         "note": "putting the name letter forward means it is shifted one place nearer the front of the team word"
+         "text": "putting",
+         "at": 18,
+         "note": "putting with forward means the name letter is moved nearer the front"
+        },
+        {
+         "text": "forward",
+         "at": 31,
+         "note": "forward says the name letter moves ahead of its old place"
         }
        ],
        "parts": [
         {
-         "words": "cricket team",
-         "gives": "ELEVEN",
-         "note": "a cricket side has eleven players"
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Male cricket team",
+           "at": 0,
+           "gives": "ELEVENMEN",
+           "note": "a men's cricket team is eleven men"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         },
         {
-         "words": "Male",
-         "gives": "MEN",
-         "note": "the men of a male side"
+         "words": "name",
+         "at": 26,
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "tried",
-       "gives": "T",
-       "note": "first letter of tried"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 39,
+         "note": "initially asks for the first letter of tried"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tried",
+         "at": 49,
+         "note": "first letter of tried"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A men's cricket side nominates a player while a woman is carried off in an old Scottish court case.",
-     "walkthrough": "The N at the end of the team word moves up to second place. Enlevement is a Scots law term.",
-     "definitionFit": "In old Scots law enlevement was the abduction or carrying off of a woman or child, a matter for trial."
+     "surface": "A men's cricket eleven, a name put forward, and a woman abducted in an old Scottish court case.",
+     "walkthrough": "The first N of ELEVENMEN moves forward to second place, giving ENLEVEMEN; T follows.",
+     "definitionFit": "In Scots law, enlevement was the abduction of a woman or child, a crime tried in court."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "name"
+     "misdirectedWord": "cricket"
     }
    }
   },
@@ -1145,38 +1166,41 @@
      "indicators": [
       {
        "text": "crossing",
-       "note": "a vessel crossing something spans it, with the other piece lying within"
+       "at": 7,
+       "note": "crossing means the vessel stretches across, holding the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Vessel",
-         "gives": "JAR",
-         "note": "a jar is a container"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Vessel",
+       "at": 0,
+       "gives": "JAR",
+       "note": "a jar is a vessel"
       },
       {
-       "words": "river",
-       "gives": "CAM",
-       "note": "the Cam flows through Cambridge"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16
+        },
+        {
+         "words": "river",
+         "at": 18,
+         "gives": "CAM",
+         "note": "the Cam is the river through Cambridge"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat heads over the river so passengers can spot a shimmering bird.",
-     "walkthrough": "'Vessel' and 'crossing' suggest a boat on water; the vessel is a pot.",
-     "definitionFit": "Jacamars are tropical American birds with long bills and glittering metallic green plumage."
+     "surface": "A boat crosses a river so that someone can spot a shimmering bird.",
+     "walkthrough": "Vessel suggests a boat but it is a JAR; ACAM goes after its J.",
+     "definitionFit": "Jacamars are tropical American birds with glossy, metallic green plumage."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Vessel"
     }
