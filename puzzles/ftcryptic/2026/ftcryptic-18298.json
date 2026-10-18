@@ -334,57 +334,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INAUSPICIOUS",
-     "indicators": [
-      {
-       "text": "losing head",
-       "note": "the head of a word is its first letter, which is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "periodically",
+         "at": 15,
+         "note": "periodically means taking letters at regular intervals, here every other one of the name"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "INA",
-         "indicators": [
-          {
-           "text": "periodically",
-           "note": "something done periodically happens at intervals, so only every other letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Bianca",
-           "gives": "INA",
-           "select": "alternate",
-           "note": "second, fourth and sixth letters"
-          }
-         ]
-        },
+         "words": "Bianca",
+         "at": 8,
+         "note": "the second, fourth and sixth letters of Bianca"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 41,
+         "note": "losing its head means the word drops its first letter"
+        }
+       ],
+       "parts": [
         {
          "words": "distrustful",
-         "gives": "USPICIOUS",
-         "note": "suspicious without its first letter"
+         "at": 28,
+         "gives": "SUSPICIOUS",
+         "note": "distrustful means suspicious"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman called Bianca has bad luck and grows wary from time to time.",
-     "walkthrough": "SUSPICIOUS is the synonym for 'distrustful', and it loses its S before joining the letters from the name.",
-     "definitionFit": "Inauspicious means showing bad omens, so an unlucky start or sign is an inauspicious one."
+     "surface": "Bianca, unlucky in love, has become periodically distrustful.",
+     "walkthrough": "'Periodically' takes the even letters of Bianca, INA; 'losing head' drops the S from SUSPICIOUS, leaving USPICIOUS.",
+     "definitionFit": "Inauspicious means showing bad omens, so an inauspicious start is an unlucky one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "periodically"
+     "misdirectedWord": "Bianca"
     }
    }
   },
@@ -515,41 +515,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SUNSET",
      "indicators": [
       {
        "text": "for",
-       "note": "putting one thing for another means swapping it in as a replacement"
+       "at": 24,
+       "note": "with name for bishop, one letter stands in place of the other in the word"
       }
      ],
      "parts": [
       {
        "words": "Smaller group",
+       "at": 0,
        "gives": "SUBSET",
-       "note": "a subset is a smaller group within a set"
-      },
-      {
-       "words": "name",
-       "gives": "N",
-       "note": "N is the abbreviation for name"
+       "note": "a subset is a smaller group drawn from a larger one"
       },
       {
        "words": "bishop",
+       "at": 28,
        "gives": "B",
-       "note": "B is the chess notation for bishop"
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "name",
+       "at": 19,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop's daily diary entry about meeting a smaller committee.",
-     "walkthrough": "Replace the B in SUBSET with N to get the answer.",
-     "definitionFit": "The sun goes down every evening, so its setting is something that happens each day."
+     "surface": "A small group gathers with a bishop for his daily routine.",
+     "walkthrough": "In SUBSET, 'name for bishop' puts N where the B was.",
+     "definitionFit": "The going down of the sun happens every evening, an occurrence that comes round each day."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "bishop"
+     "misdirectedWord": "bishop's"
     }
    }
   },
@@ -838,52 +839,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSIGNIFICANCE",
-     "indicators": [
-      {
-       "text": "not hard",
-       "note": "'not' removes something, and hard is a standard pencil-grade abbreviation"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "At home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "Leo maybe",
+       "at": 8,
+       "gives": "SIGN",
+       "note": "Leo is an example of a star sign of the zodiac"
+      },
+      {
+       "words": "providing",
+       "at": 18,
+       "gives": "IF",
+       "note": "providing means if, as in 'providing it rains'"
+      },
+      {
+       "words": "one",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 45,
+         "note": "not hard tells us the letter for hard is left out of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "At home",
-         "gives": "IN",
-         "note": "being in means being at home"
-        },
-        {
-         "words": "Leo maybe",
-         "gives": "SIGN",
-         "note": "Leo is an example of a zodiac sign"
-        },
-        {
-         "words": "providing",
-         "gives": "IF",
-         "note": "providing means on condition that"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
          "words": "opportunity",
-         "gives": "CANCE",
-         "note": "chance without its H for hard"
+         "at": 32,
+         "gives": "CHANCE",
+         "note": "an opportunity is a chance"
+        },
+        {
+         "words": "hard",
+         "at": 49,
+         "gives": "H",
+         "note": "H is the pencil-grading abbreviation for hard"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A homebody born under Leo offered one chance that amounts to very little.",
-     "walkthrough": "CHANCE is the opportunity, and H is the abbreviation for hard, so it comes out.",
-     "definitionFit": "Insignificance is the quality of being trivial or unimportant, which is what being nothing much describes."
+     "surface": "A Leo at home, given a single chance, achieves little of note.",
+     "walkthrough": "'Not hard' removes H from CHANCE, leaving CANCE to finish the chain.",
+     "definitionFit": "Insignificance is unimportance, the quality of amounting to very little."
     },
     "features": {
      "answerInScene": false,
@@ -1204,37 +1215,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GOSPEL",
-     "indicators": [
-      {
-       "text": "the last to depart",
-       "note": "when the final letter departs, it is removed from the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "leave",
+       "at": 8,
+       "gives": "GO",
+       "note": "to go is to leave"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "the last to depart",
+         "at": 23,
+         "note": "the final letter of the word departs, so it is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "leave",
-         "gives": "GO",
-         "note": "to go is to leave"
+         "words": "session",
+         "at": 14,
+         "gives": "SPELL",
+         "note": "a spell is a session or period of time"
         },
         {
-         "words": "session",
-         "gives": "SPEL",
-         "note": "spell, a period or session, minus its final letter"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musician walks out of a recording session, the final player to go.",
-     "walkthrough": "A spell is a stretch of time, as in a spell of work, and it loses its last L.",
-     "definitionFit": "Gospel is a style of Christian religious music rooted in African American church singing."
+     "surface": "A musician leaves the recording session, the last one out.",
+     "walkthrough": "The surface reads 'leave session' as one action, but leave is its own piece, a verb meaning go; 'the last to depart' trims the session word.",
+     "definitionFit": "Gospel is a style of Christian religious song from African American churches."
     },
     "features": {
      "answerInScene": true,
@@ -1440,47 +1455,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROLIFIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means half is dropped, leaving only the front portion"
+       "text": "cultivated",
+       "at": 32,
+       "note": "cultivated suggests working the ground over, so the letters are turned into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "crop",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cultivated",
-         "note": "cultivated ground is worked over and turned, so these letters are rearranged"
+         "text": "not half",
+         "at": 23,
+         "note": "only half of the word is wanted, so its second four letters are dropped"
         }
        ],
        "parts": [
         {
-         "words": "crop",
+         "words": "Filipino",
+         "at": 14,
          "note": "taken as written"
         },
         {
-         "words": "Filipino",
-         "gives": "FILI",
-         "note": "the first four of its eight letters"
+         "gives": "PINO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer from the Philippines raises an abundant harvest on half-tilled land.",
-     "walkthrough": "'Cultivated' suits the farming picture, but it works on all the letters gathered before it.",
-     "definitionFit": "Prolific means producing in great abundance, the same sense as fruitful for plants, writers or animals."
+     "surface": "A Filipino farmer grows a crop that yields well.",
+     "walkthrough": "'Not half' cuts FILIPINO to FILI; with CROP, those letters are rearranged as 'cultivated' signals.",
+     "definitionFit": "Prolific means producing abundantly, as a fruitful tree yields plenty."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cultivated"
+     "misdirectedWord": "Filipino"
     }
    }
   },

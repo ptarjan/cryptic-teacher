@@ -96,42 +96,29 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THRASH",
-     "indicators": [
-      {
-       "text": "Welcoming",
-       "note": "to welcome a guest is to take them in, so one piece is taken inside another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the standard abbreviation for time"
-        },
-        {
-         "words": "#WelcomingKing",
-         "gives": "HRASH",
-         "note": "the # symbol is a hash, and R (Latin rex) is king; the hash takes in the king"
-        }
-       ]
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "words": "#WelcomingKing",
+       "at": 12,
+       "gives": "HRASH",
+       "note": "read as hash welcoming king: the symbol # is a hash, and it welcomes, takes inside it, R, short for Rex, Latin for king, giving H-R-ASH"
       }
      ]
     },
     "explanation": {
-     "surface": "A social-media post announcing a party with a hashtag welcoming a king.",
-     "walkthrough": "The hashtag is not decoration: the # symbol itself is the word HASH, which takes in R, all after T.",
-     "definitionFit": "Thrash is informal British slang for a lively party or celebration, an idiom rather than a dictionary synonym."
+     "surface": "A social-media post announces it is party time and welcomes the King with a hashtag.",
+     "walkthrough": "The # is read as its name, HASH; 'Welcoming' puts R (Rex, king) inside it, after T for time.",
+     "definitionFit": "Thrash is informal British slang for a lively party or celebration."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "#WelcomingKing"
     }
    }
@@ -535,53 +522,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RETIREES",
-     "indicators": [
-      {
-       "text": "A lot of",
-       "note": "a lot of something is most but not all of it, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of the word, but not all, so its last letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "red",
-         "gives": "RE",
-         "note": "red without its last letter"
+         "at": 9,
+         "gives": "RED",
+         "note": "taken as written before the cut"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means surrounding, so one piece goes around another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "flags",
-           "gives": "TIRES",
-           "note": "to flag is to tire or weaken"
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English"
-          }
-         ]
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 19,
+         "note": "the word for flags goes about, around, the letter for English"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flags",
+         "at": 13,
+         "gives": "TIRES",
+         "note": "to flag is to tire, so flags means tires"
+        },
+        {
+         "words": "English",
+         "at": 25,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plenty of red flags appear around English people who are idle.",
-     "walkthrough": "'Red flags' looks like a warning sign; 'flags' is a verb meaning grows weary.",
-     "definitionFit": "Retirees have stopped their careers, so they are people who no longer go out to work."
+     "surface": "Many red flags are raised over the English workforce sitting idle.",
+     "walkthrough": "Red flags look like warning signs, but red is cut by 'A lot of' to RE, and flags is a verb, TIRES, which goes 'about' E.",
+     "definitionFit": "Retirees have stopped their careers, so they are people no longer in employment."
     },
     "features": {
      "answerInScene": false,

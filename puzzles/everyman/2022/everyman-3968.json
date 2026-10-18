@@ -706,20 +706,27 @@
      "indicators": [
       {
        "text": "sad",
-       "note": "sad in the slang sense of pathetic or in a sorry state, so these letters are in a poor condition and need rearranging"
+       "at": 7,
+       "note": "sad in the sense of sorry or in a poor state, so the letters that follow are in a sorry jumble"
       }
      ],
      "parts": [
       {
-       "words": "Sad, surely",
+       "words": "Sad",
+       "at": 12,
+       "note": "taken as written"
+      },
+      {
+       "words": "surely",
+       "at": 17,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a thing is really sad, then answers that it certainly is.",
-     "walkthrough": "The repeated words make it look like a riddle, but the first 'Surely' is the definition, the first 'sad' is the signal, and the last two words are the letters.",
-     "definitionFit": "Both words are adverbs expressing certainty or confidence, as in saying something will assuredly happen."
+     "surface": "Someone wonders aloud whether it is truly sad, then answers that it surely is.",
+     "walkthrough": "The repetition hides three jobs: the first Surely is the definition, the first sad is the signal, and the second 'Sad, surely' is the fodder for rearranging.",
+     "definitionFit": "Assuredly and surely are both adverbs meaning certainly, without any doubt."
     },
     "features": {
      "answerInScene": false,
@@ -899,33 +906,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "KNOWHOW",
+     "spelt": "KNOWHOW",
      "indicators": [
       {
        "text": "says Spooner",
-       "note": "Reverend Spooner was famous for swapping the opening sounds of words, so the initial sounds are exchanged"
+       "at": 61,
+       "note": "the Reverend Spooner famously swapped the opening sounds of pairs of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Get to work in the allotment immediately",
-       "gives": "KNOWHOW",
-       "soundsLike": "NO HOW",
-       "note": "to hoe is to weed a garden plot and now means at once; saying 'hoe now' with the opening sounds swapped"
+       "op": "homophone",
+       "spelt": "KNOW",
+       "parts": [
+        {
+         "words": "Get to work in the allotment",
+         "at": 19,
+         "gives": "HOE",
+         "note": "to hoe is to work the soil of a garden plot with a hoe; an allotment is a rented British vegetable patch"
+        }
+       ]
+      },
+      {
+       "words": "immediately",
+       "at": 48,
+       "gives": "NOW",
+       "note": "now means immediately"
       }
      ]
     },
     "explanation": {
-     "surface": "Gardening know-how: someone urges you to start working your vegetable plot straight away.",
-     "walkthrough": "Swapping the opening sounds of 'hoe now' gives 'no how', spelt as two other words. An allotment is a small rented plot of land in Britain for growing vegetables.",
-     "definitionFit": "Know-how is practical expertise, the specialised ability to do a particular task well."
+     "surface": "An expert gardener urges someone to get digging on their vegetable plot straight away.",
+     "walkthrough": "HOE NOW, with its opening sounds swapped as 'says Spooner' signals, is heard as NO HOW, spelt KNOW-HOW.",
+     "definitionFit": "Know-how is practical expertise, the technical knowledge of how to get something done."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Specialised"
+     "misdirectedWord": "allotment"
     }
    }
   },
