@@ -49,7 +49,7 @@
      "why": "four non-charade ops (nested containers with deletions and reversals, long acrostics) is more than a solver can unpick from a clue; real setters stop at two, occasionally three; the commonest are acrostics, double containers around acrostics, and one deletion written letter by letter, del(del(del(..))), that is really one op (an op nested four deep always lands here, so there is no separate depth rule)",
      "right": "fewer ops: merge repeated selections, flatten containers, or check the parse"},
     {"name": "unchecked node (parse not verified)", "re": "[?U]", "verdict": "unverified",
-     "why": "an op or leaf the validator could not rebuild step by step; its letters are taken as filed, so nothing says the shape is real (spoonerisms, cyclings, substitutions, deletions of scattered letters and indirect anagrams are most of them)",
+     "why": "an op or leaf the validator could not rebuild step by step; its letters are taken as filed, so nothing says the shape is real (spoonerisms, cyclings, substitutions, reversals of part of a word and indirect anagrams are most of them)",
      "right": "re-annotate so every step is checked; none can be added now (the ratchet)"},
     {"name": "ordinary composition", "re": ".", "mech_max": 3, "depth_max": 3, "verdict": "ok",
      "why": "checked ops composed to at most three mechanisms and three levels"}

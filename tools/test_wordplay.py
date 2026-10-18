@@ -89,6 +89,11 @@ OK = [
     ("CAT-O'-NINE-TAILS", "[pet]CAT + [old]O + [number]NINE + [narratives]TAILS"),
     ("CAFÉ", "ana<at sea>([face])"),
     ("JOHN PAUL JONES", "JOHNPAUL + [addiction]JONES"),
+    # A deletion may take out scattered letters, each given, in order (quiptic-834 4d).
+    ("EQUAL", "del<going out>([Equably], [by]BY)"),
+    # A reversal turns round only the stretch its indicators name (azed-1806 25d).
+    ("KARST", "rev<last pair of>([mini vehicles]KARTS)"),
+    ("TSAR", "rev<turns head>([top of bill]STAR)"),
 ]
 for answer, expr in OK:
     r = gives(expr, answer)
@@ -118,11 +123,16 @@ BAD = [
     ("homophone spelt wrong", "PIECE", "sound<Sung>([harmony]PEACE, PEACE)", "needs PIECE"),
     ("a palindrome that isn't one", "NIPINS", "pal<either way>([Ulster]NI + [fix]PINS)", "does not read the same"),
     ("an answer alone that isn't a palindrome", "ABBY", "pal<Reversible>()", "ABBY does not read the same"),
+    ("scattered letters taken out in the wrong order", "EQUAL", "del<going out>([Equably], [yb]YB)", "gives nothing"),
+    ("scattered letters taken out that leave another word", "EQUIL", "del<going out>([Equably], [by]BY)", "gives EQUAL"),
+    ("a stretch of the wrong size reversed", "KARST", "rev<last three of>([mini vehicles]KARTS)", "needs"),
+    ("a stretch from the wrong end reversed", "KARST", "rev<first pair of>([mini vehicles]KARTS)", "needs"),
+    ("an indicator naming no stretch turns the whole word", "KARST", "rev<flip>([mini vehicles]KARTS)", "needs"),
     # book-24021 5D: the fodder's del gives nothing, which crashed diagnose()
     # with "min() iterable argument is empty" instead of naming the del.
     ("anagram fodder whose del finds no run", "NARCOTIC",
      "ana<Unexpected>(del<ruled out>([contraction]CONTRACTION, [not]NOT))",
-     "gives nothing", "not one run", "del(del("),
+     "gives nothing", "in order", "del(del("),
 ]
 for name, answer, expr, *words in BAD:
     r = refused(expr, answer, *words)
