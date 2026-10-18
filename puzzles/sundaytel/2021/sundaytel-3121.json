@@ -730,39 +730,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THETA",
-     "indicators": [
-      {
-       "text": "absent in",
-       "note": "absent in means missing from the next word, so those letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "absent in",
+         "at": 19,
+         "note": "the word is is missing from inside the word this, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "at": 29,
+         "note": "the word from which is is taken out"
+        },
+        {
+         "words": "is",
+         "at": 16,
+         "note": "the letters removed"
+        }
+       ]
+      },
+      {
        "words": "Greek character",
+       "at": 0,
        "gives": "ETA",
        "note": "eta is the seventh letter of the Greek alphabet"
-      },
-      {
-       "words": "is",
-       "note": "taken as written"
-      },
-      {
-       "words": "this",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about one Greek character being missing from another.",
-     "walkthrough": "The setter uses Greek twice: once inside the wordplay, once in the definition at the end.",
-     "definitionFit": "Theta is the eighth character of the Greek alphabet, written as a barred circle."
+     "surface": "Someone points at a Greek letter and notes a Greek character missing from it.",
+     "walkthrough": "Read 'is absent in this' literally: take IS out of THIS to leave TH, then add ETA. 'Greek character' looks like the definition, but it is the second piece, and 'Greek letter' at the end defines.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet, written as a circle with a bar across it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "is"
     }
    }
   },
