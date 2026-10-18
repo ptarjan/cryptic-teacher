@@ -1206,65 +1206,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SETTLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "About",
-       "note": "about means around, so one piece is wrapped around another"
+       "at": 0,
+       "note": "about can mean in a disordered state, so the gathered letters are shuffled"
+      },
+      {
+       "text": "outed",
+       "at": 19,
+       "note": "outed is a second jumbling signal: the letters are turned out of their order"
+      },
+      {
+       "text": "going",
+       "at": 29,
+       "note": "going means leaving, so the letters of if depart from the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "SETTLE",
-       "indicators": [
-        {
-         "text": "outed",
-         "note": "being outed throws a life into upheaval, so the letters are thrown into disorder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "SETTLE",
-         "indicators": [
-          {
-           "text": "going",
-           "note": "something going is leaving, so those letters are taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lefties",
-           "note": "the word as written, before trimming"
-          },
-          {
-           "words": "if",
-           "note": "the two letters that leave"
-          },
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the abbreviation for time"
-          }
-         ]
+         "words": "time",
+         "at": 6,
+         "gives": "T"
+        },
+        {
+         "words": "lefties",
+         "at": 11,
+         "note": "taken as written, part of the letter pool"
         }
        ]
+      },
+      {
+       "words": "if",
+       "at": 26,
+       "note": "taken as written: these letters leave the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "It is about time left-wingers were exposed, if they are running for a parliamentary seat.",
-     "walkthrough": "'A seat' looks like a place in Parliament, but a settle is a wooden bench. 'Outed' sounds like exposing someone; here it scrambles what is left.",
-     "definitionFit": "A settle is a long wooden bench with a high back and arms, a piece of furniture for sitting."
+     "surface": "A Private Eye jibe that it is high time left-wingers were exposed if they are to win a parliamentary seat.",
+     "walkthrough": "Pool T with LEFTIES, let IF go ('if going'), and rearrange the rest ('About', 'outed'). 'Seat' looks like a constituency but is a piece of furniture.",
+     "definitionFit": "A settle is a long wooden bench with a high back and arms, a piece of furniture to sit on."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "seat"
     }
