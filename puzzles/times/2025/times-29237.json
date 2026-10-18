@@ -530,59 +530,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "A day out is a trip away, and letters out of place are rearranged."
+       "text": "in",
+       "at": 54,
+       "note": "the second in says the jumbled day and the two end letters sit inside the flap word"
       }
      ],
      "parts": [
       {
        "words": "flap",
-       "gives": "L",
-       "note": "A lapel is the flap on a coat front; its first letter opens the answer."
+       "at": 57,
+       "gives": "LAPEL",
+       "note": "a lapel is the folded flap on the front of a jacket"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "ends",
-         "note": "The ends of words are their last letters."
-        }
-       ],
+       "op": "charade",
        "parts": [
-        {
-         "words": "flap",
-         "gives": "APEL",
-         "note": "The rest of the lapel."
-        },
         {
          "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "The pieces sit in the flap, inside its letters."
+           "text": "out",
+           "at": 22,
+           "note": "out as in way out or wrong means the letters are rearranged"
           }
          ],
          "parts": [
           {
            "words": "day",
-           "note": "The letters of day, rearranged."
-          },
+           "at": 18,
+           "note": "the word day, whose letters are jumbled"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
           {
-           "op": "last",
-           "parts": [
-            {
-             "words": "panic",
-             "note": "The last letter of panic."
-            }
-           ]
-          },
+           "text": "ends",
+           "at": 26,
+           "note": "ends picks the last letter of each of panic and patriarch"
+          }
+         ],
+         "parts": [
           {
-           "words": "patriarch",
-           "gives": "H",
-           "note": "The last letter of patriarch."
+           "words": "panic and patriarch",
+           "at": 34,
+           "note": "the two words whose final letters are used"
           }
          ]
         }
@@ -591,9 +587,9 @@
      ]
     },
     "explanation": {
-     "surface": "A cathedral day trip ending in panic, with the patriarch in a flap.",
-     "walkthrough": "'Ends in panic' reads as a story's outcome, but 'ends' belongs to both panic and patriarch, while 'in' is the container.",
-     "definitionFit": "A chapel dedicated to Our Lady, the Virgin Mary, usually behind a cathedral's high altar, so it is part of the building."
+     "surface": "A cathedral day out ends with a church patriarch in a state of panic and fluster.",
+     "walkthrough": "'flap' is not panic here but the fold of a jacket front; 'day out' looks like an outing but signals the jumbled letters.",
+     "definitionFit": "A lady chapel is a chapel dedicated to the Virgin Mary, usually behind the high altar of a cathedral."
     },
     "features": {
      "answerInScene": true,
@@ -1237,58 +1233,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OPULENT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "new",
+       "at": 10,
+       "note": "new means made afresh, so the letters of houseplant are reformed"
+      },
+      {
+       "text": "irregularly shaped leaves",
+       "at": 29,
+       "note": "the letters of has, in any order, leave the word; irregularly shaped says their order does not matter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "new",
-         "note": "Making something new remakes it, so the remaining letters are rearranged."
-        },
-        {
-         "text": "leaves",
-         "note": "Leaves is the verb, departs, so those letters go."
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "OPULENT",
-         "indicators": [
-          {
-           "text": "irregularly shaped",
-           "note": "Irregularly means not in a regular run, so the letters of HAS are taken from scattered places."
-          }
-         ],
-         "parts": [
-          {
-           "words": "houseplant",
-           "note": "The word to take letters from."
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "has",
-         "note": "H, A and S removed from houseplant."
-        }
-       ]
+       "words": "houseplant",
+       "at": 14
+      },
+      {
+       "words": "has",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A lush new houseplant whose leaves come in odd shapes.",
-     "walkthrough": "'Leaves' reads as foliage of the houseplant; it is the verb.",
-     "definitionFit": "Both words mean rich and lavish, a plain synonym."
+     "surface": "A lush new pot plant has oddly formed leaves.",
+     "walkthrough": "Rearrange HOUSEPLANT after taking out H, A and S, the letters of 'has' in any order; what remains, OPULENT, is the answer.",
+     "definitionFit": "Opulent describes lavish richness and abundance, the same sense as luxuriant growth or decor."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "leaves"
     }
    }
@@ -1535,42 +1511,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no longer coming about",
+       "at": 18,
+       "note": "no longer coming about says Ned's letters stop appearing around the phrase, so they are taken out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "VERMIN",
-       "indicators": [
-        {
-         "text": "no longer coming about",
-         "note": "Something no longer coming about has stopped surrounding, so the letters that went round the outside are dropped."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Forget it",
-         "gives": "NEVERMIND",
-         "note": "Never mind = forget it."
-        }
-       ]
+       "words": "Forget it",
+       "at": 0,
+       "gives": "NEVERMIND",
+       "note": "never mind is a way of saying forget it"
       },
       {
-       "unchecked": true,
        "words": "Ned's",
-       "note": "N, E and D removed: NE at the front and D at the back."
+       "at": 12,
+       "gives": "NED",
+       "note": "the name Ned, whose three letters are removed from the start and end"
       }
      ]
     },
     "explanation": {
-     "surface": "Giving up on Ned, who won't come round to deal with the pests any more.",
-     "walkthrough": "Ned is split around the answer, NE at the start and D at the end, which is what 'coming about' means.",
-     "definitionFit": "Rats, mice and the like are pests, a plain synonym."
+     "surface": "Someone shrugs off pests, saying Ned will not be visiting any more.",
+     "walkthrough": "N and E are at the front of NEVERMIND and D at the end, so Ned is 'about' the remaining letters, and removing all three leaves the answer.",
+     "definitionFit": "Vermin are animals considered nuisances, such as rats and mice, so the word is a collective term for pests."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "coming"
+     "misdirectedWord": "Ned's"
     }
    }
   },

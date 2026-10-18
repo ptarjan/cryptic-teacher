@@ -454,55 +454,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OCARINA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 29,
+       "note": "found in says the middle piece sits inside the outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most of CARING, dropping its last letter"
-        },
-        {
          "text": "wings",
-         "note": "the wings of a word are its outer letters"
+         "at": 50,
+         "note": "the wings of something are its two sides, so only the end letters of orchestra are used"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "OA",
-         "indicators": [
-          {
-           "text": "found in"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "orchestra's wings",
-           "gives": "OA",
-           "select": "outer",
-           "note": "the first and last letters of orchestra"
-          }
-         ]
+         "words": "orchestra's",
+         "at": 38,
+         "gives": "ORCHESTRA",
+         "note": "the word orchestra, whose two end letters frame the rest"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means nearly all of the word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kind",
+         "at": 17,
+         "gives": "CARING",
+         "note": "kind means caring, as in a kind or caring nature"
         },
         {
-         "words": "kind mostly",
-         "gives": "CARIN",
-         "note": "CARING (kind) without its last letter, placed between O and A"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wind player tucked away at the edges of the orchestra.",
-     "walkthrough": "Wings suggests the side stage of a theatre; here it means the two ends of the word orchestra.",
-     "definitionFit": "An ocarina is a small egg-shaped wind instrument."
+     "surface": "A wind instrument, of a sort often heard among the players at the edges of an orchestra.",
+     "walkthrough": "The 'wings' of orchestra are its first and last letters, the edges of the word as of a stage; the apostrophe-s only joins it to them.",
+     "definitionFit": "An ocarina is a small egg-shaped vessel flute, played by blowing, so it is a wind instrument."
     },
     "features": {
      "answerInScene": true,
@@ -1162,36 +1167,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "taken in"
+       "text": "taken in",
+       "at": 24,
+       "note": "taken in says the knight and that is go inside the word for fast"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fast",
+       "at": 33,
+       "gives": "LENT",
+       "note": "Lent is the Christian season of fasting"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "fast",
-         "gives": "LENT",
-         "note": "Lent is the Christian fast before Easter"
+         "words": "knight",
+         "at": 9,
+         "gives": "N",
+         "note": "N is the chess notation for a knight"
         },
         {
          "words": "that is",
+         "at": 16,
          "gives": "IE",
-         "note": "i.e. = id est, that is"
+         "note": "i.e. is the abbreviation of id est, Latin for that is"
         }
        ]
-      },
-      {
-       "words": "knight",
-       "gives": "N",
-       "note": "N = knight in chess notation"
       }
      ]
     },
     "explanation": {
-     "surface": "A forbearing knight who has been swallowed up quickly.",
-     "walkthrough": "Fast reads as quickly; it is the religious fast, Lent.",
-     "definitionFit": "Plain synonym: someone mild in judging others tolerates what a stricter person would punish."
+     "surface": "A forgiving knight is brought in during a period of fasting.",
+     "walkthrough": "'fast' is a noun here, the Christian season of fasting before Easter, not an adjective for speed.",
+     "definitionFit": "A lenient person is merciful and permissive, the same as being tolerant of faults."
     },
     "features": {
      "answerInScene": false,
@@ -1222,39 +1232,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PRAYER",
      "indicators": [
       {
-       "text": "changing sides",
-       "note": "L (left) is swapped for R (right)"
-      },
-      {
-       "text": "almost at the start",
-       "note": "the swap is in the second letter, nearly the first"
+       "text": "changing sides almost at the start",
+       "at": 30,
+       "note": "the sides are left and right; near the front of the word the letter for left becomes the letter for right"
       }
      ],
      "parts": [
       {
        "words": "sportsperson",
+       "at": 17,
        "gives": "PLAYER",
-       "note": "a player takes part in a sport"
+       "note": "a player is someone taking part in a sport"
       },
       {
-       "words": "changing sides almost at the start",
-       "gives": "PRAYER",
-       "note": "L becomes R in the second position"
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete switching teams early in the season, perhaps to pick up a fee.",
-     "walkthrough": "Collect (stress on the first syllable) is a short prayer in church liturgy; possibly marks it as an example. The surface wants the verb.",
-     "definitionFit": "A collect is a short prayer read in church services."
+     "surface": "Perhaps a fundraising collector is a sportsperson who switched teams early on.",
+     "walkthrough": "L for left, the second letter of PLAYER, is swapped for R for right. A collect is a short prayer in Anglican and Catholic services, which is why 'Possibly' marks it as one example.",
+     "definitionFit": "A collect is a brief liturgical prayer said on a particular day, so it is one kind of prayer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "collect"
     }
    }
@@ -1457,51 +1465,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "at last",
-       "note": "take the last letter of reassurance"
+       "text": "in",
+       "at": 27,
+       "note": "in says the obtained word and the final letter sit inside the word for test"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
-       "parts": [
-        {
-         "words": "test",
-         "gives": "TRY",
-         "note": "a try is a test or attempt"
-        },
-        {
-         "words": "Obtain",
-         "gives": "REACH",
-         "note": "to reach = to obtain or attain"
-        }
-       ]
+       "words": "test",
+       "at": 30,
+       "gives": "TRY",
+       "note": "to try something is to test it"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "E",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "reassurance at last",
-         "gives": "E",
-         "select": "last",
-         "note": "the last letter of reassurance"
+         "words": "Obtain",
+         "at": 0,
+         "gives": "REACH",
+         "note": "to reach a goal is to obtain it"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 19,
+           "note": "at last picks the final letter of reassurance"
+          }
+         ],
+         "parts": [
+          {
+           "words": "reassurance",
+           "at": 7,
+           "note": "the word whose last letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Seeking comfort from a test for an unfaithful partner.",
-     "walkthrough": "Test for infidelity reads as one thing; for is the link and test gives TRY.",
-     "definitionFit": "Plain synonym: betrayal of faith, the breaking of trust that infidelity implies."
+     "surface": "Someone finally gets comfort after a lie-detector test about an affair.",
+     "walkthrough": "'test' seems part of a loyalty-test scene, but it simply gives the outer letters; the definition is the last word alone.",
+     "definitionFit": "Treachery is betrayal of trust, and infidelity is betrayal of a partner or cause, so they are synonyms."
     },
     "features": {
      "answerInScene": true,

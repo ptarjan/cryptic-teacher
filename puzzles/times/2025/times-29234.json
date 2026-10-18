@@ -166,52 +166,57 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "fed to",
+       "at": 15,
+       "note": "fed to means given inside, so the letter goes into the sheep"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 22
+        },
+        {
+         "words": "sheep",
+         "at": 24,
+         "gives": "TUP",
+         "note": "a tup is a ram, a male sheep"
+        }
+       ]
+      },
       {
        "op": "last",
        "indicators": [
         {
          "text": "Last of",
-         "note": "take the final letter of silage"
-        },
-        {
-         "text": "fed to"
+         "at": 0,
+         "note": "Last of picks the final letter of silage"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "used as printed"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "parts": [
-        {
-         "words": "sheep",
-         "gives": "TUP",
-         "note": "a tup is a ram"
-        },
-        {
-         "words": "Last of silage",
-         "gives": "E",
-         "note": "final letter of silage, placed after the first letter of the sheep"
+         "words": "silage",
+         "at": 8,
+         "note": "the word whose last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer watching the dregs of the silage vanish into a sheep.",
-     "walkthrough": "A tup is a ram, a farm word few solvers outside Britain know; silage is fermented grass fed to livestock.",
-     "definitionFit": "To eat up something is to swallow the lot."
+     "surface": "The remains of the silage were fed to a sheep and eaten up.",
+     "walkthrough": "'Last of' gives E, which 'fed to' places inside TUP after the T, with A in front. A tup is a dialect word for a ram.",
+     "definitionFit": "To eat something up is to consume it completely, so the phrase means swallowed."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "sheep"
+     "aptDefinition": false
     }
    }
   },
@@ -1160,55 +1165,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARTIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "observed inside",
+       "at": 19,
+       "note": "observed inside means the letter is seen within the trimmed grandee"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "primarily",
-         "note": "primarily means first of all, so take the first letter"
-        },
-        {
          "text": "having failed to close",
-         "note": "a word that fails to close never reaches its end, so ARISTO loses its last letter"
+         "at": 44,
+         "note": "failing to close means the word has no ending, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "grandee having failed to close",
-         "gives": "ARIST",
-         "note": "ARISTO, short for aristocrat, without its last letter"
+         "words": "grandee",
+         "at": 36,
+         "gives": "ARISTO",
+         "note": "aristo is short for aristocrat, a grandee"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "observed inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Trinkets primarily",
-           "gives": "T",
-           "select": "first",
-           "note": "first letter of trinkets"
-          }
-         ]
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 9,
+         "note": "primarily means firstly, so the first letter of trinkets"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trinkets",
+         "at": 0,
+         "note": "the word whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A noble who cannot shut a drawer full of trinkets, so they are seen inside.",
-     "walkthrough": "'Drawer' is not furniture but someone who draws, and the question mark flags the pun. Aristo is informal British for an aristocrat.",
-     "definitionFit": "Someone who draws is an example of an artist."
+     "surface": "Small ornaments are seen inside a chest whose drawer the nobleman failed to shut.",
+     "walkthrough": "Aristo is informal British for an aristocrat. 'Drawer' means one who draws, not a chest drawer.",
+     "definitionFit": "An artist is one who draws pictures, so cryptically a drawer, the question mark marking the pun."
     },
     "features": {
      "answerInScene": false,
@@ -1461,36 +1470,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAC",
+     "op": "middle",
      "indicators": [
       {
        "text": "Remove coating of",
-       "note": "strip the outside letters, leaving the core"
+       "at": 0,
+       "note": "removing the coating strips off the outer letters, leaving the inside"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "dark",
+       "at": 18,
        "gives": "BLACK",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "dark",
-         "gives": "BLACK",
-         "select": "outer",
-         "note": "black = dark; drop B and K"
-        }
-       ]
+       "note": "black means dark"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for stripping off a dark varnish.",
-     "walkthrough": "The surface fits the answer, since lac is used to make varnish.",
-     "definitionFit": "Lac is a resin secreted by an insect, the source of shellac."
+     "surface": "Strip the varnish off something dark with resin.",
+     "walkthrough": "'Remove coating of' takes the B and K from the outside of BLACK.",
+     "definitionFit": "Lac is the resinous secretion of lac insects, used to make shellac, so it is a resin."
     },
     "features": {
      "answerInScene": true,
@@ -1524,42 +1524,41 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "to keep something is to hold it"
+       "at": 15,
+       "note": "keeping means holding within, so the letter goes inside the feller"
       }
      ],
      "parts": [
       {
        "words": "Feller perhaps",
+       "at": 0,
        "gives": "AXE",
-       "note": "an axe fells trees"
+       "note": "an axe fells trees, so it is one kind of feller"
       },
       {
        "op": "nth",
-       "unchecked": true,
-       "gives": "L",
        "n": 3,
        "indicators": [
         {
          "text": "third of",
-         "note": "third of means the letter standing in third place"
+         "at": 23,
+         "note": "third of picks the third letter of bullets"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "third of bullets",
-         "gives": "L",
-         "select": 3,
-         "note": "buLlets"
+         "words": "bullets",
+         "at": 32,
+         "note": "the word whose third letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gunman loading bullets into a revolver.",
-     "walkthrough": "'Feller' reads as a fellow and 'revolver' as a gun; really a felling tool and something that revolves.",
-     "definitionFit": "An axle turns, so it is a revolver of sorts, hence the question mark."
+     "surface": "A gunman keeps a third of the bullets in his revolver.",
+     "walkthrough": "'third of' gives L from bullets, which 'keeping' places inside AXE after the X. 'Revolver' is not a gun but something that rotates.",
+     "definitionFit": "An axle is a rod on which a wheel turns, so cryptically it is something that revolves."
     },
     "features": {
      "answerInScene": false,

@@ -110,54 +110,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BEBOP",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "backed"
+         "text": "including",
+         "at": 20,
+         "note": "including says the second British letter goes inside the reversed poet"
         }
        ],
        "parts": [
         {
-         "words": "British",
-         "gives": "B",
-         "note": "B = British"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "including"
+           "text": "backed",
+           "at": 13,
+           "note": "backed means turned back, so the poet's name is read in reverse"
           }
          ],
          "parts": [
           {
-           "words": "poet backed",
-           "gives": "EOP",
-           "note": "Edgar Allan POE, reversed"
-          },
-          {
-           "words": "British",
-           "gives": "B",
-           "note": "B = British, placed inside EOP to give EBOP"
+           "words": "poet",
+           "at": 8,
+           "gives": "POE",
+           "note": "Edgar Allan Poe was an American poet"
           }
          ]
+        },
+        {
+         "words": "British",
+         "at": 30,
+         "gives": "B",
+         "note": "B again, the abbreviation of British"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A British poet who turns out to have been a jazz fan all along.",
-     "walkthrough": "'British' appears twice and gives B both times: once at the front, once tucked inside the reversed poet.",
-     "definitionFit": "A definition by genus: this is the fast, complex style that grew up in 1940s New York, one kind of jazz."
+     "surface": "A British poet in reverse incorporates British jazz.",
+     "walkthrough": "'backed' turns POE into EOP, and 'including' puts the second B inside it after E, with the first B in front.",
+     "definitionFit": "Bebop is a fast, complex style of jazz from the 1940s, led by Charlie Parker and Dizzy Gillespie."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "backed"
     }
@@ -600,19 +604,14 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly all of a word is all but its last letter"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "sent back",
-         "note": "what is sent back returns the way it came"
+         "at": 30,
+         "note": "sent back means the combined letters are returned the other way, so read backwards"
         }
        ],
        "parts": [
@@ -620,14 +619,31 @@
          "op": "charade",
          "parts": [
           {
-           "words": "nearly all",
-           "gives": "AL",
-           "note": "ALL without its last letter"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "nearly",
+             "at": 14,
+             "note": "nearly means not quite all, so the last letter goes"
+            }
+           ],
+           "parts": [
+            {
+             "words": "all",
+             "at": 21,
+             "gives": "ALL",
+             "note": "the word all, trimmed by one letter"
+            },
+            {
+             "gives": "L"
+            }
+           ]
           },
           {
            "words": "food",
+           "at": 25,
            "gives": "GRUB",
-           "note": "grub is food; ALGRUB reversed gives BURGLA"
+           "note": "grub is informal for food"
           }
          ]
         }
@@ -635,15 +651,15 @@
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R = right"
+       "at": 41,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone at a raffle sending almost all the food back.",
-     "walkthrough": "'Raffles' looks like prize draws; it is A. J. Raffles, E. W. Hornung's gentleman thief.",
-     "definitionFit": "A definition by example, flagged by 'say': Raffles is fiction's famous gentleman housebreaker."
+     "surface": "Almost all the food was returned at a raffle, correct?",
+     "walkthrough": "'nearly' cuts ALL to AL; 'sent back' reverses ALGRUB to BURGLA, then R follows. Raffles is the gentleman thief in E. W. Hornung's stories, not a prize draw.",
+     "definitionFit": "A. J. Raffles is a famous fictional cracksman who breaks into houses, an example of a housebreaker."
     },
     "features": {
      "answerInScene": false,
@@ -1066,41 +1082,44 @@
      "indicators": [
       {
        "text": "guarding",
-       "note": "a guard stands around what it protects"
+       "at": 14,
+       "note": "guarding means surrounding, so the found word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "turned up",
-         "gives": "FOUND",
-         "note": "something that turned up was found"
-        },
-        {
-         "words": "unknown",
-         "gives": "X",
-         "note": "x, the unknown in algebra, placed inside FOUND"
-        }
-       ]
+       "words": "turned up",
+       "at": 4,
+       "gives": "FOUND",
+       "note": "something that turned up was found"
       },
       {
-       "words": "house",
-       "gives": "HO",
-       "note": "HO = house, placed inside FOUND after X"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unknown",
+         "at": 23,
+         "gives": "X",
+         "note": "X is the algebraic unknown"
+        },
+        {
+         "words": "house",
+         "at": 31,
+         "gives": "HO"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stray dog appearing and guarding an empty house.",
-     "walkthrough": "'Turned up' suggests a reversal; here it means appeared, so FOUND.",
-     "definitionFit": "A definition by genus: a pack breed kept for hunting foxes is one kind of dog."
+     "surface": "A dog appeared, keeping watch over a mysterious house.",
+     "walkthrough": "'turned up' looks like a reversal signal in a down clue, but here it means discovered, a synonym.",
+     "definitionFit": "A foxhound is a breed of hunting dog trained to chase foxes in packs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turned"
+     "misdirectedWord": "up"
     }
    }
   },
@@ -1181,40 +1200,43 @@
      "indicators": [
       {
        "text": "to cover",
-       "note": "a cover lies over and around a thing"
+       "at": 7,
+       "note": "to cover means the fabric goes over and around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Fabric",
-         "gives": "JEAN",
-         "note": "jean is a heavy cotton fabric"
-        },
-        {
-         "words": "a",
-         "note": "placed inside JEAN"
-        }
-       ]
+       "words": "Fabric",
+       "at": 0,
+       "gives": "JEAN",
+       "note": "jean is a heavy twilled cotton fabric"
       },
       {
-       "words": "horse",
-       "gives": "COB",
-       "note": "a cob is a sturdy horse, placed inside JEAN after A"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16
+        },
+        {
+         "words": "horse",
+         "at": 18,
+         "gives": "COB",
+         "note": "a cob is a sturdy short-legged horse"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cloth to throw over a horse, dating from Shakespeare's day.",
-     "walkthrough": "Macbeth was written around 1606, in the reign of James I; Jacobus is Latin for James.",
-     "definitionFit": "A period adjective: it names the reign of James I, during which Shakespeare wrote Macbeth."
+     "surface": "Cloth draped over a horse in a Shakespearean production.",
+     "walkthrough": "Macbeth was first staged around 1606, under James I, whose reign is Jacobean.",
+     "definitionFit": "Jacobean means of the reign of James I (1603-25), the period when Shakespeare wrote and first staged the play."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "cover"
+     "misdirectedWord": "Macbeth"
     }
    }
   },
