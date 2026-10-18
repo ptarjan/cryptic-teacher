@@ -1588,57 +1588,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUGMENT",
-     "indicators": [
-      {
-       "text": "With half of",
-       "note": "only half survives, so the remaining portion is cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "With half of",
+         "at": 0,
+         "note": "with half of a six-letter word taken, three letters are the share to be removed"
+        },
+        {
+         "text": "gone",
+         "at": 19,
+         "note": "gone means removed, so that half of the month's letters disappears"
+        }
+       ],
        "parts": [
         {
          "words": "month",
-         "gives": "AUG",
-         "note": "the first half of August"
+         "at": 13,
+         "gives": "AUGUST",
+         "note": "August is a month of the year"
         },
         {
-         "words": "crew",
-         "gives": "MEN",
-         "note": "a ship's crew are its men"
-        },
+         "gives": "UST"
+        }
+       ]
+      },
+      {
+       "words": "crew",
+       "at": 24,
+       "gives": "MEN",
+       "note": "a crew is a body of men"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally means at the end, so only the last letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "get",
-           "note": "the final letter"
-          }
-         ]
+         "text": "finally",
+         "at": 29,
+         "note": "finally picks out the last letter of the word get"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 37,
+         "note": "the last letter of the word get"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two weeks into the month, the ship's crew finally win a pay rise.",
-     "walkthrough": "Half of AUGUST is AUG, which also happens to be the month's abbreviation.",
-     "definitionFit": "To augment is to make larger or add to, a formal verb synonym of boost."
+     "surface": "Halfway through the month, a crew's work finally pays off with a rise.",
+     "walkthrough": "'half of month gone' leaves AUG, the first half of AUGUST; then come the crew and the last letter of 'get'.",
+     "definitionFit": "To augment something is to make it larger, so as a verb it means to increase."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "increase"
+     "misdirectedWord": "gone"
     }
    }
   },

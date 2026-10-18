@@ -323,47 +323,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Bad",
-       "note": "the letters are in a bad state, so they must be rearranged"
-      },
-      {
        "text": "behind",
-       "note": "the anagram comes behind, after, the next piece"
+       "at": 17,
+       "note": "behind means coming after, so the rearranged letters follow the throw piece"
       }
      ],
      "parts": [
       {
        "words": "cast's",
+       "at": 24,
        "gives": "THROW",
-       "note": "to cast is to throw; the 's is 'is'"
+       "note": "to cast is to throw"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most of the word, the last letter gone"
+         "text": "Bad",
+         "at": 0,
+         "note": "bad here signals the letters are spoilt into a new order"
         }
        ],
        "parts": [
         {
-         "words": "faith mostly",
-         "gives": "FAIT",
-         "note": "FAITH without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 10,
+           "note": "mostly means not quite all, so the last letter of faith is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "faith",
+           "at": 4
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theatre company's bad faith drives it to anger.",
-     "walkthrough": "Cast reads as a group of actors; here it is the verb throw.",
-     "definitionFit": "An idiom: the phrase names a sudden tantrum, so the verb phrase stands for the verb rage."
+     "surface": "Losing faith in the actors is the reason the director flies into a fury.",
+     "walkthrough": "'cast' looks like the actors in a play, but it is the verb to throw. Drop the H from FAITH and rearrange FAIT.",
+     "definitionFit": "To throw a fit is an idiom for losing one's temper violently, which is to rage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cast"
+     "misdirectedWord": "cast's"
     }
    }
   },
@@ -1081,43 +1094,45 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "STUDENTS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "finally",
-       "note": "the S for succeeded moves to the final position"
+       "text": "previous",
+       "at": 51,
+       "note": "previous means coming before, so the boss piece goes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "boss",
+       "at": 60,
+       "gives": "STUD",
+       "note": "a boss is a stud, a raised knob on a surface such as a shield"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "previous",
-         "note": "the boss comes previous to, before, the rest"
+         "text": "having succeeded finally",
+         "at": 21,
+         "note": "S is the abbreviation for succeeded, and finally means it moves to the end of the dispatched word"
         }
        ],
        "parts": [
         {
-         "words": "boss",
-         "gives": "STUD",
-         "note": "a boss is a round knob or stud"
-        },
-        {
-         "words": "dispatched, having succeeded finally",
-         "gives": "ENTS",
-         "note": "SENT = dispatched, with its S (succeeded, as in family trees) moved to the end"
+         "words": "dispatched",
+         "at": 9,
+         "gives": "SENT",
+         "note": "dispatched means sent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trainees are sent off once they have done well under their former manager.",
-     "walkthrough": "Boss is not a manager but a raised ornament, a stud.",
-     "definitionFit": "Students are learners, people in training."
+     "surface": "Trainees are sent packing once their former boss has finally got the top job.",
+     "walkthrough": "'boss' is the raised ornament, not a manager. In SENT, the S (succeeded) moves to the back, making ENTS.",
+     "definitionFit": "Students are people in training or being taught, so they are trainees."
     },
     "features": {
      "answerInScene": true,
@@ -1538,40 +1553,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "group involved in",
+       "at": 16,
+       "note": "a group of letters involved in the words team assessments is held inside them"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "group",
-       "note": "a group is a mass, the core of the answer"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "involved in",
-         "note": "the answer is involved, contained, in the next words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "team assessments",
-         "gives": "AMASSES",
-         "note": "teAM ASSESsments"
-        }
-       ]
+       "words": "team assessments",
+       "at": 34,
+       "note": "the answer's letters run on from the end of team into the start of assessments"
       }
      ]
     },
     "explanation": {
-     "surface": "Managers gather everyone for team appraisals.",
-     "walkthrough": "The answer is hidden whole; 'group' only points to the MASS in its middle.",
-     "definitionFit": "To amass things is to bring them together in quantity."
+     "surface": "A manager collects the squad's performance reviews.",
+     "walkthrough": "The letters run across the two words: te-AM ASSESs-ments.",
+     "definitionFit": "To amass things is to gather or collect them into a heap, so amasses means brings together."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "assessments"
+     "misdirectedWord": "group"
     }
    }
   },
@@ -1944,46 +1950,60 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "COUNTERACT",
-     "indicators": [
-      {
-       "text": "rather than",
-       "note": "the time replaces the money letter"
-      },
-      {
-       "text": "ultimately",
-       "note": "the ultimate, last, letter of money"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "district",
-       "gives": "COUNTY",
-       "note": "a county is a district"
-      },
-      {
-       "words": "time",
-       "gives": "ERA",
-       "note": "an era is a period of time"
-      },
-      {
-       "words": "money ultimately",
-       "gives": "Y",
-       "note": "last letter of money, which ERA replaces"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "rather than",
+         "at": 36,
+         "note": "rather than signals that one piece stands in place of another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "district",
+         "at": 11,
+         "gives": "COUNTY",
+         "note": "a county is an administrative district"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 54,
+           "note": "ultimately means at the very end, picking out the final letter of money"
+          }
+         ],
+         "parts": [
+          {
+           "words": "money",
+           "at": 48,
+           "note": "the last letter of the word money"
+          }
+         ]
+        },
+        {
+         "words": "time",
+         "at": 31,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        }
+       ]
       },
       {
        "words": "court",
-       "gives": "CT",
-       "note": "CT is the abbreviation for court"
+       "at": 20,
+       "gives": "CT"
       }
      ]
     },
     "explanation": {
-     "surface": "A county court awards time served instead of damages.",
-     "walkthrough": "The surface is a judgement awarding a prison term instead of a fine; 'rather than' is a swap instruction, one piece standing in for another.",
-     "definitionFit": "A plain synonym: acting against an effect offsets it, making up for it."
+     "surface": "A legal case about compensation goes to a district court, where time matters more than cash.",
+     "walkthrough": "'rather than' marks a swap: the period of time replaces the final letter of 'money' in the district word, and the court abbreviation follows.",
+     "definitionFit": "To counteract something is to offset or neutralise its effect, so it means to compensate for it."
     },
     "features": {
      "answerInScene": false,
@@ -2088,56 +2108,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNSUITABLE",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 36,
+       "note": "keeping means holding within, so the united piece and Israel's first letter go inside"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "keeping",
-         "note": "the board keeps the letters inside it"
-        }
-       ],
        "parts": [
         {
-         "words": "international organisation",
+         "words": "of international organisation",
+         "at": 6,
          "gives": "UNS",
-         "note": "UN, the United Nations, with the 's of 'of international organisation'"
+         "note": "the UN is the international organisation, and of it gives the possessive UN's"
+        },
+        {
+         "words": "Board",
+         "at": 0,
+         "gives": "TABLE",
+         "note": "a board is a table, as in board and lodging"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "united",
+         "at": 44,
+         "gives": "U"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "front",
-           "note": "the front of a word is its first letter"
+           "text": "front for",
+           "at": 51,
+           "note": "the front of a word is its first letter, here of Israel"
           }
          ],
          "parts": [
           {
-           "words": "united",
-           "note": "first letter of united"
+           "words": "Israel",
+           "at": 61,
+           "note": "the first letter of the word Israel"
           }
          ]
-        },
-        {
-         "words": "Israel",
-         "gives": "I",
-         "note": "I is the abbreviation for Israel"
-        },
-        {
-         "words": "Board",
-         "gives": "TABLE",
-         "note": "a board is a table"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A UN board's support for Israel is judged improper.",
-     "walkthrough": "Board of international organisation is the UN's table, UNSTABLE, which then keeps U and I.",
-     "definitionFit": "A plain synonym: something not fitting the occasion is out of place."
+     "surface": "A UN board, with a united front, holds a discussion about Israel that is deemed inappropriate.",
+     "walkthrough": "Read 'Board of international organisation' as the UN's TABLE; it keeps U (united) and I (the front of Israel).",
+     "definitionFit": "Unsuitable means not right for the purpose or occasion, a synonym of inappropriate."
     },
     "features": {
      "answerInScene": true,
@@ -3020,25 +3048,35 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Pardon me!",
-      "at": 0,
-      "meaning": "reads as an apology; it is the false modesty that comes with the boast"
-     },
-     {
-      "text": "It's wrong to mention somebody you know",
-      "at": 11,
-      "meaning": "reads as a rule of discretion; the setter means casually citing famous acquaintances"
+      "text": "mention somebody you know",
+      "at": 25
      }
     ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "It's wrong",
+       "at": 11,
+       "note": "it's wrong says the letters of pardon me are in a wrong order and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pardon me",
+       "at": 0
+      }
+     ]
+    },
     "explanation": {
-     "surface": "An apology for mentioning a famous friend.",
-     "walkthrough": "Pardon me! is the name-dropper's fake modesty, as in 'Pardon me, but when I met the Queen...'",
-     "definitionFit": "To name-drop is to mention famous people you know, which is frowned on."
+     "surface": "Someone apologises for boasting of a famous acquaintance, admitting it was bad form.",
+     "walkthrough": "'Pardon me!' reads as a polite exclamation, but its letters are the fodder.",
+     "definitionFit": "To name-drop is to casually mention famous people you know in order to impress others."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun"
+     "aptDefinition": false,
+     "misdirectedWord": "Pardon"
     }
    }
   },

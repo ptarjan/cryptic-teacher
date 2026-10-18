@@ -512,18 +512,27 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 12,
+       "note": "in a down clue over means placed above, so this piece comes first"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "rolled over",
-         "note": "turf rolled over is flipped upside down, which in a down entry puts its letters in reverse"
+         "text": "rolled",
+         "at": 5,
+         "note": "turf that is rolled is turned over, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Turf",
+         "at": 0,
          "gives": "SOD",
          "note": "a sod is a piece of turf"
         }
@@ -531,35 +540,33 @@
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ED",
        "indicators": [
         {
          "text": "bare",
-         "note": "stripped bare means the outside is taken away, leaving only the inner letters"
+         "at": 17,
+         "note": "laid bare, stripped of its outer layer, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "plots",
-         "gives": "ED",
-         "select": "middle",
-         "note": "plots are beds in a garden; beds stripped of its outer letters"
+         "at": 22,
+         "gives": "BEDS",
+         "note": "beds are garden plots, as in flower beds"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Turf has been laid over bare garden plots treated with fertiliser.",
-     "walkthrough": "Plots here are garden beds, and only their middle survives once stripped bare.",
-     "definitionFit": "Dosed means given a dose of something such as medicine, so it means treated with a substance."
+     "surface": "A gardener lays turf over bare patches of ground and treats them.",
+     "walkthrough": "'bare plots' reads as empty ground, but 'bare' strips the outside letters of BEDS, leaving ED.",
+     "definitionFit": "To be dosed is to have been given a measured quantity of a medicine or other substance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rolled"
+     "misdirectedWord": "bare"
     }
    }
   },
@@ -1226,52 +1233,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Mostly Vatican restored damaged ceramics and textiles?",
-      "at": 0
+      "text": "ceramics and textiles?",
+      "at": 32
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DECORATIVEARTS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means most but not all of the word, so its final letter is dropped"
+       "text": "damaged",
+       "at": 24,
+       "note": "something damaged is knocked out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "damaged",
-         "note": "something damaged is knocked out of shape, so these letters lose their order"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means not quite all, so the last letter of Vatican is dropped"
         }
        ],
        "parts": [
         {
          "words": "Vatican",
-         "gives": "VATICA",
-         "note": "the Vatican less its last letter"
+         "at": 7
         },
         {
-         "words": "restored",
-         "note": "taken as written"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "restored",
+       "at": 15
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "Pottery and fabrics from the Vatican were mostly mended after being harmed.",
-     "walkthrough": "'Restored' looks like the indicator, but it is fodder; 'damaged' does the rearranging. The whole clue doubles as a description of what the Vatican's collections contain.",
-     "definitionFit": "Ceramics and textiles are examples of the decorative arts, crafts valued for ornament as well as use, hence the question mark."
+     "surface": "Damaged pieces at the Vatican are mostly restored.",
+     "walkthrough": "'restored' looks like an anagram signal but is fodder; 'damaged' does the mixing of VATICA and RESTORED. The question mark marks a definition by example.",
+     "definitionFit": "The decorative arts are crafts such as pottery, glass and weaving, so ceramics and textiles are examples of them."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "restored"
     }
    }
@@ -1297,57 +1305,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "uncrowned",
-       "note": "a crown sits on top, so removing it takes away the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 6,
+         "note": "half of means only the first four of the eight letters are kept"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ENVI",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "half a word is one of its two equal parts, here the opening four letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "neighbourhood",
-           "gives": "ENVI",
-           "select": "first",
-           "note": "the first half of environs, a word for neighbourhood"
-          }
-         ]
+         "words": "neighbourhood",
+         "at": 14,
+         "gives": "ENVIRONS",
+         "note": "the environs of a place are its surrounding neighbourhood"
         },
         {
-         "words": "talent",
-         "gives": "NOUS",
-         "note": "nous is practical intelligence or know-how"
+         "gives": "RONS"
         }
        ]
       },
       {
-       "gives": "N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncrowned",
+         "at": 33,
+         "note": "without its crown, the top or first letter, so the first letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "talent",
+         "at": 43,
+         "gives": "NOUS",
+         "note": "nous is practical intelligence or knack, a natural talent"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Feeling jealous of half the area's gifts, which lack a crown.",
-     "walkthrough": "'Green' looks like a colour or a village green beside 'neighbourhood', but here it means jealous.",
-     "definitionFit": "Green is the colour of envy, as in green with envy, so green means envious."
+     "surface": "Someone is jealous of a talented neighbour who has not yet won a title.",
+     "walkthrough": "'Green' is the colour of envy, the green-eyed monster. Keep the first half of ENVIRONS and behead NOUS.",
+     "definitionFit": "Green is a common figure of speech for jealous or envious, as in green with envy."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "Green"
     }
    }
@@ -1700,33 +1711,32 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Water sport with its final coming up … here?",
-      "at": 0
+      "text": "here?",
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "POOL",
      "indicators": [
       {
        "text": "with its final coming up",
-       "note": "in a down entry coming up means moving higher, so the final letter swaps places with the one above it"
+       "at": 12,
+       "note": "in a down clue coming up means moving higher, so the final letter climbs one place, swapping the last pair"
       }
      ],
      "parts": [
       {
        "words": "Water sport",
+       "at": 0,
        "gives": "POLO",
-       "note": "water polo, or simply polo, the team ball game"
+       "note": "water polo is a sport, and polo alone names it here"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "Asks where water polo, with its final match imminent, might be played.",
-     "walkthrough": "The ending of the sport climbs one place; the whole clue then suggests where water polo is played.",
-     "definitionFit": "Water polo is played in a swimming pool, so the pool is the place meant by here."
+     "surface": "A water sport is played with its last match coming up somewhere nearby.",
+     "walkthrough": "Move the final O of POLO up one place and you get the place where water polo is played; the dots and question mark tie the definition to the sport.",
+     "definitionFit": "Water polo is played in a swimming pool, so a pool is literally where the game happens."
     },
     "features": {
      "answerInScene": true,
