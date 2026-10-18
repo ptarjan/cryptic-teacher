@@ -162,6 +162,12 @@ check("a container holding a container as its holder is counted", 1, v.nested_co
 check("the other nesting, ins(third, ins(second, first)), is not", 0, v.nested_containers(
     {"op": "container", "parts": [{"words": "x", "gives": "AE"}, abuse["parts"][0]]}))
 check("an unchecked container is not", 0, v.nested_containers({**abuse, "unchecked": True}))
+sep = {**abuse, "parts": [{**abuse["parts"][0], "indicators": [{"text": "separately"}]}, abuse["parts"][1]]}
+check("pieces put in separately at different points are not", 0, v.nested_containers(sep))
+twice = {**abuse, "parts": [abuse["parts"][0], {"words": "x", "gives": "U"}]}
+check("the same letter put in twice is not", 0, v.nested_containers(twice))
+check("close to on a charade is an ordering word, not misplaced", 0, v.misplaced_indicators(
+    {"op": "charade", "indicators": [{"text": "close to"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
 wis = {"op": "anagram", "parts": [{"op": "charade", "parts": [
     {"words": "cows in"}, {"words": "wrong", "gives": "SIN"}]}]}
 check("a synonym beside literal fodder under an anagram is counted", 1, v.anagram_synonyms(wis))
