@@ -917,37 +917,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "reduced",
-       "note": "A price reduced comes down at the end, so the word named loses its final letter."
+       "text": "abroad",
+       "at": 20,
+       "note": "abroad means all over the place, so the letters are scattered"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "abroad",
-         "note": "Letters sent abroad end up scattered far from home, so the ones named are rearranged."
+         "text": "reduced",
+         "at": 6,
+         "note": "reduced means cut short, so the final letter of Apple goes"
         }
        ],
        "parts": [
         {
          "words": "Apple",
-         "note": "anagram fodder, five letters"
+         "at": 0
         },
         {
-         "words": "price",
-         "gives": "PRIC",
-         "note": "PRICE reduced by its last letter, four more letters of fodder"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "price",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "Apple cutting the price of its office supplies in foreign markets.",
-     "walkthrough": "The capital letter makes Apple the computer firm and the surface a press release, though the fruit spells the same. 'Abroad' is the shuffle rather than a hint about imports.",
-     "definitionFit": "A paper clip is the bent loop of wire every desk drawer keeps for holding sheets together."
+     "surface": "Apple products are sold cheaper overseas than office supplies.",
+     "walkthrough": "Apple, reduced, is APPL; mixed with PRICE it gives the answer.",
+     "definitionFit": "A paperclip is a bent loop of wire that holds sheets together on a desk."
     },
     "features": {
      "answerInScene": true,
@@ -977,60 +981,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "containing",
-       "note": "A box containing something has it inside, so the letter named next goes within the word before it."
+       "at": 25,
+       "note": "the small bundle and fish together contain the extra letter"
       }
      ],
      "parts": [
       {
-       "words": "small",
-       "gives": "S",
-       "note": "S is small on a clothes label"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "tail of",
-         "note": "A creature's tail is its back end, so take the final letter of the word named."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "bundle",
-         "gives": "WAD",
-         "note": "a wad of notes is a bundle of them"
+         "words": "small",
+         "at": 12,
+         "gives": "S"
         },
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "tail of striped",
-           "note": "the last letter of STRIPED"
-          }
-         ]
+         "words": "bundle",
+         "at": 18,
+         "gives": "WAD",
+         "note": "a wad is a bundle, as of notes"
+        },
+        {
+         "words": "fish",
+         "at": 52,
+         "gives": "LING",
+         "note": "ling is a fish of the cod family"
         }
        ]
       },
       {
-       "words": "fish",
-       "gives": "LING",
-       "note": "the ling is a long cod-like fish of northern seas"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail of",
+         "at": 36,
+         "note": "picks the final letter of striped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "striped",
+         "at": 44
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Packing up a small bundle with the tail end of a striped fish inside it.",
-     "walkthrough": "'Wrapping up' is a baby in its shawl rather than a parcel at the post office. Ling is a name crosswords reach for whenever four letters of fish are needed.",
-     "definitionFit": "To swaddle a baby is to wrap it up tightly in cloth, and both words are here in their -ing form."
+     "surface": "Someone is wrapping a little package that holds the tail of a striped fish.",
+     "walkthrough": "The tail letter slots into the middle of the combined holder, not at an end, which is why the small bundle and fish count as one container.",
+     "definitionFit": "Swaddling is wrapping a baby tightly in cloth, a kind of wrapping up."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "striped"
+     "misdirectedWord": "bundle"
     }
    }
   },

@@ -207,49 +207,53 @@
      "indicators": [
       {
        "text": "conceals",
-       "note": "something that conceals keeps an object hidden inside it"
+       "at": 35,
+       "note": "the actress's first name hides the other pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "actress Grant",
-         "gives": "LEE",
-         "note": "Lee Grant is the American film and stage actress"
-        },
-        {
-         "words": "alternate name",
-         "gives": "AKA",
-         "note": "aka means also known as, introducing another name"
-        }
-       ]
+       "words": "actress Grant",
+       "at": 21,
+       "gives": "LEE",
+       "note": "Lee Grant is an American actress"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "originally",
-         "note": "originally refers to how a word begins, so only its opening letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Graunstein",
-         "note": "the first letter of the name"
+         "words": "alternate name",
+         "at": 44,
+         "gives": "AKA",
+         "note": "aka, also known as, introduces an alternate name"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 72,
+           "note": "originally picks the first letter of Graunstein"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Graunstein",
+           "at": 60
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gossip item about an actress hiding a former name, which is now coming to light.",
-     "walkthrough": "Lee Grant is an American actress who has worked under a name other than her birth name, which gives the surface its scandal.",
-     "definitionFit": "Leakage is the act of escaping or seeping out, so it is the process of something getting out."
+     "surface": "A gossip item: actress Lee Grant is hiding a former name, Graunstein.",
+     "walkthrough": "The definition is the whole idea of something escaping: leakage is what gets out.",
+     "definitionFit": "Leakage is liquid, gas or information escaping, getting out through a gap."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Grant"
     }

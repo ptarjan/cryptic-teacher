@@ -658,39 +658,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "something placed between sits in the middle, flanked on either side"
+       "at": 10,
+       "note": "between puts the letter for right between the two other pieces"
       }
      ],
      "parts": [
       {
-       "words": "audio equipment",
-       "gives": "MIC",
-       "note": "a mic is a microphone"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "audio equipment",
+         "at": 18,
+         "gives": "MIC",
+         "note": "a mic is a microphone"
+        },
+        {
+         "words": "gong",
+         "at": 38,
+         "gives": "OBE",
+         "note": "an OBE is an honour, informally a gong"
+        }
+       ]
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the standard abbreviation for right"
-      },
-      {
-       "words": "gong",
-       "gives": "OBE",
-       "note": "a gong is slang for a medal or honour, such as the OBE"
+       "at": 4,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A listening device placed between a microphone and a gong in a recording studio.",
-     "walkthrough": "'Bug' suggests a hidden microphone, which fits the audio surface, but it means a germ. The OBE (Order of the British Empire) is an honour; British slang calls such awards gongs.",
-     "definitionFit": "A bug in everyday speech is a germ or virus causing illness, which is a microscopic organism."
+     "surface": "A bug sits right between some audio gear and a gong.",
+     "walkthrough": "Bug looks like a hidden microphone, which suits the audio setting, but here it is a germ. A gong is British slang for a medal or honour.",
+     "definitionFit": "A bug is informally a germ or microbe causing illness."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Bug"
     }

@@ -856,47 +856,51 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing placed in another is enclosed by it"
+       "at": 18,
+       "note": "the second 'in' puts the saint-in-location group inside India's letters"
       }
      ],
      "parts": [
+      {
+       "words": "India",
+       "at": 21,
+       "gives": "IND",
+       "note": "IND is the country code for India"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "a second placing inside, so the combined piece is enclosed again"
+         "at": 6,
+         "note": "the first 'in' puts the saint's letter inside the location"
         }
        ],
        "parts": [
         {
-         "words": "India",
-         "gives": "IND",
-         "note": "IND is the abbreviation for India"
+         "words": "location",
+         "at": 9,
+         "gives": "SITE",
+         "note": "a site is a location"
         },
         {
-         "words": "location",
-         "gives": "SITE",
-         "note": "a site is a place"
+         "words": "Saint",
+         "at": 0,
+         "gives": "S"
         }
        ]
-      },
-      {
-       "words": "Saint",
-       "gives": "S",
-       "note": "S is the abbreviation for saint"
       }
      ]
     },
     "explanation": {
-     "surface": "A holy man somewhere in India was making demands.",
-     "walkthrough": "There are two containers here: the saint goes into the location first, and that combination then goes into the country's abbreviation.",
-     "definitionFit": "To insist is to demand firmly and refuse to back down, so the past tense matches 'was demanding'."
+     "surface": "A holy man in some spot in India was being very demanding.",
+     "walkthrough": "IND is the official country code for India; the two ins nest, one holder inside another.",
+     "definitionFit": "To have insisted is to have pressed firmly for something, refusing to accept no."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "India"
+     "misdirectedWord": "location"
     }
    }
   },

@@ -940,7 +940,8 @@
      "indicators": [
       {
        "text": "returning",
-       "note": "an across answer that returns is read from its right-hand end back to its left, so the assembly is built and then collected the other way"
+       "at": 22,
+       "note": "returning means the whole thing is read backwards"
       }
      ],
      "parts": [
@@ -948,38 +949,52 @@
        "op": "container",
        "indicators": [
         {
-         "text": "about — on the contrary!",
-         "note": "'about' on its own would wrap the chafing round the students; the contradiction turns that inside out, so the students wrap round the chafing instead"
+         "text": "about",
+         "at": 51,
+         "note": "about signals one piece going around another"
+        },
+        {
+         "text": "on the contrary",
+         "at": 59,
+         "note": "the contrary flips the order, so the students go about chafe instead"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "students",
-           "gives": "NUS",
-           "note": "the NUS is Britain's National Union of Students"
+           "words": "new",
+           "at": 32,
+           "gives": "N"
           },
           {
-           "words": "chafe",
-           "gives": "RUB",
-           "note": "to chafe is to rub, and this is the piece that ends up enclosed"
+           "words": "students",
+           "at": 36,
+           "gives": "NUS",
+           "note": "NUS is the National Union of Students"
           }
          ]
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the standard abbreviation for new"
+         "words": "chafe",
+         "at": 45,
+         "gives": "RUB",
+         "note": "to rub is to chafe"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The exclamation does real work. 'On the contrary' flips the containment the words state, and only once that is settled is the whole thing collected in reverse.",
-     "definitionFit": "Overheating complaint -> SUNBURN: 'complaint' in its medical sense of an ailment, this one being what too much heat does to skin."
+     "surface": "An overheated complaint: students who have returned rub against something, or the other way round.",
+     "walkthrough": "Read plainly, chafe would go about the students; on the contrary means the students go about chafe instead, and the whole is then reversed.",
+     "definitionFit": "Sunburn is skin damage caused by too much sun, a complaint from overheating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "complaint"
     }
    }
   },
@@ -1543,39 +1558,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "a word given briefly stops before it is finished, so its last letter never arrives"
-      }
-     ],
      "parts": [
       {
        "words": "Meat",
+       "at": 0,
        "gives": "LAMB",
-       "note": "lamb is the meat, and it survives exactly as it is"
+       "note": "lamb is a meat"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cooked",
-         "note": "cooking breaks ingredients down and remakes them into something else, and letters cooked come out in a new arrangement"
+         "at": 20,
+         "note": "cooked suggests something altered, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "course",
-         "gives": "COURS",
-         "note": "a course is a dish within a meal, served here one letter short"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 12,
+           "note": "briefly means cut short, removing the last letter of course"
+          }
+         ],
+         "parts": [
+          {
+           "words": "course",
+           "at": 5
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a menu, which is what hides the fact that only the first word comes through intact. 'In' is a link, not a container.",
-     "definitionFit": "red wine -> LAMBRUSCO: definition by example, the lightly fizzy red of Emilia-Romagna standing in for the whole category."
+     "surface": "A dinner menu: a meat course quickly prepared in red wine.",
+     "walkthrough": "Course, briefly, is COURS; cooked it gives RUSCO. 'in' just links to the definition.",
+     "definitionFit": "Lambrusco is a sparkling Italian red from the Emilia-Romagna region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
     }
    }
   },
@@ -1700,35 +1731,43 @@
      "indicators": [
       {
        "text": "invested in",
-       "note": "money invested in a fund goes into it and stays there, so these letters are placed within the word rather than alongside it"
+       "at": 14,
+       "note": "to be invested in is to be clothed in, so the two pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "consultant",
-         "gives": "ADVISER",
-         "note": "a consultant is an adviser, and this is the word that opens up"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the usual abbreviation for English"
-        }
-       ]
+       "words": "consultant",
+       "at": 26,
+       "gives": "ADVISER",
+       "note": "an adviser is a consultant"
       },
       {
-       "words": "right",
-       "gives": "RT",
-       "note": "Rt is the abbreviation in Rt Hon, the style of a British privy counsellor"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 0,
+         "gives": "E"
+        },
+        {
+         "words": "right",
+         "at": 8,
+         "gives": "RT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Influencer' is doing double duty: the modern job title on the surface, and its plain older sense of somebody who sways opinion in the definition.",
-     "definitionFit": "influencer -> ADVERTISER: one who sets out to sway what people think and buy, which is the whole business of buying advertising space."
+     "surface": "An English entitlement is backed by a consultant who now calls themself an influencer.",
+     "walkthrough": "'right' looks like an entitlement but is just RT.",
+     "definitionFit": "An advertiser seeks to sway buyers, so it fits as one who influences opinion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "invested"
     }
    }
   }
