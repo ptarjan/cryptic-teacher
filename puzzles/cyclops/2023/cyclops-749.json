@@ -558,63 +558,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GOLDRING",
+     "op": "composite",
      "indicators": [
       {
-       "text": "doing twirls",
-       "note": "twirling means spinning around, so the letters are spun into a new order"
+       "text": "twirls",
+       "at": 38,
+       "note": "doing twirls means spinning round, so the letters of 'girl doing' are spun into a new order"
+      },
+      {
+       "text": "without",
+       "at": 45,
+       "note": "without says those letters are left out of the spun fodder, the answer being what remains"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GOLDRING",
+       "words": "girl doing",
+       "at": 27
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so something is taken away"
+         "text": "top",
+         "at": 63,
+         "note": "the top of a word is its first letter, here of 'identical'"
         }
        ],
        "parts": [
         {
-         "words": "girl",
-         "note": "taken as written, then rearranged"
-        },
-        {
-         "words": "doing",
-         "note": "taken as written, then rearranged"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "top",
-           "note": "the top of a word in an across clue is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "identical",
-           "note": "the first letter of identical, removed from the mix"
-          }
-         ]
+         "words": "identical",
+         "at": 53,
+         "note": "the top, or first letter, of identical is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl in a union band twirls without a matching top.",
-     "walkthrough": "'Doing' does double duty in the surface; here it is both fodder and part of the anagram signal. GIRL and DOING share two Is; one goes, and the rest are rearranged.",
-     "definitionFit": "A wedding band is typically a plain gold ring, worn as the symbol of a marriage union."
+     "surface": "A girl spins round at a wedding, though her headdress doesn't match.",
+     "walkthrough": "'twirls' rearranges GIRLDOING, and 'without' leaves out I, the top of 'identical'. Union here is marriage, and 'Maybe' marks the definition as one example.",
+     "definitionFit": "A wedding ring is often a plain gold ring, the band that symbolises the marital union."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "band"
+     "joke": "pun",
+     "misdirectedWord": "union"
     }
    }
   },
@@ -1245,55 +1235,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SENSOR",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "not quite means falling just short, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 8,
+         "note": "not quite means the word is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Feeling",
-         "gives": "SENS",
-         "note": "sense, a feeling, minus its last letter"
+         "at": 0,
+         "gives": "SENSE",
+         "note": "a sense is a feeling, as in a sense of dread"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OR",
-         "indicators": [
-          {
-           "text": "starts",
-           "note": "the starts of words are their first letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "optimistic, Rishi",
-           "gives": "OR",
-           "select": "first",
-           "note": "the first letters of optimistic and Rishi"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "at": 36,
+         "note": "the starts of the words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "optimistic, Rishi",
+         "at": 18,
+         "note": "the first letters of optimistic and Rishi are O and R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rishi Sunak, the former British prime minister, hesitantly hopeful as he launches some gadget.",
-     "walkthrough": "SENSE loses its final letter before the two initials are added.",
-     "definitionFit": "A sensor is an instrument that detects and responds to physical stimuli such as light or heat."
+     "surface": "Rishi Sunak, only half hopeful, launches some new gadget.",
+     "walkthrough": "Rishi Sunak was the British Prime Minister in 2022-24. 'not quite' cuts the last letter from SENSE to give SENS, and the 'starts' of 'optimistic' and 'Rishi' add OR.",
+     "definitionFit": "A sensor is an instrument that detects and responds to a physical stimulus such as heat or light."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Feeling"
     }
@@ -1658,47 +1648,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISRESPECT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "first half",
-       "note": "keeping only the first half means the back half is cut away"
+       "text": "is garbled",
+       "at": 27,
+       "note": "is garbled means is mixed up, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Sceptred",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "is garbled",
-         "note": "something garbled is jumbled up, so the letters are mixed"
+         "text": "first half",
+         "at": 16,
+         "note": "only the first half of the four-letter word is kept, dropping its second half"
         }
        ],
        "parts": [
         {
-         "words": "Sceptred",
-         "note": "taken as written"
+         "words": "Isle's",
+         "at": 9,
+         "gives": "ISLE",
+         "note": "the word Isle, of which only part is used"
         },
         {
-         "words": "Isle's",
-         "gives": "IS",
-         "note": "the front two letters of the four-letter word"
+         "gives": "LE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mangling Shakespeare's 'this sceptred isle' speech about England is cheek.",
-     "walkthrough": "'This sceptred isle' is John of Gaunt's famous praise of England in Richard II.",
-     "definitionFit": "Impudence is cheeky rudeness, and disrespect is a lack of proper regard for someone."
+     "surface": "Someone mangles the famous Shakespeare phrase about England, an act of cheek.",
+     "walkthrough": "'This sceptred isle' is John of Gaunt's description of England in Richard II. 'first half' keeps IS from ISLE, and 'is garbled' rearranges it with SCEPTRED.",
+     "definitionFit": "Disrespect and impudence both name a lack of proper regard, rude or cheeky behaviour towards others."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "garbled"
     }
    }
   },
@@ -1811,48 +1805,59 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 32,
+       "note": "and simply joins the two party letters, one after the other"
+      }
+     ],
      "parts": [
       {
        "words": "about",
+       "at": 6,
        "gives": "RE",
-       "note": "re means about or concerning"
+       "note": "re means about, concerning"
+      },
+      {
+       "words": "Conservative",
+       "at": 19,
+       "gives": "C"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "CL",
        "indicators": [
         {
          "text": "leaders",
-         "note": "the leaders of words are their first letters"
+         "at": 43,
+         "note": "the leaders of a word are its opening letters, here just the first of Labour"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Conservative and Labour",
-         "gives": "CL",
-         "select": "first",
-         "note": "the first letters of the two party names"
+         "words": "Labour",
+         "at": 36,
+         "note": "the leader, or first letter, of Labour is L"
         }
        ]
       },
       {
        "words": "employment",
+       "at": 51,
        "gives": "USE",
-       "note": "to employ something is to use it"
+       "note": "use means employment, as in putting something to use"
       }
      ]
     },
     "explanation": {
-     "surface": "An outsider about to land work thanks to the heads of both main British parties.",
-     "walkthrough": "RE, then the initials C and L, then USE.",
-     "definitionFit": "A recluse lives in seclusion, avoiding company, which is what a loner does."
+     "surface": "An isolated figure is about to find work under the heads of both main British parties.",
+     "walkthrough": "The Conservatives and Labour are the two main British political parties; C is the usual abbreviation for Conservative and the 'leaders' of Labour give L.",
+     "definitionFit": "A recluse is someone who lives alone and avoids society, which is what a loner does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "employment"
+     "misdirectedWord": "leaders"
     }
    }
   }
