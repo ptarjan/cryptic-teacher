@@ -309,52 +309,59 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PSYCHOLOGICALWARFARE",
-     "indicators": [
-      {
-       "text": "yielding",
-       "note": "to yield is to give way, so one pair of letters gives up its place to another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Nut",
+       "at": 0,
        "gives": "PSYCHO",
-       "note": "nut is slang for a mad person"
+       "note": "a psycho is a nut or madman"
       },
       {
        "words": "natural",
+       "at": 9,
        "gives": "LOGICAL",
-       "note": "natural in the sense of to be expected, reasonable"
+       "note": "logical means natural or to be expected"
       },
       {
-       "words": "poison",
-       "gives": "WARFARIN",
-       "note": "warfarin is a rat poison, also used as a blood thinner"
-      },
-      {
-       "words": "in",
-       "note": "these two letters are the ones replaced"
-      },
-      {
-       "words": "eastern",
-       "gives": "E",
-       "note": "E is the abbreviation for eastern"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "yielding",
+         "at": 24,
+         "note": "yielding means giving way, so these letters give way to the letter for eastern"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poison",
+         "at": 17,
+         "gives": "WARFARIN",
+         "note": "warfarin is a rat poison"
+        },
+        {
+         "words": "in",
+         "at": 33,
+         "gives": "IN",
+         "note": "taken as written"
+        },
+        {
+         "words": "eastern",
+         "at": 36,
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A madman with a natural poison gives way in some eastern contest of wits.",
-     "walkthrough": "WARFARIN loses its final IN, which yields to E, leaving WARFARE. The words 'in eastern' look like a location, but 'in' is the letters swapped out.",
-     "definitionFit": "Psychological warfare uses propaganda and intimidation to unsettle an enemy's mind, playfully recast as a contest of intellects."
+     "surface": "A madman with a natural toxin gives ground in a struggle in the East.",
+     "definitionFit": "Psychological warfare uses propaganda and intimidation to undermine an enemy's mind, a contest of nerves rather than arms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "in"
+     "misdirectedWord": "yielding"
     }
    }
   },
@@ -624,37 +631,41 @@
      "indicators": [
       {
        "text": "snaring",
-       "note": "a snare traps its prey inside, so one piece is caught within another"
+       "at": 22,
+       "note": "snaring means catching, so the tackle phrase holds these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "tackle",
-         "gives": "GOAT",
-         "note": "to go at someone is to tackle them, written as one word"
-        },
-        {
-         "words": "a French",
-         "gives": "UN",
-         "note": "un is French for a"
-        }
-       ]
+       "words": "tackle",
+       "at": 15,
+       "gives": "GOAT",
+       "note": "to go at someone is to tackle them"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points to the very end, so only the last letter is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sub",
-         "note": "the last letter of sub"
+         "words": "a French",
+         "at": 30,
+         "gives": "UN",
+         "note": "un is French for a"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 43,
+           "note": "finally takes the last letter of sub"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sub",
+           "at": 39
+          }
+         ]
         }
        ]
       }
@@ -662,8 +673,7 @@
     },
     "explanation": {
      "surface": "A warship's gear catches a French submarine at last.",
-     "walkthrough": "'Tackle' looks like a noun for fishing gear, but it is the verb: to go at someone is to tackle them.",
-     "definitionFit": "A gunboat is a small warship carrying guns, a ship equipped with weapons."
+     "definitionFit": "A gunboat is a small warship carrying guns, an armed boat."
     },
     "features": {
      "answerInScene": true,
@@ -1643,25 +1653,22 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the parts are put in together, joined to form one set of letters"
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "nearly",
+         "at": 20,
          "note": "nearly means not quite all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "new",
-         "note": "taken as written, then shortened"
+         "at": 27,
+         "gives": "NEW",
+         "note": "taken as written"
         },
         {
          "gives": "W"
@@ -1669,31 +1676,45 @@
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "specially",
-         "note": "something specially made is put together to order, so the letters are arranged afresh"
+         "text": "in",
+         "at": 45,
+         "note": "in puts the rearranged letters inside the church abbreviation"
         }
        ],
        "parts": [
         {
-         "words": "kit",
-         "note": "taken as written, as letters to be rearranged"
-        },
-        {
          "words": "church",
+         "at": 48,
          "gives": "CE",
          "note": "CE is the Church of England"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "specially",
+           "at": 35,
+           "note": "specially means arranged in a particular way, so the letters of kit are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "kit",
+           "at": 31
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man from the USA wears this new outfit, specially for church.",
-     "walkthrough": "The whole set of letters, NE plus KIT plus CE, is rearranged. 'This' points to the answer, making the opening words the definition.",
-     "definitionFit": "Necktie is the usual American word for what British speakers call simply a tie, worn round the collar."
+     "surface": "An American wears an almost new outfit, made specially for church.",
+     "walkthrough": "Britons say tie; the definition flags the longer form as chiefly American usage.",
+     "definitionFit": "Necktie is the American word for what Britons call a tie, worn around the neck."
     },
     "features": {
      "answerInScene": true,
@@ -2403,24 +2424,46 @@
     "definitions": [
      {
       "text": "Hefty boxer",
-      "at": 0,
-      "meaning": "first meaning: a fighter in the top weight class"
-     },
-     {
-      "text": "why he gave it up",
-      "at": 17,
-      "meaning": "second meaning, read cryptically: a lifter lets go of a load because it is too much for him"
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 32,
+       "note": "up here means in disorder, as in things being all up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "why",
+       "at": 17
+      },
+      {
+       "words": "he",
+       "at": 21
+      },
+      {
+       "words": "gave",
+       "at": 24
+      },
+      {
+       "words": "it",
+       "at": 29
+      }
+     ]
+    },
     "explanation": {
-     "surface": "A big boxer, and the reason he quit.",
-     "walkthrough": "The surface suggests the boxer gave up his career; the second half is read as someone dropping a load because it was too hard to hold.",
-     "definitionFit": "Boxing's highest weight division has no upper limit, and a load too massive to hold is literally a burden of great mass."
+     "surface": "A big fighter, and the reason he quit.",
+     "walkthrough": "'gave it up' reads as quitting, but 'up' is the signal to rearrange WHYHEGAVEIT.",
+     "definitionFit": "A heavyweight is a boxer in the heaviest weight division, hence a hefty one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "misdirectedWord": "up"
     }
    }
   },
@@ -2845,39 +2888,43 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps another"
+       "at": 18,
+       "note": "about says the rave word goes around these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "rave",
-         "gives": "RANT",
-         "note": "to rant is to rave"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "rave",
+       "at": 13,
+       "gives": "RANT",
+       "note": "to rant is to rave"
       },
       {
-       "words": "politician",
-       "gives": "MP",
-       "note": "an MP is a Member of Parliament"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "words": "politician",
+         "at": 26,
+         "gives": "MP",
+         "note": "an MP is a Member of Parliament"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "On their feet, people shout about a politician.",
-     "walkthrough": "Rampant is the heraldic term for an animal reared up on its hind legs, as on a coat of arms.",
-     "definitionFit": "In heraldry a lion rampant is shown rearing on its hind legs, which is upright and erect."
+     "surface": "On their feet, someone fumes about a politician.",
+     "definitionFit": "In heraldry a rampant beast is shown rearing on its hind legs, upright."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Standing"
     }
    }
   },

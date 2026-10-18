@@ -312,66 +312,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MANPOWER",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the scrambled letters inside the other piece"
+       "at": 26,
+       "note": "in places the rearranged letters inside the casing"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "casing",
+         "at": 38,
+         "note": "the casing of mortar is its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mortar's",
+         "at": 29,
+         "gives": "MORTAR",
+         "note": "the word mortar, with the possessive set aside"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "exploded",
-         "note": "something blown apart has its parts scattered, so the letters are rearranged"
+         "at": 17,
+         "note": "exploded means blown apart, so the letters of weapon are scattered"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "casing",
-           "note": "a casing is the outer shell, so only the outside letters of the word are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mortar's",
-           "note": "the outer letters of mortar, first of the pair"
-          }
-         ]
-        },
-        {
          "words": "weapon",
-         "note": "letters to be scrambled"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "mortar's",
-           "gives": "MORTAR",
-           "note": "the outer letters of mortar, last of the pair"
-          }
-         ]
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Military staff are hurt when a weapon goes off inside the shell of a mortar.",
-     "walkthrough": "Casing means just the outside letters of mortar, which wrap around the scrambled weapon.",
+     "surface": "Staff are hurt when a weapon blows up inside a mortar shell.",
      "definitionFit": "Manpower is the workforce available, the people employed, which is what personnel means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mortar's"
+     "misdirectedWord": "exploded"
     }
    }
   },

@@ -1652,36 +1652,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "OVERTLY",
-     "indicators": [
-      {
-       "text": "changing hands",
-       "note": "changing hands means right is swapped for left, so the letter for right becomes the letter for left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Surplus",
+       "at": 0,
        "gives": "OVER",
-       "note": "over means left over, in surplus"
+       "note": "over means surplus, left over"
       },
       {
-       "words": "tax",
-       "gives": "TRY",
-       "note": "to tax someone's patience is to try it"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing hands",
+         "at": 12,
+         "note": "R and L stand for right and left hands, so the right is swapped for the left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tax",
+         "at": 8,
+         "gives": "TRY",
+         "note": "to try is to tax, as in taxing patience"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A financial report: excess tax revenue being transferred to new owners in public.",
-     "walkthrough": "The 'hands' are right and left: the R of the word for tax is swapped for an L.",
-     "definitionFit": "Done overtly means done openly, not concealed, which is acting in public."
+     "surface": "Excess tax money changes hands openly.",
+     "walkthrough": "'changing hands' sounds like a sale; it swaps R (right) for L (left) in TRY.",
+     "definitionFit": "Overtly means openly, done where all can see it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "hands"
     }
    }

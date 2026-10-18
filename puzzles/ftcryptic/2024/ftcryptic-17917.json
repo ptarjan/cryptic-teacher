@@ -563,59 +563,62 @@
        "indicators": [
         {
          "text": "rejected",
-         "note": "rejected suggests being thrown back, so the word is read in the opposite direction"
+         "at": 8,
+         "note": "rejected means sent back, so the word for eggs is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "winding",
-           "note": "a winding path twists about, so the following letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "eggs",
-           "gives": "OVA",
-           "note": "ova is Latin for eggs"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "the end of",
-             "note": "the end of a word is its final letter, which is all that is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "long",
-             "note": "final letter of the word"
-            }
-           ]
-          }
-         ]
+         "words": "eggs",
+         "at": 17,
+         "gives": "OVA",
+         "note": "ova are eggs"
         }
        ]
       },
       {
-       "words": "road",
-       "gives": "ADRO",
-       "note": "the four letters rearranged"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the end of",
+         "at": 25,
+         "note": "the end of long is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "long",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "winding",
+         "at": 45,
+         "note": "a winding road twists about, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "road",
+         "at": 53
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pharmacist turns down eggs after a long and twisting journey.",
-     "walkthrough": "'Chemist' tempts a British reader towards a pharmacist; here it is a scientist.",
-     "definitionFit": "Amedeo Avogadro was the Italian scientist behind Avogadro's law and number in chemistry."
+     "surface": "A scientist turns down eggs at the end of a long and winding road.",
+     "walkthrough": "'rejected' turns OVA into AVO; 'winding' turns ROAD into ADRO.",
+     "definitionFit": "Amedeo Avogadro was the Italian scientist behind Avogadro's constant in chemistry."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Chemist"
+     "misdirectedWord": "rejected"
     }
    }
   },
@@ -806,38 +809,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "to change",
-       "note": "changing the letters means putting them into a different order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Explosion",
+       "at": 0,
+       "gives": "BANG",
+       "note": "a bang is an explosion"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to change in",
+         "at": 18,
+         "note": "has led to change says the letters of has led are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Explosion",
-         "gives": "BANG",
-         "note": "a bang is the sound of an explosion"
+         "words": "has",
+         "at": 10
         },
         {
-         "words": "has led",
-         "note": "the six letters rearranged"
+         "words": "led",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A blast has brought about political upheaval in a nation.",
-     "definitionFit": "Bangladesh is a country in South Asia, so 'the country' is a broad description."
+     "surface": "A blast has prompted political upheaval across the nation.",
+     "walkthrough": "'to change in' rearranges HASLED into LADESH.",
+     "definitionFit": "Bangladesh is a nation in South Asia, so it is a country."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Explosion"
+     "misdirectedWord": "change"
     }
    }
   },
@@ -981,33 +991,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cocktail",
-       "note": "a cocktail is a mixture, so the letters of the drink are mixed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cocktail",
+         "at": 27,
+         "note": "a cocktail is a mixture, so the letters of gin are mixed up"
+        }
+       ],
        "parts": [
         {
          "words": "gin",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "circles",
-         "gives": "ORING",
-         "note": "O and RING are both circles"
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "circles",
+       "at": 36,
+       "gives": "ORING",
+       "note": "two circles: the letter O and a ring"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone overlooks the rings left by a gin drink.",
-     "definitionFit": "Ignoring something means deliberately paying it no attention."
+     "surface": "Someone disregards the gin cocktails going round.",
+     "walkthrough": "'cocktail' mixes GIN into IGN; circles gives O plus RING.",
+     "definitionFit": "Ignoring someone means deliberately disregarding them, giving them no heed."
     },
     "features": {
      "answerInScene": false,

@@ -1215,45 +1215,35 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Nudged",
+      "text": "Nudged only slowly, edging deliberately initially",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "NOSED",
      "indicators": [
       {
        "text": "initially",
-       "note": "initially points to the opening letters of the words that precede it"
+       "at": 40,
+       "note": "initially takes the first letter of each of the preceding words"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "OSED",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "only slowly, edging deliberately",
-         "gives": "OSED",
-         "select": "first",
-         "note": "first letters of the four words"
-        }
-       ]
+       "words": "Nudged only slowly, edging deliberately",
+       "at": 0
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Describes a car or boat inching cautiously forward into place.",
-     "walkthrough": "Nudged is both the definition and a source of its own first letter N, so the clue is close to an all-in-one.",
-     "definitionFit": "Nosed means moved forward carefully, pushing gently, which is to nudge."
+     "surface": "Something crept forward slowly and with care.",
+     "walkthrough": "The whole clue both supplies the letters and describes the answer.",
+     "definitionFit": "A boat or car that nosed forward moved ahead carefully and slowly, as if feeling its way."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true
     }
    }
   },
@@ -1751,43 +1741,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELEVENS",
+     "op": "container",
      "indicators": [
       {
-       "text": "depleted",
-       "note": "depleted means much reduced, so most of the word is lost and only its start remains"
+       "text": "involving",
+       "at": 8,
+       "note": "involving says the word for matches wraps the shortened league"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Matches",
+       "at": 0,
+       "gives": "EVENS",
+       "note": "evens are matches, things that are equal"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "involving",
-         "note": "involving means taking in, so the first word wraps around the shortened one"
+         "text": "depleted",
+         "at": 18,
+         "note": "depleted means much reduced, leaving only the start of league"
         }
        ],
        "parts": [
         {
-         "words": "Matches",
-         "gives": "EVENS",
-         "note": "evens means equals or matches, as in 'evens the score'"
+         "words": "league",
+         "at": 27
         },
         {
-         "words": "league",
-         "gives": "LE",
-         "note": "only the first two letters are kept"
+         "gives": "AGUE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sports report on fixtures within a weakened league.",
-     "walkthrough": "Matches looks like the noun for games, apt for teams, but it is the verb meaning equals.",
-     "definitionFit": "An eleven is a side in cricket or football, which fields eleven players."
+     "surface": "Fixtures featuring sides from an under-strength league.",
+     "definitionFit": "Football and cricket sides have eleven players, so an eleven is a team."
     },
     "features": {
      "answerInScene": true,
