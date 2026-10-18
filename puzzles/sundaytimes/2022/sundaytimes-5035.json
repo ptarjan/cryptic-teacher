@@ -104,31 +104,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Topless",
-       "note": "a topless word loses its first letter"
-      },
-      {
        "text": "represented",
-       "note": "the letters are presented again in a new arrangement"
+       "at": 18,
+       "note": "represented means presented anew, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Topless muscleman",
-       "gives": "USCLEMAN",
-       "note": "MUSCLEMAN without its top letter M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Topless",
+         "at": 0,
+         "note": "topless means the word loses its top, its first letter in this down entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "muscleman",
+         "at": 8
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bare-chested bodybuilder competed for the United States.",
-     "walkthrough": "The surface pictures a strongman at an international contest; Uncle Sam is the cartoon figure who personifies the United States.",
-     "definitionFit": "Uncle Sam is the national personification of the United States."
+     "surface": "A bare-chested bodybuilder stood for the USA.",
+     "walkthrough": "'Topless' takes the M off MUSCLEMAN, and 'represented' rearranges the eight letters left. Uncle Sam is the personification of the United States.",
+     "definitionFit": "Uncle Sam, the bearded figure in a top hat, is the traditional personification of the United States government and nation."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "represented"
+     "aptDefinition": false,
+     "misdirectedWord": "Topless"
     }
    }
   },
@@ -259,42 +270,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IMPARTS",
-     "indicators": [
-      {
-       "text": "elevated",
-       "note": "in a down clue, lifting a piece up writes it bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "elevated",
+         "at": 28,
+         "note": "elevated in a down clue means lifted, so the word is read from the bottom up"
+        }
+       ],
        "parts": [
         {
          "words": "major road",
-         "gives": "IM",
-         "note": "the M1 is Britain's main north–south motorway; with the digit 1 as I, elevated it reads upward"
-        },
-        {
-         "words": "sections",
-         "gives": "PARTS",
-         "note": "parts = sections"
+         "at": 10,
+         "gives": "MI",
+         "note": "the M1 is Britain's first motorway, written in crosswords as MI"
         }
        ]
+      },
+      {
+       "words": "sections",
+       "at": 37,
+       "gives": "PARTS",
+       "note": "sections are parts"
       }
      ]
     },
     "explanation": {
-     "surface": "A stretch of motorway runs over flyovers in places.",
-     "walkthrough": "Crosswords let the digit 1 stand for the letter I, so the M1 written upward gives IM.",
-     "definitionFit": "To impart something is to pass it on, like knowledge."
+     "surface": "A motorway with raised stretches carries traffic onward.",
+     "walkthrough": "The M1 is the motorway from London to Leeds; 'elevated' turns MI upside down to IM.",
+     "definitionFit": "To impart is to communicate or hand on knowledge, so imparts means conveys or transmits it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "elevated"
+     "misdirectedWord": "Passes"
     }
    }
   },
@@ -1228,52 +1240,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEMPT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "top of",
-         "note": "the first letter, the top in a down clue"
+         "at": 7,
+         "note": "the top of a word in a down clue is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "unfinished",
-           "note": "the word loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "top of toast",
-           "gives": "T",
-           "select": "first",
-           "note": "the top letter of TOAST"
-          }
-         ]
+         "words": "toast",
+         "at": 14,
+         "note": "the word whose first letter, T, is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 30,
+         "note": "unfinished means the word's last letter is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "abandoned",
+         "at": 20,
+         "gives": "EMPTY",
+         "note": "an abandoned building is empty, deserted"
         },
         {
-         "words": "abandoned unfinished",
-         "gives": "EMPT",
-         "note": "EMPTY (abandoned) without its last letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An egg on toast left half-eaten.",
-     "walkthrough": "'Egg' looks like the food on the toast; as a verb 'egg on' means urge, and the definition is the whole phrase.",
-     "definitionFit": "A plain synonym: egging someone on is urging them, and to tempt is to lure them into doing it."
+     "surface": "A breakfast scene: the egg on the toast is left uneaten.",
+     "walkthrough": "'Egg on' looks like a breakfast topping but is the verb meaning urge; 'top of' takes T from toast, and 'unfinished' cuts EMPTY to EMPT.",
+     "definitionFit": "To egg someone on is to urge them, and to tempt is likewise to entice or encourage them into something."
     },
     "features": {
      "answerInScene": false,
@@ -1307,42 +1319,41 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "starter to",
-       "note": "the first letter of the word that follows"
+       "text": "on",
+       "at": 27,
+       "note": "on in an across clue means placed after, so the letter follows the urchin"
       }
      ],
      "parts": [
       {
        "words": "urchin",
+       "at": 30,
        "gives": "SCAMP",
-       "note": "an urchin is a mischievous child, a rascal; not the sea creature"
+       "note": "an urchin is a scamp, a mischievous child"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
-         "text": "on",
-         "note": "placed after, as an across clue builds left to right"
+         "text": "starter to",
+         "at": 8,
+         "note": "the starter to a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starter to improve",
-         "gives": "I",
-         "select": "first",
-         "note": "first letter of IMPROVE"
+         "words": "improve",
+         "at": 19,
+         "note": "the word whose first letter, I, is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seafood starter that makes sea urchin taste better.",
-     "walkthrough": "Urchin sits among seafood to look like a sea urchin; it is a street child, a scamp.",
-     "definitionFit": "Scampi are breaded langoustine tails, a seafood dish."
+     "surface": "A seafood starter made better by adding sea urchin.",
+     "walkthrough": "'urchin' suggests the sea creature, which suits 'Seafood', but here it is a mischievous child; 'starter to' gives I, and 'on' puts it after SCAMP.",
+     "definitionFit": "Scampi are langoustines, usually served breaded or fried, a familiar British seafood dish."
     },
     "features": {
      "answerInScene": true,

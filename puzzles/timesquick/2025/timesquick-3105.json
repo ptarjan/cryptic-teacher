@@ -335,40 +335,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMOTED",
-     "indicators": [
-      {
-       "text": "Losing head",
-       "note": "A word losing its head loses its top, and the top of a word is its first letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Losing head",
+         "at": 0,
+         "note": "losing its head means the word drops its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "distant",
-         "gives": "EMOTE",
-         "note": "REMOTE without its first letter R"
+         "at": 13,
+         "gives": "REMOTE",
+         "note": "distant means remote"
         },
         {
-         "words": "daughter",
-         "gives": "D",
-         "note": "d = daughter"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "daughter",
+       "at": 21,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A daughter, estranged and not thinking straight, lets her feelings out.",
-     "walkthrough": "'Losing head' belongs to the word after it, distant, not to the daughter.",
-     "definitionFit": "A plain synonym: to emote is to display emotion, often theatrically."
+     "surface": "A grieving parent, cut off from a far-away daughter, breaks down in tears.",
+     "walkthrough": "'Losing head' is not about losing composure: it drops the first letter of REMOTE, the synonym for distant, leaving EMOTE.",
+     "definitionFit": "To emote is to show emotion theatrically, so the past tense matches expressed strong feelings."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "head"
     }
@@ -443,7 +446,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Novel in a middle-class setting",
+      "text": "Novel in a middle-class setting, whichever way you read it",
       "at": 0
      }
     ],
@@ -452,26 +455,39 @@
      "indicators": [
       {
        "text": "whichever way you read it",
-       "note": "A word you can read whichever way gives the same result from either end, so the letters are arranged symmetrically."
+       "at": 33,
+       "note": "the phrase says the letters come out the same read forwards or backwards"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Novel in a middle-class setting",
-       "note": "The definition end: a genre of fiction set in comfortable English country homes."
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a middle-class setting",
+         "at": 9,
+         "gives": "AGA",
+         "note": "an Aga, the cast-iron range cooker, is the emblem of a comfortable middle-class country kitchen"
+        },
+        {
+         "words": "Novel",
+         "at": 0,
+         "gives": "SAGA",
+         "note": "a saga is a long novel, especially a family chronicle"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A book set among the middle classes, readable from either end.",
-     "walkthrough": "AGASAGA reads the same both ways. An Aga is a large cast-iron range cooker, a symbol of the English middle-class country kitchen.",
-     "definitionFit": "A genre label coined in the 1990s for novels of English middle-class domestic life, the kind of house with an Aga in the kitchen."
+     "surface": "A literary description of a genre of fiction that could be read in either direction.",
+     "walkthrough": "'whichever way you read it' says the letters form a palindrome. An Aga is a large cast-iron range cooker, a British symbol of comfortable country middle-class life, and SAGA, the novel, is set beside it.",
+     "definitionFit": "An Aga saga is a type of popular British fiction about the domestic lives of the comfortable rural middle classes."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun"
+     "aptDefinition": false
     }
    }
   },
@@ -496,48 +512,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROMEO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "energised",
-       "note": "Letters that are energised are stirred up and bounce about, so they are rearranged."
+       "text": "by",
+       "at": 21,
+       "note": "by here means next to, putting the love letter beside the rearranged word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "by",
-         "note": "One thing by another stands beside it, so the pieces sit side by side."
+         "text": "energised",
+         "at": 11,
+         "note": "energised suggests the letters of 'more' are stirred into a livelier order"
         }
        ],
        "parts": [
         {
-         "words": "more energised",
-         "gives": "ROME",
-         "note": "anagram of MORE"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love = zero in tennis, O"
+         "words": "more",
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 24,
+       "gives": "O",
+       "note": "love is zero in tennis, a nought, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A lover finds himself more energetic thanks to love.",
-     "walkthrough": "The surface is itself a description of the answer, so the definition and wordplay share one picture.",
-     "definitionFit": "A name turned common noun: Shakespeare's Romeo became the byword for an ardent male lover."
+     "surface": "A lover finds new energy from being in love.",
+     "walkthrough": "'energised' rearranges MORE to ROME, and 'by' sets love, the O of a tennis score, beside it.",
+     "definitionFit": "Romeo, Shakespeare's young hero, has become a byword for an ardent male lover."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "love"
+     "misdirectedWord": "energised"
     }
    }
   },
@@ -616,47 +632,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ICEDTEA",
-     "indicators": [
-      {
-       "text": "distributed",
-       "note": "Things distributed are spread out and handed round, so the letters end up in a new order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "In charge",
+       "at": 0,
+       "gives": "IC"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distributed",
+         "at": 15,
+         "note": "distributed means the letters of 'Ted' are spread around into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "In charge",
-         "gives": "IC",
-         "note": "i/c = in charge"
-        },
-        {
-         "words": "Ted distributed",
-         "gives": "EDT",
-         "note": "anagram of TED"
-        },
-        {
-         "words": "each",
-         "gives": "EA",
-         "note": "ea. = each"
+         "words": "Ted",
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "each",
+       "at": 27,
+       "gives": "EA"
       }
      ]
     },
     "explanation": {
-     "surface": "Ted is put in charge of handing a cold drink to everyone.",
-     "walkthrough": "Ted looks like a person but is only three letters to rearrange.",
-     "definitionFit": "A definition by type: tea brewed and chilled over ice is one kind of cold drink."
+     "surface": "Ted, the person in charge, hands out a cold drink to everyone.",
+     "definitionFit": "Iced tea is tea chilled and served over ice, a refreshing beverage served chilled."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Ted"
+     "misdirectedWord": "distributed"
     }
    }
   },
@@ -739,37 +752,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TACKIEST",
-     "indicators": [
-      {
-       "text": "spoiled",
-       "note": "Something spoiled has been damaged out of its proper shape, so its letters are rearranged."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "equestrian gear",
+       "at": 12,
+       "gives": "TACK",
+       "note": "tack is the saddles, bridles and other gear for horses"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoiled",
+         "at": 28,
+         "note": "spoiled means the letters of 'site' are messed up into another order"
+        }
+       ],
        "parts": [
         {
-         "words": "equestrian gear",
-         "gives": "TACK",
-         "note": "tack is saddle, bridle and other riding gear"
-        },
-        {
-         "words": "spoiled site",
-         "gives": "IEST",
-         "note": "anagram of SITE"
+         "words": "site",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Riding gear left strewn across a ruined site looks at its most tatty.",
-     "walkthrough": "Tack is the horse-riding term, short for tackle; the superlative ending comes from the rearranged SITE.",
-     "definitionFit": "A superlative synonym: tacky means cheap and shoddy, so the tackiest thing is the most shabby."
+     "surface": "Horse equipment left out has ruined a once-smart location.",
+     "walkthrough": "Tack is the riding trade's word for saddles and bridles; 'spoiled' turns SITE into IEST.",
+     "definitionFit": "Tacky means cheap and tasteless or tatty, so its superlative suits most shabby."
     },
     "features": {
      "answerInScene": false,
@@ -1024,46 +1036,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CROCODILE",
+     "indicators": [
+      {
+       "text": "trapping",
+       "at": 23,
+       "note": "trapping says the scrambled letters close around the ducks"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "wildly",
-         "note": "Something moving wildly is out of control, so the letters are thrown into a new order."
+         "text": "separate",
+         "at": 36,
+         "note": "separate says the two ducks go in at different places rather than side by side"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "trapping",
-           "note": "A word trapping others holds them inside, so the extra letters sit within the rearranged ones."
+           "text": "wildly",
+           "at": 16,
+           "note": "wildly says the letters of 'circled' are thrown into a new order"
           }
          ],
          "parts": [
           {
            "words": "circled",
-           "note": "anagram fodder, 7 letters"
-          },
-          {
-           "words": "two separate ducks",
-           "gives": "OO",
-           "note": "a duck is a zero score in cricket, O; the two O's end up apart"
+           "at": 8
           }
          ]
+        },
+        {
+         "words": "ducks",
+         "at": 45,
+         "gives": "O",
+         "note": "a duck is a score of nothing in cricket, the letter O"
         }
        ]
+      },
+      {
+       "words": "two",
+       "at": 32,
+       "gives": "O",
+       "note": "two asks for a second duck, another O"
       }
      ]
     },
     "explanation": {
-     "surface": "A reptile circles frantically and grabs two ducks.",
-     "walkthrough": "'Separate' tells you the two O's do not sit together in the answer: CR-O-C-O-DILE.",
-     "definitionFit": "A definition by category: the crocodile is one of the large armoured reptiles of the rivers."
+     "surface": "An animal thrashes about after closing on a pair of waterfowl.",
+     "walkthrough": "'wildly' shuffles CIRCLED to CRCDILE, and 'trapping' takes two Os (ducks, cricket's zero) into it, 'separate' placing them apart: CRCODILE, then the second O after the R.",
+     "definitionFit": "A crocodile is a large aquatic reptile with a long snout and powerful jaws."
     },
     "features": {
      "answerInScene": true,

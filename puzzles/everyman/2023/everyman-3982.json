@@ -780,47 +780,57 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PINOCCHIO",
      "indicators": [
       {
        "text": "changes",
-       "note": "changes means alters, so the remaining letters are rearranged"
+       "at": 50,
+       "note": "changes says the remaining letters are rearranged into a new word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PINOCCHIO",
        "indicators": [
         {
-         "text": "Not starting",
-         "note": "something not starting has lost its beginning, so the opening letter goes"
-        },
-        {
          "text": "wanting",
-         "note": "wanting means lacking, so that letter is removed"
+         "at": 42,
+         "note": "wanting means lacking, so that letter is taken away"
         }
        ],
        "parts": [
         {
-         "words": "rhinoscopic",
-         "gives": "HINOSCOPIC",
-         "note": "the word without its first letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not starting",
+           "at": 0,
+           "note": "not starting means the word loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rhinoscopic",
+           "at": 13
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points at the end, so only the closing letter is taken"
+           "at": 34,
+           "note": "finally picks the last letter of the word process"
           }
          ],
          "parts": [
           {
            "words": "process",
-           "note": "the final letter of the word"
+           "at": 25,
+           "note": "the word whose last letter is wanted, S"
           }
          ]
         }
@@ -829,12 +839,12 @@
      ]
     },
     "explanation": {
-     "surface": "A medical description of a nose examination for someone with an unbelievable nasal condition.",
-     "walkthrough": "Drop the R, then drop the S of 'process' from what remains and rearrange. Rhinoscopy is examining the nose.",
-     "definitionFit": "The puppet's nose grows whenever he lies, so his deformity is linked to telling things that are not credible."
+     "surface": "A medical note on a nose examination, with an aside about an unbelievable deformity of the nose.",
+     "walkthrough": "'Not starting' cuts RHINOSCOPIC to HINOSCOPIC; 'finally' gives S, the last of process, and 'wanting' takes it out, leaving HINOCOPIC, which 'changes' rearranges.",
+     "definitionFit": "Pinocchio, the puppet in Collodi's tale, grows a longer nose with every lie, so his tales are literally incredible."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "process"
@@ -967,43 +977,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNINVITED",
+     "op": "container",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means only half survives, so the back half of the letters is cut"
+       "text": "gathering",
+       "at": 38,
+       "note": "gathering means the team takes the shortened phrase into itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "football team",
+       "at": 24,
+       "gives": "UNITED",
+       "note": "United is the name of many British football teams, such as Manchester United"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "gathering",
-         "note": "to gather is to collect in, so one piece takes another inside it"
+         "text": "not half",
+         "at": 57,
+         "note": "not half means the second half of the letters is dropped, leaving the first three"
         }
        ],
        "parts": [
         {
-         "words": "football team",
-         "gives": "UNITED",
-         "note": "United is a common football club name, such as Manchester United"
+         "words": "in vain",
+         "at": 48
         },
         {
-         "words": "in vain",
-         "gives": "INV",
-         "note": "the first three of its six letters"
+         "gives": "AIN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disliked side gathers in a doomed attempt, and not half.",
-     "walkthrough": "'Not half' is British slang for 'very much', but here it literally halves the preceding phrase.",
-     "definitionFit": "A guest nobody asked to come is not wanted at the event, which is the opposite of being welcome."
+     "surface": "A football team arrives at a party nobody invited them to, and it is all for nothing.",
+     "walkthrough": "'in vain' is read as one six-letter string, so 'not half' keeps only its first three letters.",
+     "definitionFit": "An uninvited guest has not been asked to come, so is anything but welcome."
     },
     "features": {
      "answerInScene": false,
@@ -1033,59 +1046,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TYSON",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "disheartened",
-       "note": "losing heart means losing the centre, so the middle letter goes"
+       "text": "struggle",
+       "at": 50,
+       "note": "struggle suggests the letters writhe about into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "struggle",
-         "note": "a struggle is a tussle, so the letters wrestle into a new order"
+         "text": "disheartened",
+         "at": 14,
+         "note": "disheartened means the middle letter, the heart of the word, is removed"
         }
        ],
        "parts": [
         {
          "words": "Sonny",
-         "gives": "SONY",
-         "note": "the word without its middle letter"
+         "at": 28,
+         "note": "the name taken as written"
         },
         {
-         "op": "nth",
-         "n": 4,
-         "indicators": [
-          {
-           "text": "fourth",
-           "note": "fourth picks out the letter in that position in the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Liston's",
-           "note": "the letter in fourth place"
-          }
-         ]
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 4,
+       "indicators": [
+        {
+         "text": "fourth",
+         "at": 43,
+         "note": "fourth picks the fourth letter of Liston"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liston's",
+         "at": 34,
+         "note": "the surname Liston, whose fourth letter is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dejected boxer is in his fourth fight against Sonny Liston.",
-     "walkthrough": "Sonny Liston was a world heavyweight boxing champion of the 1960s, so the surface stays in the ring; his name supplies letters.",
-     "definitionFit": "Mike Tyson was undisputed world champion in boxing's top weight division, an example of such a fighter."
+     "surface": "A boxing note: a heavyweight has lost heart, and Sonny Liston struggles in the fourth round.",
+     "walkthrough": "'disheartened' takes the middle N from SONNY to give SONY; 'fourth' adds T from Liston, and 'struggle' rearranges SONYT. Sonny Liston was a real heavyweight champion, which makes the surface convincing.",
+     "definitionFit": "Mike Tyson was undisputed world heavyweight boxing champion, so he is a famous heavyweight."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "disheartened"
+     "misdirectedWord": "fourth"
     }
    }
   },
