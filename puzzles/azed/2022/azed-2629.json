@@ -389,38 +389,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PHOBIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "heartlessly",
-       "note": "without a heart means the central letter of the word is removed"
+       "text": "dodging",
+       "at": 25,
+       "note": "dodging suggests moving shiftily about, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "dodging",
-         "note": "dodging suggests darting about, so the remaining letters move into a new order"
+         "text": "heartlessly",
+         "at": 41,
+         "note": "heartlessly means the central letter of pibroch is dropped"
         }
        ],
        "parts": [
         {
          "words": "pibroch",
-         "gives": "PIBOCH",
-         "note": "pibroch, bagpipe music, loses its middle letter R"
+         "at": 33,
+         "note": "a pibroch is a piece of bagpipe music; here only its letters matter"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who hates bagpipes ducking out of a pibroch performance without enthusiasm.",
-     "walkthrough": "A pibroch is a piece of classical Highland bagpipe music; its central R goes, and the six letters left are rearranged into PHOBIC.",
-     "definitionFit": "A phobic is a noun for a person who suffers from a phobia, an irrational, morbid fear or aversion."
+     "surface": "Someone with a phobia steers clear of bagpipe music played without feeling.",
+     "walkthrough": "'heartlessly' removes the R at the centre of PIBROCH, leaving PIBOCH, which 'dodging' rearranges. A pibroch is a Highland bagpipe piece.",
+     "definitionFit": "A phobic is a noun for a person who suffers from an irrational, morbid fear or dislike of something."
     },
     "features": {
      "answerInScene": true,
@@ -1240,47 +1243,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SIGNAGE",
-     "indicators": [
-      {
-       "text": "flickering",
-       "note": "flickering lights jump about, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Front of",
+         "at": 0,
+         "note": "the front of a word is its opening letter, here taken from saloon"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Front of",
-           "note": "the front of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "saloon",
-           "note": "the first letter of saloon"
-          }
-         ]
-        },
+         "words": "saloon",
+         "at": 9,
+         "note": "only its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flickering",
+         "at": 28,
+         "note": "flickering suggests unsteady movement, so the letters of ageing are jumbled"
+        }
+       ],
+       "parts": [
         {
          "words": "ageing",
-         "gives": "IGNAGE",
-         "note": "the letters of ageing, rearranged"
+         "at": 21,
+         "note": "used as written for its letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old bar whose neon signs flicker at the front.",
-     "walkthrough": "S plus a rearranged AGEING gives SIGNAGE.",
-     "definitionFit": "Signage is the collective noun for signs, which are things that point the way or indicate."
+     "surface": "The sign outside an old bar has lights that are worn and flickering.",
+     "definitionFit": "Signage is the collective term for signs, which point the way or indicate what is where."
     },
     "features": {
      "answerInScene": true,
@@ -1663,30 +1666,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "PETRI",
      "indicators": [
       {
        "text": "exchanging parts of",
-       "note": "exchanging parts means the two sections of the word swap places"
+       "at": 15,
+       "note": "exchanging parts means the word for entrails is split in two and its halves swapped"
       }
      ],
      "parts": [
       {
        "words": "entrails",
+       "at": 35,
        "gives": "TRIPE",
-       "note": "tripe is stomach lining, entrails eaten as food; its back two letters move to the front"
+       "note": "tripe is the stomach lining of an animal, eaten as offal"
       }
      ]
     },
     "explanation": {
-     "surface": "A lab scientist swaps around bits of animal guts.",
-     "walkthrough": "This is not a free anagram: the word splits into two chunks that change places whole, each keeping its own letter order.",
-     "definitionFit": "Julius Petri was the German bacteriologist who gave his name to the petri dish."
+     "surface": "A lab scientist swaps around bits of guts in his work.",
+     "walkthrough": "Entrails gives TRIPE; 'exchanging parts of' splits it as TRI + PE and swaps the two pieces.",
+     "definitionFit": "Julius Petri was the German bacteriologist after whom the Petri dish used for culturing microbes is named."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "exchanging"
     }
    }
   },
@@ -1712,35 +1716,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ORARION",
      "indicators": [
       {
        "text": "forming new centre of",
-       "note": "a new centre means the letter at the middle is swapped for another"
+       "at": 13,
+       "note": "forming a new centre means the middle letter of the word for lecture is swapped out"
       }
      ],
      "parts": [
       {
-       "words": "recipe",
-       "gives": "R",
-       "note": "R is the abbreviation for recipe (Latin, take) on prescriptions"
+       "words": "lecture",
+       "at": 35,
+       "gives": "ORATION",
+       "note": "an oration is a formal speech or address"
       },
       {
-       "words": "lecture",
-       "gives": "ORATION",
-       "note": "a formal speech or lecture; its middle letter T is replaced"
+       "gives": "T"
+      },
+      {
+       "words": "recipe",
+       "at": 6,
+       "gives": "R",
+       "note": "R is the standard abbreviation for recipe, as on prescriptions"
       }
      ]
     },
     "explanation": {
-     "surface": "A speaker lifted a recipe and built a lecture around it.",
-     "walkthrough": "R replaces the central T of ORATION to give ORARION. 'Stole' looks like a verb, but it is the vestment.",
-     "definitionFit": "An orarion is the long narrow stole worn by a deacon in the Eastern Orthodox Church."
+     "surface": "Someone pinched a recipe and made it the core of a talk.",
+     "walkthrough": "ORATION has T at its centre; 'forming new centre of' puts R (recipe, from Latin 'take') in its place. 'Stole' looks like a verb but is the noun, a vestment.",
+     "definitionFit": "An orarion is the long narrow stole worn over the shoulder by a deacon in the Eastern Orthodox Church."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Stole"
     }
    }

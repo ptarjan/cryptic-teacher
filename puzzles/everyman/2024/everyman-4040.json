@@ -739,39 +739,55 @@
      "op": "charade",
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ENCOU",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in middle of",
-         "note": "only the letters in the middle of the phrase are taken"
+         "text": "in",
+         "at": 9,
+         "note": "in, read with middle of, keeps only what is inside the phrase, so its last two letters are shed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in middle of open court",
-         "gives": "ENCOU",
-         "select": "middle",
-         "note": "the middle five of OPENCOURT: op-ENCOU-rt"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "middle of",
+           "at": 12,
+           "note": "middle of says only a central stretch of the phrase is wanted, so its first two letters go"
+          }
+         ],
+         "parts": [
+          {
+           "words": "open court",
+           "at": 22,
+           "note": "the letters are taken from inside these two words"
+          },
+          {
+           "gives": "OP"
+          }
+         ]
+        },
+        {
+         "gives": "RT"
         }
        ]
       },
       {
        "words": "displays of fury",
+       "at": 34,
        "gives": "RAGES",
-       "note": "rages are fits of fury"
+       "note": "rages are outbursts of anger, displays of fury"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stirs up angry scenes in the middle of a public court hearing.",
-     "walkthrough": "'Open court' reads as a legal term; it is simply nine letters whose centre runs across the word break.",
-     "definitionFit": "To encourage someone to act can be to incite them."
+     "surface": "A trial held in public sees someone urged on to angry outbursts.",
+     "walkthrough": "'in middle of' takes ENCOU from the inside of opEN COUrt. 'Incites' looks like 'in sights' read aloud, but it is simply the definition.",
+     "definitionFit": "To encourage someone is to urge or spur them on, which is what inciting means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "court"
     }
@@ -1165,28 +1181,25 @@
     ],
     "wordplay": {
      "op": "last",
-     "unchecked": true,
-     "gives": "ADDS",
      "indicators": [
       {
        "text": "finally",
-       "note": "each word gives its final letter"
+       "at": 36,
+       "note": "finally picks out the last letter of each of the preceding words in turn"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "a turgid offhand prècis … finally",
-       "gives": "ADDS",
-       "select": "last",
-       "note": "the final letters of A turgiD offhanD prècisS"
+       "words": "a turgid offhand prècis",
+       "at": 10,
+       "note": "the words whose final letters are read in order"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer throws a few things into a dull, careless summary at the end.",
-     "walkthrough": "The single-letter word 'a' counts: its last letter is its only letter.",
-     "definitionFit": "To toss something in is to add it, as when adding an extra."
+     "surface": "An editor flings aside a pompous, careless summary.",
+     "walkthrough": "The ellipsis carries on from the previous clue; 'finally' takes the end of each word, including the lone 'a'.",
+     "definitionFit": "To toss something in is to include it as an extra, which is to add it."
     },
     "features": {
      "answerInScene": false,

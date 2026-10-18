@@ -1085,40 +1085,40 @@
      "parts": [
       {
        "words": "Small",
+       "at": 0,
        "gives": "S",
-       "note": "S is the abbreviation for small, as on clothing labels"
+       "note": "S is the standard abbreviation for small, as on clothing labels"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "wanting",
-         "note": "wanting means lacking, so a letter is taken away"
+         "at": 10,
+         "note": "wanting means lacking, so a letter is removed from the word for boy"
         }
        ],
        "parts": [
         {
          "words": "boy",
+         "at": 6,
          "gives": "LAD",
          "note": "a lad is a boy"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "L",
          "indicators": [
           {
-           "text": "first",
-           "note": "first points to the opening letter of the word it qualifies"
+           "text": "first to",
+           "at": 18,
+           "note": "first to lie is the letter that comes first in lie, its opening letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "to lie",
-           "gives": "L",
-           "select": "first",
-           "note": "the opening letter of the second word, which is removed"
+           "words": "lie",
+           "at": 27,
+           "note": "only its first letter is used"
           }
          ]
         }
@@ -1127,13 +1127,14 @@
      ]
     },
     "explanation": {
-     "surface": "A little boy who would like to be the first to lie down for a nap.",
-     "walkthrough": "'Lie down' reads as one phrase, but 'down' is the definition and 'first to lie' is just the letter L to remove.",
-     "definitionFit": "Feeling down is an idiom for being unhappy or low in spirits, which is what this adjective means."
+     "surface": "A little boy is told he must lie down first.",
+     "walkthrough": "'down' looks like part of the instruction to lie down, but it is the definition, meaning low in spirits. LAD 'wanting' the first letter of lie leaves AD.",
+     "definitionFit": "Feeling down is an idiom for being unhappy or low in spirits, which is to be sad."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "down"
     }
    }
