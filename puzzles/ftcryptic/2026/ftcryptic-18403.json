@@ -1154,46 +1154,51 @@
      "indicators": [
       {
        "text": "within",
-       "note": "within means inside, so these pieces go inside another"
+       "at": 34,
+       "note": "within means the sheep and letter go inside the stronghold"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "stronghold",
-         "gives": "FORT",
-         "note": "a fort is a stronghold"
-        },
-        {
-         "words": "sheep",
-         "gives": "EWE",
-         "note": "a ewe is a female sheep"
-        }
-       ]
+       "words": "stronghold",
+       "at": 41,
+       "gives": "FORT",
+       "note": "a fort is a stronghold"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "close to",
-         "note": "the close of a word is its end, so its last letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "kitchen",
-         "note": "the final letter of the word"
+         "words": "sheep",
+         "at": 11,
+         "gives": "EWE",
+         "note": "a ewe is a female sheep"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 17,
+           "note": "close to means the end of the word kitchen, its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "kitchen",
+           "at": 26,
+           "note": "its last letter is N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sheep was sacrificed near the kitchen inside a castle.",
-     "walkthrough": "'Sacrificed sheep' looks like a slaughtered animal, but 'Sacrificed' is the definition on its own.",
-     "definitionFit": "Forewent is the past tense of forgo, meaning gave something up, which is what sacrificed means."
+     "surface": "A sheep was slaughtered near the kitchen of a castle.",
+     "walkthrough": "Forewent is a variant spelling of the past tense of forgo, to give something up.",
+     "definitionFit": "Forewent, as past of forgo, means gave up or went without, as one does with something sacrificed."
     },
     "features": {
      "answerInScene": false,

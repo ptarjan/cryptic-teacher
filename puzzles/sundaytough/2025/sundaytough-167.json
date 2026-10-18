@@ -707,47 +707,52 @@
      "indicators": [
       {
        "text": "round",
-       "note": "round means surrounding, so the outer word goes about the inner letters"
+       "at": 20,
+       "note": "round means going around, so the plain word encloses the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "undecorated",
-         "gives": "PLAIN",
-         "note": "plain means without decoration"
-        },
-        {
-         "words": "gold",
-         "gives": "OR",
-         "note": "or is gold in heraldry"
-        }
-       ]
+       "words": "undecorated",
+       "at": 7,
+       "gives": "PLAIN",
+       "note": "plain means undecorated"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "exterior",
-         "note": "an exterior is the outside, so only the outermost letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "centre's",
-         "gives": "CENTRE",
-         "note": "first and last letters of centre"
+         "words": "gold",
+         "at": 26,
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "exterior",
+           "at": 40,
+           "note": "the exterior of a word is its outside, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "centre's",
+           "at": 31,
+           "gives": "CENTRE",
+           "note": "centre's exterior is C and E, the possessive just linking it to exterior"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plain china plate with a gold rim around its middle.",
-     "walkthrough": "Gold as OR comes from heraldry. 'China' at the start looks like the country, but the capital is only position.",
-     "definitionFit": "Fine porcelain is commonly called china because the ware originally came from that country."
+     "surface": "A description of plain china with gold round the rim.",
+     "walkthrough": "Gold is given by its heraldic name, and the exterior of centre is just its first and last letters.",
+     "definitionFit": "Porcelain is fine ceramic ware, and china is the everyday name for it."
     },
     "features": {
      "answerInScene": true,
