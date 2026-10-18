@@ -184,7 +184,8 @@ def _validator_rules():
             "deletionInside": lambda t, a, c: V.deletion_inside_component(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
-            "unchecked_step": lambda t, a, c: any(n.get("unchecked") for n in V._walk(t))}
+            # (steps V.step_verified computes from their leaf do not count: fix round 4)
+            "unchecked_step": lambda t, a, c: bool(V.unverified_unchecked(t, a.get("_answer") or None))}
 
 
 def _answer(entry):
@@ -246,7 +247,7 @@ def settled(entry, reason):
     for n in names:
         if n in fired:
             return False
-        if n in rules and rules[n](ann["wordplay"], ann, clue):
+        if n in rules and rules[n](ann["wordplay"], {**ann, "_answer": _answer(entry)}, clue):
             return False
     return True
 

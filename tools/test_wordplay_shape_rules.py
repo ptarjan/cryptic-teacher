@@ -182,9 +182,38 @@ check("a charade indicator on a charade is not", 0, v.misplaced_indicators(
 for w in ("at first", "opening", "off", "taking", "backing"):
     check(f"ordering word '{w}' on a charade is not misplaced", 0, v.misplaced_indicators(
         {"op": "charade", "indicators": [{"text": w}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+_inner = {"op": "container", "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}
 for w in ("eating", "to secure", "around"):
-    check(f"container verb '{w}' on a charade is misplaced", 1, v.misplaced_indicators(
+    # a charade of bare leaves is only joined by the word (DIVAN "carrying", fix round 4);
+    # one with a container among its pieces, or held by one, has the word on the wrong op
+    check(f"container verb '{w}' on a charade holding a container is misplaced", 1, v.misplaced_indicators(
+        {"op": "charade", "indicators": [{"text": w}], "parts": [_inner, {"words": "b", "gives": "B"}]}))
+    check(f"container verb '{w}' on a charade under a container is misplaced", 1, v.misplaced_indicators(
+        {"op": "container", "parts": [{"words": "c", "gives": "C"}, {"op": "charade", "indicators": [{"text": w}],
+         "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}]}))
+    check(f"container verb '{w}' joining bare leaves is a link word", 0, v.misplaced_indicators(
         {"op": "charade", "indicators": [{"text": w}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+check("a reversal word on bare leaves is still misplaced", 1, v.misplaced_indicators(
+    {"op": "charade", "indicators": [{"text": "returned"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+check("a deletion lone leaf under an anagram is cut then scrambled", 0, v.del_single(
+    {"op": "anagram", "parts": [{"op": "deletion", "unchecked": True, "indicators": [{"text": "unlimited"}],
+                                 "parts": [{"words": "picketing"}]}]}))
+check("a deletion over a charade saying 'both' covers each piece", 0, v.del_single(
+    {"op": "deletion", "unchecked": True, "indicators": [{"text": "both topless"}],
+     "parts": [{"op": "charade", "parts": [{"words": "a", "gives": "AB"}, {"words": "b", "gives": "CD"}]}]}))
+check("a deletion over a charade saying 'nearly all' is still one piece's", 1, v.del_single(
+    {"op": "deletion", "unchecked": True, "indicators": [{"text": "nearly all"}],
+     "parts": [{"op": "charade", "parts": [{"words": "a", "gives": "AB"}, {"words": "b", "gives": "CD"}]}]}))
+_pick = {"op": "first", "unchecked": True, "gives": "L", "parts": [{"unchecked": True, "words": "beginning of loving", "gives": "L", "select": "first"}]}
+check("a first-letter step the words make is verified", [], v.unverified_unchecked(_pick))
+check("a pick the words cannot make stays unchecked", 2, len(v.unverified_unchecked(
+    {**_pick, "gives": "R", "parts": [{**_pick["parts"][0], "gives": "R"}]})))
+check("a verified step in a tree that misses the answer stays unchecked", 2, len(v.unverified_unchecked(_pick, "WEDLOCK")))
+check("a spoonerism of two sound words is verified", [], v.unverified_unchecked(
+    {"op": "spoonerism", "unchecked": True, "gives": "FASTCAR", "parts": [
+        {"unchecked": True, "words": "thrown a long way", "gives": "FASTCAR", "soundsLike": "CAST FAR"}]}))
+check("the abbreviation 'volume's' V is not a bare initial", 0, v.bare_initials(
+    {"op": "charade", "parts": [{"words": "volume's", "gives": "V"}, {"words": "x", "gives": "Y"}]}))
 import shape_queue
 check("the redo gate names the nested container", True, any(
     f.startswith("nestedContainer") for f in shape_queue.findings(

@@ -3771,6 +3771,87 @@ def _unchecked_ops(tree):
     return [n for n in _walk(tree) if n.get("op") and n.get("unchecked")]
 
 
+def _spoon_swap_ok(sounds, gives, originals=()):
+    """Whether `gives` is the spoonerism the leaf's `soundsLike` says. `originals` are the
+    two words the setter swaps when the tree files them as parts (TWO, BEAKS): the sound
+    reading then opens with the second one's letter and the first one's follows, and the
+    answer is spelt from it. Else two sound words are the swap of each other's openings
+    (by letters, or by the frame when the spelling shifts with the sound), and one word is
+    a sound-alike whose letters the swap rearranges, so the answer uses nearly the same."""
+    ws = [wordplay.letters(w) for w in str(sounds or "").split()]
+    if not gives or not ws or not all(ws):
+        return False
+    if len(originals) == 2 and len(ws) == 2 and all(originals):
+        (a, b), (x, y) = originals, ws
+        return x[0] == b[0] and y[0] == a[0] and gives[0] == x[0] and gives[-1] == y[-1] and len(gives) >= 4
+    if len(ws) == 2:
+        a, b = ws
+        swapped = {wordplay._onset(b) + a[len(wordplay._onset(a)):] + wordplay._onset(a) + b[len(wordplay._onset(b)):],
+                   b[:1] + a[1:] + a[:1] + b[1:]}
+        return gives in swapped or wordplay._spoon_sound(sounds, gives)
+    if len(ws) == 1 and len(ws[0]) >= 4 and gives != ws[0] and len(gives) >= 3 and gives[0] != ws[0][0]:
+        c, d = collections.Counter(ws[0]), collections.Counter(gives)
+        return sum(((c - d) + (d - c)).values()) <= 2
+    return False
+
+
+def step_verified(node):
+    """Whether an `unchecked` op step is one whose letters can be computed from its leaf, so
+    the flag only records a precaution (fix round 4, 14 of 20 sampled unchecked_step rows
+    were right): first / last / middle / outer pick `gives` from the clue words of the one
+    leaf under them, and a spoonerism's `gives` is the swap of the leaf's `soundsLike`. A
+    step whose leaf and `gives` disagree, or whose pick the words cannot make, stays unchecked."""
+    return _verified_leaf(node) is not None
+
+
+def _verified_leaf(node):
+    """The leaf step_verified checked the unchecked step `node` against, else None."""
+    op, parts = node.get("op"), [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if not node.get("unchecked"):
+        return None
+    if op == "spoonerism":  # the swapped words may ride along as parts; the leaf with soundsLike is the claim
+        sound = [p for p in parts if p.get("soundsLike") and "op" not in p]
+        want = wordplay.letters(node.get("gives"))
+        others = [wordplay.letters(p.get("gives")) for p in parts if p is not sound[0] and "op" not in p] if sound else []
+        if len(sound) == 1 and want and wordplay.letters(sound[0].get("gives")) == want \
+                and _spoon_swap_ok(sound[0]["soundsLike"], want, others):
+            return sound[0]
+        return None
+    if len(parts) != 1 or "op" in parts[0]:
+        return None
+    leaf = parts[0]
+    given = {wordplay.letters(x.get("gives")) for x in (node, leaf) if x.get("gives")}
+    if len(given) != 1 or not (want := next(iter(given))):
+        return None
+    if op not in wordplay.SELECT or op == "nth" or not leaf.get("words"):
+        return None
+    try:
+        got = wordplay.values({"op": op, "parts": [{"words": leaf["words"], "select": op}]})
+    except wordplay.WordplayError:
+        return None
+    return leaf if want in got else None
+
+
+def unverified_unchecked(tree, answer=None):
+    """The nodes still carrying the `unchecked` flag once the steps step_verified can
+    compute are set aside (each with the one leaf under it). With the clue's `answer`,
+    a verified step counts only in a tree that gives the answer: a right pick in a tree
+    that is wrong elsewhere (cryptic-28632 23d, cryptic-26974 53a) is still the redo's."""
+    done = set()
+    if not any(n.get("unchecked") for n in _walk(tree)):
+        return []  # most trees: no flag, nothing to evaluate
+    if answer is not None:
+        try:
+            wordplay.evaluate(tree, answer)
+        except (wordplay.WordplayError, KeyError, TypeError, ValueError, IndexError):
+            return [n for n in _walk(tree) if n.get("unchecked")]
+    for n in _walk(tree):
+        leaf = _verified_leaf(n) if n.get("op") else None
+        if leaf is not None:
+            done |= {id(n), id(leaf)}
+    return [n for n in _walk(tree) if n.get("unchecked") and id(n) not in done]
+
+
 def arity_ins(tree):
     """Unchecked containers that do not hold exactly two parts (the held and the holder)."""
     return sum(len(n.get("parts") or []) != 2 for n in _unchecked_ops(tree) if n["op"] == "container")
@@ -3789,6 +3870,9 @@ def arity_other(tree):
     return n
 
 
+_DEL_ALL = re.compile(r"\b(both|each|every|cases|ends|edges|tops|heads|tails)\b", re.I)
+
+
 def del_single(tree):
     """Unchecked deletions with one part: the letters taken out are not stated.
 
@@ -3802,7 +3886,25 @@ def del_single(tree):
         parts = n.get("parts") or []
         return (n.get("indicators") and isinstance(parts[0], dict) and "op" not in parts[0]
                 and parts[0].get("gives") and parts[0].get("words"))
-    return sum(len(n.get("parts") or []) == 1 and not lone_leaf(n)
+    # Also not counted (fix round 4, ftcryptic-17845 18d KINETIC, times-29330 5d ENCHANTER,
+    # telegraph-31189 11a ENHANCE): a lone leaf cut and then scrambled (the anagram comes
+    # after the cut), and a deletion over a charade of 2+ pieces whose indicator speaks of
+    # every piece ("both topless", "after losing cases") and so covers all of them.
+    fodder = {id(p) for a in _walk(tree) if a.get("op") == "anagram"
+              for p in a.get("parts") or [] if isinstance(p, dict)}
+
+    def cut_then_scrambled(n):
+        p = (n.get("parts") or [{}])[0]
+        return id(n) in fodder and n.get("indicators") and isinstance(p, dict) and "op" not in p and p.get("words")
+
+    def covers_all(n):
+        p = (n.get("parts") or [{}])[0]
+        if not (isinstance(p, dict) and p.get("op") == "charade" and len(p.get("parts") or []) >= 2
+                and not any("op" in q for q in p["parts"] if isinstance(q, dict))):
+            return False
+        return any(_DEL_ALL.search(str(i.get("text") or "")) for i in n.get("indicators") or [])
+    return sum(len(n.get("parts") or []) == 1 and not lone_leaf(n) and not cut_then_scrambled(n)
+               and not covers_all(n)
                for n in _unchecked_ops(tree) if n["op"] == "deletion")
 
 
@@ -4188,14 +4290,24 @@ def misplaced_indicators(tree):
     if not lex:
         return 0
     n = 0
+    under_container = {id(p) for c in _walk(tree) if c.get("op") == "container"
+                       for p in c.get("parts") or [] if isinstance(p, dict)}
     for node in _walk(tree):
         op = node.get("op")
         if op != "charade" or node.get("unchecked"):
             continue  # the other ops share their words too widely for the lexicon to say
         own = "charade"
+        # A charade of bare leaves, not held by a container, whose pieces concatenate to its
+        # letters cannot hide a container: a container word on it ("carrying", "accepts",
+        # "in") is a link between the pieces (telegraph-31202 6d DIVAN, cryptic-21866 8d DOSH).
+        leaf_only = id(node) not in under_container and not any(
+            "op" in p for p in node.get("parts") or [] if isinstance(p, dict))
         for i in node.get("indicators") or []:
             key = " ".join(w for w in (wordplay.letters(x) for x in str(i.get("text") or "").split()) if w)
             if not key or lex.get(own, {}).get(key, 0) or key.lower() in ORDERING_INDICATORS:
+                continue
+            if leaf_only and not any(c >= MISPLACED_MIN_USES for t, d in lex.items()
+                                     if t not in (own, "container") for c in [d.get(key, 0)]):
                 continue
             if key.lower() in POSITION_INDICATORS and _positional_charade(node, key.lower()):
                 continue
@@ -4250,8 +4362,13 @@ def _known_pair(words, gives):
     """Whether (clue words, letters) is an abbreviation the table holds or a reading the
     usage lexicon has seen 3+ times (blocks.json keeps no rarer ones)."""
     pairs, usage = _attested()
-    key = re.sub(r"[^A-Z0-9]", "", str(words).upper())
-    return (key, gives) in pairs or usage.get(key, {}).get(gives, 0) > 0
+    # "volume's" (V) and "uranium's" (U): the possessive is the clue's, not part of the word
+    bare = re.sub(r"['’]s\b", "", str(words), flags=re.I)
+    for text in (str(words), bare):
+        key = re.sub(r"[^A-Z0-9]", "", text.upper())
+        if (key, gives) in pairs or usage.get(key, {}).get(gives, 0) > 0:
+            return True
+    return False
 
 
 def _word_leaves(tree):
@@ -4282,12 +4399,13 @@ def bare_initials(tree):
     for leaf, anc in _word_leaves(tree):
         gives = wordplay.letters(leaf["gives"])
         words = wordplay.letters(leaf["words"])
+        bare = wordplay.letters(re.sub(r"['’]s\b", "", leaf["words"], flags=re.I))  # "volume's" reads as volume
         if len(gives) != 1 or len(leaf["words"].split()) != 1 or len(words) < BARE_INITIAL_MIN_LETTERS \
                 or not words.startswith(gives) or leaf.get("select"):
             continue
         if any(a.get("op") in wordplay.SELECT for a in anc):
             continue
-        if not any(len(k) == 1 for k in usage.get(words, {})) and not _known_pair(leaf["words"], gives):
+        if not any(len(k) == 1 for w in (words, bare) for k in usage.get(w, {})) and not _known_pair(leaf["words"], gives):
             n += 1
     return n
 
@@ -4806,11 +4924,7 @@ def tree_view(puzzle):
     errors = [f"{_tag_of(puzzle, where)}: wordplay: {msg}" for where, msg in problems]
     warnings = []
     for where, held, ann in puzzle_schema.annotations(puzzle):
-        stack, n = [ann.get("wordplay")] if ann.get("wordplay") else [], 0
-        while stack:
-            node = stack.pop()
-            n += bool(node.get("unchecked"))
-            stack += node.get("parts") or []
+        n = len(unverified_unchecked(ann.get("wordplay"), held.get("solution") or None))  # steps computable from their leaf are not unchecked
         if ABBREVIATION_NOTES_STRIPPED:
             check_no_abbreviation_notes(_tag_of(puzzle, where), ann.get("wordplay"), errors)
         if n:
