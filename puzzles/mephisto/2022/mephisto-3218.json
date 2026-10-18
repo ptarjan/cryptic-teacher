@@ -700,41 +700,43 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ATT",
+       "op": "deletion",
        "indicators": [
         {
          "text": "briefly",
-         "note": "briefly means the word is cut short to its abbreviation"
+         "at": 9,
+         "note": "briefly means cut short, so the last letter of the lawyer's title is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Lawyer's",
-         "gives": "ATT",
-         "select": "first",
-         "note": "Att. is a short form of attorney"
+         "at": 0,
+         "gives": "ATTY",
+         "note": "atty is the abbreviation for attorney, a lawyer; the apostrophe s is the linking 'is'"
+        },
+        {
+         "gives": "Y"
         }
        ]
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "standard abbreviation"
+       "at": 17,
+       "gives": "R"
       },
       {
        "words": "behind",
+       "at": 23,
        "gives": "AHENT",
-       "note": "ahent (ahint) is Scots for behind"
+       "note": "ahent is an old Scots and dialect word for behind, a variant of ahint"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer's quick sketch is right at the back.",
-     "walkthrough": "'drawing' suggests a picture, but it is an adjective: pulling toward.",
-     "definitionFit": "Attrahent means attracting or pulling in, as a muscle or a magnet draws something toward it."
+     "surface": "A lawyer says, in short, that the right is lagging behind in the draw.",
+     "walkthrough": "ATTY, the American abbreviation for attorney, is cut 'briefly' to ATT; AHENT is the dialect form of ahint, behind, found in Chambers.",
+     "definitionFit": "Attrahent is an old adjective and noun for something that attracts or pulls towards itself, so it means drawing."
     },
     "features": {
      "answerInScene": false,
@@ -1461,44 +1463,42 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "MANUS",
      "indicators": [
       {
        "text": "from the east",
-       "note": "in an across clue, coming from the east means reading right to left"
+       "at": 14,
+       "note": "in an across answer, reading from the east means right to left, so the word runs backwards"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MANUS",
+       "op": "middle",
        "indicators": [
         {
          "text": "those on edge off",
-         "note": "the letters on the edges are removed, leaving only the inner ones"
+         "at": 29,
+         "note": "the letters on the edges are taken off, leaving only the inner ones"
         }
        ],
        "parts": [
         {
          "words": "Huge sea wave",
+         "at": 0,
          "gives": "TSUNAMI",
-         "note": "a tsunami is a giant sea wave"
+         "note": "a tsunami is a huge sea wave"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A giant wave rolls in from the east, and anyone nervous wants a helping hand.",
-     "walkthrough": "'on edge' looks like nervousness, but it means the end letters.",
-     "definitionFit": "Manus is the Latin and anatomical term for the hand."
+     "surface": "A tsunami arrives from the east and those at the shore's edge flee to get help.",
+     "walkthrough": "'Those on edge off' strips the outer T and I from TSUNAMI, leaving SUNAM, and reading that 'from the east' reverses it. Manus is the anatomical term for the hand.",
+     "definitionFit": "Manus is the anatomical and zoological term for the hand or forefoot, so it means a hand."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "edge"
     }
    }
@@ -1796,51 +1796,40 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Child that's tiny",
+       "at": 0,
        "gives": "CH",
-       "indicators": [
-        {
-         "text": "that's tiny",
-         "note": "something tiny is cut down, so the word is shortened to its abbreviation"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Child",
-         "gives": "CH",
-         "select": "first",
-         "note": "ch. is an abbreviation for child"
-        }
-       ]
+       "note": "child made tiny, shrunk to its abbreviation CH"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "mistreated",
-         "note": "mistreated means handled badly, so the letters are knocked out of order"
+         "at": 24,
+         "note": "mistreated means handled badly, so the letters of also are jumbled"
         }
        ],
        "parts": [
         {
          "words": "also",
-         "note": "taken as written"
-        },
-        {
-         "words": "mother",
-         "gives": "MA",
-         "note": "familiar name"
+         "at": 19,
+         "note": "the anagram fodder, taken as written"
         }
        ]
+      },
+      {
+       "words": "mother",
+       "at": 37,
+       "gives": "MA",
+       "note": "ma is an informal word for mother"
       }
      ]
     },
     "explanation": {
-     "surface": "A small child is badly treated too, while the mother is pregnant.",
-     "walkthrough": "'mother expecting' reads as one phrase, but mother gives the last two letters and 'expecting complaint' is the definition.",
-     "definitionFit": "Chloasma is brownish skin pigmentation, notably the 'mask of pregnancy' affecting women expecting a baby."
+     "surface": "A tiny child is badly treated too, and the expectant mother complains.",
+     "walkthrough": "'Expecting' means pregnant: chloasma is the brownish skin patching that often appears in pregnancy. 'Mistreated' turns ALSO into LOAS.",
+     "definitionFit": "Chloasma, the mask of pregnancy, is a skin condition common in pregnant women, so it is an expectant mother's complaint."
     },
     "features": {
      "answerInScene": true,
@@ -2120,52 +2109,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SONSY",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means turned around, so the remaining letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SONSY",
+       "words": "Society",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "about",
+         "at": 14,
+         "note": "about means around in a jumble, signalling the remaining letters are rearranged"
+        },
+        {
          "text": "wanting",
-         "note": "wanting means lacking, so the letter for independence is removed"
+         "at": 20,
+         "note": "wanting means lacking, so one letter is taken out of the pool"
         }
        ],
        "parts": [
         {
-         "words": "Society",
-         "gives": "S",
-         "note": "standard abbreviation"
-        },
-        {
          "words": "noisy",
-         "note": "taken as written"
+         "at": 8,
+         "note": "the anagram fodder, taken as written"
         },
         {
          "words": "independence",
+         "at": 28,
          "gives": "I",
-         "note": "standard abbreviation"
+         "note": "I is the abbreviation for independent or independence"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rowdy society, minus independence, backs Nicola Sturgeon, the former Scottish First Minister.",
-     "walkthrough": "'plump for' looks like choosing, but plump is the adjective, and 'for Sturgeon' marks a Scots word.",
-     "definitionFit": "Sonsy is Scots for buxom or plump and comely, a word Sturgeon as a Scot would use."
+     "surface": "A rowdy society, minus its independence, backs Nicola Sturgeon.",
+     "walkthrough": "'Plump for' looks like 'vote for', but plump is the adjective. Nicola Sturgeon was Scotland's First Minister, so 'for Sturgeon' marks a Scots word. NOISY 'wanting' I leaves NOSY, rearranged by 'about'.",
+     "definitionFit": "Sonsy is a Scots word for buxom or comely and well-rounded, so it means plump in Scottish usage."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "plump"

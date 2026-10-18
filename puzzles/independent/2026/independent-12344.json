@@ -44,31 +44,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ROBES",
      "indicators": [
       {
        "text": "frontless",
-       "note": "without its front: the first letter goes"
+       "at": 13,
+       "note": "frontless means with its front taken away, so the opening letter of the word for investigates is dropped"
       }
      ],
      "parts": [
       {
-       "words": "Investigates frontless",
-       "gives": "ROBES",
-       "note": "PROBES = investigates, minus its first letter P"
+       "words": "Investigates",
+       "at": 0,
+       "gives": "PROBES",
+       "note": "to probe is to investigate closely"
+      },
+      {
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is looking into dresses that have no front panel.",
-     "walkthrough": "'Dresses' reads as a verb beside 'investigates', but it is the plural noun, garments like robes.",
-     "definitionFit": "Robes are long loose garments, a kind of dress."
+     "surface": "An inquiry looks into dresses with no fronts to them.",
+     "walkthrough": "'Frontless' reads as describing the dresses, but it removes the P from PROBES. 'Dresses' is the verb: robes someone.",
+     "definitionFit": "To robe someone is to clothe them, especially in ceremonial garments, so robes is a verb synonym of dresses."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dresses"
+     "misdirectedWord": "frontless"
     }
    }
   },
@@ -686,40 +689,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "beginning to",
-       "note": "the beginning of matter is its first letter"
+       "text": "in",
+       "at": 40,
+       "note": "in places the current and the first letter inside the word for motionless"
       }
      ],
      "parts": [
       {
        "words": "motionless",
+       "at": 43,
        "gives": "STILL",
-       "note": "still = motionless"
+       "note": "still means not moving"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
        "parts": [
         {
          "words": "Quantity of current",
+         "at": 0,
          "gives": "AMP",
-         "note": "an amp is a unit of electric current"
+         "note": "an amp, short for ampere, is the unit of electric current"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "M",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 20,
+           "note": "beginning to picks the first letter of the following word, matter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beginning to matter",
-           "gives": "M",
-           "select": "first",
-           "note": "first letter of Matter"
+           "words": "matter",
+           "at": 33,
+           "note": "its first letter is M"
           }
          ]
         }
@@ -728,9 +732,9 @@
      ]
     },
     "explanation": {
-     "surface": "A measurement of electricity flows into a machine that has stopped.",
-     "walkthrough": "An ampere, the amp for short, is the unit of electric current, so a quantity of current is measured in them.",
-     "definitionFit": "A stamp mill crushes ore with heavy pounding stamps."
+     "surface": "An electrical reading starts to register inside a stationary machine used for crushing.",
+     "walkthrough": "AMP and M ('beginning to matter') go 'in' STILL, split as ST...ILL. A stamp mill crushes ore with heavy pounding stamps.",
+     "definitionFit": "A stamp mill is a machine that crushes mined ore by dropping heavy stamps on it, so it is a crushing machine."
     },
     "features": {
      "answerInScene": true,
@@ -999,65 +1003,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VILIFY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "volume",
+       "at": 10,
+       "gives": "V"
+      },
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "cut short",
-         "note": "the last letter is cut off"
+         "at": 32,
+         "note": "cut short means docked at the end, so the last letter of the word for biography is lost"
         }
        ],
        "parts": [
         {
-         "words": "volume",
-         "gives": "V",
-         "note": "v = volume"
+         "words": "Biography",
+         "at": 22,
+         "gives": "LIFE",
+         "note": "a life is a written account of someone's life, a biography"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
-        },
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "Biography cut short",
-         "gives": "LIF",
-         "note": "LIFE = biography, minus its last letter E"
-        },
+         "text": "end of",
+         "at": 49,
+         "note": "end of picks the last letter of the word story"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the last letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "end of story",
-           "gives": "Y",
-           "select": "last",
-           "note": "last letter of storY"
-          }
-         ]
+         "words": "story",
+         "at": 56,
+         "note": "its last letter is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reviewer pans the first volume of a biography that stops short of the story's end.",
-     "walkthrough": "'Volume one' reads as the first book of a set, but it splits into V and I.",
-     "definitionFit": "A plain synonym: to vilify is to speak ill of someone, the harshest end of criticising."
+     "surface": "A reviewer pans the first volume of an abridged biography right up to the story's end.",
+     "walkthrough": "A biography is called a 'life' (as in Boswell's Life of Johnson); 'cut short' trims LIFE to LIF, and 'end of story' adds Y after V and I.",
+     "definitionFit": "To vilify someone is to speak or write about them in an abusive, disparaging way, an intense form of criticism."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "volume"
     }
@@ -1230,43 +1235,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 9,
+       "note": "from here means taken away from, so the letter for a run comes out of the word for greatest opponent"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "runs from",
-         "note": "one R, run, runs away from the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "greatest opponent",
-         "gives": "ARCHRIVAL",
-         "note": "an arch-rival is your greatest opponent"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "greatest opponent",
+       "at": 14,
+       "gives": "ARCHRIVAL",
+       "note": "an arch-rival is someone's chief opponent"
       },
       {
-       "unchecked": true,
-       "words": "One runs from",
-       "note": "one R (r = runs in cricket) leaves ARCHRIVAL"
+       "words": "One runs",
+       "at": 0,
+       "gives": "R",
+       "note": "one of the runs: R is the cricket scorecard abbreviation for a run"
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete runs away from their fiercest competitor, a record-holder.",
-     "walkthrough": "'On record' reads like a sporting record, but it is the definition: kept in the archives.",
-     "definitionFit": "Archival means kept on record in archives."
+     "surface": "Someone flees from their biggest rival, and it is all documented.",
+     "walkthrough": "'One runs from' reads as a person fleeing, but it means one R (for run) is taken from ARCHRIVAL.",
+     "definitionFit": "Archival material is kept in archives, so anything archival is preserved on record for future reference."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "record"
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
     }
    }
   },
@@ -1565,11 +1565,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FRODO",
      "indicators": [
       {
-       "text": "bearing"
+       "text": "bearing",
+       "at": 30,
+       "note": "bearing means carrying, so the round letter sits inside the other letters"
       }
      ],
      "parts": [
@@ -1578,27 +1578,30 @@
        "parts": [
         {
          "words": "Father",
+         "at": 13,
          "gives": "FR",
-         "note": "Fr = Father, a priest's title"
-        },
-        {
-         "words": "bearing ring",
-         "gives": "O",
-         "note": "O is ring-shaped"
+         "note": "Fr is the abbreviation for Father, a priest's title"
         },
         {
          "words": "the same",
+         "at": 20,
          "gives": "DO",
-         "note": "do = ditto, the same"
+         "note": "do, short for ditto, means the same again"
         }
        ]
+      },
+      {
+       "words": "ring",
+       "at": 38,
+       "gives": "O",
+       "note": "a ring is round like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A man at a wedding carries the ring, as his father did.",
-     "walkthrough": "Frodo Baggins carries the One Ring in The Lord of the Rings; the surface suggests a wedding page.",
-     "definitionFit": "Frodo is the hobbit who bears the Ring in Tolkien's story."
+     "surface": "A priest, likewise, carries a ring.",
+     "walkthrough": "In Tolkien's The Lord of the Rings, Frodo Baggins carries the One Ring to Mordor. 'Bearing' puts O inside FR plus DO, from ditto.",
+     "definitionFit": "Frodo is the hobbit entrusted with carrying the One Ring, the Ring-bearer of The Lord of the Rings."
     },
     "features": {
      "answerInScene": false,
