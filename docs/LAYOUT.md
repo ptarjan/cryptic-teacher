@@ -439,6 +439,8 @@ tools/test_source_answer_wrong.py              proves the table of answers the P
 tools/coverage_report.py                       counts what we hold of every series and names
                                                the ones that have gone quiet, were never
                                                backfilled, or are full of holes
+tools/test_coverage_waiting.py                 a recent clues-only hold keeps a series from
+                                               reading as gone quiet; an old one does not
 tools/extend_archive.py                        walks the archives backwards to keep the
                                                annotation queue deeper than the job's best week
 tools/first_issue.py                           asks each series' source for its No 1 on every
@@ -2101,6 +2103,9 @@ tools/edition_queue.py                         the archive.org and Gale editions
                                                each source in a pool of its own (Trove paced to
                                                1 req/s across units); planned again every
                                                minute; `plan` prints what is due by rank
+tools/hot_reload.py                            hot reload for the long-running queues
+                                               (tools/edition_queue.py): re-exec on new tools/
+                                               code or SIGHUP
 tools/edition_commit.py                        an archive.org or Gale edition read whose
                                                request the edition queue made
                                                (file_archive_org_puzzles.brief, from its loaded
