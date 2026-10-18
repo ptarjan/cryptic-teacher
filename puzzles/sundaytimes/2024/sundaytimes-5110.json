@@ -280,50 +280,53 @@
      "indicators": [
       {
        "text": "to save",
-       "note": "to save something is to keep it safe inside, so one piece is held within another"
+       "at": 15,
+       "note": "saving them, the shortened fight keeps the other pieces safely inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unending",
+         "at": 0,
+         "note": "without its ending, the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Unending",
-           "note": "without an ending, the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fight",
-           "gives": "MELEE",
-           "note": "a melee is a confused fight"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "fight",
+         "at": 9,
+         "gives": "MELEE",
+         "note": "a melee is a confused hand-to-hand fight"
         },
         {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "sick",
-       "gives": "ILL",
-       "note": "ill means sick"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very",
+         "at": 23,
+         "gives": "V"
+        },
+        {
+         "words": "sick",
+         "at": 28,
+         "gives": "ILL",
+         "note": "ill means sick"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A never-ending battle to rescue a writer who is gravely ill.",
-     "walkthrough": "MELEE loses its final E to give MELE, which then holds V and ILL.",
-     "definitionFit": "Herman Melville was the American novelist who wrote Moby-Dick, so he is an example of a writer."
+     "surface": "A desperate struggle to rescue a gravely ill writer.",
+     "definitionFit": "Herman Melville was the American novelist who wrote Moby-Dick."
     },
     "features": {
      "answerInScene": true,
@@ -540,49 +543,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "covering",
-       "note": "in a down clue, whatever covers another lies on top of it and comes first"
+       "at": 22,
+       "note": "the pieces cover the current letter, holding it within"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "over",
-         "note": "turned over means flipped round, so the letters run backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Trouble",
-         "gives": "AIL",
-         "note": "to ail is to trouble"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 8,
+           "note": "over means turned over, so the word reads backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Trouble",
+           "at": 0,
+           "gives": "AIL",
+           "note": "to ail is to trouble"
+          }
+         ]
+        },
+        {
+         "words": "children",
+         "at": 13,
+         "gives": "SONS",
+         "note": "sons are children"
         }
        ]
       },
       {
        "words": "current",
+       "at": 31,
        "gives": "I",
        "note": "I is the symbol for electric current"
-      },
-      {
-       "words": "children",
-       "gives": "SONS",
-       "note": "sons are children"
       }
      ]
     },
     "explanation": {
-     "surface": "Worry about children being exposed to news and politics.",
-     "walkthrough": "'Current affairs' reads as news, but current gives I and affairs alone is the definition; I sits above SONS in the grid.",
-     "definitionFit": "Illicit romantic relationships, especially secret love affairs, are known by this French-borrowed word."
+     "surface": "Worry about children who are hiding current love affairs.",
+     "definitionFit": "Liaisons are secret romantic relationships, the same sense as illicit affairs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "current"
     }

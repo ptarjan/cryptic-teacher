@@ -439,39 +439,41 @@
      "indicators": [
       {
        "text": "seizing",
-       "note": "to seize is to grab hold, so one piece is held inside another"
+       "at": 17,
+       "note": "the officer seizes the pieces and holds them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Sergeant perhaps",
-         "gives": "NCO",
-         "note": "a sergeant is an example of a non-commissioned officer"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Sergeant perhaps",
+       "at": 0,
+       "gives": "NCO",
+       "note": "a sergeant is an example of an NCO, a non-commissioned officer"
       },
       {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "words": "Republican",
+         "at": 27,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police sergeant arrests a Republican undercover operative in New York.",
-     "walkthrough": "The 'perhaps' marks a sergeant as just one example of the abbreviation NCO.",
-     "definitionFit": "In American slang a narco or narc is an officer of a drug enforcement unit, hence an agent in New York."
+     "surface": "A police sergeant arrests a Republican operative in New York.",
+     "definitionFit": "Narco is American slang for a narcotics officer, a federal drugs agent."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Sergeant"
     }
    }
@@ -1117,51 +1119,58 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece surrounds another"
+       "at": 5,
+       "note": "the carp goes about the rest, around it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "eating",
-         "note": "what is eaten goes inside, so one piece swallows another"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Carp",
-         "gives": "KOI",
-         "note": "koi are ornamental carp"
-        },
-        {
-         "words": "hotel",
-         "gives": "H",
-         "note": "Hotel is H in the NATO phonetic alphabet"
-        }
-       ]
+       "words": "Carp",
+       "at": 0,
+       "gives": "KOI",
+       "note": "a koi is an ornamental carp"
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "hound",
-         "gives": "LAB",
-         "note": "short for labrador, a dog"
+         "words": "hotel",
+         "at": 11,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
         },
         {
-         "op": "first",
+         "op": "container",
          "indicators": [
           {
-           "text": "starter of",
-           "note": "the starter of a word is its first letter alone"
+           "text": "eating",
+           "at": 23,
+           "note": "the dog eats the letter, holding it inside"
           }
          ],
          "parts": [
           {
-           "words": "red",
-           "note": "the opening letter"
+           "words": "hound",
+           "at": 17,
+           "gives": "LAB",
+           "note": "a lab, or labrador, is a dog"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "starter of",
+             "at": 30,
+             "note": "the starter of red is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "red",
+             "at": 41,
+             "note": "first letter of red"
+            }
+           ]
           }
          ]
         }
@@ -1170,12 +1179,12 @@
      ]
     },
     "explanation": {
-     "surface": "Someone moans about a hotel dog wolfing down red cabbage.",
-     "walkthrough": "'Carp' looks like a verb meaning complain; it is the fish. R goes into LAB, and that goes with H into KOI.",
-     "definitionFit": "Kohlrabi is a variety of cabbage grown for its swollen edible stem, sometimes called a cabbage turnip."
+     "surface": "A fish complains about a hotel where a dog eats red cabbage.",
+     "walkthrough": "'Carp' looks like a verb, to complain, but it is the fish.",
+     "definitionFit": "Kohlrabi is a variety of cabbage grown for its swollen edible stem."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Carp"
     }

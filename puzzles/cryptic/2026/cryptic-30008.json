@@ -834,65 +834,85 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "swallowing",
-       "note": "To swallow is to take something down inside you, so the creature's letters open up to admit the next piece."
-      }
-     ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "head of",
-         "note": "The head of a word is the letter at its front, and only that one letter is taken."
+         "text": "swallowing",
+         "at": 12,
+         "note": "the shortened insectivore swallows the next piece, holding it inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "not",
-           "note": "'Not' refuses whatever it names a place in the answer, so that letter comes off what has been built."
+           "text": "not tail",
+           "at": 42,
+           "note": "the insectivore loses its tail, its final letter"
           }
          ],
          "parts": [
           {
            "words": "Insectivore",
+           "at": 0,
            "gives": "ANTEATER",
-           "note": "an anteater lives on insects"
+           "note": "an anteater is an animal that feeds on insects"
           },
           {
-           "op": "first",
-           "parts": [
-            {
-             "words": "dragonfly",
-             "note": "the letter at the front of the word"
-            }
-           ]
+           "gives": "R"
           }
          ]
         },
         {
-         "words": "tail",
-         "gives": "R",
-         "note": "the tail of what has been assembled so far is its final letter"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 23,
+           "note": "the head of dragonfly is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dragonfly",
+           "at": 31,
+           "note": "first letter of dragonfly"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "drone",
-       "gives": "D",
-       "note": "the front letter again, this time of the male bee"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 53,
+         "note": "the head of drone is again its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drone",
+         "at": 61,
+         "note": "first letter of drone"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An anteater eats most of a dragonfly, and a drone had got there first.",
-     "walkthrough": "The dash in the middle is doing nothing; the sentence is one continuous instruction. 'Head of drone' repeats the trick of 'head of dragonfly' two words later, which is easy to miss when both read as insect anatomy.",
-     "definitionFit": "To antedate an event is to come earlier in time than it, the way a 1912 letter antedates the war."
+     "surface": "A nature scene: an insect-eater gulps down a dragonfly, while a drone bee had been there earlier.",
+     "walkthrough": "'not tail' cuts ANTEATER to ANTEATE; 'swallowing' puts D inside it to give ANTEDATE, and the D from 'head of drone' finishes the word.",
+     "definitionFit": "To antedate something is to precede it in time, so the past tense matches 'came before'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
     }
    }
   },
