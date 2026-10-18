@@ -130,40 +130,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "minimum wage",
+       "at": 8,
        "gives": "P",
-       "indicators": [
-        {
-         "text": "minimum",
-         "note": "the least possible amount of the word is just its opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "wage",
-         "gives": "P",
-         "select": "first",
-         "note": "a wage is pay, and the first letter of that is kept"
-        }
-       ]
+       "note": "a penny, P, is the smallest wage there could be"
       },
       {
        "words": "increase for American",
+       "at": 21,
        "gives": "RAISE",
-       "note": "a raise is the American word for a pay increase"
+       "note": "raise is the American word for a pay increase, where the British say rise"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether the minimum wage increase an American would call a raise is praiseworthy over here.",
-     "walkthrough": "The wage gives only its initial letter of PAY. 'In Britain?' points out that the British say pay rise where Americans say raise.",
-     "definitionFit": "To commend someone is to speak approvingly of them, which is exactly what praising does."
+     "surface": "Asks whether a minimum wage rise is what an American working in Britain would get.",
+     "walkthrough": "The British say 'pay rise'; Americans say 'pay raise', and with only a penny of pay that becomes P + RAISE.",
+     "definitionFit": "To praise someone is to commend them, a straightforward synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "minimum"
     }
    }
@@ -1147,58 +1135,63 @@
      "op": "container",
      "indicators": [
       {
-       "text": "injected with",
-       "note": "an injection puts something inside the body, so pieces go into the word"
+       "text": "when injected with",
+       "at": 26,
+       "note": "the chemical symbols are injected into the shortened word for weak"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 13,
+         "note": "wanting means lacking, so the drug letter is removed"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "wanting",
-           "note": "wanting means lacking or short of, so a letter is missing"
-          }
-         ],
-         "parts": [
-          {
-           "words": "weak",
-           "gives": "FEEBLE",
-           "note": "feeble means weak"
-          },
-          {
-           "words": "drug",
-           "gives": "E",
-           "note": "E is slang for the drug ecstasy"
-          }
-         ]
+         "words": "weak",
+         "at": 7,
+         "gives": "FEEBLE",
+         "note": "feeble means weak"
         },
         {
-         "words": "arsenic",
-         "gives": "AS",
-         "note": "As is the chemical symbol for arsenic"
+         "words": "drug",
+         "at": 21,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
         }
        ]
       },
       {
-       "words": "iodine",
-       "gives": "I",
-       "note": "I is the chemical symbol for iodine"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "arsenic",
+         "at": 45,
+         "gives": "AS",
+         "note": "As is the chemical symbol for arsenic"
+        },
+        {
+         "words": "iodine",
+         "at": 57,
+         "gives": "I",
+         "note": "I is the chemical symbol for iodine"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient who has been poisoned with arsenic and iodine instead of medicine will probably feel weak.",
-     "walkthrough": "Only one of the two Es in the weak word is dropped; the two chemical symbols then go in where the first E stood.",
-     "definitionFit": "Feasible can mean plausible or probable, as in a feasible explanation."
+     "surface": "A medical note that a weak patient lacking drugs is likely poisoned with arsenic and iodine.",
+     "definitionFit": "Feasible means possible or plausible, so likely is a near synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drug"
+     "misdirectedWord": "injected"
     }
    }
   },

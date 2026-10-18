@@ -434,46 +434,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "aboard"
+       "text": "aboard",
+       "at": 40,
+       "note": "things aboard a ship are inside it, so the ship's letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "ship",
+       "at": 47,
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "ship",
-           "gives": "SS",
-           "note": "SS, steamship"
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "L is the abbreviation for left"
-          }
-         ]
+         "words": "left",
+         "at": 18,
+         "gives": "L"
         },
         {
          "words": "to kill",
+         "at": 23,
          "gives": "END",
-         "note": "to end a life is to kill"
+         "note": "to end someone is to kill them"
+        },
+        {
+         "words": "seabirds",
+         "at": 31,
+         "gives": "ERNES",
+         "note": "ernes are sea eagles"
         }
        ]
-      },
-      {
-       "words": "seabirds",
-       "gives": "ERNES",
-       "note": "ernes are sea eagles"
       }
      ]
     },
     "explanation": {
-     "surface": "An archery quality turned into a scene of shooting seabirds from a ship.",
-     "walkthrough": "The surface suggests arrows being used to kill seabirds, but the arrows belong to the definition and the killing is just END.",
-     "definitionFit": "A definition by example: an arrow's shaft is long and thin, so thinness is the quality the clue picks out."
+     "surface": "An order to shoot seabirds perched on a ship, with arrows loosed from the left.",
+     "definitionFit": "Arrows are long and thin, so slenderness is a characteristic property of them."
     },
     "features": {
      "answerInScene": false,
@@ -1274,41 +1273,58 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "the king holds the other pieces inside him"
+       "at": 15,
+       "note": "the king's name holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "king",
-         "gives": "LEAR",
-         "note": "King Lear, Shakespeare's king"
-        },
-        {
-         "words": "power",
-         "gives": "P",
-         "note": "P is the symbol for power"
-        }
-       ]
+       "words": "king",
+       "at": 10,
+       "gives": "LEAR",
+       "note": "Lear is Shakespeare's king"
       },
       {
-       "words": "certainly forgotten",
-       "gives": "YEA",
-       "note": "yea, an old word for yes or certainly"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "power",
+         "at": 23,
+         "gives": "P"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "forgotten",
+           "at": 39,
+           "note": "forgotten means the last letter of the word for certainly is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "certainly",
+           "at": 29,
+           "gives": "YEAH",
+           "note": "yeah is an informal yes, certainly"
+          },
+          {
+           "gives": "H"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A king's reign when his power was surely forgotten.",
-     "walkthrough": "'Forgotten' marks YEA as a word that has fallen out of use, the archaic form of yes; it says nothing more.",
-     "definitionFit": "A leap year is a period of 366 days, with an extra day added in February."
+     "surface": "A story of a king's reign of power whose period has been forgotten.",
+     "definitionFit": "A leap year is a calendar period of 366 days, one in every four years."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "forgotten"
+     "misdirectedWord": "king"
     }
    }
   },
@@ -1702,40 +1718,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "cutting"
+       "text": "cutting",
+       "at": 9,
+       "note": "letters cutting into the fish word go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "mullet",
-         "gives": "FISH",
-         "note": "a mullet is a fish"
-        },
-        {
-         "words": "I",
-         "note": "I is used as itself"
-        }
-       ]
+       "words": "mullet?",
+       "at": 17,
+       "gives": "FISH",
+       "note": "a mullet is an example of a fish, as the question mark signals"
       },
       {
-       "words": "finish",
-       "gives": "END",
-       "note": "end = finish"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0,
+         "gives": "I"
+        },
+        {
+         "words": "finish",
+         "at": 2,
+         "gives": "END",
+         "note": "end means finish"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finishes chopping a mullet and finds the result dreadful.",
-     "walkthrough": "'Mullet' may suggest the haircut, which a cutting could be about; it is the fish.",
-     "definitionFit": "Fiendish means devilishly cruel or dreadful, like a fiend."
+     "surface": "A chef finishing off filleting a mullet declares the result horrendous.",
+     "walkthrough": "'Mullet' could be the hairstyle, but here it is the fish.",
+     "definitionFit": "Fiendish means devilishly cruel or difficult, so horrendous is a fair synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "mullet"
     }
    }
@@ -3343,35 +3363,38 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "I and the note are put in the brown"
+       "at": 14,
+       "note": "the I and the note are put inside the colour word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "brown",
-         "gives": "TAN",
-         "note": "tan = light brown"
-        },
-        {
-         "words": "I",
-         "note": "I is used as itself"
-        }
-       ]
+       "words": "brown",
+       "at": 21,
+       "gives": "TAN",
+       "note": "tan is a shade of brown"
       },
       {
-       "words": "note",
-       "gives": "TI",
-       "note": "ti (or te), a note of the sol-fa scale"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 7,
+         "gives": "I"
+        },
+        {
+         "words": "note",
+         "at": 9,
+         "gives": "TI",
+         "note": "ti is the seventh note of the sol-fa scale"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painter adding a note of his own to a brown canvas.",
-     "walkthrough": "The answer is also a colour, the auburn red named after the painter's favourite hair shade, which suits the brown wordplay.",
-     "definitionFit": "Titian was a leading painter of 16th-century Venice."
+     "surface": "A painter adds a note about his use of brown on the canvas.",
+     "definitionFit": "Titian was the great Venetian Renaissance painter."
     },
     "features": {
      "answerInScene": true,

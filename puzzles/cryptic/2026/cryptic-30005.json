@@ -55,44 +55,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "holding",
-       "note": "A hand that holds something encloses it, so the cut word closes round the letter named beside it."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "with no tip",
-         "note": "A tip is the pointed end, and a weapon's point is the letter it starts with — that one is gone."
+         "text": "holding",
+         "at": 30,
+         "note": "the word for a cut holds the A inside it"
         }
        ],
        "parts": [
         {
          "words": "make a cut",
+         "at": 19,
          "gives": "NOTCH",
-         "note": "to notch something is to make a cut in it"
+         "note": "to notch is to make a small cut"
         },
         {
          "words": "a",
-         "note": "the bare article, taken from in front of the weapon and slipped inside"
+         "at": 38,
+         "gives": "A"
         }
        ]
       },
       {
-       "words": "weapon",
-       "gives": "ANCE",
-       "note": "the weapon is a LANCE, minus the L at its point"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no tip",
+         "at": 47,
+         "note": "the tip of the weapon, its first letter, is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weapon",
+         "at": 40,
+         "gives": "LANCE",
+         "note": "a lance is a long weapon"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "You cannot slash at anybody while the weapon in your grip has had its point taken off.",
-     "walkthrough": "'A weapon' reads as one phrase and the setter uses it as two: the article goes inside the cut, and what is left over is a lance.",
-     "definitionFit": "'Not a chance' is the flat refusal you snap at an impossible suggestion, which is what 'there is no way' says at greater length."
+     "surface": "A claim that a blunted weapon could never be used to cut anything.",
+     "definitionFit": "Not a chance is an idiom meaning something will certainly not happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -325,43 +342,57 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "served up",
-       "note": "Serving something up sends it upwards to the table, and upwards in a down entry means reading the letters from the bottom."
+       "text": "after",
+       "at": 37,
+       "note": "the turned-up letters come after the shortened work"
       }
      ],
      "parts": [
       {
-       "words": "work ended early",
-       "gives": "CHOR",
-       "note": "a CHORE is a piece of work, stopped one letter short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ended early",
+         "at": 48,
+         "note": "the word for work loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 43,
+         "gives": "CHORE",
+         "note": "a chore is a piece of work"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "after",
-         "note": "'After' means later in the answer, so the piece it introduces is the one that goes in front."
+         "text": "served up",
+         "at": 27,
+         "note": "in a down clue served up means the letters are read upwards, reversed"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "ended early",
-           "note": "A word ended early stops before its final letter, which is dropped rather than moved."
-          }
-         ],
          "parts": [
           {
            "words": "Australia",
+           "at": 13,
            "gives": "OZ",
-           "note": "OZ is the everyday nickname for Australia, spelled the way Aus is said"
+           "note": "Oz is a nickname for Australia"
           },
           {
            "words": "one",
+           "at": 23,
            "gives": "I",
-           "note": "I is one, the Roman numeral"
+           "note": "I is the Roman numeral for one"
           }
          ]
         }
@@ -370,9 +401,13 @@
      ]
     },
     "explanation": {
-     "surface": "A spicy sausage brought over from Australia and handed round once the shift finished early.",
-     "walkthrough": "The sausage is Spanish, so naming Australia in the same breath is deliberate misdirection: the country is only in the clue for its two-letter nickname.",
-     "definitionFit": "A chorizo is the paprika-spiced pork sausage of Spain, so 'sausage' defines it by class and leaves the wordplay to say which one."
+     "surface": "An Australian serving up a sausage after finishing work early.",
+     "definitionFit": "Chorizo is a spicy Spanish pork sausage flavoured with paprika."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
     }
    }
   },
