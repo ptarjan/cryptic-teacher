@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -310,57 +311,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Bar",
+      "text": "Bar?",
       "at": 42
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BREWPUB",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "something turned faces the other way, so those two letters arrive in the opposite order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cup of tea",
+       "at": 0,
+       "gives": "BREW",
+       "note": "a brew is British slang for a cup of tea"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 11,
+         "note": "turned means flipped round, so the word up is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Cup of tea",
-         "gives": "BREW",
-         "note": "a brew is a cup of tea"
-        },
+         "words": "up",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "turned up",
-         "gives": "PU",
-         "note": "UP, turned round"
-        },
+         "text": "a little",
+         "at": 26,
+         "note": "only a little of the word is taken, its first letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "a little",
-           "note": "a little of a word is the smallest piece you can take of it — the letter it starts with"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a little Bounty",
-           "gives": "BOUNTY",
-           "note": "just a little of Bounty — its opening letter"
-          }
-         ]
+         "words": "Bounty",
+         "at": 35,
+         "note": "first letter of Bounty"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The trick is where you split 'Bounty Bar': the surface glues them into a chocolate bar, while the clue wants the Bounty for one letter and the Bar for the definition.",
-     "definitionFit": "A brewpub is a pub that brews its own beer on the premises, and a pub is a bar — the question mark covers the narrowing."
+     "surface": "Someone sips a cuppa and nibbles part of a coconut chocolate bar.",
+     "walkthrough": "A Bounty is a coconut chocolate bar, which makes 'Bar' look like confectionery; it is a pub. A brewpub brews its own beer on site.",
+     "definitionFit": "A brewpub is a pub that brews its own beer, so it is one kind of bar, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bar"
     }
    }
   },
@@ -386,58 +394,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "roll",
+      "text": "roll?",
       "at": 41
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "Supply",
-       "note": "read as the adverb from supple — done in a bendy way, which letters can only manage by taking a new shape"
+       "at": 0,
+       "note": "supply read as supple-y, bendy, so the letters are bent into a new order"
+      },
+      {
+       "text": "wanting",
+       "at": 20,
+       "note": "wanting means lacking, so the metre's letter is missing from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "wanting",
-         "note": "to be wanting something is to lack it, so the metre is missing from the mixture"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "gum rubber",
-           "gives": "GURUBBER",
-           "note": "GUM RUBBER once the M has gone"
-          },
-          {
-           "words": "wanting metre",
-           "gives": "M",
-           "note": "m = metre — the letter that is missing"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "n = new, joining the letters to be shuffled"
-          }
-         ]
+         "words": "gum rubber",
+         "at": 7,
+         "note": "taken as written"
         },
         {
-         "gives": "M"
+         "words": "new",
+         "at": 37,
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "metre",
+       "at": 28,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Supply' is the whole joke: it reads as a verb about providing things and is really the adverb from supple. A word that changes its stress is a setter's favourite.",
-     "definitionFit": "A burger bun is a soft round roll, so 'roll' names it by category — the question mark admitting it is only one kind."
+     "surface": "A request for elastic, minus a measurement, to go on a fresh roll of something.",
+     "walkthrough": "'Supply' is read as supple-y, meaning pliant, rather than provide; the letters of GUM RUBBER and N, without M, are bent into the answer.",
+     "definitionFit": "A burger bun is the soft bread roll a hamburger is served in, one kind of roll, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supply"
     }
    }
   },
@@ -634,41 +640,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "finally",
-       "note": "what comes finally comes last, so the shop hands over only its closing letter"
+       "text": "opening",
+       "at": 36,
+       "note": "the last letter of store comes at the opening, in front of the outlet"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "opening",
-         "note": "an opening is the way in, so that letter is placed at the front rather than anywhere else"
+         "text": "finally",
+         "at": 28,
+         "note": "finally picks out the last letter of the word before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "store finally",
-         "gives": "E",
-         "select": "last",
-         "note": "the last letter of storE"
+         "words": "store",
+         "at": 22,
+         "note": "last letter of store"
         }
        ]
       },
       {
        "words": "outlet",
+       "at": 15,
        "gives": "VENT",
-       "note": "a vent is an outlet for air"
+       "note": "a vent is an outlet for air or gas"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Outlet', 'store' and 'opening' are all retail words in the surface and not one of them is a shop in the wordplay — the outlet is an air vent and the opening is a position.",
-     "definitionFit": "'In the event of rain' means 'if rain happens', and that is the sense wanted here: something that may occur."
+     "surface": "The chance that a factory outlet store will at last open its doors.",
+     "walkthrough": "'opening' looks like a shop opening but places the letter at the start.",
+     "definitionFit": "An event can mean a possible occurrence, as in 'in the event of', so it stands for a possibility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
     }
    }
   },
@@ -862,12 +873,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "to take",
-       "note": "taking something is holding it, so one piece ends up inside the other instead of alongside it"
-      },
-      {
        "text": "up front",
-       "note": "up front is at the near end, so the insertion happens at the start of the piece and not deep inside it"
+       "at": 60,
+       "note": "the first part is placed up front, before the rest"
       }
      ],
      "parts": [
@@ -875,20 +883,23 @@
        "op": "container",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "spoken briefly, a caravan is just a van — the short everyday name for one"
+         "text": "assuming",
+         "at": 42,
+         "note": "to assume something is to take it on, so the car goes inside"
         }
        ],
        "parts": [
         {
          "words": "that is",
+         "at": 34,
          "gives": "IE",
-         "note": "i.e. = that is"
+         "note": "IE is the abbreviation of id est, that is"
         },
         {
          "words": "posh car",
+         "at": 51,
          "gives": "RR",
-         "note": "RR is Rolls-Royce, the byword for a posh car, taken in at the front"
+         "note": "RR stands for Rolls-Royce, a posh car"
         }
        ]
       },
@@ -896,28 +907,51 @@
        "op": "container",
        "indicators": [
         {
-         "text": "assuming",
-         "note": "to assume something is to take it on board, so the pair is taken in rather than added at the end"
+         "text": "to take",
+         "at": 8,
+         "note": "the allowed word takes the vehicle inside it"
         }
        ],
        "parts": [
         {
          "words": "Allowed",
+         "at": 0,
          "gives": "LET",
-         "note": "let = allowed, as a flat is let"
+         "note": "allowed means let"
         },
         {
-         "words": "caravan briefly",
-         "gives": "VAN",
-         "note": "a caravan is a van for short, and it goes inside"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 24,
+           "note": "briefly means in short form, so the front of caravan is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "caravan",
+           "at": 16,
+           "note": "caravan cut down to its everyday short form"
+          },
+          {
+           "gives": "CARA"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two insertions in one clue and both hide inside ordinary verbs, 'take' and 'assuming'. The surface — a caravan towed behind a Rolls-Royce — is pure decoy.",
-     "definitionFit": "Relevant means connected to the matter in hand, and 'Not so' turns it round, which is the job the IR- prefix does to the word."
+     "surface": "Permission to tow a caravan, assuming a Rolls-Royce leads the way, all hooked up.",
+     "walkthrough": "VAN is the short form of caravan; the question 'is connected?' answered 'Not so' defines the answer.",
+     "definitionFit": "Something irrelevant has no bearing on the matter in hand, so it is not connected to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "connected"
     }
    }
   },
@@ -993,64 +1027,61 @@
      "indicators": [
       {
        "text": "11",
-       "note": "the number sends you to another clue in this grid, and that answer is a word for jumbled — the instruction is borrowed from it"
+       "at": 27,
+       "note": "the answer to 11 across is DISORDERED, so it tells us to put the letters in disorder"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Can rule",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "first",
-         "note": "Tottenham's first is the letter its name starts with, nothing to do with a first team"
+         "at": 21,
+         "note": "first picks out the first letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "Can",
-         "note": "three letters of the mixture, straight off the clue"
-        },
+         "words": "Tottenham's",
+         "at": 9,
+         "note": "first letter of Tottenham"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "rule",
-         "note": "four more, again just as written"
-        },
+         "text": "ultimately",
+         "at": 36,
+         "note": "ultimately picks out the last letter of the word before it"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means at the very end, so only the closing letter of the word before it is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Tottenham's first",
-           "gives": "TOTTENHAMFIRST",
-           "note": "the opening letter of Tottenham"
-          }
-         ]
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "T",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "out — ultimately",
-           "gives": "T",
-           "select": "last",
-           "note": "the last letter of ouT"
-          }
-         ]
+         "words": "out",
+         "at": 30,
+         "note": "last letter of out"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The football surface is the decoy: no first team, no eleven players, just letters. Using a cross-reference as the instruction is the neat touch — a number standing in for the word it answers.",
-     "definitionFit": "If you are not up for something you are unwilling to do it, so the everyday phrase is doing duty as the adjective."
+     "surface": "A football fan doubts the Spurs first eleven can rule, and wants them out.",
+     "walkthrough": "'11' looks like the Tottenham team, but it refers to the answer of 11 across, which serves as the anagram signal. Tottenham are a London football club.",
+     "definitionFit": "Someone reluctant is unwilling, not keen or ready to do something, not up for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "11"
     }
    }
   },
@@ -1138,8 +1169,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "entrance",
-       "note": "an entrance is the way in, so the neighbour gives up only the letter you go in by"
+       "text": "with",
+       "at": 45,
+       "note": "with means alongside, so the second part follows"
       }
      ],
      "parts": [
@@ -1148,28 +1180,31 @@
        "indicators": [
         {
          "text": "rings",
-         "note": "to ring something is to encircle it, so the buzzer closes around what follows"
+         "at": 39,
+         "note": "the buzzer forms a ring around the letter"
         }
        ],
        "parts": [
         {
          "words": "buzzer",
+         "at": 32,
          "gives": "BEE",
-         "note": "a bee is the buzzer, and it opens up to take a letter in"
+         "note": "a bee buzzes, so a buzzer"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "must hide",
-           "note": "what hides goes out of sight, so that letter is not there when the word is written out"
+           "text": "entrance",
+           "at": 23,
+           "note": "the entrance of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "words": "neighbour's entrance",
-           "gives": "NEIGHBOURENTRANCE",
-           "note": "the first letter of Neighbour"
+           "words": "neighbour's",
+           "at": 11,
+           "note": "first letter of neighbour"
           }
          ]
         }
@@ -1177,22 +1212,23 @@
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "must hide",
+         "at": 70,
+         "note": "the letter must hide away, vanishing from the word for force"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "excessive force",
-           "gives": "VOLENCE",
-           "note": "VIOLENCE is force past what is needed, with one letter no longer visible"
-          },
-          {
-           "words": "I",
-           "note": "the letter that must hide, taken out of VIOLENCE"
-          }
-         ]
+         "words": "excessive force",
+         "at": 50,
+         "gives": "VIOLENCE",
+         "note": "violence is excessive force"
         },
         {
+         "words": "I",
+         "at": 68,
          "gives": "I"
         }
        ]
@@ -1200,8 +1236,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "A doorbell going in the surface, an insect in the wordplay. The long word arrives almost whole, so the work is spotting that four of its letters were built separately first.",
-     "definitionFit": "Benevolence is the disposition to wish others well, and goodness in the sense of kindness rather than virtue is exactly that."
+     "surface": "A neighbour leans on the doorbell with far too much force, and someone has to hide.",
+     "walkthrough": "The doorbell picture makes 'buzzer' a bell, but it is a bee. Goodness is the definition at the start.",
+     "definitionFit": "Benevolence is kindly goodwill towards others, a synonym of goodness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buzzer"
     }
    }
   },
@@ -1318,41 +1360,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "losing",
-       "note": "what is lost is no longer there, so the word that follows gives up the letter it is losing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "A",
-         "note": "the clue's own A, opening the build"
-        },
-        {
-         "words": "Western",
-         "gives": "CCIDENTAL",
-         "note": "OCCIDENTAL means western, and its first letter has gone"
-        },
-        {
-         "words": "losing Oscar",
-         "gives": "O",
-         "note": "Oscar is O in the NATO alphabet — that is the letter lost"
-        }
-       ]
+       "words": "A",
+       "at": 0
       },
       {
-       "gives": "O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 10,
+         "note": "losing means the letter is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Western",
+         "at": 2,
+         "gives": "OCCIDENTAL",
+         "note": "occidental means western"
+        },
+        {
+         "words": "Oscar",
+         "at": 17,
+         "gives": "O",
+         "note": "Oscar is O in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A perfect sentence about the film awards, and none of it is about films. Occidental for western and Oscar for O are both worth banking for next time.",
-     "definitionFit": "Something accidental happens by chance rather than by design, which is precisely what nobody sees coming — the everyday sense of the word."
+     "surface": "A cowboy film fails to win an Academy Award, which was unexpected.",
+     "walkthrough": "The surface makes 'Western' a film and 'Oscar' the award; they are the adjective occidental and the letter O.",
+     "definitionFit": "Something accidental happens by chance, so it is unexpected or unplanned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Western"
     }
    }
   },
@@ -1458,58 +1507,70 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "must go through",
-       "note": "going through something means passing inside it, so this piece is planted in the middle of the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "must go through",
+         "at": 3,
+         "note": "the word must pass through the others, going inside"
+        }
+       ],
        "parts": [
         {
-         "words": "on",
-         "gives": "RE",
-         "note": "re = on, as in a memo headed 're: your letter'"
-        },
-        {
-         "words": "time",
-         "gives": "ERA",
-         "note": "an era is a stretch of time"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TE",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "taken regularly means at an even step through the word — every other letter, not the lot"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "they regularly",
-           "gives": "TE",
-           "select": "alternate",
-           "note": "every other letter of They — T and E"
+           "words": "on",
+           "at": 19,
+           "gives": "RE",
+           "note": "RE means on, concerning, as in a memo heading"
+          },
+          {
+           "words": "time",
+           "at": 22,
+           "gives": "ERA",
+           "note": "an era is a period of time"
           }
          ]
+        },
+        {
+         "words": "It",
+         "at": 0,
+         "gives": "IT",
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "It",
-       "note": "straight from the clue, and it goes inside the rest"
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 32,
+         "note": "regularly takes every other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "they",
+         "at": 27,
+         "note": "alternate letters of they"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three tiny words each hand over a standard crossword piece, RE, ERA and a pair of alternate letters, while the surface talks about a deadline and gives nothing away.",
-     "definitionFit": "To reiterate a point is to say it again for emphasis, and to stress a point is the same act of insisting on it."
+     "surface": "People insist that a job must be pushed through on schedule.",
+     "definitionFit": "To reiterate a point is to repeat it for emphasis, to stress it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "through"
     }
    }
   },
@@ -1537,8 +1598,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "source",
-       "note": "a river's source is where it starts, so the name gives up the letter it begins with"
+       "text": "to meet",
+       "at": 22,
+       "note": "to meet means to come up against, so the parts join end to end"
       }
      ],
      "parts": [
@@ -1546,37 +1608,43 @@
        "op": "first",
        "indicators": [
         {
-         "text": "to meet",
-         "note": "two pieces that meet stand side by side, so they are simply written one after the other"
-        },
-        {
-         "text": "say",
-         "note": "'say' means 'for example', so Charles is not the word wanted but a pointer to a famous holder of it"
+         "text": "source",
+         "at": 15,
+         "note": "the source of a word is where it starts, its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Andrew's source",
-         "gives": "ANDREWSOURCE",
-         "note": "the letter Andrew starts from"
+         "words": "Andrew's",
+         "at": 6,
+         "note": "first letter of Andrew"
         }
        ]
       },
       {
        "words": "King",
+       "at": 30,
        "gives": "R",
-       "note": "R for Rex, Latin for king — the R that follows a monarch's name"
+       "note": "R is for rex, Latin for king"
       },
       {
        "words": "Charles, say",
+       "at": 35,
        "gives": "RAY",
-       "note": "the famous Charles is Ray Charles, so the example hands over his first name"
+       "note": "Ray Charles was an American singer and pianist"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three royal names in a row is deliberate, and only the middle one is royalty in the wordplay. The soul singer is hiding behind a prince and a king.",
-     "definitionFit": "An array is things set out in ranks and rows, the sense preserved in 'in battle array' — order as an arrangement rather than as a command."
+     "surface": "Prince Andrew arranges a meeting with King Charles.",
+     "walkthrough": "'King Charles' looks like the monarch, but the king is R and Charles is Ray Charles, the soul singer.",
+     "definitionFit": "An array is an ordered arrangement, and to array things is to set them in order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Charles"
     }
    }
   },
@@ -1604,45 +1672,47 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "maybe",
-       "note": "'maybe' says the word is only an instance, so smack stands here for the wider class it belongs to"
+       "text": "to escape",
+       "at": 30,
+       "note": "the loves escape, leaving the rest behind"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "to escape",
-         "note": "what escapes gets out, so those letters leave the words they were sitting in"
-        }
-       ],
        "parts": [
         {
          "words": "taking",
-         "gives": "DING",
-         "note": "DOING = taking, the way you do or take drugs, with one letter escaped"
+         "at": 5,
+         "gives": "DOING",
+         "note": "doing drugs is taking them, so taking gives doing"
         },
         {
          "words": "smack maybe",
-         "gives": "BAT",
-         "note": "a smack is a small fishing BOAT, again one letter lighter"
-        },
-        {
-         "words": "loves",
-         "gives": "OO",
-         "note": "love is nothing, the O of tennis scoring; two loves are two Os, and both get out"
+         "at": 12,
+         "gives": "BOAT",
+         "note": "a smack is a small sailing boat used for fishing"
         }
        ]
       },
       {
-       "gives": "OO"
+       "words": "loves",
+       "at": 24,
+       "gives": "OO",
+       "note": "love is zero in tennis, an O, so two loves give two Os"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is entirely about drugs and the answer is entirely about a fool. A smack being a fishing boat is the fact that unlocks it; love for O is standard.",
-     "definitionFit": "A dingbat is American slang for a scatterbrained idiot, so the definition is a plain synonym — a noun standing in for a noun."
+     "surface": "An idiot on heroin, with romance fleeing.",
+     "walkthrough": "Smack looks like heroin with 'taking', but it is a fishing boat, and 'taking' itself is the slang word doing.",
+     "definitionFit": "A dingbat is informal slang for a stupid or eccentric person, a fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smack"
     }
    }
   },

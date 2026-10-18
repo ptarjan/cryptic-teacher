@@ -259,44 +259,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "around suggests the letters of lay are turned about into a new order"
+       "text": "outside",
+       "at": 20,
+       "note": "the rearranged letters go outside the office, wrapping it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside says the rearranged letters sit on either side of the office word"
+         "text": "around",
+         "at": 13,
+         "note": "around suggests the letters of 'lay' are moved about into a new order"
         }
        ],
        "parts": [
         {
          "words": "lay",
-         "note": "the three letters of lay rearranged"
-        },
-        {
-         "words": "office",
-         "gives": "DEPT",
-         "note": "short for department, a government office"
+         "at": 9,
+         "note": "the word lay, taken as written before it is turned about"
         }
        ]
+      },
+      {
+       "words": "office",
+       "at": 28,
+       "gives": "DEPT",
+       "note": "DEPT is the abbreviation for department, an office"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone skilfully lounges about outside a workplace, perhaps skiving.",
-     "definitionFit": "Adeptly means in a skilled, proficient manner, so it is a synonym for cleverly done."
+     "surface": "Someone cleverly lays things around outside an office building.",
+     "walkthrough": "'around' rearranges LAY as ALY, which sits 'outside' DEPT, split as A and LY.",
+     "definitionFit": "To do something adeptly is to do it skilfully, a close synonym of cleverly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lay"
+     "misdirectedWord": "around"
     }
    }
   },
@@ -506,45 +511,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CROWSNESTS",
      "indicators": [
       {
        "text": "Spooner",
-       "note": "Spooner was famed for swapping the opening sounds of words, so two words here trade their first sounds"
+       "at": 19,
+       "note": "Rev. Spooner swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "NOWS",
        "parts": [
         {
-         "unchecked": true,
-         "words": "shapes of waves",
-         "gives": "CROWS",
-         "soundsLike": "CRESTS",
-         "note": "the peaks of waves are their crests; its opening CR sound moves to the front of the other word"
-        },
-        {
-         "unchecked": true,
          "words": "is familiar with",
-         "gives": "NESTS",
-         "soundsLike": "KNOWS",
-         "note": "to be familiar with something is to know it; its opening N sound moves to the front of the other word"
+         "at": 27,
+         "gives": "KNOWS",
+         "note": "to be familiar with something is to know it, so knows; the silent K leaves the sound NOWS"
         }
        ]
+      },
+      {
+       "words": "shapes of waves",
+       "at": 44,
+       "gives": "CRESTS",
+       "note": "crests are the shapes of waves at their tops"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor familiar with the sea recognises the outlines of waves from the deck.",
-     "walkthrough": "Swap the first sounds of the two words: the N sound and the CR sound trade places.",
-     "definitionFit": "A crow's nest is the lookout platform high on a ship's mast, a place on board a vessel."
+     "surface": "Spooner, out on a boat, knows all about the shapes of the waves.",
+     "walkthrough": "Swapping the opening sounds of 'knows crests' (N and CR) gives 'crows nests'. A crow's nest is the lookout platform high on a ship's mast.",
+     "definitionFit": "A crow's nest is a lookout post fixed high on a ship's mast, a place on a boat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shapes"
+     "joke": "pun",
+     "misdirectedWord": "familiar"
     }
    }
   },
@@ -830,46 +834,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PLUTOCRACY",
      "indicators": [
       {
        "text": "devised",
-       "note": "devised means worked out or invented, so the remaining letters are put together in a new way"
+       "at": 24,
+       "note": "devised means worked out afresh, so these letters are arranged into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PLUTOCRACY",
+       "op": "middle",
        "indicators": [
         {
          "text": "naked",
-         "note": "naked means stripped of its covering, so the outer letters of the place name are removed"
+         "at": 13,
+         "note": "naked means stripped of its covering, so the first and last letters go"
         }
        ],
        "parts": [
         {
          "words": "Acapulco",
-         "note": "the Mexican resort, taken as written before being stripped"
-        },
-        {
-         "words": "Tory",
-         "note": "taken as written"
+         "at": 3,
+         "note": "Acapulco without its outer letters"
         }
        ]
+      },
+      {
+       "words": "Tory",
+       "at": 19,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative politician on holiday in a Mexican beach resort, stripped off, dreams up a new political system.",
-     "definitionFit": "Plutocracy is government by the wealthy, a political system in which the rich hold power."
+     "surface": "A Conservative politician, stripped bare in a Mexican resort, comes up with a governing system.",
+     "walkthrough": "'naked' strips ACAPULCO to CAPULC; with TORY those letters are 'devised' into the answer.",
+     "definitionFit": "Plutocracy is government by the wealthy, a system in which the rich rule."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "naked"
     }
    }
