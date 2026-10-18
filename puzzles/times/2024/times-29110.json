@@ -1595,47 +1595,35 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CATCHCOLD",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the trawlers' phrase goes around the letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "What trawlers may do",
+       "gives": "CATCHCOD",
+       "note": "CATCH COD, with the L going into COD"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "L",
        "indicators": [
         {
-         "text": "about",
-         "note": "the trawlers' phrase goes around the letter"
+         "text": "initially",
+         "note": "only the first letter of lucrative is used"
         }
        ],
        "parts": [
         {
-         "words": "What trawlers may do",
-         "gives": "CATCHCO",
-         "note": "CATCH COD, split open"
-        },
-        {
-         "op": "first",
          "unchecked": true,
+         "words": "lucrative",
          "gives": "L",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "only the first letter of lucrative is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "initially lucrative",
-           "gives": "L",
-           "select": "first",
-           "note": "first letter of lucrative"
-          }
-         ]
-        },
-        {
-         "words": "What trawlers may do",
-         "gives": "D",
-         "note": "the rest of CATCH COD"
+         "select": "first",
+         "note": "first letter of lucrative"
         }
        ]
       }
@@ -1676,42 +1664,40 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANODE",
+     "indicators": [
+      {
+       "text": "stuffing",
+       "note": "the reversed lord is packed inside A and drug"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "ANODE",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Retiring",
-           "note": "a retiring word draws back, reading right to left"
-          },
-          {
-           "text": "stuffing",
-           "note": "the reversed lord is packed inside A and drug"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a",
-           "note": "the article as printed"
-          },
-          {
-           "words": "crime lord",
-           "gives": "NOD",
-           "note": "DON, a Mafia boss, turned back"
-          },
-          {
-           "words": "drug",
-           "gives": "E",
-           "note": "E for ecstasy"
-          }
-         ]
+         "words": "a",
+         "note": "the article as printed"
+        },
+        {
+         "words": "drug",
+         "gives": "E",
+         "note": "E for ecstasy"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retiring",
+         "note": "a retiring word draws back, reading right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crime lord",
+         "gives": "DON",
+         "note": "DON, a Mafia boss"
         }
        ]
       }
