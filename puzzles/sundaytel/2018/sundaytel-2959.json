@@ -145,42 +145,37 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 18,
+       "note": "in a down clue, on means placed above, so the slang for info sits on top"
+      }
+     ],
      "parts": [
       {
        "words": "info",
+       "at": 13,
        "gives": "GEN",
-       "note": "gen is British slang for information"
+       "note": "gen is British slang for information, as in 'get the gen'"
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "Central American",
+       "at": 21,
        "gives": "ERIC",
-       "indicators": [
-        {
-         "text": "Central",
-         "note": "central means only the middle of the following word is wanted"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "American",
-         "gives": "ERIC",
-         "select": "middle",
-         "note": "the middle four letters of the eight-letter word"
-        }
-       ]
+       "note": "the central four letters of American, with AM and AN cut from either end"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about vague information on someone from Central America.",
-     "walkthrough": "'Central American' looks like a region's people, but 'Central' picks the middle letters of American.",
-     "definitionFit": "Generic describes something general, applying to a whole class rather than one particular item."
+     "surface": "Someone asks for vague details about a person from Central America.",
+     "walkthrough": "'Central American' looks like someone from Central America, but 'Central' takes the middle of American, ERIC; GEN, British slang for info, goes 'on' top.",
+     "definitionFit": "Generic means general, applying to a whole class rather than any specific one, so it is the opposite of specific."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Central"
     }
    }
@@ -312,69 +307,75 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Blow that",
+      "text": "Blow that!",
       "at": 39
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WINDINSTRUMENT",
-     "indicators": [
-      {
-       "text": "Endlessly",
-       "note": "without an end means the last letter of each word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "at": 0,
+         "note": "endlessly means without an end, so both wine and dine lose their last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 10,
+         "note": "taken as written before its last letter goes"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "dine",
+       "at": 19,
+       "gives": "DIN",
+       "note": "dine without its end too, as the same Endlessly governs both verbs"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "one thing in another sits inside it"
+         "at": 31,
+         "note": "in means placed inside, so the word for people goes into the bar"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "wine",
-           "gives": "WIN",
-           "note": "wine without its last letter"
-          },
-          {
-           "words": "dine",
-           "gives": "DIN",
-           "note": "dine without its last letter"
-          },
-          {
-           "words": "bar",
-           "gives": "STRUT",
-           "note": "a strut is a supporting bar in a frame"
-          }
-         ]
+         "words": "bar",
+         "at": 34,
+         "gives": "STRUT",
+         "note": "a strut is a bar used as a brace in a framework"
         },
         {
          "words": "people",
+         "at": 24,
          "gives": "MEN",
-         "note": "men as a general word for people"
+         "note": "men is a common crossword word for people"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone declining to treat staff in a pub to food and drink: 'Blow that!'",
-     "walkthrough": "'Bar' suggests a pub, but here it is a rigid rod; 'Blow that!' sounds like a refusal, yet it describes the answer as a thing to blow.",
-     "definitionFit": "A trumpet or flute is played by breath, so a wind instrument is a thing you blow."
+     "surface": "A host who wines and dines punters in the pub might exclaim in frustration.",
+     "walkthrough": "'Endlessly' cuts both wine and dine, to WIN and DIN; MEN goes 'in' STRUT. 'Blow that!' is a mild British curse, but here it says the instrument is one you blow.",
+     "definitionFit": "A wind instrument, such as a flute or trumpet, sounds when the player blows into it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "bar"
+     "misdirectedWord": "Blow"
     }
    }
   },

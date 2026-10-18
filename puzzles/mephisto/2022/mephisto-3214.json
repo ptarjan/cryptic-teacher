@@ -185,43 +185,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SNIRT",
+     "op": "composite",
      "indicators": [
       {
        "text": "Lousy",
-       "note": "lousy means poor or bad, so the word is taken in a bad, disordered form"
+       "at": 1,
+       "note": "lousy means poor and disordered, so the letters of trains are rearranged"
+      },
+      {
+       "text": "let out",
+       "at": 18,
+       "note": "let out means released, so the letter A leaves the pool before the rest is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SNIRT",
-       "indicators": [
-        {
-         "text": "let out",
-         "note": "to let something out is to release it, so that letter leaves the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "trains",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "the letter that is released"
-        }
-       ]
+       "words": "trains",
+       "at": 7,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "words": "a",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "A commuter grumbles about the awful trains and sniggers.",
-     "walkthrough": "Drop the A from TRAINS and rearrange TRINS.",
-     "definitionFit": "Snirt is a Scots word for a suppressed laugh, which is just what a snicker is."
+     "surface": "A commuter grumbling about awful trains lets out a little laugh.",
+     "walkthrough": "Take A ('let out') from TRAINS to leave TRINS, and 'Lousy' rearranges those letters. Snirt is a Scots word found in Chambers.",
+     "definitionFit": "Snirt is a Scots dialect word for a suppressed laugh, just what a snicker is."
     },
     "features": {
      "answerInScene": true,
@@ -672,47 +664,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GRADGRIND",
+     "op": "composite",
      "indicators": [
       {
        "text": "fools",
-       "note": "to fool is to trick or muddle, so the remaining letters are jumbled"
+       "at": 28,
+       "note": "to fool with something is to mess about with it, so the letters of disregarding are rearranged"
+      },
+      {
+       "text": "dismissed",
+       "at": 52,
+       "note": "dismissed means sent away, so these letters are taken out of the pool first"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GRADGRIND",
-       "indicators": [
-        {
-         "text": "dismissed",
-         "note": "what is dismissed is sent away, so those letters leave the long word"
-        }
-       ],
+       "words": "disregarding",
+       "at": 15,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "disregarding",
-         "note": "taken as written"
-        },
-        {
          "words": "is",
-         "note": "taken as written, to be removed"
+         "at": 34,
+         "note": "taken as written"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately means at the very end, so only the last letter of the word is wanted"
+           "at": 41,
+           "note": "ultimately means in the end, so only the last letter of one is used"
           }
          ],
          "parts": [
           {
            "words": "one",
-           "note": "the final letter, to be removed"
+           "at": 37,
+           "note": "its last letter E"
           }
          ]
         }
@@ -721,9 +713,9 @@
      ]
     },
     "explanation": {
-     "surface": "A bureaucrat who ignores idiots is eventually sacked himself.",
-     "walkthrough": "Take I, S and E out of DISREGARDING and rearrange the rest. Thomas Gradgrind is the fact-obsessed schoolmaster in Dickens's Hard Times.",
-     "definitionFit": "A gradgrind is someone who rules life by hard facts and rigid rules, named after the Dickens character."
+     "surface": "A rigid official who ignores idiots finds that one of them is eventually fired.",
+     "walkthrough": "From DISREGARDING take I, S and E (is, plus the last letter of 'one') 'dismissed'; 'fools' rearranges the nine letters left. Thomas Gradgrind is the fact-obsessed schoolmaster in Dickens's Hard Times.",
+     "definitionFit": "Gradgrind's name has come to mean anyone who runs everything by hard facts and rigid rules, so an over-regulator."
     },
     "features": {
      "answerInScene": true,
@@ -748,49 +740,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "More than one tree",
-      "at": 9
+      "text": "tree",
+      "at": 23
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is seen across",
+       "at": 28,
+       "note": "to be seen across something is to stretch over it, so the plural name goes round the letter that follows"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "ABIES",
+       "words": "Lincoln? More than one",
+       "at": 0,
+       "gives": "ABES",
+       "note": "Abraham Lincoln was known as Abe, so more than one Lincoln is ABES; the question mark admits other Abes count too"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "seen across",
-         "note": "a word seen across another lies over it, holding it inside"
+         "text": "the far side of",
+         "at": 43,
+         "note": "the far side of a word is its last letter, which is cut away here"
         }
        ],
        "parts": [
         {
-         "words": "Lincoln",
-         "gives": "ABE",
-         "note": "Abe is Abraham Lincoln's nickname"
+         "words": "it",
+         "at": 59,
+         "note": "taken as written before its last letter goes"
         },
         {
-         "words": "is",
-         "note": "taken as written"
+         "gives": "T"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "the far side of it",
-       "note": "points to where IS goes: across the last letter of the Lincoln name, so it adds no letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled question about Lincoln, a place where several trees stand across the far side.",
-     "walkthrough": "IS goes across the far side of it, meaning the last letter of ABE: AB followed by I(E)S.",
-     "definitionFit": "Abies is the botanical genus of firs, so the name covers many trees rather than one."
+     "surface": "Is more than one tree visible across the far side of Lincoln, the cathedral city?",
+     "walkthrough": "The definition sits in the middle: the words before it give ABES, and those after it put I (it without its far side, T) inside. Abies is the botanical genus of firs.",
+     "definitionFit": "Abies is the botanical genus name of the fir, a type of conifer, so a crossword can define it as tree."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Lincoln"
     }
@@ -1317,44 +1315,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COMSAT",
+     "op": "composite",
      "indicators": [
       {
        "text": "somehow",
-       "note": "somehow says the letters arrive in some unspecified new order"
+       "at": 10,
+       "note": "somehow means in some unexplained way, so the letters are reworked"
+      },
+      {
+       "text": "losing",
+       "at": 18,
+       "note": "losing means giving up, so one letter is taken out of the pool before the rearrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COMSAT",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "what is lost is no longer there, so that letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "A comet's",
-         "note": "the letters, apostrophe ignored"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the symbol for energy"
-        }
-       ]
+       "words": "A comet's",
+       "at": 0,
+       "note": "the fodder, the letters of these words"
+      },
+      {
+       "words": "energy",
+       "at": 25,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "A comet fades as it circles the sun.",
-     "walkthrough": "Remove E from A COMET'S and rearrange what remains.",
-     "definitionFit": "A comsat is a communications satellite, which orbits the Earth."
+     "surface": "A comet loses energy in some way and ends up going round in orbit.",
+     "walkthrough": "Remove the E for energy (the job of losing) from A COMETS to leave ACOMTS, then the word after comet's asks you to rearrange those six letters.",
+     "definitionFit": "A comsat is a communications satellite, a craft placed in orbit round the Earth, so it is an orbiter."
     },
     "features": {
      "answerInScene": true,

@@ -48,36 +48,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHANCE",
      "indicators": [
       {
        "text": "steps in for",
-       "note": "to step in for someone is to take their place, so one letter replaces another"
+       "at": 37,
+       "note": "to step in for someone is to take their place, so one letter replaces another in the word for modification"
       }
      ],
      "parts": [
       {
        "words": "modification",
+       "at": 5,
        "gives": "CHANGE",
        "note": "a modification is a change"
       },
       {
-       "words": "Conservative",
-       "gives": "C",
-       "note": "C is the standard abbreviation for Conservative"
+       "words": "good",
+       "at": 50,
+       "gives": "G"
       },
       {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the usual abbreviation for good"
+       "words": "Conservative",
+       "at": 24,
+       "gives": "C",
+       "note": "C is the abbreviation for Conservative, the UK political party"
       }
      ]
     },
     "explanation": {
-     "surface": "A policy tweak gets made permanent once a Tory takes over the brief.",
-     "walkthrough": "CHANGE swaps its G for C to become CHANCE; 'after' is just a joining word, and 'for good' is not the idiom 'permanently' but names the letter being replaced.",
-     "definitionFit": "To take a chance is to run a gamble, so the noun is a direct synonym for a hazard taken on."
+     "surface": "A Tory taking over for good is a risky change of policy.",
+     "walkthrough": "In CHANGE (modification), C for Conservative 'steps in for' the G (good); 'after' only says this happens to the word already found.",
+     "definitionFit": "To chance something is to risk it, and a chance is a risk taken in hope of success."
     },
     "features": {
      "answerInScene": false,
@@ -1210,47 +1211,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OFFICER",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without a top means the first letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "off",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 24,
+         "note": "topless means with the top removed, and in a down clue the top of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "off",
-         "note": "taken as written"
-        },
-        {
          "words": "nice",
-         "gives": "ICE",
-         "note": "the word minus its first letter"
+         "at": 19,
+         "note": "taken as written before its first letter goes"
         },
         {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "Romeo is R in the NATO phonetic alphabet"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "Romeo",
+       "at": 32,
+       "gives": "R",
+       "note": "Romeo is R in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Perhaps getting off with a nice, shirtless Romeo.",
-     "walkthrough": "'cop off with' is British slang for pulling romantically, but 'Maybe cop' is the definition and the rest is wordplay.",
-     "definitionFit": "A police officer is a cop, so 'maybe' marks the definition as one kind of official among many."
+     "surface": "A police officer heads off with a pleasant, half-dressed lover.",
+     "walkthrough": "'topless' drops the N from nice to leave ICE between off and R.",
+     "definitionFit": "A police officer is an example of an officer, hence the 'Maybe' marking cop as one kind."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "cop"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
     }
    }
   },

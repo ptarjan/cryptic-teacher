@@ -791,26 +791,24 @@
      "parts": [
       {
        "words": "King",
+       "at": 0,
        "gives": "K",
-       "note": "K = king, in chess"
+       "note": "K is the chess and card abbreviation for king"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "NA",
        "indicators": [
         {
          "text": "starts to",
-         "note": "the starts of the next two words are their first letters"
+         "at": 5,
+         "note": "the starts of words are their first letters, so take the opening letter of each of notice and an"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts to notice an",
-         "gives": "NA",
-         "select": "first",
-         "note": "the first letters of Notice An"
+         "words": "notice an",
+         "at": 15,
+         "note": "first letters N and A"
         }
        ]
       },
@@ -819,28 +817,29 @@
        "indicators": [
         {
          "text": "extremely",
-         "note": "the extremes of a word are its first and last letters"
+         "at": 25,
+         "note": "the extremes of a word are its two end letters, so keep only the outside of versatile"
         }
        ],
        "parts": [
         {
-         "words": "extremely versatile",
-         "gives": "VERSATILE",
-         "note": "the ends of VersatilE"
+         "words": "versatile",
+         "at": 35,
+         "note": "its end letters V and E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch begins to see that a rogue can play any part.",
-     "walkthrough": "The surface knowingly nods at playing cards, where the knave sits next to the king.",
-     "definitionFit": "A plain synonym, old-fashioned: the word for a scoundrel before it became the jack in a pack of cards."
+     "surface": "A monarch is warned to keep an eye on an adaptable scoundrel at court.",
+     "walkthrough": "'starts to' gives N and A from notice an; 'extremely' gives VE, the ends of versatile.",
+     "definitionFit": "A knave is an old word for a dishonest rogue, so it is a synonym for villain."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "starts"
+     "misdirectedWord": "King"
     }
    }
   },
@@ -1159,35 +1158,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "two upstanding",
+       "at": 6,
+       "note": "two of them standing up: in a down clue, standing up means the pair of words is read from the bottom upwards, so backwards"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "two",
-       "note": "says how many teachers to find; it gives no letters"
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "upstanding",
-         "note": "in a down entry, standing up means reading from bottom to top"
-        }
-       ],
-       "parts": [
-        {
-         "words": "teachers",
-         "gives": "SIRBED",
-         "note": "SIR, how pupils address a teacher, and BED, a Bachelor of Education"
-        }
-       ]
+       "words": "teachers",
+       "at": 21,
+       "gives": "SIRBED",
+       "note": "two teachers: SIR, the schoolboy's name for a male teacher, and BED, the Bachelor of Education degree a teacher holds"
       }
      ]
     },
     "explanation": {
-     "surface": "A pair of honest teachers spoils something.",
-     "walkthrough": "'Upstanding' reads as honourable; in a down clue it turns the letters upward. 'Ruins' is a noun, not the verb the surface wants.",
-     "definitionFit": "Debris is the scattered remains, the ruins, of something destroyed."
+     "surface": "A pair of honest schoolteachers is ruined, it seems.",
+     "walkthrough": "'upstanding' looks like praise for the teachers but is the reversal signal for a down light: SIR and BED (B.Ed., the teaching degree) read upwards.",
+     "definitionFit": "Debris is the scattered remains left after destruction, so it can mean ruins as a plural noun."
     },
     "features": {
      "answerInScene": false,

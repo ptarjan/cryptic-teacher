@@ -402,29 +402,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ALAS",
      "indicators": [
       {
        "text": "starting late",
-       "note": "a word that starts late has lost its first letter"
+       "at": 10,
+       "note": "a word starting late misses its first letter, so the word for festivals begins one letter in"
       }
      ],
      "parts": [
       {
        "words": "Festivals",
-       "gives": "ALAS",
-       "note": "GALAS without its first letter G"
+       "at": 0,
+       "gives": "GALAS",
+       "note": "galas are festive events or celebrations"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "Regretfully, the festivals got off to a late start.",
-     "walkthrough": "'Starting late' reads as a delay to the festivals; it means the word GALAS begins one letter later.",
-     "definitionFit": "Alas is an exclamation of regret, used just like 'unfortunately'."
+     "surface": "The festivals got under way behind schedule, sadly.",
+     "walkthrough": "'starting late' looks like part of the story about delayed festivals, but it removes the G from GALAS.",
+     "definitionFit": "Alas is an exclamation of sorrow or regret, used just as one would say unfortunately."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "late"
     }
@@ -770,27 +773,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UTTER",
+     "op": "middle",
      "indicators": [
       {
        "text": "without ends",
-       "note": "the word loses its first and last letters"
+       "at": 16,
+       "note": "without its ends means the first and last letters are dropped"
       }
      ],
      "parts": [
       {
        "words": "Like croissants",
-       "gives": "UTTER",
-       "note": "BUTTERY without its ends B and Y"
+       "at": 0,
+       "gives": "BUTTERY",
+       "note": "croissants are rich in butter, so they are buttery"
       }
      ]
     },
     "explanation": {
-     "surface": "Something is like croissants that have had their tips nibbled off, for instance.",
-     "walkthrough": "'Say' looks like 'for example' tacked on the end; it is the definition, a verb.",
-     "definitionFit": "A plain verb synonym: both mean to put words into speech."
+     "surface": "A baker describes croissants with the tips trimmed off.",
+     "walkthrough": "The definition hides at the end: 'say' is the verb meaning to speak, not 'for example'.",
+     "definitionFit": "To utter is to say something aloud, to speak or voice words, so the two verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1279,30 +1282,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RHOMB",
      "indicators": [
       {
-       "text": "cut apart",
-       "note": "H and M cut into the word at two separate places"
+       "text": "cut",
+       "at": 22,
+       "note": "to cut into something is to break into it, so a letter goes inside the word"
       }
      ],
      "parts": [
       {
-       "words": "mug",
-       "gives": "ROB",
-       "note": "to mug = to rob"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "apart",
+         "at": 26,
+         "note": "apart means separately, so the two letters go in at different places rather than together"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mug",
+         "at": 9,
+         "gives": "ROB",
+         "note": "to mug someone is to rob them"
+        },
+        {
+         "words": "H",
+         "at": 18
+        }
+       ]
       },
       {
-       "words": "H&M",
-       "note": "H goes after R, M after O"
+       "words": "M",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A mug design that a high-street clothes chain has sliced up.",
-     "walkthrough": "H&M is the clothing chain, but here it is just the letters H and M, which go into ROB separately rather than together.",
-     "definitionFit": "A rhomb, or rhombus, is a four-sided shape with equal sides."
+     "surface": "A shopper wonders what shape of mug the H&M chain has cut in two.",
+     "walkthrough": "H&M is the clothing store chain, but here its two letters break into ROB 'apart': H after the R and M after the O.",
+     "definitionFit": "A rhomb, or rhombus, is a geometric shape: a parallelogram with four equal sides."
     },
     "features": {
      "answerInScene": false,
@@ -1579,63 +1598,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GOOIEST",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 53,
+       "note": "to broadcast is to scatter widely, so the letters are thrown into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
        "indicators": [
         {
          "text": "introduction for",
+         "at": 11,
          "note": "the introduction of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "briefly",
-           "note": "cut short by its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "I",
-           "indicators": [
-            {
-             "text": "broadcast",
-             "note": "broadcast = scattered widely, so the letters are scattered"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "introduction for Iggy",
-             "gives": "I",
-             "select": "first",
-             "note": "first letter of Iggy"
-            }
-           ]
-          },
-          {
-           "words": "Stooges briefly",
-           "gives": "STOOGE",
-           "note": "Stooges without its last letter S"
-          }
-         ]
+         "words": "Iggy",
+         "at": 28,
+         "note": "its first letter I"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 45,
+         "note": "briefly means cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stooges",
+         "at": 37,
+         "note": "taken as written before its final S goes"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The cheesiest broadcast of the night introduces Iggy Pop and his punk band the Stooges.",
-     "walkthrough": "Iggy and the Stooges were a real US punk band, so 'broadcast' seems to mean airplay; it signals an anagram. Tacky here means sticky.",
-     "definitionFit": "Tacky can mean sticky, so the most tacky thing is the gooiest."
+     "surface": "Iggy Pop and his band the Stooges are introduced on air in the most tasteless way.",
+     "walkthrough": "Iggy Pop fronted the punk band the Stooges, which gives the surface its sense. 'briefly' cuts Stooges to STOOGE, and 'broadcast' rearranges it with I.",
+     "definitionFit": "Gooiest means stickiest, and tacky in its literal sense means sticky, like drying glue or paint."
     },
     "features": {
      "answerInScene": false,
@@ -1667,35 +1681,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ESPY",
      "indicators": [
       {
        "text": "replacing",
-       "note": "to replace something is to take its place, so the page letter stands where 'it' stood in the essay"
+       "at": 22,
+       "note": "replacing means taking the place of something, so one piece is swapped in where another comes out"
       }
      ],
      "parts": [
       {
        "words": "essay",
-       "note": "taken as printed"
+       "at": 7,
+       "note": "taken as written"
       },
       {
        "words": "it",
+       "at": 32,
        "gives": "SA",
-       "note": "it = SA, sex appeal; removed from ESSAY"
+       "note": "SA, sex appeal, is old slang for 'it'"
       },
       {
        "words": "page",
-       "gives": "P",
-       "note": "p = page; put where SA was"
+       "at": 17,
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher notices that a student's essay has an extra page slipped in.",
-     "walkthrough": "'It' is crossword shorthand for sex appeal, SA. Swapping those two letters of ESSAY for P gives ESPY.",
-     "definitionFit": "A plain, slightly literary verb synonym: both mean to catch sight of something."
+     "surface": "A teacher spots that an essay has had a page swapped in.",
+     "walkthrough": "'it' is SA (sex appeal), a crossword convention; P takes its place in the middle of ESSAY.",
+     "definitionFit": "To espy is to catch sight of something, so it is a literary synonym of the verb notice."
     },
     "features": {
      "answerInScene": false,
