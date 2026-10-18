@@ -671,26 +671,26 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "ARTISAN",
      "indicators": [
       {
-       "text": "in part",
-       "note": "in part says only a portion of the following words is used, lying inside them"
+       "text": "in",
+       "at": 11,
+       "note": "in says the answer sits within the run of letters 'part is anxious'"
       }
      ],
      "parts": [
       {
-       "words": "is anxious",
+       "words": "part, is anxious",
+       "at": 14,
        "gives": "ARTISAN",
-       "note": "the letters run across 'part is anxious', where 'part' is also in the indicator"
+       "note": "the answer's seven letters run on unbroken from the end of 'part' through 'is' into the start of 'anxious'"
       }
      ]
     },
     "explanation": {
-     "surface": "A craftsman is somewhat nervous.",
-     "walkthrough": "The hidden letters start inside 'part', so that word does double duty as part of the indicator and the source.",
-     "definitionFit": "An artisan is a skilled manual worker, a synonym for craftsman."
+     "surface": "A tradesman who is partly worried about something.",
+     "walkthrough": "'In part' reads like 'partly', but 'in' is the signal and 'part' supplies letters: the answer runs across 'pART IS ANxious'.",
+     "definitionFit": "An artisan is a skilled manual worker who makes things by hand, a synonym for craftsman."
     },
     "features": {
      "answerInScene": true,
@@ -1259,30 +1259,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ROYALTY",
      "indicators": [
       {
        "text": "having changed sides initially",
-       "note": "changing sides at the start means swapping a left for a right in the first position"
+       "at": 32,
+       "note": "the first letter, L for left, changes to the other side, R for right"
       }
      ],
      "parts": [
       {
        "words": "allegiance",
+       "at": 20,
        "gives": "LOYALTY",
-       "note": "loyalty means allegiance"
+       "note": "loyalty is faithful allegiance to a person or cause"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer is rewarded for loyalty after defecting to the other party.",
-     "walkthrough": "L for left is replaced by R for right at the front.",
-     "definitionFit": "A royalty is a payment made to an author for each copy of their book sold."
+     "surface": "A writer's reward for staying loyal, though they once switched sides.",
+     "walkthrough": "'Having changed sides initially' sounds like defection, but it means swapping left for right: the initial L of LOYALTY becomes R.",
+     "definitionFit": "A royalty is the payment an author receives for each copy of their book sold, a reward for their writing."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "sides"
     }
    }

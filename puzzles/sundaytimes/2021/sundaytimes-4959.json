@@ -999,29 +999,29 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "EDITIONS",
      "indicators": [
       {
        "text": "leader put to the other side",
-       "note": "the front letter is carried across to the opposite end of the word"
+       "at": 22,
+       "note": "says the word's first letter moves from the front across to the far end"
       }
      ],
      "parts": [
       {
        "words": "rabble-rousing",
+       "at": 7,
        "gives": "SEDITION",
-       "note": "sedition is incitement of people against authority"
+       "note": "sedition is speech or conduct stirring people to rebel, rabble-rousing"
       }
      ]
     },
     "explanation": {
-     "surface": "A demagogue's problems are passed over to the opposition party.",
-     "walkthrough": "'leader' looks like the rabble-rouser himself, but it is the first letter of the word, which moves to the end.",
-     "definitionFit": "An issue of a newspaper or magazine is one published copy, and an edition is likewise a single published version."
+     "surface": "A demagogue's leader defects to the opposing side over some issues.",
+     "walkthrough": "'Leader put to the other side' sounds like a politician crossing the floor, but it moves the S at the front of SEDITION to the back.",
+     "definitionFit": "Editions are issues of a newspaper or magazine, each one a particular printing published at a given time."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "leader"
     }
@@ -1245,53 +1245,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLEAT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Loveless",
-       "note": "love is zero, written as the round letter, and less means it is taken away"
+       "text": "welcomed",
+       "at": 23,
+       "note": "welcomed says the philosopher's shortened name takes the letter in"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "'s welcomed",
-         "note": "'s stands for has, and to have welcomed someone is to have taken them in"
+         "text": "Loveless",
+         "at": 0,
+         "note": "loveless says the O, love as a zero score in tennis, is dropped"
         }
        ],
        "parts": [
         {
-         "words": "philosopher",
-         "gives": "PLAT",
-         "note": "Plato, the Greek philosopher, losing the O for love"
+         "words": "philosopher's",
+         "at": 9,
+         "gives": "PLATO",
+         "note": "Plato is the Greek philosopher; the 's is 'has', leading into welcomed"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back to",
-           "note": "the back of a word is its end, so only the final letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "the",
-           "note": "the last letter of the"
-          }
-         ]
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back to",
+         "at": 32,
+         "note": "back to picks the final letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 40,
+         "note": "the last letter of 'the' is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thinker abandoned by love is welcomed back into the community.",
-     "walkthrough": "'back to the fold' reads as a homecoming, but 'fold' is the definition and 'back to the' picks out a single letter; love is O, as in tennis scores.",
-     "definitionFit": "A pleat is a crease made by doubling fabric over on itself, which is a fold in cloth."
+     "surface": "A lonely thinker is welcomed back into the fold.",
+     "walkthrough": "'Welcomed back to the fold' reads as one phrase, but 'back to the' gives E, which PLAT (PLATO 'loveless', without its O) has 'welcomed'. 'Fold' alone is the definition.",
+     "definitionFit": "A pleat is a fold pressed or stitched into fabric, so the noun means a fold in cloth."
     },
     "features": {
      "answerInScene": false,
@@ -1495,43 +1501,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ERSATZ",
+     "op": "container",
      "indicators": [
       {
-       "text": "head off",
-       "note": "with its head off, a word loses its first letter"
+       "text": "put in to",
+       "at": 13,
+       "note": "put in to says the letters for appeal go inside the physicist's shortened name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "put in to",
-         "note": "to be put into something is to be placed inside it"
+         "text": "head off",
+         "at": 23,
+         "note": "head off says the first letter of the physicist's name is removed"
         }
        ],
        "parts": [
         {
          "words": "physicist",
-         "gives": "ERTZ",
-         "note": "Heinrich Hertz, the German physicist, minus his first letter"
+         "at": 32,
+         "gives": "HERTZ",
+         "note": "Heinrich Hertz was the German physicist who proved radio waves exist"
         },
         {
-         "words": "appeal",
-         "gives": "SA",
-         "note": "SA is short for sex appeal"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "appeal",
+       "at": 6,
+       "gives": "SA",
+       "note": "SA is sex appeal, a standard crossword abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "A fake plea is made to dissuade a scientist from some course of action.",
-     "walkthrough": "'head off' looks like the phrase meaning stop, but it means lose the first letter; SA for sex appeal is a crossword staple.",
-     "definitionFit": "Ersatz means an inferior imitation or substitute, so something ersatz is fake, just like something bogus."
+     "surface": "A fake plea is lodged to cut off a scientist before he can speak.",
+     "walkthrough": "'Head off' means to forestall in the surface; here it beheads HERTZ to ERTZ, and SA (sex appeal) is 'put in' to it.",
+     "definitionFit": "Ersatz means artificial or substitute, an inferior imitation of the real thing, so it is a synonym of fake."
     },
     "features": {
      "answerInScene": false,

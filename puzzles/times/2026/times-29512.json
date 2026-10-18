@@ -935,43 +935,45 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "TARDINESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "a cycle goes round and back, so the front letter of STAR moves round to the end"
+       "text": "round",
+       "at": 30,
+       "note": "round says the rotated celebrity word goes around the eating word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "round",
-         "note": "one thing round another surrounds it"
+         "text": "cycling",
+         "at": 22,
+         "note": "cycling says the first letter of the celebrity word rides round to the end"
         }
        ],
        "parts": [
         {
-         "words": "celebrity cycling",
-         "gives": "TARS",
-         "note": "STAR with its S sent to the back; split TAR…S"
-        },
-        {
-         "words": "has something to eat",
-         "gives": "DINES",
-         "note": "to dine is to have a meal"
+         "words": "celebrity",
+         "at": 12,
+         "gives": "STAR",
+         "note": "a star is a celebrity"
         }
        ]
+      },
+      {
+       "words": "has something to eat",
+       "at": 36,
+       "gives": "DINES",
+       "note": "dines means has a meal, eats something"
       }
      ]
     },
     "explanation": {
-     "surface": "A late-arriving star cycles in and grabs a bite.",
-     "walkthrough": "'Cycling' reads as riding a bike; it means rotating letters.",
-     "definitionFit": "A plain synonym: tardiness is the noun for lateness, the state of being late."
+     "surface": "A famous person is late because they stopped on a bike ride for a bite to eat.",
+     "walkthrough": "The surface's cycling celebrity is a red herring: 'cycling' rotates the word for celebrity, giving TARS, which then wraps 'round' the eating word.",
+     "definitionFit": "Tardiness is the state of being late or slow to arrive, a noun meaning lateness."
     },
     "features": {
      "answerInScene": true,
@@ -1412,47 +1414,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FARANDWIDE",
-     "indicators": [
-      {
-       "text": "Return of",
-       "note": "a return goes back the way it came, so RAF is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Return of",
+         "at": 0,
+         "note": "return says the letters of the service's initials are read in the opposite direction"
+        }
+       ],
        "parts": [
         {
-         "words": "Return of service",
-         "gives": "FAR",
-         "note": "RAF, the Royal Air Force, a military service, turned round"
-        },
-        {
-         "words": "plus",
-         "gives": "AND",
-         "note": "plus = and"
-        },
-        {
-         "words": "extra run",
-         "gives": "WIDE",
-         "note": "in cricket, a wide is an extra run given when the ball is bowled out of the batsman's reach"
+         "words": "service",
+         "at": 10,
+         "gives": "RAF",
+         "note": "the RAF, Royal Air Force, is one of the armed services"
         }
        ]
+      },
+      {
+       "words": "plus",
+       "at": 18,
+       "gives": "AND",
+       "note": "and means plus, in addition"
+      },
+      {
+       "words": "extra run",
+       "at": 23,
+       "gives": "WIDE",
+       "note": "in cricket a wide is an extra, a run awarded when the bowler sends the ball out of the batter's reach"
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis return, plus an extra run to cover lots of court.",
-     "walkthrough": "'Return of service' looks like tennis; 'service' is the armed forces.",
-     "definitionFit": "An idiom: something spread far and wide reaches in every direction, covering a great area."
+     "surface": "A tennis serve is returned, and a run is added, over a big expanse of court.",
+     "walkthrough": "'Return of service' sounds like tennis, but the service is the RAF (Royal Air Force), and 'Return of' reverses it. A wide is a cricket extra: a run given away by a ball bowled out of reach.",
+     "definitionFit": "Far and wide is an idiom meaning over a large distance or in many places, so it describes something spread over a great area."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "service"
     }
    }
