@@ -171,57 +171,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARDIGRAS",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "cutting something shortens it, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "tucking into",
+         "at": 21,
+         "note": "tucking into means the letter for run goes inside the word for bananas"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "tucking into",
-           "note": "to tuck into a thing is to slip inside it, so one piece goes within another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bananas",
-           "gives": "MAD",
-           "note": "bananas is slang for crazy"
-          },
-          {
-           "words": "run",
-           "gives": "R",
-           "note": "R is the cricket abbreviation for a run"
-          }
-         ]
+         "words": "bananas",
+         "at": 34,
+         "gives": "MAD",
+         "note": "bananas is slang for crazy, mad"
         },
         {
-         "words": "I",
-         "note": "taken as written"
-        },
+         "words": "run",
+         "at": 16,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 43
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 45,
+         "note": "cut means shortened, so grass loses its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "grass",
-         "gives": "GRAS",
-         "note": "grass with its last letter removed"
+         "at": 49,
+         "note": "taken as written, minus its final S"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mowing a lawn on the eve of a fast, while running around eating bananas.",
-     "walkthrough": "'Bananas' looks like fruit but means crazy. The definition is the whole phrase 'Day before fast', with fast meaning Lent.",
-     "definitionFit": "This carnival is Shrove Tuesday, the day of feasting before the Lenten fast begins on Ash Wednesday."
+     "surface": "Someone goes for a jog, eats bananas and mows the lawn the day before starting a fast.",
+     "walkthrough": "Bananas is slang for crazy, not fruit; 'tucking into' puts the run letter inside that word, and 'cut' docks the last letter of grass.",
+     "definitionFit": "Mardi Gras is Shrove Tuesday, the feasting day immediately before the Lenten fast begins on Ash Wednesday."
     },
     "features": {
      "answerInScene": false,
@@ -1571,21 +1576,23 @@
      "indicators": [
       {
        "text": "going in either direction",
-       "note": "a word that reads the same whichever way it goes is the same forwards and backwards"
+       "at": 18,
+       "note": "the answer reads the same whichever way it goes, forwards or backwards along the grid"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Turning mechanism",
-       "note": "a rotating part of a machine"
+       "at": 0,
+       "gives": "ROTOR",
+       "note": "the word for a turning mechanism is itself the wordplay"
       }
      ]
     },
     "explanation": {
-     "surface": "A spinning part that can turn clockwise or anticlockwise.",
-     "walkthrough": "The question mark flags that 'either direction' means reading the word, not spinning the part.",
-     "definitionFit": "It is the rotating component of a motor, helicopter or engine."
+     "surface": "A device that spins round, whichever way it is going.",
+     "walkthrough": "'going in either direction' says the answer is a palindrome, reading the same from either end, which is apt for something that rotates.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as a helicopter's blades or an engine's spinning component."
     },
     "features": {
      "answerInScene": true,
