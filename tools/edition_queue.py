@@ -429,6 +429,14 @@ FRESH_POLL = 30
 STOP_GRACE = 30
 
 
+def game_scans():
+    """Scans left running while a game runs (CT_GAME_SCAN_WORKERS, 3): the rest are TERMed and left deferred."""
+    try:
+        return max(0, int(os.environ.get("CT_GAME_SCAN_WORKERS", "3")))
+    except ValueError:
+        return 3
+
+
 def yield_grace():
     """Seconds the running units get to finish once the desktop yields (CT_YIELD_GRACE, 50: the game-guard drains the VLM for 60)."""
     try:
@@ -945,6 +953,7 @@ class Beside:
         self.argv, self.seconds = argv, 0
         self.proc, self.started, self.again, self.done = None, 0.0, True, False
         self.out, self.pos, self.text = None, 0, ""
+        self.paused_at = None  # when a game stopped it, or None
 
     def copy(self):
         self.out.seek(self.pos)
@@ -960,7 +969,7 @@ class Beside:
             self.copy()
             rc = self.proc.poll()
             if rc is None:
-                if time.monotonic() - self.started > self.seconds + BESIDE_GRACE:
+                if self.paused_at is None and time.monotonic() - self.started > self.seconds + BESIDE_GRACE:
                     log(f"beside: {shlex.join(self.argv)} ran {BESIDE_GRACE}s past its --seconds; killed")
                     os.killpg(self.proc.pid, signal.SIGKILL)
                 return
@@ -969,7 +978,7 @@ class Beside:
             self.again = "left for the next run" in self.text
             log(f"beside: {shlex.join(self.argv)[:120]} ended (rc={rc})"
                 + ("; it left work, so it runs again" if self.again and rc == 0 else ""))
-            self.proc = None
+            self.proc, self.paused_at = None, None
             if rc != 0:
                 self.done = True
         if self.done or not self.again or not may_start:
@@ -987,7 +996,25 @@ class Beside:
 
     def stop(self, sig):
         if self.proc is not None and self.proc.poll() is None:
+            if sig in (signal.SIGTERM, signal.SIGKILL):
+                self.resume()  # a stopped group does not act on a TERM until continued
             os.killpg(self.proc.pid, sig)
+
+    def pause(self):
+        """SIGSTOP its group for a game; its --seconds clock stops with it (resume credits the time)."""
+        if self.proc is not None and self.paused_at is None and self.proc.poll() is None:
+            self.paused_at = time.monotonic()
+            os.killpg(self.proc.pid, signal.SIGSTOP)
+
+    def resume(self):
+        if self.paused_at is not None:
+            self.started += time.monotonic() - self.paused_at
+            self.paused_at = None
+            if self.proc is not None and self.proc.poll() is None:
+                try:
+                    os.killpg(self.proc.pid, signal.SIGCONT)
+                except ProcessLookupError:
+                    pass
 
 
 #: What the memory gate reads (tests swap it); None is mem_gate.available.
@@ -1315,6 +1342,50 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     except ProcessLookupError:
                         pass
 
+    # A game also sheds the CPU work (Paul 10-17: WoW choppy, WSL2's VM competes as a whole, nice does not
+    # help; a SIGSTOPped scan keeps its ~0.6 GB, and Windows paged at 3.8k/s): the scans beyond
+    # CT_GAME_SCAN_WORKERS (3; the oldest keep running) are TERMed, then KILLed after STOP_GRACE, and end
+    # deferred (a scan is ~200 s of work; yield_termed makes reap count it deferred, never a failure) to run
+    # again once the game ends. No scan starts beyond that cap. Fetches (network) go on. The --beside filers
+    # (a long batch, costly to lose) are SIGSTOPped instead, their --seconds clock stopped with them (resume
+    # credits the time), and SIGCONTed when the game ends, on a TERM, or before a hand-over.
+    shed = {}  # pid: when its TERM went
+    game_now = [False]
+
+    def freeze(game):
+        game_now[0] = game
+        if not game:
+            thaw()
+            shed.clear()
+            return
+        now = time.monotonic()
+        live = sorted((t0, pid) for pid, (u, t0) in units_running() if u["kind"] == "scan" and pid not in shed)
+        new = [pid for _, pid in live[game_scans():]]  # the oldest scans keep running
+        for pid in new:
+            shed[pid] = now
+            yield_termed.add(pid)
+            try:
+                os.killpg(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        for pid, at in list(shed.items()):
+            if pid not in running and pid not in adopted:
+                del shed[pid]
+            elif now - at >= STOP_GRACE:
+                try:
+                    os.killpg(pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+        for b in beside:
+            b.pause()
+        if new:
+            log(f"game: TERM to {len(new)} scan(s) beyond the {game_scans()} that may run on; they are left for after it")
+
+    def thaw():
+        """SIGCONT the stopped --beside filers, crediting them the time stopped."""
+        for b in beside:
+            b.resume()
+
     fetch_made = {}  # source: (when its plan was made, its units)
     # The queue's units with their key and slot, made once per plan (the lists' (id, len)
     # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
@@ -1501,9 +1572,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     def reexec():
         """Hand the running units to this run's new image and become it."""
         path = handoff or resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
+        thaw()  # the next image does not know the filers are stopped
         hand_over(path, units_running())
         keep_untried()
-        argv = [sys.executable, *sys.argv]
+        argv =[sys.executable, *sys.argv]
         if seconds is not None:
             argv += ["--seconds", str(max(0.0, seconds - (time.monotonic() - begun)))]
         if not handoff:
@@ -1530,7 +1602,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         reap_adopted()
         overdue()
         for b in beside:
-            b.poll(may_start(), None if seconds is None else seconds - (time.monotonic() - begun))
+            b.poll(may_start() and not game_now[0], None if seconds is None else seconds - (time.monotonic() - begun))
         # A plan stats every edition and article (minutes on the media
         # mount), so after the first it is made on a thread while this loop
         # goes on reaping and starting from the plan before it.
@@ -1634,6 +1706,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 f"({len(running) + len(adopted)} running are left alone)")
         desktop_bound = bool(yielding)
         yield_stop(yielding)
+        game = bool(yielding) and str(yielding).startswith("game")  # desktop_busy's "game: ..."
+        freeze(game)
+        live_scans = sum(1 for pid, (u, _) in units_running() if u["kind"] == "scan")
         yield_opt_in = bool(os.environ.get("CT_YIELD_HOSTS", "").split())  # scans go on during a game only then
         desk_mem = desktop_free() if not yielding else None
         opened[:] = [s for s in opened if s > time.time() - 3600]
@@ -1775,8 +1850,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             # A game stops the VLM: no read starts (nor a scan its desktop deferred) while it yields;
             # scans and fetches go on (CPU work).
+            # Nor does a scan during a game beyond CT_GAME_SCAN_WORKERS running (the rest are shed).
             if starved or (yielding and (u["kind"] == "read" or ukey in yield_held
-                                         or (u["kind"] == "scan" and not yield_opt_in))):
+                                         or (u["kind"] == "scan" and (not yield_opt_in or (game and live_scans >= game_scans()))))):
                 continue
             if vlm_waits(u):
                 vlm_deferred += 1
@@ -1813,6 +1889,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             # A unit whose brief is being made holds its slot and its gates' charges as if begun.
             local_now += local
             begun_now += 1
+            live_scans += u["kind"] == "scan"
             charged += cost
             if began is not PENDING and not load_gated(u):
                 opened.append(time.time())
@@ -1870,6 +1947,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):
             left = sum(k not in tried for k in qkeys) + len(running) + len(adopted)
+            thaw()
             hand_over(handoff, units_running())
             keep_untried()
             log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
@@ -1902,11 +1980,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if vlm_deferred and not begun_now and not running and not adopted:
             time.sleep(VLM_IDLE)
         elif not begun_now and not any(v > 0 for v in free.values()):
-            nap(QUIET_NAP)  # every slot full: only an exit (or a stop) can change what this pass would start
+            nap(1 if game_now[0] else QUIET_NAP)  # a game: shed scans past the cap soon. Every slot full: only an exit (or a stop) can change what this pass would start
         else:
             time.sleep(1)
     if stop:
         log(f"stop asked: TERM to {len(running) + len(adopted)} running unit(s), up to {STOP_GRACE}s")
+        thaw()  # SIGCONT first: a stopped filer would sit on the TERM, then be left stopped
         for pid in list(running) + list(adopted):
             try:
                 os.killpg(pid, signal.SIGTERM)

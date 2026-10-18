@@ -1314,7 +1314,74 @@ check("mirror: without CT_YIELD_HOSTS neither starts while it yields", (False, F
 eq.desktop_gate_reader = lambda: None
 log.unlink(missing_ok=True)
 fake(outcome={}, default=0.1)
-# The VLM down (Paul 10-13: "just go onto the next scan and do it when it is
+# Paul 10-17: a game (desktop_busy's "game: ...") TERMs the scans beyond CT_GAME_SCAN_WORKERS (their RAM
+# comes back; ended deferred, never failed, run again after it), starts no scan past the cap, and the
+# --beside filers are SIGSTOPped with their clock stopped, SIGCONTed when it ends or on a TERM.
+os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198"
+os.environ["CT_GAME_SCAN_WORKERS"] = "1"
+t_game = {}
+def game_gate():
+    if not log.exists() or log.read_text().count("start scan") < 3 and "on" not in t_game:  # once all three run
+        return None
+    t_game.setdefault("on", time.monotonic())
+    if time.monotonic() - t_game["on"] < 2.5:
+        return "game: playing wow.exe"
+    t_game.setdefault("off", time.monotonic())
+    return None
+eq.desktop_gate_reader = game_gate
+fake(sleep={"a0": 6.0, "a1": 6.0, "a2": 6.0})
+log.unlink(missing_ok=True)
+eq.plan = units(["a0", "a1", "a2"], [])
+err = io.StringIO()
+os.environ["CT_SCAN_WORKERS"] = "3"  # scan_cap: three scans at once
+quiet_nap, eq.QUIET_NAP = eq.QUIET_NAP, 1 # the pass that sees the game comes within a second
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=3, seconds=25, replan=0.5)
+eq.QUIET_NAP = quiet_nap
+os.environ.pop("CT_SCAN_WORKERS")
+rows = [line.split() for line in log.read_text().splitlines()]
+starts = {k: [float(r[0]) for r in rows if r[1] == "start" and r[3] == k] for k in ("a0", "a1", "a2")}
+check("a game TERMs the scans beyond the cap: deferred (not failed), the oldest runs on",
+      (True, 2, False, 1), ("TERM to 2 scan(s)" in err.getvalue(), err.getvalue().count("deferred (stopped for a game)"),
+                            "failed" in err.getvalue(), len(starts["a0"])))
+check("and they start again only once the game is over",
+      (True, True), (all(len(starts[k]) == 2 and starts[k][1] >= t_game["off"] for k in ("a1", "a2")),
+                     all(any(r[1] == "end" and r[3] == k for r in rows) for k in ("a0", "a1", "a2"))))
+# A --beside filer is SIGSTOPped for the game, its --seconds clock stopped, and continued after.
+def proc_state(pid):
+    return Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0]
+bs = eq.Beside(["bash", "-c", "sleep 30", "x"])
+bs.poll(True, 60)
+bs.pause()
+time.sleep(0.3)
+state, began = proc_state(bs.proc.pid), bs.started
+bs.resume()
+time.sleep(0.3)
+check("a --beside filer is stopped for a game and continued after, its clock credited the time stopped",
+      ("T", True, False), (state, bs.started > began, proc_state(bs.proc.pid) == "T"))
+bs.stop(signal.SIGTERM)
+bs.proc.wait()
+os.environ["CT_GAME_SCAN_WORKERS"] = "0"
+fake(sleep={"x0": 30, "x1": 30})
+log.unlink(missing_ok=True)
+t_game.clear()
+eq.plan = units(["x0", "x1"], [])
+pid = os.fork()
+if pid == 0:
+    sys.stderr = open(os.devnull, "w")
+    os._exit(eq.dispatch(["times"], cache, workers=1, scan_workers=2, beside=[["bash", "-c", "sleep 30", "x"]]))
+time.sleep(2.5)  # the scans started, then were shed, the filer stopped, on the game
+os.kill(pid, signal.SIGTERM)
+t0 = time.monotonic()
+rc = os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1])
+check("a TERM while the filer is stopped continues it first: exits 143 well inside STOP_GRACE", (143, True),
+      (rc, time.monotonic() - t0 < eq.STOP_GRACE / 2))
+os.environ.pop("CT_GAME_SCAN_WORKERS")
+os.environ.pop("CT_YIELD_HOSTS")
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+# The VLM down (Paul 10-13:"just go onto the next scan and do it when it is
 # back"): an edition's read is not started, its scan and a fetch-free scan
 # are, and it says so; a read that is started (not needs_vlm) and ends
 # deferred for the VLM is held, not started again, and left for the next run.
