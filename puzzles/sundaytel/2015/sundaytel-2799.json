@@ -42,65 +42,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Couples initiating",
+       "at": 0,
+       "note": "couples are pairs, and initiating means starting, so only the opening pair of letters of each following word is kept"
+      }
+     ],
      "parts": [
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "TH",
-       "n": 2,
-       "indicators": [
-        {
-         "text": "Couples initiating",
-         "note": "a couple is a pair, so the pairs that start the following words are what is kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "these",
-         "gives": "TH",
-         "select": 2,
-         "note": "the opening couple of letters"
-        }
-       ]
+       "words": "these risky ventures",
+       "at": 19
       },
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "RI",
-       "n": 2,
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "risky",
-         "gives": "RI",
-         "select": 2,
-         "note": "the opening couple of letters"
-        }
-       ]
-      },
-      {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "VE",
-       "n": 2,
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "ventures",
-         "gives": "VE",
-         "select": 2,
-         "note": "the opening couple of letters"
-        }
-       ]
+       "gives": "ESESKYNTURES"
       }
      ]
     },
     "explanation": {
-     "surface": "Pairs of people who start dangerous business schemes end up doing well.",
-     "walkthrough": "'Couples' looks like the subject of the sentence; here it means two-letter pairs taken from the start of each of the next three words.",
-     "definitionFit": "To thrive is to flourish or do well, a straightforward synonym of prosper."
+     "surface": "Partners who launch dangerous enterprises do well.",
+     "walkthrough": "Keep the first two letters of each of the three words and drop the rest.",
+     "definitionFit": "To thrive is to flourish and do well, which is what prospering means."
     },
     "features": {
      "answerInScene": true,
@@ -356,40 +319,42 @@
      "indicators": [
       {
        "text": "showing in",
-       "note": "something showing in another appears inside it"
+       "at": 21,
+       "note": "showing in means appearing inside, so the letters sit within the word for the part of speech"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "part of speech",
-         "gives": "PREPOSITION",
-         "note": "a preposition is a grammatical word class"
-        },
-        {
-         "words": "Democrat",
-         "gives": "D",
-         "note": "D is the abbreviation for Democrat"
-        }
-       ]
+       "words": "part of speech",
+       "at": 32,
+       "gives": "PREPOSITION",
+       "note": "a preposition is a part of speech, like 'in' or 'on'"
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Democrat",
+         "at": 9,
+         "gives": "D"
+        },
+        {
+         "words": "is",
+         "at": 18,
+         "gives": "IS"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician's leanings become clear in part of a speech.",
-     "walkthrough": "'Part of speech' sounds like an extract from an address; it is the grammar term.",
-     "definitionFit": "A predisposition is an inclination to act or think in a certain way, a tendency."
+     "surface": "A Democrat's leanings come out in a speech they give.",
+     "walkthrough": "A preposition is a word like in or on, which is apt given the indicator.",
+     "definitionFit": "A predisposition is an inclination or liability towards something, a tendency."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "speech"
     }
    }
