@@ -425,50 +425,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "misplaced",
-       "note": "misplaced letters are put in the wrong order, so the word pair is rearranged"
+       "text": "after",
+       "at": 16,
+       "note": "after means the next letter follows the rearranged word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "'after' puts the letter for right behind the rearranged pair"
+         "text": "misplaced",
+         "at": 27,
+         "note": "misplaced means put in the wrong place, so these letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "pair",
-         "note": "the letters of pair rearranged"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
-        },
-        {
-         "words": "symbols in tic-tac-toe",
-         "gives": "OX",
-         "note": "noughts and crosses are played with O and X"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 10,
+       "gives": "R"
+      },
+      {
+       "words": "symbols in tic-tac-toe",
+       "at": 37,
+       "gives": "OX",
+       "note": "noughts and crosses is played with O and X"
       }
      ]
     },
     "explanation": {
-     "surface": "A noughts-and-crosses player nearly wins after a couple of misplaced marks.",
-     "walkthrough": "Tic-tac-toe is the American name for noughts and crosses.",
-     "definitionFit": "Aviation term for an incident where two aircraft come dangerously close in flight, the official word for a near collision."
+     "surface": "A noughts-and-crosses game narrowly lost with a pair of symbols in the wrong place.",
+     "walkthrough": "PAIR 'misplaced' gives AIRP, then R, then OX. Tic-tac-toe is noughts and crosses.",
+     "definitionFit": "Airprox is the aviation term for an incident where two aircraft come dangerously close."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Near"
+     "misdirectedWord": "misplaced"
     }
    }
   },
@@ -1301,48 +1304,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CACHESEXE",
-     "indicators": [
-      {
-       "text": "withdrawing",
-       "note": "withdrawing means drawing back, so the word for without runs backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Corps",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for Corps"
+      },
+      {
+       "words": "desires",
+       "at": 6,
+       "gives": "ACHES",
+       "note": "aches are longings, desires"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 14,
+         "note": "the heading of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Corps",
-         "gives": "C",
-         "note": "C is an abbreviation for corps"
-        },
+         "words": "escape",
+         "at": 26,
+         "note": "first letter of escape"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "desires",
-         "gives": "ACHES",
-         "note": "aches are longings"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "heading for",
-           "note": "heading for picks out the first letter of escape"
-          }
-         ],
-         "parts": [
-          {
-           "words": "escape",
-           "note": "the first letter of escape"
-          }
-         ]
-        },
+         "text": "withdrawing",
+         "at": 41,
+         "note": "withdrawing means drawing back, so the letters are read in reverse"
+        }
+       ],
+       "parts": [
         {
          "words": "without",
-         "gives": "XE",
-         "note": "ex means without (ex dividend), read backwards"
+         "at": 33,
+         "gives": "EX",
+         "note": "ex means without, as in ex dividend"
         }
        ]
       }
@@ -1350,12 +1357,12 @@
     },
     "spelling": "CACHE-SEXE",
     "explanation": {
-     "surface": "Army privates want a way out without retreating.",
-     "walkthrough": "'Privates' looks like soldiers, matching 'Corps'; it means the private parts.",
-     "definitionFit": "A cache-sexe is a G-string or small covering for the genitals, French for 'hide sex'."
+     "surface": "An army corps longs to escape without its undergarments.",
+     "walkthrough": "'Privates' looks like soldiers to go with 'Corps', but it means private parts. EX ('without') turned by 'withdrawing' gives XE.",
+     "definitionFit": "A cache-sexe is a small garment covering only the genitals, a G-string."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "privates"

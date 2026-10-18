@@ -1508,7 +1508,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "pet",
+      "text": "pet?",
       "at": 22
      }
     ],
@@ -1517,35 +1517,38 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about in its sense of 'around'"
+       "at": 10,
+       "note": "about means the spiel goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Glib talk",
-         "gives": "SPIEL",
-         "note": "a spiel is a slick, well-practised patter"
-        },
-        {
-         "words": "a",
-         "note": "the letter itself"
-        }
-       ]
+       "words": "Glib talk",
+       "at": 0,
+       "gives": "SPIEL",
+       "note": "a spiel is a glib, persuasive speech"
       },
       {
-       "words": "new",
-       "gives": "N",
-       "note": "n = new"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16,
+         "gives": "A"
+        },
+        {
+         "words": "new",
+         "at": 18,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone chattering on about the new pet they've just got.",
-     "walkthrough": "The question mark flags that the definition is by example: this dog is only one kind of pet.",
-     "definitionFit": "A definition by example: a dog breed often kept as a pet, which the question mark admits."
+     "surface": "A salesman's patter about getting a new pet.",
+     "walkthrough": "SPIEL goes about A and N.",
+     "definitionFit": "A spaniel is a breed of dog, commonly kept as a pet; the question mark marks the example."
     },
     "features": {
      "answerInScene": true,
@@ -1577,8 +1580,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "to include",
-       "note": "to include something is to take it inside"
+       "text": "by",
+       "at": 31,
+       "note": "by means next to, so the pieces sit side by side"
       }
      ],
      "parts": [
@@ -1586,43 +1590,47 @@
        "op": "container",
        "indicators": [
         {
-         "text": "by",
-         "note": "by means beside, so the next pieces follow on directly"
+         "text": "to include",
+         "at": 8,
+         "note": "to include means the attempt takes the next letter inside it"
         }
        ],
        "parts": [
         {
          "words": "Attempt",
+         "at": 0,
          "gives": "GO",
-         "note": "a go = an attempt"
+         "note": "a go is an attempt"
         },
         {
          "words": "large",
-         "gives": "L",
-         "note": "L = large, as on clothing labels"
+         "at": 19,
+         "gives": "L"
         }
        ]
       },
       {
        "words": "wager",
+       "at": 25,
        "gives": "BET",
        "note": "a bet is a wager"
       },
       {
        "words": "despicable guy",
+       "at": 34,
        "gives": "ROTTER",
-       "note": "rotter is old British slang for a cad"
+       "note": "a rotter is a despicable man"
       }
      ]
     },
     "explanation": {
-     "surface": "A cad placing a big bet on a traveller who has been everywhere.",
-     "walkthrough": "The dash splits the clue: everything before it is wordplay, and the definition is a whole phrase after it.",
-     "definitionFit": "A description: a traveller who has been all over the world."
+     "surface": "A cad tries a big bet, a man of the world.",
+     "walkthrough": "GO with L inside gives GLO, then BET and ROTTER.",
+     "definitionFit": "A globetrotter is someone who travels widely and has visited many countries."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Attempt"
     }
    }

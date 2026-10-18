@@ -720,50 +720,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pair of letters goes in the shortened make-believe word"
+       "at": 24,
+       "note": "in means these letters are placed inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hiding head",
+         "at": 41,
+         "note": "hiding its head means the first letter is concealed, so it is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "hiding head",
-           "note": "hiding its head means the word's first letter is concealed and dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "make-believe",
-           "gives": "PRETENCE",
-           "note": "pretence is make-believe"
-          },
-          {
-           "gives": "P"
-          }
-         ]
+         "words": "make-believe",
+         "at": 27,
+         "gives": "PRETENCE",
+         "note": "pretence is make-believe"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "gives": "P"
         }
        ]
       },
       {
-       "words": "constant",
-       "gives": "C",
-       "note": "c is the symbol for a constant, as the speed of light"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 11,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "constant",
+         "at": 15,
+         "gives": "C",
+         "note": "c is the symbol for a constant, such as the speed of light"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy person keeps up a steady pretence and hides their face.",
-     "walkthrough": "The make-believe word loses its first letter before the other two letters go inside it.",
-     "definitionFit": "Reticence is reserve or reluctance to speak, the state of being shy."
+     "surface": "A shy child, playing pretend, hides their face.",
+     "walkthrough": "PRETENCE 'hiding head' is RETENCE; I and C go in it.",
+     "definitionFit": "Reticence is a reluctance to speak or reveal oneself, the quality of a reserved, bashful person."
     },
     "features": {
      "answerInScene": true,

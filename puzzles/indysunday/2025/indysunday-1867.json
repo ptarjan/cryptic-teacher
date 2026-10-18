@@ -1240,28 +1240,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "Reducing a name here means using the short form its owner answers to, not chopping letters off the end of it."
-      }
-     ],
      "parts": [
       {
        "words": "fruitcake",
+       "at": 9,
        "gives": "NUT",
-       "note": "a fruitcake is a nut in the slang sense, somebody crazy"
+       "note": "a fruitcake is a crazy person, a nut"
       },
       {
-       "words": "Margaret",
+       "words": "Margaret reduced",
+       "at": 19,
        "gives": "MEG",
-       "note": "the short form a Margaret goes by"
+       "note": "Meg is a shortened form of the name Margaret"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both halves turn on the same move away from the kitchen: the fruitcake is a person rather than a cake, and Margaret is here only to be shortened.",
-     "definitionFit": "Spice -> NUTMEG: the hard aromatic seed grated over custards and into mulled wine, one of the standard jars on a kitchen shelf."
+     "surface": "A recipe note: there is spice in Margaret's fruitcake, used sparingly.",
+     "walkthrough": "'Fruitcake' here is slang for a mad person, not the cake.",
+     "definitionFit": "Nutmeg is the seed of a tropical tree, ground and used as a baking spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fruitcake"
     }
    }
   },
@@ -1400,7 +1403,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the Taj Mahal",
+      "text": "the Taj Mahal?",
       "at": 35
      }
     ],
@@ -1409,35 +1412,45 @@
      "indicators": [
       {
        "text": "pinching",
-       "note": "Fingers pinching something close on it from both sides, so the word before this one shuts around everything that follows."
+       "at": 11,
+       "note": "pinching means taking hold of, so the word for silent closes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Keep quiet",
-         "gives": "MUM",
-         "note": "to keep mum is to say nothing, and the three letters open after the first"
-        },
-        {
-         "words": "gold",
-         "gives": "AU",
-         "note": "AU is the chemical symbol for gold"
-        }
-       ]
+       "words": "Keep quiet",
+       "at": 0,
+       "gives": "MUM",
+       "note": "to keep mum is to keep quiet, so mum means silent"
       },
       {
-       "words": "alone",
-       "gives": "SOLE",
-       "note": "sole means alone, the only one there is"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 20,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        },
+        {
+         "words": "alone",
+         "at": 26,
+         "gives": "SOLE",
+         "note": "sole means alone, the only one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is doing quiet work: the Taj Mahal is a tomb, built by Shah Jahan for his wife, which is why silence and solitude suit the surface so well.",
-     "definitionFit": "the Taj Mahal -> MAUSOLEUM: definition by example, since the Taj Mahal is one grand tomb built to house a body, which is what the word names."
+     "surface": "A tourist at the Taj Mahal, keeping silent while stealing gold, alone.",
+     "walkthrough": "MUM holds AU plus SOLE.",
+     "definitionFit": "The Taj Mahal is a famous example of a grand tomb, built by Shah Jahan for his wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pinching"
     }
    }
   },
