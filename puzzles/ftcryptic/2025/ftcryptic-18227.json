@@ -48,30 +48,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COMBAT",
      "indicators": [
       {
        "text": "changing leader",
-       "note": "the leader of a word is its first letter, and changing it swaps that letter for another"
+       "at": 29,
+       "note": "the animal's first letter is swapped for a different one"
       }
      ],
      "parts": [
       {
        "words": "indigenous Australian",
+       "at": 7,
        "gives": "WOMBAT",
-       "note": "a wombat is a burrowing marsupial native to Australia"
+       "note": "the wombat is a burrowing marsupial native to Australia"
+      },
+      {
+       "gives": "W"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is urged to stand against an Aboriginal Australian who is replacing a tribal chief.",
-     "walkthrough": "'Indigenous Australian' looks like a person, but it is an animal native to Australia; swap its W for C to get COMBAT.",
-     "definitionFit": "To combat something is to fight against it or resist it, which is what opposing means."
+     "surface": "A call to stand against an Aboriginal Australian community replacing its head.",
+     "walkthrough": "'indigenous Australian' looks like a person but is an animal, the WOMBAT; 'changing leader' swaps its W for C.",
+     "definitionFit": "To combat something is to fight against or resist it, so combat is a synonym of oppose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "indigenous"
     }
    }
@@ -302,34 +309,40 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "at": 22,
+       "note": "in this down clue the officer comes first, ahead of the special forces"
+      }
+     ],
      "parts": [
       {
        "words": "officer",
+       "at": 14,
        "gives": "DI",
-       "note": "DI is a Detective Inspector, a police officer"
+       "note": "DI is a Detective Inspector, a British police officer"
       },
       {
        "words": "special forces",
+       "at": 30,
        "gives": "SAS",
-       "note": "the SAS is the British Special Air Service"
+       "note": "the SAS is the British Army's Special Air Service"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "TER",
        "indicators": [
         {
-         "text": "starts",
-         "note": "starts of the following words means only their opening letters are taken"
+         "text": "starts to",
+         "at": 45,
+         "note": "the first letters of take, extreme and risks are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "to take extreme risks",
-         "gives": "TER",
-         "select": "first",
-         "note": "the opening letters of the last three words"
+         "words": "take extreme risks",
+         "at": 55,
+         "note": "the opening letters of these three words, picked by starts to"
         }
        ]
       }
@@ -337,13 +350,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "What happens when a reckless commander leads elite troops into danger.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: a gung-ho officer at the head of the SAS courts catastrophe.",
-     "definitionFit": "A catastrophe is the likely result when someone in command gambles recklessly with soldiers' lives."
+     "surface": "A grim result when a police chief heads an elite military unit inclined to gamble everything.",
+     "walkthrough": "The whole clue also describes the answer. DI (Detective Inspector) is 'leading' SAS (Britain's Special Air Service), then 'starts to' gives TER from 'take extreme risks'.",
+     "definitionFit": "A disaster is the calamitous result of a venture going wrong, the kind of outcome feared from reckless risk-taking."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
     }
    }
   },
@@ -627,43 +641,67 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STALKER",
      "indicators": [
       {
-       "text": "with missing",
-       "note": "the abbreviation for with is the thing missing, so that letter goes"
-      },
-      {
-       "text": "evacuated",
-       "note": "an evacuated building is emptied, so the inside of the word is cleared out"
+       "text": "missing",
+       "at": 18,
+       "note": "the word stands for a letter that has gone missing from the result"
       }
      ],
      "parts": [
       {
-       "words": "streetwalker",
-       "note": "taken as written; W is the abbreviation for with"
-      },
-      {
-       "op": "outer",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "as",
+         "at": 40,
+         "note": "as means while: at the same time the street inside the longer word is swapped for its emptied version"
+        }
+       ],
        "parts": [
         {
-         "words": "street",
-         "note": "emptied of its middle letters, only the first and last remain"
+         "words": "streetwalker",
+         "at": 26
+        },
+        {
+         "gives": "STREET"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "evacuated",
+           "at": 52,
+           "note": "an evacuated word has its inside cleared out, leaving only its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "street's",
+           "at": 43,
+           "gives": "STREET",
+           "note": "the street word, which is then emptied"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "with",
+       "at": 13,
+       "gives": "W"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone confesses an obsession after a prostitute vanishes from a deserted street.",
-     "walkthrough": "Take W out of STREETWALKER, then empty the STREET part to ST, leaving STALKER, who might well say 'I'm obsessed'.",
-     "definitionFit": "A stalker fixates on a victim, so the confession of obsession is the sort of line such a person speaks."
+     "surface": "A confession of fixation with a vanished sex worker, as the street is cleared.",
+     "walkthrough": "'I'm obsessed' is what the answer might say of itself. In STREETWALKER the street part is 'evacuated' to ST, giving STWALKER, and 'with missing' takes out W.",
+     "definitionFit": "A stalker pursues someone out of fixation, so 'I'm obsessed' is the stalker's own words."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "with"
+     "misdirectedWord": "evacuated"
     }
    }
   },

@@ -451,40 +451,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "to go",
-         "note": "a thing that has to go is removed, so one letter is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "note",
-         "gives": "CROTCHET",
-         "note": "a crotchet is a musical note, a quarter note"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time; this one leaves"
-        }
-       ]
+       "text": "to go",
+       "at": 36,
+       "note": "the time letter is told to leave the note"
       },
       {
-       "unchecked": true,
-       "words": "time to stay",
-       "note": "padding that tells us the other time abbreviation in the note remains in place"
+       "text": "and time to stay",
+       "at": 42,
+       "note": "the note holds two of the time letter, and this says the second one stays put"
+      }
+     ],
+     "parts": [
+      {
+       "words": "note",
+       "at": 26,
+       "gives": "CROTCHET",
+       "note": "a crotchet is a musical note, a quarter note"
+      },
+      {
+       "words": "time",
+       "at": 31,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction for redecorating a room: one session is off, another remains.",
-     "walkthrough": "The note contains two Ts; the first goes and the second stays.",
-     "definitionFit": "Hooking yarn into lace or patterned trim is needlework done to ornament fabric, so it is decorative work."
+     "surface": "An instruction to do some home decorating, with a timetable of when to leave and when to stay.",
+     "walkthrough": "CROTCHET has two Ts: 'time to go' removes the first and 'time to stay' keeps the second. 'Decorating' means ornamental needlework here, not painting a room.",
+     "definitionFit": "Crochet is needlework that hooks yarn into decorative lace and trimmings, so doing it is decorating work."
     },
     "features": {
      "answerInScene": false,
@@ -1106,44 +1103,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DETENTE",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not",
+       "at": 10,
+       "note": "not says the letters of as are left out of the answer"
+      },
+      {
        "text": "drunk",
-       "note": "something drunk is tipsy and disordered, so the remaining letters are jumbled"
+       "at": 17,
+       "note": "drunk suggests the remaining letters are staggering about in a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DETENTE",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not means without, so the following little word is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Attendees",
-         "note": "taken as written"
-        },
-        {
-         "words": "as",
-         "note": "taken as written, to be removed"
-        }
-       ]
+       "words": "Attendees",
+       "at": 0
+      },
+      {
+       "words": "as",
+       "at": 14
       }
      ]
     },
     "spelling": "DÉTENTE",
     "explanation": {
-     "surface": "Guests who are less inebriated than their companions get on better as relatives.",
-     "walkthrough": "Relations looks like family members, but it means dealings between nations.",
-     "definitionFit": "The word names an easing of tension between rival states, bringing their diplomatic dealings nearer."
+     "surface": "Guests at a party are less drunk than relatives who are closer to the bride or groom.",
+     "walkthrough": "A composite anagram: 'not as' takes A and S out of ATTENDEES, and 'drunk' rearranges the TTENDEE that is left. 'closer relations' means between nations, not family.",
+     "definitionFit": "Détente is an easing of hostility between rival states, as between the superpowers in the 1970s."
     },
     "features": {
      "answerInScene": false,
