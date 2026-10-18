@@ -1344,6 +1344,17 @@ def right_columns(img, grid, span=RIGHT_SPAN):
     return x1, bottom
 
 
+def right_or_over(img, grid):
+    """(right, over) for a grid under its title: right_columns() when the
+    clues lie right of it, else overhang(), never both. A page that ends
+    that soon under the grid has no room for three columns, and the
+    "Yesterday's solution" box under its grid is inked like a third column's
+    text: overhang() alone read it as one (the Feb to May 2014 Times, whose
+    clues were then cropped from under the grid and found no lists)."""
+    right = right_columns(img, grid)
+    return right, (None if right else overhang(img, grid))
+
+
 def right_gutter(lines, grid, right):
     """`right` (right_columns()) with the x between its two columns: where
     the fewest words (`lines`, every reading's) cross."""
@@ -1443,6 +1454,28 @@ def lead_split(lines, grid, lead, margin=40):
     return lead + (gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 - margin, gx0 + 10),)
 
 
+def read_cache(cache_path):
+    """The JSON a reader's cache file holds, or None when it is missing or
+    unreadable: a read killed mid-write (rc=-9) left an empty file, and
+    every later one of the page died on it (JSONDecodeError) instead of
+    reading the page again. band_words (the scan's heading bands, the
+    JSONDecodeError seen in scan_unit) still reads its cache bare: a change
+    there moves scan_key and rescans every Gale edition."""
+    try:
+        return json.loads(cache_path.read_text())
+    except (OSError, ValueError):
+        return None
+
+
+def write_cache(cache_path, data):
+    """`data` as JSON at `cache_path`, whole or not at all (os.replace), so a
+    reader killed mid-write leaves no half file for read_cache to refuse."""
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = cache_path.with_name(f"{cache_path.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(data))
+    os.replace(tmp, cache_path)
+
+
 def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None, lead=None, x0=None,
                 right=None):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
@@ -1465,8 +1498,8 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
         box = (max(0, int(lead[0])), max(0, int(lead[1])), box[2], box[3])
     if right:
         box = (gx1 + 5, max(0, gy0 - RIGHT_RISE), right[0], min(img.height, right[1]))
-    if cache_path.exists():
-        cached = json.loads(cache_path.read_text())
+    cached = read_cache(cache_path)
+    if cached is not None:
         if isinstance(cached, list):
             return [[tuple(w)] for w in cached]
         if tuple(cached["box"]) == box:
@@ -1477,8 +1510,7 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
         crop.paste("white", (gx0 - box[0], gy0 - box[1], gx1 - box[0], gy1 - box[1]))
     words = [(x0 + box[0], y0 + box[1], x1 + box[0], y1 + box[1], t)
              for x0, y0, x1, y1, t in read_words(crop, which)]
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps({"box": box, "words": words}))
+    write_cache(cache_path, {"box": box, "words": words})
     return [[w] for w in words]
 
 
@@ -3481,7 +3513,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T04:23:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T06:35:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3595,11 +3627,13 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
     # the grid is not the 2014 Times' clues right of it).
-    over = overhang(img, gbox) if side == "below" and top is None and not column and not paper.four \
-        and not third else None
     # The 2014 Times: the clue columns right of a grid at the page's foot.
-    right = right_columns(img, gbox) if side == "below" and top is None and not column and not paper.four \
-        and not third and not over else None
+    # Asked first: a page that ends that soon under the grid has no room for
+    # three columns, and the "Yesterday's solution" box under its grid is
+    # inked like the third column's text (overhang() read it as one, and the
+    # Feb to May 2014 pages were cropped under the grid: no clue lists).
+    right, over = right_or_over(img, gbox) if side == "below" and top is None and not column \
+        and not paper.four and not third else (None, None)
     # The 2005 Times: the same, the grid left of its title (side "left").
     if side == "left" and paper.key in ("times", "gale") and not paper.four and not third:
         right = right_columns(img, gbox, RIGHT_SPAN_LEFT)
