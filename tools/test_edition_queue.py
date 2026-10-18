@@ -2,7 +2,7 @@
 # Does the per-edition queue (tools/edition_queue.py) keep each edition's
 # read a unit of its own: rows appended, the last standing, never a whole
 # rewrite under another unit; one unit per edition; the most urgent first
-# (Gale pages saved by hand, then never read, then the re-reads); a read
+# (Gale pages the fetcher downloaded, then never read, then the re-reads); a read
 # only after the scans its solution needs, and a scan held while a read
 # pool of reads is ready; a slow unit killed at its own
 # limit without holding up the rest; a capped run saying what it left; and
@@ -20,6 +20,7 @@ import tempfile
 from pathlib import Path
 
 os.environ["DESKTOP_HOSTS_STATIC"] = "1"  # desktop_hosts.ranked: the json order, no network probe
+os.environ["CT_BLANKET_REREADS"] = "1"  # the cases below plan every reread (the blanket-reread cases turn it off)
 os.environ["CT_AUTO_RELOAD"] = "0"  # no dispatch here fetches the real repo (the reload cases turn it on)
 REPO = Path(__file__).resolve().parent.parent
 _tmp = tempfile.mkdtemp()
@@ -129,7 +130,7 @@ _, reads = f.plan(f.TIMES, cache, asked={"NewsUK1980UKEnglish/1980-01-01_1"})
 check("annotation's ask makes a read due, forced", [("1980-01-01_1", "annotation asked", True)],
       [(u["rel"].split("/")[1], u["reason"], u["force"]) for u in reads if u["rel"].endswith("_1")])
 gs, gr = f.plan(f.GALE, cache)
-check("Gale pages saved by hand: rank 0, the latest laid out first", [("1987-03-03", 0), ("1987-03-02", 0)],
+check("Gale pages the fetcher downloaded: rank 0, the latest laid out first", [("1987-03-03", 0), ("1987-03-02", 0)],
       [(u["rel"].split("/")[1], u["rank"]) for u in gr])
 check("the Gale plan keeps to its own ledger", False, (cache / "filed-gale.jsonl").exists())
 
@@ -161,6 +162,26 @@ check("never read newest first across papers, then fixes and moved inputs newest
 check("a fix's re-read ranks 2 even under --reread; moved files are inputs changed",
       {"1970-01-01_1": "refused not-a-grid before its fix", "1985-01-01_1": "inputs changed"},
       {u["rel"].split("/")[1]: u["reason"] for u in reads if u["rank"] == 2})
+# ---- only rereads with bug evidence: never read/scanned, annotation asked, a refusal whose fix landed
+del os.environ["CT_BLANKET_REREADS"]
+sc_ev, rd_ev = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("no blanket rereads: inputs changed, scan stale and --reread are not planned; refusals whose fix landed are",
+      {"1992-01-01_1", "1990-06-01_1", "1990-05-01_1", "1970-01-01_1"}, {u["rel"].split("/")[1] for u in rd_ev})
+check("every planned read's reason is a kept one", True, all(eq.evidence_reason(u["reason"]) for u in rd_ev))
+check("the refusal's read says which puzzle and what the refusal said", True,
+      all("puzzle 1" in u.get("detail", "") for u in rd_ev if u["reason"].startswith("refused ")) and
+      any(u.get("detail") for u in rd_ev))
+check("no scan for a blanket reread", True, all(u["reason"] == "never scanned" or u["rel"] in
+      {r for x in rd_ev for r in x.get("needs") or ()} for u in sc_ev))
+eq._ASKED_WHY[("times", "X/1")] = "puzzle times-1: printedClue"
+_, ask = eq.only_evidence("times", [], [{"rel": "X/1", "reason": "annotation asked", "needs": []},
+                                         {"rel": "X/2", "reason": "inputs changed", "needs": []}])
+check("annotation asked carries its puzzle and checks; inputs changed is dropped",
+      [("X/1", "annotation asked", "puzzle times-1: printedClue")], [(u["rel"], u["reason"], u["detail"]) for u in ask])
+os.environ["CT_BLANKET_REREADS"] = "1"
+_, rd_old = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("CT_BLANKET_REREADS=1 restores every reread", True, len(rd_old) == 7)
+
 f.edition_dirs, f.input_hash = listing, hashes
 
 # ---- likely(): within a rank, the re-reads predicted to file a puzzle whole go first
@@ -1039,7 +1060,7 @@ check("listener plan: the pages not read at VERSION, rank 0", [("1930-04-02.pdf"
       [(u["rel"], u["rank"]) for u in gl.plan(inbox, store)])
 vers, gl.VERSION = gl.VERSION, "next"
 check("listener plan: a VERSION bump is a whole-corpus re-read, after the new pages",
-      [("1930-04-02.pdf", 0, "saved by hand"), ("1930-04-09.pdf", 3, "version changed")],
+      [("1930-04-02.pdf", 0, "never read (Gale fetch)"), ("1930-04-09.pdf", 3, "version changed")],
       [(u["rel"], u["rank"], u["reason"]) for u in gl.plan(inbox, store)])
 gl.VERSION = vers
 gl.index = lambda *a, **k: [{"number": 1, "date": None, "title": "t"}]

@@ -1533,6 +1533,7 @@ def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
             due[d] = why
     queue = sorted(sorted(due, key=article_date, reverse=True), key=lambda d: RANKS[due[d]])
     return [{"rel": d.name, "reason": due[d], "rank": RANKS[due[d]], "force": due[d] == "annotation asked",
+             **({"detail": f"last read refused as {known[d.name].get('cause')}"} if due[d].endswith(" cured since") else {}),
              "date": article_date(d), "needs": []} for d in queue]
 
 

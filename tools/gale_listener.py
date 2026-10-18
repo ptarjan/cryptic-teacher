@@ -69,7 +69,7 @@ ROOT = TOOLS.parent
 
 HOME = Path(os.path.expanduser("~/.cache/gale_listener"))
 #: The saved Listener pages: tools/gale_fetch.py's (lay_out_fetched), and
-#: those saved by hand before it.
+#: those the fetcher downloaded before it.
 SAVED = HOME / "files"
 OCR_CACHE = HOME / "ocr"
 #: The readings and the ledger: derived from Paul's pages, kept beside the
@@ -1415,12 +1415,12 @@ def run(inbox=SAVED, store=STORE, idx=None, out=sys.stdout, reader=read_file):
 def plan(inbox=SAVED, store=STORE):
     """The saved pages not read at this VERSION, one read unit each
     (tools/edition_queue.py), the earliest saved first: one never read is
-    rank 0, saved by hand like the Gale Times pages; one read at an older
+    rank 0, never read like the Gale Times pages ("never read (Gale fetch)"); one read at an older
     VERSION is a whole-corpus re-read, rank 3 (file_archive_org_puzzles.BLANKET)."""
     ledger = load_ledger(store)
     todo = {p: ledger.get(hash_of(p)) for p in page_files(inbox)}
     todo = {p: row for p, row in todo.items() if (row or {}).get("version") != VERSION}
-    return [{"rel": p.name, "rank": 3 if row else 0, "reason": "version changed" if row else "saved by hand",
+    return [{"rel": p.name, "rank": 3 if row else 0, "reason": "version changed" if row else "never read (Gale fetch)",
              "needs": []}
             for p, row in sorted(todo.items(), key=lambda kv: (bool(kv[1]), kv[0].stat().st_mtime))]
 

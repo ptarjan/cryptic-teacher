@@ -22,7 +22,7 @@ process's start and every PLAN_FULL seconds. An edition just laid out (a Gale pa
 archive.org fetch: fresh) is found apart from it, every FRESH_POLL seconds
 on the dispatch loop, and its scan and read start ahead of everything
 planned, so it is read within minutes whatever the planner is doing. Then
-the most urgent first (plan's RANKS): Gale pages saved by hand, then never-read
+the most urgent first (plan's RANKS): Gale pages the fetcher downloaded, then never-read
 editions and the re-reads annotation asked for (tools/scan_queue.py), then
 the re-reads that can change what was filed (inputs moved, a fix for a
 refusal cause), then the whole-corpus ones (a scan-code change, --reread
@@ -559,20 +559,66 @@ _LOADED = []
 _QUEUE = {}
 
 
+#: {(paper key, source): what the open requests said} as _asked last saw them:
+#: the puzzle and the checks that met a misread, for the "annotation asked" log line.
+_ASKED_WHY = {}
+
+
+def _ask_detail(req):
+    return f"puzzle {req.get('id')}: {', '.join(req.get('why') or ())}"[:200]
+
+
 def _asked():
     """{paper key: {source}} the annotation asked to have read again."""
     asked = {}
+    why = {}
     try:
         for req in scan_queue.all_open_requests():
             if req["filer"] == "archive":
                 p = fa.filer_of(req["source"])
                 if p is not None:
                     asked.setdefault(p.key, set()).add(req["source"])
+                    why.setdefault((p.key, req["source"]), []).append(_ask_detail(req))
             elif req["filer"] == "trove":
                 asked.setdefault("trove", set()).add(req["source"])
+                why.setdefault(("trove", req["source"]), []).append(_ask_detail(req))
     except (OSError, ValueError) as e:
         log(f"the annotation re-read requests did not load ({type(e).__name__}: {e}); planned without them")
+    _ASKED_WHY.clear()
+    _ASKED_WHY.update({k: "; ".join(v)[:300] for k, v in why.items()})
     return asked
+
+
+#: The reasons a reread or rescan is planned for: a puzzle never read or
+#: scanned, laid out just now, or with concrete evidence of a bug (the
+#: annotation asked, a refusal whose fix landed since). The rest are blanket:
+#: "inputs changed", "titles changed", "scan stale*", "--reread", "read by
+#: another VLM", "read without the VLM", "solution moved", "solution short, read
+#: by other code", "short Times page, its third clue column read since" and the
+#: listener's "version changed" flag no puzzle in particular, so they are not
+#: planned unless CT_BLANKET_REREADS=1 (the old behaviour).
+def evidence_reason(reason):
+    return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked")
+            or (reason.startswith("refused ") and reason.endswith(" before its fix"))
+            or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
+
+
+def blanket_rereads():
+    return os.environ.get("CT_BLANKET_REREADS", "") not in ("", "0")
+
+
+def only_evidence(paper, scans, reads):
+    """`scans`, `reads` (fa.plan's units of one paper) without the blanket
+    rereads, each kept read carrying "detail" (the puzzle and what the
+    annotation or the refusal said); a scan stays when it is a first scan or a
+    kept read waits on it."""
+    reads = [u for u in reads if evidence_reason(u["reason"])]
+    for u in reads:
+        if u["reason"] == "annotation asked" and not u.get("detail"):
+            u["detail"] = _ASKED_WHY.get((paper, u["rel"]), "")
+    needed = {rel for u in reads for rel in u.get("needs") or ()}
+    scans = [u for u in scans if u["reason"] == "never scanned" or u["rel"] in needed]
+    return scans, reads
 
 
 def plan_inputs(papers, cache, reread, asked):
@@ -582,7 +628,7 @@ def plan_inputs(papers, cache, reread, asked):
     fa.plan_stamp and whether a run holds its ledger (None for any: not told
     cheaply, as off the media disk); `extra` the Listener's and Trove's units
     (small, and Trove's kept for TROVE_REPLAN seconds on their own)."""
-    key = (tuple(papers), str(cache), reread, tuple(sorted(newest_first_papers())))
+    key = (tuple(papers), str(cache), reread, tuple(sorted(newest_first_papers())), blanket_rereads())
     stamps = {}
     for k in papers:
         if k in ("listener", "trove"):
@@ -629,12 +675,13 @@ def _plan_kept(papers, cache, reread, out):
 def _plan(papers, cache, reread, out, asked=None):
     asked = _asked() if asked is None else asked
     scans, reads = [], []
+    blanket = blanket_rereads()
     began, took = time.monotonic(), {}
     for k, key in enumerate(papers):
         took[key] = time.monotonic()
         if key == "listener":
             reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
-                      for n, u in enumerate(gale_listener.plan())]
+                      for n, u in enumerate(gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
             continue
         if key == "trove":
             led = media_manifest.trove_ledger(ftp.CACHE)
@@ -642,7 +689,10 @@ def _plan(papers, cache, reread, out, asked=None):
                 if out is not None:
                     out.append(f"trove: a run holds {led.with_suffix('.lock')}; left out")
                 continue
-            reads += [(u["rank"], k, n, u) for n, u in enumerate(trove_plan(reread, asked.get("trove", ())))]
+            _, tr = (None, trove_plan(reread, asked.get("trove", ())))
+            if not blanket:
+                _, tr = only_evidence("trove", [], tr)
+            reads += [(u["rank"], k, n, u) for n, u in enumerate(tr)]
             continue
         paper = fa.FILERS[key]
         if scan_queue.held(fa.ledger_of(cache, paper)):
@@ -650,6 +700,8 @@ def _plan(papers, cache, reread, out, asked=None):
                 out.append(f"{key}: a run holds {fa.ledger_of(cache, paper).with_suffix('.lock')}; left out")
             continue
         sc, rd = fa.plan(paper, cache, reread=reread, asked=asked.get(key, ()))
+        if not blanket:
+            sc, rd = only_evidence(key, sc, rd)
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
     ended = time.monotonic()
@@ -756,7 +808,7 @@ def _laid_out_listed(cache, now):
 def by_urgency(units):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
-    newest edition first ("date") across papers, rank 0 (saved by hand) in
+    newest edition first ("date") across papers, rank 0 (never read, Gale fetch) in
     its plans' order, then the paper's place and plan's order. With
     CT_NEWEST_FIRST set (newest_first), the units of those papers come first,
     ahead of rank 0 (hand-saved pages) too, strictly newest edition first whatever their rank and
@@ -1565,7 +1617,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
         running[pid] = (unit, time.monotonic())
         tried.add(key_of(unit))
-        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']})")
+        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})")
         return True
 
     def ended(unit, t0):
