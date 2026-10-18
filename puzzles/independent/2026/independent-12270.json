@@ -47,35 +47,36 @@
      "parts": [
       {
        "words": "Labour follower",
+       "at": 0,
        "gives": "BABY",
-       "note": "what follows labour in childbirth is the newborn"
+       "note": "a baby is what follows labour, the birth"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LON",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of a word means only one of its two halves is kept, here the front portion"
+         "at": 18,
+         "note": "half of the six-letter word is taken, its first three letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "London",
-         "gives": "LON",
-         "select": "first",
-         "note": "a letter selection: the first three of its six letters, one half"
+         "at": 26,
+         "note": "the capital, of which only the front half is used"
+        },
+        {
+         "gives": "DON"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Labour party supporter quoted complaining that half of the capital is rotten.",
-     "walkthrough": "'Labour' with a capital L looks political, but it is childbirth, and what comes after labour is a baby.",
-     "definitionFit": "The ancient city became a byword, from the Bible onward, for any decadent, sinful metropolis."
+     "surface": "A quote from a Labour Party supporter calling the capital a den of corruption.",
+     "walkthrough": "'Labour' looks like the British political party, but here it is childbirth, and the quotation marks dress the definition up as a party slogan.",
+     "definitionFit": "Babylon is the biblical byword for a city of luxury and vice, hence any decadent, corrupt place."
     },
     "features": {
      "answerInScene": true,
@@ -109,37 +110,46 @@
      "op": "substitution",
      "indicators": [
       {
-       "text": "leaving France for Britain",
-       "note": "quitting one country for another swaps one abbreviation out and puts the other in its place"
+       "text": "leaving",
+       "at": 19,
+       "note": "leaving says the letter for France departs from the word"
+      },
+      {
+       "text": "for",
+       "at": 34,
+       "note": "for says the letter for Britain takes the departed letter's place"
       }
      ],
      "parts": [
       {
        "words": "from Flanders",
+       "at": 5,
        "gives": "FLEMISH",
-       "note": "the adjective for the region of Belgium"
+       "note": "Flemish means from Flanders, the Dutch-speaking region of Belgium"
       },
       {
        "words": "France",
+       "at": 27,
        "gives": "F",
-       "note": "F is the international code for France"
+       "note": "F is the international vehicle code for France"
       },
       {
        "words": "Britain",
+       "at": 38,
        "gives": "B",
-       "note": "B is a standard abbreviation for Britain or British"
+       "note": "B stands for Britain, as in the abbreviation GB"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tracing a mark of origin as it moves from Flanders over to Britain.",
-     "walkthrough": "The F of FLEMISH is the letter for France; replace it with B for Britain.",
-     "definitionFit": "A blemish is a spot, stain or flaw on a surface, which is exactly what a mark can be."
+     "surface": "Someone notes a mark or trait that came from Flanders, with France swapped out for Britain.",
+     "walkthrough": "'leaving France for Britain' tells you F (France) goes and B (Britain) comes in its place, so FLEMISH turns into BLEMISH.",
+     "definitionFit": "A blemish is a spot or flaw on a surface, a synonym for a mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "France"
+     "misdirectedWord": "Mark"
     }
    }
   },

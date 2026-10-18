@@ -339,52 +339,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPHYGMUS",
-     "indicators": [
-      {
-       "text": "boiled",
-       "note": "boiling churns things up, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Special",
+       "at": 0,
+       "gives": "SP"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 20,
+         "note": "in says the pig's last letter goes inside the reworked letters"
+        }
+       ],
        "parts": [
         {
-         "words": "Special",
-         "gives": "SP",
-         "note": "SP is an abbreviation for special"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "the single letter is placed inside the reworked word"
+           "text": "boiled",
+           "at": 23,
+           "note": "boiled means cooked and stirred about, so the letters of mushy are rearranged"
           }
          ],
          "parts": [
           {
            "words": "mushy",
-           "note": "the word mushy rearranged"
-          },
+           "at": 30,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
           {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "tail",
-             "note": "the tail of a word is its last letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "pig's",
-             "gives": "PIG",
-             "note": "the final letter of pig"
-            }
-           ]
+           "text": "'s tail",
+           "at": 12,
+           "note": "the tail belonging to the animal named is taken to mean its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pig",
+           "at": 9,
+           "note": "the animal, of which only the last letter is used"
           }
          ]
         }
@@ -393,9 +395,9 @@
      ]
     },
     "explanation": {
-     "surface": "A recipe for a special dish: a pig's tail cooked in boiled mushy peas.",
-     "walkthrough": "'Pulse' looks like the peas of the kitchen scene, but it is the heartbeat.",
-     "definitionFit": "Sphygmus is a medical term for the pulse, the rhythmic beat of the arteries."
+     "surface": "A recipe note: a pig's tail goes into a pan of mushy peas, a special pulse dish.",
+     "walkthrough": "'pulse' looks like a bean or pea in this kitchen scene; it is the heartbeat. 'boiled' rearranges MUSHY to HYMUS, and 'in' sets G inside it.",
+     "definitionFit": "Sphygmus is a medical term for the throb of the arteries, the beat felt at the wrist."
     },
     "features": {
      "answerInScene": false,
@@ -830,8 +832,7 @@
     "definitions": [
      {
       "text": "The old cherish",
-      "at": 0,
-      "note": "'The old' marks the word as archaic"
+      "at": 0
      }
     ],
     "wordplay": {
@@ -839,41 +840,44 @@
      "indicators": [
       {
        "text": "including",
-       "note": "including means taking in, so these letters go inside the first word"
+       "at": 31,
+       "note": "including says the next pieces are held inside the word for discourse"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "discourse once",
-         "gives": "RELATE",
-         "note": "to relate once meant to discourse or tell"
-        },
-        {
-         "words": "central points",
-         "gives": "FOCI",
-         "note": "foci are central points"
-        }
-       ]
+       "words": "discourse once",
+       "at": 16,
+       "gives": "RELATE",
+       "note": "to relate once meant to discourse, to give an account"
       },
       {
-       "words": "lecturer",
-       "gives": "L",
-       "note": "L is the abbreviation for lecturer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "central points",
+         "at": 41,
+         "gives": "FOCI",
+         "note": "foci are central points, plural of focus"
+        },
+        {
+         "words": "lecturer",
+         "at": 61,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Old-fashioned advice to cherish a lecture whose discourse has clear central points.",
-     "walkthrough": "'The old' is a label marking the definition as archaic, and 'once' does the same job for the discourse word.",
-     "definitionFit": "Refocillate is an obsolete verb meaning to refresh or revive, hence to comfort or cherish."
+     "surface": "An old-fashioned talk about cherishing, delivered with a lecturer's central points.",
+     "walkthrough": "'The old' marks the definition as archaic, just as 'once' marks the old sense of RELATE.",
+     "definitionFit": "Refocillate is an obsolete verb meaning to revive or comfort, to warm and nurture someone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "points"
+     "misdirectedWord": "discourse"
     }
    }
   },
