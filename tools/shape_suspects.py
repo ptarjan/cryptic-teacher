@@ -58,22 +58,20 @@ def leaves(wp):
 
 
 def d_arity_ins(r):
-    """A container with other than two parts: the thing held or the holder is missing (13 of 13 sampled wrong)."""
-    for n in nodes(r["wp"]):
-        if n.get("op") == "container" and len(n.get("parts") or []) != 2:
-            return f"ins has {len(n.get('parts') or [])} parts, takes 2"
+    """A container with other than two parts: the thing held or the holder is missing. The
+    rule is the validator's (validate_annotations.arity_ins), which counts unchecked steps."""
+    import validate_annotations as V
+    if k := V.arity_ins(r["wp"]):
+        return f"{k} ins with other than two parts, takes 2"
 
 
 def d_arity_other(r):
-    """del/sub/homophone with more parts than the evaluator takes (del 3+, sub 0 or 4+, sound 3+).
-    A one- or two-part substitution is not flagged: a letter swap ("change of heart" WITNESS ->
-    WITLESS, TONNES -> SONNET) is a correct reading the evaluator cannot express, and no redo
-    can file it as a three-part sub."""
-    for n in nodes(r["wp"]):
-        op, k = n.get("op"), len(n.get("parts") or [])
-        if (op == "deletion" and k > 9) or (op == "substitution" and k not in (1, 2, 3)) or (op == "homophone" and k >= 3) \
-                or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1):
-            return f"{cs.SHORT.get(op, op)} has {k} parts"
+    """del/sub/homophone/one-armed op with a part count the evaluator does not take. The rule
+    is the validator's (validate_annotations.arity_other): a substitution takes exactly three
+    parts, so a one- or two-part letter swap is flagged here as it is there."""
+    import validate_annotations as V
+    if k := V.arity_other(r["wp"]):
+        return f"{k} op(s) with the wrong part count"
 
 
 def d_del_single(r):
@@ -86,22 +84,9 @@ def d_del_single(r):
 
 def d_span_overlap(r):
     """Two leaves, or a leaf and an indicator, covering the same clue letters."""
-    if r["wp"].get("op") == "cryptic":
-        return None
-    sp = []
-    for n in nodes(r["wp"]):
-        if "op" not in n and n.get("words") and n.get("at") is not None:
-            sp.append((n["at"], n["at"] + len(n["words"]), n["words"], "leaf"))
-        for i in n.get("indicators") or []:
-            if i.get("at") is not None and i.get("text"):
-                sp.append((i["at"], i["at"] + len(i["text"]), i["text"], "indicator"))
-    for x in range(len(sp)):
-        for y in range(x + 1, len(sp)):
-            a, b = sp[x], sp[y]
-            if a[3] == b[3] == "leaf" and a[:2] == b[:2]:
-                continue  # one clue word doing two jobs (validate_annotations.span_overlaps)
-            if "leaf" in (a[3], b[3]) and min(a[1], b[1]) - max(a[0], b[0]) >= 3:
-                return f"{a[3]} '{a[2]}' overlaps {b[3]} '{b[2]}'"
+    import validate_annotations as V
+    if k := V.span_overlaps(r["wp"]):
+        return f"{k} pair(s) of leaves or indicators share clue words"
 
 
 def d_ind_in_leaf(r):

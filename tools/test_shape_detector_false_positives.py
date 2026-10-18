@@ -73,8 +73,10 @@ check("a hidden whose gives is not in its words still is", ["unchecked_leaf"], k
 sub = lambda parts: {"op": "substitution", "unchecked": True, "gives": "SONNET", "indicators": [{"text": "switching"}],
                      "parts": parts}
 tonnes = {"words": "weight", "gives": "TONNES"}
-check("one-part substitution is not flagged", [], kinds("Poem given weight when switching", "SONNET", sub([tonnes])))
-check("two-part substitution is not flagged", [], kinds("Poem given weight when switching", "SONNET", sub([tonnes, {"words": "x", "gives": "T"}])))
+# The detector is the validator's own arity_other (one validator): a substitution takes exactly three parts.
+check("one-part substitution is flagged, as the validator does", ["arity_other"], kinds("Poem given weight when switching", "SONNET", sub([tonnes])))
+check("two-part substitution is flagged, as the validator does", ["arity_other"], kinds("Poem given weight when switching", "SONNET", sub([tonnes, {"words": "x", "gives": "T"}])))
+check("detector and validator agree on a two-part substitution", 1, V.arity_other(sub([tonnes, {"words": "x", "gives": "T"}])))
 check("four-part substitution still is", ["arity_other"], kinds("Poem given weight when switching", "SONNET",
       sub([tonnes, {"words": "a", "gives": "T"}, {"words": "b", "gives": "S"}, {"words": "c", "gives": "S"}])))
 
