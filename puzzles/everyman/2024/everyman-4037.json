@@ -167,30 +167,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCLE",
      "indicators": [
       {
        "text": "Only 5/7ths",
-       "note": "keep just the first five of the word's seven letters"
+       "at": 0,
+       "note": "keeping only five of a seven-letter word's letters means its last two are dropped"
       }
      ],
      "parts": [
       {
-       "words": "Only 5/7ths vague",
-       "gives": "UNCLE",
-       "note": "a seven-letter word for vague, cut to its first five letters"
+       "words": "vague",
+       "at": 12,
+       "gives": "UNCLEAR",
+       "note": "something vague is unclear"
+      },
+      {
+       "gives": "AR",
+       "note": "the final two of the seven letters, cut away to leave five"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scoffs that a fraction is too imprecise, then shrugs that it's all relative.",
-     "walkthrough": "The fraction is literal: UNCLEAR has seven letters, and keeping five drops the last two. 'That's relative' reads as a shrug, but relative is the definition.",
-     "definitionFit": "A family relation: your parent's brother, or your aunt's husband, is a relative of yours."
+     "surface": "Someone muses that a thing is only partly vague, then shrugs that it's all relative.",
+     "walkthrough": "'Only 5/7ths' is a letter count: UNCLEAR has seven letters, and keeping the first five drops AR. 'That's relative' reads as a philosophical shrug but is the definition.",
+     "definitionFit": "An uncle is a family member, the brother of a parent, so he is a relative."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "relative"
     }
@@ -445,31 +449,36 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "NUANCE",
      "indicators": [
       {
        "text": "banished",
-       "note": "the IS is sent away out of the word"
+       "at": 8,
+       "note": "something banished is sent away, so the following word is taken out of the pest"
       }
      ],
      "parts": [
       {
-       "words": "Pest is banished",
-       "gives": "NUANCE",
-       "note": "NUISANCE (pest) with IS removed"
+       "words": "Pest",
+       "at": 0,
+       "gives": "NUISANCE",
+       "note": "a pest is a nuisance"
+      },
+      {
+       "words": "is",
+       "at": 5,
+       "gives": "IS"
       }
      ]
     },
     "explanation": {
-     "surface": "A garden pest being kept out of the shade.",
-     "walkthrough": "'Is' looks like the verb of the sentence but is the two letters taken out.",
-     "definitionFit": "Shade in its figurative sense: a subtle degree of difference in meaning or colour."
+     "surface": "A pest has been driven out of somewhere shady.",
+     "walkthrough": "'banished' tells you to take IS out of NUISANCE (the pest).",
+     "definitionFit": "A nuance is a subtle gradation of meaning or colour, which is one sense of shade."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "shade"
     }
    }
   },
@@ -979,39 +988,49 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 6,
+       "note": "with means the next piece is added alongside"
+      }
+     ],
      "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "boy",
+       "at": 2,
+       "gives": "LAD",
+       "note": "a boy is a lad"
+      },
       {
        "op": "alternate",
        "indicators": [
         {
          "text": "regularly",
-         "note": "at regular intervals, so the letters are picked out one, skip one, along the word"
+         "at": 17,
+         "note": "taking letters at regular intervals means alternate letters of djinn, the first, third and fifth"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "as printed"
+         "words": "djinn",
+         "at": 11,
+         "note": "taken as written, a djinn being a genie"
         }
        ]
-      },
-      {
-       "words": "boy",
-       "gives": "LAD",
-       "note": "a lad is a boy"
-      },
-      {
-       "words": "djinn regularly",
-       "gives": "DIN",
-       "note": "D-j-I-n-N: first, third and fifth letters"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A boy often spotted in the company of a genie.",
-     "walkthrough": "The whole clue also describes the answer: the boy from the tale whose lamp holds a genie, or djinn.",
-     "definitionFit": "Read straight, the clue describes the hero of the Arabian Nights tale, a boy forever shown alongside his genie."
+     "surface": "A boy is often spotted in the company of a genie.",
+     "walkthrough": "'regularly' picks the odd letters of djinn, and 'with' joins them to A and the boy. The whole clue also describes the pantomime hero, famously accompanied by the genie of the lamp.",
+     "definitionFit": "Aladdin, the boy of the Arabian Nights tale and British pantomime, summons a genie from a magic lamp."
     },
     "features": {
      "answerInScene": true,
