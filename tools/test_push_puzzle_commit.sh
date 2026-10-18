@@ -293,7 +293,7 @@ g commit -qm "Annotate 2 puzzles: mm-4 mm-5" -- puzzles/mm
 "$push" 2>"$tmp/batch2.err"
 [ $? = 3 ] || { echo "FAIL: a batch with a conflicting puzzle did not exit CONFLICT"; cat "$tmp/batch2.err"; rc=1; }
 git fetch -q origin master
-git cat-file -p origin/master:puzzles/mm/mm-4.json | grep -q Fish4 ||
+git cat-file -p origin/master:puzzles/mm/mm-4.json | grep Fish4 >/dev/null ||
   { echo "FAIL: the conflicting puzzle held back the batch's other puzzle"; cat "$tmp/batch2.err"; rc=1; }
 git cat-file -e origin/master:puzzles/mm/mm-5.json 2>/dev/null &&
   { echo "FAIL: the deleted mm-5 was resurrected"; rc=1; }
