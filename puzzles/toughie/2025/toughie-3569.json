@@ -1051,40 +1051,42 @@
      "indicators": [
       {
        "text": "cooked",
-       "note": "cooked food is mixed and changed, so the letters are rearranged"
+       "at": 24,
+       "note": "cooked as in cooked up or doctored, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RU",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of means keep just the first two of the four letters"
+         "at": 0,
+         "note": "half of a four-letter word is two letters, here the front pair kept and the back pair dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "rudd",
-         "gives": "RU",
-         "select": "first",
-         "note": "the front half of the fish's name"
+         "at": 8,
+         "note": "taken as written; a rudd is a freshwater fish"
+        },
+        {
+         "gives": "DD"
         }
        ]
       },
       {
        "words": "plaice",
+       "at": 17,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A dish of rudd and plaice that tastes rather off.",
-     "walkthrough": "Rudd is a freshwater fish. 'Fishy' looks like a comment on the cooking but means suspicious.",
-     "definitionFit": "Fishy is informal for suspicious or odd, and something strange or questionable is just that."
+     "surface": "A fish supper of rudd and plaice prepared together, and something smells off.",
+     "walkthrough": "'Half of' rudd keeps RU; 'cooked' then rearranges RU with PLAICE. 'Fishy' looks like part of the cooking picture but is the definition, meaning suspicious.",
+     "definitionFit": "Fishy in its informal sense means suspicious or odd, and something peculiar is strange in just that way."
     },
     "features": {
      "answerInScene": false,
@@ -1349,34 +1351,34 @@
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "PONG",
+     "op": "deletion",
      "indicators": [
       {
        "text": "second half of",
-       "note": "the second half means keep only the latter portion of the name"
+       "at": 9,
+       "note": "only the latter half of the word is kept, so its first half goes"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "game",
-       "gives": "PONG",
-       "select": "last",
-       "note": "the game meant is table tennis under its informal reduplicated name; keep the back half"
+       "at": 24,
+       "gives": "PINGPONG",
+       "note": "ping-pong is a game, another name for table tennis"
+      },
+      {
+       "gives": "PING"
       }
      ]
     },
     "explanation": {
-     "surface": "A bad smell in the second half of a match.",
-     "walkthrough": "A pong is British slang for a bad smell.",
-     "definitionFit": "Pong is informal British for a strong unpleasant smell, a stench."
+     "surface": "Something smells bad during the second half of a match.",
+     "walkthrough": "The game is ping-pong; 'second half of' keeps the latter four letters. Pong is British slang for a bad smell.",
+     "definitionFit": "Pong is informal British English for a strong unpleasant smell, the same thing as a stink."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "game"
     }
    }
