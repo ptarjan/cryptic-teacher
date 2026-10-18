@@ -97,40 +97,27 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DOING",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "moving",
-       "note": "moving shifts the removed letter to a new spot inside the word"
+       "text": "moving tail",
+       "at": 16,
+       "note": "the last letter of the dog's name is shifted to a new position, rearranging the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DOING",
-       "indicators": [
-        {
-         "text": "tail",
-         "note": "the tail of a word is its last letter, which is taken off the end here"
-        }
-       ],
-       "parts": [
-        {
-         "words": "wild dog",
-         "gives": "DINGO",
-         "note": "the dingo is Australia's wild dog"
-        }
-       ]
+       "words": "wild dog",
+       "at": 7,
+       "gives": "DINGO",
+       "note": "the dingo is the wild dog of Australia"
       }
      ]
     },
     "explanation": {
-     "surface": "A lively feral dog wagging its tail.",
-     "walkthrough": "Take the last letter of DINGO and slip it in after the D to get DOING.",
-     "definitionFit": "'Doing' as an adjective can mean happening or in action, as in 'nothing doing', so it matches active."
+     "surface": "An untamed dog is seen wagging its tail.",
+     "walkthrough": "'moving tail' takes the final O of DINGO and shifts it up to second place, after the D, leaving the letters DING around it.",
+     "definitionFit": "Doing can mean busy or happening, as in 'there's plenty doing', so it stands for active."
     },
     "features": {
      "answerInScene": false,
@@ -1848,37 +1835,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a fuss",
-      "at": 41
+      "text": "fuss",
+      "at": 43
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOOHA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "leaving",
-       "note": "a letter leaving the word departs from it, so it is removed"
+       "text": "leading to",
+       "at": 30,
+       "note": "the shortened drink comes first and is followed by the next piece"
       }
      ],
      "parts": [
       {
-       "words": "Caught",
-       "gives": "C",
-       "note": "C is the cricket abbreviation for caught"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 7,
+         "note": "the letter for caught departs from the drink's name, so it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "illegal drink",
+         "at": 15,
+         "gives": "HOOCH",
+         "note": "hooch is slang for illicitly made or smuggled liquor"
+        },
+        {
+         "words": "Caught",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the cricket scorecard abbreviation for caught"
+        }
+       ]
       },
       {
-       "words": "illegal drink",
-       "gives": "HOOCH",
-       "note": "hooch is illicitly made liquor"
+       "words": "a",
+       "at": 41,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Getting caught with bootleg liquor causes a commotion.",
-     "walkthrough": "The final A comes from the definition's own 'a'; 'leading to' joins the wordplay to it, so the article does double duty.",
-     "definitionFit": "A hoo-ha is a commotion or a needless fuss."
+     "surface": "Someone caught with bootleg liquor causes a commotion.",
+     "walkthrough": "C (caught) 'leaving' HOOCH gives HOOH, which is 'leading to' A. HOO-HA is British informal for a commotion.",
+     "definitionFit": "A hoo-ha is a noisy commotion or row over something, a colloquial word for a fuss."
     },
     "features": {
      "answerInScene": true,

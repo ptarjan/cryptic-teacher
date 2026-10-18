@@ -314,59 +314,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 19,
+       "note": "the emptied word takes the other letters inside it"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Songbird",
-       "note": "the printed compound splits: its first half is the definition, its second half the bird used in the next block"
-      },
-      {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "eating",
-         "note": "to eat something is to take it inside, so one piece goes within the other"
+         "text": "exhausted",
+         "at": 9,
+         "note": "exhausted means emptied, so the word is drained of its inner letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "exhausted",
-             "note": "exhausted means emptied out, so only the shell of the word is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "bird",
-             "note": "the word emptied of its middle leaves only its ends"
-            }
-           ]
-          },
-          {
-           "words": "each of",
-           "gives": "ALL",
-           "note": "each of them means all of them"
-          }
-         ]
+         "words": "Songbird",
+         "at": 0,
+         "gives": "BIRD",
+         "note": "the second half of the word, bird, is the piece used here; song is the definition"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "each of",
+         "at": 26,
+         "gives": "ALL",
+         "note": "all, as in 'all of them', means each of"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "at first",
-           "note": "at first points to the opening letter of the word just before it"
+           "at": 39,
+           "note": "the opening letter of ants"
           }
          ],
          "parts": [
           {
            "words": "ants",
-           "note": "the opening letter of the word"
+           "at": 34,
+           "note": "first letter of ants"
           }
          ]
         }
@@ -375,14 +372,14 @@
      ]
     },
     "explanation": {
-     "surface": "A tired songbird swallowing the first ant it comes across.",
-     "walkthrough": "'Songbird' looks like one word, but 'Song' is the definition and 'bird' is wordplay; B and D go around ALL plus A.",
-     "definitionFit": "A ballad is a song, usually slow and narrative or sentimental, telling a story in verse."
+     "surface": "A singing bird, worn out, feeding on ants.",
+     "walkthrough": "'Songbird' reads as one word for a singing bird, but it splits: song is the definition and bird the wordplay. 'each of' gives ALL, as in 'all of them'.",
+     "definitionFit": "A ballad is a song, often a slow sentimental one or a narrative folk song."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Songbird"
+     "misdirectedWord": "exhausted"
     }
    }
   },
@@ -941,46 +938,32 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "OIL",
+     "op": "middle",
      "indicators": [
       {
        "text": "limited",
-       "note": "limited means cut back at its limits, so both edge letters go"
+       "at": 18,
+       "note": "limited means confined, here kept to the inner letters with both ends cut off"
       }
      ],
      "parts": [
       {
        "words": "stews",
+       "at": 26,
        "gives": "BOILS",
-       "note": "to stew something is to boil it slowly"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "OIL",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "stews",
-         "gives": "OIL",
-         "select": "middle",
-         "note": "the inner letters once both ends are trimmed"
-        }
-       ]
+       "note": "to boil is to stew, so stews means boils"
       }
      ]
     },
     "explanation": {
-     "surface": "Something produced by stews kept within reasonable limits.",
-     "walkthrough": "'Well-limited' looks like one compound adjective; split it, and 'well' joins the definition while 'limited' trims the stews.",
-     "definitionFit": "Crude oil is pumped up from an oil well, so it is a product of one."
+     "surface": "A dish of stews is said to be only moderately good.",
+     "walkthrough": "'well-limited' looks like one hyphenated phrase, but 'well' ends the definition and 'limited' trims BOILS at both ends.",
+     "definitionFit": "Oil is the crude petroleum drawn up from an oil well, its product."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "well-limited"
+     "aptDefinition": false,
+     "misdirectedWord": "limited"
     }
    }
   },

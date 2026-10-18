@@ -203,47 +203,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LASVEGAS",
+     "op": "container",
      "indicators": [
       {
-       "text": "Not entirely",
-       "note": "not entirely means one letter, the last, is cut from the following word"
+       "text": "outside",
+       "at": 24,
+       "note": "the word for girl sits outside the shortened word, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "girl",
+       "at": 19,
+       "gives": "LASS",
+       "note": "a lass is a girl, especially in Scotland and northern England"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means the girl's name wraps around the shortened word"
+         "text": "Not entirely",
+         "at": 0,
+         "note": "the word vegan is not given in full, its last letter going"
         }
        ],
        "parts": [
         {
-         "words": "girl",
-         "gives": "LASS",
-         "note": "a lass is a girl"
+         "words": "vegan",
+         "at": 13
         },
         {
-         "words": "vegan",
-         "gives": "VEGA",
-         "note": "the word vegan with its final letter dropped"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl who eats the odd bit of meat stands outside an arcade.",
-     "definitionFit": "Las Vegas in Nevada is the world-famous home of casinos, a city built around gambling."
+     "surface": "A girl who doesn't quite stick to a vegan diet heads for the casinos.",
+     "walkthrough": "The surface makes 'Not entirely vegan' a diet, but it trims vegan to VEGA; LASS goes 'outside' it, and 'gaming area' points to the gambling city.",
+     "definitionFit": "Las Vegas, Nevada, is the American city famed for its casinos and gambling."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gaming"
+     "misdirectedWord": "vegan"
     }
    }
   },
@@ -1134,41 +1138,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERMIGHTY",
-     "indicators": [
-      {
-       "text": "losing head",
-       "note": "losing head means the opening letter of the word is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "about",
+       "at": 13,
+       "gives": "OVER",
+       "note": "over can mean about or concerning, as in 'a row over money'"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gets round",
+         "at": 46,
+         "note": "the letters of My go around the shortened word, enclosing it"
+        }
+       ],
        "parts": [
         {
-         "words": "about",
-         "gives": "OVER",
-         "note": "over can mean about, concerning"
+         "words": "My",
+         "at": 39,
+         "gives": "MY"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "gets round",
-           "note": "the exclamation gets round, so surrounds, the beheaded word, referred to as it"
+           "text": "losing head",
+           "at": 26,
+           "note": "the word right drops its first letter"
           }
          ],
          "parts": [
           {
-           "words": "My!",
-           "note": "taken as written"
+           "words": "right",
+           "at": 19
           },
           {
-           "words": "right",
-           "gives": "IGHT",
-           "note": "the word right without its first letter"
+           "gives": "R"
           }
          ]
         }
@@ -1177,14 +1185,14 @@
      ]
     },
     "explanation": {
-     "surface": "An excited cry that something domineering has just turned to the right.",
-     "walkthrough": "'It' stands for the headless right just described, which goes inside MY.",
-     "definitionFit": "Overmighty describes someone with excessive power, too strong for others' good, like an overmighty baron."
+     "surface": "An exclamation at someone too pushy about being right, spinning around.",
+     "walkthrough": "'My!' reads as an exclamation, but its two letters are wordplay: they wrap around right after 'losing head', giving MIGHTY. The word is often used historically of over-powerful nobles.",
+     "definitionFit": "Overmighty describes a person or body that has excessive power, especially an over-powerful subject of a monarch."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "round"
+     "misdirectedWord": "My"
     }
    }
   },

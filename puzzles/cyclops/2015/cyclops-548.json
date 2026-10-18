@@ -171,66 +171,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VARIABLE",
+     "indicators": [
+      {
+       "text": "trapped in",
+       "at": 31,
+       "note": "the rearranged name is held inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "VARIABLE",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "state",
+         "at": 42,
+         "gives": "VA",
+         "note": "VA is the postal abbreviation for the US state of Virginia"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "squirming",
-           "note": "Squirming is wriggling out of shape, so BLAIR's letters twist into a new order."
+           "text": "initially",
+           "at": 56,
+           "note": "the opening letter of enquiry"
           }
          ],
          "parts": [
           {
-           "words": "state",
-           "gives": "VA",
-           "note": "VA is the postal abbreviation for the US state of Virginia."
-          },
-          {
-           "words": "Blair",
-           "note": "BLAIR's letters, squirming into a new order."
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "trapped in",
-             "note": "Trapped in means held inside."
-            },
-            {
-             "text": "initially",
-             "note": "Initially points to the start of the word, taking only its opening letter."
-            }
-           ],
-           "parts": [
-            {
-             "words": "enquiry",
-             "note": "The first letter of enquiry."
-            }
-           ]
+           "words": "enquiry",
+           "at": 48,
+           "note": "first letter of enquiry"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "squirming",
+         "at": 20,
+         "note": "squirming means wriggling about, so the letters of Blair are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blair",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair wriggling under questioning at a state inquiry, with a mysterious 'X' in the frame.",
-     "walkthrough": "'State enquiry' reads as a public inquiry of the kind Blair faced over Iraq, but it splits in two: 'state' is VA, and 'enquiry' gives only its initial E.",
-     "definitionFit": "In algebra X is the classic name for a variable, the unknown quantity; 'Maybe' flags it as an example."
+     "surface": "Tony Blair writhes when caught up in an official inquiry, a nod to the Chilcot inquiry into the Iraq war.",
+     "walkthrough": "'squirming' turns BLAIR into RIABL, which is 'trapped in' VA plus E, the start of enquiry 'initially'. In algebra x is the standard symbol for an unknown.",
+     "definitionFit": "In algebra x is the usual symbol for an unknown quantity that can take different values, a variable."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "state"
+     "misdirectedWord": "X"
     }
    }
   },
@@ -866,38 +869,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "motley",
-       "note": "Motley means jumbled and multicoloured, so the letters of 'his' come out mixed."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "took off",
+       "at": 34,
+       "gives": "LEFT",
+       "note": "left is the past of leave, meaning took off or departed"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "motley",
+         "at": 47,
+         "note": "motley means jumbled and varied, so the letters of his are mixed up"
+        }
+       ],
        "parts": [
         {
-         "words": "took off",
-         "gives": "LEFT",
-         "note": "To take off is to leave, past tense LEFT."
-        },
-        {
          "words": "his",
-         "note": "HIS rearranged."
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old-school socialist stripping off his jester's costume.",
-     "walkthrough": "'Took off his motley' reads as undressing, since motley is the jester's costume, but it splits into LEFT and a jumble of HIS.",
-     "definitionFit": "Leftish means somewhat left-wing, the leaning of old-style socialists as opposed to New Labour."
+     "surface": "An old-style left-winger is pictured shedding a jester's costume.",
+     "walkthrough": "'took off his motley' reads as undressing, since motley is the jester's costume, but 'took off' means departed and 'motley' signals a jumble.",
+     "definitionFit": "Leftish means somewhat left-wing, the leaning of an old-fashioned Socialist."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "motley"
     }
    }
@@ -1088,37 +1094,33 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PLIGHT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "for",
-       "note": "For means in place of, so the penny takes the following letter's spot."
+       "text": "following",
+       "at": 5,
+       "note": "the word for fair comes after the letter for penny"
       }
      ],
      "parts": [
       {
-       "words": "following",
-       "gives": "F",
-       "note": "F is the abbreviation for following, as in 'p. 3f'; it is the letter swapped out."
-      },
-      {
-       "words": "Penny",
+       "words": "for Penny",
+       "at": 15,
        "gives": "P",
-       "note": "P is the abbreviation for a penny, and it goes in where the F was."
+       "note": "p is what stands for a penny in British money"
       },
       {
        "words": "Fair",
+       "at": 0,
        "gives": "LIGHT",
-       "note": "Fair hair or skin is light."
+       "note": "fair hair or skin is light in colour"
       }
      ]
     },
     "explanation": {
-     "surface": "A crude joke about a woman named Penny and a body part.",
-     "walkthrough": "'Penny's hole' is the smut, but the 's is 'is' and 'hole' is the definition. F plus LIGHT makes FLIGHT before the P swaps in.",
-     "definitionFit": "Being 'in a hole' is the idiom for being stuck in difficulties, and a plight is exactly that kind of dangerous or awkward situation."
+     "surface": "A smutty suggestion of what is fair game for a woman called Penny.",
+     "walkthrough": "'hole' is slang for a fix, as in 'in a hole'. LIGHT comes 'following' P, the abbreviation for a penny in British currency.",
+     "definitionFit": "A plight is a difficult or unfortunate situation, the kind of predicament called being in a hole."
     },
     "features": {
      "answerInScene": false,
