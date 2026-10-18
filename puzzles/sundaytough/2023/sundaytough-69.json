@@ -221,49 +221,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UTTERER",
+     "op": "composite",
      "indicators": [
       {
        "text": "Breaking",
-       "note": "breaking something smashes it apart so the letters can be rebuilt in a different order"
+       "at": 0,
+       "note": "breaking the old hearing aid smashes its letters into a new order"
+      },
+      {
+       "text": "missed",
+       "at": 35,
+       "note": "the named letters are left out of the rearranged pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UTTERER",
-       "indicators": [
-        {
-         "text": "missed",
-         "note": "whatever is missed is left out, so those letters disappear from the source"
-        }
-       ],
+       "words": "ear trumpet",
+       "at": 9
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "ear trumpet",
-         "note": "taken as written"
+         "words": "a",
+         "at": 22,
+         "gives": "A"
         },
         {
-         "words": "a politician",
-         "gives": "AMP",
-         "note": "A plus MP, a Member of Parliament; these letters are removed"
+         "words": "politician",
+         "at": 24,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone smashes an old hearing aid, and a politician misses a speaker's words.",
-     "walkthrough": "The A and the M and P are struck out of EAR TRUMPET separately, leaving ERTRUET to be rearranged.",
-     "definitionFit": "An utterer is literally a person who utters, that is, says words aloud or voices something."
+     "surface": "Someone breaks an ear trumpet and a politician fails to hear a speaker.",
+     "walkthrough": "From the letters of EAR TRUMPET, 'missed' takes out A and MP, leaving ERTRUET, which 'Breaking' rearranges.",
+     "definitionFit": "An utterer is a person who utters, that is who says something aloud."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Breaking"
+     "misdirectedWord": "missed"
     }
    }
   },
@@ -288,40 +290,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DECREPIT",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "cutting something short trims its tail, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 4,
+         "note": "the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Act",
-         "gives": "DECRE",
-         "note": "an act of law is a decree, losing its last letter"
+         "at": 0,
+         "gives": "DECREE",
+         "note": "a decree is an official act or order"
         },
         {
-         "words": "depression",
-         "gives": "PIT",
-         "note": "a pit is a hollow or depression in the ground"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "depression",
+       "at": 14,
+       "gives": "PIT",
+       "note": "a pit is a hollow or depression in the ground"
       }
      ]
     },
     "explanation": {
-     "surface": "A performance ends early because of low spirits, as the performer is getting old.",
-     "walkthrough": "'Depression' suggests low mood, but it is the physical hollow. 'Past it' is the definition, idiomatic for too old to cope.",
-     "definitionFit": "Someone who is past it is worn out by age, and decrepit describes exactly that feeble, aged condition."
+     "surface": "A cut-down act leaves someone feeling low and over the hill.",
+     "walkthrough": "'depression' reads as low mood in the surface, but it is a hollow in the ground; 'past it' is the definition, not a link to the wordplay.",
+     "definitionFit": "Past it is an informal idiom for being too old to do things well, which describes something decrepit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "depression"
     }
@@ -348,38 +354,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EWES",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost all of something means it stops just short, dropping the final letter"
+       "text": "over",
+       "at": 11,
+       "note": "in a down clue, over says the letters are read back up the column"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, flipping over turns the letters to run the other way"
+         "text": "Almost",
+         "at": 0,
+         "note": "the word is cut by its final letter"
         }
        ],
        "parts": [
         {
          "words": "ran",
-         "gives": "SEWE",
-         "note": "to run up a seam is to sew it, so 'ran' is SEWED, cut short"
+         "at": 7,
+         "gives": "SEWED",
+         "note": "to run up a garment is to sew it, so ran can mean sewed"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver nearly runs over some farm animals.",
-     "walkthrough": "'Ran over' paints a road accident, but 'ran' is the needlework sense of running a quick seam, giving SEWED before the trim.",
-     "definitionFit": "Ewes are female sheep, and sheep kept on a farm are a common kind of livestock."
+     "surface": "A driver nearly ran over some farm animals.",
+     "walkthrough": "'Almost' trims SEWED to SEWE, and 'over' reads that backwards.",
+     "definitionFit": "Ewes are female sheep, and sheep are farm animals kept as livestock."
     },
     "features": {
      "answerInScene": true,
@@ -1440,42 +1450,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STAMPEDE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter is chopped off"
+       "text": "mixing",
+       "at": 5,
+       "note": "a sound engineer mixing tapes blends them, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "mixing",
-         "note": "mixing stirs things together so the letters come out in a new order"
+         "text": "endless",
+         "at": 12,
+         "note": "the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "demo",
-         "gives": "DEM",
-         "note": "the word loses its final letter"
+         "at": 20
         },
         {
-         "words": "tapes",
-         "note": "taken as written"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "tapes",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A hurried studio session mixing an unfinished band's demo recordings.",
-     "walkthrough": "'Mixing' fits the recording-studio picture, which hides that it shuffles the letters.",
-     "definitionFit": "A stampede is a sudden headlong rush of a crowd or herd, so it is a rush as a noun."
+     "surface": "A sound engineer hurriedly mixes some demo tapes that never seem to end.",
+     "walkthrough": "'endless' cuts DEMO to DEM; 'mixing' rearranges DEM and TAPES together.",
+     "definitionFit": "A stampede is a sudden headlong charge by a crowd or herd, which is a rush."
     },
     "features": {
      "answerInScene": false,
@@ -1505,54 +1517,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOFU",
-     "indicators": [
-      {
-       "text": "Not half",
-       "note": "not half means only half survives, so the rest of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not half",
+         "at": 30,
+         "note": "half the letters of the word, the last three, are dropped"
+        }
+       ],
        "parts": [
         {
          "words": "sweet",
-         "gives": "TOF",
-         "note": "a toffee is a sweet; only its first half is kept"
+         "at": 23,
+         "gives": "TOFFEE",
+         "note": "toffee is a sweet, a piece of confectionery"
         },
         {
-         "op": "homophone",
-         "spelt": "U",
-         "indicators": [
-          {
-           "text": "you said",
-           "note": "something said is spoken, so the word is taken by its sound rather than its spelling"
-          }
-         ],
-         "parts": [
-          {
-           "words": "you",
-           "gives": "YOU",
-           "note": "the letter U is pronounced like the word"
-          }
-         ]
+         "gives": "FEE"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "said",
+         "at": 44,
+         "note": "spoken aloud, the word sounds like a single letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 40,
+         "note": "the word is said aloud and sounds like the letter U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told an Asian food is sweet and replies 'Not half!'",
-     "walkthrough": "'Not half' is British slang for 'very much so', but here it chops TOFFEE in half. Sweet means a piece of confectionery in Britain.",
-     "definitionFit": "Tofu is bean curd made from soya milk, a staple food in Chinese and Japanese cooking."
+     "surface": "Someone asks whether an Asian food is sweet and gets the emphatic reply 'not half!'",
+     "walkthrough": "'Not half' takes FEE from TOFFEE, leaving TOF; 'you said' gives U. 'Not half' is also British slang for 'very much so'.",
+     "definitionFit": "Tofu is bean curd, a food made from soya that originated in China and is common across East Asia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sweet"
+     "joke": "pun",
+     "misdirectedWord": "half"
     }
    }
   },

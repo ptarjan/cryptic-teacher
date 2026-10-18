@@ -296,44 +296,32 @@
      "parts": [
       {
        "words": "Won",
+       "at": 0,
        "gives": "GOT",
        "note": "to have won something is to have got it"
       },
       {
        "words": "work",
+       "at": 4,
        "gives": "OP",
        "note": "OP is short for opus, a work"
       },
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "last two pieces of apricot",
+       "at": 14,
        "gives": "OT",
-       "indicators": [
-        {
-         "text": "last two pieces of",
-         "note": "the final pair of pieces means only the closing couple of letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "apricot",
-         "gives": "OT",
-         "select": "last",
-         "note": "the closing pair of letters of 'apricot'"
-        }
-       ]
+       "note": "the final two letters of the word apricot"
       }
      ]
     },
     "explanation": {
-     "surface": "A baker wins with a fruit crumble, its last two pieces of apricot on show.",
-     "walkthrough": "'Apricot crumble' looks like a dessert, but 'crumble' is the definition, used as a verb meaning decay. The wordplay chunks cut across the three words of the answer.",
-     "definitionFit": "To go to pot is an idiom for falling into ruin or decay, which is what something does when it crumbles."
+     "surface": "Someone wins a prize and celebrates with the last of the apricot crumble.",
+     "walkthrough": "'crumble' looks like the pudding but is a verb: to go to pot is to fall apart.",
+     "definitionFit": "To go to pot is an idiom for deteriorating or falling into ruin, which is what crumbling does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "crumble"
     }
@@ -941,53 +929,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASTROLABE",
+     "op": "composite",
      "indicators": [
       {
        "text": "built from",
-       "note": "building from raw materials puts them together in a new arrangement"
+       "at": 11,
+       "note": "the instrument is put together out of a rearrangement of the letters of the following word"
+      },
+      {
+       "text": "removed",
+       "at": 29,
+       "note": "says the named letters are taken away from that word's letters before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASTROLABE",
-       "indicators": [
-        {
-         "text": "removed from",
-         "note": "taking something away from a word leaves it short of those letters"
-        }
-       ],
+       "words": "laboratories",
+       "at": 42
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "laboratories",
-         "note": "the letters as written"
-        },
-        {
          "words": "gold",
+         "at": 22,
          "gives": "OR",
-         "note": "or is gold in heraldry"
+         "note": "OR is the heraldic word for gold"
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A device made in a lab from gold, with one scientist stepping away.",
-     "walkthrough": "Removing OR and I from LABORATORIES leaves nine letters, which are rearranged.",
-     "definitionFit": "An astrolabe is an ancient astronomical device for measuring the altitude of stars, so it is a scientific instrument."
+     "surface": "A scientific instrument is assembled after the gold and one item are taken out of the labs.",
+     "walkthrough": "Take OR and I out of the letters of LABORATORIES and rearrange the nine that are left.",
+     "definitionFit": "An astrolabe is an old navigational and astronomical device for measuring the altitude of stars."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "built"
+     "misdirectedWord": "removed"
     }
    }
   },
@@ -1126,50 +1111,61 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HEARTEN",
-     "indicators": [
-      {
-       "text": "mostly replaced by",
-       "note": "most of the word is swapped out for something else, leaving only its first part"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Try",
+       "at": 0,
        "gives": "HEAR",
-       "note": "a judge will try or hear a case"
+       "note": "a judge hears a case, that is tries it"
       },
       {
-       "words": "Tetris",
-       "note": "the name of the puzzle game, as written, before most of it is swapped out"
-      },
-      {
-       "op": "first",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "debut of",
-         "note": "a debut is a first appearance, so only the opening letter is wanted"
+         "text": "mostly replaced by",
+         "at": 12,
+         "note": "most of the word, all but its first two letters, is swapped out for what follows"
         }
        ],
        "parts": [
         {
-         "words": "Nintendo",
-         "note": "the opening letter of 'Nintendo'"
+         "words": "Tetris",
+         "at": 4,
+         "note": "the video game, taken as written before the swap"
+        },
+        {
+         "gives": "TRIS"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "debut of",
+           "at": 31,
+           "note": "the first appearance, so the opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nintendo",
+           "at": 40,
+           "note": "the games company's name, whose first letter is N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Play Tetris, now mostly superseded by Nintendo's first games machine.",
-     "walkthrough": "'Console' looks like a games console, but it is the verb meaning comfort. TRIS, the bigger part of TETRIS, gives way to N.",
-     "definitionFit": "To hearten someone is to cheer and encourage them, which is what one does when comforting a person in distress."
+     "surface": "A gamer plays Tetris but mostly switches to a Nintendo games console.",
+     "walkthrough": "'console' looks like the games machine but is a verb meaning to comfort. TETRIS loses TRIS for the N of Nintendo, leaving TEN.",
+     "definitionFit": "To console someone and to hearten them both mean to cheer up and encourage."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "console"
     }
@@ -1655,45 +1651,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COALESCE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "giving away",
-       "note": "giving something away means no longer having it, so those letters are dropped"
+       "text": "add",
+       "at": 32,
+       "note": "puts the next letter on the end"
       }
      ],
      "parts": [
       {
        "words": "fuel",
+       "at": 6,
        "gives": "COAL",
        "note": "coal is a fuel"
       },
       {
-       "words": "Tesco",
-       "note": "Tesco is the largest British supermarket chain"
-      },
-      {
-       "words": "to",
-       "note": "taken as written"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "giving away",
+         "at": 17,
+         "note": "the supermarket's name surrenders some of its letters, here the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tesco",
+         "at": 11,
+         "note": "the UK supermarket chain, taken as written"
+        },
+        {
+         "words": "to",
+         "at": 29
+        }
+       ]
       },
       {
        "words": "energy",
+       "at": 36,
        "gives": "E",
        "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "A supermarket chain hands out a fuel blend with added energy.",
-     "walkthrough": "Tesco is Britain's biggest supermarket, which sells fuel at its stations. Taking TO out of it leaves ESC.",
-     "definitionFit": "To coalesce is to come together and merge into a single whole, which is to combine or mix."
+     "surface": "A shopper mixes fuel bought at Tesco, a British supermarket, which gives some away to boost energy.",
+     "walkthrough": "Tesco gives away the letters of 'to', leaving ESC; the 'to' that looks like a link word is the removed piece.",
+     "definitionFit": "To coalesce is to come together and merge into a single mass, a synonym of blend."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "giving"
+     "misdirectedWord": "to"
     }
    }
   },

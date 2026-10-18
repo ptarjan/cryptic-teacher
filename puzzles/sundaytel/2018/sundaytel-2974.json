@@ -848,51 +848,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GEOMETER",
-     "indicators": [
-      {
-       "text": "cracked",
-       "note": "something cracked is broken up, so the remaining letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "GEOMETER",
        "indicators": [
         {
          "text": "having come back",
-         "note": "coming back means travelling the opposite way, so the abbreviation is read backwards"
+         "at": 28,
+         "note": "coming back means the abbreviation is read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for example",
+         "at": 15,
+         "gives": "EG",
+         "note": "EG is the abbreviation of exempli gratia, for example"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cracked",
+         "at": 49,
+         "note": "something cracked is broken apart, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "GEOMETER",
          "indicators": [
           {
-           "text": "not hard",
-           "note": "says the pencil-grade letter for hard must be dropped"
+           "text": "not",
+           "at": 66,
+           "note": "the bracketed 'not' tells us to leave out the letter for hard"
           }
          ],
          "parts": [
           {
-           "words": "for example",
-           "gives": "EG",
-           "note": "the abbreviation e.g."
-          },
-          {
            "words": "theorem",
-           "note": "taken as written"
+           "at": 57
           },
           {
            "words": "hard",
+           "at": 70,
            "gives": "H",
-           "note": "H for hard, as on pencils"
+           "note": "H is the pencil-grading abbreviation for hard"
           }
          ]
         }
@@ -901,8 +905,9 @@
      ]
     },
     "explanation": {
-     "surface": "A mathematician, say, returns having solved a theorem that turned out not to be difficult.",
-     "definitionFit": "A geometer is a specialist in geometry, a branch of mathematics."
+     "surface": "A mathematician returns, for instance, having finally cracked a theorem that was not hard after all.",
+     "walkthrough": "'having come back' turns EG into GE; 'not' drops the H of THEOREM, and 'cracked' rearranges the remaining TEOREM into OMETER.",
+     "definitionFit": "A geometer is a specialist in geometry, a branch of mathematics, so one kind of mathematician."
     },
     "features": {
      "answerInScene": true,
@@ -1046,31 +1051,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NUCLEUS",
-     "indicators": [
-      {
-       "text": "having upset top couple",
-       "note": "upsetting the top two letters of a down word turns that pair upside down, swapping their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "family member",
-       "gives": "UNCLE",
-       "note": "a parent's brother"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having upset top couple",
+         "at": 19,
+         "note": "the first two letters of the relative are turned upside down, which in a down clue means they swap order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "family member",
+         "at": 5,
+         "gives": "UNCLE",
+         "note": "an uncle is a member of the family"
+        },
+        {
+         "gives": "UN"
+        },
+        {
+         "gives": "NU"
+        }
+       ]
       },
       {
        "words": "me, royally",
+       "at": 47,
        "gives": "US",
-       "note": "the royal 'we', so 'me' becomes us"
+       "note": "the royal 'we' uses us in place of me"
       }
      ]
     },
     "explanation": {
-     "surface": "A central relative has offended the leading couple and the monarch.",
-     "definitionFit": "A nucleus is the central part or core around which other things gather."
+     "surface": "A relative at the heart of the family turns things upside down, speaking of himself like a monarch.",
+     "walkthrough": "'having upset top couple' flips the first two letters of UNCLE to give NUCLE; a monarch says 'us' where others say 'me'.",
+     "definitionFit": "A nucleus is the central part of something, such as an atom or a cell, so its core."
     },
     "features": {
      "answerInScene": false,

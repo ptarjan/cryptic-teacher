@@ -303,26 +303,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "REALM",
      "indicators": [
       {
        "text": "Switching sides near the end",
-       "note": "trading one side for the other means right becomes left, at a letter close to the finish"
+       "at": 0,
+       "note": "the sides are right and left; near the end of the word the letter for right becomes the letter for left"
       }
      ],
      "parts": [
       {
        "words": "give new weapons",
+       "at": 30,
        "gives": "REARM",
-       "note": "to supply fresh arms is to rearm"
+       "note": "to rearm is to supply with weapons again"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A military report: a kingdom changing allies late in a war and re-equipping its forces.",
-     "walkthrough": "R and L are the usual abbreviations for right and left; the R near the end of the word, not the first one, becomes L.",
-     "definitionFit": "A realm is the territory ruled by a monarch, so it is a straightforward synonym for a kingdom."
+     "surface": "A defector near the close of a war rearms a realm.",
+     "walkthrough": "'Switching sides near the end' means swap right for left: only the second R, the one near the end of REARM, is switched to L; the first stays.",
+     "definitionFit": "A realm is a country ruled by a monarch, which is what a kingdom is."
     },
     "features": {
      "answerInScene": true,
@@ -353,58 +359,59 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EQUINOX",
      "indicators": [
       {
        "text": "roaming",
-       "note": "roaming means wandering about, so the letters move out of their order"
+       "at": 38,
+       "note": "letters that roam wander from their places, so the pool is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EQUINOX",
+       "op": "last",
        "indicators": [
         {
-         "text": "wasting",
-         "note": "to waste something is to lose it, so a letter is dropped"
+         "text": "In the end",
+         "at": 0,
+         "note": "the end of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "In the end",
-           "note": "the end of a word is its final letter, so only that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Don",
-           "note": "the final letter of the name"
-          }
-         ]
-        },
+         "words": "Don",
+         "at": 12,
+         "note": "the Spanish title, whose final letter is N"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wasting",
+         "at": 24,
+         "note": "wasting away means losing something, here the letter for time"
+        }
+       ],
+       "parts": [
         {
          "words": "Quixote",
-         "note": "taken as written"
+         "at": 16,
+         "note": "Cervantes' hero, taken as written"
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T is the standard abbreviation for time, and it is removed"
+         "at": 32,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cervantes' knight, at his story's close, idles and wanders as autumn arrives.",
-     "walkthrough": "Don Quixote reads as one name, but 'Don' gives only its last letter and 'Quixote' loses its T before the shuffle.",
-     "definitionFit": "The two annual points where day and night are equal mark the boundary between seasons, such as summer turning to autumn."
+     "surface": "Don Quixote finally finishes wasting his time wandering as the season draws to a close.",
+     "walkthrough": "'Don Quixote' looks like one name, but the two words split: 'In the end' takes the N of Don, and 'wasting' removes the T from QUIXOTE, leaving QUIXOE to join N for 'roaming'.",
+     "definitionFit": "An equinox, in March or September, marks the astronomical end of winter or summer and the start of spring or autumn."
     },
     "features": {
      "answerInScene": false,
@@ -598,40 +605,40 @@
      "indicators": [
       {
        "text": "awful",
-       "note": "something awful is in a bad state, so these letters are thrown into disorder"
+       "at": 21,
+       "note": "an awful arrangement is a mess, so the letters are jumbled"
       }
      ],
      "parts": [
       {
        "words": "cad",
-       "note": "taken as written"
+       "at": 27
       },
       {
-       "op": "regular",
-       "unchecked": true,
-       "gives": "ALUR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "regularly lacking",
-         "note": "missing at regular intervals means every third letter falls away while the rest stay"
+         "at": 43,
+         "note": "the word loses letters at a regular interval, here every third one"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "allure",
-         "gives": "ALUR",
-         "select": "regular",
-         "note": "the third and sixth letters are dropped"
+         "at": 36
+        },
+        {
+         "gives": "LE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to steer clear of a charmless nobleman, a rotter without appeal.",
-     "walkthrough": "Here 'regularly' removes every third letter rather than every other one.",
-     "definitionFit": "Bram Stoker's vampire is a Transylvanian count, a nobleman best kept well away from, especially after dark."
+     "surface": "Warning about a dreadful bounder with charm whose appeal comes and goes.",
+     "walkthrough": "'regularly lacking' strips every third letter of ALLURE, leaving ALUR; with CAD, 'awful' rearranges the seven letters.",
+     "definitionFit": "Count Dracula, Bram Stoker's vampire nobleman, is an aristocrat anyone sensible would steer clear of."
     },
     "features": {
      "answerInScene": true,
