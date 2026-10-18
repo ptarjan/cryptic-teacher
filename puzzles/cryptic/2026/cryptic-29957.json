@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -296,41 +297,41 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "top of",
-       "note": "The top of a word is the letter it starts with, and that single letter is all this asks for."
+       "text": "elevated",
+       "at": 41,
+       "note": "in a down clue, elevated means the whole string is lifted to read from bottom to top"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "elevated",
-         "note": "Something elevated has been lifted, and in a down entry lifting the letters makes them read from the bottom of the column upwards."
-        }
-       ],
        "parts": [
         {
          "words": "Food shop",
+         "at": 0,
          "gives": "DELI",
-         "note": "a deli sells cold meats and cheese, which makes it a food shop"
+         "note": "a deli, short for delicatessen, is a shop selling prepared foods"
         },
         {
          "words": "cross",
+         "at": 15,
          "gives": "X",
-         "note": "x = cross, the mark made on a ballot paper"
+         "note": "X is the shape of a cross"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "top of",
+           "at": 24,
+           "note": "top of takes just the opening letter of the word that follows"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "top of entrance",
-           "gives": "E",
-           "select": "first",
-           "note": "the first letter of ENTRANCE"
+           "words": "entrance",
+           "at": 31,
+           "note": "first letter of entrance"
           }
          ]
         }
@@ -339,14 +340,14 @@
      ]
     },
     "explanation": {
-     "surface": "A delicatessen with a cross above the door, up high, and shutters over the windows.",
-     "walkthrough": "'Barred' is the trap: it sounds like the bars on a shop front and means shut out of a country. Read the assembly from the bottom of the column and the whole thing turns over at once.",
-     "definitionFit": "Somebody exiled has been barred from their own country, banishment being the strongest form of being shut out."
+     "surface": "A delicatessen with a cross over its doorway has been raised up and boarded shut.",
+     "walkthrough": "In a down entry 'elevated' turns DELI, X and E (the top of 'entrance') to read upwards.",
+     "definitionFit": "Someone exiled is barred from their homeland, banished and forbidden to return."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "barred"
+     "misdirectedWord": "elevated"
     }
    }
   },
@@ -922,37 +923,38 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "UNKEMPT",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 31,
+       "note": "out tells us the letters of the word dry are taken out of the phrase before it, one by one"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNKEMPT",
-       "indicators": [
-        {
-         "text": "out",
-         "note": "Letters told to come out are taken away from the string they were part of, leaving the rest standing."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "drunk, empty",
-         "note": "the two words run together into one string of ten letters"
+         "words": "drunk",
+         "at": 13
         },
         {
-         "words": "Dry",
-         "note": "the three letters of DRY are what leave: the D and R that open the string and the Y that closes it"
+         "words": "empty",
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "Dry",
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk with an empty glass being ordered to sober up.",
-     "walkthrough": "'Dry out!' reads as advice to the drunk and is the instruction to lose three letters. Nothing is shuffled afterwards — what is left already stands in the right order. Kempt is the old past participle of comb, so unkempt hair is uncombed.",
-     "definitionFit": "Unkempt means uncombed and untidy, which of a person or their hair is dishevelled."
+     "surface": "A scruffy drinker, drunk and with an empty glass, is told to sober up.",
+     "walkthrough": "'Dry out!' looks like advice to the drunk; instead the letters D, R and Y are lifted out of DRUNKEMPTY, leaving the rest in order.",
+     "definitionFit": "Unkempt means untidy and uncared for in appearance, especially of hair, the same as dishevelled."
     },
     "features": {
      "answerInScene": true,
@@ -1318,50 +1320,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "is not",
-      "at": 32
+      "text": "is not common",
+      "at": 32,
+      "note": "the answer is a common, meaning non-standard, way of saying is not"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "gone",
+       "at": 27,
+       "note": "gone says the letter for fellow has left the word for collapse"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "gone",
-         "note": "What has gone is no longer there, so the letter named just before it comes out of the word it was in."
-        }
-       ],
-       "parts": [
-        {
-         "words": "To collapse",
-         "gives": "FAINT",
-         "note": "to faint is to collapse in a heap"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "f = fellow, as in Fellow of the Royal Society"
-        }
-       ]
+       "words": "To collapse",
+       "at": 0,
+       "gives": "FAINT",
+       "note": "to faint is to collapse from losing consciousness"
       },
       {
-       "unchecked": true,
-       "words": "common",
-       "note": "no letters from this one: it is the setter's register label, marking the answer as vulgar speech rather than standard English"
+       "words": "fellow's",
+       "at": 18,
+       "gives": "F",
+       "note": "F is the standard abbreviation for fellow, with the 's reading as 'is' before gone"
       }
      ]
     },
     "spelling": "AIN'T",
     "explanation": {
-     "surface": "Somebody keeling over once the fellow has left, which is nothing unusual.",
-     "walkthrough": "The last word is not part of the definition: it marks the register, telling you the two words wanted are run together the way the grammar books disapprove of. 'Fellow' is the F of FRS.",
-     "definitionFit": "Ain't is the contraction that stands in for 'is not' — and for am not and are not — in speech that no style guide will have."
+     "surface": "Someone says fainting once a friend has left is not unusual.",
+     "walkthrough": "'common' here means vulgar or non-standard, not frequent: the contraction is a colloquial form of 'is not'.",
+     "definitionFit": "Ain't is an informal, non-standard contraction used for is not, are not or am not."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "common"
     }
    }
@@ -1434,47 +1431,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SILD",
-     "indicators": [
-      {
-       "text": "brought up",
-       "note": "In a down entry what is brought up is read from the bottom of the column towards the top, so these two letters change places."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "at": 8,
+         "note": "in a down clue, brought up means the word is is read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
          "words": "is",
-         "gives": "SI",
-         "note": "the two letters of IS, hauled up the column the other way round"
-        },
-        {
-         "words": "line",
-         "gives": "L",
-         "note": "l = line, as on a map or a railway timetable"
-        },
-        {
-         "words": "depth",
-         "gives": "D",
-         "note": "d = depth, the third dimension after length and width"
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 22,
+       "gives": "L"
+      },
+      {
+       "words": "depth",
+       "at": 30,
+       "gives": "D",
+       "note": "D is the abbreviation for depth, one of the dimensions"
       }
      ]
     },
     "explanation": {
-     "surface": "A fish hauled up on a line from deep water.",
-     "walkthrough": "'Is' is not joinery here: it is two letters of the answer, turned round. A sild is a young herring, the Norwegian word, and it reaches Britain in tins.",
-     "definitionFit": "A sild is a small young herring, the Scandinavian fish sold tinned in oil or tomato sauce."
+     "surface": "A fish is hauled up on a line from deep water.",
+     "walkthrough": "In a down entry 'brought up' turns IS into SI, followed by L and D.",
+     "definitionFit": "Sild are young herrings, small fish usually canned in Norway."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "line"
     }
    }
   },
@@ -1502,24 +1498,17 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "dispose of top",
-       "note": "To dispose of something is to get rid of it, and the top of a word is the letter it begins with, so that first letter goes."
+       "text": "to dispose of top",
+       "at": 7,
+       "note": "to dispose of top means the opening letter of the word for forced is thrown away"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Forced",
+       "at": 0,
        "gives": "DRIVEN",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Forced",
-         "gives": "DRIVEN",
-         "select": "first",
-         "note": "a driven person is forced along, by circumstance or by somebody else"
-        }
-       ]
+       "note": "to be driven is to be forced or compelled"
       },
       {
        "gives": "D"
@@ -1527,14 +1516,14 @@
      ]
     },
     "explanation": {
-     "surface": "Being made to throw away the prime cut of meat.",
-     "walkthrough": "'Top cut' reads as the butcher's best joint and has to come apart, one word giving an instruction and the other the definition. Riven means split — a tree riven by lightning, a party riven by argument.",
-     "definitionFit": "Something riven has been torn or split apart, which is to say cut in two."
+     "surface": "Someone was made to throw out the uppermost cut.",
+     "walkthrough": "'Forced' gives DRIVEN, and dropping its top letter leaves the answer.",
+     "definitionFit": "Riven means split or torn apart, an old past participle of rive, to cleave."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "top"
+     "misdirectedWord": "Forced"
     }
    }
   },

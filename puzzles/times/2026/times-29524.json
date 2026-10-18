@@ -297,41 +297,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FREEASSOCIATION",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "but not",
+       "at": 41,
+       "note": "but not says a letter for the next word is to be left out of the letter pool"
+      },
+      {
+       "text": "relaxing",
+       "at": 54,
+       "note": "relaxing suggests loosening up the rigid order of the letters so they can be rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "FREEASSOCIATION",
-       "indicators": [
-        {
-         "text": "but not"
-        },
-        {
-         "text": "relaxing",
-         "note": "the letters loosen and fall into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "on sofa is creative",
-         "note": "fodder, before V is removed"
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "V = very; this letter is taken out"
-        }
-       ]
+       "words": "on sofa is creative",
+       "at": 20
+      },
+      {
+       "words": "very",
+       "at": 49,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "A therapy session on the couch that is inventive but hardly restful.",
-     "walkthrough": "The sofa is the psychoanalyst's couch, so the whole clue feels like a definition. Remove V from ONSOFAISCREATIVE and the other fifteen letters rearrange.",
-     "definitionFit": "Free association is the psychoanalytic technique of saying whatever comes to mind, done in therapy sessions."
+     "surface": "A patient on the couch is enjoying an inventive therapy session, though not a very restful one.",
+     "walkthrough": "Take the letters of ON SOFA IS CREATIVE, remove the V that 'but not very' asks for, leaving ONSOFAISCREATIE, and 'relaxing' rearranges those fifteen letters.",
+     "definitionFit": "Free association is the psychoanalytic technique in which a patient voices whatever thoughts arise, used in a therapy session."
     },
     "features": {
      "answerInScene": true,
@@ -534,47 +528,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "one present",
-      "at": 35
+      "text": "present",
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ATTENDEE",
      "indicators": [
       {
        "text": "replacing",
-       "note": "to replace one thing with another is to swap it out, so one letter leaves and a new piece stands in its place"
+       "at": 7,
+       "note": "replacing with tells us one letter of the name is swapped out for another word"
       }
      ],
      "parts": [
       {
        "words": "Old PM",
+       "at": 0,
        "gives": "ATTLEE",
-       "note": "Clement Attlee, British Prime Minister 1945 to 1951"
+       "note": "Clement Attlee was British Prime Minister from 1945 to 1951"
       },
       {
        "words": "Liberal",
+       "at": 17,
        "gives": "L",
-       "note": "L = Liberal; this letter is swapped out"
+       "note": "L is the usual abbreviation for Liberal, the political party"
       },
       {
-       "words": "last",
+       "words": "last one",
+       "at": 30,
        "gives": "END",
-       "note": "the last of something is its end"
+       "note": "the last one of anything is its end"
       }
      ]
     },
     "explanation": {
-     "surface": "A former prime minister swaps a Liberal for the most recent one currently in the room.",
-     "walkthrough": "'Last one' looks like a unit, but 'last' is END and 'one present' is the definition.",
-     "definitionFit": "An attendee is a person who is present at an event."
+     "surface": "A former prime minister is swapped for a newcomer, with the Liberal giving way to the final arrival.",
+     "walkthrough": "'replacing Liberal with last one' takes the L out of ATTLEE and puts END in its place. Present here is the adjective, as in someone in attendance, so the noun answer fits as 'one present'.",
+     "definitionFit": "An attendee is a person who is at an event, someone who is there in person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "present"
     }
    }
   },

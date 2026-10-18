@@ -363,28 +363,26 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "initially means at the start, so take the first letters of 'special arrangement'"
+       "text": "following",
+       "at": 35,
+       "note": "following places the gallery piece after the two opening letters"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SA",
        "indicators": [
         {
-         "text": "entering",
-         "note": "something entering a building goes inside it"
+         "text": "initially",
+         "at": 65,
+         "note": "initially tells us to take just the opening letter of each of these two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "special arrangement initially",
-         "gives": "SA",
-         "select": "first",
-         "note": "first letters of Special Arrangement"
+         "words": "special arrangement",
+         "at": 45,
+         "note": "the first letters of special and arrangement"
         }
        ]
       },
@@ -392,34 +390,37 @@
        "op": "container",
        "indicators": [
         {
-         "text": "following",
-         "note": "something following comes after, so the gallery part is written after S and A"
+         "text": "entering",
+         "at": 18,
+         "note": "entering says the number one goes inside the gallery's name"
         }
        ],
        "parts": [
         {
          "words": "gallery",
+         "at": 27,
          "gives": "TATE",
-         "note": "the Tate, the London art gallery"
+         "note": "the Tate is the famous London art gallery"
         },
         {
          "words": "one",
+         "at": 14,
          "gives": "I",
-         "note": "I = one, the Roman numeral; it enters TATE after the T"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A satisfied visitor enters a gallery after a special exhibition has been arranged.",
-     "walkthrough": "The Tate is Britain's national gallery of British and modern art, the crossword's favourite gallery.",
-     "definitionFit": "A plain synonym: to fill someone's appetite completely is to fully gratify it."
+     "surface": "A visitor to an art gallery is thoroughly satisfied by a special exhibition layout.",
+     "walkthrough": "The Tate is London's best-known art gallery; 'entering' puts the Roman one inside it, and 'following' sets that after the opening letters of 'special arrangement'.",
+     "definitionFit": "To satiate is to satisfy an appetite or desire completely, to the point of fullness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "arrangement"
     }
    }
   },
@@ -838,26 +839,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Heartless",
-       "note": "without a heart means without its centre, so REFEREE loses its middle letter"
-      },
-      {
        "text": "crushed",
-       "note": "something crushed is squashed out of shape, so the letters are pressed into a new order"
+       "at": 18,
+       "note": "crushed means the remaining letters are squashed into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Heartless referee",
-       "gives": "REFREE",
-       "note": "REFEREE loses its central E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heartless",
+         "at": 0,
+         "note": "heartless means the central letter of the word referee is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "referee",
+         "at": 10
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A callous match official stubs out a cigarette.",
-     "walkthrough": "'Crushed' fits stubbing out a cigarette, but here it scrambles the letters.",
-     "definitionFit": "Definition by example: a cannabis cigarette, in old slang."
+     "surface": "An unfeeling match official stubs out a cigarette.",
+     "walkthrough": "Removing the middle E of REFEREE leaves REFREE, and 'crushed' rearranges it.",
+     "definitionFit": "A reefer is a slang name for a cannabis cigarette, a hand-rolled joint."
     },
     "features": {
      "answerInScene": true,
@@ -891,46 +903,45 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "whoever is drinking takes the drink inside"
+       "at": 12,
+       "note": "drinking means the word for cheer takes the other letters inside it"
       }
      ],
      "parts": [
       {
        "words": "cheer",
+       "at": 6,
        "gives": "ELATE",
-       "note": "to elate is to cheer"
+       "note": "to cheer someone up is to elate them"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "EV",
        "indicators": [
         {
          "text": "regularly",
-         "note": "at regular intervals, so take every other letter of 'bevvy'"
+         "at": 27,
+         "note": "regularly picks every other letter of bevvy, here the second and fourth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "bevvy regularly",
-         "gives": "EV",
-         "select": "alternate",
-         "note": "bEvVy, second and fourth letters; they go inside ELATE"
+         "words": "bevvy",
+         "at": 21,
+         "note": "bevvy is British slang for an alcoholic drink"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinking toast: raise a glass and cheer while having a drink.",
-     "walkthrough": "A bevvy is British slang for an alcoholic drink, which keeps the pub scene going.",
-     "definitionFit": "A plain synonym: to lift something higher."
+     "surface": "A drinker's spirits are lifted by a regular pint.",
+     "walkthrough": "Bevvy is British slang for a drink; 'regularly' takes its second and fourth letters, and 'drinking' has the word for cheer swallow them.",
+     "definitionFit": "To elevate something is to lift it up or move it to a higher position."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drinking"
+     "misdirectedWord": "cheer"
     }
    }
   },
@@ -1119,56 +1130,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "primarily means first of all, so take the first letter of 'trees'"
+       "text": "found south of",
+       "at": 26,
+       "note": "in a down clue, south of means placed below, so this letter comes after the others"
       }
      ],
      "parts": [
       {
        "words": "popular",
+       "at": 41,
        "gives": "IN",
-       "note": "in = fashionable, popular"
+       "note": "in means popular or fashionable, as in 'the in thing'"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "edges",
+         "at": 56,
+         "note": "edges means only the first and last letters of the word lake are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lake's",
+         "at": 49,
+         "gives": "LAKE",
+         "note": "the word lake itself, with the 's linking it to its edges"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "found south of"
+         "text": "primarily",
+         "at": 16,
+         "note": "primarily means first, so just the opening letter of trees is used"
         }
        ],
        "parts": [
         {
-         "words": "lake's edges",
-         "note": "the outside letters of LakE"
-        }
-       ]
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "T",
-       "indicators": [
-        {
-         "text": "edges",
-         "note": "a lake's edges are its outside, so take the first and last letters of 'lake'"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "trees primarily",
+         "words": "trees",
+         "at": 10,
          "gives": "T",
-         "select": "outer",
-         "note": "first letter of Trees"
+         "note": "first letter of trees"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trees growing mainly on the south side of a popular lake, near a bay.",
-     "walkthrough": "'South of' means below, which only works in a down clue.",
-     "definitionFit": "A plain synonym: a narrow arm of water running into the land."
+     "surface": "A little bay is fringed by trees growing below a well-loved lakeshore.",
+     "walkthrough": "In a down entry 'found south of' puts T beneath IN plus LE, the outer letters of LAKE.",
+     "definitionFit": "An inlet is a narrow arm of the sea or a lake reaching into the land, a small bay or creek."
     },
     "features": {
      "answerInScene": true,
@@ -1249,26 +1264,28 @@
      "indicators": [
       {
        "text": "going up and down",
-       "note": "a word reading the same going up the grid as going down it is a palindrome"
+       "at": 19,
+       "note": "in a down clue, the word reads the same whether going up or going down the grid"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "going up and down",
-       "note": "palindrome indicator: the three letters read identically in either direction"
+       "words": "Band's performance",
+       "at": 0,
+       "gives": "GIG",
+       "note": "a band's live performance, and this word is a palindrome"
       }
      ]
     },
     "explanation": {
-     "surface": "A band plays a lively set, with the crowd jumping up and down.",
-     "walkthrough": "The definition names the word; 'going up and down' says it reads the same either way in this down entry.",
-     "definitionFit": "A plain synonym: a single live booking for a band or musician."
+     "surface": "A band plays a set that has its ups and downs.",
+     "walkthrough": "The three letters read identically upwards and downwards, so the clue's second half describes the answer's shape.",
+     "definitionFit": "A gig is a live concert or booking for musicians, a single performance by a band."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "misdirectedWord": "going"
     }
    }
   },

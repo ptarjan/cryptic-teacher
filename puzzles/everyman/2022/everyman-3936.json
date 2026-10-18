@@ -555,44 +555,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SACROSANCT",
+     "op": "composite",
      "indicators": [
       {
+       "text": "abandoning",
+       "at": 23,
+       "note": "abandoning says a letter standing for island is left behind from the letter pool"
+      },
+      {
        "text": "for resort",
-       "note": "to re-sort is to sort again, putting the letters into a different order"
+       "at": 41,
+       "note": "for resort reads as 'to be re-sorted', so the remaining letters are put into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SACROSANCT",
-       "indicators": [
-        {
-         "text": "abandoning",
-         "note": "to abandon something is to leave it behind, so a letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Costa Ricans",
-         "note": "taken as written"
-        },
-        {
-         "words": "island",
-         "gives": "I",
-         "note": "I is the standard abbreviation for island"
-        }
-       ]
+       "words": "Costa Ricans",
+       "at": 10
+      },
+      {
+       "words": "island",
+       "at": 34,
+       "gives": "I",
+       "note": "I is the standard abbreviation for island on maps"
       }
      ]
     },
     "explanation": {
-     "surface": "Well-regarded Costa Ricans leave their island for a holiday resort.",
-     "walkthrough": "'resort' reads as a holiday spot but splits into re-sort; with one I removed, the rest is reshuffled.",
-     "definitionFit": "Something sacrosanct is regarded as too important or holy to be challenged, so it is highly respected."
+     "surface": "Respected Central American tourists leave their island for a holiday resort.",
+     "walkthrough": "'for resort' looks like a holiday destination but means sort again: take COSTARICANS, drop its I (island), and rearrange COSTARCANS.",
+     "definitionFit": "Something sacrosanct is regarded as too important or holy to be interfered with, hence deeply respected."
     },
     "features": {
      "answerInScene": false,
@@ -1299,33 +1291,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DATASET",
+     "spelt": "DATASET",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously mixed up the opening sounds of words, so the sounds swap places"
+       "at": 0,
+       "note": "Spooner's tells us to swap the sounds of the phrase, as the Reverend Spooner famously muddled his words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "chosen a time",
-       "gives": "DATASET",
-       "soundsLike": "SET A DATE",
-       "note": "to choose a time is to fix an appointment; swapping the sounds of the two key words produces the result"
+       "words": "chosen",
+       "at": 10,
+       "gives": "SET",
+       "note": "to have chosen a time is to have set it"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ADATE",
+       "parts": [
+        {
+         "words": "a time",
+         "at": 17,
+         "gives": "ADAYT",
+         "note": "a time agreed in advance is a date"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has picked a moment to gather together some information.",
-     "walkthrough": "The swap here moves whole syllables rather than just opening consonants: SET A DATE becomes 'date a set'.",
-     "definitionFit": "A data set is a structured collection of related records or values, the raw material of statistics and analysis."
+     "surface": "Someone has picked a time, apparently.",
+     "walkthrough": "'Chosen a time' is 'set a date'; 'Spooner's' swaps the sounds to give 'date a set', said aloud like the answer. Here whole syllables trade places, a looser Spoonerism than the usual swap of initial consonants.",
+     "definitionFit": "A data set is a structured body of related records, typically a table of values for analysis."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "chosen"
     }
    }

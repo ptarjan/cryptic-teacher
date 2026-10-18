@@ -771,36 +771,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NOTIONAL",
      "indicators": [
       {
        "text": "to replace",
-       "note": "one thing replacing another takes its place, so a letter is swapped out for a new one"
+       "at": 32,
+       "note": "to replace says one letter of the newspaper's name is taken out and another put in its spot"
       }
      ],
      "parts": [
       {
        "words": "newspaper",
+       "at": 9,
        "gives": "NATIONAL",
        "note": "The National is a Scottish daily newspaper"
       },
       {
-       "words": "nothing",
-       "gives": "O",
-       "note": "O looks like zero, nothing"
+       "words": "article",
+       "at": 43,
+       "gives": "A",
+       "note": "A is the indefinite article in grammar"
       },
       {
-       "words": "article",
-       "gives": "A",
-       "note": "A is the indefinite article"
+       "words": "nothing",
+       "at": 24,
+       "gives": "O",
+       "note": "O looks like zero, so it stands for nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper story full of fancy, with nothing real replacing a proper piece of reporting.",
-     "walkthrough": "'Article' suggests a newspaper piece, but it is the grammatical article A, which O replaces.",
-     "definitionFit": "Something notional exists only as an idea, imagined rather than real, hence fanciful."
+     "surface": "A paper prints a fanciful story, with an empty space where the article should be.",
+     "walkthrough": "'with nothing to replace article' swaps the A of NATIONAL for an O.",
+     "definitionFit": "Notional means existing only as an idea or theory, so imagined rather than real."
     },
     "features": {
      "answerInScene": false,
@@ -1727,43 +1729,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GERBERA",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within another"
+       "at": 26,
+       "note": "in means the trimmed herb sits inside the other letters"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "good",
+         "at": 29,
+         "gives": "G"
+        },
+        {
+         "words": "time",
+         "at": 34,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "heading off",
-         "note": "with the head taken off, the front character is lost"
+         "at": 14,
+         "note": "heading off removes the front letter, the head, of the herb"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "good",
-           "gives": "G",
-           "note": "G is the abbreviation for good"
-          },
-          {
-           "words": "Basil, maybe",
-           "gives": "HERB",
-           "note": "basil is an example of a herb, hence 'maybe'"
-          },
-          {
-           "words": "time",
-           "gives": "ERA",
-           "note": "an era is a period of time"
-          }
-         ]
+         "words": "Basil, maybe",
+         "at": 0,
+         "gives": "HERB",
+         "note": "basil is an example of a herb"
         },
         {
          "gives": "H"
@@ -1773,13 +1777,14 @@
      ]
     },
     "explanation": {
-     "surface": "Basil, perhaps a person, sets off early to buy a bloom.",
-     "walkthrough": "'Basil' looks like a man's name; 'maybe' marks it as an example of a herb.",
-     "definitionFit": "A gerbera is a daisy-like plant with large brightly coloured blooms, popular as a cut flower."
+     "surface": "Basil, perhaps a man, sets off early to pick up a flower.",
+     "walkthrough": "'Basil' looks like a man's name but is the herb; 'heading off' leaves ERB, which goes in between G (good) and ERA (time).",
+     "definitionFit": "The gerbera is a daisy-like plant from South Africa with large bright blooms, a popular cut flower."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Basil"
     }
    }
