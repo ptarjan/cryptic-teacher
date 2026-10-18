@@ -982,65 +982,55 @@
      "indicators": [
       {
        "text": "trapping",
-       "note": "to trap something is to hold it inside, so these letters go within"
+       "at": 6,
+       "note": "mines that trap something hold it inside them, so the other letters go into the word for mines"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Mines",
+       "at": 0,
+       "gives": "PITS",
+       "note": "mines are pits"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 15,
+           "note": "takes the final letter of each of the two words ten and decrepit"
+          }
+         ],
          "parts": [
           {
-           "words": "Mines",
-           "gives": "PITS",
-           "note": "a pit is a coal mine"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "last of",
-             "note": "the last of a word is its final letter, taken from each of the next two words"
-            }
-           ],
-           "parts": [
-            {
-             "words": "ten",
-             "note": "the final letter of this word"
-            }
-           ]
+           "words": "ten decrepit",
+           "at": 23,
+           "note": "their final letters are N and T"
           }
          ]
         },
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "decrepit",
-           "note": "the final letter of this word"
-          }
-         ]
+         "words": "river",
+         "at": 36,
+         "gives": "PO",
+         "note": "the Po is the great river of northern Italy"
         }
        ]
-      },
-      {
-       "words": "river",
-       "gives": "PO",
-       "note": "the Po is Italy's longest river"
       }
      ]
     },
     "explanation": {
-     "surface": "Old mines have swallowed ten broken-down river boats.",
-     "walkthrough": "'Vessels' suggests boats with the river; these vessels are drinking mugs. 'Last of' serves both ten and decrepit.",
-     "definitionFit": "Pint pots are tankards holding a pint of beer, and a drinking container is a vessel."
+     "surface": "A rundown river is full of old boats and its banks are pocked with mine workings.",
+     "walkthrough": "'last of' works on both of the next two words, not just 'ten'. A pint pot is a beer mug that holds a pint, and the Po is Italy's longest river.",
+     "definitionFit": "Pint pots are drinking mugs, and any container for liquid can be called a vessel."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "vessels"
     }
    }
@@ -1277,55 +1267,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SPIRAL",
      "indicators": [
       {
        "text": "invading",
-       "note": "to invade is to go inside territory, so these letters enter the other piece"
+       "at": 19,
+       "note": "the scrambled letters invade, that is move into, what is left of the isle"
       }
      ],
      "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "needing cover",
+         "at": 33,
+         "note": "the isle has lost its cover, its outside letters, so only its middle remains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isle",
+         "at": 28,
+         "note": "with its first and last letters gone this leaves SL"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "hammered",
-         "note": "something hammered is beaten out of shape, so the letters are rearranged"
+         "at": 5,
+         "note": "something hammered is knocked out of shape, so the letters of pair are rearranged"
         }
        ],
        "parts": [
         {
          "words": "pair",
-         "note": "these four letters are rearranged"
-        },
-        {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "needing cover",
-           "note": "a word that needs a cover has lost its outer layer, leaving only its inner letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "isle",
-           "note": "the two inner letters are kept"
-          }
-         ]
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A battered couple land on an exposed island buffeted by the wind, looking for shelter.",
-     "walkthrough": "'Wind' reads as the weather, but the definition is the verb, to wind round and round.",
-     "definitionFit": "To spiral is to wind or twist in a continuous curve, so the verbs are synonyms."
+     "surface": "A battered pair of invaders land on an island that badly needs shelter from the gale.",
+     "walkthrough": "'Wind' looks like a noun meaning a gale, but here it is the verb that rhymes with 'find'. 'needing cover' means the isle has lost its outer letters.",
+     "definitionFit": "To wind is to twist or coil round and round, the same as to spiral."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Wind"
     }
    }

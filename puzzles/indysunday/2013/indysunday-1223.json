@@ -1236,54 +1236,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOLLOP",
+     "op": "container",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means half is removed, so only part of the word stays"
+       "text": "carrying",
+       "at": 18,
+       "note": "the reversed policeman carries the other letters within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "carrying means holding something within, so one piece sits inside"
+         "text": "Retired",
+         "at": 0,
+         "note": "retired means withdrawn, so the word goes backwards"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "Retired",
-           "note": "retired means gone back, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "policeman",
-           "gives": "PLOD",
-           "note": "plod is British slang for a police officer, from Mr Plod in the Noddy books"
-          }
-         ]
-        },
+         "words": "policeman",
+         "at": 8,
+         "gives": "PLOD",
+         "note": "plod is British slang for a police officer, from PC Plod in the Noddy books"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 33,
+         "note": "half of load is dropped, leaving its first two letters"
+        }
+       ],
+       "parts": [
         {
          "words": "load",
-         "gives": "LO",
-         "note": "the first half of the word is kept"
+         "at": 27
+        },
+        {
+         "gives": "AD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pensioned-off officer is still hauling half a burden.",
-     "walkthrough": "'Retired' suggests an ex-policeman, but it turns PLOD round to DOLP.",
-     "definitionFit": "A dollop is a shapeless mass or spoonful of something soft, a lump of it."
+     "surface": "A retired copper struggles with a half load, a lump of something.",
+     "walkthrough": "Plod is British slang for the police. 'Retired' turns PLOD into DOLP, which carries LO, half of LOAD.",
+     "definitionFit": "A dollop is a shapeless mass or blob of something soft, such as food."
     },
     "features": {
      "answerInScene": false,

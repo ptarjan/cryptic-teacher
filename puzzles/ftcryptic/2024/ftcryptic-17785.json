@@ -282,34 +282,47 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "RUSSIAN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "starts to",
-       "note": "the starts of words are their first letters, taken one from each"
+       "text": "and",
+       "at": 85,
+       "note": "and simply adds the next starting letter on to the run before it"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "rewrite unpublished short stories including Ariadne and Neighbours",
-       "gives": "RUSSIAN",
-       "select": "first",
-       "note": "the first letter of each of the seven words"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 23,
+         "note": "takes the starting letter of each of the following words except the link word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rewrite unpublished short stories including Ariadne",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "words": "Neighbours",
+       "at": 89,
+       "gives": "N",
+       "note": "first letter of Neighbours, still governed by starts to"
       }
      ]
     },
     "explanation": {
-     "surface": "An editor reworks some little-known Chekhov tales, including two of his named stories.",
-     "walkthrough": "Ariadne and Neighbours really are Chekhov short stories, which makes the surface convincing.",
-     "definitionFit": "Anton Chekhov was a writer from Russia, so he is an example of a person of that nationality."
+     "surface": "A writer rewrites short stories, including ones titled Ariadne and Neighbours, as a Chekhov tribute.",
+     "walkthrough": "Chekhov wrote stories called Ariadne and Neighbours; 'and' is only a link and gives no letter.",
+     "definitionFit": "Anton Chekhov was a Russian playwright and short-story writer, an example of a Russian."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "rewrite"
+     "aptDefinition": false
     }
    }
   },
@@ -910,49 +923,56 @@
      "indicators": [
       {
        "text": "overwhelms",
-       "note": "to overwhelm is to engulf, so the queue word surrounds the rest"
+       "at": 13,
+       "note": "the queue engulfs the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "queue",
-         "gives": "LINE",
-         "note": "a line is a queue of people"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "queue",
+       "at": 7,
+       "gives": "LINE",
+       "note": "a line is a queue"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "gutless",
-         "note": "with its guts removed, the hyphenated word keeps only its outermost letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "turnstile-operator",
-         "note": "just the first and last letters of the hyphenated word"
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "gutless",
+           "at": 26,
+           "note": "without its insides, so only the first and last letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "turnstile-operator",
+           "at": 34,
+           "note": "its first and last letters are T and R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd waiting for the loos pushes past a skinny attendant at the gate.",
-     "definitionFit": "A latrine is a basic toilet, typically in a camp or barracks."
+     "surface": "A queue for the loo swamps a timid turnstile attendant.",
+     "walkthrough": "'gutless' looks like cowardly, but it empties TURNSTILE-OPERATOR down to TR. A latrine is a basic toilet, especially in a camp.",
+     "definitionFit": "A latrine is a communal toilet, usually a pit or trench in a camp or barracks."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "overwhelms"
+     "joke": "pun",
+     "misdirectedWord": "gutless"
     }
    }
   },
@@ -977,51 +997,60 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TRUNCHEON",
-     "indicators": [
-      {
-       "text": "switch sides at the start of",
-       "note": "left becomes right at the opening of the next word, so one side letter is exchanged for the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a word is its core, so only its central letter is kept"
+         "at": 17,
+         "note": "the essence of a word is its central letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "secretaries",
-         "gives": "T",
-         "select": "middle",
-         "note": "the middle letter of the eleven"
+         "at": 5,
+         "note": "its middle letter is T"
         }
        ]
       },
       {
-       "words": "meal",
-       "gives": "LUNCHEON",
-       "note": "a luncheon is a formal lunch"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switch sides at the start of",
+         "at": 29,
+         "note": "the opening L for left becomes R for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "at": 58,
+         "gives": "LUNCHEON",
+         "note": "luncheon is a meal"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Committee secretaries swap places at a club dinner.",
-     "walkthrough": "The opening L (left) of the meal is switched to R (right).",
-     "definitionFit": "A truncheon is a short heavy stick carried by police, a kind of club."
+     "surface": "Club secretaries change seats at the start of the club dinner.",
+     "walkthrough": "'Club' suggests a society, but here it is a cosh. L and R are left and right, the two sides.",
+     "definitionFit": "A truncheon is a short heavy stick carried by police, a type of club."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Club"
     }
    }
@@ -1048,31 +1077,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "KETCHUP",
      "indicators": [
       {
        "text": "is put in",
-       "note": "put in place of the matching first half of the same word, so one pair of letters is swapped for another"
+       "at": 36,
+       "note": "the other half takes the place of the first half of cake"
       }
      ],
      "parts": [
       {
        "words": "chat",
+       "at": 7,
        "gives": "CATCHUP",
-       "note": "a catch-up is an informal chat to exchange news"
+       "note": "a catch-up is a chat"
+      },
+      {
+       "gives": "CA"
       },
       {
        "words": "the other half of cake",
+       "at": 13,
        "gives": "KE",
-       "note": "the second pair of letters of the four-letter word, replacing the first pair"
+       "note": "the second half of cake is KE, replacing its first half CA"
       }
      ]
     },
     "explanation": {
-     "surface": "Over a natter, half a slice of cake gets dunked in the sauce.",
-     "walkthrough": "In the word for a chat, the CA half of 'cake' is swapped for its other half, KE.",
-     "definitionFit": "Ketchup is a tomato-based condiment, a familiar sauce."
+     "surface": "Mid-gossip, the rest of the cake gets dunked in sauce.",
+     "walkthrough": "CATCH-UP starts with CA, the first half of CAKE; swap in the other half, KE.",
+     "definitionFit": "Ketchup is a thick tomato sauce served as a condiment."
     },
     "features": {
      "answerInScene": true,
