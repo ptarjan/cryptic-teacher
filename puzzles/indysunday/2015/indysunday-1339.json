@@ -469,41 +469,43 @@
      "indicators": [
       {
        "text": "secures",
-       "note": "to secure something is to hold it fast, so one piece is held within the other"
+       "at": 8,
+       "note": "secures pictures one word holding the others fast inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Payment",
-         "gives": "DOLE",
-         "note": "the dole is unemployment benefit payment"
-        },
-        {
-         "words": "posh",
-         "gives": "U",
-         "note": "U means upper-class"
-        }
-       ]
+       "words": "Payment",
+       "at": 0,
+       "gives": "DOLE",
+       "note": "the dole is a state payment to the unemployed"
       },
       {
-       "words": "British",
-       "gives": "B",
-       "note": "B is the abbreviation for British"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "posh",
+         "at": 16,
+         "gives": "U",
+         "note": "U is the old label for upper-class, posh usage"
+        },
+        {
+         "words": "British",
+         "at": 21,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fee guarantees a part for an upper-class British stand-in actor.",
-     "walkthrough": "The dole is the British name for state unemployment benefit, and U is an old label for upper-class usage.",
-     "definitionFit": "A double is a stand-in who replaces an actor, much as an understudy replaces a performer."
+     "surface": "A fee that lands a smart British actor the job of standing in for the lead.",
+     "definitionFit": "A double is a stand-in who takes another actor's place, which is what an understudy does in the theatre."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "secures"
+     "misdirectedWord": "Payment"
     }
    }
   },
@@ -706,44 +708,50 @@
      "indicators": [
       {
        "text": "entertaining",
-       "note": "to entertain a guest is to take them in, so one piece holds the other inside it"
+       "at": 16,
+       "note": "entertaining in the sense of hosting a guest, so one part holds the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "CT is the abbreviation for court"
-        },
-        {
-         "words": "in the past",
-         "gives": "ONCE",
-         "note": "once means formerly"
-        }
-       ]
+       "words": "court",
+       "at": 10,
+       "gives": "CT"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "half-forgotten",
-         "note": "if half a word is forgotten, only the remaining half of its letters is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "is",
-         "note": "the first half of this two-letter word"
+         "words": "in the past",
+         "at": 29,
+         "gives": "ONCE",
+         "note": "once means at some earlier time, in the past"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half-forgotten",
+           "at": 44,
+           "note": "half of the two-letter word is forgotten, so only its first letter stays"
+          }
+         ],
+         "parts": [
+          {
+           "words": "is",
+           "at": 41
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The pride of a royal court that once hosted grand entertainments is now half forgotten.",
+     "surface": "A wistful remark about a royal court's former vanity being half-remembered now.",
      "definitionFit": "Conceit is excessive pride in oneself, the same failing as vanity."
     },
     "features": {

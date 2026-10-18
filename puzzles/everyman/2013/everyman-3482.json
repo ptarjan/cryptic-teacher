@@ -43,57 +43,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIAWATHA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the surname loses its final letter"
+       "text": "edited",
+       "at": 47,
+       "note": "edited text has been reworked, so the gathered letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
-         "text": "edited",
-         "note": "edited text has been reworked, so the collected letters are rearranged"
+         "text": "second",
+         "at": 21,
+         "note": "Will's second is the second letter of the word Will, picked out on its own"
         }
        ],
        "parts": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "the second of something is the one in position two, so only that letter of the possessive name is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Will's",
-           "note": "the second letter of Will"
-          }
-         ]
-        },
+         "words": "Will's",
+         "at": 14,
+         "note": "the name Will, whose second letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 39,
+         "note": "mostly means nearly all of the surname, so its final letter is dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "Hathaway",
-         "gives": "HATHAWA",
-         "note": "the surname of Shakespeare's wife, minus its last letter"
+         "at": 29,
+         "note": "Anne Hathaway, Shakespeare's wife, used here just for her surname's letters"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note on Shakespeare's wife Anne Hathaway being mostly edited out of his will, with a nod to a poem's hero.",
-     "walkthrough": "Will and Hathaway point at Shakespeare and his wife, but the poem is Longfellow's The Song of Hiawatha.",
-     "definitionFit": "Hiawatha is the title character of Longfellow's long narrative poem, its central figure."
+     "surface": "A note on Shakespeare's wife, Anne Hathaway, seemingly being revised alongside an epic poem.",
+     "walkthrough": "Will's second letter gives I; Hathaway 'mostly' loses its Y to give HATHAWA. 'Edited' rearranges I + HATHAWA.",
+     "definitionFit": "Hiawatha is the title figure of Longfellow's epic narrative poem The Song of Hiawatha."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Will's"
     }
@@ -628,51 +633,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRONG",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "something short is cut down, so the article loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the word is cut off before its end, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "article",
-         "gives": "TH",
-         "note": "the definite article, cut short"
+         "at": 6,
+         "gives": "THE",
+         "note": "the definite article is the word the"
         },
         {
-         "op": "homophone",
-         "spelt": "RONG",
-         "indicators": [
-          {
-           "text": "what sounds like",
-           "note": "we want letters that are pronounced the same as the following word, not spelt like it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "unlawful",
-           "gives": "WRONG",
-           "note": "unlawful means wrong, and the silent W can go"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "RONG",
+       "indicators": [
+        {
+         "text": "what sounds like",
+         "at": 17,
+         "note": "what sounds like tells us to spell the next idea by its sound, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unlawful",
+         "at": 34,
+         "gives": "WRONG",
+         "note": "unlawful means wrong, which is said aloud here"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brief newspaper article about an illegal mob gathering.",
-     "definitionFit": "A throng is a large, densely packed crowd of people."
+     "surface": "A brief newspaper piece about a mob that seems to have broken the law.",
+     "walkthrough": "THE cut short is TH; WRONG said aloud is spelt RONG for the second part.",
+     "definitionFit": "A throng is a large, densely packed gathering of people, a synonym of crowd."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "article"
     }
