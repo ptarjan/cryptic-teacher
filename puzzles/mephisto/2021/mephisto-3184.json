@@ -240,44 +240,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FEDORA",
+     "op": "composite",
      "indicators": [
       {
        "text": "going out",
-       "note": "going out suggests things breaking up and scattering, so the letters are rearranged"
+       "at": 13,
+       "note": "going out suggests the letters of for and dame leave their places and regroup"
+      },
+      {
+       "text": "not",
+       "at": 24,
+       "note": "not signals that the maiden's letter is excluded from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "FEDORA",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not tells us a letter is to be excluded"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "for dame",
-         "note": "taken as written"
+         "words": "for",
+         "at": 4
         },
         {
-         "words": "maiden",
-         "gives": "M",
-         "note": "M is the cricket abbreviation for a maiden over"
+         "words": "dame",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "maiden",
+       "at": 28,
+       "gives": "M",
+       "note": "M is the cricket scorecard abbreviation for a maiden over"
       }
      ]
     },
     "explanation": {
-     "surface": "Headwear for a lady going out, who is no longer a young girl.",
-     "walkthrough": "The M is removed from 'for dame' before the remaining letters are rearranged.",
-     "definitionFit": "A fedora is a soft felt hat with a creased crown."
+     "surface": "A lady's hat is out of fashion and no longer worn by young girls.",
+     "walkthrough": "'not maiden' drops M from FOR DAME, leaving FORDAE, which 'going out' rearranges.",
+     "definitionFit": "A fedora is a soft felt hat with a creased crown and a brim."
     },
     "features": {
      "answerInScene": true,
@@ -1668,41 +1669,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "INGENUOUS",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing for another means it takes the other's place"
+       "at": 11,
+       "note": "the university letter stands in for the letter meaning one"
       }
      ],
      "parts": [
       {
-       "words": "University",
-       "gives": "U",
-       "note": "U is the abbreviation for university"
+       "words": "clever",
+       "at": 19,
+       "gives": "INGENIOUS",
+       "note": "ingenious means clever, inventive"
       },
       {
        "words": "one",
+       "at": 15,
        "gives": "I",
-       "note": "I is the Roman numeral one"
+       "note": "the Roman numeral for one is I"
       },
       {
-       "words": "clever",
-       "gives": "INGENIOUS",
-       "note": "ingenious means clever and inventive"
+       "words": "University",
+       "at": 0,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "A university student who is both bright and naive.",
-     "walkthrough": "U replaces the I (one) in INGENIOUS to give INGENUOUS.",
-     "definitionFit": "Ingenuous means artless, frank and unsuspecting, much like naive."
+     "surface": "An academic is both bright and naive.",
+     "walkthrough": "'for one' could read as 'for example', but here U replaces the I that stands for one in INGENIOUS.",
+     "definitionFit": "Ingenuous means artless and unsuspecting, the trusting innocence of a child."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "one"
     }
    }
   },
@@ -1848,50 +1850,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIBERTICIDE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not the first or last",
-       "note": "dropping first and last means trimming both ends off the preceding word"
+       "text": "sadly",
+       "at": 39,
+       "note": "sadly signals the collected letters are put into a sorry, jumbled state"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "I",
+       "at": 0
+      },
+      {
+       "words": "recited",
+       "at": 2
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "sadly",
-         "note": "sadly suggests things have gone wrong, so the letters are muddled"
+         "text": "not the first or last",
+         "at": 17,
+         "note": "the word Bible is used without its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "I recited",
-         "note": "taken as written"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "IBL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Bible",
-           "gives": "IBL",
-           "select": "middle",
-           "note": "the word with its outer letters removed"
-          }
-         ]
+         "words": "Bible",
+         "at": 10,
+         "note": "the word Bible stripped of its first and last letters leaves its three inner letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Reciting scripture badly turns someone into an enemy of liberty.",
-     "definitionFit": "A liberticide is one who destroys liberty, by analogy with words like regicide."
+     "surface": "A reader reports reciting scripture badly, missing the ends of words.",
+     "walkthrough": "'not the first or last' trims BIBLE to IBL; 'sadly' rearranges I, RECITED and IBL together.",
+     "definitionFit": "A liberticide is one who kills liberty, from Latin cide meaning killer, as in regicide."
     },
     "features": {
      "answerInScene": false,
@@ -1972,38 +1970,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THWART",
      "indicators": [
       {
        "text": "knocking out",
-       "note": "one thing knocking out another drives it from its place and takes over its spot"
+       "at": 19,
+       "note": "the conflict word knocks out a letter of that and takes its place"
       }
      ],
      "parts": [
       {
        "words": "that",
-       "note": "taken as written"
-      },
-      {
-       "words": "conflict",
-       "gives": "WAR",
-       "note": "war is armed conflict"
+       "at": 5
       },
       {
        "words": "America",
-       "gives": "A",
-       "note": "A is an abbreviation for America"
+       "at": 32,
+       "gives": "A"
+      },
+      {
+       "words": "conflict",
+       "at": 10,
+       "gives": "WAR",
+       "note": "war is armed conflict"
       }
      ]
     },
     "explanation": {
-     "surface": "An appeal to halt a war that removes the United States from combat.",
-     "walkthrough": "A whole word replaces a single letter here: the conflict knocks the America abbreviation out of 'that' and sits where it stood.",
-     "definitionFit": "To thwart is to stop or frustrate someone's plans."
+     "surface": "A call to halt a war that has defeated the United States.",
+     "walkthrough": "The surface America is the country beaten in a war; in the wordplay it is just the letter A, which the conflict 'knocking out' replaces inside 'that'.",
+     "definitionFit": "To thwart a plan is to frustrate or prevent it, so it means to stop it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "America"
     }

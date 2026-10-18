@@ -1308,36 +1308,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ORCHID",
+     "op": "charade",
      "indicators": [
       {
-       "text": "moving right not left",
-       "note": "moving one way and not the other swaps the left-hand letter out for the right-hand one"
+       "text": "moving",
+       "at": 35,
+       "note": "the right letter moves up to sit ahead of what is left of the child"
       }
      ],
      "parts": [
       {
        "words": "love",
+       "at": 24,
        "gives": "O",
-       "note": "love is zero in tennis, the letter O"
-      },
-      {
-       "words": "child",
-       "note": "taken as written"
+       "note": "love is nil in tennis scoring, which looks like the letter O"
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "at": 42,
+       "gives": "R"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 48,
+         "note": "not signals that the child's letter for left is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "child",
+         "at": 29,
+         "gives": "CHILD",
+         "note": "taken as the word child itself"
+        },
+        {
+         "words": "left",
+         "at": 52,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spectacular blunder: a love child is involved, and someone shifts politically from left to right.",
-     "walkthrough": "'Bloomer' reads as a gaffe but means a flower. L for left leaves 'child' and R for right comes in, placed at its head.",
-     "definitionFit": "Orchids are flowering plants famed for their showy, exotic blooms."
+     "surface": "A tabloid story about a love child switching political sides.",
+     "walkthrough": "The surface reads 'moving right not left' as a political shift; in the wordplay 'not left' strips the L, and 'moving' brings the right-hand letter forward to sit after the love.",
+     "definitionFit": "An orchid is a showy flower, and a bloomer here is a jokey word for something that blooms."
     },
     "features": {
      "answerInScene": false,
@@ -1591,53 +1610,53 @@
     "definitions": [
      {
       "text": "as an owner might claim",
-      "at": 50,
-      "note": "the thing an owner claims, not a verb phrase"
+      "at": 50
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOSTPROPERTY",
-     "indicators": [
-      {
-       "text": "gutless",
-       "note": "without guts means with the inside removed, so only the outer letters stay"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Abandoned",
+       "at": 10,
+       "gives": "LOST",
+       "note": "something abandoned is lost, left behind"
+      },
+      {
+       "words": "right",
+       "at": 20,
+       "gives": "PROPER",
+       "note": "proper means right, correct"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutless",
+         "at": 29,
+         "note": "a gutless word has its insides removed, keeping only its outer letters"
+        }
+       ],
        "parts": [
         {
-         "words": "Abandoned",
-         "gives": "LOST",
-         "note": "something abandoned is gone, mislaid"
-        },
-        {
-         "words": "right",
-         "gives": "PROPER",
-         "note": "proper means right, correct"
-        },
-        {
          "words": "politician",
-         "gives": "TY",
-         "note": "a Tory politician, emptied of its middle letters"
+         "at": 37,
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gutless politician leaves something behind, and its owner declares it was abandoned.",
-     "walkthrough": "Tory is the everyday name for a British Conservative. The definition works as a cryptic hint: owners claim back their things from a lost property office.",
-     "definitionFit": "Lost property is the mislaid items handed in for their rightful owners to collect, which is something an owner claims."
+     "surface": "A quote condemning a spineless Tory MP for deserting a just cause.",
+     "walkthrough": "'gutless politician' empties TORY to TY. Property is also a 'right' of ownership, which suits the owner in the definition.",
+     "definitionFit": "Lost property is belongings mislaid by their owner, the items an owner turns up to reclaim."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "claim"
+     "misdirectedWord": "gutless"
     }
    }
   },
