@@ -230,42 +230,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "half-decent",
+       "at": 8,
        "gives": "ENT",
-       "indicators": [
-        {
-         "text": "half-",
-         "note": "half of a word means only part of its letters survive, here the back portion"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "decent",
-         "gives": "ENT",
-         "select": "last",
-         "note": "the second three of its six letters"
-        }
-       ]
+       "note": "the second half of the word decent, its last three of six letters"
       },
       {
        "words": "hip-hop performances",
+       "at": 20,
        "gives": "RAPS",
-       "note": "rapping is the vocal style of hip-hop, so its performances are raps"
+       "note": "raps are the spoken-word performances of hip-hop"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone catches a few hip-hop sets that are only moderately good.",
-     "walkthrough": "'Catches' looks like a verb about seeing a show, and it is the definition, in the sense of snaring someone.",
-     "definitionFit": "To entrap someone is to catch them by trickery, so the plural verb forms match exactly."
+     "surface": "A critic's verdict that some hip-hop shows are only middling.",
+     "walkthrough": "'Half-decent' looks like a lukewarm review, but it asks for half of the word decent; the back half is the one used.",
+     "definitionFit": "To catch an animal or a wrongdoer is to snare them, which is what this verb means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Catches"
+     "misdirectedWord": "half-decent"
     }
    }
   },
@@ -390,42 +376,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMMENTHAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most but not all means the final letter is dropped"
+       "text": "cooked",
+       "at": 21,
+       "note": "cooked suggests ingredients mixed and transformed, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooking transforms ingredients, so the letters are mixed into a new form"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word means all but its last letter"
         }
        ],
        "parts": [
         {
          "words": "lamb",
-         "gives": "LAM",
-         "note": "the word without its last letter"
+         "at": 8,
+         "note": "lamb without its final letter is the first piece of fodder"
         },
         {
-         "words": "the men",
-         "note": "taken as written"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "the men",
+       "at": 13,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "The men prepare a lamb dish with cheese.",
-     "walkthrough": "The kitchen scene is a disguise: the clipped meat and the two words are stirred together.",
-     "definitionFit": "Emmental is a Swiss holey yellow variety made from cow's milk, one of the best-known examples."
+     "surface": "A recipe in which lamb is cooked by the men with some cheese.",
+     "walkthrough": "'Most of lamb' gives LAM; add THE MEN and 'cooked' rearranges the nine letters.",
+     "definitionFit": "Emmental is a hard Swiss cheese with large holes, and this is a common spelling of its name."
     },
     "features": {
      "answerInScene": true,
@@ -678,52 +668,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPLENDID",
+     "op": "composite",
      "indicators": [
       {
-       "text": "corrupt",
-       "note": "corrupted means altered from the proper form, so the letters to remove need not appear in the given order"
+       "text": "Harshly",
+       "at": 0,
+       "note": "something treated harshly is knocked about, so the letters of the next word are rearranged"
       },
       {
-       "text": "Harshly",
-       "note": "treated harshly suggests being knocked about, so the remaining letters are thrown into a new order"
+       "text": "ignoring corrupt",
+       "at": 21,
+       "note": "ignoring a jumbled version of the following letters means those letters are left out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPLENDID",
-       "indicators": [
-        {
-         "text": "ignoring",
-         "note": "to ignore something is to leave it out, so those letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "disciplined",
-         "note": "taken as written"
-        },
-        {
-         "words": "ICI",
-         "note": "the chemical company's initials, used as letters to strike out"
-        }
-       ]
+       "words": "disciplined",
+       "at": 8,
+       "note": "the eleven letters of this word are the fodder"
+      },
+      {
+       "words": "ICI",
+       "at": 38,
+       "note": "ICI was Imperial Chemical Industries, a British company; its three letters are the ones removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A company boss praises staff who were strictly punished, without the crooked chemical giant ICI.",
-     "walkthrough": "ICI was Imperial Chemical Industries, a big British firm. Its three letters are taken out of the long word, in any order, and the rest rearranged.",
-     "definitionFit": "Both words are exclamations of approval meaning very good or first-rate."
+     "surface": "A complaint that someone was severely punished while a crooked chemicals firm escaped notice.",
+     "walkthrough": "Take the letters I, C, I out of DISCIPLINED (ignoring corrupt ICI: their order does not matter) and 'Harshly' rearranges the eight left, DSPLINED.",
+     "definitionFit": "Splendid and excellent are both exclamations of strong approval, so they are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "corrupt"
+     "misdirectedWord": "disciplined"
     }
    }
   },
@@ -1275,51 +1254,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POTASH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "half means only part survives, so the back portion is dropped"
+       "text": "hidden by",
+       "at": 14,
+       "note": "in a down entry the top piece sits over the bottom one, as if hidden by it from below, so the abbreviation comes second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "hidden by",
-         "note": "in a down entry one piece is screened from view by what comes next, so they sit one after the other"
+         "text": "Half of",
+         "at": 0,
+         "note": "half of the eight-letter word means only its first four letters are used"
         }
        ],
        "parts": [
         {
          "words": "spuds",
-         "gives": "POTA",
-         "note": "spuds are potatoes; the first four of its eight letters"
+         "at": 8,
+         "gives": "POTATOES",
+         "note": "spuds is informal for potatoes"
         },
         {
-         "words": "second",
-         "gives": "S",
-         "note": "S is the abbreviation for second"
-        },
-        {
-         "words": "hand",
-         "gives": "H",
-         "note": "H is the abbreviation for hand"
+         "gives": "TOES"
         }
        ]
+      },
+      {
+       "words": "second-hand",
+       "at": 24,
+       "gives": "SH",
+       "note": "S for second and H for hand are standard abbreviations"
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer hides some potatoes behind a used fertiliser sack.",
-     "walkthrough": "'Second-hand' reads as used, but splits into two abbreviations. Spud is informal for potato.",
-     "definitionFit": "Potash is a potassium salt widely spread on fields as fertiliser, hence its farming use."
+     "surface": "Half a crop of potatoes concealed by a used-goods dealer.",
+     "walkthrough": "Second-hand reads as a used-goods dealer, but it splits into two abbreviations. In a down answer, 'hidden by' sets the half-word of spuds above them, so they come last.",
+     "definitionFit": "Potash is a potassium compound widely used as fertiliser on farms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "second-hand"
     }

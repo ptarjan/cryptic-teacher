@@ -378,53 +378,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAFEHAVEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "but not in",
-       "note": "but not in tells us to take a word and remove a pair of letters spelling the little word in"
+       "text": "across",
+       "at": 4,
+       "note": "the word for cut lies across the other letters, spanning them on both sides"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "across",
-         "note": "across means one piece stretches over and around the others, holding them inside"
-        }
-       ],
+       "words": "Cut",
+       "at": 0,
+       "gives": "SHAVEN",
+       "note": "shaven means cut close, as hair or a beard is"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Cut",
-           "gives": "SHAVEN",
-           "note": "shaven means cut close, as a beard is"
-          },
-          {
-           "words": "area",
-           "gives": "A",
-           "note": "A is the abbreviation for area"
-          }
-         ]
+         "words": "area",
+         "at": 11,
+         "gives": "A"
         },
         {
-         "words": "fine",
-         "gives": "FE",
-         "note": "fine with its in removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "but not",
+           "at": 28,
+           "note": "but not means the word that follows is taken out of the one before"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fine",
+           "at": 23,
+           "note": "the word from which two letters are removed"
+          },
+          {
+           "words": "in",
+           "at": 36,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shortcut across a spot that seems all right, yet offers no shelter.",
-     "walkthrough": "Cut looks like a verb or a noun, but here it is the adjective shaven, which is split open to hold the other letters.",
-     "definitionFit": "A safe haven is a place of refuge or protection, which is just what a shelter provides."
+     "surface": "A note that a short cut over some ground is all right, though not quite a refuge.",
+     "walkthrough": "'Cut' looks like a verb, but it is an adjective, as in a close-cut chin. 'Fine but not in' is read literally: the small word is removed from the larger, and the result sits with A inside the word for cut, which lies across both.",
+     "definitionFit": "A place of refuge or safety where one is protected from danger, which is what shelter means."
     },
     "features": {
      "answerInScene": false,

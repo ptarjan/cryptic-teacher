@@ -1433,42 +1433,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SHERPA",
      "indicators": [
       {
        "text": "abroad",
-       "note": "abroad means scattered widely, so the letters spread into a new order"
+       "at": 33,
+       "note": "abroad means scattered widely, so the remaining letters are spread into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SHERPA",
        "indicators": [
         {
          "text": "not",
-         "note": "not means this letter is to be left out"
+         "at": 14,
+         "note": "not means the named letter is left out of the word"
         }
        ],
        "parts": [
         {
          "words": "perhaps",
-         "note": "taken as written"
+         "at": 6,
+         "note": "the word whose letters, less one, are rearranged"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "leader",
-           "note": "a leader comes at the front, so take the word's first letter"
+           "at": 26,
+           "note": "a word's leader is its first letter"
           }
          ],
          "parts": [
           {
            "words": "party's",
-           "note": "the first letter of party"
+           "at": 18,
+           "note": "first letter of party's"
           }
          ]
         }
@@ -1477,14 +1478,14 @@
      ]
     },
     "explanation": {
-     "surface": "A tour guide abroad might be no party leader.",
-     "walkthrough": "'perhaps' looks like a definition-by-example marker, but it is the letters to jumble.",
-     "definitionFit": "Sherpas are Himalayan people famed as mountain guides and porters."
+     "surface": "A suggestion that a political party's chief might be travelling overseas without a guide.",
+     "walkthrough": "'Not party's leader' drops P from PERHAPS, leaving ERHAPS, and 'abroad' rearranges those six letters. Sherpas are the Himalayan people famed as mountain guides.",
+     "definitionFit": "Sherpas are hired to lead climbing expeditions in the Himalaya, so the word is used for a mountain guide."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "perhaps"
+     "misdirectedWord": "party's"
     }
    }
   },
@@ -1845,13 +1846,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KATZENJAMMER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "heartless means the middle letter is taken out"
+       "text": "before",
+       "at": 38,
+       "note": "before puts the rearranged letters ahead of the final piece"
       }
      ],
      "parts": [
@@ -1860,42 +1860,61 @@
        "indicators": [
         {
          "text": "shooting",
-         "note": "shooting suggests letters flying about and landing in new positions"
+         "at": 29,
+         "note": "shooting suggests things flying in all directions, so the pooled letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Amazement",
+         "at": 0,
          "note": "taken as written"
         },
         {
-         "words": "JFK",
-         "gives": "JK",
-         "note": "the initials JFK without their middle F"
-        },
-        {
-         "op": "last",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "ultimately",
-           "note": "ultimately points to the very last letter of the next word"
+           "text": "heartless",
+           "at": 15,
+           "note": "heartless means the middle letter is removed"
           }
          ],
          "parts": [
           {
-           "words": "utter",
-           "note": "the last letter of utter"
+           "words": "JFK",
+           "at": 25,
+           "note": "the initials of President John F Kennedy, shot in Dallas, without the middle one"
+          },
+          {
+           "gives": "F"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 45,
+         "note": "ultimately points to the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "utter",
+         "at": 56,
+         "note": "last letter of utter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shock at the Kennedy assassination in Dallas, ending in utter anguish.",
-     "walkthrough": "'in Dallas' flags an American usage; the Kennedy story is pure decoy.",
-     "definitionFit": "Katzenjammer, from German 'cats' wailing', is US slang for a hangover or a state of distress."
+     "surface": "A recollection of the shock felt in Dallas when Kennedy was assassinated in 1963.",
+     "walkthrough": "'Shooting' reads as the assassination, but it is the anagram signal; its result, KATZENJAMME, comes before the letter that ends utter, ultimately. The word is a US borrowing from German for a hangover or distress.",
+     "definitionFit": "This German-American word means a hangover or a state of anguish, so it is distress as Americans, in Dallas or elsewhere, use the term."
     },
     "features": {
      "answerInScene": true,

@@ -961,27 +961,25 @@
      "op": "charade",
      "parts": [
       {
-       "words": "who penned Tamerlane",
+       "words": "who penned",
+       "at": 4,
        "gives": "POE",
-       "note": "Edgar Allan Poe's first published collection was Tamerlane and Other Poems"
+       "note": "Edgar Allan Poe wrote the early poem Tamerlane, so the one who penned it is Poe"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "opening",
-         "note": "an opening is the very beginning, so only the first letter is taken"
+         "text": "its opening",
+         "at": 29,
+         "note": "the opening of the poem's title means just its first letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "its",
-         "gives": "T",
-         "select": "first",
-         "note": "its refers to Tamerlane, whose initial is wanted"
+         "words": "Tamerlane",
+         "at": 15,
+         "note": "first letter of Tamerlane"
         }
        ]
       }
@@ -989,13 +987,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A quiz question asking for an example of the writer of Tamerlane.",
-     "walkthrough": "Read whole, the clue defines the answer; read in parts, it builds it.",
-     "definitionFit": "Poe, author of the verse work Tamerlane, is an example of a verse writer, hence 'Eg'."
+     "surface": "A quiz question about the author of Tamerlane and how that work begins.",
+     "walkthrough": "The whole clue is both definition and wordplay: Poe, who penned Tamerlane, plus T, the opening of Tamerlane, and Poe is an example of what the answer names.",
+     "definitionFit": "Edgar Allan Poe is a writer of verse, so he is an example of the answer."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "opening"
     }
    }
   },
@@ -1305,50 +1304,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AIRTAXI",
+     "op": "composite",
      "indicators": [
       {
+       "text": "taken off",
+       "at": 14,
+       "note": "a letter taken off the following word is removed before the rest is rearranged"
+      },
+      {
        "text": "could be",
-       "note": "could be suggests one possible rearrangement of the letters"
+       "at": 33,
+       "note": "the letters left could be something else when reshuffled, so this signals an anagram"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AIRTAXI",
-       "indicators": [
-        {
-         "text": "taken off",
-         "note": "taken off means removed, so a letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "aviatrix",
-         "note": "taken as written"
-        },
-        {
-         "words": "Victor's",
-         "gives": "V",
-         "note": "Victor is V in the NATO phonetic alphabet"
-        }
-       ]
+       "words": "aviatrix",
+       "at": 24,
+       "note": "the word's letters, less one, are the fodder"
+      },
+      {
+       "words": "Victor",
+       "at": 5,
+       "gives": "V",
+       "note": "Victor is V in the NATO phonetic alphabet"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "After her passenger has departed, a female pilot might well be flying this.",
-     "walkthrough": "The whole clue is the definition; 'taken off' also suggests an aircraft leaving.",
-     "definitionFit": "An air taxi is a small aircraft for hire, just the sort of plane a woman pilot could fly."
+     "surface": "Once a man called Victor has taken off, a female pilot might fly a small hire aircraft.",
+     "walkthrough": "'Once Victor's taken off' removes V from AVIATRIX, leaving AIATRIX; 'could be' rearranges those letters. The whole clue also describes the answer, a small plane an aviatrix might pilot.",
+     "definitionFit": "A small commercial plane hired for short journeys, something a female pilot might well be at the controls of."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Victor's"
+     "misdirectedWord": "Victor"
     }
    }
   },
@@ -1541,56 +1533,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "DENY",
      "indicators": [
       {
        "text": "behind",
-       "note": "behind means following after, so this part comes last"
+       "at": 19,
+       "note": "behind means the abbreviation for the city is placed after what is left of dispute"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DENY",
        "indicators": [
         {
-         "text": "new",
-         "note": "new says the letters to remove may appear in any order"
-        },
-        {
          "text": "must go",
-         "note": "must go means those letters are taken out"
+         "at": 47,
+         "note": "the letters named must go from the word before them, so they are deleted"
         }
        ],
        "parts": [
         {
          "words": "dispute",
-         "note": "taken as written"
+         "at": 26,
+         "note": "the whole word is the base from which letters are taken"
         },
         {
-         "words": "US tip",
-         "note": "these letters are removed in shuffled form"
-        },
-        {
-         "words": "in New York",
-         "gives": "NY",
-         "note": "standard abbreviation; in is a link"
+         "words": "new US tip",
+         "at": 36,
+         "gives": "ISPUT",
+         "note": "the letters of US tip in a new order, as they sit scattered through dispute"
         }
        ]
+      },
+      {
+       "words": "in New York",
+       "at": 7,
+       "gives": "NY",
+       "note": "NY is the standard abbreviation for New York"
       }
      ]
     },
     "explanation": {
-     "surface": "A New York city worker turns down trash after a row over a new American dump.",
-     "walkthrough": "Refuse looks like garbage, but it is the verb.",
-     "definitionFit": "To deny is to refuse a request or grant, so the verbs are synonyms."
+     "surface": "Refusing to pay in New York after a quarrel about the tip expected by American waiters.",
+     "walkthrough": "The letters of US TIP (in a new order, ISPUT) must go from DISPUTE, leaving DE; then NY goes behind that.",
+     "definitionFit": "To deny a request is to turn it down, a straightforward synonym of refusing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Refuse"
+     "misdirectedWord": "tip"
     }
    }
   },
@@ -1866,40 +1856,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PAVIOUR",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing means one letter takes the place of another"
+       "at": 16,
+       "note": "one letter replacing another means a swap inside the word for Messiah"
       }
      ],
      "parts": [
       {
        "words": "Messiah",
+       "at": 0,
        "gives": "SAVIOUR",
-       "note": "the Saviour is a title of Christ"
-      },
-      {
-       "words": "quietly",
-       "gives": "P",
-       "note": "P for piano, softly in music"
+       "note": "the Messiah is the Saviour"
       },
       {
        "words": "special",
-       "gives": "S",
-       "note": "standard abbreviation"
+       "at": 26,
+       "gives": "S"
+      },
+      {
+       "words": "quietly",
+       "at": 8,
+       "gives": "P",
+       "note": "P is piano, the musical direction for quietly"
       }
      ]
     },
     "explanation": {
-     "surface": "A religious leader quietly takes the place of a special flag-waver.",
-     "walkthrough": "Flags are not banners but flagstones.",
-     "definitionFit": "A paviour lays paving stones, and flagstones are flat paving slabs."
+     "surface": "A religious-sounding note that the Messiah is being quietly swapped for some unusual person who handles flags.",
+     "walkthrough": "'Replacing' puts P (quietly) in the place of S (special) in SAVIOUR. The flags are flagstones, not banners, which is the misdirection.",
+     "definitionFit": "A paviour lays paving stones, and flags are flat paving slabs, so he is a worker with flagstones."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "flags"
     }
    }
