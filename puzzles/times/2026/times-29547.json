@@ -283,69 +283,77 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "climbing",
-       "note": "in a down clue climbing means going up, so the word for friend reads upwards"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "across"
+         "text": "across",
+         "at": 21,
+         "note": "the reversed word stretches across the letter, holding it inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in"
+           "text": "climbing",
+           "at": 12,
+           "note": "in a down clue climbing reads the word upward, so backwards"
           }
          ],
          "parts": [
           {
            "words": "friend",
+           "at": 5,
            "gives": "PAL",
-           "note": "pal = friend, reversed to LAP"
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E = English"
+           "note": "a pal is a friend"
           }
          ]
+        },
+        {
+         "words": "English",
+         "at": 28,
+         "gives": "E"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 42,
+         "note": "the river letter goes inside the mist"
+        }
+       ],
        "parts": [
         {
          "words": "mist",
+         "at": 45,
          "gives": "FOG",
-         "note": "fog = mist"
+         "note": "fog is thick mist"
         },
         {
          "words": "river",
+         "at": 36,
          "gives": "R",
-         "note": "R = river"
+         "note": "R is the map abbreviation for river"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A game in which a friend climbs across an English river in the mist.",
-     "walkthrough": "LAP goes round E to make LEAP, and FOG goes round R to make FROG.",
-     "definitionFit": "Leapfrog is a children's game of vaulting over one another's backs."
+     "surface": "A friend clambering over an English river through the mist.",
+     "walkthrough": "'climbing' turns PAL into LAP, which goes 'across' E to give LEAP.",
+     "definitionFit": "Leapfrog is a children's game in which players vault over each other's bent backs."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "across"
+     "misdirectedWord": "climbing"
     }
    }
   },
@@ -1780,40 +1788,54 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "the fin covers, so goes around, the other letters"
+       "at": 17,
+       "note": "covering means wrapping round, so the fin encloses the letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "part of fish",
-         "gives": "FIN",
-         "note": "a fin is part of a fish"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L = large"
-        }
-       ]
+       "words": "part of fish",
+       "at": 4,
+       "gives": "FIN",
+       "note": "a fin is part of a fish"
       },
       {
-       "words": "skinned dory",
-       "gives": "OR",
-       "note": "DORY without its outer letters"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 26,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "skinned",
+           "at": 32,
+           "note": "a skinned word loses its outer letters, leaving the middle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dory",
+           "at": 40,
+           "note": "gives OR once its first and last letters are removed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small part of a fish covers a large skinned dory.",
-     "walkthrough": "The florin was an old British coin worth two shillings, known as a two-bob bit; 'bit' is the coin, not a small part.",
-     "definitionFit": "A bit is a coin, and the florin was the two-shilling bit."
+     "surface": "A cook's note about a fish's fin wrapped round a large skinned dory fillet.",
+     "definitionFit": "A florin was a British coin worth two shillings, and a coin can be called a bit, as in a two-bob bit."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Bit"
     }
    }
