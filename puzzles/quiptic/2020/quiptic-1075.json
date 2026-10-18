@@ -1633,39 +1633,44 @@
      "indicators": [
       {
        "text": "escort",
-       "note": "an escort surrounds the person being guarded, flanking them on both sides"
+       "at": 9,
+       "note": "an escort surrounds the one being guarded, so these letters go on either side"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Soldiers",
-         "gives": "RE",
-         "note": "the Royal Engineers, a British army corps"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "Soldiers",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a corps of soldiers"
       },
       {
-       "words": "bishop",
-       "gives": "B",
-       "note": "chess notation abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 16,
+         "gives": "O"
+        },
+        {
+         "words": "bishop",
+         "at": 20,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Troops accompany an elderly bishop wearing his vestments.",
-     "definitionFit": "A robe is a long loose formal garment worn on ceremonial occasions, by judges or clergy."
+     "surface": "Troops accompany a retired bishop in his formal vestments.",
+     "walkthrough": "RE, the Royal Engineers, is a regular crossword source for soldiers.",
+     "definitionFit": "A robe is a long loose garment worn on formal occasions, such as by judges or clergy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "escort"
     }
    }
   },

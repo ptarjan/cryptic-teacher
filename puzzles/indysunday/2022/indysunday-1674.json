@@ -328,49 +328,53 @@
      "indicators": [
       {
        "text": "punching",
-       "note": "a punch drives into something, so one piece goes inside another"
+       "at": 9,
+       "note": "something punching into a word goes inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curt",
+         "at": 18,
+         "note": "curt means cut short, so the last letter is lopped off"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "curt",
-           "note": "curt means short, so the word is cut short by its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "chap",
-           "gives": "MAN",
-           "note": "a chap is a man; cut short it loses its N"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "chap",
+         "at": 23,
+         "gives": "MAN",
+         "note": "a chap is a man"
         },
         {
-         "words": "doctor",
-         "gives": "MB",
-         "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "A",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "doctor",
+         "at": 2,
+         "gives": "MB",
+         "note": "MB is Bachelor of Medicine, a doctor's degree"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medic lashes out and hits a rude man.",
-     "walkthrough": "'Curt chap' looks like a rude man, but 'curt' means cut short, and MB, Bachelor of Medicine, is a common crossword doctor.",
-     "definitionFit": "A mamba is a fast, highly venomous African snake, so a kind of serpent."
+     "surface": "A medic lashes out at a rude man, who turns out to be a snake.",
+     "walkthrough": "'curt' cuts MAN to MA, and A plus MB go 'punching' into it.",
+     "definitionFit": "The mamba is a fast, highly venomous African snake, and serpent is a literary word for a snake."
     },
     "features": {
      "answerInScene": false,
@@ -1057,40 +1061,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "secure",
-       "note": "to secure something is to hold it fast inside, so one piece is enclosed by another"
+       "text": "that will secure",
+       "at": 5,
+       "note": "to secure something is to hold it fast, so the trail holds the other letters within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Path",
+       "at": 0,
+       "gives": "TRAIL",
+       "note": "a trail is a path"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Path",
-         "gives": "TRAIL",
-         "note": "a trail is a path"
+         "words": "a",
+         "at": 22
         },
         {
          "words": "victory",
-         "gives": "V",
-         "note": "V is the abbreviation for victory, as in V-sign"
+         "at": 24,
+         "gives": "V"
         }
        ]
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A political route that could deliver an election win for the Labour Party.",
-     "walkthrough": "The capital L makes it Britain's Labour Party, but it is the definition in its sense of hard work. V and A sit inside TRAIL in that order.",
-     "definitionFit": "Travail is painful toil or exertion, and it was also an old word for childbirth; both match labour."
+     "surface": "It reads as a political slogan about the route by which the Labour Party will win.",
+     "walkthrough": "Labour looks like the political party, but here it means hard work.",
+     "definitionFit": "Travail is painful or strenuous toil, a synonym for labour in the sense of hard work."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Labour"
     }

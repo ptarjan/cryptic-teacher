@@ -1666,57 +1666,63 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so these letters go within the other word"
+       "at": 10,
+       "note": "the letters for one and hot go inside the trimmed wool"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removed",
+         "at": 27,
+         "note": "the letter for nothing is taken out of the word for wool"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "removed",
-           "note": "removed means taken away, so the named letter drops out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "wool",
-           "gives": "NOIL",
-           "note": "noil is the short fibre combed from wool"
-          },
-          {
-           "words": "nothing",
-           "gives": "O",
-           "note": "O looks like zero, and is removed"
-          }
-         ]
+         "words": "wool",
+         "at": 13,
+         "gives": "NOIL",
+         "note": "noil is short-fibred wool combed out during processing"
         },
         {
-         "words": "hot",
-         "gives": "H",
-         "note": "H is the abbreviation for hot, as on taps"
+         "words": "nothing",
+         "at": 19,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
         }
        ]
       },
       {
-       "words": "One's",
-       "gives": "I",
-       "note": "I is the Roman numeral one; the 's is 'has'"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One's",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "hot",
+         "at": 6,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone overheating in wool with nothing taken off.",
-     "walkthrough": "The one and the hot go after the N of the shortened wool word.",
-     "definitionFit": "Nihil is Latin for nothing, used in English as in 'nihil obstat'."
+     "surface": "A puzzled question about being hot inside woollens with nothing taken off.",
+     "walkthrough": "Noil is a Mephisto-level word for the short wool fibres combed out before spinning.",
+     "definitionFit": "Nihil is Latin for nothing, used in English for a thing of no value."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "wool"
+     "misdirectedWord": "removed"
     }
    }
   },

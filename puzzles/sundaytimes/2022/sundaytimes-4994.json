@@ -761,52 +761,57 @@
      "indicators": [
       {
        "text": "seizing",
-       "note": "to seize is to grab hold, so the outer piece clutches the inner ones"
+       "at": 13,
+       "note": "to seize something is to grab it and hold it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "French towns",
-         "gives": "VILLES",
-         "note": "ville is French for town"
-        },
-        {
-         "words": "queen",
-         "gives": "ER",
-         "note": "ER is Elizabeth Regina, the Queen"
-        }
-       ]
+       "words": "French towns",
+       "at": 0,
+       "gives": "VILLES",
+       "note": "villes is French for towns"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "backing",
-         "note": "going backwards means the letters are read from right to left"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "while",
-         "gives": "AS",
-         "note": "as and while both mean during the time that"
+         "words": "queen",
+         "at": 21,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the abbreviation for the queen"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "backing",
+           "at": 33,
+           "note": "backing means going in reverse, so the word for while runs backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "while",
+           "at": 27,
+           "gives": "AS",
+           "note": "as means while, as in 'as I was leaving'"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Revolutionary French towns arrest a queen while supporting the royal residence.",
-     "walkthrough": "'Backing' looks like supporting the palace, but it turns 'while' round; 'French towns' needs the French word for towns.",
-     "definitionFit": "Versailles is the grand royal palace built near Paris by Louis XIV, residence of Marie Antoinette."
+     "surface": "French towns capture a queen as she retreats from a palace.",
+     "walkthrough": "'backing' turns AS into SA, and VILLES is 'seizing' ER and SA.",
+     "definitionFit": "Versailles is the great royal residence built by Louis XIV outside Paris."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "backing"
+     "misdirectedWord": "while"
     }
    }
   },

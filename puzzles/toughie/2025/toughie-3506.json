@@ -1110,38 +1110,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means the stories word wraps round the other letters"
+       "at": 20,
+       "note": "about means round, so lore goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Traditional stories",
-         "gives": "LORE",
-         "note": "lore is a body of traditional stories"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Traditional stories",
+       "at": 0,
+       "gives": "LORE",
+       "note": "lore is a body of traditional stories and beliefs"
       },
       {
-       "words": "hospital",
-       "gives": "H",
-       "note": "H is the map abbreviation for hospital"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 26
+        },
+        {
+         "words": "hospital",
+         "at": 28,
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Folk tales told about a hospital in a South Asian city.",
-     "definitionFit": "Lahore is the capital of Punjab province and Pakistan's second largest city."
+     "surface": "Folk tales concerning a hospital in a city in Pakistan.",
+     "walkthrough": "'about' looks like 'concerning', but it puts LORE around A and H.",
+     "definitionFit": "Lahore is the capital of Punjab province and the second-largest city in Pakistan."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },

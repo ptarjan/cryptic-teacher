@@ -1554,36 +1554,32 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "covering",
-       "note": "in a down clue covering means sitting on top, so this piece comes first"
-      }
-     ],
      "parts": [
       {
        "words": "Area",
-       "gives": "A",
-       "note": "standard abbreviation for area"
+       "at": 0,
+       "gives": "A"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "away",
-         "note": "something sent away is gone, so a letter is removed"
+         "at": 30,
+         "note": "away means gone, so the M is removed"
         }
        ],
        "parts": [
         {
          "words": "Thailand",
+         "at": 14,
          "gives": "SIAM",
-         "note": "Siam is the old name for Thailand"
+         "note": "Siam is the former name of Thailand"
         },
         {
          "words": "miles",
-         "gives": "M",
-         "note": "standard abbreviation for miles, the letter removed"
+         "at": 24,
+         "gives": "M"
         }
        ]
       }
@@ -1591,13 +1587,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A vast region including Thailand, a long way off.",
-     "walkthrough": "The whole clue defines too: a continent containing Thailand, far away from Britain.",
-     "definitionFit": "Asia is the continent that includes Thailand, and to a British solver it lies thousands of miles off."
+     "surface": "A vast region taking in Thailand, far off?",
+     "walkthrough": "'away' removes M from SIAM, and A sits on top, as the word covering suggests in a down clue. Read whole, the clue also describes the continent.",
+     "definitionFit": "Asia is the continent containing Thailand, a huge area that is many miles away from Britain."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "away"
     }
    }
   },

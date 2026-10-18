@@ -262,34 +262,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "crashed",
-       "note": "crashed letters are wrecked into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crashed",
+         "at": 14,
+         "note": "crashed suggests something wrecked, so the letters of owner are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Vehicle",
-         "gives": "CAR",
-         "note": "a car is a vehicle"
-        },
-        {
          "words": "owner",
-         "note": "OWNER rearranged"
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver who has just crashed their car looks shaken.",
-     "walkthrough": "'Crashed' fits a car so well that it hides its job: it tells you to shuffle 'owner'.",
-     "definitionFit": "Careworn describes a face marked by worry and strain."
+     "surface": "A car owner has had a crash and looks stressed.",
+     "walkthrough": "'crashed' rearranges OWNER into EWORN.",
+     "definitionFit": "Careworn describes someone tired and lined from worry or strain."
     },
     "features": {
      "answerInScene": true,
@@ -885,36 +887,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MORTAL",
      "indicators": [
       {
        "text": "finally changing hands",
-       "note": "the final letter swaps one hand for the other: R (right) becomes L (left)"
+       "at": 14,
+       "note": "the final letter, R for right, swaps to the other hand, L for left"
       }
      ],
      "parts": [
       {
        "words": "cannon",
+       "at": 7,
        "gives": "MORTAR",
-       "note": "a mortar is a short cannon"
+       "note": "a mortar is a short cannon firing shells at a high angle"
       },
       {
-       "words": "finally changing hands",
-       "gives": "MORTAL",
-       "note": "last R (right) swapped for L (left)"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A lethal gun that ends up with a new owner.",
-     "walkthrough": "'Changing hands' suggests a sale; it means swapping right for left, R for L.",
-     "definitionFit": "A plain synonym: a mortal blow or mortal danger is one that causes or threatens death."
+     "surface": "A lethal cannon is handed over at last.",
+     "walkthrough": "Right and left are the two hands: R and L. 'finally' points to the last R of MORTAR.",
+     "definitionFit": "Mortal means causing death, as in a mortal wound, so it is a synonym for deadly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "hands"
     }
    }
