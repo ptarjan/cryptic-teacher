@@ -234,49 +234,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENTREE",
+     "op": "composite",
      "indicators": [
       {
        "text": "fancy",
-       "note": "fancy means elaborate or ornamented, so the letters are dressed up in a new order"
+       "at": 10,
+       "note": "fancy means elaborate or imaginative, so the remaining letters are rearranged"
+      },
+      {
+       "text": "bar",
+       "at": 25,
+       "note": "bar means except, so the letters for provided are taken out of Tenerife"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENTREE",
-       "indicators": [
-        {
-         "text": "bar",
-         "note": "bar here is the preposition meaning except, so a word is left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Tenerife",
-         "note": "taken as written"
-        },
-        {
-         "words": "provided",
-         "gives": "IF",
-         "note": "provided and if both introduce a condition"
-        }
-       ]
+       "words": "Tenerife",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "words": "provided",
+       "at": 29,
+       "gives": "IF",
+       "note": "if means provided, as in 'if it rains'"
       }
      ]
     },
     "explanation": {
-     "surface": "Pictures a meal at a smart bar on Tenerife, one of the Canary Islands.",
-     "walkthrough": "Tenerife without IF leaves TENERE, which is rearranged. 'Bar' looks like a drinks bar but means except.",
-     "definitionFit": "An entree is a dish served at a meal, the main course in America or a course before it in Britain."
+     "surface": "A tourist orders something to eat at a smart bar in Tenerife.",
+     "walkthrough": "'bar' (except) takes IF, for 'provided', out of TENERIFE, leaving TENERE, which 'fancy' rearranges. Tenerife is one of Spain's Canary Islands.",
+     "definitionFit": "An entree is a dish served at a meal, in Britain a course before the main one and in America the main course itself."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bar"
     }
    }
@@ -635,41 +627,43 @@
      "indicators": [
       {
        "text": "hidden in",
-       "note": "hidden in means tucked inside another word"
+       "at": 17,
+       "note": "hidden in means these letters are placed inside the word for ship"
       }
      ],
      "parts": [
       {
        "words": "ship",
+       "at": 27,
        "gives": "LINER",
        "note": "a liner is a large passenger ship"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "KE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half of a four-letter word keeps just its first two letters"
+         "at": 12,
+         "note": "half means only the first two of the four letters of kept are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "kept",
-         "gives": "KE",
-         "select": "first",
-         "note": "the first half of kept"
+         "at": 7,
+         "note": "taken as written, then halved"
+        },
+        {
+         "gives": "PT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An anchor stowed out of sight aboard a vessel.",
-     "walkthrough": "'Anchor' looks nautical beside 'ship'; it is a TV presenter. Gary Lineker, a former England footballer, long presented the BBC football show Match of the Day.",
-     "definitionFit": "An anchor is the main presenter of a broadcast, a job this famous TV sports host held for decades."
+     "surface": "A ship's anchor is kept partly out of sight inside the vessel.",
+     "walkthrough": "'half' keeps KE of KEPT, which is 'hidden in' LINER. Gary Lineker presents the BBC football programme Match of the Day, so he is a TV anchor, not a ship's.",
+     "definitionFit": "A news or sports anchor is the main presenter of a broadcast, and Lineker is Britain's best-known football host."
     },
     "features": {
      "answerInScene": false,
@@ -700,52 +694,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MIRANDA",
+     "op": "composite",
      "indicators": [
       {
-       "text": "crumpled",
-       "note": "crumpled means creased out of shape, so the word to be removed appears in jumbled form"
+       "text": "busy",
+       "at": 30,
+       "note": "busy means bustling about, so the letters left over are rearranged"
       },
       {
-       "text": "busy",
-       "note": "busy suggests bustling activity, so what remains is stirred into a new order"
+       "text": "scrubs",
+       "at": 47,
+       "note": "scrubs means cancels, so the letters of vest are wiped out of maidservant"
+      },
+      {
+       "text": "crumpled",
+       "at": 16,
+       "note": "crumpled means the letters of vest need not appear in order inside the longer word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MIRANDA",
-       "indicators": [
-        {
-         "text": "scrubs",
-         "note": "to scrub something is to cancel it, so these letters are struck out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "vest",
-         "note": "taken as written"
-        },
-        {
-         "words": "maidservant",
-         "note": "taken as written"
-        }
-       ]
+       "words": "maidservant",
+       "at": 35,
+       "note": "taken as written"
+      },
+      {
+       "words": "vest",
+       "at": 25,
+       "note": "taken as written: these letters are removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A hard-working maid scrubbing a creased vest, and her name.",
-     "walkthrough": "The letters of VEST, in any order, come out of MAIDSERVANT, leaving MAIDRAN to be shuffled. 'Scrubs' looks like cleaning; it means cancels.",
-     "definitionFit": "Miranda is a female given name, famously the heroine of Shakespeare's The Tempest."
+     "surface": "A hard-working maid scrubbing in a crumpled vest.",
+     "walkthrough": "'scrubs' strikes the letters of VEST, 'crumpled' so not in order, from MAIDSERVANT, leaving MAIDRAN; 'busy' rearranges those seven letters into a girl's name.",
+     "definitionFit": "Miranda is a female first name, famously the heroine of Shakespeare's The Tempest."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "scrubs"
     }
    }
@@ -1541,37 +1528,36 @@
     "definitions": [
      {
       "text": "Really enthusiastic",
-      "at": 0,
-      "note": "rave is used as an adjective in phrases like rave reviews"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "RAVE",
      "indicators": [
       {
        "text": "when Romeo comes up",
-       "note": "in a down clue, the letter for Romeo moves up from the bottom to the top of the word"
+       "at": 26,
+       "note": "Romeo is the radio-alphabet word for its letter, and in a down clue coming up moves that letter from the bottom to the top"
       }
      ],
      "parts": [
       {
        "words": "state",
+       "at": 20,
        "gives": "AVER",
        "note": "to aver is to state firmly"
       }
      ]
     },
     "explanation": {
-     "surface": "A lover is wildly excited when Romeo appears on the balcony scene.",
-     "walkthrough": "Romeo is R in the NATO alphabet; AVER's final R moves to the front.",
-     "definitionFit": "Rave reviews are glowing, full of wildly enthusiastic praise."
+     "surface": "A US state gets excited when Romeo arrives.",
+     "walkthrough": "AVER ends in R, Romeo in the NATO alphabet; 'when Romeo comes up' moves that R to the top of the down entry.",
+     "definitionFit": "A rave review is a wildly enthusiastic one, so the word works as an adjective meaning full of praise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Romeo"
+     "misdirectedWord": "state"
     }
    }
   },

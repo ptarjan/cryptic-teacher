@@ -1087,46 +1087,45 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the home goes inside the outer letters"
+       "at": 16,
+       "note": "in means the word for home sits inside the edge letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "MD",
        "indicators": [
         {
          "text": "outskirts of",
-         "note": "the outskirts of a word are its first and last letters"
+         "at": 19,
+         "note": "the outskirts of a town are its edges, so only the outer letters of Milford are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "outskirts of Milford",
-         "gives": "MD",
-         "select": "outer",
-         "note": "first and last letters of Milford"
+         "words": "Milford",
+         "at": 32,
+         "note": "taken as written: its first and last letters"
         }
        ]
       },
       {
        "words": "home",
+       "at": 11,
        "gives": "IN",
-       "note": "at home means in"
+       "note": "in means at home, as in 'staying in tonight'"
       }
      ]
     },
     "explanation": {
-     "surface": "Taking care of a house on the edge of a town called Milford.",
-     "walkthrough": "IN for home is a crossword convention: staying in means staying at home.",
-     "definitionFit": "A plain synonym: to take care of children or a shop for a while, as a babysitter does."
+     "surface": "Someone house-sits a home on the edge of a town called Milford.",
+     "walkthrough": "'outskirts of' Milford are M and D, with IN for 'home' placed 'in' them. Milford here is just a place name, not the definition.",
+     "definitionFit": "To mind something, such as a child or a shop, is to look after it for a while."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "outskirts"
+     "misdirectedWord": "home"
     }
    }
   },
@@ -1154,37 +1153,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Nearly",
-       "note": "drop the last letter of gone"
+       "text": "frantic",
+       "at": 19,
+       "note": "frantic means wild and distraught, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Train",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "frantic",
-         "note": "frantic letters are in a wild jumble"
+         "text": "Nearly",
+         "at": 12,
+         "note": "nearly means not quite all, so the word gone loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Train",
-         "note": "used as is in the mix"
+         "words": "gone",
+         "at": 6,
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "gone? Nearly",
-         "gives": "GON",
-         "note": "gone without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A passenger panicking on the platform, unsure whether the train has left.",
-     "walkthrough": "The question mark and comma break the clue into a scene; ignore them and the train and nearly-gone letters go into the mix together.",
-     "definitionFit": "A plain synonym: lacking knowledge, unaware of something."
+     "surface": "A passenger realises the train has left and is nearly frantic.",
+     "walkthrough": "'Nearly' cuts GONE to GON, and 'frantic' rearranges it with TRAIN.",
+     "definitionFit": "Ignorant means lacking knowledge or unaware of something, the state of not knowing."
     },
     "features": {
      "answerInScene": true,

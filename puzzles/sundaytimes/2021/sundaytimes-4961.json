@@ -308,52 +308,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEGLECTS",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "something broken is no longer whole, so its letters are rebuilt in another order"
+       "text": "in",
+       "at": 25,
+       "note": "in means these letters sit inside the word for traps"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "being in something means being held within it"
-        }
-       ],
+       "words": "traps",
+       "at": 28,
+       "gives": "NETS",
+       "note": "nets are traps for catching fish or animals"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "traps",
-         "gives": "NETS",
-         "note": "nets are used to catch animals"
-        },
-        {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "broken",
+           "at": 7,
+           "note": "broken means the letters of leg are smashed into a new order"
+          }
+         ],
          "parts": [
           {
            "words": "leg",
-           "note": "the three letters rearranged"
-          },
-          {
-           "words": "caught",
-           "gives": "C",
-           "note": "C is the cricket scorecard abbreviation for caught"
+           "at": 14,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "caught",
+         "at": 18,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An injured animal with a broken leg is left stuck in hunters' traps.",
-     "walkthrough": "'Leaves' looks like a noun (foliage) or departs, but it is the verb meaning abandons or fails to attend to.",
-     "definitionFit": "To leave something undone or unattended is to fail to look after it, so the two verbs are synonyms."
+     "surface": "An animal caught in snares is left with a broken leg.",
+     "walkthrough": "'broken' turns LEG into GLE; with C for 'caught' it goes 'in' NETS. 'Leaves' looks like a noun (foliage) but is the verb, as in leaves undone.",
+     "definitionFit": "To neglect something is to leave it unattended or undone, so neglects means leaves in that sense."
     },
     "features": {
      "answerInScene": false,
@@ -1404,69 +1407,75 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TREASURES",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is missing its end, so the final letter is lost"
+       "text": "penning",
+       "at": 10,
+       "note": "penning means enclosing, so the other letters are held inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "penning",
-         "note": "to pen is to shut in an enclosure, so one piece holds the others"
+         "text": "about",
+         "at": 4,
+         "note": "about here means the word Set is turned round to read backwards"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
+         "words": "Set",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "turned about means facing the other way, so the letters run backwards"
+           "text": "short",
+           "at": 18,
+           "note": "short means the word loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "Set",
-           "note": "taken as written"
+           "words": "study",
+           "at": 24,
+           "gives": "READ",
+           "note": "to read a subject is to study it, as at university"
+          },
+          {
+           "gives": "D"
           }
          ]
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "study",
-           "gives": "REA",
-           "note": "to read is to study, and losing its last letter leaves three"
-          },
-          {
-           "words": "on French",
-           "gives": "SUR",
-           "note": "sur is the French word for on"
-          }
-         ]
+         "words": "on French",
+         "at": 30,
+         "gives": "SUR",
+         "note": "sur is French for on"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer gets to work on a brief essay about French moral principles.",
-     "walkthrough": "'Values' looks like ethics, matching the essay picture, but it is a verb: cherishes.",
-     "definitionFit": "To prize or hold something dear is to cherish it, so the verb is a synonym for regarding highly."
+     "surface": "Someone sets about writing a brief study of the French.",
+     "walkthrough": "'about' turns SET into TES; READ made 'short' is REA, and with SUR it goes inside TES as 'penning' says.",
+     "definitionFit": "To treasure something is to prize it highly, which is what valuing something dearly means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "values"
+     "misdirectedWord": "penning"
     }
    }
   },

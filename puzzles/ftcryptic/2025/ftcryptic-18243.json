@@ -353,46 +353,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SEMIVOWEL",
+     "op": "anagram",
      "indicators": [
       {
+       "text": "Cryptic",
+       "at": 0,
+       "note": "cryptic means puzzling or obscure, so the letters are scrambled into a new order"
+      },
+      {
        "text": "includes",
-       "note": "includes means the following letters are taken in among the first set"
+       "at": 16,
+       "note": "includes here means the letters that follow join the pool being rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Cryptic",
-         "note": "cryptic means puzzling and obscure, so the letters come in a disguised order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I solve",
-         "note": "taken as written"
-        },
-        {
-         "words": "E, M, W",
-         "note": "the three letters taken as written"
-        }
-       ]
+       "words": "I solve",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "words": "E",
+       "at": 25,
+       "note": "the letter E as given"
+      },
+      {
+       "words": "M",
+       "at": 28,
+       "note": "the letter M as given"
+      },
+      {
+       "words": "W",
+       "at": 31,
+       "note": "the letter W as given"
       }
      ]
     },
     "explanation": {
-     "surface": "A solver lists the letters they have entered in a cryptic grid.",
-     "walkthrough": "The list E, M, W and Y looks like one set, but only E, M and W go into the mix; Y is the example defining the answer.",
-     "definitionFit": "Y and W are speech sounds that behave like vowels but act as consonants, the classic examples of this category."
+     "surface": "A solver boasts that their cryptic answer takes in a list of letters of the alphabet.",
+     "walkthrough": "'Cryptic' rearranges ISOLVE together with E, M and W, which the clue says it 'includes'. W does double duty: it is fodder and, with Y, an example of the answer.",
+     "definitionFit": "Y and W are the classic examples of letters that sound like vowels but behave as consonants in words like yes and wet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Y"
+     "misdirectedWord": "Cryptic"
     }
    }
   },
@@ -1977,86 +1982,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a long time",
-      "at": 43
+      "text": "for a long time",
+      "at": 39
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
      "indicators": [
       {
+       "text": "Two pieces of",
+       "at": 0,
+       "note": "two pieces of means only two short runs of the word magnesium are kept, the rest dropped"
+      },
+      {
        "text": "stuck together",
-       "note": "stuck together means the two groups are joined end to end"
+       "at": 24,
+       "note": "stuck together means the two kept runs are joined into one word with nothing between them"
       }
      ],
      "parts": [
       {
-       "op": "nth",
-       "n": 2,
-       "indicators": [
-        {
-         "text": "Two pieces of",
-         "note": "pieces of a word are small letter groups lifted from within it, two of them here"
-        }
-       ],
-       "parts": [
-        {
-         "words": "magnesium",
-         "note": "the second letter, opening the first two-letter piece"
-        }
-       ]
+       "words": "magnesium",
+       "at": 14,
+       "note": "taken as written: its second and third letters and its fifth and sixth"
       },
       {
-       "op": "nth",
-       "n": 3,
-       "parts": [
-        {
-         "words": "magnesium",
-         "note": "the third letter, closing the first piece"
-        }
-       ]
-      },
-      {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "E",
-       "n": 6,
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "magnesium",
-         "gives": "E",
-         "select": 6,
-         "note": "the sixth letter, opening the second piece"
-        }
-       ]
-      },
-      {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "S",
-       "n": 7,
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "magnesium",
-         "gives": "S",
-         "select": 7,
-         "note": "the seventh letter, closing the second piece"
-        }
-       ]
+       "gives": "MNIUM"
       }
      ]
     },
     "explanation": {
-     "surface": "Two lumps of a metal fused together and left for years.",
-     "walkthrough": "'Stuck together' joins the two pairs taken from inside the metal's name.",
-     "definitionFit": "Ages is an idiom for a very lengthy period, as in waiting for ages."
+     "surface": "Two bits of metal welded together for a long while.",
+     "walkthrough": "Keep the two pairs AG and ES inside mAGnESium and join them, as 'stuck together' says.",
+     "definitionFit": "Ages is an informal word for a very long period, as in waiting for ages."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stuck"
+     "misdirectedWord": "magnesium"
     }
    }
   }

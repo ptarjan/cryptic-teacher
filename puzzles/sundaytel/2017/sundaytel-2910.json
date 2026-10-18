@@ -1214,39 +1214,40 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SAHARA",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "in a down clue, raised means lifted to read from the bottom upward"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 4,
+         "note": "raised in a down clue means the word Has is read from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Has",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "mostly means all but a bit, so the final letter goes"
+         "at": 25,
+         "note": "mostly means the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Has",
-           "gives": "SAH",
-           "note": "the word has read upwards"
-          },
-          {
-           "words": "Bedouin, say",
-           "gives": "ARAB",
-           "note": "the Bedouin are an Arab people"
-          }
-         ]
+         "words": "Bedouin, say",
+         "at": 11,
+         "gives": "ARAB",
+         "note": "a Bedouin is an example of an Arab, the say marking the example"
         },
         {
          "gives": "B"
@@ -1256,9 +1257,9 @@
      ]
     },
     "explanation": {
-     "surface": "A nomad has grown up somewhere in the dunes.",
-     "walkthrough": "'Raised' suggests bringing up a child; it turns 'has' upside down, and ARAB then loses its B.",
-     "definitionFit": "The Sahara is the vast desert of North Africa."
+     "surface": "A desert nomad has brought up a family in the wilderness.",
+     "walkthrough": "'raised' turns HAS upwards into SAH; ARAB, from 'Bedouin, say', loses its last letter to 'mostly', leaving ARA.",
+     "definitionFit": "The Sahara is the vast desert covering much of North Africa, the largest hot desert on Earth."
     },
     "features": {
      "answerInScene": true,
