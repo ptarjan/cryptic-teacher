@@ -529,36 +529,39 @@
      "indicators": [
       {
        "text": "to protect",
-       "note": "you protect a thing by standing all the way round it, so one word closes over another"
+       "at": 14,
+       "note": "to protect means to shield by surrounding, so the trading word wraps around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "deal",
-         "gives": "BARTER",
-         "note": "to barter is to deal, and the word opens up to let something inside"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "r = Republican, the letter beside a candidate's name on a US ballot"
-        }
-       ]
+       "words": "deal",
+       "at": 9,
+       "gives": "BARTER",
+       "note": "to barter is to deal by trading goods"
       },
       {
-       "words": "lives",
-       "gives": "IS",
-       "note": "'he lives' and 'he is' take the same verb, so lives = is"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Republican",
+         "at": 25,
+         "gives": "R"
+        },
+        {
+         "words": "lives",
+         "at": 36,
+         "gives": "IS",
+         "note": "is means exists or lives, as in 'he is'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer's deal is shielding a Republican for as long as he lives.",
-     "walkthrough": "'Lives' for IS is worth filing away: swap the verb into 'he is' and the two letters fall out. The deal is barter rather than a plea bargain, which is the other half of the disguise.",
-     "definitionFit": "A barrister is the lawyer who argues the case in court, the wigged half of the British profession as against the solicitor."
+     "surface": "A lawyer's plea bargain shields a Republican politician's life.",
+     "walkthrough": "'Lives' looks like a noun but is the verb, as in 'he lives' meaning 'he is'. A barrister is the British courtroom advocate.",
+     "definitionFit": "A barrister is a British lawyer who argues cases in the higher courts."
     },
     "features": {
      "answerInScene": true,
@@ -1056,63 +1059,51 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one thing set about another goes all the way round the outside of it"
+       "at": 22,
+       "note": "about means around, so the smiles word goes round the trimmed email"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "smirks",
+       "at": 15,
+       "gives": "GRINS",
+       "note": "grins are smirks or smiles"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "lacking",
-         "note": "what a thing lacks is missing from it, so those letters are struck out before the rest is used"
+         "at": 35,
+         "note": "lacking means going without, so the letters for the technology are taken out of email"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "smirks",
-           "gives": "GRINS",
-           "note": "a smirk is a grin, and this one opens up to take something inside"
-          },
-          {
-           "gives": "I"
-          }
-         ]
+         "words": "email",
+         "at": 28,
+         "note": "taken as written before letters are removed"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "modern technology",
-           "gives": "AI",
-           "note": "AI is artificial intelligence, the modern technology of the hour"
-          },
-          {
-           "gives": "A"
-          }
-         ]
+         "words": "modern technology",
+         "at": 43,
+         "gives": "AI",
+         "note": "AI, artificial intelligence, is a modern technology"
         }
        ]
-      },
-      {
-       "words": "email",
-       "gives": "EML",
-       "note": "EMAIL with its AI taken away"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's smirking messages about a firm still stuck in the technological dark ages.",
-     "walkthrough": "The two letters removed are themselves clued, by a phrase that looks like plain office grumbling. Gremlins were invented by RAF crews in the 1940s as the imps that sabotage aircraft.",
-     "definitionFit": "A gremlin is the mischievous imp blamed when machinery plays up, so gremlins are troublemakers by trade."
+     "surface": "Mischief-makers grin over an email that sniffs at being behind the times technologically.",
+     "walkthrough": "The quoted phrase reads as a jibe at old-fashioned email, but it is an instruction: the modern technology is artificial intelligence, lost from the email.",
+     "definitionFit": "Gremlins are imaginary mischievous creatures blamed for unexplained faults in machinery, so they are proverbial troublemakers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lacking"
+     "misdirectedWord": "technology"
     }
    }
   },

@@ -236,8 +236,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "moving",
-       "note": "letters that move rearrange themselves"
+       "text": "overhead",
+       "at": 25,
+       "note": "overhead, in a down clue, puts the meteor letters above the point word"
       }
      ],
      "parts": [
@@ -245,28 +246,31 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "overhead",
-         "note": "in a down clue, the part overhead sits on top of the other"
+         "text": "moving",
+         "at": 18,
+         "note": "moving means changing position, so the letters of meteor shift into a new order"
         }
        ],
        "parts": [
         {
          "words": "meteor",
-         "note": "anagram fodder"
+         "at": 11,
+         "note": "taken as written as the anagram fodder"
         }
        ]
       },
       {
        "words": "Point",
+       "at": 0,
        "gives": "NESS",
-       "note": "a ness is a headland, a point of land"
+       "note": "a ness is a point or headland"
       }
      ]
     },
     "explanation": {
-     "surface": "A stargazer on a headland watching a meteor cross the sky far away.",
-     "walkthrough": "A ness is a point of land jutting into the sea, as in Sheerness and Dungeness.",
-     "definitionFit": "Descriptive definition with a question mark: remoteness is the state of being far away."
+     "surface": "A shooting star streaks overhead past a headland far away.",
+     "walkthrough": "'Overhead' works because this is a down answer: the shuffled meteor sits on top. A ness is a headland, as in Sheerness.",
+     "definitionFit": "Remoteness is the quality of being distant, literally or in being lost in thought."
     },
     "features": {
      "answerInScene": true,
@@ -1324,55 +1328,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "confused",
-       "note": "confused letters are jumbled"
+       "text": "about",
+       "at": 46,
+       "note": "about means around, so the jumbled letters go around the first of species"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "the jumbled letters go about"
+         "text": "confused",
+         "at": 37,
+         "note": "confused means muddled, so the letters of not a bit are jumbled"
         }
        ],
        "parts": [
         {
          "words": "not a bit",
-         "note": "anagram fodder"
-        },
+         "at": 27,
+         "note": "taken as written as the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "origin of",
-           "note": "a word's origin is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "origin of species",
-           "gives": "S",
-           "select": "first",
-           "note": "the first letter of Species"
-          }
-         ]
+         "text": "origin of",
+         "at": 52,
+         "note": "origin of means the first letter, the start of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "species",
+         "at": 62,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The great naturalist Linnaeus perfectly clear about Darwin's Origin of Species.",
-     "walkthrough": "The Origin of Species is Darwin's book, which Linnaeus predated; here origin just means first letter.",
-     "definitionFit": "Definition by example: Linnaeus, who classified plants, was a botanist."
+     "surface": "A scientist like Linnaeus was not the least bit confused about the origin of species.",
+     "walkthrough": "'Origin of species' nods to Darwin's book, but here it is just the first letter of the word.",
+     "definitionFit": "Linnaeus was the Swedish botanist who devised the binomial system for naming plants."
     },
     "features": {
      "answerInScene": true,
@@ -1444,36 +1448,40 @@
      "indicators": [
       {
        "text": "guards",
-       "note": "to guard is to surround, so evil holds the rest inside"
+       "at": 10,
+       "note": "guards means surrounds to protect, so the evil word goes round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "evil",
-         "gives": "BAD",
-         "note": "bad means evil"
-        },
-        {
-         "words": "have no",
-         "gives": "LACK",
-         "note": "to lack is to have no"
-        }
-       ]
+       "words": "evil",
+       "at": 5,
+       "gives": "BAD",
+       "note": "bad means evil"
       },
       {
-       "words": "explosive",
-       "gives": "HE",
-       "note": "high explosive"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "have no",
+         "at": 17,
+         "gives": "LACK",
+         "note": "to lack is to have no"
+        },
+        {
+         "words": "explosive",
+         "at": 25,
+         "gives": "HE",
+         "note": "HE is the abbreviation for high explosive"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Villains guarding a spot with no explosives.",
-     "walkthrough": "'Spot' looks like a place to guard; it is a pimple.",
-     "definitionFit": "Definition by class: a blackhead is a kind of spot on the skin."
+     "surface": "Wicked sentries are unarmed, lacking any explosives.",
+     "walkthrough": "'Have no explosive' reads as one phrase, but it splits into lacking and high explosive.",
+     "definitionFit": "A blackhead is a skin pimple, a small dark spot blocking a pore."
     },
     "features": {
      "answerInScene": false,
@@ -1557,45 +1565,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROCKSTEADY",
      "indicators": [
       {
-       "text": "Spooner's",
-       "note": "Spooner swapped the opening sounds of words"
+       "text": "by Spooner's",
+       "at": 21,
+       "note": "Spooner's refers to the Reverend Spooner, famous for swapping the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Merchandise",
-         "gives": "ROCK",
-         "soundsLike": "STOCK",
-         "note": "merchandise is stock; it hands over its ST and takes the R from the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "prepared",
-         "gives": "STEADY",
-         "soundsLike": "READY",
-         "note": "prepared is ready; it gives up its R and takes the ST in exchange"
-        }
-       ]
+       "words": "Merchandise",
+       "at": 0,
+       "gives": "STOCK",
+       "note": "stock is merchandise held for sale"
+      },
+      {
+       "words": "prepared",
+       "at": 12,
+       "gives": "READY",
+       "note": "ready means prepared"
       }
      ]
     },
     "explanation": {
-     "surface": "A shopkeeper's goods prepared and too heavy to move.",
-     "walkthrough": "The spoonerism swaps whole opening clusters: ST-ock R-eady becomes R-ock ST-eady.",
-     "definitionFit": "Plain synonym: something rock-steady is too firm to move."
+     "surface": "Goods made ready by a shopkeeper are too heavy to move.",
+     "walkthrough": "Swapping the opening sounds of the two words for merchandise and prepared gives the answer.",
+     "definitionFit": "Rock-steady means utterly firm and stable, unshakeable."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "absurd",
+     "misdirectedWord": "Merchandise"
     }
    }
   },
@@ -1623,8 +1624,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "brought in",
-       "note": "the queen is brought into the taxi"
+       "text": "to",
+       "at": 31,
+       "note": "to means added on to, so the pawnbroker word joins after the taxi piece"
       }
      ],
      "parts": [
@@ -1632,34 +1634,38 @@
        "op": "container",
        "indicators": [
         {
-         "text": "to",
-         "note": "the pawnbroker is added to it"
+         "text": "brought in",
+         "at": 15,
+         "note": "brought in means taken inside, so the queen letter goes into the taxi word"
         }
        ],
        "parts": [
         {
          "words": "taxi",
+         "at": 26,
          "gives": "CAB",
          "note": "a cab is a taxi"
         },
         {
          "words": "queen",
+         "at": 9,
          "gives": "R",
-         "note": "R for regina, queen"
+         "note": "R is for Regina, Latin for queen"
         }
        ]
       },
       {
        "words": "pawnbroker",
+       "at": 34,
        "gives": "UNCLE",
        "note": "uncle is old slang for a pawnbroker"
       }
      ]
     },
     "explanation": {
-     "surface": "A queen taking a cab to pawn her jewel.",
-     "walkthrough": "A carbuncle is a red garnet cut into a rounded shape.",
-     "definitionFit": "Definition by class: a carbuncle is a red gemstone."
+     "surface": "A queen takes a taxi to a pawnbroker to sell a gem.",
+     "walkthrough": "The queen is Regina, Latin for queen, and uncle is old British slang for a pawnbroker.",
+     "definitionFit": "A carbuncle is a red gem, especially a garnet cut in a rounded shape."
     },
     "features": {
      "answerInScene": true,
@@ -2104,41 +2110,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces go in the sense"
+       "at": 34,
+       "note": "in signals that the incident and peeled eyes go inside the sense word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "a sense",
-         "gives": "SIGHT",
-         "note": "sight is one of the five senses"
-        },
-        {
-         "words": "incident",
-         "gives": "EVENT",
-         "note": "an event is an incident"
-        }
-       ]
+       "words": "a sense",
+       "at": 37,
+       "gives": "SIGHT",
+       "note": "sight is one of the five senses"
       },
       {
-       "words": "eyes peeled",
-       "gives": "YE",
-       "note": "EYES without its outer letters"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "incident",
+         "at": 7,
+         "gives": "EVENT",
+         "note": "an event is an incident"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "peeled",
+           "at": 26,
+           "note": "peeled means skin removed, so the outer letters of eyes are stripped off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eyes",
+           "at": 21,
+           "note": "the word whose outer letters are removed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Keeping your eyes peeled to note an incident.",
-     "walkthrough": "A seventy-eight is an old gramophone record that played at 78 rpm. 'Eyes peeled' is an idiom for watchful here turned literal.",
-     "definitionFit": "Definition by class: a seventy-eight is a shellac record."
+     "surface": "Someone recording an incident while keeping their eyes peeled.",
+     "walkthrough": "'Eyes peeled' looks like watchfulness, but peeling means taking the outer letters off; 'Record' is the definition.",
+     "definitionFit": "A seventy-eight is an old gramophone record played at 78 revolutions per minute."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "peeled"
     }
    }
@@ -2288,52 +2308,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "sent back, the walk reads in reverse"
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "used as written"
+       "at": 0
       },
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "collecting"
+         "text": "collecting",
+         "at": 22,
+         "note": "collecting means gathering in, so the turned walk holds the small letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 17,
+           "note": "back means turned the other way, so the walk word is read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "leisurely walk",
+           "at": 2,
            "gives": "STROLL",
            "note": "a stroll is a leisurely walk"
-          },
-          {
-           "words": "small",
-           "gives": "S",
-           "note": "standard abbreviation"
           }
          ]
+        },
+        {
+         "words": "small",
+         "at": 33,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slow walk home picking up odds and ends.",
-     "walkthrough": "Allsorts is best known from Liquorice Allsorts, a British sweet mix of assorted pieces.",
-     "definitionFit": "Loose synonym: allsorts are an assortment, bits and bobs."
+     "surface": "On an amble home, someone gathers a few odds and ends.",
+     "walkthrough": "'Bits and bobs' is British for odds and ends, a miscellaneous collection.",
+     "definitionFit": "All-sorts are a miscellaneous assortment, as in liquorice allsorts, a mixed bag of odds and ends."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "back"
     }
    }
   },
@@ -2359,30 +2384,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HERE",
      "indicators": [
       {
        "text": "what follows",
-       "note": "the word that comes next in an alphabetical list"
+       "at": 4,
+       "note": "what follows means the next entry along, so the last letter of the other answer moves on one"
+      },
+      {
+       "text": "in list of four-letter words",
+       "at": 27,
+       "note": "in list of four-letter words sets the order as an alphabetical word list, where only the final letter changes to step on"
       }
      ],
      "parts": [
       {
        "words": "29 across",
+       "at": 17,
        "gives": "HERD",
-       "note": "the answer to 29 across"
+       "note": "29 across is HERD, the answer to that clue"
       },
       {
-       "words": "what follows 29 across in list of four-letter words",
-       "gives": "HERE",
-       "note": "the next four-letter word after the 29 across answer in an alphabetical list"
+       "gives": "D"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Swap HERD's last letter for the next one in the alphabet. Here means now, as in 'here we go'.",
-     "definitionFit": "Loose synonym: here can mean at this point in time, now."
+     "surface": "A question about which word comes next after another clue's answer in a word list.",
+     "walkthrough": "29 across is a word for a group of cattle; in an alphabetical list of four-letter words the next word along is the answer.",
+     "definitionFit": "Here as an adverb of time means at this point or now, as in 'here we go'."
     },
     "features": {
      "answerInScene": false,

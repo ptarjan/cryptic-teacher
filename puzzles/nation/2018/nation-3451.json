@@ -1575,37 +1575,42 @@
      "indicators": [
       {
        "text": "pulling in",
-       "note": "pulling something in brings it inside, so the following pieces go within the first word"
+       "at": 14,
+       "note": "pulling in means drawing inside, so the speed word takes the next pieces within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Reduce speed",
-         "gives": "SLOW",
-         "note": "to slow is to reduce speed"
-        },
-        {
-         "words": "immediately",
-         "gives": "NOW",
-         "note": "now means at once"
-        }
-       ]
+       "words": "Reduce speed",
+       "at": 0,
+       "gives": "SLOW",
+       "note": "to slow is to reduce speed"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "center of",
-         "note": "the center of a five-letter word is its third, middle letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Aspen",
-         "note": "the middle letter of Aspen"
+         "words": "immediately",
+         "at": 25,
+         "gives": "NOW",
+         "note": "now means immediately"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "center of",
+           "at": 40,
+           "note": "center of picks the middle letter of the town name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Aspen",
+           "at": 50,
+           "note": "the Colorado ski resort, taken as written"
+          }
+         ]
         }
        ]
       }
@@ -1613,14 +1618,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A road warning in the Colorado ski town of Aspen: slow down and pull over now.",
-     "walkthrough": "The whole clue also describes the machine: a slow vehicle pulling in at the center of a snowy Aspen road. SNOWPLOW is the US spelling of snowplough.",
-     "definitionFit": "A snowplow is a slow-moving vehicle that clears snow from roads, the kind that makes traffic reduce speed in a ski town."
+     "surface": "An urgent instruction to a skier to slow down at once in the middle of Aspen.",
+     "walkthrough": "The whole clue also describes the move itself: Aspen is a ski resort in Colorado, where skiers brake this way.",
+     "definitionFit": "The snowplow is the beginner skier's braking position, tips together and heels apart, used to lose speed."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "pulling"
+     "aptDefinition": true
     }
    }
   },

@@ -1365,8 +1365,7 @@
     "definitions": [
      {
       "text": "laughter",
-      "at": 21,
-      "note": "chortle is a noun here: a chortle is a burst of laughter"
+      "at": 21
      }
     ],
     "wordplay": {
@@ -1374,40 +1373,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the letters go inside the job"
+       "at": 10,
+       "note": "in signals that the time and left letters go inside the word for job"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "job",
-         "gives": "CHORE",
-         "note": "a chore = a job"
-        },
-        {
-         "words": "Time",
-         "gives": "T",
-         "note": "T = time"
-        }
-       ]
+       "words": "job",
+       "at": 13,
+       "gives": "CHORE",
+       "note": "a chore is a job or task"
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L = left"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "at": 0,
+         "gives": "T"
+        },
+        {
+         "words": "left",
+         "at": 5,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who leaves a job with time to spare and finds it funny.",
-     "walkthrough": "T and L go into CHORE together: CHOR(TL)E.",
-     "definitionFit": "A chortle is a gleeful chuckle, a kind of laughter."
+     "surface": "A spell off from work, all for the sake of a laugh.",
+     "walkthrough": "'Time left in job' reads as quitting work, but the time and left letters simply sit inside the job word.",
+     "definitionFit": "A chortle is a gleeful chuckle, a burst of laughter."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "left"
     }
    }
   },
