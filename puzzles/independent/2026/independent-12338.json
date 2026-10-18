@@ -340,35 +340,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "BO",
        "indicators": [
         {
          "text": "Openings for",
-         "note": "openings are the first letters of the words"
+         "at": 0,
+         "note": "the openings of words are their first letters, so we take the initial of each of the next two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Openings for blackmail — one's",
-         "gives": "BO",
-         "select": "first",
-         "note": "first letters of blackmail and one's"
+         "words": "blackmail — one's",
+         "at": 13,
+         "note": "the first letters are B and O"
         }
        ]
       },
       {
        "words": "agreed",
+       "at": 31,
        "gives": "OK",
-       "note": "OK = agreed"
+       "note": "OK means agreed, as in 'that's OK by me'"
       }
      ]
     },
     "explanation": {
-     "surface": "A blackmailer's opening demands are agreed, and the record of the gambling debts is settled.",
-     "walkthrough": "A book is the bookmaker's record of bets taken.",
-     "definitionFit": "A bookmaker's book is the record of bets placed on an event."
+     "surface": "A shady character keeps a ledger of bets, and the first chance for blackmail is agreed.",
+     "walkthrough": "'Openings for' takes B and O, the first letters of 'blackmail' and 'one's'; OK ('agreed') follows them.",
+     "definitionFit": "A bookmaker's book is the record of bets taken on an event, hence 'making a book'."
     },
     "features": {
      "answerInScene": true,
@@ -1261,59 +1259,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KIMCHI",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going to",
+       "at": 33,
+       "note": "the first pieces travel to, and so end up after, the letter from Korea"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "mostly means most but not all, so CHIC loses its final letter"
-        },
-        {
          "text": "capital of",
-         "note": "the first letter of Korea"
+         "at": 42,
+         "note": "the capital of a word is its capital letter, the first one"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "K",
+         "words": "Korea",
+         "at": 53,
+         "note": "first letter K"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 16,
+         "gives": "IM",
+         "note": "taken as written, without the apostrophe"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "going to"
+           "text": "mostly",
+           "at": 20,
+           "note": "most of the word, so its last letter is dropped"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "capital of Korea",
-           "gives": "K",
-           "select": "first",
-           "note": "first letter"
+           "words": "smart",
+           "at": 27,
+           "gives": "CHIC",
+           "note": "chic means smart, stylish"
+          },
+          {
+           "gives": "C"
           }
          ]
-        },
-        {
-         "words": "I'm",
-         "note": "as printed, without the apostrophe"
-        },
-        {
-         "words": "smart",
-         "gives": "CHI",
-         "note": "CHIC = smart, missing its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner feels mostly smart after heading to Seoul to try the local food.",
-     "walkthrough": "'Capital of Korea' wants to be Seoul; it is only the first letter K.",
-     "definitionFit": "Kimchi is Korea's fermented spicy cabbage, a staple of its cuisine."
+     "surface": "Someone claims to look stylish as they head for Seoul to eat.",
+     "walkthrough": "'capital of Korea' is its first letter K, not Seoul. 'mostly' cuts CHIC to CHI, and IM plus CHI, 'going to' K, come after it.",
+     "definitionFit": "Kimchi is Korea's national dish of fermented, spiced vegetables, usually cabbage."
     },
     "features": {
      "answerInScene": true,
@@ -1400,42 +1409,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JAGUAR",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "only half the newspaper's name is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "BMW's agreed",
+       "at": 15,
+       "gives": "JA",
+       "note": "BMW is a German maker, and 'ja' is German for yes"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 52,
+         "note": "half of the word is not used, so its last four letters are dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "BMW's agreed",
-         "gives": "JA",
-         "note": "BMW is German, and German for yes is ja"
+         "words": "British newspaper",
+         "at": 33,
+         "gives": "GUARDIAN",
+         "note": "The Guardian is a British national daily newspaper"
         },
         {
-         "words": "British newspaper",
-         "gives": "GUAR",
-         "note": "first half of GUARDIAN, a British daily paper"
+         "gives": "DIAN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car-industry story: BMW has struck a deal reported in a British paper.",
-     "walkthrough": "BMW stands in for Germany, so what it says for 'agreed' is German. 'Not half' is also British slang for 'very much', which disguises the instruction.",
-     "definitionFit": "A definition by example: Jaguar is a British luxury marque, a rival to BMW at the pricey end of the market."
+     "surface": "A German carmaker comes to terms with half a British newspaper over a luxury car.",
+     "walkthrough": "BMW stands for Germany here, so its 'yes' is JA. 'not half' keeps GUAR of GUARDIAN.",
+     "definitionFit": "Jaguar is a British maker of luxury saloons and sports cars, a costly brand."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "BMW"
+     "misdirectedWord": "BMW's"
     }
    }
   },
@@ -1563,42 +1576,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CREDO",
-     "indicators": [
-      {
-       "text": "A lot of",
-       "note": "most but not all of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of the word, but not all of it, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "team",
-         "gives": "CRE",
-         "note": "CREW without its last letter"
+         "at": 9,
+         "gives": "CREW",
+         "note": "a crew is a team, as of rowers"
         },
         {
-         "words": "the same",
-         "gives": "DO",
-         "note": "short for ditto"
+         "gives": "W"
         }
        ]
+      },
+      {
+       "words": "the same",
+       "at": 21,
+       "gives": "DO",
+       "note": "do is short for ditto, meaning the same again"
       }
      ]
     },
     "explanation": {
-     "surface": "Much of a team shares one set of beliefs.",
-     "walkthrough": "DO is the abbreviation for ditto, used in lists to mean 'the same again'.",
-     "definitionFit": "A plain synonym: credo is Latin for 'I believe', the opening word of a creed, and now names any set of principles."
+     "surface": "Most of a team share one set of convictions.",
+     "walkthrough": "'A lot of' trims CREW to CRE. DO is the abbreviation of ditto, used in lists for 'the same'.",
+     "definitionFit": "A credo is a creed, the statement of principles a person or group holds."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "same"
+     "aptDefinition": false
     }
    }
   },

@@ -295,30 +295,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "OUTCOME",
      "indicators": [
       {
        "text": "with parts switched",
-       "note": "the phrase tells us the two halves of the phrase for emerge swap places, front going to the back"
+       "at": 7,
+       "note": "the two parts of the phrase swap places, the front part moving round to the back"
       }
      ],
      "parts": [
       {
        "words": "Emerge",
+       "at": 0,
        "gives": "COMEOUT",
        "note": "to come out is to emerge"
       }
      ]
     },
     "explanation": {
-     "surface": "Something emerges with its components rearranged, producing a result.",
-     "walkthrough": "COME OUT becomes OUT COME when its two words change places.",
-     "definitionFit": "An outcome is the consequence or end result of something."
+     "surface": "Something comes into view once its components are rearranged, and that is the end product.",
+     "walkthrough": "Swapping the two words of COME OUT, as 'with parts switched' asks, gives the answer.",
+     "definitionFit": "An outcome is the consequence or end result of an action or event."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
     }
    }
   },
@@ -1031,38 +1032,39 @@
      "parts": [
       {
        "words": "fellow",
+       "at": 21,
        "gives": "GUY",
-       "note": "simple synonym"
+       "note": "guy is an informal word for a man, a fellow"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ROPE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "central",
-         "note": "'central' means only the middle letters of the next word are kept"
+         "at": 28,
+         "note": "only the central part of the word is kept, so two letters go from each end"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "European",
-         "gives": "ROPE",
-         "select": "middle",
-         "note": "the middle four letters of the word"
+         "at": 36,
+         "note": "taken as written"
+        },
+        {
+         "gives": "EUAN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fellow from central Europe is a supporter at the campsite.",
-     "walkthrough": "'Supporter' suggests a fan, but it is the line holding up a tent.",
-     "definitionFit": "A guy rope is a line pegged to the ground that holds up a tent at a campsite."
+     "surface": "A man from the middle of Europe props up a tent at a campsite.",
+     "walkthrough": "'central' takes the middle four letters of EUROPEAN, ROPE, dropping EU and AN. 'Supporter' sounds like a fan, but it is the line that holds a tent up.",
+     "definitionFit": "A guy rope is a cord pegged to the ground that holds a tent steady, so it supports a camp shelter."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Supporter"
     }
@@ -1180,30 +1182,32 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the first word inside the abbreviation that follows"
+       "at": 21,
+       "note": "one piece goes inside the other"
       }
      ],
      "parts": [
       {
        "words": "foot",
-       "gives": "FT",
-       "note": "FT is the abbreviation for foot"
+       "at": 24,
+       "gives": "FT"
       },
       {
        "words": "is",
+       "at": 18,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Is this body part found in the foot? Both yes and no.",
-     "walkthrough": "'Yes and no' is the joke: the letters of 'is' really are in the abbreviation for foot, but a fist is a hand, not part of a foot.",
-     "definitionFit": "A fist is a clenched hand, a part of the human body."
+     "surface": "A riddle asks whether a certain body part belongs in the foot, and answers itself both ways.",
+     "walkthrough": "'Yes and no' is the joke: the letters do sit in the foot's abbreviation, but a clenched hand is no part of anyone's foot.",
+     "definitionFit": "A fist is the hand with its fingers clenched, a part of the human body."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "foot"
     }
    }

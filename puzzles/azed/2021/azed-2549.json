@@ -1826,27 +1826,29 @@
      "indicators": [
       {
        "text": "on the fringes",
-       "note": "fringes are edges, so those letters sit on the outside of the others"
+       "at": 16,
+       "note": "the shortened word sits at the edges, either side of the other letters"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "RY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Only 50%",
-         "note": "50% means just half of the word is kept, here its second half"
+         "at": 6,
+         "note": "only half of the word is used, so its first two letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Tory",
-         "gives": "RY",
-         "select": "last",
-         "note": "the back half of a four-letter word"
+         "at": 0,
+         "gives": "TORY",
+         "note": "taken as written"
+        },
+        {
+         "gives": "TO"
         }
        ]
       },
@@ -1855,26 +1857,27 @@
        "parts": [
         {
          "words": "one",
+         "at": 32,
          "gives": "A",
-         "note": "a means one"
+         "note": "A means one, as in 'a pound'"
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 36
         },
         {
          "words": "name",
-         "gives": "N",
-         "note": "N is the abbreviation for name"
+         "at": 38,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone half-Tory and on the party's edge is branded 'wet', the British term for a moderate Conservative.",
-     "walkthrough": "In British politics a 'wet' was a moderate Tory opposed to Thatcher's harder line, which is why the clue feels political.",
-     "definitionFit": "Rainy weather is wet weather, a straightforward synonym."
+     "surface": "A Conservative politician is only half-hearted and peripheral, so he gets called a 'wet', the old Thatcherite insult.",
+     "walkthrough": "'Only 50%' keeps RY, the back half of TORY, and 'on the fringes' puts it round A, I and N. In British politics a 'wet' was a moderate Tory, which the surface plays on.",
+     "definitionFit": "Rainy weather is wet weather, so the adjective describes a day with rain falling."
     },
     "features": {
      "answerInScene": false,
@@ -2064,51 +2067,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UPGROWTH",
+     "op": "composite",
      "indicators": [
       {
-       "text": "mismanaged",
-       "note": "something mismanaged is handled badly, so the letters end up out of order"
+       "text": "that's mismanaged",
+       "at": 32,
+       "note": "something mismanaged is handled in a muddled way, so these letters are jumbled"
+      },
+      {
+       "text": "missed",
+       "at": 14,
+       "note": "says that a letter is left out of the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UPGROWTH",
-       "indicators": [
-        {
-         "text": "missed",
-         "note": "missed means left out, so the named letter disappears"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I",
-         "note": "taken as written, the letter to drop"
-        },
-        {
-         "words": "with",
-         "note": "taken as written"
-        },
-        {
-         "words": "group",
-         "note": "taken as written"
-        }
-       ]
+       "words": "with group",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "words": "I",
+       "at": 12
       }
      ]
     },
     "explanation": {
-     "surface": "A manager regrets being left out of a badly run group project.",
-     "definitionFit": "An upgrowth is the process or result of growing upwards, a development."
+     "surface": "A project goes wrong after one member leaves a mismanaged group.",
+     "walkthrough": "Take WITH GROUP; 'I missed' removes the I, and 'that's mismanaged' rearranges the remaining eight letters.",
+     "definitionFit": "An upgrowth is the process or result of growing upward, a form of growth or progress."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "missed"
+     "misdirectedWord": "mismanaged"
     }
    }
   }

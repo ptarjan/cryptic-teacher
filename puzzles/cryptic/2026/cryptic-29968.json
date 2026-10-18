@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -138,27 +139,32 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EVIAN",
      "indicators": [
       {
        "text": "Turned up",
-       "note": "Turned up is an about-face on a down entry: the letters climb the column, arriving in the opposite order to the one the clue prints."
+       "at": 0,
+       "note": "in a down clue, turning a word up means reading it from the bottom, so the letters run backwards"
       }
      ],
      "parts": [
       {
        "words": "unsophisticated",
-       "gives": "EVIAN",
-       "note": "someone unsophisticated is naive, and those five letters are written back to front"
+       "at": 11,
+       "gives": "NAIVE",
+       "note": "naive means innocent and unworldly, i.e. unsophisticated"
       }
      ]
     },
     "spelling": "ÉVIAN",
     "explanation": {
-     "surface": "A rustic simplicity that turns up in a smart French watering place.",
-     "walkthrough": "The town's name sits on restaurant tables all over the world as a brand of bottled water, which is why it reads as scenery rather than as a definition.",
-     "definitionFit": "Évian-les-Bains is a spa town on the French side of Lake Geneva, famous for the mineral water bottled there."
+     "surface": "A country bumpkin arrives at a fashionable French resort.",
+     "walkthrough": "'Turned up' reverses NAIVE, which suits a down entry read from the bottom upwards.",
+     "definitionFit": "Evian-les-Bains is a resort on Lake Geneva in France, famous for its bottled mineral water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turned"
     }
    }
   },
@@ -572,37 +578,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ANNATTO",
-     "indicators": [
-      {
-       "text": "sent back",
-       "note": "Something sent back retraces the way it came, so this piece is written in the reverse of its usual order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Girl",
+       "at": 0,
+       "gives": "ANNA",
+       "note": "Anna is a girl's name"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent back",
+         "at": 5,
+         "note": "something sent back returns the way it came, so these letters are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Girl",
-         "gives": "ANNA",
-         "note": "Anna is the girl's name, four letters and the same either way round"
-        },
-        {
          "words": "too much",
-         "gives": "TTO",
-         "note": "too much is over the top, OTT, and the reversal turns those three letters round"
+         "at": 15,
+         "gives": "OTT",
+         "note": "OTT is short for over the top, meaning excessive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl sent home for putting far too much colour in the food.",
-     "walkthrough": "OTT is worth owning — over the top, the crossword's standard three letters for excess — and it is one of the few abbreviations that reads as a whole phrase.",
-     "definitionFit": "Annatto is the orange-red dye made from achiote seeds, used to colour cheeses such as Red Leicester."
+     "surface": "A girl returns a dish because it has far too much artificial colouring.",
+     "walkthrough": "OTT, short for 'over the top', is a common crossword way to say 'too much'; 'sent back' turns it round after the girl's name.",
+     "definitionFit": "Annatto is an orange-red dye from achiote seeds, used to colour cheese and other foods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
     }
    }
   },
@@ -627,42 +639,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
-       "note": "Could be admits the letters are only a possibility in the order given, which is licence to try them in another."
+       "at": 14,
+       "note": "says the letters of the following word could be arranged into something else"
+      },
+      {
+       "text": "not",
+       "at": 34,
+       "note": "says that a letter must be left out of the fodder before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "credible",
-           "note": "eight letters offered up before anything is taken away"
-          },
-          {
-           "gives": "R"
-          }
-         ]
-        }
-       ]
+       "words": "credible",
+       "at": 23
       },
       {
-       "unchecked": true,
-       "words": "not right",
-       "note": "right is R, and 'not' is the word that throws that one letter out"
+       "words": "right",
+       "at": 38,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An account that would be believable if one detail in it were not wrong.",
-     "walkthrough": "The exclamation mark makes 'not right!' read as indignation about the story, when it is a flat instruction to drop a letter before shuffling.",
-     "definitionFit": "A decibel is the unit sound intensity is measured in, so 'sound measure' names it by exactly what it counts."
+     "surface": "Someone doubts that a claimed noise level is believable.",
+     "walkthrough": "Take the letters of CREDIBLE; 'not right' removes R, and 'could be' rearranges the remaining DECIBLE into the answer.",
+     "definitionFit": "A decibel is the unit used to express loudness, so it is a measure of sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credible"
     }
    }
   },
@@ -789,43 +799,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TANGERINE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "perplexed",
+       "at": 6,
+       "note": "something perplexed is muddled, so the letters are jumbled"
+      },
+      {
+       "text": "not",
+       "at": 30,
+       "note": "tells us some letters are to be left out of the fodder before the jumble"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "perplexed",
-         "note": "A perplexed person has lost track of how things go, and so do these letters once the instruction bites."
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "TANGERINE",
-         "parts": [
-          {
-           "words": "generations",
-           "note": "eleven letters, the raw material the clue hands over"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "not so",
-         "note": "the S and O of 'so' are the two letters that do not survive"
-        }
-       ]
+       "words": "generations",
+       "at": 16
+      },
+      {
+       "words": "so",
+       "at": 34,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Generations of people left baffled, and somebody insisting it was not so.",
-     "walkthrough": "'Not so!' reads as a flat contradiction and is a pair of letters to remove; the count gives it away, because eleven letters will never fill nine cells.",
-     "definitionFit": "A tangerine is the small loose-skinned citrus named after Tangier, so 'fruit' defines it by naming its kind."
+     "surface": "Generations are baffled by a piece of fruit, or perhaps they deny being baffled.",
+     "walkthrough": "From GENERATIONS, 'not so' removes S and O, leaving GENERATIN, which 'perplexed' rearranges.",
+     "definitionFit": "A tangerine is a small loose-skinned citrus fruit, a kind of mandarin orange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "so"
     }
    }
   },
@@ -850,37 +857,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "from which falls",
+       "at": 6,
+       "note": "something falling out of the canoe is removed from it, so those letters are dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "from which falls",
-         "note": "Whatever falls from a thing leaves it behind, so the letters named drop out of the word standing before them."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Canoe",
-         "note": "the small paddled boat, five letters"
-        },
-        {
-         "gives": "AN"
-        }
-       ]
+       "words": "Canoe",
+       "at": 0,
+       "note": "taken as written"
       },
       {
-       "unchecked": true,
        "words": "an",
-       "note": "the article names its own two letters, A and N, and they are the ones lost"
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete tipping out of a canoe.",
-     "walkthrough": "The picture is a capsize, and the instruction runs the other way round: it is the canoe that loses something, not the paddler.",
-     "definitionFit": "Sebastian Coe is the British middle-distance runner who won Olympic 1500m gold in 1980 and again in 1984."
+     "surface": "Someone tumbles out of a canoe, and that someone is a sportsman.",
+     "walkthrough": "'from which falls' takes AN out of CANOE to leave the answer. Seb Coe is a British Olympic middle-distance champion.",
+     "definitionFit": "Sebastian Coe won Olympic gold over 1500 metres, so the name fits a famous runner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "falls"
     }
    }
   },
@@ -905,37 +910,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISTANT",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "Half a word is one of its two equal parts, and it is the opening four letters that are kept here."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 9,
+         "note": "only half of the word is kept, so its second four letters are dropped"
+        }
+       ],
        "parts": [
         {
          "words": "the area",
-         "gives": "DIST",
-         "note": "an area is a district, and only the front half of that eight-letter word is wanted"
+         "at": 14,
+         "gives": "DISTRICT",
+         "note": "a district is an area"
         },
         {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "the crossword's standard worker is the ant"
+         "gives": "RICT"
         }
        ]
+      },
+      {
+       "words": "worker",
+       "at": 28,
+       "gives": "ANT",
+       "note": "an ant is the classic worker in crosswords, from the worker ants of a colony"
       }
      ]
     },
     "explanation": {
-     "surface": "Half a plot of land set aside, with a labourer thrown in.",
-     "walkthrough": "'Reserved' means aloof rather than booked in advance, and that switch is what the surface's talk of land and labour is built to hide.",
-     "definitionFit": "A distant manner is a cool, unforthcoming one, which is what 'reserved' describes in a person."
+     "surface": "Part of a region has been set aside for a labourer.",
+     "walkthrough": "'Reserved' looks like 'set aside' but means aloof in manner. 'half' keeps only the first four letters of the area word, and the worker is the insect.",
+     "definitionFit": "A reserved person is cool and aloof in manner, which is what this adjective means of a personality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserved"
     }
    }
   },
@@ -1009,26 +1023,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "IGNORES",
      "indicators": [
       {
        "text": "cycling",
-       "note": "Cycling sends the letter at one end round to the other, everyone else keeping their place in the queue."
+       "at": 42,
+       "note": "cycling a word moves a letter round from one end to the other, like a wheel turning"
       }
      ],
      "parts": [
       {
        "words": "Italian fellow",
+       "at": 27,
        "gives": "SIGNORE",
-       "note": "a signore is an Italian gentleman, and one of these letters is about to move house"
+       "note": "signore is the Italian for a gentleman, a man"
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian gentleman out on his bicycle.",
-     "walkthrough": "Every letter is there from the start and only the first one travels, which is why the word looks so nearly right before you touch it.",
-     "definitionFit": "To give someone the cold shoulder is to ignore them pointedly, so the phrase is the idiomatic equivalent of the answer."
+     "surface": "An Italian man out on his bike snubs someone.",
+     "walkthrough": "'cycling' moves the first S of SIGNORE to the back.",
+     "definitionFit": "To give someone the cold shoulder is to deliberately pay them no attention, which is what this verb means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -1355,43 +1374,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NIELSEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "drunk",
-       "note": "A drunk cannot walk a straight line, and letters in that state do not keep the order they were given."
+       "text": "in",
+       "at": 22,
+       "note": "one piece is placed within the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "In puts one piece inside another, so what follows is not laid alongside the rest but buried within it."
+         "text": "drunk",
+         "at": 30,
+         "note": "being drunk means staggering about, so the letters of inn are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "inn, drunk",
-         "gives": "NIN",
-         "note": "the three letters of the pub, staggering"
-        },
-        {
-         "words": "otherwise",
-         "gives": "ELSE",
-         "note": "'or otherwise' is 'or else'"
+         "words": "inn",
+         "at": 25,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "otherwise",
+       "at": 12,
+       "gives": "ELSE",
+       "note": "else means otherwise, as in 'or else'"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer who would rather be anywhere else than in this pub.",
-     "walkthrough": "Danish music is thin on the ground in crosswords, and this symphonist is the name that turns up: worth stocking on the shelf beside Grieg and Sibelius.",
-     "definitionFit": "Carl Nielsen was Denmark's leading symphonist, so 'composer' defines him by example rather than by any property of the word."
+     "surface": "A composer behaves differently when drunk at a pub.",
+     "walkthrough": "'drunk' scrambles INN to NIN, and 'otherwise' goes in it; 'is' is just a link. Carl Nielsen was a Danish composer.",
+     "definitionFit": "Carl Nielsen wrote six symphonies and is Denmark's best-known classical musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -1503,37 +1528,47 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Heartless",
-       "note": "A heartless word has lost the letter at its very centre, and that letter is gone before the shuffle begins."
+       "text": "confused",
+       "at": 22,
+       "note": "confused letters are mixed up, so these are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "confused",
-         "note": "Confused things are out of their proper arrangement, so these letters take up a new order."
+         "text": "Heartless",
+         "at": 0,
+         "note": "without its heart, the central letter of the name is removed"
         }
        ],
        "parts": [
         {
-         "words": "Heartless Elgar",
-         "gives": "ELAR",
-         "note": "the composer's five letters lose the G sitting at their centre"
+         "words": "Elgar",
+         "at": 10,
+         "note": "taken as written"
         },
         {
-         "words": "I",
-         "note": "the clue's own I joins the letters to be mixed"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "The speaker and a hard-hearted Elgar, thoroughly muddled between them.",
-     "walkthrough": "'Heartless' is a character judgement in the surface and a surgical instruction in the wordplay — one letter, taken from the exact middle of the name.",
-     "definitionFit": "Ariel is the airy spirit bound to Prospero in The Tempest, so the definition names the character by play and by kind."
+     "surface": "A cruel Elgar and the speaker are both bewildered by a ghost from Shakespeare.",
+     "walkthrough": "'Heartless' takes the middle G out of ELGAR, leaving ELAR; add I and 'confused' rearranges them.",
+     "definitionFit": "Ariel is the airy sprite who serves Prospero in The Tempest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartless"
     }
    }
   },
