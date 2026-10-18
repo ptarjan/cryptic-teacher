@@ -2700,51 +2700,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NIGHTPORTER",
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold something is to keep it within, so a piece goes inside"
+       "at": 21,
+       "note": "holding means the earlier letters enclose the drink word between them"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Strange",
-         "note": "strange means odd and out of the ordinary, so the letters come out in an odd order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "thing",
-         "note": "the letters as printed"
-        },
-        {
-         "words": "drink",
-         "gives": "PORT",
-         "note": "port is a fortified wine"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Strange",
+           "at": 0,
+           "note": "strange suggests the letters of thing are altered into an odd new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "thing",
+           "at": 8
+          }
+         ]
         },
         {
          "words": "Queen",
+         "at": 15,
          "gives": "ER",
-         "note": "ER is Elizabeth Regina, the Queen"
+         "note": "ER stands for Elizabeth Regina, the Queen"
         }
        ]
+      },
+      {
+       "words": "drink",
+       "at": 29,
+       "gives": "PORT",
+       "note": "port is a fortified wine"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd thing: the Queen has a drink waiting for a hotel worker.",
-     "walkthrough": "The reworked word and the Queen together hold the drink, which lands between them.",
-     "definitionFit": "A night porter staffs a hotel's front desk overnight, so the job is one type of hotel employee."
+     "surface": "An odd item: the monarch clutching a beverage, served by hotel staff.",
+     "walkthrough": "The drink sits between the rearranged thing and the Queen, not inside the Queen alone.",
+     "definitionFit": "A night porter is a hotel staff member who works overnight at reception."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "thing"
+     "misdirectedWord": "Queen"
     }
    }
   },

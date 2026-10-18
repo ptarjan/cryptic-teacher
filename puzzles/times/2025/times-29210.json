@@ -392,56 +392,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "embraces"
+       "text": "embraces",
+       "at": 7,
+       "note": "the county name wraps around the following letters like arms holding them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "introduction of",
-         "note": "the introduction of a word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "County",
-         "gives": "LINCS",
-         "note": "Lincs is the short form of Lincolnshire, an English county"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "introduction of treatment",
-           "gives": "T",
-           "select": "first",
-           "note": "the first letter of Treatment"
-          }
-         ]
-        }
-       ]
+       "words": "County",
+       "at": 0,
+       "gives": "LINCS",
+       "note": "Lincs is the short form of Lincolnshire, an English county"
       },
       {
-       "words": "universal",
-       "gives": "U",
-       "note": "U = universal, the film classification for all ages"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "introduction of",
+           "at": 16,
+           "note": "the introduction of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "treatment",
+           "at": 32,
+           "note": "first letter T"
+          }
+         ]
+        },
+        {
+         "words": "universal",
+         "at": 47,
+         "gives": "U",
+         "note": "U is the film-rating abbreviation for universal"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A county council starts a treatment programme with medicine for everyone.",
-     "walkthrough": "Lincs, short for Lincolnshire, is an English county. Here 'with' only joins the definition to the wordplay.",
-     "definitionFit": "Linctus is a syrupy cough medicine."
+     "surface": "An English county has adopted a new treatment alongside a medicine suitable for everyone.",
+     "walkthrough": "Lincolnshire is an English county, usually shortened in addresses; the universal film certificate gives the last letter inside.",
+     "definitionFit": "A linctus is a syrupy cough medicine, so it is a kind of medication."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "universal"
+     "misdirectedWord": "County"
     }
    }
   },
@@ -467,26 +468,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LAG",
      "indicators": [
       {
        "text": "topped",
-       "note": "a topped word loses its head, the first letter in a down clue"
+       "at": 16,
+       "note": "a word that is topped has its head cut off, so the first letter goes"
       }
      ],
      "parts": [
       {
-       "words": "Violent robbery topped",
-       "gives": "LAG",
-       "note": "BLAG, slang for a violent robbery, loses its B"
+       "words": "Violent robbery",
+       "at": 0,
+       "gives": "BLAG",
+       "note": "a blag is British slang for a robbery with violence"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A former prisoner was involved in a violent raid.",
-     "walkthrough": "Blag is British criminal slang for a robbery with violence; an old lag is a habitual or former convict.",
-     "definitionFit": "A lag, usually 'old lag', is British slang for a former prisoner."
+     "surface": "A brutal raid was carried out by someone who had been in prison before.",
+     "walkthrough": "A blag is British criminal slang for an armed or violent robbery.",
+     "definitionFit": "An old lag is British slang for a habitual criminal who has served time in prison."
     },
     "features": {
      "answerInScene": true,
@@ -745,63 +749,68 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "head of",
-       "note": "the head of a word is its first letter"
-      }
-     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "back",
-         "note": "GOT back reads it from right to left"
+         "text": "around",
+         "at": 39,
+         "note": "the reversed word sits around the letter for noon, enclosing it"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "around"
+           "text": "back",
+           "at": 34,
+           "note": "got back means the word got is read in the opposite direction"
           }
          ],
          "parts": [
           {
            "words": "got",
-           "note": "the word as it stands, reversed to TOG"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "noon",
-             "note": "N = noon, the abbreviation used in times"
-            }
-           ]
+           "at": 30
           }
          ]
+        },
+        {
+         "words": "noon",
+         "at": 46,
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "head of agriculture",
-       "gives": "A",
-       "note": "the first letter of Agriculture"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 10,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agriculture",
+         "at": 18,
+         "note": "first letter A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nation's farming minister returned home at midday.",
-     "walkthrough": "The ’s is 'has', joining the definition: TOG around N, and the head of agriculture's A follows it.",
-     "definitionFit": "Tonga is a Polynesian kingdom in the South Pacific."
+     "surface": "A nation's farming chief returned at about midday.",
+     "walkthrough": "The clue lists the farming letter first, but it ends the answer: the charade is read in answer order.",
+     "definitionFit": "Tonga is an island kingdom in the South Pacific, a sovereign nation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "back"
     }
    }
   },
@@ -901,41 +910,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EARLYBIRD",
+     "op": "charade",
      "indicators": [
       {
-       "text": "travelling",
-       "note": "travelling letters move about into a new order"
+       "text": "and",
+       "at": 55,
+       "note": "and here adds the road abbreviation on the end of the letters so far"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "European",
+       "at": 27,
+       "gives": "E"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "at": 36,
+         "note": "travelling suggests the letters moving around into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E = European"
+         "words": "by",
+         "at": 47
         },
         {
-         "words": "by rail and road",
-         "gives": "ARLYBIRD",
-         "note": "BY RAIL with RD (road) rearranged"
+         "words": "rail",
+         "at": 50
         }
        ]
+      },
+      {
+       "words": "road",
+       "at": 59,
+       "gives": "RD"
       }
      ]
     },
     "explanation": {
-     "surface": "A European commuter who goes by train and car always turns up on time.",
-     "walkthrough": "'Road' shrinks to its abbreviation RD before joining BY RAIL in the anagram; 'and' just adds it.",
-     "definitionFit": "From the proverb 'the early bird catches the worm': the phrase names anyone who turns up ahead of time."
+     "surface": "A punctual European passenger journeys by train and by car.",
+     "walkthrough": "'by rail' reads as a mode of transport, but those two words are the letters to be moved about.",
+     "definitionFit": "An early bird is an idiom for a person who gets somewhere ahead of time or rises early."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "travelling"
     }
    }
@@ -1039,39 +1062,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PERFORMINGARTS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "encapsulating",
+       "at": 27,
+       "note": "encapsulating means the roles word encloses the other letters like a capsule"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "roles",
+       "at": 21,
+       "gives": "PARTS",
+       "note": "parts are roles played by actors"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "encapsulating"
-        },
-        {
          "text": "revolutionary",
-         "note": "revolutionary letters turn over into a new order"
+         "at": 41,
+         "note": "revolutionary suggests the letters of from Niger are turned over into a new order"
         }
        ],
        "parts": [
         {
-         "words": "roles",
-         "gives": "PARTS",
-         "note": "parts are roles in a play"
+         "words": "from",
+         "at": 55
         },
         {
-         "words": "from Niger",
-         "note": "FROM NIGER rearranged"
+         "words": "Niger",
+         "at": 60
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Acting parts are given to a rebel from the African country of Niger.",
-     "walkthrough": "'Revolutionary from Niger' reads as a rebel; 'revolutionary' is the anagram signal and 'from Niger' its letters.",
-     "definitionFit": "A definition by example: drama is one of the arts presented on stage, alongside dance and music."
+     "surface": "Acting roles include a rebel from the African nation of Niger.",
+     "walkthrough": "'revolutionary from Niger' looks like a person; it is the anagram signal and its fodder, which goes in after the first letter of the roles word.",
+     "definitionFit": "The performing arts are disciplines such as theatre, dance and music performed before an audience."
     },
     "features": {
      "answerInScene": true,
@@ -1273,39 +1304,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 20,
+       "note": "the tirade word goes about, around, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "tirade",
-         "gives": "RANT",
-         "note": "a rant is a tirade"
-        },
-        {
-         "words": "a",
-         "note": "A is used as is"
-        }
-       ]
+       "words": "tirade",
+       "at": 13,
+       "gives": "RANT",
+       "note": "a rant is an angry tirade"
       },
       {
-       "words": "person occupying seat",
-       "gives": "MP",
-       "note": "an MP holds a seat in Parliament"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 26,
+         "gives": "A"
+        },
+        {
+         "words": "person occupying seat",
+         "at": 28,
+         "gives": "MP",
+         "note": "an MP (Member of Parliament) occupies a seat in the House of Commons"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone launches into an uncontrolled tirade about a fellow passenger taking a seat.",
-     "walkthrough": "The seat is a parliamentary one, so the person occupying it is an MP.",
-     "definitionFit": "Rampant means unrestrained, flourishing unchecked."
+     "surface": "An uncontrolled outburst is aimed at someone sitting in a chair.",
+     "walkthrough": "The seat is a parliamentary constituency, not a chair: its holder is a Member of Parliament.",
+     "definitionFit": "Rampant describes something wild and unchecked, spreading without control."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "seat"
     }
    }
@@ -1536,41 +1573,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "third of"
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "A is used as is"
+       "at": 0,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "absorbed by"
+         "text": "absorbed by",
+         "at": 20,
+         "note": "absorbed by means the letter is soaked up inside the drink word"
         }
        ],
        "parts": [
         {
          "words": "beverage",
+         "at": 32,
          "gives": "TEA",
-         "note": "tea is a drink"
+         "note": "tea is a beverage"
         },
         {
          "op": "nth",
-         "unchecked": true,
-         "gives": "S",
          "n": 3,
+         "indicators": [
+          {
+           "text": "third of",
+           "at": 2,
+           "note": "third of points to the third letter of biscuit"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "third of biscuit",
-           "gives": "S",
-           "select": 3,
-           "note": "the third letter of biScuit"
+           "words": "biscuit",
+           "at": 11
           }
          ]
         }
@@ -1579,13 +1617,14 @@
      ]
     },
     "explanation": {
-     "surface": "A soggy biscuit, dunked in tea, falls apart and disappears into the cup.",
-     "walkthrough": "'A third of' looks like a fraction; A is the first letter of the answer and 'third of biscuit' is its third letter, S.",
-     "definitionFit": "A ship out of sight of land has no bearings, so the idiom extends to anyone bewildered."
+     "surface": "A piece of biscuit dunked in tea crumbles away and is gone.",
+     "walkthrough": "'A third of biscuit' looks like a fraction of the biscuit; it is the article A plus the biscuit's third letter.",
+     "definitionFit": "At sea is an idiom for being confused or bewildered, at a loss."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "third"
     }
    }

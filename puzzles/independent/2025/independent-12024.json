@@ -289,43 +289,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HAMSTER",
      "indicators": [
       {
        "text": "to hide",
-       "note": "letters that hide something keep it within them"
+       "at": 12,
+       "note": "to hide means the outer letters conceal the beer name inside them"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Henry",
+         "at": 0,
+         "gives": "H",
+         "note": "H is the symbol for the henry, the unit of inductance"
+        },
+        {
+         "words": "right",
+         "at": 6,
+         "gives": "R"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "most of",
-         "note": "most of means everything but the end, so the final letter goes"
+         "at": 20,
+         "note": "most of means the final letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Henry",
-           "gives": "H",
-           "note": "H is the symbol of the henry, the unit of inductance"
-          },
-          {
-           "words": "lager",
-           "gives": "AMSTEL",
-           "note": "a Dutch brand of lager"
-          },
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "the usual abbreviation"
-          }
-         ]
+         "words": "lager",
+         "at": 28,
+         "gives": "AMSTEL",
+         "note": "Amstel is a brand of Dutch lager"
         },
         {
          "gives": "L"
@@ -335,9 +337,9 @@
      ]
     },
     "explanation": {
-     "surface": "Henry, in the right, conceals some beer from a cheeky person.",
-     "walkthrough": "Amstel is a Dutch beer brand. The hamster is cheeky because it stuffs food into its cheek pouches.",
-     "definitionFit": "Hamsters carry food in pouches in their cheeks, so the cheeky individual is a playful description of the rodent."
+     "surface": "A man called Henry hides most of his beer from a rascal.",
+     "walkthrough": "The lager is a brand name, Amstel from the Netherlands.",
+     "definitionFit": "Hamster is a playful term for a pet rodent with cheeks stuffed with food, so a cheeky creature."
     },
     "features": {
      "answerInScene": false,
@@ -1685,8 +1687,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "separately",
-       "note": "separately means the two single letters are not kept together but placed at different points"
+       "text": "overwhelmed by",
+       "at": 25,
+       "note": "overwhelmed by means the letter is swamped inside the drink"
       }
      ],
      "parts": [
@@ -1694,34 +1697,36 @@
        "op": "container",
        "indicators": [
         {
-         "text": "overwhelmed by",
-         "note": "being overwhelmed means being engulfed, so these go inside"
+         "text": "separately",
+         "at": 13,
+         "note": "separately tells you the two letters go into the drink at different points"
         }
        ],
        "parts": [
         {
          "words": "fruit punch",
+         "at": 40,
          "gives": "SANGRIA",
-         "note": "Spanish wine punch with fruit"
+         "note": "sangria is a Spanish wine punch with fruit"
         },
         {
-         "words": "left",
-         "gives": "L",
-         "note": "the abbreviation"
+         "words": "Husband",
+         "at": 0,
+         "gives": "H"
         }
        ]
       },
       {
-       "words": "Husband",
-       "gives": "H",
-       "note": "the abbreviation"
+       "words": "left",
+       "at": 8,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A husband walking out alone after one too many glasses of punch on a dream holiday.",
-     "walkthrough": "Separately means the two letters go into different places, not side by side.",
-     "definitionFit": "Shangri-La is the hidden Himalayan paradise of James Hilton's novel Lost Horizon, now any earthly paradise."
+     "surface": "A husband walked out and was drowned in fruity drink in an Asian paradise.",
+     "walkthrough": "'punch' looks like a blow; it is the drink, a Spanish wine punch.",
+     "definitionFit": "Shangri-La is the imaginary paradise in Tibet from James Hilton's Lost Horizon."
     },
     "features": {
      "answerInScene": true,
@@ -1918,41 +1923,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DEPENDENCY",
      "indicators": [
       {
        "text": "instead of",
-       "note": "one thing in place of another means a swap"
+       "at": 39,
+       "note": "instead of means one set of letters takes another's place"
       }
      ],
      "parts": [
       {
        "words": "Fairness",
+       "at": 0,
        "gives": "DECENCY",
        "note": "decency is fairness and propriety"
       },
       {
-       "words": "writer",
-       "gives": "PEN",
-       "note": "a pen writes"
-      },
-      {
-       "words": "director",
-       "gives": "D",
-       "note": "abbreviation for director"
-      },
-      {
        "words": "Charlie",
+       "at": 50,
        "gives": "C",
-       "note": "C in the NATO alphabet"
+       "note": "Charlie is C in the NATO phonetic alphabet"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "writer",
+         "at": 19,
+         "gives": "PEN",
+         "note": "a pen is a writing instrument"
+        },
+        {
+         "words": "director",
+         "at": 30,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question of fair play when a writer and director replace Charlie in a Jersey production.",
-     "walkthrough": "Jersey is a British Crown dependency, a self-governing island not part of the UK; the question mark flags it as an example.",
-     "definitionFit": "Jersey is a Crown dependency, a territory self-governing but under the British Crown, so it exemplifies the term."
+     "surface": "Fairness requires a writer and director replacing someone called Charlie in Jersey.",
+     "walkthrough": "Only the first Charlie letter is replaced. Jersey is a Channel Island, hence the question mark for an example.",
+     "definitionFit": "Jersey is a British Crown dependency, a self-governing territory under the Crown."
     },
     "features": {
      "answerInScene": false,
