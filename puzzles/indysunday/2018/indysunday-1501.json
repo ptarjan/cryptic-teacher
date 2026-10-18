@@ -718,45 +718,50 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "welcoming guests means taking them in, so the other letters go inside the firm word"
+       "at": 5,
+       "note": "welcoming means taking in a guest, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Firm",
+       "at": 0,
+       "gives": "SECURE",
+       "note": "firm means secure, fixed fast"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Firm",
-         "gives": "SECURE",
-         "note": "firm and secure both mean fixed fast"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "head of",
-           "note": "the head of a word is its opening letter"
+           "at": 15,
+           "note": "head of means the first letter of the word that follows"
           }
          ],
          "parts": [
           {
            "words": "informatics",
-           "note": "its opening letter"
+           "at": 23,
+           "note": "gives its first letter"
           }
          ]
+        },
+        {
+         "words": "new",
+         "at": 40,
+         "gives": "N"
         }
        ]
-      },
-      {
-       "words": "new",
-       "gives": "N",
-       "note": "N is the abbreviation for new"
       }
      ]
     },
     "explanation": {
-     "surface": "A company takes on an IT person in an easy new post.",
-     "definitionFit": "A sinecure is a paid position needing little or no work, the archetypal easy number."
+     "surface": "A company takes on a computing graduate and hands them an easy post.",
+     "walkthrough": "SECURE takes in I (head of informatics) and N (new) after its S.",
+     "definitionFit": "A sinecure is a paid position needing little or no work, exactly what a cushy job is."
     },
     "features": {
      "answerInScene": true,
@@ -1145,41 +1150,43 @@
      "indicators": [
       {
        "text": "featuring in",
-       "note": "something featuring in a work appears within it, so these letters go inside"
+       "at": 17,
+       "note": "featuring in says these pieces appear inside the work"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "work",
-         "gives": "OPUS",
-         "note": "an opus is a work, especially of music"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
-        }
-       ]
+       "words": "work",
+       "at": 30,
+       "gives": "OPUS",
+       "note": "an opus is a work, especially a musical composition"
       },
       {
-       "words": "officer",
-       "gives": "DI",
-       "note": "a DI is a detective inspector, a police officer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 0,
+         "gives": "E"
+        },
+        {
+         "words": "officer",
+         "at": 9,
+         "gives": "DI",
+         "note": "DI is a Detective Inspector, a police officer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A European official appears in a play about a Greek king.",
-     "walkthrough": "The ellipsis runs on into the next clue, linking two tragic royals, Theban and Danish.",
-     "definitionFit": "Oedipus ruled Thebes in Greek legend after unknowingly killing his father and marrying his mother."
+     "surface": "A European official appears in a play about the king of Thebes.",
+     "definitionFit": "Oedipus was the legendary ruler of Thebes in Greek myth, who unknowingly killed his father and married his mother."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "work"
+     "misdirectedWord": "officer"
     }
    }
   },
@@ -1208,60 +1215,65 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "outside means surrounding, so the turned word encloses the rest"
+       "at": 41,
+       "note": "outside means these letters go around the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "uprising",
-           "note": "in a down entry rising means reading upwards, from bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Scandinavian",
-           "gives": "DANE",
-           "note": "a Dane is a native of Denmark"
-          }
-         ]
-        },
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "CT is the abbreviation for court"
-        }
-       ]
-      },
-      {
-       "op": "last",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "close to",
-         "note": "the close of a word is its last letter"
+         "text": "uprising",
+         "at": 32,
+         "note": "in a down clue uprising means the word is read from the bottom upwards"
         }
        ],
        "parts": [
         {
-         "words": "Elsinore",
-         "note": "its final letter"
+         "words": "Scandinavian",
+         "at": 19,
+         "gives": "DANE",
+         "note": "a Dane is a Scandinavian from Denmark"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "court",
+         "at": 49,
+         "gives": "CT"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 55,
+           "note": "close to means the final letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Elsinore",
+           "at": 64,
+           "note": "gives its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing the tragic theme, someone took a role in a Danish revolt outside Hamlet's castle.",
-     "walkthrough": "Elsinore is the castle setting of Hamlet, so the surface carries on from the previous clue's Theban play.",
-     "definitionFit": "To have enacted something is to have acted it out on stage, performing a role."
+     "surface": "Following on from Oedipus, a drama was staged amid a Danish revolt near Elsinore castle.",
+     "walkthrough": "Elsinore is Hamlet's castle in Denmark, which fits the Danish surface.",
+     "definitionFit": "Enacted means performed or acted out, as an actor does when taking a role on stage."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "uprising"
     }
