@@ -422,45 +422,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Misbehaving",
-       "note": "misbehaving letters are out of line, so they get reordered"
+       "text": "bitten by",
+       "at": 16,
+       "note": "bitten by means the jumbled letters sit inside the dog, held in its jaws"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dog",
+       "at": 26,
+       "gives": "BEAGLE",
+       "note": "a beagle is a breed of hound"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "bitten by",
-         "note": "what is bitten is held in the jaws, so it sits inside the other word"
+         "text": "Misbehaving",
+         "at": 0,
+         "note": "misbehaving means acting up, so the letters of lad are put out of order"
         }
        ],
        "parts": [
         {
-         "words": "dog",
-         "gives": "BEAGLE",
-         "note": "a beagle is a breed of dog"
-        },
-        {
          "words": "lad",
-         "note": "the letters to rearrange"
+         "at": 12,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A naughty boy nipped by a dog, which turns into a patriotic emblem.",
-     "definitionFit": "The bald eagle is the national bird of the United States, featured on its Great Seal."
+     "surface": "A naughty boy gets bitten by a dog, and the episode becomes a national emblem.",
+     "walkthrough": "'becomes' is only a link: the definition is 'an American symbol', the national bird on the Great Seal.",
+     "definitionFit": "The bald eagle is the national bird of the United States and appears on its Great Seal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "dog"
+     "misdirectedWord": "bitten"
     }
    }
   },
@@ -531,35 +535,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMATEUR",
-     "indicators": [
-      {
-       "text": "when wings clipped",
-       "note": "clipping a bird's wings trims both its sides, so the outer letters are cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "American",
-       "gives": "A",
-       "note": "A is the abbreviation for American"
+       "at": 15,
+       "gives": "A"
       },
       {
        "words": "friend",
+       "at": 24,
        "gives": "MATE",
        "note": "a mate is a friend"
       },
       {
-       "words": "hurt",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "when wings clipped",
+         "at": 36,
+         "note": "when wings clipped means the outer letters of hurt, its wings, are cut away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hurt",
+         "at": 31,
+         "note": "taken as written before its ends are removed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Yank's pal gets injured in a bungled, sloppy job.",
-     "definitionFit": "An amateur does something for love not money, so works without professional standing."
+     "surface": "An American's friend gets hurt, like a bird whose wings have been clipped.",
+     "walkthrough": "'wings clipped' takes the first and last letters off HURT, leaving UR to finish the answer.",
+     "definitionFit": "An amateur does something without being paid, so is not a professional; the adjective sense is non-professional."
     },
     "features": {
      "answerInScene": false,
@@ -1013,44 +1024,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ICELANDIC",
      "indicators": [
       {
        "text": "Leaders nowhere to be seen",
-       "note": "the leaders of words are their opening letters, and these vanish from each word"
+       "at": 0,
+       "note": "leaders nowhere to be seen means the opening letter of each of the three words vanishes"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "nice",
-         "gives": "ICE",
-         "note": "this word without its first letter"
-        },
-        {
-         "words": "bland",
-         "gives": "LAND",
-         "note": "this word without its first letter"
-        },
-        {
-         "words": "pic",
-         "gives": "IC",
-         "note": "this word without its first letter"
-        }
-       ]
+       "words": "nice bland pic",
+       "at": 30,
+       "note": "taken as written; each word loses its first letter"
+      },
+      {
+       "gives": "NBP"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull photo, with nobody leading anything, taken in Iceland's capital.",
-     "walkthrough": "The question mark flags a definition by example: something from Reykjavík is from Iceland.",
-     "definitionFit": "Reykjavík is Iceland's capital, so anything from there is Icelandic in origin."
+     "surface": "A bland photograph of politicians from which the leaders are absent.",
+     "walkthrough": "Drop the first letters of 'nice', 'bland' and 'pic' to leave ICE, LAND and IC. The question mark flags that the definition is by example: Reykjavík is Iceland's capital.",
+     "definitionFit": "Icelandic means belonging to Iceland, whose capital city is Reykjavík."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Leaders"
     }

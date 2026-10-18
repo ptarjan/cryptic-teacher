@@ -250,51 +250,61 @@
      "op": "container",
      "indicators": [
       {
-       "text": "missing introduction",
-       "note": "the word lacks its opening letter"
-      },
-      {
-       "text": "terms",
-       "note": "a term is an end point, so the terms of words are their final letters"
+       "text": "about",
+       "at": 43,
+       "note": "about means the shortened body of works goes around the two end letters"
       }
      ],
      "parts": [
       {
-       "words": "complete works",
-       "gives": "ORPUS",
-       "note": "CORPUS, a writer's complete works, without its first letter C"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "HE",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about in its sense of 'all around'"
+         "text": "missing introduction",
+         "at": 22,
+         "note": "missing introduction means the opening letter of the complete works is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "terms in English verse",
-         "gives": "HE",
-         "select": "last",
-         "note": "the last letters of EnglisH and versE"
+         "words": "complete works",
+         "at": 7,
+         "gives": "CORPUS",
+         "note": "a corpus is the complete body of a writer's works"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "terms in",
+         "at": 49,
+         "note": "terms in means the ends, or limits, found in the following words, so their final letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English verse",
+         "at": 58,
+         "note": "the last letters of these two words are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shakespeare's collected plays, without a preface, with notes on English prosody.",
-     "walkthrough": "'Bard' is not Shakespeare here but the mythical Greek singer-poet; the ’s is 'is'. CORPUS for an author's whole output is worth knowing.",
-     "definitionFit": "Orpheus is the legendary poet and musician of Greek myth, a bard whose songs could charm animals and stones."
+     "surface": "A note on Shakespeare's collected works, minus the preface, about the language of English poetry.",
+     "walkthrough": "'Bard's' tempts you towards Shakespeare, but the bard is the legendary Greek singer; the 's is just 'is'. CORPUS 'missing introduction' gives ORPUS, and 'terms' gives H and E, which it goes 'about'.",
+     "definitionFit": "Orpheus is the legendary poet and musician of Greek myth, so a bard in the old sense of singer-poet."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Bard"
+     "aptDefinition": false,
+     "misdirectedWord": "Bard's"
     }
    }
   },
@@ -586,39 +596,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "originally",
-       "note": "at its origin, so the first letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "housed by",
-         "note": "the letter goes inside, sheltered by the others"
+         "at": 32,
+         "note": "housed by means the first letter of tutorial is lodged inside the word for place"
         }
        ],
        "parts": [
         {
          "words": "place",
+         "at": 42,
          "gives": "PUT",
-         "note": "to place = to put"
+         "note": "to put something is to place it"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "close to",
-           "note": "the close of a word is its last letter"
+           "text": "originally",
+           "at": 21,
+           "note": "originally means the opening letter of tutorial is taken"
           }
          ],
          "parts": [
           {
-           "words": "tutorial originally",
-           "note": "the first letter of Tutorial"
+           "words": "tutorial",
+           "at": 12,
+           "note": "only its first letter is used"
           }
          ]
         }
@@ -626,25 +634,32 @@
       },
       {
        "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 48,
+         "note": "close to means the final letter of Uffizi, its close"
+        }
+       ],
        "parts": [
         {
-         "words": "close to Uffizi",
-         "gives": "UFFIZI",
-         "note": "the last letter of UffizI"
+         "words": "Uffizi",
+         "at": 57,
+         "note": "only its last letter is used; the Uffizi is the great art gallery in Florence"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery lesson near the Uffizi, Florence's great art museum, about cherubs.",
-     "walkthrough": "The Florence setting fits the answer: Renaissance paintings there are full of putti. PUT and I are joined, and T is housed between them.",
-     "definitionFit": "Putti are the chubby naked boy figures, often winged, of Renaissance and Baroque painting."
+     "surface": "An art-history tutorial on the cherubs, held at a venue near the Uffizi gallery.",
+     "walkthrough": "'originally' gives T from tutorial, 'housed by' PUT; 'close to' Uffizi adds its final I.",
+     "definitionFit": "Putti are the chubby naked infant boys, often winged, painted in Renaissance and Baroque art."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "place"
+     "misdirectedWord": "close"
     }
    }
   },
@@ -893,51 +908,66 @@
      "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "the back of a word is its last letter"
+       "text": "stifles",
+       "at": 29,
+       "note": "stifles means smothers, so the second pair of pieces is held inside the first"
       }
      ],
      "parts": [
       {
-       "words": "when",
-       "gives": "AS",
-       "note": "as = when, as in 'as I left'"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "when",
+         "at": 9,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 24,
+           "note": "back means the last letter of Saracens', its rear"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Saracens'",
+           "at": 14,
+           "note": "only its last letter is used; Saracens are a London rugby club"
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "stifles",
-         "note": "to stifle is to smother, so the outer letters wrap round"
-        }
-       ],
        "parts": [
         {
-         "words": "Saracens' back",
-         "gives": "S",
-         "note": "the last letter of SaracenS"
-        },
-        {
          "words": "constant",
+         "at": 37,
          "gives": "C",
-         "note": "c = a constant (the speed of light) in science"
+         "note": "C is the scientific symbol for a constant, such as the speed of light"
         },
         {
          "words": "passing",
+         "at": 46,
          "gives": "END",
-         "note": "passing = death, end"
+         "note": "an end is a death, a passing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rugby team rises up the table once its back stops a player passing the ball.",
-     "walkthrough": "Saracens is a London rugby club, so 'back' and 'passing' look like rugby positions and play. Here the back is simply a last letter, and passing means dying.",
-     "definitionFit": "To ascend is to go up, so 'ascends' is 'moves up'."
+     "surface": "A rugby report: the Saracens full-back smothers a player's constant passing.",
+     "walkthrough": "The rugby picture makes 'back' a position and 'passing' a ball skill; in fact 'back' takes the final S of Saracens', and passing means death, END. AS plus S 'stifles' C and END.",
+     "definitionFit": "To ascend is to climb or rise, so a verb synonym for goes upward."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "passing"
     }
@@ -1111,43 +1141,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DYNAMIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopped by",
+       "at": 26,
+       "note": "stopped by means the motorway letter is plugged into the middle of the jumble"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "slippery",
-         "note": "slippery letters slide out of place"
-        },
-        {
-         "text": "stopped by"
+         "at": 16,
+         "note": "slippery means sliding about, so the letters of icy and are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "icy and",
-         "note": "ICYAND rearranged"
+         "words": "icy",
+         "at": 8,
+         "note": "taken as written"
         },
         {
-         "words": "motorway",
-         "gives": "M",
-         "note": "M = motorway, as in the M1"
+         "words": "and",
+         "at": 12,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "motorway",
+       "at": 37,
+       "gives": "M",
+       "note": "M is the British abbreviation for motorway, as in the M1"
       }
      ]
     },
     "explanation": {
-     "surface": "Conditions on the road are icy and slippery until a motorway closes.",
-     "walkthrough": "'Driving' is placed to sound like motoring; it is the adjective, as in a driving force.",
-     "definitionFit": "Driving, in the sense of forceful and energetic, is dynamic."
+     "surface": "A winter driving report: icy, slippery roads bring traffic to a halt on the motorway.",
+     "walkthrough": "'slippery' rearranges ICY AND into DYNAIC, and that is 'stopped by' M. 'Driving' looks like the motoring scene but is the definition, as in a driving force.",
+     "definitionFit": "A driving force is a dynamic one, energetic and pushing things forward."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Driving"
     }
    }
@@ -1354,41 +1394,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EXIT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 15,
+       "note": "around means the turned couple word wraps round the kiss"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "rolling",
-         "note": "rolled over, so the letters run backwards"
-        },
-        {
-         "text": "around",
-         "note": "around in its sense of encircling"
+         "at": 7,
+         "note": "rolling means turning over, so the word for couple is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Couple",
-         "gives": "EIT",
-         "note": "to couple = to tie; TIE backwards"
-        },
-        {
-         "words": "kiss",
-         "gives": "X",
-         "note": "X = a kiss, as at the end of a letter"
+         "at": 0,
+         "gives": "TIE",
+         "note": "to tie is to join or couple together"
         }
        ]
+      },
+      {
+       "words": "kiss",
+       "at": 22,
+       "gives": "X",
+       "note": "X is the conventional symbol for a kiss at the end of a letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A pair roll around, kiss, and part.",
-     "walkthrough": "'Couple' looks like a pair of lovers, but it is the verb, to tie. EIT then wraps round X.",
-     "definitionFit": "Exit is a plain synonym used as a verb: actors exit the stage when they leave it."
+     "surface": "Two lovers tumble around, share a kiss and go their separate ways.",
+     "walkthrough": "TIE 'rolling' gives EIT, which goes 'around' X. 'Couple' looks like a pair of people but is a verb, to tie together.",
+     "definitionFit": "To exit is to go out or depart, so it is a verb synonym for leave."
     },
     "features": {
      "answerInScene": true,
@@ -1419,41 +1463,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PLAINCHANT",
+     "spelt": "PLAINCHANT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 24,
+       "note": "Spooner's tells us to swap the opening sounds of two words, as the Reverend Spooner was said to do"
       }
      ],
      "parts": [
       {
-       "words": "line",
-       "gives": "CHAIN",
-       "note": "a chain is a line, as in a chain of people"
+       "op": "homophone",
+       "spelt": "PLAIN",
+       "parts": [
+        {
+         "words": "line",
+         "at": 34,
+         "gives": "CHAIN",
+         "note": "a chain is a line of linked things; with Spooner's swap its opening sound becomes the PL of the other word"
+        }
+       ]
       },
       {
        "words": "works",
+       "at": 39,
        "gives": "PLANT",
-       "note": "works = a factory, a plant"
-      },
-      {
-       "unchecked": true,
-       "words": "line works",
-       "gives": "PLAINCHANT",
-       "soundsLike": "CHAIN PLANT",
-       "note": "swap the opening CH and PL"
+       "note": "a plant is a factory or works"
       }
      ]
     },
     "explanation": {
-     "surface": "Choir works on a single line of music, everyone singing in unison.",
-     "walkthrough": "After 'Singing', 'line' and 'works' look like musical words, a vocal line and a composer's works; they are an industrial chain and a factory.",
-     "definitionFit": "Plainchant is unaccompanied medieval church music sung in unison, a single melodic line."
+     "surface": "A description of choral singing in unison, followed by Spooner's remark about a factory line.",
+     "walkthrough": "'Spooner's' points to the Reverend William Spooner, Oxford don, famed for swapping the starts of words; here CHAIN PLANT, a line and a works, becomes the answer.",
+     "definitionFit": "Plainchant is medieval church music sung in unison, without harmony, as in Gregorian chant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "works"
     }
