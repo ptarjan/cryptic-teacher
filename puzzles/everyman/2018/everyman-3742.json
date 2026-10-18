@@ -82,43 +82,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUPER",
+     "op": "container",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means only half of the word series is kept, the rest discarded"
+       "text": "in",
+       "at": 6,
+       "note": "in places the word for ahead inside what remains of series"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the first piece inside the letters of the second"
+         "text": "not half",
+         "at": 17,
+         "note": "not half means one half of the word series goes missing, its last three letters"
         }
        ],
        "parts": [
         {
          "words": "series",
-         "gives": "SER",
-         "note": "the first half of the word series"
+         "at": 9
         },
         {
-         "words": "Ahead",
-         "gives": "UP",
-         "note": "a team that is ahead is up"
+         "gives": "IES"
         }
        ]
+      },
+      {
+       "words": "Ahead",
+       "at": 0,
+       "gives": "UP",
+       "note": "to be up is to be ahead, as a team leading on the scoreboard"
       }
      ]
     },
     "explanation": {
-     "surface": "A team leading a sporting series, not quite at its best.",
-     "walkthrough": "'not half great' sounds like British slang for very great, but 'not half' trims series to its first three letters.",
-     "definitionFit": "Super is an informal adjective for excellent or wonderful, a common colloquial synonym."
+     "surface": "A sports fan's verdict on a team leading the series but not quite halfway to greatness.",
+     "walkthrough": "'Not half' looks like the slang 'not half' (very much so), but here it removes IES from SERIES to leave SER, which holds UP.",
+     "definitionFit": "Super is an informal adjective for excellent or terrific, a casual synonym of great."
     },
     "features": {
      "answerInScene": false,
@@ -215,56 +218,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROGNOSTICATION",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means the final letter of the word for criticism is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "Expert",
+       "at": 0,
+       "gives": "PRO",
+       "note": "a pro, short for professional, is an expert"
+      },
+      {
+       "words": "good",
+       "at": 12,
+       "gives": "G"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "receiving",
-         "note": "receiving means the idea word takes the other pieces inside it"
+         "at": 22,
+         "note": "receiving means taking in, so the word for idea holds the following letters inside it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Expert",
-           "gives": "PRO",
-           "note": "a pro is an expert or professional"
-          },
-          {
-           "words": "good",
-           "gives": "G",
-           "note": "G is the standard abbreviation for good"
-          },
-          {
-           "words": "idea",
-           "gives": "NOTION",
-           "note": "a notion is an idea"
-          }
-         ]
+         "words": "idea",
+         "at": 17,
+         "gives": "NOTION",
+         "note": "a notion is an idea or thought"
         },
         {
          "op": "charade",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 50,
+           "note": "over in a down clue means placed above, so the shortened criticism comes before A"
+          }
+         ],
          "parts": [
           {
-           "words": "criticism",
-           "gives": "STIC",
-           "note": "stick, slang for criticism, minus its last letter"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "endless",
+             "at": 32,
+             "note": "endless means losing the final letter of the word for criticism"
+            }
+           ],
+           "parts": [
+            {
+             "words": "criticism",
+             "at": 40,
+             "gives": "STICK",
+             "note": "stick is informal for criticism, as in 'giving someone stick'"
+            },
+            {
+             "gives": "K"
+            }
+           ]
           },
           {
            "words": "a",
-           "note": "taken as written"
+           "at": 55,
+           "gives": "A"
           }
          ]
         }
@@ -273,9 +290,9 @@
      ]
     },
     "explanation": {
-     "surface": "A pundit with a bright idea takes flak over a prediction.",
-     "walkthrough": "To give someone stick is British slang for criticising them. In a down clue 'over' means above, so the trimmed criticism sits on top of A inside the idea.",
-     "definitionFit": "A prognostication is a prediction of future events, so it serves as a noun synonym for a forecast."
+     "surface": "An expert with a sound idea takes constant criticism for making a prediction.",
+     "walkthrough": "Stick, in British slang, means harsh criticism or abuse, as in 'taking stick'. 'Over' works because this is a down clue.",
+     "definitionFit": "A prognostication is a prediction of what will happen, which is to say a forecast."
     },
     "features": {
      "answerInScene": true,
@@ -592,42 +609,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STRONGLY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "first off",
-       "note": "first off means the opening letter of the word for unjustly is removed"
+       "text": "going after",
+       "at": 21,
+       "note": "going after places the trimmed word behind the saint letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "saint",
+       "at": 33,
+       "gives": "ST"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first off",
+         "at": 10,
+         "note": "first off means the opening letter of the word for unjustly is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "saint",
-         "gives": "ST",
-         "note": "ST is the abbreviation for saint"
+         "words": "Unjustly",
+         "at": 0,
+         "gives": "WRONGLY",
+         "note": "wrongly means unjustly or unfairly"
         },
         {
-         "words": "Unjustly",
-         "gives": "RONGLY",
-         "note": "wrongly means unjustly; drop its first letter"
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wrongly and aggressively pursuing a holy figure.",
-     "walkthrough": "'going after saint' places the trimmed word after ST.",
-     "definitionFit": "Strongly and forcefully are adverbs for acting with great power or vigour."
+     "surface": "A complaint that a saint was pursued unjustly and with force.",
+     "definitionFit": "To do something strongly is to do it with great force or vigour, which is forcefully."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "saint"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -843,51 +869,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELGRECO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "not a",
-       "note": "not a means a letter A is dropped from the composer's name"
+       "text": "led by",
+       "at": 16,
+       "note": "led by puts the shortened composer first, at the head of the other letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "led by",
-         "note": "led by means the following pieces come behind the composer, who goes in front"
+         "text": "not",
+         "at": 33,
+         "note": "not a means the letter A is taken out of the composer's name"
         }
        ],
        "parts": [
         {
          "words": "composer",
-         "gives": "ELGR",
-         "note": "Elgar, the English composer, without an A"
+         "at": 23,
+         "gives": "ELGAR",
+         "note": "Sir Edward Elgar was an English composer, of the Enigma Variations and Pomp and Circumstance"
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        },
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "Co is the abbreviation for company"
+         "words": "a",
+         "at": 37,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "company",
+       "at": 8,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "An English ensemble directed by a composer, though not by an artist.",
-     "walkthrough": "'led by composer' means the composer comes first. 'not a painter' sounds like a description but 'not a' trims the composer and 'painter' is the definition.",
-     "definitionFit": "El Greco was the Cretan-born Spanish Renaissance artist famous for elongated religious figures, a painter."
+     "surface": "An English firm headed by a composer rather than a painter.",
+     "walkthrough": "'Not a painter' reads as one phrase, but 'not a' belongs with the composer and 'painter' alone is the definition.",
+     "definitionFit": "El Greco was the Cretan-born artist of the Spanish Renaissance, famed for elongated figures in works such as View of Toledo."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "not"
     }
@@ -1454,47 +1486,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GERMINATE",
-     "indicators": [
-      {
-       "text": "having time off",
-       "note": "having time off means the abbreviation for time is removed from the word for end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front",
+         "at": 17,
+         "note": "front means the first letter of the word garden"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "front",
-           "note": "front means only the first letter of the word garden's is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "garden's",
-           "note": "the opening letter"
-          }
-         ]
+         "words": "garden's",
+         "at": 8,
+         "note": "first letter of garden"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 28,
+         "note": "having (something) off means the word for end is left with a part taken away"
         },
         {
+         "text": "off",
+         "at": 40,
+         "note": "off means the letter for time is removed from the word for end"
+        }
+       ],
+       "parts": [
+        {
          "words": "end",
-         "gives": "ERMINATE",
-         "note": "to terminate is to end; drop T for time"
+         "at": 23,
+         "gives": "TERMINATE",
+         "note": "to terminate something is to end it"
+        },
+        {
+         "words": "time",
+         "at": 35,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plants growing at the far end of a garden while someone takes a break.",
-     "walkthrough": "'end' looks like a noun after 'front', but it is the verb terminate, minus T.",
-     "definitionFit": "To germinate is for a seed to begin growing and sprouting, so it means to develop."
+     "surface": "A gardener's note: seeds develop at the front of the garden, but growth stops at the end when time is off.",
+     "walkthrough": "'End' looks like the far end of the garden, but it is a verb, TERMINATE, which loses its first T.",
+     "definitionFit": "When a seed germinates it begins to sprout and grow, which is to develop."
     },
     "features": {
      "answerInScene": true,
@@ -1524,37 +1568,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALTAR",
-     "indicators": [
-      {
-       "text": "Get away",
-       "note": "get away is read as an instruction to send off the letters of get"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "aluminium",
+       "at": 7,
+       "gives": "AL",
+       "note": "AL is the chemical symbol for aluminium"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 29,
+         "note": "away tells you to send the word get out of the word for object"
+        }
+       ],
        "parts": [
         {
-         "words": "aluminium",
-         "gives": "AL",
-         "note": "Al is the chemical symbol for aluminium"
+         "words": "object",
+         "at": 17,
+         "gives": "TARGET",
+         "note": "a target is an object or goal aimed at"
         },
         {
-         "words": "object",
-         "gives": "TAR",
-         "note": "a target is an object or aim; remove get"
+         "words": "Get",
+         "at": 25,
+         "gives": "GET"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks what an aluminium table is meant to be, and is told to clear off.",
-     "walkthrough": "'Get away' sounds like a dismissal, but it tells you to remove GET from TARGET.",
-     "definitionFit": "An altar is the raised table in a church at which communion is celebrated, so a table is a fair definition."
+     "surface": "Someone shoos a person off: is this table some aluminium object?",
+     "walkthrough": "'Get away!' reads as an exclamation, but it tells you to remove GET from TARGET.",
+     "definitionFit": "An altar is the raised table in a church at which communion is celebrated."
     },
     "features": {
      "answerInScene": false,

@@ -111,27 +111,29 @@
      "indicators": [
       {
        "text": "whichever way you look at it",
-       "note": "looking at it from either end gives the same result, which is what a word reading identically both ways does"
+       "at": 25,
+       "note": "reading from either end gives the same word, so it is a palindrome"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "A precocious little girl",
-       "note": "the definition and the whole of the wordplay at once: the word for a cheeky girl is the same read from either end"
+       "at": 0,
+       "gives": "MADAM",
+       "note": "a forward, cheeky young girl who acts older than her years; the same words are the definition and what the palindrome note describes"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sums up a cheeky child as forward from every angle.",
-     "walkthrough": "MADAM reads the same forwards and backwards, so the tail of the clue describes the word's shape rather than giving more letters.",
-     "definitionFit": "Calling a pert, forward girl a little madam is an everyday British expression of mild disapproval."
+     "surface": "However you judge her, the child is a little too grown-up for her age.",
+     "walkthrough": "'Whichever way you look at it' sounds like an idiom meaning 'in any case', but it describes the word: MADAM reads the same forwards and backwards.",
+     "definitionFit": "Madam is used of a pert or precocious girl, as in 'she's a proper little madam'."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "look"
+     "misdirectedWord": "way"
     }
    }
   },
@@ -266,58 +268,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHIVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word means all but its final letter is kept"
+       "text": "owning",
+       "at": 16,
+       "note": "owning means having and holding, so the jumbled crave letters hold the shortened his"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "owning",
-         "note": "owning something means holding it, so one piece holds the other inside"
+         "text": "Foolishly",
+         "at": 0,
+         "note": "foolishly means senselessly, so the letters of crave are arranged without sense"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Foolishly",
-           "note": "acting foolishly means behaving without sense or order, so the following word's letters lose their order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "crave",
-           "note": "taken as written, as anagram fodder"
-          }
-         ]
-        },
+         "words": "crave",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 23,
+         "note": "most of means all but the last letter of his"
+        }
+       ],
+       "parts": [
         {
          "words": "his",
-         "gives": "HI",
-         "note": "the word with its last letter dropped"
+         "at": 31
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fan longs, rather daftly, to possess most of a musician's back catalogue of records.",
-     "walkthrough": "The shuffled crave gives ARCVE, with HI placed after its third letter.",
-     "definitionFit": "An archive is a stored collection of documents or records kept for reference and posterity."
+     "surface": "A collector foolishly craves to own most of another man's records.",
+     "definitionFit": "An archive is a collection of historical documents or records, or the place where they are kept."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "record"
     }
    }
