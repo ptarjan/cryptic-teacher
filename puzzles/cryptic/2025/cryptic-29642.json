@@ -1084,56 +1084,61 @@
      "indicators": [
       {
        "text": "in",
-       "note": "what goes in something is placed inside it"
+       "at": 16,
+       "note": "in means the pieces go inside the shortened wood"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 24,
+         "note": "ignoring means leaving out the letter for women"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "ignoring",
-           "note": "ignoring something leaves it out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "wood",
-           "gives": "WEALD",
-           "note": "a weald is old word for woodland, as in the Weald of Kent"
-          },
-          {
-           "words": "women",
-           "gives": "W",
-           "note": "W is the abbreviation for women"
-          }
-         ]
+         "words": "wood",
+         "at": 19,
+         "gives": "WEALD",
+         "note": "a weald is wooded country, as in the Weald of south-east England"
         },
         {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "Romeo is R in the NATO phonetic alphabet"
+         "words": "women",
+         "at": 33,
+         "gives": "W"
         }
        ]
       },
       {
-       "words": "me",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "me",
+         "at": 6,
+         "gives": "ME"
+        },
+        {
+         "words": "Romeo",
+         "at": 10,
+         "gives": "R",
+         "note": "R is Romeo in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exclamation of surprise about Romeo hiding in a forest without any women.",
-     "walkthrough": "'Stone me!' reads as an old British exclamation of surprise, but 'Stone' alone defines.",
-     "definitionFit": "An emerald is a green gemstone, a precious variety of beryl."
+     "surface": "An exclamation of surprise at a lover in the woods who ignores women.",
+     "walkthrough": "'Stone me!' reads as an exclamation, but 'Stone' is the definition and 'me' a piece.",
+     "definitionFit": "An emerald is a green precious gemstone."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Stone"
+     "misdirectedWord": "me"
     }
    }
   },
@@ -1352,71 +1357,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "bone",
-      "at": 28
+      "text": "Assuming one's a little backbone",
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TIBIA",
      "indicators": [
       {
        "text": "Assuming",
-       "note": "to assume is to take on or take in, so one item is taken inside another"
+       "at": 0,
+       "note": "assuming means taking on, so the reversed letters take in the one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backbone",
+         "at": 24,
+         "note": "the back in backbone signals reading a bit from the end, with bone left as the definition"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "going back means reading the result from its end to its start"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "a",
-             "note": "taken as written"
-            },
-            {
-             "words": "one",
-             "gives": "I",
-             "note": "the Roman numeral for one"
-            },
-            {
-             "words": "little",
-             "gives": "BIT",
-             "note": "a bit is a little amount"
-            }
-           ]
+           "words": "a",
+           "at": 15,
+           "gives": "A"
+          },
+          {
+           "words": "little",
+           "at": 17,
+           "gives": "BIT",
+           "note": "a bit is a little"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "backbone",
-         "note": "one printed word doing two jobs: its first half is the reversal signal, its second half the definition"
         }
        ]
+      },
+      {
+       "words": "one's",
+       "at": 9,
+       "gives": "I",
+       "note": "I is one, the Roman numeral"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Supposing someone is a bit spineless, or has a small spine.",
-     "walkthrough": "'backbone' looks like one word for the definition, but 'back' reverses and 'bone' alone defines.",
+     "surface": "Supposing someone has only a small amount of courage.",
+     "walkthrough": "The setter splits backbone into back (reverse) and bone (the definition), a trick called lift-and-separate.",
      "definitionFit": "The tibia is the shinbone, the larger of the two bones of the lower leg."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "backbone"
     }
    }

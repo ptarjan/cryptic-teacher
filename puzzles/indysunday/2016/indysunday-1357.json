@@ -1339,7 +1339,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about can mean turned round, so the whole assembly is read backwards"
+       "at": 32,
+       "note": "about here signals turning the whole assembled word round"
       }
      ],
      "parts": [
@@ -1348,38 +1349,41 @@
        "indicators": [
         {
          "text": "to possess",
-         "note": "possessing something means holding it, so one piece goes inside the other"
+         "at": 13,
+         "note": "to possess means the fashionable word holds the other letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "All the rage",
-           "gives": "HIP",
-           "note": "hip means fashionable, all the rage"
-          },
-          {
-           "words": "my",
-           "gives": "COR",
-           "note": "cor is an exclamation of surprise, like my!"
-          }
-         ]
+         "words": "All the rage",
+         "at": 0,
+         "gives": "HIP",
+         "note": "hip means fashionable, all the rage"
         },
         {
-         "words": "book",
-         "gives": "B",
-         "note": "B is the abbreviation for book"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "my",
+           "at": 24,
+           "gives": "COR",
+           "note": "cor is an exclamation of surprise, like 'my!'"
+          },
+          {
+           "words": "book",
+           "at": 27,
+           "gives": "B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashionable book about bagpipe music that everyone wants to own.",
-     "walkthrough": "HIP holds COR and B, giving HICORBP, then the lot is reversed. 'My' is the exclamation, as in 'my, how you've grown'.",
-     "definitionFit": "A pibroch is a set of elaborate variations for the Scottish Highland bagpipe, its classical music form."
+     "surface": "A craze for owning a book about bagpipe music sweeps through.",
+     "walkthrough": "Cor is a British exclamation of surprise, much like 'my!'; 'about' turns the whole assembly round at the end.",
+     "definitionFit": "A pibroch is a set of variations for the Highland bagpipe, the classical form of piping music."
     },
     "features": {
      "answerInScene": true,
@@ -1577,55 +1581,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "cryptic",
-       "note": "cryptic means obscure and coded, so the letters are scrambled"
+       "at": 31,
+       "note": "cryptic suggests something mysterious and jumbled, so the letters of superb are rearranged"
+      },
+      {
+       "text": "from",
+       "at": 19,
+       "note": "from tells us a letter is taken from the word superb"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "superb",
+       "at": 24
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "from",
-         "note": "taking something from a word means removing it"
+         "text": "Originally",
+         "at": 0,
+         "note": "originally points to the first letter only"
         }
        ],
        "parts": [
         {
-         "words": "superb",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Originally",
-           "note": "originally means at the beginning, so only the opening letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pinched",
-           "note": "opening letter of pinched"
-          }
-         ]
+         "words": "pinched",
+         "at": 11,
+         "gives": "P",
+         "note": "first letter of pinched"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An admiring note that a superb cryptic puzzle was stolen.",
-     "walkthrough": "SUPERB without P leaves SUERB to rearrange.",
-     "definitionFit": "A rebus is a puzzle that represents words through pictures, symbols and letters."
+     "surface": "Something was stolen from an excellent crossword puzzle.",
+     "walkthrough": "Take P (the first letter of 'pinched') out of SUPERB to leave SUERB, and 'cryptic' rearranges those letters. 'cryptic puzzle' looks like the definition, but 'cryptic' is the anagram signal.",
+     "definitionFit": "A rebus is a puzzle in which pictures or symbols stand for words or syllables."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pinched"
+     "misdirectedWord": "cryptic"
     }
    }
   },

@@ -137,50 +137,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wild",
-       "note": "something wild is unruly and out of order, so the letters beside it are set loose and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 18,
+         "note": "wild suggests the letters of scream are thrown about into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "scream",
-         "note": "the six letters of scream, rearranged"
-        },
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "That hurts!",
+       "at": 33,
+       "gives": "OUCH",
+       "note": "ouch is what you cry when something hurts"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "'That hurts!'",
-         "gives": "OUCH",
-         "note": "the cry of pain"
-        },
+         "text": "rear",
+         "at": 76,
+         "note": "rear points to the final letter of the word"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "rear",
-           "note": "the rear of a word is its tail end, so only its final letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "reprobate's",
-           "gives": "REPROBATE",
-           "note": "last letter of reprobate"
-          }
-         ]
+         "words": "reprobate's",
+         "at": 64,
+         "gives": "E",
+         "note": "last letter of reprobate"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lets out a wild scream and an 'Ouch!' after brushing against a scoundrel's backside.",
-     "walkthrough": "'Brush' is a brief clash, as in a brush with the enemy; 'Old' marks the word as obsolete.",
-     "definitionFit": "Escarmouche is an obsolete form of skirmish, a short hostile encounter, which is what a brush means here."
+     "surface": "A wild scream and a cry of pain come into contact with a scoundrel's backside.",
+     "walkthrough": "'wild' rearranges SCREAM into ESCARM. A brush here is a brief fight, not a broom.",
+     "definitionFit": "Escarmouche is an obsolete word for a skirmish, a brief clash or encounter between forces."
     },
     "features": {
      "answerInScene": false,
@@ -586,40 +590,44 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the first word's letters go around the words after it"
+       "at": 13,
+       "note": "about means the word for was seething goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Was seething",
-         "gives": "SOD",
-         "note": "sod is an old past tense of seethe, to boil"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Was seething",
+       "at": 0,
+       "gives": "SOD",
+       "note": "sod is an old past tense of seethe, to boil"
       },
       {
-       "words": "scheme",
-       "gives": "PLAN",
-       "note": "a scheme is a plan"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "scheme",
+         "at": 21,
+         "gives": "PLAN",
+         "note": "a plan is a scheme"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone fumes over a redevelopment plan for London's Soho.",
-     "walkthrough": "Soho in London was once known for its sex trade; a soapland is a Japanese bathhouse brothel, and the question mark admits the definition is by example.",
-     "definitionFit": "A soapland is a brothel posing as a bathhouse, so a district full of them resembles the red-light Soho of old."
+     "surface": "Someone was furious about a plan concerning a part of London once.",
+     "walkthrough": "Soho here is not London's: the question mark hints at a Japanese district once given over to such establishments, the sort of thing London's Soho was known for.",
+     "definitionFit": "Soapland is Japanese slang for a bathhouse offering sexual services, the type of red-light quarter Soho once housed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "seething"
+     "misdirectedWord": "Soho"
     }
    }
   },
@@ -733,48 +741,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOUSLIK",
+     "op": "container",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "taking half of a word means the other half is lost"
+       "text": "in",
+       "at": 29,
+       "note": "in means the shortened cereal goes inside the word for market"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "market",
+       "at": 32,
+       "gives": "SOUK",
+       "note": "a souk is an Arab market"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "disappearing in",
-         "note": "disappearing in means going inside, so these letters vanish into the next word"
+         "text": "Half of",
+         "at": 0,
+         "note": "half of says three of the cereal's six letters are lost"
+        },
+        {
+         "text": "disappearing",
+         "at": 16,
+         "note": "disappearing says that half vanishes, leaving the remainder"
         }
        ],
        "parts": [
         {
-         "words": "market",
-         "gives": "SOUK",
-         "note": "a souk is an Arab market"
+         "words": "granola",
+         "at": 8,
+         "gives": "MUESLI",
+         "note": "muesli is a breakfast cereal like granola"
         },
         {
-         "words": "granola",
-         "gives": "SLI",
-         "note": "granola is a muesli-like cereal; keep the second half of muesli"
+         "gives": "MUE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half a bag of breakfast cereal vanishes at a market: a chipmunk must be the thief.",
-     "walkthrough": "Granola is the cereal also sold as muesli, and only its back half is used.",
-     "definitionFit": "The souslik is a ground squirrel of eastern Europe and Asia, a close cousin of the chipmunk."
+     "surface": "Half a bowl of cereal vanishes in a market; the culprit must be a chipmunk.",
+     "walkthrough": "Granola must first become MUESLI; 'Half of ... disappearing' removes its first half MUE, leaving SLI.",
+     "definitionFit": "A souslik is a ground squirrel of Eastern Europe and Asia, a close relative of the chipmunk."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "granola"
     }
    }
@@ -1317,43 +1334,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BEDAZE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "Following",
+       "at": 0,
+       "note": "following means the setter's name comes after the word for plot"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "plot",
+       "at": 10,
+       "gives": "BED",
+       "note": "a bed is a garden plot"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 29,
+         "note": "almost means the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "plot",
-         "gives": "BED",
-         "note": "a flower bed is a garden plot"
+         "words": "me",
+         "at": 26,
+         "gives": "AZED",
+         "note": "me is the setter, Azed, speaking of himself"
         },
         {
-         "words": "me",
-         "gives": "AZE",
-         "note": "me is the setter, Azed, cut short"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone after following a storyline ends up nearly blind.",
-     "walkthrough": "'Following' says the setter's name comes after the plot. 'Me' is the setter, who signs these puzzles Azed.",
-     "definitionFit": "To bedaze is to stupefy or dazzle someone, and dazzling light leaves a person unable to see."
+     "surface": "The setter says you'll find him after a garden plot, nearly blind.",
+     "walkthrough": "'me' is the setter, so it stands for AZED, cut short by 'almost'.",
+     "definitionFit": "Bedaze is an old verb meaning to stupefy or dazzle so as to deprive of sight."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "plot"
+     "misdirectedWord": "me"
     }
    }
   },
@@ -1487,44 +1514,30 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SWEAL",
+     "op": "composite",
      "indicators": [
       {
-       "text": "shifting",
-       "note": "shifting means moving things about, so the resulting letters are put in a new order"
+       "text": "involves shifting",
+       "at": 24,
+       "note": "involves shifting means the letters of stale water are moved into a new order, taking in treat as well"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SWEAL",
-       "indicators": [
-        {
-         "text": "involves",
-         "note": "involves here means taking a new letter into the word in place of one already there"
-        }
-       ],
-       "parts": [
-        {
-         "words": "stale",
-         "note": "taken as written"
-        },
-        {
-         "words": "water",
-         "gives": "W",
-         "note": "W is the abbreviation for water"
-        }
-       ]
+       "words": "stale water",
+       "at": 42
+      },
+      {
+       "words": "treat",
+       "at": 9,
+       "note": "the letters of treat are the ones that, with the answer, make up the fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A householder asks whether to fix a blocked gutter, which means shifting stagnant water.",
-     "walkthrough": "W for water takes the place of the T in stale before the letters move about; this is our best reading of a tricky clue. 'Gutter' is a verb, as a candle gutters.",
-     "definitionFit": "To sweal is to melt away or waste, as a candle does when it gutters and runs."
+     "surface": "Someone asks whether to treat a drain, given that it means moving stagnant water.",
+     "walkthrough": "The answer plus TREAT, rearranged, gives STALE WATER. 'Gutter' is the verb, of a candle, not the drain.",
+     "definitionFit": "To sweal is a dialect verb for a candle melting away or guttering, wasting as it burns."
     },
     "features": {
      "answerInScene": false,

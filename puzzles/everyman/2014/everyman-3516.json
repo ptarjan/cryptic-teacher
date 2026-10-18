@@ -47,51 +47,56 @@
      "indicators": [
       {
        "text": "in possession of",
-       "note": "to be in possession of something is to hold it, so the fence holds the following letters inside it"
+       "at": 16,
+       "note": "the fence is in possession of, i.e. holds, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fence",
-         "gives": "PICKET",
-         "note": "a picket is a pointed stake making up a fence"
-        },
-        {
-         "words": "1000",
-         "gives": "K",
-         "note": "K, for kilo, stands for a thousand"
-        }
-       ]
+       "words": "fence",
+       "at": 10,
+       "gives": "PICKET",
+       "note": "a picket is a pointed stake or a fence made of them"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "recalled",
-         "note": "recalled is read as called back, so the policeman's word is taken backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "policeman",
-         "gives": "COP",
-         "note": "slang for a police officer"
+         "words": "1000",
+         "at": 33,
+         "gives": "K",
+         "note": "K stands for a thousand, as in kilo"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "recalled",
+           "at": 49,
+           "note": "recalled read as called back, so the word for policeman is reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "policeman",
+           "at": 39,
+           "gives": "COP",
+           "note": "cop is informal for a policeman"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thief and a receiver of stolen goods are caught holding a thousand pounds, and an officer is called back to the scene.",
-     "walkthrough": "'Fence' looks like a second criminal beside the thief, but it is the picket that wraps around K and the reversed COP.",
-     "definitionFit": "A pickpocket is a petty thief who steals from people's pockets and bags."
+     "surface": "A thief and a receiver of stolen goods hold a thousand pounds, and a policeman is called back.",
+     "definitionFit": "A pickpocket is a thief who steals from people's pockets or bags."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "fence"
     }
    }
