@@ -124,8 +124,20 @@ with tempfile.TemporaryDirectory() as t:
 live = P.with_today(days, {"times": [5, 4, 3], "azed": [1, 1, 1]}, "2026-10-08")
 assert live["2026-10-08"] == {"azed": [None, None, 1, 1, 1, None, None], "times": [10, 3, 5, 4, 3, 110, 30]}, live["2026-10-08"]
 assert P.totals(live["2026-10-08"]) == [10, 3, 6, 5, 4, 110, 30]
-# 10 downloaded and 20 read over the two days between the queue's nights.
-assert B.queue_flow(days, 7) == (5, 10), B.queue_flow(days, 7)
+# The three queues: depths from one row, flows from the recorded nights.
+assert B.queue_depths([10, 3, 5, 4, 3, 110, 30]) == (0, 30, 2)
+assert B.queue_depths([100, 3, 5, 4, 3, 40, 30]) == (60, 30, 2)
+assert B.queue_depths([None, None, 1, 1, 1, None, None]) == (None, None, 0)
+flows = B.queue_flows(days, 7)
+# Downloaded 100 -> 110 over the two days between the queue's nights: 5 a day
+# into read and out of fetch; known is recorded on one night only here.
+assert flows[0] == (None, 5) and flows[1][0] == 5 and flows[2][0] == flows[1][1], flows
+assert B.flow_text((None, None)) == "needs 2 nights" and B.flow_text((5, 2)) == "+5 / &minus;2"
+assert B.flow_text((None, 2)) == "? / &minus;2"
+html = B.queue_table({"times": [100, 3, 5, 4, 3, 40, 30], "azed": [1, 1, 1, 1, 1, 1, 0], "x": [0, 0, 0, 0, 0, 0, 0]}, days)
+assert "Downloaded" not in html and "<th>To fetch</th>" in html and "All series" in html, html
+assert html.index("Times") < html.index("Azed") if "Azed" in html else True
+assert ">x<" not in html and "<td>60 " in html, html
 
 pts = P.series_of(live, P.HINTED)
 assert P.daily(pts)[-1] == ("2026-10-08", 1), P.daily(pts)
@@ -165,7 +177,8 @@ def ided(idx):
 ided(idx)
 html = B.progress_page(idx, today=date(2026, 10, 8))
 assert html.count("<svg") == 5, html.count("<svg")
-assert "+5 in, &minus;10 read" in html, html
+assert "<h2>The queues</h2>" in html and "<th>To annotate</th>" in html and "Not read" not in html
+assert "30 <span" in html and "(+5 / " in html, html
 assert "<polyline" in html, html[:2000]
 
 # The table is the bars: same stages, labels, numbers, order and colours, from
