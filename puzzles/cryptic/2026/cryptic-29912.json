@@ -513,7 +513,8 @@
      "indicators": [
       {
        "text": "In the mirror",
-       "note": "a mirror shows things back to front"
+       "at": 0,
+       "note": "a mirror shows things back to front, so the letters are read in reverse order"
       }
      ],
      "parts": [
@@ -522,26 +523,24 @@
        "parts": [
         {
          "words": "Big Bird",
+         "at": 15,
          "gives": "EMU",
          "note": "the emu is a very large flightless bird"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "PS",
          "indicators": [
           {
            "text": "starts to",
-           "note": "take the first letters of the following words"
+           "at": 24,
+           "note": "starts to picks the first letter of each of the next two words"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "starts to prepare shaving",
-           "gives": "PS",
-           "select": "first",
-           "note": "first letters of Prepare and Shaving"
+           "words": "prepare shaving",
+           "at": 34,
+           "note": "the words prepare and shaving, whose first letters are used"
           }
          ]
         }
@@ -550,14 +549,13 @@
      ]
     },
     "explanation": {
-     "surface": "Big Bird from Sesame Street getting ready for a shave at the mirror.",
-     "walkthrough": "Capitalised, Big Bird is the Sesame Street character; it just means a large bird. 'Shaving foam' looks like one phrase, but 'foam' alone is the definition.",
-     "definitionFit": "Spume is foam or froth, especially on waves."
+     "surface": "Big Bird, the Sesame Street character, looks in the mirror and starts lathering up shaving foam.",
+     "walkthrough": "'Big Bird' suggests the Sesame Street character, but it is just a large bird. 'In the mirror' reverses everything: EMU followed by PS, read backwards.",
+     "definitionFit": "Spume is froth or foam, especially the foam on breaking waves of the sea."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Big"
     }
    }
@@ -579,50 +577,48 @@
     "definitions": [
      {
       "text": "Is that Hazel",
-      "at": 0,
-      "note": "a definition by example, posed as a question"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "'finally' means at the end, so only the closing letter of O'Connor is used"
+       "text": "wearing",
+       "at": 31,
+       "note": "wearing means one thing is inside another, so the letter goes inside the shirt"
       }
      ],
      "parts": [
       {
        "words": "shirt",
+       "at": 39,
        "gives": "TEE",
        "note": "a tee is a T-shirt"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "a body wearing a shirt is inside it, so the letter goes inside the shirt"
+         "text": "finally",
+         "at": 23,
+         "note": "finally picks the last letter of O'Connor"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "O'Connor finally",
-         "gives": "R",
-         "select": "last",
-         "note": "the last letter of O'ConnoR"
+         "words": "O'Connor",
+         "at": 14,
+         "note": "last letter of O'Connor"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is that the singer Hazel O'Connor on stage in a shirt?",
-     "walkthrough": "Hazel O'Connor is a British singer, so the name reads as one person; split them and hazel is a tree. The question mark flags that hazel is only one example of a tree.",
-     "definitionFit": "A definition by example turned into a question: hazel is one kind of the thing being asked about."
+     "surface": "Someone asks whether that is the singer Hazel O'Connor at last, dressed in a shirt.",
+     "walkthrough": "Hazel O'Connor is a British singer and actress, which makes 'Hazel' read as a first name; here it is the plant, an example of the answer.",
+     "definitionFit": "The hazel is a small tree or shrub bearing hazelnuts, so it is one kind of the answer."
     },
     "features": {
      "answerInScene": false,
@@ -653,56 +649,50 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CANCER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overtaking",
+       "at": 10,
+       "note": "overtaking means the queen moves up close behind the letter, coming next in line"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "May",
+       "at": 0,
+       "gives": "CAN",
+       "note": "may and can both express permission or ability"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "overtaking"
+         "text": "close to",
+         "at": 21,
+         "note": "close to means the end of the word, its last letter"
         }
        ],
        "parts": [
         {
-         "words": "May",
-         "gives": "CAN",
-         "note": "may = can, as in giving permission"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "C",
-         "indicators": [
-          {
-           "text": "close to",
-           "note": "the last letter of the next word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "close to traffic",
-           "gives": "C",
-           "select": "last",
-           "note": "the last letter of traffiC"
-          }
-         ]
-        },
-        {
-         "words": "Queen",
-         "gives": "ER",
-         "note": "ER = Elizabeth Regina"
+         "words": "traffic",
+         "at": 30,
+         "note": "last letter of traffic"
         }
        ]
+      },
+      {
+       "words": "Queen",
+       "at": 4,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the usual abbreviation for the Queen"
       }
      ]
     },
     "explanation": {
-     "surface": "The May Queen of a village fete zooming past near a road sign.",
-     "walkthrough": "'May Queen' is a single English tradition, a girl crowned at a spring festival; separate the words and May is the verb can. 'Traffic sign' also splits, leaving 'sign' as the definition.",
-     "definitionFit": "A definition by class: 'sign' is short for star sign, and the crab is the fourth of the twelve."
+     "surface": "The May Queen's procession overtakes a traffic sign.",
+     "walkthrough": "'May Queen' reads as the village festival figure, but splits into May (permission) and Queen (ER). The sign is one of the zodiac.",
+     "definitionFit": "Cancer, the Crab, is the fourth sign of the zodiac."
     },
     "features": {
      "answerInScene": false,
@@ -736,51 +726,50 @@
      "indicators": [
       {
        "text": "introducing",
-       "note": "the style comes first and leads in what follows"
+       "at": 20,
+       "note": "introducing means the first part leads in and the other follows"
       }
      ],
      "parts": [
       {
        "words": "style",
+       "at": 14,
        "gives": "PERM",
-       "note": "a perm is a hairstyle"
+       "note": "a perm is a hair style, a permanent wave"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "EA",
        "indicators": [
         {
          "text": "wingers for",
-         "note": "wingers play on the edges, so take each word's outer letters"
+         "at": 32,
+         "note": "wingers are the players out on the flanks, so for each word only its outer letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "wingers for extra",
-         "gives": "EA",
-         "select": "outer",
-         "note": "the outer letters of ExtrA"
+         "words": "extra",
+         "at": 44,
+         "note": "outer letters of extra"
         }
        ]
       },
       {
        "words": "time",
+       "at": 50,
        "gives": "TE",
-       "note": "the outer letters of TimE"
+       "note": "the wingers of time too: its outer letters T and E"
       }
      ]
     },
     "explanation": {
-     "surface": "A football manager bringing on wide players to get through extra time.",
-     "walkthrough": "Wingers and extra time belong to football; a winger works the edge of the pitch, so here the wingers are each word's outer letters.",
-     "definitionFit": "To permeate is to pass or spread through something."
+     "surface": "A football team goes through in style, bringing on wingers for extra time.",
+     "walkthrough": "The football picture misleads: 'wingers' are the outside letters of both 'extra' and 'time', and 'style' is a hairstyle; 'introducing' puts PERM in front.",
+     "definitionFit": "To permeate is to pass or spread through something, as a smell permeates a room."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "wingers"
     }
    }
@@ -806,47 +795,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEFROCK",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "FORKED is knocked out of shape"
+       "text": "for protection",
+       "at": 30,
+       "note": "for protection means the letters of forked shelter the club letter inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "for protection"
+         "text": "out",
+         "at": 26,
+         "note": "out means the letters of forked are put out of order"
         }
        ],
        "parts": [
         {
-         "words": "forked out",
-         "gives": "DEFROK",
-         "note": "FORKED rearranged"
-        },
-        {
-         "words": "clubs",
-         "gives": "C",
-         "note": "C = clubs, the card suit"
+         "words": "forked",
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "clubs",
+       "at": 6,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
       }
      ]
     },
     "explanation": {
-     "surface": "Clubs have paid out for security.",
-     "walkthrough": "'Forked out' is a phrase for paying up, and 'protection' suggests a racket; 'Strip' is the definition in the sense of removing a priest's office.",
-     "definitionFit": "A specialised synonym: the frock is the cleric's robe, so removing it strips him of his office."
+     "surface": "Strip clubs have paid out for protection money.",
+     "walkthrough": "'Strip clubs' reads as one phrase, but 'Strip' is the definition, a verb, and 'clubs' is the card suit. 'Out' rearranges FORKED, which then gives 'protection' to C.",
+     "definitionFit": "To defrock a priest is to strip them of their clerical office, literally taking away the frock."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "forked"
+     "joke": "pun",
+     "misdirectedWord": "Strip"
     }
    }
   },
@@ -1262,35 +1253,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "originally",
-       "note": "'originally' means at the origin, so only the letter the toy starts with is used"
+       "text": "found in",
+       "at": 35,
+       "note": "found in means the letters sit inside the pieces"
       }
      ],
      "parts": [
       {
        "words": "pieces",
+       "at": 44,
        "gives": "MEN",
-       "note": "chess pieces are called men"
+       "note": "chess pieces are known as men"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "found in"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "sex",
+         "at": 16,
          "gives": "IT",
-         "note": "it = sex appeal, or sex itself"
+         "note": "it is an old informal word for sex appeal or sex"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 24,
+           "note": "originally picks the first letter of toy"
+          }
+         ],
          "parts": [
           {
-           "words": "toy originally",
-           "note": "the first letter of Toy"
+           "words": "toy",
+           "at": 20,
+           "note": "first letter of toy"
           }
          ]
         }
@@ -1299,9 +1296,9 @@
      ]
     },
     "explanation": {
-     "surface": "An instruction booklet on sex toys, found in bits.",
-     "walkthrough": "'Manual' reads as a handbook; here it is the adjective, of the hand.",
-     "definitionFit": "A descriptive definition: 'manual' is the adjective from Latin manus, hand, and the glove without fingers is a covering for it."
+     "surface": "A sex toy is discovered smashed to pieces, along with its instruction manual.",
+     "walkthrough": "'Manual' looks like a handbook but is the adjective, of the hand. Chess pieces are called men.",
+     "definitionFit": "A mitten is a glove with one section for the fingers, so it covers the hand."
     },
     "features": {
      "answerInScene": false,
@@ -1386,57 +1383,63 @@
     "definitions": [
      {
       "text": "Sedative",
-      "at": 0,
-      "note": "an adjective: easing, as in soothing"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EASING",
-     "indicators": [
-      {
-       "text": "divides",
-       "note": "something that divides a pair sits between them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "drug",
+       "at": 9,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "divides",
+         "at": 22,
+         "note": "divides means the offence splits the pair, sitting between them"
+        }
+       ],
        "parts": [
         {
-         "words": "drug",
-         "gives": "E",
-         "note": "E = ecstasy"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "American",
+           "at": 30,
+           "gives": "A"
+          },
+          {
+           "words": "golf",
+           "at": 39,
+           "gives": "G",
+           "note": "G is golf in the NATO phonetic alphabet"
+          }
+         ]
         },
         {
          "words": "offence",
+         "at": 14,
          "gives": "SIN",
-         "note": "a sin is an offence"
-        },
-        {
-         "words": "golf",
-         "gives": "G",
-         "note": "G = golf in the NATO alphabet"
+         "note": "a sin is a moral offence"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drug charge causes a rift in American golf.",
-     "walkthrough": "'Sedative drug' is one phrase on the surface, but the definition stops at 'Sedative', used as an adjective.",
-     "definitionFit": "A sedative remedy is an easing one: it calms and soothes."
+     "surface": "A sedative drug offence splits opinion on American golf.",
+     "walkthrough": "'Sedative' is used as an adjective, meaning calming, and 'easing' fits that sense.",
+     "definitionFit": "Easing describes something that relieves pain or calms, which is what a soothing sedative does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drug"
+     "misdirectedWord": "golf"
     }
    }
   },
@@ -1572,27 +1575,35 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "STICK",
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Brosnan's heartbeat",
-       "gives": "STICK",
-       "select": "middle",
-       "note": "read as heart + beat: the heart of BroSnan is its middle letter S, and a beat of a clock is a TICK"
+       "op": "middle",
+       "parts": [
+        {
+         "words": "Brosnan's",
+         "at": 7,
+         "gives": "BROSNAN",
+         "note": "the surname Brosnan, whose central letter is used"
+        }
+       ]
+      },
+      {
+       "words": "heartbeat",
+       "at": 17,
+       "gives": "TICK",
+       "note": "the word splits in two: heart asks for the central letter of Brosnan, and beat gives tick, the beat of a clock"
       }
      ]
     },
     "explanation": {
-     "surface": "The actor Pierce Brosnan's pulse.",
-     "walkthrough": "Pierce Brosnan is one name on the surface; the first name is the verb to pierce, and 'heartbeat' splits into heart and beat.",
-     "definitionFit": "A plain synonym: you stick a pin into a cushion, piercing it."
+     "surface": "A fan muses on the heartbeat of the actor Pierce Brosnan.",
+     "walkthrough": "'Pierce Brosnan' looks like the actor's name, but 'Pierce' is the definition, a verb. The setter splits 'heartbeat': the heart of Brosnan is its central S, then a beat is a TICK.",
+     "definitionFit": "To stick a pin into something is to pierce or puncture it with a point."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Pierce"
     }

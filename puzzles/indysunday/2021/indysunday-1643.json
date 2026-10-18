@@ -199,35 +199,34 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ICH",
        "indicators": [
         {
          "text": "contents",
-         "note": "the contents of something are what sits inside its walls, so only the interior letters are kept"
+         "at": 9,
+         "note": "a recess's contents are what lies inside it, so its outer letters are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Recess",
-         "gives": "ICH",
-         "select": "middle",
-         "note": "a recess is a niche; its inside letters are kept"
+         "words": "Recess's",
+         "at": 0,
+         "gives": "NICHE",
+         "note": "a niche is a recess in a wall"
         }
        ]
       },
       {
        "words": "yellow",
+       "at": 19,
        "gives": "OR",
-       "note": "or is the heraldic name for gold or yellow"
+       "note": "or is the heraldic word for gold or yellow"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of some liquid found in an alcove, either yellowish or clear.",
-     "walkthrough": "Recess must be turned into NICHE before its insides are kept. The clue's own 'or' just joins the wordplay to the definition, though it looks like part of a colour choice.",
-     "definitionFit": "Ichor is the ethereal liquid said to flow in the veins of Greek gods, and also a thin watery discharge from wounds."
+     "surface": "A dictionary-style entry describing what fills a recess: a yellow or colourless fluid.",
+     "walkthrough": "The printed 'or' looks like part of a list of colours in the definition, but it is only a link: yellow is the heraldic tincture or (gold), and the definition is just 'colourless fluid'.",
+     "definitionFit": "Ichor is the watery discharge from a wound, and in myth the ethereal blood flowing in the veins of the gods."
     },
     "features": {
      "answerInScene": false,
@@ -390,39 +389,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PICKAT",
      "indicators": [
       {
        "text": "completely pointless",
-       "note": "points are compass letters such as E and S, so being wholly pointless strips every one of them"
+       "at": 16,
+       "note": "the compass points N, E, S and W are all removed: every E and S goes from piece and Keats"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "at": 43,
+         "note": "by means next to, so piece is followed by Keats"
+        }
+       ],
        "parts": [
         {
          "words": "piece",
-         "gives": "PIC",
-         "note": "the word for a part with both its E letters removed"
+         "at": 37
         },
         {
          "words": "Keats",
-         "gives": "KAT",
-         "note": "the poet's surname with its E and S removed"
+         "at": 46
         }
        ]
+      },
+      {
+       "gives": "EEES"
       }
      ]
     },
     "explanation": {
-     "surface": "A critic dismissing a poem by Keats as having no point at all.",
-     "walkthrough": "Compass points N, E, S and W are the crossword's 'points'; take every one out of PIECE and KEATS to leave PIC and KAT.",
-     "definitionFit": "To pick at someone is to nag them with petty criticism, an idiom for carping."
+     "surface": "A critic finds fault with a thoroughly pointless piece by the poet Keats.",
+     "walkthrough": "'Pointless' looks like criticism, but points are compass letters, and 'completely pointless' strips every one of them from both words, not just a single point.",
+     "definitionFit": "To pick at someone is to nag or criticise them over small things, to carp at them."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "pointless"
@@ -580,7 +586,8 @@
      "indicators": [
       {
        "text": "around",
-       "note": "to sit around something is to enclose it, so the outer words wrap the inner letters"
+       "at": 17,
+       "note": "around means the first pair of words go round the rest"
       }
      ],
      "parts": [
@@ -589,13 +596,15 @@
        "parts": [
         {
          "words": "tight",
+         "at": 6,
          "gives": "NEAR",
-         "note": "near is an old word for stingy or tight-fisted"
+         "note": "near and tight both mean stingy with money"
         },
         {
          "words": "fist",
+         "at": 12,
          "gives": "HAND",
-         "note": "a fist is a clenched hand"
+         "note": "a fist is a hand clenched"
         }
        ]
       },
@@ -604,25 +613,23 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 24
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "T",
          "indicators": [
           {
            "text": "heart",
-           "note": "the heart of a word is its centre, so only the middle letter is kept"
+           "at": 36,
+           "note": "the heart of a word is its central letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "plotter",
-           "gives": "T",
-           "select": "middle",
-           "note": "the central letter of this seven-letter word"
+           "words": "plotter's",
+           "at": 26,
+           "gives": "PLOTTER",
+           "note": "the word plotter, whose middle letter is used"
           }
          ]
         }
@@ -631,9 +638,9 @@
      ]
     },
     "explanation": {
-     "surface": "A conspirator grips something tightly in a clenched fist.",
-     "walkthrough": "Tight fist hints at meanness, which is right for NEAR, but the two words are clued separately and A plus T sit between them.",
-     "definitionFit": "Something near at hand is within easy reach, nearby, so the phrase is an idiom meaning nearby."
+     "surface": "A miser's clenched fist closes around a conspirator's heart.",
+     "walkthrough": "'Tight fist' reads as one image but must be split in two, with 'tight' meaning stingy, as in the British sense of near; 'around' wraps the pair round A and the 'heart' of plotter, its central T.",
+     "definitionFit": "Something near at hand is close by, within easy reach."
     },
     "features": {
      "answerInScene": false,
@@ -663,63 +670,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALCOHOLIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without ends means the letters at both extremes are cut off"
+       "text": "Distribute",
+       "at": 0,
+       "note": "to distribute is to spread things around, so the gathered letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "Distribute",
-         "note": "distributing spreads things about, so the letters are scattered into a new order"
+         "text": "endless",
+         "at": 11,
+         "note": "endless means both ends of the word are cut off"
         }
        ],
        "parts": [
         {
          "words": "Coca-Cola",
-         "gives": "OCACOL",
-         "note": "the drink's name with its first and last letters removed"
-        },
+         "at": 19,
+         "gives": "COCACOLA",
+         "note": "the brand name Coca-Cola, whose inner letters are used"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "HLI",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "taking things oddly means keeping the first, third, fifth letters and so on"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "half is",
-           "gives": "HLI",
-           "select": "alternate",
-           "note": "the odd-placed letters of these two words"
-          }
-         ]
+         "text": "oddly",
+         "at": 39,
+         "note": "oddly picks the first, third and fifth letters of the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "half is",
+         "at": 31,
+         "note": "the words half is, whose odd letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Serving cola mixers when half the drink is rum anyway.",
-     "walkthrough": "'Is' appears twice: the first belongs to the odd-letter fodder, the second links to the definition. The surface hints at rum and Coke; the cola merely supplies letters.",
-     "definitionFit": "Rum is a spirit, so it is an example of something containing alcohol; the 'say' flags rum as one instance."
+     "surface": "A bartender serves Coca-Cola, half of it apparently laced with rum.",
+     "walkthrough": "'endless' cuts COCA-COLA to OCACOL, and 'oddly' takes HLI from 'half is'; 'Distribute' then rearranges the nine letters.",
+     "definitionFit": "Rum is an example of a drink containing alcohol, so it is an alcoholic beverage; 'say' marks the example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "Distribute"
     }
    }
   },
@@ -909,46 +914,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRYINGLY",
+     "op": "container",
      "indicators": [
       {
-       "text": "losing head",
-       "note": "losing the head means the first letter is cut away"
+       "text": "interrupting",
+       "at": 25,
+       "note": "interrupting means breaking into, so the shortened word goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "row",
+       "at": 38,
+       "gives": "PLY",
+       "note": "to ply the oars is to row"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "interrupting",
-         "note": "to interrupt is to break into the middle of something, so these letters go inside"
+         "text": "losing head",
+         "at": 9,
+         "note": "losing head means the first letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "row",
-         "gives": "PLY",
-         "note": "to ply is to row or work a boat back and forth"
+         "words": "Bawling",
+         "at": 0,
+         "gives": "CRYING",
+         "note": "bawling means crying loudly"
         },
         {
-         "words": "Bawling",
-         "gives": "RYING",
-         "note": "crying, with its first letter dropped"
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone loses their temper shouting at a meddler in a quarrel.",
-     "walkthrough": "Row suggests a quarrel, but it is the boating verb, matched by PLY.",
-     "definitionFit": "Pryingly describes acting nosily, poking into others' private affairs, which is what intrusive behaviour does."
+     "surface": "Someone bawling and butting into a row behaves intrusively.",
+     "walkthrough": "'row' looks like a quarrel but is the verb, as in plying oars. CRYING 'losing head' gives RYING, which goes 'interrupting' PLY.",
+     "definitionFit": "Prying means nosily poking into others' affairs, so pryingly describes doing something with intrusive curiosity."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "row"
     }
@@ -1609,40 +1619,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OATHS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "being posted to front",
-       "note": "being sent to the front means a letter leaves its place in the word and is put at the start"
+       "text": "to front",
+       "at": 35,
+       "note": "to front means this letter goes at the very start"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "over",
+       "at": 17,
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being posted",
+         "at": 22,
+         "note": "being posted means sent away from its place, so the letter leaves the name"
+        }
+       ],
        "parts": [
         {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the cricket abbreviation for an over"
+         "words": "musketeer",
+         "at": 7,
+         "gives": "ATHOS",
+         "note": "Athos is one of Dumas's Three Musketeers"
         },
         {
-         "words": "musketeer",
-         "gives": "ATHS",
-         "note": "Athos, one of Dumas's Three Musketeers, with its O lifted out"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musketeer swears at being sent to the front line.",
-     "walkthrough": "The O already in ATHOS moves to the front, giving O-ATHS.",
-     "definitionFit": "Oaths are swear words, so curses fits as a plural noun for profanities."
+     "surface": "A musketeer swears as he is posted to the front line.",
+     "walkthrough": "'Curses' is the noun, swear words. In ATHOS the O ('over' in cricket shorthand) is 'being posted' away, leaving ATHS, and goes 'to front'.",
+     "definitionFit": "Oaths here are swear words or profanities, the plural noun matching curses."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "posted"
     }
@@ -1796,52 +1817,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRAPNEL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "doesn't finish",
-       "note": "not finishing means stopping short of the last letter"
-      },
-      {
-       "text": "cut",
-       "note": "cutting trims off the final letter"
+       "text": "beforehand",
+       "at": 40,
+       "note": "beforehand means this part comes before the other in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "beforehand",
-         "note": "coming beforehand means being placed earlier, so this piece goes first"
+         "text": "cut",
+         "at": 36,
+         "note": "cut means a word has its last letter trimmed off"
         }
        ],
        "parts": [
         {
          "words": "fruit",
-         "gives": "GRAP",
-         "note": "grape with its last letter cut"
+         "at": 29,
+         "gives": "GRAPE",
+         "note": "a grape is a fruit"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "doesn't finish",
+         "at": 14,
+         "note": "doesn't finish means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
          "words": "Mistress Gwyn",
-         "gives": "NEL",
-         "note": "Nell Gwyn, Charles II's mistress, minus the final L"
+         "at": 0,
+         "gives": "NELL",
+         "note": "Nell Gwyn was the mistress of King Charles II"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Charles II's mistress leaves fruit half-eaten, earlier sliced with a hook.",
-     "walkthrough": "Nell Gwyn was an actress and royal mistress famous for selling oranges; 'beforehand' puts the fruit first.",
-     "definitionFit": "A grapnel is a small anchor or grappling iron with several hooks, used for catching hold."
+     "surface": "Nell Gwyn, the King's mistress, left her fruit unfinished, having cut it with a hooked tool.",
+     "walkthrough": "Nell Gwyn was an orange-seller as well as Charles II's mistress, which feeds the fruit picture. GRAPE 'cut' gives GRAP, placed 'beforehand'; NELL that 'doesn't finish' gives NEL.",
+     "definitionFit": "A grapnel is a small anchor or grappling iron with several hooks or claws."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fruit"
+     "misdirectedWord": "cut"
     }
    }
   }

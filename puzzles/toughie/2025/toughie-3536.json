@@ -43,38 +43,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EUROSTAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "out of",
-       "note": "taking something out of a word means its letters are removed, leaving the remainder behind"
+       "text": "Train",
+       "at": 0,
+       "note": "to train something is to shape or direct it, so the letters that follow are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "routes",
+       "at": 6
+      },
+      {
+       "words": "run",
+       "at": 13,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for run"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Train",
-         "note": "to train something is to shape or direct it, so the following letters are reworked into a fresh order"
+         "text": "out of",
+         "at": 28,
+         "note": "out of tells us to take the named letters away from the word sea"
         }
        ],
        "parts": [
         {
-         "words": "routes",
-         "note": "taken as written"
-        },
-        {
-         "words": "run",
-         "gives": "R",
-         "note": "R is the cricket scorecard abbreviation for a run"
-        },
-        {
          "words": "sea",
-         "gives": "A",
-         "note": "the word sea with S and E, the compass abbreviation for south-east, taken away"
+         "at": 24
+        },
+        {
+         "words": "south-east",
+         "at": 35,
+         "gives": "SE",
+         "note": "SE is the compass abbreviation for south-east"
         }
        ]
       }
@@ -82,9 +88,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about which train runs across the sea from south-east England.",
-     "walkthrough": "Read whole, the clue describes the Channel Tunnel service, though strictly the train goes under the sea rather than across it, so this is a near all-in-one.",
-     "definitionFit": "The Channel Tunnel passenger service carries travellers from London in the south-east under the Channel to France and Belgium."
+     "surface": "A traveller asks which train it is whose routes run out of south-east England across the sea.",
+     "walkthrough": "'Train' looks like the subject but is the anagram signal. 'Out of south-east' takes SE from SEA to leave A; ROUTES, R and A are rearranged. The whole clue describes the service from Kent under the Channel.",
+     "definitionFit": "The high-speed passenger service through the Channel Tunnel leaves from south-east England and crosses beneath the sea to France."
     },
     "features": {
      "answerInScene": true,
@@ -262,49 +268,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OTOLITH",
+     "op": "composite",
      "indicators": [
       {
        "text": "being analysed",
-       "note": "something being analysed is broken down and taken apart, so its letters are rearranged"
+       "at": 9,
+       "note": "something analysed is broken down into its parts, so the letters of pathologist are taken apart and rearranged"
+      },
+      {
+       "text": "left",
+       "at": 39,
+       "note": "left here means departed: the letters of gaps go out of the pool before the rest is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OTOLITH",
-       "indicators": [
-        {
-         "text": "left",
-         "note": "here left is the past tense of leave, so the named letters depart and are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pathologist's",
-         "gives": "PATHOLOGIST",
-         "note": "the word taken as written, without the possessive"
-        },
-        {
-         "words": "gaps",
-         "note": "these four letters are the ones that leave"
-        }
-       ]
+       "words": "pathologist's",
+       "at": 25,
+       "gives": "PATHOLOGIST",
+       "note": "the word pathologist supplies the letter pool; the possessive just joins it to what follows"
+      },
+      {
+       "words": "gaps",
+       "at": 44
       }
      ]
     },
     "explanation": {
-     "surface": "A pathologist examining an ear bone leaves gaps in the analysis.",
-     "walkthrough": "Remove P, A, G and S from PATHOLOGIST and seven letters remain to be rearranged.",
-     "definitionFit": "An otolith is a tiny calcium carbonate structure in the inner ear of vertebrates, often called an ear stone."
+     "surface": "A pathologist examining an ear-bone finds it has gaps in it.",
+     "walkthrough": "This is a composite anagram: PATHOLOGIST holds the answer's letters plus G, A, P and S. 'Left gaps' means those four letters go, and 'being analysed' rearranges what is left.",
+     "definitionFit": "An otolith is a tiny calcium particle in the inner ear of vertebrates, one of the small stones of the balance organ."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gaps"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -388,51 +386,56 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "KISSCURL",
      "indicators": [
       {
        "text": "out",
-       "note": "out suggests the letters are disordered or out of place, so they are rearranged"
+       "at": 29,
+       "note": "out signals that luck and is are put out of their usual order and rearranged"
       }
      ],
      "parts": [
       {
+       "words": "luck",
+       "at": 21
+      },
+      {
+       "words": "is",
+       "at": 26
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "KISSCURL",
        "indicators": [
         {
-         "text": "spurned",
-         "note": "to spurn is to reject, so the named letters are thrown out of the word"
+         "text": "spurned by",
+         "at": 46,
+         "note": "spurned by tells us the editor is rejected, so those letters are removed from Red"
         }
        ],
        "parts": [
         {
-         "words": "luck",
-         "note": "taken as written"
-        },
-        {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "Red \"S\"",
-         "note": "the word red followed by the letter S"
+         "words": "Red",
+         "at": 38,
+         "gives": "RED",
+         "note": "the word red as written, from which the editor is dropped"
         },
         {
          "words": "editor",
-         "gives": "ED",
-         "note": "ED is the usual abbreviation for editor; these letters are rejected"
+         "at": 57,
+         "gives": "ED"
         }
        ]
+      },
+      {
+       "words": "S",
+       "at": 43,
+       "note": "the letter S as printed in the clue"
       }
      ]
     },
     "explanation": {
-     "surface": "Superman's luck runs out when an editor turns down his red S emblem.",
-     "walkthrough": "The red S on his chest looks like his trademark; the real trademark is the curl on his forehead.",
-     "definitionFit": "Superman is drawn with a small lock of hair curled flat on his forehead, a styling known as a kiss curl."
+     "surface": "Superman's luck runs out, the editor rejecting his red S emblem.",
+     "walkthrough": "'spurned by editor' takes ED out of RED, leaving R; LUCK, IS, R and S are then rearranged.",
+     "definitionFit": "Christopher Reeve's Superman sported a single flat curl of hair on his forehead, a kiss-curl, as part of his signature look."
     },
     "features": {
      "answerInScene": true,
@@ -741,64 +744,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ITTYBITTY",
      "indicators": [
       {
        "text": "splits",
-       "note": "a letter that splits something goes in between, dividing it into two parts"
+       "at": 21,
+       "note": "splits means the letter goes between the two halves, dividing them"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ITTYBITTY",
        "indicators": [
         {
          "text": "setting aside",
-         "note": "setting things aside removes them, so the named letters are dropped"
+         "at": 35,
+         "note": "setting aside means the two Ks are put to one side, removed from the funds"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the first letter of the word is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bank",
-           "note": "the first letter"
-          }
-         ]
-        },
-        {
          "words": "funds",
+         "at": 28,
          "gives": "KITTYKITTY",
-         "note": "a kitty is a pool of money, and funds is plural, so two of them"
+         "note": "a kitty is a pool of money; plural funds gives two of them"
         },
         {
          "words": "2K",
+         "at": 49,
          "gives": "KK",
-         "note": "two letter Ks, the ones set aside"
+         "note": "two letters K, one at the front of each kitty"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 11,
+         "note": "initially picks the first letter of bank"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 6,
+         "note": "first letter of bank"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small bank divides its funds after setting aside two thousand pounds.",
-     "walkthrough": "2K looks like two thousand; here it means two letter Ks, one from the front of each kitty.",
-     "definitionFit": "Itty-bitty is an informal, childlike reduplicated word meaning tiny or very little."
+     "surface": "A small bank, at the start, divides its funds and holds back two thousand.",
+     "walkthrough": "'2K' looks like two thousand pounds but means two letter Ks. 'Setting aside' takes the Ks from two KITTYs to leave ITTY ITTY, and B from 'bank initially' splits them.",
+     "definitionFit": "Itty-bitty is a playful reduplicated informal word meaning tiny or very little."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "2K"
     }
    }
@@ -926,49 +930,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRITIUM",
      "indicators": [
       {
        "text": "consumed",
-       "note": "whatever is consumed ends up inside the eater, so one piece goes within another"
+       "at": 15,
+       "note": "what is consumed goes into the stomach, so the reviewer's letters are placed inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TRITIUM",
+       "words": "it's implied",
+       "at": 25,
+       "gives": "TUM",
+       "note": "the container is only implied by consumed: food consumed ends up in the tum, an informal word for the stomach"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "Naked",
-         "note": "something naked is stripped of its covering, so the outer letters are removed"
+         "at": 0,
+         "note": "naked means stripped of its outer layer, so the first and last letters of the reviewer go"
         }
        ],
        "parts": [
         {
          "words": "reviewer",
+         "at": 6,
          "gives": "CRITIC",
-         "note": "a critic reviews books, plays or films"
-        },
-        {
-         "words": "it's implied",
-         "gives": "TUM",
-         "note": "the stomach is not named but is implied by consuming, as food goes into the tummy"
+         "note": "a critic reviews books, plays and films"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A naked reviewer is swallowed up, with a rare element hinted at.",
-     "walkthrough": "TUM, informal for stomach, is never stated: consumed implies the reviewer goes into it.",
-     "definitionFit": "Tritium is the radioactive isotope of hydrogen with two neutrons, naturally very scarce, so a rare variety of H."
+     "surface": "A reviewer, naked, has eaten something, apparently a rare form of hydrogen.",
+     "walkthrough": "'Naked' strips the critic's outer letters. Nothing in the clue names the stomach: 'consumed, it's implied' means the stripped reviewer is swallowed into an unstated tum, informal British for stomach.",
+     "definitionFit": "Tritium is the radioactive isotope of hydrogen with two neutrons, found only in traces in nature."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
      "misdirectedWord": "Naked"
     }
    }
@@ -1274,50 +1277,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CAPGUN",
+     "op": "container",
      "indicators": [
       {
-       "text": "waggly tail",
-       "note": "a waggly tail swings back and forth, so the end letters switch round"
+       "text": "set about",
+       "at": 19,
+       "note": "set about means placed around, so the first part encloses the dog"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "CAPGUN",
+       "words": "may",
+       "at": 15,
+       "gives": "CAN",
+       "note": "can, like may, asks or grants permission"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "set about",
-         "note": "to be set about something is to be placed around it, enclosing it"
+         "text": "waggly tail",
+         "at": 38,
+         "note": "a waggly tail moves from side to side, so the last two letters of the dog change places"
         }
        ],
        "parts": [
         {
-         "words": "may",
-         "gives": "CAN",
-         "note": "may and can both express permission"
+         "words": "dog",
+         "at": 29,
+         "gives": "PUG",
+         "note": "a pug is a small breed of dog with a curly tail"
         },
         {
-         "words": "dog",
-         "gives": "PUG",
-         "note": "a pug is a small breed of dog"
+         "gives": "UG"
+        },
+        {
+         "gives": "GU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A noisy toy may make a dog with a wagging tail jump.",
-     "walkthrough": "The tail of the dog is its last two letters, swapped round.",
-     "definitionFit": "A cap gun is a toy pistol that fires small explosive paper caps with a sharp bang."
+     "surface": "A noisy toy may be set off around a dog wagging its tail.",
+     "walkthrough": "'Loud' is part of the definition, not a homophone signal. 'Waggly tail' swaps the dog's last two letters, and 'set about' puts CAN around the result.",
+     "definitionFit": "A cap gun is a toy pistol that makes a bang by striking a small explosive cap."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "may"
+     "joke": "pun",
+     "misdirectedWord": "set"
     }
    }
   },
@@ -1474,40 +1484,47 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TEMPE",
      "indicators": [
       {
        "text": "leaving",
-       "note": "letters that are leaving depart from the word and are removed"
+       "at": 27,
+       "note": "leaving means the named letters go away from the words they were in"
       }
      ],
      "parts": [
       {
-       "words": "couple",
-       "gives": "ITEM",
-       "note": "a couple in a relationship is an item"
-      },
-      {
-       "words": "a walk in the park",
-       "gives": "PIE",
-       "note": "something easy as pie is a walk in the park"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "couple",
+         "at": 35,
+         "gives": "ITEM",
+         "note": "an item is a romantic couple"
+        },
+        {
+         "words": "a walk in the park",
+         "at": 42,
+         "gives": "PIE",
+         "note": "something easy is easy as pie, so pie stands for a walk in the park"
+        }
+       ]
       },
       {
        "words": "is",
+       "at": 24,
        "gives": "II",
-       "note": "read as the plural of I: two letter Is, which leave"
+       "note": "read is as I's, the plural of the letter I: two letter Is"
       }
      ]
     },
     "explanation": {
-     "surface": "A lovely Greek valley is a stroll in the park for a couple.",
-     "walkthrough": "Is is read as Is, the plural of the letter I; both Is come out of ITEMPIE.",
-     "definitionFit": "The Vale of Tempe in Thessaly was celebrated by ancient poets for its beauty, so its name came to stand for any lovely vale."
+     "surface": "A couple out for an easy stroll in a park leave a lovely Greek valley.",
+     "walkthrough": "'is' looks like a verb, but it is I's: two letter Is, and 'leaving' takes one from ITEM and one from PIE.",
+     "definitionFit": "The Vale of Tempe in Thessaly was famed by ancient poets as a beautiful gorge sacred to Apollo."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "is"
     }
