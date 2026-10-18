@@ -1555,54 +1555,57 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one piece placed about another goes around it"
+       "at": 13,
+       "note": "about says the play wraps around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "play",
-         "gives": "MIME",
-         "note": "mime is wordless acting"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "play",
+       "at": 8,
+       "gives": "MIME",
+       "note": "a mime is a play performed without words"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "which doesn't close",
-         "note": "a word that never closes has no ending, so its final letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "luxurious hotel",
-         "gives": "RITZ",
-         "note": "the Ritz is a famous luxury hotel in London"
+         "words": "a",
+         "at": 19,
+         "gives": "A"
         },
         {
-         "gives": "Z"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "which doesn't close",
+           "at": 37,
+           "note": "doesn't close says the hotel's last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "luxurious hotel",
+           "at": 21,
+           "gives": "RITZ",
+           "note": "the Ritz is a famously luxurious London hotel"
+          },
+          {
+           "gives": "Z"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drama about a posh hotel by the coast that stays open all night.",
-     "walkthrough": "'Which doesn't close' sounds like a 24-hour hotel; it means the hotel's name loses its last letter.",
-     "definitionFit": "Maritime means relating to or by the sea, as in maritime provinces on the coast."
+     "surface": "A seaside drama is set around a grand hotel that never shuts.",
+     "definitionFit": "Maritime means relating to or bordering the sea, so a coastal area is described this way."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "close"
     }
    }

@@ -625,64 +625,67 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RESERVOIR",
      "indicators": [
       {
        "text": "includes",
-       "note": "includes means takes in, so the zero is placed inside the string built so far"
+       "at": 42,
+       "note": "includes says the whole string takes the nothing letter inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "abridged",
-         "note": "abridged means shortened, so the word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "abridged",
+           "at": 6,
+           "note": "abridged says the word is shortened by its last letter"
+          }
+         ],
          "parts": [
           {
            "words": "book",
+           "at": 15,
            "gives": "RESERVE",
-           "note": "to book a seat is to reserve it"
+           "note": "to book a table is to reserve it"
           },
           {
-           "words": "nothing",
-           "gives": "O",
-           "note": "zero, nothing, looks like the letter O"
-          },
-          {
-           "words": "current",
-           "gives": "I",
-           "note": "I is the symbol for electric current"
-          },
-          {
-           "words": "Republican",
-           "gives": "R",
-           "note": "R is the abbreviation for Republican"
+           "gives": "E"
           }
          ]
         },
         {
-         "gives": "E"
+         "words": "current",
+         "at": 23,
+         "gives": "I",
+         "note": "I is the symbol for electric current"
+        },
+        {
+         "words": "Republican",
+         "at": 31,
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 51,
+       "gives": "O",
+       "note": "O, a zero, means nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "An exclamation over a cut-down book with nothing in it from a current Republican.",
-     "walkthrough": "'Well' looks like an interjection, but it is the definition. The zero sits between the shortened booking word and the current-plus-Republican pair.",
-     "definitionFit": "A well and a reservoir are both stores from which water is drawn, so reservoir can stand for well."
+     "surface": "A shortened book about electricity and a Republican turns out to contain nothing.",
+     "walkthrough": "RESERV + I + R takes O in before the I. 'Well' starts the clue like an interjection, but it is the definition.",
+     "definitionFit": "A well is a store of water drawn from the ground, as a reservoir is a store of water."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Well"
     }
    }
@@ -989,48 +992,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATHLETE",
      "indicators": [
       {
        "text": "without",
-       "note": "without here means outside, so the cycled word goes around the permit"
+       "at": 27,
+       "note": "without, in its old sense of outside, says the heat letters go round the permit word"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "ATHLETE",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling means going round, so letters move from the front of the word to its end"
+         "at": 14,
+         "note": "cycling says letters of heat are moved round from the front to the end"
         }
        ],
        "parts": [
         {
          "words": "heat",
-         "note": "taken as written before it is cycled"
-        },
-        {
-         "words": "permit",
-         "gives": "LET",
-         "note": "to let is to permit"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "permit",
+       "at": 35,
+       "gives": "LET",
+       "note": "to let is to permit"
       }
      ]
     },
     "explanation": {
-     "surface": "A competitor may race in a cycling heat without the required licence.",
-     "walkthrough": "Cycling looks like the sport, but it moves the first two letters of heat to its end.",
-     "definitionFit": "An athlete is someone who competes in sport, and a runner is a typical example, hence one who might run."
+     "surface": "Someone may take a run while cycling in the heat without a permit.",
+     "walkthrough": "'Without' here is the old sense of outside, not lacking.",
+     "definitionFit": "An athlete is a sportsperson such as a sprinter or marathoner, someone who might compete in a race."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "cycling"
     }
    }

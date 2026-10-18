@@ -465,49 +465,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BOUNCYCASTLE",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "the lad takes the trimmed meal inside himself as food"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BOUNCYCASTLE",
+       "op": "container",
        "indicators": [
         {
-         "text": "unlimited",
-         "note": "without limits means without its boundaries, so the first and last letters go"
+         "text": "eating",
+         "at": 4,
+         "note": "eating says the boy takes the other letters inside him"
         }
        ],
        "parts": [
         {
          "words": "Lad",
+         "at": 0,
          "gives": "BOY",
          "note": "a lad is a boy"
         },
         {
-         "words": "lunch",
-         "note": "taken as written before its ends are trimmed"
-        },
-        {
-         "words": "keep",
-         "gives": "CASTLE",
-         "note": "a keep is the main tower of a castle"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "unlimited",
+           "at": 11,
+           "note": "unlimited says lunch loses its limits, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lunch",
+           "at": 21
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "keep",
+       "at": 29,
+       "gives": "CASTLE",
+       "note": "a keep is the strong central tower of a castle, so it stands for a castle"
       }
      ]
     },
     "explanation": {
-     "surface": "A boy eats a bottomless lunch at a party, and the children want to keep the favourite toy.",
-     "walkthrough": "Unlimited means stripped of its limits, i.e. its first and last letters, not all-you-can-eat. A keep is the stronghold tower of a medieval fortress.",
-     "definitionFit": "The inflatable play structure is a classic hire for children's birthdays; the question mark marks it as one example."
+     "surface": "A boy eats a meagre lunch while minding a favourite at a children's party.",
+     "walkthrough": "Unlimited lunch is UNC, which BOY eats to give BOUNCY.",
+     "definitionFit": "An inflatable play structure shaped like a fortress is a fixture at children's birthday parties."
     },
     "features": {
      "answerInScene": true,
