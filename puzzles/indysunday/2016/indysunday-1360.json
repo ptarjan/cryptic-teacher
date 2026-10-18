@@ -208,31 +208,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTREME",
-     "indicators": [
-      {
-       "text": "unlimited",
-       "note": "with no limits means both boundary letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "messages",
-       "gives": "TEXTS",
-       "note": "texts are phone messages"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 7,
+         "note": "unlimited means with no limits, so the boundary letters at each end of the word are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "messages",
+         "at": 17,
+         "gives": "TEXTS",
+         "note": "texts are phone messages"
+        }
+       ]
       },
       {
        "words": "army engineers",
+       "at": 42,
        "gives": "REME",
-       "note": "the Royal Electrical and Mechanical Engineers, a British Army corps"
+       "note": "REME is the Royal Electrical and Mechanical Engineers, a British Army corps"
       }
      ]
     },
     "explanation": {
      "surface": "An end to the endless texts from soldiers in the engineering corps.",
-     "walkthrough": "'End of' looks like a letter-picking instruction; End is in fact the definition. REME, not the usual RE, supplies the army engineers.",
+     "walkthrough": "'End of' looks like a letter-picking instruction, but End is the definition. REME, not the usual RE, supplies the army engineers.",
      "definitionFit": "The extreme of something is its furthest point or limit, its very end."
     },
     "features": {
@@ -1269,7 +1275,8 @@
      "indicators": [
       {
        "text": "enters",
-       "note": "something that enters goes inside, so the name sits between the other letters"
+       "at": 31,
+       "note": "enters means goes inside, so the playwright sits between the other two pieces"
       }
      ],
      "parts": [
@@ -1281,34 +1288,37 @@
          "indicators": [
           {
            "text": "end of",
-           "note": "the end of a word is its final letter, so only that one is kept"
+           "at": 6,
+           "note": "end of means the final letter of the word Act"
           }
          ],
          "parts": [
           {
            "words": "Act",
-           "note": "the final letter of Act"
+           "at": 13
           }
          ]
         },
         {
          "words": "1",
+         "at": 17,
          "gives": "I",
-         "note": "the Roman numeral for one"
+         "note": "1 looks like the Roman numeral I"
         }
        ]
       },
       {
        "words": "playwright",
+       "at": 20,
        "gives": "ORTON",
-       "note": "Joe Orton, English writer of Loot and Entertaining Mr Sloane"
+       "note": "Joe Orton was the English playwright of Loot and Entertaining Mr Sloane"
       }
      ]
     },
     "explanation": {
-     "surface": "After the first act finishes, the dramatist arrives with an interval ice cream.",
-     "walkthrough": "'Act 1' looks like one theatrical phrase, but the end of Act and the 1 are separate pieces that the playwright goes between.",
-     "definitionFit": "Tortoni is an Italian frozen dessert of cream and macaroons, a type of ice cream."
+     "surface": "At the interval after the first act, a dramatist comes in carrying an ice cream.",
+     "walkthrough": "Joe Orton was a 1960s English playwright. 'After' only sets the scene of the interval; the playwright goes between T and I.",
+     "definitionFit": "Tortoni is an Italian frozen dessert made with cream, almonds and macaroons, a type of ice cream."
     },
     "features": {
      "answerInScene": true,
@@ -1342,45 +1352,49 @@
      "indicators": [
       {
        "text": "containing",
-       "note": "containing means holding inside, so the nonsense word wraps the other letters"
+       "at": 13,
+       "note": "containing means holding inside, so the nonsense word wraps round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "rhubarb",
-         "gives": "ROT",
-         "note": "rhubarb is British slang for nonsense, as is rot"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "rhubarb",
+       "at": 5,
+       "gives": "ROT",
+       "note": "rhubarb is British slang for nonsense, as is rot"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "a dash of",
-         "note": "a dash is a tiny splash, so just the opening letter is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sugar",
-         "note": "the first letter of sugar"
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "dash of",
+           "at": 26,
+           "note": "a dash of something is a tiny amount, here just the first letter of sugar"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sugar",
+           "at": 34
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe instruction to cook rhubarb with a sprinkle of sugar.",
-     "walkthrough": "Rhubarb looks like the fruit to be baked; in Britain it also means nonsense, like rot.",
-     "definitionFit": "To roast is to cook in an oven with dry heat, much as baking does."
+     "surface": "A recipe instruction: cook rhubarb with a sprinkle of sugar.",
+     "walkthrough": "'rhubarb' looks like the fruit to be baked, but it is slang for nonsense, which is ROT.",
+     "definitionFit": "To roast is to cook in an oven with dry heat, which is what baking does too."
     },
     "features": {
      "answerInScene": true,

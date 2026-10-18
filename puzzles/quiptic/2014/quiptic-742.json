@@ -44,33 +44,36 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TRAMCAR",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner's version means the opening sounds of two words are swapped, as the Reverend Spooner was said to do"
+       "at": 0,
+       "note": "Spooner's way of speaking swaps the opening sounds of two words, after the Oxford don William Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to overfill seaman's",
-       "gives": "TRAMCAR",
-       "soundsLike": "CRAM TAR",
-       "note": "to overfill is to cram and a seaman is a tar; swap their opening sounds"
+       "words": "to overfill",
+       "at": 10,
+       "gives": "CRAM",
+       "note": "to cram is to stuff too full"
+      },
+      {
+       "words": "seaman's",
+       "at": 22,
+       "gives": "TAR",
+       "note": "a tar is a sailor, short for tarpaulin"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor's way of getting about, described as something that overfills.",
-     "walkthrough": "Swap the opening sounds of CRAM TAR and you get TRAM CAR.",
-     "definitionFit": "A tramcar is a passenger vehicle on rails, a form of public transport."
+     "surface": "A sailor's vehicle is jam-packed, in the garbled style of the Reverend Spooner.",
+     "walkthrough": "Swapping the opening sounds of CRAM and TAR gives TRAM and CAR.",
+     "definitionFit": "A tramcar is a tram, a passenger vehicle running on street rails, so a form of transport."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "seaman's"
+     "aptDefinition": false
     }
    }
   },
@@ -495,40 +498,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BARENESS",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled letters inside the drinking places"
+       "at": 22,
+       "note": "in says the rearranged letters go inside the pubs"
       }
      ],
      "parts": [
+      {
+       "words": "pubs",
+       "at": 25,
+       "gives": "BARS",
+       "note": "bars are pubs"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "unusually",
-         "note": "unusually means in an odd way, so these letters are rearranged"
+         "at": 7,
+         "note": "unusually means in an unaccustomed way, so the letters of seen take an unaccustomed order"
         }
        ],
        "parts": [
         {
          "words": "seen",
-         "note": "the letters of seen rearranged"
-        },
-        {
-         "words": "pubs",
-         "gives": "BARS",
-         "note": "bars are pubs"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Naked people are rarely spotted in pubs.",
-     "definitionFit": "Bareness is the state of being uncovered, a synonym for nudity."
+     "surface": "Nakedness is a rare sight in pubs.",
+     "walkthrough": "'unusually seen' reads as a comment on how rare nudity is, but it rearranges SEEN to ENES.",
+     "definitionFit": "Bareness is the state of being bare, uncovered, which is what nudity is."
     },
     "features": {
      "answerInScene": true,
@@ -924,40 +929,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "novel",
-       "note": "novel means new, so the author's name is given a new arrangement"
+       "text": "written about",
+       "at": 19,
+       "note": "written about means set down around something, so the rearranged letters surround the French word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "written about",
-         "note": "written about means set down around something, so it encloses what follows"
+         "text": "novel",
+         "at": 5,
+         "note": "novel means new, so the letters of Verne's are made into a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "Verne's",
-         "note": "the letters of Verne's rearranged"
-        },
-        {
-         "words": "the French",
-         "gives": "LES",
-         "note": "les is French for the, plural"
+         "at": 11,
+         "gives": "VERNES",
+         "note": "Verne's, the apostrophe dropped, supplies its six letters including the S"
         }
        ]
+      },
+      {
+       "words": "the French",
+       "at": 33,
+       "gives": "LES",
+       "note": "les is the plural form of the in French"
       }
      ]
     },
     "explanation": {
-     "surface": "A fine novel by Jules Verne about the French.",
-     "walkthrough": "Novel looks like a book by Verne, but it is the signal to rearrange.",
-     "definitionFit": "Nerveless can mean calm and composed under pressure, so it means cool."
+     "surface": "A calm Jules Verne novel with a story about France.",
+     "walkthrough": "'novel' looks like a book by Jules Verne, but it rearranges VERNES into NERVES, which is 'written about' LES.",
+     "definitionFit": "Nerveless means unflustered and calm under pressure, so cool in the sense of unruffled."
     },
     "features": {
      "answerInScene": false,

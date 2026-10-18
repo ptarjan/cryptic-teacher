@@ -1249,27 +1249,40 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "HYDRA",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in",
-       "note": "in says the answer sits inside the run of letters that follows"
+       "at": 8,
+       "note": "in says the monster is found inside the two words, so the outer letters around it are discarded"
       }
      ],
      "parts": [
       {
-       "words": "lengthy 11",
-       "gives": "HYDRA",
-       "note": "11 refers to the answer to 11 across, so the letters run across lengthy and that answer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lengthy",
+         "at": 11,
+         "gives": "LENGTHY"
+        },
+        {
+         "words": "11",
+         "at": 19,
+         "gives": "DRAMA",
+         "note": "11 refers to the answer to 11 across, which is the word drama"
+        }
+       ]
+      },
+      {
+       "gives": "LENGTMA"
       }
      ]
     },
     "explanation": {
-     "surface": "A beast featuring in a long play.",
-     "walkthrough": "11 is DRAMA, so the letters are hidden in lengtHY DRAma.",
-     "definitionFit": "The Hydra was a many-headed serpent of Greek myth slain by Heracles."
+     "surface": "A beast appears in a long-running play.",
+     "walkthrough": "The cross-reference must be filled first: 11 across is DRAMA, and the answer straddles lengthY DRAma.",
+     "definitionFit": "The Hydra was the many-headed serpent of Greek myth slain by Heracles, a legendary monster."
     },
     "features": {
      "answerInScene": true,

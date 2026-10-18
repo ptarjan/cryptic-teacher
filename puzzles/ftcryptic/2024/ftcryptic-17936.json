@@ -111,43 +111,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IMPALE",
      "indicators": [
       {
        "text": "penetrated by",
-       "note": "being penetrated means having something pushed inside, so the short word goes into the middle"
+       "at": 14,
+       "note": "penetrated by means having something driven inside, so the a goes into the stripped word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IMPALE",
+       "op": "middle",
        "indicators": [
         {
          "text": "Exposed",
-         "note": "something exposed has its covering stripped off, so the word loses its outer letters"
+         "at": 0,
+         "note": "exposed means stripped of its covering, so the outer letters of the word go"
         }
        ],
        "parts": [
         {
          "words": "spots",
+         "at": 8,
          "gives": "PIMPLES",
          "note": "pimples are spots on the skin"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Uncovered blemishes pierced by a lance, a grisly image.",
-     "walkthrough": "PIMPLES without its outer letters leaves IMPLE, and A goes inside it to give IMPALE.",
-     "definitionFit": "To impale is to pierce with a pointed weapon, so it works as the verb spear."
+     "surface": "Bare spots on the skin are pierced by a spear.",
+     "walkthrough": "'Exposed spots' sounds like uncovered blemishes, but it strips PIMPLES of its ends to IMPLE.",
+     "definitionFit": "To impale is to pierce with something sharp, which is to spear."
     },
     "features": {
      "answerInScene": true,
@@ -624,60 +624,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "takes",
-       "note": "takes means acquires, so the next piece is added on after"
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "Lacking",
-         "note": "lacking means going without, so that letter is removed from the next word"
+         "at": 0,
+         "note": "lacking means going without, so that letter is removed from the doctor"
         }
        ],
        "parts": [
         {
          "words": "doctor",
+         "at": 30,
          "gives": "QUACK",
-         "note": "a quack is a disparaging word for a doctor"
+         "note": "a quack is slang for a doctor"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially points to the opening letter of the word before it"
+           "at": 19,
+           "note": "initially means at the start, so the first letter of confidence"
           }
          ],
          "parts": [
           {
            "words": "confidence",
-           "note": "the first letter of confidence"
+           "at": 8
           }
          ]
         }
        ]
       },
       {
-       "words": "drug",
+       "words": "takes drug",
+       "at": 37,
        "gives": "E",
-       "note": "E is slang for the drug ecstasy"
+       "note": "E, slang for the drug ecstasy, is what the doctor takes, added after him"
       }
      ]
     },
     "explanation": {
-     "surface": "A nervous doctor turns to medication for his shaking.",
-     "walkthrough": "QUACK loses its C to leave QUAK, then E is added.",
-     "definitionFit": "A quake is a shaking, as in an earthquake, so it means a tremor."
+     "surface": "A nervous doctor turns to drugs for his shaking.",
+     "walkthrough": "'doctor' is the slang QUACK, which loses its C, the first letter of 'confidence'.",
+     "definitionFit": "A quake is a shaking or trembling, the earthquake sense included, so a tremor."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drug"
+     "misdirectedWord": "doctor"
     }
    }
   },
@@ -1327,62 +1325,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRIVIA",
      "indicators": [
       {
        "text": "In",
-       "note": "in means placed inside, so these letters go into the other word"
+       "at": 0,
+       "note": "In says the uncovered letters go inside the raised word"
       }
      ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "TRIVIA",
        "indicators": [
         {
          "text": "mounted",
-         "note": "in a down clue mounted means climbing, so the word is read from the bottom up"
+         "at": 3,
+         "note": "mounted means raised up, and in a down clue that reads the word from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "TRIVIA",
-         "indicators": [
-          {
-           "text": "discovered",
-           "note": "dis-covered means having the cover removed, so the outer letters go"
-          }
-         ],
-         "parts": [
-          {
-           "words": "painting",
-           "gives": "ART",
-           "note": "painting is art"
-          },
-          {
-           "words": "colourful",
-           "gives": "VIVID",
-           "note": "vivid means brightly coloured"
-          }
-         ]
+         "words": "painting",
+         "at": 11,
+         "gives": "ART",
+         "note": "painting is art"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 21,
+         "note": "discovered means with its cover taken off, so the outer letters of the word go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "colourful",
+         "at": 32,
+         "gives": "VIVID",
+         "note": "vivid means brightly colourful"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bright details found in a framed painting.",
-     "walkthrough": "'Discovered' reads as found, but split as dis-covered it means stripped of its outer letters.",
-     "definitionFit": "Trivia are small unimportant details, the same thing as minutiae."
+     "surface": "A framed painting revealing bright little details.",
+     "walkthrough": "'mounted painting' suggests a picture in a frame; in a down clue it means ART written upwards, TRA. 'discovered' strips VIVID to IVI.",
+     "definitionFit": "Trivia are small unimportant details or facts, which is what minutiae are."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "discovered"
+     "misdirectedWord": "mounted"
     }
    }
   },
