@@ -98,42 +98,42 @@
        "indicators": [
         {
          "text": "upside-down",
-         "note": "in a down entry, turning upside-down means the word is read from the bottom up"
+         "at": 9,
+         "note": "upside-down in a down clue turns the word over, so is is read from the bottom up"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "note": "taken as written before being turned over"
+         "at": 6
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half of a four-letter word keeps only two of its letters, here the opening pair"
+         "at": 24,
+         "note": "half keeps only the first half of term, its opening two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "term",
-         "gives": "TE",
-         "select": "first",
-         "note": "the front half of this word"
+         "at": 29
+        },
+        {
+         "gives": "RM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something has been turned upside-down by the time half-term arrives, as any parent knows.",
-     "walkthrough": "Half-term is a short British school holiday; the hyphenated word splits into a selection signal and the word it acts on.",
-     "definitionFit": "A site is a location or plot where something stands or happens, a straightforward synonym for a place."
+     "surface": "A school building is in chaos by the middle of the autumn half-term.",
+     "walkthrough": "'half-term' looks like the school holiday, but 'half' works on 'term', keeping TE; IS turned 'upside-down' gives SI.",
+     "definitionFit": "A site is a location or plot where something stands or happens."
     },
     "features": {
      "answerInScene": false,
@@ -947,47 +947,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "without a single gift",
+      "text": "without a single gift!",
       "at": 45
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TALENTLESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "letters from",
-       "note": "the letters from the phrase are used in a new order rather than as written"
+       "text": "receives",
+       "at": 14,
+       "note": "receives means takes in, so the heroine's name holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Hardy heroine",
+       "at": 0,
+       "gives": "TESS",
+       "note": "Tess of the d'Urbervilles is the heroine of Thomas Hardy's novel"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "receives",
-         "note": "one who receives takes something in, so the heroine's name holds the other letters"
+         "text": "letters from",
+         "at": 23,
+         "note": "letters from says the letters of all ten are taken and made into something new"
         }
        ],
        "parts": [
         {
-         "words": "Hardy heroine",
-         "gives": "TESS",
-         "note": "Tess of the d'Urbervilles, Thomas Hardy's heroine"
-        },
-        {
          "words": "all ten",
-         "note": "six letters rearranged"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tess gets letters from all ten admirers, yet not one present.",
-     "walkthrough": "'Gift' reads as a present; it means a natural ability.",
-     "definitionFit": "Talentless describes someone with no natural aptitude, since a gift can mean an innate ability or flair."
+     "surface": "Tess, Hardy's heroine, gets letters from ten people and not one present among them.",
+     "walkthrough": "'letters from' reads like post arriving, but it asks for the letters of 'all ten' to be shuffled. Tess of the d'Urbervilles is the heroine of Thomas Hardy's novel.",
+     "definitionFit": "Talentless means lacking any natural ability, a gift in the sense of an innate flair."
     },
     "features": {
      "answerInScene": false,
@@ -1079,57 +1080,48 @@
      "indicators": [
       {
        "text": "found on",
-       "note": "found on means placed next to, so the pieces follow in turn"
+       "at": 17,
+       "note": "found on means placed next to, in an across answer the street letters come straight after the is"
       }
      ],
      "parts": [
       {
-       "words": "Insect",
-       "gives": "SCIENT",
-       "note": "six letters rearranged"
-      },
-      {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "back",
-         "note": "back means the abbreviation for street is read backwards"
+         "text": "damage",
+         "at": 7,
+         "note": "damage wrecks the word insect, so its letters are broken up and rebuilt"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "damage",
-           "note": "damaged letters are knocked out of shape and rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "is",
-           "note": "taken as written"
-          },
-          {
-           "words": "backstreet",
-           "gives": "ST",
-           "note": "ST is the abbreviation for street, the word after the reversal signal"
-          }
-         ]
+         "words": "Insect",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "words": "backstreet",
+       "at": 26,
+       "gives": "TS",
+       "note": "ST, short for street, read back to front"
       }
      ]
     },
     "explanation": {
-     "surface": "Damage caused by insects in a back street is uncovered by experts.",
-     "walkthrough": "'Backstreet' reads as one word; it splits into a reversal signal and the street, giving TS.",
-     "definitionFit": "Scientists carry out systematic investigation and experiment, so they are people who do research."
+     "surface": "Insect damage on a back street reveals the work of researchers.",
+     "walkthrough": "'damage' turns INSECT into SCIENT, then IS, then 'backstreet' gives the street abbreviation ST written back to front.",
+     "definitionFit": "Scientists are people who carry out systematic research into the natural world."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "backstreet"
+     "misdirectedWord": "Insect"
     }
    }
   },

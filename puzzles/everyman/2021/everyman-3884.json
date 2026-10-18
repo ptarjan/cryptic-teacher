@@ -264,52 +264,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOSESFACE",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "without a heart means the central letter of the word is cut out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 21,
+         "note": "heartless means with the heart cut out, so the middle letter of louse is removed"
+        }
+       ],
        "parts": [
         {
          "words": "louse",
-         "gives": "LOSE",
-         "note": "the five-letter word without its middle letter U"
+         "at": 14
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "condemned",
-           "note": "something condemned is wrecked and torn down, so its letters are rebuilt in another order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "café's",
-           "note": "the word as printed, accent and apostrophe ignored"
-          }
-         ]
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "condemned",
+         "at": 38,
+         "note": "condemned suggests a building fit only for demolition, so the letters of café's are knocked down and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "café's",
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insect is found in a condemned café, and someone is publicly humiliated by it.",
-     "walkthrough": "'Heartless' belongs to the insect just before it, not to the café after it, and 'condemned' acts on the café alone.",
-     "definitionFit": "To eat crow is an American idiom for being humbled by admitting a mistake, which is to suffer humiliation."
+     "surface": "A restaurant inspector, made to eat crow and find a louse, shuts down a filthy café.",
+     "walkthrough": "'heartless' drops the central U from LOUSE, and 'condemned' rearranges CAFES into SFACE. 'Eats crow' is an American idiom for being humiliated.",
+     "definitionFit": "To eat crow is to be forced into humiliating admission of error, which is to suffer a loss of dignity in public."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "louse"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "crow"
     }
    }
   },
@@ -851,46 +854,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "RUMPSTEAK",
+     "spelt": "RUMPSTEAK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of word pairs, so his name signals that exchange"
+       "at": 0,
+       "note": "Reverend Spooner swapped the opening sounds of words, so the two words that follow trade their first sounds"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "to frustrate",
+       "at": 10,
+       "gives": "STUMP",
+       "note": "to stump is to baffle or frustrate"
+      },
+      {
+       "op": "homophone",
+       "spelt": "REAK",
        "parts": [
         {
-         "unchecked": true,
-         "words": "to frustrate",
-         "gives": "RUMP",
-         "soundsLike": "STUMP",
-         "note": "to stump someone is to baffle them; it takes the opening sound of the second word"
-        },
-        {
-         "unchecked": true,
          "words": "Playboy",
-         "gives": "STEAK",
-         "soundsLike": "RAKE",
-         "note": "a rake is a dissolute pleasure-seeker; it takes the opening sound of the first word"
+         "at": 23,
+         "gives": "RAKE",
+         "note": "a rake is a dissolute playboy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone thwarts a men's magazine, and something is cut off at the bottom.",
-     "walkthrough": "STUMP RAKE, swapped, gives the answer. The italics make Playboy look like the magazine title, but it is just a pleasure-loving man.",
-     "definitionFit": "Rump steak is beef taken from the animal's hindquarters, so a butcher's joint from its backside."
+     "surface": "Spooner sets out to thwart a womaniser, whose own reward is a beating on the backside.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of STUMP and RAKE, giving RUMP and a word said like STAKE but spelt as the beef cut.",
+     "definitionFit": "Rump steak is beef cut from the animal's hindquarters, its bottom."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Playboy"
+     "misdirectedWord": "bottom"
     }
    }
   },

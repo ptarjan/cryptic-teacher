@@ -586,47 +586,47 @@
      "indicators": [
       {
        "text": "between",
-       "note": "a piece set between two others is surrounded by them"
+       "at": 20,
+       "note": "between says the waking word sits inside, with one picked letter either side"
       }
      ],
      "parts": [
       {
-       "op": "regular",
-       "unchecked": true,
-       "gives": "TR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "3 and 5 in",
-         "note": "the numbers pick out the third and fifth letters of the following word"
+         "at": 28,
+         "note": "3 and 5 in asks for the third and fifth letters of afternoon, discarding the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "afternoon",
-         "gives": "TR",
-         "select": "regular",
-         "note": "letters three and five of the word"
+         "at": 39
+        },
+        {
+         "gives": "AFENOON"
         }
        ]
       },
       {
        "words": "to wake",
+       "at": 12,
        "gives": "ROUSE",
        "note": "to rouse someone is to wake them"
       }
      ]
     },
     "explanation": {
-     "surface": "Siesta advice: the right time to wake is between three and five pm.",
-     "walkthrough": "The surface reads 3 and 5 as clock times; they are letter positions. 'Appropriate' is the verb, to take.",
-     "definitionFit": "To trouser money is British slang for pocketing it, often improperly, so it means to seize for oneself."
+     "surface": "It seems apt to wake from a nap sometime between three and five in the afternoon.",
+     "walkthrough": "The numbers look like clock times but are letter positions: the 3rd and 5th letters of afternoon are T and R. 'Appropriate' is the verb, meaning to take for oneself.",
+     "definitionFit": "To trouser money is British slang for pocketing it, often improperly, which is to appropriate it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "afternoon"
+     "misdirectedWord": "3"
     }
    }
   },
@@ -822,42 +822,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "coming up in",
+       "at": 4,
+       "note": "coming up in a down clue means turned upward, so the word for sex is reversed where it sits in the phrase"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "MARTIALART",
-       "indicators": [
-        {
-         "text": "coming up",
-         "note": "in a down entry, rising means reading from bottom to top"
-        }
-       ],
-       "parts": [
-        {
-         "words": "wedding",
-         "gives": "MARITAL",
-         "note": "marital means relating to marriage"
-        },
-        {
-         "words": "photos perhaps",
-         "gives": "ART",
-         "note": "photography is an example of art"
-        }
-       ]
+       "words": "wedding photos perhaps",
+       "at": 17,
+       "gives": "MARITALART",
+       "note": "wedding photos are an example of marital art, art from a marriage"
       },
       {
-       "unchecked": true,
        "words": "Sex",
-       "note": "it is a coy word for sex; those two letters already sit inside the wedding word, and they are what gets turned over"
+       "at": 0,
+       "gives": "IT",
+       "note": "it is a coy word for sex, as in 'doing it'"
+      },
+      {
+       "gives": "TI"
       }
      ]
     },
     "explanation": {
-     "surface": "Racy wedding pictures lead to a row between husband and wife.",
-     "walkthrough": "The sex word is already sitting inside the wedding word; only those two letters flip, which is what turns married into fighting.",
-     "definitionFit": "Judo and karate are practised with a sparring opponent, so combat sports pit training partners against each other."
+     "surface": "Racy shots slipped into a couple's wedding album lead to a domestic row.",
+     "walkthrough": "MARITAL ART is a made-up phrase for wedding photos; turning its IT upside down, as 'coming up in' asks in a down clue, gives MARTIAL ART. The definition is playful: a combat sport fought between sparring partners.",
+     "definitionFit": "A martial art is a fighting discipline such as karate or judo, practised against a sparring partner."
     },
     "features": {
      "answerInScene": false,
@@ -1340,54 +1334,56 @@
     "definitions": [
      {
       "text": "Nose endlessly runs with it",
-      "at": 0,
-      "note": "the whole clue doubles as the definition"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SNOT",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "runs",
+         "at": 15,
+         "note": "runs suggests dye spreading out of place, so the remaining letters are mixed up"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "runs",
-           "note": "running colours or letters spread out of place and mix"
+           "text": "endlessly",
+           "at": 5,
+           "note": "endlessly means without its end, so the final letter of Nose goes"
           }
          ],
          "parts": [
           {
            "words": "Nose",
-           "gives": "NOS",
-           "note": "the word with its last letter removed"
+           "at": 0
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "it",
-         "gives": "T",
-         "note": "it shortened to 't, as in ''twas'"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 25,
+       "gives": "T",
+       "note": "'t is the old clipped form of it, as in ''twas'"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A cold that will not end: the nose keeps running.",
-     "walkthrough": "The whole clue also reads as a definition: what a streaming nose runs with. 'T is the old clipped form of it.",
-     "definitionFit": "Mucus is the slimy discharge from a runny nose, and the blunt slang word for it fits here."
+     "surface": "A cold that will not end: the nose keeps on running.",
+     "walkthrough": "Read whole, the clue also defines the answer: what a streaming nose runs with. 'T is the old clipped form of it, as in ''tis'.",
+     "definitionFit": "Snot is blunt slang for nasal mucus, the discharge from a runny nose."
     },
     "features": {
      "answerInScene": true,
