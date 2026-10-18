@@ -571,53 +571,53 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DREDGER",
      "indicators": [
       {
        "text": "wrecked",
-       "note": "something wrecked is broken up and left in disorder"
+       "at": 35,
+       "note": "wrecked means smashed up, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DREDGER",
        "indicators": [
         {
          "text": "Rejecting",
-         "note": "rejecting means throwing out, so this letter is removed"
+         "at": 0,
+         "note": "rejecting means throwing out, so the letter is taken out of regarded"
         }
        ],
        "parts": [
+        {
+         "words": "regarded",
+         "at": 26
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "at first",
-           "note": "at first picks the opening letter of the preceding word"
+           "at": 16,
+           "note": "at first means only the opening letter of arson is used"
           }
          ],
          "parts": [
           {
            "words": "arson",
-           "note": "the opening letter of arson"
+           "at": 10,
+           "note": "the first letter of arson"
           }
          ]
-        },
-        {
-         "words": "regarded",
-         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Arson having been ruled out, the shipwreck is regarded as an accident.",
-     "walkthrough": "Take A out of REGARDED and rearrange the remaining seven letters.",
-     "definitionFit": "A dredger is a vessel that scoops mud and silt from the bottom of harbours and rivers."
+     "surface": "An investigator rules out arson as the first cause of a shipwreck.",
+     "walkthrough": "'at first' picks A from arson, 'Rejecting' takes it out of REGARDED to leave REGRDED, and 'wrecked' rearranges those letters. A dredger is a vessel that scoops mud from the bed of a harbour or river.",
+     "definitionFit": "A dredger is a boat fitted to clear silt from waterways, so it is a kind of vessel."
     },
     "features": {
      "answerInScene": true,
@@ -779,26 +779,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COSMOS",
      "indicators": [
       {
        "text": "repeatedly reduced",
-       "note": "reduced twice over: each of two words is cut short by its last letter"
+       "at": 15,
+       "note": "reduced means cut short, and repeatedly means each of the two words loses its final letter"
       }
      ],
      "parts": [
       {
        "words": "was the dearest one",
+       "at": 35,
        "gives": "COSTMOST",
-       "note": "the priciest item cost most"
+       "note": "the dearest one cost most, so the phrase means cost most"
+      },
+      {
+       "gives": "TT"
       }
      ]
     },
     "explanation": {
-     "surface": "A garden flower, marked down again and again, had been the priciest plant on sale.",
-     "walkthrough": "COST and MOST each lose their final T.",
-     "definitionFit": "Cosmos is a popular annual bedding plant with daisy-like blooms grown in gardens."
+     "surface": "A gardener notes that one flower, though marked down again and again, was still the most expensive.",
+     "walkthrough": "'repeatedly reduced' docks the final T of both COST and MOST. Cosmos is a daisy-like annual grown in summer borders.",
+     "definitionFit": "Cosmos is a genus of flowering plants with bright daisy-like blooms, popular in gardens."
     },
     "features": {
      "answerInScene": true,
@@ -1121,37 +1124,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TANDOORI",
-     "indicators": [
-      {
-       "text": "peeled",
-       "note": "peeling removes the skin, so the outside letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "both ends of tomato",
+       "at": 28,
        "gives": "TANDO",
-       "note": "the two ends of tomato are T and O, written out with the word between them"
+       "note": "the ends of tomato are T and O, and 'both' asks for both of them, written out as T AND O"
       },
       {
-       "words": "Ms Day",
-       "gives": "DORIS",
-       "note": "Doris Day, the American singer and actress"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "peeled",
+         "at": 55,
+         "note": "peeled means the outer letters of the name are stripped from both ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ms Day",
+         "at": 48,
+         "gives": "DORIS",
+         "note": "Doris Day was an American singer and film actress"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Doris Day cooking an Indian dish from tomatoes she has peeled.",
-     "walkthrough": "The phrase 'both ends' is spelt out literally: T, AND, O.",
-     "definitionFit": "Tandoori is food cooked in a tandoor, a clay oven used in Indian and Pakistani cuisine."
+     "surface": "A recipe uses both ends of a tomato that Doris Day has peeled for an Indian dish.",
+     "walkthrough": "The trick is reading 'both ends' literally: T and O, with the AND kept. 'peeled' turns DORIS into ORI. 'using' is a link.",
+     "definitionFit": "Tandoori is food cooked in a tandoor, a clay oven, so it names an Indian way of cooking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "peeled"
+     "joke": "pun",
+     "misdirectedWord": "both"
     }
    }
   },

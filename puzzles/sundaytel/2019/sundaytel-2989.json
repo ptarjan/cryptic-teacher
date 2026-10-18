@@ -42,43 +42,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCAFFOLDING",
+     "op": "container",
      "indicators": [
       {
-       "text": "rolled",
-       "note": "something rolled over is turned round, so this word is read from its end"
+       "text": "wraps",
+       "at": 16,
+       "note": "wraps means the first word goes around the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "hot",
+       "at": 12,
+       "gives": "SCALDING",
+       "note": "scalding means extremely hot"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wraps",
-         "note": "to wrap something is to go around it, so one piece encloses the other"
+         "text": "rolled",
+         "at": 22,
+         "note": "rolled means the letters of off are turned over into a new order"
         }
        ],
        "parts": [
         {
-         "words": "hot",
-         "gives": "SCALDING",
-         "note": "scalding means very hot"
-        },
-        {
          "words": "off",
-         "gives": "FFO",
-         "note": "the word off, turned round"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Piping-hot food wrapped up and taken away, or a hot pipe being lagged and removed.",
-     "walkthrough": "'Piping hot' reads as one phrase, but 'piping' belongs to the definition and 'hot' starts the wordplay.",
-     "definitionFit": "Scaffolding is built from metal tubes clamped together, so it is a collection of pipes."
+     "surface": "Steaming hot pipes being wrapped up and rolled away, like a plumber's lagging job.",
+     "walkthrough": "'piping hot' looks like one phrase, but the split is after 'piping': 'Some piping' is the definition and 'hot' alone is the word that does the wrapping.",
+     "definitionFit": "Scaffolding is a framework of metal poles or tubes, so it is a collection of piping."
     },
     "features": {
      "answerInScene": false,
@@ -397,7 +397,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other"
+       "at": 34,
+       "note": "in means the doubled letter is placed inside the rearranged letters"
       }
      ],
      "parts": [
@@ -406,50 +407,38 @@
        "indicators": [
         {
          "text": "building",
-         "note": "building is constructing, so these letters are put together in a new order"
+         "at": 37,
+         "note": "building means the letters of of pale red are put together in a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "of pale red",
-         "note": "taken as written"
+         "words": "of",
+         "at": 46
+        },
+        {
+         "words": "pale red",
+         "at": 49
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "ceiling of green repeated",
+       "at": 8,
        "gives": "GG",
-       "indicators": [
-        {
-         "text": "ceiling",
-         "note": "in a down clue the ceiling is the top, so only the first letter of that word is kept"
-        },
-        {
-         "text": "repeated",
-         "note": "repeated means the kept letter is used twice over"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "green",
-         "gives": "GG",
-         "select": "first",
-         "note": "the top letter, written twice because the clue says repeated"
-        }
-       ]
+       "note": "the ceiling of green is its top letter in a down clue, G, and repeated it is written twice"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a vaulted ceiling in a pale red building with repeated green decoration.",
-     "walkthrough": "GG goes inside the rearranged OF PALE RED to make LEAPFROGGED. 'Vaulted ceiling' reads as architecture, but 'Vaulted' alone is the definition.",
-     "definitionFit": "To leapfrog is to jump over something, so vaulted is a past-tense synonym."
+     "surface": "An architect's note about a vaulted ceiling built in green over pale red stone.",
+     "walkthrough": "'Vaulted ceiling' reads as one architectural phrase, but 'Vaulted' alone is the definition. The second 'of' is part of the fodder for 'building', which is easy to miss as a link word.",
+     "definitionFit": "To leapfrog is to jump over someone, so the past tense means jumped over, as when vaulting."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Vaulted"
     }
    }
@@ -1135,42 +1124,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RACK",
-     "indicators": [
-      {
-       "text": "heading west",
-       "note": "in an across clue going west means moving right to left, so the word runs backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "heading west",
+         "at": 16,
+         "note": "in an across clue heading west means reading from right to left, so the word is turned back"
+        }
+       ],
        "parts": [
         {
          "words": "vehicle",
-         "gives": "RAC",
-         "note": "car, turned round"
-        },
-        {
-         "words": "kilometre",
-         "gives": "K",
-         "note": "K is short for kilometre"
+         "at": 8,
+         "gives": "CAR",
+         "note": "a car is a vehicle"
         }
        ]
+      },
+      {
+       "words": "kilometre",
+       "at": 30,
+       "gives": "K",
+       "note": "K is the usual abbreviation for kilometre"
       }
      ]
     },
     "explanation": {
-     "surface": "A support vehicle driving west a kilometre behind, as in a cycle race.",
-     "walkthrough": "'Support vehicle' reads as one phrase; 'Support' alone is the definition.",
-     "definitionFit": "A rack is a frame that holds or supports things, such as bottles or luggage."
+     "surface": "A support vehicle drives off westward with a kilometre still to go.",
+     "walkthrough": "'heading west' turns CAR backwards to RAC, and K for kilometre comes behind it.",
+     "definitionFit": "A rack is a frame or stand that holds things up, such as a luggage rack or a wine rack."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "vehicle"
+     "misdirectedWord": "Support"
     }
    }
   },
@@ -1242,29 +1232,44 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "STYE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "all kicking off",
-       "note": "kicking off means starting, so the opening letter of every word is taken"
+       "text": "with",
+       "at": 40,
+       "note": "with means the second pair of letters is joined on after the first pair"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "subeditor tampering with yesterday's editorial",
-       "gives": "STYE",
-       "select": "first",
-       "note": "the starting letters of the four content words, skipping the link 'with'"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "all kicking off",
+         "at": 68,
+         "note": "all kicking off means every one of these words starts the answer off with only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "subeditor tampering",
+         "at": 20,
+         "note": "the opening letters of subeditor and tampering, S and T"
+        }
+       ]
+      },
+      {
+       "words": "yesterday's editorial",
+       "at": 45,
+       "gives": "YE",
+       "note": "under the same all-kicking-off instruction these two words give their opening letters, Y and E"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper, The Observer, has trouble: a subeditor meddled with yesterday's leader column.",
-     "walkthrough": "The Observer is a British Sunday newspaper, which makes the surface a newsroom row; the definition is someone who observes, with an eye complaint.",
-     "definitionFit": "A stye is an inflamed swelling on the eyelid, a problem for anyone who watches."
+     "surface": "A newspaper complaint: a subeditor has meddled with yesterday's editorial and everyone is up in arms.",
+     "walkthrough": "The Observer looks like the Sunday newspaper, which suits the editorial scene, but here it just means someone who watches. 'all kicking off' takes the opening letter of each of the four words, ST and YE, joined by 'with'.",
+     "definitionFit": "A stye is an inflamed swelling on the eyelid, so it is a trouble for anyone who looks on."
     },
     "features": {
      "answerInScene": false,
