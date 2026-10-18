@@ -501,16 +501,30 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Rear half of loco",
-       "at": 0,
-       "gives": "CO",
-       "note": "the back two letters of loco"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Rear half of",
+         "at": 0,
+         "note": "rear half of means only the back two of the four letters are kept, so the front half is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loco",
+         "at": 13,
+         "note": "short for locomotive; its back half is kept"
+        },
+        {
+         "gives": "LO"
+        }
+       ]
       },
       {
        "words": "departs",
        "at": 18,
        "gives": "D",
-       "note": "d is the timetable abbreviation for departs"
+       "note": "D stands for departs in railway timetables"
       },
       {
        "words": "German",
@@ -520,9 +534,9 @@
      ]
     },
     "explanation": {
-     "surface": "The back of a German engine leaves the buffers.",
-     "walkthrough": "Buffer is the British slang for a fussy old man, not part of a train.",
-     "definitionFit": "Old buffer and old codger are both mild slang for an elderly fellow."
+     "surface": "The back end of a locomotive leaves a German buffer behind.",
+     "walkthrough": "'Buffer' looks like part of a train, the cushion on the end of a carriage, but here it is the informal word for an old man.",
+     "definitionFit": "An old buffer is a slightly comic, old-fashioned elderly man, which is just what codger means."
     },
     "features": {
      "answerInScene": false,
