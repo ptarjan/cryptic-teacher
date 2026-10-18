@@ -192,43 +192,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THREADS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "detailed",
-       "note": "detailed is read as de-tailed, with its tail end cut off"
+       "text": "Following",
+       "at": 0,
+       "note": "following means coming after, so the reading word comes after the shortened article"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Following",
-         "note": "following tells us the second word comes after the first"
+         "text": "detailed",
+         "at": 10,
+         "note": "de-tailed means losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "article",
-         "gives": "TH",
-         "note": "the definite article, the, without its last letter"
+         "at": 19,
+         "gives": "THE",
+         "note": "the is the definite article"
         },
         {
-         "words": "peruses",
-         "gives": "READS",
-         "note": "to peruse is to read"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "peruses",
+       "at": 27,
+       "gives": "READS",
+       "note": "to peruse is to read"
       }
      ]
     },
     "explanation": {
-     "surface": "After a thorough piece of writing, someone studies stories.",
-     "walkthrough": "'detailed' reads as thorough; split as de-tailed it says remove the last letter.",
-     "definitionFit": "Yarns and threads are both spun strands of fibre used for sewing or knitting."
+     "surface": "Someone following a detailed article reads through stories.",
+     "walkthrough": "'detailed' means de-tailed here, not elaborate: THE loses E.",
+     "definitionFit": "Threads and yarns are both lengths of spun fibre used in sewing or weaving."
     },
     "features": {
      "answerInScene": false,
@@ -746,37 +751,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENGORGE",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means without its ends, so the first and last letters of the word are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 5,
+         "note": "endless means both ends of the word are dropped"
+        }
+       ],
        "parts": [
         {
          "words": "menu",
-         "gives": "EN",
-         "note": "menu with both its end letters removed"
-        },
-        {
-         "words": "Cheddar, say",
-         "gives": "GORGE",
-         "note": "Cheddar Gorge is a famous limestone ravine in Somerset, England; 'say' marks it as an example"
+         "at": 13,
+         "note": "middle letters EN"
         }
        ]
+      },
+      {
+       "words": "Cheddar, say",
+       "at": 23,
+       "gives": "GORGE",
+       "note": "Cheddar Gorge in Somerset is an example of a gorge"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to stock an endless menu with plenty of cheese.",
-     "walkthrough": "Cheddar looks like the cheese, but here it is the gorge in Somerset from which the cheese takes its name.",
-     "definitionFit": "To engorge is to swell by filling, especially with blood or food."
+     "surface": "Packing out a menu with cheese, Cheddar in particular.",
+     "walkthrough": "Cheddar looks like the cheese; it is Cheddar Gorge, a limestone gorge in Somerset, England.",
+     "definitionFit": "To engorge is to fill to excess, stuffing or swelling something with food or fluid."
     },
     "features": {
      "answerInScene": false,
@@ -1456,35 +1461,38 @@
      "indicators": [
       {
        "text": "consuming",
-       "note": "consuming means eating, so the other letters are swallowed inside"
+       "at": 7,
+       "note": "consuming means eating up, so the outer word holds the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Public",
-         "gives": "OVERT",
-         "note": "overt means open, done in public"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Public",
+       "at": 0,
+       "gives": "OVERT",
+       "note": "overt means open, public"
       },
       {
-       "words": "cold",
-       "gives": "C",
-       "note": "C is the abbreviation for cold, as on a tap"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17
+        },
+        {
+         "words": "cold",
+         "at": 19,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "People out in public tuck into some chilled cooked meat.",
-     "walkthrough": "Ham reads as meat in the surface; here it is a verb, to perform with exaggeration.",
-     "definitionFit": "To ham is to perform theatrically and excessively, which is to overact."
+     "surface": "Someone openly eating a cold slice of ham.",
+     "walkthrough": "'ham' is the verb for a bad actor's style, not meat.",
+     "definitionFit": "To ham is to perform in an exaggerated way, the same as to overact."
     },
     "features": {
      "answerInScene": false,
@@ -1696,47 +1704,38 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps the others"
+       "at": 12,
+       "note": "about means around, so the word for controversy goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Controversy",
-         "gives": "DISPUTE",
-         "note": "a dispute is a controversy or argument"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "R is the abbreviation for Republican"
-        }
-       ]
+       "words": "Controversy",
+       "at": 0,
+       "gives": "DISPUTE",
+       "note": "a dispute is a controversy"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "final",
-         "note": "final points to the closing letter of the word only"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "vote's",
-         "gives": "VOTE",
-         "note": "the last letter of vote"
+         "words": "Republican",
+         "at": 18,
+         "gives": "R"
+        },
+        {
+         "words": "vote's final",
+         "at": 29,
+         "gives": "E",
+         "note": "the final letter of vote is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political row over a Republican ballot ends in disgrace.",
-     "walkthrough": "DISPUTE goes round R and E.",
-     "definitionFit": "Disrepute is the state of having a bad reputation, which is disgrace or shame."
+     "surface": "A political scandal over a Republican vote ending in disgrace.",
+     "definitionFit": "Disrepute means disgrace or a lost reputation, which is shame."
     },
     "features": {
      "answerInScene": true,

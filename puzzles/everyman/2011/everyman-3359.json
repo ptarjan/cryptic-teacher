@@ -1316,50 +1316,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "baked",
-       "note": "something baked is cooked and transformed, so the word before is jumbled"
+       "text": "entertaining",
+       "at": 21,
+       "note": "entertaining means hosting, so the rearranged letters hold the other one"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "entertaining",
-         "note": "to entertain a guest is to take them in, so one part holds the other"
+         "text": "baked",
+         "at": 13,
+         "note": "baked trout is cooked and changed, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "trout",
-         "note": "the five letters rearranged"
-        },
+         "at": 6,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "starter in",
-           "note": "the starter of a meal comes first, so only the opening letter of the next word counts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bistro",
-           "note": "the first letter of bistro"
-          }
-         ]
+         "text": "starter in",
+         "at": 34,
+         "note": "the starter in a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bistro",
+         "at": 45,
+         "note": "first letter B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bistro menu: baked trout, with something to entertain diners before it.",
-     "walkthrough": "Trout looks like the fish being defined, but it is the anagram fodder; the definition is the first word.",
-     "definitionFit": "The turbot is a large European flatfish prized for eating, so it is an example of a fish."
+     "surface": "A restaurant scene: baked trout served after a starter in a bistro.",
+     "walkthrough": "'baked' rearranges TROUT; 'entertaining' puts B, from 'starter in bistro', inside.",
+     "definitionFit": "The turbot is a large European flatfish, prized as food."
     },
     "features": {
      "answerInScene": true,
