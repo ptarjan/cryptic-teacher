@@ -447,8 +447,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "evacuation of",
-       "note": "emptying FLOOR of its insides leaves F and R"
+       "text": "after",
+       "at": 7,
+       "note": "after means the object word comes after the rest"
       }
      ],
      "parts": [
@@ -456,32 +457,31 @@
        "op": "container",
        "indicators": [
         {
-         "text": "in"
+         "text": "in",
+         "at": 33,
+         "note": "in means the emptied floor sits inside the university word"
         }
        ],
        "parts": [
         {
          "words": "university",
-         "gives": "UNI",
-         "note": "uni = university"
+         "at": 36,
+         "gives": "UNI"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "FR",
          "indicators": [
           {
-           "text": "after",
-           "note": "'after' means following in sequence"
+           "text": "evacuation of",
+           "at": 13,
+           "note": "evacuating a word empties it, leaving only its outside letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "evacuation of floor",
-           "gives": "FR",
-           "select": "outer",
-           "note": "FLOOR emptied: F…R"
+           "words": "floor",
+           "at": 27,
+           "note": "outer letters of floor"
           }
          ]
         }
@@ -489,15 +489,16 @@
       },
       {
        "words": "Object",
+       "at": 0,
        "gives": "END",
-       "note": "an end is an aim, an object"
+       "note": "an object is an end, an aim"
       }
      ]
     },
     "explanation": {
-     "surface": "A university tower block is cleared floor by floor for some purpose.",
-     "walkthrough": "'University block' reads as a campus building. 'Block' is the definition, in its social media sense, and the question mark flags that the two are not exact synonyms.",
-     "definitionFit": "To unfriend someone online is to cut them off, much like blocking them."
+     "surface": "A cryptic note on an objection after a university floor is cleared.",
+     "walkthrough": "'Block' is a social-media sense, hence the question mark.",
+     "definitionFit": "On social media, to remove someone from your contacts is akin to blocking them."
     },
     "features": {
      "answerInScene": false,
@@ -1251,40 +1252,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "yellow-jacketed"
+       "text": "jams",
+       "at": 43,
+       "note": "jams means squeezes into, so the jacketed bees are wedged inside the bloody word"
       }
      ],
      "parts": [
       {
        "words": "Bloody",
+       "at": 0,
        "gives": "GORY",
-       "note": "gory = bloody"
+       "note": "bloody means gory"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "buzzing",
-         "note": "bees buzzing about in a new order"
+         "text": "jacketed",
+         "at": 14,
+         "note": "jacketed means wrapped, so the heraldic yellow goes round the bees"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "yellow",
+         "at": 7,
+         "gives": "OR",
+         "note": "OR is gold or yellow in heraldry"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "around jams"
+           "text": "buzzing around",
+           "at": 28,
+           "note": "buzzing around suggests flying about in disorder, so the letters of bees are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "yellow",
-           "gives": "OR",
-           "note": "or = gold, yellow in heraldry"
-          },
-          {
            "words": "bees",
-           "note": "BEES rearranged"
+           "at": 23,
+           "note": "the letters of bees"
           }
          ]
         }
@@ -1293,14 +1302,14 @@
      ]
     },
     "explanation": {
-     "surface": "Swarming wasps round the jam pots and the fruit.",
-     "walkthrough": "Yellow-jacketed bees sound like wasps, and wasps do buzz around jam; the jacket is heraldic OR.",
-     "definitionFit": "Definition by category: the gooseberry is one kind of fruit, a sharp green berry."
+     "surface": "A gruesome picture of yellow-striped bees swarming over jars of jam and fruit.",
+     "walkthrough": "'Jams' looks like preserves alongside fruit; it is a verb, wedges in.",
+     "definitionFit": "A tart green berry from a thorny bush, often made into fool or jam."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "yellow-jacketed"
+     "misdirectedWord": "jams"
     }
    }
   },
@@ -1326,45 +1335,51 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "BIRO",
+     "indicators": [
+      {
+       "text": "rotating",
+       "at": 11,
+       "note": "rotating means turned round, so the letters are read backwards"
+      }
+     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "rotating",
-         "note": "something rotating turns round"
-        },
-        {
          "text": "pens",
-         "note": "the ball pens, encloses, the one"
+         "at": 25,
+         "note": "pens means encloses, so the ball word holds the numeral"
         }
        ],
        "parts": [
         {
          "words": "ball",
-         "gives": "BRO",
-         "note": "ORB, a ball, reversed"
+         "at": 20,
+         "gives": "ORB",
+         "note": "an orb is a ball"
         },
         {
          "words": "One",
+         "at": 0,
          "gives": "I",
-         "note": "I = one"
+         "note": "one is the Roman numeral I"
         }
        ]
       }
      ]
     },
+    "spelling": "BÍRÓ",
     "andLit": true,
     "explanation": {
-     "surface": "A classic among the old rolling-ball pens.",
-     "walkthrough": "The whole clue defines: a Biro is one of the original ballpoint pens, whose tip is a rotating ball.",
-     "definitionFit": "Biro, named after its inventor, was an early ballpoint pen and is still the everyday British word for one."
+     "surface": "A description of an old-style pen that writes with a turning ball.",
+     "walkthrough": "The whole clue both defines and builds the answer: a ballpoint writes with a rotating ball.",
+     "definitionFit": "The trade name for the ballpoint, invented by László Bíró, whose tip is a tiny rolling ball."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "pens"
     }
    }
   },
@@ -1458,46 +1473,49 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OVERCONFIDENT",
+     "indicators": [
+      {
+       "text": "Wrestling",
+       "at": 0,
+       "note": "wrestling twists and contorts, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "OVERCONFIDENT",
        "indicators": [
         {
-         "text": "Wrestling",
-         "note": "the letters grapple into a new order"
-        },
-        {
-         "text": "is"
+         "text": "is",
+         "at": 30,
+         "note": "is here means becomes, so one letter is swapped for another"
         }
        ],
        "parts": [
         {
          "words": "confederation's",
+         "at": 10,
          "gives": "CONFEDERATION",
-         "note": "anagram fodder"
+         "note": "the letters of confederation"
         },
         {
          "words": "ace",
+         "at": 26,
          "gives": "A",
-         "note": "A = ace, the letter swapped out"
+         "note": "A is ace in card notation"
         },
         {
          "words": "very",
-         "gives": "V",
-         "note": "V = very, the letter swapped in"
+         "at": 33,
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wrestling federation's star fighter is full of swagger.",
-     "walkthrough": "'Ace' is a champion wrestler in the surface and simply the letter A in the wordplay.",
-     "definitionFit": "A plain synonym: cocksure means brashly over-sure of oneself."
+     "surface": "A wrestling federation's champion is extremely arrogant.",
+     "walkthrough": "'Ace' looks like a champion; it is the letter A, which becomes V before the shuffle.",
+     "definitionFit": "Both words describe someone excessively sure of themselves, with arrogant self-belief."
     },
     "features": {
      "answerInScene": true,

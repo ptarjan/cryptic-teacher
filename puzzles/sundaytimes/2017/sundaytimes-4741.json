@@ -1252,28 +1252,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BOOTLACE",
      "indicators": [
       {
-       "text": "Spooner says",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of two words are exchanged"
+       "text": "Spooner",
+       "at": 0,
+       "note": "Spooner swaps the first sounds of two words, as the Reverend Spooner was said to"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to plunder HQ",
-       "gives": "BOOTLACE",
-       "soundsLike": "LOOT BASE",
-       "note": "to loot is to plunder and a base is a headquarters; swapping their first sounds gives the result"
+       "words": "to plunder",
+       "at": 13,
+       "gives": "LOOT",
+       "note": "plunder is loot"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BACE",
+       "indicators": [
+        {
+         "text": "says",
+         "at": 8,
+         "note": "says means spoken aloud, so the second word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "HQ",
+         "at": 24,
+         "gives": "BASE",
+         "note": "HQ (headquarters) is a base"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Raiders ransack a headquarters and leave a hostage bound.",
-     "walkthrough": "'One tied up' sounds like a hostage, but it is something you tie up.",
-     "definitionFit": "A bootlace is the string tied to fasten a boot, so it is a thing that gets tied up."
+     "surface": "An instruction to raid headquarters and leave someone bound.",
+     "walkthrough": "LOOT BASE swapped gives BOOT LACE.",
+     "definitionFit": "A cord threaded through eyelets on footwear, which is knotted when worn."
     },
     "features": {
      "answerInScene": false,
@@ -1308,50 +1325,54 @@
      "indicators": [
       {
        "text": "rounds",
-       "note": "to round something is to go around it, so one piece encloses the other"
+       "at": 4,
+       "note": "rounds means goes around, so the can word encloses the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Can",
+       "at": 0,
+       "gives": "TIN",
+       "note": "a can is a tin"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Can",
-         "gives": "TIN",
-         "note": "a tin is a can"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "start to",
-           "note": "the start of a word is its first letter, so only that is taken"
+           "at": 11,
+           "note": "the start of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "tire",
-           "note": "the opening letter of tire"
+           "at": 20,
+           "note": "first letter of tire"
           }
          ]
+        },
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
         }
        ]
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A boxing question: can going many rounds begin to wear down a big fighter?",
-     "walkthrough": "'Rounds' and 'heavyweight' suggest boxing, but rounds is a verb here.",
-     "definitionFit": "A titan is a person of great power or importance, which a heavyweight figuratively is."
+     "surface": "A boxing question: can a big fighter begin to flag after a few rounds?",
+     "walkthrough": "'Rounds' looks like boxing rounds; it is a verb, surrounds.",
+     "definitionFit": "A giant of Greek myth, so anyone of great stature or importance is called one."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "rounds"
     }
    }
