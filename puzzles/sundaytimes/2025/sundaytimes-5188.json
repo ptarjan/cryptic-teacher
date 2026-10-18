@@ -98,45 +98,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Empty",
-       "note": "remove the insides, leaving only the outer letters"
+       "text": "boxing",
+       "at": 16,
+       "note": "boxing means enclosing, so the two remaining letters wrap round the club"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "AE",
        "indicators": [
         {
-         "text": "boxing",
-         "note": "the club is enclosed by the other letters"
+         "text": "Empty",
+         "at": 0,
+         "note": "an empty word has lost its insides, leaving only its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Empty Argentine",
-         "gives": "AE",
-         "select": "outer",
-         "note": "outer letters of ArgentinE"
+         "words": "Argentine",
+         "at": 6,
+         "note": "with its inside emptied out, Argentine keeps only its first letter A and last letter E"
         }
        ]
       },
       {
        "words": "club",
+       "at": 23,
        "gives": "BAT",
-       "note": "a bat is a club"
+       "note": "a bat is a club used in cricket or baseball"
       }
      ]
     },
     "explanation": {
-     "surface": "An Argentine boxing club is losing members and fading away.",
-     "walkthrough": "Boxing reads as the sport, and club as a gym; the club is the thing held and the Argentine only lends its first and last letters.",
-     "definitionFit": "A plain synonym: a storm or fever that abates dies down, just as it would decline."
+     "surface": "An Argentine sports club, its ranks emptied, going downhill.",
+     "walkthrough": "'Empty' leaves AE from Argentine, and 'boxing' has those two letters enclose BAT.",
+     "definitionFit": "To abate is to lessen or die down, as a storm abates, so it means to decline in strength."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "boxing"
@@ -284,39 +283,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCAVENGER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 19,
+       "note": "the rearranged letters sit outside the next one, holding it within"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "released",
-         "note": "the letters are let loose and rearranged"
-        },
-        {
-         "text": "outside"
+         "at": 10,
+         "note": "gas released escapes and disperses, so the letters of nerve gas are scattered into a new order"
         }
        ],
        "parts": [
         {
          "words": "Nerve gas",
-         "note": "NERVEGAS rearranged"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "standard abbreviation for cold"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "cold",
+       "at": 27,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
       }
      ]
     },
     "explanation": {
-     "surface": "A nerve gas leaks out beside a chilly roadside café.",
-     "walkthrough": "A roadside diner sounds like a café, but it is a creature eating roadkill; the question mark flags the joke.",
-     "definitionFit": "A scavenger, such as a crow, feeds on dead animals found beside roads."
+     "surface": "A toxic gas cloud let loose around something chilly, with a curious nod to a roadside eatery.",
+     "walkthrough": "'Released' turns NERVE GAS into SAVENGER, which goes 'outside' C. The definition is whimsical: a crow or fox feeding on roadkill dines at the roadside.",
+     "definitionFit": "A scavenger feeds on carrion, such as animals killed by traffic, so it eats beside the road."
     },
     "features": {
      "answerInScene": false,
@@ -501,37 +504,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ATTESTERS",
-     "indicators": [
-      {
-       "text": "Retired",
-       "note": "going back, so the letters run in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retired",
+         "at": 0,
+         "note": "retired means withdrawn or gone back, so the letters are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Retired volunteers",
-         "gives": "AT",
-         "note": "TA, the Territorial Army of volunteer soldiers, reversed"
-        },
-        {
-         "words": "samples",
-         "gives": "TESTERS",
-         "note": "testers are samples, as of perfume"
+         "words": "volunteers",
+         "at": 8,
+         "gives": "TA",
+         "note": "the TA, the Territorial Army, is Britain's volunteer reserve force"
         }
        ]
+      },
+      {
+       "words": "samples",
+       "at": 25,
+       "gives": "TESTERS",
+       "note": "testers are trial samples, as of perfume in a shop"
       }
      ]
     },
     "explanation": {
-     "surface": "Retired volunteers are handed product samples and discount coupons.",
-     "walkthrough": "Vouchers looks like coupons, matching samples; it means people who vouch for something. The TA was Britain's reserve army of part-time volunteers.",
-     "definitionFit": "Attesters vouch for the truth of something, so they are vouchers."
+     "surface": "Ex-volunteers handed free samples and gift vouchers.",
+     "walkthrough": "'Retired' turns TA round to AT. 'Vouchers' looks like gift tokens, but it means people who vouch.",
+     "definitionFit": "Attesters bear witness to the truth of something, just as people who vouch for it guarantee it."
     },
     "features": {
      "answerInScene": false,
@@ -833,23 +837,16 @@
      "indicators": [
       {
        "text": "after losing head",
-       "note": "the first letter is dropped"
+       "at": 27,
+       "note": "losing its head means the word's first letter is removed"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "one suspended",
+       "at": 13,
        "gives": "DANGLER",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "one suspended",
-         "gives": "DANGLER",
-         "select": "first",
-         "note": "something that dangles hangs suspended; lose the D"
-        }
-       ]
+       "note": "a dangler is something that hangs or is suspended"
       },
       {
        "gives": "D"
@@ -857,9 +854,9 @@
      ]
     },
     "explanation": {
-     "surface": "A line manager is suspended from work after being sacked as head.",
-     "walkthrough": "Line manager suggests an office boss; it is someone managing a fishing line.",
-     "definitionFit": "A cryptic reading: someone fishing controls a line, so is jokingly its manager."
+     "surface": "An office boss suspended from work after being sacked as head.",
+     "walkthrough": "'After losing head' drops the D from DANGLER. 'Line manager' reads as an office boss, but it is a fisherman, who manages a fishing line.",
+     "definitionFit": "An angler fishes with rod and line, so in a punning sense he is the one in charge of a line."
     },
     "features": {
      "answerInScene": false,
@@ -1153,23 +1150,16 @@
      "indicators": [
       {
        "text": "initially ignored",
-       "note": "the first letter is dropped"
+       "at": 31,
+       "note": "the first letter of the word is left out"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "vasectomy surgeons",
+       "at": 12,
        "gives": "SNIPPERS",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "vasectomy surgeons",
-         "gives": "SNIPPERS",
-         "select": "first",
-         "note": "a vasectomy is known as the snip; lose the S"
-        }
-       ]
+       "note": "a vasectomy is known as the snip, so the surgeons who do it are jokingly snippers"
       },
       {
        "gives": "S"
@@ -1177,14 +1167,14 @@
      ]
     },
     "explanation": {
-     "surface": "A minor complaint that vasectomy surgeons brushed aside at first.",
-     "walkthrough": "Small issue reads as a trivial matter; issue here means offspring. Nippers is British slang for small children.",
-     "definitionFit": "British slang: young children are nippers, and issue is a formal word for offspring."
+     "surface": "A minor matter that vasectomy doctors at first overlooked.",
+     "walkthrough": "'Initially ignored' drops the opening S. 'Small issue' looks like a trivial problem, but issue means offspring: nippers are small children, a fitting joke beside vasectomy.",
+     "definitionFit": "Nippers is informal British slang for young children, and issue means offspring, so small issue are kids."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "issue"
     }
    }
@@ -1210,56 +1200,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DECREASE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after drinking",
+       "at": 18,
+       "note": "drinking means taking in, so the shortened word holds the next letter inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "shortly",
-         "note": "cut short by its last letter"
-        },
-        {
-         "text": "last of",
-         "note": "the last of anything is its final part, here the final letter"
+         "at": 10,
+         "note": "shortly means the word is cut short, losing its final letter"
         }
        ],
        "parts": [
         {
-         "words": "dead shortly",
-         "gives": "DECEASE",
-         "note": "DECEASED without its last letter"
+         "words": "dead",
+         "at": 5,
+         "gives": "DECEASED",
+         "note": "deceased means dead"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "drinking",
-           "note": "a drinker takes something inside, so the word swallows the letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "last of beer",
-           "gives": "R",
-           "select": "last",
-           "note": "final letter of beeR, placed inside"
-          }
-         ]
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 33,
+         "note": "last of picks out only the closing letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 41,
+         "note": "the final letter of beer is R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collapses and dies soon after finishing a pint.",
-     "walkthrough": "Drop dead looks like one phrase; drop alone is the definition.",
-     "definitionFit": "A plain synonym: a fall in prices can be called a drop or a lowering."
+     "surface": "A drinker keeling over dead soon after finishing a beer.",
+     "walkthrough": "'Shortly' cuts DECEASED to DECEASE, which 'after drinking' takes in R, the last of beer.",
+     "definitionFit": "A decrease is a reduction or fall, so as a noun or verb it means the same as a drop."
     },
     "features": {
      "answerInScene": false,
@@ -1292,52 +1285,56 @@
      "op": "charade",
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "essentially",
-         "note": "the essence or centre of the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "A",
-         "note": "as written"
-        }
-       ]
+       "words": "A",
+       "at": 0
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "about",
-         "note": "about in its sense of around, so the story wraps the letter"
+         "at": 8,
+         "note": "about means around, so the story wraps the next letter"
         }
        ],
        "parts": [
         {
          "words": "story",
+         "at": 2,
          "gives": "LIE",
          "note": "a lie is a made-up story"
         },
         {
-         "words": "Elvis essentially",
-         "gives": "V",
-         "note": "middle letter of elVis, inside LIE"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 20,
+           "note": "essentially means at its heart, so the middle letter of Elvis"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Elvis",
+           "at": 14,
+           "note": "the five-letter name Elvis has V as its central letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rumour claims Elvis Presley never died and lives on.",
-     "walkthrough": "The surface nods to the rumour that Elvis is still alive, a story told about him.",
-     "definitionFit": "A loose paraphrase, hence the question mark: still going strong means still living and active."
+     "surface": "A tale of the 'Elvis is alive' sightings that never quite go away.",
+     "walkthrough": "'Essentially' gives V, the centre of Elvis, which LIE goes 'about'. The definition fits the surface: rumours say the King is still alive.",
+     "definitionFit": "Someone still living and active is alive, and 'still going strong' describes that state in an idiom."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd"
+     "joke": "pun",
+     "misdirectedWord": "story"
     }
    }
   },

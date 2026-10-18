@@ -114,59 +114,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALBACORE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one set of letters inside another"
+       "at": 22,
+       "note": "in places the jumbled snake inside the beer"
       }
      ],
      "parts": [
       {
+       "words": "beer",
+       "at": 25,
+       "gives": "ALE",
+       "note": "ale is a kind of beer"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ALBACORE",
        "indicators": [
         {
          "text": "stewed",
-         "note": "stewed food is cooked to a mush, so these letters are reordered"
+         "at": 15,
+         "note": "stewed food is cooked down and mixed, so the letters of cobra are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "beer",
-           "gives": "AL",
-           "note": "ale is beer; it is split to hold the other piece"
-          },
-          {
-           "words": "cobra",
-           "note": "the snake's letters rearranged"
-          },
-          {
-           "words": "beer",
-           "gives": "E",
-           "note": "the end of ale, closing the wrap"
-          }
-         ]
+         "words": "cobra",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bizarre recipe: fish and snake simmered in beer.",
-     "walkthrough": "COBRA rearranged goes inside ALE. 'Tuna and cobra' looks like joint fodder, but 'and' only links definition to wordplay.",
-     "definitionFit": "The albacore is a species of tuna, the one sold as white-meat canned tuna."
+     "surface": "A grim recipe: fish and snake simmered together in a pot of beer.",
+     "walkthrough": "'Stewed' turns COBRA into BACOR, and 'in' puts that inside ALE.",
+     "definitionFit": "The albacore is a species of tuna, the fish sold as white-meat canned tuna."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "beer"
+     "misdirectedWord": "stewed"
     }
    }
   },
@@ -468,44 +456,25 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Enlist silent tinsel to provide four ways to supply what you need to make",
+       "at": 8,
+       "note": "the clue lists Listen and three rearrangements of it, saying these are four ways to supply the letters needed, so the first word's letters are to be shuffled"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "to provide four ways to supply",
-         "note": "four different routes to one result means each listed word is reordered to make the same thing"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Listen",
-         "note": "taken as written; this is the fodder used"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "Enlist",
-       "note": "surface padding: the same six letters again, a second route"
-      },
-      {
-       "unchecked": true,
-       "words": "silent",
-       "note": "surface padding: the same six letters again, a third route"
-      },
-      {
-       "unchecked": true,
-       "words": "tinsel",
-       "note": "surface padding: the same six letters again, a fourth route"
+       "words": "Listen",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A playful list of four words that are all rearrangements of one another.",
-     "walkthrough": "LISTEN, ENLIST, SILENT and TINSEL are anagrams of one another, so any one supplies the letters for the bays.",
-     "definitionFit": "Inlets are small arms of the sea indenting a coast, much like bays."
+     "surface": "A playful instruction listing four rearrangements of the same six letters and asking for the one meaning bays.",
+     "walkthrough": "Listen, Enlist, silent and tinsel are all anagrams of one another, and of the answer; any one of them, rearranged as 'four ways to supply what you need' says, gives the word, and the other three are surplus.",
+     "definitionFit": "An inlet is a small arm of the sea reaching into the land, much like a bay or cove."
     },
     "features": {
      "answerInScene": false,
@@ -908,41 +877,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "European country",
-      "at": 28
+      "text": "a European country",
+      "at": 26
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LATVIA",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost all of the word, so its final letter is cut"
+        }
+       ],
        "parts": [
         {
          "words": "overdue",
-         "gives": "LAT",
-         "note": "late (overdue) without its last letter"
+         "at": 7,
+         "gives": "LATE",
+         "note": "something overdue is late"
         },
         {
-         "words": "by way of",
-         "gives": "VIA",
-         "note": "via means by way of"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "by way of",
+       "at": 16,
+       "gives": "VIA",
+       "note": "via means by way of, as in travelling via Paris"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller running late reaches a European country by some route.",
-     "definitionFit": "Latvia is one of the three Baltic states in northern Europe."
+     "surface": "A traveller running behind schedule, routed through somewhere in Europe.",
+     "walkthrough": "'Almost' trims LATE to LAT before VIA is added.",
+     "definitionFit": "Latvia is one of the three Baltic states in northern Europe, with Riga as its capital."
     },
     "features": {
      "answerInScene": true,
@@ -1489,58 +1463,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PRONG",
      "indicators": [
       {
+       "text": "Carry",
+       "at": 0,
+       "note": "the reversed snack carries the next letter inside it"
+      },
+      {
        "text": "taking",
-       "note": "taking means taking in, so a letter is put inside the word"
+       "at": 20,
+       "note": "taking means holding a letter within"
       }
      ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "PRONG",
        "indicators": [
         {
          "text": "up",
-         "note": "up in a down entry means read from the bottom, so the word is turned around"
+         "at": 16,
+         "note": "in a down clue, up means the word reads from bottom to top, so backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "trail mix",
-           "gives": "PRO",
-           "note": "gorp, the hikers' snack mix, written upwards; first part"
-          },
-          {
-           "words": "north",
-           "gives": "N",
-           "note": "N is the abbreviation for north"
-          },
-          {
-           "words": "trail mix",
-           "gives": "G",
-           "note": "the last letter of the reversed snack"
-          }
-         ]
+         "words": "trail mix",
+         "at": 6,
+         "gives": "GORP",
+         "note": "gorp is the American name for trail mix, a hikers' snack of nuts and dried fruit"
         }
        ]
+      },
+      {
+       "words": "north",
+       "at": 27,
+       "gives": "N",
+       "note": "N is the compass abbreviation for north"
       }
      ]
     },
     "explanation": {
-     "surface": "A hiker carries snacks and takes the north branch of the trail.",
-     "walkthrough": "GORP is American slang for trail mix (nuts, raisins and so on); reversed it is PROG, which takes in N.",
-     "definitionFit": "A prong is one of the pointed tines of a fork."
+     "surface": "Hiking advice: pack your trail snack and take the northern branch of the path.",
+     "walkthrough": "GORP is a US term, reversed by 'up' to PROG, which 'Carry' and 'taking' have hold N. The surface's 'fork' is a fork in the trail; the definition is the tine of a fork.",
+     "definitionFit": "A prong is one of the pointed tines of a fork, so the single word can stand for it."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "fork"
     }
    }
