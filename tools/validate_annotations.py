@@ -3530,10 +3530,12 @@ def _stored_arity(op):
 
 def charade_in_charade(tree):
     """How many charades with no indicator sit directly inside another charade:
-    a join of a join, which is the one charade written in pieces."""
+    a join of a join, which is the one charade written in pieces. Not under a
+    charade with an indicator of its own ("A after B"): the order is stated
+    there and each side is a group (independent-11509 19a, PF + ENIG after)."""
     n = 0
     for node in _walk(tree):
-        if node.get("op") == "charade" and not node.get("unchecked"):
+        if node.get("op") == "charade" and not node.get("unchecked") and not node.get("indicators"):
             n += sum(p.get("op") == "charade" and not p.get("indicators") and not p.get("unchecked")
                      and "gives" not in p for p in node.get("parts") or [] if isinstance(p, dict))
     return n
@@ -3653,7 +3655,7 @@ def leaf_folds(tree):
     """Leaves that give a stretch (3+ letters) of their own words and say nothing
     else: the stretch is a selection, a deletion or a hidden word, written as a leaf.
 
-    Not folds: a leaf directly under a hidden-word op (the prompt's own form,
+    Not folds: a leaf the abbreviation table holds (engineering/ENG), a leaf directly under a hidden-word op (the prompt's own form,
     hid([say no before]YNOBE): the op is there and the leaf names what it finds)
     and a leaf that only drops a possessive or plural S ([Mike's]MIKE)."""
     n = 0
@@ -3665,6 +3667,8 @@ def leaf_folds(tree):
             if parent and parent.get("op") == "hidden":
                 continue
             w, g = wordplay.letters(node["words"]), node["gives"]
+            if annotation.is_abbreviation(node):
+                continue  # a standard abbreviation that happens to open the word (ENG, DEM)
             n += len(g) >= 3 and g != w and g in w and w != g + "S"
     return n
 
@@ -3689,8 +3693,18 @@ def single_leaf(tree):
     return int(isinstance(tree, dict) and "op" not in tree and not tree.get("unchecked"))
 
 
+# A bare leaf's note that says the puzzle, not a clue word, supplies the letters
+# (Genius/Azed/themed puzzles: "the letter the preamble says the wordplay omits").
+DEVICE_NOTE = re.compile(
+    r"preamble|theme|unclued|ignored|omit|leaves? out|left out|missing|collid|grid.s edge|"
+    r"(?:left|right|top|bottom) edge|doubled|instruction|restores?", re.I)
+
+
 def bare_in_charade(tree, ann=None):
     """Pieces of a checked charade that are bare letters with no clue words.
+
+    A bare leaf whose note says where the letters come from (DEVICE_NOTE: the
+    preamble, the theme, an omitted or ignored letter) counts as a device leaf.
 
     Two kinds of bare letters are no fault. A clue with a `hiddenLetter` (the
     puzzle's extra/omitted/misprint device) has its letter in the answer or
@@ -3703,7 +3717,7 @@ def bare_in_charade(tree, ann=None):
     return sum(1 for node in _walk(tree) if node.get("op") == "charade" and not node.get("unchecked")
                for p in node.get("parts") or []
                if isinstance(p, dict) and "op" not in p and "words" not in p and not p.get("unchecked")
-               and not p.get("device"))
+               and not p.get("device") and not DEVICE_NOTE.search(p.get("note") or ""))
 
 
 def anagram_of_container(tree):
@@ -4098,12 +4112,38 @@ def _stem_match(a, b):
     return p >= 3 and p >= min(len(a), len(b)) - 1 and abs(len(a) - len(b)) <= 4
 
 
-def _mentions_phrase(walk_words, phrase):
-    """The phrase's words, inflections allowed, appear in order and adjacent in the walkthrough."""
+_PHRASE_FILLER = frozenset({"of", "the", "a", "an", "in", "from", "to", "at", "by", "for", "one"})
+_FIRST_WORDS = frozenset({"first", "initial", "initially", "opening", "opener", "leader", "leading",
+                          "lead", "head", "start", "starts", "beginning", "top"})
+_LAST_WORDS = frozenset({"last", "final", "finally", "closing", "ending", "end", "ends", "tail",
+                         "bottom", "finish", "terminal"})
+
+
+def _mentions_phrase(walk_words, phrase, op=None):
+    """The phrase's words, inflections allowed, appear in order and adjacent in the walkthrough.
+
+    Two paraphrases are no gap: little words dropped from either side ("first of"
+    read as "the first L": the indicator's filler "of" is not what the walkthrough
+    must repeat), and for a first/last selection a walkthrough that says its
+    position in other words (leader / first / initial / opening, or last / final /
+    closing / end) than the indicator's own."""
     want = words_of(phrase)
     n = len(want)
-    return bool(n) and any(all(_stem_match(v, w) for v, w in zip(walk_words[i:i + n], want))
-                           for i in range(len(walk_words) - n + 1))
+    if not n:
+        return False
+    if any(all(_stem_match(v, w) for v, w in zip(walk_words[i:i + n], want))
+           for i in range(len(walk_words) - n + 1)):
+        return True
+    core = [w for w in want if w not in _PHRASE_FILLER]
+    walk = [w for w in walk_words if w not in _PHRASE_FILLER]
+    m = len(core)
+    if m and m < n and any(all(_stem_match(v, w) for v, w in zip(walk[i:i + m], core))
+                           for i in range(len(walk) - m + 1)):
+        return True
+    for group in (_FIRST_WORDS, _LAST_WORDS):
+        if op in ("first", "last") and set(core) & group and group & set(walk_words):
+            return True
+    return False
 
 
 def walkthrough_gaps(tree, answer, walkthrough):
@@ -4124,7 +4164,7 @@ def walkthrough_gaps(tree, answer, walkthrough):
         if node.get("unchecked"):
             continue
         for ind in node.get("indicators") or []:
-            if not _mentions_phrase(walk_words, ind["text"]):
+            if not _mentions_phrase(walk_words, ind["text"], node.get("op")):
                 out.append(("indicator", ind["text"]))
         g = got.get(id(node))
         if node.get("op") in TRANSFORMING_OPS and g and len(g) > 1 and g != whole:
