@@ -157,42 +157,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRUNCHY",
+     "op": "container",
      "indicators": [
       {
-       "text": "missing starter",
-       "note": "a starter is the first course, so missing it means losing the opening letter"
+       "text": "about",
+       "at": 6,
+       "note": "about means going round, so the first word wraps the shortened meal"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Shout",
+       "at": 0,
+       "gives": "CRY",
+       "note": "to cry is to shout"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so one word wraps around the other"
+         "text": "missing starter",
+         "at": 17,
+         "note": "missing starter means losing the first letter, a pun on a meal's first course"
         }
        ],
        "parts": [
         {
-         "words": "Shout",
-         "gives": "CRY",
-         "note": "a shout is a cry"
+         "words": "meal",
+         "at": 12,
+         "gives": "LUNCH",
+         "note": "lunch is a midday meal"
         },
         {
-         "words": "meal",
-         "gives": "UNCH",
-         "note": "a midday meal, lunch, without its first letter"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone yells about a lunch that skipped the first course, perhaps one heavy on celery.",
-     "definitionFit": "Celery is a classic example of food that snaps noisily when bitten; the question mark flags an example."
+     "surface": "Someone complains loudly about a meal served without its first course, maybe one featuring celery.",
+     "walkthrough": "'missing starter' pretends to be about a course of the meal, but it drops the first letter of LUNCH; the question mark marks celery as just one example.",
+     "definitionFit": "Celery is a firm vegetable that snaps and crackles audibly when bitten, an example of a crisp texture."
     },
     "features": {
      "answerInScene": true,
@@ -1417,40 +1423,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENEMY",
-     "indicators": [
-      {
-       "text": "cut off",
-       "note": "cut off means its end is lopped, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut off",
+         "at": 21,
+         "note": "cut off means the final letter is lopped from the word"
+        }
+       ],
        "parts": [
         {
          "words": "Evacuation procedure",
-         "gives": "ENEM",
-         "note": "an enema evacuates the bowels; drop its last letter"
+         "at": 0,
+         "gives": "ENEMA",
+         "note": "an enema is a procedure that empties the bowels"
         },
         {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "y is an algebraic unknown"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 29,
+       "gives": "Y",
+       "note": "Y is one of the letters used in algebra for an unknown quantity"
       }
      ]
     },
     "explanation": {
-     "surface": "An unknown foe sabotaged an emergency evacuation drill.",
-     "walkthrough": "Evacuation suggests clearing a building; here it is a medical one.",
-     "definitionFit": "An enemy is an opponent or foe, the same as an adversary."
+     "surface": "Emergency evacuation plans get cut short by an unknown foe.",
+     "walkthrough": "'Evacuation procedure' suggests a fire drill; it is a medical enema, cut off to ENEM.",
+     "definitionFit": "An enemy is an opponent or foe, someone hostile who opposes you."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Evacuation"
