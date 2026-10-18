@@ -285,41 +285,29 @@
      "indicators": [
       {
        "text": "placed in",
-       "note": "to place one thing in another is to put it inside, so the pieces nest"
+       "at": 20,
+       "note": "the first piece is set inside the second, as something is placed in a container"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "heart of galleon",
+       "at": 30,
        "gives": "LLE",
-       "indicators": [
-        {
-         "text": "heart of",
-         "note": "the heart is the centre, so only the middle letters of the word are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "galleon",
-         "gives": "LLE",
-         "select": "middle",
-         "note": "the central three letters of the seven-letter word"
-        }
-       ]
+       "note": "the central three letters of the seven-letter word galleon"
       },
       {
        "words": "one's",
+       "at": 14,
        "gives": "IS",
-       "note": "one is I, and the 's stands for is"
+       "note": "one's read as 'one is', giving I (one) plus S, i.e. IS"
       }
      ]
     },
     "explanation": {
-     "surface": "A thread of cotton is stitched into the centre of an old sailing ship.",
-     "walkthrough": "IS goes into LLE, the middle of galleon, giving L-IS-LE.",
-     "definitionFit": "Lisle is a fine, tightly twisted cotton thread, traditionally used for stockings and gloves."
+     "surface": "A sailor stitches something into the hold of an old Spanish ship.",
+     "walkthrough": "'one's' is read as 'one is', giving IS, which is 'placed in' LLE, the three letters at the heart of galleon.",
+     "definitionFit": "Lisle is a fine, tightly twisted cotton yarn, used for stockings and gloves."
     },
     "features": {
      "answerInScene": false,
@@ -546,49 +534,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LORDSDAY",
+     "op": "composite",
      "indicators": [
       {
+       "text": "be missing",
+       "at": 20,
+       "note": "the letters of can't must be absent from the fodder, so they are taken away from it"
+      },
+      {
        "text": "out",
-       "note": "out may mean disordered or not in place, so what is left gets rearranged"
+       "at": 31,
+       "note": "out means disordered or wrong, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LORDSDAY",
-       "indicators": [
-        {
-         "text": "be missing",
-         "note": "whatever is missing has gone, so those letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Scotland Yard",
-         "note": "the letters taken as written"
-        },
-        {
-         "words": "can't",
-         "note": "these four letters are removed"
-        }
-       ]
+       "words": "Scotland Yard",
+       "at": 0,
+       "note": "the fodder: the letters of Scotland Yard"
+      },
+      {
+       "words": "can't",
+       "at": 14,
+       "note": "the letters C, A, N, T, which go missing from the fodder"
       }
      ]
     },
     "spelling": "LORD'S DAY",
     "explanation": {
-     "surface": "The police refuse to take Sunday off.",
-     "walkthrough": "Take C, A, N and T from SCOTLAND YARD to leave SOLDYARD, then rearrange. Scotland Yard is the headquarters of London's Metropolitan Police.",
-     "definitionFit": "Christians call Sunday the Lord's Day, their weekly day of rest and worship, equivalent to the Sabbath."
+     "surface": "A frustrated cry that the Metropolitan Police cannot afford to take a day off for worship.",
+     "walkthrough": "Strike C, A, N, T ('can't', which must 'be missing') from SCOTLANDYARD to leave SOLDYARD, then rearrange ('out') those letters. Scotland Yard is the headquarters of London's police.",
+     "definitionFit": "Christians call Sunday, their weekly holy day of rest, the Lord's Day."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "Yard"
     }
    }
   },
@@ -1196,43 +1177,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EELS",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end, the word loses its final letter"
+       "text": "over",
+       "at": 15,
+       "note": "in a down clue over signals turning the letters back to front"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "over",
-         "note": "turned over in a down clue means read from bottom to top"
+         "text": "endlessly",
+         "at": 20,
+         "note": "without its end, so the final letter of the word is dropped"
         }
        ],
        "parts": [
         {
          "words": "sleep",
-         "gives": "SLEE",
-         "note": "the word without its last letter"
+         "at": 9,
+         "note": "the word sleep, which loses its last letter"
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Swimmers who keep falling asleep without end.",
-     "walkthrough": "SLEE(P) turned over.",
-     "definitionFit": "Eels are long snake-like fish, and any fish is a swimmer in crossword language."
+     "surface": "Swimmers who keep sleeping in, morning after morning.",
+     "walkthrough": "'endlessly' cuts sleep to SLEE, and 'over' turns that round.",
+     "definitionFit": "Eels are long snakelike fish, so they are swimmers by nature."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "over"
+     "aptDefinition": true,
+     "misdirectedWord": "Swimmers"
     }
    }
   },
@@ -1561,46 +1545,32 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "EMCEE",
+     "spelt": "EMCEE",
      "indicators": [
       {
        "text": "heard as",
-       "note": "what is heard is the sound, so the letters are spelt as they are spoken"
+       "at": 26,
+       "note": "heard as tells us to take the sound of the letters spoken, then spell that sound as a word"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "EMCEE",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means at the start, so only the first letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Michael Caine",
-         "gives": "EMCEE",
-         "select": "first",
-         "soundsLike": "MC",
-         "note": "the opening letters of the actor's two names, said as letter names"
-        }
-       ]
+       "words": "Michael Caine, initially",
+       "at": 0,
+       "gives": "MC",
+       "note": "the initials of the actor Michael Caine, M and C, said aloud as two letters"
       }
      ]
     },
     "explanation": {
-     "surface": "The actor Michael Caine is introduced as a show host.",
-     "walkthrough": "MC, master of ceremonies, is spelt out phonetically.",
-     "definitionFit": "An emcee is a master of ceremonies, who presents and introduces acts at a show."
+     "surface": "The actor Michael Caine takes the stage as a TV host.",
+     "walkthrough": "'heard as' says to speak the initials MC aloud; their sound is the word spelt EMCEE.",
+     "definitionFit": "An emcee is a master of ceremonies, the host who introduces acts at a show."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caine"
     }
    }
   },

@@ -115,43 +115,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARCASS",
+     "op": "container",
      "indicators": [
       {
-       "text": "largely",
-       "note": "largely means mostly but not wholly, so the final letter is dropped"
+       "text": "carried in",
+       "at": 23,
+       "note": "carried in means held inside, so the shortened container goes inside the vehicles"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vehicles",
+       "at": 34,
+       "gives": "CARS",
+       "note": "cars are motor vehicles"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "carried in",
-         "note": "what is carried in something sits inside it, so one piece is held within another"
+         "text": "largely",
+         "at": 15,
+         "note": "largely means for the most part, so the container word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "vehicles",
-         "gives": "CARS",
-         "note": "cars are vehicles"
+         "words": "container",
+         "at": 5,
+         "gives": "CASE",
+         "note": "a case is a box or container"
         },
         {
-         "words": "container",
-         "gives": "CAS",
-         "note": "a case is a container, here without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A body bag or coffin is mostly transported in vehicles, as at a funeral.",
-     "walkthrough": "'Container' wants to be part of the definition alongside 'Body', but it is the wordplay: a case, cut short.",
-     "definitionFit": "A carcass is a dead body, especially of an animal, though also used jokingly of a person's own frame."
+     "surface": "A dead body is transported in a box loaded into vehicles.",
+     "walkthrough": "'largely' cuts CASE to CAS, which is 'carried in' CARS.",
+     "definitionFit": "A carcass is the dead body of an animal, so the word means a body."
     },
     "features": {
      "answerInScene": true,
@@ -765,49 +770,40 @@
     "definitions": [
      {
       "text": "Entanglement",
-      "at": 0,
-      "note": "noun; the answer is the gerund, used as a noun"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENMESHING",
+     "op": "composite",
      "indicators": [
       {
        "text": "curiously",
-       "note": "curiously means in an odd way, so the letters are arranged strangely"
+       "at": 15,
+       "note": "curiously means in an odd way, so the remaining letters are put in a strange new order"
+      },
+      {
+       "text": "out",
+       "at": 42,
+       "note": "out means removed, so the letter for left is taken away from the fodder first"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENMESHING",
-       "indicators": [
-        {
-         "text": "out",
-         "note": "out means removed or excluded, so a letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Englishmen",
-         "note": "taken as written"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        }
-       ]
+       "words": "Englishmen",
+       "at": 26,
+       "note": "the fodder: the letters of Englishmen"
+      },
+      {
+       "words": "left",
+       "at": 37,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A tangled situation where, oddly, the English were excluded.",
-     "walkthrough": "Take L out of ENGLISHMEN and rearrange the remaining nine letters.",
-     "definitionFit": "Enmeshing is the act of catching something in a net, so a being caught up or tangled."
+     "surface": "A tangled situation in which, oddly, the English were excluded.",
+     "walkthrough": "'left' is L, and 'out' removes it from ENGLISHMEN to leave ENGISHMEN, which 'curiously' rearranges.",
+     "definitionFit": "Enmeshing, as a noun, is the act of catching or tangling something as in a net."
     },
     "features": {
      "answerInScene": false,
@@ -1687,37 +1683,37 @@
     "definitions": [
      {
       "text": "Feelings of allegiance",
-      "at": 0,
-      "note": "plural phrase; the answer is a singular noun"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LOYALTY",
      "indicators": [
       {
        "text": "taking on new direction",
-       "note": "taking on a new direction means swapping one compass or side letter for another"
+       "at": 35,
+       "note": "one compass or hand direction in the word is swapped for another: the abbreviation for one side is replaced by that for the other"
       }
      ],
      "parts": [
       {
        "words": "monarchy",
+       "at": 26,
        "gives": "ROYALTY",
-       "note": "royalty is the monarch and family, so the institution of monarchy"
+       "note": "royalty means the monarch and their family, the monarchy"
       },
       {
-       "words": "new direction",
-       "gives": "L",
-       "note": "L for left replaces R for right"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Patriotic devotion to the Crown that changes course.",
-     "walkthrough": "In ROYALTY the R (right) turns into L (left), the other direction.",
-     "definitionFit": "Loyalty is faithfulness and devotion, the sense of owing support to a cause or ruler."
+     "surface": "Patriotic devotion to the Crown is heading somewhere different.",
+     "walkthrough": "In ROYALTY, R (right) is swapped for L (left), 'taking on new direction'.",
+     "definitionFit": "Loyalty is faithful attachment and devotion, as to a sovereign or cause."
     },
     "features": {
      "answerInScene": true,
