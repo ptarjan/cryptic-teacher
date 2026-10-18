@@ -147,36 +147,38 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CREDO",
+     "op": "anagram",
      "indicators": [
       {
        "text": "integrates",
-       "note": "to integrate is to absorb parts into a whole, so letters are taken inside another word"
+       "at": 13,
+       "note": "integrates means blends into one mixture, so the boss's letters and the two initials are combined and rearranged"
       }
      ],
      "parts": [
       {
        "words": "Company boss",
+       "at": 0,
        "gives": "CEO",
-       "note": "chief executive officer, the head of a company"
+       "note": "CEO, chief executive officer, is the boss of a company"
       },
       {
        "words": "R&D",
-       "note": "the two letters R and D, taken as printed"
+       "at": 24,
+       "gives": "RD",
+       "note": "research and development, abbreviated to its two initials"
       }
      ]
     },
     "explanation": {
-     "surface": "A chief executive brings research and development into the core of the company's beliefs.",
-     "walkthrough": "The R and the D are slotted separately into CEO: C + R + E + D + O.",
-     "definitionFit": "A credo is a statement of belief, literally Latin for 'I believe', so a principle someone holds firmly."
+     "surface": "A chief executive builds research and development into the firm as a matter of belief.",
+     "walkthrough": "'integrates' mixes CEO with R and D; in practice R slips in after the C and D after the E.",
+     "definitionFit": "A credo is a statement of belief, from the Latin for 'I believe', so it is a tenet held on faith."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "R&D"
+     "misdirectedWord": "integrates"
     }
    }
   },
@@ -239,34 +241,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HAYWIRE",
      "indicators": [
       {
        "text": "said Spooner",
-       "note": "Reverend Spooner was famous for swapping the opening sounds of words, so his version of a phrase trades its initial sounds"
+       "at": 18,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "much taller",
-       "gives": "HAYWIRE",
-       "soundsLike": "WAY HIGHER",
-       "note": "'way higher' means much taller; swap the W and H sounds"
+       "words": "much",
+       "at": 5,
+       "gives": "WAY",
+       "note": "way means much, as in 'way better'"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HIRE",
+       "parts": [
+        {
+         "words": "taller",
+         "at": 10,
+         "gives": "HIGHER",
+         "note": "higher means taller; said aloud it is a one-syllable homophone of hire"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone remarks on a building's height but muddles their words.",
-     "walkthrough": "Swapping the opening sounds of 'way higher' gives 'hay wire'; 'getting confused' also nods at Spooner's own slips.",
-     "definitionFit": "To go haywire is to go wrong or become muddled, from tangled baling wire on farms."
+     "surface": "Someone muddled says a thing is a great deal taller, garbling it like Spooner.",
+     "walkthrough": "'said Spooner' swaps the opening sounds of WAY and HIGHER (said like HIRE), giving HAY and WIRE.",
+     "definitionFit": "Something gone haywire is out of control or in disorder, a colloquial way of saying muddled."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "taller"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "much"
     }
    }
   },
@@ -909,31 +921,49 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "MUFTI",
      "indicators": [
       {
        "text": "lacking finish",
-       "note": "to lack a finish is to have no ending, so the last letter of each word is removed"
+       "at": 46,
+       "note": "lacking finish means without its last letter, applied to each of the pair, so each accessory loses its final letter"
       }
      ],
      "parts": [
       {
-       "words": "a couple of accessories",
-       "gives": "MUFFTIE",
-       "note": "two accessories: a muff for warming the hands and a tie"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a couple of",
+         "at": 22,
+         "note": "a couple of means two of them, so the trimming is done to each of the pair, once for each accessory"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accessories",
+         "at": 34,
+         "gives": "MUFFTIE",
+         "note": "here two accessories: a muff to warm the hands and a tie for the neck"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A casual outfit still includes a couple of accessories, unfinished ones.",
-     "walkthrough": "Each accessory loses its last letter: MUF(F) + TI(E). A muff is a fur tube for warming the hands.",
-     "definitionFit": "Mufti is ordinary civilian dress worn by someone who normally wears a uniform, especially a soldier or police officer."
+     "surface": "Civilian dress includes two fashion add-ons that are not quite complete.",
+     "walkthrough": "The two accessories are MUFF and TIE; 'lacking finish', done to 'a couple of' them, trims each to MUF and TI. Mufti is the British term for civilian dress worn by someone usually in uniform.",
+     "definitionFit": "Mufti is ordinary civilian dress worn by people who usually wear uniform, such as soldiers off duty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Plain"
+     "misdirectedWord": "include"
     }
    }
   },
@@ -1242,46 +1272,34 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed within, so these letters go inside another word"
+       "at": 31,
+       "note": "in means placed inside, so the central letters go into the meat"
       }
      ],
      "parts": [
       {
        "words": "cheapest meat",
+       "at": 34,
        "gives": "OFFAL",
-       "note": "offal is the organ meat, traditionally the cheapest cuts"
+       "note": "offal, the organs and entrails, is traditionally the cheapest meat"
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "spicier centre",
+       "at": 16,
        "gives": "ICI",
-       "indicators": [
-        {
-         "text": "centre",
-         "note": "the centre of a word is its middle, so only the middle letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "spicier",
-         "gives": "ICI",
-         "select": "middle",
-         "note": "the middle three letters of spicier"
-        }
-       ]
+       "note": "the centre of the word spicier is its middle three letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook is authorised to add a hotter core to the cheapest meat.",
-     "walkthrough": "'Approved' could be the past tense of a verb, but it is the adjective; offal (organ meat such as liver and kidneys) is traditionally the cheapest cut.",
-     "definitionFit": "Official means authorised or sanctioned by those in charge, which matches approved."
+     "surface": "A cook gives the go-ahead to putting a hotter middle into the budget meat.",
+     "walkthrough": "The centre of 'spicier' here is three letters, not just the single middle C; 'adding' in the surface is only a link.",
+     "definitionFit": "Something official has been sanctioned by those in authority, authorised and endorsed formally."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Approved"
+     "misdirectedWord": "spicier"
     }
    }
   },

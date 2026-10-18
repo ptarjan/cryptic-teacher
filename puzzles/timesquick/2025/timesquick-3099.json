@@ -134,30 +134,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COUNT",
      "indicators": [
       {
        "text": "briefly",
-       "note": "said briefly, the word is cut short by its last letter"
+       "at": 22,
+       "note": "briefly means cut short, so the final letter of the phrase's synonym is dropped"
       }
      ],
      "parts": [
       {
-       "words": "is important briefly",
-       "gives": "COUNT",
-       "note": "'is important' = matters, as in 'every vote matters'; take the synonym ending in S and cut that S off"
+       "words": "is important",
+       "at": 9,
+       "gives": "COUNTS",
+       "note": "a verb meaning to matter or carry weight, in the third person with its final S"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that a titled aristocrat matters, said in passing.",
-     "walkthrough": "Dropping the S from COUNTS leaves the European title.",
-     "definitionFit": "A European title of nobility, roughly equal in rank to a British earl."
+     "surface": "A remark that an aristocrat matters, said in passing.",
+     "walkthrough": "'is important' gives COUNTS; 'briefly' cuts its last letter, S.",
+     "definitionFit": "A count is a European aristocrat, ranking about level with a British earl."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
     }
    }
   },
@@ -240,31 +244,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TUMBLE",
      "indicators": [
       {
        "text": "scratching bottom",
-       "note": "scratching out the bottom letter, as this is a down clue"
+       "at": 8,
+       "note": "scratching means removing and bottom means the last letter in a down entry, so the final letter goes"
       }
      ],
      "parts": [
       {
        "words": "Acrobat",
-       "gives": "TUMBLE",
-       "note": "an acrobat who does somersaults, a seven-letter word ending in R; that bottom letter is scratched out"
+       "at": 0,
+       "gives": "TUMBLER",
+       "note": "a tumbler is an acrobat who performs somersaults and flips"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A circus acrobat scratches an itchy behind mid-air and comes down badly.",
-     "walkthrough": "The acrobat is a TUMBLER. 'Scratching bottom' is comic surface, but in a down clue the bottom of the word is its last letter.",
-     "definitionFit": "A plain synonym: the word suggests a fall that is sudden and ungainly rather than controlled."
+     "surface": "A gymnast takes a clumsy spill and lands on their backside.",
+     "walkthrough": "'scratching bottom' removes the last letter, R, from TUMBLER ('Acrobat'); in a down clue the bottom is the end of the word.",
+     "definitionFit": "A tumble is a sudden, clumsy fall, a headlong drop to the ground."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "scratching"
     }
    }
@@ -615,42 +622,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TUTTI",
-     "indicators": [
-      {
-       "text": "set back",
-       "note": "a thing set back is moved backwards, so IT is written from its end to its start"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Show disapproval",
+       "at": 0,
+       "gives": "TUT",
+       "note": "tut is the clicking sound or word used to show disapproval"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set back",
+         "at": 21,
+         "note": "set back means put in reverse, so the two letters of 'it' are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Show disapproval",
-         "gives": "TUT",
-         "note": "tut is the click of disapproval"
-        },
-        {
          "words": "it",
-         "gives": "TI",
-         "note": "IT turned round"
+         "at": 18,
+         "gives": "IT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tuts at a performance where everybody played at once and it went badly.",
-     "walkthrough": "The colon suggests 'Show disapproval' is being defined by what follows; it is wordplay, and the definition is at the end.",
-     "definitionFit": "The Italian musical direction telling all performers to play together."
+     "surface": "Someone tuts at a disappointing result that has delayed the whole orchestra.",
+     "walkthrough": "'Show disapproval' looks like the definition but supplies the first piece. Tutti is a musical direction borrowed from Italian.",
+     "definitionFit": "Tutti is the musical instruction for all performers in an ensemble to sound together."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Show"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
     }
    }
   },
@@ -1380,42 +1387,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IMPRISON",
-     "indicators": [
-      {
-       "text": "wrong",
-       "note": "the letters are set out wrongly"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "mischievous child",
+       "at": 8,
+       "gives": "IMP",
+       "note": "an imp is a mischievous child"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 31,
+         "note": "wrong here means mixed up and not in the right order, so the letters of the word are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "mischievous child",
-         "gives": "IMP",
-         "note": "an imp is a mischievous child"
-        },
-        {
          "words": "irons",
-         "gives": "RISON",
-         "note": "anagram of IRONS"
+         "at": 37,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A naughty child is put in chains.",
-     "walkthrough": "Irons are also shackles, which fits the surface of locking someone up, but here the word is only anagram fodder.",
-     "definitionFit": "A plain synonym: to put someone in prison or confine them."
+     "surface": "A naughty youngster is locked in the wrong set of shackles.",
+     "walkthrough": "'wrong' rearranges IRONS to RISON; the irons in the surface sound like shackles but are just letters.",
+     "definitionFit": "To imprison someone is to put them in jail, shutting them away behind bars."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "irons"
+     "misdirectedWord": "wrong"
     }
    }
   }
