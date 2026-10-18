@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -220,41 +221,46 @@
      "indicators": [
       {
        "text": "stopped by",
-       "note": "To stop a gap is to plug it, so the letter named next is pushed into the middle of the word before."
+       "at": 22,
+       "note": "a hole stopped by a plug has the plug inside it, so the letter goes into the other word"
       }
      ],
      "parts": [
       {
        "words": "pussy",
+       "at": 16,
        "gives": "SEPTIC",
-       "note": "a wound gone pussy is full of pus, which is what septic means"
+       "note": "pussy in its literal sense is full of pus, and septic means infected with pus"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
          "text": "opening of",
-         "note": "The opening of a word is the letter it starts with, and that single letter is all that is taken."
+         "at": 33,
+         "note": "the opening of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "opening of catflap",
-         "gives": "C",
-         "select": "first",
-         "note": "the first letter of 'catflap'"
+         "words": "catflap",
+         "at": 44,
+         "note": "first letter of catflap"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat jammed in the entrance of its own catflap.",
-     "walkthrough": "'Pussy' is planted to be read as the cat the catflap belongs to, and the word it wants is the medical adjective about pus.",
-     "definitionFit": "A sceptic is somebody who questions what they are told instead of accepting it, so 'One questioning' names them by that habit."
+     "surface": "Someone eyes a cat blocked at the entrance of its little door with suspicion.",
+     "walkthrough": "'Pussy' looks like the cat of the surface but is read as pus-filled, an infected state. C from catflap goes inside SEPTIC.",
+     "definitionFit": "A sceptic doubts accepted claims, habitually asking whether they are true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pussy"
     }
    }
   },
@@ -327,42 +333,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIAISE",
-     "indicators": [
-      {
-       "text": "moved to top",
-       "note": "In a down entry the top is the first square, so the letter named is lifted out of where it sits and rewritten at the front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "line",
+       "at": 34,
+       "gives": "L"
+      },
+      {
+       "words": "newspaper",
+       "at": 8,
+       "gives": "I",
+       "note": "I is the British newspaper called the i"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "moved to top",
+         "at": 39,
+         "note": "the line letter is taken out of its place in the passage word and set at the very front instead"
+        }
+       ],
        "parts": [
         {
-         "words": "line",
-         "gives": "L",
-         "note": "l is the standard short form of line, as in a printed line of text"
-        },
-        {
-         "words": "newspaper",
-         "gives": "I",
-         "note": "the i is a British daily paper whose whole name is one letter"
-        },
-        {
          "words": "passage",
-         "gives": "AISE",
-         "note": "an aisle is the passage between rows of seats, and it hands its l away to the front"
+         "at": 19,
+         "gives": "AISLE",
+         "note": "an aisle is a passage between rows of seats"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An editor ringing a newspaper to have a line of copy moved to the top of a passage.",
-     "walkthrough": "The colon makes 'newspaper: passage' look like a paper and its column, when the two words are separate pieces of the build.",
-     "definitionFit": "To liaise is to be in contact: the officer who liaises keeps two groups talking, which is 'Contact' used as a verb."
+     "surface": "Someone gets in touch with a paper about an article whose line has been shifted to the top of the page.",
+     "walkthrough": "'Moved to top' works on the passage word: its L leaves the middle and goes in front of everything, ahead of the newspaper's I.",
+     "definitionFit": "To liaise is to communicate and cooperate with another party, a verb sense of contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
     }
    }
   },
@@ -497,47 +512,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KIDDERMINSTERCARPET",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Reform",
+       "at": 54,
+       "note": "to reform is to form again, so the letters are reshaped into a new order; the political party is a red herring"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Keir Starmer",
+       "at": 9
+      },
+      {
+       "words": "depict",
+       "at": 24
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "primarily lost",
-         "note": "What is lost is the primary letter, the one at the very front of the little word beside it, dropped before anything else happens."
+         "at": 36,
+         "note": "the primary, first, letter of end is lost, leaving its other two"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Reform",
-           "note": "Reform is re-forming: the letters are made up again into a different shape, and the party's name is doing that job in disguise."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Keir Starmer — depict",
-           "note": "anagram fodder, seventeen letters"
-          },
-          {
-           "words": "end, primarily lost",
-           "gives": "ND",
-           "note": "END gives up the letter at its front, and the two left join the fodder"
-          }
-         ]
+         "words": "end",
+         "at": 31
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Keir Starmer floored, his image undone as support drains away to Reform.",
-     "walkthrough": "Kidderminster is a Worcestershire town that ran the British carpet trade, so its name became a kind of carpet; 'Reform' reads as the party and is the shuffle.",
-     "definitionFit": "A Kidderminster carpet is a flat reversible weave with no pile, and a carpet is flooring — the definition names the class it belongs to."
+     "surface": "A political jibe: the Labour leader is floored as depictions of his decline go to the party Reform UK.",
+     "walkthrough": "Reform UK is a British political party, so 'Reform' poses as a noun; it is the rearranging instruction. END minus E is ND, and KEIR STARMER plus DEPICT plus ND rearranged gives the two-word carpet.",
+     "definitionFit": "Kidderminster carpet is a reversible woven floor covering named after the English town famous for making carpets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reform"
     }
    }
   },
@@ -979,47 +1001,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BIGCHEESE",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "Turning about is facing the other way, so the word in front of it is written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Older",
+       "at": 0,
+       "gives": "BIG",
+       "note": "a big brother or sister is an older one"
+      },
+      {
+       "words": "children",
+       "at": 6,
+       "gives": "CH"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 21,
+         "note": "about means turned round, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Older",
-         "gives": "BIG",
-         "note": "your big brother is your older one"
-        },
-        {
-         "words": "children",
-         "gives": "CH",
-         "note": "ch is the standard short form for children"
-        },
-        {
          "words": "learn",
-         "gives": "EES",
-         "note": "to see a thing is to learn it — 'I see' — and here those letters are turned round"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "e for English, as on a language label"
+         "at": 15,
+         "gives": "SEE",
+         "note": "to see is to learn or come to understand"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 27,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Older children learning about an English name.",
-     "walkthrough": "'Older children learn' reads as one classroom scene and every word of it is a separate piece; the definition is the single word left at the end.",
-     "definitionFit": "A big cheese is the important person in an organisation — a big name — so 'name' works in the sense of somebody who matters."
+     "surface": "Older kids pick up something concerning the name of something English.",
+     "walkthrough": "'About' looks like 'concerning' but tells you to turn the word for learn round, giving EES before the E.",
+     "definitionFit": "A big name is an important person, and big cheese is a slang idiom for such a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
     }
    }
   },
@@ -1324,41 +1352,45 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "What stands outside goes round the outside of what follows, one word closing over the letter named next."
+       "at": 27,
+       "note": "the souvenirs word sits outside, enclosing the letter"
       }
      ],
      "parts": [
       {
        "words": "souvenirs",
+       "at": 17,
        "gives": "REMINDERS",
-       "note": "a souvenir is a keepsake, something that reminds you of a place"
+       "note": "souvenirs are reminders of a trip"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "front of",
-         "note": "The front of a word is the letter it starts with, and only that letter is taken from it."
+         "at": 35,
+         "note": "the front of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "front of airport",
-         "gives": "A",
-         "select": "first",
-         "note": "the first letter of 'airport'"
+         "words": "airport",
+         "at": 44,
+         "note": "first letter of airport"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Souvenirs on sale just outside the front of an airport terminal.",
-     "walkthrough": "'Books and souvenirs' reads as one gift-shop window, and the definition stops after the second word.",
-     "definitionFit": "Remainders are the unsold copies a publisher clears cheaply on the trade, so 'Unsold books' is the bookseller's own term for them."
+     "surface": "Leftover books and trinkets are piled up outside the entrance of an airport shop.",
+     "walkthrough": "A from the front of airport goes inside REMINDERS.",
+     "definitionFit": "Remainders are the copies of a book left unsold and sold off cheaply by the publisher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "souvenirs"
     }
    }
   },
@@ -1464,72 +1496,80 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRIPODS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 35,
+       "note": "this piece comes after the letter from one-night"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
-         "text": "gripped by",
-         "note": "To be gripped by something is to be held tight inside it, so the piece named first goes within the word that follows."
-        },
-        {
          "text": "last of",
-         "note": "The last of a word is the letter it ends on, and that one letter is all that is taken."
+         "at": 41,
+         "note": "the last of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "T",
+         "words": "one-night",
+         "at": 49,
+         "note": "last letter of one-night"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gripped by",
+         "at": 7,
+         "note": "the school is gripped, so it sits inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "retiring",
-           "note": "A teacher retiring is on the way out, and those letters go out the way they came in: written back to front."
+           "at": 26,
+           "note": "retiring means drawing back, so the word is read backwards"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "last of one-night",
-           "gives": "T",
-           "select": "last",
-           "note": "the final letter of 'one-night'"
+           "words": "teacher",
+           "at": 18,
+           "gives": "SIR",
+           "note": "sir is how pupils address a male teacher"
           }
          ]
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "after",
-           "note": "'After' puts what precedes it second, so the assembled piece follows the letter named at the end of the clue."
-          }
-         ],
-         "parts": [
-          {
-           "words": "teacher retiring",
-           "gives": "RIS",
-           "note": "sir is what a class calls its teacher, here written backwards"
-          },
-          {
-           "words": "School",
-           "gives": "POD",
-           "note": "a school of whales goes by another name, and it is three letters long"
-          }
-         ]
+         "words": "School",
+         "at": 0,
+         "gives": "POD",
+         "note": "a pod is a school of whales or dolphins"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher near retirement, caught up in gossip about a run of one-night stands.",
-     "walkthrough": "'School' and 'teacher' pull in the same direction, which is what hides the whales, and 'stands' at the end is the definition rather than part of the phrase before it.",
-     "definitionFit": "A tripod is the three-legged stand that holds a camera or a telescope steady, so 'stands' names them by the job they do."
+     "surface": "A school is held by a teacher who retires after a run of one-night shows.",
+     "walkthrough": "'One-night stands' looks like a single phrase, but 'stands' alone is the definition; the school is a group of whales, and sir is how British pupils address a teacher.",
+     "definitionFit": "Tripods are three-legged stands used to support cameras or telescopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "School"
     }
    }
   }

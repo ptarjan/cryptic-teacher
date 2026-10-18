@@ -154,33 +154,31 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "MOWER",
      "indicators": [
       {
        "text": "heads of",
-       "note": "the head of each word is its front, so take the first letters"
+       "at": 21,
+       "note": "the heads of a string of words are their opening letters, read in order"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "heads of mafia outfit will eagerly rob",
-       "gives": "MOWER",
-       "select": "first",
-       "note": "first letters of Mafia Outfit Will Eagerly Rob"
+       "words": "mafia outfit will eagerly rob",
+       "at": 30,
+       "note": "the first letters of mafia, outfit, will, eagerly and rob"
       }
      ]
     },
     "explanation": {
-     "surface": "A mafia gang lines up a raid on a harvest.",
-     "walkthrough": "The definition reads oddly because it is compressed: 'one in on grass crop' means a person or machine taking part in cutting grass short.",
-     "definitionFit": "A definition by function: crop here is the verb 'cut short', and the thing that cuts a lawn short is this machine or its operator."
+     "surface": "Someone involved in a grass operation sees mobsters ready to rob them.",
+     "walkthrough": "The surface plays on 'grass' as an informer and 'one in on' as an accomplice; read literally, the definition is someone engaged in cropping grass.",
+     "definitionFit": "A mower is the person or machine that cuts a lawn, so it is engaged in cropping grass."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "crop"
+     "joke": "pun",
+     "misdirectedWord": "grass"
     }
    }
   },
@@ -428,37 +426,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONTRALTO",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "letters that are out are out of place, so rearrange them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Criminal",
+       "at": 0,
+       "gives": "CON",
+       "note": "a con is a convict, a criminal"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 17,
+         "note": "out here means wrong or disordered, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Criminal",
-         "gives": "CON",
-         "note": "a con is a convict"
-        },
-        {
          "words": "lot rat",
-         "gives": "TRALTO",
-         "note": "LOT RAT rearranged"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A convict informs on the whole gang, grassing like a canary.",
-     "walkthrough": "'Sing' is also slang for informing, which ties the definition to the criminal surface, but here it means real singing.",
-     "definitionFit": "A definition by category: this voice type is the lowest female singing voice, so its owner is one known to sing."
+     "surface": "A crook informs on a disloyal associate, someone known for squealing to the police.",
+     "walkthrough": "'Sing' looks like the underworld slang for informing; it is the plain musical sense. 'Criminal' also looks like an adjective for the rat, but it is a noun giving the first piece.",
+     "definitionFit": "A contralto is a female singer with the lowest voice range, so she is famous for singing."
     },
     "features": {
      "answerInScene": false,
@@ -1129,58 +1126,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AMERICA",
-     "indicators": [
-      {
-       "text": "whipped",
-       "note": "whipped cream has been beaten, so its letters are knocked about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covered in",
+         "at": 4,
+         "note": "the first piece is covered in the second, so it sits inside it"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "covered in",
-           "note": "a thing covered in cream is wrapped by it, so the one sits inside"
+           "text": "whipped",
+           "at": 15,
+           "note": "whipped cream is beaten and mixed up, so its letters are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "whipped cream",
-           "gives": "AMERC",
-           "note": "CREAM rearranged"
-          },
-          {
-           "words": "One",
-           "gives": "I",
-           "note": "I = one, the Roman numeral"
+           "words": "cream",
+           "at": 23
           }
          ]
         },
         {
-         "words": "adult",
-         "gives": "A",
-         "note": "A = adult, the old film certificate"
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "the Roman numeral for one is I"
         }
        ]
+      },
+      {
+       "words": "adult",
+       "at": 34,
+       "gives": "A",
+       "note": "A is the old film-certificate abbreviation for adult"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone smothered in whipped cream gets a grown-up into a right state.",
-     "walkthrough": "'In a state' looks like 'flustered'; only 'a state' is the definition, with 'in' joining it on.",
-     "definitionFit": "A definition by category: state here means a nation, and this is one."
+     "surface": "Someone smothered in whipped cream, joined by a grown-up, ends up in a mess.",
+     "walkthrough": "'Whipped' rearranges CREAM to AMERC, around I to make AMERIC, then the A for adult. 'In a state' looks like 'flustered'; the definition is just 'a state'.",
+     "definitionFit": "America, as in the United States of America, is a sovereign country, which is one sense of state."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "state"
     }
    }
@@ -1505,44 +1502,52 @@
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "loads",
+         "at": 4,
+         "note": "a gun is loaded by putting something into it, so the firearm word takes the other piece inside"
+        }
+       ],
        "parts": [
         {
          "words": "firearm",
+         "at": 10,
          "gives": "GUN",
-         "note": "a gun"
+         "note": "a gun is a firearm"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "loads",
-           "note": "a gun is loaded by putting something inside it, so the ace goes in"
-          },
-          {
-           "text": "primarily",
-           "note": "primarily means in the first place, so take the first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Ace",
-           "note": "A = ace in cards, put inside"
-          }
-         ]
+         "words": "Ace",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the abbreviation for ace in a deck of cards"
         }
        ]
       },
       {
-       "words": "primarily overseeing",
-       "gives": "O",
-       "note": "first letter of Overseeing"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 19,
+         "note": "primarily means first of all, so only the first letter of the next word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overseeing",
+         "at": 29,
+         "gives": "O",
+         "note": "the first letter of overseeing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crack shot readies a rifle while supervising the release of a captive animal.",
-     "walkthrough": "'Animal release' looks like freeing a creature, but it is what birds and bats release: droppings.",
-     "definitionFit": "A cryptic description: droppings of seabirds and bats are something those animals release."
+     "surface": "A crack shot loads a gun before supervising the release of an animal into the wild.",
+     "walkthrough": "'Animal release' looks like freeing a creature; it is what animals release, droppings.",
+     "definitionFit": "Guano is the excrement of seabirds or bats, a substance animals discharge and used as fertiliser."
     },
     "features": {
      "answerInScene": false,
