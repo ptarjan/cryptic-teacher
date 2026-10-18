@@ -146,25 +146,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EATIN",
      "indicators": [
       {
        "text": "unlimited",
-       "note": "unlimited means without its limits, so the first and last letters are taken off"
+       "at": 31,
+       "note": "unlimited means without its limits, the first and last letters"
       }
      ],
      "parts": [
       {
        "words": "seating",
-       "note": "the word taken as written before trimming"
+       "at": 41,
+       "note": "taken as written before its ends go"
+      },
+      {
+       "gives": "SG",
+       "note": "the outer letters of seating, removed"
       }
      ]
     },
     "explanation": {
-     "surface": "Is endless seating a reason to stay away from restaurants?",
-     "walkthrough": "The definition is loose, flagged by 'perhaps' and '?': to eat in is to have a meal at home, one way of avoiding restaurants.",
-     "definitionFit": "Eating in means having your meal at home rather than going out, so it is one way to skip dining out."
+     "surface": "A diner with unlimited seating might seem the answer to dodging restaurants.",
+     "walkthrough": "SEATING loses its outer letters. The definition is a verb phrase: to stay home and dine rather than go out.",
+     "definitionFit": "To eat in is to have a meal at home instead of going out, so it shuns dining out."
     },
     "features": {
      "answerInScene": true,
@@ -1226,48 +1230,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTERISK",
-     "indicators": [
-      {
-       "text": "losing heart",
-       "note": "losing its heart means the central letter of the next word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 26,
+         "note": "terrible means awful, so the remaining letters are jumbled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "terrible",
-           "note": "terrible suggests something badly messed up, so the letters left are jumbled"
+           "text": "losing heart",
+           "at": 6,
+           "note": "losing its heart means the middle letter goes"
           }
          ],
          "parts": [
           {
            "words": "takes",
-           "gives": "TAES",
-           "note": "the five-letter word without its middle letter"
+           "at": 20,
+           "note": "taken as written before its middle goes"
+          },
+          {
+           "gives": "K",
+           "note": "the middle letter of takes"
           }
          ]
-        },
-        {
-         "words": "chance",
-         "gives": "RISK",
-         "note": "a risk is a chance taken"
         }
        ]
+      },
+      {
+       "words": "chance",
+       "at": 35,
+       "gives": "RISK",
+       "note": "a risk is a chance"
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity, losing courage, gambles badly.",
-     "walkthrough": "'Star, losing heart' looks like one unit, but the comma ends the definition: it is 'takes' that loses its heart.",
-     "definitionFit": "An asterisk is the small star-shaped symbol used in printing, so a star in typographical terms."
+     "surface": "A celebrity, losing courage, takes an awful gamble.",
+     "walkthrough": "TAKES 'losing heart' leaves TAES, made 'terrible' as ASTE, then RISK. 'Star' looks like the celebrity, but it is the printed symbol.",
+     "definitionFit": "An asterisk is the small star-shaped symbol used in printing."
     },
     "features": {
      "answerInScene": false,

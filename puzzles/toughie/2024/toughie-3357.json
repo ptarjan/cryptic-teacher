@@ -237,41 +237,47 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ALARMIST",
-     "indicators": [
-      {
-       "text": "found in",
-       "note": "something found in a place is sitting inside it, so the weapon goes within the catalogue"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "catalogue",
-       "gives": "LIST",
-       "note": "a catalogue is a list"
-      },
-      {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "weapon",
-       "gives": "ARM",
-       "note": "an arm is a weapon"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "at": 9,
+         "note": "found in means the weapon is placed inside the catalogue word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "catalogue",
+         "at": 18,
+         "gives": "LIST",
+         "note": "a list is a catalogue"
+        },
+        {
+         "words": "weapon",
+         "at": 2,
+         "gives": "ARM",
+         "note": "an arm is a weapon, as in firearms"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A weapon turns up in a sales catalogue being sent to someone called Cassandra.",
-     "walkthrough": "A and the weapon join, then sit inside the catalogue word between its first letter and the rest.",
-     "definitionFit": "Cassandra, the Trojan prophetess of doom, is the type of a person who forever warns of disaster."
+     "surface": "A weapon turns up in a shopping catalogue, which a doom-monger might find ominous.",
+     "walkthrough": "A, then ARM 'found in' LIST. Cassandra, in Greek myth, foretold disaster and was never believed, so 'say' marks her as an example.",
+     "definitionFit": "Cassandra's name is now used for anyone who keeps predicting calamity, a classic scaremonger."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Cassandra"
+     "misdirectedWord": "catalogue"
     }
    }
   },

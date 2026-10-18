@@ -400,7 +400,7 @@
         {
          "text": "poor",
          "at": 8,
-         "note": "a poor clue needs reworking, so its letters are rearranged"
+         "note": "poor means badly made, so these letters are rearranged"
         }
        ],
        "parts": [
@@ -412,22 +412,22 @@
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "revised",
-         "at": 29,
-         "note": "an edit that is revised is redone, so these letters are rearranged"
+         "text": "in",
+         "at": 26,
+         "note": "in means the single letter goes inside the reworked word"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "at": 26,
-           "note": "the answer letter goes into the word edit before it is rearranged"
+           "text": "revised",
+           "at": 29,
+           "note": "revised means altered, so these letters are rearranged too"
           }
          ],
          "parts": [
@@ -435,26 +435,27 @@
            "words": "edit",
            "at": 37,
            "note": "taken as written"
-          },
-          {
-           "words": "answer",
-           "at": 19,
-           "gives": "A"
           }
          ]
+        },
+        {
+         "words": "answer",
+         "at": 19,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setter is told to justify a weak clue with its answer placed in a reworked version.",
-     "definitionFit": "To elucidate is to make clear or throw light on something, which is to explain it."
+     "surface": "An editor's note: this clue is weak, so put the solution into the redrafted version and spell it out.",
+     "walkthrough": "'poor' CLUE gives ELUC; 'revised' EDIT gives IDTE, with A put 'in' to make IDATE.",
+     "definitionFit": "To elucidate is to make something clear by explaining it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "answer"
+     "misdirectedWord": "clue"
     }
    }
   },
@@ -743,49 +744,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "wacky",
-       "at": 10,
-       "note": "a wacky arrangement is a crazy one, so these letters are jumbled"
+       "text": "accepting",
+       "at": 26,
+       "note": "accepting means taking in, so the other letter goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "accepting",
-         "at": 26,
-         "note": "the words take the Oscar letter in among them"
+         "text": "wacky",
+         "at": 10,
+         "note": "wacky means crazy, so these letters go haywire into a new order"
         }
        ],
        "parts": [
         {
          "words": "art genre",
          "at": 16,
-         "note": "taken as written"
-        },
-        {
-         "words": "Oscar",
-         "at": 36,
-         "gives": "O",
-         "note": "Oscar is O in the NATO phonetic alphabet"
+         "note": "the fodder, taken as written"
         }
        ]
+      },
+      {
+       "words": "Oscar",
+       "at": 36,
+       "gives": "O",
+       "note": "Oscar is the radio code word for the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A lively artist working in an offbeat style collects an Oscar.",
-     "walkthrough": "Dynamo looks like an energetic person, but it is the machine; Oscar is the radio code word for O.",
-     "definitionFit": "A dynamo is a machine that produces electricity, a kind of generator."
+     "surface": "A quirky art movement wins an Academy Award, and its leading figure is a powerhouse.",
+     "walkthrough": "ART GENRE goes 'wacky', giving GENERATR, and 'accepting' O puts it inside. 'Dynamo' suggests an energetic person, but here it is the machine.",
+     "definitionFit": "A dynamo is a machine that turns mechanical motion into electricity, an electrical generator."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Dynamo"
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
     }
    }
   },
@@ -1025,36 +1026,49 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "carrying",
-       "at": 15,
-       "note": "in this down clue the Scotsman bears the box on top of him, so it comes first"
-      }
-     ],
      "parts": [
       {
-       "words": "Large",
-       "at": 0,
-       "gives": "L"
-      },
-      {
-       "words": "a",
-       "at": 24,
-       "gives": "A",
-       "note": "taken as written"
-      },
-      {
-       "words": "box",
-       "at": 26,
-       "gives": "TV",
-       "note": "box is British slang for television"
-      },
-      {
-       "words": "Scotsman",
-       "at": 6,
-       "gives": "IAN",
-       "note": "Ian is a typically Scottish first name"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 15,
+         "note": "carrying means holding, so the large Scotsman holds the other pieces inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Large",
+           "at": 0,
+           "gives": "L"
+          },
+          {
+           "words": "Scotsman",
+           "at": 6,
+           "gives": "IAN",
+           "note": "Ian is the usual crossword Scotsman, a common Scottish name"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 24
+          },
+          {
+           "words": "box",
+           "at": 26,
+           "gives": "TV",
+           "note": "the box is slang for television, TV"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "south",
@@ -1064,9 +1078,9 @@
      ]
     },
     "explanation": {
-     "surface": "A big Scot hauls a box down south, bound for Europe.",
-     "walkthrough": "The box is the television, British slang for a TV set; Ian stands for any Scotsman.",
-     "definitionFit": "Latvians are people from Latvia, a Baltic state, so they are Europeans."
+     "surface": "A big Scot lugs a box down south, for some people from the Continent.",
+     "walkthrough": "'Large' and 'Scotsman' together make the holder, split around what is carried. 'box' is British slang for the television, and Ian is the stock crossword Scot.",
+     "definitionFit": "Latvians are the people of Latvia, a Baltic state, so they are Europeans."
     },
     "features": {
      "answerInScene": false,

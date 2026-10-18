@@ -1462,32 +1462,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SKIER",
-     "indicators": [
-      {
-       "text": "Stomach-turning",
-       "note": "the stomach is the middle, so the inner pair of letters are turned round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Sun",
+       "at": 0,
        "gives": "S",
-       "note": "S is the abbreviation for sun"
+       "note": "S is the abbreviation for Sun, as in Sunday or the sun on a chart"
       },
       {
-       "words": "Starmer",
-       "gives": "KEIR",
-       "note": "the first name of UK prime minister Keir Starmer"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Stomach-turning",
+         "at": 6,
+         "note": "the stomach is the middle of the body, so the middle pair of letters is turned around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Starmer",
+         "at": 22,
+         "gives": "KEIR",
+         "note": "Keir Starmer is the UK Labour leader, so his first name is used"
+        },
+        {
+         "gives": "EI",
+         "note": "the middle pair of the name, before turning"
+        },
+        {
+         "gives": "IE",
+         "note": "the same pair, turned around"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid headline sneering that the prime minister is in decline.",
-     "walkthrough": "The Sun is a British tabloid newspaper, so it looks like a headline.",
-     "definitionFit": "Someone sliding down a slope on skis is literally travelling downhill."
+     "surface": "A tabloid headline calls the Prime Minister nauseating and claims the PM is on the slide.",
+     "walkthrough": "S, then KEIR with its 'stomach', the middle EI, 'turning' to IE. 'Sun' looks like the tabloid newspaper, but it gives S.",
+     "definitionFit": "A skier is someone who slides down snowy slopes on skis, literally travelling downhill."
     },
     "features": {
      "answerInScene": false,
@@ -1624,32 +1638,31 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "LAD",
      "indicators": [
       {
        "text": "central part in",
-       "note": "the central part is the middle, so only the inner letters are kept"
+       "at": 15,
+       "note": "the central part of a word is all but its first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "70s glam rock band",
-       "gives": "LAD",
-       "select": "middle",
-       "note": "the middle three letters of Slade, the 1970s glam rock band"
+       "at": 31,
+       "gives": "SLADE",
+       "note": "Slade were a British glam rock band of the 1970s, famous for Merry Xmas Everybody"
       }
      ]
     },
     "explanation": {
-     "surface": "A youngster with a key role in a 1970s glam rock group.",
-     "definitionFit": "A boy or youth is informally called this, a synonym for young man."
+     "surface": "A young man joins the middle of a seventies glam rock group.",
+     "walkthrough": "Slade were a hugely popular British glam rock band; its 'central part' drops the S and E.",
+     "definitionFit": "A lad is a boy or young man."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "part"
+     "misdirectedWord": "central"
     }
    }
   },

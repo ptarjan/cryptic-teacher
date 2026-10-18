@@ -246,31 +246,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LATTE",
      "indicators": [
       {
        "text": "extremely deficient",
-       "note": "deficient at the extremes means lacking both its end letters"
+       "at": 23,
+       "note": "deficient at its extremes: the word is lacking its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "less carbonated",
+       "at": 6,
        "gives": "FLATTER",
-       "note": "a drink with fewer bubbles is flatter"
+       "note": "a drink that has lost its fizz is flat, and one with less fizz is flatter"
+      },
+      {
+       "gives": "FR",
+       "note": "the two end letters of flatter, the ones removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that a fizzy drink has gone flat and is very poor.",
-     "walkthrough": "FLATTER loses its first and last letters to leave LATTE.",
-     "definitionFit": "A latte is a coffee made with lots of steamed milk, a common café beverage."
+     "surface": "A review of a soft drink: flatter than expected and badly lacking.",
+     "walkthrough": "FLATTER is 'extremely deficient', missing both its outer letters.",
+     "definitionFit": "A latte is a coffee made with lots of steamed milk, a hot beverage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "deficient"
+     "misdirectedWord": "carbonated"
     }
    }
   },
@@ -543,41 +547,45 @@
      "indicators": [
       {
        "text": "having pinched",
-       "note": "to pinch is to grip tightly, so the first word holds the next ones inside it"
+       "at": 7,
+       "note": "having pinched means holding the stolen items inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Cleric",
-         "gives": "PRIEST",
-         "note": "a priest is a cleric"
-        },
-        {
-         "words": "smalls",
-         "gives": "SS",
-         "note": "read as small plus small, each abbreviated S"
-        }
-       ]
+       "words": "Cleric",
+       "at": 0,
+       "gives": "PRIEST",
+       "note": "a priest is a cleric"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral for one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "smalls",
+         "at": 22,
+         "gives": "SS",
+         "note": "S is the abbreviation for small, so smalls gives two of them"
+        },
+        {
+         "words": "one",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A churchman caught stealing underwear, called smalls in Britain, is the most strait-laced of men.",
-     "walkthrough": "Smalls is British slang for underwear, but here it is read as two smalls, each abbreviated in the usual way.",
-     "definitionFit": "Prissy means fussily prim and correct, so its superlative describes someone excessively proper."
+     "surface": "A clergyman has nicked some underwear, which is hardly the most respectable conduct.",
+     "walkthrough": "'smalls' is British slang for underwear, but here it gives two S's for small; PRIEST is 'having pinched' them with I.",
+     "definitionFit": "Prissiest means most fussily prim and correct, the superlative of prissy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "smalls"
     }
    }
