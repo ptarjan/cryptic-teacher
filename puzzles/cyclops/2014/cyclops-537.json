@@ -991,53 +991,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCHEMERS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "to go",
+       "at": 28,
+       "note": "the letter for 'about' is to go, so it is removed from the pool before the letters are rearranged"
+      },
+      {
        "text": "bust",
-       "note": "something bust is broken, so the letters are rebuilt in another order"
+       "at": 34,
+       "note": "something gone bust is broken, so the remaining letters are smashed up and reassembled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCHEMERS",
-       "indicators": [
-        {
-         "text": "to go",
-         "note": "something told to go leaves, so that letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "screech",
-         "note": "taken as written"
-        },
-        {
-         "words": "about",
-         "gives": "C",
-         "note": "c is short for circa, about; one C leaves"
+         "at": 9
         },
         {
          "words": "M&S",
-         "note": "taken as written: Marks and Spencer, the British high-street chain"
+         "at": 18,
+         "gives": "MS",
+         "note": "M&S is the usual short name of Marks & Spencer, the British high-street store"
         }
        ]
+      },
+      {
+       "words": "about",
+       "at": 22,
+       "gives": "C",
+       "note": "C stands for circa, Latin for about, as in c. 1900"
       }
      ]
     },
     "explanation": {
-     "surface": "Business planners shriek that Marks and Spencer is about to go bankrupt.",
-     "walkthrough": "'About to go bust' reads as a headline, but it is three signals: 'about' is C, 'to go' removes it, 'bust' rearranges what is left.",
-     "definitionFit": "Schemers are people who make plans, especially crafty or secret ones, so they are planners with a sly edge."
+     "surface": "A shriek of alarm at the news that Marks & Spencer is about to collapse into bankruptcy.",
+     "walkthrough": "Pool SCREECH with MS, take out C ('about', which is 'to go'), and rearrange the rest for the answer. M&S is Marks & Spencer, a British department-store chain.",
+     "definitionFit": "Schemers are people who plot and devise designs, so they are planners, often with a hint of cunning."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "bust"
     }
    }
   },
@@ -1613,64 +1612,73 @@
    "annotation": {
     "definitions": [
      {
-      "text": "off-topic",
-      "at": 56
+      "text": "it's off-topic",
+      "at": 51
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IRRELEVANT",
+     "op": "container",
      "indicators": [
       {
-       "text": "head off",
-       "note": "with the head taken off, the first letter is gone"
+       "text": "evident in",
+       "at": 11,
+       "note": "the resistance letter is evident, showing up within the rearranged letters that follow"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "evident in",
-         "note": "being evident within something means showing up inside it"
+         "text": "dire",
+         "at": 22,
+         "note": "dire means dreadful, so the letters that follow come out in a terrible jumble"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "dire",
-           "note": "dire means dreadful, so the letters are left in a dreadful jumble"
+           "text": "head off",
+           "at": 41,
+           "note": "Blair has his head off, losing the first letter of his name"
           }
          ],
          "parts": [
           {
-           "words": "Blair event",
-           "gives": "LAIREVENT",
-           "note": "the two words with the first letter of the surname removed"
+           "words": "Blair",
+           "at": 27,
+           "note": "Tony Blair, former British Prime Minister"
+          },
+          {
+           "gives": "B"
           }
          ]
         },
         {
-         "words": "Resistance",
-         "gives": "R",
-         "note": "R is the symbol for electrical resistance"
+         "words": "event",
+         "at": 33
         }
        ]
+      },
+      {
+       "words": "Resistance",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the symbol for electrical resistance"
       }
      ]
     },
     "explanation": {
-     "surface": "Opposition is plain at some disastrous Tony Blair occasion, and someone storms off.",
-     "walkthrough": "'Head off' sounds like leaving, but it removes the first letter of Blair before the rearrangement. Resistance is R in physics.",
-     "definitionFit": "Something irrelevant has no bearing on the matter being discussed, so it strays from the subject in hand."
+     "surface": "A satirical jibe that some dreadful Tony Blair occasion is beside the point.",
+     "walkthrough": "Blair with 'head off' gives LAIR; with EVENT, 'dire' rearranges them as IRELEVANT, and R (resistance) is 'evident in' that. Tony Blair was a British Labour Prime Minister.",
+     "definitionFit": "Something irrelevant has no bearing on the matter being discussed, so it is off-topic."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "dire"
     }
    }
   },
