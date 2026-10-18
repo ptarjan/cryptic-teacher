@@ -964,46 +964,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALSATIAN",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "mutilated",
+       "at": 11,
+       "note": "something mutilated is badly disfigured, so the letters are rearranged"
+      },
+      {
+       "text": "escaped",
+       "at": 46,
+       "note": "the letter for a second gets away, leaving the rest to be rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALSATIAN",
-       "indicators": [
-        {
-         "text": "mutilated",
-         "note": "the letters are mangled into a new order"
-        },
-        {
-         "text": "escaped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "assailant",
-         "note": "anagram fodder, 9 letters"
-        },
-        {
-         "words": "a second's",
-         "gives": "S",
-         "note": "S = second; one of the two S's is removed"
-        }
-       ]
+       "words": "assailant",
+       "at": 21
+      },
+      {
+       "words": "a second's",
+       "at": 35,
+       "gives": "S",
+       "note": "S is an abbreviation for second"
       }
      ]
     },
     "explanation": {
-     "surface": "A police dog savages an attacker, but a moment later he gets away.",
-     "walkthrough": "The surface's 'a second' sounds like time; it is the letter S, and only one of ASSAILANT's two goes.",
-     "definitionFit": "Alsatian is the British name for the German shepherd, a common police dog."
+     "surface": "A police dog mauls an attacker, but a second attacker gets away.",
+     "walkthrough": "ASSAILANT without one S leaves ASAILANT, whose letters rearrange into the answer.",
+     "definitionFit": "The Alsatian, or German shepherd, is the breed most often used by police forces."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "second"
+     "misdirectedWord": "second's"
     }
    }
   },
@@ -1176,7 +1171,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "rising"
+       "text": "in support of",
+       "at": 16,
+       "note": "in a down clue the call word sits below the other, supporting it"
       }
      ],
      "parts": [
@@ -1184,12 +1181,15 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "in support of"
+         "text": "rising",
+         "at": 48,
+         "note": "in a down clue, rising means the word is read from the bottom upwards"
         }
        ],
        "parts": [
         {
          "words": "Indian government",
+         "at": 30,
          "gives": "RAJ",
          "note": "the Raj was British rule in India"
         }
@@ -1197,20 +1197,21 @@
       },
       {
        "words": "call",
+       "at": 11,
        "gives": "RING",
-       "note": "to ring is to call on the phone"
+       "note": "to ring someone is to call them on the phone"
       }
      ]
     },
     "explanation": {
-     "surface": "An unsettling call to back India's government as it rises.",
-     "walkthrough": "In a down entry, \"in support of\" means underneath, and \"rising\" means read upwards.",
-     "definitionFit": "A plain synonym: a jolting, grating effect unsettles, like a harsh noise."
+     "surface": "A phone call backs up a resurgent Indian government.",
+     "walkthrough": "RAJ read upwards is JAR, with RING beneath it.",
+     "definitionFit": "Something jarring is harsh or unsettling, so it is disturbing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "support"
+     "misdirectedWord": "call"
     }
    }
   },
@@ -1523,62 +1524,49 @@
      "indicators": [
       {
        "text": "during",
-       "note": "what happens during a period sits within it"
+       "at": 39,
+       "note": "the shortened record goes inside the period word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "term",
-         "gives": "SPAN",
-         "note": "a span is a term, a period of time"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "topped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "record",
-           "gives": "ELPEE",
-           "note": "LP spelt out as a word"
-          },
-          {
-           "gives": "EL"
-          }
-         ]
-        }
-       ]
+       "words": "term",
+       "at": 46,
+       "gives": "SPAN",
+       "note": "a span is a term or period of time"
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "topped",
+         "at": 25,
+         "note": "topped means having its head cut off, so the first letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "topped",
-         "gives": "LPEE",
-         "note": "first letter removed"
+         "words": "record",
+         "at": 32,
+         "gives": "ELPEE",
+         "note": "an elpee is LP spelt out, a long-playing record"
         },
         {
-         "gives": "PEE"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Trinity student rascal has broken a record during the term.",
-     "walkthrough": "Trinity College is in Dublin, pointing to an Irish word. ELPEE is the dictionary spelling of LP.",
-     "definitionFit": "Spalpeen is an Irish word for a rascal or good-for-nothing."
+     "surface": "A student rascal at Trinity College has broken a record during term.",
+     "walkthrough": "Trinity College is in Dublin, which flags an Irish word. The record is LP written out as a word, and a span of time is a term.",
+     "definitionFit": "Spalpeen is an Irish word for a rascal or good-for-nothing, so it suits a Dublin student."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "term"
+     "misdirectedWord": "topped"
     }
    }
   },

@@ -719,49 +719,55 @@
      "indicators": [
       {
        "text": "over",
-       "note": "a wound heals over, closing up around what lies inside"
+       "at": 10,
+       "note": "the healing word lies over the others, covering them on both sides"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Put right",
+       "at": 0,
+       "gives": "HEAL",
+       "note": "to heal is to put right or cure"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 25,
+         "note": "about means turned round, so the quote and run letters are read in reverse order"
+        }
+       ],
        "parts": [
         {
-         "words": "Put right",
-         "gives": "HEAL",
-         "note": "to heal is to make right again"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about here means turned round, so the pair is read backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "quote",
+           "at": 15,
            "gives": "CITE",
            "note": "to cite is to quote"
+          },
+          {
+           "words": "run",
+           "at": 21,
+           "gives": "R",
+           "note": "R is the cricket abbreviation for run"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "run",
-       "gives": "R",
-       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "A correction is issued to a quote about a rebel.",
-     "definitionFit": "Heretical means holding views contrary to accepted doctrine, which is what a dissident does."
+     "surface": "A dissident tries to set the record straight after being quoted, then flees.",
+     "walkthrough": "'Put right' looks like an instruction, but it is the verb meaning cure; 'about' acts on the two pieces before it together.",
+     "definitionFit": "Heretical describes someone holding views contrary to accepted doctrine, the stance of a dissenter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "run"
     }
@@ -1249,39 +1255,43 @@
      "indicators": [
       {
        "text": "barring",
-       "note": "a bar blocks a way, so these letters are set as a barrier inside the word"
+       "at": 4,
+       "note": "the pub word acts as a barrier around the letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Pub",
-         "gives": "INN",
-         "note": "an inn is a pub"
-        },
-        {
-         "words": "loud",
-         "gives": "F",
-         "note": "F is forte, the musical sign for loud"
-        }
-       ]
+       "words": "Pub",
+       "at": 0,
+       "gives": "INN",
+       "note": "an inn is a pub"
       },
       {
-       "words": "unionist",
-       "gives": "U",
-       "note": "U is the abbreviation for Unionist"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "loud",
+         "at": 12,
+         "gives": "F",
+         "note": "F is forte, the musical direction for loud"
+        },
+        {
+         "words": "unionist",
+         "at": 17,
+         "gives": "U",
+         "note": "U is an abbreviation for Unionist, as in Northern Irish politics"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub refuses entry to a noisy Unionist, but only jokingly.",
-     "walkthrough": "Barring looks like 'banning' but works as blocking the middle of the word.",
-     "definitionFit": "Something done in fun is done jokingly, playfully, not meant seriously."
+     "surface": "A pub banning a noisy unionist, perhaps meant only as a joke.",
+     "walkthrough": "'barring' looks like keeping out, but here the pub holds the letters in.",
+     "definitionFit": "Saying something in fun means not meaning it seriously, as a joke."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "barring"
     }

@@ -785,35 +785,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "the row sits between the pub and the son"
+       "at": 12,
+       "note": "the quarrel word is placed between the pub word and the son word"
       }
      ],
      "parts": [
       {
-       "words": "boozer",
-       "gives": "BAR",
-       "note": "a boozer is a pub, or bar"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "boozer",
+         "at": 20,
+         "gives": "BAR",
+         "note": "a boozer is British slang for a pub, which has a bar"
+        },
+        {
+         "words": "son",
+         "at": 31,
+         "gives": "BOY",
+         "note": "a son is a boy"
+        }
+       ]
       },
       {
        "words": "Altercation",
+       "at": 0,
        "gives": "ROW",
-       "note": "a row is a quarrel"
-      },
-      {
-       "words": "son",
-       "gives": "BOY",
-       "note": "a son is a boy"
+       "note": "a row is a noisy quarrel"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub row between a drinker and a young man who likes to do deals.",
-     "walkthrough": "A barrow boy is a British street trader selling from a handcart; the question mark marks the pun on the barrow's wheels.",
-     "definitionFit": "A barrow boy deals goods from a wheeled barrow, so he is literally a wheeler-dealer."
+     "surface": "A fight breaks out between a man in the pub and his son, a shady trader perhaps.",
+     "walkthrough": "A barrow boy is a London street trader selling from a handcart; the question mark marks the pun on 'wheeler', since his barrow has wheels.",
+     "definitionFit": "A street trader pushing a wheeled cart is a small-time dealer, literally one who deals from wheels."
     },
     "features": {
      "answerInScene": true,
@@ -844,46 +853,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "destroyed",
-       "note": "IN CITY is broken up and reassembled"
+       "text": "stopping",
+       "at": 7,
+       "note": "the mother word stops up a gap, sitting inside the scrambled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "stopping",
-         "note": "the mother plugs the gap in the other letters"
+         "text": "destroyed",
+         "at": 24,
+         "note": "the city is destroyed, so the letters of 'in city' are broken up and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Mother",
-         "gives": "MA",
-         "note": "ma = mother"
-        },
-        {
-         "words": "in city destroyed",
-         "gives": "INTICY",
-         "note": "IN CITY rearranged"
+         "words": "in city",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "Mother",
+       "at": 0,
+       "gives": "MA",
+       "note": "ma is an informal word for mother"
       }
      ]
     },
     "explanation": {
-     "surface": "A mother has to stay put in a city that has been devastated.",
-     "walkthrough": "'In' looks like the container indicator but belongs to the anagram fodder; 'stopping' does the enclosing job.",
-     "definitionFit": "A plain synonym for the closeness between lovers or friends."
+     "surface": "A mother stays on in a ruined city, in a scene of wartime devastation.",
+     "walkthrough": "'destroyed' rearranges IN CITY into INTICY; MA goes inside to give INTI-MA-CY.",
+     "definitionFit": "Intimacy is closeness or familiarity between people, a close personal bond."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "destroyed"
     }
    }
   },
@@ -1268,44 +1279,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "regularly",
-       "note": "'regularly' means at regular intervals, so every other letter of LAND is taken"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "seized by",
-         "note": "the letters are grabbed and held inside the other piece"
+         "at": 21,
+         "note": "the picked letters are taken inside the shortened assembly word"
         }
        ],
        "parts": [
         {
-         "words": "parliament, but not last",
-         "gives": "DIE",
-         "note": "DIET, a parliament, without its T"
-        },
-        {
-         "op": "regular",
-         "unchecked": true,
-         "gives": "AD",
+         "op": "deletion",
          "indicators": [
           {
            "text": "but not last",
-           "note": "'but not last' says the last letter of the parliament word is left out"
+           "at": 43,
+           "note": "the assembly word loses its final letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "land regularly",
-           "gives": "AD",
-           "select": "regular",
-           "note": "the second and fourth letters of LAND"
+           "words": "parliament",
+           "at": 31,
+           "gives": "DIET",
+           "note": "a diet is a legislative assembly, as in Japan or historic Germany"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 11,
+           "note": "every other letter of land is used, here the second and fourth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "land",
+           "at": 6,
+           "note": "taken as written"
           }
          ]
         }
@@ -1313,15 +1332,15 @@
       },
       {
        "words": "month",
-       "gives": "M",
-       "note": "m = month"
+       "at": 56,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Crown lands are being taken over by parliament, though not last month.",
-     "walkthrough": "A diet is a legislative assembly, as in Japan or historically in Germany. 'Crown land' reads as one phrase; 'Crown' alone is the definition.",
-     "definitionFit": "A plain synonym: a diadem is the jewelled band worn by a monarch."
+     "surface": "A crown seizes land with the help of parliament, a constitutional row from the history books.",
+     "walkthrough": "'parliament' looks like Westminster, but a diet is the name for some national assemblies, such as Japan's.",
+     "definitionFit": "A diadem is a jewelled headband worn as a symbol of royalty, a kind of crown."
     },
     "features": {
      "answerInScene": true,
