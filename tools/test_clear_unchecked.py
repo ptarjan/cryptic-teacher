@@ -14,7 +14,7 @@ def check(name, want, got):
     fails += not ok
     print(("ok  " if ok else "FAIL"), name, "" if ok else f"want {want!r}, got {got!r}")
 
-first = {"op": "first", "unchecked": True, "gives": "M",
+first = {"op": "first", "unchecked": True, "gives": "M", "indicators": [{"text": "first of", "note": "first of means its opening letter"}],
          "parts": [{"words": "members", "at": 9}]}
 check("an unchecked step is seen", True, C.flagged({"op": "charade", "parts": [first, {"words": "x"}]}))
 check("a checked tree is not", False, C.flagged({"op": "charade", "parts": [{"words": "x", "gives": "X"}]}))
@@ -49,4 +49,17 @@ check("a leaf pre-scrambled from its words is not cleared", "failing",
       C.verdict({"op": "container", "unchecked": True, "parts": [{"words": "lice", "gives": "CILE"}, {"words": "about", "gives": "CA"}]}, "CICALE"))
 check("a failing clue is bucketed by reason", "eval: wrong string", C.bucket(first, "N")[1])
 check("a clearing clue has the cleared bucket", "cleared", C.bucket(first, "M")[1])
+# A tree that evaluates but that the validator's shape rules flag is not cleared
+# (FOURTHESTATE: the "framed by" indicator sits on the inner first, not the container).
+fourth = {"op": "container", "indicators": [{"text": "Leader of", "note": "the leader of a word is its first letter"}],
+          "parts": [{"words": "pro-government", "gives": "FORTHESTATE", "note": "for the state"},
+                    {"op": "first", "unchecked": True, "gives": "U",
+                     "indicators": [{"text": "framed by", "note": "the letter sits inside the phrase like a picture in a frame"}],
+                     "parts": [{"unchecked": True, "words": "Leader of union", "gives": "U", "select": "first",
+                                "note": "first letter of UNION"}]}]}
+ann = {"wordplay": fourth, "definitions": [{"text": "pro-government", "at": 0}]}
+check("it evaluates without the flag", "cleared", C.bucket(fourth, "FOURTHESTATE")[0])
+check("but its shape warnings keep it flagged", "failing",
+      C.bucket(fourth, "FOURTHESTATE", ann, "Pro-government framed by leader of union")[0])
+check("and say which", True, C.bucket(fourth, "FOURTHESTATE", ann, "x")[1].startswith("shape: "))
 raise SystemExit(fails)

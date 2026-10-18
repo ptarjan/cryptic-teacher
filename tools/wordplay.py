@@ -108,12 +108,15 @@ OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion
        "first": "first", "last": "last", "middle": "middle", "outer": "outer",
        "alt": "alternate", "regular": "regular", "nth": "nth"}
 NAMES = {v: k for k, v in OPS.items()}
+# The fewest parts the written form takes where a stored tree may carry fewer: a spoonerism
+# filed as one leaf with `soundsLike` (HAD MATTER), a substitution of the centre (sub(x, NEW)).
+_STORED_SHORT = {"spoonerism": 2, "substitution": 3}
 SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 # How many parts each op takes: (fewest, most).
 # ana() takes one argument; a charade written there becomes its parts (_fodder_parts).
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 9),
-         "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (2, 3),
-         "substitution": (3, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
+         "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (1, 3),
+         "substitution": (2, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
          "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2),
          **{s: (1, 1) for s in SELECT}}
 # A search that grows past this many candidate strings stops: no clue needs it.
@@ -243,6 +246,8 @@ class _Parser:
         if inds:
             node["indicators"] = inds
         lo, hi = ARITY[op]
+        if op in _STORED_SHORT:  # the one-leaf spoon and two-part sub are stored forms, not written ones
+            lo = _STORED_SHORT[op]
         if not lo <= len(args) <= hi:
             want = {"homophone": "sound(x, SPELT)", "spoonerism": "spoon(a, b) or spoon(a, b, SPELT)",
                     "container": "ins(outer, inner)", "deletion": "del(from, removed, ...)",
@@ -518,6 +523,9 @@ def _select(op, n, s, words):
             out.add("".join(w[0] + w[-1] for w in run if len(w) > 1))
         elif op == "alternate":
             out |= {t[0::2], t[1::2]}
+            # a run that stops short of the last word's end ("Does Joan vouch" for DEJAVU,
+            # the odd letters of DOESJOANVOU)
+            out |= {t[0::2][:-1], t[1::2][:-1]} if len(t) >= 9 else set()
         elif op == "regular":
             out |= {t[k::step] for step in (2, 3, 4) for k in range(step)}
             # every other pair (DEEP from deCRepIT's pairs) and the letters left once
@@ -533,6 +541,18 @@ def _select(op, n, s, words):
                 out.add("".join(w[n - 1] for w in run))
             out |= {t[n - 1:n - 1 + k] for k in (2, 3) if len(t) >= n - 1 + k}
     return {x for x in out if x}
+
+
+def _spoon_sound(sounds, gives):
+    """Whether `gives` can be the swap by sound of the two words in `sounds`: spelling
+    shifts with the sound (BEST GEAR -> GUESTBEER), so the check is the frame, not the
+    letters: it opens and closes as the second word does, and the first word's opening
+    letter now sits inside."""
+    ws = [letters(w) for w in (sounds or "").split()]
+    if len(ws) != 2 or not all(ws) or len(gives) < 4:
+        return False
+    a, b = ws
+    return gives[0] == b[0] and gives[-1] == b[-1] and a[0] != b[0] and a[0] in gives[1:]
 
 
 def _onset(s):
@@ -653,11 +673,22 @@ def values(node):
     if op == "spoonerism":
         if "spelt" in node:
             return {node["spelt"]}
+        if len(parts) == 1:
+            g = letters(parts[0].get("gives"))
+            return {g} if _spoon_sound(parts[0].get("soundsLike"), g) else set()
         out = set()
         for a in values(parts[0]):
             for b in values(parts[1]):
                 for oa, ob in ((_onset(a), _onset(b)), (a[:1], b[:1])):
                     out.add(ob + a[len(oa):] + oa + b[len(ob):])
+        return out
+    if op == "substitution" and len(parts) == 2:
+        # the centre of x swapped for the other piece, in whichever order they are filed
+        out = set()
+        for a, b in ((0, 1), (1, 0)):
+            for x in values(parts[a]):
+                for new in values(parts[b]):
+                    out |= {x[:k] + new + x[len(x) - k:] for k in range(1, (len(x) + 1) // 2)}
         return out
     if op == "substitution":
         out = set()
@@ -676,8 +707,18 @@ def values(node):
         out = values(real[0] if len(real) == 1 else {"op": "charade", "parts": real})
         return {v for v in out if v == v[::-1]}
     if op in SELECT:
-        words = _words(parts[0])
-        return set().union(*(_select(op, node.get("n"), v, words) for v in values(parts[0])))
+        leaf = parts[0]
+        if "op" not in leaf and leaf.get("select") and leaf.get("words"):
+            # a leaf that names its own pick (select: last, gives AM): the pick is made here
+            # from the clue words, with or without a possessive 's
+            raw = re.split(r"[\s\-–—/]+", leaf["words"])
+            out = set()
+            for drop in (False, True):
+                ws = [w for w in (letters(re.sub(r"['’]s$", "", w) if drop else w) for w in raw) if w]
+                out |= _select(op, node.get("n"), "".join(ws), ws)
+            return out
+        words = _words(leaf)
+        return set().union(*(_select(op, node.get("n"), v, words) for v in values(leaf)))
     raise WordplayError(f"unknown op {op!r}")
 
 
@@ -1036,6 +1077,10 @@ def _check_arity(node):
             want = str(lo) if lo == hi else f"{lo} to {hi}"
             raise WordplayError(f"{NAMES[op]}() takes {want} part(s), the tree files {len(parts)}: "
                                 f"{render(node)}")
+        if op == "spoonerism" and len(parts) == 1 and not (
+                "op" not in parts[0] and len((parts[0].get("soundsLike") or "").split()) == 2):
+            raise WordplayError(f"spoon() takes 2 to 3 part(s), the tree files 1 (a one-part spoon is a leaf whose soundsLike is the two words "
+                                f"before the swap, HAD MATTER): {render(node)}")
     for p in parts:
         _check_arity(p)
 
