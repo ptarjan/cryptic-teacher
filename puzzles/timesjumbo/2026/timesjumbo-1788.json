@@ -263,49 +263,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "shortened",
-       "note": "made shorter, so the name loses its last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "Prime Minister once",
-       "gives": "TRUS",
-       "note": "Liz Truss, briefly UK Prime Minister in 2022, cut short"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "T",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "concluding part of",
-         "note": "the part that concludes a word is its end, its final letter"
+         "text": "shortened",
+         "at": 20,
+         "note": "shortened means cut down, so the name loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "concluding part of Riot",
-         "gives": "T",
-         "select": "last",
-         "note": "the last letter of riot"
+         "words": "Prime Minister once",
+         "at": 0,
+         "gives": "TRUSS",
+         "note": "Liz Truss was briefly British Prime Minister in 2022"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "concluding part of",
+         "at": 30,
+         "note": "only the final letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Riot",
+         "at": 49
         }
        ]
       },
       {
        "words": "Act",
+       "at": 54,
        "gives": "DEED",
        "note": "a deed is an act"
       }
      ]
     },
     "explanation": {
-     "surface": "A former Prime Minister cut short the reading of the Riot Act.",
-     "walkthrough": "'Riot Act' looks like one legal term, but it splits: Riot gives only its last letter and Act stands alone. Liz Truss's premiership lasted just 49 days, which suits 'shortened'.",
-     "definitionFit": "A definition by class: the document that creates a trust and names its trustees is one kind of legal deed."
+     "surface": "Evokes a short-lived premier reading out the end of the Riot Act.",
+     "walkthrough": "Liz Truss's very short premiership fits 'shortened'. 'Riot Act' reads as a phrase, but the two words split: Riot gives T, Act gives DEED.",
+     "definitionFit": "A trust deed is the legal instrument that sets up a trust and its terms."
     },
     "features": {
      "answerInScene": false,
@@ -2392,12 +2399,11 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LINEOFSIGHT",
      "indicators": [
       {
-       "text": "According to Spooner",
-       "note": "Rev. Spooner famously swapped the opening sounds of words"
+       "text": "Spooner",
+       "at": 13,
+       "note": "Spooner swapped the opening sounds of words, so the first sounds of these two words change places"
       }
      ],
      "parts": [
@@ -2405,34 +2411,46 @@
        "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "suspicion",
-         "gives": "LINE",
-         "soundsLike": "SIGN",
-         "note": "a suspicion is a sign of something; it takes the L sound from the dawn word"
+         "op": "homophone",
+         "spelt": "SINE",
+         "indicators": [
+          {
+           "text": "According to",
+           "at": 0,
+           "note": "according to how Spooner spoke, the words are taken by their sound, so the silent letter plays no part"
+          }
+         ],
+         "parts": [
+          {
+           "words": "suspicion",
+           "at": 22,
+           "gives": "SIGN",
+           "note": "a suspicion of something is a slight sign of it"
+          }
+         ]
         },
         {
          "words": "of",
-         "note": "used as it stands"
-        },
-        {
-         "unchecked": true,
-         "words": "Dawn",
-         "gives": "SIGHT",
-         "soundsLike": "LIGHT",
-         "note": "dawn is first light; it takes the S sound from the first word"
+         "at": 32,
+         "note": "taken as written, staying with the first word"
         }
        ]
+      },
+      {
+       "words": "Dawn",
+       "at": 35,
+       "gives": "LIGHT",
+       "note": "dawn is first light"
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner suspects a woman called Dawn is in plain view.",
-     "walkthrough": "'Dawn' looks like a woman's name; it is daybreak, first light.",
-     "definitionFit": "A description: the straight path from the eye to what it sees is a direct view."
+     "surface": "Talks of the first faint hint of daybreak coming into plain sight.",
+     "walkthrough": "SIGN OF LIGHT, with the opening sounds swapped, sounds like the answer. The swap goes by sound, since the silent g in sign falls away.",
+     "definitionFit": "A line of sight is the straight path from the eye to the thing it sees, so an unobstructed view."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Dawn"
     }
@@ -2460,45 +2478,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SHEET",
+     "indicators": [
+      {
+       "text": "to change",
+       "at": 33,
+       "note": "the remaining letters are made to change their order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SHEET",
        "indicators": [
         {
-         "text": "dropping"
-        },
-        {
-         "text": "to change",
-         "note": "letters that change swap places into a new order"
+         "text": "dropping",
+         "at": 13,
+         "note": "dropping means letting go of, so the resistance letter is taken out"
         }
        ],
        "parts": [
         {
          "words": "three's",
-         "note": "the word with its S"
+         "at": 5
         },
         {
          "words": "resistance",
+         "at": 22,
          "gives": "R",
-         "note": "R = resistance in physics; removed, leaving THEES"
+         "note": "R is the physics symbol for resistance"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Page three is losing its resistance to change.",
-     "walkthrough": "Page Three was The Sun newspaper's topless-model page, dropped in 2015, which the surface nods to.",
-     "definitionFit": "A plain synonym: a single leaf of paper."
+     "surface": "Suggests a tabloid's Page Three is giving up its resistance to reform.",
+     "walkthrough": "Page Three was the British tabloid Sun's daily topless-model feature. THREE'S without R leaves THEES, rearranged.",
+     "definitionFit": "A page is a single sheet of paper in a book or newspaper."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Page"
     }
    }
@@ -3720,7 +3739,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Scoff too much?",
+      "text": "Scoff too much",
       "at": 0
      }
     ],
@@ -3728,42 +3747,54 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "scratching head",
-       "note": "to scratch something out is to strike it, so the head, the first letter, goes"
+       "text": "before",
+       "at": 40,
+       "note": "the first piece comes before the second"
       }
      ],
      "parts": [
       {
-       "words": "Partner",
-       "gives": "OVER",
-       "note": "LOVER without its first letter"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "EAT",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "off and on",
-         "note": "off and on means intermittently, so letters are skipped and kept in turn"
+         "text": "scratching head",
+         "at": 24,
+         "note": "scratching out the head means the first letter goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "repast, off and on",
-         "gives": "EAT",
-         "select": "alternate",
-         "note": "the 2nd, 4th and 6th letters of repast"
+         "words": "Partner",
+         "at": 16,
+         "gives": "LOVER",
+         "note": "a lover is a partner"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "off and on",
+         "at": 55,
+         "note": "off and on picks alternate letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "repast",
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wonders whether they eat too much, while their partner scratches their head over a meal.",
-     "walkthrough": "'Scoff' reads as mock; it is British slang for eating greedily.",
-     "definitionFit": "A slang sense: scoff means gobble, so doing it to excess is eating too much."
+     "surface": "Asks whether someone's partner, scratching their head over a meal, eats too much.",
+     "definitionFit": "To scoff is slang for to eat greedily; doing it to excess is overeating."
     },
     "features": {
      "answerInScene": true,

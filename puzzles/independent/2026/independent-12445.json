@@ -884,32 +884,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "originally",
-       "note": "the original letter is the one the word starts with, and that is the one being pointed at"
-      },
-      {
-       "text": "redacted",
-       "note": "a redacted word has had a part blacked out, and what is blacked out never reaches the answer"
-      }
-     ],
      "parts": [
       {
-       "words": "Republicans",
-       "gives": "OP",
-       "note": "the Republicans are the Grand Old Party, the GOP, docked of the letter it opens with"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "originally redacted",
+         "at": 12,
+         "note": "the first letter is struck out, as a censor blacks out text"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republicans",
+         "at": 0,
+         "gives": "GOP",
+         "note": "the GOP (Grand Old Party) is the US Republican Party"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "models'",
+       "at": 32,
        "gives": "POSES",
-       "note": "a model poses for the camera"
+       "note": "models strike poses"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "GOP for the American Republicans is the piece to bank here, and 'faces' is the definition working hard to look like a noun about cheekbones.",
-     "definitionFit": "faces -> OPPOSES: to face something is to stand against it and confront it, the same third-person verb the answer supplies."
+     "surface": "Political censorship: party members blur out the faces of fashion models.",
+     "walkthrough": "GOP is the American Republican Party; with its opening letter blacked out it gives OP.",
+     "definitionFit": "To face an opponent is to confront or stand against them, as in opposing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "faces"
     }
    }
   },
@@ -1034,25 +1047,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Extremely",
-       "note": "at the extremes means at the two ends, so you keep the outermost letter on each side and drop everything between"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "remix of",
-         "note": "a remix builds a new track out of the same material, which is what happens to these letters"
+         "text": "Extremely",
+         "at": 0,
+         "note": "the extremes of the word are its two ends, so only its outer letters are kept"
         }
        ],
        "parts": [
         {
          "words": "cool",
-         "note": "the letters at either edge of the word, with the middle discarded"
+         "at": 10
         }
        ]
       },
@@ -1060,31 +1068,45 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "Last",
-         "note": "the last of a word is the letter it finishes on, and that single letter joins the material"
+         "text": "remix of",
+         "at": 15,
+         "note": "a remix reworks a track, so these letters are rearranged"
         }
        ],
        "parts": [
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "Last",
+           "at": 33,
+           "note": "only the final letter of the band's name is used"
+          }
+         ],
          "parts": [
           {
            "words": "Strokes'",
-           "note": "the last letter of the band's name, and nothing else of it"
+           "at": 24
           }
          ]
         },
         {
          "words": "Nite",
-         "note": "the song title's four letters, ready to be rebuilt"
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Strokes released Last Nite in 2001, and the apostrophe does double duty: possession on the surface, and a pointer to one letter in the wordplay.",
-     "definitionFit": "those that pay -> CLIENTS: a client is someone who buys a professional's time, so the phrase names them by the fee rather than the service."
+     "surface": "Praises a slick remix of the Strokes song Last Nite, aimed at paying listeners.",
+     "walkthrough": "Last Nite is a real Strokes song, but the title splits: 'Last' is an instruction on the band's name, and only 'Nite' joins the mix as written.",
+     "definitionFit": "Clients are customers who pay for a professional's services."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
     }
    }
   },
@@ -1943,50 +1965,62 @@
      "indicators": [
       {
        "text": "awful",
-       "note": "what is awful is in a dreadful state, and letters in a dreadful state keep none of their order"
+       "at": 37,
+       "note": "awful suggests something mangled, so all these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "charlatan",
+       "at": 43
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "cut repeatedly",
-         "note": "one cut takes the last letter off, and repeating it takes the next one too"
+         "at": 61,
+         "note": "the word is cut short more than once, losing its last two letters"
         }
        ],
        "parts": [
         {
-         "words": "charlatan",
-         "note": "all nine letters go into the mix"
-        },
-        {
          "words": "getting",
-         "gives": "GETTI",
-         "note": "the seven-letter word loses its final letter, then loses the next one as well"
+         "at": 53
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first 12.5% of",
-           "note": "an eighth of a word eight letters long is one letter, and it is the one at the front"
-          }
-         ],
-         "parts": [
-          {
-           "words": "earnings",
-           "note": "eight letters, so an eighth of them is the first letter and no more"
-          }
-         ]
+         "gives": "NG"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first 12.5% of",
+         "at": 77,
+         "note": "one eighth of an eight-letter word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "earnings",
+         "at": 92
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The percentage is a letter count in disguise, and the charlatan taking repeated cuts of someone's earnings is the surface's joke about commission.",
-     "definitionFit": "Professional representative -> THEATRICAL AGENT: the agent who finds actors their work and takes a percentage, so the phrase names the trade by what it does."
+     "surface": "Warns that a talent agent may be a dreadful fraud who keeps taking an eighth of the client's earnings.",
+     "walkthrough": "GETTING trimmed twice gives GETTI; 'earnings' has eight letters, so 12.5% of it is E. These join CHARLATAN in the rearrangement.",
+     "definitionFit": "A theatrical agent represents actors professionally, finding them work for a commission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "earnings"
     }
    }
   }

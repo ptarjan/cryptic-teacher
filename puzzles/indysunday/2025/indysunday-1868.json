@@ -964,49 +964,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "seen in",
-       "note": "Something seen in another thing sits within it, so the letter named before this drops into the middle of the word named after."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "flipped",
-         "note": "Anything flipped is turned end over end, so the three letters it applies to are written out in the reverse order."
+         "text": "seen in",
+         "at": 30,
+         "note": "the name is seen inside the mine, so its letter is placed within"
         }
        ],
        "parts": [
         {
          "words": "mine",
+         "at": 38,
          "gives": "PIT",
-         "note": "a pit is a coal mine, the word used across the British coalfields"
+         "note": "a pit is a coal mine"
         },
         {
          "words": "name",
-         "gives": "N",
-         "note": "N is the abbreviation for name on any form"
+         "at": 25,
+         "gives": "N"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipped",
+         "at": 52,
+         "note": "flipped means turned over, so the lid's letters are read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "lid",
+         "at": 48,
          "gives": "TOP",
-         "note": "the lid of a jar is its top, and this one does not stay that way up"
+         "note": "a top is a lid"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is a hint as well as a definition: two half-pints fill one of these, so the vessel is named by the measure it holds.",
-     "definitionFit": "Container of two halves -> PINT POT: the pint mug a pub pulls beer into, holding precisely the two half-pints the definition counts out."
+     "surface": "Describes some odd vessel in two parts, labelled and found down a mine with its cover turned over.",
+     "walkthrough": "N goes into PIT to give PINT, and TOP turned backwards adds POT.",
+     "definitionFit": "A pint pot holds a pint, which is two half-pints, so it is a drinking vessel of two halves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "halves"
     }
    }
   },
@@ -1135,7 +1146,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Ambassador",
+      "text": "Ambassador among others",
       "at": 0
      }
     ],
@@ -1144,49 +1155,60 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "A sandwich has bread on both sides, so the two short pieces named last go one at each end of everything assembled before them."
+       "at": 58,
+       "note": "the outer pair of pieces hold the rest between them like bread round a filling"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "dealing with",
+         "at": 37,
          "gives": "RE",
-         "note": "re heads a memo about its subject: re your letter of the third"
+         "note": "re means concerning or about"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "among others here",
-           "gives": "PRESENT",
-           "note": "to be present is to be here, in the room with the rest of the company"
-          },
-          {
-           "words": "at",
-           "note": "the little word is taken exactly as it stands"
-          },
-          {
-           "words": "four",
-           "gives": "IV",
-           "note": "four written in Roman numerals"
-          }
-         ]
+         "words": "English",
+         "at": 50,
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "English",
-       "gives": "E",
-       "note": "E is the usual abbreviation on a form or a scoreboard"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "here",
+         "at": 24,
+         "gives": "PRESENT",
+         "note": "present means here, in attendance"
+        },
+        {
+         "words": "at",
+         "at": 29,
+         "gives": "AT"
+        },
+        {
+         "words": "four",
+         "at": 32,
+         "gives": "IV",
+         "note": "IV is four in Roman numerals"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ambassador among others' invites you to picture a room full of diplomats, and that smooth opening is what buries the seam after the very first word.",
-     "definitionFit": "Ambassador -> REPRESENTATIVE: definition by example, an ambassador being one kind — the person sent abroad to stand and speak for a country."
+     "surface": "An envoy turns up at four o'clock in a meeting about English food.",
+     "walkthrough": "The definition includes 'among others' because an ambassador is only one kind of representative, which makes it fair.",
+     "definitionFit": "An ambassador is one example of a representative, a person who speaks or acts for others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
     }
    }
   },

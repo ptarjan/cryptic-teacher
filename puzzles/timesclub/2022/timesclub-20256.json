@@ -256,55 +256,62 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first pieces inside the territory's name"
+       "at": 10,
+       "note": "the lake and one go inside the shortened territory"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 33,
+         "note": "not means without, so the unknown's letter is removed"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "not unknown",
-           "note": "an unknown in algebra is Y, so not unknown means drop that letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Canadian territory",
-           "gives": "YUKON",
-           "note": "the Yukon is a territory of north-west Canada"
-          },
-          {
-           "gives": "Y"
-          }
-         ]
+         "words": "Canadian territory",
+         "at": 13,
+         "gives": "YUKON",
+         "note": "the Yukon is a territory of north-west Canada"
         },
         {
-         "words": "Lake",
-         "gives": "L",
-         "note": "L is the map abbreviation for lake"
+         "words": "unknown",
+         "at": 37,
+         "gives": "Y",
+         "note": "Y is a mathematical unknown, like x"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lake",
+         "at": 0,
+         "gives": "L",
+         "note": "L is the map abbreviation for lake"
+        },
+        {
+         "words": "one",
+         "at": 6,
+         "gives": "I",
+         "note": "I is one in Roman numerals"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lake in the Yukon is known for its fishing.",
-     "walkthrough": "YUKON without Y is UKON, and L plus I go inside after the U.",
-     "definitionFit": "The ulikon is the eulachon or candlefish, an oily smelt of the North Pacific coast."
+     "surface": "Describes a lake in the Canadian north as a place to fish.",
+     "definitionFit": "The ulikon is the candlefish or eulachon, an oily smelt of the North Pacific."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unknown"
+     "misdirectedWord": "Lake"
     }
    }
   },
