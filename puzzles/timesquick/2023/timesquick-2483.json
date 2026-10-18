@@ -725,51 +725,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REVEILLE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "with no introduction",
-       "note": "having no introduction means the opening letter is dropped"
+       "text": "recalled",
+       "at": 56,
+       "note": "recalled read as re-called, called back, so the whole string is written backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "recalled",
-         "note": "recalled means called back, so the assembled string is read backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "with no introduction",
+           "at": 21,
+           "note": "the first letter of yell, its introduction, is dropped"
+          }
+         ],
          "parts": [
           {
            "words": "yell",
-           "gives": "ELL",
-           "note": "the shout without its first letter"
+           "at": 15,
+           "gives": "YELL",
+           "note": "the word yell as written"
           },
           {
-           "words": "I",
-           "note": "taken as written"
-          },
-          {
-           "words": "constantly",
-           "gives": "EVER",
-           "note": "ever means always, constantly"
+           "gives": "Y"
           }
          ]
+        },
+        {
+         "words": "I",
+         "at": 43
+        },
+        {
+         "words": "constantly",
+         "at": 45,
+         "gives": "EVER",
+         "note": "ever means always or constantly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An alarm call that screams at me endlessly, recalled with a wince.",
-     "definitionFit": "Reveille is the bugle call or signal that wakes soldiers in the morning."
+     "surface": "Someone yelling a morning call and remembering it.",
+     "walkthrough": "YELL loses its Y to give ELL; ELL + I + EVER is ELLIEVER, which 'recalled' turns backwards.",
+     "definitionFit": "Reveille is the bugle signal sounded to rouse soldiers in the morning."
     },
     "features": {
      "answerInScene": true,
