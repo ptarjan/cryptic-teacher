@@ -185,12 +185,11 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ROOSEVELT",
      "indicators": [
       {
        "text": "swapping sides",
-       "note": "the sides are left and right: each word trades its L for R or its R for L"
+       "at": 25,
+       "note": "sides here are left and right, so the L and R letters change places, one in each word"
       }
      ],
      "parts": [
@@ -198,34 +197,48 @@
        "op": "charade",
        "parts": [
         {
-         "words": "set free",
-         "gives": "ROOSE",
-         "note": "LOOSE (set free) with L (left) swapped for R (right)"
+         "op": "substitution",
+         "parts": [
+          {
+           "words": "set free",
+           "at": 10,
+           "gives": "LOOSE",
+           "note": "to loose something is to set it free"
+          },
+          {
+           "gives": "L"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
          "words": "Green",
-         "gives": "VELT",
-         "note": "VERT (heraldic green) with R (right) swapped for L (left)"
-        },
-        {
-         "unchecked": true,
-         "words": "swapping sides?",
-         "note": "applies to both words"
+         "at": 19,
+         "gives": "VERT",
+         "note": "vert is the heraldic word for green"
         }
        ]
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A president releasing a Green politician who has crossed the floor.",
-     "walkthrough": "'Swapping sides' sounds like political defection; it means L and R change places. VERT is the heraldic word for green.",
-     "definitionFit": "Theodore and Franklin D. Roosevelt were both US presidents."
+     "surface": "A president releases an environmentalist politician who has crossed the floor to the other party.",
+     "walkthrough": "'Swapping sides' works on both words: the L of LOOSE becomes R, giving ROOSE, and the R of VERT becomes L, giving VELT.",
+     "definitionFit": "Theodore and Franklin D. Roosevelt were both Presidents of the United States."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "sides"
+     "misdirectedWord": "Green"
     }
    }
   },
@@ -254,39 +267,33 @@
      "indicators": [
       {
        "text": "leaving",
-       "note": "INN leaves the word, so it is taken out"
+       "at": 28,
+       "note": "the pub leaving means those letters go out of the word for the ear complaint"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "ringing in the ears",
-         "gives": "TINNITUS",
-         "note": "tinnitus = ringing in the ears"
-        },
-        {
-         "words": "leaving pub",
-         "gives": "TITUS",
-         "note": "INN (pub) removed from TINNITUS"
-        }
-       ]
+       "words": "ringing in the ears",
+       "at": 8,
+       "gives": "TINNITUS",
+       "note": "tinnitus is the medical name for a ringing in the ears"
       },
       {
-       "gives": "TINNITUS"
+       "words": "pub",
+       "at": 36,
+       "gives": "INN",
+       "note": "an inn is a pub"
       }
      ]
     },
     "explanation": {
-     "surface": "A man stumbling out of a noisy pub with his ears still ringing.",
-     "walkthrough": "The surface gives a cause and effect; in fact the pub is subtracted from the medical term.",
-     "definitionFit": "Crosswords use 'man' for any man's name; Titus is one, like the Roman emperor or Shakespeare's Titus Andronicus."
+     "surface": "A drinker walks out of the pub with his ears still ringing.",
+     "definitionFit": "Titus is a man's given name, as in the Roman emperor or Shakespeare's Titus Andronicus."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leaving"
+     "misdirectedWord": "Man"
     }
    }
   },
@@ -664,68 +671,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SERENGETI",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "surrounds",
-         "note": "A thing that surrounds another encloses it."
+         "at": 5,
+         "note": "the calm word is placed around the next piece, enclosing it"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Calm",
+         "at": 0,
+         "gives": "SERENE",
+         "note": "serene means calm"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
            "text": "opening of",
-           "note": "The opening of a word is where it begins, so its first letter is taken."
+           "at": 15,
+           "note": "the opening of a word is its first letter, here of gala"
           }
          ],
          "parts": [
           {
-           "words": "Calm",
-           "gives": "SERENE",
-           "note": "serene = calm; it takes G inside, SEREN-G-E"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
+           "words": "gala",
+           "at": 26,
            "gives": "G",
-           "indicators": [
-            {
-             "text": "about",
-             "note": "'About' as in 'turn about', meaning face the other way, so IT is read backwards."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "opening of gala",
-             "gives": "G",
-             "select": "first",
-             "note": "first letter of gala"
-            }
-           ]
+           "note": "the first letter of gala"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "appeal about",
-         "gives": "TI",
-         "note": "IT (sex appeal) turned round"
+         "text": "about",
+         "at": 38,
+         "note": "about signals turning the appeal word round to read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appeal",
+         "at": 31,
+         "gives": "IT",
+         "note": "it is slang for sex appeal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A serene charity gala launching a fundraising drive for a wildlife reserve.",
-     "walkthrough": "'Appeal' reads as a charity campaign, but here it is IT, the old slang for sex appeal.",
-     "definitionFit": "The Serengeti in Tanzania is a vast national park and wildlife reserve."
+     "surface": "A tranquil charity gala launches an appeal on behalf of an African wildlife reserve.",
+     "walkthrough": "SERENE 'surrounds' G, the 'opening of' gala, giving SERENGE; then IT, slang for sex appeal, turned 'about' gives TI.",
+     "definitionFit": "The Serengeti in Tanzania is a vast national park famous for its wildlife and migrations."
     },
     "features": {
      "answerInScene": true,
@@ -825,46 +832,40 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "case",
-       "note": "the case of a word is its outside letters"
+       "text": "arranged",
+       "at": 26,
+       "note": "arranged means the letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Aviator",
+       "at": 0
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "arranged",
-         "note": "the letters are rearranged"
+         "text": "case",
+         "at": 21,
+         "note": "the case of a word is its outside, so take the first and last letters of pilot"
         }
        ],
        "parts": [
         {
-         "words": "Aviator",
-         "note": "anagram fodder, 7 letters"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
+         "words": "pilot's",
+         "at": 13,
          "gives": "PT",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pilot's case",
-           "gives": "PT",
-           "select": "outer",
-           "note": "outer letters of PiloT"
-          }
-         ]
+         "note": "the outer letters of pilot are P and T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aviator and his pilot's luggage organised so he can catch a concert.",
-     "walkthrough": "'Pilot's case' looks like luggage; it is the outside of the word pilot.",
-     "definitionFit": "Luciano Pavarotti was a celebrated operatic tenor."
+     "surface": "An aviator carries a pilot's case, apparently to meet a famous tenor.",
+     "walkthrough": "The 'case' of pilot is its outside letters PT; add AVIATOR and 'arranged' shuffles the whole pool.",
+     "definitionFit": "Luciano Pavarotti was an Italian operatic tenor, one of the best-known classical vocalists."
     },
     "features": {
      "answerInScene": false,
@@ -946,46 +947,62 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "GLISSANDO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "has change of heart",
-       "note": "the middle letter is changed, A to I"
+       "text": "has",
+       "at": 20,
+       "note": "the composer has the rest attached, so the pieces follow on after his name"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "change of heart",
+         "at": 24,
+         "note": "the heart, or middle letter, of the composer's name is changed for another letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Minimalist composer has change of heart",
-         "gives": "GLISS",
-         "note": "GLASS (Philip Glass) with its central A changed to I"
+         "words": "Minimalist composer",
+         "at": 0,
+         "gives": "GLASS",
+         "note": "Philip Glass is a minimalist composer"
         },
         {
-         "words": "with",
-         "gives": "AND",
-         "note": "and = with"
+         "gives": "A"
         },
         {
-         "words": "ordinary",
-         "gives": "O",
-         "note": "O = ordinary, as in O level"
+         "gives": "I"
         }
        ]
+      },
+      {
+       "words": "with",
+       "at": 40,
+       "gives": "AND",
+       "note": "and means with"
+      },
+      {
+       "words": "ordinary",
+       "at": 45,
+       "gives": "O",
+       "note": "O is the abbreviation for ordinary, as in O level"
       }
      ]
     },
     "explanation": {
-     "surface": "A minimalist composer changing his mind about using a particular effect.",
-     "walkthrough": "Philip Glass is the best-known minimalist composer; his 'change of heart' is literal, the middle letter swapped.",
-     "definitionFit": "A glissando is a musical slide from one pitch to another."
+     "surface": "A minimalist composer softens his ideas while creating an ordinary musical effect.",
+     "walkthrough": "'Change of heart' swaps the middle letter A of GLASS for I, giving GLISS, which 'has' AND and O after it.",
+     "definitionFit": "A glissando is a slide from one pitch to another, a technique played on piano, harp or strings."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "heart"
     }
    }
@@ -1014,30 +1031,35 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letter of dinners"
+       "text": "rejected",
+       "at": 31,
+       "note": "rejected means the pieces are turned back to read the other way"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "rejected",
-         "note": "the whole is sent back, read in reverse"
-        }
-       ],
        "parts": [
         {
          "words": "TV",
+         "at": 10,
          "gives": "TUBE",
-         "note": "the tube = television"
+         "note": "the tube is slang for television"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 21,
+           "note": "initially means take the first letter of dinners"
+          }
+         ],
          "parts": [
           {
-           "words": "dinners initially",
+           "words": "dinners",
+           "at": 13,
+           "gives": "D",
            "note": "first letter of dinners"
           }
          ]
@@ -1047,14 +1069,14 @@
      ]
     },
     "explanation": {
-     "surface": "A new line of TV dinners that shoppers turned down at launch.",
-     "walkthrough": "The surface sounds like a failed product; 'rejected' sends TUBED back to front.",
-     "definitionFit": "A plain synonym: a performer's first appearance, or a product's first outing, is its launch."
+     "surface": "A new range of TV dinners is launched, but shoppers turn it down.",
+     "walkthrough": "TUBE plus D, the first letter of dinners ('initially'), makes TUBED, which 'rejected' turns backwards.",
+     "definitionFit": "A debut is a first appearance or launch of a performer or product."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rejected"
+     "misdirectedWord": "dinners"
     }
    }
   },
@@ -1454,42 +1476,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELEGANT",
-     "indicators": [
-      {
-       "text": "abridged",
-       "note": "shortened, losing the last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abridged",
+         "at": 20,
+         "note": "abridged means shortened, so the final letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "requiem",
-         "gives": "ELEG",
-         "note": "ELEGY (a lament, a requiem) with the last letter cut"
+         "words": "requiem's",
+         "at": 10,
+         "gives": "ELEGY",
+         "note": "an elegy is a lament, like a requiem; the 's stands for is"
         },
         {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "ant = worker"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "worker",
+       "at": 32,
+       "gives": "ANT",
+       "note": "the ant is the crossword's standard worker"
       }
      ]
     },
     "explanation": {
-     "surface": "A beautiful requiem shortened by some labourer.",
-     "walkthrough": "An elegy is a mournful poem or song, close kin to a requiem.",
-     "definitionFit": "Elegant means exquisite, refined in style."
+     "surface": "A refined requiem has been shortened by a musician working on it.",
+     "definitionFit": "Elegant means graceful and refined in style, much as exquisite suggests delicate beauty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "abridged"
+     "misdirectedWord": "worker"
     }
    }
   },
