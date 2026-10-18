@@ -604,36 +604,48 @@
     "definitions": [
      {
       "text": "some local churches",
-      "at": 53
+      "at": 53,
+      "note": "a plural noun phrase, matching the plural answer"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TEMPLES",
      "indicators": [
       {
-       "text": "moving article inside",
-       "note": "moving the article inside shifts it from the front of the phrase to a spot within the noun"
+       "text": "moving",
+       "at": 31,
+       "note": "moving says the French article shifts from the front of the phrase to a new place"
+      },
+      {
+       "text": "inside",
+       "at": 46,
+       "note": "inside tells us where it goes: into the middle of the French word for weather"
       }
      ],
      "parts": [
       {
        "words": "The weather in France",
-       "gives": "LETEMPS",
-       "note": "French for the weather, its article le first"
+       "at": 0,
+       "gives": "TEMPS",
+       "note": "the weather in France is le temps, and temps is the noun itself, French for weather"
+      },
+      {
+       "words": "article",
+       "at": 38,
+       "gives": "LE",
+       "note": "le is the French definite article, the one standing before temps"
       }
      ]
     },
     "explanation": {
-     "surface": "French weather forces the parish article to move indoors.",
-     "walkthrough": "'article inside' tells where the French article lands: inside temps.",
-     "definitionFit": "In France and the Channel Islands, Protestant churches are called temples."
+     "surface": "French weather forecasts call for an article on the region's churches.",
+     "walkthrough": "In French the weather is said with its article in front; 'moving article inside' shifts that article from the front into the middle of the noun. Temples is used locally, in some places, for churches.",
+     "definitionFit": "Temple is a name for a church in certain places, such as Protestant churches in France, so these are local churches."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "weather"
+     "misdirectedWord": "article"
     }
    }
   },
@@ -1072,39 +1084,44 @@
     "definitions": [
      {
       "text": "to fish without a rod",
-      "at": 31
+      "at": 31,
+      "note": "an infinitive phrase; the answer is a verb meaning to fish with a line held in the hand"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HANDLINE",
      "indicators": [
       {
        "text": "replaced",
-       "note": "the two letters take the place of the lost ends, standing at either side"
+       "at": 13,
+       "note": "replaced says new letters take the place of the ones removed, so the two letters of he wrap the trimmed fish name"
       }
      ],
      "parts": [
       {
+       "words": "He",
+       "at": 8,
+       "gives": "HE",
+       "note": "the letters of he, taken as written, are the two newcomers"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HANDLINE",
        "indicators": [
         {
          "text": "each end",
-         "note": "each end refers to both extremes, so the first and last letters are lost"
+         "at": 22,
+         "note": "each end picks out the first and last letters of the fish name as the ones to drop"
         }
        ],
        "parts": [
         {
-         "words": "He",
-         "note": "taken as written"
+         "words": "Launce",
+         "at": 0,
+         "gives": "SANDLING",
+         "note": "the launce or sand eel is also called a sandling"
         },
         {
-         "words": "Launce",
-         "gives": "SANDLING",
-         "note": "launce and sandling are both names for the sand eel"
+         "gives": "SG"
         }
        ]
       }
@@ -1112,9 +1129,9 @@
     },
     "spelling": "HAND LINE",
     "explanation": {
-     "surface": "An angler called Launce has swapped his tackle to fish by hand.",
-     "walkthrough": "'Launce' looks like a man's name but is the sand eel, a small fish.",
-     "definitionFit": "To handline is to fish with a line held in the hand, no rod involved."
+     "surface": "A puzzled question about a fish, the launce, and a man who swaps its ends to fish without a rod.",
+     "walkthrough": "The launce's other name SANDLING loses 'each end', S and G, leaving ANDLIN; 'replaced' puts the letters of He in their place, H at the front and E at the back.",
+     "definitionFit": "To handline is to fish with a line held in the hand, with no pole involved."
     },
     "features": {
      "answerInScene": true,

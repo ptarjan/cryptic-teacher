@@ -385,35 +385,48 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "TINOPENER",
+     "op": "charade",
      "parts": [
       {
        "words": "Can",
+       "at": 0,
        "gives": "TIN",
-       "note": "a can is a tin"
+       "note": "a tin is a can, as in a tin of beans"
       },
       {
-       "words": "a word of refusal",
-       "gives": "NOPE",
-       "note": "nope is a casual no"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "overlooking",
+         "at": 17,
+         "note": "overlooking is read as passing over, so the refusal word's first letter is skipped over and moved round to its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a word of refusal",
+         "at": 29,
+         "gives": "NOPE",
+         "note": "nope is a casual word for no"
+        }
+       ]
       },
       {
        "words": "Her Majesty",
+       "at": 4,
        "gives": "ER",
-       "note": "ER, Elizabeth Regina, the Queen"
+       "note": "ER is the royal cipher of the Queen, Elizabeth Regina"
       }
      ]
     },
     "explanation": {
-     "surface": "A teasing question: could the Queen, ignoring a refusal, turn up something useful in the kitchen?",
-     "walkthrough": "The refusal word has to have its first letter shifted to the end, and nothing in the clue clearly signals that move, so this is a loose clue. ER stands for Elizabeth Regina.",
-     "definitionFit": "A gadget for getting into cans is one of the standard tools a cook keeps in the kitchen drawer."
+     "surface": "A puzzled question whether the Queen, ignoring a refusal, can find a kitchen assistant.",
+     "walkthrough": "'overlooking' passes over the N of NOPE, sending it to the back to make OPEN; TIN goes in front and ER after. ER stands for Elizabeth Regina, Queen Elizabeth.",
+     "definitionFit": "A tin opener is a kitchen gadget, so it is a helper to a cook in a light-hearted sense."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Can"
     }

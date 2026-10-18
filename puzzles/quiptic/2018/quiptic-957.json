@@ -421,31 +421,35 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "RIPE",
+     "op": "deletion",
      "indicators": [
       {
        "text": "partly",
-       "note": "partly means only a portion of the entry is used"
+       "at": 12,
+       "note": "partly means only a portion of the other entry is kept, its outer letters dropped"
       }
      ],
      "parts": [
       {
        "words": "5 across",
-       "gives": "RIPE",
-       "note": "the middle letters of the answer to 5 across"
+       "at": 0,
+       "gives": "STRIPES",
+       "note": "the answer to 5 across, the word for bars or undresses"
+      },
+      {
+       "gives": "STS"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that the striped item is half done.",
-     "walkthrough": "The answer to 5 across is STRIPES, whose middle four letters give the answer.",
-     "definitionFit": "Fruit that is ripe is ready to be eaten, so ripe means fully ready."
+     "surface": "A cross-reference saying another answer is partly ready, like a half-prepared dish.",
+     "walkthrough": "'5 across' points to STRIPES elsewhere in the grid; 'partly' keeps only the four letters inside it, shedding ST at the front and S at the back.",
+     "definitionFit": "Fruit that is ripe is fully developed and fit to eat, so ripe means ready."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "partly"
     }
    }
   },
@@ -1029,49 +1033,48 @@
     "definitions": [
      {
       "text": "most lightweight",
-      "at": 39
+      "at": 39,
+      "note": "a superlative adjective, matching the answer"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "FINEST",
      "indicators": [
       {
        "text": "play",
-       "note": "to play with letters is to move them about into a new order"
+       "at": 28,
+       "note": "play means move freely, so the remaining letters are shuffled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "FINEST",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "backing",
-         "note": "backing means moving backwards, so the word is read in the other direction"
+         "text": "out of",
+         "at": 12,
+         "note": "out of says the reversed pair is taken away from the word feminist"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "FINEST",
+         "words": "feminist",
+         "at": 19
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "out of",
-           "note": "out of means taken from, so those letters are removed"
+           "text": "backing",
+           "at": 4,
+           "note": "backing means going in reverse, so the two letters of I'm are read the other way round"
           }
          ],
          "parts": [
           {
            "words": "I'm",
-           "note": "taken as written, then read backwards"
-          },
-          {
-           "words": "feminist",
-           "note": "taken as written, from which letters are removed"
+           "at": 0,
+           "gives": "IM"
           }
          ]
         }
@@ -1080,13 +1083,13 @@
      ]
     },
     "explanation": {
-     "surface": "A critic pulls out of a feminist play, dismissing it as the slightest of works.",
-     "walkthrough": "Remove M then I from the second word, leaving six letters to rearrange.",
-     "definitionFit": "Finest can mean thinnest or most delicate, as in finest thread, which is most lightweight."
+     "surface": "Someone dismisses a feminist drama as the flimsiest piece around and walks out.",
+     "walkthrough": "'backing' turns IM into MI, which 'out of' takes from FEMINIST, leaving FEINST, and 'play' rearranges those six letters.",
+     "definitionFit": "The finest thread or fabric is the thinnest and most delicate, so finest can mean slightest in weight."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "play"
     }
    }

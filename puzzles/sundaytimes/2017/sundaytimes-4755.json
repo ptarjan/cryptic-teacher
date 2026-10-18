@@ -96,45 +96,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "of anagram maker",
-       "note": "a maker of anagrams jumbles words, so the preceding word is treated as such a setter would treat it"
+       "text": "about",
+       "at": 10,
+       "note": "about means around, so the book word goes round the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "book",
+       "at": 5,
+       "gives": "TOME",
+       "note": "a tome is a book, usually a large weighty one"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one piece goes round the other"
+         "text": "of anagram maker",
+         "at": 21,
+         "note": "of anagram maker means as an anagram maker would treat it, reordering the letters of the word rise"
         }
        ],
        "parts": [
         {
-         "words": "book",
-         "gives": "TOME",
-         "note": "a tome is a large book"
-        },
-        {
          "words": "rise",
-         "note": "the word rise rearranged"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boring book about the rise of a crossword setter.",
-     "walkthrough": "The setter winks at himself: an anagram maker is a cryptic setter, and the phrase also instructs you to jumble the word before it.",
-     "definitionFit": "Something tedious and wearying is boring, which is what dull means here."
+     "surface": "A boring book about the rise of someone who makes up word puzzles.",
+     "walkthrough": "'rise of anagram maker' looks like a biography's subtitle, but 'of anagram maker' is the instruction to rearrange rise, and 'about' has the book word wrap round the result.",
+     "definitionFit": "Something tiresome is tedious and wearying, which is what dull means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "maker"
     }
    }
@@ -1281,35 +1283,40 @@
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "MISTLETO",
        "indicators": [
         {
          "text": "ground",
-         "note": "ground means crushed up, so the letters are broken down and remixed"
+         "at": 18,
+         "note": "ground means crushed or broken down, so the pooled letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "stem, soil",
-         "note": "the words as printed, but the parse needs a T where they have their second S: the setter's slip"
+         "words": "stem",
+         "at": 6
+        },
+        {
+         "words": "soil",
+         "at": 12,
+         "gives": "TOIL",
+         "note": "as printed, soil has an S where the answer needs a T: the setter slipped, and toil supplies the letters the anagram needs"
         }
        ]
       },
       {
        "words": "earth",
-       "gives": "E",
-       "note": "E is the abbreviation for earth"
+       "at": 26,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's list of plant parts and soil terms.",
-     "walkthrough": "The setter slipped: STEM SOIL has two Ss and one T, but the answer needs one S and two Ts; the blog notes the setter apologised.",
-     "definitionFit": "This parasitic evergreen with white berries, hung at Christmas, is a plant."
+     "surface": "A list of a plant's parts and its growing medium: stem, soil, ground, earth.",
+     "walkthrough": "The clue is faulty: 'ground' should rearrange STEM and SOIL into the first eight letters, with E for earth after, but the letters have an S where a T is needed. The setter apologised. 'ground' looks like another word for soil, but it is the anagram signal.",
+     "definitionFit": "Mistletoe is a parasitic evergreen plant with white berries, hung at Christmas."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ground"
     }
