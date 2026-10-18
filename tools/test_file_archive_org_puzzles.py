@@ -2458,6 +2458,52 @@ f.read_page = fake_refused
 asked.clear()
 f.read_puzzle(None, None, None, None)
 check("a refusal the VLM cannot mend ends the read with no ask", [False], asked)
+# A held puzzle is not put to the VLM when the held file leaves it nothing to mend.
+class FakeDir:
+    name = "ed1"
+def fake_weak(d, found, hit, sols, vlm_for=False):
+    asked.append(vlm_for)
+    return ({"number": 7, "grid": "image", "_weak": {"6-across"}} if vlm_for is False else {"number": 7, "grid": "image"}), {"id": "x"}
+f.read_page = fake_weak
+real_paper_of, real_held_dates, real_held_file = f.paper_of, f.held_dates, f.held_file
+f.paper_of = lambda d: f.TIMES
+f.held_dates = lambda series: {7: None}
+whole_clue = {"text": "Bird in a tree", "enumeration": "5"}
+f.held_file = lambda series, n: {"source": {"acquiredBy": "someone else"}, "entries": [{"clue": {}}]}
+asked.clear()
+v, p = f.read_puzzle(FakeDir(), None, None, None)
+check("a held puzzle another tool filed asks the VLM nothing", ([False], True, 0), (asked, v.get("heldSkip"), v.get("vlmAsks")))
+f.held_file = lambda series, n: {"source": {"acquiredBy": f.TOOL}, "entries": [{"number": 1, "direction": "across", "clue": {}}]}
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("a held puzzle of this tool's with a blank clue keeps the VLM", [False, ["6-across"]], asked)
+f.held_file = lambda series, n: {"source": {"acquiredBy": "someone else"}, "entries": []}
+f._KEEP_VLM["names"] = {"ed1"}
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("an edition asked to be read again keeps the VLM for a held puzzle", [False, ["6-across"]], asked)
+f._KEEP_VLM["names"] = set()
+f.held_dates = lambda series: {}
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("a puzzle not held asks the VLM", [False, ["6-across"]], asked)
+f.paper_of, f.held_dates, f.held_file = real_paper_of, real_held_dates, real_held_file
+# The queue's entrance: an edition whose titles the date checks refuse is not read.
+real_fn, real_fs = f.filed_number, f.filed_state
+f.filed_number = lambda d, found, hit: (None, None, "2026-10-18 is a Sunday and no daily cryptic")
+scan0 = {"puzzles": [{"number": 7, "leaf": 1}], "date": "2026-10-18"}
+check("an edition whose title is a Sunday is skipped", "sunday", f.unit_skip(f.TIMES, None, scan0, {}, "never read", {}))
+check("a refusal read before its fix is kept", None, f.unit_skip(f.TIMES, None, scan0, {}, "refused not-a-grid before its fix", {}))
+check("an annotation asked is kept", None, f.unit_skip(f.TIMES, None, scan0, {}, "annotation asked", {}))
+f.filed_number = lambda d, found, hit: (7, datetime.date(2026, 10, 17), None)
+f.filed_state = lambda series, n: (True, True)
+held0 = {7: datetime.date(2026, 10, 17)}
+check("an edition whose puzzle is held whole is skipped", "already held whole", f.unit_skip(f.TIMES, None, scan0, {}, "inputs changed", held0))
+f.filed_state = lambda series, n: (False, True)
+check("a held puzzle short of answers is kept for a content reason", None, f.unit_skip(f.TIMES, None, scan0, {}, "inputs changed", held0))
+check("... but skipped for the VLM's own reason", "already held (VLM-only reason)", f.unit_skip(f.TIMES, None, scan0, {}, "read by another VLM", held0))
+check("a puzzle not held is kept", None, f.unit_skip(f.TIMES, None, scan0, {}, "read by another VLM", {}))
+f.filed_number, f.filed_state = real_fn, real_fs
 f.read_page = real_page
 got, _ = ocr_clues.reconcile({"21-across": ("Poet's", "6", None)},
                              ["21 Poet's uninteresting study (6)", "21 Poet's uninteresting study (6)"])

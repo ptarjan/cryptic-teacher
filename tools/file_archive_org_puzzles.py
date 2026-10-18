@@ -3580,15 +3580,73 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     weak = verdict.pop("_weak", None)
     if puzzle is None:
         if verdict.get("cause") == "no-reading-parses" or "pending" in verdict:
+            if held_settled(d, verdict):
+                return verdict, puzzle
             return read_page(d, found, hit, solutions, None)  # the VLM's page
         return verdict, puzzle
     if weak is None:
+        if held_settled(d, verdict):
+            return verdict, puzzle
         return read_page(d, found, hit, solutions, None)
     if not weak and verdict.get("grid") == "image" and "imageDisagrees" not in verdict:
         verdict["vlmAsks"] = 0
         return verdict, puzzle
+    if held_settled(d, verdict):
+        return verdict, puzzle
     only = None if (verdict.get("grid") != "image" or "imageDisagrees" in verdict) else weak
     return read_page(d, found, hit, solutions, only if only is None else sorted(only))
+
+
+#: Editions (dir names) the VLM is asked about even for a puzzle already held:
+#: an annotation asked, a refusal read before its fix, an explicit --reread.
+#: Set by _run, and on the desktop by ocr_remote.read_edition_here.
+_KEEP_VLM = {"names": set()}
+#: (series, number) -> the held file's parsed puzzle or None. The desktop
+#: points it at the held files the Mac sent.
+_HELD_READER = {"read": None}
+#: Titles whose VLM asks held_settled spared, this process.
+VLM_SKIPPED = []
+
+
+def held_file(series, number):
+    """The parsed held file of `series`' puzzle `number`, or None."""
+    reader = _HELD_READER["read"]
+    try:
+        if reader is not None:
+            return reader(series, number)
+        p = _HELD_PATH.get((series, number)) or filer_path(("held", number), series, None)
+        return json.loads(Path(p).read_text())
+    except (OSError, ValueError, KeyError):
+        return None
+
+
+def held_settled(d, verdict):
+    """Whether this page's puzzle needs no VLM ask: its number (known once
+    filed_number placed it) is already held, and the held file leaves the
+    VLM nothing to mend: not this tool's (decide() only merges answers
+    there), or this tool's with every clue worded and none shared, strayed
+    or faulty (mend_held's lost lights, which the blank-clue re-read fills).
+    False when the edition is one asked to be read again (_KEEP_VLM). Notes
+    verdict["heldSkip"] and "vlmAsks" 0 when it spares the asks."""
+    if d is None or d.name in _KEEP_VLM["names"] or verdict.get("number") is None:
+        return False
+    series = paper_of(d).series
+    n = verdict["number"]
+    if n not in held_dates(series):
+        return False
+    old = held_file(series, n)
+    if old is None:
+        return False
+    if (old.get("source") or {}).get("acquiredBy") == TOOL:
+        from fetch_puzzle import duplicated_clues
+        es = old.get("entries") or ()
+        if any(not ((e.get("clue") or {}).get("text") or "").strip() for e in es) \
+                or any(duplicated_clues(es)) or strayed(old, spaces=False) or faults(old):
+            return False
+    verdict["heldSkip"] = True
+    verdict["vlmAsks"] = 0
+    VLM_SKIPPED.append(n)
+    return True
 
 
 def read_page(d, found, hit, solutions, vlm_for=False):
@@ -5264,6 +5322,16 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
             why = "never read (Gale fetch)"
         if why:
             reads[d] = why
+    # An edition whose puzzles will not file is not queued at all.
+    skipped = {}
+    reads_before = len(reads)
+    for d in list(reads):
+        rel = rels[d]
+        label = None if d in stale_set and reads[d] != STALE_SCAN[1] else \
+            unit_skip(paper, d, scans[rel], known.get(rel) or {}, reads[d], held)
+        if label:
+            del reads[d]
+            skipped[f"read: {label}"] = skipped.get(f"read: {label}", 0) + 1
     # Which stale scans each read waits on: its own and the SOLUTION_DAYS after it.
     dated = sorted((edition_date(d), rels[d]) for d in stale if edition_date(d))
     undated = [rels[d] for d in stale if not edition_date(d)]
@@ -5308,7 +5376,64 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"gain": gain_of[rels[d]]} if gain_of.get(rels[d]) else {})}
                   for d in sorted(sorted(stale, key=newest, reverse=True),
                                   key=lambda d: (rank_of.get(rels[d], RANKS["scan stale"]), -gain_of.get(rels[d], 0)))]
+    # A scan no read waits on, of an edition whose last scan found only puzzles that will not file.
+    scans_before = len(scan_units)
+    kept = []
+    for u in scan_units:
+        row = known.get(u["rel"]) or {}
+        label = None if u["rel"] in rank_of or u["reason"] != "scan stale" else \
+            unit_skip(paper, next(d for d in stale if rels[d] == u["rel"]), scans[u["rel"]], row, "scan stale", held)
+        if label:
+            skipped[f"scan: {label}"] = skipped.get(f"scan: {label}", 0) + 1
+        else:
+            kept.append(u)
+    scan_units = kept
+    if skipped:
+        progress(f"plan {paper.key}: reads {reads_before} -> {len(read_units)}, scans {scans_before} -> {len(scan_units)}; "
+                 "skipped " + ", ".join(f"{k} x{v}" for k, v in sorted(skipped.items())))
     return scan_units, read_units
+
+
+#: Reasons an edition is read for a bug: never skipped (a reread is wanted).
+BUG_READS = ("refused ", "short Times page", "solution short", "annotation asked", "--reread")
+#: Reasons that are the VLM's alone (not new files, solutions or titles).
+VLM_READS = ("read without the VLM", "read by another VLM", STALE_SCAN[1])
+
+
+def unit_skip(paper, d, scan, row, reason, held):
+    """Why edition `d` need not be scanned or read for `reason` (None: it
+    does), judged from its last `scan` and ledger `row`, with no image and no
+    VLM: every title is refused by the date checks (filed_number: a Sunday,
+    a number the date does not imply), or its puzzle is already held whole
+    (every clue and answer) at the number and day the title files as, or,
+    when `reason` is the VLM's alone, held at all or last refused as no
+    grid. An edition with bug evidence (BUG_READS, fix_reason) is kept."""
+    if reason.startswith(BUG_READS) or reason == "titles changed" or fix_reason(row):
+        return None
+    hits = scan.get("puzzles") or []
+    if not hits or "failed" in scan or not scan.get("date"):
+        return None
+    vlm_only = reason in VLM_READS or reason == "scan stale"
+    verdicts = {v.get("read_as", v.get("number")): v for v in row.get("verdicts", ())}
+    labels = set()
+    for hit in hits:
+        try:
+            number, day, why = filed_number(d, scan, hit)
+        except Exception:
+            return None
+        if why:
+            if "Sunday" not in why and reason in STALE_SCAN:
+                return None  # the scan code moved: its numbers may read otherwise
+            labels.add("sunday" if "Sunday" in why else "number-date check")
+        elif number in held and held[number] == day and filed_state(paper.series, number) == (True, True):
+            labels.add("already held whole")
+        elif vlm_only and number in held:
+            labels.add("already held (VLM-only reason)")
+        elif vlm_only and (verdicts.get(hit["number"]) or {}).get("cause") == "not-a-grid":
+            labels.add("not a grid")
+        else:
+            return None
+    return "/".join(sorted(labels))
 
 
 def refusal_detail(row, reason):
@@ -5484,6 +5609,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     solutions, sources = solution_sources(dirs, scans, rels, held_dates(paper.series),
                                           sister_solutions(cache, paper or TIMES))
     due = {}
+    keep_vlm = set()
     for d in dirs:
         rel = rels[d]
         if editions and rel not in editions or d in held_back or fresh is not None and rel not in fresh:
@@ -5493,11 +5619,15 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         if why or editions and (unit is None or unit.get("force")):
-            due[d] = (h, sol_seen, fh, reprint_key([p["number"] for p in scans[rel]["puzzles"]], paper.series))
+            if (why or "").startswith(BUG_READS) or fix_reason(known[rel]) or unit is not None and unit.get("force") \
+                    or not why and unit is None:
+                keep_vlm.add(d.name)
+            due[d] =(h, sol_seen, fh, reprint_key([p["number"] for p in scans[rel]["puzzles"]], paper.series))
         elif unit is not None:
             progress(f"not due {rel}: its scan stands as read, or it was read since it was queued")
     # Read only when something is due: a unit that finds nothing due ends here.
     held = held_numbers(paper.series) if due else set()
+    _KEEP_VLM["names"] = keep_vlm
     if due:
         held_dates(paper.series)  # read once here: the forked workers start with it
     keys = sorted(due, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(due)

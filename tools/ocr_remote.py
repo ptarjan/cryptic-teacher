@@ -459,6 +459,9 @@ def read_edition_here(req, blob, ask_mac):
                 for series, dates in req["held"].items()}
         fa.CROPS = crops
         fa.held_dates = held.__getitem__
+        # The held files the Mac sent (decide_here's), for fa.held_settled.
+        fa._HELD_READER["read"] = lambda series, n: json.loads((root / "filing" / "held" / f"{n}.json").read_bytes().decode("utf-8"))
+        fa._KEEP_VLM["names"] = {req["edition"].rsplit("/", 1)[-1]} if req.get("keepVlm", True) else set()
         reprints = req.get("reprints") or {}
         fa.reprint_readings = lambda number, series=None: reprints.get(str(number), {})
         fa.set_solutions({int(n): {**sol, "dir": root / "ed" / sol["dir"]} for n, sol in req["solutions"].items()})
@@ -1370,7 +1373,7 @@ def edition_request(d, found, solutions):
               "held": sorted(fa.held_numbers(series)),
               "scans": [[url, day, ns] for (url, day), ns in fa.held_scans(series).items() if url in urls]}
     return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "reprints": reprints,
-             "vlm": vlm_reader.wanted(), "png": vlm_reader.encoder(), "filing": filing},
+             "vlm": vlm_reader.wanted(), "keepVlm": d.name in fa._KEEP_VLM["names"], "png": vlm_reader.encoder(), "filing": filing},
             buf.getvalue())
 
 
