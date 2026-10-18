@@ -534,44 +534,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TEWING",
      "indicators": [
       {
-       "text": "working most of way up",
-       "note": "moving most of the way up a down entry puts a letter back in near the top, just inside the first one"
+       "text": "most of way up",
+       "at": 30,
+       "note": "the moved letter goes up the down entry but not all the way, stopping one short of the front"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TEWING",
        "indicators": [
         {
-         "text": "last bit",
-         "note": "the last bit is the final letter, which is taken off its word to be used elsewhere"
+         "text": "working",
+         "at": 22,
+         "note": "working means moving, so the last letter is lifted out of its place at the end of the word"
         }
        ],
        "parts": [
         {
          "words": "Sudden pain",
+         "at": 0,
          "gives": "TWINGE",
          "note": "a twinge is a sudden sharp pain"
+        },
+        {
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "last bit",
+       "at": 13,
+       "gives": "E",
+       "note": "the last bit of the word for sudden pain is its final letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A sharp pain creeps up as before while someone is busy working.",
-     "walkthrough": "The final E of TWINGE climbs to just under the T, stopping one short of the top.",
-     "definitionFit": "Tew is an old and dialect verb meaning to work hard or toil, so tewing is the obsolete sense of labouring."
+     "surface": "A sudden pain whose last bit works most of the way up, like a cramp travelling.",
+     "walkthrough": "Take the final E of TWINGE ('last bit'), 'working' lifts it out, leaving TWING, and it goes 'most of way up' the down entry, to just below the T, giving TEWING.",
+     "definitionFit": "To tew is an old verb meaning to work hard or toil, so tewing is the archaic form for labouring, 'as before'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "working"
+     "misdirectedWord": "pain"
     }
    }
   },
@@ -1315,48 +1323,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THROB",
+     "op": "composite",
      "indicators": [
       {
+       "text": "irregular",
+       "at": 20,
+       "note": "irregular means out of order, so the letters of the answer plus those named are jumbled"
+      },
+      {
        "text": "perhaps",
-       "note": "perhaps means one possible arrangement, so the letters can be reordered"
+       "at": 44,
+       "note": "perhaps flags that the phrase is only one possible arrangement of the letters, a disguised version"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "THROB",
-       "indicators": [
-        {
-         "text": "irregular",
-         "note": "irregular flags the extra letters as not belonging, so they come out of the mix"
-        }
-       ],
+       "words": "Is a bother",
+       "at": 32
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Is a bother",
-         "note": "taken as written, then rearranged"
+         "words": "i.e.",
+         "at": 12,
+         "note": "the letters I and E, taken as written"
         },
         {
-         "words": "i.e. as",
-         "note": "these four letters are added to the answer to make up the rearranged phrase"
+         "words": "as",
+         "at": 17,
+         "note": "the letters A and S, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An irregular heartbeat is a worrying thing.",
-     "walkthrough": "The clue works backwards: this answer plus the letters of 'i.e. as', jumbled, makes 'Is a bother', so take those four letters out of that phrase.",
-     "definitionFit": "A throb is a strong beat, as of the heart or a pulse."
+     "surface": "A pulse that runs irregular, the kind of thing a doctor might call a bother.",
+     "walkthrough": "'irregular' says the answer together with I, E, A and S, shuffled, spells IS A BOTHER; take out those four letters and THROB is left, with 'perhaps' marking that it is a disguised example.",
+     "definitionFit": "A throb is a strong regular beat, such as the beat of the heart felt as a pulse."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "irregular"
+     "misdirectedWord": "bother"
     }
    }
   },
@@ -1382,42 +1392,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WHALER",
      "indicators": [
       {
        "text": "interrupting",
-       "note": "to interrupt is to break into the middle, so one piece sits inside another"
+       "at": 16,
+       "note": "interrupting means breaking into the middle of the other word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "WHALER",
+       "op": "alternate",
        "indicators": [
         {
          "text": "not OK",
-         "note": "not means without, so those two letters are taken out of the word"
+         "at": 35,
+         "note": "not OK says the O and the K of work go, and as they are its second and fourth letters the alternate letters are what remain"
         }
        ],
        "parts": [
         {
          "words": "work",
-         "note": "taken as written, then cut down"
-        },
-        {
-         "words": "What's healthy",
-         "gives": "HALE",
-         "note": "hale means healthy and robust"
+         "at": 29,
+         "note": "the word work, which loses two of its letters"
         }
        ]
+      },
+      {
+       "words": "What's healthy",
+       "at": 0,
+       "gives": "HALE",
+       "note": "what is healthy is hale, as in hale and hearty"
       }
      ]
     },
     "explanation": {
-     "surface": "A fit pupil disrupts work and gets after-school detention.",
-     "walkthrough": "'After school' tempts toward lessons, but a school is a group of whales.",
+     "surface": "A puzzle about health and work, with a schoolchild going after classes.",
+     "walkthrough": "The O and K of 'work' are not side by side, so 'not OK' plucks them out separately. 'school' is not a classroom but a school of whales.",
      "definitionFit": "A whaler is a ship or sailor that hunts whales, which swim in groups called schools."
     },
     "features": {
@@ -1965,42 +1975,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DEPEINCT",
      "indicators": [
       {
        "text": "anew",
-       "note": "done anew means made over again, so the letters are rebuilt in a new order"
+       "at": 30,
+       "note": "anew means made again, so the letters are rearranged into a fresh order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DEPEINCT",
        "indicators": [
         {
          "text": "without",
-         "note": "without means lacking, so one letter is removed"
+         "at": 35,
+         "note": "without means the following letter is left out of inspected"
         }
        ],
        "parts": [
         {
          "words": "inspected",
-         "note": "taken as written, then cut and rearranged"
+         "at": 20
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "a hint of",
-           "note": "a hint is only a trace, so just the first letter of the word is meant"
+           "at": 43,
+           "note": "a hint of a word is just its first letter"
           }
          ],
          "parts": [
           {
            "words": "side",
-           "note": "a hint of side is its first letter"
+           "at": 53,
+           "note": "the first letter is taken from side"
           }
          ]
         }
@@ -2009,14 +2019,14 @@
      ]
     },
     "explanation": {
-     "surface": "A poet's colouring is examined again, without any trace of bias.",
-     "walkthrough": "'Poetic' marks a word used by Spenser; colour here is a verb.",
-     "definitionFit": "Depeinct is a Spenserian verb meaning to paint or depict, so colouring is one example of it."
+     "surface": "Something inspected again without any trace of bias, perhaps a coloured picture.",
+     "walkthrough": "'a hint of side' is S, which 'without' removes from INSPECTED to leave INPECTED; 'anew' rearranges those letters. Spenser used depeinct to mean paint.",
+     "definitionFit": "Depeinct is a Spenserian verb meaning to paint or depict, and colouring is one example of painting."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "colour"
+     "misdirectedWord": "side"
     }
    }
   },
