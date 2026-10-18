@@ -275,63 +275,79 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "wasting",
-       "note": "throws away the A from MEAN"
-      }
-     ],
      "parts": [
+      {
+       "words": "daughter",
+       "at": 13,
+       "gives": "D"
+      },
+      {
+       "words": "is",
+       "at": 23
+      },
+      {
+       "words": "dad",
+       "at": 26,
+       "gives": "PA",
+       "note": "pa is an informal word for dad"
+      },
+      {
+       "words": "anger",
+       "at": 35,
+       "gives": "RAGE",
+       "note": "rage is fierce anger"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wasting",
+         "at": 49,
+         "note": "wasting a means the word for unkind loses its letter A, frittered away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unkind",
+         "at": 41,
+         "gives": "MEAN",
+         "note": "mean means unkind"
+        },
+        {
+         "words": "a",
+         "at": 57,
+         "gives": "A"
+        }
+       ]
+      },
       {
        "op": "first",
        "indicators": [
         {
          "text": "bit of",
-         "note": "only a small piece, the first letter, of time is taken"
+         "at": 59,
+         "note": "a bit of time here is just its opening letter"
         }
        ],
        "parts": [
         {
-         "words": "daughter",
-         "note": "D = daughter"
+         "words": "time",
+         "at": 66,
+         "note": "its opening letter T, also the standard abbreviation for time"
         }
        ]
-      },
-      {
-       "words": "is",
-       "note": "used as it stands"
-      },
-      {
-       "words": "dad",
-       "gives": "PA",
-       "note": "pa = dad"
-      },
-      {
-       "words": "anger",
-       "gives": "RAGE",
-       "note": "rage = anger"
-      },
-      {
-       "words": "unkind, wasting a",
-       "gives": "MEN",
-       "note": "MEAN (unkind) without its A"
-      },
-      {
-       "words": "bit of time",
-       "gives": "T",
-       "note": "first letter of time"
       }
      ]
     },
     "explanation": {
-     "surface": "A daughter complaining that her angry father is being mean and wasting time.",
-     "walkthrough": "'Wasting a bit of time' looks like one phrase; it splits into 'wasting a' acting on MEAN and 'bit of time' giving T.",
-     "definitionFit": "Disparagement is the act of running someone down, belittling them."
+     "surface": "A daughter complains that her angry father is being nasty and wasting her time.",
+     "walkthrough": "MEAN ('unkind') 'wasting a' becomes MEN, and 'bit of time' gives T; the pieces run in clue order after D, IS, PA and RAGE.",
+     "definitionFit": "Running someone down means belittling or criticising them, which is what disparagement is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wasting"
+     "misdirectedWord": "Running"
     }
    }
   },
@@ -1525,46 +1541,47 @@
      {
       "text": "being defamed",
       "at": 26,
-      "note": "ASPERSED is a past participle; 'being defamed' stands for it in a passive sense"
+      "note": "a participle phrase; the answer as a past participle reads the same in 'found herself being defamed' and 'found herself aspersed'"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASPERSED",
+     "op": "container",
      "indicators": [
       {
-       "text": "Somehow",
-       "note": "sad is rearranged in some way"
+       "text": "inside",
+       "at": 18,
+       "note": "inside places the word for blue within the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "the blue goes into the rearranged letters"
+         "text": "Somehow",
+         "at": 0,
+         "note": "somehow suggests the letters of sad arrive in an unspecified order"
         }
        ],
        "parts": [
         {
          "words": "sad",
-         "note": "SAD rearranged, split around the blue"
-        },
-        {
-         "words": "blue",
-         "gives": "PERSE",
-         "note": "perse is a greyish-blue colour, placed inside AS…D"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "blue",
+       "at": 13,
+       "gives": "PERSE",
+       "note": "perse is an old word for a dark greyish-blue colour"
       }
      ]
     },
     "explanation": {
-     "surface": "Feeling down and low after being badmouthed.",
-     "walkthrough": "'Blue' looks like part of the sadness; it is a colour, the rare PERSE.",
-     "definitionFit": "To asperse someone is to slander or defame them."
+     "surface": "Someone sad and feeling blue after being slandered.",
+     "walkthrough": "The anagram indicator rearranges SAD to ASD, split as AS...D so that PERSE, a rare word for grey-blue, sits 'inside'.",
+     "definitionFit": "To asperse someone is to spread damaging charges against their reputation, so aspersed means slandered."
     },
     "features": {
      "answerInScene": true,

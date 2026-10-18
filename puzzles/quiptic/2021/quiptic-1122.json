@@ -449,7 +449,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Coat",
+      "text": "Coat for one",
       "at": 0
      }
     ],
@@ -458,22 +458,24 @@
      "spelt": "LACQUER",
      "indicators": [
       {
-       "text": "said",
-       "note": "said means spoken out loud, so we want a word that sounds like the description"
+       "text": "said to be",
+       "at": 13,
+       "note": "said to be tells us the word reached is only heard, and the answer is spelt differently"
       }
      ],
      "parts": [
       {
-       "words": "one said to be in need",
+       "words": "in need",
+       "at": 24,
        "gives": "LACKER",
-       "note": "one who is in need is someone who lacks things"
+       "note": "someone in need lacks things, so is a lacker; the question mark flags the made-up noun"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks what to wear when said to be hard up, as if picking an overcoat.",
-     "walkthrough": "The question mark flags that lacker, one who lacks, is an invented word.",
-     "definitionFit": "Lacquer is a glossy varnish applied as a protective layer, so it is a coat of finish."
+     "surface": "A question asking whether a coat is meant for someone said to be poor.",
+     "walkthrough": "'Coat for one' means an example of a coat, a coat of varnish rather than a garment. 'said to be' points to sound: someone in need lacks things, a LACKER, which sounds like the answer.",
+     "definitionFit": "Lacquer is a hard glossy varnish applied in a layer, so it is one example of a coat in the sense of a covering layer."
     },
     "features": {
      "answerInScene": false,
@@ -1583,51 +1585,65 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 37,
+       "note": "in an across clue, over means placed before, so the jumbled rain comes ahead of the letters from night"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "with",
+       "at": 12,
+       "gives": "W"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "over",
-         "note": "over here means spread above and around, so the repeated word wraps the next piece"
+         "text": "awful",
+         "at": 26,
+         "note": "awful rain is rain made a mess of, so its letters are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "awful",
-           "note": "something awful is in a terrible state, so the word it qualifies comes out jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "with",
-           "gives": "W",
-           "note": "W is the abbreviation for with"
-          },
-          {
-           "words": "repeated awful rain",
-           "gives": "RAINRAIN",
-           "note": "the word rain used twice, each time jumbled"
-          }
-         ]
-        },
+         "words": "rain",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means at even intervals, so every other letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "night",
-           "note": "the first, third and fifth letters of night"
-          }
-         ]
+         "text": "regularly",
+         "at": 48,
+         "note": "regularly means taking every other letter of night"
+        }
+       ],
+       "parts": [
+        {
+         "words": "night",
+         "at": 42,
+         "note": "the first, third and fifth letters of night"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "repeated",
+         "at": 17,
+         "note": "repeated tells us the jumbled rain occurs a second time, in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rain",
+         "at": 32
         }
        ]
       },
@@ -1636,13 +1652,14 @@
        "indicators": [
         {
          "text": "cutting off end of",
-         "note": "cutting off the end means the last letter of the next word is dropped"
+         "at": 58,
+         "note": "cutting off the end of glen removes its last letter"
         }
        ],
        "parts": [
         {
          "words": "glen",
-         "note": "taken as written before its final letter is removed"
+         "at": 77
         },
         {
          "gives": "N"
@@ -1652,14 +1669,14 @@
      ]
     },
     "explanation": {
-     "surface": "Driving through a glen at night in heavy rain, you see a sign warning of danger.",
-     "walkthrough": "With gives W at the start, but in the surface it seems only to join the definition to the rest. The two jumbled RAINs sit either side of NGT.",
-     "definitionFit": "A red reflective triangle placed behind a broken-down car on the road alerts other drivers to a hazard."
+     "surface": "A storm warning: torrential rain overnight cutting off a remote Scottish valley.",
+     "walkthrough": "'awful' jumbles RAIN to ARNI, set 'over' (before) NGT, the letters of NIGHT taken 'regularly'. 'repeated' jumbles RAIN again, to RIAN, and 'cutting off end of' turns GLEN into GLE; a glen is a Scottish valley.",
+     "definitionFit": "A warning triangle is the red reflective triangle placed on the road behind a broken-down car to alert drivers to the hazard."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "with"
+     "misdirectedWord": "sign"
     }
    }
   },

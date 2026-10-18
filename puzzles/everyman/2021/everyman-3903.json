@@ -159,52 +159,61 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LOCHNESS",
      "indicators": [
       {
        "text": "Drifting",
-       "note": "things that drift float off out of position, so the letters wander into a new order"
+       "at": 0,
+       "note": "drifting means moving aimlessly, so the letters wander into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOCHNESS",
        "indicators": [
         {
-         "text": "leaderless",
-         "note": "without a leader means the front letter is dropped"
-        },
-        {
          "text": "away",
-         "note": "sending something away removes it from the word"
+         "at": 39,
+         "note": "right away asks for the letter standing for right to be taken away"
         }
        ],
        "parts": [
         {
-         "words": "anchorless",
-         "note": "taken as written, then trimmed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaderless",
+           "at": 10,
+           "note": "leaderless means without the leading letter, so the first letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "anchorless",
+           "at": 22
+          },
+          {
+           "gives": "A"
+          }
+         ]
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is the standard abbreviation for right, and this letter is removed"
+         "at": 33,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat with no skipper and no anchor drifts about on a lake.",
-     "walkthrough": "ANCHORLESS loses its first letter A and the R for right, leaving NCHOLESS, which rearranges to LOCH NESS.",
-     "definitionFit": "This famous Scottish body of water, home of the fabled monster, is a lake; loch is the Scots word."
+     "surface": "A boat drifts on a lake with no captain and no anchor.",
+     "walkthrough": "'leaderless' removes the first letter of ANCHORLESS, and 'right away' removes its R, leaving NCHOLESS; 'Drifting' rearranges those letters.",
+     "definitionFit": "Loch Ness is a large freshwater loch in the Scottish Highlands, a loch being the Scottish word for a lake."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "anchorless"
+     "misdirectedWord": "right"
     }
    }
   },
@@ -388,63 +397,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not half",
+       "at": 38,
+       "note": "not half asks for each of the three names to lose its second half, keeping only the front half of each"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TOL",
-       "indicators": [
-        {
-         "text": "Not half",
-         "note": "keeping no more than half of each word means only its first half survives"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "Tolman",
-         "gives": "TOL",
-         "select": "first",
-         "note": "first half of a six-letter name"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "KI",
-       "parts": [
+         "at": 15
+        },
         {
-         "unchecked": true,
          "words": "Kíli",
-         "gives": "KI",
-         "select": "first",
-         "note": "first half of a four-letter name"
+         "at": 23
+        },
+        {
+         "words": "Ents",
+         "at": 32
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "EN",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Ents",
-         "gives": "EN",
-         "select": "first",
-         "note": "first half of a four-letter word"
-        }
-       ]
+       "gives": "MANLITS"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Did a certain author invent these characters? Not half — of course he did.",
-     "walkthrough": "'Not half!' is British slang for 'absolutely', but also instructs taking half of each name. Tolman Cotton, the dwarf Kíli and the tree-like Ents all appear in his books.",
-     "definitionFit": "The whole clue describes the novelist who created these Middle-earth characters, so the question points straight at him."
+     "surface": "A rhetorical question about who invented some characters from Middle-earth, answered with the slang 'Not half!', meaning 'Absolutely!'.",
+     "walkthrough": "Keep the first half of each name: TOL from Tolman, KI from Kíli, EN from Ents. Tolman Cotton is a hobbit, Kíli a dwarf, and the Ents tree-shepherds, all invented by the author.",
+     "definitionFit": "The Lord of the Rings and The Hobbit, home to all three, were written by this Oxford professor, who invented them."
     },
     "features": {
      "answerInScene": true,
@@ -1019,39 +1007,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AVERTING",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another means it is swapped in as a replacement"
+       "at": 35,
+       "note": "victory for Luxembourg says the letter for victory takes the place of the letter for Luxembourg"
       }
      ],
      "parts": [
       {
        "words": "giving tip-off",
+       "at": 11,
        "gives": "ALERTING",
-       "note": "to tip someone off is to warn them"
-      },
-      {
-       "words": "victory",
-       "gives": "V",
-       "note": "V is the familiar abbreviation for victory"
+       "note": "giving a tip-off is alerting someone"
       },
       {
        "words": "Luxembourg",
+       "at": 39,
        "gives": "L",
-       "note": "L is the international vehicle code for Luxembourg, and it is the letter swapped out"
+       "note": "L is the international vehicle registration code for Luxembourg"
+      },
+      {
+       "words": "victory",
+       "at": 27,
+       "gives": "V",
+       "note": "V for victory, as in the V sign"
       }
      ]
     },
     "explanation": {
-     "surface": "A tip-off is passed on that stops something bad, earning Luxembourg a win.",
-     "walkthrough": "In the warning word, V takes the place of the L.",
-     "definitionFit": "To avert a disaster is to stop it happening, so the two participles match exactly."
+     "surface": "A whistleblower's warning stops something, bringing a win for Luxembourg.",
+     "walkthrough": "In ALERTING ('giving tip-off'), 'victory for Luxembourg' means V replaces L.",
+     "definitionFit": "Averting means turning aside or stopping something before it happens, a close synonym of preventing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Luxembourg"
     }

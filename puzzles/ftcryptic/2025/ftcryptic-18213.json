@@ -310,33 +310,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HANDBAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the next two words exchange their initial sounds"
+       "at": 0,
+       "note": "the Reverend Spooner was famous for swapping the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "outlawed witch's",
-       "gives": "HANDBAG",
-       "soundsLike": "BANNED HAG",
-       "note": "outlawed means banned and a witch is a hag; swapping their first sounds gives the result"
+       "op": "homophone",
+       "spelt": "BAND",
+       "parts": [
+        {
+         "words": "outlawed",
+         "at": 10,
+         "gives": "BANNED",
+         "note": "outlawed means banned, which sounds like band"
+        }
+       ]
+      },
+      {
+       "words": "witch's",
+       "at": 19,
+       "gives": "HAG",
+       "note": "a hag is an ugly old witch; the 's stands for is"
       }
      ]
     },
     "explanation": {
-     "surface": "It sounds like a forbidden item carried by a sorceress.",
-     "definitionFit": "A bag carried in the hand is a common fashion item worn alongside clothes."
+     "surface": "A banned witch is apparently a fashion item, in Spooner's mangled speech.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of BANNED (heard as BAND) and HAG, giving HAND BAG.",
+     "definitionFit": "A handbag is a bag carried to complement an outfit, so it is a fashion accessory."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "witch's"
+     "misdirectedWord": "outlawed"
     }
    }
   },
@@ -1158,31 +1169,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMPUTATE",
-     "indicators": [
-      {
-       "text": "boundless",
-       "note": "without bounds means the word loses both its edges, the first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "grounds of university",
-       "gives": "CAMPUS",
-       "note": "a campus is the grounds of a university; its outer letters go"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "boundless",
+         "at": 13,
+         "note": "boundless means without its boundaries, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grounds of university",
+         "at": 23,
+         "gives": "CAMPUS",
+         "note": "a campus is the grounds of a university"
+        }
+       ]
       },
       {
        "words": "gallery",
+       "at": 45,
        "gives": "TATE",
-       "note": "the Tate is a famous London art gallery"
+       "note": "the Tate is a group of famous British art galleries"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone removes a piece from the vast university lawns to put in an art gallery.",
-     "definitionFit": "To amputate is to remove a limb surgically, severing it from the body."
+     "surface": "A gallery being cut off from the endless grounds of a university.",
+     "walkthrough": "CAMPUS ('grounds of university') made 'boundless' gives AMPU; the Tate is London's best-known gallery group.",
+     "definitionFit": "To amputate a limb is to sever it surgically, to cut it off."
     },
     "features": {
      "answerInScene": false,
@@ -1570,48 +1588,48 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "AZURE",
      "indicators": [
       {
        "text": "behind",
-       "note": "coming behind something means placed after it, so this piece follows the others"
+       "at": 16,
+       "note": "behind means coming after, so the letters from tree follow the others"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AZURE",
+       "words": "Arizona",
+       "at": 23,
+       "gives": "AZ",
+       "note": "AZ is the US postal abbreviation for Arizona"
+      },
+      {
+       "words": "University",
+       "at": 31,
+       "gives": "U"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "Discovered",
-         "note": "dis-covered means with its covering stripped off, so the outer letters are removed"
+         "at": 0,
+         "note": "discovered means with its cover stripped off, so the outer letters of tree go"
         }
        ],
        "parts": [
         {
-         "words": "Arizona",
-         "gives": "AZ",
-         "note": "AZ is the postal abbreviation for Arizona"
-        },
-        {
-         "words": "University",
-         "gives": "U",
-         "note": "U abbreviates university"
-        },
-        {
          "words": "tree",
-         "note": "taken as written, then stripped of its first and last letters"
+         "at": 11,
+         "note": "the two inner letters of the word tree, its outer T and E stripped away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finds a tree at the back of an Arizona campus that gives shelter from the sun.",
-     "walkthrough": "Shade suggests shelter under a tree, but here it means a colour.",
-     "definitionFit": "Azure is a bright sky-blue colour, and a shade is a particular tone or hue of colour."
+     "surface": "A tree is found behind an Arizona campus, giving shade.",
+     "walkthrough": "'shade' looks like the shadow a tree gives, but it is a shade of colour. TREE 'Discovered' gives RE.",
+     "definitionFit": "Azure is a bright sky-blue colour, and a shade is a particular variety of a colour."
     },
     "features": {
      "answerInScene": false,
