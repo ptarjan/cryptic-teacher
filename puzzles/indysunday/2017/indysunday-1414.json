@@ -105,71 +105,61 @@
      "indicators": [
       {
        "text": "during",
-       "note": "something happening during another event sits inside it, so these letters go within the other word"
+       "at": 35,
+       "note": "during means the following letters are placed within the binge word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "binge",
+       "at": 42,
+       "gives": "BENDER",
+       "note": "a bender is a drinking binge"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "binge",
-           "gives": "BENDER",
-           "note": "a bender is a drinking spree"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "source of",
-             "note": "a source is where something starts, so only the opening letter of the next word is used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "tequila",
-             "note": "the opening letter of tequila"
-            }
-           ]
-          }
-         ]
+         "words": "A",
+         "at": 0,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "bit of",
-           "note": "just a small bit, here the first letter of the following word"
+           "text": "source of",
+           "at": 2,
+           "note": "the source of a word is its first letter, here of rum"
           }
          ],
          "parts": [
           {
            "words": "rum",
-           "note": "the opening letter of rum"
+           "at": 12
           }
          ]
+        },
+        {
+         "words": "bit of tequila",
+         "at": 20,
+         "gives": "T",
+         "note": "a bit of tequila is its opening letter"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A boozy night out where the rum and tequila keep flowing.",
-     "walkthrough": "The whole clue doubles as the definition: the person serving rum and tequila during a drinking spree. A bender is British slang for a heavy drinking session.",
-     "definitionFit": "The person behind a pub counter pours the spirits, so is literally where drinkers get their rum and tequila."
+     "surface": "Where the rum and tequila come from when on a drinking spree.",
+     "walkthrough": "As a whole the clue describes the barman pouring spirits during someone's spree.",
+     "definitionFit": "A bartender serves drinks such as rum and tequila, so is a source of them during a binge."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "binge"
+     "misdirectedWord": "source"
     }
    }
   },
@@ -1700,52 +1690,44 @@
      "indicators": [
       {
        "text": "tucking into",
-       "note": "tucking into food means going inside it, so these letters enter the other word"
+       "at": 13,
+       "note": "tucking into means eating, so these letters go inside the taco fragment"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "half-done",
-           "note": "only half finished, so the second half of the food word is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "taco",
-           "note": "a taco is a Mexican folded tortilla"
-          },
-          {
-           "gives": "CO"
-          }
-         ]
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "half-done taco",
+       "at": 26,
+       "gives": "TA",
+       "note": "half of TACO is its first two letters"
       },
       {
-       "words": "politician",
-       "gives": "MP",
-       "note": "an MP is a Member of Parliament"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "politician",
+         "at": 2,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An MP eats an undercooked taco washed down with a fortified wine.",
-     "walkthrough": "'Port' looks like the drink to go with the taco, but it means a harbour city.",
-     "definitionFit": "Tampa is a seaport city on Florida's Gulf coast."
+     "surface": "An MP eats half a taco and drinks port.",
+     "walkthrough": "'port' looks like the drink but is a harbour city: Tampa in Florida.",
+     "definitionFit": "Tampa is a seaport city on the Gulf coast of Florida."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "port"
     }
    }
