@@ -544,37 +544,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RETREADS",
-     "indicators": [
-      {
-       "text": "losing head",
-       "note": "the head of a word is its first letter, so that letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Retired",
+       "at": 0,
+       "gives": "RET"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 28,
+         "note": "about in the sense of around, astir, so the remaining letters are moved around"
+        }
+       ],
        "parts": [
         {
-         "words": "Retired",
-         "gives": "RET",
-         "note": "ret. is an abbreviation for retired"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "'about' can mean turned around and rearranged, so the letters are reordered"
+           "text": "losing head",
+           "at": 16,
+           "note": "losing head means the first letter of the padre word drops away"
           }
          ],
          "parts": [
           {
            "words": "padre's",
-           "gives": "ADRES",
-           "note": "the chaplain's word PADRES with its first letter dropped"
+           "at": 8,
+           "gives": "PADRES",
+           "note": "the word padre's, read without its apostrophe"
+          },
+          {
+           "gives": "P"
           }
          ]
         }
@@ -583,14 +587,14 @@
      ]
     },
     "explanation": {
-     "surface": "A retired chaplain losing his mind over sermons that have barely been changed.",
-     "walkthrough": "'Losing head' sounds like going mad, but it removes the P of padre's before the rest is rearranged.",
-     "definitionFit": "A retread is a tyre given new tread, and figuratively a reworking of old material with only minor changes."
+     "surface": "A retired army chaplain, past his prime, puts out lightly edited editions of his sermons.",
+     "walkthrough": "'Retired' looks like it describes the padre, but it is its own abbreviation; 'about' then signals a shuffle of the beheaded padre's letters.",
+     "definitionFit": "A retread is a tyre given a new tread, and by extension anything reworked only superficially, like a lightly altered rerun."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "head"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "padre's"
     }
    }
   },
@@ -882,22 +886,21 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNEDUCATED",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "cutting a word short removes its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "uniform",
+       "at": 14,
+       "gives": "U",
+       "note": "U is Uniform in the NATO phonetic alphabet"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "home to",
-         "note": "a home houses its occupant, so one piece goes inside another"
+         "at": 45,
+         "note": "home to means the jumbled letters house the word for kitty"
         }
        ],
        "parts": [
@@ -906,24 +909,35 @@
          "indicators": [
           {
            "text": "ground",
-           "note": "something ground is crushed and broken up, so its letters are mixed"
+           "at": 38,
+           "note": "ground as in crushed or milled, so the letters are broken up and remixed"
           }
          ],
          "parts": [
           {
-           "words": "uniform",
-           "gives": "U",
-           "note": "U is uniform in the NATO alphabet"
-          },
-          {
-           "words": "denudes",
-           "gives": "DENUDE",
-           "note": "the verb with its last letter cut"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "shortly",
+             "at": 22,
+             "note": "shortly means the word denudes is cut short, losing its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "denudes",
+             "at": 30
+            },
+            {
+             "gives": "S"
+            }
+           ]
           }
          ]
         },
         {
          "words": "kitty",
+         "at": 53,
          "gives": "CAT",
          "note": "a kitty is a cat"
         }
@@ -932,9 +946,9 @@
      ]
     },
     "explanation": {
-     "surface": "A boorish soldier in uniform stripping bare a patch of land where a cat lives.",
-     "walkthrough": "'Ground' looks like a noun for land, but it is the past tense of grind; 'kitty' could be a money pool, but it is the cat.",
-     "definitionFit": "A philistine is someone hostile or indifferent to culture and learning, so lacking schooling or refinement fits."
+     "surface": "An uncultured man in uniform strips a patch of ground where the cat lives.",
+     "walkthrough": "'ground' looks like a patch of earth but is the past tense of grind, the anagram signal; 'kitty' is the cat that the jumble is 'home to'.",
+     "definitionFit": "A philistine is someone hostile or indifferent to culture and learning, so an ignorant, uneducated person."
     },
     "features": {
      "answerInScene": false,
@@ -1533,42 +1547,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OVALS",
      "indicators": [
       {
        "text": "Baked",
-       "note": "something baked has been cooked and transformed, so its letters are reworked"
+       "at": 0,
+       "note": "baked dough changes shape in the oven, so the letters take a new form"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "OVALS",
        "indicators": [
         {
          "text": "after scrapping",
-         "note": "scrapping something throws it away, so a letter is removed first"
+         "at": 13,
+         "note": "after scrapping means once the named letter is thrown out of the word loaves"
         }
        ],
        "parts": [
         {
          "words": "loaves",
-         "note": "taken as written"
+         "at": 6
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "starter of",
-           "note": "a starter comes first, so only the initial letter is meant"
+           "at": 29,
+           "note": "starter of takes the opening letter of the next word"
           }
          ],
          "parts": [
           {
            "words": "Easter",
-           "note": "the first letter of Easter, the one dropped"
+           "at": 40,
+           "note": "its first letter is E"
           }
          ]
         }
@@ -1577,14 +1591,14 @@
      ]
     },
     "explanation": {
-     "surface": "Bread baked for the holiday without the usual Easter eggs to begin with.",
-     "walkthrough": "Easter eggs look like one item, but Easter only gives its E to be removed and 'eggs?' is the definition by example.",
-     "definitionFit": "Eggs have a rounded elongated outline, so they are examples of that shape, which the question mark signals."
+     "surface": "Loaves baked for Easter come out looking like eggs.",
+     "walkthrough": "'starter of Easter' is E; 'after scrapping' it from LOAVES leaves LOAVS, which 'Baked' rearranges.",
+     "definitionFit": "Eggs are the classic oval shape, so they are examples of ovals; the question mark admits it is a definition by example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Easter"
+     "misdirectedWord": "Baked"
     }
    }
   },

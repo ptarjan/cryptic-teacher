@@ -398,40 +398,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENCAPSULATED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nurses",
+       "at": 35,
+       "note": "nurses in the sense of holding close, cradling: the jumbled letters hold the crowns word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "troubled",
-         "note": "troubled letters are stirred up into a new order"
-        },
-        {
-         "text": "nurses",
-         "note": "to nurse is to hold close"
+         "at": 16,
+         "note": "troubled means disturbed, so those letters are stirred into a new order"
         }
        ],
        "parts": [
         {
          "words": "EU dental",
-         "note": "anagram fodder EUDENTAL, rearranged and split EN…ULATED"
-        },
-        {
-         "words": "crowns",
-         "gives": "CAPS",
-         "note": "dental crowns are caps"
+         "at": 25,
+         "note": "the words EU and dental supply the letters"
         }
        ]
+      },
+      {
+       "words": "crowns",
+       "at": 9,
+       "gives": "CAPS",
+       "note": "caps are crowns, as a dentist fits them on teeth"
       }
      ]
     },
     "explanation": {
-     "surface": "A news item about dental nurses unsettled by EU rules on crowns.",
-     "walkthrough": "'Digested' is used in the sense of summarised, a report boiled down. 'Nurses' looks like the job title in the surface; it is the verb that wraps the letters round CAPS.",
-     "definitionFit": "Synonym in the sense of summarised: a digest boils material down to its essentials."
+     "surface": "Dental nurses are unsettled by crowns fitted under European rules.",
+     "walkthrough": "'nurses' looks like the dental staff, but it is the verb: the anagram ENULATED holds CAPS.",
+     "definitionFit": "To encapsulate is to sum up concisely, so encapsulated means summarised, presented in digested form."
     },
     "features": {
      "answerInScene": false,
@@ -468,33 +472,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Redevelopment of",
-       "note": "redeveloping something rebuilds it in a new form, so SKI R is rebuilt"
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "initially",
-         "note": "initially means at the start, so only the first letter of 'resort'"
+         "text": "Redevelopment of",
+         "at": 0,
+         "note": "redevelopment rebuilds something in a new form, so these letters are rearranged"
         }
        ],
        "parts": [
         {
+         "words": "ski",
+         "at": 17,
+         "note": "the word ski supplies its letters"
+        },
+        {
          "op": "first",
-         "unchecked": true,
-         "gives": "SKIR",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 28,
+           "note": "initially takes the first letter of the word resort"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "ski resort initially",
-           "gives": "SKIR",
-           "select": "first",
-           "note": "SKI as written plus R, the first letter of resort; anagram fodder"
+           "words": "resort",
+           "at": 21,
+           "note": "its first letter is R"
           }
          ]
         }
@@ -502,20 +509,21 @@
       },
       {
        "words": "excellent",
+       "at": 38,
        "gives": "CAPITAL",
-       "note": "capital is an old-fashioned word for excellent"
+       "note": "capital is an old-fashioned exclamation meaning excellent"
       }
      ]
     },
     "explanation": {
-     "surface": "Rebuilding a ski resort is pitched as a first-rate investment.",
-     "walkthrough": "The whole resort seems to be the fodder; only its first letter joins SKI.",
-     "definitionFit": "Definition by category: money put into a speculative venture, one kind of investment."
+     "surface": "Rebuilding a ski resort is touted as a first-class investment.",
+     "walkthrough": "'ski resort' reads as one place, but only the R of resort joins SKI in the jumble.",
+     "definitionFit": "Risk capital is money put into a speculative venture, a form of investment with a chance of loss."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "resort"
+     "misdirectedWord": "excellent"
     }
    }
   },
@@ -646,63 +654,67 @@
    "annotation": {
     "definitions": [
      {
-      "text": "holidaymakers there",
+      "text": "holidaymakers there?",
       "at": 50
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "something rejected is sent back"
-      }
-     ],
      "parts": [
       {
        "words": "Coffee shop",
+       "at": 0,
        "gives": "COSTA",
-       "note": "Costa is a British coffee shop chain"
+       "note": "Costa is a British chain of coffee shops"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "mostly means not quite all, so OLD loses its last letter"
+         "text": "rejected",
+         "at": 12,
+         "note": "rejected means sent back, so the slider word is reversed"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "American slider",
-           "gives": "SLEDS",
-           "note": "a sled is the American word for a sledge; in the plural, sent back"
-          },
-          {
-           "gives": "S"
-          }
-         ]
+         "words": "American slider",
+         "at": 21,
+         "gives": "SLED",
+         "note": "a sled is the American word for a sledge, something that slides"
         }
        ]
       },
       {
-       "words": "mostly old",
-       "gives": "OL",
-       "note": "OLD without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 39,
+         "note": "mostly drops the last letter of the word old"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old",
+         "at": 46
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A café turned away an American, and the place is full of elderly tourists.",
-     "walkthrough": "The definition leans on 'old' from the wordplay for its picture: this Spanish coast is famous for older British tourists.",
-     "definitionFit": "Definition by reputation: the Spanish resort coast crowded with British holidaymakers."
+     "surface": "Older tourists turn up their noses at a coffee shop selling American snacks.",
+     "walkthrough": "'slider' suggests the American mini-burger, which fits the coffee shop; it is a sled. Costa Coffee is a British café chain.",
+     "definitionFit": "The Costa del Sol is the Spanish coastline famous as a destination for British package tourists; the question mark marks the indirect definition."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "slider"
     }
    }
@@ -797,39 +809,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half going",
-       "note": "half of LIVE, the VE, goes away"
-      },
-      {
-       "text": "for a raise",
-       "note": "what is left of LIVE is raised, which in a down entry turns it upside down"
+       "text": "with",
+       "at": 14,
+       "note": "with means the word to is accompanied by what follows, the two set side by side"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "to",
+       "at": 5
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "for a raise",
+         "at": 30,
+         "note": "for a raise means lifted, so in a down clue the remaining letters are read upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "live, with half going for a raise",
-         "gives": "LI",
-         "note": "LI, half of LIVE, turned upward"
-        },
-        {
-         "words": "to",
-         "gives": "OT",
-         "note": "as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half going",
+           "at": 19,
+           "note": "half going means half the word live disappears, leaving its first two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "live",
+           "at": 8
+          },
+          {
+           "gives": "VE"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The old grumble that you work to live, then lose half your pay packet chasing a rise.",
-     "walkthrough": "'Work to live' is the familiar saying, but only 'Work' is the definition and 'to' goes straight into the answer.",
-     "definitionFit": "Plain synonym: hard labour."
+     "surface": "A worker grumbles that half their pay goes before they can get a raise.",
+     "walkthrough": "'Work to live' sounds like a motto, but 'to' is taken as written; LIVE loses VE and LI is turned upwards.",
+     "definitionFit": "Toil is hard, tiring labour, so as a verb or noun it means work."
     },
     "features": {
      "answerInScene": true,
@@ -2187,40 +2216,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HUBRIS",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "called back, so SIR is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Core",
+       "at": 0,
+       "gives": "HUB",
+       "note": "the hub is the core or centre of something"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 13,
+         "note": "recalled means called back, so the teacher word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Core",
-         "gives": "HUB",
-         "note": "a hub is the core"
-        },
-        {
-         "words": "teacher recalled",
-         "gives": "RIS",
-         "note": "SIR, a teacher, turned round"
+         "words": "teacher",
+         "at": 5,
+         "gives": "SIR",
+         "note": "sir is how pupils address a male teacher"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A core-subject teacher is remembered for pride.",
-     "walkthrough": "'Core teacher' reads as a teacher of core subjects; the words split. British pupils call a male teacher sir.",
-     "definitionFit": "Synonym: overweening pride, the kind that invites a fall in Greek tragedy."
+     "surface": "A central teacher is remembered for his arrogance.",
+     "walkthrough": "'Pride' sits at the end with a capital, as if a name; it is the plain noun. Sir is how British pupils address a male teacher.",
+     "definitionFit": "Hubris is excessive pride or self-confidence, the kind punished in Greek tragedy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "recalled"
     }
@@ -2358,67 +2388,73 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEMOGRAPHY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "Upset"
+         "text": "enters",
+         "at": 17,
+         "note": "enters means the cat word goes inside the reversed word"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "enters",
-           "note": "to enter is to go into a place"
+           "text": "Upset",
+           "at": 0,
+           "note": "upset means overturned, so in a down clue the shaved word is reversed"
           }
          ],
          "parts": [
           {
-           "words": "Upset shaved",
-           "gives": "DERAP",
-           "note": "PARED, shaved, turned over and split DE…RAP"
-          },
-          {
-           "words": "cat",
-           "gives": "MOG",
-           "note": "mog, short for moggy, is British slang for a cat"
+           "words": "shaved",
+           "at": 6,
+           "gives": "PARED",
+           "note": "pared means trimmed or shaved"
           }
          ]
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hopefully empty",
-           "note": "HopefullY with its middle removed"
-          }
-         ]
+         "words": "cat",
+         "at": 13,
+         "gives": "MOG",
+         "note": "mog is British slang for a cat"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 35,
+         "note": "empty removes the contents, leaving only the outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hopefully",
+         "at": 25,
+         "note": "the outer letters of hopefully are H and Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat, freshly clipped and cross, wanders into a study, hoping it is empty.",
-     "walkthrough": "Mog is British slang for a cat. The comma'd 'hopefully empty' reads as the cat's hope, not an instruction to gut the word.",
-     "definitionFit": "Paraphrase from the Greek roots: writing about the people, the study of populations."
+     "surface": "A distressed shaved cat wanders in, hopefully with an empty stomach.",
+     "walkthrough": "'Upset' reads as distressed, describing the cat, but it reverses PARED to DERAP, which MOG 'enters'; a mog is British slang for a cat.",
+     "definitionFit": "Demography is the statistical study of human populations, their size and structure, so a study of people."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "shaved"
+     "misdirectedWord": "Upset"
     }
    }
   },
@@ -2559,59 +2595,75 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SUBURBIA",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 42,
+       "note": "gripping means the joined pieces hold the old city between them"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "SUBURBIA",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "reversing"
-          },
-          {
-           "text": "endless",
-           "note": "BIAS loses its last letter"
-          },
-          {
-           "text": "gripping"
+           "text": "reversing",
+           "at": 8,
+           "note": "reversing means the vehicle word is turned backwards"
           }
          ],
          "parts": [
           {
-           "words": "Vehicle reversing",
-           "gives": "SUB",
-           "note": "BUS turned round"
+           "words": "Vehicle",
+           "at": 0,
+           "gives": "BUS",
+           "note": "a bus is a vehicle"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 24,
+           "note": "endless means the prejudice word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "prejudice",
+           "at": 32,
+           "gives": "BIAS",
+           "note": "bias is prejudice"
           },
           {
-           "words": "old city",
-           "gives": "UR",
-           "note": "Ur is the ancient city of Mesopotamia"
-          },
-          {
-           "words": "endless prejudice",
-           "gives": "BIA",
-           "note": "BIAS, prejudice, without its last letter"
+           "gives": "S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "old city's",
+       "at": 51,
+       "gives": "UR",
+       "note": "Ur is the ancient city of Mesopotamia; the 's joins it to what follows"
       }
      ]
     },
     "explanation": {
-     "surface": "A bus backs round an ancient city's edge, driven by bigotry.",
-     "walkthrough": "UR is the crossword's favourite old city, the Sumerian Ur. The 's is a link: the old city has outskirts.",
-     "definitionFit": "Synonym: the residential districts on a city's outskirts."
+     "surface": "A bus backing up with a biased driver at the edge of an old town.",
+     "walkthrough": "'outskirts' alone is the definition, so 'old city's' is Ur, the ancient Sumerian city that crosswords use for UR, with 's as a link.",
+     "definitionFit": "Suburbia is the suburbs collectively, the residential districts on the edge of a city."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Vehicle"
+     "misdirectedWord": "reversing"
     }
    }
   },
@@ -3264,12 +3316,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "UNSTERILE",
      "indicators": [
       {
        "text": "scratching heads",
-       "note": "to scratch is to strike out, so the first letter of each word goes"
+       "at": 23,
+       "note": "scratching heads means the first letter of each of the two words is scratched out"
       }
      ],
      "parts": [
@@ -3278,27 +3329,31 @@
        "parts": [
         {
          "words": "Irish community",
-         "gives": "UNSTER",
-         "note": "MUNSTER, an Irish province, minus its head M"
+         "at": 0,
+         "gives": "MUNSTER",
+         "note": "Munster is one of the four provinces of Ireland"
         },
         {
          "words": "upset",
-         "gives": "ILE",
-         "note": "RILE, to upset, minus its head R"
+         "at": 16,
+         "gives": "RILE",
+         "note": "to rile is to upset or annoy"
         }
        ]
+      },
+      {
+       "gives": "MR"
       }
      ]
     },
     "explanation": {
-     "surface": "Irish villagers, upset and scratching their heads, suspect lice.",
-     "walkthrough": "'Upset' looks like an anagram signal but is the verb rile. Munster is one of Ireland's four provinces. The question mark flags that bugs means germs.",
-     "definitionFit": "Punning definition: bugs here are germs, and something not germ-free is full of them."
+     "surface": "Irish locals are left bewildered and annoyed by something.",
+     "walkthrough": "'upset' looks like an anagram signal but it is RILE; Munster, the southern Irish province, and RILE both lose their first letters.",
+     "definitionFit": "Unsterile means not free of germs, so contaminated with bugs in the sense of microbes; the question mark flags the slang."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "upset"
     }
    }

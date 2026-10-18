@@ -570,41 +570,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VARIANT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means most but not all, so the final letter is dropped"
+       "text": "morphs",
+       "at": 17,
+       "note": "morphs means changes shape, so the combined letters take a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "morphs",
-         "note": "to morph is to change shape, so the letters take a new order"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly keeps all but the last letter of the word naive"
         }
        ],
        "parts": [
         {
          "words": "naive",
-         "gives": "NAIV",
-         "note": "the word without its last letter"
+         "at": 7
         },
         {
-         "words": "art",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "art",
+       "at": 13,
+       "note": "the word art supplies its letters"
       }
      ]
     },
     "explanation": {
-     "surface": "Untutored artwork transforms into something different.",
-     "definitionFit": "A variant is a version differing in some respect from the standard, i.e. an alternative form."
+     "surface": "Folk art in the naive style gradually changes into something else.",
+     "walkthrough": "'Mostly' cuts NAIVE to NAIV, and 'morphs' shuffles NAIV with ART.",
+     "definitionFit": "A variant is a version that differs in some way from the standard or original."
     },
     "features": {
      "answerInScene": true,

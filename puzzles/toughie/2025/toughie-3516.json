@@ -269,29 +269,29 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "GOTIN",
      "indicators": [
       {
        "text": "cycling",
-       "note": "cycling moves letters round in a loop, taking some from the front to the back"
+       "at": 13,
+       "note": "cycling moves letters round from the front of the word to the back, like a wheel turning"
       }
      ],
      "parts": [
       {
        "words": "bar",
+       "at": 8,
        "gives": "INGOT",
-       "note": "an ingot is a bar of metal such as gold"
+       "note": "an ingot is a bar of cast metal, such as gold"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone walked into a pub after riding their bike.",
-     "walkthrough": "'Bar' suggests a pub, but it is a bar of gold; move its first two letters to the end.",
-     "definitionFit": "To get in is a phrasal verb for gaining entry, so having got in is having gone inside."
+     "surface": "Someone walks into a pub, perhaps on a bike.",
+     "walkthrough": "'bar' tempts as a pub, which suits 'Entered', but it is a metal bar; 'cycling' carries its first two letters round to the end.",
+     "definitionFit": "Got in is a past-tense phrasal verb for gained entry, the same as entered."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "bar"
     }
@@ -379,75 +379,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BOMBASTIC",
-     "indicators": [
-      {
-       "text": "frames",
-       "note": "a frame surrounds a picture, so the shortened word goes around the next one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "frames",
+         "at": 23,
+         "note": "frames means the shortened manager surrounds the graduate, like a picture frame"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "almost",
-           "note": "almost means not quite all, so the final letter is dropped"
+           "at": 16,
+           "note": "almost cuts the last letter from the word for manager"
           }
          ],
          "parts": [
           {
            "words": "manager",
+           "at": 8,
            "gives": "BOSS",
-           "note": "a boss manages"
+           "note": "a boss is a manager"
           },
           {
-           "gives": "SS"
+           "gives": "S"
           }
          ]
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "unlimited",
-           "note": "with no limits means the outer boundary letters at each end are lost"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "business graduate",
-             "gives": "MBA",
-             "note": "Master of Business Administration"
-            },
-            {
-             "words": "blame",
-             "gives": "STICK",
-             "note": "to take stick is to take blame or criticism"
-            }
-           ]
-          },
-          {
-           "gives": "K"
-          }
-         ]
+         "words": "business graduate",
+         "at": 30,
+         "gives": "MBA",
+         "note": "MBA is a Master of Business Administration"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 53,
+         "note": "unlimited strips both outer letters, the limits, from the word for blame"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blame",
+         "at": 63,
+         "gives": "STICK",
+         "note": "to get stick is to receive blame or criticism"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A self-important manager surrounds himself with an MBA and dishes out blame without limit.",
-     "walkthrough": "'Take stick' is a British idiom for being blamed or criticised, which is how blame leads to the final piece.",
-     "definitionFit": "Bombastic speech is high-flown and inflated, the language of a self-important, grandiloquent speaker."
+     "surface": "A self-important boss surrounds himself with MBA hires and deflects all blame.",
+     "walkthrough": "'almost' trims BOSS to BOS, which 'frames' MBA; 'unlimited' takes STICK, in its sense of criticism, down to TIC.",
+     "definitionFit": "Bombastic describes inflated, high-sounding language, the speech of a pompous person."
     },
     "features": {
      "answerInScene": true,
