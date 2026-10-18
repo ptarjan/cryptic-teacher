@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -548,62 +549,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRAGICOMIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 44,
+       "note": "in which says the reversed prop goes inside the beheaded word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "blown off",
-         "note": "What is blown off is gone, so the letter named beside it never reaches the answer."
-        },
-        {
-         "text": "backfires",
-         "note": "A backfire goes off the wrong way round, and the letters named come out back to front."
+         "text": "where head blown off",
+         "at": 23,
+         "note": "the head of a word is its first letter, and blowing it off removes that letter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "in which",
-           "note": "In which names the word the next piece is to be dropped inside."
-          }
-         ],
-         "parts": [
-          {
-           "words": "minute",
-           "gives": "ATOMIC",
-           "note": "minute means atomic, small as an atom, not the unit of time"
-          },
-          {
-           "words": "head",
-           "gives": "A",
-           "note": "the head of that word is its opening letter, and it is the A that goes"
-          }
-         ]
+         "words": "minute",
+         "at": 16,
+         "gives": "ATOMIC",
+         "note": "minute in the sense of tiny is atomic"
         },
         {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backfires",
+         "at": 68,
+         "note": "a thing that backfires goes the wrong way, so the word for the prop is read backwards"
+        }
+       ],
+       "parts": [
+        {
          "words": "Groucho's prop",
-         "gives": "RAGIC",
-         "note": "Groucho Marx was never photographed without a cigar, and those five letters arrive the other way round"
+         "at": 53,
+         "gives": "CIGAR",
+         "note": "Groucho Marx was rarely seen without a cigar"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gag in which the cigar goes off in Groucho Marx's face.",
-     "walkthrough": "Tragicomedy is the stage genre that plays grief for laughs, so the definition is not the contradiction it looks. 'Minute' is the adjective, said mi-NEWT.",
-     "definitionFit": "Seriously funny → TRAGICOMIC: a tragicomic tale is grave and funny at the same moment, and the word splits into exactly those two halves."
+     "surface": "A comic moment goes wrong when Groucho's famous smoke explodes, a scene both grim and hilarious.",
+     "walkthrough": "'Minute' reads as a unit of time, but it is the adjective, ATOMIC, which loses its head to give TOMIC; CIGAR backwards is RAGIC.",
+     "definitionFit": "Tragicomedy blends grief with laughter, so a tragicomic thing is comic while also being grave."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "minute"
     }
    }
@@ -818,61 +822,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THREADWORM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 18,
+       "note": "in a down clue over means the first piece sits on top of the second"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "palpitating",
-         "note": "A palpitating heart thumps unevenly, and the word beside it gives up its letters unevenly too."
-        },
-        {
-         "text": "in",
-         "note": "In drops what is named before it inside the word named after it."
+         "at": 6,
+         "note": "a palpitating heart flutters and jumps about, so its letters are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "In a down clue over is a position, not a turn: what it follows sits higher up the column than the rest."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Heart",
-           "note": "the five letters of the word, shaken up"
-          },
-          {
-           "words": "bedroom",
-           "gives": "DORM",
-           "note": "a dorm is a room full of beds in a school or a hostel"
-          },
-          {
-           "words": "wife",
-           "gives": "W",
-           "note": "w is the standard short form of wife, as on a family tree"
-          }
-         ]
+         "words": "Heart",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 28,
+         "note": "in puts the wife's letter inside the word for bedroom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bedroom",
+         "at": 31,
+         "gives": "DORM",
+         "note": "a dorm (dormitory) is a shared bedroom"
+        },
+        {
+         "words": "wife",
+         "at": 23,
+         "gives": "W",
+         "note": "W is the genealogical abbreviation for wife"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A racing heart over a wife in the bedroom.",
-     "walkthrough": "Threadworms are the pinworms small children pick up at school, and the itch they set off is the 'tickler'. The surface keeps the word bottom for the joke.",
-     "definitionFit": "tickler of infant’s bottom? → THREADWORM: the worm lays its eggs around a child's anus, and the itching that follows is the whole of its bad reputation."
+     "surface": "A racing pulse over an unfaithful wife in the bedroom, with a saucy afterthought about tickling.",
+     "walkthrough": "'Palpitating' jumbles the heart, and 'in' puts the wife inside the bedroom. The question mark flags a playful definition: the parasite causes itching around a child's rear.",
+     "definitionFit": "Threadworms are tiny intestinal parasites common in children, notorious for causing itching around the backside at night."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Heart"
     }
    }
@@ -1444,26 +1453,26 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ANAL",
      "indicators": [
       {
        "text": "turned up",
-       "note": "Turned up in a down clue means read the letters from the bottom of the column to the top."
+       "at": 18,
+       "note": "in a down clue, turned up means the name is read from the bottom upwards"
       }
      ],
      "parts": [
       {
        "words": "Turner",
-       "gives": "ANAL",
-       "note": "Lana Turner was a Hollywood star of the 1940s, and her first name is what gets turned"
+       "at": 11,
+       "gives": "LANA",
+       "note": "Lana Turner was a Hollywood film star of the 1940s and 50s"
       }
      ]
     },
     "explanation": {
-     "surface": "A particular Turner painting coming to light.",
-     "walkthrough": "'Turner' is the film star and not the painter the surface offers — Lana Turner, of The Postman Always Rings Twice.",
-     "definitionFit": "Particular → ANAL: anal is the clipped form of anally retentive, the word for someone fussy over tiny details."
+     "surface": "Someone asks whether a fussy painter has arrived.",
+     "walkthrough": "'Turner' suggests the painter J M W Turner, but it is the actress Lana Turner.",
+     "definitionFit": "Short for anal-retentive, the word describes someone excessively fussy and meticulous about detail."
     },
     "features": {
      "answerInScene": false,

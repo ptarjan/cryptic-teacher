@@ -540,33 +540,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TAKEAWICKET",
+     "spelt": "TAKEAWICKET",
      "indicators": [
       {
        "text": "when openers swap",
-       "note": "openers here are the opening sounds of words, and trading them is the Reverend Spooner's famous verbal blunder"
+       "at": 13,
+       "note": "the openers are the first sounds of the two longer words, and swapping them in the Spooner manner makes each word take the other's start"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Rouse a slip",
-       "gives": "TAKEAWICKET",
-       "soundsLike": "WAKE A TICKET",
-       "note": "rouse means wake, and a slip of paper is a ticket"
+       "op": "homophone",
+       "spelt": "TAKEA",
+       "parts": [
+        {
+         "words": "Rouse a",
+         "at": 0,
+         "gives": "WAKEA",
+         "note": "to rouse someone is to wake them, followed by the clue's a; it takes the opening of the other word"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WICKET",
+       "parts": [
+        {
+         "words": "slip",
+         "at": 8,
+         "gives": "TICKET",
+         "note": "a slip of paper such as a receipt is a ticket; it takes the opening of the other word"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket picture: wake up the fielder at slip so the bowler can get a batsman out.",
-     "walkthrough": "'Slip' looks like the cricket fielding position, which suits the surface, but it is a paper ticket. In cricket a bowler's aim is to dismiss batsmen.",
-     "definitionFit": "In cricket, a bowler dismissing a batsman is said to have got a wicket, which is the bowler's chief job."
+     "surface": "A cricket captain asks a fielder in the slips to liven up while the opening batsmen change ends.",
+     "walkthrough": "'Slip' looks like the cricket fielding position, and 'openers' like opening batsmen. 'When openers swap' exchanges the starts of WAKE A TICKET, giving TAKE A WICKET.",
+     "definitionFit": "A bowler's aim in cricket is to dismiss a batsman, which is phrased as claiming that batsman's wicket."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "slip"
     }
    }

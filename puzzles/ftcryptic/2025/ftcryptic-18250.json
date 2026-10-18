@@ -304,43 +304,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEEKER",
+     "op": "composite",
      "indicators": [
       {
        "text": "riled",
-       "note": "riled means stirred up, so the remaining letters are thrown into a new order"
+       "at": 36,
+       "note": "riled means stirred up and agitated, so the letters left are shaken into a new order"
+      },
+      {
+       "text": "out of",
+       "at": 42,
+       "note": "out of says the letters of the last word are taken away from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MEEKER",
-       "indicators": [
-        {
-         "text": "out of",
-         "note": "out of here means taken away from, so one word's letters are removed from the other"
-        }
-       ],
-       "parts": [
-        {
-         "words": "timekeepers",
-         "note": "the word as printed"
-        },
-        {
-         "words": "spite",
-         "note": "the word as printed, whose letters are removed"
-        }
-       ]
+       "words": "timekeepers",
+       "at": 24
+      },
+      {
+       "words": "spite",
+       "at": 49
       }
      ]
     },
     "explanation": {
-     "surface": "Timekeepers who have been riled grow more docile, out of sheer spite.",
-     "walkthrough": "Removing S, P, I, T, E from TIMEKEEPERS leaves M, E, K, E, E, R, rearranged as MEEKER.",
-     "definitionFit": "Meek means mild and submissive, and the comparative form describes someone growing more so."
+     "surface": "Officials with stopwatches lose their temper out of malice.",
+     "walkthrough": "Take the letters of SPITE from TIMEKEEPERS and rearrange the six that remain.",
+     "definitionFit": "Meek means humble and docile, so a comparative of it describes someone yielding even more readily."
     },
     "features": {
      "answerInScene": false,
@@ -688,46 +679,51 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SOOTYTERN",
+     "spelt": "SOOTYTERN",
      "indicators": [
       {
        "text": "Spoonerised",
-       "note": "named after Reverend Spooner, it means the opening sounds of two words trade places"
+       "at": 6,
+       "note": "Spooner swapped the opening sounds of words, so the two words here trade their first sounds"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SOOTY",
        "parts": [
         {
-         "unchecked": true,
          "words": "the part everyone plays",
-         "gives": "SOOTY",
-         "soundsLike": "TUTTI",
-         "note": "tutti is a musical passage played by the whole orchestra; it swaps its opening sound with the next word"
-        },
+         "at": 18,
+         "gives": "TUTTI",
+         "note": "tutti, said 'tooty', is the musical direction for a passage played by the whole orchestra; it takes the S sound from the other word"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "TERN",
+       "parts": [
         {
-         "unchecked": true,
          "words": "physics lab",
-         "gives": "TERN",
-         "soundsLike": "CERN",
-         "note": "CERN is the particle physics laboratory near Geneva; it takes the other word's opening sound"
+         "at": 45,
+         "gives": "CERN",
+         "note": "CERN, said 'sern', is the particle physics laboratory near Geneva; it takes the T sound from the other word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spoonerism turns a physics experiment everyone joins in into something airborne.",
-     "walkthrough": "Swap the opening sounds of 'tutti CERN' and you say 'sooty tern'.",
-     "definitionFit": "The sooty tern is a dark-backed tropical seabird, and any bird is something that flies."
+     "surface": "Someone describes an orchestral passage performed in a physics laboratory.",
+     "walkthrough": "Said aloud, TUTTI CERN is 'tooty sern'; swap the T and S sounds and you hear the bird.",
+     "definitionFit": "The sooty tern is a tropical seabird, dark above and white below, that spends most of its life on the wing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "plays"
+     "misdirectedWord": "Flyer"
     }
    }
   },
@@ -1460,12 +1456,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MIAOW",
      "indicators": [
       {
        "text": "cutting",
-       "note": "cutting in means slicing between, so this piece goes inside the others"
+       "at": 17,
+       "note": "the letter cuts into the reversed word, sitting inside it"
       }
      ],
      "parts": [
@@ -1474,7 +1469,8 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about here means turned about, so the combined letters run backwards"
+         "at": 25,
+         "note": "about means turned round, so the two pieces are read backwards"
         }
        ],
        "parts": [
@@ -1483,34 +1479,36 @@
          "parts": [
           {
            "words": "West",
+           "at": 0,
            "gives": "W",
-           "note": "W is the abbreviation for west"
-          },
-          {
-           "words": "Oscar",
-           "gives": "O",
-           "note": "Oscar is O in the NATO phonetic alphabet"
+           "note": "W is the compass abbreviation for west"
           },
           {
            "words": "End",
+           "at": 5,
            "gives": "AIM",
-           "note": "an end is a goal or aim"
+           "note": "an end in the sense of a goal or purpose is an aim"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Oscar's",
+       "at": 9,
+       "gives": "O",
+       "note": "Oscar is the NATO alphabet word for O"
       }
      ]
     },
     "explanation": {
-     "surface": "A West End theatre award winner is slashing someone with a vicious review.",
-     "walkthrough": "W(O)AIM reversed gives MIAOW. 'West End' looks like London's theatreland but splits into two words.",
-     "definitionFit": "People say 'miaow' to mock a catty, spiteful remark, mimicking a cat's cry."
+     "surface": "Someone notes that a London theatre's star is making wounding remarks.",
+     "walkthrough": "'West End' looks like London's theatre district, but it is W plus END as AIM; reversed that is MIAW, which O cuts into.",
+     "definitionFit": "A cat noise is the stock retort to a catty, malicious remark, so it is said of a bitchy comment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "End"
     }
    }
@@ -1537,26 +1535,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "MINI",
      "indicators": [
       {
        "text": "cycles",
-       "note": "cycles means the letters go round, the front moving to the back"
+       "at": 15,
+       "note": "cycles means the letters go round, so the front letter is moved to the back"
       }
      ],
      "parts": [
       {
        "words": "60-sec",
+       "at": 8,
        "gives": "IMIN",
-       "note": "sixty seconds is one minute, 1 MIN, with 1 read as I"
+       "note": "sixty seconds is one minute, written I MIN with I as the Roman one"
       }
      ]
     },
     "explanation": {
-     "surface": "A cut-down one-minute cycle, as on a washing machine.",
-     "walkthrough": "I MIN with its I moved to the end gives MINI.",
-     "definitionFit": "Mini describes a small, scaled-down version of something, as in a mini skirt or mini break."
+     "surface": "A brief cycle of one minute's length on some machine, cut down.",
+     "walkthrough": "Sixty seconds is 1 MIN, written I MIN; cycling the I to the end gives the answer.",
+     "definitionFit": "As a prefix or adjective, the word means small or scaled-down, a miniature version."
     },
     "features": {
      "answerInScene": false,
@@ -1635,29 +1633,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "HEAVY",
      "indicators": [
       {
        "text": "chiefs abandoned",
-       "note": "the chiefs are the leading letters of each word, and they are dropped"
+       "at": 16,
+       "note": "the chiefs of the two words are their first letters, and these are dropped"
       }
      ],
      "parts": [
       {
        "words": "British service",
+       "at": 0,
        "gives": "THENAVY",
-       "note": "the Royal Navy, Britain's senior service"
+       "note": "the Royal Navy, the Senior Service, is called the Navy"
+      },
+      {
+       "gives": "TN"
       }
      ]
     },
     "explanation": {
-     "surface": "Top brass of a British military service walked away from their Scottish ale.",
-     "walkthrough": "THE NAVY without the first letters of each word gives HE AVY.",
-     "definitionFit": "In Scotland heavy is a name for a dark bitter ale, roughly what the English call best bitter."
+     "surface": "Top brass desert Britain's armed forces, leaving them with a pint.",
+     "walkthrough": "'Chiefs' looks like top brass, but it means the initial letters of THE and NAVY, T and N. Heavy is a Scottish name for a dark ale like bitter.",
+     "definitionFit": "In Scotland, heavy is the standard name for a medium-strength ale, similar to English bitter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "chiefs"
     }

@@ -617,39 +617,38 @@
     "definitions": [
      {
       "text": "drink here?",
-      "at": 35,
-      "note": "a place, defining a plural noun"
+      "at": 35
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COFFEETABLES",
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece surrounds the other"
+       "at": 9,
+       "note": "the messages go about, that is around, the reworked sweet"
       }
      ],
      "parts": [
       {
+       "words": "Messages",
+       "at": 0,
+       "gives": "CABLES",
+       "note": "cables are telegrams, old-fashioned messages"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "COFFEETABLES",
        "indicators": [
         {
          "text": "time-shifted",
-         "note": "the time letter is shifted from one end of the word to the other"
+         "at": 15,
+         "note": "time is T, and shifting it moves that letter from the front of the sweet to its end"
         }
        ],
        "parts": [
         {
-         "words": "Messages",
-         "gives": "CABLES",
-         "note": "cables are telegrams"
-        },
-        {
          "words": "treat",
+         "at": 28,
          "gives": "TOFFEE",
          "note": "toffee is a sweet treat"
         }
@@ -658,14 +657,14 @@
      ]
     },
     "explanation": {
-     "surface": "Texts arrive about a treat being rescheduled; is this where we have drinks?",
-     "walkthrough": "'Time-shifted' asks you to move the T for time from the front of the treat to its end; cables are telegrams, and here they wrap around the result.",
-     "definitionFit": "Low tables in a sitting room are where people set down cups of coffee, so you might drink there."
+     "surface": "Someone is told by telegram of a delayed sweet treat and wonders where to have a drink.",
+     "walkthrough": "'Time-shifted' works on two levels: time is T, and it is shifted from the front of TOFFEE to the back, giving OFFEET; 'about' then puts CABLES around that.",
+     "definitionFit": "A low table in a living room is where cups of coffee are typically set down, hence a place one might drink."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Messages"
+     "misdirectedWord": "time-shifted"
     }
    }
   },
@@ -1334,28 +1333,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LIPREADERS",
+     "spelt": "LIPREADERS",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "William Spooner was famous for swapping the opening sounds of words"
+       "at": 32,
+       "note": "Reverend Spooner's habit was swapping the opening sounds of two words, so these two words trade their first letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "tear apart rulers",
-       "gives": "LIPREADERS",
-       "soundsLike": "RIP LEADERS",
-       "note": "rip means tear apart and leaders are rulers"
+       "op": "homophone",
+       "spelt": "LIP",
+       "parts": [
+        {
+         "words": "tear apart",
+         "at": 13,
+         "gives": "RIP",
+         "note": "to tear apart is to rip; it takes the opening sound of the other word"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "READERS",
+       "parts": [
+        {
+         "words": "rulers",
+         "at": 24,
+         "gives": "LEADERS",
+         "note": "rulers of a country are its leaders; it takes the opening sound of the other word"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone advocates tearing apart those in power.",
-     "walkthrough": "Swap the R and L of RIP LEADERS.",
-     "definitionFit": "Lip-readers understand speech by watching mouths, interpreting what is said without hearing it."
+     "surface": "Translators supposedly savage those in power.",
+     "walkthrough": "'According to Spooner' asks for the opening sounds of RIP LEADERS to be exchanged, so R and L trade places. Reverend Spooner was famous for such slips of the tongue.",
+     "definitionFit": "Deaf people who follow speech by watching mouth movements are in effect interpreting what is said."
     },
     "features": {
      "answerInScene": false,
