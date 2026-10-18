@@ -43,41 +43,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PAPRIKA",
-     "indicators": [
-      {
-       "text": "starts making",
-       "note": "the opening letter of the car model is made into something else, so one letter is swapped for another at its start"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Capri",
-       "note": "the Ford Capri, a car model, taken as written"
-      },
-      {
-       "words": "constant",
-       "gives": "C",
-       "note": "c is the symbol for a constant (the speed of light)"
-      },
-      {
-       "words": "power",
-       "gives": "P",
-       "note": "P is the abbreviation for power"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "starts making",
+         "at": 11,
+         "note": "the start of the word is turned from one letter into another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Capri",
+         "at": 5,
+         "gives": "CAPRI"
+        },
+        {
+         "words": "constant",
+         "at": 25,
+         "gives": "C",
+         "note": "C is the symbol for a constant in maths and physics"
+        },
+        {
+         "words": "power",
+         "at": 34,
+         "gives": "P",
+         "note": "P is the symbol for power"
+        }
+       ]
       },
       {
        "words": "Ford",
+       "at": 0,
        "gives": "KA",
-       "note": "the Ka is a small Ford car"
+       "note": "the Ka is a small Ford car model"
       }
      ]
     },
     "explanation": {
-     "surface": "A boast that a classic Ford Capri suddenly develops serious engine power and is a hot car.",
-     "walkthrough": "'Ford Capri' reads as one car, but Ford supplies the Ka and Capri has its C swapped for P to make PAPRI.",
-     "definitionFit": "Paprika is a red pepper spice, and the hotter varieties give real fiery heat to food."
+     "surface": "An old Ford Capri sets off making steady power until it overheats.",
+     "walkthrough": "'Ford Capri' reads as one classic car, but the two words do separate jobs, and the Ford piece comes last.",
+     "definitionFit": "Paprika is a spice made from ground peppers, adding heat to food."
     },
     "features": {
      "answerInScene": false,
@@ -256,46 +264,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces within the abbreviation of the state"
+       "at": 35,
+       "note": "in places these letters within the state abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Kentucky",
+       "at": 38,
+       "gives": "KY",
+       "note": "KY is the US postal abbreviation for Kentucky"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Kentucky",
-         "gives": "KY",
-         "note": "KY is the postal abbreviation for Kentucky"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately means at the very end, so only the final letter of the bird is used"
+           "at": 15,
+           "note": "ultimately picks the last letter of chicken"
           }
          ],
          "parts": [
           {
            "words": "chicken",
-           "note": "the last letter of the word"
+           "at": 7
           }
          ]
+        },
+        {
+         "words": "overdone",
+         "at": 26,
+         "gives": "OTT",
+         "note": "OTT is over the top, overdone"
         }
        ]
-      },
-      {
-       "words": "overdone",
-       "gives": "OTT",
-       "note": "OTT means over the top"
       }
      ]
     },
     "explanation": {
-     "surface": "Fried chicken in Kentucky cooked too long ends up gooey.",
-     "walkthrough": "The surface suggests a fast-food meal; overdone means over the top, not overcooked.",
-     "definitionFit": "A sticky situation is a tricky, awkward one, just as a knotty problem is hard to untangle."
+     "surface": "Fried chicken from Kentucky ends up overcooked and gooey.",
+     "walkthrough": "'Sticky' suggests a gooey texture, but here it means awkward, a sticky problem.",
+     "definitionFit": "A knotty problem is complicated and hard to solve, just like a sticky situation."
     },
     "features": {
      "answerInScene": false,
@@ -653,12 +665,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PRESTO",
      "indicators": [
       {
        "text": "around",
-       "note": "around means the cycled letters sit on either side of the next piece"
+       "at": 21,
+       "note": "around means surrounding, so the cycled word goes round these letters"
       }
      ],
      "parts": [
@@ -667,37 +678,32 @@
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling moves letters round in a loop, the front ones going to the back"
+         "at": 13,
+         "note": "cycling means the letters go round, the last moving to the front"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "stop",
-           "note": "taken as written"
-          },
-          {
-           "words": "on",
-           "gives": "RE",
-           "note": "re means on, as in 'on the subject of'"
-          }
-         ]
+         "words": "stop",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 28,
+       "gives": "RE",
+       "note": "re means on or concerning"
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist is told to stop pedalling around and get on, continued into the next clue.",
-     "walkthrough": "The ellipsis just runs the surface into the next clue; it adds no letters.",
-     "definitionFit": "Presto is a musical tempo marking meaning at a fast pace, and is also used as an exclamation for something done rapidly."
+     "surface": "A cyclist is told to stop circling and to keep going.",
+     "definitionFit": "Presto is a musical direction meaning play quickly, also used for something done at speed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }

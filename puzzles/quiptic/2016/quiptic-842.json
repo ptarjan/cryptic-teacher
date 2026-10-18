@@ -300,39 +300,43 @@
      "indicators": [
       {
        "text": "accepting",
-       "note": "accepting means taking something in, so the first word's letters hold the others"
+       "at": 24,
+       "note": "accepting means taking in, so these letters go inside the relative"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "family member",
-         "gives": "RELATION",
-         "note": "a relation is someone in your family"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "family member",
+       "at": 10,
+       "gives": "RELATION",
+       "note": "a relation is a member of one's family"
       },
       {
-       "words": "kiss",
-       "gives": "X",
-       "note": "X is the kiss written at the end of a letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 34,
+         "gives": "A"
+        },
+        {
+         "words": "kiss",
+         "at": 36,
+         "gives": "X",
+         "note": "X is the kiss at the end of a letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Taking a break with a relative who welcomes a peck on the cheek.",
-     "walkthrough": "The A and X go in after the third letter of the relative.",
-     "definitionFit": "Relaxation is time spent resting and unwinding, so it is a synonym for rest."
+     "surface": "Relaxing with a relative who receives a peck on the cheek.",
+     "definitionFit": "Relaxation is rest and recreation, the state of being at ease after work."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "kiss"
     }
    }
   },
@@ -1203,36 +1207,40 @@
      "indicators": [
       {
        "text": "squeezing into",
-       "note": "squeezing into something means fitting inside it"
+       "at": 24,
+       "note": "squeezing into means forcing a way inside, so these letters go within the costume"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "batman costume",
-         "gives": "CAPE",
-         "note": "Batman wears a cape"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "batman costume",
+       "at": 39,
+       "gives": "CAPE",
+       "note": "Batman's costume includes a cape"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points to the last letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "nun",
-         "note": "last letter"
+         "words": "a",
+         "at": 10,
+         "gives": "A"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 16,
+           "note": "finally picks the last letter of nun"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nun",
+           "at": 12
+          }
+         ]
         }
        ]
       }
@@ -1240,8 +1248,7 @@
     },
     "spelling": "CANAPÉ",
     "explanation": {
-     "surface": "A nun forces herself into a Batman outfit for a party nibble.",
-     "walkthrough": "The pair goes in after the first letter of the garment.",
+     "surface": "A nun squeezing herself into a superhero outfit for a fancy-dress party, snack in hand.",
      "definitionFit": "A canapé is a small savoury bite served at drinks parties, a kind of snack."
     },
     "features": {
