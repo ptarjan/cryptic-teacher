@@ -1377,59 +1377,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANIMAL",
      "indicators": [
       {
        "text": "seen round",
-       "note": "going round something encloses it, so one piece is wrapped around the other"
+       "at": 25,
+       "note": "the a-and-fellow letters are seen placed around the province, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "note": "mostly means not quite all, so the last letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "the province",
-           "gives": "NI",
-           "note": "in British usage 'the Province' is Northern Ireland"
-          },
-          {
-           "words": "fellow",
-           "gives": "MALE",
-           "note": "a male is a man or fellow"
-          }
-         ]
+         "words": "a",
+         "at": 9,
+         "gives": "A"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 18,
+           "note": "mostly means most of the word, so its last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fellow",
+           "at": 11,
+           "gives": "MALE",
+           "note": "a fellow is a male"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "the province",
+       "at": 36,
+       "gives": "NI",
+       "note": "the Province is the usual name for Northern Ireland, abbreviated NI"
       }
      ]
     },
     "explanation": {
-     "surface": "A thuggish man who travels about the region.",
-     "walkthrough": "'Brute of a fellow' reads as one phrase, but the 'a' belongs to the wordplay; in the UK, Northern Ireland is often called 'the Province'.",
-     "definitionFit": "A brute is a beast, and figuratively a coarse, violent person; both senses fit the word for a creature or a savage."
+     "surface": "Someone describes a thuggish man who seems to hang around Northern Ireland.",
+     "walkthrough": "'Mostly' trims MALE to MAL; A and MAL then go 'round' NI, the Province, which is Northern Ireland.",
+     "definitionFit": "A brute is a beast, a creature of the non-human kind, which is what an animal is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Brute"
+     "misdirectedWord": "province"
     }
    }
   },
