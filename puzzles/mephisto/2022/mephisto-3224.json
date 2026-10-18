@@ -261,44 +261,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADESPOTA",
+     "op": "composite",
      "indicators": [
       {
        "text": "somehow",
-       "note": "somehow suggests things happen in some unspecified way, so the letters are rearranged"
+       "at": 30,
+       "note": "somehow says the letters come together in some new way, so they are rearranged"
+      },
+      {
+       "text": "lacking",
+       "at": 38,
+       "note": "lacking says a letter in the fodder is missing from the result"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ADESPOTA",
-       "indicators": [
-        {
-         "text": "lacking",
-         "note": "lacking something means it is missing, so a letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "as notepad",
-         "note": "the letters to work with"
-        },
-        {
-         "words": "name",
-         "gives": "N",
-         "note": "N is the abbreviation for name, the letter to remove"
-        }
-       ]
+       "words": "as notepad",
+       "at": 19
+      },
+      {
+       "words": "name",
+       "at": 46,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Writings jotted in a notepad without any author's name attached.",
-     "walkthrough": "Take N out of AS NOTEPAD and rearrange what is left.",
-     "definitionFit": "Adespota are literary works of unknown authorship, from Greek for 'without a master'."
+     "surface": "Anonymous writings jotted on a notepad without anyone's name on them.",
+     "walkthrough": "A composite anagram: the letters of AS NOTEPAD are the answer's plus N, so 'lacking name' sets N aside and the remaining ASOTEPAD is rearranged.",
+     "definitionFit": "Adespota are literary pieces of unknown authorship, the Greek term for anonymous texts."
     },
     "features": {
      "answerInScene": true,
@@ -659,46 +650,47 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after places one piece behind the others in order"
+       "at": 16,
+       "note": "after puts the word for irritates at the end, following the rest"
       }
      ],
      "parts": [
       {
        "words": "excellent",
+       "at": 22,
        "gives": "DEF",
        "note": "def is slang for excellent"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "LA",
        "indicators": [
         {
          "text": "uncovered",
-         "note": "uncovered means the outer layer is stripped off, leaving the middle letters"
+         "at": 38,
+         "note": "uncovered means with its outer letters stripped away"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "drama",
-         "gives": "LA",
-         "select": "middle",
-         "note": "drama is a play; take away its outer letters"
+         "at": 32,
+         "gives": "PLAY",
+         "note": "a play is a drama; only its middle letters are used"
         }
        ]
       },
       {
        "words": "irritates",
+       "at": 6,
        "gives": "GRATES",
-       "note": "something that grates irritates"
+       "note": "to grate on someone is to irritate them"
       }
      ]
     },
     "explanation": {
-     "surface": "Annoyance at a cracking play that has been exposed.",
-     "walkthrough": "Drama is PLAY, and uncovering it drops the first and last letters.",
-     "definitionFit": "To deflagrate is to burn up suddenly with intense heat, so deflagrates means burns fiercely."
+     "surface": "A review: the brilliant play is spoiled by something that irritates.",
+     "walkthrough": "'Burns' could suggest the Scottish poet, but it is a verb. PLAY uncovered gives LA, and GRATES comes after DEF and LA.",
+     "definitionFit": "To deflagrate is to burn away suddenly with intense heat and flame, a chemist's word for rapid combustion."
     },
     "features": {
      "answerInScene": false,
@@ -821,66 +813,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GUERDONED",
-     "indicators": [
-      {
-       "text": "banking",
-       "note": "banking means holding in safekeeping, so these letters surround the next piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "GUERDONED",
+       "words": "Government",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "scatty",
-         "note": "scatty means scatterbrained and disorganised, so the letters are rearranged"
+         "text": "banking",
+         "at": 39,
+         "note": "banking means forming banks either side, so the anagram goes round the academic"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "GUERDONED",
+         "op": "composite",
          "indicators": [
           {
+           "text": "scatty",
+           "at": 24,
+           "note": "scatty means scatterbrained, so the letters are scattered into a new order"
+          },
+          {
            "text": "not with",
-           "note": "not with means the following word is left out"
+           "at": 11,
+           "note": "not with says the letters of it are removed from erudite"
           }
          ],
          "parts": [
           {
-           "words": "Government",
-           "gives": "G",
-           "note": "G is an abbreviation for government"
-          },
-          {
            "words": "erudite",
-           "note": "the word to work on, minus the next piece"
+           "at": 31
           },
           {
            "words": "it",
-           "note": "taken as written, the letters to remove"
-          },
-          {
-           "words": "academic",
-           "gives": "DON",
-           "note": "a don is a university lecturer"
+           "at": 20
           }
          ]
+        },
+        {
+         "words": "academic",
+         "at": 47,
+         "gives": "DON",
+         "note": "a don is a university teacher"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An out-of-touch government gives a prize to a learned, scatterbrained professor.",
-     "walkthrough": "'Banking' suggests money, but it means holding something safe inside; 'scatty' and 'not with it' both read as descriptions of the professor.",
-     "definitionFit": "To guerdon is an archaic verb for giving a reward, so guerdoned means recompensed."
+     "surface": "A government awards a scatterbrained but learned academic, despite his being out of touch.",
+     "walkthrough": "'not with it' takes IT from ERUDITE, leaving ERUDE, and 'scatty' rearranges that to UERED; these letters bank DON, all after G.",
+     "definitionFit": "To guerdon is an archaic verb meaning to give a reward or recompense."
     },
     "features": {
      "answerInScene": true,
@@ -1063,44 +1051,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MATILDAS",
+     "op": "composite",
      "indicators": [
       {
        "text": "abroad",
-       "note": "abroad means scattered widely, so the letters are rearranged"
+       "at": 12,
+       "note": "abroad means scattered far and wide, so the letters are rearranged"
+      },
+      {
+       "text": "not",
+       "at": 19,
+       "note": "not says those letters are left out of the result"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MATILDAS",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not means something is left out of the letters"
-        }
-       ],
+       "words": "Ladies team",
+       "at": 0
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Ladies team",
-         "note": "the letters to work with"
-        },
-        {
          "op": "last",
-         "unchecked": true,
-         "gives": "EE",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 23,
+           "note": "the close of a word is its final letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "close to Europe repeatedly",
-           "gives": "EE",
-           "select": "last",
-           "note": "the last letter of Europe, taken twice, to remove"
+           "words": "Europe",
+           "at": 32,
+           "note": "only its last letter is used"
           }
          ]
+        },
+        {
+         "words": "repeatedly",
+         "at": 39,
+         "gives": "E",
+         "note": "repeatedly means once more, so the same final letter of Europe is supplied a second time"
         }
        ]
       }
@@ -1108,9 +1101,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A women's side from the other side of the world, a long way from Europe again and again.",
-     "walkthrough": "Remove two Es from LADIES TEAM and rearrange. The whole clue also describes the answer: Australia is far from Europe.",
-     "definitionFit": "The Matildas are the Australian national women's football team, a ladies' side from far overseas."
+     "surface": "A women's team playing overseas, never getting near Europe again and again.",
+     "walkthrough": "A composite anagram: LADIES TEAM holds the answer's letters plus two Es, the last letter of Europe taken twice. The team plays far from Europe, in Australia.",
+     "definitionFit": "The Matildas is the nickname of Australia's national women's football team, a ladies' side abroad."
     },
     "features": {
      "answerInScene": true,

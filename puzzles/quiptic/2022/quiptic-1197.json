@@ -43,42 +43,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRUST",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of something is all but a bit of it, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 6,
+         "note": "most of a word means all of it except its last letter, so the final letter of the is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "the word with its last letter cut off"
+         "at": 14
         },
         {
-         "words": "decay",
-         "gives": "RUST",
-         "note": "rust is the decay of iron"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "decay",
+       "at": 18,
+       "gives": "RUST",
+       "note": "rust is the decay of iron by corrosion"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is apparently being told to push the bulk of the rot along.",
-     "walkthrough": "THRUST is TH plus RUST; 'Force' reads as a verb in the surface but the definition works as a noun.",
-     "definitionFit": "A thrust is a driving push, and force in physics or everyday speech can name that same propulsive power."
+     "surface": "A grim remark about the power of rot and decay to overcome most things.",
+     "walkthrough": "'most of the' gives TH, the word without its last letter, and RUST follows it.",
+     "definitionFit": "A thrust is a forceful push, and to force something forward is to thrust it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "decay"
+     "misdirectedWord": "most"
     }
    }
   },
@@ -424,59 +426,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELEGANT",
+     "op": "composite",
      "indicators": [
       {
        "text": "mixture",
-       "note": "a mixture stirs its ingredients together, so the letters are scrambled"
+       "at": 17,
+       "note": "a mixture stirs things up, so the letters of gelatine are jumbled"
+      },
+      {
+       "text": "without",
+       "at": 25,
+       "note": "without says some letters of the fodder are left out of the result"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELEGANT",
+       "words": "gelatine",
+       "at": 8
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so a letter is taken away"
+         "text": "guts",
+         "at": 41,
+         "note": "the guts of something are its innards, the middle letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "gelatine",
-         "note": "taken as written"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "guts",
-           "note": "the guts of something are its insides, so the central letter is chosen"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "a pig's",
-           "gives": "I",
-           "select": "middle",
-           "note": "the middle letter of the three-letter animal"
-          }
-         ]
+         "words": "pig's",
+         "at": 35,
+         "gives": "PIG",
+         "note": "the possessive just points to the word pig"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook boasts a superior jelly made with no pork offal.",
-     "walkthrough": "Gelatine is often made from pig parts, so the surface is plausible. Remove the I from GELATINE and rearrange the rest.",
-     "definitionFit": "Elegant describes graceful, stylish taste or manners, a direct adjective synonym for cultured and polished."
+     "surface": "A recipe note: blend the gelatine but leave out the pig's innards.",
+     "walkthrough": "The guts of PIG is I; take I from the letters of GELATINE and rearrange the other seven.",
+     "definitionFit": "Elegant describes something graceful and refined in manner or style; the two adjectives are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -705,51 +696,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRICYCLE",
+     "op": "composite",
      "indicators": [
       {
        "text": "getting diverted",
-       "note": "something diverted is sent along a different route, so the letters change order"
+       "at": 43,
+       "note": "diverted means sent off another way, so the remaining letters are rearranged"
+      },
+      {
+       "text": "without",
+       "at": 32,
+       "note": "without says the letters of it are removed from the fodder"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TRICYCLE",
        "indicators": [
         {
          "text": "lead-free",
-         "note": "free of its lead means stripped of its leading letter"
-        },
-        {
-         "text": "without",
-         "note": "without means lacking, so letters are removed"
+         "at": 10,
+         "note": "lead-free here means without its leading letter, so the first letter of electricity goes"
         }
        ],
        "parts": [
         {
          "words": "electricity",
-         "note": "taken as written"
+         "at": 20
         },
         {
-         "words": "it",
-         "note": "taken as written, to be removed"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 40
       }
      ]
     },
     "explanation": {
-     "surface": "A power supply rerouted with no lead pipes, phrased like a utility notice.",
-     "walkthrough": "Drop the first E, then remove one I and one T; the eight letters left rearrange.",
-     "definitionFit": "A tricycle is a three-wheeled pedal vehicle, so it is one example of a means of getting about."
+     "surface": "Reads like a note about vehicles running on unleaded fuel or electric power, rerouted.",
+     "walkthrough": "'Lead-free' looks like petrol talk but drops the E of ELECTRICITY, leaving LECTRICITY; 'without it' removes I and T, and 'getting diverted' rearranges LECTRICY.",
+     "definitionFit": "A tricycle is a three-wheeled vehicle, a means of getting about pedalled by riders."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "lead-free"
     }
    }
@@ -995,44 +989,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOMADIC",
+     "op": "composite",
      "indicators": [
       {
        "text": "strangely",
-       "note": "done strangely means in an odd order, so the letters are rearranged"
+       "at": 20,
+       "note": "strangely signals the letters of comedian are put in an odd new order"
+      },
+      {
+       "text": "lacking in",
+       "at": 30,
+       "note": "lacking in says a letter must be taken away from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NOMADIC",
-       "indicators": [
-        {
-         "text": "lacking in",
-         "note": "lacking means without, so a letter is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "comedian",
-         "note": "taken as written"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the symbol for energy in physics"
-        }
-       ]
+       "words": "comedian",
+       "at": 11
+      },
+      {
+       "words": "energy",
+       "at": 41,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "A touring stand-up oddly seems to have run out of steam.",
-     "walkthrough": "Take one E out of COMEDIAN and rearrange the seven letters left.",
-     "definitionFit": "Nomadic describes people who wander from place to place without a fixed home, so the adjective fits wandering."
+     "surface": "A touring comic whose act has run out of steam.",
+     "walkthrough": "'lacking in energy' takes E out of COMEDIAN, leaving COMDIAN, and 'strangely' rearranges those letters.",
+     "definitionFit": "Nomadic peoples move from place to place with no fixed home, always on the move."
     },
     "features": {
      "answerInScene": true,

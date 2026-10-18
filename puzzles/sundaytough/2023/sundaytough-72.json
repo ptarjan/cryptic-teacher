@@ -405,40 +405,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "messed with",
+       "at": 5,
+       "note": "messed with means jumbled together, so the letters are mixed into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "messed with",
-         "note": "letters that are messed with are jumbled up, and here the jumble of both parts yields the given word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "debauchees",
-         "gives": "BAUCEES",
-         "note": "the result of the jumble given in the clue, with the letters of the first word taken back out"
-        }
-       ]
+       "words": "debauchees",
+       "at": 36
       },
       {
-       "unchecked": true,
        "words": "He'd",
-       "note": "these three letters plus the answer make up the jumbled result, so they are the ones removed"
+       "at": 0,
+       "note": "these letters are the ones left over once the answer is taken from debauchees"
       }
      ]
     },
     "explanation": {
-     "surface": "A man has been fooling around with this, which is why he found himself among libertines.",
-     "walkthrough": "A composite anagram: HED plus the answer, mixed, makes DEBAUCHEES, so remove H, E, D from DEBAUCHEES and rearrange the rest.",
-     "definitionFit": "Since and because are interchangeable conjunctions giving a reason."
+     "surface": "A moralist's verdict on a rake who got into trouble because of the company he kept.",
+     "walkthrough": "A composite anagram: HE'D jumbled with the answer gives DEBAUCHEES, so take H, E and D out of DEBAUCHEES and rearrange the rest; 'this' stands for the answer and 'finding' joins.",
+     "definitionFit": "Since and because are both conjunctions giving a reason, as in 'since you ask'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "this"
+     "misdirectedWord": "since"
     }
    }
   },
@@ -798,46 +793,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PERPETRATE",
      "indicators": [
       {
        "text": "to take over",
-       "note": "taking over a role means replacing whoever held it, so one letter swaps in for another"
+       "at": 16,
+       "note": "to take over a place is to replace whoever holds it, so the run letter replaces the other"
       }
      ],
      "parts": [
       {
        "words": "keep up",
+       "at": 3,
        "gives": "PERPETUATE",
-       "note": "to perpetuate is to keep something going"
-      },
-      {
-       "words": "run",
-       "gives": "R",
-       "note": "R is the cricket abbreviation for run"
+       "note": "to keep something up is to perpetuate it"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "lead in",
-         "note": "the lead of a word is its opening letter"
+         "at": 29,
+         "note": "the lead in a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "ultramarathon",
-         "note": "the opening letter of the race"
+         "at": 37,
+         "gives": "U",
+         "note": "only its first letter is used"
         }
        ]
+      },
+      {
+       "words": "run",
+       "at": 12,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "A runner is urged to keep pace and overtake the leader in a long-distance race.",
-     "walkthrough": "'Do keep up' sounds like an exhortation, but 'Do' is the definition; R replaces the U in PERPETUATE.",
-     "definitionFit": "To perpetrate a crime is to commit or carry it out, so it means do."
+     "surface": "A coach urges a flagging runner to keep pace and overtake the leader in an ultramarathon.",
+     "walkthrough": "'Do' looks like a party but is a verb, to commit. 'lead in ultramarathon' is U, and 'to take over' swaps R in for that U in PERPETUATE.",
+     "definitionFit": "To perpetrate a crime is to commit or carry it out, which is what doing a deed means."
     },
     "features": {
      "answerInScene": false,
@@ -1234,40 +1233,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DISUSED",
      "indicators": [
       {
        "text": "standing in for",
-       "note": "a stand-in takes another's place, so one piece swaps in where a letter was"
+       "at": 13,
+       "note": "standing in for means replacing, so is takes the place of the Oscar letter"
       }
      ],
      "parts": [
       {
        "words": "Put out",
+       "at": 0,
        "gives": "DOUSED",
-       "note": "a fire that is put out has been doused"
-      },
-      {
-       "words": "is",
-       "note": "taken as written"
+       "note": "to douse a fire is to put it out"
       },
       {
        "words": "Oscar",
+       "at": 29,
        "gives": "O",
        "note": "Oscar is O in the NATO phonetic alphabet"
+      },
+      {
+       "words": "is",
+       "at": 10,
+       "gives": "IS"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is annoyed that they are deputising for Oscar while sitting around doing nothing.",
-     "walkthrough": "'Put out' suggests annoyance but means extinguished; IS replaces O.",
-     "definitionFit": "Something disused is no longer in service, lying idle and unused."
+     "surface": "An Oscar winner sidelined while an understudy stands in, leaving the star idle.",
+     "walkthrough": "'Put out' reads as upset but means doused, as of a fire; 'is standing in for Oscar' swaps IS for the O in DOUSED.",
+     "definitionFit": "Something disused is no longer in use, lying idle and neglected."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Put"
+     "misdirectedWord": "Oscar"
     }
    }
   },
@@ -1468,30 +1469,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTI",
      "indicators": [
       {
        "text": "result of such",
-       "note": "the phrase says the first words are the outcome of the process, so working backwards removes the outer word"
+       "at": 16,
+       "note": "result of says the superlative is what you get when the drink is put into test, so that word is removed again"
+      },
+      {
+       "text": "taken in",
+       "at": 37,
+       "note": "taken in means placed inside, so the letters of test surround the drink and are stripped away"
       }
      ],
      "parts": [
       {
        "words": "Most palatable",
+       "at": 0,
        "gives": "TASTIEST",
-       "note": "the tastiest is the most palatable"
+       "note": "the most palatable food is the tastiest"
       },
       {
        "words": "test",
-       "note": "taken as written"
+       "at": 46
       }
      ]
     },
     "explanation": {
-     "surface": "The best-tasting result comes from sampling a certain drink in a tasting.",
-     "walkthrough": "This is a reverse clue: the opening words are what you get when the answer goes inside the last word, so you work backwards to recover the drink.",
-     "definitionFit": "Asti is a sparkling Italian white wine from Piedmont, so it is a drink."
+     "surface": "A wine judge declares a drink most palatable after tasting it in a test.",
+     "walkthrough": "Read backwards: 'result of such' says TASTIEST is what you get when the drink is 'taken in' TEST, so strip T, E, S, T from round it. Asti is a sparkling white from Piedmont in Italy.",
+     "definitionFit": "Asti is an Italian sparkling wine, so it is a drink by example."
     },
     "features": {
      "answerInScene": true,
@@ -1679,43 +1685,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "article shifted back in",
+       "at": 8,
+       "note": "the article an at the front of the word for corner is shifted to the back of it"
+      }
+     ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "GLEAN",
-       "indicators": [
-        {
-         "text": "shifted back in",
-         "note": "a piece shifted to the back moves from the front to the end of the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "corner",
-         "gives": "ANGLE",
-         "note": "an angle is a corner"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "article",
-       "note": "names the indefinite article at the front of the corner word, the two letters that move"
+       "words": "corner",
+       "at": 32,
+       "gives": "ANGLE",
+       "note": "an angle is a corner"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collects a newspaper story that was moved to the back pages, tucked in a corner.",
-     "walkthrough": "The article is a grammatical one, not a newspaper story; it moves from the front of ANGLE to its end.",
-     "definitionFit": "To glean is to gather bit by bit, originally grain left by reapers, so to pick up."
+     "surface": "A collector picks up an item that got pushed to the back of the corner.",
+     "walkthrough": "ANGLE starts with the article AN; move those two letters to the back of the word.",
+     "definitionFit": "To glean is to gather or pick up bit by bit, as gleaners collect leftover grain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "article"
+     "misdirectedWord": "Pick"
     }
    }
   },

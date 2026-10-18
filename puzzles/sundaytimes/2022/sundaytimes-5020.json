@@ -316,40 +316,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FRYINGPAN",
+     "spelt": "FRYINGPAN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of two words trade places"
+       "at": 14,
+       "note": "Spooner's points to the Reverend Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "FRYING",
        "parts": [
         {
-         "unchecked": true,
          "words": "curious",
-         "gives": "FRYING",
-         "soundsLike": "PRYING",
-         "note": "curious means prying; it takes the opening sound of the next word"
-        },
+         "at": 24,
+         "gives": "PRYING",
+         "note": "someone curious is prying; it takes the opening sound of the other word"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "PAN",
+       "parts": [
         {
-         "unchecked": true,
          "words": "lover",
-         "gives": "PAN",
-         "soundsLike": "FAN",
-         "note": "a lover of something is a fan; it takes the opening sound of the previous word"
+         "at": 32,
+         "gives": "FAN",
+         "note": "a fan is a lover or devotee of something; it takes the opening sound of the other word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something that excites a strangely nosy admirer.",
-     "walkthrough": "'Heats up' sounds like arousing someone, but the definition is a kitchen utensil: prying fan with P and F swapped.",
-     "definitionFit": "A frying pan is a shallow cooking vessel placed on a hob to warm and cook food, so it is a thing that heats up."
+     "surface": "A nosy admirer gets steamed up, in the Reverend Spooner's words.",
+     "walkthrough": "Swap the opening sounds of PRYING FAN, a nosy admirer, and you get a kitchen item; 'heats up' reads as getting excited but is literal.",
+     "definitionFit": "A frying pan is the shallow pan put on a hob to cook food, so it is what heats things."
     },
     "features": {
      "answerInScene": false,
@@ -490,44 +495,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "YODEL",
+     "op": "composite",
      "indicators": [
       {
        "text": "cuckoo",
-       "note": "cuckoo means crazy, so the remaining letters go into a mad new order"
+       "at": 30,
+       "note": "cuckoo means crazy, so the letters go haywire into a new order"
+      },
+      {
+       "text": "ripping off",
+       "at": 13,
+       "note": "ripping off says a letter is torn away from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "YODEL",
-       "indicators": [
-        {
-         "text": "ripping off",
-         "note": "ripping something off tears it away, so a letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "melody",
-         "note": "taken as written"
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "M is the abbreviation for male, the letter to be removed"
-        }
-       ]
+       "words": "melody",
+       "at": 5
+      },
+      {
+       "words": "male",
+       "at": 25,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A cuckoo sings its tune, and a male bird steals someone else's.",
-     "walkthrough": "'Cuckoo' tempts as the bird, but it is the anagram signal. Remove M from MELODY and rearrange ELODY.",
-     "definitionFit": "To yodel is to sing in a style that switches rapidly between chest voice and falsetto, associated with the Alps."
+     "surface": "A singer is accused of stealing a tune, perhaps from a cuckoo clock.",
+     "walkthrough": "'ripping off' sounds like plagiarism, but it takes M from MELODY, leaving ELODY; 'cuckoo' then rearranges those five letters.",
+     "definitionFit": "To yodel is to sing with rapid switches between chest voice and falsetto, an Alpine style."
     },
     "features": {
      "answerInScene": true,

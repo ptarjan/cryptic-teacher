@@ -183,42 +183,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRIFT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "is lacking",
-       "note": "the letters spelling 'is' are missing from the preceding word, leaving only its start"
+       "text": "over",
+       "at": 25,
+       "note": "in a down answer, over means the first piece sits above the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, one piece placed over another simply comes above it"
+         "text": "lacking",
+         "at": 17,
+         "note": "lacking says the word is is missing from This, leaving its first two letters"
         }
        ],
        "parts": [
         {
          "words": "This",
-         "gives": "TH",
-         "note": "the word with its final two letters removed"
+         "at": 9
         },
         {
-         "words": "altercation",
-         "gives": "RIFT",
-         "note": "a rift is a quarrel or falling-out"
+         "words": "is",
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "altercation",
+       "at": 30,
+       "gives": "RIFT",
+       "note": "a rift is a quarrel or breach, as an altercation causes"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether cutting costs is worth it when it causes a row.",
-     "definitionFit": "Thrift is careful, frugal management of money, which is what economy means as a noun."
+     "surface": "A question about whether economy means doing without, followed by a row about it.",
+     "walkthrough": "'This is lacking' reads as a comment but is an instruction: take IS out of THIS to leave TH, which sits over RIFT in this down light.",
+     "definitionFit": "Thrift is careful, sparing use of money, which is what economy means."
     },
     "features": {
      "answerInScene": true,
@@ -399,40 +404,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MISHNAH",
-     "indicators": [
-      {
-       "text": "A lost",
-       "note": "the letter A is dropped from the word that follows"
-      },
-      {
-       "text": "short",
-       "note": "a book of scripture cut short is given in abbreviated form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost",
+         "at": 2,
+         "note": "lost says the letter A goes missing from the front of the word for a Mennonite"
+        }
+       ],
        "parts": [
         {
          "words": "Mennonite",
-         "gives": "MISH",
-         "note": "an Amish person belongs to a Mennonite sect; without the A it becomes this"
+         "at": 7,
+         "gives": "AMISH",
+         "note": "the Amish are a strict Mennonite sect, so one of them is an Amish"
         },
         {
+         "words": "A",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 36,
+         "note": "short means cut down, so Nahum loses its last two letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "book of scripture",
-         "gives": "NAH",
-         "note": "Nah. is the abbreviation for the Old Testament book of Nahum"
+         "at": 17,
+         "gives": "NAHUM",
+         "note": "Nahum is a book of the Old Testament prophets"
+        },
+        {
+         "gives": "UM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Amish believer has mislaid a bit of the Bible, which rabbis would surely notice.",
-     "definitionFit": "The Mishnah is the codified oral law of Judaism, studied and kept by rabbinic tradition; the question mark admits the loose phrasing."
+     "surface": "A lost Mennonite scripture, briefly mentioned, seems to be a matter for rabbis.",
+     "walkthrough": "'A lost' takes A from AMISH to leave MISH; 'short' trims NAHUM to NAH. The question mark admits the definition is a loose description rather than a synonym.",
+     "definitionFit": "The Mishnah is the codified Jewish oral law, studied and followed by rabbis as the core of the Talmud."
     },
     "features": {
      "answerInScene": true,
@@ -456,7 +478,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "being restricted to some heirs only",
+      "text": "being restricted to some heirs only?",
       "at": 54
      }
     ],
@@ -465,21 +487,25 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the jumbled letters sit inside the other piece"
+       "at": 31,
+       "note": "in places the jumbled letters inside the middle of will"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "IL",
+       "indicators": [
+        {
+         "text": "centrepiece of",
+         "at": 34,
+         "note": "the centrepiece of a word is its middle, so the two inner letters of will"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centrepiece of will",
-         "gives": "IL",
-         "select": "middle",
-         "note": "the middle two letters of the four-letter word"
+         "words": "will",
+         "at": 49,
+         "note": "only its middle letters are used"
         }
        ]
       },
@@ -488,28 +514,28 @@
        "indicators": [
         {
          "text": "being badly treated",
-         "note": "something badly treated is knocked about, so its letters are jumbled"
+         "at": 11,
+         "note": "badly treated letters are knocked about into a different order"
         }
        ],
        "parts": [
         {
          "words": "anti",
-         "note": "taken as written"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone opposed to a will feels hard done by when the estate passes only to certain heirs.",
-     "walkthrough": "'One' is not I here: the jumbled ANTI goes inside the middle of WILL, and the answer is the legal phrase IN TAIL.",
-     "definitionFit": "An estate held in tail is entailed: settled so it passes only down a fixed line of descendants."
+     "surface": "Someone resents being written into a will that favours only certain heirs.",
+     "walkthrough": "'One's' is a link here (one is). ANTI rearranged gives NTAI, which goes inside IL, the middle of WILL.",
+     "definitionFit": "Land held in tail is entailed, legally settled to pass only down a fixed line of descendants."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "will"
+     "misdirectedWord": "anti"
     }
    }
   },
@@ -608,52 +634,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STOTTYCAKE",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one piece sits inside the jumbled other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "loose",
-         "note": "loose letters are not held in their order, so they are rearranged"
+         "text": "in",
+         "at": 11,
+         "note": "in puts the slang word inside the rearranged sack"
         }
        ],
        "parts": [
         {
-         "words": "sack",
-         "note": "taken as written, before jumbling"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "loose",
+           "at": 14,
+           "note": "loose letters are free to fall into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sack",
+           "at": 20
+          }
+         ]
         },
         {
          "words": "Sexy girls",
+         "at": 0,
          "gives": "TOTTY",
-         "note": "totty is British slang for attractive women"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "note": "totty is British slang for attractive young women collectively"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 29,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A picture of attractive women in a baggy sack beside an old-fashioned English bun.",
-     "walkthrough": "Totty is British slang for attractive women; 'loose' works on the sack and the E together, and the girls slot in after the first letter.",
-     "definitionFit": "A stottie or stotty cake is a flat, round loaf traditional in north-east England, a kind of bread roll."
+     "surface": "A cheeky picture of girls in a baggy sack beside a plate of English buns.",
+     "walkthrough": "SACK rearranged by 'loose' gives SCAK, with TOTTY inside after the S. A stotty cake is a flat round loaf from north-east England; the question mark notes it is bread rather than a sweet bun.",
+     "definitionFit": "A stotty cake is a heavy flat bread roll from Tyneside, a traditional regional bake."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "loose"
     }
    }
@@ -732,54 +763,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OPENSEASON",
+     "op": "composite",
      "indicators": [
       {
        "text": "butchered",
-       "note": "butchered words are chopped up and reassembled out of order"
+       "at": 22,
+       "note": "butchered means hacked about, so the letters of the fodder are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OPENSEASON",
-       "indicators": [
-        {
-         "text": "Could be this, what",
-         "note": "the jumble yields the answer together with an extra word, so that word is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Pheasant",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "so on we",
-         "note": "taken as written"
-        },
-        {
-         "words": "what",
-         "note": "the word set aside from the jumble"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "what",
+       "at": 48,
+       "note": "these four letters are the ones left over once the answer is taken from the fodder"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A shooting man boasts of bagging pheasant and other game, with a hearty 'what?'.",
-     "walkthrough": "A composite anagram: the fodder rearranges to the answer plus WHAT. Read whole, the clue also describes the time when game may legally be shot.",
-     "definitionFit": "Open season is the period when shooting particular game is legal, when pheasants may be killed."
+     "surface": "A shooting man muses whether the slaughter of pheasants and suchlike means the season has begun.",
+     "walkthrough": "A composite anagram: the letters of PHEASANT SO ON WE are those of the answer plus WHAT; 'and' joins the two stretches of fodder.",
+     "definitionFit": "The open season is the legal period when game birds such as pheasant may be shot."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "what"
+     "aptDefinition": true
     }
    }
   },
@@ -1683,54 +1704,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "'Spiral'",
+      "text": "'Spiral' canals may reveal this, note",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCALA",
+     "op": "composite",
      "indicators": [
       {
-       "text": "may reveal",
-       "note": "the letters, rearranged, may reveal another arrangement inside them"
+       "text": "Spiral",
+       "at": 1,
+       "note": "spiral, set in quotes, tells us to twist the letters of canals round into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCALA",
-       "indicators": [
-        {
-         "text": "this, note",
-         "note": "the rearrangement is the answer plus a note, so that note comes out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "canals",
-         "note": "taken as written"
-        },
-        {
-         "words": "note",
-         "gives": "N",
-         "note": "N is the abbreviation for note"
-        }
-       ]
+       "words": "canals",
+       "at": 9
+      },
+      {
+       "words": "note",
+       "at": 33,
+       "gives": "N"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Waterways described as spiralling may show you something.",
-     "walkthrough": "A composite anagram: CANALS rearranges to the answer plus N.",
-     "definitionFit": "A scala is one of the spiral canals of the cochlea in the inner ear, such as the scala tympani."
+     "surface": "An anatomy remark about spiral canals in the ear.",
+     "walkthrough": "A composite anagram: CANALS holds the answer's letters plus N, so 'Spiral' rearranges it once N is set aside. The whole clue also describes the answer, a canal of the cochlea.",
+     "definitionFit": "A scala is a ladder-like structure, such as the spiral canals of the cochlea in the inner ear."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "canals"
+     "aptDefinition": true
     }
    }
   },
@@ -1755,49 +1762,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANOA",
+     "op": "composite",
      "indicators": [
       {
        "text": "Wild",
-       "note": "wild letters are out of control and fall into a new order"
+       "at": 0,
+       "note": "wild letters run free into a fresh order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANOA",
-       "indicators": [
-        {
-         "text": "Could be 6 such",
-         "note": "the rearrangement could make a number of these animals, so the number comes out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Asian ox",
-         "note": "taken as written"
-        },
-        {
-         "words": "6",
-         "gives": "SIX",
-         "note": "the number written out"
-        }
-       ]
+       "words": "Asian ox",
+       "at": 5
+      },
+      {
+       "words": "6",
+       "at": 24,
+       "gives": "SIX",
+       "note": "the figure 6 is the number six"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A naturalist notes that a wild Asian ox might come in a group of half a dozen.",
-     "walkthrough": "A composite anagram: ASIAN OX rearranges to SIX followed by the answer, hence '6 such'. 'Wild' serves both as part of the description and as the anagram signal.",
-     "definitionFit": "The anoa is a small wild buffalo of Sulawesi in Indonesia, a bovine native to Asia."
+     "surface": "A zoologist wonders whether half a dozen wild oxen roam Asia.",
+     "walkthrough": "A composite anagram: the letters of ASIAN OX are the answer's plus SIX, so six of these beasts are hidden in the phrase.",
+     "definitionFit": "The anoa is a small wild buffalo of Sulawesi in Indonesia, an Asian ox."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "6"
     }
    }
