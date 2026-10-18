@@ -1418,53 +1418,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Sections of",
+       "at": 0,
+       "note": "sections of means only some stretches of the two words are kept and the rest thrown away"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "LAR",
-       "indicators": [
-        {
-         "text": "Sections of",
-         "note": "sections of means only parts of each of the next two words are used"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "cellar",
-         "gives": "LAR",
-         "select": "last",
-         "note": "the final three letters"
-        }
-       ]
+       "words": "cellar underneath",
+       "at": 12,
+       "note": "two runs of letters are kept from this string, the end of the first word and the middle of the second"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "DER",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "underneath",
-         "gives": "DER",
-         "select": "middle",
-         "note": "letters from the middle of the word"
-        }
-       ]
+       "gives": "CELUNNEATH"
       }
      ]
     },
     "explanation": {
-     "surface": "Parts of the cellar lying below the pantry.",
-     "walkthrough": "'Underneath' looks like a positional instruction, but it is the second word supplying a section.",
-     "definitionFit": "A larder is a cool room or cupboard where food is kept."
+     "surface": "Parts of a basement lie beneath where food is kept.",
+     "walkthrough": "'Sections' is plural: two separate stretches are kept, one spanning the end of cellar and one from inside underneath, rather than a single hidden run.",
+     "definitionFit": "A larder is a cool room or cupboard where provisions are kept."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Sections"
+     "misdirectedWord": "underneath"
     }
    }
   },

@@ -100,22 +100,22 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycling",
-       "at": 30,
-       "note": "cycling means letters are rotated round from one end of the word to the other"
+       "text": "stops",
+       "at": 24,
+       "note": "stops means the letter plugs a gap in the other word, sitting inside it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "stops",
-         "at": 24,
-         "note": "stops means this letter closes off the other piece, coming at its end"
+         "text": "cycling",
+         "at": 30,
+         "note": "cycling means a letter is moved round from one end of the word to the other"
         }
        ],
        "parts": [
@@ -123,38 +123,38 @@
          "words": "old agreement",
          "at": 38,
          "gives": "YEA",
-         "note": "yea is an old word for yes, a vote of agreement"
-        },
+         "note": "yea is an old word for yes"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "at": 13,
-           "note": "ultimately points to the final letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Minds",
-           "at": 7,
-           "note": "last letter S"
-          }
-         ]
+         "text": "ultimately",
+         "at": 13,
+         "note": "ultimately points to the final letter of Minds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Minds",
+         "at": 7,
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Simple Minds, the Scottish band, finally quit touring and break an old deal.",
-     "walkthrough": "Simple Minds is a Scottish rock band, which hides the definition. The S at the end of Minds 'stops' YEA, giving YEAS; 'cycling' moves the Y round to the back.",
-     "definitionFit": "Something easy is straightforward and needs no effort, which is what simple means here."
+     "surface": "The band Simple Minds ends a tour of an old pact.",
+     "walkthrough": "Simple Minds is a Scottish rock band, but the two words split: 'Simple' is the definition. 'cycling' moves Y of YEA to the end, giving EAY, and S goes inside.",
+     "definitionFit": "Easy and simple are synonyms, both describing a task that is not difficult."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Simple"
+     "aptDefinition": false,
+     "misdirectedWord": "Minds"
     }
    }
   },
@@ -869,7 +869,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "around"
+       "text": "on",
+       "at": 26,
+       "note": "on says the check abbreviation is placed after the rest"
       }
      ],
      "parts": [
@@ -877,37 +879,55 @@
        "op": "container",
        "indicators": [
         {
-         "text": "on"
+         "text": "around",
+         "at": 54,
+         "note": "around means the shortened list goes around the university letter"
         }
        ],
        "parts": [
         {
-         "words": "unopened list of options",
-         "gives": "ENU",
-         "note": "a menu without its first letter, split to hold U: E(U)NU"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unopened",
+           "at": 29,
+           "note": "unopened means the first letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "list of options",
+           "at": 38,
+           "gives": "MENU",
+           "note": "a menu is a list of options"
+          },
+          {
+           "gives": "M"
+          }
+         ]
         },
         {
          "words": "university",
-         "gives": "U",
-         "note": "U = university"
+         "at": 61,
+         "gives": "U"
         }
        ]
       },
       {
        "words": "check",
+       "at": 20,
        "gives": "CH",
-       "note": "CH = check, the chess abbreviation"
+       "note": "CH is the chess abbreviation for check"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who can only manage a feeble check of the menu round the college.",
-     "walkthrough": "A eunuch is used figuratively for a man or body with no power, hence ineffectual.",
-     "definitionFit": "A eunuch, figuratively, is a powerless, ineffectual person."
+     "surface": "A feeble check on a list of choices that has not been opened, around a university.",
+     "definitionFit": "Figuratively, a eunuch is a powerless or ineffective person, from the castrated man's lack of virility."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "check"
     }
    }

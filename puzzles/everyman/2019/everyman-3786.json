@@ -1148,52 +1148,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "incomplete",
-       "note": "incomplete means unfinished, so the title loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 20,
+         "note": "incomplete means the last letter of the sculpture's name is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Michelangelo's work",
+         "at": 0,
          "gives": "DAVID",
-         "note": "Michelangelo's famous marble statue of David"
+         "note": "David is Michelangelo's famous marble statue"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "NCI",
-         "indicators": [
-          {
-           "text": "essentially",
-           "note": "essentially means at its core, so only the central letters of the word are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fancied",
-           "gives": "NCI",
-           "select": "middle",
-           "note": "the three letters at the heart of the word"
-          }
-         ]
+         "gives": "D"
         }
        ]
       },
       {
-       "gives": "D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 31,
+         "note": "essentially means the core letters at the heart of the word are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fancied",
+         "at": 44,
+         "note": "its central letters are taken"
+        },
+        {
+         "gives": "FAED"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Michelangelo's unfinished work was thought, at heart, to favour his competitor.",
-     "definitionFit": "Leonardo da Vinci and Michelangelo were fierce contemporaries in Renaissance Florence, famously competing over commissions."
+     "surface": "A judgement on an unfinished Michelangelo piece, naming whom he regarded as a rival.",
+     "walkthrough": "'essentially' takes the three central letters of fancied. Leonardo da Vinci and Michelangelo were famous contemporaries and rivals in Florence.",
+     "definitionFit": "Leonardo da Vinci was the great Renaissance contemporary with whom Michelangelo competed for commissions."
     },
     "features": {
      "answerInScene": true,

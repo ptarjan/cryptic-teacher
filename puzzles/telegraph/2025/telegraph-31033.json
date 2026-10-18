@@ -1328,37 +1328,41 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "found in means sitting inside, enclosed by what follows"
+       "at": 33,
+       "note": "found in says the American and final letter sit inside the word for that place"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "that place",
-         "gives": "THERE",
-         "note": "there means in that place"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "standard abbreviation for American"
-        }
-       ]
+       "words": "that place",
+       "at": 42,
+       "gives": "THERE",
+       "note": "that place is there"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the final letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "anaesthetist",
-         "note": "the last letter"
+         "words": "American",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 22,
+           "note": "ultimately points to the last letter of anaesthetist"
+          }
+         ],
+         "parts": [
+          {
+           "words": "anaesthetist",
+           "at": 9,
+           "note": "its last letter is used"
+          }
+         ]
         }
        ]
       }
@@ -1366,13 +1370,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Where would an American anaesthetist eventually be found working?",
-     "walkthrough": "The whole clue doubles as the definition: an anaesthetist works in an operating theatre. In Britain, theatre is the normal word for an operating room.",
-     "definitionFit": "An operating theatre is the hospital room where anaesthetists work during surgery."
+     "surface": "Where would you find a US anaesthetist at work?",
+     "walkthrough": "The whole clue doubles as the definition: an anaesthetist works in an operating theatre.",
+     "definitionFit": "An operating theatre is the hospital room where an anaesthetist does their job during surgery."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "place"
     }
    }
   },
