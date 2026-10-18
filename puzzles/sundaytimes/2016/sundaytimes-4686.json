@@ -1471,29 +1471,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PROPEL",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 13,
+       "note": "'not right, left' says left is to be used instead of right, a swap of one letter"
+      }
+     ],
      "parts": [
       {
        "words": "right",
+       "at": 5,
        "gives": "PROPER",
-       "note": "proper means correct, right"
+       "note": "proper means right or correct"
       },
       {
-       "words": "not right",
-       "gives": "R",
-       "note": "R for right is dropped"
+       "words": "right",
+       "at": 17,
+       "gives": "R"
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L for left replaces it"
+       "at": 24,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Directions for a dance: go right, no, go left.",
-     "definitionFit": "To propel is to drive or push forward, to move something."
+     "surface": "An instruction to step right, quickly corrected to go left instead.",
+     "walkthrough": "'right' first means PROPER; then 'not right, left' replaces its final R with L.",
+     "definitionFit": "To propel is to drive or push something forward, which is to move it."
     },
     "features": {
      "answerInScene": true,
