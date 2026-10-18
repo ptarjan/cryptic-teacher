@@ -415,34 +415,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCENDIARY",
-     "indicators": [
-      {
-       "text": "Content of",
-       "note": "the content of something is what lies inside its edges, so the outer letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Vincent's",
-       "gives": "VINCENT",
-       "note": "the painter's first name, possessive ignored"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Content of",
+         "at": 0,
+         "note": "the content of a word is what sits inside its outer letters, so both ends are discarded"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vincent's",
+         "at": 11,
+         "gives": "VINCENT",
+         "note": "the name Vincent; the possessive 's just joins it to the journal"
+        }
+       ]
       },
       {
        "words": "journal",
+       "at": 21,
        "gives": "DIARY",
        "note": "a diary is a daily journal"
       }
      ]
     },
     "explanation": {
-     "surface": "Van Gogh's private journal turns out to be shocking reading.",
-     "definitionFit": "Incendiary figuratively means inflammatory or provocative, causing a stir much as sensational material does."
+     "surface": "Van Gogh's diary is described as a scandalous, red-hot read.",
+     "walkthrough": "The surface suggests a hidden word inside 'Vincent's journal', but only Vincent's insides are used; the journal supplies a whole synonym.",
+     "definitionFit": "Incendiary writing is inflammatory, designed to stir up strong feeling, much as sensational writing aims to shock."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Content"
     }

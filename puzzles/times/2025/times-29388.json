@@ -397,37 +397,54 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 23,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "analytics",
+         "at": 31,
+         "note": "the word whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "Moving",
-         "note": "moving a letter changes its place in the word; here the head of analytics, A, shifts"
+         "at": 16,
+         "note": "moving says the A in that word is shifted out of its place, here to the front"
         }
        ],
        "parts": [
         {
          "words": "Product trials",
+         "at": 0,
          "gives": "BETAS",
-         "note": "beta tests, trial versions of a product"
+         "note": "betas are trial releases of a product, tested before the finished version"
+        },
+        {
+         "gives": "A"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "Moving head of analytics",
-       "note": "A, the first letter of analytics, moves from the end to the front"
       }
      ]
     },
     "explanation": {
-     "surface": "A company asks whether moving its analytics chief will help its product testing.",
-     "walkthrough": "'Head of analytics' reads as a job title; it is a single letter already in the word, which is shifted to the front.",
-     "definitionFit": "A plain synonym, usually with a shady edge: to abet is to help, especially in wrongdoing."
+     "surface": "Software beta-testing is boosted by a new chief of data analysis.",
+     "walkthrough": "Betas are trial versions of software. Its A, the same letter that heads 'analytics', moves to the front, so BETS is left with A before it.",
+     "definitionFit": "To abet is to help or encourage, usually in wrongdoing, so abets means helps."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "Moving"
     }
    }
   },
@@ -456,12 +473,14 @@
      "indicators": [
       {
        "text": "bound by",
-       "note": "the letters are tied up inside the act, as a prisoner is bound"
+       "at": 55,
+       "note": "bound by means held inside, so those letters sit within the word for act"
       }
      ],
      "parts": [
       {
        "words": "act",
+       "at": 64,
        "gives": "DEED",
        "note": "a deed is an act"
       },
@@ -470,27 +489,40 @@
        "parts": [
         {
          "words": "Conservative",
-         "gives": "C",
-         "note": "C = Conservative"
+         "at": 8,
+         "gives": "C"
         },
         {
          "words": "Liberal",
-         "gives": "L",
-         "note": "L = Liberal"
+         "at": 25,
+         "gives": "L"
         },
         {
-         "words": "are for the most part",
-         "gives": "AR",
-         "note": "ARE without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "for the most part",
+           "at": 37,
+           "note": "for the most part means not quite all, so are loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "are",
+           "at": 33
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two political parties are said to be mostly tied by an act of parliament.",
-     "walkthrough": "'Act' suggests an Act of Parliament to go with the parties; it is simply a deed, which holds the other letters.",
-     "definitionFit": "A plain synonym: to declare something is to state it as true, to claim it."
+     "surface": "A political claim that two parties are mostly tied together by legislation.",
+     "definitionFit": "To declare something is to state it firmly, so declared means asserted or claimed."
     },
     "features": {
      "answerInScene": false,
@@ -520,37 +552,37 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PERSEVERING",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "to upset is to knock over, and in a down clue a word knocked over reads upward, reversed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 6,
+         "note": "in a down clue upset means turned upside down, so the word reads backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Agent upset",
-         "gives": "PER",
-         "note": "a rep is a sales agent, reversed"
-        },
-        {
-         "words": "cutting off",
-         "gives": "SEVERING",
-         "note": "severing = cutting off"
+         "words": "Agent",
+         "at": 0,
+         "gives": "REP",
+         "note": "a rep, short for representative, is a sales agent"
         }
        ]
+      },
+      {
+       "words": "cutting off",
+       "at": 13,
+       "gives": "SEVERING",
+       "note": "severing means cutting off"
       }
      ]
     },
     "explanation": {
-     "surface": "An agent annoyed at being cut off while dealing with a hospital patient.",
-     "walkthrough": "'Patient' looks like a noun, a person in hospital; it is the adjective, and 'cutting off' looks like being cut off on the phone.",
-     "definitionFit": "Near synonyms as adjectives: someone persevering keeps going steadily, which takes patience."
+     "surface": "An agent is annoyed at having his line cut off.",
+     "definitionFit": "Persevering means persisting steadily despite difficulty, which calls for a patient temperament."
     },
     "features": {
      "answerInScene": false,
@@ -745,42 +777,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BIRDOFPASSAGE",
-     "indicators": [
-      {
-       "text": "Foolishly",
-       "note": "the letters are arranged foolishly, not in their sensible order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Foolishly",
+         "at": 0,
+         "note": "foolishly suggests the letters of forbid are put in a silly order"
+        }
+       ],
        "parts": [
         {
-         "words": "Foolishly forbid",
-         "gives": "BIRDOF",
-         "note": "FORBID rearranged"
-        },
-        {
-         "words": "entry",
-         "gives": "PASSAGE",
-         "note": "a passage is an entry or way in"
+         "words": "forbid",
+         "at": 10,
+         "note": "fodder, taken as written"
         }
        ]
+      },
+      {
+       "words": "entry",
+       "at": 17,
+       "gives": "PASSAGE",
+       "note": "a passage is a way in, so an entry"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that it is foolish to refuse entry to a migrant.",
-     "walkthrough": "The surface is an immigration argument; the answer is a bird that migrates. Only 'forbid' is jumbled; 'entry' is taken as it stands.",
-     "definitionFit": "Both senses fit: a bird that migrates, and figuratively a person who drifts from place to place."
+     "surface": "A government is criticised for barring a migrant from coming in.",
+     "walkthrough": "The surface reads like immigration policy, but the migrant is a bird.",
+     "definitionFit": "A bird of passage is a migratory bird, and by extension a person who never settles long in one place."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "migrant"
     }
    }
@@ -994,7 +1025,8 @@
      "indicators": [
       {
        "text": "capturing",
-       "note": "the rearranged streets capture and hold the island's letters"
+       "at": 18,
+       "note": "capturing means the jumbled letters hold the island's letters inside them"
       }
      ],
      "parts": [
@@ -1003,32 +1035,30 @@
        "indicators": [
         {
          "text": "Abandoned",
-         "note": "done with abandon, without restraint, so the letters run wild"
+         "at": 0,
+         "note": "abandoned means wild and uninhibited, so the letters of streets run loose into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Abandoned streets",
-         "gives": "TRSTESE",
-         "note": "STREETS rearranged, to be split around the island's letters"
-        },
-        {
-         "words": "island",
-         "gives": "I",
-         "note": "I = island"
+         "words": "streets",
+         "at": 10,
+         "note": "fodder, taken as written"
         }
        ]
       },
       {
-       "words": "'s",
-       "note": "the S of the apostrophe-s comes along too"
+       "words": "island's",
+       "at": 28,
+       "gives": "IS",
+       "note": "I is the abbreviation for island, and 's adds S"
       }
      ]
     },
     "explanation": {
-     "surface": "Deserted streets on an island creating a gloomy atmosphere.",
-     "walkthrough": "'Abandoned' paints empty streets; here it means wild. The word is French for sadness.",
-     "definitionFit": "A borrowing from French: tristesse is sadness, a melancholy state of mind."
+     "surface": "Deserted streets around an island give off a sad atmosphere.",
+     "walkthrough": "'Abandoned streets' looks like a scene of desolation, but 'abandoned' is the anagram signal.",
+     "definitionFit": "Tristesse is a French borrowing for sadness or wistful sorrow, a melancholy state of mind."
     },
     "features": {
      "answerInScene": true,
@@ -1650,51 +1680,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "middle",
      "indicators": [
       {
        "text": "barely",
-       "note": "stripped bare: the outer letters are removed"
+       "at": 17,
+       "note": "barely means stripped bare, so the word loses its outer letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "crumbling away",
-         "gives": "ERODING",
-         "note": "eroding = crumbling away"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "RODIN",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "barely",
-           "gives": "RODIN",
-           "select": "outer",
-           "note": "the first and last letters go"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "gives": "ERODING"
+       "words": "crumbling away",
+       "at": 24,
+       "gives": "ERODING",
+       "note": "eroding means crumbling away"
       }
      ]
     },
     "explanation": {
-     "surface": "Artworks that are only just falling apart.",
-     "walkthrough": "Auguste Rodin was the French sculptor of The Thinker. 'Barely' looks like 'hardly'; here it strips the word bare.",
-     "definitionFit": "A definition by example: Rodin created sculptural works such as The Thinker and The Kiss."
+     "surface": "An artist's sculptures are slowly falling to pieces.",
+     "walkthrough": "'Barely' hints at nude statues, which suits this sculptor, but here it strips the first and last letters.",
+     "definitionFit": "Auguste Rodin, the French sculptor of The Thinker and The Kiss, created many famous works."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "barely"
     }
    }
