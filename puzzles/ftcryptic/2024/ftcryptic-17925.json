@@ -781,57 +781,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXECUTOR",
-     "indicators": [
-      {
-       "text": "Endlessly",
-       "note": "without ends means both the first and last letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "at": 0,
+         "note": "Endlessly strips both the first and last letters from the word"
+        }
+       ],
        "parts": [
         {
          "words": "vexed",
-         "gives": "EXE",
-         "note": "the word with its outer letters lopped"
+         "at": 10
         },
         {
-         "words": "copper",
-         "gives": "CU",
-         "note": "Cu is the chemical symbol for copper"
-        },
+         "gives": "VD"
+        }
+       ]
+      },
+      {
+       "words": "copper",
+       "at": 16,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "turned about means facing the other way, so the word for nonsense runs backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nonsense",
-           "gives": "ROT",
-           "note": "rot means rubbish or nonsense"
-          }
-         ]
+         "text": "about",
+         "at": 37,
+         "note": "about here turns the word for nonsense round to read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nonsense",
+         "at": 28,
+         "gives": "ROT",
+         "note": "rot is rubbish, nonsense"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An irritated policeman talks nonsense to the person handling a will.",
-     "walkthrough": "'copper' suggests a police officer, but here it is the metal.",
-     "definitionFit": "An executor is the person named to carry out the terms of a will."
+     "surface": "An irritated policeman faced with rubbish about a legal document.",
+     "walkthrough": "'copper' is the chemical element, not the police officer the surface suggests.",
+     "definitionFit": "An executor is the person named in a will to carry out its terms and manage the estate."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "copper"
     }
    }

@@ -766,56 +766,64 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ORIFICE",
      "indicators": [
       {
        "text": "becoming",
-       "note": "one thing turning into another means a letter is swapped for new ones"
+       "at": 26,
+       "note": "becoming says one part of the word turns into something else"
       }
      ],
      "parts": [
       {
        "words": "workplace",
+       "at": 16,
        "gives": "OFFICE",
        "note": "an office is a place of work"
       },
       {
-       "words": "female",
-       "gives": "F",
-       "note": "F is the standard abbreviation for female; 'First' picks the first of the two in the word"
-      },
-      {
        "op": "first",
-       "unchecked": true,
-       "gives": "RI",
        "indicators": [
         {
-         "text": "at first",
-         "note": "at first means only the opening letter of each of the preceding two words is taken"
+         "text": "First",
+         "at": 0,
+         "note": "First says it is the earlier of the two Fs in the word that changes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "female",
+         "at": 6,
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 53,
+         "note": "at first takes the opening letter of each of the two words before it"
+        }
+       ],
+       "parts": [
+        {
          "words": "rather impatient",
-         "gives": "RI",
-         "select": "first",
-         "note": "the initial letters of these two words"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The first woman in the office quickly grows impatient waiting for a vacancy.",
-     "walkthrough": "The first of the two Fs in OFFICE is replaced by RI.",
-     "definitionFit": "An orifice is a hole or vent in the body or a structure, the same thing as an opening."
+     "surface": "An office tale of the leading woman growing restless.",
+     "walkthrough": "'First female' is not a woman pioneer: it points at the first F in OFFICE, which becomes the first letters of 'rather impatient'.",
+     "definitionFit": "An orifice is a hole or aperture, especially one in the body, a synonym of opening."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "opening"
+     "misdirectedWord": "First"
     }
    }
   },
@@ -1672,31 +1680,47 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "POLARBEAR",
      "indicators": [
       {
        "text": "to Spooner",
-       "note": "Spooner was the clergyman famous for swapping the opening sounds of words"
+       "at": 28,
+       "note": "to Spooner means the opening sounds of the two words are exchanged, as the Reverend Spooner did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Make a couple of deliveries",
-       "gives": "POLARBEAR",
-       "soundsLike": "BOWL A PAIR",
-       "note": "in cricket, to send down two balls is to bowl a pair; swap the opening sounds B and P"
+       "op": "homophone",
+       "spelt": "BOLAR",
+       "parts": [
+        {
+         "words": "Make a",
+         "at": 0,
+         "gives": "BOWLA",
+         "note": "to bowl is to make a delivery in cricket; 'bowl a' said aloud"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "PEAR",
+       "parts": [
+        {
+         "words": "couple of deliveries",
+         "at": 7,
+         "gives": "PAIR",
+         "note": "a couple is a pair, said aloud the same as the fruit"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A courier makes two drops to a reverend gentleman in the Arctic.",
-     "walkthrough": "Bowl a pair becomes pole a bear when the first sounds swap. In cricket a delivery is one ball sent down by the bowler.",
-     "definitionFit": "The polar bear lives only on Arctic sea ice, so it is a native animal of the far north."
+     "surface": "A cricket instruction to send down two balls.",
+     "walkthrough": "Make a couple of deliveries is 'bowl a pair'; swapping the B and P sounds gives 'pole a bear', heard as the animal.",
+     "definitionFit": "The white bear lives in the Arctic, so it is an inhabitant of the extreme north."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "deliveries"

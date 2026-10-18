@@ -116,41 +116,44 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "enclosures",
+       "at": 4,
+       "gives": "PENS",
+       "note": "pens are fenced enclosures for animals"
+      },
+      {
        "op": "first",
        "indicators": [
         {
          "text": "originally",
-         "note": "what a word is originally is how it starts, so its first letter"
+         "at": 15,
+         "note": "originally points to the opening letter of the following word"
         }
        ],
        "parts": [
         {
-         "words": "Old",
-         "note": "standard abbreviation for old"
+         "words": "employed",
+         "at": 26
         }
        ]
       },
       {
-       "words": "enclosures",
-       "gives": "PENS",
-       "note": "pens enclose animals"
-      },
-      {
-       "words": "originally employed",
-       "gives": "E",
-       "note": "first letter of employed"
-      },
-      {
        "words": "identical",
+       "at": 35,
        "gives": "SAME",
-       "note": "identical = the same"
+       "note": "same means identical"
       }
      ]
     },
     "explanation": {
-     "surface": "A history of old fenced enclosures all using the same kind of gate.",
-     "walkthrough": "The surface is about gates and locks, which makes \"means of securing access\" look literal; the answer is a magic password.",
-     "definitionFit": "In the tale of Ali Baba the words open the robbers' cave, so the phrase now means any sure way in."
+     "surface": "Historic sheepfolds once used matching ways of keeping intruders out.",
+     "walkthrough": "Ali Baba's cave in the Arabian Nights opened to the words 'Open sesame'.",
+     "definitionFit": "The magic password opening the robbers' cave, now any sure way to gain entry or success."
     },
     "features": {
      "answerInScene": false,
@@ -324,44 +327,55 @@
     "definitions": [
      {
       "text": "That's not right",
-      "at": 36,
-      "note": "the definition is a phrase standing for the noun"
+      "at": 36
      }
     ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "take one half of the word, here the back four letters"
-      },
-      {
-       "text": "north of",
-       "note": "in a down clue, north of means placed above, so first"
+       "text": "is north of",
+       "at": 17,
+       "note": "in a down clue, is north of puts the first piece above the next"
       }
      ],
      "parts": [
       {
-       "words": "Polperro",
-       "gives": "ERRO",
-       "note": "the second half of POLPERRO"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "Half of keeps just one half of the place name, here its second four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Polperro",
+         "at": 8
+        },
+        {
+         "gives": "POLP"
+        }
+       ]
       },
       {
        "words": "river",
+       "at": 29,
        "gives": "R",
-       "note": "r = river, as on maps"
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A pedant correcting a claim that part of a Cornish village lies north of a river.",
-     "walkthrough": "Polperro is a fishing village in Cornwall; only its spelling matters here.",
-     "definitionFit": "Saying \"that's not right\" is pointing out a mistake."
+     "surface": "A puzzled question about the geography of the Cornish fishing village Polperro.",
+     "walkthrough": "Polperro is a village in Cornwall; its back half is ERRO, placed above R.",
+     "definitionFit": "An error is a mistake, something which is wrong or incorrect."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Polperro"
+     "aptDefinition": false,
+     "misdirectedWord": "north"
     }
    }
   },
@@ -778,43 +792,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOTTLENECK",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 29,
+       "note": "into places the rearranged letters within the word for a stream"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "stream",
+       "at": 34,
+       "gives": "BECK",
+       "note": "beck is a northern English word for a brook or stream"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "fluid",
-         "note": "something fluid has no fixed shape, so the letters flow into a new order"
-        },
-        {
-         "text": "into",
-         "note": "the anagram goes inside the other piece"
+         "at": 23,
+         "note": "fluid means shifting and changeable, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "stream",
-         "gives": "BECK",
-         "note": "beck is a northern English word for a stream"
-        },
-        {
          "words": "not let",
-         "note": "NOT LET rearranged"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A narrowing channel that won't allow water into a brook.",
-     "walkthrough": "\"Fluid\" reads as a noun, the water refused entry, but it is an adjective telling NOT LET to rearrange.",
-     "definitionFit": "The narrow neck of a bottle slows the pour, so the word names any point where flow is choked."
+     "surface": "Someone refusing to let liquid flow into a brook.",
+     "walkthrough": "'fluid' looks like a noun but is the adjective signalling the shuffle; the 's after 'point' is just 'is'.",
+     "definitionFit": "A bottleneck is a narrow section where traffic or flow is restricted, like a bottle's neck."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fluid"
     }
@@ -1398,52 +1415,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GLACIER",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 40,
+       "note": "around says the shortened word wraps the other letters"
+      }
+     ],
      "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 16,
+         "note": "a lot of means most but not all, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dazzling light",
+         "at": 25,
+         "gives": "GLARE",
+         "note": "glare is a harsh, dazzling light"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Moving",
-         "note": "the letters move into a new order"
+         "at": 0,
+         "note": "Moving says these letters are shifted into a new order"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "a lot of",
-           "note": "most of the word, its last letter dropped"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "around",
-             "note": "one piece goes round the other"
-            }
-           ],
-           "parts": [
-            {
-             "words": "a lot of dazzling light",
-             "gives": "GLAR",
-             "note": "GLARE without its last letter"
-            },
-            {
-             "words": "Moving ice with a",
-             "gives": "ACIE",
-             "note": "ICE and A rearranged"
-            }
-           ]
-          },
-          {
-           "gives": "A"
-          }
-         ]
+         "words": "ice",
+         "at": 7
         }
        ]
       }
@@ -1451,13 +1464,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A glacier glittering in bright sunshine.",
-     "walkthrough": "The whole clue is the definition as well as the wordplay: a glacier is moving ice, and snow glare surrounds it.",
-     "definitionFit": "A glacier is a river of ice creeping downhill, and its surface throws off blinding glare."
+     "surface": "A shining river of ice reflecting bright sunlight.",
+     "walkthrough": "The whole clue is both definition and wordplay: a glacier is moving ice, often glittering in the sun.",
+     "definitionFit": "A glacier is a slowly flowing mass of ice, often glittering in sunlight, so the whole clue describes it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Moving"
     }
    }
   },

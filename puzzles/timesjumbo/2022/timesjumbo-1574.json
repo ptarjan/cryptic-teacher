@@ -1584,46 +1584,50 @@
      "indicators": [
       {
        "text": "crossing",
-       "note": "to cross something is to span it from side to side, enclosing it"
+       "at": 6,
+       "note": "crossing says the vagrant's letters stretch across the others, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tramp",
-         "gives": "BUM",
-         "note": "a tramp is a bum"
-        },
-        {
-         "words": "wooded hollow",
-         "gives": "DELL",
-         "note": "a dell is a small wooded valley"
-        }
-       ]
+       "words": "Tramp",
+       "at": 0,
+       "gives": "BUM",
+       "note": "a bum is a tramp or vagrant"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means at the start, so only the first letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "identifying",
-         "note": "the first letter of the word"
+         "words": "wooded hollow",
+         "at": 15,
+         "gives": "DELL",
+         "note": "a dell is a small wooded valley"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 30,
+           "note": "initially picks only the first letter of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "identifying",
+           "at": 40
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vagrant walks through a woodland hollow, spotting a eucalyptus.",
-     "walkthrough": "'Gumtree' suggests the eucalyptus, but bdellium is a resin-yielding tree of Africa and Asia; the odd BD start is genuine.",
-     "definitionFit": "Bdellium is an aromatic resin from trees of the genus Commiphora, and the name is also given to the trees themselves."
+     "surface": "A vagrant walking through a valley and naming a tree.",
+     "walkthrough": "Bdellium is an obscure word: a tree yielding a gum resin, and the resin itself.",
+     "definitionFit": "Bdellium is an aromatic resin from certain Asian and African trees, and the name extends to the tree."
     },
     "features": {
      "answerInScene": true,
@@ -1653,43 +1657,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BEEHIVES",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "taking most of a word drops its final letter"
+       "text": "around",
+       "at": 22,
+       "note": "around says the animals' letters surround the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Farm animals",
+       "at": 0,
+       "gives": "BEEVES",
+       "note": "beeves is an old plural of beef, meaning cattle"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "something placed around another surrounds it"
+         "text": "most of",
+         "at": 29,
+         "note": "most of drops the final letter"
         }
        ],
        "parts": [
         {
-         "words": "Farm animals",
-         "gives": "BEEVES",
-         "note": "beeves is an old plural of beef, meaning cattle"
+         "words": "his",
+         "at": 37,
+         "gives": "HIS"
         },
         {
-         "words": "his",
-         "gives": "HI",
-         "note": "the word with its last letter cut"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cattle graze round the cottages where a landowner's labourers live.",
-     "walkthrough": "'Workers' are worker bees, not labourers. BEEVES is the archaic plural of beef for oxen.",
-     "definitionFit": "Worker bees live in hives, so beehives are the homes of the workers."
+     "surface": "A farmer's livestock gathered about his labourers' cottages.",
+     "walkthrough": "The 'workers' are worker bees, not farm labourers.",
+     "definitionFit": "Hives house colonies of honeybees, whose workers are the sterile female bees."
     },
     "features": {
      "answerInScene": false,

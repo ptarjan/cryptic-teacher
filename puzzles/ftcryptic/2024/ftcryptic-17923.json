@@ -677,54 +677,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "sadly",
-       "note": "something done sadly is done badly, so the word before is jumbled"
+       "text": "after",
+       "at": 39,
+       "note": "after places the following letters behind the catch"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on the boundary",
+         "at": 51,
+         "note": "on the boundary takes the letters at the word's edges"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "on the boundary",
-           "note": "the boundary of a word is its edge, so only its first and last letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "catch",
-           "note": "the outside letters of catch"
-          }
-         ]
-        },
-        {
-         "words": "runs",
-         "note": "the letters of runs rearranged"
-        },
-        {
-         "words": "dismissed",
-         "gives": "OUT",
-         "note": "a batsman who is dismissed is out"
+         "words": "catch",
+         "at": 45
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 23,
+         "note": "sadly signals the letters are put in a sorry, rearranged state"
+        }
+       ],
+       "parts": [
+        {
+         "words": "runs",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "dismissed",
+       "at": 29,
+       "gives": "OUT",
+       "note": "a batsman who is dismissed is out"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket commentary: a batsman scores quickly but is sadly out, caught at the boundary.",
-     "walkthrough": "The whole surface is cricket, where runs, catch, dismissed and boundary are all terms of the game.",
-     "definitionFit": "To churn out is to produce something quickly and in quantity, often mechanically."
+     "surface": "A cricket scene: a batter scoring quickly, then caught on the rope.",
+     "walkthrough": "CH is the edge of catch; RUNS rearranged gives URNS, then OUT.",
+     "definitionFit": "To churn out is to produce something in quantity quickly and mechanically."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "boundary"
+     "misdirectedWord": "runs"
     }
    }
   },

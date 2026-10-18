@@ -809,58 +809,68 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PRIVILEGES",
-     "indicators": [
-      {
-       "text": "end replaced by",
-       "note": "the final letter is swapped out for something else"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Closet",
-       "gives": "PRIVY",
-       "note": "a privy is an old word for a toilet or closet"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "end replaced by",
+         "at": 8,
+         "note": "end replaced by says the final letter is swapped for the next item"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Closet",
+         "at": 0,
+         "gives": "PRIVY",
+         "note": "a privy is a lavatory, a water closet"
+        },
+        {
+         "gives": "Y"
+        },
+        {
+         "words": "one",
+         "at": 24,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       },
       {
        "words": "member",
+       "at": 28,
        "gives": "LEG",
-       "note": "a leg is a limb or member"
+       "note": "a leg is a limb, a member of the body"
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "limits of",
-         "note": "the limits of a word are its two ends, its first and last letters"
+         "at": 43,
+         "note": "limits of takes the two outside letters of the word"
         }
        ],
        "parts": [
         {
          "words": "expenses",
-         "note": "first and last letters of expenses"
+         "at": 53
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An MP's closet and expense claims hint at parliamentary perks.",
-     "walkthrough": "PRIVY loses its final Y to I. The surface recalls MPs' expenses and privileges.",
-     "definitionFit": "Privileges are special advantages or perks, the same sense as benefits."
+     "surface": "A Private Eye jibe at an MP's expenses and perks.",
+     "walkthrough": "PRIVY with its Y swapped for I gives PRIVI; add LEG and ES, the outer letters of expenses.",
+     "definitionFit": "Privileges are special rights or advantages granted to some, much like perks or benefits."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "member"
+     "misdirectedWord": "Closet"
     }
    }
   },
