@@ -219,37 +219,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REACH",
-     "indicators": [
-      {
-       "text": "heading away",
-       "note": "when the heading goes away, the front letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "river",
+       "at": 10,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading away from",
+         "at": 17,
+         "note": "heading away means the head, the first letter, goes away from the word"
+        }
+       ],
        "parts": [
         {
-         "words": "river",
-         "gives": "R",
-         "note": "R is the standard abbreviation for river"
+         "words": "sandy shore",
+         "at": 35,
+         "gives": "BEACH",
+         "note": "a beach is a sandy shore"
         },
         {
-         "words": "sandy shore",
-         "gives": "EACH",
-         "note": "a sandy shore is a beach, here without its first letter"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller gets to a river after leaving the beach behind.",
-     "walkthrough": "'heading away from' reads like a direction of travel, but it tells you to remove the head of the next word.",
-     "definitionFit": "To reach a place is to get there, a straight verb synonym for arriving at a destination."
+     "surface": "A traveller reaches a river and walks off the beach.",
+     "walkthrough": "BEACH with its 'heading away' loses B, leaving EACH, which follows R.",
+     "definitionFit": "To reach a place is to get there, so it is a synonym of arrive at."
     },
     "features": {
      "answerInScene": false,

@@ -1059,35 +1059,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MICROBAR",
-     "indicators": [
-      {
-       "text": "curtailed",
-       "note": "curtailed literally means having its tail cut, so the last letter is dropped"
-      },
-      {
-       "text": "shaved at edges",
-       "note": "shaving at both edges trims away the first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "bacterium",
-       "gives": "MICROBE",
-       "note": "a microbe is a micro-organism such as a bacterium"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 30,
+         "note": "curtailed means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bacterium",
+         "at": 40,
+         "gives": "MICROBE",
+         "note": "a bacterium is a microbe"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "mark",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "shaved at edges",
+         "at": 56,
+         "note": "shaving the word at both edges takes off its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mark",
+         "at": 51,
+         "note": "its inner letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clipped germ and a trimmed blemish register only a tiny reading on the gauge.",
-     "walkthrough": "MICROBE loses its final E; MARK loses M and K.",
-     "definitionFit": "A microbar is a millionth of a bar, a unit of atmospheric pressure, so it is a minute quantity of pressure."
+     "surface": "A lab note about a shortened germ and a mark trimmed round its edges.",
+     "walkthrough": "A bar is a unit of pressure, so a microbar is a millionth of one.",
+     "definitionFit": "A microbar is a tiny unit of pressure, one millionth of a bar, used in acoustics and meteorology."
     },
     "features": {
      "answerInScene": false,
@@ -1576,60 +1593,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THEOSOPH",
-     "indicators": [
-      {
-       "text": "that includes",
-       "note": "something that includes another holds it within itself"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "that includes",
+         "at": 15,
+         "note": "that includes means the pair of words takes the next letter inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "The",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "The",
+           "at": 0
+          },
+          {
+           "words": "inducement",
+           "at": 4,
+           "gives": "SOP",
+           "note": "a sop is something given to pacify or win someone over"
+          }
+         ]
         },
         {
          "words": "love",
+         "at": 29,
          "gives": "O",
-         "note": "love is zero in tennis, shaped like O"
-        },
+         "note": "love is zero in tennis, the letter O"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "inducement",
-         "gives": "SOP",
-         "note": "a sop is something given to pacify or win someone over"
-        },
+         "text": "opening to",
+         "at": 38,
+         "note": "opening to means the first letter of the word that follows"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "opening to",
-           "note": "the opening of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "heaven",
-           "note": "the first letter of heaven"
-          }
-         ]
+         "words": "heaven",
+         "at": 49,
+         "gives": "H",
+         "note": "first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The promise of heaven, mixed with love, tempts someone who believes in fate.",
-     "walkthrough": "Love is O because a zero score in tennis is called love.",
-     "definitionFit": "A theosoph is a theosophist, a follower of a mystical system that teaches karma and reincarnation."
+     "surface": "A bribe wrapped in love and a glimpse of heaven tempts a spiritual seeker.",
+     "walkthrough": "THE and SOP sit side by side, and O goes between them as the pair 'includes' it; H, the 'opening to' heaven, ends it. Karma is a doctrine theosophists adopted from Hindu thought.",
+     "definitionFit": "A theosoph is a theosophist, a follower of a mystical movement which teaches karma and reincarnation, hence the question mark."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "inducement"
     }
    }
@@ -1773,45 +1799,50 @@
      {
       "text": "Pearl",
       "at": 0,
-      "note": "a fill-in-the-blank: Pearl ___"
+      "note": "Pearl Harbor, the US naval base in Hawaii, so the answer completes the name"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HARBOR",
+     "op": "composite",
      "indicators": [
       {
        "text": "Could be",
-       "note": "could be invites the letters of the longer phrase to be rearranged into the solver's word plus the rest"
+       "at": 24,
+       "note": "could be says the letters of the first phrase can be rearranged into the answer together with other words"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HARBOR",
+       "words": "oyster has borne",
+       "at": 6,
+       "note": "the anagram fodder, holding the answer's letters plus those of stone and yes"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "oyster has borne",
-         "note": "the fourteen letters of the composite"
+         "words": "stone",
+         "at": 38,
+         "note": "taken as written: its letters come out of the fodder"
         },
         {
-         "words": "stone, yes",
-         "note": "letters to be taken away from the rearranged fodder"
+         "words": "yes",
+         "at": 45,
+         "note": "taken as written: its letters come out of the fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Has the pearl oyster produced a gem? Could this be the stone?",
-     "walkthrough": "A composite anagram: the answer plus STONE YES rearranges to OYSTER HAS BORNE. Pearl Harbor is the US naval base in Hawaii, spelt the American way.",
-     "definitionFit": "Pearl Harbor is the Hawaiian naval base, so the answer completes the name that starts with Pearl."
+     "surface": "Asking whether an oyster has produced a pearl, or just a stone.",
+     "walkthrough": "A composite anagram: the letters of 'oyster has borne' are those of the answer plus STONE and YES. Pearl wants to be the gem the oyster made; it is the first word of Pearl Harbor, with US spelling.",
+     "definitionFit": "Pearl Harbor is the Hawaiian naval base, so the word that follows Pearl in that name is the answer."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Pearl"
     }
    }
