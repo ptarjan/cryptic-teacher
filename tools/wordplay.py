@@ -509,6 +509,9 @@ def _select(op, n, s, words):
             out |= {t[-k:] for k in range(1, len(t))}
             out.add("".join(w[-1] for w in run))
         elif op == "middle":
+            h = len(t) // 2
+            # the plain centre (a lone letter is its own middle), then wider stretches
+            out.add(t[h] if len(t) % 2 else t[h - 1:h + 1])
             out |= {t[k:len(t) - k] for k in range(1, (len(t) + 1) // 2)}
         elif op == "outer":
             out |= {t[:k] + t[-k:] for k in range(1, len(t) // 2 + 1)}
@@ -805,7 +808,15 @@ def match(node, want, got=None):
             _fill(p, got)
     else:
         ok = want in values(node)
-        if ok:
+        if ok and op == "cycling" and len(parts_of(node)) == 1:
+            # the reading of the part that cycles into the answer, not its default
+            for v in sorted(values(parts_of(node)[0])):
+                if want in values({**node, "parts": [{"gives": v, "unchecked": True}]}):
+                    match(parts_of(node)[0], v, got)
+                    break
+            else:
+                _fill(parts_of(node)[0], got)
+        elif ok:
             for p in parts_of(node):
                 if op == "hidden":
                     got[id(p)] = want
@@ -837,11 +848,48 @@ def _match_composite(node, want, got):
 def _fill(node, got):
     """Record a concrete reading of `node` where no answer steers it."""
     try:
-        vs = sorted(values(node))
+        # The shortest reading first: a selection's default is one letter, and a
+        # longer stretch is only the answer's to ask for.
+        vs = sorted(values(node), key=lambda v: (len(v), v))
     except _NeedTarget:
         return
     if vs:
-        match(node, vs[0], got)
+        # Readings where every selection takes its plain default come first.
+        try:
+            plain = sorted(values(_defaulted(node)), key=lambda v: (len(v), v))
+        except (_NeedTarget, WordplayError):
+            plain = []
+        match(node, next((v for v in plain if v in vs), vs[0]), got)
+
+
+def _defaulted(node):
+    """A copy of `node` with each selection over a leaf replaced by the letters its
+    indicator plainly picks."""
+    if not isinstance(node, dict) or node.get("unchecked") or "op" not in node:
+        return node
+    pick = _default_pick(node)
+    if pick:
+        return {"gives": pick, "unchecked": True}
+    return {**node, "parts": [_defaulted(p) for p in node.get("parts") or []]}
+
+
+def _default_pick(node, vs=None):
+    """What a selection's indicator plainly asks of the leaf's letters (the first,
+    the last, the outer pair, the centre, the nth), when that is a reading of it."""
+    op, parts = node.get("op"), parts_of(node)
+    if op not in ("first", "last", "outer", "middle", "nth") or len(parts) != 1:
+        return None
+    try:
+        for s in sorted(values(parts[0])):
+            h = len(s) // 2
+            pick = {"first": s[:1], "last": s[-1:], "outer": s[:1] + s[-1:] if len(s) > 1 else "",
+                    "middle": s[h] if len(s) % 2 else s[h - 1:h + 1],
+                    "nth": s[node["n"] - 1:node["n"]] if node.get("n") else ""}[op]
+            if pick and (vs is None or pick in vs):
+                return pick
+    except _NeedTarget:
+        pass
+    return None
 
 
 def _match_run(parts, want, got):
