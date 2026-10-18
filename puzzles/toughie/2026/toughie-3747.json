@@ -43,59 +43,70 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WITTGENSTEIN",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 20,
+       "note": "says the wife letter sits beside the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "wife",
+       "at": 23,
+       "gives": "W"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "Around",
-         "note": "letters sent around are jumbled"
-        },
-        {
-         "text": "inspiring"
+         "text": "inspiring",
+         "at": 29,
+         "note": "inspiring means breathing in, so the following letter is taken inside"
         }
        ],
        "parts": [
         {
-         "words": "wife",
-         "gives": "W",
-         "note": "W = wife"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "by"
+           "text": "Around",
+           "at": 0,
+           "note": "around signals the letters are turned around into a new order"
           }
          ],
          "parts": [
           {
-           "words": "ten, sitting",
-           "note": "the letters of TEN SITTING jumbled"
+           "words": "ten",
+           "at": 7,
+           "note": "taken as written"
           },
           {
-           "words": "English",
-           "gives": "E",
-           "note": "E = English, placed inside the jumble: ITTG(E)NSTEIN"
+           "words": "sitting",
+           "at": 12,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "English",
+         "at": 39,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scene of a family at dinner around ten o'clock, the wife beside someone.",
-     "walkthrough": "The comma after 'ten' hides that TEN and SITTING are one pool of letters. 'Wife' reads as a person at the table; it is only W.",
-     "definitionFit": "Ludwig Wittgenstein, the Austrian-born thinker who taught at Cambridge, is given by example of the class 'philosopher'."
+     "surface": "At about ten, someone sits beside his wife and is inspired by an English philosopher.",
+     "walkthrough": "'Around ten' looks like a time, but 'Around' reworks TEN and SITTING; E goes into that mix before the S-T-I-N end.",
+     "definitionFit": "Ludwig Wittgenstein was an Austrian-British philosopher of logic and language who taught at Cambridge."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sitting"
+     "misdirectedWord": "Around"
     }
    }
   },
@@ -1112,55 +1123,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "suspect",
-       "note": "suspect letters are not to be trusted in their order"
+       "text": "possessing",
+       "at": 18,
+       "note": "possessing means holding, so the letter goes inside the others"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "possessing",
-         "note": "the jumble holds I among its letters"
+         "text": "suspect",
+         "at": 10,
+         "note": "suspect means doubtful or not genuine, so the letters are not in their real order"
         }
        ],
        "parts": [
         {
-         "words": "Hunt down",
-         "note": "anagram fodder"
+         "words": "Hunt",
+         "at": 0,
+         "note": "taken as written"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "lead to",
-           "note": "the leading letter of 'intriguing'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lead to intriguing",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of 'intriguing'"
-          }
-         ]
+         "words": "down",
+         "at": 5,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead to",
+         "at": 29,
+         "note": "the lead of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intriguing",
+         "at": 37,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective told to track down a suspect in a baffling case.",
-     "walkthrough": "The surface is itself a detective story: 'suspect' looks like a noun, a person to hunt, but is an adjective for jumbled letters.",
-     "definitionFit": "A genre sense: mystery as a detective novel, of which the guess-the-killer story is the classic form."
+     "surface": "Detectives hunt down a suspect holding the key to a puzzling mystery.",
+     "definitionFit": "A whodunnit is a detective story, a mystery about who committed the crime."
     },
     "features": {
      "answerInScene": true,

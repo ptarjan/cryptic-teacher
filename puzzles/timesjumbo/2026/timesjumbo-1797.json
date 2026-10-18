@@ -555,7 +555,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "accepting"
+       "text": "with",
+       "at": 29,
+       "note": "with means alongside, so the rest follows the revenue piece"
       }
      ],
      "parts": [
@@ -563,42 +565,49 @@
        "op": "container",
        "indicators": [
         {
-         "text": "with"
+         "text": "accepting",
+         "at": 8,
+         "note": "something accepting another item takes it inside itself"
         }
        ],
        "parts": [
         {
          "words": "Revenue",
+         "at": 0,
          "gives": "INCOME",
-         "note": "revenue = income"
+         "note": "income is revenue"
         },
         {
          "words": "PR",
-         "note": "taken as it stands"
+         "at": 18,
+         "note": "taken as written, public relations"
         }
        ]
       },
       {
        "words": "females",
+       "at": 21,
        "gives": "HENS",
-       "note": "hens are female birds"
+       "note": "hens are female birds, hence females"
       },
       {
        "words": "one",
+       "at": 34,
        "gives": "I",
-       "note": "Roman numeral"
+       "note": "I is the Roman numeral one"
       },
       {
        "words": "working",
+       "at": 38,
        "gives": "ON",
-       "note": "a machine that is working is on"
+       "note": "on means working, as a machine that is on"
       }
      ]
     },
     "explanation": {
-     "surface": "A revenue office taking on PR women and one more to fill a job vacancy.",
-     "walkthrough": "'Vacancy' looks like an empty post, which the surface supports; it means a vacant, uncomprehending state of mind.",
-     "definitionFit": "Slightly stretched synonym: vacancy is blankness of mind, a failure to take anything in, which is incomprehension."
+     "surface": "A tax office takes on public-relations women, one of whom is busy, to fill a job opening.",
+     "walkthrough": "'Vacancy' is not a job opening here but blankness of mind, the look of someone who does not understand.",
+     "definitionFit": "Vacancy can mean a blank, uncomprehending state of mind, which is a failure to understand."
     },
     "features": {
      "answerInScene": false,
@@ -959,58 +968,68 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "last of",
-         "note": "only the final letter of free"
+         "at": 7,
+         "note": "the last of a word is its final letter"
         }
        ],
        "parts": [
         {
          "words": "free",
-         "note": "freE: its last letter"
+         "at": 15,
+         "note": "the word whose final letter is taken"
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "when rambling",
-         "note": "letters that ramble wander out of order"
+         "text": "in",
+         "at": 28,
+         "note": "the parking letter goes inside the reworked dales letters"
         }
        ],
        "parts": [
         {
-         "words": "parking",
-         "gives": "P",
-         "note": "P = parking, as on road signs"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "when rambling",
+           "at": 37,
+           "note": "rambling means wandering about, so the letters of the word wander into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dales",
+           "at": 31
+          }
+         ]
         },
         {
-         "words": "Dales",
-         "note": "anagram fodder with the P"
+         "words": "parking",
+         "at": 20,
+         "gives": "P",
+         "note": "P is the road-sign abbreviation for parking"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hiker in the Yorkshire Dales who left the car in a free car park.",
-     "walkthrough": "The Dales are the Yorkshire Dales, walking country in northern England, which is why 'rambling' fits the surface.",
-     "definitionFit": "Plain synonym: time that has elapsed has passed."
+     "surface": "Free parking in the Yorkshire Dales has gone while walkers were out rambling.",
+     "walkthrough": "The Dales are upland valleys in northern England, popular with ramblers.",
+     "definitionFit": "Time that has passed has gone by, the sense of a period that has run out."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "rambling"
     }
    }
@@ -1237,12 +1256,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "only the final letter of love"
-      },
-      {
-       "text": "heartless",
-       "note": "SILLY loses its central letter"
+       "text": "after",
+       "at": 24,
+       "note": "the a and the fool come after the love letter in the answer"
       }
      ],
      "parts": [
@@ -1250,36 +1266,56 @@
        "op": "last",
        "indicators": [
         {
-         "text": "after"
+         "text": "ultimately",
+         "at": 36,
+         "note": "ultimately means at the end, so the final letter of the word"
         }
        ],
        "parts": [
         {
          "words": "love",
-         "note": "lovE: its last letter"
+         "at": 30,
+         "note": "the word whose final letter is taken"
         }
        ]
       },
       {
        "words": "a",
-       "note": "taken as it stands"
+       "at": 7,
+       "gives": "A"
       },
       {
-       "words": "fool",
-       "gives": "SILY",
-       "note": "SILLY with its middle L removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 9,
+         "note": "a heartless word loses its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fool",
+         "at": 19,
+         "gives": "SILLY",
+         "note": "silly means a fool, as in 'you silly'"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plain verdict on someone: just a silly fool in the end, after a failed romance.",
-     "walkthrough": "Read in answer order: the E from love, then A, then the gutted SILLY.",
-     "definitionFit": "Plain synonym: done simply is done easily."
+     "surface": "Put simply, someone was a heartless fool when love ran out.",
+     "walkthrough": "SILLY has five letters, so its heart is the single middle L.",
+     "definitionFit": "Easily and simply both mean without difficulty, as in winning simply or winning easily."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "love"
+     "misdirectedWord": "heartless"
     }
    }
   },
@@ -1360,8 +1396,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "rejected",
-       "note": "a rejected thing is thrown back"
+       "text": "by",
+       "at": 30,
+       "note": "by means next to, so the queen sits beside the book"
       }
      ],
      "parts": [
@@ -1369,12 +1406,15 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "by"
+         "text": "rejected",
+         "at": 16,
+         "note": "rejected means sent back, so the word is turned round"
         }
        ],
        "parts": [
         {
          "words": "book",
+         "at": 25,
          "gives": "TOME",
          "note": "a tome is a large book"
         }
@@ -1382,15 +1422,15 @@
       },
       {
        "words": "queen",
+       "at": 33,
        "gives": "ER",
-       "note": "ER = Elizabeth Regina"
+       "note": "ER, Elizabeth Regina, is the crossword queen"
       }
      ]
     },
     "explanation": {
-     "surface": "A dramatic sort whose book was turned down by the queen.",
-     "walkthrough": "ER, Elizabeth Regina, is the standard crossword queen.",
-     "definitionFit": "Plain definition: an emoter is someone who shows emotion theatrically, a ham."
+     "surface": "An actor's memoir is turned down, and the queen is involved.",
+     "definitionFit": "An emoter shows feeling in an exaggerated, stagy way, so is a theatrical sort of person."
     },
     "features": {
      "answerInScene": true,
@@ -2008,55 +2048,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "with",
-       "note": "'with' means together with, so the pair is followed by the rest"
+       "at": 5,
+       "note": "with means alongside, so the other pieces follow the pair"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Pair",
+       "at": 0,
+       "gives": "PR"
+      },
+      {
+       "words": "nine",
+       "at": 10,
+       "gives": "IX",
+       "note": "IX is nine in Roman numerals"
+      },
+      {
+       "words": "francs",
+       "at": 15,
+       "gives": "F",
+       "note": "F is the abbreviation for francs"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "eating"
+         "text": "eating",
+         "at": 30,
+         "note": "something eating another item has it inside"
         }
        ],
        "parts": [
         {
-         "words": "Pair",
-         "gives": "PR",
-         "note": "pr = pair, a common abbreviation"
-        },
-        {
-         "words": "nine",
-         "gives": "IX",
-         "note": "Roman numeral"
-        },
-        {
-         "words": "francs",
-         "gives": "F",
-         "note": "F = francs"
-        },
-        {
          "words": "that is",
+         "at": 22,
          "gives": "IE",
-         "note": "ie = that is (id est)"
+         "note": "i.e. is the abbreviation of id est, that is"
+        },
+        {
+         "words": "unknown",
+         "at": 37,
+         "gives": "X",
+         "note": "X is the algebraic unknown"
         }
        ]
-      },
-      {
-       "words": "unknown",
-       "gives": "X",
-       "note": "x is the algebraic unknown"
       }
      ]
     },
     "explanation": {
-     "surface": "Two diners paying nine francs for something mysterious on the menu.",
-     "walkthrough": "Francs and the menu point to a French restaurant, which is where the answer comes from.",
-     "definitionFit": "Plain definition: a prix fixe is a set-price menu."
+     "surface": "A couple paying nine francs order something unfamiliar from the menu.",
+     "walkthrough": "PRIX FIXE is French for fixed price, a set menu; the francs keep the French theme.",
+     "definitionFit": "A prix fixe is a set meal at a fixed price, one of the choices a restaurant menu offers."
     },
     "features": {
      "answerInScene": true,
@@ -2270,12 +2317,15 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "in"
+       "text": "at first",
+       "at": 47,
+       "note": "says the very little piece comes first in the answer"
       }
      ],
      "parts": [
       {
        "words": "very little",
+       "at": 35,
        "gives": "WHIT",
        "note": "a whit is a tiny amount, as in 'not a whit'"
       },
@@ -2284,7 +2334,8 @@
        "indicators": [
         {
          "text": "arising",
-         "note": "in a down clue, what arises reads upwards, so backwards"
+         "at": 26,
+         "note": "in a down answer, arising means reading upwards, so backwards"
         }
        ],
        "parts": [
@@ -2292,20 +2343,23 @@
          "op": "container",
          "indicators": [
           {
-           "text": "at first",
-           "note": "'at first' means at the start, so the very-little word leads the answer"
+           "text": "in",
+           "at": 14,
+           "note": "the tears go inside the neckwear"
           }
          ],
          "parts": [
           {
            "words": "neckwear",
+           "at": 17,
            "gives": "TIE",
-           "note": "a tie, split to take the tears"
+           "note": "a tie is worn round the neck"
           },
           {
            "words": "tears",
+           "at": 8,
            "gives": "RIPS",
-           "note": "tears in cloth are rips"
+           "note": "rips are tears, as in torn cloth"
           }
          ]
         }
@@ -2314,13 +2368,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone slimmer whose tie is getting torn, just slightly to begin with.",
-     "walkthrough": "'Thinner' reads as slimmer; it is a paint thinner. The torn tie is turned upwards as a whole, after the tears go in, not before.",
-     "definitionFit": "Plain definition: white spirit is a solvent used as paint thinner."
+     "surface": "A torn tie upsets someone only slightly at first.",
+     "walkthrough": "In a down answer 'arising' reads the torn tie from the bottom up. White spirit is the British name for the paint thinner called mineral spirits in the US.",
+     "definitionFit": "White spirit is a solvent used to thin paint, so it is a thinner."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Thinner"
     }
@@ -3458,46 +3512,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "with",
-       "note": "'with' means accompanied by, so the men have time alongside them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "a place for the retired",
-       "gives": "ABED",
-       "note": "a bed is where you go when you retire for the night"
+       "words": "a",
+       "at": 17,
+       "gives": "A"
       },
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "'in' puts men and time inside the bed, between B and ED"
+         "at": 14,
+         "note": "the men and time go inside the bed"
         }
        ],
        "parts": [
         {
-         "words": "Men",
-         "gives": "OR",
-         "note": "OR = other ranks, soldiers who are not officers"
+         "words": "place for the retired",
+         "at": 19,
+         "gives": "BED",
+         "note": "someone who has retired for the night has gone to bed"
         },
         {
-         "words": "time",
-         "gives": "T",
-         "note": "t = time, as in physics"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "with",
+           "at": 4,
+           "note": "with means alongside, so time joins the men"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Men",
+           "at": 0,
+           "gives": "OR",
+           "note": "OR, other ranks, is the military term for ordinary soldiers"
+          },
+          {
+           "words": "time",
+           "at": 9,
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pensioners' time in a retirement home being cut short.",
-     "walkthrough": "'The retired' look like pensioners, but they are people who have gone to bed. OR, other ranks, is the usual crossword 'men'.",
-     "definitionFit": "Plain synonym: an aborted mission is one cut short."
+     "surface": "Soldiers with time on their hands in a retirement home find their stay cut short.",
+     "walkthrough": "'The retired' suggests pensioners, but here it means people who have gone to bed.",
+     "definitionFit": "An aborted plan or mission was stopped before completion, so it was cut short."
     },
     "features": {
      "answerInScene": false,
@@ -3641,52 +3709,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "only the last letter of got"
+       "text": "in",
+       "at": 18,
+       "note": "the poems and the final letter go inside the single"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
-       "parts": [
-        {
-         "words": "single",
-         "gives": "LONE",
-         "note": "lone = single"
-        },
-        {
-         "words": "Poems",
-         "gives": "ODES",
-         "note": "odes are poems"
-        }
-       ]
+       "words": "single",
+       "at": 21,
+       "gives": "LONE",
+       "note": "lone means single, solitary"
       },
       {
-       "op": "last",
+       "op": "charade",
        "parts": [
         {
-         "words": "got",
-         "note": "goT: its last letter"
+         "words": "Poems",
+         "at": 0,
+         "gives": "ODES",
+         "note": "odes are poems"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 6,
+           "note": "finally means at the end, so the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "got",
+           "at": 14,
+           "note": "the word whose final letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A love poem at last winning over the one person the poet adores.",
-     "walkthrough": "A lodestone is naturally magnetic rock, so it is literally a focus of attraction; the figurative sense is anything that draws people.",
-     "definitionFit": "Plain definition: a lodestone is a magnet, and figuratively anything that attracts."
+     "surface": "A poet's verses finally got into a single magazine that everyone was drawn to.",
+     "definitionFit": "A lodestone is a natural magnet, and figuratively anything that strongly attracts people."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "single"
+     "misdirectedWord": "attraction"
     }
    }
   }

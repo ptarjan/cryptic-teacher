@@ -891,38 +891,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost a word is the word one letter short of finished, so the last letter never arrives."
-      },
-      {
-       "text": "Complete",
-       "note": "To complete a thing is to finish it off, so what is named next goes on the end of what has been built."
-      }
-     ],
      "parts": [
       {
-       "words": "ideal",
-       "gives": "MODE",
-       "note": "an ideal is a model, and the last letter of MODEL is dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost means not quite all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ideal",
+         "at": 18,
+         "gives": "MODEL",
+         "note": "a model is an ideal, a perfect example"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "mess",
+       "words": "Complete mess",
+       "at": 26,
        "gives": "STY",
-       "note": "a sty is the byword for a filthy mess of a room"
+       "note": "a sty, a pigsty, is a complete mess"
       }
      ]
     },
     "explanation": {
-     "surface": "Something that started out nearly perfect and ended up a total shambles.",
-     "walkthrough": "The italics mark 'almost' as an instruction rather than part of the exclamation. A sty is the pig's pen, and any room left in that state gets called one.",
-     "definitionFit": "Modesty is keeping a proper restraint about yourself, which is propriety in the matter of how you behave and what you claim."
+     "surface": "Someone exclaims that the ideal of good behaviour has collapsed into chaos.",
+     "definitionFit": "Modesty is decency and propriety in behaviour or dress."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mess"
+     "misdirectedWord": "ideal"
     }
    }
   },
