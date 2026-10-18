@@ -43,8 +43,11 @@ check("and leaves the original alone", "EALT", orig["parts"][0]["gives"])
 # A letterless unchecked leaf in a charade was a word carried along; its flag must not make it letters.
 check("a filler leaf is dropped (PEEK)", True, clears(
     op("charade", leaf("top", "PEEK", unchecked=True), leaf("dog", unchecked=True), leaf("annoyance", unchecked=True)), "PEEK"))
-check("a letterless leaf with letters elsewhere stays out of the sum", ["top"],
-      [p["words"] for p in R.drop_wordless(op("charade", leaf("top", "PEEK"), leaf("dog", unchecked=True)))["parts"]])
+check("a letterless leaf with letters elsewhere stays out of the sum; a join of one piece is that piece", "top",
+      R.drop_wordless(op("charade", leaf("top", "PEEK"), leaf("dog", unchecked=True)))["words"])
+check("two pieces left stay a charade", ["top", "cat"],
+      [p["words"] for p in R.drop_wordless(op("charade", leaf("top", "PEEK"), leaf("cat", "X"),
+                                              leaf("dog", unchecked=True)))["parts"]])
 check("pal() with its leaf dropped checks the answer", True, clears(
     op("palindrome", leaf("looking back and forth?", unchecked=True)), "OTTO"))
 

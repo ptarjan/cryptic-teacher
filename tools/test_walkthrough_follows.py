@@ -59,6 +59,10 @@ check("a first-letter indicator with no position word is still a gap", [("indica
       v.walkthrough_gaps(first2, "L", "Take the letter L from learner."))
 tag = v.follow_warnings("56D", {"wordplay": ewe, "explanation": {"walkthrough": "A lamb grows up."}},
                         {"clue": {"text": EWE}, "solution": "EWE", "length": 3}, {})
-check("both findings are warnings with their markers", [True, True],
+check("the apart finding is a warning; the gap is not (the rung lists the tree's steps)", [True, False],
       [any(m in w for w in tag) for m in (v.INDICATOR_APART, v.WALKTHROUGH_GAP)])
+blog = v.follow_warnings("56D", {"wordplay": ewe, "fromBlog": True, "explanation": {"walkthrough": "A lamb grows up."}},
+                         {"clue": {"text": EWE}, "solution": "EWE", "length": 3}, {})
+check("a blog ladder shows no step list, so its prose must follow the tree", True,
+      any(v.WALKTHROUGH_GAP in w for w in blog))
 raise SystemExit(fails)

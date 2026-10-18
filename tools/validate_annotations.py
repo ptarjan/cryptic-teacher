@@ -4400,7 +4400,11 @@ def follow_warnings(tag, ann, held, puzzle):
         out.append(f"{tag}: {INDICATOR_APART}: {ind!r} is separated from what it works on by "
                    f"{', '.join(bad)}; an indicator operates on what it touches")
     walk = (ann.get("explanation") or {}).get("walkthrough")
-    if walk:
+    # The walkthrough rung lists every op of the tree itself (app.js wordplaySteps:
+    # each indicator marked, each intermediate result derived), so its prose need not
+    # repeat them. Only a blog-derived ladder shows no such list, and there the prose is all
+    # the solver has.
+    if walk and ann.get("fromBlog"):
         alt = held.get("alteration")
         try:
             gaps = walkthrough_gaps(tree, alt["from"] if isinstance(alt, dict) and alt.get("from")
