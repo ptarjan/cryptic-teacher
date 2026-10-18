@@ -62,4 +62,16 @@ warn = v.lesson_warnings("1A", DD, held)
 check("the validator warns of a double definition that hides its answer", 1, len(warn))
 check("the ratchet refuses one more than a puzzle is allowed", 1, len(v.backlog_errors("x-1", warn, {"wordplay.ddMissesWordplay": {}})))
 check("and allows what it has", 0, len(v.backlog_errors("x-1", warn, {"wordplay.ddMissesWordplay": {"x-1": 1}})))
+# Restoring a lost word break (tools/repair_fetched.restore_word_breaks) can make an
+# annotated apostrophe answer count as said-but-unspelt: the restore writes the spelling.
+import repair_fetched as R
+for solution, bare, now, spelling in (("KEEPONESSHIRTON", "15", "4,4,5,2", "KEEP ONE'S SHIRT ON"),
+                                      ("BLOWONESTOP", "11", "4,4,3", "BLOW ONE'S TOP")):
+    unsaid = {"id": "1a", "solution": solution, "clue": {"text": "x", "enumeration": bare},
+              "annotation": {"definitions": []}}
+    R.fetcher.lost_word_breaks = lambda puzzle, now=now: {"1a": now}
+    R.fetcher.enumeration_separators = lambda entries: None
+    R.entry_id = lambda e: e["id"]
+    R.restore_word_breaks({"entries": [unsaid]})
+    check(f"a restored break writes the spelling of {spelling}", spelling, unsaid["annotation"].get("spelling"))
 raise SystemExit(fails)
