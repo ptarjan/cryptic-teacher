@@ -667,31 +667,31 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "INSTIL",
      "indicators": [
       {
        "text": "Not altogether",
-       "note": "not taking the words altogether means using only part of them, so the letters sit inside"
+       "at": 29,
+       "note": "not altogether says only part of the phrase is used, the run of letters sitting inside it"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "joins, tiling",
-       "note": "the letters run across the end of one word and the start of the next"
+       "at": 14,
+       "gives": "INSTIL",
+       "note": "the answer runs across the end of joins and the start of tiling"
       }
      ]
     },
     "explanation": {
-     "surface": "A tiler gradually filling in the joints, but not doing the whole job at once.",
-     "walkthrough": "The answer runs across 'joINS TILing', ignoring the comma.",
-     "definitionFit": "To instil an idea or quality is to introduce it little by little, drop by drop, into someone's mind."
+     "surface": "A tiler's question about whether grouting goes on bit by bit as the tiles are joined.",
+     "walkthrough": "'Not altogether!' signals that the answer lies inside the words, spanning joINS TILing.",
+     "definitionFit": "To instil an idea or habit is to introduce it into someone slowly and steadily over time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "altogether"
+     "misdirectedWord": "tiling"
     }
    }
   },
@@ -1381,37 +1381,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "figure not toeing the line?",
+      "text": "figure not toeing the line",
       "at": 23
      }
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "REBEL",
      "indicators": [
       {
        "text": "Some",
-       "note": "some of something is only a part, so the letters come from within the words"
+       "at": 0,
+       "note": "some means a part of, so only a run of letters inside the phrase is wanted"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "deplore bellicose",
-       "note": "the letters span the end of the first word and the start of the second"
+       "at": 5,
+       "gives": "REBEL",
+       "note": "the answer runs across the end of deplore and the start of bellicose"
       }
      ]
     },
     "explanation": {
-     "surface": "People condemning a warlike person who refuses to obey orders.",
-     "walkthrough": "The answer runs across 'deploRE BELlicose'; the question mark flags the definition as a descriptive phrase.",
-     "definitionFit": "To toe the line is to conform, so a person who defies authority and will not conform is a dissident or insurgent."
+     "surface": "Some people disapprove of a warlike dissenter.",
+     "walkthrough": "'Some' signals the answer is inside the words: depl(ORE BEL)licose gives the five letters.",
+     "definitionFit": "A rebel refuses to conform, the idiom of toeing the line meaning obeying the rules."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Some"
+     "misdirectedWord": "bellicose"
     }
    }
   },
@@ -1522,51 +1522,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SNEERED",
      "indicators": [
       {
        "text": "trapped by",
-       "note": "something trapped is held inside, so one piece sits within another"
+       "at": 11,
+       "note": "trapped by means held inside, so the jumbled name goes within the other letters"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "at": 22,
+         "gives": "S"
+        },
+        {
+         "words": "journalist",
+         "at": 29,
+         "gives": "ED",
+         "note": "ED is short for editor, the crossword's usual journalist"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "sadly",
-         "note": "done sadly means gone wrong or awry, so the letters are rearranged"
+         "at": 5,
+         "note": "sadly means unfortunately and in a poor way, so the letters of the name are rearranged"
         }
        ],
        "parts": [
         {
          "words": "René",
-         "note": "taken as written, accent dropped, as anagram material"
-        },
-        {
-         "words": "second",
-         "gives": "S",
-         "note": "S is the abbreviation for second"
-        },
-        {
-         "words": "journalist",
-         "gives": "ED",
-         "note": "ED is short for editor"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Poor René, cornered by another reporter, gave a disdainful look.",
-     "walkthrough": "The name René is only letters; 'second' is the time abbreviation and journalist the standard ED.",
-     "definitionFit": "To sneer is to curl the lip and smile scornfully, so the past tense matches showing disdain with one's face."
+     "surface": "An unhappy Frenchman, cornered by a reporter, gave a scornful glance.",
+     "walkthrough": "René looks like a person in the scene, but 'sadly' only rearranges his name into NEER, which 'trapped by' sets inside the second-plus-journalist letters.",
+     "definitionFit": "To sneer is to curl the lip or smile scornfully, showing disdain on the face."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "René"
+     "misdirectedWord": "sadly"
     }
    }
   },
