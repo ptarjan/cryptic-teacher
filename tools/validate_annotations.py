@@ -3498,6 +3498,7 @@ SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "w
                       "wordplay.inDefinition", "wordplay.leafFold", "wordplay.repeatedSelection",
                       "wordplay.singleLeaf", "wordplay.bareInCharade", "wordplay.anagramOfContainer",
                       "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf", "wordplay.scrambledLeaf",
+                      "wordplay.indFolded", "wordplay.fakeParts", "wordplay.paddingLeaf",
                       "wordplay.ddMissesWordplay", "spelling.unsaid")
 
 
@@ -3793,6 +3794,155 @@ def scrambled_leaves(tree, min_len=4):
     return n
 
 
+#: Three more shapes a re-parse can pass the gates above with (audit of the burn's
+#: redos, 10-17). Each is a ratchet field like the rest.
+#:   * IND_FOLDED: the indicator words moved into a leaf that has a `gives`
+#:     (everyman-4162 25a: "Principally, Everyman, more than once" one leaf giving ES),
+#:     so ind_in_leaf (which needs the indicator listed on an op) sees nothing;
+#:   * FAKE_PARTS: a substitution padded to its three parts with wordless nodes
+#:     whose `gives` the clue never says (tls-1146 16a: sub(sub(non-fiction, R, L), AL, AR));
+#:   * PADDING_LEAF: a leaf of clue words that is `unchecked` with no `gives`: it claims
+#:     the words without saying what they contribute (mephisto-3436 18d, "no shock").
+#: Not counted: a spoonerism's sound leaves and the selection ops' leaves (another
+#: worker's job), a leaf whose note says it was dropped.
+IND_FOLDED = "indicator words folded into a leaf"
+FAKE_PARTS = "substitution padded with wordless parts that are not in the clue"
+PADDING_LEAF = "unchecked clue-word leaf with no letters given"
+#: Leaf this wide (words) giving at most half as many letters is not one synonym.
+FOLD_WIDE_WORDS = 5
+FOLD_MIN_USES = 50
+_OP_LEXICON = {"anagram": "anagram", "reversal": "reversal", "container": "container",
+               "deletion": "deletion", "hidden": "hidden_word", "homophone": "homophone",
+               "spoonerism": "spoonerism", **{s: "letter_selection" for s in wordplay.SELECT}}
+
+
+@functools.lru_cache(maxsize=1)
+def _indicator_lexicon():
+    """{lexicon type: {key: clues}} from tools/data/lexicons/indicators.json."""
+    path = ROOT / "tools" / "data" / "lexicons" / "indicators.json"
+    return json.loads(path.read_text()) if path.exists() else {}
+
+
+def folded_indicators(tree):
+    """Multi-word leaves that carry a `gives` and also hold an indicator.
+
+    Only a leaf giving 1-2 letters (a selection's or a homophone's result is
+    short; a synonym's is not). Flagged when the words at either edge of the leaf
+    are a multi-word known indicator (lexicon, 6+ letters, FOLD_MIN_USES+ uses)
+    for an op this tree uses; or the leaf is FOLD_WIDE_WORDS+ words and has such
+    an edge for any op (everyman-4162 25a uses only a homophone, yet its leaf
+    opens with a selection's "Principally"). One-word edges ("perhaps", "without")
+    are ordinary leaf words (100s of definitions), so they are not counted
+    unless the leaf is wide."""
+    nodes = list(_walk(tree))
+    used = {_OP_LEXICON[n["op"]] for n in nodes if n.get("op") in _OP_LEXICON}
+    lex = _indicator_lexicon()
+    n = 0
+    for node in nodes:
+        if "op" in node or not node.get("words") or not node.get("gives") or node.get("unchecked"):
+            continue
+        ws = [w for w in (wordplay.letters(x) for x in node["words"].split()) if w]
+        if len(ws) < 2:
+            continue
+        gives = wordplay.letters(node["gives"])
+        if len(gives) > 2:
+            continue
+        runs = [" ".join(r) for k in range(1, len(ws)) for r in (ws[:k], ws[-k:])]
+
+        def known(types, runs=runs):
+            return any(lex.get(t, {}).get(key, 0) >= FOLD_MIN_USES and len(key.replace(" ", "")) >= 6
+                       for t in types for key in runs if " " in key or len(ws) >= FOLD_WIDE_WORDS)
+        n += known(used) or (len(ws) >= FOLD_WIDE_WORDS and known(lex))
+    return n
+
+
+def fake_parts(tree):
+    """Substitutions whose replaced and replacement parts are wordless `gives`
+    of 2+ letters directly after a substitution: the swap was made up to fill
+    the three parts, not read from the clue."""
+    n = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") == "substitution" and not node.get("unchecked") and len(parts) == 3 \
+                and isinstance(parts[0], dict) and parts[0].get("op") == "substitution":
+            n += all(isinstance(p, dict) and "op" not in p and "words" not in p
+                     and len(p.get("gives") or "") >= 2 for p in parts[1:])
+    return n
+
+
+def padding_leaves(tree):
+    """Unchecked leaves of clue words with no `gives`, under a charade or another
+    op that joins pieces. Not under a spoonerism or a selection op, and not one
+    whose note says it was dropped."""
+    n, stack = 0, [(tree, None)] if isinstance(tree, dict) else []
+    while stack:
+        node, parent = stack.pop()
+        stack += [(p, node) for p in node.get("parts") or [] if isinstance(p, dict)]
+        if "op" in node or not node.get("unchecked") or not node.get("words") or node.get("gives"):
+            continue
+        if parent and (parent.get("op") in ("spoonerism", "palindrome") or parent.get("op") in wordplay.SELECT):
+            continue
+        n += "dropped" not in (node.get("note") or "")
+    return n
+
+
+def _clue_words(text):
+    """Lower-case word set of clue text, markup and parentheticals removed."""
+    return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
+
+
+def _accounted_words(ann):
+    """The clue words an annotation accounts for: wordplay leaves, indicators on
+    any op or definition, definitions, and declared link words."""
+    got = set()
+    for n in _walk(ann.get("wordplay")):
+        if "op" not in n:
+            got |= _clue_words(n.get("words"))
+        for i in n.get("indicators") or []:
+            got |= _clue_words(i.get("text") if isinstance(i, dict) else i)
+    for d in ann.get("definitions") or []:
+        got |= _clue_words(d.get("text"))
+        for i in d.get("indicators") or []:
+            got |= _clue_words(i.get("text") if isinstance(i, dict) else i)
+    for lw in ann.get("linkWords") or []:
+        got |= _clue_words(lw)
+    return got
+
+
+def redo_regressions(old, new, clue):
+    """Ways a redo `new` of an already-annotated clue gives up what the annotation
+    `old` on file had, as "kind: what" strings; [] when it gives up nothing. The
+    shape rules only judge the new tree, so a rewrite that cut the problem leaf,
+    nulled the wordplay, flattened it or dropped Spooner would pass them
+    (timesjumbo-1784 6d, 10-17: the redo dropped "displayed, in"):
+      - no_tree: a tree where there was one is not replaced by none (a double
+        definition covering every clue word is not a loss);
+      - lost_spoonerism: a Spooner clue keeps its spoonerism;
+      - dropped_words: a clue word in a leaf or indicator of the old tree stays in
+        a leaf, indicator, definition or link word of the new one;
+      - downgraded: a real tree is not replaced by a bare `cryptic` op."""
+    old, new = old or {}, new or {}
+    out = []
+    wp = new.get("wordplay")
+    if not wp or not (wp.get("op") or wp.get("words")):
+        if old.get("wordplay"):
+            defs = new.get("definitions") or []
+            if not (len(defs) >= 2 and _clue_words(clue) <= _accounted_words(new)):
+                out.append("no_tree: the new annotation has no wordplay tree where the old one had one")
+            return out
+    elif "spooner" in (clue or "").lower() and not any(n.get("op") == "spoonerism" for n in _walk(wp)):
+        out.append("lost_spoonerism: the clue names Spooner and the tree has no spoonerism op")
+    if old.get("wordplay"):
+        lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
+        if lost:
+            out.append("dropped_words: " + ", ".join(sorted(lost)) + " were in the old wordplay "
+                       "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now")
+        old_wp = old["wordplay"]
+        if wp and wp.get("op") == "cryptic" and old_wp.get("op") not in (None, "cryptic"):
+            out.append("downgraded: the old wordplay was a real tree and the new one is a bare cryptic op")
+    return out
+
+
 def lesson_warnings(tag, ann, held):
     """The findings tools/lesson_checks.py reads off a clue and its answer."""
     clue = ((held.get("clue") or {}).get("text")) or ""
@@ -3855,6 +4005,15 @@ def shape_warnings(tag, ann, clue=None):
     if k := scrambled_leaves(tree):
         out.append(f"{tag}: {k} {SCRAMBLED_LEAF}: a leaf gives its own letters in order; "
                    f"only an anagram op scrambles")
+    if k := folded_indicators(tree):
+        out.append(f"{tag}: {k} {IND_FOLDED}: an indicator belongs on its op, and the leaf holds "
+                   f"only the words that give its letters")
+    if k := fake_parts(tree):
+        out.append(f"{tag}: {k} {FAKE_PARTS}: a substitution swaps letters the clue names; "
+                   f"do not invent pieces to reach three parts")
+    if k := padding_leaves(tree):
+        out.append(f"{tag}: {k} {PADDING_LEAF}: say what the words give, or take them out of the "
+                   f"wordplay")
     return out
 
 
@@ -4380,6 +4539,9 @@ BACKLOG_MARKERS = {
     "wordplay.delSingle": (DEL_SINGLE,),
     "wordplay.indInLeaf": (IND_IN_LEAF,),
     "wordplay.scrambledLeaf": (SCRAMBLED_LEAF,),
+    "wordplay.indFolded": (IND_FOLDED,),
+    "wordplay.fakeParts": (FAKE_PARTS,),
+    "wordplay.paddingLeaf": (PADDING_LEAF,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

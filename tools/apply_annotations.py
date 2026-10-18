@@ -493,6 +493,17 @@ def apply(path, annotations, by=None, only=None):
             found = []
             if new is not None and entry_id(entry) in relisted:
                 found = shape_queue.findings(entry, new) + shape_queue.regressions(entry, new)
+            elif new is not None and entry.get("annotation"):
+                # Every redo of an annotated clue, listed or not, may not give up
+                # what the old one had (timesjumbo-1784 6d: a redo dropped
+                # "displayed, in"); the one comparison is
+                # validate_annotations.redo_regressions.
+                if lost := shape_queue.regressions(entry, new):
+                    errors.append(
+                        f"{entry_id(entry)}: this redo gives up what the annotation on file had: "
+                        f"{'; '.join(lost)}. Keep every clue word explained and the wordplay tree "
+                        f"as real as it was, or give null to keep the old hint.")
+                    new = None
             if found:
                 same = (new.get("wordplay") == (entry.get("annotation") or {}).get("wordplay"))
                 errors.append(

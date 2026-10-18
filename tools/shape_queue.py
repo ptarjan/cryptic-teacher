@@ -114,72 +114,12 @@ def findings(entry, ann=None):
             for _, hits in ss.run_detectors([row]) for k, v in hits.items() if k in ss.PRECISION]
 
 
-def _tree_nodes(node):
-    """Every node of a wordplay tree, the root first."""
-    if isinstance(node, dict):
-        yield node
-        for part in node.get("parts") or []:
-            yield from _tree_nodes(part)
-
-
-def _words(text):
-    import re
-    return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
-
-
-def _accounted(ann, with_leaves=True):
-    """The clue words an annotation accounts for: wordplay leaves (when
-    `with_leaves`), indicators on any op or definition, definitions, and
-    declared link words."""
-    got = set()
-    for n in _tree_nodes(ann.get("wordplay")):
-        if with_leaves and "op" not in n:
-            got |= _words(n.get("words"))
-        for i in n.get("indicators") or []:
-            got |= _words(i.get("text") if isinstance(i, dict) else i)
-    for d in ann.get("definitions") or []:
-        got |= _words(d.get("text"))
-        for i in d.get("indicators") or []:
-            got |= _words(i.get("text") if isinstance(i, dict) else i)
-    for lw in ann.get("linkWords") or []:
-        got |= _words(lw)
-    return got
-
-
-def _double_definition(ann, clue):
-    """True when `ann` is a double (or triple) definition: two or more
-    definitions and no wordplay tree, whose texts and link words cover every
-    clue word."""
-    defs = ann.get("definitions") or []
-    return len(defs) >= 2 and _words(clue) <= _accounted(ann)
-
-
 def regressions(entry, new):
     """Ways a listed clue's new annotation `new` gives up what the old one on
     file (the entry's own) had, as strings; [] when it gives up nothing. The
-    detectors only judge the new tree's shape, so a rewrite that cut the
-    problem leaf, nulled the wordplay or dropped Spooner would pass them:
-      - a clue word that was in a wordplay leaf or an indicator of the old
-        tree must still be in a leaf, an indicator, a definition or a link
-        word of the new one (deleting unexplained text is not a fix);
-      - a tree where there was one is not replaced by none;
-      - a Spooner clue keeps its spoonerism."""
-    old = entry.get("annotation") or {}
-    out = []
-    wp = (new or {}).get("wordplay")
-    clue = (entry.get("clue") or {}).get("text", "")
-    if not wp or not (wp.get("op") or wp.get("words")):
-        if old.get("wordplay") and not _double_definition(new, clue):
-            out.append("no_tree: the new annotation has no wordplay tree where the old one had one")
-            return out
-    elif "spooner" in clue.lower() and not any(n.get("op") == "spoonerism" for n in _tree_nodes(new["wordplay"])):
-        out.append("lost_spoonerism: the clue names Spooner and the tree has no spoonerism op")
-    if old.get("wordplay"):
-        lost = (_accounted(old) - _accounted(new)) & _words(clue)
-        if lost:
-            out.append("dropped_words: " + ", ".join(sorted(lost)) + " were in the old wordplay "
-                       "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now")
-    return out
+    comparison lives in the one validator, validate_annotations.redo_regressions."""
+    import validate_annotations as V
+    return V.redo_regressions(entry.get("annotation"), new, (entry.get("clue") or {}).get("text", ""))
 
 
 def still_flagged(entry):
