@@ -525,53 +525,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "'about' as in 'about turn', so the set faces the other way and reads backwards"
-      }
-     ],
      "parts": [
       {
        "words": "Jack perhaps",
+       "at": 0,
        "gives": "FLAG",
-       "note": "a jack is a ship's flag, as in Union Jack"
+       "note": "a jack is a ship's flag, an example of one"
       },
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "burying"
+         "text": "burying",
+         "at": 23,
+         "note": "the reversed set buries, encloses, the old letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 17,
+           "note": "set is turned about, read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "set",
+           "at": 13,
            "gives": "TELE",
-           "note": "a tele is a television set; turned about it becomes ELET"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O = old, as in OE for Old English"
+           "note": "a telly or tele is a TV set"
           }
          ]
+        },
+        {
+         "words": "old",
+         "at": 31,
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Jack plants an ancient bean in the ground.",
-     "walkthrough": "'Jack' reads as a man's name, and 'Jack' of beanstalk fame makes a bean feel natural, but here it is the flag.",
-     "definitionFit": "A flageolet is a small pale French kidney bean."
+     "surface": "A man called Jack laying a bean in the ground, like a gardener.",
+     "walkthrough": "'Jack' looks like a name, but a jack is a small flag flown at a ship's bow. TELE turned about is ELET, which buries O.",
+     "definitionFit": "A flageolet is a small pale green haricot bean, popular in French cooking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Jack"
     }
    }
@@ -832,41 +838,39 @@
      "indicators": [
       {
        "text": "bagging",
-       "note": "the dude puts the degree in his bag, holding it inside"
+       "at": 14,
+       "note": "the dude bags, holds, the letters taken from degree"
       }
      ],
      "parts": [
       {
        "words": "dude",
+       "at": 9,
        "gives": "CAT",
-       "note": "a cat is a cool guy in jazz slang"
+       "note": "a cat is jazz slang for a dude or cool guy"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "after vacation",
-         "note": "the word is emptied of its middle, leaving its outside letters"
+         "at": 29,
+         "note": "degree after vacation is emptied of its insides, leaving its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "degree after vacation",
-         "gives": "DE",
-         "select": "outer",
-         "note": "DEGREE with its middle vacated leaves D…E"
+         "words": "degree",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student slacker picks up a degree once the holidays are over.",
-     "walkthrough": "'After vacation' looks like the holiday season; it means the word is vacated, emptied.",
-     "definitionFit": "A cadet is a student at a military or police training academy."
+     "surface": "A college student, a cool type, picking up a qualification after the holidays.",
+     "walkthrough": "'vacation' looks like the student holiday, but here it means emptying a word of everything between its ends.",
+     "definitionFit": "A cadet is a trainee, especially at a military academy, who studies to become an officer."
     },
     "features": {
      "answerInScene": true,
