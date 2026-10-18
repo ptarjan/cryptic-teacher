@@ -1629,53 +1629,63 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "the numbers sit between the one and the eight in the sequence"
+       "at": 16,
+       "note": "the numbers sit between two other pieces, so those pieces surround them"
       }
      ],
      "parts": [
       {
-       "words": "1",
-       "gives": "I",
-       "note": "the Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "1",
+         "at": 24,
+         "gives": "I",
+         "note": "1 is the Roman numeral I"
+        },
+        {
+         "op": "homophone",
+         "spelt": "ATE",
+         "indicators": [
+          {
+           "text": "say",
+           "at": 32,
+           "note": "say signals that the figure is to be heard rather than written"
+          }
+         ],
+         "parts": [
+          {
+           "words": "8",
+           "at": 30,
+           "gives": "EIGHT",
+           "note": "the number eight is said aloud"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "numbers",
+       "at": 8,
        "gives": "NN",
-       "note": "N stands for number, doubled for the plural"
-      },
-      {
-       "op": "homophone",
-       "spelt": "ATE",
-       "indicators": [
-        {
-         "text": "say",
-         "note": "the number is to be spoken aloud and spelt as a different word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "8",
-         "gives": "EIGHT",
-         "note": "eight and ate sound the same"
-        }
-       ]
+       "note": "N is an abbreviation for number, doubled for the plural"
       }
      ]
     },
     "explanation": {
-     "surface": "A maths lesson on the natural numbers, from one up to eight.",
-     "walkthrough": "'Natural numbers' is a maths term, but 'Natural' alone is the definition.",
-     "definitionFit": "Innate qualities are inborn, present from birth rather than learned."
+     "surface": "Looks like a maths statement about natural numbers lying between one and eight.",
+     "walkthrough": "'Natural numbers' looks like a single mathematical term, but 'Natural' alone is the definition. EIGHT spoken aloud is spelt ATE.",
+     "definitionFit": "Innate qualities are inborn, present by nature rather than learned."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Natural"
+     "misdirectedWord": "numbers"
     }
    }
   },

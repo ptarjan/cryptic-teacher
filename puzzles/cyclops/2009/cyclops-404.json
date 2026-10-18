@@ -462,52 +462,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABSTENTION",
-     "indicators": [
-      {
-       "text": "leader lacking",
-       "note": "without its leader a word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader lacking",
+         "at": 21,
+         "note": "lacking its leader means without its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "Lab",
-         "gives": "AB",
-         "note": "Lab, short for Labour, without its first letter"
+         "at": 16
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "spinning",
-           "note": "spinning things round jumbles their order, so these letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "so intent",
-           "note": "taken as it stands, as anagram fodder"
-          }
-         ]
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spinning",
+         "at": 51,
+         "note": "spinning means the letters whirl into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "so",
+         "at": 37
+        },
+        {
+         "words": "intent",
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dig at Labour: with no leader worth the name, it is obsessed with spin, so voters stay home.",
-     "walkthrough": "In 2009 Labour was mocked for spin, meaning media manipulation; here spinning is only the signal to shuffle letters.",
-     "definitionFit": "A formal decision not to cast a ballot, either for or against, is exactly what this word names."
+     "surface": "A Labour member declines to vote, being leaderless and intent on spin.",
+     "walkthrough": "Lab is short for the Labour Party; without its L it is AB.",
+     "definitionFit": "An abstention is the deliberate act of not casting a vote."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "spinning"
     }
    }
@@ -627,51 +632,53 @@
      "indicators": [
       {
        "text": "entered in",
-       "note": "what is entered in something is put inside it, so these pieces sit within another"
+       "at": 25,
+       "note": "the letters are entered in the dossier, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dossier",
+       "at": 36,
+       "gives": "FILE",
+       "note": "a file is a dossier"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "dossier",
-         "gives": "FILE",
-         "note": "a dossier is a file of documents"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "first",
-           "note": "the first of a word is its opening letter, so only that one is kept"
+           "at": 15,
+           "note": "the first of a word is its opening letter"
           }
          ],
          "parts": [
           {
            "words": "Death's",
-           "note": "the opening letter of the word"
+           "at": 7
           }
          ]
+        },
+        {
+         "words": "day",
+         "at": 21,
+         "gives": "D"
         }
        ]
-      },
-      {
-       "words": "day",
-       "gives": "D",
-       "note": "the standard abbreviation for day"
       }
      ]
     },
     "explanation": {
-     "surface": "A police dossier on 'Doctor Death', the tabloid name for the serial killer Harold Shipman, gains a date.",
-     "walkthrough": "'Doctor Death' reads as one name; split it, and 'Doctor' is a verb meaning tamper with.",
-     "definitionFit": "To doctor accounts or evidence is to falsify them, and to cook the books dishonestly in this way is the verb meant."
+     "surface": "A doctor's notes on a death, the date recorded in a file.",
+     "walkthrough": "'Doctor' is the verb, to falsify.",
+     "definitionFit": "To fiddle accounts or figures is to falsify them, which is what doctoring them means."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Doctor"
     }
    }
@@ -704,40 +711,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TUTTUT",
      "indicators": [
       {
        "text": "replaced with",
-       "note": "to replace is to put new letters where the old stood while the rest keeps its place"
+       "at": 19,
+       "note": "replaced with means each named letter is swapped for the new one"
       }
      ],
      "parts": [
       {
-       "words": "Pair of tits",
-       "gives": "TITTIT",
-       "note": "two of the small birds, one after the other"
+       "op": "substitution",
+       "parts": [
+        {
+         "words": "Pair of tits",
+         "at": 0,
+         "gives": "TITTIT",
+         "note": "two tits, the small birds, side by side"
+        },
+        {
+         "words": "ones",
+         "at": 14,
+         "gives": "I",
+         "note": "ones are the Roman numeral I, here both of them"
+        },
+        {
+         "words": "uranium implants",
+         "at": 33,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium, put in as implants"
+        }
+       ]
       },
       {
-       "words": "ones",
-       "gives": "II",
-       "note": "the Roman numeral one, twice over"
+       "gives": "I"
       },
       {
-       "words": "uranium",
-       "gives": "UU",
-       "note": "U is the chemical symbol for uranium, used for each swap"
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "A disapproving remark about breast implants.",
-     "walkthrough": "The tits are birds, not breasts, and 'implants' is surface dressing for the uranium going in where each I was.",
-     "definitionFit": "It is the clicking exclamation people make to express disapproval, much as saying something ought to be banned."
+     "surface": "A smutty Private Eye picture of breast implants, followed by disapproval.",
+     "walkthrough": "Ones is plural, so both I letters are swapped, one at a time.",
+     "definitionFit": "Tut-tut is an exclamation of disapproval at something improper."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "tits"
     }
@@ -764,52 +784,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARSONIST",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost all of a word means dropping its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 5,
+         "note": "almost means all but the last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Bum",
-         "gives": "ARS",
-         "note": "arse, British slang for a bottom, without its last letter"
+         "at": 0,
+         "gives": "ARSE",
+         "note": "arse is British slang for the bottom, the bum"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "wobbling",
-           "note": "something wobbling is unsteady and out of place, so these letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "round",
-           "gives": "O",
-           "note": "O is round in shape"
-          },
-          {
-           "words": "isn't",
-           "note": "taken as it stands, as anagram fodder"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "round",
+       "at": 12,
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wobbling",
+         "at": 24,
+         "note": "wobbling means the letters are shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isn't",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insult hurled at a crook: his backside is not quite wobbly, and he is a flaming criminal.",
-     "walkthrough": "'Flaming' reads as the mild British swear word; here it is literal, a criminal who sets fires.",
-     "definitionFit": "Someone who deliberately sets property on fire commits a crime, so the fire-raising offender is literally a criminal with flames."
+     "surface": "A rude jibe about a backside that is not quite wobbling round.",
+     "definitionFit": "An arsonist is someone who criminally sets fires, a fire-raiser."
     },
     "features": {
      "answerInScene": false,
@@ -1104,72 +1128,74 @@
     "definitions": [
      {
       "text": "Cyclops has grief",
-      "at": 0
+      "at": 0,
+      "note": "Cyclops is the setter, so this is me having woe, a phrase"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WOEISME",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end a word loses its last letter"
+       "text": "holding",
+       "at": 43,
+       "note": "the women hold the other pieces inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "holding",
-         "note": "to hold something is to have it inside you, so pieces go within another"
+         "text": "endlessly",
+         "at": 32,
+         "note": "endlessly means the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "females",
+         "at": 23,
+         "gives": "WOMEN",
+         "note": "women are females"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "the centre of",
+           "at": 51,
+           "note": "the centre of a five-letter word is its third letter"
+          }
+         ],
          "parts": [
           {
-           "words": "females",
-           "gives": "WOME",
-           "note": "women, without the final letter"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "E",
-           "indicators": [
-            {
-             "text": "centre of",
-             "note": "the centre of a word is its middle letter, so only that is kept"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "their",
-             "gives": "E",
-             "select": "middle",
-             "note": "the middle letter of this five-letter word"
-            }
-           ]
+           "words": "their",
+           "at": 65
           }
          ]
         },
         {
          "words": "lives",
+         "at": 71,
          "gives": "IS",
-         "note": "something that lives exists, it is"
+         "note": "lives means is, exists"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter complains of the misery women cause him, even while they are the centre of men's lives.",
-     "walkthrough": "Cyclops is the setter's pseudonym, so the definition is the setter lamenting in the first person.",
-     "definitionFit": "The exclamation is a traditional first-person lament, so it is what the setter would say when full of sorrow."
+     "surface": "The setter laments that women cause grief while holding the centre of their lives.",
+     "walkthrough": "Cyclops is the setter's pseudonym, so 'Cyclops has grief' means I am miserable.",
+     "definitionFit": "Woe is me is a lament, a cry of sorrow about one's own misfortune."
     },
     "features": {
      "answerInScene": true,
@@ -1254,55 +1280,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LAWRENCEDURRELL",
+     "op": "composite",
      "indicators": [
       {
        "text": "dirty",
-       "note": "something dirty is in a mess, so these letters are jumbled"
+       "at": 21,
+       "note": "dirty means messed up, so the letters are muddled"
+      },
+      {
+       "text": "not",
+       "at": 46,
+       "note": "not means one letter is left out of the jumble"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "LAWRENCEDURRELL",
-       "indicators": [
-        {
-         "text": "not one on left",
-         "note": "'not' drops a letter and 'on' puts another in its place, so one letter is exchanged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "underwear cellar",
-         "note": "taken as it stands, as anagram fodder, fifteen letters"
+         "at": 27
         },
         {
-         "words": "one",
-         "gives": "A",
-         "note": "a, the indefinite article, means one"
-        },
-        {
-         "words": "left",
+         "words": "on left",
+         "at": 54,
          "gives": "L",
-         "note": "the standard abbreviation for left"
+         "note": "L is the abbreviation for left, here put on"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 50,
+       "gives": "A",
+       "note": "a is one, as in one thing"
       }
      ]
     },
     "explanation": {
-     "surface": "The possessive suggests a novelist's soiled underwear kept in a cellar.",
-     "walkthrough": "One of the two As in the fodder is swapped for an L before the letters are rearranged. The possessive in 'Novelist's' means 'is' joining definition to wordplay.",
-     "definitionFit": "The British writer is best known for The Alexandria Quartet, a sequence of four novels set in Egypt."
+     "surface": "A writer keeps soiled underpants in a basement.",
+     "walkthrough": "Swap one A for L in UNDERWEAR CELLAR and rearrange to get both names.",
+     "definitionFit": "Lawrence Durrell was a British novelist, author of The Alexandria Quartet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "dirty"
+     "misdirectedWord": "cellar"
     }
    }
   },
@@ -1499,43 +1523,43 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "PETHATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "rolled",
-       "note": "rolling letters moves them round the end in a loop, keeping their order"
+       "text": "eating",
+       "at": 15,
+       "note": "the head eats the other piece, taking it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Head",
+       "at": 10,
+       "gives": "PATE",
+       "note": "pate is an old word for the head"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "eating",
-         "note": "what is eaten goes inside the eater, so one piece swallows another"
+         "text": "rolled",
+         "at": 26,
+         "note": "rolled means a letter is rolled round from one end to the other"
         }
        ],
        "parts": [
         {
-         "words": "Head",
-         "gives": "PATE",
-         "note": "the pate is the top of the head"
-        },
-        {
          "words": "the",
-         "gives": "ETH",
-         "note": "the word's letters rolled round until the E leads"
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone eating a rolled-up bogey, dried snot, from their nose.",
-     "walkthrough": "The surface makes a bogey nasal; it is the bogeyman sense, a thing one dreads or loathes.",
-     "definitionFit": "A bogey, like a bugbear, is something that causes particular annoyance or dread, a personal peeve."
+     "surface": "Someone eating a rolled-up bit of snot from their nose.",
+     "walkthrough": "The rolled bogey suggests something picked from the nose, but bogey is the definition, a thing dreaded, and rolled moves one letter round.",
+     "definitionFit": "A bogey is something feared or disliked, and a pet hate is a particular thing one especially loathes."
     },
     "features": {
      "answerInScene": false,
@@ -1566,46 +1590,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOCIABLE",
+     "op": "composite",
      "indicators": [
       {
-       "text": "not right",
-       "note": "'not' removes the letter that 'right' stands for"
+       "text": "pissed",
+       "at": 16,
+       "note": "pissed is British slang for drunk, so the letters reel about"
+      },
+      {
+       "text": "not",
+       "at": 34,
+       "note": "not means a letter is left out of the jumble"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "pissed",
-         "note": "pissed is British slang for drunk, and drunk letters stagger into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Blair's",
-         "gives": "BLAIS",
-         "note": "taken as it stands, with the R removed"
+         "at": 8
         },
         {
          "words": "Coe",
-         "note": "Sebastian Coe, the athlete and Tory peer, taken as it stands"
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 38,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair, drunk with Sebastian Coe (who ran London's Olympic bid), is being 'matey'.",
-     "walkthrough": "Only one R goes, the one in Blair; the quotation marks around 'Matey' mock Blair's famous chumminess.",
-     "definitionFit": "Someone who is friendly and enjoys company behaves like a mate, companionably and warmly toward others."
+     "surface": "Tony Blair drunk with Sebastian Coe, all friendly, though not quite proper.",
+     "walkthrough": "Blair is the former Labour prime minister and Coe the Olympic runner turned peer.",
+     "definitionFit": "Matey means friendly and companionable, which is what sociable describes."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "pissed"
     }
    }

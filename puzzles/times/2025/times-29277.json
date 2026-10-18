@@ -297,41 +297,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICARUS",
-     "indicators": [
-      {
-       "text": "Heading for",
-       "note": "the heading of a word is its top, its first letter"
-      },
-      {
-       "text": "stopping short",
-       "note": "the singer's name stops before it is finished, losing its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Heading for",
+         "at": 0,
+         "note": "the heading of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Heading for Italy",
-         "gives": "I",
-         "note": "first letter of Italy"
+         "words": "Italy",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stopping short",
+         "at": 32,
+         "note": "stopping short means the last letter is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opera-singer",
+         "at": 19,
+         "gives": "CARUSO",
+         "note": "Enrico Caruso was the famous Italian operatic tenor"
         },
         {
-         "words": "opera-singer stopping short",
-         "gives": "CARUS",
-         "note": "CARUSO, the Italian tenor, without the O"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A travel mishap: an opera singer bound for Italy whose trip is cut short.",
-     "walkthrough": "The surface sounds like a delayed flight; the real flight problem is Greek myth, wax wings melting near the sun.",
-     "definitionFit": "Icarus flew too close to the sun, his wings failed and he fell into the sea: a literal flight problem."
+     "surface": "A tenor flying to Italy cuts his journey short after air travel trouble.",
+     "definitionFit": "In Greek myth Icarus flew too near the sun on wax wings, which melted, and he fell to his death."
     },
     "features": {
      "answerInScene": false,
@@ -358,38 +367,46 @@
     "definitions": [
      {
       "text": "shin",
-      "at": 29
+      "at": 29,
+      "note": "to shin (up) is a verb, to climb"
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Opening of",
-       "note": "the opening of a word is where it begins, its first letter"
-      }
-     ],
      "parts": [
       {
-       "words": "Opening of cut",
-       "gives": "C",
-       "note": "first letter of cut"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Opening of",
+         "at": 0,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 11
+        }
+       ]
       },
       {
        "words": "shepherd's",
+       "at": 18,
        "gives": "LAMBER",
-       "note": "one who lambs, delivering lambs; the 's is 'is'"
+       "note": "a lamber is a shepherd who tends ewes at lambing time"
       }
      ]
     },
     "explanation": {
-     "surface": "A shepherd with a cut on the shin.",
-     "walkthrough": "'Shin' looks like part of the leg, but it is the verb, as in shinning up a tree. The question mark owns up to LAMBER as a rare word for a shepherd.",
-     "definitionFit": "Shin and clamber are both verbs for climbing awkwardly using hands and legs."
+     "surface": "Seems to ask about a cut on a shepherd's lower leg.",
+     "walkthrough": "'shin' looks like the body part, but it is the verb, as in shinning up a tree; the question mark flags the trick.",
+     "definitionFit": "To shin up something is to climb it awkwardly using hands and legs, which is what clambering is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "shin"
     }
    }
@@ -638,45 +655,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "welcomes",
-       "note": "to welcome a guest is to take them in, so the cricket body takes the letter inside"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "conclusion of",
-         "note": "the conclusion of a word is its end, its last letter"
+         "text": "welcomes",
+         "at": 42,
+         "note": "the body welcomes the letter in, taking it inside"
         }
        ],
        "parts": [
         {
          "words": "cricketing body",
+         "at": 14,
          "gives": "ICC",
-         "note": "International Cricket Council"
+         "note": "the ICC is the International Cricket Council, cricket's world governing body"
         },
         {
-         "words": "conclusion of game",
-         "gives": "E",
-         "note": "last letter of game"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "conclusion of",
+           "at": 51,
+           "note": "the conclusion of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "game",
+           "at": 65
+          }
+         ]
         }
        ]
       },
       {
        "words": "in the past",
+       "at": 30,
        "gives": "OLD",
-       "note": "old = of the past"
+       "note": "old means from the past, former"
       }
      ]
     },
     "explanation": {
-     "surface": "The cricket authority of old coolly greeting the end of a match.",
-     "walkthrough": "'In the past' looks like it sets the scene; it is a piece of wordplay, and the clue's pieces are ordered differently from the answer.",
-     "definitionFit": "Ice-cold, of a person, is figurative: so cool as to show no feeling at all."
+     "surface": "Cricket's governing body once greeted the end of a match without emotion.",
+     "definitionFit": "Ice-cold describes someone utterly unemotional and detached, without feeling."
     },
     "features": {
      "answerInScene": false,
@@ -706,53 +730,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOBSTER",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "at sea",
+       "at": 9,
+       "note": "at sea means confused, so the letters are jumbled"
+      },
+      {
+       "text": "giving up",
+       "at": 16,
+       "note": "giving up means one letter is surrendered from the jumble"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "at sea",
-         "note": "to be at sea is to be confused, so the letters are in disorder"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "giving up",
-           "note": "to give something up is to surrender it, so the A leaves"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Bloaters",
-           "gives": "BLOTERS",
-           "note": "BLOATERS with its A given up"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "a",
-         "note": "the letter removed"
-        }
-       ]
+       "words": "Bloaters",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "Smoked herrings abandoned in favour of other seafood.",
-     "walkthrough": "A bloater is a whole smoked herring. 'At sea' suits the fishy surface while telling you to rearrange.",
-     "definitionFit": "A definition by example: lobster is one kind of seafood."
+     "surface": "Smoked herrings out on the water abandon a fish dish.",
+     "walkthrough": "Remove the A from BLOATERS and rearrange what is left.",
+     "definitionFit": "Lobster is a shellfish eaten as a delicacy, an example of food from the sea."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sea"
+     "misdirectedWord": "Bloaters"
     }
    }
   },
@@ -1266,38 +1276,42 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "turned upward, so in a down clue the letters read from bottom to top"
+       "text": "following",
+       "at": 21,
+       "note": "the detectives come following the other piece, so after it"
       }
      ],
      "parts": [
       {
        "words": "obstruction",
+       "at": 31,
        "gives": "BAR",
-       "note": "a bar blocks the way"
+       "note": "a bar is an obstruction or barrier"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "following",
-         "note": "'following' means coming after, so the detectives go after the bar"
+         "text": "turned up",
+         "at": 11,
+         "note": "turned up in a down clue means read from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "Detectives",
+         "at": 0,
          "gives": "CID",
-         "note": "the Criminal Investigation Department"
+         "note": "CID is the Criminal Investigation Department, British police detectives"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Police arriving after someone obstructed a poet.",
-     "walkthrough": "'Turned up' reads as the detectives arriving on the scene; it is the reversal. The CID is the British police's detective branch.",
-     "definitionFit": "A bard is a poet, so bardic describes what belongs to one."
+     "surface": "Police investigators arrive after a poet's way was blocked.",
+     "walkthrough": "'of poet' is an adjectival definition, standing for 'relating to a poet'.",
+     "definitionFit": "Bardic is the adjective from bard, a poet, so it means relating to poets."
     },
     "features": {
      "answerInScene": false,
@@ -1327,54 +1341,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "twisting",
-       "note": "to twist round is to turn back on yourself, so the string reads backwards"
-      },
-      {
-       "text": "back of",
-       "note": "the back of a word is its end, its last letter"
+       "text": "round",
+       "at": 22,
+       "note": "the reversed pair goes round the single letter, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "round"
+         "text": "twisting",
+         "at": 13,
+         "note": "twisting means turning the joined words to read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
            "words": "Cracked",
+           "at": 0,
            "gives": "MAD",
-           "note": "cracked = crazy"
+           "note": "cracked means crazy, mad"
           },
           {
-           "words": "back of another",
-           "gives": "R",
-           "note": "last letter of another, placed inside MAD as MRAD"
+           "words": "beam",
+           "at": 8,
+           "gives": "RAY",
+           "note": "a ray is a beam of light"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "beam",
-         "gives": "RAY",
-         "note": "a ray is a beam of light"
+         "text": "back of",
+         "at": 28,
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "another",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A split timber on a ship twisting around a mast.",
-     "walkthrough": "'Cracked beam' reads as one damaged spar, and a beam is ship's timber, but the words split in two.",
-     "definitionFit": "The yardarm is the outer end of a yard, the spar that crosses the mast."
+     "surface": "A split wooden beam twisting around another section of a ship's mast.",
+     "walkthrough": "Cracked beam looks like a broken spar, a natural partner for the mast, but cracked means crazy and beam is a ray of light.",
+     "definitionFit": "A yardarm is either end of a yard, the spar crossing a ship's mast."
     },
     "features": {
      "answerInScene": true,
@@ -1613,63 +1639,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OURMUTUALFRIEND",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "form of",
+       "at": 6,
+       "note": "a form of something reshapes it, so the letters are rearranged"
+      },
+      {
+       "text": "to expel",
+       "at": 31,
+       "note": "to expel means one element is thrown out of the mix"
+      },
+      {
+       "text": "About",
+       "at": 48,
+       "note": "about means the letters are taken around the time"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "form of",
-         "note": "a new form of something is the same stuff reshaped, so the letters are rearranged"
-        }
-       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "to expel",
-           "note": "to expel is to throw out, so the iodine's I leaves"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "About"
-            }
-           ],
-           "parts": [
-            {
-             "words": "uranium fluoride",
-             "gives": "URANIUMFLUORDE",
-             "note": "with one I expelled"
-            },
-            {
-             "words": "time",
-             "gives": "T",
-             "note": "T = time"
-            }
-           ]
-          }
-         ]
+         "words": "uranium fluoride",
+         "at": 14
         },
         {
-         "unchecked": true,
-         "words": "iodine",
-         "note": "I, the symbol for iodine, removed"
+         "words": "time",
+         "at": 54,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "iodine",
+       "at": 40,
+       "gives": "I",
+       "note": "I is the chemical symbol for iodine"
       }
      ]
     },
     "explanation": {
-     "surface": "A chemistry recipe for a new uranium compound.",
-     "walkthrough": "The chemistry is a front: 'Novel' looks like an adjective, a novel compound, but it is the definition, a book title.",
-     "definitionFit": "A definition by example: Our Mutual Friend is Dickens's last completed novel."
+     "surface": "A chemistry question: a uranium compound forced to give up its iodine around a certain time.",
+     "walkthrough": "Add T to URANIUM FLUORIDE, take out one I, and rearrange. 'Novel' looks like an adjective but it is the definition.",
+     "definitionFit": "Our Mutual Friend is the last completed novel by Charles Dickens."
     },
     "features": {
      "answerInScene": false,
@@ -1758,48 +1772,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "backed",
-       "note": "backed means moved backwards, so the letters read in reverse"
-      }
-     ],
      "parts": [
       {
        "words": "company",
-       "gives": "CO",
-       "note": "Co. = company"
+       "at": 12,
+       "gives": "CO"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "leader",
-         "note": "the leader goes first, so take the first letter of company"
+         "text": "backed",
+         "at": 27,
+         "note": "backed means the word is read from end to start"
         }
        ],
        "parts": [
         {
          "words": "things",
+         "at": 20,
          "gives": "ITEMS",
-         "note": "items = things"
+         "note": "items are things"
         }
        ]
       },
       {
-       "words": "company's leader",
-       "gives": "C",
-       "note": "first letter of company"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 47,
+         "note": "a word's leader is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "company's",
+         "at": 37
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A firm's shallow gestures, endorsed by its boss.",
-     "walkthrough": "'Backed' reads as endorsed, a boss backing a plan; it reverses the things instead.",
-     "definitionFit": "Cosmetic changes touch only the surface, like make-up on a face."
+     "surface": "A firm's goods are supported by its boss.",
+     "definitionFit": "A cosmetic change is only on the surface, improving appearance without substance."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "backed"
     }

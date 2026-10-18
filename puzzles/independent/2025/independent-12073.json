@@ -517,61 +517,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INASMUCH",
      "indicators": [
       {
        "text": "over",
-       "note": "one thing laid over another covers it, so the outer word spreads across the inner one"
+       "at": 21,
+       "note": "the cycled word goes over, covering, the other piece, so it wraps it"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "INASMUCH",
        "indicators": [
         {
          "text": "cycled",
-         "note": "going round a cycle moves letters from the front round to the back"
+         "at": 14,
+         "note": "cycled means letters are moved round from the front to the back"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "INASMUCH",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the final letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "China",
-           "note": "taken as written"
-          },
-          {
-           "words": "dirt",
-           "gives": "SMUT",
-           "note": "smut is dirt or soot, as well as indecent material"
-          }
-         ]
+         "words": "China",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 26,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dirt",
+         "at": 33,
+         "gives": "SMUT",
+         "note": "smut is dirt, soot"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller tours China by bicycle over dirt roads.",
-     "walkthrough": "'Seeing' looks like sightseeing in China, but it is the conjunction meaning since. Moving the first two letters to the back is what 'cycled' asks for.",
-     "definitionFit": "Seeing and inasmuch (as) both introduce a reason, meaning considering that or since."
+     "surface": "A cyclist sees China, riding over dirt for much of the way.",
+     "walkthrough": "China looks like the country, but it is just letters to be rotated; dirt is SMUT, not MUCK.",
+     "definitionFit": "Inasmuch as means seeing that, considering that, introducing a reason."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Seeing"
+     "misdirectedWord": "China"
     }
    }
   },
