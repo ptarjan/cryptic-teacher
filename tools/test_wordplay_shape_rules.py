@@ -199,9 +199,36 @@ check("endlessly over a charade whose end is the letter taken is not", 0, v.dele
 check("beheaded over CAD+FENCE taking F is counted", 1, v.deletion_scope(del_over("beheaded", "F", "CAD", "FENCE")))
 check("beheaded over a charade whose head is the letter taken is not", 0, v.deletion_scope(del_over("beheaded", "C", "CAD", "FENCE")))
 check("an indicator naming no end is not read", 0, v.deletion_scope(del_over("losing", "E", "BORE", "ON")))
-check("a deletion over a single leaf is not this rule's", 0, v.deletion_scope(
+check("a deletion over a single leaf is not this rule's", 0, v.deletion_inside_component(
     {"op": "deletion", "indicators": [{"text": "endlessly"}], "parts": [{"words": "bore", "gives": "BORE"}, {"words": "x", "gives": "B"}]}))
 check("a deletion naming an end each way is not read", 0, v.deletion_scope(del_over("endlessly beheaded", "E", "BORE", "ON")))
+
+arch = {"op": "deletion", "indicators": [{"text": "originally dismissed"}], "parts": [
+    {"op": "charade", "parts": [{"words": "Triumphal building", "gives": "ARCH"}, {"words": "notion", "gives": "IDEA"},
+                                {"words": "right-winger", "gives": "CON"}]}, {"gives": "I"}]}
+arch_clue = "Triumphal building, notion originally dismissed by right-winger, senior minister"
+check("an indicator between the pieces over letters inside one piece is counted", 1,
+      v.deletion_inside_component(arch, arch_clue))
+check("the same without the clue text counts nothing", 0, v.deletion_inside_component(arch))
+check("an indicator after every piece is the whole's, not counted", 0, v.deletion_inside_component(
+    arch, clue="Triumphal building, notion, right-winger originally dismissed"))
+check("letters that are a whole piece are not", 0, v.deletion_inside_component(
+    {**arch, "parts": [arch["parts"][0], {"gives": "IDEA"}]}, clue=arch_clue))
+
+def role_tree(outer_ind, inner_ind=None):
+    inner = {"op": "reversal", "parts": [{"words": "x", "gives": "AB"}]}
+    if inner_ind:
+        inner["indicators"] = [{"text": inner_ind}]
+    return {"op": "container", "indicators": [{"text": outer_ind}], "parts": [{"words": "y", "gives": "CD"}, inner]}
+
+check("a reversal word on the container beside an unindicated reversal is counted", 1,
+      v.wrong_role_indicators(role_tree("returned")))
+check("a container word on the container is not", 0, v.wrong_role_indicators(role_tree("entering")))
+check("a lone owned word with no op of its owner type to take it is not", 0, v.wrong_role_indicators(
+    {"op": "container", "indicators": [{"text": "returned"}], "parts": [{"words": "y", "gives": "CD"}, {"words": "x", "gives": "AB"}]}))
+check("an ambiguous word (about) is never counted", 0, v.wrong_role_indicators(role_tree("about")))
+check("a reversal word on the container beside a reversal that has its own indicator is not", 0,
+      v.wrong_role_indicators(role_tree("returned", "back")))
 
 sesame = {"op": "charade", "parts": [{"words": "Sesame", "gives": "S"}, {"words": "street", "gives": "TREET"}]}
 check("a first letter given by a leaf, with no selection above it, is counted", 1, v.bare_initials(sesame))
@@ -216,7 +243,7 @@ check("the redo gate names a deletion scope", True, any(
     f.startswith("deletionScope") for f in shape_queue.findings(
         {"clue": {"text": "x"}, "solution": "BORON"}, {"wordplay": del_over("endlessly", "E", "BORE", "ON"), "definitions": []})))
 
-for field in ("bareInitial", "deletionScope", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+for field in ("bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})

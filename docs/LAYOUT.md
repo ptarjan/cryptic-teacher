@@ -1647,6 +1647,20 @@ tools/data/cmudict.txt.gz                      the CMU Pronouncing Dictionary, s
                                                it
 tools/data/lexicons/indicators.json            type -> indicator -> clues, from the same
                                                sources; the indicators/ page is built from it
+tools/data/indicator_roles.json                indicator word -> op type -> uses, counted over
+                                               the annotation trees by
+                                               build_indicator_roles.py;
+                                               validate_annotations.wrong_role_indicators flags
+                                               an indicator the corpus files under one other op
+                                               and almost never under the op it sits on
+
+annotating
+tools/build_indicator_roles.py                 counts, for every indicator word used 20+ times,
+                                               how many times each op type carries it across
+                                               the published annotations, and writes
+                                               tools/data/indicator_roles.json
+
+tables everything else reads
 tools/data/unclueable.json                     words rejected as answers, with reasons;
                                                grid_fill.py vetoes them
 tools/data/corroboration_ledger.json           every disagreement tools/corroborate.py settled
