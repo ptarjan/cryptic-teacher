@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -87,7 +88,8 @@
     "definitions": [
      {
       "text": "layer",
-      "at": 25
+      "at": 25,
+      "note": "used as a verb: to layer a plant, pegging a shoot into soil to root"
      }
     ],
     "wordplay": {
@@ -95,35 +97,38 @@
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PR",
        "indicators": [
         {
-         "text": "Coat",
-         "note": "A coat is what goes round the outside of a thing, so only the letters on the outside of the word beside it are taken."
+         "text": "Coat of",
+         "at": 0,
+         "note": "a coat is the outside layer, so only the first and last letters of plaster are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "of plaster",
-         "gives": "PR",
-         "select": "outer",
-         "note": "the two letters on the outside of 'plaster', its first and its last"
+         "words": "plaster",
+         "at": 8,
+         "note": "first and last letters of plaster"
         }
        ]
       },
       {
        "words": "like a 2",
+       "at": 16,
        "gives": "OVINE",
-       "note": "the cross-reference points at 2 down, and ovine is the adjective meaning like that animal"
+       "note": "2-down is SHEEP, and ovine means sheep-like"
       }
      ]
     },
     "explanation": {
-     "surface": "A plasterer describing the second coat going on to a wall.",
-     "walkthrough": "The hyphen in '2-layer' does the hiding: it glues the cross-reference to the definition so that the two read as a single compound word.",
-     "definitionFit": "To provine is the gardener's verb for layering a vine, bending a shoot down into the soil until it takes root."
+     "surface": "A plasterer describes a coat of plaster as having two layers, like a sandwich.",
+     "walkthrough": "'2' points to the answer at 2-down, SHEEP. 'Layer' here is the gardening verb, not a stratum.",
+     "definitionFit": "To provine is to propagate a vine by layering, bending a branch into the earth so it takes root."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "layer"
     }
    }
   },
@@ -148,37 +153,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SHEEP",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "In a down clue 'up' means reading back up the column, so the letters named beside it are entered the other way about."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 7,
+         "note": "in a down clue, up means the letters are read from bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "What's",
-         "gives": "SHE",
-         "note": "'eh?' is the noise you make for 'what?', so 'what's' is EHS, and this down clue stands it on end"
-        },
-        {
-         "words": "record",
-         "gives": "EP",
-         "note": "EP is the extended-play record, a seven-inch disc with a couple of tracks a side"
+         "at": 0,
+         "gives": "EHS",
+         "note": "eh is a way of saying what?, and the 's adds an S"
         }
        ]
+      },
+      {
+       "words": "record",
+       "at": 15,
+       "gives": "EP",
+       "note": "an EP is an extended-play record"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody asking what has become of the shop's supply of records.",
-     "walkthrough": "'Stock' reads as the records on the shelves, and the farming sense is the one the setter means.",
-     "definitionFit": "Stock is livestock, the farmer's collective word for the animals kept on the land, and a flock of these is exactly that."
+     "surface": "A puzzled question about what is going on with a record collection.",
+     "walkthrough": "'What's' becomes EH'S, and 'up' flips it to SHE in this down clue. 'Stock' is livestock, not a shop's goods.",
+     "definitionFit": "Sheep are farm animals, part of a farm's livestock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
     }
    }
   },
@@ -378,40 +389,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NITWITTED",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Spooner was the Oxford don remembered for swapping the opening sounds of two words, so his name asks you to do the same."
+       "at": 34,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words exchange their starts"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "jester",
+       "at": 8,
+       "gives": "WIT",
+       "note": "a wit is a joker or jester"
+      },
+      {
+       "op": "homophone",
+       "spelt": "NITTED",
        "parts": [
         {
-         "unchecked": true,
-         "words": "jester",
-         "gives": "NIT",
-         "soundsLike": "WIT",
-         "note": "a jester is a wit, and it takes the opening sound of the other word in exchange"
-        },
-        {
-         "unchecked": true,
          "words": "made woollen items",
-         "gives": "WITTED",
-         "soundsLike": "KNITTED",
-         "note": "knitting makes woollen items, and its opening noise is an N because the K is silent"
+         "at": 15,
+         "gives": "KNITTED",
+         "note": "to knit is to make woollen garments, so knitted; the K is silent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A silly court jester turning out jumpers and scarves.",
-     "walkthrough": "'Foolish jester' reads as one description of one man, and the split falls after the first word: only that is the definition, and the jester is material.",
-     "definitionFit": "Nitwitted is the adjective built from nitwit, so it describes exactly the person the word 'foolish' describes."
+     "surface": "A court fool who knitted jumpers, as Spooner might put it.",
+     "walkthrough": "WIT KNITTED, said aloud, swaps its opening W and N sounds to give the answer.",
+     "definitionFit": "Nitwitted means stupid, like a nitwit or idiot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "jester"
     }
    }
   },
@@ -503,8 +518,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "incredibly",
-       "note": "What is incredible cannot be taken as it stands, and letters you cannot take as they stand are letters to be rearranged."
+       "text": "to inspire",
+       "at": 24,
+       "note": "to inspire is to breathe in, so the middle letters are taken inside the rearranged ones"
       }
      ],
      "parts": [
@@ -512,43 +528,51 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "to inspire",
-         "note": "To inspire is literally to breathe in, and whatever is breathed in finishes up inside the thing doing the breathing."
+         "text": "incredibly",
+         "at": 13,
+         "note": "incredibly suggests something astonishing, so the letters are wildly reordered"
         }
        ],
        "parts": [
         {
-         "words": "Becks played",
-         "note": "anagram fodder, eleven letters"
+         "words": "Becks",
+         "at": 0
+        },
+        {
+         "words": "played",
+         "at": 6
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EA",
        "indicators": [
         {
          "text": "midfield",
-         "note": "A midfield is the middle of the park rather than either end, so what is taken is the middle of the word beside it."
+         "at": 42,
+         "note": "the midfield is the centre of the pitch, so the middle letters of the word are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "team's midfield",
-         "gives": "EA",
-         "select": "middle",
-         "note": "the two letters in the middle of 'team', with the T and the M left out at the ends"
+         "words": "team",
+         "at": 35,
+         "note": "the two middle letters of team"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "David Beckham playing brilliantly, feeding the midfield of Alex Ferguson's old side.",
-     "walkthrough": "Fergie on the surface is Alex Ferguson, Beckham's manager at Manchester United; the Fergie of the definition is the American singer who took the same nickname.",
-     "definitionFit": "Fergie sang with the Black Eyed Peas before going solo, so 'old outfit' is the band she used to belong to."
+     "surface": "David Beckham played brilliantly to lift the side's midfield for Alex Ferguson's Manchester United.",
+     "walkthrough": "The surface wants Sir Alex Ferguson and Manchester United; the Fergie meant is the singer. BECKS PLAYED is rearranged ('incredibly') into BLACKEYEDPS, and 'to inspire' breathes in EA, the 'midfield' of team.",
+     "definitionFit": "The Black Eyed Peas are the American pop group in which the singer Fergie performed until 2017."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fergie's"
     }
    }
   },
@@ -744,41 +768,55 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TEESWATER",
+     "indicators": [
+      {
+       "text": "Comic",
+       "at": 0,
+       "note": "comic as an adjective means funny or absurd, so the letters are jumbled"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TEESWATER",
        "indicators": [
         {
-         "text": "Comic",
-         "note": "Something comic is out of true and played for laughs, and letters put out of true no longer sit in the order handed over."
-        },
-        {
          "text": "forgetting",
-         "note": "What you forget gets left out, so the letter named next never joins the rest."
+         "at": 18,
+         "note": "forgetting means the line letter is left out"
         }
        ],
        "parts": [
         {
-         "words": "Stewart Lee",
-         "note": "the stand-up comedian named in the surface supplies the letters"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Stewart",
+           "at": 6
+          },
+          {
+           "words": "Lee",
+           "at": 14
+          }
+         ]
         },
         {
          "words": "line",
-         "gives": "L",
-         "note": "line is L in the setter's shorthand, and that L is the letter dropped"
+         "at": 29,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The comedian Stewart Lee cutting a line out of his stage act.",
-     "walkthrough": "'Comic' does two jobs at once: on the surface it introduces a real stand-up, and in the wordplay it is the instruction to rearrange what follows.",
-     "definitionFit": "The Teeswater is a longwool breed from the Tees valley in northern England, so it is one of the animals 2 down names."
+     "surface": "The comedian Stewart Lee forgets his lines in the second act.",
+     "walkthrough": "'2' points to 2-down, SHEEP. Stewart Lee is a British stand-up comedian; 'forgetting line' takes L out, leaving STEWARTEE, which 'Comic' rearranges.",
+     "definitionFit": "Teeswater is a breed of longwool sheep from Teesdale in northern England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Comic"
     }
    }
   },
@@ -950,46 +988,61 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Unfinished",
-       "note": "Something unfinished stops short of the end, so the word for the monster arrives without its final letter."
-      },
-      {
-       "text": "regularly",
-       "note": "Taking letters regularly means stepping through the word at an even beat, keeping every second one and dropping the rest."
+       "text": "Munches",
+       "at": 19,
+       "note": "munching means eating, so the shortened monster takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "words": "Monster",
-       "gives": "BEAS",
-       "note": "a monster is a beast, arriving here with its tail lopped off"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "CON",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Munches",
-         "note": "Munching is eating, and what is eaten goes inside, so the letters in front close around the letters picked out next."
+         "text": "Unfinished",
+         "at": 0,
+         "note": "unfinished means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "Monster",
+         "at": 11,
+         "gives": "BEAST",
+         "note": "a beast is a monster"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 27,
+         "note": "regularly means taking every other letter of the word"
+        }
+       ],
+       "parts": [
+        {
          "words": "account",
-         "gives": "CON",
-         "select": "alternate",
-         "note": "the second, fourth and sixth letters of 'account', which are C, O and N"
+         "at": 37,
+         "note": "the second, fourth and sixth letters of account"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody regularly polishing off packets of Monster Munch and charging them to the account.",
-     "walkthrough": "Monster Munch is a British brand of crisps, which is what the surface is buying; taken as two ordinary words it stops being a snack and becomes a creature and a verb.",
-     "definitionFit": "Beacons are the signal fires lit on hilltops to pass a warning down the country, so 'fires' names them by what they physically are."
+     "surface": "Monster Munch, a British corn snack, is half-eaten while someone explains the fires.",
+     "walkthrough": "Monster Munch is a British snack brand, which makes 'Monster' look like part of a name. The alternate letters of account here are CON.",
+     "definitionFit": "Beacons are signal fires lit on hilltops to send warnings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Munches"
     }
    }
   },
@@ -1171,41 +1224,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CHEESE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 14,
+       "note": "the turned date goes inside the revolutionary's name"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "revolutionary",
+       "at": 27,
+       "gives": "CHE",
+       "note": "Che Guevara is the archetypal crossword revolutionary"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "Stuck-up",
-         "note": "Stuck up means pinned upwards, and up the page is the direction a down answer's letters are read when they are turned."
-        },
-        {
-         "text": "tucking into",
-         "note": "To tuck into a meal is to get right inside it, so these letters are placed within the ones that follow."
+         "at": 0,
+         "note": "in a down clue, stuck-up means the word is set upwards, read backwards"
         }
        ],
        "parts": [
         {
-         "words": "revolutionary",
-         "gives": "CHE",
-         "note": "Che Guevara is the crossword's revolutionary, and his name splits to let something in"
-        },
-        {
          "words": "date",
-         "gives": "EES",
-         "note": "to see somebody is to date them, and this down clue stands that word on end"
+         "at": 9,
+         "gives": "SEE",
+         "note": "to see someone is to date them"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snooty date tucking into the food at a restaurant.",
-     "walkthrough": "'Stuck-up' reads as the adjective for snobbish, describing the date, and the setter is using it as a direction of travel instead.",
-     "definitionFit": "Cheese is food in the barest sense: the definition names the whole class the answer sits in rather than anything peculiar to it."
+     "surface": "A snooty dinner companion gets stuck into a revolutionary's meal.",
+     "walkthrough": "'Stuck-up' looks like a snobbish description; in this down clue it turns SEE into EES.",
+     "definitionFit": "Cheese is a food made from milk curds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stuck-up"
     }
    }
   },
