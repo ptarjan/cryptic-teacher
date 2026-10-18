@@ -24,7 +24,8 @@
   "check": "24 entries verified against the grid (lengths, crossings, linked-clue mapping); the blog's combined-key rows for 9A/3D, 23A/17A and 5D/14D each printed only the leading light's word (ARSE, EASY, COLD) and dropped the second word its own parsing already gave (AROUND, OPTION, SHOULDERED) — corrected from those parsings"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -375,35 +376,36 @@
     "definitions": [
      {
       "text": "nuts",
-      "at": 42
+      "at": 42,
+      "note": "a plural noun, matching the answer"
      }
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ALMONDS",
      "indicators": [
       {
        "text": "first to go far right",
-       "note": "the first letter is told to travel to the far right, which in an across light means the end of the word"
+       "at": 18,
+       "note": "the first letter is moved all the way to the right-hand end, with a political pun on the far right"
       }
      ],
      "parts": [
       {
        "words": "Scottish leader's",
-       "gives": "ALMONDS",
-       "note": "Alex Salmond's surname, with the S it opens with sent to the end"
+       "at": 0,
+       "gives": "SALMOND",
+       "note": "Alex Salmond was the leader of the Scottish National Party and First Minister of Scotland"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scottish politician lurching to the far right, which is madness.",
-     "walkthrough": "'Nuts' reads as an insult right up to the moment the answer turns it into food. Alex Salmond ran the SNP for twenty years and was Scotland's First Minister until 2014.",
-     "definitionFit": "Almonds are nuts in the kitchen sense — the ones in marzipan and in the bowl at Christmas."
+     "surface": "A jibe that a Scottish nationalist leader drifting to the far right would be mad.",
+     "walkthrough": "'nuts' looks like an insult, but it is the definition, in its literal food sense. Moving the S of SALMOND to the end gives the answer.",
+     "definitionFit": "Almonds are the edible kernels of the almond tree, one of the commonest kinds of nut."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "nuts"
     }
@@ -490,31 +492,30 @@
      {
       "text": "Prats do",
       "at": 9,
-      "note": "The definition names the answer by who does it rather than offering a synonym: read it as 'what prats do', which is the verb phrase the answer supplies."
+      "note": "a prat is a fool, and what fools do is fool about"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARSEAROUND",
+     "op": "reverse",
+     "reading": "ARSE AROUND",
      "parts": [
       {
-       "words": "\"Cyclops-like ears\"",
-       "gives": "ARSEAROUND",
-       "note": "the answer doubles as its own instruction: the crude four-letter word for a backside, rearranged, spells EARS, and crude is what Cyclops-like asks for"
+       "words": "Cyclops-like ears",
+       "at": 19,
+       "note": "EARS as this bawdy setter might clue it: a rude word for bottom followed by an anagram signal, so the answer read as wordplay jumbles that word into the clue's word"
       }
      ]
     },
     "explanation": {
-     "surface": "Idiots doing an impression of a one-eyed giant's ears.",
-     "walkthrough": "The wordplay runs backwards: rather than the clue telling you to shuffle something, the answer is itself the instruction and the quoted word is what it produces. Setters call that a reverse anagram.",
-     "definitionFit": "To arse around is to mess about achieving nothing, which is the charge the clue lays against prats."
+     "surface": "Fools mock someone with odd ears, the Cyclops being famous for one strange feature.",
+     "walkthrough": "This works backwards: 'Cyclops-like' says the answer is how this setter would clue EARS, with AROUND acting on ARSE to rearrange it.",
+     "definitionFit": "To arse around is British slang for messing about foolishly, which is typical behaviour of prats, idiots."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Cyclops-like"
+     "misdirectedWord": "ears"
     }
    }
   },
@@ -697,58 +698,54 @@
     "definitions": [
      {
       "text": "It certainly has the money",
-      "at": 0,
-      "note": "The definition describes the answer instead of swapping in for it: 'it' stands in for the group named, and having the money is what marks them out."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RICHSET",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "to distribute",
+       "at": 27,
+       "note": "to distribute is to spread around, so the letters are scattered into a new order"
+      },
+      {
+       "text": "gone",
+       "at": 64,
+       "note": "gone means departed, so the letters of that word leave the pool before the rearrangement"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "distribute",
-         "note": "to distribute a thing is to scatter it about, and scattered letters do not come back in the order they left"
-        }
-       ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "RICHSET",
-         "indicators": [
-          {
-           "text": "gone",
-           "note": "what has gone is not there any more, so those letters come out before anything else is done"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Boris etching",
-           "note": "the twelve letters the wordplay starts from"
-          }
-         ]
+         "words": "Boris",
+         "at": 41,
+         "note": "taken as written"
         },
         {
-         "unchecked": true,
-         "words": "boing, gone",
-         "note": "the five letters of BOING come out of those twelve, leaving seven to play with"
+         "words": "etching",
+         "at": 47,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "boing",
+       "at": 57,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Money enough to give away an etching of Boris, which has just pinged out of sight.",
-     "walkthrough": "Subtractive anagrams go in two steps — take the letters out first, then shuffle what is left. 'Boing' is a cartoon noise, which is why it sits in the surface so oddly.",
-     "definitionFit": "The rich set is the crowd with money, 'set' being the social-circle sense, as in the jet set."
+     "surface": "Boris Johnson's artwork is sold off by wealthy buyers, and boing, it vanishes.",
+     "walkthrough": "Pool the letters of BORIS and ETCHING, take away those of BOING (signalled by 'gone'), and rearrange the rest. 'boing' is Boris Johnson's catchphrase exclamation.",
+     "definitionFit": "The rich set is the wealthy social class, a group which by definition has plenty of cash."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "boing"
     }
@@ -1077,57 +1074,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MODERN",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced is made smaller, and a name reduced as far as it will go is a single letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "backing",
-         "note": "what is backing is going the other way, so those letters are written in reverse"
+         "text": "getting reduced",
+         "at": 5,
+         "note": "getting reduced means cut down, here to just its first letter"
         }
        ],
        "parts": [
         {
-         "words": "May, getting reduced",
-         "gives": "M",
-         "note": "the Prime Minister's name cut down to its initial"
+         "words": "May",
+         "at": 0
         },
         {
-         "words": "party",
-         "gives": "OD",
-         "note": "a party is a do, here written backwards"
-        },
-        {
-         "words": "er",
-         "note": "the hesitation noise, spelt as it is said"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "n. is the standard abbreviation for new"
+         "gives": "AY"
         }
        ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 27,
+         "note": "backing means going backwards, so the word for party is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 21,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
+      },
+      {
+       "words": "er",
+       "at": 36,
+       "gives": "ER"
+      },
+      {
+       "words": "new",
+       "at": 46,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Theresa May, with less of her party behind her, er, wanting fresh impetus.",
-     "walkthrough": "The clue is assembled out of scraps — an initial, a two-letter reversal, a noise — which is why it reads like May trailing off mid-sentence. 'Do' for a party is the everyday British word for a knees-up.",
-     "definitionFit": "A go-ahead firm or a go-ahead thinker is up to date and pushing forward, which is modern in the approving sense."
+     "surface": "Theresa May, with her party's support dwindling, hesitantly asks for fresh permission to carry on.",
+     "walkthrough": "May is Theresa May, the former Prime Minister. 'getting reduced' cuts her down to M, 'backing' turns DO round, and ER and N follow. 'er' is just the hesitation, taken as written.",
+     "definitionFit": "Go-ahead used as an adjective means progressive and enterprising, which is close to modern in outlook."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "backing"
+     "aptDefinition": false,
+     "misdirectedWord": "go-ahead"
     }
    }
   },
@@ -1210,57 +1216,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCOT",
-     "indicators": [
-      {
-       "text": "put over",
-       "note": "putting a thing over turns it round, so those two letters are written the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "at": 17,
+         "note": "starts means the beginnings, so the first letter of each word is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "SC",
-         "indicators": [
-          {
-           "text": "starts",
-           "note": "a word's start is the letter it begins with, and two words hand over two"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Senior Corbynite starts",
-           "gives": "SC",
-           "select": "first",
-           "note": "the opening letters of the two words, in the order written"
-          }
-         ]
-        },
+         "words": "Senior Corbynite",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put over",
+         "at": 27,
+         "note": "put over means turned over, so the word is read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "to",
-         "gives": "OT",
-         "note": "the word TO written backwards"
+         "at": 24,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A leading Corbyn loyalist beginning to overturn Nicola Sturgeon.",
-     "walkthrough": "Nicola Sturgeon led the SNP and the Scottish government, so the question mark is standing in for 'for example'. 'Put over' is the turn-round instruction, not a piece of Westminster manoeuvring.",
-     "definitionFit": "Nicola Sturgeon is Scottish, so the definition names a whole nationality by one example, which the question mark admits."
+     "surface": "A senior Corbyn supporter begins to win over Nicola Sturgeon.",
+     "walkthrough": "Nicola Sturgeon is a former First Minister of Scotland, so she is an example of the answer; the question mark marks that. 'starts' gives SC, and 'put over' turns TO round.",
+     "definitionFit": "Nicola Sturgeon, long-time SNP leader, is Scottish, so she is one example of a Scot."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "starts"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sturgeon"
     }
    }
   },
@@ -1289,45 +1291,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EASYOPTION",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 56,
+       "note": "without in its old sense means outside, so the jumbled letters go around the call"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "possibly",
-         "note": "what is only possibly so has not settled into its final shape, and unsettled letters can be taken in any order"
-        },
-        {
-         "text": "without",
-         "note": "without is here the old word for outside, so the letters just shuffled close round what comes next"
+         "at": 34,
+         "note": "possibly says the letters could be arranged another way"
         }
        ],
        "parts": [
         {
          "words": "to a penis",
-         "gives": "EASPTION",
-         "note": "these eight letters rearranged, then opened up to take something in"
-        },
-        {
-         "words": "a call for attention",
-         "gives": "YO",
-         "note": "yo is the shout you use to make somebody look up"
+         "at": 44,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "a call for attention",
+       "at": 64,
+       "gives": "YO",
+       "note": "yo is an informal call for someone's attention"
       }
      ]
     },
     "explanation": {
-     "surface": "A sex toy offered as the appealing substitute for the real thing.",
-     "walkthrough": "'Without' means outside here, in its old sense: the shuffled letters close round the shout instead of dropping it. The answer runs on into 17 down, four letters in this light and six in that.",
-     "definitionFit": "An easy option is the softer course you take because it costs you least, tempting precisely because it is the alternative to effort."
+     "surface": "A crude joke about what might be tempting instead of sex, minus the shout to get attention.",
+     "walkthrough": "'without' looks like it means 'lacking', but here it means outside: the rearranged letters of TO A PENIS go round YO.",
+     "definitionFit": "An easy option is the less demanding choice, a tempting alternative to doing the harder thing."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "without"
     }
@@ -1438,32 +1443,32 @@
      "indicators": [
       {
        "text": "to stand against",
-       "note": "to stand against something is to stand right up beside it, so the pieces are written touching"
+       "at": 15,
+       "note": "to stand against is to be placed next to, so the pieces are set side by side in this order"
       }
      ],
      "parts": [
       {
        "words": "press",
+       "at": 9,
        "gives": "URGE",
-       "note": "to press somebody to do a thing is to urge them"
+       "note": "to urge is to press someone"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
          "text": "ultimate",
-         "note": "the ultimate letter is the last one the name has"
+         "at": 42,
+         "note": "ultimate means last, so the final letter of the name is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Cameron's ultimate",
-         "gives": "N",
-         "select": "last",
-         "note": "the last letter of the name"
+         "words": "Cameron's",
+         "at": 32,
+         "gives": "CAMERON",
+         "note": "the name Cameron, with the possessive ignored"
         }
        ]
       },
@@ -1472,28 +1477,28 @@
        "indicators": [
         {
          "text": "hollow",
-         "note": "something hollow has had its middle taken out, leaving only the shell — first letter and last"
+         "at": 51,
+         "note": "hollow means emptied of its inside, so only the outer letters are left"
         }
        ],
        "parts": [
         {
-         "words": "hollow \"clarity\"",
-         "gives": "CLARITY",
-         "note": "CLARITY emptied of everything but its outside letters"
+         "words": "clarity",
+         "at": 59,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Reporters in a hurry to line up against Cameron's final, hollow talk of clarity.",
-     "walkthrough": "The quotation marks round clarity are Cyclops's opinion of how much of it there was; mechanically they only fence off the word to be gutted. 'Press' is the newspapers in the surface and a verb in the wordplay.",
-     "definitionFit": "Urgency is the pressure that makes a thing need doing at once, which is haste seen as a quality rather than an action."
+     "surface": "A rushed press campaign against David Cameron's empty promises of clarity.",
+     "walkthrough": "'press' reads as the newspapers, but it is the verb URGE. N ends CAMERON, and 'hollow' leaves CY of 'clarity'.",
+     "definitionFit": "Urgency means pressing need for swift action, which is what haste implies."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "press"
     }
    }

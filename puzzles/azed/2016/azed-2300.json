@@ -542,35 +542,36 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "HUTU",
      "indicators": [
       {
        "text": "denied",
-       "note": "denied means refused, so the letters for special are taken away"
+       "at": 20,
+       "note": "denied means refused or deprived of, so the abbreviation's letters are taken away"
       },
       {
        "text": "surrounding",
-       "note": "surrounding says the letters to drop are the ones at the outside edges of the word"
+       "at": 35,
+       "note": "surrounding says the two letters removed are the ones on the outside, one at each end"
       }
      ],
      "parts": [
       {
        "words": "imprisoned",
+       "at": 8,
        "gives": "SHUTUP",
-       "note": "locked away"
+       "note": "shut up means locked away, imprisoned"
       },
       {
        "words": "special",
-       "gives": "SP",
-       "note": "SP is a dictionary abbreviation for special"
+       "at": 27,
+       "gives": "SP"
       }
      ]
     },
     "explanation": {
-     "surface": "An African has been locked up without any special treatment.",
-     "walkthrough": "The two letters for special sit at either end of the word for imprisoned; strip them off.",
-     "definitionFit": "The Hutu are a people of Rwanda and Burundi in central Africa."
+     "surface": "An African locked up and refused any special protection around him.",
+     "walkthrough": "SP is split: 'surrounding' says its S and P sit at either end of SHUT UP, and 'denied' removes them.",
+     "definitionFit": "The Hutu are a Bantu-speaking people of Rwanda and Burundi, so a Hutu is an African."
     },
     "features": {
      "answerInScene": true,
@@ -1222,55 +1223,66 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CAISSON",
      "indicators": [
       {
        "text": "replacing contents of",
-       "note": "the inner letters of the last word are swapped out for the new pieces"
+       "at": 22,
+       "note": "the contents of a word are its inner letters, and these are swapped out for the new pieces"
       }
      ],
      "parts": [
       {
        "words": "clean",
-       "note": "the word whose inside is replaced"
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "head means top, so only the opening letter of the aristocrat is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Aristo's",
-         "note": "opening letter of the aristocrat"
-        }
-       ]
-      },
-      {
-       "words": "is",
+       "at": 44,
        "note": "taken as written"
       },
       {
-       "words": "thus",
-       "gives": "SO",
-       "note": "in this way"
+       "gives": "LEA"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 9,
+           "note": "the head of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Aristo's",
+           "at": 0,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "is",
+         "at": 14,
+         "note": "taken as written"
+        },
+        {
+         "words": "thus",
+         "at": 17,
+         "gives": "SO",
+         "note": "so means thus, in this way"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat's head in a French Revolution tumbril, ready for the guillotine.",
-     "walkthrough": "Remove the middle three letters of clean and put the new chunk between C and N.",
-     "definitionFit": "A caisson is an ammunition wagon, and tumbril is also an old name for a military cart of that kind."
+     "surface": "An aristocrat on the way to the guillotine in a cart, as in the French Revolution.",
+     "walkthrough": "The inside of CLEAN is LEA; A (head of 'Aristo's'), IS and SO take its place. A tumbril was the cart that carried the condemned to the guillotine.",
+     "definitionFit": "A caisson is an ammunition wagon, and Chambers lists a tumbril as a two-wheeled military cart of that kind."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "head"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clean"
     }
    }
   },
