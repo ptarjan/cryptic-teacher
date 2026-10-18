@@ -1057,42 +1057,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNICORN",
-     "indicators": [
-      {
-       "text": "unopened in each case",
-       "note": "each word loses its opening letter, so neither is opened"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 33,
+         "note": "unopened means without the opening, so the first letter of tunic is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "tunic",
-         "gives": "UNIC",
-         "note": "tunic without its first letter"
+         "at": 21,
+         "note": "the word as written, losing its first letter"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in each case",
+         "at": 42,
+         "note": "the same unopening applies to worn as well, so its first letter goes too"
+        }
+       ],
+       "parts": [
+        {
          "words": "worn",
-         "gives": "ORN",
-         "note": "worn without its first letter"
+         "at": 28,
+         "note": "the word as written, losing its first letter"
+        },
+        {
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mythical beast wears a tunic still in its wrapping.",
-     "walkthrough": "'Unopened' sounds like a parcel; it strips the first letter from both tunic and worn.",
-     "definitionFit": "The unicorn is a mythical horse with a single horn, a creature of fable."
+     "surface": "A legendary beast appears dressed in a tunic, worn without being opened.",
+     "walkthrough": "'Unopened in each case' beheads both words: TUNIC gives UNIC and WORN gives ORN.",
+     "definitionFit": "The unicorn is a creature of fable and legend, a horse with a single horn on its brow."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "unopened"
     }
    }
@@ -1119,31 +1135,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DISCUS",
      "indicators": [
       {
        "text": "Inconclusive",
-       "note": "without a conclusion the word lacks its ending, so its last letter goes"
+       "at": 0,
+       "note": "inconclusive means lacking a conclusion, so the final letter of the debate word is cut off"
       }
      ],
      "parts": [
       {
        "words": "debate",
-       "gives": "DISCUS",
-       "note": "a verb for debate, with its final S dropped"
+       "at": 13,
+       "gives": "DISCUSS",
+       "note": "to debate is to discuss"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "An argument that went nowhere, a sidetracked occasion.",
-     "walkthrough": "To debate is to discuss; lose the last S. 'Not on track' means a field event rather than a running race.",
-     "definitionFit": "The discus throw is an athletics field event, held away from the running lanes."
+     "surface": "An argument over an athletics event that is not run on the track goes nowhere.",
+     "walkthrough": "'Inconclusive' drops the last S of DISCUSS.",
+     "definitionFit": "The discus is a field event in athletics, thrown in a circle rather than raced around the running track."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "track"
+     "misdirectedWord": "Inconclusive"
     }
    }
   },

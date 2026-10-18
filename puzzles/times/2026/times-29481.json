@@ -489,42 +489,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DARE",
-     "indicators": [
-      {
-       "text": "Cut short",
-       "note": "lose the last letter of DARK"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cut short",
+         "at": 0,
+         "note": "cut short means docked at the end, so the last letter of the shady word goes"
+        }
+       ],
        "parts": [
         {
          "words": "shady",
-         "gives": "DAR",
-         "note": "DARK without its final K"
+         "at": 10,
+         "gives": "DARK",
+         "note": "dark means shady, out of the light"
         },
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E = European"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 16,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A shifty European business deal gets curtailed.",
-     "walkthrough": "'Venture' looks like a business undertaking; here it is the verb, to dare.",
-     "definitionFit": "A plain synonym as verbs: to venture a remark or a risk is to be bold enough to try it."
+     "surface": "A dodgy European business deal is brought to an abrupt end.",
+     "walkthrough": "'Venture' is the verb here, as in 'venture an opinion', not a business undertaking.",
+     "definitionFit": "To dare is to risk or have the nerve to attempt something, which is what venturing means as a verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "venture"
+     "misdirectedWord": "shady"
     }
    }
   },
@@ -845,26 +848,34 @@
      "op": "deletion",
      "indicators": [
       {
+       "text": "case of",
+       "at": 27,
+       "note": "the money word forms a case around the answer, so it comes off both ends"
+      },
+      {
        "text": "removed",
-       "note": "the outer case, P...ENCE, is taken away"
+       "at": 41,
+       "note": "removed means taken away, so those letters are stripped out of preference"
       }
      ],
      "parts": [
       {
        "words": "preference",
-       "note": "the word itself; that the answer sits unbroken inside it is a coincidence of the case wrapping it, not a hidden word"
+       "at": 8,
+       "note": "the word as written; that what is left sits inside it is no coincidence of a hidden word but the result of stripping its case"
       },
       {
-       "words": "case of money",
+       "words": "money",
+       "at": 35,
        "gives": "PENCE",
-       "note": "pence are money; here they split open to form an outer case"
+       "note": "pence are money, the small coins of British currency"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is happy to hand over a preferred item if the money wrapper is taken off.",
-     "walkthrough": "PREFERENCE is P + REFER + ENCE: remove the money casing and REFER is left.",
-     "definitionFit": "To refer a matter is to pass it on to someone else."
+     "surface": "Someone declines to state a preference because the cash box has been taken away.",
+     "walkthrough": "The money is not one block at an end: its first letter comes off the front and the rest off the back, which is why the clue calls it a case.",
+     "definitionFit": "To refer a matter is to hand it on to someone else to deal with, as a doctor passes a patient to a specialist."
     },
     "features": {
      "answerInScene": false,
@@ -901,11 +912,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FAIRYTALE",
      "indicators": [
       {
-       "text": "gets put in"
+       "text": "gets put in",
+       "at": 41,
+       "note": "the letter is inserted between the two pieces built from the rest"
       }
      ],
      "parts": [
@@ -914,43 +925,54 @@
        "parts": [
         {
          "words": "just",
+         "at": 55,
          "gives": "FAIR",
-         "note": "just = fair"
-        },
-        {
-         "words": "money finally",
-         "gives": "Y",
-         "note": "last letter of money"
+         "note": "fair means just, even-handed"
         },
         {
          "op": "homophone",
          "spelt": "TALE",
          "indicators": [
           {
-           "text": "finally",
-           "note": "take the last letter of money"
-          },
-          {
            "text": "heard",
-           "note": "the word for back is taken as it sounds"
+           "at": 60,
+           "note": "heard means the word is given as it sounds, not as spelt"
           }
          ],
          "parts": [
           {
            "words": "back",
+           "at": 66,
            "gives": "TAIL",
-           "note": "a tail is at the back; said out loud it gives TALE"
+           "note": "a tail is the back end of an animal"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 33,
+         "note": "finally means the last letter of money"
+        }
+       ],
+       "parts": [
+        {
+         "words": "money",
+         "at": 27,
+         "note": "the last letter of money is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old bank account is opened once some cash finally arrives, as the holder has just learned.",
-     "walkthrough": "The definition is the banking language: a fairy tale is an account, maybe, and it opens with 'Once upon a time'.",
-     "definitionFit": "A fairy tale is a kind of account, a story, that traditionally opens with 'Once'."
+     "surface": "A cash deposit for an opening account sounds fair, but the clue says it was only heard about.",
+     "walkthrough": "The definition is cryptic: the kind of account (story) whose opening word is traditionally 'once', as in 'Once upon a time'.",
+     "definitionFit": "A fairy tale is a story, perhaps an account of magic, which classically begins with the words 'once upon a time'."
     },
     "features": {
      "answerInScene": false,
@@ -982,45 +1004,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MUCKRAKER",
+     "spelt": "MUCKRAKER",
      "indicators": [
       {
        "text": "so Spooner says",
-       "note": "Reverend Spooner swapped the opening sounds of words"
+       "at": 36,
+       "note": "Spooner swapped the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "RUK",
        "parts": [
         {
-         "unchecked": true,
          "words": "fight",
-         "gives": "MUCK",
-         "soundsLike": "RUCK",
-         "note": "a ruck is a scuffle; its R sound swaps with the M of the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "one causing",
-         "gives": "RAKER",
-         "soundsLike": "MAKER",
-         "note": "one causing something is its maker; its M sound swaps with the R"
+         "at": 29,
+         "gives": "RUCK",
+         "note": "a ruck is a brawl or scuffle"
         }
        ]
+      },
+      {
+       "words": "one causing",
+       "at": 17,
+       "gives": "MAKER",
+       "note": "a maker is one who causes something"
       }
      ]
     },
     "explanation": {
-     "surface": "A gossip is accused of stirring up a brawl.",
-     "walkthrough": "A ruck is a rough-and-tumble fight, also the scrum-like tussle in rugby.",
-     "definitionFit": "A muckraker digs up scandal about others, a scandalmonger."
+     "surface": "A gossip columnist is accused of stirring up a brawl.",
+     "walkthrough": "'So Spooner says' swaps the first sounds of RUCK MAKER: R and M trade places. Ruck is also a rugby term, but here it is a brawl.",
+     "definitionFit": "A muckraker digs up scandal about public figures, so the word names someone who spreads scandal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd"
+     "joke": "pun",
+     "misdirectedWord": "fight"
     }
    }
   },
@@ -1203,41 +1225,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DATUM",
-     "indicators": [
-      {
-       "text": "backing",
-       "note": "'backing' as in moving backwards, so the commercial's letters are read in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 21,
+         "note": "backing means going backwards, so the commercial word is read in reverse"
+        }
+       ],
        "parts": [
         {
          "words": "commercial",
-         "gives": "DA",
-         "note": "AD = advertisement, a commercial"
-        },
-        {
-         "words": "corporation",
-         "gives": "TUM",
-         "note": "corporation is old slang for a paunch; tum is a belly"
+         "at": 29,
+         "gives": "AD",
+         "note": "an ad is a commercial, an advert"
         }
        ]
+      },
+      {
+       "words": "corporation",
+       "at": 40,
+       "gives": "TUM",
+       "note": "corporation is humorous slang for a big belly, as is tum"
       }
      ]
     },
     "explanation": {
-     "surface": "A fact supporting a business company.",
-     "walkthrough": "'Corporation' looks like a company but is jokey British slang for a big belly, a tum.",
-     "definitionFit": "A datum is a single item of data, a piece of information."
+     "surface": "A fact turns out to support a commercial company.",
+     "walkthrough": "'Backing' turns AD into DA. Corporation, besides meaning a company, is old slang for a paunch, which is how TUM comes in.",
+     "definitionFit": "A datum is a single fact or item of data, the singular of data."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "corporation"
     }
    }

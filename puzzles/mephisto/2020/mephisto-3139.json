@@ -669,46 +669,45 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ARGYLL",
      "indicators": [
       {
        "text": "designed",
-       "note": "something designed is arranged to a plan, so the letters are laid out anew"
+       "at": 41,
+       "note": "designed means worked into a new pattern, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ARGYLL",
        "indicators": [
         {
-         "text": "not English",
-         "note": "not English asks for the letter standing for English to be left out"
+         "text": "not",
+         "at": 51,
+         "note": "not means without, so the English letter is left out of regally"
         }
        ],
        "parts": [
         {
          "words": "Regally",
-         "note": "taken as written"
+         "at": 33,
+         "note": "the word as written, before its E goes"
         },
         {
          "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "at": 55,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grandly styled vessel holding something luxurious for a wealthy man.",
-     "walkthrough": "The 'rich' liquid is gravy, rich in the culinary sense; the question mark flags the pun.",
-     "definitionFit": "An argyll is a silver gravy boat with a heated inner jacket, so it holds a rich sauce."
+     "surface": "A rich man's drink is served in a vessel of royal design, with a note that it is not English.",
+     "walkthrough": "'Not English' drops the E from REGALLY to leave RGALLY, which 'designed' rearranges. The rich man's liquid is gravy, a pun on a rich sauce.",
+     "definitionFit": "An argyll is a gravy boat with an insulated jacket for keeping the gravy hot, named after a Duke of Argyll."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "rich"
@@ -795,45 +794,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ZOLLVEREIN",
+     "op": "composite",
      "indicators": [
       {
+       "text": "this",
+       "at": 37,
+       "note": "this stands for the answer itself, which together with as makes up the rearranged letters"
+      },
+      {
        "text": "crumbles",
-       "note": "something that crumbles falls apart, so its letters fall into a new order"
+       "at": 60,
+       "note": "crumbles means breaks into pieces, so the letters of the phrase are broken up and re-formed"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ZOLLVEREIN",
-       "indicators": [
-        {
-         "text": "this as",
-         "note": "the answer plus the word as makes the scrambled letters, so as must be taken away from them"
-        }
-       ],
-       "parts": [
-        {
-         "words": "zeal in lovers",
-         "note": "taken as written"
-        }
-       ]
+       "words": "zeal in lovers",
+       "at": 45,
+       "note": "the fodder whose letters hold the answer plus the letters of as"
+      },
+      {
+       "words": "as",
+       "at": 42,
+       "note": "the letters of as are those left over once the answer is formed"
       }
      ]
     },
     "explanation": {
-     "surface": "A wry picture of a marriage where the partners' obligations lapse as passion fades.",
-     "walkthrough": "A compound anagram: ZEAL IN LOVERS rearranges to the answer plus AS. 'Duties' are customs duties, not marital ones.",
-     "definitionFit": "The Zollverein was the 19th-century German customs union, whose members abolished tariffs on trade between themselves."
+     "surface": "A romance cools as the lovers' passion fades, the couple's duties to each other forgotten.",
+     "walkthrough": "'This as' tells you that the answer plus the letters AS together are a rearrangement of ZEAL IN LOVERS.",
+     "definitionFit": "The Zollverein was the 19th-century German customs union, whose member states dropped tariffs between them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "duties"
+     "misdirectedWord": "lovers"
     }
    }
   },
@@ -1546,27 +1541,34 @@
      "indicators": [
       {
        "text": "Irishman's",
-       "note": "an Irishman's voice gives the word an Irish accent, dropping the H after the T"
+       "at": 20,
+       "note": "an Irishman's pronunciation is said to turn th into t, so the word is given as it sounds in his accent"
+      },
+      {
+       "text": "come from",
+       "at": 31,
+       "note": "completes the question: the word asked for is where the bellow comes from, said in that accent"
       }
      ],
      "parts": [
       {
-       "words": "where does Irishman's come from",
+       "words": "where does",
+       "at": 9,
        "gives": "THROAT",
-       "note": "a voice comes from the throat, which an Irish accent says without the H"
+       "note": "the question where does (a bellow) come from is answered by the throat"
       }
      ]
     },
     "explanation": {
-     "surface": "A roar heard, prompting the question where an Irishman's voice originates.",
-     "walkthrough": "The voice is not written in the clue; 'Irishman's' is short for 'Irishman's voice'.",
-     "definitionFit": "To troat is to bellow like a rutting buck, an old hunting word for the deer's call."
+     "surface": "Someone asks what a loud roar is and where the Irishman got it from.",
+     "walkthrough": "The question reads as 'where does [a bellow] come from?': the throat, said the way the Irishman's accent would, with TH softened to T.",
+     "definitionFit": "To troat is to bellow, a word for the cry a rutting buck makes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "come"
+     "misdirectedWord": "Irishman's"
     }
    }
   },
@@ -1654,26 +1656,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANAN",
+     "op": "middle",
      "indicators": [
       {
        "text": "to be peeled",
-       "note": "peeling takes off the skin, so the outer letters are stripped away"
+       "at": 10,
+       "note": "a peeled fruit has lost its skin, so the outer letters of the fruit go"
       }
      ],
      "parts": [
       {
        "words": "Fruit",
+       "at": 0,
        "gives": "BANANA",
        "note": "a banana is a fruit"
       }
      ]
     },
     "explanation": {
-     "surface": "Puzzlement at being told some fruit needs its skin removed.",
-     "definitionFit": "Anan is an archaic exclamation asking someone to repeat what they said, equivalent to 'eh?' or 'pardon?'."
+     "surface": "Someone is puzzled to be told that the fruit needs peeling.",
+     "walkthrough": "Peeling BANANA strips the first and last letters. ANAN is an archaic exclamation of puzzlement.",
+     "definitionFit": "Anan is an old dialect exclamation meaning 'eh?' or 'what?', asking someone to repeat themselves."
     },
     "features": {
      "answerInScene": false,

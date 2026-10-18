@@ -283,35 +283,37 @@
      "indicators": [
       {
        "text": "in a storm",
-       "note": "things caught in a storm get tossed about, so the letters are scattered into a new order"
+       "at": 24,
+       "note": "letters in a storm are blown about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LADYBI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Two thirds of",
-         "note": "keep the first two thirds of the following word and drop the final third"
+         "at": 0,
+         "note": "nine letters cut to their first six, the final third being dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "ladybirds",
-         "gives": "LADYBI",
-         "select": "first",
-         "note": "the first six of its nine letters"
+         "at": 14,
+         "note": "the word as written, of which only the opening two thirds are used"
+        },
+        {
+         "gives": "RDS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ladybirds rescued from a storm.",
-     "definitionFit": "Laid by is an idiom for put aside or stored up for later, as savings are."
+     "surface": "Most of a swarm of ladybirds caught out in bad weather were rescued.",
+     "walkthrough": "'Two thirds of' keeps LADYBI from the nine letters of LADYBIRDS; 'in a storm' then rearranges those six.",
+     "definitionFit": "To lay something by is to put it aside for later, so the past participle means stored up or kept."
     },
     "features": {
      "answerInScene": false,
@@ -509,28 +511,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FLYINGBOAT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+       "at": 16,
+       "note": "Spooner swapped the opening sounds of word pairs, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "acquiring pontoon",
-       "gives": "FLYINGBOAT",
-       "soundsLike": "BUYING FLOAT",
-       "note": "acquiring is buying and a pontoon is a float; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "BYING",
+       "parts": [
+        {
+         "words": "acquiring",
+         "at": 26,
+         "gives": "BUYING",
+         "note": "acquiring means buying"
+        }
+       ]
+      },
+      {
+       "words": "pontoon",
+       "at": 36,
+       "gives": "FLOAT",
+       "note": "a pontoon is a float, as used to support a bridge or seaplane"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking what kind of aircraft would come with a pontoon attached.",
-     "walkthrough": "BUYING FLOAT with its B and FL swapped becomes FLYING BOAT.",
-     "definitionFit": "A flying boat is a seaplane whose fuselage floats on water like a hull."
+     "surface": "Someone asks which aeroplane Spooner is buying a pontoon for.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of BUYING FLOAT; said aloud BUYING is B-YING (BYING), so B and FL trade to give FLYING BOAT. 'Pontoon' is not the card game.",
+     "definitionFit": "A flying boat is a seaplane whose hull lets it land on water, so it is a kind of aircraft."
     },
     "features": {
      "answerInScene": true,
@@ -1118,7 +1130,7 @@
     "text": "Man with lands arranged more fences for each",
     "enumeration": "7"
    },
-   "solution": "EMPORER",
+   "solution": "EMPEROR",
    "annotation": {
     "definitions": [
      {
@@ -1128,12 +1140,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EMPORER",
      "indicators": [
       {
        "text": "fences",
-       "note": "a fence encloses ground, so one part surrounds the other"
+       "at": 29,
+       "note": "fences means encloses, so the anagram goes round the word for each"
       }
      ],
      "parts": [
@@ -1142,31 +1153,34 @@
        "indicators": [
         {
          "text": "arranged",
-         "note": "arranged means put into a fresh order, so the word next to it is rearranged"
+         "at": 15,
+         "note": "arranged means put in a new order, so these letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "more",
-         "note": "taken as written, for rearranging"
-        },
-        {
-         "words": "for each",
-         "gives": "PER",
-         "note": "per means for each, as in 'per person'"
+         "at": 24,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "for each",
+       "at": 36,
+       "gives": "PER",
+       "note": "per means for each, as in miles per hour"
       }
      ]
     },
     "explanation": {
-     "surface": "A landowner putting up fences for each of his plots.",
-     "walkthrough": "The grid spells this EMPORER, a misprint for EMPEROR; the setter's parse puts the for-each word inside a rearranged more.",
-     "definitionFit": "An emperor rules over an empire, a man holding dominion over many territories."
+     "surface": "A landowner rearranges his estate and puts up more fences for each plot.",
+     "walkthrough": "The grid's printed spelling EMPORER is a slip; the wordplay builds the correct spelling.",
+     "definitionFit": "An emperor rules over an empire, a sovereign holding many territories."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "fences"
     }
    }
